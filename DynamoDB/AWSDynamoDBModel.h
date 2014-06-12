@@ -1,0 +1,1415 @@
+/*
+ * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License").
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the "license" file accompanying this file. This file is distributed
+ * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+#import <Foundation/Foundation.h>
+#import "AWSNetworking.h"
+#import "AZModel.h"
+
+FOUNDATION_EXPORT NSString *const AWSDynamoDBErrorDomain;
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBErrorType) {
+    AWSDynamoDBErrorUnknown,
+    AWSDynamoDBErrorAccessDenied,
+    AWSDynamoDBErrorUnrecognizedClient,
+    AWSDynamoDBErrorIncompleteSignature,
+    AWSDynamoDBErrorInvalidClientTokenId,
+    AWSDynamoDBErrorMissingAuthenticationToken,
+    AWSDynamoDBErrorConditionalCheckFailed,
+    AWSDynamoDBErrorInternalServer,
+    AWSDynamoDBErrorItemCollectionSizeLimitExceeded,
+    AWSDynamoDBErrorLimitExceeded,
+    AWSDynamoDBErrorProvisionedThroughputExceeded,
+    AWSDynamoDBErrorResourceInUse,
+    AWSDynamoDBErrorResourceNotFound,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBAttributeAction) {
+    AWSDynamoDBAttributeActionUnknown,
+    AWSDynamoDBAttributeActionAdd,
+    AWSDynamoDBAttributeActionPut,
+    AWSDynamoDBAttributeActionDelete,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBComparisonOperator) {
+    AWSDynamoDBComparisonOperatorUnknown,
+    AWSDynamoDBComparisonOperatorEQ,
+    AWSDynamoDBComparisonOperatorNE,
+    AWSDynamoDBComparisonOperatorIN,
+    AWSDynamoDBComparisonOperatorLE,
+    AWSDynamoDBComparisonOperatorLT,
+    AWSDynamoDBComparisonOperatorGE,
+    AWSDynamoDBComparisonOperatorGT,
+    AWSDynamoDBComparisonOperatorBetween,
+    AWSDynamoDBComparisonOperatorNotNull,
+    AWSDynamoDBComparisonOperatorNull,
+    AWSDynamoDBComparisonOperatorContains,
+    AWSDynamoDBComparisonOperatorNotContains,
+    AWSDynamoDBComparisonOperatorBeginsWith,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBIndexStatus) {
+    AWSDynamoDBIndexStatusUnknown,
+    AWSDynamoDBIndexStatusCreating,
+    AWSDynamoDBIndexStatusUpdating,
+    AWSDynamoDBIndexStatusDeleting,
+    AWSDynamoDBIndexStatusActive,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBKeyType) {
+    AWSDynamoDBKeyTypeUnknown,
+    AWSDynamoDBKeyTypeHash,
+    AWSDynamoDBKeyTypeRange,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBProjectionType) {
+    AWSDynamoDBProjectionTypeUnknown,
+    AWSDynamoDBProjectionTypeAll,
+    AWSDynamoDBProjectionTypeKeysOnly,
+    AWSDynamoDBProjectionTypeInclude,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBReturnConsumedCapacity) {
+    AWSDynamoDBReturnConsumedCapacityUnknown,
+    AWSDynamoDBReturnConsumedCapacityIndexes,
+    AWSDynamoDBReturnConsumedCapacityTotal,
+    AWSDynamoDBReturnConsumedCapacityNone,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBReturnItemCollectionMetrics) {
+    AWSDynamoDBReturnItemCollectionMetricsUnknown,
+    AWSDynamoDBReturnItemCollectionMetricsSize,
+    AWSDynamoDBReturnItemCollectionMetricsNone,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBReturnValue) {
+    AWSDynamoDBReturnValueUnknown,
+    AWSDynamoDBReturnValueNone,
+    AWSDynamoDBReturnValueAllOld,
+    AWSDynamoDBReturnValueUpdatedOld,
+    AWSDynamoDBReturnValueAllNew,
+    AWSDynamoDBReturnValueUpdatedNew,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBScalarAttributeType) {
+    AWSDynamoDBScalarAttributeTypeUnknown,
+    AWSDynamoDBScalarAttributeTypeS,
+    AWSDynamoDBScalarAttributeTypeN,
+    AWSDynamoDBScalarAttributeTypeB,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBSelect) {
+    AWSDynamoDBSelectUnknown,
+    AWSDynamoDBSelectAllAttributes,
+    AWSDynamoDBSelectAllProjectedAttributes,
+    AWSDynamoDBSelectSpecificAttributes,
+    AWSDynamoDBSelectCount,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBTableStatus) {
+    AWSDynamoDBTableStatusUnknown,
+    AWSDynamoDBTableStatusCreating,
+    AWSDynamoDBTableStatusUpdating,
+    AWSDynamoDBTableStatusDeleting,
+    AWSDynamoDBTableStatusActive,
+};
+
+@class AWSDynamoDBAttributeDefinition;
+@class AWSDynamoDBAttributeValue;
+@class AWSDynamoDBAttributeValueUpdate;
+@class AWSDynamoDBBatchGetItemInput;
+@class AWSDynamoDBBatchGetItemOutput;
+@class AWSDynamoDBBatchWriteItemInput;
+@class AWSDynamoDBBatchWriteItemOutput;
+@class AWSDynamoDBCapacity;
+@class AWSDynamoDBCondition;
+@class AWSDynamoDBConsumedCapacity;
+@class AWSDynamoDBCreateTableInput;
+@class AWSDynamoDBCreateTableOutput;
+@class AWSDynamoDBDeleteItemInput;
+@class AWSDynamoDBDeleteItemOutput;
+@class AWSDynamoDBDeleteRequest;
+@class AWSDynamoDBDeleteTableInput;
+@class AWSDynamoDBDeleteTableOutput;
+@class AWSDynamoDBDescribeTableInput;
+@class AWSDynamoDBDescribeTableOutput;
+@class AWSDynamoDBExpectedAttributeValue;
+@class AWSDynamoDBGetItemInput;
+@class AWSDynamoDBGetItemOutput;
+@class AWSDynamoDBGlobalSecondaryIndex;
+@class AWSDynamoDBGlobalSecondaryIndexDescription;
+@class AWSDynamoDBGlobalSecondaryIndexUpdate;
+@class AWSDynamoDBItemCollectionMetrics;
+@class AWSDynamoDBKeySchemaElement;
+@class AWSDynamoDBKeysAndAttributes;
+@class AWSDynamoDBListTablesInput;
+@class AWSDynamoDBListTablesOutput;
+@class AWSDynamoDBLocalSecondaryIndex;
+@class AWSDynamoDBLocalSecondaryIndexDescription;
+@class AWSDynamoDBProjection;
+@class AWSDynamoDBProvisionedThroughput;
+@class AWSDynamoDBProvisionedThroughputDescription;
+@class AWSDynamoDBPutItemInput;
+@class AWSDynamoDBPutItemOutput;
+@class AWSDynamoDBPutRequest;
+@class AWSDynamoDBQueryInput;
+@class AWSDynamoDBQueryOutput;
+@class AWSDynamoDBScanInput;
+@class AWSDynamoDBScanOutput;
+@class AWSDynamoDBTableDescription;
+@class AWSDynamoDBUpdateGlobalSecondaryIndexAction;
+@class AWSDynamoDBUpdateItemInput;
+@class AWSDynamoDBUpdateItemOutput;
+@class AWSDynamoDBUpdateTableInput;
+@class AWSDynamoDBUpdateTableOutput;
+@class AWSDynamoDBWriteRequest;
+
+/**
+ * <p>Represents an attribute for describing the key schema for the table and indexes.</p>
+ * Required parameters: [AttributeName, AttributeType]
+ */
+@interface AWSDynamoDBAttributeDefinition : AZModel
+
+
+/**
+ * <p>A name for the attribute.</p>
+ */
+@property (nonatomic, strong) NSString *attributeName;
+
+/**
+ * <p>The data type for the attribute.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBScalarAttributeType attributeType;
+
+@end
+
+/**
+ * <p>Represents the data for an attribute. You can set one, and only one, of the elements.</p>
+ */
+@interface AWSDynamoDBAttributeValue : AZModel
+
+
+/**
+ * <p>A Binary data type</p>
+ */
+@property (nonatomic, strong) NSData *B;
+
+/**
+ * <p>A Binary set data type</p>
+ */
+@property (nonatomic, strong) NSArray *BS;
+
+/**
+ * <p>A Number data type</p>
+ */
+@property (nonatomic, strong) NSString *N;
+
+/**
+ * <p> Number set data type</p>
+ */
+@property (nonatomic, strong) NSArray *NS;
+
+/**
+ * <p>A String data type</p>
+ */
+@property (nonatomic, strong) NSString *S;
+
+/**
+ * <p>A String set data type</p>
+ */
+@property (nonatomic, strong) NSArray *SS;
+
+@end
+
+/**
+ * <p>For the <i>UpdateItem</i> operation, represents the attributes to be modified,the action to perform on each, and the new value for each.</p><note><p>You cannot use <i>UpdateItem</i> to update any primary key attributes. Instead, you will need to delete the item, and then use <i>PutItem</i> to create a new item with new attributes.</p></note><p>Attribute values cannot be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests with empty values will be rejected with a <i>ValidationException</i>.</p>
+ */
+@interface AWSDynamoDBAttributeValueUpdate : AZModel
+
+
+/**
+ * <p>Specifies how to perform the update. Valid values are <code>PUT</code>, <code>DELETE</code>, and <code>ADD</code>. The behavior depends on whether the specified primary key already exists in the table.</p><p><b>If an item with the specified <i>Key</i> is found in the table:</b></p><ul><li><p><code>PUT</code> - Adds the specified attribute to the item. If the attribute already exists, it is replaced by the new value. </p></li><li><p><code>DELETE</code> - If no value is specified, the attribute and its value are removed from the item. The data type of the specified value must match the existing value's data type.</p><p>If a <i>set</i> of values is specified, then those values are subtracted from the old set. For example, if the attribute value was the set <code>[a,b,c]</code> and the <i>DELETE</i> action specified <code>[a,c]</code>, then the final attribute value would be <code>[b]</code>. Specifying an empty set is an error.</p></li><li><p><code>ADD</code> - If the attribute does not already exist, then the attribute and its values are added to the item. If the attribute does exist, then the behavior of <code>ADD</code> depends on the data type of the attribute:</p><ul><li><p>If the existing attribute is a number, and if <i>Value</i> is also a number, then the <i>Value</i> is mathematically added to the existing attribute. If <i>Value</i> is a negative number, then it is subtracted from the existing attribute.</p><note><p> If you use <code>ADD</code> to increment or decrement a number value for an item that doesn't exist before the update, Amazon DynamoDB uses 0 as the initial value.</p><p>In addition, if you use <code>ADD</code> to update an existing item, and intend to increment or decrement an attribute value which does not yet exist, Amazon DynamoDB uses <code>0</code> as the initial value. For example, suppose that the item you want to update does not yet have an attribute named <i>itemcount</i>, but you decide to <code>ADD</code> the number <code>3</code> to this attribute anyway, even though it currently does not exist. Amazon DynamoDB will create the <i>itemcount</i> attribute, set its initial value to <code>0</code>, and finally add <code>3</code> to it. The result will be a new <i>itemcount</i> attribute in the item, with a value of <code>3</code>.</p></note></li><li><p>If the existing data type is a set, and if the <i>Value</i> is also a set, then the <i>Value</i> is added to the existing set. (This is a <i>set</i> operation, not mathematical addition.) For example, if the attribute value was the set <code>[1,2]</code>, and the <code>ADD</code> action specified <code>[3]</code>, then the final attribute value would be <code>[1,2,3]</code>. An error occurs if an Add action is specified for a set attribute and the attribute type specified does not match the existing set type. </p><p>Both sets must have the same primitive data type. For example, if the existing data type is a set of strings, the <i>Value</i> must also be a set of strings. The same holds true for number sets and binary sets.</p></li></ul><p>This action is only valid for an existing attribute whose data type is number or is a set. Do not use <code>ADD</code> for any other data types.</p></li></ul><p><b>If no item with the specified <i>Key</i> is found:</b></p><ul><li><p><code>PUT</code> - Amazon DynamoDB creates a new item with the specified primary key, and then adds the attribute. </p></li><li><p><code>DELETE</code> - Nothing happens; there is no attribute to delete.</p></li><li><p><code>ADD</code> - Amazon DynamoDB creates an item with the supplied primary key and number (or set of numbers) for the attribute value. The only data types allowed are number and number set; no other data types can be specified.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBAttributeAction action;
+
+/**
+ * <p>Represents the data for an attribute. You can set one, and only one, of the elements.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAttributeValue *value;
+
+@end
+
+/**
+ * <p>Represents the input of a <i>BatchGetItem</i> operation.</p>
+ * Required parameters: [RequestItems]
+ */
+@interface AWSDynamoDBBatchGetItemInput : AWSRequest
+
+
+/**
+ * <p>A map of one or more table names and, for each table, the corresponding primary keys for the items to retrieve. Each table name can be invoked only once.</p><p>Each element in the map consists of the following:</p><ul><li><p><i>Keys</i> - An array of primary key attribute values that define specific items in the table.</p></li><li><p><i>AttributesToGet</i> - One or more attributes to be retrieved from the table or index. By default, all attributes are returned. If a specified attribute is not found, it does not appear in the result.</p></li><li><p><i>ConsistentRead</i> - If <code>true</code>, a strongly consistent read is used; if <code>false</code> (the default), an eventually consistent read is used.</p></li></ul>
+ */
+@property (nonatomic, strong) NSDictionary *requestItems;
+
+/**
+ * <p>If set to <code>TOTAL</code>, the response includes <i>ConsumedCapacity</i> data for tables and indexes. If set to <code>INDEXES</code>, the repsonse includes <i>ConsumedCapacity</i> for indexes. If set to <code>NONE</code> (the default), <i>ConsumedCapacity</i> is not included in the response.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
+
+@end
+
+/**
+ * <p>Represents the output of a <i>BatchGetItem</i> operation.</p>
+ */
+@interface AWSDynamoDBBatchGetItemOutput : AZModel
+
+
+/**
+ * <p>The write capacity units consumed by the operation.</p><p>Each element consists of:</p><ul><li><p><i>TableName</i> - The table that consumed the provisioned throughput.</p></li><li><p><i>CapacityUnits</i> - The total number of capacity units consumed.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray *consumedCapacity;
+
+/**
+ * <p>A map of table name to a list of items.Each object in <i>Responses</i> consists of a table name, along with a map of attribute data consisting of the data type and attribute value.</p>
+ */
+@property (nonatomic, strong) NSDictionary *responses;
+
+/**
+ * <p>A map of tables and their respective keys that were not processed with the current response. The <i>UnprocessedKeys</i> value is in the same form as <i>RequestItems</i>, so the value can be provided directly to a subsequent <i>BatchGetItem</i> operation. For more information, see <i>RequestItems</i> in the Request Parameters section.</p><p>Each element consists of:</p><ul><li><p><i>Keys</i> - An array of primary key attribute values that define specific items in the table.</p></li><li><li><p><i>AttributesToGet</i> - One or more attributes to be retrieved from the table or index. By default, all attributes are returned. If a specified attribute is not found, it does not appear in the result.</p></li><p>If you are querying an index and request only attributes that are projected into that index, the operation will read only the index and not the table. If any of the requested attributes are not projected into the index, Amazon DynamoDB will need to fetch each matching item from the table. This extra fetching incurs additional throughput cost and latency. </p></li><li><p><i>ConsistentRead</i> - The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used.</p></li></ul>
+ */
+@property (nonatomic, strong) NSDictionary *unprocessedKeys;
+
+@end
+
+/**
+ * <p>Represents the input of a <i>BatchWriteItem</i> operation.</p>
+ * Required parameters: [RequestItems]
+ */
+@interface AWSDynamoDBBatchWriteItemInput : AWSRequest
+
+
+/**
+ * <p>A map of one or more table names and, for each table, a list of operations to be performed (<i>DeleteRequest</i> or <i>PutRequest</i>). Each element in the map consists of the following:</p><ul><li><p><i>DeleteRequest</i> - Perform a <i>DeleteItem</i> operation on the specified item. The item to be deleted is identified by a <i>Key</i> subelement:</p><ul><li><p><i>Key</i> - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value.</p></li></ul></li><li><p><i>PutRequest</i> - Perform a <i>PutItem</i> operation on the specified item. The item to be put is identified by an <i>Item</i> subelement:</p><ul><li><p><i>Item</i> - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values will be rejected with a <i>ValidationException</i>.</p><p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p></li></ul></li></ul>
+ */
+@property (nonatomic, strong) NSDictionary *requestItems;
+
+/**
+ * <p>If set to <code>TOTAL</code>, the response includes <i>ConsumedCapacity</i> data for tables and indexes. If set to <code>INDEXES</code>, the repsonse includes <i>ConsumedCapacity</i> for indexes. If set to <code>NONE</code> (the default), <i>ConsumedCapacity</i> is not included in the response.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
+
+/**
+ * <p>If set to <code>SIZE</code>, statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnItemCollectionMetrics returnItemCollectionMetrics;
+
+@end
+
+/**
+ * <p>Represents the output of a <i>BatchWriteItem</i> operation.</p>
+ */
+@interface AWSDynamoDBBatchWriteItemOutput : AZModel
+
+
+/**
+ * <p>The capacity units consumed by the operation.</p><p>Each element consists of:</p><ul><li><p><i>TableName</i> - The table that consumed the provisioned throughput.</p></li><li><p><i>CapacityUnits</i> - The total number of capacity units consumed.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray *consumedCapacity;
+
+/**
+ * <p>A list of tables that were processed by <i>BatchWriteItem</i> and, for each table, information about any item collections that were affected by individual <i>DeleteItem</i> or <i>PutItem</i> operations.</p><p>Each entry consists of the following subelements:</p><ul><li><p><i>ItemCollectionKey</i> - The hash key value of the item collection. This is the same as the hash key of the item.</p></li><li><p><i>SizeEstimateRange</i> - An estimate of item collection size, expressed in GB. This is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on the table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p><p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p></li></ul>
+ */
+@property (nonatomic, strong) NSDictionary *itemCollectionMetrics;
+
+/**
+ * <p>A map of tables and requests against those tables that were not processed. The <i>UnprocessedKeys</i> value is in the same form as <i>RequestItems</i>, so you can provide this value directly to a subsequent <i>BatchGetItem</i> operation. For more information, see <i>RequestItems</i> in the Request Parameters section.</p><p>Each <i>UnprocessedItems</i> entry consists of a table name and, for that table, a list of operations to perform (<i>DeleteRequest</i> or <i>PutRequest</i>).</p><ul><li><p><i>DeleteRequest</i> - Perform a <i>DeleteItem</i> operation on the specified item. The item to be deleted is identified by a <i>Key</i> subelement:</p><ul><li><p><i>Key</i> - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value.</p></li></ul></li><li><p><i>PutRequest</i> - Perform a <i>PutItem</i> operation on the specified item. The item to be put is identified by an <i>Item</i> subelement:</p><ul><li><p><i>Item</i> - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values will be rejected with a <i>ValidationException</i>.</p><p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p></li></ul></li></ul>
+ */
+@property (nonatomic, strong) NSDictionary *unprocessedItems;
+
+@end
+
+/**
+ * <p>Represents the amount of provisioned throughput capacity consumed on a table or an index. </p>
+ */
+@interface AWSDynamoDBCapacity : AZModel
+
+
+/**
+ * <p>The total number of capacity units consumed on a table or an index.</p>
+ */
+@property (nonatomic, strong) NSNumber *capacityUnits;
+
+@end
+
+/**
+ * <p>Represents a selection criteria for a <i>Query</i> or <i>Scan</i> operation.</p><ul><li><p>For a <i>Query</i> operation, the condition specifies the key attributes to use when querying a table or an index.</p></li><li><p>For a <i>Scan</i> operation, the condition is used to evaluate the scan results and return only the desired values.</p></li></ul><p>Multiple conditions are "ANDed" together. In other words, all of the conditions must be met to be included in the output.</p>
+ * Required parameters: [ComparisonOperator]
+ */
+@interface AWSDynamoDBCondition : AZModel
+
+
+/**
+ * <p>One or more values to evaluate against the supplied attribute. This list contains exactly one value, except for a <code>BETWEEN</code> or <code>IN</code> comparison, in which case the list contains two values.</p><note><p>For type Number, value comparisons are numeric.</p><p>String value comparisons for greater than, equals, or less than are based on ASCII character code values. For example, <code>a</code> is greater than <code>A</code>, and <code>aa</code> is greater than <code>B</code>. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters</a>.</p><p>For Binary, Amazon DynamoDB treats each byte of the binary data as unsigned when it compares binary values, for example when evaluating query expressions.</p></note>
+ */
+@property (nonatomic, strong) NSArray *attributeValueList;
+
+/**
+ * <p>A comparator for evaluating attributes. For example, equals, greater than, less than, etc.</p><p>Valid comparison operators for Query:</p><p><code>EQ | LE | LT | GE | GT | BEGINS_WITH | BETWEEN</code></p><p>Valid comparison operators for Scan:</p><p><code>EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN</code></p><p>For information on specifying data types in JSON, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html">JSON Data Format</a> in the Amazon DynamoDB Developer Guide.</p><p>The following are descriptions of each comparison operator.</p><ul><li><p><code>EQ</code> : Equal. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not equal <code>{"NS":["6", "2", "1"]}</code>.</p><p></p></li><li><p><code>NE</code> : Not equal. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not equal <code>{"NS":["6", "2", "1"]}</code>.</p><p></p></li><li><p><code>LE</code> : Less than or equal. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code>.</p><p></p></li><li><p><code>LT</code> : Less than. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code>.</p><p></p></li><li><p><code>GE</code> : Greater than or equal. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code>.</p><p></p></li><li><p><code>GT</code> : Greater than. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code>.</p><p></p></li><li><p><code>NOT_NULL</code> : The attribute exists. </p></li><li><p><code>NULL</code> : The attribute does not exist. </p></li><li><p><code>CONTAINS</code> : checks for a subsequence, or value in a set.</p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If the target attribute of the comparison is a String, then the operation checks for a substring match. If the target attribute of the comparison is Binary, then the operation looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("SS", "NS", or "BS"), then the operation checks for a member of the set (not as a substring).</p></li><li><p><code>NOT_CONTAINS</code> : checks for absence of a subsequence, or absence of a value in a set.</p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If the target attribute of the comparison is a String, then the operation checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operation checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("SS", "NS", or "BS"), then the operation checks for the absence of a member of the set (not as a substring).</p></li><li><p><code>BEGINS_WITH</code> : checks for a prefix. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String or Binary (not a Number or a set). The target attribute of the comparison must be a String or Binary (not a Number or a set).</p><p></p></li><li><p><code>IN</code> : checks for exact matches.</p><p><i>AttributeValueList</i> can contain more than one <i>AttributeValue</i> of type String, Number, or Binary (not a set). The target attribute of the comparison must be of the same type and exact value to match. A String never matches a String set.</p></li><li><p><code>BETWEEN</code> : Greater than or equal to the first value, and less than or equal to the second value. </p><p><i>AttributeValueList</i> must contain two <i>AttributeValue</i> elements of the same type, either String, Number, or Binary (not a set). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not compare to <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code></p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBComparisonOperator comparisonOperator;
+
+@end
+
+/**
+ * <p>Represents the capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <i>ConsumedCapacity</i> is only returned if it was asked for in the request. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the Amazon DynamoDB Developer Guide.</p>
+ */
+@interface AWSDynamoDBConsumedCapacity : AZModel
+
+
+/**
+ * <p>The total number of capacity units consumed by the operation.</p>
+ */
+@property (nonatomic, strong) NSNumber *capacityUnits;
+
+/**
+ * <p>The amount of throughput consumed on each global index affected by the operation.</p>
+ */
+@property (nonatomic, strong) NSDictionary *globalSecondaryIndexes;
+
+/**
+ * <p>The amount of throughput consumed on each local index affected by the operation.</p>
+ */
+@property (nonatomic, strong) NSDictionary *localSecondaryIndexes;
+
+/**
+ * <p>The amount of throughput consumed on the table affected by the operation.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBCapacity *table;
+
+/**
+ * <p>The name of the table that was affected by the operation.</p>
+ */
+@property (nonatomic, strong) NSString *tableName;
+
+@end
+
+/**
+ * <p>Represents the input of a <i>CreateTable</i> operation.</p>
+ * Required parameters: [AttributeDefinitions, TableName, KeySchema, ProvisionedThroughput]
+ */
+@interface AWSDynamoDBCreateTableInput : AWSRequest
+
+
+/**
+ * <p>An array of attributes that describe the key schema for the table and indexes.</p>
+ */
+@property (nonatomic, strong) NSArray *attributeDefinitions;
+
+/**
+ * <p>One or more global secondary indexes (the maximum is five) to be created on the table. Each global secondary index in the array includes the following:</p><ul><li><p><i>IndexName</i> - The name of the global secondary index. Must be unique only for this table.</p><p></p></li><li><p><i>KeySchema</i> - Specifies the key schema for the global secondary index.</p></li><li><p><i>Projection</i> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><i>ProjectionType</i> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes are in <i>NonKeyAttributes</i>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><i>NonKeyAttributes</i> - A list of one or more non-key attribute names that areprojected into the secondary index. The total count of attributes specified in <i>NonKeyAttributes</i>, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li><li><p><i>ProvisionedThroughput</i> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray *globalSecondaryIndexes;
+
+/**
+ * <p>Specifies the attributes that make up the primary key for a table or an index. The attributes in <i>KeySchema</i> must also be defined in the <i>AttributeDefinitions</i> array. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html">Data Model</a> in the Amazon DynamoDB Developer Guide.</p><p>Each <i>KeySchemaElement</i> in the array is composed of:</p><ul><li><p><i>AttributeName</i> - The name of this key attribute.</p></li><li><p><i>KeyType</i> - Determines whether the key attribute is <code>HASH</code> or <code>RANGE</code>.</p></li></ul><p>For a primary key that consists of a hash attribute, you must specify exactly one element with a <i>KeyType</i> of <code>HASH</code>.</p><p>For a primary key that consists of hash and range attributes, you must specify exactly two elements, in this order:The first element must have a <i>KeyType</i> of <code>HASH</code>, and the second element must have a <i>KeyType</i> of <code>RANGE</code>.</p><p>For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithDDTables.html#WorkingWithDDTables.primary.key">Specifying the Primary Key</a> in the Amazon DynamoDB Developer Guide.</p>
+ */
+@property (nonatomic, strong) NSArray *keySchema;
+
+/**
+ * <p>One or more local secondary indexes (the maximum is five) to be created on the table. Each index is scoped to a given hash key value. There is a 10 gigabyte size limit per hash key; otherwise, the size of a local secondary index is unconstrained.</p><p>Each local secondary index in the array includes the following:</p><ul><li><p><i>IndexName</i> - The name of the local secondary index. Must be unique only for this table.</p><p></p></li><li><p><i>KeySchema</i> - Specifies the key schema for the local secondary index. The key schema must begin with the same hash key attribute as the table.</p></li><li><p><i>Projection</i> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><i>ProjectionType</i> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes are in <i>NonKeyAttributes</i>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><i>NonKeyAttributes</i> - A list of one or more non-key attribute names that areprojected into the secondary index. The total count of attributes specified in <i>NonKeyAttributes</i>, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li></ul>
+ */
+@property (nonatomic, strong) NSArray *localSecondaryIndexes;
+
+/**
+ * <p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <i>UpdateTable</i> operation.</p><p>For current minimum and maximum provisioned throughput values, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the Amazon DynamoDB Developer Guide.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProvisionedThroughput *provisionedThroughput;
+
+/**
+ * <p>The name of the table to create.</p>
+ */
+@property (nonatomic, strong) NSString *tableName;
+
+@end
+
+/**
+ * <p>Represents the output of a <i>CreateTable</i> operation.</p>
+ */
+@interface AWSDynamoDBCreateTableOutput : AZModel
+
+
+/**
+ * <p>Represents the properties of a table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBTableDescription *tableDescription;
+
+@end
+
+/**
+ * <p>Represents the input of a <i>DeleteItem</i> operation.</p>
+ * Required parameters: [TableName, Key]
+ */
+@interface AWSDynamoDBDeleteItemInput : AWSRequest
+
+
+/**
+ * <p>A map of attribute/condition pairs. This is the conditional block for the <i>DeleteItem</i>operation. All the conditions must be met for the operation to succeed.</p><p><i>Expected</i> allows you to provide an attribute name, and whether or not Amazon DynamoDB should check to see if the attribute value already exists; or if the attribute value exists and has a particular value before changing it.</p><p>Each item in <i>Expected</i> represents an attribute name for Amazon DynamoDB to check, along with the following: </p><ul><li><p><i>Value</i> - The attribute value for Amazon DynamoDB to check.</p></li><li><p><i>Exists</i> - Causes Amazon DynamoDB to evaluate the value before attempting a conditional operation:</p><ul><li><p>If <i>Exists</i> is <code>true</code>, Amazon DynamoDB will check to see if that attribute value already exists in the table. If it is found, then the operation succeeds. If it is not found, the operation fails with a <i>ConditionalCheckFailedException</i>.</p></li><li><p>If <i>Exists</i> is <code>false</code>, Amazon DynamoDB assumes that the attribute value does <i>not</i> exist in the table. If in fact the value does not exist, then the assumption is valid and the operation succeeds. If the value is found, despite the assumption that it does not exist, the operation fails with a <i>ConditionalCheckFailedException</i>.</p></li></ul><p>The default setting for <i>Exists</i> is <code>true</code>. If you supply a <i>Value</i> all by itself, Amazon DynamoDB assumes the attribute exists:You don't have to set <i>Exists</i> to <code>true</code>, because it is implied.</p><p>Amazon DynamoDB returns a <i>ValidationException</i> if:</p><ul><li><p><i>Exists</i> is <code>true</code> but there is no <i>Value</i> to check. (You expect a value to exist, but don't specify what that value is.)</p></li><li><p><i>Exists</i> is <code>false</code> but you also specify a <i>Value</i>. (You cannot expect an attribute to have a value, while also expecting it not to exist.)</p></li></ul></li></ul><p>If you specify more than one condition for <i>Exists</i>, then all of the conditions must evaluate to true. (In other words, the conditions are ANDed together.) Otherwise, the conditional operation will fail.</p>
+ */
+@property (nonatomic, strong) NSDictionary *expected;
+
+/**
+ * <p>A map of attribute names to <i>AttributeValue</i> objects, representing the primary key of the item to delete.</p>
+ */
+@property (nonatomic, strong) NSDictionary *key;
+
+/**
+ * <p>If set to <code>TOTAL</code>, the response includes <i>ConsumedCapacity</i> data for tables and indexes. If set to <code>INDEXES</code>, the repsonse includes <i>ConsumedCapacity</i> for indexes. If set to <code>NONE</code> (the default), <i>ConsumedCapacity</i> is not included in the response.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
+
+/**
+ * <p>If set to <code>SIZE</code>, statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnItemCollectionMetrics returnItemCollectionMetrics;
+
+/**
+ * <p>Use <i>ReturnValues</i> if you want to get the item attributes as they appeared before they were deleted. For <i>DeleteItem</i>, the valid values are:</p><ul><li><p><code>NONE</code> - If <i>ReturnValues</i> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This is the default for <i>ReturnValues</i>.)</p></li><li><p><code>ALL_OLD</code> - The content of the old item is returned.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnValue returnValues;
+
+/**
+ * <p>The name of the table from which to delete the item.</p>
+ */
+@property (nonatomic, strong) NSString *tableName;
+
+@end
+
+/**
+ * <p>Represents the output of a <i>DeleteItem</i> operation.</p>
+ */
+@interface AWSDynamoDBDeleteItemOutput : AZModel
+
+
+/**
+ * <p>A map of attribute names to <i>AttributeValue</i> objects, representing the item as it appeared before the <i>DeleteItem</i> operation. This map appears in the response only if <i>ReturnValues</i> was specified as <code>ALL_OLD</code> in the request.</p>
+ */
+@property (nonatomic, strong) NSDictionary *attributes;
+
+/**
+ * <p>Represents the capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <i>ConsumedCapacity</i> is only returned if it was asked for in the request. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the Amazon DynamoDB Developer Guide.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBConsumedCapacity *consumedCapacity;
+
+/**
+ * <p>Information about item collections, if any, that were affected by the operation. <i>ItemCollectionMetrics</i> is only returned if it was asked for in the request. If the table does not have any local secondary indexes, this information is not returned in the response.</p><p>Each <i>ItemCollectionMetrics</i> element consists of:</p><ul><li><p><i>ItemCollectionKey</i> - The hash key value of the item collection. This is the same as the hash key of the item.</p></li><li><p><i>SizeEstimateRange</i> - An estimate of item collection size, measured in gigabytes. This is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p><p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p></li></ul>
+ */
+@property (nonatomic, strong) AWSDynamoDBItemCollectionMetrics *itemCollectionMetrics;
+
+@end
+
+/**
+ * <p>Represents a request to perform a <i>DeleteItem</i> operation on an item.</p>
+ * Required parameters: [Key]
+ */
+@interface AWSDynamoDBDeleteRequest : AZModel
+
+
+/**
+ * <p>A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.</p>
+ */
+@property (nonatomic, strong) NSDictionary *key;
+
+@end
+
+/**
+ * <p>Represents the input of a <i>DeleteTable</i> operation.</p>
+ * Required parameters: [TableName]
+ */
+@interface AWSDynamoDBDeleteTableInput : AWSRequest
+
+
+/**
+ * <p> The name of the table to delete.</p>
+ */
+@property (nonatomic, strong) NSString *tableName;
+
+@end
+
+/**
+ * <p>Represents the output of a <i>DeleteTable</i> operation.</p>
+ */
+@interface AWSDynamoDBDeleteTableOutput : AZModel
+
+
+/**
+ * <p>Represents the properties of a table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBTableDescription *tableDescription;
+
+@end
+
+/**
+ * <p>Represents the input of a <i>DescribeTable</i> operation.</p>
+ * Required parameters: [TableName]
+ */
+@interface AWSDynamoDBDescribeTableInput : AWSRequest
+
+
+/**
+ * <p> The name of the table to describe.</p>
+ */
+@property (nonatomic, strong) NSString *tableName;
+
+@end
+
+/**
+ * <p>Represents the output of a <i>DescribeTable</i> operation.</p>
+ */
+@interface AWSDynamoDBDescribeTableOutput : AZModel
+
+
+/**
+ * <p>Represents the properties of a table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBTableDescription *table;
+
+@end
+
+/**
+ * <p>Represents an attribute value used with conditional <i>DeleteItem</i>, <i>PutItem</i> or <i>UpdateItem</i> operations.Amazon DynamoDB will check to see if the attribute value already exists; or if the attribute exists and has a particular value before updating it.</p>
+ */
+@interface AWSDynamoDBExpectedAttributeValue : AZModel
+
+
+/**
+ * <p>Causes Amazon DynamoDB to evaluate the value before attempting a conditional operation:</p><ul><li><p>If <i>Exists</i> is <code>true</code>, Amazon DynamoDB will check to see if that attribute value already exists in the table. If it is found, then the operation succeeds. If it is not found, the operation fails with a <i>ConditionalCheckFailedException</i>.</p></li><li><p>If <i>Exists</i> is <code>false</code>, Amazon DynamoDB assumes that the attribute value does <i>not</i> exist in the table. If in fact the value does not exist, then the assumption is valid and the operation succeeds. If the value is found, despite the assumption that it does not exist, the operation fails with a <i>ConditionalCheckFailedException</i>.</p></li></ul><p>The default setting for <i>Exists</i> is <code>true</code>. If you supply a <i>Value</i> all by itself, Amazon DynamoDB assumes the attribute exists: You don't have to set <i>Exists</i> to <code>true</code>, because it is implied.</p><p>Amazon DynamoDB returns a <i>ValidationException</i> if:</p><ul><li><p><i>Exists</i> is <code>true</code> but there is no <i>Value</i> to check. (You expect a value to exist, but don't specify what that value is.)</p></li><li><p><i>Exists</i> is <code>false</code> but you also specify a <i>Value</i>. (You cannot expect an attribute to have a value, while also expecting it not to exist.)</p></li></ul><p>If you specify more than one condition for <i>Exists</i>, then all of the conditions must evaluate to true. (In other words, the conditions are ANDed together.) Otherwise, the conditional operation will fail.</p>
+ */
+@property (nonatomic, strong) NSNumber *exists;
+
+/**
+ * <p>Represents the data for an attribute. You can set one, and only one, of the elements.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAttributeValue *value;
+
+@end
+
+/**
+ * <p>Represents the input of a <i>GetItem</i> operation.</p>
+ * Required parameters: [TableName, Key]
+ */
+@interface AWSDynamoDBGetItemInput : AWSRequest
+
+
+/**
+ * <p>The names of one or more attributes to retrieve.If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p>
+ */
+@property (nonatomic, strong) NSArray *attributesToGet;
+
+/**
+ * <p>If set to <code>true</code>, then the operation uses strongly consistent reads; otherwise, eventually consistent reads are used.</p>
+ */
+@property (nonatomic, strong) NSNumber *consistentRead;
+
+/**
+ * <p>A map of attribute names to <i>AttributeValue</i> objects, representing the primary key of the item to retrieve.</p>
+ */
+@property (nonatomic, strong) NSDictionary *key;
+
+/**
+ * <p>If set to <code>TOTAL</code>, the response includes <i>ConsumedCapacity</i> data for tables and indexes. If set to <code>INDEXES</code>, the repsonse includes <i>ConsumedCapacity</i> for indexes. If set to <code>NONE</code> (the default), <i>ConsumedCapacity</i> is not included in the response.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
+
+/**
+ * <p>The name of the table containing the requested item.</p>
+ */
+@property (nonatomic, strong) NSString *tableName;
+
+@end
+
+/**
+ * <p>Represents the output of a <i>GetItem</i> operation.</p>
+ */
+@interface AWSDynamoDBGetItemOutput : AZModel
+
+
+/**
+ * <p>Represents the capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <i>ConsumedCapacity</i> is only returned if it was asked for in the request. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the Amazon DynamoDB Developer Guide.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBConsumedCapacity *consumedCapacity;
+
+/**
+ * <p>A map of attribute names to <i>AttributeValue</i> objects, as specified by <i>AttributesToGet</i>.</p>
+ */
+@property (nonatomic, strong) NSDictionary *item;
+
+@end
+
+/**
+ * <p>Represents a global secondary index.</p>
+ * Required parameters: [IndexName, KeySchema, Projection, ProvisionedThroughput]
+ */
+@interface AWSDynamoDBGlobalSecondaryIndex : AZModel
+
+
+/**
+ * <p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>
+ */
+@property (nonatomic, strong) NSString *indexName;
+
+/**
+ * <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types (<code>HASH</code> or <code>RANGE</code>).</p>
+ */
+@property (nonatomic, strong) NSArray *keySchema;
+
+/**
+ * <p>Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProjection *projection;
+
+/**
+ * <p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <i>UpdateTable</i> operation.</p><p>For current minimum and maximum provisioned throughput values, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the Amazon DynamoDB Developer Guide.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProvisionedThroughput *provisionedThroughput;
+
+@end
+
+/**
+ * <p>Represents the properties of a global secondary index.</p>
+ */
+@interface AWSDynamoDBGlobalSecondaryIndexDescription : AZModel
+
+
+/**
+ * <p>The name of the global secondary index.</p>
+ */
+@property (nonatomic, strong) NSString *indexName;
+
+/**
+ * <p>The total size of the specified index, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value. </p>
+ */
+@property (nonatomic, strong) NSNumber *indexSizeBytes;
+
+/**
+ * <p>The current state of the global secondary index:</p><ul><li><p><i>CREATING</i> - The index is being created, as the result of a <i>CreateTable</i> or<i>UpdateTable</i> operation.</p></li><li><p><i>UPDATING</i> - The index is being updated, as the result of a <i>CreateTable</i> or<i>UpdateTable</i> operation.</p></li><li><p><i>DELETING</i> - The index is being deleted, as the result of a <i>DeleteTable</i> operation.</p></li><li><p><i>ACTIVE</i> - The index is ready for use.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBIndexStatus indexStatus;
+
+/**
+ * <p>The number of items in the specified index. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value. </p>
+ */
+@property (nonatomic, strong) NSNumber *itemCount;
+
+/**
+ * <p>The complete key schema for the global secondary index, consisting of one or more pairs of attribute names and key types (<code>HASH</code> or <code>RANGE</code>).</p>
+ */
+@property (nonatomic, strong) NSArray *keySchema;
+
+/**
+ * <p>Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProjection *projection;
+
+/**
+ * <p>Represents the provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProvisionedThroughputDescription *provisionedThroughput;
+
+@end
+
+/**
+ * <p>Represents the new provisioned throughput settings to apply to a global secondary index.</p>
+ */
+@interface AWSDynamoDBGlobalSecondaryIndexUpdate : AZModel
+
+
+/**
+ * <p>The name of a global secondary index, along with the updated provisioned throughput settings that are to be applied to that index.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBUpdateGlobalSecondaryIndexAction *update;
+
+@end
+
+/**
+ * <p>Information about item collections, if any, that were affected by the operation. <i>ItemCollectionMetrics</i> is only returned if it was asked for in the request. If the table does not have any local secondary indexes, this information is not returned in the response.</p>
+ */
+@interface AWSDynamoDBItemCollectionMetrics : AZModel
+
+
+/**
+ * <p>The hash key value of the item collection. This is the same as the hash key of the item.</p>
+ */
+@property (nonatomic, strong) NSDictionary *itemCollectionKey;
+
+/**
+ * <p>An estimate of item collection size, measured in gigabytes. This is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p><p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p>
+ */
+@property (nonatomic, strong) NSArray *sizeEstimateRangeGB;
+
+@end
+
+/**
+ * <p>Represents a single element of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.</p>
+ * Required parameters: [AttributeName, KeyType]
+ */
+@interface AWSDynamoDBKeySchemaElement : AZModel
+
+
+/**
+ * <p>The name of a key attribute.</p>
+ */
+@property (nonatomic, strong) NSString *attributeName;
+
+/**
+ * <p>The attribute data, consisting of the data type and the attribute value itself.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBKeyType keyType;
+
+@end
+
+/**
+ * <p>Represents a set of primary keys and, for each key, the attributes to retrieve from the table.</p>
+ * Required parameters: [Keys]
+ */
+@interface AWSDynamoDBKeysAndAttributes : AZModel
+
+
+/**
+ * <p>One or more attributes to retrieve from the table or index. If no attribute names arespecified then all attributes will be returned. If any of the specified attributes are not found, they will not appear in the result.</p><p>If you are querying an index and request only attributes that are projected into that index, the operation will read only the index and not the table. If any of the requested attributes are not projected into the index, Amazon DynamoDB will need to fetch each matching item from the table. This extra fetching incurs additional throughput cost and latency. </p>
+ */
+@property (nonatomic, strong) NSArray *attributesToGet;
+
+/**
+ * <p>The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used.</p>
+ */
+@property (nonatomic, strong) NSNumber *consistentRead;
+
+/**
+ * <p>The primary key attribute values that define the items and the attributes associated with the items.</p>
+ */
+@property (nonatomic, strong) NSArray *keys;
+
+@end
+
+/**
+ * <p>Represents the input of a <i>ListTables</i> operation.</p>
+ */
+@interface AWSDynamoDBListTablesInput : AWSRequest
+
+
+/**
+ * <p>The name of the table that starts the list. If you already ran a <i>ListTables</i> operation and received a <i>LastEvaluatedTableName</i> value in the response, use that value here to continue the list.</p>
+ */
+@property (nonatomic, strong) NSString *exclusiveStartTableName;
+
+/**
+ * <p> A maximum number of table names to return.</p>
+ */
+@property (nonatomic, strong) NSNumber *limit;
+
+@end
+
+/**
+ * <p>Represents the output of a <i>ListTables</i> operation.</p>
+ */
+@interface AWSDynamoDBListTablesOutput : AZModel
+
+
+/**
+ * <p>The name of the last table in the current list, only if some tables for the account and endpoint have not been returned. This value does not exist in a response if all table names are already returned. Use this value as the <i>ExclusiveStartTableName</i> in a new request to continue the list until all the table names are returned.</p>
+ */
+@property (nonatomic, strong) NSString *lastEvaluatedTableName;
+
+/**
+ * <p>The names of the tables associated with the current account at the current endpoint.</p>
+ */
+@property (nonatomic, strong) NSArray *tableNames;
+
+@end
+
+/**
+ * <p>Represents a local secondary index.</p>
+ * Required parameters: [IndexName, KeySchema, Projection]
+ */
+@interface AWSDynamoDBLocalSecondaryIndex : AZModel
+
+
+/**
+ * <p>The name of the local secondary index. The name must be unique among all other indexes on this table.</p>
+ */
+@property (nonatomic, strong) NSString *indexName;
+
+/**
+ * <p>The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types (<code>HASH</code> or <code>RANGE</code>).</p>
+ */
+@property (nonatomic, strong) NSArray *keySchema;
+
+/**
+ * <p>Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProjection *projection;
+
+@end
+
+/**
+ * <p>Represents the properties of a local secondary index.</p>
+ */
+@interface AWSDynamoDBLocalSecondaryIndexDescription : AZModel
+
+
+/**
+ * <p>Represents the name of the local secondary index.</p>
+ */
+@property (nonatomic, strong) NSString *indexName;
+
+/**
+ * <p>The total size of the specified index, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value. </p>
+ */
+@property (nonatomic, strong) NSNumber *indexSizeBytes;
+
+/**
+ * <p>The number of items in the specified index. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value. </p>
+ */
+@property (nonatomic, strong) NSNumber *itemCount;
+
+/**
+ * The complete index key schema, which consists of one or more pairs of attribute names and key types (<code>HASH</code> or <code>RANGE</code>).
+ */
+@property (nonatomic, strong) NSArray *keySchema;
+
+/**
+ * <p>Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProjection *projection;
+
+@end
+
+/**
+ * <p>Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
+ */
+@interface AWSDynamoDBProjection : AZModel
+
+
+/**
+ * <p>Represents the non-key attribute names which will be projected into the index.</p><p>For local secondary indexes, the total count of <i>NonKeyAttributes</i> summed across all of the local secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p>
+ */
+@property (nonatomic, strong) NSArray *nonKeyAttributes;
+
+/**
+ * <p>The set of attributes that are projected into the index:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes are in <i>NonKeyAttributes</i>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBProjectionType projectionType;
+
+@end
+
+/**
+ * <p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <i>UpdateTable</i> operation.</p><p>For current minimum and maximum provisioned throughput values, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the Amazon DynamoDB Developer Guide.</p>
+ * Required parameters: [ReadCapacityUnits, WriteCapacityUnits]
+ */
+@interface AWSDynamoDBProvisionedThroughput : AZModel
+
+
+/**
+ * <p>The maximum number of strongly consistent reads consumed per second before Amazon DynamoDB returns a <i>ThrottlingException</i>. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithDDTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the Amazon DynamoDB Developer Guide.</p>
+ */
+@property (nonatomic, strong) NSNumber *readCapacityUnits;
+
+/**
+ * <p>The maximum number of writes consumed per second before Amazon DynamoDB returns a <i>ThrottlingException</i>. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithDDTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the Amazon DynamoDB Developer Guide.</p>
+ */
+@property (nonatomic, strong) NSNumber *writeCapacityUnits;
+
+@end
+
+/**
+ * <p>Represents the provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.</p>
+ */
+@interface AWSDynamoDBProvisionedThroughputDescription : AZModel
+
+
+/**
+ * <p>The date and time of the last provisioned throughput decrease for this table.</p>
+ */
+@property (nonatomic, strong) NSDate *lastDecreaseDateTime;
+
+/**
+ * <p>The date and time of the last provisioned throughput increase for this table.</p>
+ */
+@property (nonatomic, strong) NSDate *lastIncreaseDateTime;
+
+/**
+ * <p>The number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the Amazon DynamoDB Developer Guide.</p>
+ */
+@property (nonatomic, strong) NSNumber *numberOfDecreasesToday;
+
+/**
+ * <p>The maximum number of strongly consistent reads consumed per second before Amazon DynamoDB returns a <i>ThrottlingException</i>. Eventually consistent reads require less effort than strongly consistent reads, so a setting of 50 <i>ReadCapacityUnits</i> per second provides 100 eventually consistent <i>ReadCapacityUnits</i> per second.</p>
+ */
+@property (nonatomic, strong) NSNumber *readCapacityUnits;
+
+/**
+ * <p>The maximum number of writes consumed per second before Amazon DynamoDB returns a <i>ThrottlingException</i>.</p>
+ */
+@property (nonatomic, strong) NSNumber *writeCapacityUnits;
+
+@end
+
+/**
+ * <p>Represents the input of a <i>PutItem</i> operation.</p>
+ * Required parameters: [TableName, Item]
+ */
+@interface AWSDynamoDBPutItemInput : AWSRequest
+
+
+/**
+ * <p>A map of attribute/condition pairs. This is the conditional block for the <i>PutItem</i> operation. All the conditions must be met for the operation to succeed.</p><p><i>Expected</i> allows you to provide an attribute name, and whether or not Amazon DynamoDB should check to see if the attribute value already exists; or if the attribute value exists and has a particular value before changing it.</p><p>Each item in <i>Expected</i> represents an attribute name for Amazon DynamoDB to check, along with the following: </p><ul><li><p><i>Value</i> - The attribute value for Amazon DynamoDB to check.</p></li><li><p><i>Exists</i> - Causes Amazon DynamoDB to evaluate the value before attempting a conditional operation:</p><ul><li><p>If <i>Exists</i> is <code>true</code>, Amazon DynamoDB will check to see if that attribute value already exists in the table. If it is found, then the operation succeeds. If it is not found, the operation fails with a <i>ConditionalCheckFailedException</i>.</p></li><li><p>If <i>Exists</i> is <code>false</code>, Amazon DynamoDB assumes that the attribute value does <i>not</i> exist in the table. If in fact the value does not exist, then the assumption is valid and the operation succeeds. If the value is found, despite the assumption that it does not exist, the operation fails with a <i>ConditionalCheckFailedException</i>.</p></li></ul><p>The default setting for <i>Exists</i> is <code>true</code>. If you supply a <i>Value</i> all by itself, Amazon DynamoDB assumes the attribute exists:You don't have to set <i>Exists</i> to <code>true</code>, because it is implied.</p><p>Amazon DynamoDB returns a <i>ValidationException</i> if:</p><ul><li><p><i>Exists</i> is <code>true</code> but there is no <i>Value</i> to check. (You expect a value to exist, but don't specify what that value is.)</p></li><li><p><i>Exists</i> is <code>false</code> but you also specify a <i>Value</i>. (You cannot expect an attribute to have a value, while also expecting it not to exist.)</p></li></ul></li></ul><p>If you specify more than one condition for <i>Exists</i>, then all of the conditions must evaluate to true. (In other words, the conditions are ANDed together.) Otherwise, the conditional operation will fail.</p>
+ */
+@property (nonatomic, strong) NSDictionary *expected;
+
+/**
+ * <p>A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.</p><p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p><p>For more information about primary keys, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">Primary Key</a> in the Amazon DynamoDB Developer Guide.</p><p>Each element in the <i>Item</i> map is an <i>AttributeValue</i> object.</p>
+ */
+@property (nonatomic, strong) NSDictionary *item;
+
+/**
+ * <p>If set to <code>TOTAL</code>, the response includes <i>ConsumedCapacity</i> data for tables and indexes. If set to <code>INDEXES</code>, the repsonse includes <i>ConsumedCapacity</i> for indexes. If set to <code>NONE</code> (the default), <i>ConsumedCapacity</i> is not included in the response.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
+
+/**
+ * <p>If set to <code>SIZE</code>, statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnItemCollectionMetrics returnItemCollectionMetrics;
+
+/**
+ * <p>Use <i>ReturnValues</i> if you want to get the item attributes as they appeared before they were updated with the <i>PutItem</i> request. For <i>PutItem</i>, the valid values are:</p><ul><li><p><code>NONE</code> - If <i>ReturnValues</i> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This is the default for <i>ReturnValues</i>.)</p></li><li><p><code>ALL_OLD</code> - If <i>PutItem</i> overwrote an attribute name-value pair, then the content of the old item is returned.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnValue returnValues;
+
+/**
+ * <p>The name of the table to contain the item.</p>
+ */
+@property (nonatomic, strong) NSString *tableName;
+
+@end
+
+/**
+ * <p>Represents the output of a <i>PutItem</i> operation.</p>
+ */
+@interface AWSDynamoDBPutItemOutput : AZModel
+
+
+/**
+ * <p>The attribute values as they appeared before the <i>PutItem</i> operation, but only if<i>ReturnValues</i> is specified as <code>ALL_OLD</code> in the request. Each element consists of an attribute name and an attribute value.</p>
+ */
+@property (nonatomic, strong) NSDictionary *attributes;
+
+/**
+ * <p>Represents the capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <i>ConsumedCapacity</i> is only returned if it was asked for in the request. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the Amazon DynamoDB Developer Guide.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBConsumedCapacity *consumedCapacity;
+
+/**
+ * <p>Information about item collections, if any, that were affected by the operation. <i>ItemCollectionMetrics</i> is only returned if it was asked for in the request. If the table does not have any local secondary indexes, this information is not returned in the response.</p><p>Each <i>ItemCollectionMetrics</i> element consists of:</p><ul><li><p><i>ItemCollectionKey</i> - The hash key value of the item collection. This is the same as the hash key of the item.</p></li><li><p><i>SizeEstimateRange</i> - An estimate of item collection size, measured in gigabytes. This is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p><p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p></li></ul>
+ */
+@property (nonatomic, strong) AWSDynamoDBItemCollectionMetrics *itemCollectionMetrics;
+
+@end
+
+/**
+ * <p>Represents a request to perform a <i>PutItem</i> operation on an item.</p>
+ * Required parameters: [Item]
+ */
+@interface AWSDynamoDBPutRequest : AZModel
+
+
+/**
+ * <p>A map of attribute name to attribute values, representing the primary key of an item to be processed by <i>PutItem</i>. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item which are part of an index key schema for the table, their types must match the index key schema.</p>
+ */
+@property (nonatomic, strong) NSDictionary *item;
+
+@end
+
+/**
+ * <p>Represents the input of a <i>Query</i> operation.</p>
+ * Required parameters: [TableName]
+ */
+@interface AWSDynamoDBQueryInput : AWSRequest
+
+
+/**
+ * <p>The names of one or more attributes to retrieve.If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p><p>If you are querying an index and request only attributes that are projected into that index, the operation will read only the index and not the table. If any of the requested attributes are not projected into the index, Amazon DynamoDB will need to fetch each matching item from the table. This extra fetching incurs additional throughput cost and latency. </p><p>You cannot use both <i>AttributesToGet</i> and <i>Select</i> together in a <i>Query</i> request, <i>unless</i> the value for <i>Select</i> is <code>SPECIFIC_ATTRIBUTES</code>. (This usage is equivalent to specifying <i>AttributesToGet</i> without any value for <i>Select</i>.)</p>
+ */
+@property (nonatomic, strong) NSArray *attributesToGet;
+
+/**
+ * <p>If set to <code>true</code>, then the operation uses strongly consistent reads; otherwise, eventually consistent reads are used.</p><p>Strongly consistent reads are not supported on global secondary indexes. If you query a global secondary index with <i>ConsistentRead</i> set to <code>true</code>, you will receive an error message.</p>
+ */
+@property (nonatomic, strong) NSNumber *consistentRead;
+
+/**
+ * <p>The primary key of the first item that this operation will evalute. Use the value that was returned for <i>LastEvaluatedKey</i> in the previous operation.</p><p>The data type for <i>ExclusiveStartKey</i> must be String, Number or Binary. No set data types are allowed.</p>
+ */
+@property (nonatomic, strong) NSDictionary *exclusiveStartKey;
+
+/**
+ * <p>The name of an index to query. This can be any local secondary index or global secondary index on the table.</p>
+ */
+@property (nonatomic, strong) NSString *indexName;
+
+/**
+ * <p>The selection criteria for the query.</p><p>For a query on a table, you can only have conditions on the table primary key attributes. You must specify the hash key attribute name and value as an <code>EQ</code> condition. You can optionally specify a second condition, referring to the range key attribute.</p><p>For a query on an index, you can only have conditions on the index key attributes. You must specify the index hash attribute name and value as an EQ condition. You can optionally specify a second condition, referring to the index key range attribute.</p><p>Multiple conditions are evaluated using "AND"; in other words, all of the conditions must be met in order for an item to appear in the results results. </p><p>Each <i>KeyConditions</i> element consists of an attribute name to compare, along with the following:</p><ul><li><p><i>AttributeValueList</i> - One or more values to evaluate against the supplied attribute. This list contains exactly one value, except for a <code>BETWEEN</code> comparison, in which case the list contains two values.</p><note><p>For type Number, value comparisons are numeric.</p><p>String value comparisons for greater than, equals, or less than are based on ASCII character code values. For example, <code>a</code> is greater than <code>A</code>, and <code>aa</code> is greater than <code>B</code>. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters</a>.</p><p>For Binary, Amazon DynamoDB treats each byte of the binary data as unsigned when it compares binary values, for example when evaluating query expressions.</p></note></li><li><p><i>ComparisonOperator</i> - A comparator for evaluating attributes. For example, equals, greater than, less than, etc.</p><p>Valid comparison operators for Query:</p><p><code>EQ | LE | LT | GE | GT | BEGINS_WITH | BETWEEN</code></p><p>For information on specifying data types in JSON, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html">JSON Data Format</a> in the Amazon DynamoDB Developer Guide.</p><p>The following are descriptions of each comparison operator.</p><ul><li><p><code>EQ</code> : Equal. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not equal <code>{"NS":["6", "2", "1"]}</code>.</p><p></p></li><li><p><code>LE</code> : Less than or equal. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code>.</p><p></p></li><li><p><code>LT</code> : Less than. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code>.</p><p></p></li><li><p><code>GE</code> : Greater than or equal. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code>.</p><p></p></li><li><p><code>GT</code> : Greater than. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code>.</p><p></p></li><li><p><code>BEGINS_WITH</code> : checks for a prefix. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String or Binary (not a Number or a set). The target attribute of the comparison must be a String or Binary (not a Number or a set).</p><p></p></li><li><p><code>BETWEEN</code> : Greater than or equal to the first value, and less than or equal to the second value. </p><p><i>AttributeValueList</i> must contain two <i>AttributeValue</i> elements of the same type, either String, Number, or Binary (not a set). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not compare to <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code></p></li></ul></li></ul>
+ */
+@property (nonatomic, strong) NSDictionary *keyConditions;
+
+/**
+ * <p>The maximum number of items to evaluate (not necessarily the number of matching items). If Amazon DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a <i>LastEvaluatedKey</i> toapply in a subsequent operation, so that you can pick up where you left off. Also, if the processed data set size exceeds 1 MB before Amazon DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a <i>LastEvaluatedKey</i> to apply in a subsequent operation to continue the operation. For more information see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html" >Query and Scan</a> in the Amazon DynamoDB Developer Guide.</p>
+ */
+@property (nonatomic, strong) NSNumber *limit;
+
+/**
+ * <p>If set to <code>TOTAL</code>, the response includes <i>ConsumedCapacity</i> data for tables and indexes. If set to <code>INDEXES</code>, the repsonse includes <i>ConsumedCapacity</i> for indexes. If set to <code>NONE</code> (the default), <i>ConsumedCapacity</i> is not included in the response.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
+
+/**
+ * <p>Specifies ascending (true) or descending (false) traversal of the index. Amazon DynamoDB returns results reflecting the requested order determined by the range key. If the data type is Number, the results are returned in numeric order. For String, the results are returned in order of ASCII character code values. For Binary, Amazon DynamoDB treats each byte of the binary data as unsigned when it compares binary values.</p><p>If <i>ScanIndexForward</i> is not specified, the results are returned in ascending order.</p>
+ */
+@property (nonatomic, strong) NSNumber *scanIndexForward;
+
+/**
+ * <p>The attributes to be returned in the result. You can retrieve all item attributes, specific item attributes, the countof matching items, or in the case of an index, some or all of theattributes projected into the index.</p><ul><li><p><code>ALL_ATTRIBUTES</code>: Returns all of the item attributes. For a table, this is the default. For an index, this mode causes Amazon DynamoDB to fetch the full item from the table for each matching item in the index. If the index is configured to project all item attributes, the matching items will not be fetched from the table. Fetching items from the table incurs additional throughput cost and latency.</p></li><li><p><code>ALL_PROJECTED_ATTRIBUTES</code>: Allowed only when querying an index. Retrieves all attributes which have been projected into the index. If the index is configured to project all attributes, this is equivalent to specifying <i>ALL_ATTRIBUTES</i>.</p></li><li><p><code>COUNT</code>: Returns the number of matching items, rather than the matching items themselves.</p></li><li><p><code>SPECIFIC_ATTRIBUTES</code> : Returns only the attributes listed in <i>AttributesToGet</i>. This is equivalent to specifying <i>AttributesToGet</i> without specifying any value for <i>Select</i>.</p><p>If you are querying an index and request only attributes that are projected into that index, the operation will read only the index and not the table. If any of the requested attributes are not projected into the index, Amazon DynamoDB will need to fetch each matching item from the table. This extra fetching incurs additional throughput cost and latency. </p></li></ul><p>If neither <i>Select</i> nor <i>AttributesToGet</i>are specified, Amazon DynamoDB defaults to <code>ALL_ATTRIBUTES</code> when accessing a table, and<code>ALL_PROJECTED_ATTRIBUTES</code> when accessing an index. You cannot use both <i>Select</i> and <i>AttributesToGet</i> together in a single request, <i>unless</i> the value for <i>Select</i> is <code>SPECIFIC_ATTRIBUTES</code>. (This usage is equivalent tospecifying <i>AttributesToGet</i> without any value for <i>Select</i>.)</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBSelect select;
+
+/**
+ * <p>The name of the table containing the requested items. </p>
+ */
+@property (nonatomic, strong) NSString *tableName;
+
+@end
+
+/**
+ * <p>Represents the output of a <i>Query</i> operation.</p>
+ */
+@interface AWSDynamoDBQueryOutput : AZModel
+
+
+/**
+ * <p>Represents the capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <i>ConsumedCapacity</i> is only returned if it was asked for in the request. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the Amazon DynamoDB Developer Guide.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBConsumedCapacity *consumedCapacity;
+
+/**
+ * <p>The number of items in the response.</p>
+ */
+@property (nonatomic, strong) NSNumber *count;
+
+/**
+ * <p>An array of item attributes that match the query criteria. Each element in this array consists of an attribute name and the value for that attribute.</p>
+ */
+@property (nonatomic, strong) NSArray *items;
+
+/**
+ * <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p><p>If <i>LastEvaluatedKey</i> is null, then the "last page" of results has been processed and there is no more data to be retrieved.</p><p>If <i>LastEvaluatedKey</i> is anything other than null, this does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <i>LastEvaluatedKey</i> is null.</p>
+ */
+@property (nonatomic, strong) NSDictionary *lastEvaluatedKey;
+
+@end
+
+/**
+ * <p>Represents the input of a <i>Scan</i> operation.</p>
+ * Required parameters: [TableName]
+ */
+@interface AWSDynamoDBScanInput : AWSRequest
+
+
+/**
+ * <p>The names of one or more attributes to retrieve.If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p>
+ */
+@property (nonatomic, strong) NSArray *attributesToGet;
+
+/**
+ * <p>The primary key of the first item that this operation will evalute. Use the value that was returned for <i>LastEvaluatedKey</i> in the previous operation.</p><p>The data type for <i>ExclusiveStartKey</i> must be String, Number or Binary. No set data types are allowed.</p><p>In a parallel scan, a <i>Scan</i> request that includes <i>ExclusiveStartKey</i> must specify the same segment whose previous <i>Scan</i> returned the corresponding value of <i>LastEvaluatedKey</i>.</p>
+ */
+@property (nonatomic, strong) NSDictionary *exclusiveStartKey;
+
+/**
+ * <p>The maximum number of items to evaluate (not necessarily the number of matching items). If Amazon DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a <i>LastEvaluatedKey</i> toapply in a subsequent operation, so that you can pick up where you left off. Also, if the processed data set size exceeds 1 MB before Amazon DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a <i>LastEvaluatedKey</i> to apply in a subsequent operation to continue the operation. For more information see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html" >Query and Scan</a> in the Amazon DynamoDB Developer Guide.</p>
+ */
+@property (nonatomic, strong) NSNumber *limit;
+
+/**
+ * <p>If set to <code>TOTAL</code>, the response includes <i>ConsumedCapacity</i> data for tables and indexes. If set to <code>INDEXES</code>, the repsonse includes <i>ConsumedCapacity</i> for indexes. If set to <code>NONE</code> (the default), <i>ConsumedCapacity</i> is not included in the response.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
+
+/**
+ * <p>Evaluates the scan results and returns only the desired values. Multiple conditions are treated as "AND" operations: all conditions must be met to be included in the results.</p><p>Each <i>ScanConditions</i> element consists of an attribute name to compare, along with the following:</p><ul><li><p><i>AttributeValueList</i> - One or more values to evaluate against the supplied attribute. This list contains exactly one value, except for a <code>BETWEEN</code> or <code>IN</code> comparison, in which case the list contains two values.</p><note><p>For type Number, value comparisons are numeric.</p><p>String value comparisons for greater than, equals, or less than are based on ASCII character code values. For example, <code>a</code> is greater than <code>A</code>, and <code>aa</code> is greater than <code>B</code>. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters</a>.</p><p>For Binary, Amazon DynamoDB treats each byte of the binary data as unsigned when it compares binary values, for example when evaluating query expressions.</p></note></li><li><p><i>ComparisonOperator</i> - A comparator for evaluating attributes. For example, equals, greater than, less than, etc.</p><p>Valid comparison operators for Scan:</p><p><code>EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN</code></p><p>For information on specifying data types in JSON, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html">JSON Data Format</a> in the Amazon DynamoDB Developer Guide.</p><p>The following are descriptions of each comparison operator.</p><ul><li><p><code>EQ</code> : Equal. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not equal <code>{"NS":["6", "2", "1"]}</code>.</p><p></p></li><li><p><code>NE</code> : Not equal. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not equal <code>{"NS":["6", "2", "1"]}</code>.</p><p></p></li><li><p><code>LE</code> : Less than or equal. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code>.</p><p></p></li><li><p><code>LT</code> : Less than. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code>.</p><p></p></li><li><p><code>GE</code> : Greater than or equal. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code>.</p><p></p></li><li><p><code>GT</code> : Greater than. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code>.</p><p></p></li><li><p><code>NOT_NULL</code> : The attribute exists. </p></li><li><p><code>NULL</code> : The attribute does not exist. </p></li><li><p><code>CONTAINS</code> : checks for a subsequence, or value in a set.</p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If the target attribute of the comparison is a String, then the operation checks for a substring match. If the target attribute of the comparison is Binary, then the operation looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("SS", "NS", or "BS"), then the operation checks for a member of the set (not as a substring).</p></li><li><p><code>NOT_CONTAINS</code> : checks for absence of a subsequence, or absence of a value in a set.</p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String, Number, or Binary (not a set). If the target attribute of the comparison is a String, then the operation checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operation checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("SS", "NS", or "BS"), then the operation checks for the absence of a member of the set (not as a substring).</p></li><li><p><code>BEGINS_WITH</code> : checks for a prefix. </p><p><i>AttributeValueList</i> can contain only one <i>AttributeValue</i> of type String or Binary (not a Number or a set). The target attribute of the comparison must be a String or Binary (not a Number or a set).</p><p></p></li><li><p><code>IN</code> : checks for exact matches.</p><p><i>AttributeValueList</i> can contain more than one <i>AttributeValue</i> of type String, Number, or Binary (not a set). The target attribute of the comparison must be of the same type and exact value to match. A String never matches a String set.</p></li><li><p><code>BETWEEN</code> : Greater than or equal to the first value, and less than or equal to the second value. </p><p><i>AttributeValueList</i> must contain two <i>AttributeValue</i> elements of the same type, either String, Number, or Binary (not a set). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an <i>AttributeValue</i> of a different type than the one specified in the request, the value does not match. For example, <code>{"S":"6"}</code> does not compare to <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code></p></li></ul></li></ul>
+ */
+@property (nonatomic, strong) NSDictionary *scanFilter;
+
+/**
+ * <p>For a parallel <i>Scan</i> request, <i>Segment</i> identifies an individual segment to be scanned by an application worker.</p><p>Segment IDs are zero-based, so the first segment is always 0. For example, if you want to scan a table using four application threads, the first thread would specify a <i>Segment</i> value of 0, the second thread would specify 1, and so on.</p><p>The value of <i>LastEvaluatedKey</i> returned from a parallel <i>Scan</i> request must be used as <i>ExclusiveStartKey</i> with the same Segment ID in a subsequent <i>Scan</i> operation.</p><p>The value for <i>Segment</i> must be greater than or equal to 0, and less than the value provided for <i>TotalSegments</i>.</p><p>If you specify <i>Segment</i>, you must also specify <i>TotalSegments</i>.</p>
+ */
+@property (nonatomic, strong) NSNumber *segment;
+
+/**
+ * <p>The attributes to be returned in the result. You can retrieve all item attributes, specific item attributes, or the countof matching items.</p><ul><li><p><code>ALL_ATTRIBUTES</code>: Returns all of the item attributes.</p></li><li><p><code>COUNT</code>: Returns the number of matching items, rather than the matching items themselves.</p></li><li><p><code>SPECIFIC_ATTRIBUTES</code> : Returns only the attributes listed in <i>AttributesToGet</i>. This is equivalent to specifying <i>AttributesToGet</i> without specifying any value for <i>Select</i>.</p></li></ul><p>If neither <i>Select</i> nor <i>AttributesToGet</i> are specified, Amazon DynamoDB defaults to <code>ALL_ATTRIBUTES</code>. You cannot use both <i>Select</i> and <i>AttributesToGet</i> together in a single request, <i>unless</i> the value for <i>Select</i> is <code>SPECIFIC_ATTRIBUTES</code>. (This usage is equivalent tospecifying <i>AttributesToGet</i> without any value for <i>Select</i>.)</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBSelect select;
+
+/**
+ * <p>The name of the table containing the requested items.</p>
+ */
+@property (nonatomic, strong) NSString *tableName;
+
+/**
+ * <p>For a parallel <i>Scan</i> request, <i>TotalSegments</i> represents the total number of segments into which the <i>Scan</i> operation will be divided. The value of <i>TotalSegments</i> corresponds to the number of application workers that will perform the parallel scan. For example, if you want to scan a table using four application threads, you would specify a <i>TotalSegments</i> value of 4.</p><p>The value for <i>TotalSegments</i> must be greater than or equal to 1, and less than or equal to 4096. If you specify a <i>TotalSegments</i> value of 1, the <i>Scan</i> will be sequential rather than parallel.</p><p>If you specify <i>TotalSegments</i>, you must also specify <i>Segment</i>.</p>
+ */
+@property (nonatomic, strong) NSNumber *totalSegments;
+
+@end
+
+/**
+ * <p>Represents the output of a <i>Scan</i> operation.</p>
+ */
+@interface AWSDynamoDBScanOutput : AZModel
+
+
+/**
+ * <p>Represents the capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <i>ConsumedCapacity</i> is only returned if it was asked for in the request. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the Amazon DynamoDB Developer Guide.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBConsumedCapacity *consumedCapacity;
+
+/**
+ * <p>The number of items in the response.</p>
+ */
+@property (nonatomic, strong) NSNumber *count;
+
+/**
+ * <p>An array of item attributes that match the scan criteria. Each element in this array consists of an attribute name and the value for that attribute.</p>
+ */
+@property (nonatomic, strong) NSArray *items;
+
+/**
+ * <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p><p>If <i>LastEvaluatedKey</i> is null, then the "last page" of results has been processed and there is no more data to be retrieved.</p><p>If <i>LastEvaluatedKey</i> is anything other than null, this does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <i>LastEvaluatedKey</i> is null.</p>
+ */
+@property (nonatomic, strong) NSDictionary *lastEvaluatedKey;
+
+/**
+ * <p>The number of items in the complete scan, before any filters are applied. A high <i>ScannedCount</i> value with few, or no, <i>Count</i> results indicates an inefficient <i>Scan</i> operation. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count">Count and ScannedCount</a> in the Amazon DynamoDB Developer Guide.</p>
+ */
+@property (nonatomic, strong) NSNumber *scannedCount;
+
+@end
+
+/**
+ * <p>Represents the properties of a table.</p>
+ */
+@interface AWSDynamoDBTableDescription : AZModel
+
+
+/**
+ * <p>An array of <i>AttributeDefinition</i> objects.Each of these objects describes one attribute in the table and index key schema.</p><p>Each <i>AttributeDefinition</i> object in this array is composed of:</p><ul><li><p><i>AttributeName</i> - The name of the attribute.</p></li><li><p><i>AttributeType</i> - The data type for the attribute.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray *attributeDefinitions;
+
+/**
+ * <p>The date and time when the table was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+ */
+@property (nonatomic, strong) NSDate *creationDateTime;
+
+/**
+ * <p>The global secondary indexes, if any, on the table. Each index is scoped to a given hash key value. Each element is composed of:</p><ul><li><p><i>IndexName</i> - The name of the global secondary index.</p></li><li><p><i>KeySchema</i> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same hash key attribute as the table.</p></li><li><p><i>Projection</i> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><i>ProjectionType</i> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes are in <i>NonKeyAttributes</i>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><i>NonKeyAttributes</i> - A list of one or more non-key attribute names that areprojected into the secondary index. The total count of attributes specified in <i>NonKeyAttributes</i>, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li><li><p><i>ProvisionedThroughput</i> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units, along with data about increases and decreases. </p></li><li><p><i>IndexSizeBytes</i> - The total size of the global secondary index, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value. </p></li><li><p><i>ItemCount</i> - The number of items in the global secondary index. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value. </p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
+ */
+@property (nonatomic, strong) NSArray *globalSecondaryIndexes;
+
+/**
+ * <p>The number of items in the specified table. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value. </p>
+ */
+@property (nonatomic, strong) NSNumber *itemCount;
+
+/**
+ * <p>The primary key structure for the table. Each <i>KeySchemaElement</i> consists of:</p><ul><li><p><i>AttributeName</i> - The name of the attribute.</p></li><li><p><i>KeyType</i> - The key type for the attribute. Can be either <code>HASH</code> or <code>RANGE</code>.</p></li></ul><p>For more information about primary keys, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">Primary Key</a> in the Amazon DynamoDB Developer Guide.</p>
+ */
+@property (nonatomic, strong) NSArray *keySchema;
+
+/**
+ * <p>Represents one or more local secondary indexes on the table. Each index is scoped to a given hash key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:</p><ul><li><p><i>IndexName</i> - The name of the local secondary index.</p></li><li><p><i>KeySchema</i> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same hash key attribute as the table.</p></li><li><p><i>Projection</i> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><i>ProjectionType</i> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes are in <i>NonKeyAttributes</i>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><i>NonKeyAttributes</i> - A list of one or more non-key attribute names that areprojected into the secondary index. The total count of attributes specified in <i>NonKeyAttributes</i>, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li><li><p><i>IndexSizeBytes</i> - Represents the total size of the index, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><i>ItemCount</i> - Represents the number of items in the index. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
+ */
+@property (nonatomic, strong) NSArray *localSecondaryIndexes;
+
+/**
+ * <p>The provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProvisionedThroughputDescription *provisionedThroughput;
+
+/**
+ * <p>The name of the table.</p>
+ */
+@property (nonatomic, strong) NSString *tableName;
+
+/**
+ * <p>The total size of the specified table, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value. </p>
+ */
+@property (nonatomic, strong) NSNumber *tableSizeBytes;
+
+/**
+ * <p>The current state of the table:</p><ul><li><p><i>CREATING</i> - The table is being created, as the result of a <i>CreateTable</i> operation.</p></li><li><p><i>UPDATING</i> - The table is being updated, as the result of an <i>UpdateTable</i> operation.</p></li><li><p><i>DELETING</i> - The table is being deleted, as the result of a <i>DeleteTable</i> operation.</p></li><li><p><i>ACTIVE</i> - The table is ready for use.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBTableStatus tableStatus;
+
+@end
+
+/**
+ * <p>Represents the new provisioned throughput settings to be applied to a global secondary index.</p>
+ * Required parameters: [IndexName, ProvisionedThroughput]
+ */
+@interface AWSDynamoDBUpdateGlobalSecondaryIndexAction : AZModel
+
+
+/**
+ * <p>The name of the global secondary index to be updated.</p>
+ */
+@property (nonatomic, strong) NSString *indexName;
+
+/**
+ * <p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <i>UpdateTable</i> operation.</p><p>For current minimum and maximum provisioned throughput values, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the Amazon DynamoDB Developer Guide.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProvisionedThroughput *provisionedThroughput;
+
+@end
+
+/**
+ * <p>Represents the input of an <i>UpdateItem</i> operation.</p>
+ * Required parameters: [TableName, Key]
+ */
+@interface AWSDynamoDBUpdateItemInput : AWSRequest
+
+
+/**
+ * <p>The names of attributes to be modified, the action to perform on each, and the new value for each. If you are updating an attribute that is an index key attribute for any indexes on that table, the attribute type must match the index key type defined in the <i>AttributesDefinition</i> of the table description. You can use <i>UpdateItem</i> to update any non-key attributes.</p><p>Attribute values cannot be null. String and binary type attributes must have lengths greater than zero. Set type attributes must not be empty. Requests with empty values will be rejected with a <i>ValidationException</i>.</p><p>Each <i>AttributeUpdates</i> element consists of an attribute name to modify, along with the following:</p><ul><li><p><i>Value</i> - The new value, if applicable, for this attribute.</p></li><li><p><i>Action</i> - Specifies how to perform the update. Valid values for <i>Action</i> are <code>PUT</code>, <code>DELETE</code>, and <code>ADD</code>. The behavior depends on whether the specified primary key already exists in the table.</p><p><b>If an item with the specified <i>Key</i> is found in the table:</b></p><ul><li><p><code>PUT</code> - Adds the specified attribute to the item. If the attribute already exists, it is replaced by the new value. </p></li><li><p><code>DELETE</code> - If no value is specified, the attribute and its value are removed from the item. The data type of the specified value must match the existing value's data type.</p><p>If a <i>set</i> of values is specified, then those values are subtracted from the old set. For example, if the attribute value was the set <code>[a,b,c]</code> and the <i>DELETE</i> action specified <code>[a,c]</code>, then the final attribute value would be <code>[b]</code>. Specifying an empty set is an error.</p></li><li><p><code>ADD</code> - If the attribute does not already exist, then the attribute and its values are added to the item. If the attribute does exist, then the behavior of <code>ADD</code> depends on the data type of the attribute:</p><ul><li><p>If the existing attribute is a number, and if <i>Value</i> is also a number, then the <i>Value</i> is mathematically added to the existing attribute. If <i>Value</i> is a negative number, then it is subtracted from the existing attribute.</p><note><p> If you use <code>ADD</code> to increment or decrement a number value for an item that doesn't exist before the update, Amazon DynamoDB uses 0 as the initial value.</p><p>In addition, if you use <code>ADD</code> to update an existing item, and intend to increment or decrement an attribute value which does not yet exist, Amazon DynamoDB uses <code>0</code> as the initial value. For example, suppose that the item you want to update does not yet have an attribute named <i>itemcount</i>, but you decide to <code>ADD</code> the number <code>3</code> to this attribute anyway, even though it currently does not exist. Amazon DynamoDB will create the <i>itemcount</i> attribute, set its initial value to <code>0</code>, and finally add <code>3</code> to it. The result will be a new <i>itemcount</i> attribute in the item, with a value of <code>3</code>.</p></note></li><li><p>If the existing data type is a set, and if the <i>Value</i> is also a set, then the <i>Value</i> is added to the existing set. (This is a <i>set</i> operation, not mathematical addition.) For example, if the attribute value was the set <code>[1,2]</code>, and the <code>ADD</code> action specified <code>[3]</code>, then the final attribute value would be <code>[1,2,3]</code>. An error occurs if an Add action is specified for a set attribute and the attribute type specified does not match the existing set type. </p><p>Both sets must have the same primitive data type. For example, if the existing data type is a set of strings, the <i>Value</i> must also be a set of strings. The same holds true for number sets and binary sets.</p></li></ul><p>This action is only valid for an existing attribute whose data type is number or is a set. Do not use <code>ADD</code> for any other data types.</p></li></ul><p><b>If no item with the specified <i>Key</i> is found:</b></p><ul><li><p><code>PUT</code> - Amazon DynamoDB creates a new item with the specified primary key, and then adds the attribute. </p></li><li><p><code>DELETE</code> - Nothing happens; there is no attribute to delete.</p></li><li><p><code>ADD</code> - Amazon DynamoDB creates an item with the supplied primary key and number (or set of numbers) for the attribute value. The only data types allowed are number and number set; no other data types can be specified.</p></li></ul></li></ul><p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p>
+ */
+@property (nonatomic, strong) NSDictionary *attributeUpdates;
+
+/**
+ * <p>A map of attribute/condition pairs. This is the conditional block for the <i>UpdateItem</i> operation. All the conditions must be met for the operation to succeed.</p><p><i>Expected</i> allows you to provide an attribute name, and whether or not Amazon DynamoDB should check to see if the attribute value already exists; or if the attribute value exists and has a particular value before changing it.</p><p>Each item in <i>Expected</i> represents an attribute name for Amazon DynamoDB to check, along with the following: </p><ul><li><p><i>Value</i> - The attribute value for Amazon DynamoDB to check.</p></li><li><p><i>Exists</i> - Causes Amazon DynamoDB to evaluate the value before attempting a conditional operation:</p><ul><li><p>If <i>Exists</i> is <code>true</code>, Amazon DynamoDB will check to see if that attribute value already exists in the table. If it is found, then the operation succeeds. If it is not found, the operation fails with a <i>ConditionalCheckFailedException</i>.</p></li><li><p>If <i>Exists</i> is <code>false</code>, Amazon DynamoDB assumes that the attribute value does <i>not</i> exist in the table. If in fact the value does not exist, then the assumption is valid and the operation succeeds. If the value is found, despite the assumption that it does not exist, the operation fails with a <i>ConditionalCheckFailedException</i>.</p></li></ul><p>The default setting for <i>Exists</i> is <code>true</code>. If you supply a <i>Value</i> all by itself, Amazon DynamoDB assumes the attribute exists:You don't have to set <i>Exists</i> to <code>true</code>, because it is implied.</p><p>Amazon DynamoDB returns a <i>ValidationException</i> if:</p><ul><li><p><i>Exists</i> is <code>true</code> but there is no <i>Value</i> to check. (You expect a value to exist, but don't specify what that value is.)</p></li><li><p><i>Exists</i> is <code>false</code> but you also specify a <i>Value</i>. (You cannot expect an attribute to have a value, while also expecting it not to exist.)</p></li></ul></li></ul><p>If you specify more than one condition for <i>Exists</i>, then all of the conditions must evaluate to true. (In other words, the conditions are ANDed together.) Otherwise, the conditional operation will fail.</p>
+ */
+@property (nonatomic, strong) NSDictionary *expected;
+
+/**
+ * <p>The primary key that defines the item. Each element consists of an attribute name and a value for that attribute.</p>
+ */
+@property (nonatomic, strong) NSDictionary *key;
+
+/**
+ * <p>If set to <code>TOTAL</code>, the response includes <i>ConsumedCapacity</i> data for tables and indexes. If set to <code>INDEXES</code>, the repsonse includes <i>ConsumedCapacity</i> for indexes. If set to <code>NONE</code> (the default), <i>ConsumedCapacity</i> is not included in the response.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
+
+/**
+ * <p>If set to <code>SIZE</code>, statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnItemCollectionMetrics returnItemCollectionMetrics;
+
+/**
+ * <p>Use <i>ReturnValues</i> if you want to get the item attributes as they appeared either before or after they were updated. For <i>UpdateItem</i>, the valid values are:</p><ul><li><p><code>NONE</code> - If <i>ReturnValues</i> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This is the default for <i>ReturnValues</i>.)</p></li><li><p><code>ALL_OLD</code> - If <i>UpdateItem</i> overwrote an attribute name-value pair, then the content of the old item is returned.</p></li><li><p><code>UPDATED_OLD</code> - The old versions of only the updated attributes are returned.</p></li><li><p><code>ALL_NEW</code> - All of the attributes of the new version of the item are returned.</p></li><li><p><code>UPDATED_NEW</code> - The new versions of only the updated attributes are returned.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnValue returnValues;
+
+/**
+ * <p>The name of the table containing the item to update. </p>
+ */
+@property (nonatomic, strong) NSString *tableName;
+
+@end
+
+/**
+ * <p>Represents the output of an <i>UpdateItem</i> operation.</p>
+ */
+@interface AWSDynamoDBUpdateItemOutput : AZModel
+
+
+/**
+ * <p>A map of attribute values as they appeared before the <i>UpdateItem</i> operation, but only if <i>ReturnValues</i> was specified as something other than <code>NONE</code> in the request. Each element represents one attribute.</p>
+ */
+@property (nonatomic, strong) NSDictionary *attributes;
+
+/**
+ * <p>Represents the capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <i>ConsumedCapacity</i> is only returned if it was asked for in the request. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the Amazon DynamoDB Developer Guide.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBConsumedCapacity *consumedCapacity;
+
+/**
+ * <p>Information about item collections, if any, that were affected by the operation. <i>ItemCollectionMetrics</i> is only returned if it was asked for in the request. If the table does not have any local secondary indexes, this information is not returned in the response.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBItemCollectionMetrics *itemCollectionMetrics;
+
+@end
+
+/**
+ * <p>Represents the input of an <i>UpdateTable</i> operation.</p>
+ * Required parameters: [TableName]
+ */
+@interface AWSDynamoDBUpdateTableInput : AWSRequest
+
+
+/**
+ * <p>An array of one or more global secondary indexes on the table, together with provisioned throughput settings for each index.</p>
+ */
+@property (nonatomic, strong) NSArray *globalSecondaryIndexUpdates;
+
+/**
+ * <p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <i>UpdateTable</i> operation.</p><p>For current minimum and maximum provisioned throughput values, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the Amazon DynamoDB Developer Guide.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProvisionedThroughput *provisionedThroughput;
+
+/**
+ * <p>The name of the table to be updated.</p>
+ */
+@property (nonatomic, strong) NSString *tableName;
+
+@end
+
+/**
+ * <p>Represents the output of an <i>UpdateTable</i> operation.</p>
+ */
+@interface AWSDynamoDBUpdateTableOutput : AZModel
+
+
+/**
+ * <p>Represents the properties of a table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBTableDescription *tableDescription;
+
+@end
+
+/**
+ * <p>Represents an operation to perform - either <i>DeleteItem</i> or <i>PutItem</i>.You can only specify one of these operations, not both, in a single <i>WriteRequest</i>.If you do need to perform both of these operations, you will need to specify two separate <i>WriteRequest</i> objects.</p>
+ */
+@interface AWSDynamoDBWriteRequest : AZModel
+
+
+/**
+ * <p>A request to perform a <i>DeleteItem</i> operation.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBDeleteRequest *deleteRequest;
+
+/**
+ * <p>A request to perform a <i>PutItem</i> operation.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBPutRequest *putRequest;
+
+@end

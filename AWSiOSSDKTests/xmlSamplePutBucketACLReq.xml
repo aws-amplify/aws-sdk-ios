@@ -1,0 +1,23 @@
+
+<AccessControlPolicy xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+	<Owner>
+		<ID>852b113e7a2f2510267</ID>
+		<DisplayName>OwnerDisplayName</DisplayName>
+	</Owner>
+	<AccessControlList>
+		<Grant>
+			<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+				<DisplayName>displayNameJohn</DisplayName>
+				<ID>852b113e7a2f2510267</ID>
+			</Grantee>
+			<Permission>FULL_CONTROL</Permission>
+		</Grant>
+		<Grant>
+			<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AmazonCustomerByEmail">
+				<ID>ID2</ID>
+				<EmailAddress>john@amazon.com</EmailAddress>
+			</Grantee>
+			<Permission>WRITE</Permission>
+		</Grant>
+	</AccessControlList>
+</AccessControlPolicy>

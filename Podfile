@@ -1,0 +1,6 @@
+pod 'Bolts', '~> 1.1.0'
+pod 'Mantle', '~> 1.4.1'
+pod 'TMCache', '~> 1.2.0'
+pod 'CSURITemplate', '~> 0.3.0'
+pod 'XMLDictionary', '~> 1.4.0'
+pod 'UICKeyChainStore', '~> 1.0.5'

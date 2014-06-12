@@ -1,0 +1,32 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+#define AWS_TEST_AMAZON_CORE 1
+#define AWS_TEST_AUTO_SCALING 1
+#define AWS_TEST_CLOCK_SKEW 1
+#define AWS_TEST_CLOUD_WATCH 1
+#define AWS_TEST_AWS_CORE 1
+#define AWS_TEST_DYNAMODB_OBJECT_MAPPER 1
+#define AWS_TEST_DYNAMODB 1
+#define AWS_TEST_EC2 1
+#define AWS_TEST_ELASTIC_LOAD_BALANCING 1
+#define AWS_TEST_JSON_VALIDATOR 0
+#define AWS_TEST_S3 1
+#define AWS_TEST_S3_TRANSFER_MANAGER 1
+#define AWS_TEST_SES 1
+#define AWS_TEST_SIMPLEDB 1
+#define AWS_TEST_SNS 1
+#define AWS_TEST_SQS 1
+#define AWS_TEST_STS 1
+#define AWS_TEST_XML_BUILDER 0
+#define AWS_TEST_XML_PARSER 0
+#define AWS_TEST_HAL 0
+#define AWS_TEST_ERS 1

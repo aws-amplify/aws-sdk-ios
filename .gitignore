@@ -1,0 +1,34 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+src/Documentation/*
+src/docs/docset/*
+src/docs/docset-installed.txt
+src/aws-ios-sdk-*.zip
+
+# Xcode generated files #
+######################
+xcuserdata
+*.xccheckout
+
+# Patched code #
+######################
+*.bak
+
+# Built assets #
+######################
+build
+AWS*.framework
+
+# Stuff that can't be committed #
+######################
+credentials.json
+Pods
+Podfile.lock
