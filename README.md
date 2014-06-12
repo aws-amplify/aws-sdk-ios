@@ -5,23 +5,23 @@
 [![Version](http://cocoapod-badges.herokuapp.com/v/AWSiOSSDKv2/badge.png)](http://cocoadocs.org/docsets/AWSiOSSDKv2)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/AWSiOSSDKv2/badge.png)](http://cocoadocs.org/docsets/AWSiOSSDKv2)
 
-We are pleased to inform you that based on your feedback, we have made significant improvements to our AWS SDK for iOS. We rebuilt the AWS SDK for iOS from the ground up to conform to Objective-C conventions and take advantage of new features in the Cocoa framework. The new SDK will also improve interoperability with a number of other frameworks and projects in the iOS developer ecosystem.
+We are happy to announce that based on your feedback, we have made significant improvements to our AWS SDK for iOS. We rebuilt the AWS SDK for iOS from the ground up to conform to Objective-C conventions and take advantage of new features in the Cocoa framework. The new SDK will also improve interoperability with a number of other frameworks and projects in the iOS developer ecosystem.
 
-We have significantly reduced the footprint by reducing the number of files and number of classes. The SDK supports access to all of the functionality that was available in the previous version and have also added several new features.
+We have significantly reduced the footprint by reducing the number of files and number of classes. The SDK supports all of the existing functionality, and it also includes several new features.
 
 ## Highlights
 
-1. **Amazon DynamoDB Object Mapper** - We have made it easier to use DynamoDB from the AWS SDK for iOS by providing the DynamoDB Object Mapper for iOS. The DynamoDB Object Mapper makes it easy to set up connection to a DynamoDB database and supports high-level operations like creating, getting, querying, updating, and deleting records.
+1. **Amazon DynamoDB Object Mapper** - We have made it easier to use DynamoDB from the AWS SDK for iOS by providing the DynamoDB Object Mapper for iOS. The DynamoDB Object Mapper makes it easy to set up connections to a DynamoDB database and supports high-level operations like creating, getting, querying, updating, and deleting records.
 
 1. **S3TransferManager** - We have rebuilt the S3TransferManager to utilize BFTask. It has a clean interface, and all of the operations are now asynchronous.
 
-1. **ARC support** - The SDK is built ARC enabled from the ground up to improve overall memory management.
+1. **ARC support** - The SDK is now ARC enabled from the ground up to improve overall memory management.
 
-1. **BFTask support** - Async methods with complex logic often cause deeply nested blocks in Objective-C. With native BFTask support, you can chain async requests instead of nesting them. It helps make the logic cleaner while keeping the code more legible.
+1. **BFTask support** - Async methods with complex logic often cause deeply nested blocks in Objective-C. With native BFTask support, you can chain async requests instead of nesting them. This makes the logic cleaner while keeping the code more readable.
 
-1. **Conforming Objective-C recommendations** - We are better at conforming Objective-C best practices. The SDK returns `NSError`s instead of throwing exceptions. iOS developers will now feel at home when using the AWS Mobile SDK.
+1. **Conforming Objective-C recommendations** - We are better at conforming to Objective-C best practices. The SDK returns `NSError`s instead of throwing exceptions. iOS developers will now feel at home when using the AWS Mobile SDK.
 
-1. **Official Cocoapods support** - Now including the AWS SDK for iOS in your project is easier than ever. You just need to add `pod "AWSiOSSDKv2"` to your **Podfile**.
+1. **Official Cocoapods support** - Including the AWS SDK for iOS in your project is now easier than ever. You just need to add `pod "AWSiOSSDKv2"` to your **Podfile**.
 
 ## Requirements
 
