@@ -44,7 +44,7 @@ It is easy to use the AWS SDK for iOS with Swift. Please see five simple steps b
 
 		#import "DynamoDB.h"
 
-1. Point **SWIFT_OBJC_BRIDGING_HEDER** to the bridging header by going to **Your Target** => **Build Settings** => **SWIFT_OBJC_BRIDGING_HEADER**.
+1. Point **SWIFT_OBJC_BRIDGING_HEADER** to the bridging header by going to **Your Target** => **Build Settings** => **SWIFT_OBJC_BRIDGING_HEADER**.
 
 1. Create a default service configuration by adding the following code snippet in the `@optional func application(_ application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool` application delegate method.
 
