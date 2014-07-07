@@ -72,7 +72,7 @@ It is easy to use the AWS SDK for iOS with Swift. Please see five simple steps b
 
 1. Import AWSCore header in the application delegate.
 
-		#import <AWSiOSSDK/AWSCore.h>
+		#import "AWSCore.h"
 
 1. Create a default service configuration by adding the following code snippet in the `application:didFinishLaunchingWithOptions:` application delegate method.
 
