@@ -159,13 +159,8 @@ static NSTimeInterval _clockskew = 0.0;
     return [self az_dateFromString:time];
 }
 
-/**
- * Extract server time from response message body.
- *
- * @return the server time in a string format.
- */
-+ (NSString *)getTimeUsingBeginTag:(NSString *)bTag andEndTag:(NSString *)eTag fromResponseBody:(NSString *)responseBody
-{
++ (NSString *)getTimeUsingBeginTag:(NSString *)bTag andEndTag:(NSString *)eTag fromResponseBody:(NSString *)responseBody {
+    // Extract server time from response message body.
     @try {
         NSRange rLeft = [responseBody rangeOfString:bTag];
         NSRange rRight = [responseBody rangeOfString:eTag];
@@ -174,12 +169,10 @@ static NSTimeInterval _clockskew = 0.0;
         NSRange sub = NSMakeRange(loc, len);
         NSString *date = [responseBody substringWithRange:sub];
         return date;
-    }
-    @catch (NSException *e) {
+    } @catch (NSException *e) {
         return nil;
     }
 }
-
 
 @end
 
@@ -238,8 +231,11 @@ static NSTimeInterval _clockskew = 0.0;
              * Ref. https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtPropertyIntrospection.html#//apple_ref/doc/uid/TP40008048-CH101-SW1
              */
             if ([attributes rangeOfString:@",R,"].location == NSNotFound) {
-                [self setValue:[object valueForKey:key]
-                        forKey:key];
+                if (![key isEqualToString:@"uploadProgress"] && ![key isEqualToString:@"downloadProgress"]) {
+                    //do not copy progress block since they do not have getter method and they have already been copied via internalRequest. copy it again will result in overwrite the current value to nil.
+                    [self setValue:[object valueForKey:key]
+                            forKey:key];
+                }
             }
         }
     }

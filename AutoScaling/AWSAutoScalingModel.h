@@ -585,7 +585,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 
 /**
- * <p>Used for Auto Scaling groups that launch instances into an Amazon Virtual Private Cloud (Amazon VPC). Specifies whether to assign a public IP address to each instance launched in a Amazon VPC.</p><note><p>If you specify a value for this parameter, be sure to specify at least one VPC subnet using the <i>VPCZoneIdentifier</i> parameter when you create your Auto Scaling group. </p></note><p>Default: If the instance is launched in default VPC, the default is <code>true</code>.If the instance is launched in a nondefault VPC (EC2-VPC), the default is <code>false</code>. For more information about the platforms supported by Auto Scaling, see<a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_BasicSetup.html">Basic Auto Scaling Configuration</a>.</p>
+ * <p>Used for Auto Scaling groups that launch instances into an Amazon Virtual Private Cloud (Amazon VPC). Specifies whether to assign a public IP address to each instance launched in a Amazon VPC.</p><note><p>If you specify a value for this parameter, be sure to specify at least one VPC subnet using the <i>VPCZoneIdentifier</i> parameter when you create your Auto Scaling group. </p></note><p>Default: If the instance is launched into a default subnet in a default VPC, the default is <code>true</code>.If the instance is launched into a nondefault subnet in a VPC, the default is <code>false</code>. For information about the platforms supported by Auto Scaling, see<a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_BasicSetup.html">Get Started with Auto Scaling Using the Command Line Interface</a>.</p>
  */
 @property (nonatomic, strong) NSNumber *associatePublicIpAddress;
 
@@ -638,6 +638,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  * <p> The name of the launch configuration to create. </p>
  */
 @property (nonatomic, strong) NSString *launchConfigurationName;
+
+/**
+ * <p>The tenancy of the instance. An instance with a tenancy of <code>dedicated</code> runs on single-tenant hardware and can only be launched into a VPC.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html">Auto Scaling in Amazon Virtual Private Cloud</a> in the <i>Auto Scaling Developer Guide</i>. </p><p>Valid values: <code>default</code> | <code>dedicated</code></p>
+ */
+@property (nonatomic, strong) NSString *placementTenancy;
 
 /**
  * <p> The ID of the RAM disk associated with the Amazon EC2 AMI. </p>
@@ -1247,6 +1252,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  * <p> Specifies the name of the launch configuration. </p>
  */
 @property (nonatomic, strong) NSString *launchConfigurationName;
+
+/**
+ * <p>Specifies the tenancy of the instance. It can be either <code>default</code> or <code>dedicated</code>.An instance with <code>dedicated</code> tenancy runs in an isolated, single-tenant hardware and it can only be launched in a VPC.</p>
+ */
+@property (nonatomic, strong) NSString *placementTenancy;
 
 /**
  * <p> Provides ID of the RAM disk associated with the Amazon EC2 AMI. </p>
@@ -1867,7 +1877,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber *desiredCapacity;
 
 /**
- * <p> The length of time that Auto Scaling waits before checking an instance's health status. The grace period begins when an instance comes into service. </p>
+ * <p> The length of time that Auto Scaling waits before checking an instance's health status. The grace period begins when the instance passes System Status and the Instance Status checks from Amazon EC2. For more information, see<a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceStatus.html">DescribeInstanceStatus</a>. </p>
  */
 @property (nonatomic, strong) NSNumber *healthCheckGracePeriod;
 

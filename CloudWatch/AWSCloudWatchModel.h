@@ -111,15 +111,12 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @class AWSCloudWatchEnableAlarmActionsInput;
 @class AWSCloudWatchGetMetricStatisticsInput;
 @class AWSCloudWatchGetMetricStatisticsOutput;
-@class AWSCloudWatchListHostInfoOutput;
 @class AWSCloudWatchListMetricsInput;
 @class AWSCloudWatchListMetricsOutput;
 @class AWSCloudWatchMetric;
 @class AWSCloudWatchMetricAlarm;
-@class AWSCloudWatchMetricDataBatch;
 @class AWSCloudWatchMetricDatum;
 @class AWSCloudWatchPutMetricAlarmInput;
-@class AWSCloudWatchPutMetricDataBatchInput;
 @class AWSCloudWatchPutMetricDataInput;
 @class AWSCloudWatchSetAlarmStateInput;
 @class AWSCloudWatchStatisticSet;
@@ -489,18 +486,6 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 
 @end
 
-@interface AWSCloudWatchListHostInfoOutput : AZModel
-
-@property (nonatomic, strong) NSArray *ampQueues;
-@property (nonatomic, strong) NSArray *datastoreEndpoints;
-@property (nonatomic, strong) NSString *hostName;
-@property (nonatomic, strong) NSString *marketplace;
-@property (nonatomic, strong) NSString *region;
-@property (nonatomic, strong) NSArray *sdbDatastoreEndpoints;
-@property (nonatomic, strong) NSString *stackName;
-
-@end
-
 @interface AWSCloudWatchListMetricsInput : AWSRequest
 
 
@@ -680,15 +665,6 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 
 @end
 
-@interface AWSCloudWatchMetricDataBatch : AZModel
-
-@property (nonatomic, strong) NSString *accountId;
-@property (nonatomic, strong) NSNumber *autoDecompose;
-@property (nonatomic, strong) NSArray *metricData;
-@property (nonatomic, strong) NSString *namespace;
-
-@end
-
 /**
  * <p> 			The <code>MetricDatum</code> data type encapsulates the information 			sent with <a>PutMetricData</a> to either create a new metric or 			add new values to be aggregated into an existing metric. 		</p>
  * Required parameters: [MetricName]
@@ -805,12 +781,6 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
  * <p> 		The unit for the alarm's associated metric. 		</p>
  */
 @property (nonatomic, assign) AWSCloudWatchStandardUnit unit;
-
-@end
-
-@interface AWSCloudWatchPutMetricDataBatchInput : AWSRequest
-
-@property (nonatomic, strong) NSArray *metricDataBatches;
 
 @end
 

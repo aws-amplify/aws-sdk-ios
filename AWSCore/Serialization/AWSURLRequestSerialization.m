@@ -20,6 +20,7 @@
 #import "AWSSerialization.h"
 #import "AZCategory.h"
 #import "AZLogging.h"
+#import "AIDataGZip.h"
 
 @interface AWSJSONRequestSerializer()
 
@@ -29,11 +30,11 @@
 
 @implementation AWSJSONRequestSerializer
 
-- (BOOL)serializeRequest:(NSMutableURLRequest *)request
-                 headers:(NSDictionary *)headers
-              parameters:(NSDictionary *)parameters
-                   error:(NSError *__autoreleasing *)error {
-    
+- (BFTask *)serializeRequest:(NSMutableURLRequest *)request
+                     headers:(NSDictionary *)headers
+                  parameters:(NSDictionary *)parameters {
+    NSError *error = nil;
+
     //If parameters contains clientContext key, move it to http header. This is a sepcial case
     if ([parameters objectForKey:@"clientContext"]) {
         [request setValue:[parameters objectForKey:@"clientContext"] forHTTPHeaderField:@"x-amz-Client-Context"];
@@ -41,20 +42,28 @@
         [mutableParameters removeObjectForKey:@"clientContext"];
         parameters = mutableParameters;
     }
-    
-    
+
     if (parameters) {
         if ([request.HTTPMethod isEqualToString:@"GET"]) {
             request.URL = [request.URL az_URLByAppendingQuery:parameters];
         } else {
-            request.HTTPBody = [NSJSONSerialization dataWithJSONObject:parameters
+            NSData *bodyData = [NSJSONSerialization dataWithJSONObject:parameters
                                                                options:0
-                                                                 error:error];
+                                                                 error:&error];
+
+            if (headers[@"Content-Encoding"] && [headers[@"Content-Encoding"] rangeOfString:@"gzip"].location != NSNotFound) {
+                //gzip the body
+                request.HTTPBody = [AIDataGZIP gzippedData:bodyData];
+            } else {
+                request.HTTPBody = bodyData;
+            }
+
+
         }
     }
     AZLogVerbose(@"Request body: [%@]", [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding]);
 
-    if (!*error) {
+    if (!error) {
         for (NSString *key in headers) {
             if ([key isEqualToString:@"Content-Type"]
                 && ![request.HTTPMethod isEqualToString:@"PUT"]
@@ -64,64 +73,15 @@
             [request setValue:[headers objectForKey:key] forHTTPHeaderField:key];
         }
 
-        return YES;
+        return [BFTask taskWithResult:nil];
     }
 
-    return NO;
+    return [BFTask taskWithError:error];
 }
 
-- (BOOL)validateRequest:(NSURLRequest *)request
-                  error:(NSError *__autoreleasing *)error {
-    return YES;
+- (BFTask *)validateRequest:(NSURLRequest *)request {
+    return [BFTask taskWithResult:nil];
 
-    //    NSDictionary *header = request.allHTTPHeaderFields;
-    //    NSArray *xAMZTargetArray = [[header objectForKey:@"X-Amz-Target"] componentsSeparatedByString:@"."];
-    //    if ([xAMZTargetArray count] != 2) {
-    //        if (error) {
-    //            *error = [NSError errorWithDomain:AWSValidationErrorDomain code:AWSValidationHeaderTargetInvalid userInfo:[NSDictionary dictionaryWithObject:@"the key/value pair of 'X-Amz-Target' in the HTTP header is invalid" forKey:NSLocalizedDescriptionKey]];
-    //        }
-    //        return NO;
-    //    }
-    //    NSString *amzTargetPrefix = [xAMZTargetArray firstObject];
-    //    NSString *amzAPIName = [xAMZTargetArray lastObject];
-    //    //AZLogDebug(@"api request name is:%@",amzAPIName);
-    //    if (amzAPIName.length == 0) {
-    //        if (error){
-    //            *error = [NSError errorWithDomain:AWSValidationErrorDomain code:AWSValidationHeaderAPIActionIsUndefined userInfo:[NSDictionary dictionaryWithObject:@"API Action is undefined." forKey:NSLocalizedDescriptionKey]];
-    //        }
-    //        return NO;
-    //    }
-    //    NSDictionary *paramsDic = [NSJSONSerialization JSONObjectWithData:request.HTTPBody options:0 error:error];
-    //    //AZLogDebug(@"(Validate) paramsDic is: %@",[paramsDic description]);
-    //    if (paramsDic == nil) {
-    //        return NO;
-    //    }
-    //    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:amzTargetPrefix ofType:@"json"];
-    //    if (!filePath) {
-    //        if (error) {
-    //            *error = [NSError errorWithDomain:AWSValidationErrorDomain code:AWSValidationHeaderDefinitionFileIsNotFound userInfo:[NSDictionary dictionaryWithObject:@"JSON definition File for validation can not be found." forKey:NSLocalizedDescriptionKey]];
-    //        }
-    //        return NO;
-    //    }
-    //    NSDictionary *rules = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:kNilOptions error:nil];
-    //
-    //    //AZLogDebug(@"rule has content size:%lu",(unsigned long)[rules count]);
-    //    if (rules.count == 0) {
-    //        if (error) {
-    //            *error = [NSError errorWithDomain:AWSValidationErrorDomain code:AWSValidationHeaderDefinitionFileIsEmpty userInfo:[NSDictionary dictionaryWithObject:@"JSON definition File for validation has no rule in it." forKey:NSLocalizedDescriptionKey]];
-    //        }
-    //        return NO;
-    //    }
-    //    NSDictionary *rule = [[[rules objectForKey:@"operations"] objectForKey:amzAPIName] objectForKey:@"input"];
-    //    //AZLogDebug(@"rule is: %@",rule);
-    //    if (rules.count == 0) {
-    //        if (error) {
-    //            *error = [NSError errorWithDomain:AWSValidationErrorDomain code:AWSValidationHeaderAPIActionIsInvalid userInfo:[NSDictionary dictionaryWithObject:@"API Action is invalid." forKey:NSLocalizedDescriptionKey]];
-    //        }
-    //        return NO;
-    //    }
-    //
-    //    return [AWSJSONValidator validateParams:paramsDic byRule:rule error:error];
 }
 
 @end
@@ -140,9 +100,13 @@
     AWSXMLRequestSerializer *serializer = [self new];
     NSError *error = nil;
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:resource ofType:@"json"];
-    serializer.serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                       options:kNilOptions
-                                                                         error:&error];
+    if (filePath == nil) {
+        AZLogError(@"can not find %@.json file in the project",actionName);
+    } else {
+        serializer.serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                           options:kNilOptions
+                                                                             error:&error];
+    }
     if (error) {
         AZLogError(@"Error: [%@]", error);
     }
@@ -153,10 +117,9 @@
 }
 
 /* need to overwrite this method to do serialization for self.parameter */
-- (BOOL)serializeRequest:(NSMutableURLRequest *)request
-                 headers:(NSDictionary *)headers
-              parameters:(NSDictionary *)parameters
-                   error:(NSError *__autoreleasing *)error {
+- (BFTask *)serializeRequest:(NSMutableURLRequest *)request
+                     headers:(NSDictionary *)headers
+                  parameters:(NSDictionary *)parameters {
     NSDictionary *anActionRules = [[self.serviceDefinitionJSON objectForKey:@"operations"] objectForKey:self.actionName];
 
     NSDictionary *actionHTTPRule = [anActionRules objectForKey:@"http"];
@@ -171,41 +134,43 @@
     NSDictionary *shapeRules = [self.serviceDefinitionJSON objectForKey:@"shapes"];
     AWSJSONDictionary *inputRules = [[AWSJSONDictionary alloc] initWithDictionary:[anActionRules objectForKey:@"input"] JSONDefinitionRule:shapeRules];
 
+    NSError *error = nil;
     [self constructURIandHeadersAndBody:request
                                   rules:inputRules
                              parameters:parameters
                               uriSchema:ruleURIStr
-                                  error:error];
+                                  error:&error];
 
-    if (*error) {
-        return NO;
-    }
+    if (!error) {
+        //construct HTTPBody only if HTTPBodyStream is nil
+        if (!request.HTTPBodyStream) {
+            request.HTTPBody = [AWSXMLBuilder xmlDataForDictionary:parameters
+                                                        actionName:self.actionName
+                                             serviceDefinitionRule:self.serviceDefinitionJSON
+                                                             error:&error];
+        }
+        AZLogVerbose(@"Request body: [%@]", [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding]);
 
-    //construct HTTPBody only if HTTPBodyStream is nil
-    if (!request.HTTPBodyStream) {
-        request.HTTPBody = [AWSXMLBuilder xmlDataForDictionary:parameters
-                                                    actionName:self.actionName
-                                         serviceDefinitionRule:self.serviceDefinitionJSON
-                                                         error:error];
-    }
-    AZLogVerbose(@"Request body: [%@]", [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding]);
-
-    //contruct addtional headers
-    if (!*error) {
-        if (headers) {
-            //generate HTTP header here
-            for (NSString *key in headers.allKeys) {
-                [request setValue:[headers objectForKey:key] forHTTPHeaderField:key];
+        //contruct addtional headers
+        if (!error) {
+            if (headers) {
+                //generate HTTP header here
+                for (NSString *key in headers.allKeys) {
+                    [request setValue:[headers objectForKey:key] forHTTPHeaderField:key];
+                }
             }
         }
     }
 
-    return *error ? YES : NO;
+    if (error) {
+        return [BFTask taskWithError:error];
+    } else {
+        return [BFTask taskWithResult:nil];
+    }
 }
 
-- (BOOL)validateRequest:(NSURLRequest *)request
-                  error:(NSError *__autoreleasing *)error {
-    return YES;
+- (BFTask *)validateRequest:(NSURLRequest *)request {
+    return [BFTask taskWithResult:nil];
 }
 
 - (BOOL)constructURIandHeadersAndBody:(NSMutableURLRequest *)request
@@ -223,8 +188,16 @@
 
     __block NSString *rawURI = uriSchema;
     [rules enumerateKeysAndObjectsUsingBlock:^(NSString *memberName, id memberRules, BOOL *stop) {
-        NSString *xmlElementName = memberRules[@"xmlName"]?memberRules[@"xmlName"]:memberName;
-        id value = params[xmlElementName];
+
+        NSString *xmlElementName = memberRules[@"locationName"]?memberRules[@"locationName"]:memberName;
+        id value = nil;
+        if (memberRules[@"locationName"]) {
+            value = params[memberRules[@"locationName"]];
+        }
+        if (!value) {
+            value = params[memberName];
+        }
+
         if (value && value != [NSNull null] && [memberRules isKindOfClass:[NSDictionary class]]) {
 
             NSString *rulesType = memberRules[@"type"];
@@ -333,10 +306,9 @@
 
 @implementation AWSQueryStringRequestSerializer
 
-- (BOOL)serializeRequest:(NSMutableURLRequest *)request
-                 headers:(NSDictionary *)headers
-              parameters:(NSDictionary *)parameters
-                   error:(NSError *__autoreleasing *)error {
+- (BFTask *)serializeRequest:(NSMutableURLRequest *)request
+                     headers:(NSDictionary *)headers
+                  parameters:(NSDictionary *)parameters {
     NSMutableString *queryString = [NSMutableString new];
 
     parameters = [parameters mutableCopy];
@@ -372,22 +344,18 @@
     if ([queryString length] > 0) {
         request.HTTPBody = [queryString dataUsingEncoding:NSUTF8StringEncoding];
     }
-    AZLogVerbose(@"Request body: [%@]", [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding]);
-
-    if (!*error) {
-        for (NSString *key in headers.allKeys) {
-            [request setValue:[headers objectForKey:key] forHTTPHeaderField:key];
-        }
-        
-        return YES;
+    AZLogVerbose(@"Request body: [%@]", [[NSString alloc] initWithData:request.HTTPBody
+                                                              encoding:NSUTF8StringEncoding]);
+    
+    for (NSString *key in headers.allKeys) {
+        [request setValue:[headers objectForKey:key] forHTTPHeaderField:key];
     }
     
-    return NO;
+    return [BFTask taskWithResult:nil];
 }
 
-- (BOOL)validateRequest:(NSURLRequest *)request
-                  error:(NSError *__autoreleasing *)error {
-    return YES;
+- (BFTask *)validateRequest:(NSURLRequest *)request {
+    return [BFTask taskWithResult:nil];
 }
 
 @end

@@ -836,22 +836,6 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 
 @end
 
-@implementation AWSCloudWatchListHostInfoOutput
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"ampQueues" : @"AmpQueues",
-             @"datastoreEndpoints" : @"DatastoreEndpoints",
-             @"hostName" : @"HostName",
-             @"marketplace" : @"Marketplace",
-             @"region" : @"Region",
-             @"sdbDatastoreEndpoints" : @"SdbDatastoreEndpoints",
-             @"stackName" : @"StackName",
-             };
-}
-
-@end
-
 @implementation AWSCloudWatchListMetricsInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1189,23 +1173,6 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
                 return nil;
         }
     }];
-}
-
-@end
-
-@implementation AWSCloudWatchMetricDataBatch
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"accountId" : @"AccountId",
-             @"autoDecompose" : @"AutoDecompose",
-             @"metricData" : @"MetricData",
-             @"namespace" : @"Namespace",
-             };
-}
-
-+ (NSValueTransformer *)metricDataJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchMetricDatum class]];
 }
 
 @end
@@ -1628,20 +1595,6 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
                 return nil;
         }
     }];
-}
-
-@end
-
-@implementation AWSCloudWatchPutMetricDataBatchInput
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"metricDataBatches" : @"MetricDataBatches",
-             };
-}
-
-+ (NSValueTransformer *)metricDataBatchesJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchMetricDataBatch class]];
 }
 
 @end

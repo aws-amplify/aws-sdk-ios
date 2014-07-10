@@ -85,20 +85,19 @@
         NSString *systemName = [[[UIDevice currentDevice] systemName] stringByReplacingOccurrencesOfString:@" " withString:@"-"];
         NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
         NSString *localeIdentifier = [[NSLocale currentLocale] localeIdentifier];
-        _userAgent = [NSString stringWithFormat:@"aws-sdk-iOS/%@ %@/%@ %@", @"2.0.0", systemName, systemVersion, localeIdentifier];
+        _userAgent = [NSString stringWithFormat:@"aws-sdk-iOS/%@ %@/%@ %@", @"2.0.3", systemName, systemVersion, localeIdentifier];
     });
 
     return _userAgent;
 }
 
-- (BOOL)interceptRequest:(NSMutableURLRequest *)request
-                   error:(NSError *__autoreleasing *)error {
+- (BFTask *)interceptRequest:(NSMutableURLRequest *)request {
     [request setValue:[[NSDate date] az_stringValue:AZDateISO8601DateFormat2] forHTTPHeaderField:@"X-Amz-Date"];
 
     NSString *userAgent = [self userAgent];
     [request setValue:userAgent forHTTPHeaderField:@"User-Agent"];
 
-    return YES;
+    return [BFTask taskWithResult:nil];
 }
 
 @end

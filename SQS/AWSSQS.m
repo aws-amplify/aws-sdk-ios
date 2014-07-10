@@ -41,6 +41,9 @@
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"IncompleteSignature" : @(AWSSQSErrorIncompleteSignature),
+                            @"InvalidClientTokenId" : @(AWSSQSErrorInvalidClientTokenId),
+                            @"MissingAuthenticationToken" : @(AWSSQSErrorMissingAuthenticationToken),
                             @"BatchEntryIdsNotDistinct" : @(AWSSQSErrorBatchEntryIdsNotDistinct),
                             @"BatchRequestTooLong" : @(AWSSQSErrorBatchRequestTooLong),
                             @"EmptyBatchRequest" : @(AWSSQSErrorEmptyBatchRequest),
@@ -55,6 +58,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"QueueNameExists" : @(AWSSQSErrorQueueNameExists),
                             @"ReceiptHandleIsInvalid" : @(AWSSQSErrorReceiptHandleIsInvalid),
                             @"TooManyEntriesInBatchRequest" : @(AWSSQSErrorTooManyEntriesInBatchRequest),
+                            @"UnsupportedOperation" : @(AWSSQSErrorUnsupportedOperation),
                             };
 }
 

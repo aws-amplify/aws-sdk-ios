@@ -41,6 +41,9 @@
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"IncompleteSignature" : @(AWSElasticLoadBalancingErrorIncompleteSignature),
+                            @"InvalidClientTokenId" : @(AWSElasticLoadBalancingErrorInvalidClientTokenId),
+                            @"MissingAuthenticationToken" : @(AWSElasticLoadBalancingErrorMissingAuthenticationToken),
                             @"AccessPointNotFoundException" : @(AWSElasticLoadBalancingErrorAccessPointNotFound),
                             @"CertificateNotFoundException" : @(AWSElasticLoadBalancingErrorCertificateNotFound),
                             @"DuplicateAccessPointNameException" : @(AWSElasticLoadBalancingErrorDuplicateAccessPointName),

@@ -27,6 +27,8 @@
 #import "EC2.h"
 #import "AutoScaling.h"
 #import "ElasticLoadBalancing.h"
+#import "Kinesis.h"
+#import "AWSKinesis.h"
 
 @import ObjectiveC.runtime;
 
@@ -44,6 +46,13 @@ static char mockDateKey;
 - (void)setUp
 {
     [super setUp];
+    
+    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
+        AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
+        AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
+                                                                               credentialsProvider:credentialsProvider];
+        [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+    }
     
     // Start by having the mock return the test startup date
     [self setMockDate:[NSDate date]];
@@ -80,6 +89,60 @@ static char mockDateKey;
     objc_setAssociatedObject([NSDate class], &mockDateKey, aMockDate, OBJC_ASSOCIATION_RETAIN);
 }
 
+// ERS Test
+-(void)testClockSkewERS
+{
+    XCTAssertFalse([NSDate az_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
+    
+    AWSEventRecorderService *ers = [AWSEventRecorderService defaultEventRecorderService];
+    XCTAssertNotNil(ers);
+    
+    AWSEventRecorderServicePutEventsInput *putEventInput = [AWSEventRecorderServicePutEventsInput new];
+    
+    
+    AWSEventRecorderServiceEvent *eventOne = [AWSEventRecorderServiceEvent new];
+    
+    eventOne.attributes = @{};
+    eventOne.version = @"v2.0";
+    eventOne.eventType = @"_session.start";
+    eventOne.timestamp = [[NSDate date] az_stringValue:AZDateISO8601DateFormat3];
+    
+    AWSEventRecorderServiceSession *serviceSession = [AWSEventRecorderServiceSession new];
+    serviceSession.id = @"SMZSP1G8-21c9ac01-20140604-171714026";
+    serviceSession.startTimestamp = [[NSDate date] az_stringValue:AZDateISO8601DateFormat3];
+    
+    eventOne.session = serviceSession;
+    
+    putEventInput.events = @[eventOne];
+    
+    NSDictionary *clientContext = @{@"client": @{@"app_package_name": @"MT3T3XMSMZSP1G8",
+                                                 @"app_version_name":@"v1.2",
+                                                 @"app_version_code":@"3",
+                                                 @"app_title":[NSNull null],
+                                                 @"client_id":@"0a877e9d-c7c0-4269-b138-cb3f21c9ac01"
+                                                 },
+                                    @"env" : @{@"model": @"iPhone Simulator",
+                                               @"make":@"Apple",
+                                               @"platform":@"IOS",
+                                               @"platform_version":@"4.3.1",
+                                               @"locale":@"en-US"},
+                                    @"custom" : @{},
+                                    };
+    NSString *clientContextJsonString = [[NSString alloc] initWithData: [NSJSONSerialization dataWithJSONObject:clientContext options:0 error:nil] encoding:NSUTF8StringEncoding];
+    
+    putEventInput.clientContext = clientContextJsonString;
+    
+    [[[ers putEvents:putEventInput] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        
+        return nil;
+        
+    }] waitUntilFinished ];
+
+    
+}
+
 // S3 Test
 -(void)testClockSkewS3
 {
@@ -105,6 +168,7 @@ static char mockDateKey;
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSSimpleDB *sdb = [AWSSimpleDB defaultSimpleDB];
+    XCTAssertNotNil(sdb);
     
     AWSSimpleDBListDomainsRequest *listDomainsRequest = [AWSSimpleDBListDomainsRequest new];
     [[[sdb listDomains:listDomainsRequest] continueWithBlock:^id(BFTask *task) {
@@ -129,6 +193,7 @@ static char mockDateKey;
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
+    XCTAssertNotNil(dynamoDB);
     
     AWSDynamoDBListTablesInput *listTablesInput = [AWSDynamoDBListTablesInput new];
     
@@ -152,6 +217,7 @@ static char mockDateKey;
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSSQS *sqs = [AWSSQS defaultSQS];
+    XCTAssertNotNil(sqs);
     
     AWSSQSListQueuesRequest *listQueuesRequest = [AWSSQSListQueuesRequest new];
     [[[sqs listQueues:listQueuesRequest] continueWithBlock:^id(BFTask *task) {
@@ -177,6 +243,7 @@ static char mockDateKey;
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSSNS *sns = [AWSSNS defaultSNS];
+    XCTAssertNotNil(sns);
     
     AWSSNSListTopicsInput *listTopicsInput = [AWSSNSListTopicsInput new];
     [[[sns listTopics:listTopicsInput] continueWithBlock:^id(BFTask *task) {
@@ -201,16 +268,17 @@ static char mockDateKey;
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSCloudWatch *cloudWatch = [AWSCloudWatch defaultCloudWatch];
+    XCTAssertNotNil(cloudWatch);
     
-    [[[cloudWatch listHostInfo:nil] continueWithBlock:^id(BFTask *task) {
+    [[[cloudWatch listMetrics:nil] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
         
         if (task.result) {
-            XCTAssertTrue([task.result isKindOfClass:[AWSCloudWatchListHostInfoOutput class]]);
-            AWSCloudWatchListHostInfoOutput *listHostInfoOutput = task.result;
-            XCTAssertNotNil(listHostInfoOutput.hostName);
+            XCTAssertTrue([task.result isKindOfClass:[AWSCloudWatchListMetricsOutput class]]);
+            AWSCloudWatchListMetricsOutput *listMetricsOutput = task.result;
+            XCTAssertNotNil(listMetricsOutput.metrics);
         }
         
         return nil;
@@ -224,6 +292,7 @@ static char mockDateKey;
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSSES *ses = [AWSSES defaultSES];
+    XCTAssertNotNil(ses);
     
     [[[ses getSendQuota:nil] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
@@ -248,6 +317,7 @@ static char mockDateKey;
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSEC2 *ec2 = [AWSEC2 defaultEC2];
+    XCTAssertNotNil(ec2);
     
     AWSEC2DescribeInstancesRequest *describeInstancesRequest = [AWSEC2DescribeInstancesRequest new];
     [[[ec2 describeInstances:describeInstancesRequest] continueWithBlock:^id(BFTask *task) {
@@ -271,6 +341,7 @@ static char mockDateKey;
     XCTAssertFalse([NSDate az_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     AWSElasticLoadBalancing *elb = [AWSElasticLoadBalancing defaultElasticLoadBalancing];
+    XCTAssertNotNil(elb);
     
     AWSElasticLoadBalancingDescribeAccessPointsInput *describeAccessPointsInput = [AWSElasticLoadBalancingDescribeAccessPointsInput new];
     [[[elb describeLoadBalancers:describeAccessPointsInput] continueWithBlock:^id(BFTask *task) {
@@ -295,6 +366,7 @@ static char mockDateKey;
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSAutoScaling *autoScaling = [AWSAutoScaling defaultAutoScaling];
+    XCTAssertNotNil(autoScaling);
     
     [[[autoScaling describeAccountLimits:nil] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
@@ -318,6 +390,7 @@ static char mockDateKey;
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSSTS *sts = [AWSSTS defaultSTS];
+    XCTAssertNotNil(sts);
     
     AWSSTSGetSessionTokenRequest *getSessionTokenRequest = [AWSSTSGetSessionTokenRequest new];
     getSessionTokenRequest.durationSeconds = @900;
@@ -339,6 +412,58 @@ static char mockDateKey;
     }] waitUntilFinished];
 
 }
+
+//Kinesis Test
+-(void)testClockSkewKinesis
+{
+    XCTAssertFalse([NSDate az_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
+    
+    AWSKinesis *kinesis = [AWSKinesis defaultKinesis];
+    XCTAssertNotNil(kinesis);
+    
+    AWSKinesisListStreamsInput *listStreamsInput = [AWSKinesisListStreamsInput new];
+    [[[kinesis listStreams:listStreamsInput] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        if (task.result) {
+            XCTAssertTrue([task.result isKindOfClass:[AWSKinesisListStreamsOutput class]]);
+            AWSKinesisListStreamsOutput *listStreamsOutput = task.result;
+            XCTAssertNotNil(listStreamsOutput.streamNames);
+        }
+        
+        return nil;
+    }] waitUntilFinished];
+}
+
+//Cognito Identity Service Test
+-(void)testClockSkewCognitoIdentityService
+{
+    XCTAssertFalse([NSDate az_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
+    
+    AWSCognitoIdentityService *cib = [AWSCognitoIdentityService defaultCognitoIdentityService];
+    XCTAssertNotNil(cib);
+    
+    AWSCognitoIdentityServiceListIdentityPoolsInput *listPools = [AWSCognitoIdentityServiceListIdentityPoolsInput new];
+    listPools.maxResults = [NSNumber numberWithInt:10];
+    [[[cib listIdentityPools:listPools] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        if (task.result) {
+            XCTAssertTrue([task.result isKindOfClass:[AWSCognitoIdentityServiceListIdentityPoolsResponse class]]);
+        }
+        
+        return nil;
+    }] waitUntilFinished];
+
+}
+
+//TODO: Add ClockSkew Test for AWSCognitoService
 
 @end
 

@@ -41,6 +41,8 @@
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"AuthFailure" : @(AWSEC2ErrorAuthFailure),
+                            @"SignatureDoesNotMatch" : @(AWSEC2ErrorSignatureDoesNotMatch),
                             };
 }
 
@@ -202,17 +204,26 @@ static NSDictionary *errorCodeDictionary = nil;
 
     AWSQueryStringRequestSerializer *requestSerializer = [AWSQueryStringRequestSerializer new];
     requestSerializer.additionalParameters = @{@"Action" : operationName,
-                                               @"Version" : @"2013-10-15"};
+                                               @"Version" : @"2014-05-01"};
     networkingRequest.requestSerializer = requestSerializer;
 
     networkingRequest.responseSerializer = [AWSEC2ResponseSerializer serializerWithOutputClass:outputClass
-                                                                                      resource:@"ec2-2013-10-15"
+                                                                                      resource:@"ec2-2014-05-01"
                                                                                     actionName:operationName];
 
     return [self.networking sendRequest:networkingRequest];
 }
 
 #pragma mark - Service method
+
+- (BFTask *)acceptVpcPeeringConnection:(AWSEC2AcceptVpcPeeringConnectionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AZHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"AcceptVpcPeeringConnection"
+                   outputClass:[AWSEC2AcceptVpcPeeringConnectionResult class]];
+}
 
 - (BFTask *)allocateAddress:(AWSEC2AllocateAddressRequest *)request {
     return [self invokeRequest:request
@@ -283,7 +294,7 @@ static NSDictionary *errorCodeDictionary = nil;
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"AttachVolume"
-                   outputClass:[AWSEC2AttachVolumeResult class]];
+                   outputClass:[AWSEC2VolumeAttachment class]];
 }
 
 - (BFTask *)attachVpnGateway:(AWSEC2AttachVpnGatewayRequest *)request {
@@ -427,7 +438,7 @@ static NSDictionary *errorCodeDictionary = nil;
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateKeyPair"
-                   outputClass:[AWSEC2CreateKeyPairResult class]];
+                   outputClass:[AWSEC2KeyPair class]];
 }
 
 - (BFTask *)createNetworkAcl:(AWSEC2CreateNetworkAclRequest *)request {
@@ -508,7 +519,7 @@ static NSDictionary *errorCodeDictionary = nil;
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateSnapshot"
-                   outputClass:[AWSEC2CreateSnapshotResult class]];
+                   outputClass:[AWSEC2Snapshot class]];
 }
 
 - (BFTask *)createSpotDatafeedSubscription:(AWSEC2CreateSpotDatafeedSubscriptionRequest *)request {
@@ -544,7 +555,7 @@ static NSDictionary *errorCodeDictionary = nil;
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateVolume"
-                   outputClass:[AWSEC2CreateVolumeResult class]];
+                   outputClass:[AWSEC2Volume class]];
 }
 
 - (BFTask *)createVpc:(AWSEC2CreateVpcRequest *)request {
@@ -554,6 +565,15 @@ static NSDictionary *errorCodeDictionary = nil;
                   targetPrefix:@""
                  operationName:@"CreateVpc"
                    outputClass:[AWSEC2CreateVpcResult class]];
+}
+
+- (BFTask *)createVpcPeeringConnection:(AWSEC2CreateVpcPeeringConnectionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AZHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateVpcPeeringConnection"
+                   outputClass:[AWSEC2CreateVpcPeeringConnectionResult class]];
 }
 
 - (BFTask *)createVpnConnection:(AWSEC2CreateVpnConnectionRequest *)request {
@@ -736,6 +756,15 @@ static NSDictionary *errorCodeDictionary = nil;
                    outputClass:nil];
 }
 
+- (BFTask *)deleteVpcPeeringConnection:(AWSEC2DeleteVpcPeeringConnectionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AZHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteVpcPeeringConnection"
+                   outputClass:[AWSEC2DeleteVpcPeeringConnectionResult class]];
+}
+
 - (BFTask *)deleteVpnConnection:(AWSEC2DeleteVpnConnectionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AZHTTPMethodPOST
@@ -850,7 +879,7 @@ static NSDictionary *errorCodeDictionary = nil;
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeImageAttribute"
-                   outputClass:[AWSEC2DescribeImageAttributeResult class]];
+                   outputClass:[AWSEC2ImageAttribute class]];
 }
 
 - (BFTask *)describeImages:(AWSEC2DescribeImagesRequest *)request {
@@ -868,7 +897,7 @@ static NSDictionary *errorCodeDictionary = nil;
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeInstanceAttribute"
-                   outputClass:[AWSEC2DescribeInstanceAttributeResult class]];
+                   outputClass:[AWSEC2InstanceAttribute class]];
 }
 
 - (BFTask *)describeInstanceStatus:(AWSEC2DescribeInstanceStatusRequest *)request {
@@ -1105,6 +1134,15 @@ static NSDictionary *errorCodeDictionary = nil;
                    outputClass:[AWSEC2DescribeVpcAttributeResult class]];
 }
 
+- (BFTask *)describeVpcPeeringConnections:(AWSEC2DescribeVpcPeeringConnectionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AZHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeVpcPeeringConnections"
+                   outputClass:[AWSEC2DescribeVpcPeeringConnectionsResult class]];
+}
+
 - (BFTask *)describeVpcs:(AWSEC2DescribeVpcsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AZHTTPMethodPOST
@@ -1156,7 +1194,7 @@ static NSDictionary *errorCodeDictionary = nil;
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DetachVolume"
-                   outputClass:[AWSEC2DetachVolumeResult class]];
+                   outputClass:[AWSEC2VolumeAttachment class]];
 }
 
 - (BFTask *)detachVpnGateway:(AWSEC2DetachVpnGatewayRequest *)request {
@@ -1357,6 +1395,15 @@ static NSDictionary *errorCodeDictionary = nil;
                    outputClass:[AWSEC2RegisterImageResult class]];
 }
 
+- (BFTask *)rejectVpcPeeringConnection:(AWSEC2RejectVpcPeeringConnectionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AZHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"RejectVpcPeeringConnection"
+                   outputClass:[AWSEC2RejectVpcPeeringConnectionResult class]];
+}
+
 - (BFTask *)releaseAddress:(AWSEC2ReleaseAddressRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AZHTTPMethodPOST
@@ -1498,7 +1545,7 @@ static NSDictionary *errorCodeDictionary = nil;
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"RunInstances"
-                   outputClass:[AWSEC2RunInstancesResult class]];
+                   outputClass:[AWSEC2Reservation class]];
 }
 
 - (BFTask *)startInstances:(AWSEC2StartInstancesRequest *)request {

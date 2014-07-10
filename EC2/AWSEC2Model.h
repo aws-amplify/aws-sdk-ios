@@ -185,6 +185,7 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceAttributeName) {
     AWSEC2InstanceAttributeNameSourceDestCheck,
     AWSEC2InstanceAttributeNameGroupSet,
     AWSEC2InstanceAttributeNameEBSOptimized,
+    AWSEC2InstanceAttributeNameSriovNetSupport,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceLifecycleType) {
@@ -234,6 +235,11 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeCC2_8xlarge,
     AWSEC2InstanceTypeG2_2xlarge,
     AWSEC2InstanceTypeCG1_4xlarge,
+    AWSEC2InstanceTypeR3_large,
+    AWSEC2InstanceTypeR3_xlarge,
+    AWSEC2InstanceTypeR3_2xlarge,
+    AWSEC2InstanceTypeR3_4xlarge,
+    AWSEC2InstanceTypeR3_8xlarge,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2ListingState) {
@@ -534,6 +540,8 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
     AWSEC2VpnStaticRouteSourceStatic,
 };
 
+@class AWSEC2AcceptVpcPeeringConnectionRequest;
+@class AWSEC2AcceptVpcPeeringConnectionResult;
 @class AWSEC2AccountAttribute;
 @class AWSEC2AccountAttributeValue;
 @class AWSEC2Address;
@@ -558,6 +566,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @class AWSEC2AuthorizeSecurityGroupIngressRequest;
 @class AWSEC2AvailabilityZone;
 @class AWSEC2AvailabilityZoneMessage;
+@class AWSEC2BlobAttributeValue;
 @class AWSEC2BlockDeviceMapping;
 @class AWSEC2BundleInstanceRequest;
 @class AWSEC2BundleInstanceResult;
@@ -611,6 +620,8 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @class AWSEC2CreateVolumePermissionModifications;
 @class AWSEC2CreateVolumeRequest;
 @class AWSEC2CreateVolumeResult;
+@class AWSEC2CreateVpcPeeringConnectionRequest;
+@class AWSEC2CreateVpcPeeringConnectionResult;
 @class AWSEC2CreateVpcRequest;
 @class AWSEC2CreateVpcResult;
 @class AWSEC2CreateVpnConnectionRequest;
@@ -635,6 +646,8 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @class AWSEC2DeleteSubnetRequest;
 @class AWSEC2DeleteTagsRequest;
 @class AWSEC2DeleteVolumeRequest;
+@class AWSEC2DeleteVpcPeeringConnectionRequest;
+@class AWSEC2DeleteVpcPeeringConnectionResult;
 @class AWSEC2DeleteVpcRequest;
 @class AWSEC2DeleteVpnConnectionRequest;
 @class AWSEC2DeleteVpnConnectionRouteRequest;
@@ -714,6 +727,8 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @class AWSEC2DescribeVolumesResult;
 @class AWSEC2DescribeVpcAttributeRequest;
 @class AWSEC2DescribeVpcAttributeResult;
+@class AWSEC2DescribeVpcPeeringConnectionsRequest;
+@class AWSEC2DescribeVpcPeeringConnectionsResult;
 @class AWSEC2DescribeVpcsRequest;
 @class AWSEC2DescribeVpcsResult;
 @class AWSEC2DescribeVpnConnectionsRequest;
@@ -825,6 +840,8 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @class AWSEC2Region;
 @class AWSEC2RegisterImageRequest;
 @class AWSEC2RegisterImageResult;
+@class AWSEC2RejectVpcPeeringConnectionRequest;
+@class AWSEC2RejectVpcPeeringConnectionResult;
 @class AWSEC2ReleaseAddressRequest;
 @class AWSEC2ReplaceNetworkAclAssociationRequest;
 @class AWSEC2ReplaceNetworkAclAssociationResult;
@@ -895,11 +912,35 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @class AWSEC2VolumeStatusItem;
 @class AWSEC2Vpc;
 @class AWSEC2VpcAttachment;
+@class AWSEC2VpcPeeringConnection;
+@class AWSEC2VpcPeeringConnectionStateReason;
+@class AWSEC2VpcPeeringConnectionVpcInfo;
 @class AWSEC2VpnConnection;
 @class AWSEC2VpnConnectionOptions;
 @class AWSEC2VpnConnectionOptionsSpecification;
 @class AWSEC2VpnGateway;
 @class AWSEC2VpnStaticRoute;
+
+@interface AWSEC2AcceptVpcPeeringConnectionRequest : AWSRequest
+
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ * <p>The ID of the VPC peering connection.</p>
+ */
+@property (nonatomic, strong) NSString *vpcPeeringConnectionId;
+
+@end
+
+@interface AWSEC2AcceptVpcPeeringConnectionResult : AZModel
+
+
+/**
+ * <p>Information about the VPC peering connection.</p>
+ */
+@property (nonatomic, strong) AWSEC2VpcPeeringConnection *vpcPeeringConnection;
+
+@end
 
 /**
  * <p>Describes an account attribute.</p>
@@ -939,16 +980,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 
 /**
- * <p>The ID of the instance the address is associated with (if any).</p>
- */
-@property (nonatomic, strong) NSString *instanceId;
-
-/**
- * <p>The Elastic IP address.</p>
- */
-@property (nonatomic, strong) NSString *publicIp;
-
-/**
  * <p>The ID representing the allocation of the address for use with EC2-VPC.</p>
  */
 @property (nonatomic, strong) NSString *allocationId;
@@ -964,6 +995,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, assign) AWSEC2DomainType domain;
 
 /**
+ * <p>The ID of the instance the address is associated with (if any).</p>
+ */
+@property (nonatomic, strong) NSString *instanceId;
+
+/**
  * <p>The ID of the network interface.</p>
  */
 @property (nonatomic, strong) NSString *networkInterfaceId;
@@ -977,6 +1013,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The private IP address associated with the Elastic IP address.</p>
  */
 @property (nonatomic, strong) NSString *privateIpAddress;
+
+/**
+ * <p>The Elastic IP address.</p>
+ */
+@property (nonatomic, strong) NSString *publicIp;
 
 @end
 
@@ -995,11 +1036,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 
 /**
- * <p>The Elastic IP address.</p>
- */
-@property (nonatomic, strong) NSString *publicIp;
-
-/**
  * <p>[EC2-VPC] The ID that AWS assigns to represent the allocation of 				the Elastic IP address for use with instances in a VPC.</p>
  */
 @property (nonatomic, strong) NSString *allocationId;
@@ -1008,6 +1044,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>Indicates whether this Elastic IP address is for use with instances 				in EC2-Classic (<code>standard</code>) or instances in a VPC (<code>vpc</code>).</p>
  */
 @property (nonatomic, assign) AWSEC2DomainType domain;
+
+/**
+ * <p>The Elastic IP address.</p>
+ */
+@property (nonatomic, strong) NSString *publicIp;
 
 @end
 
@@ -1045,20 +1086,15 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *allocationId;
 
 /**
- * <p>The ID of the instance. The operation fails if 				you specify an instance ID unless exactly one network interface is 				attached.</p>
- */
-@property (nonatomic, strong) NSString *instanceId;
-
-/**
- * <p>The Elastic IP address.</p>
- */
-@property (nonatomic, strong) NSString *publicIp;
-
-/**
  * <p>[EC2-VPC] Allows an Elastic IP address that is already associated 				with an instance or network interface to be re-associated with the 				specified instance or network interface. Otherwise, the operation 				fails.</p><p>Default: <code>false</code></p>
  */
 @property (nonatomic, strong) NSNumber *allowReassociation;
 @property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ * <p>The ID of the instance. The operation fails if 				you specify an instance ID unless exactly one network interface is 				attached.</p>
+ */
+@property (nonatomic, strong) NSString *instanceId;
 
 /**
  * <p>[EC2-VPC] The ID of the network interface. If the instance has more than onenetwork interface, you must specify a network interface ID.</p>
@@ -1069,6 +1105,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>[EC2-VPC] The primary or secondary private IP address to associate 				with the Elastic IP address. If no private IP address is specified, the 				Elastic IP address is associated with the primary private IP 				address.</p>
  */
 @property (nonatomic, strong) NSString *privateIpAddress;
+
+/**
+ * <p>The Elastic IP address.</p>
+ */
+@property (nonatomic, strong) NSString *publicIp;
 
 @end
 
@@ -1089,12 +1130,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The ID of the DHCP options set, or <code>default</code> to associateno DHCP options with the VPC.</p>
  */
 @property (nonatomic, strong) NSString *dhcpOptionsId;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the VPC.</p>
  */
 @property (nonatomic, strong) NSString *vpcId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -1178,6 +1219,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The device name to expose to the instance (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
  */
 @property (nonatomic, strong) NSString *device;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the instance.</p>
@@ -1188,7 +1230,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The ID of the Amazon EBS volume. The volume and instance must be within the same AvailabilityZone.</p>
  */
 @property (nonatomic, strong) NSString *volumeId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -1204,6 +1245,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2AttachVpnGatewayRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the VPC.</p>
@@ -1214,7 +1256,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The ID of the virtual private gateway.</p>
  */
 @property (nonatomic, strong) NSString *vpnGatewayId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -1293,6 +1334,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The CIDR IP address range. You can't specify this parameter when specifying a source security group.</p>
  */
 @property (nonatomic, strong) NSString *cidrIp;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number,use <code>-1</code> to specify all ICMP types.</p>
@@ -1333,7 +1375,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number,use <code>-1</code> to specify all ICMP codes for the ICMP type.</p>
  */
 @property (nonatomic, strong) NSNumber *toPort;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -1344,11 +1385,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 
 /**
- * <p>The state of the Availability Zone.</p>
- */
-@property (nonatomic, assign) AWSEC2AvailabilityZoneState state;
-
-/**
  * <p>Any messages about the Availability Zone.</p>
  */
 @property (nonatomic, strong) NSArray *messages;
@@ -1357,6 +1393,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The name of the region.</p>
  */
 @property (nonatomic, strong) NSString *regionName;
+
+/**
+ * <p>The state of the Availability Zone.</p>
+ */
+@property (nonatomic, assign) AWSEC2AvailabilityZoneState state;
 
 /**
  * <p>The name of the Availability Zone.</p>
@@ -1378,6 +1419,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @end
 
+@interface AWSEC2BlobAttributeValue : AZModel
+
+@property (nonatomic, strong) NSData *value;
+
+@end
+
 /**
  * <p>Describes a block device mapping.</p>
  */
@@ -1390,11 +1437,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *deviceName;
 
 /**
- * <p>The virtual device name.</p>
- */
-@property (nonatomic, strong) NSString *virtualName;
-
-/**
  * <p>Parameters used to automatically set up Amazon EBS volumes when the instance is launched.</p>
  */
 @property (nonatomic, strong) AWSEC2EbsBlockDevice *ebs;
@@ -1404,10 +1446,16 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  */
 @property (nonatomic, strong) NSString *noDevice;
 
+/**
+ * <p>The virtual device name.</p>
+ */
+@property (nonatomic, strong) NSString *virtualName;
+
 @end
 
 @interface AWSEC2BundleInstanceRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the instance to bundle.</p>
@@ -1418,7 +1466,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The bucket in which to store the AMI. You can specify a bucket that 				you already own or a new bucket that Amazon EC2 creates on your behalf. 				If you specify a bucket that belongs to someone else, Amazon EC2 returns 				an error.</p>
  */
 @property (nonatomic, strong) AWSEC2Storage *storage;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -1602,6 +1649,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2ConfirmProductInstanceRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the instance.</p>
@@ -1612,7 +1660,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The product code. This must be an Amazon DevPay product code that you own.</p>
  */
 @property (nonatomic, strong) NSString *productCode;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -1628,7 +1675,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 /**
  * <p>Describes a conversion task.</p>
- * Required parameters: [conversionTaskId, state]
+ * Required parameters: [ConversionTaskId, State]
  */
 @interface AWSEC2ConversionTask : AZModel
 
@@ -1673,6 +1720,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>For devices that support BGP, the customer gateway's BGP ASN.</p> 		 <p>Default: 65000</p>
  */
 @property (nonatomic, strong) NSNumber *bgpAsn;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The Internet-routable IP address for the customer gateway's outside 				interface. The address must be static.</p>
@@ -1683,7 +1731,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The type of VPN connection that this customer gateway supports.</p>
  */
 @property (nonatomic, assign) AWSEC2GatewayType type;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -1808,12 +1855,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2CreateKeyPairRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>A unique name for the key pair.</p>
  */
 @property (nonatomic, strong) NSString *keyName;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -2020,6 +2067,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  */
 @property (nonatomic, strong) NSString *routeTableId;
 
+/**
+ * <p>The ID of a VPC peering connection.</p>
+ */
+@property (nonatomic, strong) NSString *vpcPeeringConnectionId;
+
 @end
 
 @interface AWSEC2CreateRouteTableRequest : AWSRequest
@@ -2050,6 +2102,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>A description for the security group. This is informational only.</p>
  */
 @property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The name of the security group.</p><p>Constraints: Up to 255 characters in length</p><p>Constraints for EC2-Classic: ASCII characters</p><p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</p>
@@ -2060,7 +2113,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>[EC2-VPC] The ID of the VPC.</p>
  */
 @property (nonatomic, strong) NSString *vpcId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -2081,12 +2133,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>A description for the snapshot.</p>
  */
 @property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the Amazon EBS volume.</p>
  */
 @property (nonatomic, strong) NSString *volumeId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -2138,12 +2190,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>.</p>
  */
 @property (nonatomic, strong) NSString *cidrBlock;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the VPC.</p>
  */
 @property (nonatomic, strong) NSString *vpcId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -2210,6 +2262,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The Availability Zone in which to create the volume. Use <a>DescribeAvailabilityZones</a> tolist the Availability Zones that are currently available to you.</p>
  */
 @property (nonatomic, strong) NSString *availabilityZone;
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ * <p>Specifies whether the volume should be encrypted.</p>
+ */
+@property (nonatomic, strong) NSNumber *encrypted;
 
 /**
  * <p>The number of I/O operations per second (IOPS) that the volume supports. This parameter is notused with standard volumes, but is required when the volume type is <code>io1</code>.</p>
@@ -2227,10 +2285,9 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *snapshotId;
 
 /**
- * <p>The volume type.</p><p>Default: <code>standard</code></p>
+ * <p>The volume type. This can be <code>standard</code> for standard EBS volumes or <code>io1</code> for Provisioned IOPS volumes.</p><p>Default: <code>standard</code></p>
  */
 @property (nonatomic, assign) AWSEC2VolumeType volumeType;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -2241,6 +2298,37 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>Describes a volume.</p>
  */
 @property (nonatomic, strong) AWSEC2Volume *volume;
+
+@end
+
+@interface AWSEC2CreateVpcPeeringConnectionRequest : AWSRequest
+
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ * <p>The AWS account ID of the owner of the peer VPC.</p><p>Default: Your AWS account ID</p>
+ */
+@property (nonatomic, strong) NSString *peerOwnerId;
+
+/**
+ * <p>The ID of the VPC with which you are creating the VPC peering connection.</p>
+ */
+@property (nonatomic, strong) NSString *peerVpcId;
+
+/**
+ * <p>The ID of the requester VPC.</p>
+ */
+@property (nonatomic, strong) NSString *vpcId;
+
+@end
+
+@interface AWSEC2CreateVpcPeeringConnectionResult : AZModel
+
+
+/**
+ * <p>Information about the VPC peering connection.</p>
+ */
+@property (nonatomic, strong) AWSEC2VpcPeeringConnection *vpcPeeringConnection;
 
 @end
 
@@ -2277,6 +2365,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The ID of the customer gateway.</p>
  */
 @property (nonatomic, strong) NSString *customerGatewayId;
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ * <p>Indicates whether the VPN connection requires static routes. If you 				are creating a VPN connection for a device that does not support BGP, 				you must specify <code>true</code>.</p><p>Default: <code>false</code></p>
+ */
+@property (nonatomic, strong) AWSEC2VpnConnectionOptionsSpecification *options;
 
 /**
  * <p>The type of VPN connection.</p>
@@ -2287,12 +2381,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The ID of the virtual private gateway.</p>
  */
 @property (nonatomic, strong) NSString *vpnGatewayId;
-@property (nonatomic, strong) NSNumber *dryRun;
-
-/**
- * <p>Indicates whether the VPN connection requires static routes. If you 				are creating a VPN connection for a device that does not support BGP, 				you must specify <code>true</code>.</p><p>Default: <code>false</code></p>
- */
-@property (nonatomic, strong) AWSEC2VpnConnectionOptionsSpecification *options;
 
 @end
 
@@ -2328,12 +2416,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The Availability Zone for the virtual private gateway.</p>
  */
 @property (nonatomic, strong) NSString *availabilityZone;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The type of VPN connection this virtual private gateway supports.</p>
  */
 @property (nonatomic, assign) AWSEC2GatewayType type;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -2374,14 +2462,14 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *state;
 
 /**
- * <p>The type of VPN connection the customer gateway supports.</p>
- */
-@property (nonatomic, strong) NSString *type;
-
-/**
  * <p>Any tags assigned to the customer gateway.</p>
  */
 @property (nonatomic, strong) NSArray *tags;
+
+/**
+ * <p>The type of VPN connection the customer gateway supports.</p>
+ */
+@property (nonatomic, strong) NSString *type;
 
 @end
 
@@ -2420,12 +2508,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2DeleteKeyPairRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The name of the key pair.</p>
  */
 @property (nonatomic, strong) NSString *keyName;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -2512,6 +2600,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2DeleteSecurityGroupRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the security group.</p>
@@ -2522,18 +2611,17 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>[EC2-Classic, default VPC] The name of the security group.</p>
  */
 @property (nonatomic, strong) NSString *groupName;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
 @interface AWSEC2DeleteSnapshotRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the Amazon EBS snapshot.</p>
  */
 @property (nonatomic, strong) NSString *snapshotId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -2545,12 +2633,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2DeleteSubnetRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the subnet.</p>
  */
 @property (nonatomic, strong) NSString *subnetId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -2572,34 +2660,51 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2DeleteVolumeRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the volume.</p>
  */
 @property (nonatomic, strong) NSString *volumeId;
+
+@end
+
+@interface AWSEC2DeleteVpcPeeringConnectionRequest : AWSRequest
+
 @property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ * <p>The ID of the VPC peering connection.</p>
+ */
+@property (nonatomic, strong) NSString *vpcPeeringConnectionId;
+
+@end
+
+@interface AWSEC2DeleteVpcPeeringConnectionResult : AZModel
+
+@property (nonatomic, strong) NSNumber *returned;
 
 @end
 
 @interface AWSEC2DeleteVpcRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the VPC.</p>
  */
 @property (nonatomic, strong) NSString *vpcId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
 @interface AWSEC2DeleteVpnConnectionRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the VPN connection.</p>
  */
 @property (nonatomic, strong) NSString *vpnConnectionId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -2620,23 +2725,23 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2DeleteVpnGatewayRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the virtual private gateway.</p>
  */
 @property (nonatomic, strong) NSString *vpnGatewayId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
 @interface AWSEC2DeregisterImageRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the AMI.</p>
  */
 @property (nonatomic, strong) NSString *imageId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -2665,11 +2770,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 
 /**
- * <p>[EC2-Classic] One or more Elastic IP addresses.</p><p>Default: Describes all your Elastic IP addresses.</p>
- */
-@property (nonatomic, strong) NSArray *publicIps;
-
-/**
  * <p>[EC2-VPC] One or more allocation IDs.</p><p>Default: Describes all your Elastic IP addresses.</p>
  */
 @property (nonatomic, strong) NSArray *allocationIds;
@@ -2679,6 +2779,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>One or more filters.</p><ul><li><p><code>allocation-id</code> - [EC2-VPC] The allocation ID for the address.</p></li><li><p><code>association-id</code> - [EC2-VPC] The association ID for the address.</p></li><li><p><code>domain</code> - Indicates whether the address is for use in EC2-Classic (<code>standard</code>) or in a VPC (<code>vpc</code>).</p></li><li><p><code>instance-id</code> - The ID of the instance the address is associated with, if any.</p></li><li><p><code>network-interface-id</code> - [EC2-VPC] The ID of the network interface that the address is associated with, if any.</p></li><li><p><code>network-interface-owner-id</code> - The AWS account ID of the owner.</p></li><li><p><code>private-ip-address</code> - [EC2-VPC] The private IP address associated with the Elastic IP address.</p></li><li><p><code>public-ip</code> - The Elastic IP address.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray *filters;
+
+/**
+ * <p>[EC2-Classic] One or more Elastic IP addresses.</p><p>Default: Describes all your Elastic IP addresses.</p>
+ */
+@property (nonatomic, strong) NSArray *publicIps;
 
 @end
 
@@ -2694,17 +2799,17 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2DescribeAvailabilityZonesRequest : AWSRequest
 
-
-/**
- * <p>The names of one or more Availability Zones.</p>
- */
-@property (nonatomic, strong) NSArray *zoneNames;
 @property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>One or more filters.</p><ul><li><p><code>message</code> - Information about the Availability Zone.</p></li><li><p><code>region-name</code> - The name of the region for the Availability Zone (for example, <code>us-east-1</code>).</p></li><li><p><code>state</code> - The state of the Availability Zone(<code>available</code> | <code>impaired</code> | <code>unavailable</code>).</p></li><li><p><code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>).</p></li></ul>
  */
 @property (nonatomic, strong) NSArray *filters;
+
+/**
+ * <p>The names of one or more Availability Zones.</p>
+ */
+@property (nonatomic, strong) NSArray *zoneNames;
 
 @end
 
@@ -2769,12 +2874,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>One or more customer gateway IDs.</p> 		 <p>Default: Describes all your customer gateways.</p>
  */
 @property (nonatomic, strong) NSArray *customerGatewayIds;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>One or more filters.</p> 		 <ul> 		 <li> 		 <p><code>bgp-asn</code> - The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).</p> 		 </li> 		 <li> 		 <p><code>customer-gateway-id</code> - The ID of the customer gateway.</p> 		 </li> 		 <li> 		 <p><code>ip-address</code> - The IP address of the customer gateway's Internet-routable external interface.</p> 		 </li> 		 <li> 		 <p><code>state</code> - The state of the customer gateway (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p> 		 </li> 		 <li> 		 <p><code>type</code> - The type of customer gateway. Currently, the only supported type is <code>ipsec.1</code>.</p> 		 </li> 		 <li> 		 <p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p> 		 </li> 		 <li> 		 <p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the <code>tag-value</code> filter.		 For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both		 the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is).		 If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p> 		 </li> 		 <li> 		 <p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p> 		 </li> 		 </ul>
  */
 @property (nonatomic, strong) NSArray *filters;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -2837,12 +2942,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The AMI attribute.</p>
  */
 @property (nonatomic, assign) AWSEC2ImageAttributeName attribute;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the AMI.</p>
  */
 @property (nonatomic, strong) NSString *imageId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -2858,11 +2963,17 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2DescribeImagesRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>Scopes the images by users with explicit launch permissions.				Specify an AWS account ID, <code>self</code> (the sender of the request), 				or <code>all</code> (public AMIs).</p>
  */
 @property (nonatomic, strong) NSArray *executableUsers;
+
+/**
+ * <p>One or more filters.</p><ul><li><p><code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code>).</p></li><li><p><code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.</p></li><li><p><code>block-device-mapping.device-name</code> - The device name for the Amazon EBS volume (for example, <code>/dev/sdh</code>).</p></li><li><p><code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS volume.</p></li><li><p><code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p></li><li><p><code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume (<code>standard</code> | <code>io1</code>).</p></li><li><p><code>description</code> - The description of the image (provided during image creation).</p></li><li><p><code>hypervisor</code> - The hypervisor type (<code>ovm</code> | <code>xen</code>).</p></li><li><p><code>image-id</code> - The ID of the image.</p></li><li><p><code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> | <code>ramdisk</code>).</p></li><li><p><code>is-public</code> - A Boolean that indicates whether the image is public.</p></li><li><p><code>kernel-id</code> - The kernel ID.</p></li><li><p><code>manifest-location</code> - The location of the image manifest.</p></li><li><p><code>name</code> - The name of the AMI (provided during image creation).</p></li><li><p><code>owner-alias</code> - The AWS account alias (for example, <code>amazon</code>).</p></li><li><p><code>owner-id</code> - The AWS account ID of the image owner.</p></li><li><p><code>platform</code> - The platform. To only list Windows-based AMIs, use <code>windows</code>.</p></li><li><p><code>product-code</code> - The product code.</p></li><li><p><code>product-code.type</code> - The type of the product code (<code>devpay</code> | <code>marketplace</code>).</p></li><li><p><code>ramdisk-id</code> - The RAM disk ID.</p></li><li><p><code>root-device-name</code> - The name of the root device volume (for example, <code>/dev/sda1</code>).</p></li><li><p><code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p></li><li><p><code>state</code> - The state of the image (<code>available</code> | <code>pending</code> | <code>failed</code>).</p></li><li><p><code>state-reason-code</code> - The reason code for the state change.</p></li><li><p><code>state-reason-message</code> - The message for the state change.</p></li><li><p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the tag-value filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p></li><li><p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p></li><li><p><code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> | <code>hvm</code>).</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray *filters;
 
 /**
  * <p>One or more image IDs.</p><p>Default: Describes all images available to you.</p>
@@ -2873,12 +2984,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>Filters the images by the owner.				Specify an AWS account ID, <code>amazon</code> (owner is Amazon),				<code>aws-marketplace</code> (owner is AWS Marketplace),				<code>self</code> (owner is the sender of the request), or 				<code>all</code> (all owners).</p>
  */
 @property (nonatomic, strong) NSArray *owners;
-@property (nonatomic, strong) NSNumber *dryRun;
-
-/**
- * <p>One or more filters.</p><ul><li><p><code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code>).</p></li><li><p><code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.</p></li><li><p><code>block-device-mapping.device-name</code> - The device name for the Amazon EBS volume (for example, <code>/dev/sdh</code>).</p></li><li><p><code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS volume.</p></li><li><p><code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p></li><li><p><code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume (<code>standard</code> | <code>io1</code>).</p></li><li><p><code>description</code> - The description of the image (provided during image creation).</p></li><li><p><code>hypervisor</code> - The hypervisor type (<code>ovm</code> | <code>xen</code>).</p></li><li><p><code>image-id</code> - The ID of the image.</p></li><li><p><code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> | <code>ramdisk</code>).</p></li><li><p><code>is-public</code> - A Boolean that indicates whether the image is public.</p></li><li><p><code>kernel-id</code> - The kernel ID.</p></li><li><p><code>manifest-location</code> - The location of the image manifest.</p></li><li><p><code>name</code> - The name of the AMI (provided during image creation).</p></li><li><p><code>owner-alias</code> - The AWS account alias (for example, <code>amazon</code>).</p></li><li><p><code>owner-id</code> - The AWS account ID of the image owner.</p></li><li><p><code>platform</code> - The platform. To only list Windows-based AMIs, use <code>windows</code>.</p></li><li><p><code>product-code</code> - The product code.</p></li><li><p><code>product-code.type</code> - The type of the product code (<code>devpay</code> | <code>marketplace</code>).</p></li><li><p><code>ramdisk-id</code> - The RAM disk ID.</p></li><li><p><code>root-device-name</code> - The name of the root device volume (for example, <code>/dev/sda1</code>).</p></li><li><p><code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p></li><li><p><code>state</code> - The state of the image (<code>available</code> | <code>pending</code> | <code>failed</code>).</p></li><li><p><code>state-reason-code</code> - The reason code for the state change.</p></li><li><p><code>state-reason-message</code> - The message for the state change.</p></li><li><p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the tag-value filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p></li><li><p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p></li><li><p><code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> | <code>hvm</code>).</p></li></ul>
- */
-@property (nonatomic, strong) NSArray *filters;
 
 @end
 
@@ -2920,6 +3025,17 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2DescribeInstanceStatusRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ * <p>One or more filters.</p><ul><li><p><code>availability-zone</code> - The Availability Zone of the instance.</p></li><li><p><code>event.code</code> - The code identifying the type of event (<code>instance-reboot</code> | <code>system-reboot</code> | <code>system-maintenance</code> | <code>instance-retirement</code> | <code>instance-stop</code>).</p></li><li><p><code>event.description</code> - A description of the event.</p></li><li><p><code>event.not-after</code> - The latest end time for the scheduled event.</p></li><li><p><code>event.not-before</code> - The earliest start time for the scheduled event.</p></li><li><p><code>instance-state-code</code> - A code representing the state of the instance, as a 16-bit unsigned integer. The high byte is an opaque internal value and should be ignored. The low byte is set based on the state represented. The valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</p></li><li><p><code>instance-state-name</code> - The state of the instance (<code>pending</code> | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code> | <code>stopped</code>).</p></li><li><p><code>instance-status.reachability</code> - Filters on instance status where the name is <code>reachability</code> (<code>passed</code> | <code>failed</code> | <code>initializing</code> | <code>insufficient-data</code>).</p></li><li><p><code>instance-status.status</code> - The status of the instance (<code>ok</code> | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code> | <code>not-applicable</code>).</p></li><li><p><code>system-status.reachability</code> - Filters on system status where the name is <code>reachability</code> (<code>passed</code> | <code>failed</code> | <code>initializing</code> | <code>insufficient-data</code>).</p></li><li><p><code>system-status.status</code> - The system status of the instance (<code>ok</code> | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code> | <code>not-applicable</code>).</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray *filters;
+
+/**
+ * <p>When <code>true</code>, includes the health status for all instances. 				When <code>false</code>, includes the health status for running instances only.</p> 		 <p>Default: <code>false</code></p>
+ */
+@property (nonatomic, strong) NSNumber *includeAllInstances;
 
 /**
  * <p>One or more instance IDs.</p><p>Default: Describes all your instances.</p><p>Constraints: Maximum 100 explicitly specified instance IDs.</p>
@@ -2935,17 +3051,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The next paginated set of results to return.</p>
  */
 @property (nonatomic, strong) NSString *nextToken;
-@property (nonatomic, strong) NSNumber *dryRun;
-
-/**
- * <p>One or more filters.</p><ul><li><p><code>availability-zone</code> - The Availability Zone of the instance.</p></li><li><p><code>event.code</code> - The code identifying the type of event (<code>instance-reboot</code> | <code>system-reboot</code> | <code>system-maintenance</code> | <code>instance-retirement</code> | <code>instance-stop</code>).</p></li><li><p><code>event.description</code> - A description of the event.</p></li><li><p><code>event.not-after</code> - The latest end time for the scheduled event.</p></li><li><p><code>event.not-before</code> - The earliest start time for the scheduled event.</p></li><li><p><code>instance-state-code</code> - A code representing the state of the instance, as a 16-bit unsigned integer. The high byte is an opaque internal value and should be ignored. The low byte is set based on the state represented. The valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</p></li><li><p><code>instance-state-name</code> - The state of the instance (<code>pending</code> | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code> | <code>stopped</code>).</p></li><li><p><code>instance-status.reachability</code> - Filters on instance status where the name is <code>reachability</code> (<code>passed</code> | <code>failed</code> | <code>initializing</code> | <code>insufficient-data</code>).</p></li><li><p><code>instance-status.status</code> - The status of the instance (<code>ok</code> | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code> | <code>not-applicable</code>).</p></li><li><p><code>system-status.reachability</code> - Filters on system status where the name is <code>reachability</code> (<code>passed</code> | <code>failed</code> | <code>initializing</code> | <code>insufficient-data</code>).</p></li><li><p><code>system-status.status</code> - The system status of the instance (<code>ok</code> | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code> | <code>not-applicable</code>).</p></li></ul>
- */
-@property (nonatomic, strong) NSArray *filters;
-
-/**
- * <p>When <code>true</code>, includes the health status for all instances. 				When <code>false</code>, includes the health status for running instances only.</p> 		 <p>Default: <code>false</code></p>
- */
-@property (nonatomic, strong) NSNumber *includeAllInstances;
 
 @end
 
@@ -2966,17 +3071,17 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2DescribeInstancesRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ * <p>One or more filters.</p><ul><li><p><code>architecture</code> - The instance architecture (<code>i386</code> | <code>x86_64</code>).</p></li><li><p><code>availability-zone</code> - The Availability Zone of the instance.</p></li><li><p><code>block-device-mapping.attach-time</code> - The attach time for an Amazon EBS volume mapped to the instance.</p></li><li><p><code>block-device-mapping.delete-on-termination</code> - A Boolean that indicates whether the Amazon EBS volume is deleted on instance termination.</p></li><li><p><code>block-device-mapping.device-name</code> - The device name for the Amazon EBS volume (for example, <code>/dev/sdh</code>).</p></li><li><p><code>block-device-mapping.status</code> - The status for the Amazon EBS volume (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p></li><li><p><code>block-device-mapping.volume-id</code> - The volume ID of the Amazon EBS volume.</p></li><li><p><code>client-token</code> - The idempotency token you provided when you launched the instance.</p></li><li><p><code>dns-name</code> - The public DNS name of the instance.</p></li><li><p><code>group-id</code> - The ID of the security group for the instance. If the instance is in EC2-Classic or a default VPC, you can use <code>group-name</code> instead.</p></li><li><p><code>group-name</code> - The name of the security group for the instance. If the instance is in a nondefault VPC, you must use <code>group-id</code> instead.</p></li><li><p><code>hypervisor</code> - The hypervisor type of the instance (<code>ovm</code> | <code>xen</code>).</p></li><li><p><code>image-id</code> - The ID of the image used to launch the instance.</p></li><li><p><code>instance-id</code> - The ID of the instance.</p></li><li><p><code>instance-lifecycle</code> - Indicates whether this is a Spot Instance (<code>spot</code>).</p></li><li><p><code>instance-state-code</code> - The state of the instance, as a 16-bit unsigned integer. The high byte is an opaque internal value and should be ignored. The low byte is set based on the state represented. The valid values are: 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</p></li><li><p><code>instance-state-name</code> - The state of the instance (<code>pending</code> | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code> | <code>stopped</code>).</p></li><li><p><code>instance-type</code> - The type of instance (for example, <code>m1.small</code>).</p></li><li><p><code>instance.group-id</code> - The ID of the security group for the instance. If the instance is in EC2-Classic or a default VPC, you can use <code>instance.group-name</code> instead.</p></li><li><p><code>instance.group-name</code> - The name of the security group for the instance. If the instance is in a nondefault VPC, you must use <code>instance.group-id</code> instead.</p></li><li><p><code>ip-address</code> - The public IP address of the instance.</p></li><li><p><code>kernel-id</code> - The kernel ID.</p></li><li><p><code>key-name</code> - The name of the key pair used when the instance was launched.</p></li><li><p><code>launch-index</code> - When launching multiple instances, this is the index for the instance in the launch group (for example, 0, 1, 2, and so on). </p></li><li><p><code>launch-time</code> - The time when the instance was launched.</p></li><li><p><code>monitoring-state</code> - Indicates whether monitoring is enabled for the instance (<code>disabled</code> | <code>enabled</code>).</p></li><li><p><code>owner-id</code> - The AWS account ID of the instance owner.</p></li><li><p><code>placement-group-name</code> - The name of the placement group for the instance.</p></li><li><p><code>platform</code> - The platform. Use <code>windows</code> if you have Windows instances; otherwise, leave blank.</p></li><li><p><code>private-dns-name</code> - The private DNS name of the instance.</p></li><li><p><code>private-ip-address</code> - The private IP address of the instance.</p></li><li><p><code>product-code</code> - The product code associated with the AMI used to launch the instance.</p></li><li><p><code>product-code.type</code> - The type of product code (<code>devpay</code> | <code>marketplace</code>).</p></li><li><p><code>ramdisk-id</code> - The RAM disk ID.</p></li><li><p><code>reason</code> - The reason for the current state of the instance (for example, shows "User Initiated [date]" when you stop or terminate the instance). Similar to the state-reason-code filter.</p></li><li><p><code>requester-id</code> - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on).</p></li><li><p><code>reservation-id</code> - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you'll get one reservation ID. If you launch ten instances using the same launch request, you'll also get one reservation ID.</p></li><li><p><code>root-device-name</code> - The name of the root device for the instance (for example, <code>/dev/sda1</code>).</p></li><li><p><code>root-device-type</code> - The type of root device that the instance uses (<code>ebs</code> | <code>instance-store</code>).</p></li><li><p><code>source-dest-check</code> - Indicates whether the instance performs source/destination checking. A value of <code>true</code> means that checking is enabled, and <code>false</code> means checking is disabled. The value must be <code>false</code> for the instance to perform network address translation (NAT) in your VPC. </p></li><li><p><code>spot-instance-request-id</code> - The ID of the Spot Instance request.</p></li><li><p><code>state-reason-code</code> - The reason code for the state change.</p></li><li><p><code>state-reason-message</code> - A message that describes the state change.</p></li><li><p><code>subnet-id</code> - The ID of the subnet for the instance.</p></li><li><p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource, where <code>tag</code>:<i>key</i> is the tag's key. </p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p></li><li><p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p></li><li><p><code>virtualization-type</code> - The virtualization type of the instance (<code>paravirtual</code> | <code>hvm</code>).</p></li><li><p><code>vpc-id</code> - The ID of the VPC that the instance is running in.</p></li><li><p><code>network-interface.description</code> - The description of the network interface.</p></li><li><p><code>network-interface.subnet-id</code> - The ID of the subnet for the network interface.</p></li><li><p><code>network-interface.vpc-id</code> - The ID of the VPC for the network interface.</p></li><li><p><code>network-interface.network-interface.id</code> - The ID of the network interface.</p></li><li><p><code>network-interface.owner-id</code> - The ID of the owner of the network interface.</p></li><li><p><code>network-interface.availability-zone</code> - The Availability Zone for the network interface.</p></li><li><p><code>network-interface.requester-id</code> - The requester ID for the network interface.</p></li><li><p><code>network-interface.requester-managed</code> - Indicates whether the network interface is being managed by AWS.</p></li><li><p><code>network-interface.status</code> - The status of the network interface (<code>available</code>) | <code>in-use</code>).</p></li><li><p><code>network-interface.mac-address</code> - The MAC address of the network interface.</p></li><li><p><code>network-interface-private-dns-name</code> - The private DNS name of the network interface.</p></li><li><p><code>network-interface.source-destination-check</code> - Whether the network interface performs source/destination checking. A value of <code>true</code> means checking is enabled, and <code>false</code> means checking is disabled. The value must be <code>false</code> for the network interface to perform network address translation (NAT) in your VPC.</p></li><li><p><code>network-interface.group-id</code> - The ID of a security group associated with the network interface.</p></li><li><p><code>network-interface.group-name</code> - The name of a security group associated with the network interface.</p></li><li><p><code>network-interface.attachment.attachment-id</code> - The ID of the interface attachment.</p></li><li><p><code>network-interface.attachment.instance-id</code> - The ID of the instance to which the network interface is attached.</p></li><li><p><code>network-interface.attachment.instance-owner-id</code> - The owner ID of the instance to which the network interface is attached.</p></li><li><p><code>network-interface.addresses.private-ip-address</code> - The private IP address associated with the network interface.</p></li><li><p><code>network-interface.attachment.device-index</code> - The device index to which the network interface is attached.</p></li><li><p><code>network-interface.attachment.status</code> - The status of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p></li><li><p><code>network-interface.attachment.attach-time</code> - The time that the network interface was attached to an instance.</p></li><li><p><code>network-interface.attachment.delete-on-termination</code> - Specifies whether the attachment is deleted when an instance is terminated.</p></li><li><p><code>network-interface.addresses.primary</code> - Specifies whether the IP address of the network interface is the primary private IP address.</p></li><li><p><code>network-interface.addresses.association.public-ip</code> - The ID of the association of an Elastic IP address with a network interface.</p></li><li><p><code>network-interface.addresses.association.ip-owner-id</code> - The owner ID of the private IP address associated with the network interface.</p></li><li><p><code>association.public-ip</code> - The address of the Elastic IP address bound to the network interface.</p></li><li><p><code>association.ip-owner-id</code> - The owner of the Elastic IP address associated with the network interface.</p></li><li><p><code>association.allocation-id</code> - The allocation ID returned when you allocated the Elastic IP address for your network interface.</p></li><li><p><code>association.association-id</code> - The association ID returned when the network interface was associated with an IP address.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray *filters;
 
 /**
  * <p>One or more instance IDs.</p><p>Default: Describes all your instances.</p>
  */
 @property (nonatomic, strong) NSArray *instanceIds;
-@property (nonatomic, strong) NSNumber *dryRun;
-
-/**
- * <p>One or more filters.</p><ul><li><p><code>architecture</code> - The instance architecture (<code>i386</code> | <code>x86_64</code>).</p></li><li><p><code>availability-zone</code> - The Availability Zone of the instance.</p></li><li><p><code>block-device-mapping.attach-time</code> - The attach time for an Amazon EBS volume mapped to the instance.</p></li><li><p><code>block-device-mapping.delete-on-termination</code> - A Boolean that indicates whether the Amazon EBS volume is deleted on instance termination.</p></li><li><p><code>block-device-mapping.device-name</code> - The device name for the Amazon EBS volume (for example, <code>/dev/sdh</code>).</p></li><li><p><code>block-device-mapping.status</code> - The status for the Amazon EBS volume (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p></li><li><p><code>block-device-mapping.volume-id</code> - The volume ID of the Amazon EBS volume.</p></li><li><p><code>client-token</code> - The idempotency token you provided when you launched the instance.</p></li><li><p><code>dns-name</code> - The public DNS name of the instance.</p></li><li><p><code>group-id</code> - The ID of the security group for the instance. If the instance is in EC2-Classic or a default VPC, you can use <code>group-name</code> instead.</p></li><li><p><code>group-name</code> - The name of the security group for the instance. If the instance is in a nondefault VPC, you must use <code>group-id</code> instead.</p></li><li><p><code>hypervisor</code> - The hypervisor type of the instance (<code>ovm</code> | <code>xen</code>).</p></li><li><p><code>image-id</code> - The ID of the image used to launch the instance.</p></li><li><p><code>instance-id</code> - The ID of the instance.</p></li><li><p><code>instance-lifecycle</code> - Indicates whether this is a Spot Instance (<code>spot</code>).</p></li><li><p><code>instance-state-code</code> - The state of the instance, as a 16-bit unsigned integer. The high byte is an opaque internal value and should be ignored. The low byte is set based on the state represented. The valid values are: 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</p></li><li><p><code>instance-state-name</code> - The state of the instance (<code>pending</code> | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code> | <code>stopped</code>).</p></li><li><p><code>instance-type</code> - The type of instance (for example, <code>m1.small</code>).</p></li><li><p><code>instance.group-id</code> - The ID of the security group for the instance. If the instance is in EC2-Classic or a default VPC, you can use <code>instance.group-name</code> instead.</p></li><li><p><code>instance.group-name</code> - The name of the security group for the instance. If the instance is in a nondefault VPC, you must use <code>instance.group-id</code> instead.</p></li><li><p><code>ip-address</code> - The public IP address of the instance.</p></li><li><p><code>kernel-id</code> - The kernel ID.</p></li><li><p><code>key-name</code> - The name of the key pair used when the instance was launched.</p></li><li><p><code>launch-index</code> - When launching multiple instances, this is the index for the instance in the launch group (for example, 0, 1, 2, and so on). </p></li><li><p><code>launch-time</code> - The time when the instance was launched.</p></li><li><p><code>monitoring-state</code> - Indicates whether monitoring is enabled for the instance (<code>disabled</code> | <code>enabled</code>).</p></li><li><p><code>owner-id</code> - The AWS account ID of the instance owner.</p></li><li><p><code>placement-group-name</code> - The name of the placement group for the instance.</p></li><li><p><code>platform</code> - The platform. Use <code>windows</code> if you have Windows instances; otherwise, leave blank.</p></li><li><p><code>private-dns-name</code> - The private DNS name of the instance.</p></li><li><p><code>private-ip-address</code> - The private IP address of the instance.</p></li><li><p><code>product-code</code> - The product code associated with the AMI used to launch the instance.</p></li><li><p><code>product-code.type</code> - The type of product code (<code>devpay</code> | <code>marketplace</code>).</p></li><li><p><code>ramdisk-id</code> - The RAM disk ID.</p></li><li><p><code>reason</code> - The reason for the current state of the instance (for example, shows "User Initiated [date]" when you stop or terminate the instance). Similar to the state-reason-code filter.</p></li><li><p><code>requester-id</code> - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on).</p></li><li><p><code>reservation-id</code> - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you'll get one reservation ID. If you launch ten instances using the same launch request, you'll also get one reservation ID.</p></li><li><p><code>root-device-name</code> - The name of the root device for the instance (for example, <code>/dev/sda1</code>).</p></li><li><p><code>root-device-type</code> - The type of root device that the instance uses (<code>ebs</code> | <code>instance-store</code>).</p></li><li><p><code>source-dest-check</code> - Indicates whether the instance performs source/destination checking. A value of <code>true</code> means that checking is enabled, and <code>false</code> means checking is disabled. The value must be <code>false</code> for the instance to perform network address translation (NAT) in your VPC. </p></li><li><p><code>spot-instance-request-id</code> - The ID of the Spot Instance request.</p></li><li><p><code>state-reason-code</code> - The reason code for the state change.</p></li><li><p><code>state-reason-message</code> - A message that describes the state change.</p></li><li><p><code>subnet-id</code> - The ID of the subnet for the instance.</p></li><li><p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p></li><li><p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p></li><li><p><code>virtualization-type</code> - The virtualization type of the instance (<code>paravirtual</code> | <code>hvm</code>).</p></li><li><p><code>vpc-id</code> - The ID of the VPC that the instance is running in.</p></li><li><p><code>network-interface.description</code> - The description of the network interface.</p></li><li><p><code>network-interface.subnet-id</code> - The ID of the subnet for the network interface.</p></li><li><p><code>network-interface.vpc-id</code> - The ID of the VPC for the network interface.</p></li><li><p><code>network-interface.network-interface.id</code> - The ID of the network interface.</p></li><li><p><code>network-interface.owner-id</code> - The ID of the owner of the network interface.</p></li><li><p><code>network-interface.availability-zone</code> - The Availability Zone for the network interface.</p></li><li><p><code>network-interface.requester-id</code> - The requester ID for the network interface.</p></li><li><p><code>network-interface.requester-managed</code> - Indicates whether the network interface is being managed by AWS.</p></li><li><p><code>network-interface.status</code> - The status of the network interface (<code>available</code>) | <code>in-use</code>).</p></li><li><p><code>network-interface.mac-address</code> - The MAC address of the network interface.</p></li><li><p><code>network-interface-private-dns-name</code> - The private DNS name of the network interface.</p></li><li><p><code>network-interface.source-destination-check</code> - Whether the network interface performs source/destination checking. A value of <code>true</code> means checking is enabled, and <code>false</code> means checking is disabled. The value must be <code>false</code> for the network interface to perform network address translation (NAT) in your VPC.</p></li><li><p><code>network-interface.group-id</code> - The ID of a security group associated with the network interface.</p></li><li><p><code>network-interface.group-name</code> - The name of a security group associated with the network interface.</p></li><li><p><code>network-interface.attachment.attachment-id</code> - The ID of the interface attachment.</p></li><li><p><code>network-interface.attachment.instance-id</code> - The ID of the instance to which the network interface is attached.</p></li><li><p><code>network-interface.attachment.instance-owner-id</code> - The owner ID of the instance to which the network interface is attached.</p></li><li><p><code>network-interface.addresses.private-ip-address</code> - The private IP address associated with the network interface.</p></li><li><p><code>network-interface.attachment.device-index</code> - The device index to which the network interface is attached.</p></li><li><p><code>network-interface.attachment.status</code> - The status of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p></li><li><p><code>network-interface.attachment.attach-time</code> - The time that the network interface was attached to an instance.</p></li><li><p><code>network-interface.attachment.delete-on-termination</code> - Specifies whether the attachment is deleted when an instance is terminated.</p></li><li><p><code>network-interface.addresses.primary</code> - Specifies whether the IP address of the network interface is the primary private IP address.</p></li><li><p><code>network-interface.addresses.association.public-ip</code> - The ID of the association of an Elastic IP address with a network interface.</p></li><li><p><code>network-interface.addresses.association.ip-owner-id</code> - The owner ID of the private IP address associated with the network interface.</p></li><li><p><code>association.public-ip</code> - The address of the Elastic IP address bound to the network interface.</p></li><li><p><code>association.ip-owner-id</code> - The owner of the Elastic IP address associated with the network interface.</p></li><li><p><code>association.allocation-id</code> - The allocation ID returned when you allocated the Elastic IP address for your network interface.</p></li><li><p><code>association.association-id</code> - The association ID returned when the network interface was associated with an IP address.</p></li></ul>
- */
-@property (nonatomic, strong) NSArray *filters;
 
 /**
  * <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results. If the value is greater than 1000, we return only 1000 items.</p>
@@ -2994,14 +3099,14 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 
 /**
- * <p>One or more reservations.</p>
- */
-@property (nonatomic, strong) NSArray *reservations;
-
-/**
  * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
  */
 @property (nonatomic, strong) NSString *nextToken;
+
+/**
+ * <p>One or more reservations.</p>
+ */
+@property (nonatomic, strong) NSArray *reservations;
 
 @end
 
@@ -3033,17 +3138,17 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2DescribeKeyPairsRequest : AWSRequest
 
-
-/**
- * <p>One or more key pair names.</p><p>Default: Describes all your key pairs.</p>
- */
-@property (nonatomic, strong) NSArray *keyNames;
 @property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>One or more filters.</p><ul><li><p><code>fingerprint</code> - The fingerprint of the key pair.</p></li><li><p><code>key-name</code> - The name of the key pair.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray *filters;
+
+/**
+ * <p>One or more key pair names.</p><p>Default: Describes all your key pairs.</p>
+ */
+@property (nonatomic, strong) NSArray *keyNames;
 
 @end
 
@@ -3149,7 +3254,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSNumber *dryRun;
 
 /**
- * <p>One or more filters.</p> 		 <ul> 		 <li> 		 <p><code>addresses.private-ip-address</code> - The private IP addresses associated with the network interface.</p> 		 </li> 		 <li> 		 <p><code>addresses.primary</code> - Whether the private IP address is the primary IP address associated with the network interface. </p> 		 </li> 		 <li> 		 <p><code>addresses.association.public-ip</code> - The association ID returned when the network interface was associated with the Elastic IP address.</p> 		 </li> 		 <li> 		 <p><code>addresses.association.owner-id</code> - The owner ID of the addresses associated with the network interface.</p> 		 </li> 		 <li> 		 <p><code>association.association-id</code> - The association ID returned when the network interface was associated with an IP address.</p> 		 </li> 		 <li> 		 <p><code>association.allocation-id</code> - The allocation ID returned when you allocated the Elastic IP address for your network interface.</p> 		 </li> 		 <li> 		 <p><code>association.ip-owner-id</code> - The owner of the Elastic IP address associated with the network interface.</p> 		 </li> 		 <li> 		 <p><code>association.public-ip</code> - The address of the Elastic IP address bound to the network interface.</p> 		 </li> 		 <li> 		 <p><code>attachment.attachment-id</code> - The ID of the interface attachment.</p> 		 </li> 		 <li> 		 <p><code>attachment.instance-id</code> - The ID of the instance to which the network interface is attached.</p> 		 </li> 		 <li> 		 <p><code>attachment.instance-owner-id</code> - The owner ID of the instance to which the network interface is attached.</p> 		 </li> 		 <li> 		 <p><code>attachment.device-index</code> - The device index to which the network interface is attached.</p> 		 </li> 		 <li> 		 <p><code>attachment.status</code> - The status of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p> 		 </li> 		 <li> 		 <p><code>attachment.attach.time</code> - The time that the network interface was attached to an instance.</p> 		 </li> 		 <li> 		 <p><code>attachment.delete-on-termination</code> - Indicates whether the attachment is deleted when an instance is terminated.</p> 		 </li> 		 <li> 		 <p><code>availability-zone</code> - The Availability Zone of the network interface.</p> 		 </li> 		 <li> 		 <p><code>description</code> - The description of the network interface.</p> 		 </li> 		 <li> 		 <p><code>group-id</code> - The ID of a security group associated with the network interface.</p> 		 </li> 		 <li> 		 <p><code>group-name</code> - The name of a security group associated with the network interface.</p> 		 </li> 		 <li> 		 <p><code>mac-address</code> - The MAC address of the network interface.</p> 		 </li> 		 <li> 		 <p><code>network-interface-id</code> - The ID of the network interface.</p> 		 </li> 		 <li> 		 <p><code>owner-id</code> - The AWS account ID of the network interface owner.</p> 		 </li> 		 <li> 		 <p><code>private-ip-address</code> - The private IP address or addresses of the network interface.</p> 		 </li> 		 <li> 		 <p><code>private-dns-name</code> - The private DNS name of the network interface.</p> 		 </li> 		 <li> 		 <p><code>requester-id</code> - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on).</p> 		 </li> 		 <li> 		 <p><code>requester-managed</code> - Indicates whether the network interface is being managed by an AWS service (for example, AWS Management Console, Auto Scaling, and so on).</p> 		 </li> 		 <li> 		 <p><code>source-desk-check</code> - Indicates whether the network interface performs source/destination checking.		 A value of <code>true</code> means checking is enabled, and <code>false</code> means checking is disabled.		 The value must be <code>false</code> for the network interface to perform Network Address Translation (NAT) in your VPC. </p> 		 </li> 		 <li> 		 <p><code>status</code> - The status of the network interface. If the network interface is not attached to an instance, the status is <code>available</code>;		 if a network interface is attached to an instance the status is <code>in-use</code>.</p> 		 </li> 		 <li> 		 <p><code>subnet-id</code> - The ID of the subnet for the network interface.</p> 		 </li> 		 <li> 		 <p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p> 		 </li> 		 <li> 		 <p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the <code>tag-value</code> filter.		 For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both		 the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is).		 If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p> 		 </li> 		 <li> 		 <p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p> 		 </li> 		 <li> 		 <p><code>vpc-id</code> - The ID of the VPC for the network interface.</p> 		 </li> 		 </ul>
+ * <p>One or more filters.</p> 		 <ul> 		 <li> 		 <p><code>addresses.private-ip-address</code> - The private IP addresses associated with the network interface.</p> 		 </li> 		 <li> 		 <p><code>addresses.primary</code> - Whether the private IP address is the primary IP address associated with the network interface. </p> 		 </li> 		 <li> 		 <p><code>addresses.association.public-ip</code> - The association ID returned when the network interface was associated with the Elastic IP address.</p> 		 </li> 		 <li> 		 <p><code>addresses.association.owner-id</code> - The owner ID of the addresses associated with the network interface.</p> 		 </li> 		 <li> 		 <p><code>association.association-id</code> - The association ID returned when the network interface was associated with an IP address.</p> 		 </li> 		 <li> 		 <p><code>association.allocation-id</code> - The allocation ID returned when you allocated the Elastic IP address for your network interface.</p> 		 </li> 		 <li> 		 <p><code>association.ip-owner-id</code> - The owner of the Elastic IP address associated with the network interface.</p> 		 </li> 		 <li> 		 <p><code>association.public-ip</code> - The address of the Elastic IP address bound to the network interface.</p> 		 </li> 		 	<li> 		 		 <p><code>association.public-dns-name</code> - The public DNS name for the network interface.</p> 		 	</li> 		 <li> 		 <p><code>attachment.attachment-id</code> - The ID of the interface attachment.</p> 		 </li> 		 <li> 		 <p><code>attachment.instance-id</code> - The ID of the instance to which the network interface is attached.</p> 		 </li> 		 <li> 		 <p><code>attachment.instance-owner-id</code> - The owner ID of the instance to which the network interface is attached.</p> 		 </li> 		 <li> 		 <p><code>attachment.device-index</code> - The device index to which the network interface is attached.</p> 		 </li> 		 <li> 		 <p><code>attachment.status</code> - The status of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p> 		 </li> 		 <li> 		 <p><code>attachment.attach.time</code> - The time that the network interface was attached to an instance.</p> 		 </li> 		 <li> 		 <p><code>attachment.delete-on-termination</code> - Indicates whether the attachment is deleted when an instance is terminated.</p> 		 </li> 		 <li> 		 <p><code>availability-zone</code> - The Availability Zone of the network interface.</p> 		 </li> 		 <li> 		 <p><code>description</code> - The description of the network interface.</p> 		 </li> 		 <li> 		 <p><code>group-id</code> - The ID of a security group associated with the network interface.</p> 		 </li> 		 <li> 		 <p><code>group-name</code> - The name of a security group associated with the network interface.</p> 		 </li> 		 <li> 		 <p><code>mac-address</code> - The MAC address of the network interface.</p> 		 </li> 		 <li> 		 <p><code>network-interface-id</code> - The ID of the network interface.</p> 		 </li> 		 <li> 		 <p><code>owner-id</code> - The AWS account ID of the network interface owner.</p> 		 </li> 		 <li> 		 <p><code>private-ip-address</code> - The private IP address or addresses of the network interface.</p> 		 </li> 		 <li> 		 <p><code>private-dns-name</code> - The private DNS name of the network interface.</p> 		 </li> 		 <li> 		 <p><code>requester-id</code> - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on).</p> 		 </li> 		 <li> 		 <p><code>requester-managed</code> - Indicates whether the network interface is being managed by an AWS service (for example, AWS Management Console, Auto Scaling, and so on).</p> 		 </li> 		 <li> 		 <p><code>source-desk-check</code> - Indicates whether the network interface performs source/destination checking.		 A value of <code>true</code> means checking is enabled, and <code>false</code> means checking is disabled.		 The value must be <code>false</code> for the network interface to perform Network Address Translation (NAT) in your VPC. </p> 		 </li> 		 <li> 		 <p><code>status</code> - The status of the network interface. If the network interface is not attached to an instance, the status is <code>available</code>;		 if a network interface is attached to an instance the status is <code>in-use</code>.</p> 		 </li> 		 <li> 		 <p><code>subnet-id</code> - The ID of the subnet for the network interface.</p> 		 </li> 		 <li> 		 <p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p> 		 </li> 		 <li> 		 <p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the <code>tag-value</code> filter.		 For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both		 the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is).		 If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p> 		 </li> 		 <li> 		 <p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p> 		 </li> 		 <li> 		 <p><code>vpc-id</code> - The ID of the VPC for the network interface.</p> 		 </li> 		 </ul>
  */
 @property (nonatomic, strong) NSArray *filters;
 
@@ -3198,17 +3303,17 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2DescribeRegionsRequest : AWSRequest
 
-
-/**
- * <p>The names of one or more regions.</p>
- */
-@property (nonatomic, strong) NSArray *regionNames;
 @property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>One or more filters.</p><ul><li><p><code>endpoint</code> - The endpoint of the region (for example, <code>ec2.us-east-1.amazonaws.com</code>).</p></li><li><p><code>region-name</code> - The name of the region (for example, <code>us-east-1</code>).</p></li></ul>
  */
 @property (nonatomic, strong) NSArray *filters;
+
+/**
+ * <p>The names of one or more regions.</p>
+ */
+@property (nonatomic, strong) NSArray *regionNames;
 
 @end
 
@@ -3256,11 +3361,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 
 /**
- * <p>IDs for the submitted modification request.</p>
- */
-@property (nonatomic, strong) NSArray *reservedInstancesModificationIds;
-
-/**
  * <p>One or more filters.</p><ul><li><p><code>client-token</code> - The idempotency token for the modification request.</p></li><li><p><code>create-date</code> - The time when the modification request was created.</p></li><li><p><code>effective-date</code> - The time when the modification becomes effective.</p></li><li><p><code>modification-result.reserved-instances-id</code> - The ID for the Reserved Instances created as part of the modification request. This ID is only available when the status of the modification is <code>fulfilled</code>.</p></li><li><p><code>modification-result.target-configuration.availability-zone</code> - The Availability Zone for the new Reserved Instances.</p></li><li><p><code>modification-result.target-configuration.instance-count </code> - The number of new Reserved Instances.</p></li><li><p><code>modification-result.target-configuration.instance-type</code> - The instance type of the new Reserved Instances.</p></li><li><p><code>modification-result.target-configuration.platform</code> - The network platform of the new Reserved Instances (<code>EC2-Classic</code> | <code>EC2-VPC</code>).</p></li><li><p><code>reserved-instances-id</code> - The ID of the Reserved Instances modified.</p></li><li><p><code>reserved-instances-modification-id</code> - The ID of the modification request.</p></li><li><p><code>status</code> - The status of the Reserved Instances modification request(<code>processing</code> | <code>fulfilled</code> | <code>failed</code>).</p></li><li><p><code>status-message</code> - The reason for the status.</p></li><li><p><code>update-date</code> - The time when the modification request was last updated.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray *filters;
@@ -3269,6 +3369,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The token for the next page of data.</p>
  */
 @property (nonatomic, strong) NSString *nextToken;
+
+/**
+ * <p>IDs for the submitted modification request.</p>
+ */
+@property (nonatomic, strong) NSArray *reservedInstancesModificationIds;
 
 @end
 
@@ -3294,11 +3399,22 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The Availability Zone in which the Reserved Instance can be used.</p>
  */
 @property (nonatomic, strong) NSString *availabilityZone;
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ * <p>One or more filters.</p><ul><li><p><code>availability-zone</code> - The Availability Zone where the Reserved Instance can be used.</p></li><li><p><code>duration</code> - The duration of the Reserved Instance (for example, one year or three years), in seconds.</p></li><li><p><code>fixed-price</code> - The purchase price of the Reserved Instance (for example, 9800.0).</p></li><li><p><code>instance-type</code> - The instance type on which the Reserved Instance can be used.</p></li><li><p><code>marketplace</code> - Set to <code>true</code> to show only Reserved Instance Marketplace offerings. When this filter is not used, which is the default behavior, all offerings from AWS and Reserved Instance Marketplace are listed.</p></li><li><p><code>product-description</code> - The description of the Reserved Instance (<code>Linux/UNIX</code> | <code>Linux/UNIX (Amazon VPC)</code> |<code>Windows</code> | <code>Windows (Amazon VPC)</code>).</p></li><li><p><code>reserved-instances-offering-id</code> - The Reserved Instances offering ID.</p></li><li><p><code>usage-price</code> - The usage price of the Reserved Instance, per hour (for example, 0.84).</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray *filters;
 
 /**
  * <p>Include Marketplace offerings in the response.</p>
  */
 @property (nonatomic, strong) NSNumber *includeMarketplace;
+
+/**
+ * <p>The tenancy of the Reserved Instance offering. A Reserved Instance 				with <code>dedicated</code> tenancy runs on single-tenant hardware and can 				only be launched within a VPC.</p><p>Default: <code>default</code></p>
+ */
+@property (nonatomic, assign) AWSEC2Tenancy instanceTenancy;
 
 /**
  * <p>The instance type on which the Reserved Instance can be used. 				For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a>				in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -3316,35 +3432,14 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSNumber *maxInstanceCount;
 
 /**
- * <p>The minimum duration (in seconds) to filter when searching for offerings.</p>
- */
-@property (nonatomic, strong) NSNumber *minDuration;
-
-/**
- * <p>The Reserved Instance description. Instances that include <code>(Amazon VPC)</code>in the description are for use with Amazon VPC.</p>
- */
-@property (nonatomic, assign) AWSEC2RIProductDescription productDescription;
-
-/**
- * <p>One or more Reserved Instances offering IDs.</p>
- */
-@property (nonatomic, strong) NSArray *reservedInstancesOfferingIds;
-@property (nonatomic, strong) NSNumber *dryRun;
-
-/**
- * <p>One or more filters.</p><ul><li><p><code>availability-zone</code> - The Availability Zone where the Reserved Instance can be used.</p></li><li><p><code>duration</code> - The duration of the Reserved Instance (for example, one year or three years), in seconds.</p></li><li><p><code>fixed-price</code> - The purchase price of the Reserved Instance (for example, 9800.0).</p></li><li><p><code>instance-type</code> - The instance type on which the Reserved Instance can be used.</p></li><li><p><code>marketplace</code> - Set to <code>true</code> to show only Reserved Instance Marketplace offerings. When this filter is not used, which is the default behavior, all offerings from AWS and Reserved Instance Marketplace are listed.</p></li><li><p><code>product-description</code> - The description of the Reserved Instance (<code>Linux/UNIX</code> | <code>Linux/UNIX (Amazon VPC)</code> |<code>Windows</code> | <code>Windows (Amazon VPC)</code>).</p></li><li><p><code>reserved-instances-offering-id</code> - The Reserved Instances offering ID.</p></li><li><p><code>usage-price</code> - The usage price of the Reserved Instance, per hour (for example, 0.84).</p></li></ul>
- */
-@property (nonatomic, strong) NSArray *filters;
-
-/**
- * <p>The tenancy of the Reserved Instance offering. A Reserved Instance 				with <code>dedicated</code> tenancy runs on single-tenant hardware and can 				only be launched within a VPC.</p><p>Default: <code>default</code></p>
- */
-@property (nonatomic, assign) AWSEC2Tenancy instanceTenancy;
-
-/**
  * <p>The maximum number of offerings to return.</p>
  */
 @property (nonatomic, strong) NSNumber *maxResults;
+
+/**
+ * <p>The minimum duration (in seconds) to filter when searching for offerings.</p>
+ */
+@property (nonatomic, strong) NSNumber *minDuration;
 
 /**
  * <p>The token to use when requesting the next paginated set of offerings.</p>
@@ -3356,30 +3451,35 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  */
 @property (nonatomic, assign) AWSEC2OfferingTypeValues offeringType;
 
+/**
+ * <p>The Reserved Instance description. Instances that include <code>(Amazon VPC)</code>in the description are for use with Amazon VPC.</p>
+ */
+@property (nonatomic, assign) AWSEC2RIProductDescription productDescription;
+
+/**
+ * <p>One or more Reserved Instances offering IDs.</p>
+ */
+@property (nonatomic, strong) NSArray *reservedInstancesOfferingIds;
+
 @end
 
 @interface AWSEC2DescribeReservedInstancesOfferingsResult : AZModel
 
 
 /**
- * <p>A list of Reserved Instances offerings.</p>
- */
-@property (nonatomic, strong) NSArray *reservedInstancesOfferings;
-
-/**
  * <p>The next paginated set of results to return.</p>
  */
 @property (nonatomic, strong) NSString *nextToken;
+
+/**
+ * <p>A list of Reserved Instances offerings.</p>
+ */
+@property (nonatomic, strong) NSArray *reservedInstancesOfferings;
 
 @end
 
 @interface AWSEC2DescribeReservedInstancesRequest : AWSRequest
 
-
-/**
- * <p>One or more Reserved Instance IDs.</p><p>Default: Describes all your Reserved Instances, or only those otherwise specified.</p>
- */
-@property (nonatomic, strong) NSArray *reservedInstancesIds;
 @property (nonatomic, strong) NSNumber *dryRun;
 
 /**
@@ -3391,6 +3491,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The Reserved Instance offering type.</p>
  */
 @property (nonatomic, assign) AWSEC2OfferingTypeValues offeringType;
+
+/**
+ * <p>One or more Reserved Instance IDs.</p><p>Default: Describes all your Reserved Instances, or only those otherwise specified.</p>
+ */
+@property (nonatomic, strong) NSArray *reservedInstancesIds;
 
 @end
 
@@ -3409,7 +3514,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSNumber *dryRun;
 
 /**
- * <p>One or more filters.</p> 		 <ul> 		 <li> 		 <p><code>association.route-table-association-id</code> - The ID of an association ID for the route table.</p> 		 </li> 		 <li> 		 <p><code>association.route-table-id</code> - The ID of the route table involved in the association.</p> 		 </li> 		 <li> 		 <p><code>association.subnet-id</code> - The ID of the subnet involved in the association.</p> 		 </li> 		 <li> 		 <p><code>association.main</code> - Indicates whether the route table is the main route table for the VPC.</p> 		 </li> 		 <li> 		 <p><code>route-table-id</code> - The ID of the route table.</p> 		 </li> 		 <li> 		 <p><code>route.destination-cidr-block</code> - The CIDR range specified in a route in the table.</p> 		 </li> 		 <li> 		 <p><code>route.gateway-id</code> - The ID of a gateway specified in a route in the table.</p> 		 </li> 		 <li> 		 <p><code>route.instance-id</code> - The ID of an instance specified in a route in the table.</p> 		 </li> 		 <li> 		 <p><code>route.origin</code> - Describes how the route was created (<code>CreateRouteTable</code> | <code>CreateRoute</code> | <code>EnableVgwRoutePropagation</code>).</p> 		 </li> 		 <li> 		 <p><code>route.state</code> - The state of a route in the route table (<code>active</code> | <code>blackhole</code>).		 The blackhole state indicates that the route's target isn't available (for example, the specified gateway isn't attached to the VPC, the specified NAT instance has been terminated, and so on).</p> 		 </li> 		 <li> 		 <p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p> 		 </li> 		 <li> 		 <p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the <code>tag-value</code> filter.		 For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both		 the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is).		 If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p> 		 </li> 		 <li> 		 <p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p> 		 </li> 		 <li> 		 <p><code>vpc-id</code> - The ID of the VPC for the route table.</p> 		 </li> 		 </ul>
+ * <p>One or more filters.</p> 		 <ul> 		 <li> 		 <p><code>association.route-table-association-id</code> - The ID of an association ID for the route table.</p> 		 </li> 		 <li> 		 <p><code>association.route-table-id</code> - The ID of the route table involved in the association.</p> 		 </li> 		 <li> 		 <p><code>association.subnet-id</code> - The ID of the subnet involved in the association.</p> 		 </li> 		 <li> 		 <p><code>association.main</code> - Indicates whether the route table is the main route table for the VPC.</p> 		 </li> 		 <li> 		 <p><code>route-table-id</code> - The ID of the route table.</p> 		 </li> 		 <li> 		 <p><code>route.destination-cidr-block</code> - The CIDR range specified in a route in the table.</p> 		 </li> 		 <li> 		 <p><code>route.gateway-id</code> - The ID of a gateway specified in a route in the table.</p> 		 </li> 		 <li> 		 <p><code>route.instance-id</code> - The ID of an instance specified in a route in the table.</p> 		 </li> 		 <li> 		 <p><code>route.origin</code> - Describes how the route was created (<code>CreateRouteTable</code> | <code>CreateRoute</code> | <code>EnableVgwRoutePropagation</code>).</p> 		 </li> 		 <li><p><code>route.state</code> - The state of a route in the route table (<code>active</code> | <code>blackhole</code>). The blackhole state indicates that the route's target isn't available (for example, the specified gateway isn't attached to the VPC, the specified NAT instance has been terminated, and so on).</p></li><li><p><code>route.vpc-peering-connection-id</code> - The ID of a VPC peering connection specified in a route in the table.</p></li> 		 <li> 		 <p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p> 		 </li> 		 <li> 		 <p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the <code>tag-value</code> filter.		 For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both		 the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is).		 If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p> 		 </li> 		 <li> 		 <p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p> 		 </li> 		 <li> 		 <p><code>vpc-id</code> - The ID of the VPC for the route table.</p> 		 </li> 		 </ul>
  */
 @property (nonatomic, strong) NSArray *filters;
 
@@ -3432,6 +3537,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2DescribeSecurityGroupsRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ * <p>One or more filters.</p><ul><li><p><code>description</code> - The description of the security group.</p></li><li><p><code>group-id</code> - The ID of the security group.</p></li><li><p><code>group-name</code> - The name of the security group.</p></li><li><p><code>ip-permission.cidr</code> - A CIDR range that has been granted permission.</p></li><li><p><code>ip-permission.from-port</code> - The start of port range for the TCP and UDP protocols, or an ICMP type number.</p></li><li><p><code>ip-permission.group-id</code> - The ID of a security group that has been granted permission.</p></li><li><p><code>ip-permission.group-name</code> - The name of a security group that has been granted permission.</p></li><li><p><code>ip-permission.protocol</code> - The IP protocol for the permission (<code>tcp</code> | <code>udp</code> |<code>icmp</code> or a protocol number).</p></li><li><p><code>ip-permission.to-port</code> - The end of port range for the TCP and UDP protocols, or an ICMP code.</p></li><li><p><code>ip-permission.user-id</code> - The ID of an AWS account that has been granted permission.</p></li><li><p><code>owner-id</code> - The AWS account ID of the owner of the security group.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the security group.</p></li><li><p><code>tag-value</code> - The value of a tag assigned to the security group.</p></li><li><p><code>vpc-id</code> - The ID of the VPC specified when the security group was created.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray *filters;
 
 /**
  * <p>One or more security group IDs.</p><p>Default: Describes all your security groups.</p>
@@ -3442,12 +3553,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>[EC2-Classic, default VPC] One or more security group names.</p><p>Default: Describes all your security groups.</p>
  */
 @property (nonatomic, strong) NSArray *groupNames;
-@property (nonatomic, strong) NSNumber *dryRun;
-
-/**
- * <p>One or more filters.</p><ul><li><p><code>description</code> - The description of the security group.</p></li><li><p><code>group-id</code> - The ID of the security group.</p></li><li><p><code>group-name</code> - The name of the security group.</p></li><li><p><code>ip-permission.cidr</code> - A CIDR range that has been granted permission.</p></li><li><p><code>ip-permission.from-port</code> - The start of port range for the TCP and UDP protocols, or an ICMP type number.</p></li><li><p><code>ip-permission.group-name</code> - The name of a security group that has been granted permission.</p></li><li><p><code>ip-permission.protocol</code> - The IP protocol for the permission (<code>tcp</code> | <code>udp</code> |<code>icmp</code> or a protocol number).</p></li><li><p><code>ip-permission.to-port</code> - The end of port range for the TCP and UDP protocols, or an ICMP code.</p></li><li><p><code>ip-permission.user-id</code> - The ID of an AWS account that has been granted permission.</p></li><li><p><code>owner-id</code> - The AWS account ID of the owner of the security group.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the security group.</p></li><li><p><code>tag-value</code> - The value of a tag assigned to the security group.</p></li><li><p><code>vpc-id</code> - The ID of the VPC specified when the security group was created.</p></li></ul>
- */
-@property (nonatomic, strong) NSArray *filters;
 
 @end
 
@@ -3465,15 +3570,15 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 
 /**
- * <p>The snapshot attribute.</p>
+ * <p>The snapshot attribute you would like to view.</p>
  */
 @property (nonatomic, assign) AWSEC2SnapshotAttributeName attribute;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the Amazon EBS snapshot.</p>
  */
 @property (nonatomic, strong) NSString *snapshotId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -3499,6 +3604,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2DescribeSnapshotsRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ * <p>One or more filters.</p><ul><li><p><code>description</code> - A description of the snapshot.</p></li><li><p><code>owner-alias</code> - The AWS account alias (for example, <code>amazon</code>) that owns the snapshot.</p></li><li><p><code>owner-id</code> - The ID of the AWS account that owns the snapshot.</p></li><li><p><code>progress</code> - The progress of the snapshot, as a percentage (for example, 80%).</p></li><li><p><code>snapshot-id</code> - The snapshot ID.</p></li><li><p><code>start-time</code> - The time stamp when the snapshot was initiated.</p></li><li><p><code>status</code> - The status of the snapshot (<code>pending</code> | <code>completed</code> | <code>error</code>).</p></li><li><p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p></li><li><p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p></li><li><p><code>volume-id</code> - The ID of the volume the snapshot is for.</p></li><li><p><code>volume-size</code> - The size of the volume, in GiB.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray *filters;
 
 /**
  * <p>Returns the snapshots owned by the specified owner. Multiple owners can be specified.</p>
@@ -3514,12 +3625,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>One or more snapshot IDs.</p><p>Default: Describes snapshots for which you have launch permissions.</p>
  */
 @property (nonatomic, strong) NSArray *snapshotIds;
-@property (nonatomic, strong) NSNumber *dryRun;
-
-/**
- * <p>One or more filters.</p><ul><li><p><code>description</code> - A description of the snapshot.</p></li><li><p><code>owner-alias</code> - The AWS account alias (for example, <code>amazon</code>) that owns the snapshot.</p></li><li><p><code>owner-id</code> - The ID of the AWS account that owns the snapshot.</p></li><li><p><code>progress</code> - The progress of the snapshot, as a percentage (for example, 80%).</p></li><li><p><code>snapshot-id</code> - The snapshot ID.</p></li><li><p><code>start-time</code> - The time stamp when the snapshot was initiated.</p></li><li><p><code>status</code> - The status of the snapshot (<code>pending</code> | <code>completed</code> | <code>error</code>).</p></li><li><p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p></li><li><p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p></li><li><p><code>volume-id</code> - The ID of the volume the snapshot is for.</p></li><li><p><code>volume-size</code> - The size of the volume, in GiB.</p></li></ul>
- */
-@property (nonatomic, strong) NSArray *filters;
 
 @end
 
@@ -3634,9 +3739,10 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2DescribeSubnetsRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
- * <p>One or more filters.</p> 		 <ul> 		 <li> 		 <p><code>availability-zone</code> - The Availability Zone for the subnet.</p> 		 </li> 		 <li> 		 <p><code>available-ip-address-count</code> - The number of IP addresses in the subnet that are available.</p> 		 </li> 		 <li> 		 <p><code>cidr</code> - The CIDR block of the subnet. The CIDR block you specify must exactly match the subnet's CIDR block for information to be returned for the subnet.</p> 		 </li> 		 <li> 		 <p><code>defaultForAz</code> - Indicates whether this is the default subnet for the Availability Zone.</p> 		 </li> 		 <li> 		 <p><code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</p> 		 </li> 		 <li> 		 <p><code>subnet-id</code> - The ID of the subnet.</p> 		 </li> 		 <li> 		 <p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p> 		 </li> 		 <li> 		 <p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the <code>tag-value</code> filter.		 For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both		 the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is).		 If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p> 		 </li> 		 <li> 		 <p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p> 		 </li> 		 <li> 		 <p><code>vpc-id</code> - The ID of the VPC for the subnet.</p> 		 </li> 		 </ul>
+ * <p>One or more filters.</p> 		 <ul> 		 <li> 		 <p><code>availabilityZone</code> - The Availability Zone for the subnet. You can also use 						<code>availability-zone</code> as the filter name.</p> 		 </li> 		 <li> 		 <p><code>available-ip-address-count</code> - The number of IP addresses in the subnet that are available.</p> 		 </li> 		 <li> 		 <p><code>cidrBlock</code> - The CIDR block of the subnet. The CIDR block you specify must 					exactly match the subnet's CIDR block for information to be returned for the subnet. You 					can also use <code>cidr</code> or <code>cidr-block</code> as the filter names.</p> 		 </li> 		 <li> 		 <p><code>defaultForAz</code> - Indicates whether this is the default subnet for the 					Availability Zone. You can also use <code>default-for-az</code> as the filter name.</p> 		 </li> 		 <li> 		 <p><code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</p> 		 </li> 		 <li> 		 <p><code>subnet-id</code> - The ID of the subnet.</p> 		 </li> 		 <li> 		 <p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p> 		 </li> 		 <li> 		 <p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the <code>tag-value</code> filter.		 For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both		 the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is).		 If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p> 		 </li> 		 <li> 		 <p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p> 		 </li> 		 <li> 		 <p><code>vpc-id</code> - The ID of the VPC for the subnet.</p> 		 </li> 		 </ul>
  */
 @property (nonatomic, strong) NSArray *filters;
 
@@ -3644,7 +3750,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>One or more subnet IDs.</p> 		 <p>Default: Describes all your subnets.</p>
  */
 @property (nonatomic, strong) NSArray *subnetIds;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -3701,12 +3806,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The instance attribute.</p>
  */
 @property (nonatomic, assign) AWSEC2VolumeAttributeName attribute;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the volume.</p>
  */
 @property (nonatomic, strong) NSString *volumeId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -3732,6 +3837,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2DescribeVolumeStatusRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ * <p>One or more filters.</p><ul><li><p><code>action.code</code> - The action code for the event (for example, <code>enable-volume-io</code>).</p></li><li><p><code>action.description</code> - A description of the action.</p></li><li><p><code>action.event-id</code> - The event ID associated with the action.</p></li><li><p><code>availability-zone</code> - The Availability Zone of the instance.</p></li><li><p><code>event.description</code> - A description of the event.</p></li><li><p><code>event.event-id</code> - The event ID.</p></li><li><p><code>event.event-type</code> - The event type (for <code>io-enabled</code>: <code>passed</code> | <code>failed</code>;for <code>io-performance</code>: <code>io-performance:degraded</code> | <code>io-performance:severely-degraded</code> | <code>io-performance:stalled</code>).</p></li><li><p><code>event.not-after</code> - The latest end time for the event.</p></li><li><p><code>event.not-before</code> - The earliest start time for the event.</p></li><li><p><code>volume-status.details-name</code> - The cause for <code>volume-status.status</code> (<code>io-enabled</code> | <code>io-performance</code>).</p></li><li><p><code>volume-status.details-status</code> - The status of <code>volume-status.details-name</code> (for <code>io-enabled</code>: <code>passed</code> | <code>failed</code>;for <code>io-performance</code>: <code>normal</code> | <code>degraded</code> | <code>severely-degraded</code> | <code>stalled</code>).</p></li><li><p><code>volume-status.status</code> - The status of the volume (<code>ok</code> | <code>impaired</code> | <code>warning</code> | <code>insufficient-data</code>).</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray *filters;
 
 /**
  * <p>The maximum number of paginated volume items per response.</p>
@@ -3747,12 +3858,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>One or more volume IDs.</p><p>Default: Describes all your volumes.</p>
  */
 @property (nonatomic, strong) NSArray *volumeIds;
-@property (nonatomic, strong) NSNumber *dryRun;
-
-/**
- * <p>One or more filters.</p><ul><li><p><code>action.code</code> - The action code for the event (for example, <code>enable-volume-io</code>).</p></li><li><p><code>action.description</code> - A description of the action.</p></li><li><p><code>action.event-id</code> - The event ID associated with the action.</p></li><li><p><code>availability-zone</code> - The Availability Zone of the instance.</p></li><li><p><code>event.description</code> - A description of the event.</p></li><li><p><code>event.event-id</code> - The event ID.</p></li><li><p><code>event.event-type</code> - The event type (for <code>io-enabled</code>: <code>passed</code> | <code>failed</code>;for <code>io-performance</code>: <code>io-performance:degraded</code> | <code>io-performance:severely-degraded</code> | <code>io-performance:stalled</code>).</p></li><li><p><code>event.not-after</code> - The latest end time for the event.</p></li><li><p><code>event.not-before</code> - The earliest start time for the event.</p></li><li><p><code>volume-status.details-name</code> - The cause for <code>volume-status.status</code> (<code>io-enabled</code> | <code>io-performance</code>).</p></li><li><p><code>volume-status.details-status</code> - The status of <code>volume-status.details-name</code> (for <code>io-enabled</code>: <code>passed</code> | <code>failed</code>;for <code>io-performance</code>: <code>normal</code> | <code>degraded</code> | <code>severely-degraded</code> | <code>stalled</code>).</p></li><li><p><code>volume-status.status</code> - The status of the volume (<code>ok</code> | <code>impaired</code> | <code>warning</code> | <code>insufficient-data</code>).</p></li></ul>
- */
-@property (nonatomic, strong) NSArray *filters;
 
 @end
 
@@ -3773,17 +3878,17 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2DescribeVolumesRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ * <p>One or more filters.</p><ul><li><p><code>attachment.attach-time</code> - The time stamp when the attachment initiated.</p></li><li><p><code>attachment.delete-on-termination</code> - Whether the volume is deleted on instance termination.</p></li><li><p><code>attachment.device</code> - The device name that is exposed to the instance (for example, <code>/dev/sda1</code>).</p></li><li><p><code>attachment.instance-id</code> - The ID of the instance the volume is attached to.</p></li><li><p><code>attachment.status</code> - The attachment state (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p></li><li><p><code>availability-zone</code> - The Availability Zone in which the volume was created.</p></li><li><p><code>create-time</code> - The time stamp when the volume was created.</p></li><li><p><code>encrypted</code> - The encryption status of the volume.</p></li><li><p><code>size</code> - The size of the volume, in GiB.</p></li><li><p><code>snapshot-id</code> - The snapshot from which the volume was created.</p></li><li><p><code>status</code> - The status of the volume (<code>creating</code> | <code>available</code> | <code>in-use</code> | <code>deleting</code> | <code>deleted</code> | <code>error</code>).</p></li><li><p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p></li><li><p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p></li><li><p><code>volume-id</code> - The volume ID.</p></li><li><p><code>volume-type</code> - The Amazon EBS volume type.This can be <code>standard</code> for standard EBS volumes or <code>io1</code> for Provisioned IOPS volumes.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray *filters;
 
 /**
  * <p>One or more volume IDs.</p>
  */
 @property (nonatomic, strong) NSArray *volumeIds;
-@property (nonatomic, strong) NSNumber *dryRun;
-
-/**
- * <p>One or more filters.</p><ul><li><p><code>attachment.attach-time</code> - The time stamp when the attachment initiated.</p></li><li><p><code>attachment.delete-on-termination</code> - Whether the volume is deleted on instance termination.</p></li><li><p><code>attachment.device</code> - The device name that is exposed to the instance (for example, <code>/dev/sda1</code>).</p></li><li><p><code>attachment.instance-id</code> - The ID of the instance the volume is attached to.</p></li><li><p><code>attachment.status</code> - The attachment state (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p></li><li><p><code>availability-zone</code> - The Availability Zone in which the volume was created.</p></li><li><p><code>create-time</code> - The time stamp when the volume was created.</p></li><li><p><code>size</code> - The size of the volume, in GiB.</p></li><li><p><code>snapshot-id</code> - The snapshot from which the volume was created.</p></li><li><p><code>status</code> - The status of the volume (<code>creating</code> | <code>available</code> | <code>in-use</code> | <code>deleting</code> | <code>deleted</code> | <code>error</code>).</p></li><li><p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p></li><li><p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p></li><li><p><code>volume-id</code> - The volume ID.</p></li><li><p><code>volume-type</code> - The Amazon EBS volume type (<code>standard</code> | <code>io1</code>).</p></li></ul>
- */
-@property (nonatomic, strong) NSArray *filters;
 
 @end
 
@@ -3800,22 +3905,17 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The VPC attribute.</p>
  */
 @property (nonatomic, assign) AWSEC2VpcAttributeName attribute;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the VPC.</p>
  */
 @property (nonatomic, strong) NSString *vpcId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
 @interface AWSEC2DescribeVpcAttributeResult : AZModel
 
-
-/**
- * <p>The ID of the VPC.</p>
- */
-@property (nonatomic, strong) NSString *vpcId;
 
 /**
  * <p>Indicates whether the instances launched in the VPC get DNS hostnames. 				If this attribute is <code>true</code>, instances in the VPC get DNS hostnames; 				otherwise, they do not.</p>
@@ -3827,10 +3927,42 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  */
 @property (nonatomic, strong) AWSEC2AttributeBooleanValue *enableDnsSupport;
 
+/**
+ * <p>The ID of the VPC.</p>
+ */
+@property (nonatomic, strong) NSString *vpcId;
+
+@end
+
+@interface AWSEC2DescribeVpcPeeringConnectionsRequest : AWSRequest
+
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ * <p>One or more filters.</p><ul><li><p><code>accepter-vpc-info.cidr-block</code> - The CIDR block of the peer VPC.</p></li><li><p><code>accepter-vpc-info.owner-id</code> - The AWS account ID of the owner of the peer VPC.</p></li><li><p><code>accepter-vpc-info.vpc-id</code> - The ID of the peer VPC.</p></li><li><p><code>expiration-time</code> - The expiration date and time for the VPC peering connection.</p></li><li><p><code>requester-vpc-info.cidr-block</code> - The CIDR block of the requester's VPC.</p></li><li><p><code>requester-vpc-info.owner-id</code> - The AWS account ID of the owner of the requester VPC.</p></li><li><p><code>requester-vpc-info.vpc-id</code> - The ID of the requester VPC.</p></li><li><p><code>status-code</code> - The status of the VPC peering connection (<code>pending-acceptance</code> | <code>failed</code> | <code>expired</code> | <code>provisioning</code> | <code>active</code> | <code>deleted</code> | <code>rejected</code>).</p></li><li><p><code>status-message</code> - A message that provides more information about the status of the VPC peering connection, if applicable.</p></li><li><p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the <code>tag-value</code> filter.For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned boththe tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is).If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p></li><li><p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p></li><li><p><code>vpc-peering-connection-id</code> - The ID of the VPC peering connection.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray *filters;
+
+/**
+ * <p>One or more VPC peering connection IDs.</p><p>Default: Describes all your VPC peering connections.</p>
+ */
+@property (nonatomic, strong) NSArray *vpcPeeringConnectionIds;
+
+@end
+
+@interface AWSEC2DescribeVpcPeeringConnectionsResult : AZModel
+
+
+/**
+ * <p>Information about the VPC peering connections</p>
+ */
+@property (nonatomic, strong) NSArray *vpcPeeringConnections;
+
 @end
 
 @interface AWSEC2DescribeVpcsRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>One or more filters.</p> 		 <ul> 		 <li> 		 <p><code>cidr</code> - The CIDR block of the VPC. The CIDR block you specify must exactly match the VPC's CIDR block for information to be returned for the VPC.</p> 		 </li> 		 <li> 		 <p><code>dhcp-options-id</code> - The ID of a set of DHCP options.</p> 		 </li> 		 <li> 		 <p><code>isDefault</code> - Indicates whether the VPC is the default VPC.</p> 		 </li> 		 <li> 		 <p><code>state</code> - The state of the VPC (<code>pending</code> | <code>available</code>).</p> 		 </li> 		 <li> 		 <p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p> 		 </li> 		 <li> 		 <p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the <code>tag-value</code> filter.		 For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both		 the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is).		 If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p> 		 </li> 		 <li> 		 <p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p> 		 </li> 		 <li> 		 <p><code>vpc-id</code> - The ID of the VPC.</p> 		 </li> 		 </ul>
@@ -3841,7 +3973,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>One or more VPC IDs.</p> 		 <p>Default: Describes all your VPCs.</p>
  */
 @property (nonatomic, strong) NSArray *vpcIds;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -3857,6 +3988,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2DescribeVpnConnectionsRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>One or more filters.</p> 		 <ul> 		 <li> 		 <p><code>customer-gateway-configuration</code> - The configuration information for the customer gateway.</p> 		 </li> 		 <li> 		 <p><code>customer-gateway-id</code> - The ID of a customer gateway associated with the VPN connection.</p> 		 </li> 		 <li> 		 <p><code>state</code> - The state of the VPN connection (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p> 		 </li> 		 <li> 		 <p><code>option.static-routes-only</code> - Indicates whether the connection has static routes only. Used for devices that do not support Border Gateway Protocol (BGP).</p> 		 </li> 		 <li> 		 <p><code>route.destination-cidr-block</code> - The destination CIDR block. This corresponds to the subnet used in a customer data center.</p> 		 </li> 		 <li> 		 <p><code>bgp-asn</code> - The BGP Autonomous System Number (ASN) associated with a BGP device.</p> 		 </li> 		 <li> 		 <p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p> 		 </li> 		 <li> 		 <p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the <code>tag-value</code> filter.		 For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both		 the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is).		 If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p> 		 </li> 		 <li> 		 <p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p> 		 </li> 		 <li> 		 <p><code>type</code> - The type of VPN connection. Currently the only supported type is <code>ipsec.1</code>.</p> 		 </li> 		 <li> 		 <p><code>vpn-connection-id</code> - The ID of the VPN connection.</p> 		 </li> 		 <li> 		 <p><code>vpn-gateway-id</code> - The ID of a virtual private gateway associated with the VPN connection.</p> 		 </li> 		 </ul>
@@ -3867,7 +3999,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>One or more VPN connection IDs.</p> 		 <p>Default: Describes your VPN connections.</p>
  */
 @property (nonatomic, strong) NSArray *vpnConnectionIds;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -3883,6 +4014,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2DescribeVpnGatewaysRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>One or more filters.</p> 		 <ul> 		 <li> 		 <p><code>attachment.state</code> - The current state of the attachment between the gateway and the VPC (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p> 		 </li> 		 <li> 		 <p><code>attachment.vpc-id</code> - The ID of an attached VPC.</p> 		 </li> 		 <li> 		 <p><code>availability-zone</code> - The Availability Zone for the virtual private gateway.</p> 		 </li> 		 <li> 		 <p><code>state</code> - The state of the virtual private gateway (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p> 		 </li> 		 <li> 		 <p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p> 		 </li> 		 <li> 		 <p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the <code>tag-value</code> filter.		 For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both		 the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is).		 If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p> 		 </li> 		 <li> 		 <p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p> 		 </li> 		 <li> 		 <p><code>type</code> - The type of virtual private gateway. Currently the only supported type is <code>ipsec.1</code>.</p> 		 </li> 		 <li> 		 <p><code>vpn-gateway-id</code> - The ID of the virtual private gateway.</p> 		 </li> 		 </ul>
@@ -3893,7 +4025,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>One or more virtual private gateway IDs.</p> 		 <p>Default: Describes all your virtual private gateways.</p>
  */
 @property (nonatomic, strong) NSArray *vpnGatewayIds;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -3946,6 +4077,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The device name.</p>
  */
 @property (nonatomic, strong) NSString *device;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging into an instance, unmounting the volume, and detaching normally). This option can lead to data loss or a corrupted file system. Use this option only as a last resort to detach a volume from a failed instance. The instance won't have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures.</p>
@@ -3961,7 +4093,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The ID of the volume.</p>
  */
 @property (nonatomic, strong) NSString *volumeId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -3977,6 +4108,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2DetachVpnGatewayRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the VPC.</p>
@@ -3987,7 +4119,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The ID of the virtual private gateway.</p>
  */
 @property (nonatomic, strong) NSString *vpnGatewayId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -4054,12 +4185,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>[EC2-VPC] The association ID.</p>
  */
 @property (nonatomic, strong) NSString *associationId;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>[EC2-Classic] The Elastic IP address.</p>
  */
 @property (nonatomic, strong) NSString *publicIp;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -4146,7 +4277,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @end
 
 /**
- * <p>Describe an Amazon EBS block device.</p>
+ * <p>Describes an Amazon EBS block device.</p>
  */
 @interface AWSEC2EbsBlockDevice : AZModel
 
@@ -4155,6 +4286,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>Indicates whether the Amazon EBS volume is deleted on instance termination.</p>
  */
 @property (nonatomic, strong) NSNumber *deleteOnTermination;
+
+/**
+ * <p>Indicates whether the Amazon EBS volume is encrypted.</p>
+ */
+@property (nonatomic, strong) NSNumber *encrypted;
 
 /**
  * <p>The number of I/O operations per second (IOPS) that thevolume supports.</p><p>Constraint: Range is 100 to 4000.</p><p>Condition: Required when the volume type is <code>io1</code>; not used with <code>standard</code> volumes.</p>
@@ -4332,12 +4468,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2GetConsoleOutputRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the instance.</p>
  */
 @property (nonatomic, strong) NSString *instanceId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -4363,12 +4499,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2GetPasswordDataRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the Windows instance.</p>
  */
 @property (nonatomic, strong) NSString *instanceId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -4399,14 +4535,14 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 
 /**
- * <p>The name of the security group.</p>
- */
-@property (nonatomic, strong) NSString *groupName;
-
-/**
  * <p>The ID of the security group.</p>
  */
 @property (nonatomic, strong) NSString *groupId;
+
+/**
+ * <p>The name of the security group.</p>
+ */
+@property (nonatomic, strong) NSString *groupName;
 
 @end
 
@@ -4476,6 +4612,21 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, assign) AWSEC2ArchitectureValues architecture;
 
 /**
+ * <p>Any block device mapping entries.</p>
+ */
+@property (nonatomic, strong) NSArray *blockDeviceMappings;
+
+/**
+ * <p>The description of the AMI that was provided during image creation.</p>
+ */
+@property (nonatomic, strong) NSString *description;
+
+/**
+ * <p>The hypervisor type of the image.</p>
+ */
+@property (nonatomic, assign) AWSEC2HypervisorType hypervisor;
+
+/**
  * <p>The ID of the AMI.</p>
  */
 @property (nonatomic, strong) NSString *imageId;
@@ -4486,6 +4637,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *imageLocation;
 
 /**
+ * <p>The AWS account alias (for example, <code>amazon</code>, <code>self</code>) or the AWS account ID of the AMI owner.</p>
+ */
+@property (nonatomic, strong) NSString *imageOwnerAlias;
+
+/**
  * <p>The type of image.</p>
  */
 @property (nonatomic, assign) AWSEC2ImageTypeValues imageType;
@@ -4494,6 +4650,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The kernel associated with the image, if any. Only applicable for machine images.</p>
  */
 @property (nonatomic, strong) NSString *kernelId;
+
+/**
+ * <p>The name of the AMI that was provided during image creation.</p>
+ */
+@property (nonatomic, strong) NSString *name;
 
 /**
  * <p>The AWS account ID of the image owner.</p>
@@ -4521,36 +4682,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *ramdiskId;
 
 /**
- * <p>The current state of the AMI. If the state is <code>available</code>, the image is successfully registered and can be used to launch an instance.</p>
- */
-@property (nonatomic, assign) AWSEC2ImageState state;
-
-/**
- * <p>Any block device mapping entries.</p>
- */
-@property (nonatomic, strong) NSArray *blockDeviceMappings;
-
-/**
- * <p>The description of the AMI that was provided during image creation.</p>
- */
-@property (nonatomic, strong) NSString *description;
-
-/**
- * <p>The hypervisor type of the image.</p>
- */
-@property (nonatomic, assign) AWSEC2HypervisorType hypervisor;
-
-/**
- * <p>The AWS account alias (for example, <code>amazon</code>, <code>self</code>) or the AWS account ID of the AMI owner.</p>
- */
-@property (nonatomic, strong) NSString *imageOwnerAlias;
-
-/**
- * <p>The name of the AMI that was provided during image creation.</p>
- */
-@property (nonatomic, strong) NSString *name;
-
-/**
  * <p>The device name of the root device (for example, <filename>/dev/sda1</filename> or <filename>xvda</filename>).</p>
  */
 @property (nonatomic, strong) NSString *rootDeviceName;
@@ -4564,6 +4695,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>Specifies whether enhanced networking is enabled.</p>
  */
 @property (nonatomic, strong) NSString *sriovNetSupport;
+
+/**
+ * <p>The current state of the AMI. If the state is <code>available</code>, the image is successfully registered and can be used to launch an instance.</p>
+ */
+@property (nonatomic, assign) AWSEC2ImageState state;
 
 /**
  * <p>The reason for the state change.</p>
@@ -4594,9 +4730,19 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSArray *blockDeviceMappings;
 
 /**
+ * <p>A description for the AMI.</p>
+ */
+@property (nonatomic, strong) AWSEC2AttributeValue *description;
+
+/**
  * <p>The ID of the AMI.</p>
  */
 @property (nonatomic, strong) NSString *imageId;
+
+/**
+ * <p>The kernel ID.</p>
+ */
+@property (nonatomic, strong) AWSEC2AttributeValue *kernelId;
 
 /**
  * <p>One or more launch permissions.</p>
@@ -4607,16 +4753,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>One or more product codes.</p>
  */
 @property (nonatomic, strong) NSArray *productCodes;
-
-/**
- * <p>A description for the AMI.</p>
- */
-@property (nonatomic, strong) AWSEC2AttributeValue *description;
-
-/**
- * <p>The kernel ID.</p>
- */
-@property (nonatomic, strong) AWSEC2AttributeValue *kernelId;
 
 /**
  * <p>The RAM disk ID.</p>
@@ -4720,7 +4856,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 /**
  * <p>Describes an import volume task.</p>
- * Required parameters: [bytesConverted, availabilityZone, image, volume, status]
+ * Required parameters: [BytesConverted, AvailabilityZone, Image, Volume, Status]
  */
 @interface AWSEC2ImportInstanceVolumeDetailItem : AZModel
 
@@ -4770,7 +4906,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 /**
  * <p>The public key. You must base64 encode the public key material before sending it to AWS.</p>
  */
-@property (nonatomic, strong) NSString *publicKeyMaterial;
+@property (nonatomic, strong) NSData *publicKeyMaterial;
 
 @end
 
@@ -4823,7 +4959,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 /**
  * <p>Describes an import volume task.</p>
- * Required parameters: [bytesConverted, availabilityZone, image, volume]
+ * Required parameters: [BytesConverted, AvailabilityZone, Image, Volume]
  */
 @interface AWSEC2ImportVolumeTaskDetails : AZModel
 
@@ -4867,6 +5003,36 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSNumber *amiLaunchIndex;
 
 /**
+ * <p>The architecture of the image.</p>
+ */
+@property (nonatomic, assign) AWSEC2ArchitectureValues architecture;
+
+/**
+ * <p>Any block device mapping entries for the instance.</p>
+ */
+@property (nonatomic, strong) NSArray *blockDeviceMappings;
+
+/**
+ * <p>The idempotency token you provided when you launched the instance.</p>
+ */
+@property (nonatomic, strong) NSString *clientToken;
+
+/**
+ * <p>Indicates whether the instance is optimized for EBS I/O. This optimization 				provides dedicated throughput to Amazon EBS and an optimized 				configuration stack to provide optimal I/O performance. This optimization 				isn't available with all instance types. Additional usage charges apply when 				using an EBS Optimized instance.</p>
+ */
+@property (nonatomic, strong) NSNumber *ebsOptimized;
+
+/**
+ * <p>The hypervisor type of the instance.</p>
+ */
+@property (nonatomic, assign) AWSEC2HypervisorType hypervisor;
+
+/**
+ * <p>The IAM instance profile associated with the instance.</p>
+ */
+@property (nonatomic, strong) AWSEC2IamInstanceProfile *iamInstanceProfile;
+
+/**
  * <p>The ID of the AMI used to launch the instance.</p>
  */
 @property (nonatomic, strong) NSString *imageId;
@@ -4875,6 +5041,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The ID of the instance.</p>
  */
 @property (nonatomic, strong) NSString *instanceId;
+
+/**
+ * <p>Indicates whether this is a Spot Instance.</p>
+ */
+@property (nonatomic, assign) AWSEC2InstanceLifecycleType instanceLifecycle;
 
 /**
  * <p>The instance type.</p>
@@ -4900,6 +5071,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The monitoring information for the instance.</p>
  */
 @property (nonatomic, strong) AWSEC2Monitoring *monitoring;
+
+/**
+ * <p>[EC2-VPC] One or more network interfaces for the instance.</p>
+ */
+@property (nonatomic, strong) NSArray *networkInterfaces;
 
 /**
  * <p>The location where the instance launched.</p>
@@ -4942,66 +5118,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *ramdiskId;
 
 /**
- * <p>The current state of the instance.</p>
- */
-@property (nonatomic, strong) AWSEC2InstanceState *state;
-
-/**
- * <p>The reason for the most recent state transition. This might be an empty string.</p>
- */
-@property (nonatomic, strong) NSString *stateTransitionReason;
-
-/**
- * <p>The ID of the subnet in which the instance is running.</p>
- */
-@property (nonatomic, strong) NSString *subnetId;
-
-/**
- * <p>The ID of the VPC in which the instance is running.</p>
- */
-@property (nonatomic, strong) NSString *vpcId;
-
-/**
- * <p>The architecture of the image.</p>
- */
-@property (nonatomic, assign) AWSEC2ArchitectureValues architecture;
-
-/**
- * <p>Any block device mapping entries for the instance.</p>
- */
-@property (nonatomic, strong) NSArray *blockDeviceMappings;
-
-/**
- * <p>The idempotency token you provided when you launched the instance.</p>
- */
-@property (nonatomic, strong) NSString *clientToken;
-
-/**
- * <p>Indicates whether the instance is optimized for EBS I/O. This optimization 				provides dedicated throughput to Amazon EBS and an optimized 				configuration stack to provide optimal I/O performance. This optimization 				isn't available with all instance types. Additional usage charges apply when 				using an EBS Optimized instance.</p>
- */
-@property (nonatomic, strong) NSNumber *ebsOptimized;
-
-/**
- * <p>The hypervisor type of the instance.</p>
- */
-@property (nonatomic, assign) AWSEC2HypervisorType hypervisor;
-
-/**
- * <p>The IAM instance profile associated with the instance.</p>
- */
-@property (nonatomic, strong) AWSEC2IamInstanceProfile *iamInstanceProfile;
-
-/**
- * <p>Indicates whether this is a Spot Instance.</p>
- */
-@property (nonatomic, assign) AWSEC2InstanceLifecycleType instanceLifecycle;
-
-/**
- * <p>[EC2-VPC] One or more network interfaces for the instance.</p>
- */
-@property (nonatomic, strong) NSArray *networkInterfaces;
-
-/**
  * <p>The root device name (for example, <code>/dev/sda1</code>).</p>
  */
 @property (nonatomic, strong) NSString *rootDeviceName;
@@ -5032,9 +5148,24 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *sriovNetSupport;
 
 /**
+ * <p>The current state of the instance.</p>
+ */
+@property (nonatomic, strong) AWSEC2InstanceState *state;
+
+/**
  * <p>The reason for the most recent state transition.</p>
  */
 @property (nonatomic, strong) AWSEC2StateReason *stateReason;
+
+/**
+ * <p>The reason for the most recent state transition. This might be an empty string.</p>
+ */
+@property (nonatomic, strong) NSString *stateTransitionReason;
+
+/**
+ * <p>The ID of the subnet in which the instance is running.</p>
+ */
+@property (nonatomic, strong) NSString *subnetId;
 
 /**
  * <p>Any tags assigned to the instance.</p>
@@ -5045,6 +5176,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The virtualization type of the instance.</p>
  */
 @property (nonatomic, assign) AWSEC2VirtualizationType virtualizationType;
+
+/**
+ * <p>The ID of the VPC in which the instance is running.</p>
+ */
+@property (nonatomic, strong) NSString *vpcId;
 
 @end
 
@@ -5103,6 +5239,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The name of the root device (for example, <code>/dev/sda1</code>).</p>
  */
 @property (nonatomic, strong) AWSEC2AttributeValue *rootDeviceName;
+
+/**
+ * <p>Indicates whether source/destination checking is enabled. A value of true means checking is enabled, and false means checking is disabled. This value must be false for a NAT instance to perform NAT.</p>
+ */
+@property (nonatomic, strong) AWSEC2AttributeBooleanValue *sourceDestCheck;
 @property (nonatomic, strong) AWSEC2AttributeValue *sriovNetSupport;
 
 /**
@@ -5746,11 +5887,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 
 /**
- * <p>One or more security groups.</p>
- */
-@property (nonatomic, strong) NSArray *securityGroups;
-
-/**
  * <p></p>
  */
 @property (nonatomic, strong) NSString *addressingType;
@@ -5791,9 +5927,9 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *keyName;
 
 /**
- * <p>Enables monitoring for the instance.</p><p>Default: Disabled</p>
+ * <p>Describes the monitoring for the instance.</p>
  */
-@property (nonatomic, strong) NSNumber *monitoringEnabled;
+@property (nonatomic, strong) AWSEC2RunInstancesMonitoringEnabled *monitoring;
 
 /**
  * <p>One or more network interfaces.</p>
@@ -5809,6 +5945,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The ID of the RAM disk.</p>
  */
 @property (nonatomic, strong) NSString *ramdiskId;
+
+/**
+ * <p>One or more security groups.</p>
+ */
+@property (nonatomic, strong) NSArray *securityGroups;
 
 /**
  * <p>The ID of the subnet in which to launch the Spot Instance.</p>
@@ -5834,6 +5975,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>A description for the AMI.</p>
  */
 @property (nonatomic, strong) AWSEC2AttributeValue *description;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the AMI.</p>
@@ -5869,17 +6011,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The value of the attribute being modified. This is only valid when modifying the <code>description</code> attribute.</p>
  */
 @property (nonatomic, strong) NSString *value;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
 @interface AWSEC2ModifyInstanceAttributeRequest : AWSRequest
 
-
-/**
- * <p>Specifies whether source/destination checking is enabled. 				A value of <code>true</code> means that checking is enabled, and 				<code>false</code> means checking is disabled. This value 				must be <code>false</code> for a NAT instance to perform NAT.</p>
- */
-@property (nonatomic, strong) AWSEC2AttributeBooleanValue *sourceDestCheck;
 
 /**
  * <p>The name of the attribute.</p>
@@ -5931,12 +6067,21 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>Changes the instance's RAM disk to the specified value.</p>
  */
 @property (nonatomic, strong) AWSEC2AttributeValue *ramdisk;
+
+/**
+ * <p>Specifies whether source/destination checking is enabled. 				A value of <code>true</code> means that checking is enabled, and 				<code>false</code> means checking is disabled. This value 				must be <code>false</code> for a NAT instance to perform NAT.</p>
+ */
+@property (nonatomic, strong) AWSEC2AttributeBooleanValue *sourceDestCheck;
+
+/**
+ * <p>Set to <code>simple</code> to enable enhanced networking for the instance.</p><p>There is no way to disable enhanced networking at this time.</p><p>This option is supported only for HVM instances. Specifying this option with a PV instance can make it unreachable.</p>
+ */
 @property (nonatomic, strong) AWSEC2AttributeValue *sriovNetSupport;
 
 /**
  * <p>Changes the instance's user data to the specified value.</p>
  */
-@property (nonatomic, strong) AWSEC2AttributeValue *userData;
+@property (nonatomic, strong) AWSEC2BlobAttributeValue *userData;
 
 /**
  * <p>A new value for the attribute. Use only with the <code>kernel</code>, <code>ramdisk</code>, <code>userData</code>, <code>disableApiTermination</code>, or <code>intanceInitiateShutdownBehavior</code> attribute.</p>
@@ -5980,14 +6125,14 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 
 /**
- * <p>The IDs of the Reserved Instances to modify.</p>
- */
-@property (nonatomic, strong) NSArray *reservedInstancesIds;
-
-/**
  * <p>A unique, case-sensitive token you provide to ensure idempotency of your modification request.</p>
  */
 @property (nonatomic, strong) NSString *clientToken;
+
+/**
+ * <p>The IDs of the Reserved Instances to modify.</p>
+ */
+@property (nonatomic, strong) NSArray *reservedInstancesIds;
 
 /**
  * <p>The configuration settings for the Reserved Instances to modify.</p>
@@ -6008,17 +6153,37 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2ModifySnapshotAttributeRequest : AWSRequest
 
+
+/**
+ * <p>The snapshot attribute to modify.</p>
+ */
 @property (nonatomic, assign) AWSEC2SnapshotAttributeName attribute;
+
+/**
+ * <p>A JSON representation of the snapshot attribute modification.</p>
+ */
 @property (nonatomic, strong) AWSEC2CreateVolumePermissionModifications *createVolumePermission;
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ * <p>The group to modify for the snapshot.</p>
+ */
 @property (nonatomic, strong) NSArray *groupNames;
+
+/**
+ * <p>The type of operation to perform to the attribute.</p>
+ */
 @property (nonatomic, strong) NSString *operationType;
 
 /**
  * <p>The ID of the snapshot.</p>
  */
 @property (nonatomic, strong) NSString *snapshotId;
+
+/**
+ * <p>The account ID to modify for the snapshot.</p>
+ */
 @property (nonatomic, strong) NSArray *userIds;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -6029,12 +6194,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>Indicates whether the volume should be auto-enabled for I/O operations.</p>
  */
 @property (nonatomic, strong) NSNumber *autoEnableIO;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the volume.</p>
  */
 @property (nonatomic, strong) NSString *volumeId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -6047,7 +6212,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) AWSEC2AttributeBooleanValue *enableDnsHostnames;
 
 /**
- * <p>Indicates whether DNS resolution is supported for the VPC. If 				this attribute is <code>true</code>, the Amazon DNS server resolves DNS 				hostnames for your instances to their corresponding IP addresses; 				otherwise, it does not.</p>
+ * <p>Indicates whether the DNS resolution is supported for the VPC. If this attribute is <code>false</code>, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. If this attribute is <code>true</code>, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" will succeed.</p>
  */
 @property (nonatomic, strong) AWSEC2AttributeBooleanValue *enableDnsSupport;
 
@@ -6060,12 +6225,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2MonitorInstancesRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>One or more instance IDs.</p>
  */
 @property (nonatomic, strong) NSArray *instanceIds;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -6316,6 +6481,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *ipOwnerId;
 
 /**
+ * <p>The public DNS name.</p>
+ */
+@property (nonatomic, strong) NSString *publicDnsName;
+
+/**
  * <p>The address of the Elastic IP address bound to the network interface.</p>
  */
 @property (nonatomic, strong) NSString *publicIp;
@@ -6546,7 +6716,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 /**
  * <p>Describes a secondary private IP address for a network interface.</p>
- * Required parameters: [privateIpAddress]
+ * Required parameters: [PrivateIpAddress]
  */
 @interface AWSEC2PrivateIpAddressSpecification : AZModel
 
@@ -6596,6 +6766,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2PurchaseReservedInstancesOfferingRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The number of Reserved Instances to purchase.</p>
@@ -6603,15 +6774,14 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSNumber *instanceCount;
 
 /**
- * <p>The ID of the Reserved Instance offering to purchase.</p>
- */
-@property (nonatomic, strong) NSString *reservedInstancesOfferingId;
-@property (nonatomic, strong) NSNumber *dryRun;
-
-/**
  * <p>Specified for Reserved Instance Marketplace offerings to limit the total order and 				ensure that the Reserved Instances are not purchased at unexpected prices.</p>
  */
 @property (nonatomic, strong) AWSEC2ReservedInstanceLimitPrice *limitPrice;
+
+/**
+ * <p>The ID of the Reserved Instance offering to purchase.</p>
+ */
+@property (nonatomic, strong) NSString *reservedInstancesOfferingId;
 
 @end
 
@@ -6627,12 +6797,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2RebootInstancesRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>One or more instance IDs.</p>
  */
 @property (nonatomic, strong) NSArray *instanceIds;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -6676,11 +6846,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 
 /**
- * <p>The full path to your AMI manifest in Amazon S3 storage.</p>
- */
-@property (nonatomic, strong) NSString *imageLocation;
-
-/**
  * <p>The architecture of the AMI.</p><p>Default: For Amazon EBS-backed AMIs, <code>i386</code>. For instance store-backed AMIs, the architecture specified in the manifest file.</p>
  */
 @property (nonatomic, assign) AWSEC2ArchitectureValues architecture;
@@ -6695,6 +6860,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  */
 @property (nonatomic, strong) NSString *description;
 @property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ * <p>The full path to your AMI manifest in Amazon S3 storage.</p>
+ */
+@property (nonatomic, strong) NSString *imageLocation;
 
 /**
  * <p>The ID of the kernel.</p>
@@ -6717,7 +6887,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *rootDeviceName;
 
 /**
- * <p>Set to <code>simple</code> to enable enhanced networking for the AMI and any instances that you launch from the AMI.</p>
+ * <p>Set to <code>simple</code> to enable enhanced networking for the AMI and any instances that you launch from the AMI.</p><p>There is no way to disable enhanced networking at this time.</p><p>This option is supported only for HVM AMIs. Specifying this optionwith a PV AMI can make instances launched from the AMI unreachable.</p>
  */
 @property (nonatomic, strong) NSString *sriovNetSupport;
 
@@ -6738,6 +6908,23 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @end
 
+@interface AWSEC2RejectVpcPeeringConnectionRequest : AWSRequest
+
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ * <p>The ID of the VPC peering connection.</p>
+ */
+@property (nonatomic, strong) NSString *vpcPeeringConnectionId;
+
+@end
+
+@interface AWSEC2RejectVpcPeeringConnectionResult : AZModel
+
+@property (nonatomic, strong) NSNumber *returned;
+
+@end
+
 @interface AWSEC2ReleaseAddressRequest : AWSRequest
 
 
@@ -6745,12 +6932,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>[EC2-VPC] The allocation ID.</p>
  */
 @property (nonatomic, strong) NSString *allocationId;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>[EC2-Classic] The Elastic IP address.</p>
  */
 @property (nonatomic, strong) NSString *publicIp;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -6851,6 +7038,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  */
 @property (nonatomic, strong) NSString *routeTableId;
 
+/**
+ * <p>The ID of a VPC peering connection.</p>
+ */
+@property (nonatomic, strong) NSString *vpcPeeringConnectionId;
+
 @end
 
 @interface AWSEC2ReplaceRouteTableAssociationRequest : AWSRequest
@@ -6887,6 +7079,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>A description for the new AMI in the destination region.</p>
  */
 @property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The name of the new AMI in the destination region.</p>
@@ -6902,7 +7095,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The name of the region that contains the AMI to copy.</p>
  */
 @property (nonatomic, strong) NSString *sourceRegion;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -6925,6 +7117,17 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *description;
 
 /**
+ * <p>The destination region of the snapshot copy operation. This parameter is required in the <code>PresignedUrl</code>.</p>
+ */
+@property (nonatomic, strong) NSString *destinationRegion;
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ * <p>The pre-signed URL that facilitates copying an encrypted snapshot. This parameter is only required when copying an encrypted snapshot with the Amazon EC2 Query API; it is available as an optional parameter in all other cases. The <code>PresignedUrl</code> should use the snapshot source endpoint, the <code>CopySnapshot</code> action, and include the <code>SourceRegion</code>, <code>SourceSnapshotId</code>, and <code>DestinationRegion</code> parameters. The <code>PresignedUrl</code> must be signed using AWS Signature Version 4. Because Amazon EBS snapshots are stored in Amazon S3, the signing algorithm for this parameter uses the same logic that is described in <a href="http://http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating Requests by Using Query Parameters (AWS Signature Version 4)</a> in the <i>Amazon Simple Storage Service API Reference</i>. An invalid or improperly signed <code>PresignedUrl</code> will cause the copy operation to fail asynchronously, and the snapshot will move to an <code>error</code> state.</p>
+ */
+@property (nonatomic, strong) NSString *presignedUrl;
+
+/**
  * <p>The ID of the region that contains the snapshot to be copied.</p>
  */
 @property (nonatomic, strong) NSString *sourceRegion;
@@ -6933,7 +7136,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The ID of the Amazon EBS snapshot to copy.</p>
  */
 @property (nonatomic, strong) NSString *sourceSnapshotId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -7102,6 +7304,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *availabilityZone;
 
 /**
+ * <p>The currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes. 				At this time, the only supported currency is <code>USD</code>.</p>
+ */
+@property (nonatomic, assign) AWSEC2CurrencyCodeValues currencyCode;
+
+/**
  * <p>The duration of the Reserved Instance, in seconds.</p>
  */
 @property (nonatomic, strong) NSNumber *duration;
@@ -7122,14 +7329,29 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSNumber *instanceCount;
 
 /**
+ * <p>The tenancy of the reserved instance.</p>
+ */
+@property (nonatomic, assign) AWSEC2Tenancy instanceTenancy;
+
+/**
  * <p>The instance type on which the Reserved Instance can be used.</p>
  */
 @property (nonatomic, assign) AWSEC2InstanceType instanceType;
 
 /**
+ * <p>The Reserved Instance offering type.</p>
+ */
+@property (nonatomic, assign) AWSEC2OfferingTypeValues offeringType;
+
+/**
  * <p>The Reserved Instance description.</p>
  */
 @property (nonatomic, assign) AWSEC2RIProductDescription productDescription;
+
+/**
+ * <p>The recurring charge tag assigned to the resource.</p>
+ */
+@property (nonatomic, strong) NSArray *recurringCharges;
 
 /**
  * <p>The ID of the Reserved Instance.</p>
@@ -7147,34 +7369,14 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, assign) AWSEC2ReservedInstanceState state;
 
 /**
- * <p>The usage price of the Reserved Instance, per hour.</p>
- */
-@property (nonatomic, strong) NSNumber *usagePrice;
-
-/**
- * <p>The currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes. 				At this time, the only supported currency is <code>USD</code>.</p>
- */
-@property (nonatomic, assign) AWSEC2CurrencyCodeValues currencyCode;
-
-/**
- * <p>The tenancy of the reserved instance.</p>
- */
-@property (nonatomic, assign) AWSEC2Tenancy instanceTenancy;
-
-/**
- * <p>The Reserved Instance offering type.</p>
- */
-@property (nonatomic, assign) AWSEC2OfferingTypeValues offeringType;
-
-/**
- * <p>The recurring charge tag assigned to the resource.</p>
- */
-@property (nonatomic, strong) NSArray *recurringCharges;
-
-/**
  * <p>Any tags assigned to the resource.</p>
  */
 @property (nonatomic, strong) NSArray *tags;
+
+/**
+ * <p>The usage price of the Reserved Instance, per hour.</p>
+ */
+@property (nonatomic, strong) NSNumber *usagePrice;
 
 @end
 
@@ -7357,6 +7559,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *availabilityZone;
 
 /**
+ * <p>The currency of the Reserved Instance offering you are purchasing. It's				specified using ISO 4217 standard currency codes. At this time,				the only supported currency is <code>USD</code>.</p>
+ */
+@property (nonatomic, assign) AWSEC2CurrencyCodeValues currencyCode;
+
+/**
  * <p>The duration of the Reserved Instance, in seconds.</p>
  */
 @property (nonatomic, strong) NSNumber *duration;
@@ -7367,34 +7574,14 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSNumber *fixedPrice;
 
 /**
- * <p>The instance type on which the Reserved Instance can be used.</p>
- */
-@property (nonatomic, assign) AWSEC2InstanceType instanceType;
-
-/**
- * <p>The Reserved Instance description.</p>
- */
-@property (nonatomic, assign) AWSEC2RIProductDescription productDescription;
-
-/**
- * <p>The ID of the Reserved Instance offering.</p>
- */
-@property (nonatomic, strong) NSString *reservedInstancesOfferingId;
-
-/**
- * <p>The usage price of the Reserved Instance, per hour.</p>
- */
-@property (nonatomic, strong) NSNumber *usagePrice;
-
-/**
- * <p>The currency of the Reserved Instance offering you are purchasing. It's				specified using ISO 4217 standard currency codes. At this time,				the only supported currency is <code>USD</code>.</p>
- */
-@property (nonatomic, assign) AWSEC2CurrencyCodeValues currencyCode;
-
-/**
  * <p>The tenancy of the reserved instance.</p>
  */
 @property (nonatomic, assign) AWSEC2Tenancy instanceTenancy;
+
+/**
+ * <p>The instance type on which the Reserved Instance can be used.</p>
+ */
+@property (nonatomic, assign) AWSEC2InstanceType instanceType;
 
 /**
  * <p>Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or AWS.If it's a Reserved Instance Marketplace offering, this is <code>true</code>.</p>
@@ -7412,9 +7599,24 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSArray *pricingDetails;
 
 /**
+ * <p>The Reserved Instance description.</p>
+ */
+@property (nonatomic, assign) AWSEC2RIProductDescription productDescription;
+
+/**
  * <p>The recurring charge tag assigned to the resource.</p>
  */
 @property (nonatomic, strong) NSArray *recurringCharges;
+
+/**
+ * <p>The ID of the Reserved Instance offering.</p>
+ */
+@property (nonatomic, strong) NSString *reservedInstancesOfferingId;
+
+/**
+ * <p>The usage price of the Reserved Instance, per hour.</p>
+ */
+@property (nonatomic, strong) NSNumber *usagePrice;
 
 @end
 
@@ -7425,12 +7627,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The attribute to reset (currently you can only reset the launch 				permission attribute).</p>
  */
 @property (nonatomic, assign) AWSEC2ResetImageAttributeName attribute;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the AMI.</p>
  */
 @property (nonatomic, strong) NSString *imageId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -7473,12 +7675,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The attribute to reset (currently only the attribute for permission to create volumes can be reset).</p>
  */
 @property (nonatomic, assign) AWSEC2SnapshotAttributeName attribute;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The ID of the snapshot.</p>
  */
 @property (nonatomic, strong) NSString *snapshotId;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -7535,6 +7737,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The CIDR IP address range. You can't specify this parameter when specifying a source security group.</p>
  */
 @property (nonatomic, strong) NSString *cidrIp;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number,use <code>-1</code> to specify all ICMP types.</p>
@@ -7575,7 +7778,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number,use <code>-1</code> to specify all ICMP codes for the ICMP type.</p>
  */
 @property (nonatomic, strong) NSNumber *toPort;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -7609,12 +7811,21 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The ID of the network interface.</p>
  */
 @property (nonatomic, strong) NSString *networkInterfaceId;
+
+/**
+ * <p>Describes how the route was created.</p><ul><li><code>CreateRouteTable</code> indicates that route was automatically created when the route table was created.</li><li><code>CreateRoute</code> indicates that the route was manually added to the route table.</li><li><code>EnableVgwRoutePropagation</code> indicates that the route was propagated by route propagation.</li></ul>
+ */
 @property (nonatomic, assign) AWSEC2RouteOrigin origin;
 
 /**
  * <p>The state of the route. The <code>blackhole</code> state indicates that the 				route's target isn't available (for example, the specified gateway isn't attached to the 				VPC, or the specified NAT instance has been terminated).</p>
  */
 @property (nonatomic, assign) AWSEC2RouteState state;
+
+/**
+ * <p>The ID of the VPC peering connection.</p>
+ */
+@property (nonatomic, strong) NSString *vpcPeeringConnectionId;
 
 @end
 
@@ -7686,7 +7897,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 /**
  * <p>Describes the monitoring for the instance.</p>
- * Required parameters: [enabled]
+ * Required parameters: [Enabled]
  */
 @interface AWSEC2RunInstancesMonitoringEnabled : AZModel
 
@@ -7700,6 +7911,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2RunInstancesRequest : AWSRequest
 
+@property (nonatomic, strong) NSString *additionalInfo;
 
 /**
  * <p>The block device mapping.</p>
@@ -7707,9 +7919,35 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSArray *blockDeviceMappings;
 
 /**
+ * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information,see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Constraints: Maximum 64 ASCII characters</p>
+ */
+@property (nonatomic, strong) NSString *clientToken;
+
+/**
+ * <p>If you set this parameter to <code>true</code>, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. If you set this parameter to <code>true</code> and then later want to be able to terminate the instance, you must first change the value of the <code>disableApiTermination</code> attribute to <code>false</code> using <a>ModifyInstanceAttribute</a>. Alternatively, if you set <code>InstanceInitiatedShutdownBehavior</code> to <code>terminate</code>, you can terminate the instance by running the shutdown command from the instance.</p><p>Default: <code>false</code></p>
+ */
+@property (nonatomic, strong) NSNumber *disableApiTermination;
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ * <p>Indicates whether the instance is optimized for EBS I/O. This optimizationprovides dedicated throughput to Amazon EBS and an optimizedconfiguration stack to provide optimal Amazon EBS I/O performance. Thisoptimization isn't available with all instance types. Additional usagecharges apply when using an EBS-optimized instance.</p><p>Default: <code>false</code></p>
+ */
+@property (nonatomic, strong) NSNumber *ebsOptimized;
+
+/**
+ * <p>The IAM instance profile.</p>
+ */
+@property (nonatomic, strong) AWSEC2IamInstanceProfileSpecification *iamInstanceProfile;
+
+/**
  * <p>The ID of the AMI, which you can get by calling <a>DescribeImages</a>.</p>
  */
 @property (nonatomic, strong) NSString *imageId;
+
+/**
+ * <p>Indicates whether an instance stops or terminates when you initiateshutdown from the instance (using the operating system command for system shutdown).</p><p>Default: <code>stop</code></p>
+ */
+@property (nonatomic, assign) AWSEC2ShutdownBehavior instanceInitiatedShutdownBehavior;
 
 /**
  * <p>The instance type. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Default: <code>m1.small</code></p>
@@ -7727,12 +7965,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *keyName;
 
 /**
- * <p>The maximum number of instances to launch. If you specify more instancesthan Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches thelargest possible number of instances above <code>MinCount</code>.</p><p>Constraints: Between 1 and the maximum number allowed for youraccount (the default limit for each account is 20, but this limit can beincreased).</p>
+ * <p>The maximum number of instances to launch. If you specify more instancesthan Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches thelargest possible number of instances above <code>MinCount</code>.</p><p>Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see <a href="http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2">Howmany instances can I run in Amazon EC2</a> in the Amazon EC2 General FAQ.</p>
  */
 @property (nonatomic, strong) NSNumber *maxCount;
 
 /**
- * <p>The minimum number of instances to launch. If you specify a minimum that is more instancesthan Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches no instances.</p><p>Constraints: Between 1 and the maximum number allowed for youraccount (the default for each account is 20, but this limit can beincreased).</p>
+ * <p>The minimum number of instances to launch. If you specify a minimum that is more instancesthan Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches no instances.</p><p>Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see <a href="http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2">Howmany instances can I run in Amazon EC2</a> in the Amazon EC2 General FAQ.</p>
  */
 @property (nonatomic, strong) NSNumber *minCount;
 
@@ -7742,9 +7980,19 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) AWSEC2RunInstancesMonitoringEnabled *monitoring;
 
 /**
+ * <p>One or more network interfaces.</p>
+ */
+@property (nonatomic, strong) NSArray *networkInterfaces;
+
+/**
  * <p>The placement for the instance.</p>
  */
 @property (nonatomic, strong) AWSEC2Placement *placement;
+
+/**
+ * <p>[EC2-VPC] The primary IP address. You must specify a valuefrom the IP address range of the subnet.</p><p>Only one private IP address can be designated as primary.Therefore, you can't specify this parameter if<code>PrivateIpAddresses.n.Primary</code> is set to<code>true</code> and <code>PrivateIpAddresses.n.PrivateIpAddress</code>is set to an IP address. </p><p>Default: We select an IP address from the IP address range of the subnet.</p>
+ */
+@property (nonatomic, strong) NSString *privateIpAddress;
 
 /**
  * <p>The ID of the RAM disk.</p>
@@ -7770,43 +8018,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The Base64-encoded MIME user data for the instances.</p>
  */
 @property (nonatomic, strong) NSString *userData;
-@property (nonatomic, strong) NSString *additionalInfo;
-
-/**
- * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information,see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Constraints: Maximum 64 ASCII characters</p>
- */
-@property (nonatomic, strong) NSString *clientToken;
-
-/**
- * <p>If you set this parameter to <code>true</code>, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. If you set this parameter to <code>true</code> and then later want to be able to terminate the instance, you must first change the value of the <code>disableApiTermination</code> attribute to <code>false</code> using <a>ModifyInstanceAttribute</a>. Alternatively, if you set <code>InstanceInitiatedShutdownBehavior</code> to <code>terminate</code>, you can terminate the instance by running the shutdown command from the instance.</p><p>Default: <code>false</code></p>
- */
-@property (nonatomic, strong) NSNumber *disableApiTermination;
-@property (nonatomic, strong) NSNumber *dryRun;
-
-/**
- * <p>Indicates whether the instance is optimized for EBS I/O. This optimizationprovides dedicated throughput to Amazon EBS and an optimizedconfiguration stack to provide optimal Amazon EBS I/O performance. Thisoptimization isn't available with all instance types. Additional usagecharges apply when using an EBS-optimized instance.</p><p>Default: <code>false</code></p>
- */
-@property (nonatomic, strong) NSNumber *ebsOptimized;
-
-/**
- * <p>The IAM instance profile.</p>
- */
-@property (nonatomic, strong) AWSEC2IamInstanceProfileSpecification *iamInstanceProfile;
-
-/**
- * <p>Indicates whether an instance stops or terminates when you initiateshutdown from the instance (using the operating system command for system shutdown).</p><p>Default: <code>stop</code></p>
- */
-@property (nonatomic, assign) AWSEC2ShutdownBehavior instanceInitiatedShutdownBehavior;
-
-/**
- * <p>One or more network interfaces.</p>
- */
-@property (nonatomic, strong) NSArray *networkInterfaces;
-
-/**
- * <p>[EC2-VPC] The primary IP address. You must specify a valuefrom the IP address range of the subnet.</p><p>Only one private IP address can be designated as primary.Therefore, you can't specify this parameter if<code>PrivateIpAddresses.n.Primary</code> is set to<code>true</code> and <code>PrivateIpAddresses.n.PrivateIpAddress</code>is set to an IP address. </p><p>Default: We select an IP address from the IP address range of the subnet.</p>
- */
-@property (nonatomic, strong) NSString *privateIpAddress;
 
 @end
 
@@ -7830,7 +8041,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 
 /**
- * <p>The access key ID of the owner of the bucket.</p>
+ * <p>The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidancein <a href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">Best Practices for Managing AWS Access Keys</a>.</p>
  */
 @property (nonatomic, strong) NSString *AWSAccessKeyId;
 
@@ -7847,7 +8058,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 /**
  * <p>A Base64-encoded Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your behalf.</p>
  */
-@property (nonatomic, strong) NSString *uploadPolicy;
+@property (nonatomic, strong) NSData *uploadPolicy;
 
 /**
  * <p>The signature of the Base64 encoded JSON document.</p>
@@ -7868,6 +8079,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *description;
 
 /**
+ * <p>The ID of the security group.</p>
+ */
+@property (nonatomic, strong) NSString *groupId;
+
+/**
  * <p>The name of the security group.</p>
  */
 @property (nonatomic, strong) NSString *groupName;
@@ -7878,19 +8094,14 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSArray *ipPermissions;
 
 /**
- * <p>The AWS account ID of the owner of the security group.</p>
- */
-@property (nonatomic, strong) NSString *ownerId;
-
-/**
- * <p>The ID of the security group.</p>
- */
-@property (nonatomic, strong) NSString *groupId;
-
-/**
  * <p>[EC2-VPC] One or more outbound rules associated with the security group.</p>
  */
 @property (nonatomic, strong) NSArray *ipPermissionsEgress;
+
+/**
+ * <p>The AWS account ID of the owner of the security group.</p>
+ */
+@property (nonatomic, strong) NSString *ownerId;
 
 /**
  * <p>Any tags assigned to the security group.</p>
@@ -7914,6 +8125,16 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The description for the snapshot.</p>
  */
 @property (nonatomic, strong) NSString *description;
+
+/**
+ * <p>Indicates whether the snapshot is encrypted.</p>
+ */
+@property (nonatomic, strong) NSNumber *encrypted;
+
+/**
+ * <p>The AWS account alias (for example, <code>amazon</code>, <code>self</code>) or AWS account ID that owns the snapshot.</p>
+ */
+@property (nonatomic, strong) NSString *ownerAlias;
 
 /**
  * <p>The AWS account ID of the Amazon EBS snapshot owner.</p>
@@ -7941,6 +8162,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, assign) AWSEC2SnapshotState state;
 
 /**
+ * <p>Any tags assigned to the snapshot.</p>
+ */
+@property (nonatomic, strong) NSArray *tags;
+
+/**
  * <p>The ID of the volume.</p>
  */
 @property (nonatomic, strong) NSString *volumeId;
@@ -7949,16 +8175,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The size of the volume, in GiB.</p>
  */
 @property (nonatomic, strong) NSNumber *volumeSize;
-
-/**
- * <p>The AWS account alias (for example, <code>amazon</code>, <code>self</code>) or AWS account ID that owns the snapshot.</p>
- */
-@property (nonatomic, strong) NSString *ownerAlias;
-
-/**
- * <p>Any tags assigned to the snapshot.</p>
- */
-@property (nonatomic, strong) NSArray *tags;
 
 @end
 
@@ -8177,13 +8393,13 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2StartInstancesRequest : AWSRequest
 
+@property (nonatomic, strong) NSString *additionalInfo;
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>One or more instance IDs.</p>
  */
 @property (nonatomic, strong) NSArray *instanceIds;
-@property (nonatomic, strong) NSString *additionalInfo;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -8217,17 +8433,17 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2StopInstancesRequest : AWSRequest
 
-
-/**
- * <p>One or more instance IDs.</p>
- */
-@property (nonatomic, strong) NSArray *instanceIds;
 @property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>Forces the instances to stop. The instances do not have an 				opportunity to flush file system caches or file system metadata. If you 				use this option, you must perform file system check and repair 				procedures. This option is not recommended for Windows 			instances.</p><p>Default: <code>false</code></p>
  */
 @property (nonatomic, strong) NSNumber *force;
+
+/**
+ * <p>One or more instance IDs.</p>
+ */
+@property (nonatomic, strong) NSArray *instanceIds;
 
 @end
 
@@ -8296,14 +8512,14 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *subnetId;
 
 /**
- * <p>The ID of the VPC the subnet is in.</p>
- */
-@property (nonatomic, strong) NSString *vpcId;
-
-/**
  * <p>Any tags assigned to the subnet.</p>
  */
 @property (nonatomic, strong) NSArray *tags;
+
+/**
+ * <p>The ID of the VPC the subnet is in.</p>
+ */
+@property (nonatomic, strong) NSString *vpcId;
 
 @end
 
@@ -8355,12 +8571,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2TerminateInstancesRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>One or more instance IDs.</p>
  */
 @property (nonatomic, strong) NSArray *instanceIds;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -8391,12 +8607,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 @interface AWSEC2UnmonitorInstancesRequest : AWSRequest
 
+@property (nonatomic, strong) NSNumber *dryRun;
 
 /**
  * <p>One or more instance IDs.</p>
  */
 @property (nonatomic, strong) NSArray *instanceIds;
-@property (nonatomic, strong) NSNumber *dryRun;
 
 @end
 
@@ -8484,6 +8700,16 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSDate *createTime;
 
 /**
+ * <p>Indicates whether the volume is encrypted.</p>
+ */
+@property (nonatomic, strong) NSNumber *encrypted;
+
+/**
+ * <p>The number of I/O operations per second (IOPS) that the volume supports.</p>
+ */
+@property (nonatomic, strong) NSNumber *iops;
+
+/**
  * <p>The size of the volume, in GiBs.</p>
  */
 @property (nonatomic, strong) NSNumber *size;
@@ -8499,22 +8725,17 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, assign) AWSEC2VolumeState state;
 
 /**
- * <p>The ID of the volume.</p>
- */
-@property (nonatomic, strong) NSString *volumeId;
-
-/**
- * <p>The number of I/O operations per second (IOPS) that the volume supports.</p>
- */
-@property (nonatomic, strong) NSNumber *iops;
-
-/**
  * <p>Any tags assigned to the volume.</p>
  */
 @property (nonatomic, strong) NSArray *tags;
 
 /**
- * <p>The volume type.</p>
+ * <p>The ID of the volume.</p>
+ */
+@property (nonatomic, strong) NSString *volumeId;
+
+/**
+ * <p>The volume type. This can be <code>standard</code> for standard EBS volumes or <code>io1</code> for Provisioned IOPS volumes.</p>
  */
 @property (nonatomic, assign) AWSEC2VolumeType volumeType;
 
@@ -8530,6 +8751,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The time stamp when the attachment initiated.</p>
  */
 @property (nonatomic, strong) NSDate *attachTime;
+
+/**
+ * <p>Indicates whether the Amazon EBS volume is deleted on instance termination.</p>
+ */
+@property (nonatomic, strong) NSNumber *deleteOnTermination;
 
 /**
  * <p>The device name.</p>
@@ -8551,16 +8777,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  */
 @property (nonatomic, strong) NSString *volumeId;
 
-/**
- * <p>Indicates whether the Amazon EBS volume is deleted on instance termination.</p>
- */
-@property (nonatomic, strong) NSNumber *deleteOnTermination;
-
 @end
 
 /**
  * <p>Describes an Amazon EBS volume.</p>
- * Required parameters: [size]
+ * Required parameters: [Size]
  */
 @interface AWSEC2VolumeDetail : AZModel
 
@@ -8719,16 +8940,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *dhcpOptionsId;
 
 /**
- * <p>The current state of the VPC.</p>
- */
-@property (nonatomic, assign) AWSEC2VpcState state;
-
-/**
- * <p>The ID of the VPC.</p>
- */
-@property (nonatomic, strong) NSString *vpcId;
-
-/**
  * <p>The allowed tenancy of instances launched into the VPC.</p>
  */
 @property (nonatomic, assign) AWSEC2Tenancy instanceTenancy;
@@ -8739,9 +8950,19 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSNumber *isDefault;
 
 /**
+ * <p>The current state of the VPC.</p>
+ */
+@property (nonatomic, assign) AWSEC2VpcState state;
+
+/**
  * <p>Any tags assigned to the VPC.</p>
  */
 @property (nonatomic, strong) NSArray *tags;
+
+/**
+ * <p>The ID of the VPC.</p>
+ */
+@property (nonatomic, strong) NSString *vpcId;
 
 @end
 
@@ -8755,6 +8976,85 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The current state of the attachment.</p>
  */
 @property (nonatomic, assign) AWSEC2AttachmentStatus state;
+
+/**
+ * <p>The ID of the VPC.</p>
+ */
+@property (nonatomic, strong) NSString *vpcId;
+
+@end
+
+/**
+ * <p>Describes a VPC peering connection.</p>
+ */
+@interface AWSEC2VpcPeeringConnection : AZModel
+
+
+/**
+ * <p>The information of the peer VPC.</p>
+ */
+@property (nonatomic, strong) AWSEC2VpcPeeringConnectionVpcInfo *accepterVpcInfo;
+
+/**
+ * <p>The time that an unaccepted VPC peering connection will expire.</p>
+ */
+@property (nonatomic, strong) NSDate *expirationTime;
+
+/**
+ * <p>The information of the requester VPC.</p>
+ */
+@property (nonatomic, strong) AWSEC2VpcPeeringConnectionVpcInfo *requesterVpcInfo;
+
+/**
+ * <p>The status of the VPC peering connection.</p>
+ */
+@property (nonatomic, strong) AWSEC2VpcPeeringConnectionStateReason *status;
+
+/**
+ * <p>Any tags assigned to the resource.</p>
+ */
+@property (nonatomic, strong) NSArray *tags;
+
+/**
+ * <p>The ID of the VPC peering connection.</p>
+ */
+@property (nonatomic, strong) NSString *vpcPeeringConnectionId;
+
+@end
+
+/**
+ * <p>Describes the status of a VPC peering connection.</p>
+ */
+@interface AWSEC2VpcPeeringConnectionStateReason : AZModel
+
+
+/**
+ * <p>The status of the VPC peering connection.</p>
+ */
+@property (nonatomic, strong) NSString *code;
+
+/**
+ * <p>A message that provides more information about the status, if applicable.</p>
+ */
+@property (nonatomic, strong) NSString *message;
+
+@end
+
+/**
+ * <p>Describes a VPC in a VPC peering connection.</p>
+ */
+@interface AWSEC2VpcPeeringConnectionVpcInfo : AZModel
+
+
+/**
+ * <p>The CIDR block for the VPC.</p>
+ */
+@property (nonatomic, strong) NSString *cidrBlock;
+
+/**
+ * <p>The AWS account ID of the VPC owner.</p>
+ */
+@property (nonatomic, strong) NSString *ownerId;
 
 /**
  * <p>The ID of the VPC.</p>
@@ -8780,14 +9080,34 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *customerGatewayId;
 
 /**
+ * <p>The VPN connection options.</p>
+ */
+@property (nonatomic, strong) AWSEC2VpnConnectionOptions *options;
+
+/**
+ * <p>The static routes associated with the VPN connection.</p>
+ */
+@property (nonatomic, strong) NSArray *routes;
+
+/**
  * <p>The current state of the VPN connection.</p>
  */
 @property (nonatomic, assign) AWSEC2VpnState state;
 
 /**
+ * <p>Any tags assigned to the VPN connection.</p>
+ */
+@property (nonatomic, strong) NSArray *tags;
+
+/**
  * <p>The type of VPN connection.</p>
  */
 @property (nonatomic, assign) AWSEC2GatewayType type;
+
+/**
+ * <p>Information about the VPN tunnel.</p>
+ */
+@property (nonatomic, strong) NSArray *vgwTelemetry;
 
 /**
  * <p>The ID of the VPN connection.</p>
@@ -8798,26 +9118,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The ID of the virtual private gateway at the AWS side of the VPN connection.</p>
  */
 @property (nonatomic, strong) NSString *vpnGatewayId;
-
-/**
- * <p>The VPN connection options.</p>
- */
-@property (nonatomic, strong) AWSEC2VpnConnectionOptions *options;
-
-/**
- * <p>The static routes assoicated with the VPN connection.</p>
- */
-@property (nonatomic, strong) NSArray *routes;
-
-/**
- * <p>Any tags assigned to the VPN connection.</p>
- */
-@property (nonatomic, strong) NSArray *tags;
-
-/**
- * <p>Information about the VPN tunnel.</p>
- */
-@property (nonatomic, strong) NSArray *vgwTelemetry;
 
 @end
 
@@ -8864,6 +9164,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, assign) AWSEC2VpnState state;
 
 /**
+ * <p>Any tags assigned to the virtual private gateway.</p>
+ */
+@property (nonatomic, strong) NSArray *tags;
+
+/**
  * <p>The type of VPN connection the virtual private gateway supports.</p>
  */
 @property (nonatomic, assign) AWSEC2GatewayType type;
@@ -8877,11 +9182,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  * <p>The ID of the virtual private gateway.</p>
  */
 @property (nonatomic, strong) NSString *vpnGatewayId;
-
-/**
- * <p>Any tags assigned to the virtual private gateway.</p>
- */
-@property (nonatomic, strong) NSArray *tags;
 
 @end
 

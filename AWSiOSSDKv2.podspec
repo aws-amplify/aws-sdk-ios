@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'AWSiOSSDKv2'
-  s.version      = '2.0.0'
+  s.version      = '2.0.3'
   s.summary      = 'Amazon Web Services SDK for iOS.'
 
   s.description  = 'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'
@@ -12,10 +12,10 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.source       = { :git => 'https://github.com/aws/aws-sdk-ios-v2.git',
                      :tag => s.version}
-  s.frameworks   = 'UIKit','Foundation'
+  s.frameworks   = 'UIKit','Foundation','SystemConfiguration'
   s.library      = 'sqlite3','z'
 
-  s.dependency 'Bolts', '~> 1.0.0'
+  s.dependency 'Bolts', '~> 1.1.0'
   s.dependency 'Mantle', '~> 1.4.1'
   s.dependency 'TMCache', '~> 1.2.0'
   s.dependency 'CSURITemplate', '~> 0.3.0'
@@ -24,13 +24,8 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.subspec 'AmazonCore' do |az|
-    az.source_files = 'AmazonCore/*.{h,m}', 'AmazonCore/**/*.{h,m}'
-  end
-
   s.subspec 'AWSCore' do |aws|
-  	aws.dependency 'AWSiOSSDKv2/AmazonCore'
-    aws.source_files = 'AWSCore/*.{h,m}', 'AWSCore/**/*.{h,m}'
+    aws.source_files = 'AmazonCore/*.{h,m}', 'AmazonCore/**/*.{h,m}', 'AWSCore/*.{h,m}', 'AWSCore/**/*.{h,m}'
     aws.resources = ['AWSCore/STS/Resources/*.json']
   end
 

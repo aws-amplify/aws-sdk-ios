@@ -41,6 +41,9 @@
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"IncompleteSignature" : @(AWSSNSErrorIncompleteSignature),
+                            @"InvalidClientTokenId" : @(AWSSNSErrorInvalidClientTokenId),
+                            @"MissingAuthenticationToken" : @(AWSSNSErrorMissingAuthenticationToken),
                             @"AuthorizationErrorException" : @(AWSSNSErrorAuthorizationError),
                             @"EndpointDisabledException" : @(AWSSNSErrorEndpointDisabled),
                             @"InternalErrorException" : @(AWSSNSErrorInternalError),

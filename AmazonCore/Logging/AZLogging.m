@@ -30,6 +30,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _defaultLogger = [AZLogger new];
+        _defaultLogger.logLevel = AZLogLevelError; //set default logLevel
     });
 
     return _defaultLogger;
@@ -39,7 +40,7 @@
     if(self.logLevel >= logLevel) {
         va_list args;
         va_start(args, fmt);
-        NSLog(@"%@/%@", [self logLevelLabel:logLevel], [[NSString alloc] initWithFormat:fmt arguments:args]);
+        NSLog(@"AWSiOSSDKv2 [%@] %@", [self logLevelLabel:logLevel], [[NSString alloc] initWithFormat:fmt arguments:args]);
         va_end(args);
     }
 }
@@ -47,19 +48,19 @@
 - (NSString *)logLevelLabel:(AZLogLevel)logLevel {
     switch (logLevel) {
         case AZLogLevelError:
-            return @"E";
+            return @"Error";
 
         case AZLogLevelWarn:
-            return @"W";
+            return @"Warn";
 
         case AZLogLevelInfo:
-            return @"I";
+            return @"Info";
 
         case AZLogLevelDebug:
-            return @"D";
+            return @"Debug";
 
         case AZLogLevelVerbose:
-            return @"V";
+            return @"Verbose";
 
         case AZLogLevelUnknown:
         case AZLogLevelNone:

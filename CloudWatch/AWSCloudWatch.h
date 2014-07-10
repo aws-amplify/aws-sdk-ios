@@ -112,8 +112,6 @@
  */
 - (BFTask *)getMetricStatistics:(AWSCloudWatchGetMetricStatisticsInput *)request;
 
-- (BFTask *)listHostInfo:(AWSRequest *)request;
-
 /**
  * <p> 		Returns a list of valid metrics stored for the AWS account owner. 		Returned metrics can be used with <a>GetMetricStatistics</a> 		to obtain statistical data for a given metric. 		</p> 		<note> 		Up to 500 results are returned for any one call.To retrieve further 		results, use returned <code>NextToken</code> values with subsequent 		<code>ListMetrics</code> operations. 		</note> 		<note> 			If you create a metric with the <a>PutMetricData</a> action, 			allow up to fifteen minutes for the metric to appear in calls 			to the <code>ListMetrics</code> action. Statistics about the metric,			however, are available sooner using <a>GetMetricStatistics</a>. 		</note>
  *
@@ -147,8 +145,6 @@
  * @see AWSCloudWatchPutMetricDataInput
  */
 - (BFTask *)putMetricData:(AWSCloudWatchPutMetricDataInput *)request;
-
-- (BFTask *)putMetricDataBatch:(AWSCloudWatchPutMetricDataBatchInput *)request;
 
 /**
  * <p> 		Temporarily sets the state of an alarm. 		When the updated <code>StateValue</code> differs 		from the previous value, the action configured for 		the appropriate state is invoked. This is not a 		permanent change. The next periodic alarm check 		(in about a minute) will set the alarm to its actual state. 		</p>

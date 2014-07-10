@@ -18,6 +18,7 @@
 #import "AZSynchronizedMutableDictionary.h"
 #import "AZLogging.h"
 #import "AZCategory.h"
+#import "AWSSignature.h"
 
 #pragma mark - AZURLSessionManagerDelegate
 
@@ -43,6 +44,9 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
 @property (nonatomic, strong) NSFileHandle *responseFilehandle;
 @property (nonatomic, strong) NSURL *tempDownloadedFileURL;
 @property (nonatomic, assign) BOOL shouldWriteDirectly;
+
+@property (atomic, assign) int64_t lastTotalLengthOfChunkSignatureSent;
+@property (atomic, assign) int64_t payloadTotalBytesWritten;
 
 @end
 
@@ -136,113 +140,142 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
     delegate.responseData = nil;
     delegate.responseObject = nil;
     delegate.error = nil;
-
-    AZNetworkingRequest *request = delegate.request;
-    if (request.isCancelled) {
-        if (delegate.dataTaskCompletionHandler) {
-            AZNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
-            completionHandler(nil, [NSError errorWithDomain:AZNetworkingErrorDomain
-                                                       code:AZNetworkingErrorCancelled
-                                                   userInfo:nil]);
-        }
-        return;
-    }
-
     NSMutableURLRequest *mutableRequest = [NSMutableURLRequest requestWithURL:delegate.request.URL];
-    mutableRequest.HTTPMethod = [NSString az_stringWithHTTPMethod:delegate.request.HTTPMethod];
-    NSError *error = nil;
 
-    if ([request.requestSerializer respondsToSelector:@selector(serializeRequest:headers:parameters:error:)]) {
-        [request.requestSerializer serializeRequest:mutableRequest
-                                            headers:request.headers
-                                         parameters:request.parameters
-                                              error:&error];
-    }
+    [[[[[[BFTask taskWithResult:nil] continueWithBlock:^id(BFTask *task) {
+        id signer = [delegate.request.requestInterceptors lastObject];
+        if (signer) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+            if ([signer respondsToSelector:@selector(credentialsProvider)]) {
+                id credentialsProvider = [signer performSelector:@selector(credentialsProvider)];
 
-    for(id<AZNetworkingRequestInterceptor>interceptor in request.requestInterceptors) {
-        if ([interceptor respondsToSelector:@selector(interceptRequest:error:)]) {
-            [interceptor interceptRequest:mutableRequest error:&error];
-            if (error) {
+                if ([credentialsProvider respondsToSelector:@selector(refresh)]) {
+                    NSString *accessKey = nil;
+                    if ([credentialsProvider respondsToSelector:@selector(accessKey)]) {
+                        accessKey = [credentialsProvider performSelector:@selector(accessKey)];
+                    }
+
+                    NSString *secretKey = nil;
+                    if ([credentialsProvider respondsToSelector:@selector(secretKey)]) {
+                        secretKey = [credentialsProvider performSelector:@selector(secretKey)];
+                    }
+
+                    NSDate *expiration = nil;
+                    if  ([credentialsProvider respondsToSelector:@selector(expiration)]) {
+                        expiration = [credentialsProvider performSelector:@selector(expiration)];
+                    }
+
+                    /**
+                     Preemptively refresh credentials if any of the following is true:
+                     1. accessKey or secretKey is nil.
+                     2. the credentials expires within 10 minutes.
+                     */
+                    if ((!accessKey || !secretKey)
+                        || [expiration compare:[NSDate dateWithTimeIntervalSinceNow:10 * 60]] == NSOrderedAscending) {
+                        return [credentialsProvider performSelector:@selector(refresh)];
+                    }
+                }
+            }
+#pragma clang diagnostic pop
+        }
+
+        return nil;
+    }] continueWithSuccessBlock:^id(BFTask *task) {
+        AZNetworkingRequest *request = delegate.request;
+        if (request.isCancelled) {
+            if (delegate.dataTaskCompletionHandler) {
+                AZNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
+                completionHandler(nil, [NSError errorWithDomain:AZNetworkingErrorDomain
+                                                           code:AZNetworkingErrorCancelled
+                                                       userInfo:nil]);
+            }
+            return nil;
+        }
+
+        mutableRequest.HTTPMethod = [NSString az_stringWithHTTPMethod:delegate.request.HTTPMethod];
+
+        if ([request.requestSerializer respondsToSelector:@selector(serializeRequest:headers:parameters:)]) {
+            [request.requestSerializer serializeRequest:mutableRequest
+                                                headers:request.headers
+                                             parameters:request.parameters];
+        }
+
+        BFTask *sequencialTask = [BFTask taskWithResult:nil];
+        for(id<AZNetworkingRequestInterceptor>interceptor in request.requestInterceptors) {
+            if ([interceptor respondsToSelector:@selector(interceptRequest:)]) {
+                sequencialTask = [sequencialTask continueWithSuccessBlock:^id(BFTask *task) {
+                    return [interceptor interceptRequest:mutableRequest];
+                }];
+            }
+        }
+
+        return task;
+    }] continueWithSuccessBlock:^id(BFTask *task) {
+        AZNetworkingRequest *request = delegate.request;
+        if ([request.requestSerializer respondsToSelector:@selector(validateRequest:)]) {
+            return [request.requestSerializer validateRequest:mutableRequest];
+        } else {
+            return [BFTask taskWithResult:nil];
+        }
+    }] continueWithSuccessBlock:^id(BFTask *task) {
+        switch (delegate.taskType) {
+            case AZURLSessionTaskTypeData:
+                delegate.request.task = [self.session dataTaskWithRequest:mutableRequest];
                 break;
+
+            case AZURLSessionTaskTypeDownload:
+                delegate.request.task = [self.session downloadTaskWithRequest:mutableRequest];
+                break;
+
+            case AZURLSessionTaskTypeUpload:
+                delegate.request.task = [self.session uploadTaskWithRequest:mutableRequest
+                                                                   fromFile:delegate.uploadingFileURL];
+                break;
+
+            default:
+                break;
+        }
+
+        if (delegate.request.task) {
+            [self.sessionManagerDelegates setObject:delegate
+                                             forKey:@(((NSURLSessionTask *)delegate.request.task).taskIdentifier)];
+            [delegate.request.task resume];
+        } else {
+            AZLogError(@"Invalid AZURLSessionTaskType.");
+        }
+
+        return nil;
+    }] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            if (delegate.dataTaskCompletionHandler) {
+                AZNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
+                completionHandler(nil, task.error);
             }
         }
-    }
-
-    if (!error) {
-        if (![request.requestSerializer respondsToSelector:@selector(validateRequest:error:)]
-            || [request.requestSerializer validateRequest:mutableRequest error:&error]) {
-            switch (delegate.taskType) {
-                case AZURLSessionTaskTypeData:
-                    delegate.request.task = [self.session dataTaskWithRequest:mutableRequest];
-                    break;
-
-                case AZURLSessionTaskTypeDownload:
-                    delegate.request.task = [self.session downloadTaskWithRequest:mutableRequest];
-                    break;
-
-                case AZURLSessionTaskTypeUpload:
-                    delegate.request.task = [self.session uploadTaskWithRequest:mutableRequest
-                                                                       fromFile:delegate.uploadingFileURL];
-                    break;
-
-                default:
-                    break;
-            }
-
-            if (delegate.request.task) {
-                [self.sessionManagerDelegates setObject:delegate
-                                                 forKey:@(((NSURLSessionTask *)delegate.request.task).taskIdentifier)];
-                [delegate.request.task resume];
-            } else {
-                // TODO: This should never happen. Assert instead of error?
-                error = [NSError errorWithDomain:AZNetworkingErrorDomain
-                                            code:AZNetworkingErrorUnknown
-                                        userInfo:@{NSLocalizedDescriptionKey : @"Invalid AZURLSessionTaskType."}];
-            }
-        }
-    }
-
-    if (error) {
-        if (delegate.dataTaskCompletionHandler) {
-            AZNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
-            completionHandler(nil, error);
-        }
-    }
+        return nil;
+    }];
 }
 
 #pragma mark - NSURLSessionTaskDelegate
 
-- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
-    AZURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(task.taskIdentifier)];
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)sessionTask didCompleteWithError:(NSError *)error {
+    [[[BFTask taskWithResult:nil] continueWithSuccessBlock:^id(BFTask *task) {
+        AZURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(sessionTask.taskIdentifier)];
 
-    if (delegate.downloadingFileURL) {
-        [delegate.responseFilehandle closeFile];
-    }
+        if (delegate.downloadingFileURL) {
+            [delegate.responseFilehandle closeFile];
+        }
 
-    if (!delegate.error) {
-        delegate.error = error;
-    }
+        if (!delegate.error) {
+            delegate.error = error;
+        }
 
     if (!delegate.error
-        && [task.response isKindOfClass:[NSHTTPURLResponse class]]) {
-        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
-
-        if (delegate.responseData || [[httpResponse allHeaderFields][@"Content-Length"] integerValue] == 0) {
-            if ([delegate.request.responseSerializer respondsToSelector:@selector(responseObjectForResponse:originalRequest:currentRequest:data:error:)]) {
-                NSError *error = nil;
-                delegate.responseObject = [delegate.request.responseSerializer responseObjectForResponse:httpResponse
-                                                                                         originalRequest:task.originalRequest
-                                                                                          currentRequest:task.currentRequest
-                                                                                                    data:delegate.responseData
-                                                                                                   error:&error];
-                if (error) {
-                    delegate.error = error;
-                }
-            }
-            else {
-                delegate.responseObject = delegate.responseData;
-            }
-        } else if (delegate.downloadingFileURL) {
+        && [sessionTask.response isKindOfClass:[NSHTTPURLResponse class]]) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)sessionTask.response;
+        
+        if (delegate.downloadingFileURL) {
             NSError *error = nil;
             //move the downloaded file to user specified location if tempDownloadFileURL and downloadFileURL are different.
             if ([delegate.tempDownloadedFileURL isEqual:delegate.downloadingFileURL] == NO) {
@@ -265,8 +298,8 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
                 if ([delegate.request.responseSerializer respondsToSelector:@selector(responseObjectForResponse:originalRequest:currentRequest:data:error:)]) {
                     NSError *error = nil;
                     delegate.responseObject = [delegate.request.responseSerializer responseObjectForResponse:httpResponse
-                                                                                             originalRequest:task.originalRequest
-                                                                                              currentRequest:task.currentRequest
+                                                                                             originalRequest:sessionTask.originalRequest
+                                                                                              currentRequest:sessionTask.currentRequest
                                                                                                         data:delegate.downloadingFileURL
                                                                                                        error:&error];
                     if (error) {
@@ -277,103 +310,136 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
                     delegate.responseObject = delegate.downloadingFileURL;
                 }
             }
+        } else if (delegate.responseData || [[httpResponse allHeaderFields][@"Content-Length"] integerValue] == 0) {
+            if ([delegate.request.responseSerializer respondsToSelector:@selector(responseObjectForResponse:originalRequest:currentRequest:data:error:)]) {
+                NSError *error = nil;
+                delegate.responseObject = [delegate.request.responseSerializer responseObjectForResponse:httpResponse
+                                                                                         originalRequest:sessionTask.originalRequest
+                                                                                          currentRequest:sessionTask.currentRequest
+                                                                                                    data:delegate.responseData
+                                                                                                   error:&error];
+                if (error) {
+                    delegate.error = error;
+                }
+            }
+            else {
+                delegate.responseObject = delegate.responseData;
+            }
         }
     }
 
-    if (delegate.error
-        && [task.response isKindOfClass:[NSHTTPURLResponse class]]
-        && delegate.request.retryHandler) {
-        AZNetworkingRetryType retryType = [delegate.request.retryHandler shouldRetry:delegate.currentRetryCount
-                                                                            response:(NSHTTPURLResponse *)task.response
-                                                                                data:delegate.responseData
-                                                                               error:delegate.error];
-        switch (retryType) {
-            case AZNetworkingRetryTypeShouldCorrectClockSkewAndRetry: {
-                //Correct Clock Skew
-                if ([task.response isKindOfClass:[NSHTTPURLResponse class]]) {
-                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
-                    NSString *dateStr = [[httpResponse allHeaderFields] objectForKey:@"Date"];
-                    NSDate *serverTime = nil;
-                    if ([dateStr length] > 0) {
-                        serverTime = [NSDate az_dateFromString:dateStr];
-                    } else {
-                        //If response header does not have 'Date' field, try to extract timeInfo from messageBody.
-                        // currently only been used for SQS.
-                        if ([delegate.responseObject isKindOfClass:[NSDictionary class]]) {
-                            NSString *messageBody = delegate.responseObject[@"Error"][@"Message"];
-                            if (messageBody) {
-                                serverTime = [NSDate az_getDateFromMessageBody:messageBody];
+        if (delegate.error
+            && [sessionTask.response isKindOfClass:[NSHTTPURLResponse class]]
+            && delegate.request.retryHandler) {
+            AZNetworkingRetryType retryType = [delegate.request.retryHandler shouldRetry:delegate.currentRetryCount
+                                                                                response:(NSHTTPURLResponse *)sessionTask.response
+                                                                                    data:delegate.responseData
+                                                                                   error:delegate.error];
+            switch (retryType) {
+                case AZNetworkingRetryTypeShouldCorrectClockSkewAndRetry: {
+                    //Correct Clock Skew
+                    if ([sessionTask.response isKindOfClass:[NSHTTPURLResponse class]]) {
+                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)sessionTask.response;
+                        NSString *dateStr = [[httpResponse allHeaderFields] objectForKey:@"Date"];
+                        NSDate *serverTime = nil;
+                        if ([dateStr length] > 0) {
+                            serverTime = [NSDate az_dateFromString:dateStr];
+                        } else {
+                            //If response header does not have 'Date' field, try to extract timeInfo from messageBody.
+                            // currently only been used for SQS.
+                            if ([delegate.responseObject isKindOfClass:[NSDictionary class]]) {
+                                NSString *messageBody = delegate.responseObject[@"Error"][@"Message"];
+                                if (messageBody) {
+                                    serverTime = [NSDate az_getDateFromMessageBody:messageBody];
+                                }
                             }
                         }
+
+                        if (serverTime) {
+                            NSDate *deviceTime = [NSDate date];
+                            NSTimeInterval skewTime = [deviceTime timeIntervalSinceDate:serverTime];
+                            [NSDate az_setRuntimeClockSkew:skewTime];
+                        }
+
                     }
-                    
-                    if (serverTime) {
-                        NSDate *deviceTime = [NSDate date];
-                        NSTimeInterval skewTime = [deviceTime timeIntervalSinceDate:serverTime];
-                        [NSDate az_setRuntimeClockSkew:skewTime];
-                    }
-                    
                 }
-            }
-                
-            case AZNetworkingRetryTypeShouldRefreshCredentialsAndRetry: {
-                id signer = [delegate.request.requestInterceptors lastObject];
+
+                case AZNetworkingRetryTypeShouldRefreshCredentialsAndRetry: {
+                    id signer = [delegate.request.requestInterceptors lastObject];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
-                if ([signer respondsToSelector:@selector(credentialsProvider)]) {
-                    id credentialsProvider = [signer performSelector:@selector(credentialsProvider)];
-                    if ([credentialsProvider respondsToSelector:@selector(refresh)]) {
-                        [[credentialsProvider performSelector:@selector(refresh)] waitUntilFinished];
+                    if ([signer respondsToSelector:@selector(credentialsProvider)]) {
+                        id credentialsProvider = [signer performSelector:@selector(credentialsProvider)];
+                        if ([credentialsProvider respondsToSelector:@selector(refresh)]) {
+                            [[credentialsProvider performSelector:@selector(refresh)] waitUntilFinished];
+                        }
+                    }
+#pragma clang diagnostic pop
+                }
+
+                case AZNetworkingRetryTypeShouldRetry: {
+                    NSTimeInterval timeIntervalToSleep = [delegate.request.retryHandler timeIntervalForRetry:delegate.currentRetryCount
+                                                                                                    response:(NSHTTPURLResponse *)sessionTask.response
+                                                                                                        data:delegate.responseData
+                                                                                                       error:delegate.error];
+                    [NSThread sleepForTimeInterval:timeIntervalToSleep];
+                    delegate.currentRetryCount++;
+                    [self taskWithDelegate:delegate];
+                }
+                    break;
+
+                case AZNetworkingRetryTypeShouldNotRetry: {
+                    if (delegate.dataTaskCompletionHandler) {
+                        AZNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
+                        completionHandler(delegate.responseObject, delegate.error);
                     }
                 }
-#pragma clang diagnostic pop
+                    break;
+
+                default:
+                    AZLogError(@"Unknown retry type. This should not happen.");
+                    NSAssert(NO, @"Unknown retry type. This should not happen.");
+                    break;
+            }
+        } else {
+            //reset isClockSkewRetried flag for that Service if request went through
+            id retryHandler = delegate.request.retryHandler;
+            if ([[retryHandler valueForKey:@"isClockSkewRetried"] boolValue]) {
+                [retryHandler setValue:@NO forKey:@"isClockSkewRetried"];
             }
 
-            case AZNetworkingRetryTypeShouldRetry: {
-                NSTimeInterval timeIntervalToSleep = [delegate.request.retryHandler timeIntervalForRetry:delegate.currentRetryCount
-                                                                                                response:(NSHTTPURLResponse *)task.response
-                                                                                                    data:delegate.responseData
-                                                                                                   error:delegate.error];
-                [NSThread sleepForTimeInterval:timeIntervalToSleep];
-                delegate.currentRetryCount++;
-                [self taskWithDelegate:delegate];
+            if (delegate.dataTaskCompletionHandler) {
+                AZNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
+                completionHandler(delegate.responseObject, delegate.error);
             }
-                break;
-
-            case AZNetworkingRetryTypeShouldNotRetry: {
-                if (delegate.dataTaskCompletionHandler) {
-                    AZNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
-                    completionHandler(delegate.responseObject, delegate.error);
-                }
-            }
-                break;
-
-            default:
-                AZLogError(@"Unknown retry type. This should not happen.");
-                NSAssert(NO, @"Unknown retry type. This should not happen.");
-                break;
         }
-    } else {
-        //reset isClockSkewRetried flag for that Service if request went through
-        id retryHandler = delegate.request.retryHandler;
-        if ([[retryHandler valueForKey:@"isClockSkewRetried"] boolValue]) {
-            [retryHandler setValue:@NO forKey:@"isClockSkewRetried"];
-        }
-        
-        if (delegate.dataTaskCompletionHandler) {
-            AZNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
-            completionHandler(delegate.responseObject, delegate.error);
-        }
-    }
-
-    [self.sessionManagerDelegates removeObjectForKey:@(task.taskIdentifier)];
+        return nil;
+    }] continueWithBlock:^id(BFTask *task) {
+        [self.sessionManagerDelegates removeObjectForKey:@(sessionTask.taskIdentifier)];
+        return nil;
+    }];
 }
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didSendBodyData:(int64_t)bytesSent totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
     AZURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(task.taskIdentifier)];
     AZNetworkingUploadProgressBlock uploadProgress = delegate.request.uploadProgress;
     if (uploadProgress) {
-        uploadProgress(bytesSent, totalBytesSent, totalBytesExpectedToSend);
+        
+        NSURLSessionTask *sessionTask = delegate.request.task;
+        int64_t originalDataLength = [[[sessionTask.originalRequest allHTTPHeaderFields] objectForKey:@"x-amz-decoded-content-length"] longLongValue];
+        NSInputStream *inputStream = (AWSS3ChunkedEncodingInputStream *)sessionTask.originalRequest.HTTPBodyStream;
+        if ([inputStream isKindOfClass:[AWSS3ChunkedEncodingInputStream class]]) {
+            AWSS3ChunkedEncodingInputStream *chunkedInputStream = (AWSS3ChunkedEncodingInputStream *)inputStream;
+            int64_t payloadBytesSent = bytesSent;
+            if (chunkedInputStream.totalLengthOfChunkSignatureSent > delegate.lastTotalLengthOfChunkSignatureSent) {
+                payloadBytesSent = bytesSent - (chunkedInputStream.totalLengthOfChunkSignatureSent - delegate.lastTotalLengthOfChunkSignatureSent);
+            }
+            delegate.lastTotalLengthOfChunkSignatureSent = chunkedInputStream.totalLengthOfChunkSignatureSent;
+            
+            uploadProgress(payloadBytesSent, totalBytesSent - chunkedInputStream.totalLengthOfChunkSignatureSent, originalDataLength);
+        }else {
+            uploadProgress(bytesSent, totalBytesSent, totalBytesExpectedToSend);
+        }
     }
 }
 
@@ -452,7 +518,7 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
     AZURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(dataTask.taskIdentifier)];
-
+    
     if (delegate.downloadingFileURL) {
         [delegate.responseFilehandle writeData:data];
     } else {
@@ -462,6 +528,26 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
             [delegate.responseData appendData:data];
         }
     }
+    
+    AZNetworkingDownloadProgressBlock downloadProgress = delegate.request.downloadProgress;
+    if (downloadProgress) {
+        
+        int64_t bytesWritten = [data length];
+        delegate.payloadTotalBytesWritten += bytesWritten;
+        int64_t byteRangeStartPosition = 0;
+        int64_t totalBytesExpectedToWrite = dataTask.response.expectedContentLength;
+        if ([dataTask.response isKindOfClass:[NSHTTPURLResponse class]]) {
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)dataTask.response;
+            NSString *contentRangeString = [[httpResponse allHeaderFields] objectForKey:@"Content-Range"];
+            int64_t trueContentLength = [[[contentRangeString componentsSeparatedByString:@"/"] lastObject] longLongValue];
+            if (trueContentLength) {
+                byteRangeStartPosition = trueContentLength - dataTask.response.expectedContentLength;
+                totalBytesExpectedToWrite = trueContentLength;
+            }
+        }
+        downloadProgress(bytesWritten,delegate.payloadTotalBytesWritten + byteRangeStartPosition,totalBytesExpectedToWrite);
+    }
+ 
 }
 
 //- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask willCacheResponse:(NSCachedURLResponse *)proposedResponse completionHandler:(void (^)(NSCachedURLResponse *cachedResponse))completionHandler {

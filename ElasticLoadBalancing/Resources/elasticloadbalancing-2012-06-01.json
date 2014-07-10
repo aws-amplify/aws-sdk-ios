@@ -4,12 +4,13 @@
     "endpointPrefix":"elasticloadbalancing",
     "serviceFullName":"Elastic Load Balancing",
     "signatureVersion":"v4",
-    "type":"query",
-    "xmlNamespace":"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/"
+    "xmlNamespace":"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/",
+    "protocol":"query"
   },
   "documentation":"<fullname>Elastic Load Balancing</fullname>\n        \n        <p>\n        Elastic Load Balancing is a cost-effective and easy\n        to use web service to help you improve the availability and\n        scalability of your application running on Amazon Elastic Cloud Compute (Amazon EC2). It makes it easy for\n        you to distribute application loads between two or more\n        EC2 instances. Elastic Load Balancing supports the growth in traffic of your application by enabling availability through redundancy.\n        </p>\n        \n        <p>This guide provides detailed information about Elastic Load Balancing \n            actions, data types, and parameters that can be used for sending a \n            query request. Query requests are HTTP or HTTPS requests that use the \n            HTTP verb GET or POST and a query parameter named Action or Operation. \n            Action is used throughout this documentation, although Operation is \n            supported for backward compatibility with other AWS Query APIs.</p>\n                \n        <p>For detailed information on constructing a query request using the actions, data types, and parameters mentioned in this guide,\n            go to <a href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/using-query-api.html\">Using the Query API</a>\n            in the <i>Elastic Load Balancing Developer Guide</i>.</p>\n                   \n        <p>For detailed information about Elastic Load Balancing features and their associated actions, go to \n            <a href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenarios.html\">Using Elastic Load Balancing</a>\n            in the <i>Elastic Load Balancing Developer Guide</i>.</p>\n        \n        <p>This reference guide is based on the current WSDL, which is available at:\n            <a href=\"http://ec2-downloads.s3.amazonaws.com/ElasticLoadBalancing.wsdl\"></a>   \n        </p>\n        <p><b>Endpoints</b></p>\n        <p>The examples in this guide assume that your load balancers are created in the US East (Northern Virginia) region and use us-east-1 as the endpoint.</p>\n        <p>You can create your load balancers in other AWS regions. For information about regions and endpoints supported by Elastic Load Balancing, see \n            <a href=\"http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html\">Regions and Endpoints</a> \n            in the Amazon Web Services General Reference.\n        </p>",
   "operations":{
     "ApplySecurityGroupsToLoadBalancer":{
+      "name":"ApplySecurityGroupsToLoadBalancer",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -26,16 +27,31 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         },
         {
           "shape":"InvalidConfigurationRequestException",
+          "error":{
+            "code":"InvalidConfigurationRequest",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n        Requested configuration change is invalid.\n        </p>"
         },
         {
           "shape":"InvalidSecurityGroupException",
+          "error":{
+            "code":"InvalidSecurityGroup",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            One or more specified security groups do not exist.  \n        </p>"
         }
@@ -43,6 +59,7 @@
       "documentation":"<p>\n            Associates one or more security groups with your load balancer in Amazon Virtual Private Cloud (Amazon VPC). \n            The provided security group IDs will override any currently applied security groups.\n        </p> \n        <p>For more information, see <a href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/USVPC_ApplySG.html\">Manage Security Groups in Amazon VPC</a> in the <i>Elastic Load Balancing Developer Guide</i>.</p>\n        \n        <examples>      \n            <queryrequest>https://elasticloadbalancing.amazonaws.com/?SecurityGroups.member.1=sg-123456789\n&LoadBalancerName=my-test-vpc-loadbalancer\n&Version=2012-06-01\n&Action=ApplySecurityGroupsToLoadBalancer\n&AUTHPARAMS </queryrequest>      \n            <queryresponse><ApplySecurityGroupsToLoadBalancerResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n  <ApplySecurityGroupsToLoadBalancerResult>\n    <SecurityGroups>\n      <member>sg-123456789</member>\n    </SecurityGroups>\n  </ApplySecurityGroupsToLoadBalancerResult>\n  <ResponseMetadata>\n    <RequestId>06b5decc-102a-11e3-9ad6-bf3e4EXAMPLE</RequestId>\n  </ResponseMetadata>\n</ApplySecurityGroupsToLoadBalancerResponse>\n </queryresponse>\n        </examples>"
     },
     "AttachLoadBalancerToSubnets":{
+      "name":"AttachLoadBalancerToSubnets",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -59,21 +76,41 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         },
         {
           "shape":"InvalidConfigurationRequestException",
+          "error":{
+            "code":"InvalidConfigurationRequest",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n        Requested configuration change is invalid.\n        </p>"
         },
         {
           "shape":"SubnetNotFoundException",
+          "error":{
+            "code":"SubnetNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n          One or more subnets were not found.\n        </p>"
         },
         {
           "shape":"InvalidSubnetException",
+          "error":{
+            "code":"InvalidSubnet",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The VPC has no Internet gateway. \n        </p>"
         }
@@ -81,6 +118,7 @@
       "documentation":"<p>\n            Adds one or more subnets to the set of configured subnets in the Amazon Virtual Private Cloud (Amazon VPC) for the load balancer.\n        </p>  \n        <p>\n            The load balancers evenly distribute requests across all of the registered subnets. \n            For more information, see <a href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html\">Deploy Elastic Load Balancing in Amazon VPC</a> in the <i>Elastic Load Balancing Developer Guide</i>.\n        </p>\n        <examples>      \n            <queryrequest>https://elasticloadbalancing.amazonaws.com/?Subnets.member.1=subnet-3561b05e\n&LoadBalancerName=my-test-vpc-loadbalancer\n&Version=2012-06-01\n&Action=AttachLoadBalancerToSubnets\n&AUTHPARAMS </queryrequest>      \n            <queryresponse><AttachLoadBalancerToSubnetsResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n<AttachLoadBalancerToSubnetsResult>\n    <Subnets>\n      <member>subnet-119f0078</member>\n      <member>subnet-3561b05e</member>\n    </Subnets>\n</AttachLoadBalancerToSubnetsResult>\n  <ResponseMetadata>\n    <RequestId>07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE</RequestId>\n  </ResponseMetadata>\n</AttachLoadBalancerToSubnetsResponse>\n </queryresponse>\n        </examples>"
     },
     "ConfigureHealthCheck":{
+      "name":"ConfigureHealthCheck",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -97,6 +135,11 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         }
@@ -104,6 +147,7 @@
       "documentation":"<p>\n            Specifies the health check settings to use for evaluating the health state of your back-end instances.            \n        </p>\n        <p>For more information, see <a href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#healthcheck\">Health Check</a> in the <i>Elastic Load Balancing Developer Guide</i>.</p>\n        <examples>      \n            <queryrequest>https://elasticloadbalancing.amazonaws.com/?HealthCheck.HealthyThreshold=2\n&HealthCheck.UnhealthyThreshold=2\n&LoadBalancerName=MyLoadBalancer\n&HealthCheck.Target=HTTP:80/ping\n&HealthCheck.Interval=30\n&HealthCheck.Timeout=3\n&Version=2012-06-01\n&Action=ConfigureHealthCheck\n&AUTHPARAMS </queryrequest>      \n            <queryresponse><ConfigureHealthCheckResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n<ConfigureHealthCheckResult>\n    <HealthCheck>\n      <Interval>30</Interval>\n      <Target>HTTP:80/ping</Target>\n      <HealthyThreshold>2</HealthyThreshold>\n      <Timeout>3</Timeout>\n      <UnhealthyThreshold>2</UnhealthyThreshold>\n    </HealthCheck>\n</ConfigureHealthCheckResult>\n<ResponseMetadata>\n    <RequestId>83c88b9d-12b7-11e3-8b82-87b12EXAMPLE</RequestId>\n</ResponseMetadata>\n</ConfigureHealthCheckResponse>\n </queryresponse>\n        </examples>"
     },
     "CreateAppCookieStickinessPolicy":{
+      "name":"CreateAppCookieStickinessPolicy",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -120,21 +164,41 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         },
         {
           "shape":"DuplicatePolicyNameException",
+          "error":{
+            "code":"DuplicatePolicyName",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            Policy with the same name exists for this load balancer.\n            Please choose another name.\n        </p>"
         },
         {
           "shape":"TooManyPoliciesException",
+          "error":{
+            "code":"TooManyPolicies",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            Quota for number of policies for this load balancer\n            has already been reached.\n        </p>"
         },
         {
           "shape":"InvalidConfigurationRequestException",
+          "error":{
+            "code":"InvalidConfigurationRequest",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n        Requested configuration change is invalid.\n        </p>"
         }
@@ -142,6 +206,7 @@
       "documentation":"<p>\n            Generates a stickiness policy with sticky session lifetimes that follow \n            that of an application-generated cookie. This policy can be associated\n            only with HTTP/HTTPS listeners.\n        </p>\n        <p>\n            This policy is similar to the policy created by <a>CreateLBCookieStickinessPolicy</a>, \n            except that the lifetime of the special Elastic Load Balancing cookie follows the\n            lifetime of the application-generated cookie specified in the policy configuration. \n            The load balancer only inserts a new stickiness cookie when the application response\n            includes a new application cookie. \n        </p>\n        <p>\n            If the application cookie is explicitly removed or expires, the session stops being\n            sticky until a new application cookie is issued. \n        </p>\n        <note>\n            An application client must receive and send two cookies: the application-generated \n            cookie and the special Elastic Load Balancing cookie named <code>AWSELB</code>. \n            This is the default behavior for many common web browsers.\n        </note>\n        <p>For more information, see <a href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_StickySessions.html#US_EnableStickySessionsAppCookies\">Enabling Application-Controlled Session Stickiness</a>\n            in the <i>Elastic Load Balancing Developer Guide</i>.</p>\n        <examples>      \n            <queryrequest>https://elasticloadbalancing.amazonaws.com/?CookieName=MyAppCookie\n&LoadBalancerName=MyLoadBalancer\n&PolicyName=MyAppStickyPolicy\n&Version=2012-06-01\n&Action=CreateAppCookieStickinessPolicy\n&AUTHPARAMS </queryrequest>      \n            <queryresponse><CreateAppCookieStickinessPolicyResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n<CreateAppCookieStickinessPolicyResult/>\n<ResponseMetadata>\n    <RequestId>99a693e9-12b8-11e3-9ad6-bf3e4EXAMPLE</RequestId>\n</ResponseMetadata>\n</CreateAppCookieStickinessPolicyResponse>\n </queryresponse>\n        </examples>"
     },
     "CreateLBCookieStickinessPolicy":{
+      "name":"CreateLBCookieStickinessPolicy",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -158,21 +223,41 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         },
         {
           "shape":"DuplicatePolicyNameException",
+          "error":{
+            "code":"DuplicatePolicyName",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            Policy with the same name exists for this load balancer.\n            Please choose another name.\n        </p>"
         },
         {
           "shape":"TooManyPoliciesException",
+          "error":{
+            "code":"TooManyPolicies",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            Quota for number of policies for this load balancer\n            has already been reached.\n        </p>"
         },
         {
           "shape":"InvalidConfigurationRequestException",
+          "error":{
+            "code":"InvalidConfigurationRequest",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n        Requested configuration change is invalid.\n        </p>"
         }
@@ -180,6 +265,7 @@
       "documentation":"<p>\n            Generates a stickiness policy with sticky session lifetimes controlled by the \n            lifetime of the browser (user-agent) or a specified expiration period. This \n            policy can be associated only with HTTP/HTTPS listeners.\n        </p>\n        <p>\n            When a load balancer implements this policy, the load balancer uses a special\n            cookie to track the backend server instance for each request. When the load balancer\n            receives a request, it first checks to see if this cookie is present in the request. \n            If so, the load balancer sends the request to the application server specified in the\n            cookie. If not, the load balancer sends the request to a server that is chosen based on\n            the existing load balancing algorithm.\n        </p>\n        <p>\n            A cookie is inserted into the response for binding subsequent requests from the same user to\n            that server. The validity of the cookie is based on the cookie expiration time, which is \n            specified in the policy configuration. \n        </p>\n        \n        <p>For more information, see <a href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_StickySessions.html#US_EnableStickySessionsLBCookies\">Enabling Duration-Based Session Stickiness</a>\n            in the <i>Elastic Load Balancing Developer Guide</i>.</p>        \n        <examples>      \n            <queryrequest>https://elasticloadbalancing.amazonaws.com/?CookieExpirationPeriod=60\n&LoadBalancerName=MyLoadBalancer&PolicyName=MyDurationStickyPolicy\n&Version=2012-06-01\n&Action=CreateLBCookieStickinessPolicy\n&AUTHPARAMS </queryrequest>      \n            <queryresponse><CreateLBCookieStickinessPolicyResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n<CreateLBCookieStickinessPolicyResult/>\n<ResponseMetadata>\n    <RequestId>99a693e9-12b8-11e3-9ad6-bf3e4EXAMPLE</RequestId>\n</ResponseMetadata>\n</CreateLBCookieStickinessPolicyResponse>\n </queryresponse>\n        </examples>"
     },
     "CreateLoadBalancer":{
+      "name":"CreateLoadBalancer",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -196,41 +282,81 @@
       "errors":[
         {
           "shape":"DuplicateAccessPointNameException",
+          "error":{
+            "code":"DuplicateLoadBalancerName",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            Load balancer name already exists for this account.\n            Please choose another name.\n        </p>"
         },
         {
           "shape":"TooManyAccessPointsException",
+          "error":{
+            "code":"TooManyLoadBalancers",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The quota for the number of load balancers has already been reached.\n        </p>"
         },
         {
           "shape":"CertificateNotFoundException",
+          "error":{
+            "code":"CertificateNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified SSL ID does not refer to a valid SSL certificate \n            in the AWS Identity and Access Management Service.\n        </p>"
         },
         {
           "shape":"InvalidConfigurationRequestException",
+          "error":{
+            "code":"InvalidConfigurationRequest",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n        Requested configuration change is invalid.\n        </p>"
         },
         {
           "shape":"SubnetNotFoundException",
+          "error":{
+            "code":"SubnetNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n          One or more subnets were not found.\n        </p>"
         },
         {
           "shape":"InvalidSubnetException",
+          "error":{
+            "code":"InvalidSubnet",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The VPC has no Internet gateway. \n        </p>"
         },
         {
           "shape":"InvalidSecurityGroupException",
+          "error":{
+            "code":"InvalidSecurityGroup",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            One or more specified security groups do not exist.  \n        </p>"
         },
         {
           "shape":"InvalidSchemeException",
+          "error":{
+            "code":"InvalidScheme",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            Invalid value for scheme. Scheme can only be specified for load balancers in VPC.         \n        </p>"
         }
@@ -238,6 +364,7 @@
       "documentation":"<p>\n            Creates a new load balancer.\n        </p>\n        <p>\n            After the call has completed successfully, a new load balancer\n            is created with a unique Domain Name Service (DNS) name. The DNS \n            name includes the name of the AWS region in which the load balance \n            was created. For example, if your load balancer was created in the\n            United States, the DNS name might end with either of the following:</p>        \n        <ul>\n            <li>\n                <i>us-east-1.elb.amazonaws.com</i> (for the Northern Virginia Region)\n            </li>\n            <li>\n                <i>us-west-1.elb.amazonaws.com</i> (for the Northern California Region)\n            </li>\n        </ul>\n        <p>For information about the AWS regions supported by Elastic Load Balancing, \n            see <a href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region\">Regions and Endpoints</a>.</p>        \n        \n        <p>You can create up to 20 load balancers per region per account.</p>\n        \n        <p>Elastic Load Balancing supports load balancing your Amazon EC2 instances launched\n            within any one of the following platforms:</p>\n        <ul>\n            <li>\n                <i>EC2-Classic</i>\n                <p>For information on creating and managing your load balancers in EC2-Classic, \n                    see <a href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForEC2.html\">Deploy Elastic Load Balancing in Amazon EC2-Classic</a>.</p>\n            </li>\n            <li>\n                <i>EC2-VPC</i>\n                <p>For information on creating and managing your load balancers in EC2-VPC, \n                    see <a href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html\">Deploy Elastic Load Balancing in Amazon VPC</a>.</p>\n            </li>\n        </ul> \n        \n        <examples> \n            <example>\n                <name>Create a TCP load balancer in EC2-Classic</name>                \n                <queryrequest>https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=MyLoadBalancer\n&AvailabilityZones.member.1=us-east-1c\n&Listeners.member.1.LoadBalancerPort=80\n&Listeners.member.1.InstancePort=80\n&Listeners.member.1.Protocol=http\n&Listeners.member.1.InstanceProtocol=http\n&Version=2012-06-01\n&Action=CreateLoadBalancer\n&AUTHPARAMS </queryrequest>      \n                <queryresponse><CreateLoadBalancerResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n<CreateLoadBalancerResult>\n    <DNSName>MyLoadBalancer-1234567890.us-east-1.elb.amazonaws.com</DNSName>\n  </CreateLoadBalancerResult>\n  <ResponseMetadata>\n    <RequestId>1549581b-12b7-11e3-895e-1334aEXAMPLE</RequestId>\n  </ResponseMetadata>\n</CreateLoadBalancerResponse>\n </queryresponse>\n            </example> \n            <example>\n                <name>Create HTTPS load balancer in EC2-Classic</name>                \n                <queryrequest>https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=MyHTTPSLoadBalancer\n&AvailabilityZones.member.1=us-east-1c\n&Listeners.member.1.LoadBalancerPort=443\n&Listeners.member.1.InstancePort=443\n&Listeners.member.1.Protocol=https\n&Listeners.member.1.InstanceProtocol=https\n&Listeners.member.1.SSLCertificateId=arn:aws:iam::123456789012:server-certificate/servercert\n&Version=2012-06-01\n&Action=CreateLoadBalancer\n&AUTHPARAMS </queryrequest>      \n                <queryresponse><CreateLoadBalancerResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n<CreateLoadBalancerResult>\n    <DNSName>MyHTTPSLoadBalancer-1234567890.us-east-1.elb.amazonaws.com</DNSName>\n  </CreateLoadBalancerResult>\n  <ResponseMetadata>\n    <RequestId>1549581b-12b7-11e3-895e-1334aEXAMPLE</RequestId>\n  </ResponseMetadata>\n</CreateLoadBalancerResponse>\n </queryresponse>\n            </example> \n            <example>\n                <name>Create a TCP load balancer in EC2-VPC</name>                \n                <queryrequest>https://elasticloadbalancing.amazonaws.com/?SecurityGroups.member.1=sg-6801da07\n&LoadBalancerName=MyVPCLoadBalancer\n&Listeners.member.1.LoadBalancerPort=80\n&Listeners.member.1.InstancePort=80\n&Listeners.member.1.Protocol=http\n&Listeners.member.1.InstanceProtocol=http\n&Subnets.member.1=subnet-6dec9f03\n&Version=2012-06-01\n&Action=CreateLoadBalancer\n&AUTHPARAMS </queryrequest>      \n                <queryresponse><CreateLoadBalancerResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n<CreateLoadBalancerResult>\n    <DNSName>MyVPCLoadBalancer-1234567890.us-east-1.elb.amazonaws.com</DNSName>\n  </CreateLoadBalancerResult>\n  <ResponseMetadata>\n    <RequestId>1549581b-12b7-11e3-895e-1334aEXAMPLE</RequestId>\n  </ResponseMetadata>\n</CreateLoadBalancerResponse>\n </queryresponse>\n            </example> \n            <example>\n                <name>Create an internal TCP load balancer in EC2-VPC</name>                \n                <queryrequest>https://elasticloadbalancing.amazonaws.com/?Scheme=internal\n&SecurityGroups.member.1=sg-706cb61f\n&LoadBalancerName=MyInternalLoadBalancer\n&Listeners.member.1.LoadBalancerPort=80\n&Listeners.member.1.InstancePort=80\n&Listeners.member.1.Protocol=http\n&Listeners.member.1.InstanceProtocol=http\n&Subnets.member.1=subnet-9edc97f0\n&Version=2012-06-01\n&Action=CreateLoadBalancer\n&AUTHPARAMS </queryrequest>      \n                <queryresponse><CreateLoadBalancerResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n<CreateLoadBalancerResult>\n    <DNSName>internal-MyInternalLoadBalancer-1234567890.us-east-1.elb.amazonaws.com</DNSName>\n  </CreateLoadBalancerResult>\n  <ResponseMetadata>\n    <RequestId>1549581b-12b7-11e3-895e-1334aEXAMPLE</RequestId>\n  </ResponseMetadata>\n</CreateLoadBalancerResponse>\n </queryresponse>\n            </example>           \n            <example>\n                <name>Create a TCP load balancer in default VPC</name>                \n                <queryrequest>https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=MyDefaultVPCLoadBalancer\n&AvailabilityZones.member.1=sa-east-1b\n&Listeners.member.1.LoadBalancerPort=80\n&Listeners.member.1.InstancePort=80\n&Listeners.member.1.Protocol=http\n&Listeners.member.1.InstanceProtocol=http\n&Version=2012-06-01\n&Action=CreateLoadBalancer\n&AUTHPARAMS </queryrequest>      \n                <queryresponse><CreateLoadBalancerResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n<CreateLoadBalancerResult>\n    <DNSName>MyDefaultVPCLoadBalancer-1234567890.sa.east-1.elb.amazonaws.com</DNSName>\n  </CreateLoadBalancerResult>\n  <ResponseMetadata>\n    <RequestId>1549581b-12b7-11e3-895e-1334aEXAMPLE</RequestId>\n  </ResponseMetadata>\n</CreateLoadBalancerResponse>\n </queryresponse>\n            </example>           \n        </examples>"
     },
     "CreateLoadBalancerListeners":{
+      "name":"CreateLoadBalancerListeners",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -254,21 +381,41 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         },
         {
           "shape":"DuplicateListenerException",
+          "error":{
+            "code":"DuplicateListener",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            A <code>Listener</code> already exists for the given \n            <code>LoadBalancerName</code> and <code>LoadBalancerPort</code>, \n            but with a different <code>InstancePort</code>, <code>Protocol</code>, \n            or <code>SSLCertificateId</code>.   \t\n        </p>"
         },
         {
           "shape":"CertificateNotFoundException",
+          "error":{
+            "code":"CertificateNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified SSL ID does not refer to a valid SSL certificate \n            in the AWS Identity and Access Management Service.\n        </p>"
         },
         {
           "shape":"InvalidConfigurationRequestException",
+          "error":{
+            "code":"InvalidConfigurationRequest",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n        Requested configuration change is invalid.\n        </p>"
         }
@@ -276,6 +423,7 @@
       "documentation":"<p>\n            Creates one or more listeners on a load balancer for the specified port. \n            If a listener with the given port does not already exist, it will be created; \n            otherwise, the properties of the new listener must match the properties \n            of the existing listener. \n        </p>\n        <p>For more information, see <a href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/us-add-listener.html\">Add a Listener to Your Load Balancer</a> \n            in the <i>Elastic Load Balancing Developer Guide</i>.</p>\n        \n        <examples>\n            <name>Create HTTPS load balancer listener in EC2-Classic</name>                \n            <queryrequest>https://elasticloadbalancing.amazonaws.com/?Listeners.member.1.Protocol=https\n&Listeners.member.1.LoadBalancerPort=443\n&Listeners.member.1.InstancePort=443\n&Listeners.member.1.InstanceProtocol=https\n&Listeners.member.1.SSLCertificateId=arn:aws:iam::123456789012:server-certificate/servercert\n&LoadBalancerName=MyHTTPSLoadBalancer\n&Version=2012-06-01\n&Action=CreateLoadBalancerListeners\n&AUTHPARAMS </queryrequest>      \n            <queryresponse><CreateLoadBalancerListenersResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n  <CreateLoadBalancerListenersResult/>\n  <ResponseMetadata>\n    <RequestId>1549581b-12b7-11e3-895e-1334aEXAMPLE</RequestId>\n  </ResponseMetadata>\n</CreateLoadBalancerListenersResponse>\n </queryresponse>\n        </examples>"
     },
     "CreateLoadBalancerPolicy":{
+      "name":"CreateLoadBalancerPolicy",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -289,26 +437,51 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         },
         {
           "shape":"PolicyTypeNotFoundException",
+          "error":{
+            "code":"PolicyTypeNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            One or more of the specified policy types do not exist.\n        </p>"
         },
         {
           "shape":"DuplicatePolicyNameException",
+          "error":{
+            "code":"DuplicatePolicyName",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            Policy with the same name exists for this load balancer.\n            Please choose another name.\n        </p>"
         },
         {
           "shape":"TooManyPoliciesException",
+          "error":{
+            "code":"TooManyPolicies",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            Quota for number of policies for this load balancer\n            has already been reached.\n        </p>"
         },
         {
           "shape":"InvalidConfigurationRequestException",
+          "error":{
+            "code":"InvalidConfigurationRequest",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n        Requested configuration change is invalid.\n        </p>"
         }
@@ -316,6 +489,7 @@
       "documentation":"<p>\n   \tCreates a new policy that contains the necessary attributes depending on the policy type.\n   \tPolicies are settings that are saved for your load balancer and that can be applied to the\n   \tfront-end listener, or the back-end application server, depending on your policy type.\n   \t</p>\n       <examples>      \n           <queryrequest>https://elasticloadbalancing.amazonaws.com/?PolicyAttributes.member.1.AttributeName=ProxyProtocol\n&PolicyAttributes.member.1.AttributeValue=true\n&PolicyTypeName=ProxyProtocolPolicyType\n&LoadBalancerName=my-test-loadbalancer\n&PolicyName=EnableProxyProtocol\n&Version=2012-06-01\n&Action=CreateLoadBalancerPolicy\n&AUTHPARAMS </queryrequest>      \n           <queryresponse><CreateLoadBalancerPolicyResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n<CreateLoadBalancerPolicyResult/>\n<ResponseMetadata>\n    <RequestId>83c88b9d-12b7-11e3-8b82-87b12EXAMPLE</RequestId>\n</ResponseMetadata>\n</CreateLoadBalancerPolicyResponse>\n </queryresponse>\n       </examples>"
     },
     "DeleteLoadBalancer":{
+      "name":"DeleteLoadBalancer",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -332,6 +506,7 @@
       "documentation":"<p>\n            Deletes the specified load balancer.\n        </p>\n        <p>\n            If attempting to recreate the load balancer,\n            you must reconfigure all the settings.\n            The DNS name associated with a deleted load balancer\n            will no longer be usable.\n            Once deleted, the name and associated DNS record of the\n            load balancer no longer exist and traffic sent to any of its\n            IP addresses will no longer be delivered to back-end instances.            \n        </p>\n        <p>\n            To successfully call this API, you must provide the same\n            account credentials as were used to create the load balancer.\n        </p>\n        <note>\n            By design, if the load balancer does not exist or has already been deleted, a call to\n            <code>DeleteLoadBalancer</code> action still succeeds.\n        </note>"
     },
     "DeleteLoadBalancerListeners":{
+      "name":"DeleteLoadBalancerListeners",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -348,6 +523,11 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         }
@@ -355,6 +535,7 @@
       "documentation":"<p>\n            Deletes listeners from the load balancer for the specified port.\n        </p>"
     },
     "DeleteLoadBalancerPolicy":{
+      "name":"DeleteLoadBalancerPolicy",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -371,11 +552,21 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         },
         {
           "shape":"InvalidConfigurationRequestException",
+          "error":{
+            "code":"InvalidConfigurationRequest",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n        Requested configuration change is invalid.\n        </p>"
         }
@@ -383,6 +574,7 @@
       "documentation":"<p>\n            Deletes a policy from the load balancer. \n            The specified policy must not be enabled for any listeners.\n        </p>"
     },
     "DeregisterInstancesFromLoadBalancer":{
+      "name":"DeregisterInstancesFromLoadBalancer",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -399,11 +591,21 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         },
         {
           "shape":"InvalidEndPointException",
+          "error":{
+            "code":"InvalidInstance",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified EndPoint is not valid.\n        </p>"
         }
@@ -411,6 +613,7 @@
       "documentation":"<p>\n            Deregisters instances from the load balancer.\n            Once the instance is deregistered,\n            it will stop receiving traffic from the load balancer. \n        </p>\n        <p>\n            In order to successfully call this API,\n            the same account credentials as those\n            used to create the load balancer must be provided.\n        </p>\n        <p>For more information, see <a href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html\">De-register and Register Amazon EC2 Instances</a> \n            in the <i>Elastic Load Balancing Developer Guide</i>.</p>\n        \n        <p>You can use <a>DescribeLoadBalancers</a> to verify if the instance is deregistered from the load balancer.</p>  \n        <examples>\n            <example>\n                <name>Deregister instance <i>i-e3677ad7</i> from <i>MyHTTPSLoadBalancer</i> load balancer.</name>                \n                <queryrequest>https://elasticloadbalancing.amazonaws.com/?Instances.member.1.InstanceId=i-e3677ad7\n&LoadBalancerName=MyHTTPSLoadBalancer\n&Version=2012-06-01\n&Action=DeregisterInstancesFromLoadBalancer\n&AUTHPARAMS </queryrequest>      \n                <queryresponse><DeregisterInstancesFromLoadBalancerResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n  <DeregisterInstancesFromLoadBalancerResult>\n    <Instances>\n      <member>\n        <InstanceId>i-6ec63d59</InstanceId>\n      </member>\n    </Instances>\n  </DeregisterInstancesFromLoadBalancerResult>\n<ResponseMetadata>\n    <RequestId>83c88b9d-12b7-11e3-8b82-87b12EXAMPLE</RequestId>\n</ResponseMetadata>\n</DeregisterInstancesFromLoadBalancerResponse>\n </queryresponse>\n            </example>\n        </examples>"
     },
     "DescribeInstanceHealth":{
+      "name":"DescribeInstanceHealth",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -427,11 +630,21 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         },
         {
           "shape":"InvalidEndPointException",
+          "error":{
+            "code":"InvalidInstance",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified EndPoint is not valid.\n        </p>"
         }
@@ -439,6 +652,7 @@
       "documentation":"<p>\n        Returns the current state of the specified instances registered with the specified load balancer.\n        If no instances are specified, the state of all the instances registered with the load balancer is returned.\n        </p>\n        <note>\n       You must provide the same account credentials\n        as those that were used to create the load balancer.\n        </note>\n        <examples>\n            <example>\n                <name>Description of a healthy (InService) instance</name>                \n                <queryrequest>https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=MyLoadBalancer\n&Version=2012-06-01\n&Action=DescribeInstanceHealth\n&AUTHPARAMS </queryrequest>      \n                <queryresponse><DescribeInstanceHealthResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n  <DescribeInstanceHealthResult>\n    <InstanceStates>\n      <member>\n        <Description>N/A</Description>\n        <InstanceId>i-90d8c2a5</InstanceId>\n        <State>InService</State>\n        <ReasonCode>N/A</ReasonCode>\n      </member>\n    </InstanceStates>\n  </DescribeInstanceHealthResult>\n  <ResponseMetadata>\n    <RequestId>1549581b-12b7-11e3-895e-1334aEXAMPLE</RequestId>\n  </ResponseMetadata>\n</DescribeInstanceHealthResponse>  \n </queryresponse>\n            </example> \n            <example>\n                <name>Description of an instance with registration in progress</name>                \n                <queryrequest>https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=my-test-loadbalancer\n&Version=2012-06-01\n&Action=DescribeInstanceHealth\n&AUTHPARAMS </queryrequest>      \n                <queryresponse><DescribeInstanceHealthResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n  <DescribeInstanceHealthResult>\n    <InstanceStates>\n      <member>\n        <Description>Instance registration is still in progress.</Description>\n        <InstanceId>i-315b7e51</InstanceId>\n        <State>OutOfService</State>\n        <ReasonCode>ELB</ReasonCode>\n      </member>\n    </InstanceStates>\n  </DescribeInstanceHealthResult>\n  <ResponseMetadata>\n    <RequestId>1549581b-12b7-11e3-895e-1334aEXAMPLE</RequestId>\n  </ResponseMetadata>\n</DescribeInstanceHealthResponse>  \n </queryresponse>\n            </example> \n            <example>\n                <name>Description of an unhealthy (OutOfService) instance</name>              \n                <queryrequest>https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=MyLoadBalancer-2\n&Version=2012-06-01\n&Action=DescribeInstanceHealth\n&AUTHPARAMS </queryrequest>      \n                <queryresponse><DescribeInstanceHealthResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n  <DescribeInstanceHealthResult>\n    <InstanceStates>\n      <member>\n        <Description>Instance has failed at least the UnhealthyThreshold number of health checks consecutively.</Description>\n        <InstanceId>i-fda142c9</InstanceId>\n        <State>OutOfService</State>\n        <ReasonCode>Instance</ReasonCode>\n      </member>\n    </InstanceStates>\n  </DescribeInstanceHealthResult>\n  <ResponseMetadata>\n    <RequestId>83c88b9d-12b7-11e3-8b82-87b12EXAMPLE</RequestId>\n</ResponseMetadata>\n</DescribeInstanceHealthResponse>\n </queryresponse>\n            </example>             \n        </examples>"
     },
     "DescribeLoadBalancerAttributes":{
+      "name":"DescribeLoadBalancerAttributes",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -455,11 +669,21 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         },
         {
           "shape":"LoadBalancerAttributeNotFoundException",
+          "error":{
+            "code":"LoadBalancerAttributeNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The specified load balancer attribute could not be found.</p>"
         }
@@ -467,6 +691,7 @@
       "documentation":"<p>Returns detailed information about all of the attributes associated with the specified load balancer.</p>  \n        <examples>\n            <example>                           \n                <queryrequest>https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=MyLoadBalancer\n&Version=2012-06-01\n&Action=DescribeLoadBalancerAttributes\n&AUTHPARAMS </queryrequest>      \n                <queryresponse><DescribeLoadBalancerAttributesResponse  xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n <DescribeLoadBalancerAttributesResult>\n    <LoadBalancerAttributes>\n    <AccessLog>\n        <Enabled>true</Enabled>\n        <S3BucketName>my-loadbalancer-logs</S3BucketName>\n        <S3BucketPrefix>testprefix</S3BucketPrefix>\n        <EmitInterval>5</EmitInterval>\n      </AccessLog>\n      <CrossZoneLoadBalancing>\n        <Enabled>true</Enabled>\n      </CrossZoneLoadBalancing>\n      <ConnectionDraining>\n        <Enabled>true</Enabled>\n        <Timeout>60</Timeout>\n     </ConnectionDraining> \n    </LoadBalancerAttributes>\n  </DescribeLoadBalancerAttributesResult>\n<ResponseMetadata>\n    <RequestId>83c88b9d-12b7-11e3-8b82-87b12EXAMPLE</RequestId>\n</ResponseMetadata>\n</DescribeLoadBalancerAttributesResponse>\n </queryresponse>\n            </example>\n        </examples>"
     },
     "DescribeLoadBalancerPolicies":{
+      "name":"DescribeLoadBalancerPolicies",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -480,11 +705,21 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         },
         {
           "shape":"PolicyNotFoundException",
+          "error":{
+            "code":"PolicyNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n        One or more specified policies were not found.\n        </p>"
         }
@@ -492,6 +727,7 @@
       "documentation":"<p>Returns detailed descriptions of the policies.\n   If you specify a load balancer name, the action returns the descriptions of all the policies created for the load balancer.\n   If you specify a policy name associated with your load balancer, the action returns the description of that policy. \n   If you don't specify a load balancer name, the action returns descriptions of the specified sample policies, or descriptions of all the sample policies.\n   The names of the sample policies have the <code>ELBSample-</code> prefix.\n   </p>\n       <examples>\n           <example>\n               <name>Description of all the policies associated with a load balancer</name>              \n               <queryrequest>https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=MyLoadBalancer\n&Version=2012-06-01\n&Action=DescribeLoadBalancerPolicies\n&AUTHPARAMS </queryrequest>      \n               <queryresponse><DescribeLoadBalancerPoliciesResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n  <DescribeLoadBalancerPoliciesResult>\n    <PolicyDescriptions>\n      <member>\n        <PolicyName>MyDurationStickyPolicy</PolicyName>\n        <PolicyTypeName>LBCookieStickinessPolicyType</PolicyTypeName>\n        <PolicyAttributeDescriptions>\n          <member>\n            <AttributeName>CookieExpirationPeriod</AttributeName>\n            <AttributeValue>60</AttributeValue>\n          </member>\n        </PolicyAttributeDescriptions>\n      </member>\n      <member>\n        <PolicyName>MyAppStickyPolicy</PolicyName>\n        <PolicyTypeName>AppCookieStickinessPolicyType</PolicyTypeName>\n        <PolicyAttributeDescriptions>\n          <member>\n            <AttributeName>CookieName</AttributeName>\n            <AttributeValue>MyAppCookie</AttributeValue>\n          </member>\n        </PolicyAttributeDescriptions>\n      </member>\n    </PolicyDescriptions>\n  </DescribeLoadBalancerPoliciesResult>\n<ResponseMetadata>\n    <RequestId>83c88b9d-12b7-11e3-8b82-87b12EXAMPLE</RequestId>\n</ResponseMetadata>\n</DescribeLoadBalancerPoliciesResponse>\n </queryresponse>\n           </example> \n           <example>\n               <name>Description of a specified policy associated with the load balancer</name>                \n               <queryrequest>https://elasticloadbalancing.amazonaws.com/?PolicyNames.member.1=EnableProxyProtocol\n&LoadBalancerName=my-test-loadbalancer\n&Version=2012-06-01\n&Action=DescribeLoadBalancerPolicies\n&AUTHPARAMS </queryrequest>      \n               <queryresponse><DescribeLoadBalancerPoliciesResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n  <DescribeLoadBalancerPoliciesResult>\n   <PolicyDescriptions>\n      <member>\n        <PolicyName>EnableProxyProtocol</PolicyName>\n        <PolicyTypeName>ProxyProtocolPolicyType</PolicyTypeName>\n        <PolicyAttributeDescriptions>\n          <member>\n            <AttributeName>ProxyProtocol</AttributeName>\n            <AttributeValue>true</AttributeValue>\n          </member>\n        </PolicyAttributeDescriptions>\n      </member>\n    </PolicyDescriptions> \n  </DescribeLoadBalancerPoliciesResult>\n  <ResponseMetadata>\n    <RequestId>1549581b-12b7-11e3-895e-1334aEXAMPLE</RequestId>\n  </ResponseMetadata>\n</DescribeLoadBalancerPoliciesResponse>\n </queryresponse>\n           </example> \n       </examples>"
     },
     "DescribeLoadBalancerPolicyTypes":{
+      "name":"DescribeLoadBalancerPolicyTypes",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -505,6 +741,11 @@
       "errors":[
         {
           "shape":"PolicyTypeNotFoundException",
+          "error":{
+            "code":"PolicyTypeNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            One or more of the specified policy types do not exist.\n        </p>"
         }
@@ -512,6 +753,7 @@
       "documentation":"<p>\n   \tReturns meta-information on the specified load balancer policies defined by the\n   \tElastic Load Balancing service.  The policy types that are\n   \treturned from this action can be used in a <a>CreateLoadBalancerPolicy</a> action to\n   \tinstantiate specific policy configurations that will be applied to a load balancer.\n   \t</p>\n       <examples>\n          <example>\n            <name>Partial description of all the policy types defined by Elastic Load Balancing for your account</name>              \n           <queryrequest>https://elasticloadbalancing.amazonaws.com/?Version=2012-06-01\n&Action=DescribeLoadBalancerPolicyTypes\n&AUTHPARAMS </queryrequest>      \n           <queryresponse><DescribeLoadBalancerPolicyTypesResponse  xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n<DescribeLoadBalancerPolicyTypesResult>\n  <PolicyTypeName>SSLNegotiationPolicyType</PolicyTypeName>\n       < . . . .>\n   <PolicyTypeName>BackendServerAuthenticationPolicyType</PolicyTypeName>\n      < . . . .>\n   <PolicyTypeName>PublicKeyPolicyType</PolicyTypeName>\n     < . . . .>\n   <PolicyTypeName>AppCookieStickinessPolicyType</PolicyTypeName>\n   < . . . .>\n   <PolicyTypeName>LBCookieStickinessPolicyType</PolicyTypeName>\n     < . . . .>\n   <PolicyTypeName>ProxyProtocolPolicyType</PolicyTypeName>\n     < . . . .>\n</DescribeLoadBalancerPolicyTypesResult>\n<ResponseMetadata>\n    <RequestId>83c88b9d-12b7-11e3-8b82-87b12EXAMPLE</RequestId>\n</ResponseMetadata>\n</ DescribeLoadBalancerPolicyTypesResponse >\t\n </queryresponse>\n          </example> \n           <example>\n               <name>Description of ProxyProtocolPolicyType</name>                \n               <queryrequest>https://elasticloadbalancing.amazonaws.com/?PolicyTypeNames.member.1=ProxyProtocolPolicyType\n&Version=2012-06-01\n&Action=DescribeLoadBalancerPolicyTypes\n&AUTHPARAMS </queryrequest>      \n               <queryresponse><DescribeLoadBalancerPolicyTypesResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n  <DescribeLoadBalancerPolicyTypesResult>\n    <PolicyTypeDescriptions>\n      <member>\n        <PolicyAttributeTypeDescriptions>\n          <member>\n            <AttributeName>ProxyProtocol</AttributeName>\n            <AttributeType>Boolean</AttributeType>\n            <Cardinality>ONE</Cardinality>\n          </member>\n        </PolicyAttributeTypeDescriptions>\n        <PolicyTypeName>ProxyProtocolPolicyType</PolicyTypeName>\n        <Description>Policy that controls whether to include the IP address and port of the originating request for TCP messages.\n        This policy operates on TCP/SSL listeners only</Description>\n      </member>\n    </PolicyTypeDescriptions>\n  </DescribeLoadBalancerPolicyTypesResult>\n  <ResponseMetadata>\n    <RequestId>1549581b-12b7-11e3-895e-1334aEXAMPLE</RequestId>\n  </ResponseMetadata>\n</DescribeLoadBalancerPolicyTypesResponse>\n </queryresponse>\n           </example> \n       </examples>"
     },
     "DescribeLoadBalancers":{
+      "name":"DescribeLoadBalancers",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -528,6 +770,11 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         }
@@ -535,6 +782,7 @@
       "documentation":"<p>\n        Returns detailed configuration information for all the load balancers created for the account.\n        If you specify load balancer names, the action returns configuration information of the specified\n        load balancers. </p>\n        <note>\n            In order to retrieve this information, you must provide the same account credentials \n            that was used to create the load balancer.</note>\n        <examples>\n            <example>\n                <name>Description of a specified load balancer</name>              \n                <queryrequest>https://elasticloadbalancing.amazonaws.com/?LoadBalancerNames.member.1=MyLoadBalancer\n&Version=2012-06-01\n&Action=DescribeLoadBalancers\n&AUTHPARAMS </queryrequest>      \n                <queryresponse><DescribeLoadBalancersResult>\n    <LoadBalancerDescriptions>\n      <member>\n        <SecurityGroups/>\n        <LoadBalancerName>MyLoadBalancer</LoadBalancerName>\n        <CreatedTime>2013-05-24T21:15:31.280Z</CreatedTime>\n        <HealthCheck>\n          <Interval>90</Interval>\n          <Target>HTTP:80/</Target>\n          <HealthyThreshold>2</HealthyThreshold>\n          <Timeout>60</Timeout>\n          <UnhealthyThreshold>10</UnhealthyThreshold>\n        </HealthCheck>\n        <ListenerDescriptions>\n          <member>\n            <PolicyNames/>\n            <Listener>\n              <Protocol>HTTP</Protocol>\n              <LoadBalancerPort>80</LoadBalancerPort>\n              <InstanceProtocol>HTTP</InstanceProtocol>\n              <InstancePort>80</InstancePort>\n            </Listener>\n          </member>\n        </ListenerDescriptions>\n        <Instances>\n          <member>\n            <InstanceId>i-e4cbe38d</InstanceId>\n          </member>\n        </Instances>\n        <Policies>\n          <AppCookieStickinessPolicies/>\n          <OtherPolicies/>\n          <LBCookieStickinessPolicies/>\n        </Policies>\n        <AvailabilityZones>\n          <member>us-east-1a</member>\n        </AvailabilityZones>\n        <CanonicalHostedZoneNameID>ZZZZZZZZZZZ123X</CanonicalHostedZoneNameID>\n        <CanonicalHostedZoneName>MyLoadBalancer-123456789.us-east-1.elb.amazonaws.com</CanonicalHostedZoneName>\n        <Scheme>internet-facing</Scheme>\n        <SourceSecurityGroup>\n          <OwnerAlias>amazon-elb</OwnerAlias>\n          <GroupName>amazon-elb-sg</GroupName>\n        </SourceSecurityGroup>\n        <DNSName>MyLoadBalancer-123456789.us-east-1.elb.amazonaws.com</DNSName>\n        <BackendServerDescriptions/>\n        <Subnets/>\n      </member>\n    </LoadBalancerDescriptions>\n  </DescribeLoadBalancersResult>\n<ResponseMetadata>\n    <RequestId>83c88b9d-12b7-11e3-8b82-87b12EXAMPLE</RequestId>\n</ResponseMetadata>\n</ DescribeLoadBalancerPolicyTypesResponse >\t\n </queryresponse>\n            </example>\n     </examples>"
     },
     "DetachLoadBalancerFromSubnets":{
+      "name":"DetachLoadBalancerFromSubnets",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -551,11 +799,21 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         },
         {
           "shape":"InvalidConfigurationRequestException",
+          "error":{
+            "code":"InvalidConfigurationRequest",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n        Requested configuration change is invalid.\n        </p>"
         }
@@ -563,6 +821,7 @@
       "documentation":"<p>\n            Removes subnets from the set of configured subnets in the Amazon Virtual Private Cloud (Amazon VPC) for the load balancer.  \n        </p> \n        <p>\n            After a subnet is removed all of the EC2 instances registered with the load balancer that are \n            in the removed subnet will go into the <i>OutOfService</i> state. When a subnet is removed, the load balancer\n            will balance the traffic among the remaining routable subnets for the load balancer.    \n        </p>\n        <examples>      \n            <queryrequest>https://elasticloadbalancing.amazonaws.com/?Subnets.member.1=subnet-119f0078\n&LoadBalancerName=my-test-vpc-loadbalancer\n&Version=2012-06-01\n&Action=DetachLoadBalancerFromSubnets\n&AUTHPARAMS </queryrequest>      \n            <queryresponse><DetachLoadBalancerFromSubnetsResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n  <DetachLoadBalancerFromSubnetsResult>\n    <Subnets>\n      <member>subnet-159f007c</member>\n      <member>subnet-3561b05e</member>\n    </Subnets>\n  </DetachLoadBalancerFromSubnetsResult>\n  <ResponseMetadata>\n    <RequestId>07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE</RequestId>\n  </ResponseMetadata>\n</DetachLoadBalancerFromSubnetsResponse>\n </queryresponse>\n        </examples>"
     },
     "DisableAvailabilityZonesForLoadBalancer":{
+      "name":"DisableAvailabilityZonesForLoadBalancer",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -579,11 +838,21 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         },
         {
           "shape":"InvalidConfigurationRequestException",
+          "error":{
+            "code":"InvalidConfigurationRequest",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n        Requested configuration change is invalid.\n        </p>"
         }
@@ -591,6 +860,7 @@
       "documentation":"<p>\n        Removes the specified EC2 Availability Zones from\n        the set of configured Availability Zones for the load balancer.\n        </p>\n        <p>\n        There must be at least one Availability Zone registered\n        with a load balancer at all times. \n        Once an Availability Zone is removed, all the instances\n        registered with the load balancer that are in the removed\n        Availability Zone go into the <i>OutOfService</i> state. Upon Availability\n        Zone removal, the load balancer attempts to equally balance\n        the traffic among its remaining usable Availability Zones.\n        Trying to remove an Availability Zone that was not associated with\n        the load balancer does nothing.\n        </p> \n        <p>For more information, see <a href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_ShrinkLBApp04.html\">Disable an Availability Zone from a Load-Balanced Application</a>\n        in the <i>Elastic Load Balancing Developer Guide</i>.</p>        \n        <examples>\n            <example>            \n                <queryrequest>https://elasticloadbalancing.amazonaws.com/?AvailabilityZones.member.1=us-east-1a\n&LoadBalancerName=MyHTTPSLoadBalancer\n&Version=2012-06-01\n&Action=DisableAvailabilityZonesForLoadBalancer\n&AUTHPARAMS </queryrequest>      \n                <queryresponse><DisableAvailabilityZonesForLoadBalancerResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n  <DisableAvailabilityZonesForLoadBalancerResult>\n    <AvailabilityZones>\n      <member>us-east-1b</member>\n    </AvailabilityZones>\n  </DisableAvailabilityZonesForLoadBalancerResult>\n  <ResponseMetadata>\n    <RequestId>ba6267d5-2566-11e3-9c6d-eb728EXAMPLE</RequestId>\n  </ResponseMetadata>\n</DisableAvailabilityZonesForLoadBalancerResponse>\n </queryresponse>\n            </example>\n        </examples>"
     },
     "EnableAvailabilityZonesForLoadBalancer":{
+      "name":"EnableAvailabilityZonesForLoadBalancer",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -607,6 +877,11 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         }
@@ -614,6 +889,7 @@
       "documentation":"<p>\n        Adds one or more EC2 Availability Zones to the load balancer.\n        </p>\n        <p>\n        The load balancer evenly distributes requests across all\n        its registered Availability Zones that contain instances.        \n        </p>\n        <note>\n        The new EC2 Availability Zones to be added must be in the same\n        EC2 Region as the Availability Zones for which the\n        load balancer was created.\n        </note>\n        <p>For more information, see <a href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_AddLBAvailabilityZone.html\">Expand a Load Balanced Application to an Additional Availability Zone</a>\n        in the <i>Elastic Load Balancing Developer Guide</i>.</p>\n        <examples>\n            <example>\n                <name>Enable Availability Zone <i>us-east-1c</i> for <i>my-test-loadbalancer</i>.</name>                \n            <queryrequest>https://elasticloadbalancing.amazonaws.com/?AvailabilityZones.member.1=us-east-1c\n&LoadBalancerName=my-test-loadbalancer\n&Version=2012-06-01\n&Action=EnableAvailabilityZonesForLoadBalancer\n&AUTHPARAMS </queryrequest>      \n                <queryresponse><EnableAvailabilityZonesForLoadBalancerResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n  <EnableAvailabilityZonesForLoadBalancerResult>\n    <AvailabilityZones>\n      <member>us-east-1a</member>\n      <member>us-east-1c</member>\n    </AvailabilityZones>\n  </EnableAvailabilityZonesForLoadBalancerResult>\n<ResponseMetadata>\n    <RequestId>83c88b9d-12b7-11e3-8b82-87b12EXAMPLE</RequestId>\n</ResponseMetadata>\n</EnableAvailabilityZonesForLoadBalancerResponse>\n </queryresponse>\n            </example>\n        </examples>"
     },
     "ModifyLoadBalancerAttributes":{
+      "name":"ModifyLoadBalancerAttributes",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -630,16 +906,31 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         },
         {
           "shape":"LoadBalancerAttributeNotFoundException",
+          "error":{
+            "code":"LoadBalancerAttributeNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The specified load balancer attribute could not be found.</p>"
         },
         {
           "shape":"InvalidConfigurationRequestException",
+          "error":{
+            "code":"InvalidConfigurationRequest",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n        Requested configuration change is invalid.\n        </p>"
         }
@@ -647,6 +938,7 @@
       "documentation":"<p>Modifies the attributes of a specified load balancer.</p> \n        <p>You can modify the load balancer attributes, such as <code>AccessLogs</code>, <code>ConnectionDraining</code>, and \n            <code>CrossZoneLoadBalancing</code> by either enabling or disabling them.</p> \n         <p>For information on cross-zone load balancing, see <b>Request Routing</b> and for information on connection draining, see <b>Connection Draining</b>\n             in the <a href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html\">Concepts</a> section of the\n             <i>Elastic Load Balancer Developer Guide</i>. For information on access logs, see <a href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/access-log-collection.html\">Access Logs</a>.</p>   \n               \n        <examples>\n            <example>\n                  <name>Enable Cross-Zone Load Balancing</name>                \n                <queryrequest>https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=MyLoadBalancer\n&LoadBalancerAttributes.CrossZoneLoadBalancing.Enabled=true                    \n&Version=2012-06-01\n&Action=ModifyLoadBalancerAttributes\n&AUTHPARAMS </queryrequest>      \n                <queryresponse><<ModifyLoadBalancerAttributesResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n<ModifyLoadBalancerAttributesResult> \n<LoadBalancerName>MyLoadBalancer</LoadBalancerName>\n    <LoadBalancerAttributes>\n      <CrossZoneLoadBalancing>\n        <Enabled>true</Enabled>\n      </CrossZoneLoadBalancing>\n    </LoadBalancerAttributes>\n  </ModifyLoadBalancerAttributesResult>\n<ResponseMetadata>\n    <RequestId>83c88b9d-12b7-11e3-8b82-87b12EXAMPLE</RequestId>\n</ResponseMetadata>\n</ModifyLoadBalancerAttributesResponse>\n </queryresponse>\n            </example>\n            <example>\n                <name>Enable Access Log</name>\n                <queryrequest>https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=MyLoadBalancer\n&LoadBalancerAttributes.AccessLog.Enabled=true \n&LoadBalancerAttributes.AccessLog.S3BucketName=my-loadbalancer-logs\n&LoadBalancerAttributes.AccessLog.S3BucketPrefix=my-bucket-prefix/prod\n&LoadBalancerAttributes.AccessLog.EmitInterval=60\n&Version=2012-06-01\n&Action=ModifyLoadBalancerAttributes\n&AUTHPARAMS </queryrequest>\n                \n                <queryresponse><<ModifyLoadBalancerAttributesResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n<ModifyLoadBalancerAttributesResult>\n    <LoadBalancerName>MyLoadBalancer</LoadBalancerName>\n    <LoadBalancerAttributes>\n      <AccessLog>\n        <Enabled>true</Enabled>\n        <S3BucketName>my-loadbalancer-logs</S3BucketName>\n        <S3BucketPrefix>my-bucket-prefix/prod</S3BucketPrefix>\n        <EmitInterval>60</EmitInterval>\n      </AccessLog>\n    </LoadBalancerAttributes>\n  </ModifyLoadBalancerAttributesResult> \n<ResponseMetadata>\n    <RequestId>83c88b9d-12b7-11e3-8b82-87b12EXAMPLE</RequestId>\n</ResponseMetadata>\n</ModifyLoadBalancerAttributesResponse>\n </queryresponse>\n                \n            </example>\n            <example>\n                <name>Enable Connection Draining</name>\n                <queryrequest>https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=MyLoadBalancer\n&LoadBalancerAttributes.ConnectionDraining.Enabled=true \n&LoadBalancerAttributes.ConnectionDraining.Timeout=60\n&Version=2012-06-01\n&Action=ModifyLoadBalancerAttributes\n&AUTHPARAMS </queryrequest>\n                \n                <queryresponse><<ModifyLoadBalancerAttributesResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n<ModifyLoadBalancerAttributesResult>\n    <LoadBalancerName>MyLoadBalancer</LoadBalancerName>\n    <LoadBalancerAttributes>\n      <ConnectionDraining>\n        <Enabled>true</Enabled>\n        <Timeout>60</Timeout>        \n      </ConnectionDraining>\n    </LoadBalancerAttributes>\n  </ModifyLoadBalancerAttributesResult> \n<ResponseMetadata>\n    <RequestId>83c88b9d-12b7-11e3-8b82-87b12EXAMPLE</RequestId>\n</ResponseMetadata>\n</ModifyLoadBalancerAttributesResponse>\n </queryresponse>\n                \n            </example>\n        </examples>"
     },
     "RegisterInstancesWithLoadBalancer":{
+      "name":"RegisterInstancesWithLoadBalancer",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -663,11 +955,21 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         },
         {
           "shape":"InvalidEndPointException",
+          "error":{
+            "code":"InvalidInstance",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified EndPoint is not valid.\n        </p>"
         }
@@ -675,6 +977,7 @@
       "documentation":"<p>\n        Adds new instances to the load balancer.\n        </p>\n        <p>\n        Once the instance is registered, it starts receiving traffic\n        and requests from the load balancer. Any instance that is not\n        in any of the Availability Zones registered for the load balancer\n        will be moved to the <i>OutOfService</i> state. It will move to the\n        <i>InService</i> state when the Availability Zone is added to the load balancer.\n        </p>\n        <p>When an instance registered with a load balancer is stopped and then restarted, \n            the IP addresses associated with the instance changes. Elastic Load Balancing \n            cannot recognize the new IP address, which prevents it from routing traffic to\n            the instances. We recommend that you de-register your Amazon EC2 instances from\n            your load balancer after you stop your instance, and then register the load \n            balancer with your instance after you've restarted. To de-register your instances \n            from load balancer, use <a>DeregisterInstancesFromLoadBalancer</a> action.</p>\n        <p>For more information, see <a href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html\">De-register and Register Amazon EC2 Instances</a> \n            in the <i>Elastic Load Balancing Developer Guide</i>.</p>\n        <note>\n        In order for this call to be successful, you must provide the same \n        account credentials as those that were used to create the load balancer.\n        </note>\n        <note>\n        Completion of this API does not guarantee that operation has completed.\n        Rather, it means that the request has been registered and the\n        changes will happen shortly.\n        </note>\n        <p>You can use <a>DescribeLoadBalancers</a> or <a>DescribeInstanceHealth</a> action to check the state of the newly registered instances.</p>  \n        <examples>\n            <example>            \n                <queryrequest>https://elasticloadbalancing.amazonaws.com/?Instances.member.1.InstanceId=i-315b7e51\n&LoadBalancerName=my-test-loadbalancer\n&Version=2012-06-01\n&Action=RegisterInstancesWithLoadBalancer\n&AUTHPARAMS </queryrequest>      \n                <queryresponse><RegisterInstancesWithLoadBalancerResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n  <RegisterInstancesWithLoadBalancerResult>\n    <Instances>\n      <member>\n        <InstanceId>i-315b7e51</InstanceId>\n      </member>\n    </Instances>\n  </RegisterInstancesWithLoadBalancerResult>\n<ResponseMetadata>\n    <RequestId>83c88b9d-12b7-11e3-8b82-87b12EXAMPLE</RequestId>\n</ResponseMetadata>\n</RegisterInstancesWithLoadBalancerResponse>\n </queryresponse>\n            </example>\n        </examples>"
     },
     "SetLoadBalancerListenerSSLCertificate":{
+      "name":"SetLoadBalancerListenerSSLCertificate",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -691,21 +994,41 @@
       "errors":[
         {
           "shape":"CertificateNotFoundException",
+          "error":{
+            "code":"CertificateNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified SSL ID does not refer to a valid SSL certificate \n            in the AWS Identity and Access Management Service.\n        </p>"
         },
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         },
         {
           "shape":"ListenerNotFoundException",
+          "error":{
+            "code":"ListenerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n        Load balancer does not have a listener configured at the given port.\n        </p>"
         },
         {
           "shape":"InvalidConfigurationRequestException",
+          "error":{
+            "code":"InvalidConfigurationRequest",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n        Requested configuration change is invalid.\n        </p>"
         }
@@ -713,6 +1036,7 @@
       "documentation":"<p>\n            Sets the certificate that terminates the specified listener's SSL connections. \n            The specified certificate replaces any prior certificate that was used on the same load balancer and port. \n        </p>\n        <p>For more information on updating your SSL certificate, see <a href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_UpdatingLoadBalancerSSL.html\">Updating an SSL Certificate for a Load Balancer</a>\n            in the <i>Elastic Load Balancing Developer Guide</i>.</p>\n        \n        <examples>\n            <example>                           \n                <queryrequest>https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=MyInternalLoadBalancer\n&SSLCertificateId=arn:aws:iam::123456789012:server-certificate/testcert\n&LoadBalancerPort=443\n&Version=2012-06-01\n&Action=SetLoadBalancerListenerSSLCertificate\n&AUTHPARAMS </queryrequest>      \n                <queryresponse><SetLoadBalancerListenerSSLCertificateResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n <SetLoadBalancerListenerSSLCertificateResult/>\n<ResponseMetadata>\n    <RequestId>83c88b9d-12b7-11e3-8b82-87b12EXAMPLE</RequestId>\n</ResponseMetadata>\n</SetLoadBalancerListenerSSLCertificateResponse>\n </queryresponse>\n            </example>\n        </examples>"
     },
     "SetLoadBalancerPoliciesForBackendServer":{
+      "name":"SetLoadBalancerPoliciesForBackendServer",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -726,16 +1050,31 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         },
         {
           "shape":"PolicyNotFoundException",
+          "error":{
+            "code":"PolicyNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n        One or more specified policies were not found.\n        </p>"
         },
         {
           "shape":"InvalidConfigurationRequestException",
+          "error":{
+            "code":"InvalidConfigurationRequest",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n        Requested configuration change is invalid.\n        </p>"
         }
@@ -743,6 +1082,7 @@
       "documentation":"<p>\n            Replaces the current set of policies associated with a port on which the back-end server is listening with a new set of policies. After the policies have been created using <a>CreateLoadBalancerPolicy</a>, \n            they can be applied here as a list. At this time, only the back-end server authentication policy type can be applied to the back-end ports; this policy type is composed of multiple public key policies.\n        </p>\n        <note>\n            <p>The <i>SetLoadBalancerPoliciesForBackendServer</i> replaces the current set of policies associated with the specified instance port. \n                Every time you use this action to enable the policies, use the <code>PolicyNames</code> parameter to list all the policies you want to enable.</p>\n        </note>\n        <examples>      \n            <queryrequest>https://elasticloadbalancing.amazonaws.com/?InstancePort=80\n&PolicyNames.member.1=EnableProxyProtocol\n&PolicyNames.member.2=MyPolicyName2\n&PolicyNames.member.3=MyPolicyName3\n&LoadBalancerName=my-test-loadbalancer\n&Version=2012-06-01\n&Action=SetLoadBalancerPoliciesForBackendServer\n&AUTHPARAMS </queryrequest>      \n            <queryresponse><SetLoadBalancerPoliciesForBackendServerResponse xmlns=\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\">\n  <SetLoadBalancerPoliciesForBackendServerResult/>\n  <ResponseMetadata>\n    <RequestId>0eb9b381-dde0-11e2-8d78-6ddbaEXAMPLE</RequestId>\n  </ResponseMetadata>\n</SetLoadBalancerPoliciesForBackendServerResponse>  \n </queryresponse>\n        </examples>   \n        <p>You can use <a>DescribeLoadBalancers</a> or <a>DescribeLoadBalancerPolicies</a> action to verify that the policy has been associated with the back-end server.</p>"
     },
     "SetLoadBalancerPoliciesOfListener":{
+      "name":"SetLoadBalancerPoliciesOfListener",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -759,21 +1099,41 @@
       "errors":[
         {
           "shape":"AccessPointNotFoundException",
+          "error":{
+            "code":"LoadBalancerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
         },
         {
           "shape":"PolicyNotFoundException",
+          "error":{
+            "code":"PolicyNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n        One or more specified policies were not found.\n        </p>"
         },
         {
           "shape":"ListenerNotFoundException",
+          "error":{
+            "code":"ListenerNotFound",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n        Load balancer does not have a listener configured at the given port.\n        </p>"
         },
         {
           "shape":"InvalidConfigurationRequestException",
+          "error":{
+            "code":"InvalidConfigurationRequest",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n        Requested configuration change is invalid.\n        </p>"
         }
@@ -812,6 +1172,11 @@
     "AccessPointNotFoundException":{
       "type":"structure",
       "members":{
+      },
+      "error":{
+        "code":"LoadBalancerNotFound",
+        "httpStatusCode":400,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>\n            The specified load balancer could not be found.\n        </p>"
@@ -949,6 +1314,11 @@
     "CertificateNotFoundException":{
       "type":"structure",
       "members":{
+      },
+      "error":{
+        "code":"CertificateNotFound",
+        "httpStatusCode":400,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>\n            The specified SSL ID does not refer to a valid SSL certificate \n            in the AWS Identity and Access Management Service.\n        </p>"
@@ -1414,6 +1784,11 @@
       "type":"structure",
       "members":{
       },
+      "error":{
+        "code":"DuplicateLoadBalancerName",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>\n            Load balancer name already exists for this account.\n            Please choose another name.\n        </p>"
     },
@@ -1421,12 +1796,22 @@
       "type":"structure",
       "members":{
       },
+      "error":{
+        "code":"DuplicateListener",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>\n            A <code>Listener</code> already exists for the given \n            <code>LoadBalancerName</code> and <code>LoadBalancerPort</code>, \n            but with a different <code>InstancePort</code>, <code>Protocol</code>, \n            or <code>SSLCertificateId</code>.   \t\n        </p>"
     },
     "DuplicatePolicyNameException":{
       "type":"structure",
       "members":{
+      },
+      "error":{
+        "code":"DuplicatePolicyName",
+        "httpStatusCode":400,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>\n            Policy with the same name exists for this load balancer.\n            Please choose another name.\n        </p>"
@@ -1531,12 +1916,22 @@
       "type":"structure",
       "members":{
       },
+      "error":{
+        "code":"InvalidConfigurationRequest",
+        "httpStatusCode":409,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>\n        Requested configuration change is invalid.\n        </p>"
     },
     "InvalidEndPointException":{
       "type":"structure",
       "members":{
+      },
+      "error":{
+        "code":"InvalidInstance",
+        "httpStatusCode":400,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>\n            The specified EndPoint is not valid.\n        </p>"
@@ -1545,6 +1940,11 @@
       "type":"structure",
       "members":{
       },
+      "error":{
+        "code":"InvalidScheme",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>\n            Invalid value for scheme. Scheme can only be specified for load balancers in VPC.         \n        </p>"
     },
@@ -1552,12 +1952,22 @@
       "type":"structure",
       "members":{
       },
+      "error":{
+        "code":"InvalidSecurityGroup",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>\n            One or more specified security groups do not exist.  \n        </p>"
     },
     "InvalidSubnetException":{
       "type":"structure",
       "members":{
+      },
+      "error":{
+        "code":"InvalidSubnet",
+        "httpStatusCode":400,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>\n            The VPC has no Internet gateway. \n        </p>"
@@ -1630,6 +2040,11 @@
       "type":"structure",
       "members":{
       },
+      "error":{
+        "code":"ListenerNotFound",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>\n        Load balancer does not have a listener configured at the given port.\n        </p>"
     },
@@ -1640,6 +2055,11 @@
     "LoadBalancerAttributeNotFoundException":{
       "type":"structure",
       "members":{
+      },
+      "error":{
+        "code":"LoadBalancerAttributeNotFound",
+        "httpStatusCode":400,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>The specified load balancer attribute could not be found.</p>"
@@ -1886,6 +2306,11 @@
       "type":"structure",
       "members":{
       },
+      "error":{
+        "code":"PolicyNotFound",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>\n        One or more specified policies were not found.\n        </p>"
     },
@@ -1919,6 +2344,11 @@
     "PolicyTypeNotFoundException":{
       "type":"structure",
       "members":{
+      },
+      "error":{
+        "code":"PolicyTypeNotFound",
+        "httpStatusCode":400,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>\n            One or more of the specified policy types do not exist.\n        </p>"
@@ -2100,6 +2530,11 @@
       "type":"structure",
       "members":{
       },
+      "error":{
+        "code":"SubnetNotFound",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>\n          One or more subnets were not found.\n        </p>"
     },
@@ -2111,12 +2546,22 @@
       "type":"structure",
       "members":{
       },
+      "error":{
+        "code":"TooManyLoadBalancers",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>\n            The quota for the number of load balancers has already been reached.\n        </p>"
     },
     "TooManyPoliciesException":{
       "type":"structure",
       "members":{
+      },
+      "error":{
+        "code":"TooManyPolicies",
+        "httpStatusCode":400,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>\n            Quota for number of policies for this load balancer\n            has already been reached.\n        </p>"

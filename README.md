@@ -1,27 +1,21 @@
-**This is a developer preview of the AWS SDK for iOS v2. The repository name may change when the SDK goes out of the preview.**
+**This is a developer preview of the AWS SDK for iOS. The repository name may change when the SDK goes out of the preview.**
 
 # Version 2 of the AWS SDK for iOS Developer Preview
 
 [![Version](http://cocoapod-badges.herokuapp.com/v/AWSiOSSDKv2/badge.png)](http://cocoadocs.org/docsets/AWSiOSSDKv2)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/AWSiOSSDKv2/badge.png)](http://cocoadocs.org/docsets/AWSiOSSDKv2)
 
-We are happy to announce that based on your feedback, we have made significant improvements to our AWS SDK for iOS. We rebuilt the AWS SDK for iOS from the ground up to conform to Objective-C conventions and take advantage of new features in the Cocoa framework. The new SDK will also improve interoperability with a number of other frameworks and projects in the iOS developer ecosystem.
-
-We have significantly reduced the footprint by reducing the number of files and number of classes. The SDK supports all of the existing functionality, and it also includes several new features.
-
 ## Highlights
 
-1. **Amazon DynamoDB Object Mapper** - We have made it easier to use DynamoDB from the AWS SDK for iOS by providing the DynamoDB Object Mapper for iOS. The DynamoDB Object Mapper makes it easy to set up connections to a DynamoDB database and supports high-level operations like creating, getting, querying, updating, and deleting records.
-
-1. **S3TransferManager** - We have rebuilt the S3TransferManager to utilize BFTask. It has a clean interface, and all of the operations are now asynchronous.
-
-1. **ARC support** - The SDK is now ARC enabled from the ground up to improve overall memory management.
-
-1. **BFTask support** - Async methods with complex logic often cause deeply nested blocks in Objective-C. With native BFTask support, you can chain async requests instead of nesting them. This makes the logic cleaner while keeping the code more readable.
-
-1. **Conforming Objective-C recommendations** - We are better at conforming to Objective-C best practices. The SDK returns `NSError`s instead of throwing exceptions. iOS developers will now feel at home when using the AWS Mobile SDK.
-
-1. **Official Cocoapods support** - Including the AWS SDK for iOS in your project is now easier than ever. You just need to add `pod "AWSiOSSDKv2"` to your **Podfile**.
+* **Amazon Cognito** – is a simple user identity and synchronization service that helps you securely manage and synchronize app data for your users across their mobile devices. With Amazon Cognito, you can save any kind of data, such as app preferences or game state, in the AWS Cloud without writing any backend code or managing any infrastructure.
+* **Amazon Mobile Analytics** – is a service for collecting, visualizing and understanding app usage data at scale. Amazon Mobile Analytics reports are typically updated within 60 minutes from when data are received. Amazon Mobile Analytics is built to scale with the business and can collect and process billions of events from millions of endpoints.
+* **Amazon Kinesis Recorder** – enables you to reliably record data to an Amazon Kinesis data stream from your mobile app. Kinesis Recorder batches requests to handle intermittent network connection and enable you to record events even when the device is offline.
+* **Amazon DynamoDB Object Mapper** - We have made it easier to use DynamoDB from the AWS SDK for iOS by providing the DynamoDB Object Mapper for iOS. The DynamoDB Object Mapper makes it easy to set up connections to a DynamoDB database and supports high-level operations like creating, getting, querying, updating, and deleting records.
+* **Amazon S3 Transfer Manager** - We have rebuilt the S3TransferManager to utilize BFTask in AWS SDK for iOS. It has a clean interface, and all of the operations are now asynchronous.
+* **ARC support** - The AWS SDK for iOS is now ARC enabled from the ground up to improve overall memory management.
+* **BFTask support** - With native BFTask support in the AWS SDK for iOS, you can chain async requests instead of nesting them. This makes the logic cleaner while keeping the code more readable.
+* **Conforming Objective-C recommendations** - The AWS SDK for iOS conforms to Objective-C best practices. The SDK returns NSErrors instead of throwing exceptions. iOS developers will now feel at home when using the AWS Mobile SDK.
+* **Official CocoaPods support** - Including the AWS SDK for iOS in your project is now easier than ever. You just need to add `pod "AWSiOSSDKv2"` and `pod "AWSCognitoSync"` to your Podfile.
 
 ## Requirements
 
@@ -34,6 +28,9 @@ AWSiOSSDKv2 is available through [CocoaPods](http://cocoapods.org), to install
 it simply add the following line to your **Podfile**:
 
     pod "AWSiOSSDKv2"
+    pod "AWSCognitoSync"
+
+The detailed instructions are available at [Setup the SDK for iOS](http://docs.aws.amazon.com/mobile/sdkforios/developerguide/setup.html).
 
 ## Getting Started is Easy Using Swift
 
@@ -97,7 +94,7 @@ It is easy to use the AWS SDK for iOS with Swift. Please see five simple steps b
 	        return nil;
 	    }];
 
-## Talk to UsThis is a Developer Preview, and we will make changes based on your feedback. Visit the [Issues]() to leave feedback and to connect with other users of the SDK.
+## Talk to UsThis is a Developer Preview, and we will make changes based on your feedback. Visit the [Issues](/aws/aws-ask-ios-v2/issues) to leave feedback and to connect with other users of the SDK.
 
 ## Author
 

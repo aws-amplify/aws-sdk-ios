@@ -5,12 +5,13 @@
     "serviceAbbreviation":"Amazon SNS",
     "serviceFullName":"Amazon Simple Notification Service",
     "signatureVersion":"v4",
-    "type":"query",
-    "xmlNamespace":"http://sns.amazonaws.com/doc/2010-03-31/"
+    "xmlNamespace":"http://sns.amazonaws.com/doc/2010-03-31/",
+    "protocol":"query"
   },
   "documentation":"<fullname>Amazon Simple Notification Service</fullname>\n    \n\t<p>Amazon Simple Notification Service (Amazon SNS) is a web service that enables you to build distributed web-enabled applications. \n    \tApplications can use Amazon SNS to easily push real-time notification messages \n    \tto interested subscribers over multiple delivery protocols. For more information about this product\n\t\tsee <a href=\"http://aws.amazon.com/sns/\">http://aws.amazon.com/sns</a>. For detailed information about Amazon SNS features and their associated API calls,\n\t\tsee the <a href=\"http://docs.aws.amazon.com/sns/latest/dg/\">Amazon SNS Developer Guide</a>.\n\t</p>\n    <p>We also provide SDKs that enable you to access Amazon SNS from your preferred programming language. \n      The SDKs contain functionality that automatically takes care of tasks such as: cryptographically signing your service requests, \n      retrying requests, and handling error responses. For a list of available SDKs, go to <a href=\"http://aws.amazon.com/tools/\">Tools for Amazon Web Services</a>.    \n  </p>",
   "operations":{
     "AddPermission":{
+      "name":"AddPermission",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -19,22 +20,41 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         },
         {
           "shape":"NotFoundException",
+          "error":{
+            "code":"NotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the requested resource does not exist.</p>"
         }
@@ -42,6 +62,7 @@
       "documentation":"<p>The <code>AddPermission</code> action adds a statement to a topic's access control policy, granting access for the specified AWS accounts to the specified actions.</p>\n<examples>\n <queryrequest>\n\n  http://sns.us-east-1.amazonaws.com/\n  ?TopicArn=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3AMy-Test\n  &ActionName.member.1=Publish\n  &ActionName.member.2=GetTopicAttributes\n  &Label=NewPermission\n  &AWSAccountId.member.1=987654321000\n  &AWSAccountId.member.2=876543210000\n  &Action=AddPermission\n  &SignatureVersion=2\n  &SignatureMethod=HmacSHA256\n  &Timestamp=2010-03-31T12%3A00%3A00.000Z\n  &AWSAccessKeyId=(AWS Access Key ID)\n  &Signature=k%2FAU%2FKp13pjndwJ7rr1sZszy6MZMlOhRBCHx1ZaZFiw%3D\n\n </queryrequest>\n <queryresponse>\n  \n<AddPermissionResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <ResponseMetadata>\n    <RequestId>6a213e4e-33a8-11df-9540-99d0768312d3</RequestId>\n  </ResponseMetadata>\n</AddPermissionResponse>\n  \n </queryresponse>\n</examples>"
     },
     "ConfirmSubscription":{
+      "name":"ConfirmSubscription",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -58,27 +79,51 @@
       "errors":[
         {
           "shape":"SubscriptionLimitExceededException",
+          "error":{
+            "code":"SubscriptionLimitExceeded",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the customer already owns the maximum allowed number of subscriptions.</p>"
         },
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"NotFoundException",
+          "error":{
+            "code":"NotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the requested resource does not exist.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         }
@@ -86,6 +131,7 @@
       "documentation":"<p>The <code>ConfirmSubscription</code> action verifies an endpoint owner's intent to receive messages by validating\n      the token sent to the endpoint by an earlier <code>Subscribe</code> action. If the\n      token is valid, the action creates a new subscription and returns its\n      Amazon Resource Name (ARN). This call requires an AWS signature only when the <code>AuthenticateOnUnsubscribe</code> flag is set to \"true\".</p>\n<examples>\n <queryrequest>\n\n  https://sns.us-east-1.amazonaws.com/\n  ?Action=ConfirmSubscription\n  &TopicArn=arn:aws:sns:us-east-1:123456789012:My-Topic\n  &Token=51b2ff3edb475b7d91550e0ab6edf0c1de2a34e6ebaf6\n   c2262a001bcb7e051c43aa00022ceecce70bd2a67b2042da8d8\n   eb47fef7a4e4e942d23e7fa56146b9ee35da040b4b8af564cc4\n   184a7391c834cb75d75c22981f776ad1ce8805e9bab29da2329\n   985337bb8095627907b46c8577c8440556b6f86582a95475802\n   6f41fc62041c4b3f67b0f5921232b5dae5aaca1\n\n </queryrequest>\n <queryresponse>\n  \n<ConfirmSubscriptionResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <ConfirmSubscriptionResult>\n    <SubscriptionArn>arn:aws:sns:us-east-1:123456789012:My-Topic:80289ba6-0fd4-4079-afb4-ce8c8260f0ca</SubscriptionArn>\n  </ConfirmSubscriptionResult>\n  <ResponseMetadata>\n    <RequestId>7a50221f-3774-11df-a9b7-05d48da6f042</RequestId>\n  </ResponseMetadata>\n</ConfirmSubscriptionResponse>\n  \n </queryresponse>\n</examples>"
     },
     "CreatePlatformApplication":{
+      "name":"CreatePlatformApplication",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -102,17 +148,31 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         }
@@ -120,6 +180,7 @@
       "documentation":"<p>The <code>CreatePlatformApplication</code> action creates a platform application object for one of the supported push notification services, \n      such as APNS and GCM, to which devices and mobile apps may register. You must specify PlatformPrincipal and PlatformCredential attributes when using \n      the <code>CreatePlatformApplication</code> action. The PlatformPrincipal is received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is \"SSL certificate\". \n      For GCM, PlatformPrincipal is not applicable. For ADM, <!--  , WNS and MPNS--> PlatformPrincipal is \"client id\". The PlatformCredential is also received from the notification service. \n      For APNS/APNS_SANDBOX, PlatformCredential is \"private key\". For GCM, PlatformCredential is \"API key\". For ADM,<!--  , WNS and MPNS--> PlatformCredential is \"client secret\".      \n      The PlatformApplicationArn that is returned when using <code>CreatePlatformApplication</code> is then used as an attribute for the <code>CreatePlatformEndpoint</code> action.\n      For more information, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>. \n    </p>\n    \n    <examples>\n      <queryrequest>\n        \nPOST http://sns.us-west-2.amazonaws.com/ HTTP/1.1\n...\nAttributes.entry.2.key=PlatformPrincipal\n&SignatureMethod=HmacSHA256\n&Attributes.entry.1.value=AIzaSyClE2lcV2zEKTLYYo645zfk2jhQPFeyxDo\n&Attributes.entry.2.value=There+is+no+principal+for+GCM\n&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE\n&Signature=82sHzg1Wfbgisw3i%2BHA2OgBmRktsqUKFinknkq3u%2FQ4%3D\n&Timestamp=2013-07-01T15%3A49%3A50.354Z\n&Name=gcmpushapp\n&Attributes.entry.1.key=PlatformCredential\n&Action=CreatePlatformApplication\n&Version=2010-03-31\n&SignatureVersion=2\n&Platform=GCM\n\n      </queryrequest>\n      <queryresponse>\n        \nHTTP/1.1 200 OK\n...\n<CreatePlatformApplicationResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <CreatePlatformApplicationResult>\n    <PlatformApplicationArn>arn:aws:sns:us-west-2:123456789012:app/GCM/gcmpushapp</PlatformApplicationArn>\n  </CreatePlatformApplicationResult>\n  <ResponseMetadata>\n    <RequestId>b6f0e78b-e9d4-5a0e-b973-adc04e8a4ff9</RequestId>\n  </ResponseMetadata>\n</CreatePlatformApplicationResponse>\n\n      </queryresponse>\n    </examples>"
     },
     "CreatePlatformEndpoint":{
+      "name":"CreatePlatformEndpoint",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -136,22 +197,41 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         },
         {
           "shape":"NotFoundException",
+          "error":{
+            "code":"NotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the requested resource does not exist.</p>"
         }
@@ -159,6 +239,7 @@
       "documentation":"<p>The <code>CreatePlatformEndpoint</code> creates an endpoint for a device and mobile app on one of the supported push notification services, such as GCM and APNS. \n      <code>CreatePlatformEndpoint</code> requires the PlatformApplicationArn that is returned from <code>CreatePlatformApplication</code>. The EndpointArn that is\n      returned when using <code>CreatePlatformEndpoint</code> can then be used by the <code>Publish</code> action to send a message to a mobile app or by the <code>Subscribe</code> \n      action for subscription to a topic.        \n      For more information, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>.\n    </p>\n    <examples>\n      <queryrequest>\n        \nPOST http://sns.us-west-2.amazonaws.com/ HTTP/1.1\n...\nPlatformApplicationArn=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Aapp%2FGCM%2Fgcmpushapp\n&Action=CreatePlatformEndpoint\n&SignatureMethod=HmacSHA256\n&CustomUserData=UserId%3D27576823\n&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE\n&Token=APA91bGi7fFachkC1xjlqT66VYEucGHochmf1VQAr9k...jsM0PKPxKhddCzx6paEsyay9Zn3D4wNUJb8m6HZrBEXAMPLE\n&SignatureVersion=2\n&Version=2010-03-31\n&Signature=Rg5vXBS6OfgPtWkt1u32p1w14uiGh%2BKOicvXNWTEz2w%3D\n&Timestamp=2013-07-01T15%3A49%3A50.598Z\n\n      </queryrequest>\n      <queryresponse>\n        \nHTTP/1.1 200 OK\n...\n<CreatePlatformEndpointResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <CreatePlatformEndpointResult>\n    <EndpointArn>arn:aws:sns:us-west-2:123456789012:endpoint/GCM/gcmpushapp/5e3e9847-3183-3f18-a7e8-671c3a57d4b3</EndpointArn>\n  </CreatePlatformEndpointResult>\n  <ResponseMetadata>\n    <RequestId>6613341d-3e15-53f7-bf3c-7e56994ba278</RequestId>\n  </ResponseMetadata>\n</CreatePlatformEndpointResponse>\n\n      </queryresponse>\n    </examples>"
     },
     "CreateTopic":{
+      "name":"CreateTopic",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -175,22 +256,41 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"TopicLimitExceededException",
+          "error":{
+            "code":"TopicLimitExceeded",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the customer already owns the maximum allowed number of topics.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         }
@@ -198,6 +298,7 @@
       "documentation":"<p>The <code>CreateTopic</code> action creates a topic to which notifications can be published. Users can create\n     at most 100 topics. For more information, see <a href=\"http://aws.amazon.com/sns/\">http://aws.amazon.com/sns</a>. \n     This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is \n     returned without creating a new topic.</p>\n<examples>\n <queryrequest>\n\n  http://sns.us-east-1.amazonaws.com/\n  ?Name=My-Topic\n  &Action=CreateTopic\n  &SignatureVersion=2\n  &SignatureMethod=HmacSHA256\n  &Timestamp=2010-03-31T12%3A00%3A00.000Z\n  &AWSAccessKeyId=(AWS Access Key ID)\n  &Signature=gfzIF53exFVdpSNb8AiwN3Lv%2FNYXh6S%2Br3yySK70oX4%3D\n\n </queryrequest>\n <queryresponse>\n  \n   <CreateTopicResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n     <CreateTopicResult>\n       <TopicArn>arn:aws:sns:us-east-1:123456789012:My-Topic</TopicArn>\n     </CreateTopicResult>\n     <ResponseMetadata>\n       <RequestId>a8dec8b3-33a4-11df-8963-01868b7c937a</RequestId>\n     </ResponseMetadata>\n   </CreateTopicResponse>\n  \n </queryresponse>\n</examples>"
     },
     "DeleteEndpoint":{
+      "name":"DeleteEndpoint",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -209,17 +310,31 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         }
@@ -227,6 +342,7 @@
       "documentation":"<p>The <code>DeleteEndpoint</code> action, which is idempotent, deletes the endpoint from SNS. \n      For more information, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>.\n    </p>    \n    <examples>\n      <queryrequest>\n        \nPOST http://sns.us-west-2.amazonaws.com/ HTTP/1.1\n...\nAction=DeleteEndpoint\n&SignatureMethod=HmacSHA256\n&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE\n&EndpointArn=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Aendpoint%2FGCM%2Fgcmpushapp%2F5e3e9847-3183-3f18-a7e8-671c3a57d4b3\n&SignatureVersion=2\n&Version=2010-03-31\n&Signature=LIc6GI3JbNhmHBEDmSxzZp648XPe5CMeFny%2BTQFtomQ%3D\n&Timestamp=2013-07-01T23%3A00%3A12.456Z\n\n      </queryrequest>\n      <queryresponse>\n        \nHTTP/1.1 200 OK\n...\n<DeleteEndpointResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <ResponseMetadata>\n    <RequestId>c1d2b191-353c-5a5f-8969-fbdd3900afa8</RequestId>\n  </ResponseMetadata>\n</DeleteEndpointResponse>\n\n      </queryresponse>\n    </examples>"
     },
     "DeletePlatformApplication":{
+      "name":"DeletePlatformApplication",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -238,17 +354,31 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         }
@@ -256,6 +386,7 @@
       "documentation":"<p>The <code>DeletePlatformApplication</code> action deletes a platform application object for one of the supported push notification services, \n      such as APNS and GCM.\n      For more information, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>.\n    </p>\n    <examples>\n      <queryrequest>\n        \nPOST http://sns.us-west-2.amazonaws.com/ HTTP/1.1\n...\nPlatformApplicationArn=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Aapp%2FGCM%2Fgcmpushapp\n&Action=DeletePlatformApplication\n&SignatureMethod=HmacSHA256\n&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE\n&SignatureVersion=2\n&Version=2010-03-31\n&Signature=Mh7X%2BQo%2BGpcm5B1IpkovBaRiJCJOqvFlIOYzL62SGrg%3D\n&Timestamp=2013-07-01T23%3A02%3A03.872Z\n\n      </queryrequest>\n      <queryresponse>\n        \nHTTP/1.1 200 OK\n...\n<DeletePlatformApplicationResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <ResponseMetadata>\n    <RequestId>097dac18-7a77-5823-a8dd-e65476dcb037</RequestId>\n  </ResponseMetadata>\n</DeletePlatformApplicationResponse>\n\n      </queryresponse>\n    </examples>"
     },
     "DeleteTopic":{
+      "name":"DeleteTopic",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -264,22 +395,41 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         },
         {
           "shape":"NotFoundException",
+          "error":{
+            "code":"NotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the requested resource does not exist.</p>"
         }
@@ -287,6 +437,7 @@
       "documentation":"<p>The <code>DeleteTopic</code> action deletes a topic and all its subscriptions. Deleting a topic might\n      prevent some messages previously sent to the topic from being delivered to\n      subscribers. This action is idempotent, so deleting a topic that does not\n      exist does not result in an error.</p>\n<examples>\n<queryrequest>\n\n  http://sns.us-east-1.amazonaws.com/\n  &TopicArn=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3AMy-Topic\n  &Action=DeleteTopic\n  &SignatureVersion=2\n  &SignatureMethod=HmacSHA256\n  &Timestamp=2010-03-31T12%3A00%3A00.000Z\n  &AWSAccessKeyId=(AWS Access Key Id)\n  &Signature=mQA3nJI%2BcmAIY7r8HCArGElSqPX5JG4UGzF4yo0RygE%3D\n\n</queryrequest>\n<queryresponse>\n\n<DeleteTopicResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <ResponseMetadata>\n    <RequestId>f3aa9ac9-3c3d-11df-8235-9dab105e9c32</RequestId>\n  </ResponseMetadata>\n</DeleteTopicResponse>\n\n</queryresponse>\n</examples>"
     },
     "GetEndpointAttributes":{
+      "name":"GetEndpointAttributes",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -303,22 +454,41 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         },
         {
           "shape":"NotFoundException",
+          "error":{
+            "code":"NotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the requested resource does not exist.</p>"
         }
@@ -326,6 +496,7 @@
       "documentation":"<p>The <code>GetEndpointAttributes</code> retrieves the endpoint attributes for a device on one of the supported push notification services, such as GCM and APNS. \n      For more information, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>.\n    </p>\n    <examples>\n      <queryrequest>\n        \nPOST http://sns.us-west-2.amazonaws.com/ HTTP/1.1\n...\nAction=GetEndpointAttributes\n&SignatureMethod=HmacSHA256\n&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE\n&EndpointArn=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Aendpoint%2FGCM%2Fgcmpushapp%2F5e3e9847-3183-3f18-a7e8-671c3a57d4b3\n&SignatureVersion=2\n&Version=2010-03-31\n&Signature=%2B2egbEoT4npw3p5H3wiIdzZBoTn4KI3UWmMFyBsHH9c%3D\n&Timestamp=2013-07-01T22%3A44%3A56.515Z\n\n      </queryrequest>\n      <queryresponse>\n        \nHTTP/1.1 200 OK\n...\n<GetEndpointAttributesResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <GetEndpointAttributesResult>\n    <Attributes>\n      <entry>\n        <key>Enabled</key>\n        <value>true</value>\n      </entry>\n      <entry>\n        <key>CustomUserData</key>\n        <value>UserId=01234567</value>\n      </entry>\n      <entry>\n        <key>Token</key>\n        <value>APA91bGi7fFachkC1xjlqT66VYEucGHochmf1VQAr9k...jsM0PKPxKhddCzx6paEsyay9Zn3D4wNUJb8m6HZrBEXAMPLE</value>\n      </entry>\n    </Attributes>\n  </GetEndpointAttributesResult>\n  <ResponseMetadata>\n    <RequestId>6c725a19-a142-5b77-94f9-1055a9ea04e7</RequestId>\n  </ResponseMetadata>\n</GetEndpointAttributesResponse>\n\n      </queryresponse>\n    </examples>"
     },
     "GetPlatformApplicationAttributes":{
+      "name":"GetPlatformApplicationAttributes",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -342,22 +513,41 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         },
         {
           "shape":"NotFoundException",
+          "error":{
+            "code":"NotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the requested resource does not exist.</p>"
         }
@@ -365,6 +555,7 @@
       "documentation":"<p>The <code>GetPlatformApplicationAttributes</code> action retrieves the attributes of the platform application object for the supported push notification services, \n      such as APNS and GCM.\n      For more information, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>.\n    </p>\n    <examples>\n      <queryrequest>\n        \nPOST http://sns.us-west-2.amazonaws.com/ HTTP/1.1\n...\nPlatformApplicationArn=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Aapp%2FGCM%2Fgcmpushapp\n&Action=GetPlatformApplicationAttributes\n&SignatureMethod=HmacSHA256\n&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE\n&SignatureVersion=2\n&Version=2010-03-31\n&Signature=UGMaCq8CCJGSYXO9Ehr2VuHIBYSe6WbxkqgMKRslTK4%3D\n&Timestamp=2013-07-01T22%3A40%3A50.643Z\n\n      </queryrequest>\n      <queryresponse>\n        \nHTTP/1.1 200 OK\n...\n<GetPlatformApplicationAttributesResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <GetPlatformApplicationAttributesResult>\n    <Attributes>\n      <entry>\n        <key>AllowEndpointPolicies</key>\n        <value>false</value>\n      </entry>\n    </Attributes>\n  </GetPlatformApplicationAttributesResult>\n  <ResponseMetadata>\n    <RequestId>74848df2-87f6-55ed-890c-c7be80442462</RequestId>\n  </ResponseMetadata>\n</GetPlatformApplicationAttributesResponse>\n\n      </queryresponse>\n    </examples>"
     },
     "GetSubscriptionAttributes":{
+      "name":"GetSubscriptionAttributes",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -381,22 +572,41 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"NotFoundException",
+          "error":{
+            "code":"NotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the requested resource does not exist.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         }
@@ -404,6 +614,7 @@
       "documentation":"<p>The <code>GetSubscriptionAttribtues</code> action returns all of the properties of a subscription.</p>\n<examples>\n <queryrequest>\n\n  http://sns.us-east-1.amazonaws.com/\n  ?SubscriptionArn=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3AMy-Topic%3A80289ba6-0fd4-4079-afb4-ce8c8260f0ca\n  &Action=GetSubscriptionAttributes\n  &SignatureVersion=2\n  &SignatureMethod=HmacSHA256\n  &Timestamp=2010-03-31T12%3A00%3A00.000Z\n  &AWSAccessKeyId=(AWS Access Key Id)\n  &Signature=92lBGRVq0%2BxhaACaBGqtdemy%2Bi9isfgyTljCbJM80Yk%3D\n\n </queryrequest>\n <queryresponse>\n  \n<GetSubscriptionAttributesResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <GetSubscriptionAttributesResult>\n    <Attributes>\n      <entry>\n        <key>Owner</key>\n        <value>123456789012</value>\n      </entry>\n      <entry>\n        <key>DeliveryPolicy</key>\n        <value>{&quot;healthyRetryPolicy&quot;:{&quot;numRetries&quot;:10}}</value>\n      </entry>\n      <entry>\n        <key>SubscriptionArn</key>\n        <value>arn:aws:sns:us-east-1:123456789012:My-Topic:80289ba6-0fd4-4079-afb4-ce8c8260f0ca</value>\n      </entry>\n    </Attributes>\n  </GetSubscriptionAttributesResult>\n  <ResponseMetadata>\n    <RequestId>057f074c-33a7-11df-9540-99d0768312d3</RequestId>\n  </ResponseMetadata>\n</GetTopicAttributesResponse>\n  \n </queryresponse>\n</examples>"
     },
     "GetTopicAttributes":{
+      "name":"GetTopicAttributes",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -420,22 +631,41 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"NotFoundException",
+          "error":{
+            "code":"NotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the requested resource does not exist.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         }
@@ -443,6 +673,7 @@
       "documentation":"<p>The <code>GetTopicAttributes</code> action returns all of the properties of a topic. \n    Topic properties returned might differ based on the authorization of the user. </p>\n<examples>\n <queryrequest>\n\n  http://sns.us-east-1.amazonaws.com/\n  ?TopicArn=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3AMy-Topic\n  &Action=GetTopicAttributes\n  &SignatureVersion=2\n  &SignatureMethod=HmacSHA256\n  &Timestamp=2010-03-31T12%3A00%3A00.000Z\n  &AWSAccessKeyId=(AWS Access Key Id)\n  &Signature=92lBGRVq0%2BxhaACaBGqtdemy%2Bi9isfgyTljCbJM80Yk%3D\n\n </queryrequest>\n <queryresponse>\n  \n<GetTopicAttributesResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <GetTopicAttributesResult>\n    <Attributes>\n      <entry>\n        <key>Owner</key>\n        <value>123456789012</value>\n      </entry>\n      <entry>\n        <key>Policy</key>\n        <value>{\n&quot;Version&quot;:&quot;2008-10-17&quot;,&quot;Id&quot;:&quot;us-east-1/698519295917/test__default_policy_ID&quot;,&quot;Statement&quot; : [{&quot;Effect&quot;:&quot;Allow&quot;,&quot;Sid&quot;:&quot;us-east-1/698519295917/test__default_statement_ID&quot;,&quot;Principal&quot; : {&quot;AWS&quot;: &quot;*&quot;},&quot;Action&quot;:[&quot;SNS:GetTopicAttributes&quot;,&quot;SNS:SetTopicAttributes&quot;,&quot;SNS:AddPermission&quot;,&quot;SNS:RemovePermission&quot;,&quot;SNS:DeleteTopic&quot;,&quot;SNS:Subscribe&quot;,&quot;SNS:ListSubscriptionsByTopic&quot;,&quot;SNS:Publish&quot;,&quot;SNS:Receive&quot;],&quot;Resource&quot;:&quot;arn:aws:sns:us-east-1:698519295917:test&quot;,&quot;Condition&quot; : {&quot;StringLike&quot; : {&quot;AWS:SourceArn&quot;: &quot;arn:aws:*:*:698519295917:*&quot;}}}]}</value>\n      </entry>\n      <entry>\n        <key>TopicArn</key>\n        <value>arn:aws:sns:us-east-1:123456789012:My-Topic</value>\n      </entry>\n    </Attributes>\n  </GetTopicAttributesResult>\n  <ResponseMetadata>\n    <RequestId>057f074c-33a7-11df-9540-99d0768312d3</RequestId>\n  </ResponseMetadata>\n</GetTopicAttributesResponse>\n  \n </queryresponse>\n</examples>"
     },
     "ListEndpointsByPlatformApplication":{
+      "name":"ListEndpointsByPlatformApplication",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -459,22 +690,41 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         },
         {
           "shape":"NotFoundException",
+          "error":{
+            "code":"NotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the requested resource does not exist.</p>"
         }
@@ -482,6 +732,7 @@
       "documentation":"<p>The <code>ListEndpointsByPlatformApplication</code> action lists the endpoints and endpoint attributes for devices in a supported push notification service, such as GCM and APNS. \n      The results for <code>ListEndpointsByPlatformApplication</code> are paginated and return a limited list of endpoints, up to 100.\n      If additional records are available after the first page results, then a NextToken string will be returned. \n      To receive the next page, you call <code>ListEndpointsByPlatformApplication</code> again using the NextToken string received from the previous call. \n      When there are no more records to return, NextToken will be null.\n      For more information, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>.\n    </p>\n    <examples>\n      <queryrequest>\n        \nPOST http://sns.us-west-2.amazonaws.com/ HTTP/1.1\n...\nPlatformApplicationArn=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Aapp%2FGCM%2Fgcmpushapp\n&Action=ListEndpointsByPlatformApplication\n&SignatureMethod=HmacSHA256\n&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE\n&SignatureVersion=2\n&Version=2010-03-31\n&Signature=e6H4sJSCRBBlh%2BaigB%2FtYgp4%2Bjl7dikAQ6WKf%2BMTwNM%3D\n&Timestamp=2013-07-01T23%3A00%3A52.515Z\n\n      </queryrequest>\n      <queryresponse>\n        \nHTTP/1.1 200 OK\n...\n<ListEndpointsByPlatformApplicationResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <ListEndpointsByPlatformApplicationResult>\n    <Endpoints>\n      <member>\n        <EndpointArn>arn:aws:sns:us-west-2:123456789012:endpoint/GCM/gcmpushapp/5e3e9847-3183-3f18-a7e8-671c3a57d4b3</EndpointArn>\n        <Attributes>\n          <entry>\n            <key>Enabled</key>\n            <value>true</value>\n          </entry>\n          <entry>\n            <key>CustomUserData</key>\n            <value>UserId=27576823</value>\n          </entry>\n          <entry>\n            <key>Token</key>\n            <value>APA91bGi7fFachkC1xjlqT66VYEucGHochmf1VQAr9k...jsM0PKPxKhddCzx6paEsyay9Zn3D4wNUJb8m6HZrBEXAMPLE</value>\n          </entry>\n        </Attributes>\n      </member>\n    </Endpoints>\n  </ListEndpointsByPlatformApplicationResult>\n  <ResponseMetadata>\n    <RequestId>9a48768c-dac8-5a60-aec0-3cc27ea08d96</RequestId>\n  </ResponseMetadata>\n</ListEndpointsByPlatformApplicationResponse>\n\n      </queryresponse>\n    </examples>"
     },
     "ListPlatformApplications":{
+      "name":"ListPlatformApplications",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -498,17 +749,31 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         }
@@ -516,6 +781,7 @@
       "documentation":"<p>The <code>ListPlatformApplications</code> action lists the platform application objects for the supported push notification services, \n      such as APNS and GCM. The results for <code>ListPlatformApplications</code> are paginated and return a limited list of applications, up to 100.\n      If additional records are available after the first page results, then a NextToken string will be returned. \n      To receive the next page, you call <code>ListPlatformApplications</code> using the NextToken string received from the previous call. \n      When there are no more records to return, NextToken will be null.\n      \n      For more information, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>.\n    </p>\n    <examples>\n      <queryrequest>\n        \nPOST http://sns.us-west-2.amazonaws.com/ HTTP/1.1\n...\nAction=ListPlatformApplications\n&SignatureMethod=HmacSHA256\n&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE\n&SignatureVersion=2\n&Version=2010-03-31\n&Signature=drVbTuyR5N9e88WJMNPzBOjNFNvawkCaMfZI0xa9kIQ%3D\n&Timestamp=2013-07-01T22%3A33%3A55.618Z\n\n      </queryrequest>\n      <queryresponse>\n        \nHTTP/1.1 200 OK\n...\n<ListPlatformApplicationsResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <ListPlatformApplicationsResult>\n    <PlatformApplications>\n      <member>\n        <PlatformApplicationArn>arn:aws:sns:us-west-2:123456789012:app/APNS_SANDBOX/apnspushapp</PlatformApplicationArn>\n        <Attributes>\n          <entry>\n            <key>AllowEndpointPolicies</key>\n            <value>false</value>\n          </entry>\n        </Attributes>\n      </member>\n      <member>\n        <PlatformApplicationArn>arn:aws:sns:us-west-2:123456789012:app/GCM/gcmpushapp</PlatformApplicationArn>\n        <Attributes>\n          <entry>\n            <key>AllowEndpointPolicies</key>\n            <value>false</value>\n          </entry>\n        </Attributes>\n      </member>\n    </PlatformApplications>\n  </ListPlatformApplicationsResult>\n  <ResponseMetadata>\n    <RequestId>315a335e-85d8-52df-9349-791283cbb529</RequestId>\n  </ResponseMetadata>\n</ListPlatformApplicationsResponse>\n\n      </queryresponse>\n    </examples>"
     },
     "ListSubscriptions":{
+      "name":"ListSubscriptions",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -531,17 +797,31 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         }
@@ -549,6 +829,7 @@
       "documentation":"<p>The <code>ListSubscriptions</code> action returns a list of the requester's subscriptions. Each call returns a limited list\n      of subscriptions, up to 100. If there are more subscriptions, a <code>NextToken</code> is also returned. Use the <code>NextToken</code> parameter in a \n      new <code>ListSubscriptions</code> call to get further results.</p>\n<examples>\n <queryrequest>\n\n  http://sns.us-east-1.amazonaws.com/\n  &Action=ListSubscriptions\n  &SignatureVersion=2\n  &SignatureMethod=HmacSHA256\n  &Timestamp=2010-03-31T12%3A00%3A00.000Z\n  &AWSAccessKeyId=(AWS Access Key ID)\n  &Signature=SZmBxEPqfs9R7xxhSt6C1b7PnOEvg%2BSVyyMYJfLRFCA%3D\n\n </queryrequest>\n <queryresponse>\n  \n<ListSubscriptionsResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <ListSubscriptionsResult>\n    <Subscriptions>\n      <member>\n        <TopicArn>arn:aws:sns:us-east-1:698519295917:My-Topic</TopicArn>\n        <Protocol>email</Protocol>\n        <SubscriptionArn>arn:aws:sns:us-east-1:123456789012:My-Topic:80289ba6-0fd4-4079-afb4-ce8c8260f0ca</SubscriptionArn>\n        <Owner>123456789012</Owner>\n        <Endpoint>example@amazon.com</Endpoint>\n      </member>\n    </Subscriptions>\n  </ListSubscriptionsResult>\n  <ResponseMetadata>\n    <RequestId>384ac68d-3775-11df-8963-01868b7c937a</RequestId>\n  </ResponseMetadata>\n</ListSubscriptionsResponse>\n  \n </queryresponse>\n</examples>"
     },
     "ListSubscriptionsByTopic":{
+      "name":"ListSubscriptionsByTopic",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -565,22 +846,41 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"NotFoundException",
+          "error":{
+            "code":"NotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the requested resource does not exist.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         }
@@ -588,6 +888,7 @@
       "documentation":"<p>The <code>ListSubscriptionsByTopic</code> action returns a list of the subscriptions to a specific topic. Each call returns \n      a limited list of subscriptions, up to 100. If there are more subscriptions, a <code>NextToken</code> is also returned. Use the <code>NextToken</code> \n      parameter in a new <code>ListSubscriptionsByTopic</code> call to get further results.</p>\n    <examples>\n      <queryrequest>\n        \n  http://sns.us-east-1.amazonaws.com/\n  ?TopicArn=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3AMy-Topic\n  &Action=ListSubscriptionsByTopic\n  &SignatureVersion=2\n  &SignatureMethod=HmacSHA256\n  &Timestamp=2010-03-31T12%3A00%3A00.000Z\n  &AWSAccessKeyId=(AWS Access Key ID)\n  &Signature=SZmBxEPqfs9R7xxhSt6C1b7PnOEvg%2BSVyyMYJfLRFCA%3D\n\n      </queryrequest>\n      <queryresponse>\n        \n<ListSubscriptionsByTopicResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <ListSubscriptionsByTopicResult>\n    <Subscriptions>\n      <member>\n        <TopicArn>arn:aws:sns:us-east-1:123456789012:My-Topic</TopicArn>\n        <Protocol>email</Protocol>\n        <SubscriptionArn>arn:aws:sns:us-east-1:123456789012:My-Topic:80289ba6-0fd4-4079-afb4-ce8c8260f0ca</SubscriptionArn>\n        <Owner>123456789012</Owner>\n        <Endpoint>example@amazon.com</Endpoint>\n      </member>\n    </Subscriptions>\n  </ListSubscriptionsByTopicResult>\n  <ResponseMetadata>\n    <RequestId>b9275252-3774-11df-9540-99d0768312d3</RequestId>\n  </ResponseMetadata>\n</ListSubscriptionsByTopicResponse>\n  \n      </queryresponse>\n    </examples>"
     },
     "ListTopics":{
+      "name":"ListTopics",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -601,17 +902,31 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         }
@@ -619,6 +934,7 @@
       "documentation":"<p>The <code>ListTopics</code> action returns a list of the requester's topics. Each call returns a limited list of topics, up to 100. If\n      there are more topics, a <code>NextToken</code> is also returned. Use the <code>NextToken</code> parameter in a new <code>ListTopics</code> call to get \n     further results.</p>\n<examples>\n <queryrequest>\n\n  http://sns.us-east-1.amazonaws.com/\n  ?Action=ListTopics\n  &SignatureVersion=2\n  &SignatureMethod=HmacSHA256\n  &Timestamp=2010-03-31T12%3A00%3A00.000Z\n  &AWSAccessKeyId=(AWS Access Key ID)\n  &Signature=tPg1qKNTNVPydnL3Yx5Fqm2O9GxCr9vh3EF5r9%2F5%2BJs%3D\n\n </queryrequest>\n <queryresponse>\n  \n<ListTopicsResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <ListTopicsResult>\n    <Topics>\n      <member>\n        <TopicArn>arn:aws:sns:us-east-1:123456789012:My-Topic</TopicArn>\n      </member>\n    </Topics>\n  </ListTopicsResult>\n  <ResponseMetadata>\n    <RequestId>3f1478c7-33a9-11df-9540-99d0768312d3</RequestId>\n  </ResponseMetadata>\n</ListTopicsResponse>\n  \n </queryresponse>\n</examples>"
     },
     "Publish":{
+      "name":"Publish",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -635,32 +951,61 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"NotFoundException",
+          "error":{
+            "code":"NotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the requested resource does not exist.</p>"
         },
         {
           "shape":"EndpointDisabledException",
+          "error":{
+            "code":"EndpointDisabled",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Exception error indicating endpoint disabled.</p>"
         },
         {
           "shape":"PlatformApplicationDisabledException",
+          "error":{
+            "code":"PlatformApplicationDisabled",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Exception error indicating platform application disabled.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         }
@@ -668,6 +1013,7 @@
       "documentation":"<p>The <code>Publish</code> action sends a message to all of a topic's subscribed endpoints. When a\n    <code>messageId</code> is returned, the message has been saved and Amazon SNS will attempt to deliver it \n      to the topic's subscribers shortly. The format of the outgoing message to each\n      subscribed endpoint depends on the notification protocol selected.</p>\n    <p>To use the <code>Publish</code> action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, \n      you must specify the EndpointArn. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. \n      The second example below shows a request and response for publishing to a mobile endpoint.\n    </p>\n    <examples>\n      <queryrequest>\n        \n  The following example publishes the same message to all protocols:\n  \n  http://sns.us-east-1.amazonaws.com/\n  ?Subject=My%20first%20message\n  &TopicArn=arn%3Aaws%3Asns%3Aus-east-1%3A698519295917%3AMy-Topic\n  &Message=Hello%20world%21\n  &Action=Publish\n  &SignatureVersion=2\n  &SignatureMethod=HmacSHA256\n  &Timestamp=2010-03-31T12%3A00%3A00.000Z\n  &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE\n  &Signature=9GZysQ4Jpnz%2BHklqM7VFTvEcjR2LIUtn6jW47054xxE%3D\n  \n  Use the following JSON object format for the Message parameter to send different messages to each protocol (linebreaks added for readability):\n  {\n  \"default\" : \"some message\",\n  \"email\" : \"some email message\",\n  \"email-json\" : \"some email-json message\",\n  \"http\" : \"some http message\",\n  \"https\" : \"some https message\",\n  \"sqs\" : \"some sqs message\"\n  }\n  \n\n      </queryrequest>\n      <queryresponse>\n        \n<PublishResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <PublishResult>\n    <MessageId>94f20ce6-13c5-43a0-9a9e-ca52d816e90b</MessageId>\n  </PublishResult>\n  <ResponseMetadata>\n    <RequestId>f187a3c1-376f-11df-8963-01868b7c937a</RequestId>\n  </ResponseMetadata>\n</PublishResponse>\n  \n      </queryresponse>\n      <queryrequest>\n        \nPOST http://sns.us-west-2.amazonaws.com/ HTTP/1.1\n...\nAction=Publish\n&Message=%7B%22default%22%3A%22This+is+the+default+Message%22%2C%22APNS_SANDBOX%22%3A%22%7B+%5C%22aps%5C%22+%3A+%7B+%5C%22alert%5C%22+%3A+%5C%22You+have+got+email.%5C%22%2C+%5C%22badge%5C%22+%3A+9%2C%5C%22sound%5C%22+%3A%5C%22default%5C%22%7D%7D%22%7D\n&TargetArn=arn%3Aaws%3Asns%3Aus-west-2%3A803981987763%3Aendpoint%2FAPNS_SANDBOX%2Fpushapp%2F98e9ced9-f136-3893-9d60-776547eafebb\n&SignatureMethod=HmacSHA256\n&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE\n&SignatureVersion=2\n&Version=2010-03-31\n&Signature=vmqc4XRupKAxsDAdN4j4Ayw5LQljXMps3kss4bkDfCk%3D\n&Timestamp=2013-07-18T22%3A44%3A09.452Z\n&MessageStructure=json\n  \n\n      </queryrequest>\n      <queryresponse>\n        \nHTTP/1.1 200 OK\n...\n<PublishResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <PublishResult>\n    <MessageId>567910cd-659e-55d4-8ccb-5aaf14679dc0</MessageId>\n  </PublishResult>\n  <ResponseMetadata>\n    <RequestId>d74b8436-ae13-5ab4-a9ff-ce54dfea72a0</RequestId>\n  </ResponseMetadata>\n</PublishResponse>\n  \n      </queryresponse>\n    </examples>"
     },
     "RemovePermission":{
+      "name":"RemovePermission",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -679,22 +1025,41 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         },
         {
           "shape":"NotFoundException",
+          "error":{
+            "code":"NotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the requested resource does not exist.</p>"
         }
@@ -702,6 +1067,7 @@
       "documentation":"<p>The <code>RemovePermission</code> action removes a statement from a topic's access control policy.</p>\n<examples>\n <queryrequest>\n\n  http://sns.us-east-1.amazonaws.com/\n  ?TopicArn=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3AMy-Test\n  &Label=NewPermission\n  &Action=RemovePermission\n  &SignatureVersion=2\n  &SignatureMethod=HmacSHA256\n  &Timestamp=2010-03-31T12%3A00%3A00.000Z\n  &AWSAccessKeyId=(AWS Access Key ID)\n  &Signature=N1abwRY9i7zaSQmbAlm71pPf9EEFOqNbQL1alzw2yCg%3D\n\n </queryrequest>\n <queryresponse>\n  \n<RemovePermissionResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <ResponseMetadata>\n    <RequestId>d170b150-33a8-11df-995a-2d6fbe836cc1</RequestId>\n  </ResponseMetadata>\n</RemovePermissionResponse>\n  \n </queryresponse>\n</examples>"
     },
     "SetEndpointAttributes":{
+      "name":"SetEndpointAttributes",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -713,22 +1079,41 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         },
         {
           "shape":"NotFoundException",
+          "error":{
+            "code":"NotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the requested resource does not exist.</p>"
         }
@@ -736,6 +1121,7 @@
       "documentation":"<p>The <code>SetEndpointAttributes</code> action sets the attributes for an endpoint for a device on one of the supported push notification services, such as GCM and APNS.\n      For more information, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>.\n    </p>\n    <examples>\n      <queryrequest>\n        \nPOST http://sns.us-west-2.amazonaws.com/ HTTP/1.1\n...\nAttributes.entry.1.key=CustomUserData\n&Action=SetEndpointAttributes\n&SignatureMethod=HmacSHA256\n&Attributes.entry.1.value=My+custom+userdata\n&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE\n&EndpointArn=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Aendpoint%2FGCM%2Fgcmpushapp%2F5e3e9847-3183-3f18-a7e8-671c3a57d4b3\n&SignatureVersion=2\n&Version=2010-03-31\n&Signature=CFTGfGOS5vgSU3%2FZgv2h%2FJdWgr2JQdDJSrUU9k38wSM%3D\n&Timestamp=2013-07-01T22%3A56%3A45.582Z\n\n      </queryrequest>\n      <queryresponse>\n        \nHTTP/1.1 200 OK\n...\n<SetEndpointAttributesResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <ResponseMetadata>\n    <RequestId>2fe0bfc7-3e85-5ee5-a9e2-f58b35e85f6a</RequestId>\n  </ResponseMetadata>\n</SetEndpointAttributesResponse>\n\n      </queryresponse>\n    </examples>"
     },
     "SetPlatformApplicationAttributes":{
+      "name":"SetPlatformApplicationAttributes",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -747,22 +1133,41 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         },
         {
           "shape":"NotFoundException",
+          "error":{
+            "code":"NotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the requested resource does not exist.</p>"
         }
@@ -770,6 +1175,7 @@
       "documentation":"<p>The <code>SetPlatformApplicationAttributes</code> action sets the attributes of the platform application object for the supported push notification services, \n      such as APNS and GCM.\n      For more information, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>.\n    </p>\n    <examples>\n      <queryrequest>\n        \nPOST http://sns.us-west-2.amazonaws.com/ HTTP/1.1\n...\nAttributes.entry.1.key=EventEndpointCreated&PlatformApplicationArn=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Aapp%2FGCM%2Fgcmpushapp\n&Action=SetPlatformApplicationAttributes\n&SignatureMethod=HmacSHA256\n&Attributes.entry.1.value=arn%3Aaws%3Asns%3Aus-west-2%3A123456789012%3Atopicarn\n&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE\n&SignatureVersion=2\n&Version=2010-03-31\n&Signature=06L2TsW3jiH%2FGKDYuT8w4NojSrTf4Ig2GKqGeJPhPT4%3D\n&Timestamp=2013-07-01T22%3A53%3A17.800Z\n\n      </queryrequest>\n      <queryresponse>\n        \nHTTP/1.1 200 OK\n...\n<SetPlatformApplicationAttributesResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <ResponseMetadata>\n    <RequestId>cf577bcc-b3dc-5463-88f1-3180b9412395</RequestId>\n  </ResponseMetadata>\n</SetPlatformApplicationAttributesResponse>\n\n      </queryresponse>\n    </examples>"
     },
     "SetSubscriptionAttributes":{
+      "name":"SetSubscriptionAttributes",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -781,22 +1187,41 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"NotFoundException",
+          "error":{
+            "code":"NotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the requested resource does not exist.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         }
@@ -804,6 +1229,7 @@
       "documentation":"<p>The <code>SetSubscriptionAttributes</code> action allows a subscription owner to set an attribute of the topic to a new value.</p>\n<examples>\n  <queryrequest>\n    \nThe following example sets the delivery policy to 5 total retries\n  \n  http://sns.us-east-1.amazonaws.com/\n  ?AttributeValue={\"healthyRetryPolicy\":{\"numRetries\":5}}\n  &SubscriptionArn=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3AMy-Topic%3A80289ba6-0fd4-4079-afb4-ce8c8260f0ca\n  &AttributeName=DeliveryPolicy\n  &Action=SetSubscriptionAttributes\n  &SignatureVersion=2\n  &SignatureMethod=HmacSHA256\n  &Timestamp=2010-03-31T12%3A00%3A00.000Z\n  &AWSAccessKeyId=(AWS Access Key Id)\n  &Signature=mQA3nJI%2BcmAIY7r8HCArGElSqPX5JG4UGzF4yo0RygE%3D\n  \nThe JSON format for the DeliveryPolicy AttributeValue (linebreaks added for readability):\n{\n    \"healthyRetryPolicy\": \n    {\n        \"minDelayTarget\":  <int>,\n        \"maxDelayTarget\": <int>,\n        \"numRetries\": <int>,\n        \"numMaxDelayRetries\": <int>,\n        \"backoffFunction\": \"<linear|arithmetic|geometric|exponential>\"\n    },\n    \"throttlePolicy\":\n    {\n        \"maxReceivesPerSecond\": <int>\n    }\n}\n  </queryrequest>\n <queryresponse>\n  \n<SetSubscriptionAttributesResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <ResponseMetadata>\n    <RequestId>a8763b99-33a7-11df-a9b7-05d48da6f042</RequestId>\n  </ResponseMetadata>\n</SetSubscriptionAttributesResponse>\n  \n </queryresponse>\n</examples>"
     },
     "SetTopicAttributes":{
+      "name":"SetTopicAttributes",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -815,22 +1241,41 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"NotFoundException",
+          "error":{
+            "code":"NotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the requested resource does not exist.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         }
@@ -838,6 +1283,7 @@
       "documentation":"<p>The <code>SetTopicAttributes</code> action allows a topic owner to set an attribute of the topic to a new value.</p>\n<examples>\n  <queryrequest>\nThe following example sets the DisplayName attribute to MyTopicName\n\n  http://sns.us-east-1.amazonaws.com/\n  ?AttributeValue=MyTopicName\n  &amp;TopicArn=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3AMy-Topic\n  &amp;AttributeName=DisplayName\n  &amp;Action=SetTopicAttributes\n  &amp;SignatureVersion=2\n  &amp;SignatureMethod=HmacSHA256\n  &amp;Timestamp=2010-03-31T12%3A00%3A00.000Z\n  &amp;AWSAccessKeyId=(AWS Access Key Id)\n  &amp;Signature=mQA3nJI%2BcmAIY7r8HCArGElSqPX5JG4UGzF4yo0RygE%3D\n  \nThe following example sets the delivery policy to 5 total retries\n  \n  http://sns.us-east-1.amazonaws.com/\n  ?AttributeValue={\"http\":{\"defaultHealthyRetryPolicy\":{\"numRetries\":5}}}\n  &amp;TopicArn=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3AMy-Topic\n  &amp;AttributeName=DeliveryPolicy\n  &amp;Action=SetTopicAttributes\n  &amp;SignatureVersion=2\n  &amp;SignatureMethod=HmacSHA256\n  &amp;Timestamp=2010-03-31T12%3A00%3A00.000Z\n  &amp;AWSAccessKeyId=(AWS Access Key Id)\n  &amp;Signature=mQA3nJI%2BcmAIY7r8HCArGElSqPX5JG4UGzF4yo0RygE%3D  \n  \nThe JSON format for the DeliveryPolicy AttributeValue (linebreaks added for readability):\n{\n    \"http\": {\n    \"defaultHealthyRetryPolicy\": \n        {\n        \"minDelayTarget\":  &lt;int&gt;,\n        \"maxDelayTarget\": &lt;int&gt;,\n        \"numRetries\": &lt;int&gt;,\n        \"numMaxDelayRetries\": &lt;int&gt;,\n        \"backoffFunction\": \"&lt;linear|arithmetic|geometric|exponential&gt;\"\n        },\n    \"disableSubscriptionOverrides\": &lt;boolean&gt;,\n    \"defaultThrottlePolicy\": \n        {\n        \"maxReceivesPerSecond\": &lt;int&gt;\n        }\n    }\n  </queryrequest>\n <queryresponse>\n  \n<SetTopicAttributesResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <ResponseMetadata>\n    <RequestId>a8763b99-33a7-11df-a9b7-05d48da6f042</RequestId>\n  </ResponseMetadata>\n</SetTopicAttributesResponse>\n  \n </queryresponse>\n</examples>"
     },
     "Subscribe":{
+      "name":"Subscribe",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -854,27 +1300,51 @@
       "errors":[
         {
           "shape":"SubscriptionLimitExceededException",
+          "error":{
+            "code":"SubscriptionLimitExceeded",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the customer already owns the maximum allowed number of subscriptions.</p>"
         },
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"NotFoundException",
+          "error":{
+            "code":"NotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the requested resource does not exist.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         }
@@ -882,6 +1352,7 @@
       "documentation":"<p>The <code>Subscribe</code> action prepares to subscribe an endpoint by sending the endpoint a confirmation message. To actually create a\n      subscription, the endpoint owner must call the <code>ConfirmSubscription</code>\n      action with the token from the confirmation message. Confirmation tokens are\n      valid for three days.</p>\n<examples>\n <queryrequest>\n\n  http://sns.us-east-1.amazonaws.com/\n  ?TopicArn=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3AMy-Topic\n  &Endpoint=example%40amazon.com\n  &Protocol=email\n  &Action=Subscribe\n  &SignatureVersion=2\n  &SignatureMethod=HmacSHA256\n  &Timestamp=2010-03-31T12%3A00%3A00.000Z\n  &AWSAccessKeyId=(AWS Access Key ID)\n  &Signature=1%2FeGaDphxXq%2Fa89x6HvKh%2Fc1yLGXzuhS7vS2MslToDM%3D\n\n </queryrequest>\n <queryresponse>\n  \n<SubscribeResponse xmlns=\"http://sns.amazonaws.com/doc/2010-03-31/\">\n  <SubscribeResult>\n    <SubscriptionArn>pending confirmation</SubscriptionArn>\n  </SubscribeResult>\n  <ResponseMetadata>\n    <RequestId>a169c740-3766-11df-8963-01868b7c937a</RequestId>\n  </ResponseMetadata>\n</SubscribeResponse>\n  \n </queryresponse>\n</examples>"
     },
     "Unsubscribe":{
+      "name":"Unsubscribe",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -893,22 +1364,41 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
         },
         {
           "shape":"InternalErrorException",
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
           "fault":true,
           "documentation":"<p>Indicates an internal service error.</p>"
         },
         {
           "shape":"AuthorizationErrorException",
+          "error":{
+            "code":"AuthorizationError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
         },
         {
           "shape":"NotFoundException",
+          "error":{
+            "code":"NotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Indicates that the requested resource does not exist.</p>"
         }
@@ -952,6 +1442,11 @@
       "type":"structure",
       "members":{
         "message":{"shape":"string"}
+      },
+      "error":{
+        "code":"AuthorizationError",
+        "httpStatusCode":403,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>Indicates that the user has been denied access to the requested resource.</p>"
@@ -1136,6 +1631,11 @@
           "documentation":"<p>Message for endpoint disabled.</p>"
         }
       },
+      "error":{
+        "code":"EndpointDisabled",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>Exception error indicating endpoint disabled.</p>"
     },
@@ -1228,6 +1728,10 @@
       "members":{
         "message":{"shape":"string"}
       },
+      "error":{
+        "code":"InternalError",
+        "httpStatusCode":500
+      },
       "exception":true,
       "fault":true,
       "documentation":"<p>Indicates an internal service error.</p>"
@@ -1236,6 +1740,11 @@
       "type":"structure",
       "members":{
         "message":{"shape":"string"}
+      },
+      "error":{
+        "code":"InvalidParameter",
+        "httpStatusCode":400,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>Indicates that a request parameter does not comply with the associated constraints.</p>"
@@ -1386,6 +1895,11 @@
       "members":{
         "message":{"shape":"string"}
       },
+      "error":{
+        "code":"NotFound",
+        "httpStatusCode":404,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>Indicates that the requested resource does not exist.</p>"
     },
@@ -1410,6 +1924,11 @@
           "shape":"string",
           "documentation":"<p>Message for platform application disabled.</p>"
         }
+      },
+      "error":{
+        "code":"PlatformApplicationDisabled",
+        "httpStatusCode":400,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>Exception error indicating platform application disabled.</p>"
@@ -1618,6 +2137,11 @@
       "members":{
         "message":{"shape":"string"}
       },
+      "error":{
+        "code":"SubscriptionLimitExceeded",
+        "httpStatusCode":403,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>Indicates that the customer already owns the maximum allowed number of subscriptions.</p>"
     },
@@ -1644,6 +2168,11 @@
       "type":"structure",
       "members":{
         "message":{"shape":"string"}
+      },
+      "error":{
+        "code":"TopicLimitExceeded",
+        "httpStatusCode":403,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>Indicates that the customer already owns the maximum allowed number of topics.</p>"

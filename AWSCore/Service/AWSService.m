@@ -15,10 +15,8 @@
 
 #import "AWSService.h"
 
-#import "AZHAL.h"
 #import "AZSynchronizedMutableDictionary.h"
 #import "AWSURLResponseSerialization.h"
-#import "AWSHALModel.h"
 
 #import "CSURITemplate.h"
 #import "TMCache.h"
@@ -26,74 +24,6 @@
 #pragma mark - AWSService
 
 @implementation AWSService
-
-@end
-
-#pragma mark - AWSHALService
-
-@interface AWSHALService()
-
-@property (nonatomic, strong) TMCache *cache;
-
-@end
-
-@implementation AWSHALService
-
-- (instancetype)init {
-    if (self = [super init]) {
-        _cache = [[TMCache alloc] initWithName:@"123"];
-    }
-
-    return self;
-}
-
-- (BFTask *)followHALLink:(AZHALLink *)HALLink
-               HTTPMethod:(AZHTTPMethod)HTTPMethod
-                  headers:(NSDictionary *)headers
-               parameters:(NSDictionary *)parameters
-              outputClass:(Class)outputClass {
-    NSString *URLString = @"/";
-    if (HALLink.isTemplated) {
-        NSError *error = nil;
-        CSURITemplate *template = [CSURITemplate URITemplateWithString:HALLink.href
-                                                                 error:&error];
-        for (NSString *key in parameters) {
-            URLString = [template relativeStringWithVariables:@{key : parameters[key]}
-                                                        error:&error];
-        }
-    } else if (HALLink.href) {
-        URLString = HALLink.href;
-    }
-
-    if (HTTPMethod == AZHTTPMethodGET) {
-        AZHALResource *cachedResource = [self.cache objectForKey:URLString];
-        if (cachedResource) {
-            if (outputClass) {
-                cachedResource = [[outputClass alloc] initWithHALResource:cachedResource
-                                                               HALService:self];
-            }
-            return [BFTask taskWithResult:cachedResource];
-        }
-    }
-
-    AZNetworkingRequest *networkingRequest = [AZNetworkingRequest new];
-    networkingRequest.URLString = URLString;
-    networkingRequest.parameters = parameters;
-    networkingRequest.HTTPMethod = HTTPMethod;
-    networkingRequest.headers = headers;
-    networkingRequest.responseSerializer = [[AWSHALResponseSerializer alloc] initWithOutputClass:outputClass
-                                                                                      HALService:self];
-
-    return [self.networking sendRequest:networkingRequest];
-}
-
-- (BFTask *)clearCache {
-    BFTaskCompletionSource *taskCompletionSource = [BFTaskCompletionSource taskCompletionSource];
-    [self.cache removeAllObjects:^(TMCache *cache) {
-        taskCompletionSource.result = nil;
-    }];
-    return taskCompletionSource.task;
-}
 
 @end
 
@@ -256,9 +186,12 @@ NSString *const AWSRegionNameSAEast1 = @"sa-east-1";
 NSString *const AWSServiceNameAppStream = @"appstream";
 NSString *const AWSServiceNameAutoScaling = @"autoscaling";
 NSString *const AWSServiceNameCloudWatch = @"monitoring";
+NSString *const AWSServiceNameCognitoIdentityBroker = @"cognito-identity";
+NSString *const AWSServiceNameCognitoService = @"cognito-sync";
 NSString *const AWSServiceNameDynamoDB = @"dynamodb";
 NSString *const AWSServiceNameEC2 = @"ec2";
 NSString *const AWSServiceNameElasticLoadBalancing = @"elasticloadbalancing";
+NSString *const AWSServiceNameKinesis = @"kinesis";
 NSString *const AWSServiceNameS3 = @"s3";
 NSString *const AWSServiceNameSES = @"email";
 NSString *const AWSServiceNameSimpleDB = @"sdb";
@@ -266,6 +199,7 @@ NSString *const AWSServiceNameSNS = @"sns";
 NSString *const AWSServiceNameSQS = @"sqs";
 NSString *const AWSServiceNameSTS = @"sts";
 
+NSString *const AWSServiceNameEventRecorder = @"mobileanalytics";
 
 @interface AWSEndpoint()
 
@@ -337,6 +271,12 @@ NSString *const AWSServiceNameSTS = @"sts";
             case AWSServiceCloudWatch:
                 _serviceName = AWSServiceNameCloudWatch;
                 break;
+            case AWSServiceCognitoIdentityBroker:
+                _serviceName = AWSServiceNameCognitoIdentityBroker;
+                break;
+            case AWSServiceCognitoService:
+                _serviceName = AWSServiceNameCognitoService;
+                break;
             case AWSServiceDynamoDB:
                 _serviceName = AWSServiceNameDynamoDB;
                 break;
@@ -345,6 +285,9 @@ NSString *const AWSServiceNameSTS = @"sts";
                 break;
             case AWSServiceElasticLoadBalancing:
                 _serviceName = AWSServiceNameElasticLoadBalancing;
+                break;
+            case AWSServiceKinesis:
+                _serviceName = AWSServiceNameKinesis;
                 break;
             case AWSServiceS3:
                 _serviceName = AWSServiceNameS3;
@@ -364,6 +307,8 @@ NSString *const AWSServiceNameSTS = @"sts";
             case AWSServiceSTS:
                 _serviceName = AWSServiceNameSTS;
                 break;
+            case AWSServiceGameLabEventRecorder:
+                _serviceName = AWSServiceNameEventRecorder;
             default:
                 break;
         }
@@ -384,6 +329,10 @@ NSString *const AWSServiceNameSTS = @"sts";
             _URL = [NSURL URLWithString:@"https://sts.amazonaws.com"];
         } else if (_serviceType == AWSServiceSimpleDB && _regionType == AWSRegionUSEast1) {
             _URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://sdb.amazonaws.com", HTTP_Type]];
+        } else if (_serviceType == AWSServiceCognitoIdentityBroker && _regionType == AWSRegionUSEast1) {
+            _URL = [NSURL URLWithString:@"https://cognito-identity.us-east-1.amazonaws.com"];
+        } else if (_serviceType == AWSServiceCognitoService && _regionType == AWSRegionUSEast1) {
+            _URL = [NSURL URLWithString:@"https://cognito-sync.us-east-1.amazonaws.com"];
         } else {
             _URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@%@%@.amazonaws.com", HTTP_Type, _serviceName, separator, _regionName]];
         }

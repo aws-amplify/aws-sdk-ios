@@ -23,5 +23,10 @@
 #import "AWSValidation.h"
 #import "AWSURLRequestSerialization.h"
 #import "AWSURLResponseSerialization.h"
+#import "AWSClientContext.h"
 
 #import "STS.h"
+#import "CognitoIdentityService.h"
+
+#import "EventRecorderService.h"
+#import "MobileAnalytics.h"

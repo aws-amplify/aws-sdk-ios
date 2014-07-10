@@ -143,34 +143,34 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
     return self;
 }
 
-- (BOOL)interceptRequest:(NSMutableURLRequest *)request error:(NSError *__autoreleasing *)error {
-    // clear authorization header if set
-    [request setValue:nil forHTTPHeaderField:@"Authorization"];
+- (BFTask *)interceptRequest:(NSMutableURLRequest *)request {
+    return [[BFTask taskWithResult:nil] continueWithSuccessBlock:^id(BFTask *task) {
+        // clear authorization header if set
+        [request setValue:nil forHTTPHeaderField:@"Authorization"];
 
-    NSString *autorization;
-    NSArray *hostArray  = [[[request URL] host] componentsSeparatedByString:@"."];
+        NSString *autorization;
+        NSArray *hostArray  = [[[request URL] host] componentsSeparatedByString:@"."];
 
-    if ([self.credentialsProvider respondsToSelector:@selector(sessionKey)]) {
-        [request setValue:self.credentialsProvider.sessionKey forHTTPHeaderField:@"X-Amz-Security-Token"];
-    }
-    if ([hostArray firstObject] && [[hostArray firstObject] rangeOfString:@"s3"].location != NSNotFound) {
-        //If it is a S3 Request
-        autorization = [self signS3RequestV4:request];
-    } else {
-        autorization = [self signRequestV4:request
-                                   payload:[[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding]];
-    }
+        if ([self.credentialsProvider respondsToSelector:@selector(sessionKey)]) {
+            [request setValue:self.credentialsProvider.sessionKey forHTTPHeaderField:@"X-Amz-Security-Token"];
+        }
+        if ([hostArray firstObject] && [[hostArray firstObject] rangeOfString:@"s3"].location != NSNotFound) {
+            //If it is a S3 Request
+            autorization = [self signS3RequestV4:request];
+        } else {
+            autorization = [self signRequestV4:request];
+        }
 
-    if (autorization) {
-        [request setValue:autorization forHTTPHeaderField:@"Authorization"];
-    }
-
-    return YES;
+        if (autorization) {
+            [request setValue:autorization forHTTPHeaderField:@"Authorization"];
+        }
+        return nil;
+    }];
 }
 
 - (NSString *)signS3RequestV4:(NSMutableURLRequest *)urlRequest {
     if ( [urlRequest valueForHTTPHeaderField:@"Content-Type"] == nil) {
-        [urlRequest addValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+        [urlRequest addValue:@"binary/octet-stream" forHTTPHeaderField:@"Content-Type"];
     }
 
     // fix query string
@@ -212,10 +212,11 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
     NSUInteger contentLength = [[urlRequest allHTTPHeaderFields][@"Content-Length"] integerValue];
     if (nil != stream) {
         contentSha256 = @"STREAMING-AWS4-HMAC-SHA256-PAYLOAD";
-        [urlRequest setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[S3ChunkedEncodingInputStream computeContentLengthForChunkedData:contentLength]]
+        [urlRequest setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[AWSS3ChunkedEncodingInputStream computeContentLengthForChunkedData:contentLength]]
           forHTTPHeaderField:@"Content-Length"];
         [urlRequest setValue:nil forHTTPHeaderField:@"Content-Length"]; //remove Content-Length header if it is a HTTPBodyStream
         [urlRequest setValue:@"Chunked" forHTTPHeaderField:@"Transfer-Encoding"];
+        [urlRequest addValue:@"aws-chunked" forHTTPHeaderField:@"Content-Encoding"]; //add aws-chunked keyword for s3 chunk upload
         [urlRequest setValue:[NSString stringWithFormat:@"%lu", (unsigned long)contentLength] forHTTPHeaderField:@"x-amz-decoded-content-length"];
     } else {
         contentSha256 = [AWSSignatureSignerUtility hexEncode:[[NSString alloc] initWithData:[AWSSignatureSignerUtility hash:[urlRequest HTTPBody]] encoding:NSASCIIStringEncoding]];
@@ -262,9 +263,8 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
                                [self getSignedHeadersString:headers],
                                signatureString];
 
-
     if (nil != stream) {
-        S3ChunkedEncodingInputStream *chunkedStream = [[S3ChunkedEncodingInputStream alloc] initWithInputStream:stream
+        AWSS3ChunkedEncodingInputStream *chunkedStream = [[AWSS3ChunkedEncodingInputStream alloc] initWithInputStream:stream
                                                                                                            date:date
                                                                                                           scope:scope
                                                                                                        kSigning:kSigning
@@ -276,8 +276,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
 }
 
 
-- (NSString *)signRequestV4:(NSURLRequest *)request
-                    payload:(NSString *)payload {
+- (NSString *)signRequestV4:(NSURLRequest *)request{
     if (![self.credentialsProvider respondsToSelector:@selector(accessKey)]
         || ![self.credentialsProvider respondsToSelector:@selector(secretKey)]) {
         return nil;
@@ -297,7 +296,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
         query = [NSString stringWithFormat:@""];
     }
 
-    NSString *contentSha256 = [AWSSignatureSignerUtility hexEncode:[AWSSignatureSignerUtility hashString:payload]];
+    NSString *contentSha256 = [AWSSignatureSignerUtility hexEncode:[[NSString alloc] initWithData:[AWSSignatureSignerUtility hash:request.HTTPBody] encoding:NSASCIIStringEncoding]];
 
     NSString *canonicalRequest = [self getCanonicalizedRequest:request.HTTPMethod
                                                           path:path
@@ -306,7 +305,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
                                                  contentSha256:contentSha256];
 
     AZLogDebug(@"AWS4 Canonical Request: [%@]", canonicalRequest);
-    AZLogDebug(@"payload %@",payload);
+    AZLogDebug(@"payload %@",[[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding]);
 
     NSString *scope = [NSString stringWithFormat:@"%@/%@/%@/%@",
                        dateStamp,
@@ -352,7 +351,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
     [canonicalRequest appendString:path]; // Canonicalized resource path
     [canonicalRequest appendString:@"\n"];
 
-    [canonicalRequest appendString:query]; // Canonicalized Query String
+    [canonicalRequest appendString:[self getCanonicalizedQueryString:query]]; // Canonicalized Query String
     [canonicalRequest appendString:@"\n"];
 
     [canonicalRequest appendString:[self getCanonicalizedHeaderString:headers]];
@@ -364,6 +363,32 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
     [canonicalRequest appendString:[NSString stringWithFormat:@"%@", contentSha256]];
 
     return canonicalRequest;
+}
+
+- (NSString *)getCanonicalizedQueryString:(NSString *)query {
+    NSMutableDictionary *queryDictionary = [NSMutableDictionary new];
+    [[query componentsSeparatedByString:@"&"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSArray *components = [obj componentsSeparatedByString:@"="];
+        if ([components count] == 2) {
+            queryDictionary[components[0]] = components[1];
+        }
+    }];
+
+    NSMutableArray *sortedQuery = [[NSMutableArray alloc] initWithArray:[queryDictionary allKeys]];
+
+    [sortedQuery sortUsingSelector:@selector(caseInsensitiveCompare:)];
+
+    NSMutableString *sortedQueryString = [NSMutableString new];
+    for (NSString *key in sortedQuery) {
+        if ([sortedQueryString length] > 0) {
+            [sortedQueryString appendString:@"&"];
+        }
+        [sortedQueryString appendString:key];
+        [sortedQueryString appendString:@"="];
+        [sortedQueryString appendString:queryDictionary[key]];
+    }
+
+    return sortedQueryString;
 }
 
 - (NSString *)getCanonicalizedHeaderString:(NSDictionary *)headers {
@@ -489,45 +514,49 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
     return self;
 }
 
-- (BOOL)interceptRequest:(NSMutableURLRequest *)request error:(NSError *__autoreleasing *)error {
-    NSString *HTTPBodyString = [[NSString alloc] initWithData:request.HTTPBody
-                                                     encoding:NSUTF8StringEncoding];
-    NSMutableDictionary *parameters = [NSMutableDictionary new];
-    [[HTTPBodyString componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"&"]] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NSArray *parameter = [obj componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];
-        [parameters setValue:parameter[1] forKey:parameter[0]];
+- (BFTask *)interceptRequest:(NSMutableURLRequest *)request {
+    return [[BFTask taskWithResult:nil] continueWithSuccessBlock:^id(BFTask *task) {
+        NSString *HTTPBodyString = [[NSString alloc] initWithData:request.HTTPBody
+                                                         encoding:NSUTF8StringEncoding];
+        NSMutableDictionary *parameters = [NSMutableDictionary new];
+        [[HTTPBodyString componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"&"]] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            NSArray *parameter = [obj componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];
+            [parameters setValue:parameter[1] forKey:parameter[0]];
+        }];
+
+        [parameters setObject:@"HmacSHA256" forKey:@"SignatureMethod"];
+        [parameters setObject:@"2" forKey:@"SignatureVersion"];
+        [parameters setObject:self.credentialsProvider.accessKey forKey:@"AWSAccessKeyId"];
+        [parameters setObject:[[NSDate date] az_stringValue:AZDateISO8601DateFormat3]
+                       forKey:@"Timestamp"];
+        //Added SecurityToken field in QueryString for SigV2 if STS has been used.
+        if ([self.credentialsProvider respondsToSelector:@selector(sessionKey)]) {
+            [parameters setObject:self.credentialsProvider.sessionKey forKey:@"SecurityToken"];
+        }
+
+        NSMutableString *canonicalizedQueryString = [[AWSSignatureV4Signer canonicalizedQueryString:parameters] mutableCopy];
+        NSData *dataToSign = [[AWSSignatureV4Signer getV2StringToSign:request
+                                             canonicalizedQueryString:canonicalizedQueryString] dataUsingEncoding:NSUTF8StringEncoding];
+        NSString *signature = [AWSSignatureSignerUtility HMACSign:dataToSign
+                                                          withKey:self.credentialsProvider.secretKey
+                                                   usingAlgorithm:kCCHmacAlgSHA256];
+        [canonicalizedQueryString appendFormat:@"&Signature=%@", [signature az_stringWithURLEncoding]];
+        request.HTTPBody = [canonicalizedQueryString dataUsingEncoding:NSUTF8StringEncoding];
+
+        return nil;
     }];
-
-    [parameters setObject:@"HmacSHA256" forKey:@"SignatureMethod"];
-    [parameters setObject:@"2" forKey:@"SignatureVersion"];
-    [parameters setObject:self.credentialsProvider.accessKey forKey:@"AWSAccessKeyId"];
-    [parameters setObject:[[NSDate date] az_stringValue:AZDateISO8601DateFormat3]
-                   forKey:@"Timestamp"];
-    //Added SecurityToken field in QueryString for SigV2 if STS has been used.
-    if ([self.credentialsProvider respondsToSelector:@selector(sessionKey)]) {
-        [parameters setObject:self.credentialsProvider.sessionKey forKey:@"SecurityToken"];
-    }
-
-    NSMutableString *canonicalizedQueryString = [[AWSSignatureV4Signer canonicalizedQueryString:parameters] mutableCopy];
-    NSData *dataToSign = [[AWSSignatureV4Signer getV2StringToSign:request
-                                         canonicalizedQueryString:canonicalizedQueryString] dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *signature = [AWSSignatureSignerUtility HMACSign:dataToSign
-                                                      withKey:self.credentialsProvider.secretKey
-                                               usingAlgorithm:kCCHmacAlgSHA256];
-    [canonicalizedQueryString appendFormat:@"&Signature=%@", [signature az_stringWithURLEncoding]];
-    request.HTTPBody = [canonicalizedQueryString dataUsingEncoding:NSUTF8StringEncoding];
-
-    return YES;
 }
 
 @end
 
 #pragma mark - S3ChunkedEncodingInputStream
 
-NSUInteger const defaultChunkSize = 32 * 1024 - 89;
+NSUInteger defaultChunkSize = 32 * 1024 - 91;
 NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
 
-@interface S3ChunkedEncodingInputStream()
+@interface AWSS3ChunkedEncodingInputStream()
+
+@property (nonatomic, weak) id<NSStreamDelegate> delegate;
 
 // original input stream
 @property (nonatomic, strong) NSInputStream *stream;
@@ -556,35 +585,36 @@ NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427ae41e464
 
 @end
 
-@implementation S3ChunkedEncodingInputStream
+@implementation AWSS3ChunkedEncodingInputStream
 
-- (id)initWithInputStream:(NSInputStream *)stream
-                     date:(NSDate *)date
-                    scope:(NSString *)scope
-                 kSigning:(NSData *)kSigning
-          headerSignature:(NSString *)headerSignature {
+- (instancetype)initWithInputStream:(NSInputStream *)stream
+                               date:(NSDate *)date
+                              scope:(NSString *)scope
+                           kSigning:(NSData *)kSigning
+                    headerSignature:(NSString *)headerSignature {
     if (self = [super init]) {
         _stream = stream;
-        [_stream setDelegate:self];
+        _delegate = self;
         _date = [date copy];
         _scope = [scope copy];
         _kSigning = [kSigning copy];
         _priorSha256 = [headerSignature copy];
 
         // Chunk size plus signature header
-        NSUInteger chunkSize = defaultChunkSize + [S3ChunkedEncodingInputStream oneChunkedDataSize:defaultChunkSize];
+        NSUInteger chunkSize = defaultChunkSize + [AWSS3ChunkedEncodingInputStream oneChunkedDataSize:defaultChunkSize];
         _chunkData = [[NSMutableData alloc] initWithCapacity:chunkSize];
     }
 
     return self;
 }
--(void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode {
+
+- (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode {
     if ((eventCode & (1 << 4))) {
         // toggle the NSStreamEventEndEncountered bit.
         eventCode ^= 1 << 4;
     }
-    if ([self.myDelegate respondsToSelector:@selector(stream:handleEvent:)]) {
-        [self.myDelegate stream:aStream handleEvent:eventCode];
+    if ([self.delegate respondsToSelector:@selector(stream:handleEvent:)]) {
+        [self.delegate stream:self handleEvent:eventCode];
     }
 }
 
@@ -628,7 +658,7 @@ NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427ae41e464
     NSData *signature = [AWSSignatureSignerUtility sha256HMacWithData:[stringToSign dataUsingEncoding:NSUTF8StringEncoding]
                                                               withKey:self.kSigning];
     self.priorSha256 = [self dataToHexString:signature];
-    NSString *chunkedHeader = [NSString stringWithFormat:@"%lx;chunk-signature=%@\r\n", (unsigned long)[data length], self.priorSha256];
+    NSString *chunkedHeader = [NSString stringWithFormat:@"%06lx;chunk-signature=%@\r\n", (unsigned long)[data length], self.priorSha256];
     AZLogDebug(@"AWS4 Chunked Header: [%@]", chunkedHeader);
 
     NSMutableData *signedChunk = [NSMutableData data];
@@ -636,6 +666,7 @@ NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427ae41e464
     [signedChunk appendData:data];
     [signedChunk appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
 
+    self.totalLengthOfChunkSignatureSent += [AWSS3ChunkedEncodingInputStream oneChunkedDataSize:0];
     return signedChunk;
 }
 
@@ -647,6 +678,8 @@ NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427ae41e464
 #pragma mark NSInputStream methods
 
 - (NSInteger)read:(uint8_t *)buffer maxLength:(NSUInteger)len {
+    //change the defaultChunkSize according to caller reading capacity.
+    defaultChunkSize = len - [AWSS3ChunkedEncodingInputStream oneChunkedDataSize:0];
     // check whether there is data available
     if ([self.chunkData length] <= self.location) {
         // set up next chunk
@@ -685,16 +718,12 @@ NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427ae41e464
 	[self.stream close];
 }
 
-- (void)dealloc {
-    [self close];
-}
-
-- (id)delegate {
-	return self.myDelegate;
-}
-
 - (void)setDelegate:(id)delegate {
-    [self setMyDelegate:delegate];
+    if (delegate == nil) {
+        _delegate = self;
+    } else {
+        _delegate = delegate;
+    }
 }
 
 - (void)scheduleInRunLoop:(NSRunLoop *)aRunLoop forMode:(NSString *)mode {
@@ -744,23 +773,23 @@ NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427ae41e464
  * <data>\r\n
  **/
 + (NSUInteger)oneChunkedDataSize:(NSUInteger)dataLength {
-    return [[NSString stringWithFormat:@"%lx;chunk-signature=%@\r\n",  (unsigned long)dataLength, emptyStringSha256] length] + dataLength + [@"\r\n" length];
+    return [[NSString stringWithFormat:@"%06lx;chunk-signature=%@\r\n",  (unsigned long)dataLength, emptyStringSha256] length] + dataLength + [@"\r\n" length];
 }
 
 + (NSUInteger)computeContentLengthForChunkedData:(NSUInteger)dataLength {
     NSUInteger result = 0;
 
     // length of full chunks
-    result += (dataLength / defaultChunkSize) * [S3ChunkedEncodingInputStream oneChunkedDataSize:defaultChunkSize];
+    result += (dataLength / defaultChunkSize) * [AWSS3ChunkedEncodingInputStream oneChunkedDataSize:defaultChunkSize];
     
     // length of remaining data
     NSUInteger remainingDataLength = dataLength % defaultChunkSize;
     if (remainingDataLength > 0) {
-        result += [S3ChunkedEncodingInputStream oneChunkedDataSize:remainingDataLength];
+        result += [AWSS3ChunkedEncodingInputStream oneChunkedDataSize:remainingDataLength];
     }
     
     // length of final chunk
-    result += [S3ChunkedEncodingInputStream oneChunkedDataSize:0];
+    result += [AWSS3ChunkedEncodingInputStream oneChunkedDataSize:0];
     
     return result;
 }

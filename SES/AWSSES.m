@@ -41,6 +41,9 @@
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"IncompleteSignature" : @(AWSSESErrorIncompleteSignature),
+                            @"InvalidClientTokenId" : @(AWSSESErrorInvalidClientTokenId),
+                            @"MissingAuthenticationToken" : @(AWSSESErrorMissingAuthenticationToken),
                             @"MessageRejected" : @(AWSSESErrorMessageRejected),
                             };
 }

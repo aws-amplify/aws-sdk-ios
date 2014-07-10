@@ -57,19 +57,18 @@
  * A subclass of NSInputStream that wraps an input stream and adds
  * signature of chunk data.
  **/
-@interface S3ChunkedEncodingInputStream : NSInputStream <NSStreamDelegate>
+@interface AWSS3ChunkedEncodingInputStream : NSInputStream <NSStreamDelegate>
 
-@property (nonatomic,assign) id<NSStreamDelegate> myDelegate;
-
+@property (atomic, assign) int64_t totalLengthOfChunkSignatureSent;
 /**
  * Initialize the input stream with date, scope, signing key and signature
  * of request headers.
  **/
-- (id)initWithInputStream:(NSInputStream *)stream
-                     date:(NSDate *)date
-                    scope:(NSString *)scope
-                 kSigning:(NSData *)kSigning
-          headerSignature:(NSString *)headerSignature;
+- (instancetype)initWithInputStream:(NSInputStream *)stream
+                               date:(NSDate *)date
+                              scope:(NSString *)scope
+                           kSigning:(NSData *)kSigning
+                    headerSignature:(NSString *)headerSignature;
 
 /**
  * Computes new content length after data being chunked encoded.

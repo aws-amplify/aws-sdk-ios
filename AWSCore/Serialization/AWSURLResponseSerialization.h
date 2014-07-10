@@ -28,22 +28,11 @@ typedef NS_ENUM(NSInteger, AWSGeneralErrorType) {
     AWSGeneralErrorAuthFailure
 };
 
-@class AWSHALService;
-
 @interface AWSJSONResponseSerializer : NSObject <AZHTTPURLResponseSerializer>
 
 @property (nonatomic, assign) Class outputClass;
 
 - (instancetype)initWithOutputClass:(Class)outputClass;
-
-@end
-
-@interface AWSHALResponseSerializer : AWSJSONResponseSerializer
-
-@property (nonatomic, strong) AWSHALService *HALService;
-
-- (instancetype)initWithOutputClass:(Class)outputClass
-                         HALService:(AWSHALService *)HALService;
 
 @end
 

@@ -41,6 +41,9 @@
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"IncompleteSignature" : @(AWSCloudWatchErrorIncompleteSignature),
+                            @"InvalidClientTokenId" : @(AWSCloudWatchErrorInvalidClientTokenId),
+                            @"MissingAuthenticationToken" : @(AWSCloudWatchErrorMissingAuthenticationToken),
                             @"InternalServiceFault" : @(AWSCloudWatchErrorInternalService),
                             @"InvalidFormatFault" : @(AWSCloudWatchErrorInvalidFormat),
                             @"InvalidNextToken" : @(AWSCloudWatchErrorInvalidNextToken),
@@ -288,15 +291,6 @@ static NSDictionary *errorCodeDictionary = nil;
                    outputClass:[AWSCloudWatchGetMetricStatisticsOutput class]];
 }
 
-- (BFTask *)listHostInfo:(AWSRequest *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
-                     URLString:@""
-                  targetPrefix:@""
-                 operationName:@"ListHostInfo"
-                   outputClass:[AWSCloudWatchListHostInfoOutput class]];
-}
-
 - (BFTask *)listMetrics:(AWSCloudWatchListMetricsInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AZHTTPMethodPOST
@@ -321,15 +315,6 @@ static NSDictionary *errorCodeDictionary = nil;
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"PutMetricData"
-                   outputClass:nil];
-}
-
-- (BFTask *)putMetricDataBatch:(AWSCloudWatchPutMetricDataBatchInput *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
-                     URLString:@""
-                  targetPrefix:@""
-                 operationName:@"PutMetricDataBatch"
                    outputClass:nil];
 }
 

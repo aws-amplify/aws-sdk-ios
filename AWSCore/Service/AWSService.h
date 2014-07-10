@@ -16,56 +16,11 @@
 #import <Foundation/Foundation.h>
 #import "AZNetworking.h"
 #import "AWSCredentialsProvider.h"
-
-typedef NS_ENUM(NSInteger, AWSRegionType) {
-    AWSRegionUnknown,
-    AWSRegionUSEast1,
-    AWSRegionUSWest1,
-    AWSRegionEUWest1,
-    AWSRegionAPSoutheast1,
-    AWSRegionAPNortheast1,
-    AWSRegionUSWest2,
-    AWSRegionSAEast1,
-    AWSRegionAPSoutheast2
-};
-
-typedef NS_ENUM(NSInteger, AWSServiceType) {
-    AWSServiceUnknown,
-    AWSServiceAppStream,
-    AWSServiceAutoScaling,
-    AWSServiceCloudWatch,
-    AWSServiceDynamoDB,
-    AWSServiceEC2,
-    AWSServiceElasticLoadBalancing,
-    AWSServiceS3,
-    AWSServiceSES,
-    AWSServiceSimpleDB,
-    AWSServiceSNS,
-    AWSServiceSQS,
-    AWSServiceSTS,
-};
+#import "AWSServiceEnum.h"
 
 #pragma mark - AWSService
 
 @interface AWSService : NSObject
-
-@end
-
-#pragma mark - AWSHALService
-
-@class AZHALLink;
-
-@interface AWSHALService : AWSService
-
-@property (nonatomic, strong) AZNetworking *networking;
-
-- (BFTask *)followHALLink:(AZHALLink *)HALLink
-               HTTPMethod:(AZHTTPMethod)HTTPMethod
-                  headers:(NSDictionary *)headers
-               parameters:(NSDictionary *)parameters
-              outputClass:(Class)outputClass;
-
-- (BFTask *)clearCache;
 
 @end
 
@@ -81,8 +36,8 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
 
 - (void)setDefaultServiceConfiguration:(AWSServiceConfiguration *)defaultServiceConfiguration;
 
-- (id)serviceForKey:(id)key;
-- (void)setService:(id)service forKey:(id)key;
+- (AWSService *)serviceForKey:(id)key;
+- (void)setService:(AWSService *)service forKey:(id)key;
 - (void)removeServiceForKey:(id)key;
 
 @end

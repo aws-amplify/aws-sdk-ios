@@ -182,15 +182,13 @@ NSString *const AZNetworkingErrorDomain = @"com.amazonaws.AZNetworkingErrorDomai
 
 @implementation AZURLRequestSerializer
 
-- (BOOL)validateRequest:(NSURLRequest *)request
-                  error:(NSError *__autoreleasing *)error {
-    return YES;
+- (BFTask *)validateRequest:(NSURLRequest *)request {
+    return [BFTask taskWithResult:nil];
 }
 
-- (BOOL)serializeRequest:(NSMutableURLRequest *)request
+- (BFTask *)serializeRequest:(NSMutableURLRequest *)request
                  headers:(NSDictionary *)header
-              parameters:(NSDictionary *)parameters
-                   error:(NSError *__autoreleasing *)error {
+              parameters:(NSDictionary *)parameters {
     if ([request.HTTPMethod isEqualToString:@"GET"]) {
         NSMutableString *URLparameters = [NSMutableString new];
         for (id o in parameters) {
@@ -207,11 +205,7 @@ NSString *const AZNetworkingErrorDomain = @"com.amazonaws.AZNetworkingErrorDomai
                                             request.URL.query ? @"&" : @"?",
                                             escapedURLParameters]];
     }
-    else {
-        return NO;
-    }
-
-    return YES;
+    return [BFTask taskWithResult:nil];
 }
 
 @end

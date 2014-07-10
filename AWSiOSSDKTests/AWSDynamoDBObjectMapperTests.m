@@ -18,7 +18,9 @@
 #import <XCTest/XCTest.h>
 #import "DynamoDB.h"
 
-NSString *const AWSDynamoDBObjectMapperTestTable = @"matsuday-test-table";
+NSString *const AWSDynamoDBObjectMapperTestTable = @"DynamoDBOMTest";
+
+static NSString *tableName = nil;
 
 @interface TestObject : AWSDynamoDBModel <AWSDynamoDBModeling>
 
@@ -32,7 +34,7 @@ NSString *const AWSDynamoDBObjectMapperTestTable = @"matsuday-test-table";
 @implementation TestObject
 
 + (NSString *)dynamoDBTableName {
-    return AWSDynamoDBObjectMapperTestTable;
+    return tableName;
 }
 
 + (NSString *)hashKeyAttribute {
@@ -51,6 +53,24 @@ NSString *const AWSDynamoDBObjectMapperTestTable = @"matsuday-test-table";
 
 @implementation AWSDynamoDBObjectMapperTests
 
+
+
++ (void)setUp {
+    [super setUp];
+
+    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
+        AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
+        AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
+                                                                               credentialsProvider:credentialsProvider];
+        [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+    }
+
+    NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];
+    tableName = [NSString stringWithFormat:@"%@-%f", AWSDynamoDBObjectMapperTestTable, timeIntervalSinceReferenceDate];
+
+    [self createTable:tableName];
+}
+
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -60,6 +80,139 @@ NSString *const AWSDynamoDBObjectMapperTestTable = @"matsuday-test-table";
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
+
++ (void)tearDown {
+    [super tearDown];
+
+    [self deleteTable:tableName];
+}
+
+#pragma mark - Utilities
+
++ (BFTask *)waitForTableToBeActive:(NSString *)tableName {
+    AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
+
+    BFTask *task = [BFTask taskWithResult:nil];
+    for(int32_t i = 0; i < 16; i++) {
+        task = [task continueWithSuccessBlock:^id(BFTask *task) {
+            if (task.result) {
+                AWSDynamoDBDescribeTableOutput *describeTableOutput = task.result;
+                AWSDynamoDBTableStatus tableStatus = describeTableOutput.table.tableStatus;
+                if (tableStatus == AWSDynamoDBTableStatusActive) {
+                    return task;
+                }
+            }
+
+            sleep(15);
+
+            AWSDynamoDBDescribeTableInput *describeTableInput = [AWSDynamoDBDescribeTableInput new];
+            describeTableInput.tableName = tableName;
+            return [dynamoDB describeTable:describeTableInput];
+        }];
+    }
+
+    return task;
+}
+
++ (BFTask *)waitForTableToBeDeleted:(NSString *)tableName {
+    AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
+
+    BFTask *task = [BFTask taskWithResult:nil];
+    for(int32_t i = 0; i < 16; i ++) {
+        task = [task continueWithSuccessBlock:^id(BFTask *task) {
+            sleep(15);
+
+            AWSDynamoDBDescribeTableInput *describeTableInput = [AWSDynamoDBDescribeTableInput new];
+            describeTableInput.tableName = tableName;
+            return [dynamoDB describeTable:describeTableInput];
+        }];
+    }
+
+    return task;
+}
+
++ (BOOL)createTable:(NSString *)tableName {
+    __block BOOL succeeded = NO;
+    AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
+
+    AWSDynamoDBDescribeTableInput *describeTableInput = [AWSDynamoDBDescribeTableInput new];
+    describeTableInput.tableName = tableName;
+
+    [[[[[dynamoDB describeTable:describeTableInput
+         ] continueWithBlock:^id(BFTask *task) {
+        if ([task.error.domain isEqualToString:AWSDynamoDBErrorDomain]
+            && task.error.code == AWSDynamoDBErrorResourceNotFound) {
+            AWSDynamoDBAttributeDefinition *hashKeyAttributeDefinition = [AWSDynamoDBAttributeDefinition new];
+            hashKeyAttributeDefinition.attributeName = @"hashKey";
+            hashKeyAttributeDefinition.attributeType = AWSDynamoDBScalarAttributeTypeS;
+
+            AWSDynamoDBKeySchemaElement *hashKeySchemaElement = [AWSDynamoDBKeySchemaElement new];
+            hashKeySchemaElement.attributeName = @"hashKey";
+            hashKeySchemaElement.keyType = AWSDynamoDBKeyTypeHash;
+
+            AWSDynamoDBAttributeDefinition *rangeKeyAttributeDefinition = [AWSDynamoDBAttributeDefinition new];
+            rangeKeyAttributeDefinition.attributeName = @"rangeKey";
+            rangeKeyAttributeDefinition.attributeType = AWSDynamoDBScalarAttributeTypeS;
+
+            AWSDynamoDBKeySchemaElement *rangeKeySchemaElement = [AWSDynamoDBKeySchemaElement new];
+            rangeKeySchemaElement.attributeName = @"rangeKey";
+            rangeKeySchemaElement.keyType = AWSDynamoDBKeyTypeRange;
+
+            AWSDynamoDBProvisionedThroughput *provisionedThroughput = [AWSDynamoDBProvisionedThroughput new];
+            provisionedThroughput.readCapacityUnits = @1;
+            provisionedThroughput.writeCapacityUnits = @1;
+
+            AWSDynamoDBCreateTableInput *createTableInput = [AWSDynamoDBCreateTableInput new];
+            createTableInput.tableName = tableName;
+            createTableInput.attributeDefinitions = @[hashKeyAttributeDefinition, rangeKeyAttributeDefinition];
+            createTableInput.keySchema = @[hashKeySchemaElement, rangeKeySchemaElement];
+            createTableInput.provisionedThroughput = provisionedThroughput;
+
+            return [dynamoDB createTable:createTableInput];
+        }
+
+        return nil;
+    }] continueWithSuccessBlock:^id(BFTask *task) {
+        return [self waitForTableToBeActive:tableName];
+    }] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            succeeded = NO;
+        } else {
+            succeeded = YES;
+        }
+
+        return nil;
+    }] waitUntilFinished];
+
+    return succeeded;
+}
+
++ (BOOL)deleteTable:(NSString *)tableName {
+    __block BOOL succeeded = NO;
+    AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
+
+    AWSDynamoDBDeleteTableInput *deleteTableInput = [AWSDynamoDBDeleteTableInput new];
+    deleteTableInput.tableName = tableName;
+
+    [[[[dynamoDB deleteTable:deleteTableInput
+        ] continueWithSuccessBlock:^id(BFTask *task) {
+        return [self waitForTableToBeDeleted:tableName];
+    }] continueWithBlock:^id(BFTask *task) {
+        if (task.error
+            && (![task.error.domain isEqualToString:AWSDynamoDBErrorDomain]
+                || task.error.code != AWSDynamoDBErrorResourceNotFound)) {
+                succeeded = NO;
+            } else {
+                succeeded = YES;
+            }
+        
+        return nil;
+    }] waitUntilFinished];
+    
+    return succeeded;
+}
+
+#pragma mark - Tests
 
 - (void)testItemForPutItemInput {
     TestObject *testObject = [TestObject new];

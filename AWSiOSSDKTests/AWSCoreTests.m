@@ -59,29 +59,33 @@
 
     AWSJSONRequestSerializer *jsonSerializer = [AWSJSONRequestSerializer new];
 
-    NSError *testError = nil;
-    [jsonSerializer serializeRequest:testRequest
-                             headers:testHeaders
-                          parameters:testParams
-                               error:&testError];
+    [[[[jsonSerializer serializeRequest:testRequest
+                                headers:testHeaders
+                             parameters:testParams] continueWithSuccessBlock:^id(BFTask *task) {
+        //Assert headers are properly set
+        NSDictionary *serialziedHeaders = [testRequest allHTTPHeaderFields];
+        XCTAssertEqualObjects(testHeaders, serialziedHeaders, "JSONSerializer failed to properly attach headers");
 
-    if (testError){
-        XCTFail("Error encountered while serializing request to JSON %@",[testError description]);
-    }
+        //Assert body is properly in JSON
+        NSData *jsonData = [testRequest HTTPBody];
 
-    //Assert headers are properly set
-    NSDictionary *serialziedHeaders = [testRequest allHTTPHeaderFields];
-    XCTAssertEqualObjects(testHeaders, serialziedHeaders, "JSONSerializer failed to properly attach headers");
+        NSError *error = nil;
+        NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                       options:NSJSONReadingMutableContainers
+                                                                         error:&error];
 
-    //Assert body is properly in JSON
-    NSData *jsonData = [testRequest HTTPBody];
+        if (error){
+            XCTFail("Error while parsing JSON created with AWSJSONRequestSerializer %@", error);
+        }
+        XCTAssertEqualObjects(testParams, jsonDictionary, "Parameters could not be correctly parsed into JSON and re-interpreted");
 
-    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&testError];
-
-    if (testError){
-        XCTFail("Error while parsing JSON created with AWSJSONRequestSerializer %@",[testError description]);
-    }
-    XCTAssertEqualObjects(testParams, jsonDictionary, "Parameters could not be correctly parsed into JSON and re-interpreted");
+        return nil;
+    }] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail("Error encountered while serializing request to JSON %@", task.error);
+        }
+        return nil;
+    }] waitUntilFinished];
 }
 
 @end

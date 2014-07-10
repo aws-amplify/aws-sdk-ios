@@ -27,35 +27,15 @@
 NSString *const AWSS3APIVersion = @"s3-2006-03-01";
 
 /*
- * AWSS3 Request XML Serializer
- */
-@interface AWSS3RequestSerializer : AWSXMLRequestSerializer
-
-@end
-
-@implementation AWSS3RequestSerializer
-
-- (BOOL)serializeRequest:(NSMutableURLRequest *)request
-                 headers:(NSDictionary *)headers
-              parameters:(NSDictionary *)parameters
-                   error:(NSError *__autoreleasing *)error {
-    if ([super serializeRequest:request headers:headers parameters:parameters error:error] == NO) {
-        return NO;
-    }
-
-    return YES;
-}
-
-@end
-
-/*
  * AWSS3 Response XML Serializer
  */
 @interface AWSS3ResponseSerializer : AWSXMLResponseSerializer
 
 @property (nonatomic, assign) Class outputClass;
 
-+ (instancetype)serializerWithResource:(NSString *)resource actionName:(NSString *)actionName outputClass:(Class)outputClass;
++ (instancetype)serializerWithResource:(NSString *)resource
+                            actionName:(NSString *)actionName
+                           outputClass:(Class)outputClass;
 
 @end
 
@@ -66,6 +46,12 @@ NSString *const AWSS3APIVersion = @"s3-2006-03-01";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"AccessDenied" : @(AWSS3ErrorAccessDenied),
+                            @"ExpiredToken" : @(AWSS3ErrorExpiredToken),
+                            @"InvalidAccessKeyId" : @(AWSS3ErrorInvalidAccessKeyId),
+                            @"InvalidToken" : @(AWSS3ErrorInvalidToken),
+                            @"SignatureDoesNotMatch" : @(AWSS3ErrorSignatureDoesNotMatch),
+                            @"TokenRefreshRequired" : @(AWSS3ErrorTokenRefreshRequired),
                             @"BucketAlreadyExists" : @(AWSS3ErrorBucketAlreadyExists),
                             @"NoSuchBucket" : @(AWSS3ErrorNoSuchBucket),
                             @"NoSuchKey" : @(AWSS3ErrorNoSuchKey),
@@ -114,7 +100,7 @@ static NSDictionary *errorCodeDictionary = nil;
                 return responseObject;
             }
         }
-        
+
         if (self.outputClass) {
             responseObject = [MTLJSONAdapter modelOfClass:self.outputClass
                                        fromJSONDictionary:responseObject
@@ -150,11 +136,11 @@ static NSDictionary *errorCodeDictionary = nil;
             case AWSS3ErrorInvalidToken:
             case AWSS3ErrorSignatureDoesNotMatch:
             case AWSS3ErrorTokenRefreshRequired:
-                retryType = AZNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
-                break;
+            retryType = AZNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
+            break;
 
             default:
-                break;
+            break;
         }
     }
 
@@ -214,7 +200,6 @@ static NSDictionary *errorCodeDictionary = nil;
         _configuration.retryHandler = [[AWSS3RequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
         _configuration.headers = @{
                                    @"Host" : _endpoint.hostName,
-                                   @"Content-Type" : @"text/xml; charset=utf-8",
                                    };
 
         _networking = [AZNetworking networking:_configuration];
@@ -257,8 +242,8 @@ static NSDictionary *errorCodeDictionary = nil;
     networkingRequest.responseSerializer = [AWSS3ResponseSerializer serializerWithResource:AWSS3APIVersion
                                                                                 actionName:operationName
                                                                                outputClass:outputClass];
-    networkingRequest.requestSerializer = [AWSS3RequestSerializer serializerWithResource:AWSS3APIVersion
-                                                                              actionName:operationName];
+    networkingRequest.requestSerializer = [AWSXMLRequestSerializer serializerWithResource:AWSS3APIVersion
+                                                                               actionName:operationName];
 
     return [self.networking sendRequest:networkingRequest];
 }

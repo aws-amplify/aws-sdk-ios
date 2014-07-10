@@ -17,6 +17,5 @@
 
 #import "AZLogging.h"
 #import "AZNetworking.h"
-#import "AZHAL.h"
 #import "AZCategory.h"
 #import "AZModel.h"

@@ -490,6 +490,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"conditionalOperator" : @"ConditionalOperator",
              @"expected" : @"Expected",
              @"key" : @"Key",
              @"returnConsumedCapacity" : @"ReturnConsumedCapacity",
@@ -497,6 +498,28 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"returnValues" : @"ReturnValues",
              @"tableName" : @"TableName",
              };
+}
+
++ (NSValueTransformer *)conditionalOperatorJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"AND"]) {
+            return @(AWSDynamoDBConditionalOperatorAnd);
+        }
+        if ([value isEqualToString:@"OR"]) {
+            return @(AWSDynamoDBConditionalOperatorOr);
+        }
+        return @(AWSDynamoDBConditionalOperatorUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBConditionalOperatorAnd:
+                return @"AND";
+            case AWSDynamoDBConditionalOperatorOr:
+                return @"OR";
+            case AWSDynamoDBConditionalOperatorUnknown:
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)expectedJSONTransformer {
@@ -701,9 +724,92 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"attributeValueList" : @"AttributeValueList",
+             @"comparisonOperator" : @"ComparisonOperator",
              @"exists" : @"Exists",
              @"value" : @"Value",
              };
+}
+
++ (NSValueTransformer *)attributeValueListJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
+}
+
++ (NSValueTransformer *)comparisonOperatorJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"EQ"]) {
+            return @(AWSDynamoDBComparisonOperatorEQ);
+        }
+        if ([value isEqualToString:@"NE"]) {
+            return @(AWSDynamoDBComparisonOperatorNE);
+        }
+        if ([value isEqualToString:@"IN"]) {
+            return @(AWSDynamoDBComparisonOperatorIN);
+        }
+        if ([value isEqualToString:@"LE"]) {
+            return @(AWSDynamoDBComparisonOperatorLE);
+        }
+        if ([value isEqualToString:@"LT"]) {
+            return @(AWSDynamoDBComparisonOperatorLT);
+        }
+        if ([value isEqualToString:@"GE"]) {
+            return @(AWSDynamoDBComparisonOperatorGE);
+        }
+        if ([value isEqualToString:@"GT"]) {
+            return @(AWSDynamoDBComparisonOperatorGT);
+        }
+        if ([value isEqualToString:@"BETWEEN"]) {
+            return @(AWSDynamoDBComparisonOperatorBetween);
+        }
+        if ([value isEqualToString:@"NOT_NULL"]) {
+            return @(AWSDynamoDBComparisonOperatorNotNull);
+        }
+        if ([value isEqualToString:@"NULL"]) {
+            return @(AWSDynamoDBComparisonOperatorNull);
+        }
+        if ([value isEqualToString:@"CONTAINS"]) {
+            return @(AWSDynamoDBComparisonOperatorContains);
+        }
+        if ([value isEqualToString:@"NOT_CONTAINS"]) {
+            return @(AWSDynamoDBComparisonOperatorNotContains);
+        }
+        if ([value isEqualToString:@"BEGINS_WITH"]) {
+            return @(AWSDynamoDBComparisonOperatorBeginsWith);
+        }
+        return @(AWSDynamoDBComparisonOperatorUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBComparisonOperatorEQ:
+                return @"EQ";
+            case AWSDynamoDBComparisonOperatorNE:
+                return @"NE";
+            case AWSDynamoDBComparisonOperatorIN:
+                return @"IN";
+            case AWSDynamoDBComparisonOperatorLE:
+                return @"LE";
+            case AWSDynamoDBComparisonOperatorLT:
+                return @"LT";
+            case AWSDynamoDBComparisonOperatorGE:
+                return @"GE";
+            case AWSDynamoDBComparisonOperatorGT:
+                return @"GT";
+            case AWSDynamoDBComparisonOperatorBetween:
+                return @"BETWEEN";
+            case AWSDynamoDBComparisonOperatorNotNull:
+                return @"NOT_NULL";
+            case AWSDynamoDBComparisonOperatorNull:
+                return @"NULL";
+            case AWSDynamoDBComparisonOperatorContains:
+                return @"CONTAINS";
+            case AWSDynamoDBComparisonOperatorNotContains:
+                return @"NOT_CONTAINS";
+            case AWSDynamoDBComparisonOperatorBeginsWith:
+                return @"BEGINS_WITH";
+            case AWSDynamoDBComparisonOperatorUnknown:
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)valueJSONTransformer {
@@ -1102,6 +1208,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"conditionalOperator" : @"ConditionalOperator",
              @"expected" : @"Expected",
              @"item" : @"Item",
              @"returnConsumedCapacity" : @"ReturnConsumedCapacity",
@@ -1109,6 +1216,28 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"returnValues" : @"ReturnValues",
              @"tableName" : @"TableName",
              };
+}
+
++ (NSValueTransformer *)conditionalOperatorJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"AND"]) {
+            return @(AWSDynamoDBConditionalOperatorAnd);
+        }
+        if ([value isEqualToString:@"OR"]) {
+            return @(AWSDynamoDBConditionalOperatorOr);
+        }
+        return @(AWSDynamoDBConditionalOperatorUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBConditionalOperatorAnd:
+                return @"AND";
+            case AWSDynamoDBConditionalOperatorOr:
+                return @"OR";
+            case AWSDynamoDBConditionalOperatorUnknown:
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)expectedJSONTransformer {
@@ -1266,16 +1395,40 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attributesToGet" : @"AttributesToGet",
+             @"conditionalOperator" : @"ConditionalOperator",
              @"consistentRead" : @"ConsistentRead",
              @"exclusiveStartKey" : @"ExclusiveStartKey",
              @"indexName" : @"IndexName",
              @"keyConditions" : @"KeyConditions",
              @"limit" : @"Limit",
+             @"queryFilter" : @"QueryFilter",
              @"returnConsumedCapacity" : @"ReturnConsumedCapacity",
              @"scanIndexForward" : @"ScanIndexForward",
              @"select" : @"Select",
              @"tableName" : @"TableName",
              };
+}
+
++ (NSValueTransformer *)conditionalOperatorJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"AND"]) {
+            return @(AWSDynamoDBConditionalOperatorAnd);
+        }
+        if ([value isEqualToString:@"OR"]) {
+            return @(AWSDynamoDBConditionalOperatorOr);
+        }
+        return @(AWSDynamoDBConditionalOperatorUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBConditionalOperatorAnd:
+                return @"AND";
+            case AWSDynamoDBConditionalOperatorOr:
+                return @"OR";
+            case AWSDynamoDBConditionalOperatorUnknown:
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)exclusiveStartKeyJSONTransformer {
@@ -1287,6 +1440,14 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keyConditionsJSONTransformer {
+	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+		return [AZModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBCondition class]];
+	} reverseBlock:^id(id mapMTLDictionary) {
+		return [AZModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+	}];
+}
+
++ (NSValueTransformer *)queryFilterJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AZModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBCondition class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
@@ -1363,6 +1524,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"count" : @"Count",
              @"items" : @"Items",
              @"lastEvaluatedKey" : @"LastEvaluatedKey",
+             @"scannedCount" : @"ScannedCount",
              };
 }
 
@@ -1393,6 +1555,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attributesToGet" : @"AttributesToGet",
+             @"conditionalOperator" : @"ConditionalOperator",
              @"exclusiveStartKey" : @"ExclusiveStartKey",
              @"limit" : @"Limit",
              @"returnConsumedCapacity" : @"ReturnConsumedCapacity",
@@ -1402,6 +1565,28 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"tableName" : @"TableName",
              @"totalSegments" : @"TotalSegments",
              };
+}
+
++ (NSValueTransformer *)conditionalOperatorJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"AND"]) {
+            return @(AWSDynamoDBConditionalOperatorAnd);
+        }
+        if ([value isEqualToString:@"OR"]) {
+            return @(AWSDynamoDBConditionalOperatorOr);
+        }
+        return @(AWSDynamoDBConditionalOperatorUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBConditionalOperatorAnd:
+                return @"AND";
+            case AWSDynamoDBConditionalOperatorOr:
+                return @"OR";
+            case AWSDynamoDBConditionalOperatorUnknown:
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)exclusiveStartKeyJSONTransformer {
@@ -1614,6 +1799,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attributeUpdates" : @"AttributeUpdates",
+             @"conditionalOperator" : @"ConditionalOperator",
              @"expected" : @"Expected",
              @"key" : @"Key",
              @"returnConsumedCapacity" : @"ReturnConsumedCapacity",
@@ -1629,6 +1815,28 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AZModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
 	}];
+}
+
++ (NSValueTransformer *)conditionalOperatorJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"AND"]) {
+            return @(AWSDynamoDBConditionalOperatorAnd);
+        }
+        if ([value isEqualToString:@"OR"]) {
+            return @(AWSDynamoDBConditionalOperatorOr);
+        }
+        return @(AWSDynamoDBConditionalOperatorUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBConditionalOperatorAnd:
+                return @"AND";
+            case AWSDynamoDBConditionalOperatorOr:
+                return @"OR";
+            case AWSDynamoDBConditionalOperatorUnknown:
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)expectedJSONTransformer {

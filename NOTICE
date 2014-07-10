@@ -1,11 +1,27 @@
-AWS SDK for iOS v2
+﻿Version 2 of AWS SDK for iOS 
+
 Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved. 
 
-This product includes software developed by Amazon Technologies, Inc (http://www.amazon.com/).
+This product includes software developed by Amazon Technologies, Inc (http://www.amazon.com/). 
+
+Licensed under the Apache License Version 2.0
+
+See the License for the specific language governing permissions and limitations under the License.
+
+*****************************
+AMAZON PROPRIETARY COMPONENTS
+*****************************
+
+The following components are distributed under a proprietary license by Amazon Technologies, Inc 
+- Amazon Cognito Sync - Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.(Amazon Software License)
+
+See the License for the specific language governing permissions and limitations under the License.
+
 
 **********************
 THIRD PARTY COMPONENTS
 **********************
+
 This software includes third party software subject to the following copyrights:
 - Bolts-iOS - Copyright (c) 2013, Facebook, Inc. - BSD License
 - CSURITemplate - Copyright (c) 2013 Cogenta Systems Ltd - MIT license
@@ -14,5 +30,10 @@ This software includes third party software subject to the following copyrights:
 - XMLDictionary - Copyright (C) 2011 Charcoal Design - https://github.com/nicklockwood/XMLDictionary/blob/master/LICENCE.md
 - XMLWriter - Copyright (C) 2010 by Thomas Rørvik Skjølberg - MIT License
 - UICKeyChainStore - Copyright (c) 2011 kishikawa katsumi - MIT License
+- OCMock - Copyright (c) 2004-2008 by Mulle Kybernetik - https://github.com/erikdoe/ocmock/blob/f34e053c8901e8d36d59a582c35e78dcd50d743a/Source/License.txt
+- OCHamcrest - Copyright 2014 hamcrest.org - BSD License - 
+- NSData+GZIP.m - Copyright (C) 2012 Charcoal Design - zlib License
+- Reachability - Copyright (c) 2011, Tony Million. All rights reserved. - https://github.com/tonymillion/Reachability/blob/master/LICENCE.txt
+- Reachability.m - Copyright (C) 2010 Apple Inc. All Rights Reserved. - https://developer.apple.com/library/ios/samplecode/Reachability/Reachability.zip (Embedded in the source code)
 
-The licenses for these third party components are included in LICENSE.
+The licenses for these third party components are included in the License file.

@@ -14,21 +14,42 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "AWSServiceEnum.h"
+
+FOUNDATION_EXPORT NSString *const AWSCognitoIdentityIdChangedNotification;
+FOUNDATION_EXPORT NSString *const AWSCognitoNotificationPreviousId;
+FOUNDATION_EXPORT NSString *const AWSCognitoNotificationNewId;
+
+FOUNDATION_EXPORT NSString *const AWSCognitoCredentialsProviderErrorDomain;
+typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
+    AWSCognitoCredentialsProviderErrorUnknown
+};
+
+typedef NS_ENUM(NSInteger, AWSCognitoLoginProviderKey) {
+    AWSCognitoLoginProviderKeyUnknown,
+    AWSCognitoLoginProviderKeyFacebook,
+    AWSCognitoLoginProviderKeyGoogle,
+    AWSCognitoLoginProviderKeyLoginWithAmazon,
+};
 
 @class BFTask;
 
 @protocol AWSCredentialsProvider <NSObject>
 
 @optional
-@property (nonatomic, readonly) NSString *accessKey;
-@property (nonatomic, readonly) NSString *secretKey;
-@property (nonatomic, readonly) NSString *sessionKey;
+@property (nonatomic, strong, readonly) NSString *accessKey;
+@property (nonatomic, strong, readonly) NSString *secretKey;
+@property (nonatomic, strong, readonly) NSString *sessionKey;
+@property (nonatomic, strong, readonly) NSDate *expiration;
 
 - (BFTask *)refresh;
 
 @end
 
 @interface AWSStaticCredentialsProvider : NSObject <AWSCredentialsProvider>
+
+@property (nonatomic, readonly) NSString *accessKey;
+@property (nonatomic, readonly) NSString *secretKey;
 
 + (instancetype)credentialsWithAccessKey:(NSString *)accessKey
                                secretKey:(NSString *)secretKey;
@@ -45,20 +66,80 @@
 
 @interface AWSWebIdentityCredentialsProvider : NSObject <AWSCredentialsProvider>
 
+@property (nonatomic, strong, readonly) NSString *accessKey;
+@property (nonatomic, strong, readonly) NSString *secretKey;
+@property (nonatomic, strong, readonly) NSString *sessionKey;
+@property (nonatomic, strong, readonly) NSDate *expiration;
+
 @property (nonatomic, strong) NSString *webIdentityToken;
 @property (nonatomic, strong) NSString *roleArn;
 @property (nonatomic, strong) NSString *provider;
 
-@property (nonatomic, strong, readonly) NSError *error;
++ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
+                                 provider:(NSString *)provider
+                         webIdentityToken:(NSString *)webIdentityToken
+                                  roleArn:(NSString *)roleArn;
 
-+ (instancetype)credentialsWithProvider:(NSString *)provider
-                       webIdentityToken:(NSString *)webIdentityToken
-                                roleArn:(NSString *)roleArn;
-
-- (instancetype)initWithProvider:(NSString *)provider
-                webIdentityToken:(NSString *)webIdentityToken
-                         roleArn:(NSString *)roleArn;
+- (instancetype)initWithRegionType:(AWSRegionType)regionType
+                          provider:(NSString *)provider
+                  webIdentityToken:(NSString *)webIdentityToken
+                           roleArn:(NSString *)roleArn;
 
 - (BFTask *)refresh;
+
+@end
+
+
+@interface AWSCognitoCredentialsProvider : NSObject <AWSCredentialsProvider>
+
+@property (nonatomic, strong, readonly) NSString *accessKey;
+@property (nonatomic, strong, readonly) NSString *secretKey;
+@property (nonatomic, strong, readonly) NSString *sessionKey;
+@property (nonatomic, strong, readonly) NSDate *expiration;
+
+@property (nonatomic, strong, readonly) NSString *identityId;
+@property (nonatomic, strong, readonly) NSString *identityPoolId;
+
+@property (nonatomic, strong) NSDictionary *logins;
+
++ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
+                                accountId:(NSString *)accountId
+                           identityPoolId:(NSString *)identityPoolId
+                            unauthRoleArn:(NSString *)unauthRoleArn
+                              authRoleArn:(NSString *)authRoleArn;
+
++ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
+                                accountId:(NSString *)accountId
+                           identityPoolId:(NSString *)identityPoolId
+                            unauthRoleArn:(NSString *)unauthRoleArn
+                              authRoleArn:(NSString *)authRoleArn
+                                   logins:(NSDictionary *)logins;
+
++ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
+                               identityId:(NSString *)identityId
+                                accountId:(NSString *)accountId
+                           identityPoolId:(NSString *)identityPoolId
+                            unauthRoleArn:(NSString *)unauthRoleArn
+                              authRoleArn:(NSString *)authRoleArn
+                                   logins:(NSDictionary *)logins;
+
+- (instancetype)initWithRegionType:(AWSRegionType)regionType
+                        identityId:(NSString *)identityId
+                         accountId:(NSString *)accountId
+                    identityPoolId:(NSString *)identityPoolId
+                     unauthRoleArn:(NSString *)unauthRoleArn
+                       authRoleArn:(NSString *)authRoleArn
+                            logins:(NSDictionary *)logins;
+
+/**
+ *  Refreshes the locally stored credentials. The SDK automatically calls this method when necessary, and you do not need to call this method manually.
+ *
+ *  @return <#return value description#>
+ */
+- (BFTask *)refresh;
+
+- (BFTask *)getIdentityId;
+
+- (void)clearKeychain;
 
 @end

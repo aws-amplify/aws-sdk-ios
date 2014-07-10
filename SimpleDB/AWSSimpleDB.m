@@ -41,6 +41,9 @@
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"AccessFailure" : @(AWSSimpleDBErrorAccessFailure),
+                            @"AuthFailure" : @(AWSSimpleDBErrorAuthFailure),
+                            @"AuthMissingFailure" : @(AWSSimpleDBErrorAuthMissingFailure),
                             @"AttributeDoesNotExist" : @(AWSSimpleDBErrorAttributeDoesNotExist),
                             @"DuplicateItemName" : @(AWSSimpleDBErrorDuplicateItemName),
                             @"InvalidNextToken" : @(AWSSimpleDBErrorInvalidNextToken),

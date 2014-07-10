@@ -145,15 +145,6 @@
             }];
         }
             break;
-        case AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNilAttributes:
-
-            break;
-        case AWSDynamoDBObjectMapperSaveBehaviorClobber:
-
-            break;
-        case AWSDynamoDBObjectMapperSaveBehaviorAppendSet:
-
-            break;
 
         case AWSDynamoDBObjectMapperSaveBehaviorUnknown:
         default:

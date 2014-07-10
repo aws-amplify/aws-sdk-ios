@@ -2190,9 +2190,9 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
  */
 @property (nonatomic, assign) AWSS3MetadataDirective metadataDirective;
 @property (nonatomic, strong) NSString *replicateSource;
-@property (nonatomic, strong) NSDate *replicateSourceIfMatch;
+@property (nonatomic, strong) NSString *replicateSourceIfMatch;
 @property (nonatomic, strong) NSDate *replicateSourceIfModifiedSince;
-@property (nonatomic, strong) NSDate *replicateSourceIfNoneMatch;
+@property (nonatomic, strong) NSString *replicateSourceIfNoneMatch;
 @property (nonatomic, strong) NSDate *replicateSourceIfUnmodifiedSince;
 
 /**
@@ -2388,9 +2388,9 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
  */
 @property (nonatomic, strong) NSNumber *partNumber;
 @property (nonatomic, strong) NSString *replicateSource;
-@property (nonatomic, strong) NSDate *replicateSourceIfMatch;
+@property (nonatomic, strong) NSString *replicateSourceIfMatch;
 @property (nonatomic, strong) NSDate *replicateSourceIfModifiedSince;
-@property (nonatomic, strong) NSDate *replicateSourceIfNoneMatch;
+@property (nonatomic, strong) NSString *replicateSourceIfNoneMatch;
 @property (nonatomic, strong) NSDate *replicateSourceIfUnmodifiedSince;
 @property (nonatomic, strong) NSString *replicateSourceRange;
 

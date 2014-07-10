@@ -32,6 +32,18 @@
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration;
 
 /**
+ * <p>Accept a VPC peering connection request. To accept a request, the VPC peering connection must be in the <code>pending-acceptance</code> state, and you must be the owner of the peer VPC. Use the <code>DescribeVpcPeeringConnections</code> request to view your outstanding VPC peering connection requests.</p> 
+ *
+ * @param request A container for the necessary parameters to execute the AcceptVpcPeeringConnection service method.
+ *
+ * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2AcceptVpcPeeringConnectionResult.
+ *
+ * @see AWSEC2AcceptVpcPeeringConnectionRequest
+ * @see AWSEC2AcceptVpcPeeringConnectionResult
+ */
+- (BFTask *)acceptVpcPeeringConnection:(AWSEC2AcceptVpcPeeringConnectionRequest *)request;
+
+/**
  * <p>Acquires an Elastic IP address.</p><p>An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. 				For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *
  * @param request A container for the necessary parameters to execute the AllocateAddress service method.
@@ -113,14 +125,14 @@
 - (BFTask *)attachNetworkInterface:(AWSEC2AttachNetworkInterfaceRequest *)request;
 
 /**
- * <p>Attaches an Amazon EBS volume to a running or stopped instance and exposes it to the instancewith the specified device name.</p><p>For a list of supported device names, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attaching an Amazon EBS Volume to an Instance</a>. Any device names that aren't reserved for instance store volumes can be used for Amazon EBS volumes. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon EC2 Instance Store</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>If a volume has an AWS Marketplace product code:</p><ul><li>The volume can only be attached as the root device of a stopped instance.</li><li>You must be subscribed to the AWS Marketplace code that is on the volume.</li><li>The configuration (instance type, operating system) of the instance must support that specific AWS Marketplace code. For example, you cannot take a volume from a Windows instance and attach it to a Linux instance.</li><li>AWS Marketplace product codes are copied from the volume to the instance.</li></ul><p>For an overview of the AWS Marketplace, see <a href="https://aws.amazon.com/marketplace/help/200900000">https://aws.amazon.com/marketplace/help/200900000</a>. For more information about how to use the AWS Marketplace, see <a href="https://aws.amazon.com/marketplace">AWS Marketplace</a>.</p><p>For more information about Amazon EBS volumes, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attaching Amazon EBS Volumes</a> in the<i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
+ * <p>Attaches an Amazon EBS volume to a running or stopped instance and exposes it to the instancewith the specified device name.</p><p>Encrypted Amazon EBS volumes may only be attached toinstances that support Amazon EBS encryption. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the<i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>For a list of supported device names, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attaching an Amazon EBS Volume to an Instance</a>. Any device names that aren't reserved for instance store volumes can be used for Amazon EBS volumes. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon EC2 Instance Store</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>If a volume has an AWS Marketplace product code:</p><ul><li>The volume can only be attached as the root device of a stopped instance.</li><li>You must be subscribed to the AWS Marketplace code that is on the volume.</li><li>The configuration (instance type, operating system) of the instance must support that specific AWS Marketplace code. For example, you cannot take a volume from a Windows instance and attach it to a Linux instance.</li><li>AWS Marketplace product codes are copied from the volume to the instance.</li></ul><p>For an overview of the AWS Marketplace, see <a href="https://aws.amazon.com/marketplace/help/200900000">https://aws.amazon.com/marketplace/help/200900000</a>. For more information about how to use the AWS Marketplace, see <a href="https://aws.amazon.com/marketplace">AWS Marketplace</a>.</p><p>For more information about Amazon EBS volumes, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attaching Amazon EBS Volumes</a> in the<i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
  *
  * @param request A container for the necessary parameters to execute the AttachVolume service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2AttachVolumeResult.
+ * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2VolumeAttachment.
  *
  * @see AWSEC2AttachVolumeRequest
- * @see AWSEC2AttachVolumeResult
+ * @see AWSEC2VolumeAttachment
  */
 - (BFTask *)attachVolume:(AWSEC2AttachVolumeRequest *)request;
 
@@ -253,7 +265,7 @@
 - (BFTask *)createCustomerGateway:(AWSEC2CreateCustomerGatewayRequest *)request;
 
 /**
- * <p>Creates a set of DHCP options for your VPC. After creating the set, you must 				associate it with the VPC, causing all existing and new instances that you launch in 				the VPC to use this set of DHCP options. The following are the individual DHCP 				options you can specify. For more information about the options, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.</p><p>For more information about DHCP options, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP Options Sets</a> 				in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * <p>Creates a set of DHCP options for your VPC. After creating the set, you must 				associate it with the VPC, causing all existing and new instances that you launch in 				the VPC to use this set of DHCP options. The following are the individual DHCP 				options you can specify. For more information about the options, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.</p><ul><li><code>domain-name-servers</code> - The IP addresses of up to four domain name servers, or <code>AmazonProvidedDNS</code>. The default DHCP option set specifies <code>AmazonProvidedDNS</code>. If specifying more than one domain name server, specify the IP addresses in a single parameter, separated by commas.</li><li><code>domain-name</code> - If you're using AmazonProvidedDNS in <code>us-east-1</code>, specify <code>ec2.internal</code>. If you're using AmazonProvidedDNS in another region, specify <code>region.compute.internal</code> (for example, <code>ap-northeast-1.compute.internal</code>). Otherwise, specify a domain name (for example, <code>MyCompany.com</code>).</li><li><code>ntp-servers</code> - The IP addresses of up to four Network Time Protocol (NTP) servers.</li><li><code>netbios-name-servers</code> - The IP addresses of up to four NetBIOS name servers.</li><li><code>netbios-node-type</code> - The NetBIOS node type (1, 2, 4, or 8). We recommend that you specify 2 (broadcast and multicast are not currently supported). For more information about these node types, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>. </li></ul><p>For more information about DHCP options, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP Options Sets</a> 				in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  *
  * @param request A container for the necessary parameters to execute the CreateDhcpOptions service method.
  *
@@ -305,10 +317,10 @@
  *
  * @param request A container for the necessary parameters to execute the CreateKeyPair service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateKeyPairResult.
+ * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2KeyPair.
  *
  * @see AWSEC2CreateKeyPairRequest
- * @see AWSEC2CreateKeyPairResult
+ * @see AWSEC2KeyPair
  */
 - (BFTask *)createKeyPair:(AWSEC2CreateKeyPairRequest *)request;
 
@@ -371,7 +383,7 @@
 - (BFTask *)createReservedInstancesListing:(AWSEC2CreateReservedInstancesListingRequest *)request;
 
 /**
- * <p>Creates a route in a route table within a VPC.</p><p>You must specify one of the following targets: Internet gateway, NAT instance, or network interface.</p><p>When determining how to route traffic, we use the route with the most specific 			match. For example, let's say the traffic is destined for <code>192.0.2.3</code>, and the route 			table includes the following two routes:</p> 			<ul> 				<li> 					<p><code>192.0.2.0/24</code> (goes to some target A)</p> 				</li> 				<li> 					<p><code>192.0.2.0/28</code> (goes to some target B)</p> 				</li> 			</ul> 		 <p>Both routes apply to the traffic destined for <code>192.0.2.3</code>. However, the second route 				in the list covers a smaller number of IP addresses and is therefore more specific, 				so we use that route to determine where to target the traffic.</p><p>For more information about route tables, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Tables</a> in the 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * <p>Creates a route in a route table within a VPC.</p><p>You must specify one of the following targets: Internet gateway, NAT instance, VPC peering connection, or network interface.</p><p>When determining how to route traffic, we use the route with the most specific 			match. For example, let's say the traffic is destined for <code>192.0.2.3</code>, and the route 			table includes the following two routes:</p> 			<ul> 				<li> 					<p><code>192.0.2.0/24</code> (goes to some target A)</p> 				</li> 				<li> 					<p><code>192.0.2.0/28</code> (goes to some target B)</p> 				</li> 			</ul> 		 <p>Both routes apply to the traffic destined for <code>192.0.2.3</code>. However, the second route 				in the list covers a smaller number of IP addresses and is therefore more specific, 				so we use that route to determine where to target the traffic.</p><p>For more information about route tables, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Tables</a> in the 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
  *
  * @param request A container for the necessary parameters to execute the CreateRoute service method.
  *
@@ -406,14 +418,14 @@
 - (BFTask *)createSecurityGroup:(AWSEC2CreateSecurityGroupRequest *)request;
 
 /**
- * <p>Creates a snapshot of an Amazon EBS volume and stores it in Amazon S3. You can use snapshots for backups, to make copies of Amazon EBS volumes, and to save data before shutting down an instance.</p><p>When a snapshot is created, any AWS Marketplace product codes that are associated with the source volume are propagated to the snapshot.</p><p>You can take a snapshot of an attached volume that is in use. However, snapshots only capture data that has been written to your Amazon EBS volume at the time the snapshot command is issued; this may exclude any data that has been cached by any applications or the operating system. If you can pause any file writes to the volume long enough to take a snapshot, your snapshot should be complete. However, if you cannot pause all file writes to the volume, you should unmount the volume from within the instance, issue the snapshot command, and then remount the volume to ensure a consistent and complete snapshot. You may remount and use your volume while the snapshot status is <code>pending</code>.</p><p>To create a snapshot for Amazon EBS volumes that serve as root devices, you should stop the instancebefore taking the snapshot.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html">Creating an Amazon EBS Snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
+ * <p>Creates a snapshot of an Amazon EBS volume and stores it in Amazon S3. You can use snapshots for backups, to make copies of Amazon EBS volumes, and to save data before shutting down an instance.</p><p>When a snapshot is created, any AWS Marketplace product codes that are associated with the source volume are propagated to the snapshot.</p><p>You can take a snapshot of an attached volume that is in use. However, snapshots only capture data that has been written to your Amazon EBS volume at the time the snapshot command is issued; this may exclude any data that has been cached by any applications or the operating system. If you can pause any file writes to the volume long enough to take a snapshot, your snapshot should be complete. However, if you cannot pause all file writes to the volume, you should unmount the volume from within the instance, issue the snapshot command, and then remount the volume to ensure a consistent and complete snapshot. You may remount and use your volume while the snapshot status is <code>pending</code>.</p><p>To create a snapshot for Amazon EBS volumes that serve as root devices, you should stop the instancebefore taking the snapshot.</p><p>Snapshots that are taken from encrypted volumes are automatically encrypted. Volumes that are created from encrypted snapshots are also automatically encrypted. Your encrypted volumes and any associated snapshots always remain protected.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">Amazon Elastic Block Store</a> and <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
  *
  * @param request A container for the necessary parameters to execute the CreateSnapshot service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateSnapshotResult.
+ * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2Snapshot.
  *
  * @see AWSEC2CreateSnapshotRequest
- * @see AWSEC2CreateSnapshotResult
+ * @see AWSEC2Snapshot
  */
 - (BFTask *)createSnapshot:(AWSEC2CreateSnapshotRequest *)request;
 
@@ -453,14 +465,14 @@
 - (BFTask *)createTags:(AWSEC2CreateTagsRequest *)request;
 
 /**
- * <p>Creates an Amazon EBS volume that can be attached to any instance in the same AvailabilityZone.</p><p>Any AWS Marketplace product codes from the snapshot are propagated to the volume.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Creating or Restoring an Amazon EBS Volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
+ * <p>Creates an Amazon EBS volume that can be attached to an instance in the same Availability Zone. The volume is created in the specified region.</p><p>You can create a new empty volume or restore a volume from an Amazon EBS snapshot. Any AWS Marketplace product codes from the snapshot are propagated to the volume.</p><p>You can create encrypted volumes with the <code>Encrypted</code> parameter. Encrypted volumes may only be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are also automatically encrypted. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Creating or Restoring an Amazon EBS Volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
  *
  * @param request A container for the necessary parameters to execute the CreateVolume service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateVolumeResult.
+ * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2Volume.
  *
  * @see AWSEC2CreateVolumeRequest
- * @see AWSEC2CreateVolumeResult
+ * @see AWSEC2Volume
  */
 - (BFTask *)createVolume:(AWSEC2CreateVolumeRequest *)request;
 
@@ -475,6 +487,18 @@
  * @see AWSEC2CreateVpcResult
  */
 - (BFTask *)createVpc:(AWSEC2CreateVpcRequest *)request;
+
+/**
+ * <p>Requests a VPC peering connection between two VPCs: a requester VPC that you own and a peer VPC with which to create the connection. The peer VPC can belong to another AWS account. The requester VPC and peer VPC cannot have overlapping CIDR blocks.</p><p>The owner of the peer VPC must accept the peering request to activate the peering connection. The VPC peering connection request expires after 7 days, after which it cannot be accepted or rejected.</p><p>A <code>CreateVpcPeeringConnection</code> request between VPCs with overlapping CIDR blocks results in the VPC peering connection having a status of <code>failed</code>.</p> 
+ *
+ * @param request A container for the necessary parameters to execute the CreateVpcPeeringConnection service method.
+ *
+ * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateVpcPeeringConnectionResult.
+ *
+ * @see AWSEC2CreateVpcPeeringConnectionRequest
+ * @see AWSEC2CreateVpcPeeringConnectionResult
+ */
+- (BFTask *)createVpcPeeringConnection:(AWSEC2CreateVpcPeeringConnectionRequest *)request;
 
 /**
  * <p>Creates a VPN connection between an existing virtual private gateway and a VPN customer 				gateway. The only supported connection type is <code>ipsec.1</code>.</p> 		 <p>The response includes information that you need to give to your network administrator		to configure your customer gateway.</p><important> 			<p>We strongly recommend that you use HTTPS when calling this operation 					because the response contains sensitive cryptographic information for 					configuring your customer gateway.</p> 		 </important> 		 <p>If you decide to shut down your VPN connection for any reason and later create a new VPN 				connection, you must reconfigure your customer gateway with the new information 				returned from this call.</p> 		 <p>For more information about VPN connections, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding a Hardware Virtual Private Gateway 				to Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
@@ -677,7 +701,7 @@
 - (BFTask *)deleteTags:(AWSEC2DeleteTagsRequest *)request;
 
 /**
- * <p>Deletes the specified Amazon EBS volume. The volume must be in the <code>available</code> state (notattached to an instance).</p><note><p>The volume remains in the <code>deleting</code> state for several minutes.</p></note><p>For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html">Deleting an Amazon EBS Volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
+ * <p>Deletes the specified Amazon EBS volume. The volume must be in the <code>available</code> state (notattached to an instance).</p><note><p>The volume may remain in the <code>deleting</code> state for several minutes.</p></note><p>For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html">Deleting an Amazon EBS Volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
  *
  * @param request A container for the necessary parameters to execute the DeleteVolume service method.
  *
@@ -697,6 +721,18 @@
  * @see AWSEC2DeleteVpcRequest
  */
 - (BFTask *)deleteVpc:(AWSEC2DeleteVpcRequest *)request;
+
+/**
+ * <p>Deletes a VPC peering connection. Either the owner of the requester VPC or the owner of the peer VPC can delete the VPC peering connection if it's in the <code>active</code> state. The owner of the requester VPC can delete a VPC peering connection in the <code>pending-acceptance</code> state.</p> 
+ *
+ * @param request A container for the necessary parameters to execute the DeleteVpcPeeringConnection service method.
+ *
+ * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DeleteVpcPeeringConnectionResult.
+ *
+ * @see AWSEC2DeleteVpcPeeringConnectionRequest
+ * @see AWSEC2DeleteVpcPeeringConnectionResult
+ */
+- (BFTask *)deleteVpcPeeringConnection:(AWSEC2DeleteVpcPeeringConnectionRequest *)request;
 
 /**
  * <p>Deletes the specified VPN connection.</p> 		 <p>If you're deleting the VPC and its associated components, we recommend that you 				detach the virtual private gateway from the VPC and delete the VPC before deleting the VPN 				connection.</p>
@@ -839,14 +875,14 @@
 - (BFTask *)describeExportTasks:(AWSEC2DescribeExportTasksRequest *)request;
 
 /**
- * <p>Describes an attributes of an AMI. You can specify only one attribute at a time.</p>
+ * <p>Describes the specified attribute of the specified AMI. You can specify only one attribute at a time.</p>
  *
  * @param request A container for the necessary parameters to execute the DescribeImageAttribute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeImageAttributeResult.
+ * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2ImageAttribute.
  *
  * @see AWSEC2DescribeImageAttributeRequest
- * @see AWSEC2DescribeImageAttributeResult
+ * @see AWSEC2ImageAttribute
  */
 - (BFTask *)describeImageAttribute:(AWSEC2DescribeImageAttributeRequest *)request;
 
@@ -863,19 +899,19 @@
 - (BFTask *)describeImages:(AWSEC2DescribeImagesRequest *)request;
 
 /**
- * <p>Describes an attribute of the specified instance. You can specify only one 				attribute at a time.</p> 
+ * <p>Describes the specified attribute of the specified instance. You can specify only one 				attribute at a time.</p> 
  *
  * @param request A container for the necessary parameters to execute the DescribeInstanceAttribute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeInstanceAttributeResult.
+ * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2InstanceAttribute.
  *
  * @see AWSEC2DescribeInstanceAttributeRequest
- * @see AWSEC2DescribeInstanceAttributeResult
+ * @see AWSEC2InstanceAttribute
  */
 - (BFTask *)describeInstanceAttribute:(AWSEC2DescribeInstanceAttributeRequest *)request;
 
 /**
- * <p>Describes the status of one or more instances, including any scheduled events.</p> 			<p>Instance status has two main components:</p> 			<ul> 				<li> 					<p>System Status reports impaired functionality that stems from issues 						related to the systems that support an instance, such as such as hardware 						failures and network connectivity problems. This call reports 						such problems as impaired reachability.</p> 				</li> 				<li> 					<p>Instance Status reports impaired functionality that arises from 						problems internal to the instance. This call reports 						such problems as impaired reachability.</p> 				</li> 			</ul><p>Instance status provides information about four types of scheduled events for an instance that may require your attention:</p> 			<ul> 				<li> 					<p>Scheduled Reboot: When Amazon EC2 determines that an instance must be rebooted, the 						instances status returns one of two event codes: 						<code>system-reboot</code> or <code>instance-reboot</code>. System 						reboot commonly occurs if certain maintenance or upgrade operations require 						a reboot of the underlying host that supports an instance. Instance reboot 						commonly occurs if the instance must be rebooted, rather than the underlying 						host. Rebooting events include a scheduled start and end time.</p> 				</li> 				<li> 					<p>System Maintenance: When Amazon EC2 determines that an instance requires maintenance that 						requires power or network impact, the instance status is the event 						code <code>system-maintenance</code>. System maintenance is either 						power maintenance or network maintenance. For power maintenance, your 						instance will be unavailable for a brief period of time and then rebooted. 						For network maintenance, your instance will experience a brief loss of 						network connectivity. System maintenance events include a scheduled start 						and end time. You will also be notified by email if one of your instances is 						set for system maintenance. The email message indicates when your instance 						is scheduled for maintenance.</p> 				</li> 				<li> 					<p>Scheduled Retirement: When Amazon EC2 determines that an instance must be shut down, the 						instance status is the event code 						<code>instance-retirement</code>. Retirement commonly occurs when the 						underlying host is degraded and must be replaced. Retirement events include 						a scheduled start and end time. You will also be notified by email if one of 						your instances is set to retiring. The email message indicates when your 						instance will be permanently retired.</p> 				</li> 				<li> 					<p>Scheduled Stop: When Amazon EC2 determines that an instance must be shut down, the 						instances status returns an event code called <code>instance-stop</code>. 						Stop events include a scheduled start and end time. You will also be 						notified by email if one of your instances is set to stop. The email message 						indicates when your instance will be stopped.</p> 				</li> 			</ul>			<p>When your instance is retired, it will either be terminated (if its root device type is the 				instance-store) or stopped (if its root device type is an EBS volume). Instances 				stopped due to retirement will not be restarted, but you can do so manually. You can 				also avoid retirement of EBS-backed instances by manually restarting your instance 				when its event code is <code>instance-retirement</code>. This ensures that your 				instance is started on a different underlying host.</p> 
+ * <p>Describes the status of one or more instances, including any scheduled events.</p> 			<p>Instance status has two main components:</p> 			<ul> 				<li> 					<p>System Status reports impaired functionality that stems from issues 						related to the systems that support an instance, such as such as hardware 						failures and network connectivity problems. This call reports 						such problems as impaired reachability.</p> 				</li> 				<li> 					<p>Instance Status reports impaired functionality that arises from 						problems internal to the instance. This call reports 						such problems as impaired reachability.</p> 				</li> 			</ul><p>Instance status provides information about four types of scheduled events for an instance that may require your attention:</p> 			<ul> 				<li> 					<p>Scheduled Reboot: When Amazon EC2 determines that an instance must be rebooted, the 						instances status returns one of two event codes: 						<code>system-reboot</code> or <code>instance-reboot</code>. System 						reboot commonly occurs if certain maintenance or upgrade operations require 						a reboot of the underlying host that supports an instance. Instance reboot 						commonly occurs if the instance must be rebooted, rather than the underlying 						host. Rebooting events include a scheduled start and end time.</p> 				</li> 				<li> 					<p>System Maintenance: When Amazon EC2 determines that an instance requires maintenance that 						requires power or network impact, the instance status is the event 						code <code>system-maintenance</code>. System maintenance is either 						power maintenance or network maintenance. For power maintenance, your 						instance will be unavailable for a brief period of time and then rebooted. 						For network maintenance, your instance will experience a brief loss of 						network connectivity. System maintenance events include a scheduled start 						and end time. You will also be notified by email if one of your instances is 						set for system maintenance. The email message indicates when your instance 						is scheduled for maintenance.</p> 				</li> 				<li> 					<p>Scheduled Retirement: When Amazon EC2 determines that an instance must be shut down, the 						instance status is the event code 						<code>instance-retirement</code>. Retirement commonly occurs when the 						underlying host is degraded and must be replaced. Retirement events include 						a scheduled start and end time. You will also be notified by email if one of 						your instances is set to retiring. The email message indicates when your 						instance will be permanently retired.</p> 				</li> 				<li> 					<p>Scheduled Stop: When Amazon EC2 determines that an instance must be shut down, the 						instances status returns an event code called <code>instance-stop</code>. 						Stop events include a scheduled start and end time. You will also be 						notified by email if one of your instances is set to stop. The email message 						indicates when your instance will be stopped.</p> 				</li> 			</ul>			<p>When your instance is retired, it will either be terminated (if its root device type is the 				instance-store) or stopped (if its root device type is an EBS volume). Instances 				stopped due to retirement will not be restarted, but you can do so manually. You can 				also avoid retirement of EBS-backed instances by manually restarting your instance 				when its event code is <code>instance-retirement</code>. This ensures that your 				instance is started on a different underlying host.</p><p>For more information about failed status checks, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html">Troubleshooting Instances with Failed Status Checks</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about working with scheduled events, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html#schedevents_actions">Working with an Instance That Has a Scheduled Event</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
  *
  * @param request A container for the necessary parameters to execute the DescribeInstanceStatus service method.
  *
@@ -1055,7 +1091,7 @@
 - (BFTask *)describeSecurityGroups:(AWSEC2DescribeSecurityGroupsRequest *)request;
 
 /**
- * <p>Describes an attribute of the specified snapshot. You can specify only one attribute at atime.</p><p>For more information about Amazon EBS snapshots, see <a href='http://docs.&awsdomain;/AWSEC2/latest/UserGuide/EBSSnapshots.html'>Amazon EBS Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
+ * <p>Describes the specified attribute of the specified snapshot. You can specify only one attribute at atime.</p><p>For more information about Amazon EBS snapshots, see <a href='http://docs.&awsdomain;/AWSEC2/latest/UserGuide/EBSSnapshots.html'>Amazon EBS Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
  *
  * @param request A container for the necessary parameters to execute the DescribeSnapshotAttribute service method.
  *
@@ -1163,7 +1199,7 @@
 - (BFTask *)describeVolumeStatus:(AWSEC2DescribeVolumeStatusRequest *)request;
 
 /**
- * <p>Describes the specified Amazon EBS volumes.</p><p>For more information about Amazon EBS volumes, see <a href='http://docs.&awsdomain;/AWSEC2/latest/UserGuide/EBSVolumes.html'>Amazon EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * <p>Describes the specified Amazon EBS volumes.</p><p>For more information about Amazon EBS volumes, see <a href='http://docs.&awsdomain;/AWSEC2/latest/UserGuide/EBSVolumes.html'>Amazon EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
  *
  * @param request A container for the necessary parameters to execute the DescribeVolumes service method.
  *
@@ -1185,6 +1221,18 @@
  * @see AWSEC2DescribeVpcAttributeResult
  */
 - (BFTask *)describeVpcAttribute:(AWSEC2DescribeVpcAttributeRequest *)request;
+
+/**
+ * <p>Describes one or more of your VPC peering connections.</p> 
+ *
+ * @param request A container for the necessary parameters to execute the DescribeVpcPeeringConnections service method.
+ *
+ * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeVpcPeeringConnectionsResult.
+ *
+ * @see AWSEC2DescribeVpcPeeringConnectionsRequest
+ * @see AWSEC2DescribeVpcPeeringConnectionsResult
+ */
+- (BFTask *)describeVpcPeeringConnections:(AWSEC2DescribeVpcPeeringConnectionsRequest *)request;
 
 /**
  * <p>Describes one or more of your VPCs.</p>
@@ -1249,10 +1297,10 @@
  *
  * @param request A container for the necessary parameters to execute the DetachVolume service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DetachVolumeResult.
+ * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2VolumeAttachment.
  *
  * @see AWSEC2DetachVolumeRequest
- * @see AWSEC2DetachVolumeResult
+ * @see AWSEC2VolumeAttachment
  */
 - (BFTask *)detachVolume:(AWSEC2DetachVolumeRequest *)request;
 
@@ -1347,7 +1395,7 @@
 - (BFTask *)getPasswordData:(AWSEC2GetPasswordDataRequest *)request;
 
 /**
- * <p>Creates an import instance task using metadata from the specified disk image.After importing the image, you then upload it using the<function>ec2-upload-disk-image</function> command in the EC2 command linetools. For more information, see <ulink url="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html">Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2</ulink> in the<emphasis>Amazon Elastic Compute Cloud User Guide</emphasis>.</p> 
+ * <p>Creates an import instance task using metadata from the specified disk image. Afterimporting the image, you then upload it using the <function>ec2-import-volume</function> command in the EC2 command linetools. For more information, see <ulink url="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html">Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2</ulink> in the<emphasis>Amazon Elastic Compute Cloud User Guide</emphasis>.</p> 
  *
  * @param request A container for the necessary parameters to execute the ImportInstance service method.
  *
@@ -1371,7 +1419,7 @@
 - (BFTask *)importKeyPair:(AWSEC2ImportKeyPairRequest *)request;
 
 /**
- * <p>Creates an import volume task using metadata from the specified disk image.After importing the image, you then upload it using the<function>ec2-upload-disk-image</function> command in the Amazon EC2 command-line interface (CLI) tools. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html">Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2</a> in the<i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
+ * <p>Creates an import volume task using metadata from the specified disk image.After importing the image, you then upload it using the<function>ec2-import-volume</function> command in the Amazon EC2 command-line interface (CLI) tools. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html">Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2</a> in the<i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
  *
  * @param request A container for the necessary parameters to execute the ImportVolume service method.
  *
@@ -1485,7 +1533,7 @@
 - (BFTask *)purchaseReservedInstancesOffering:(AWSEC2PurchaseReservedInstancesOfferingRequest *)request;
 
 /**
- * <p>Requests a reboot of one or more instances. This operation is asynchronous; it 				only queues a request to reboot the specified instances. The operation 				succeeds if the instances are valid and belong to you. Requests to reboot terminated 				instances are ignored.</p> 			<p>If a Linux/Unix instance does not cleanly shut down within four minutes, 				Amazon EC2 performs a hard reboot.</p> 
+ * <p>Requests a reboot of one or more instances. This operation is asynchronous; it 				only queues a request to reboot the specified instances. The operation 				succeeds if the instances are valid and belong to you. Requests to reboot terminated 				instances are ignored.</p> 			<p>If a Linux/Unix instance does not cleanly shut down within four minutes, 				Amazon EC2 performs a hard reboot.</p><p>For more information about troubleshooting, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Getting Console Output and Rebooting Instances</a> in the<i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
  *
  * @param request A container for the necessary parameters to execute the RebootInstances service method.
  *
@@ -1506,6 +1554,18 @@
  * @see AWSEC2RegisterImageResult
  */
 - (BFTask *)registerImage:(AWSEC2RegisterImageRequest *)request;
+
+/**
+ * <p>Rejects a VPC peering connection request. The VPC peering connection must be in the <code>pending-acceptance</code> state. Use the <code>DescribeVpcPeeringConnections</code> request to view your outstanding VPC peering connection requests.</p> 
+ *
+ * @param request A container for the necessary parameters to execute the RejectVpcPeeringConnection service method.
+ *
+ * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2RejectVpcPeeringConnectionResult.
+ *
+ * @see AWSEC2RejectVpcPeeringConnectionRequest
+ * @see AWSEC2RejectVpcPeeringConnectionResult
+ */
+- (BFTask *)rejectVpcPeeringConnection:(AWSEC2RejectVpcPeeringConnectionRequest *)request;
 
 /**
  * <p>Releases the specified Elastic IP address.</p><p>After releasing an Elastic IP address, it is released to the IP address 				pool and might be unavailable to you. Be sure to update your DNS records and any 				servers or devices that communicate with the address. If you attempt to release 				an Elastic IP address that you already released, you'll get an 				<code>AuthFailure</code> error if the address is already allocated to 				another AWS account.</p><p>[EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it 				from any instance that it's associated with. To disassociate an Elastic IP address 				without releasing it, use <a>DisassociateAddress</a>.</p><p>[Nondefault VPC] You must use the <a>DisassociateAddress</a> to 				disassociate the Elastic IP address before you try to release it. Otherwise,				Amazon EC2 returns an error (<code>InvalidIPAddress.InUse</code>).</p>
@@ -1542,7 +1602,7 @@
 - (BFTask *)replaceNetworkAclEntry:(AWSEC2ReplaceNetworkAclEntryRequest *)request;
 
 /**
- * <p>Replaces an existing route within a route table in a VPC. You must provide only one of the following:		Internet gateway, NAT instance, or network interface.</p> 		 <p>For more information about route tables, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * <p>Replaces an existing route within a route table in a VPC. You must provide only one of the following:		Internet gateway, NAT instance, VPC peering connection, or network interface.</p> 		 <p>For more information about route tables, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  *
  * @param request A container for the necessary parameters to execute the ReplaceRoute service method.
  *
@@ -1565,7 +1625,7 @@
 - (BFTask *)replaceRouteTableAssociation:(AWSEC2ReplaceRouteTableAssociationRequest *)request;
 
 /**
- * <p>Initiates the copy of an AMI from the specified source region to the region in 				which the request was made.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copying AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * <p>Initiates the copy of an AMI from the specified source region to the region in which the request was made. You specify the destination region by using its endpoint when making the request. AMIs that use encrypted Amazon EBS snapshots cannot be copied with this method.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copying AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *
  * @param request A container for the necessary parameters to execute the ReplicateImage service method.
  *
@@ -1577,7 +1637,7 @@
 - (BFTask *)replicateImage:(AWSEC2ReplicateImageRequest *)request;
 
 /**
- * <p>Copies a point-in-time snapshot of an Amazon EBS volume and stores it in Amazon S3. You can copy the snapshot within the same region or from one region to another. You canuse the snapshot to create Amazon EBS volumes or Amazon Machine Images (AMIs).</p><p>For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copying an Amazon EBS Snapshot</a> in the<i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
+ * <p>Copies a point-in-time snapshot of an Amazon EBS volume and stores it in Amazon S3. You can copy the snapshot within the same region or from one region to another. You can use the snapshot to create Amazon EBS volumes or Amazon Machine Images (AMIs). The snapshot is copied to the regional endpoint that you send the HTTP request to.</p><p>Copies of encrypted Amazon EBS snapshots remain encrypted. Copies of unencrypted snapshots remain unencrypted.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copying an Amazon EBS Snapshot</a> in the<i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
  *
  * @param request A container for the necessary parameters to execute the ReplicateSnapshot service method.
  *
@@ -1678,14 +1738,14 @@
 - (BFTask *)revokeSecurityGroupIngress:(AWSEC2RevokeSecurityGroupIngressRequest *)request;
 
 /**
- * <p>Launches the specified number of instances using an AMI for which you have permissions.</p><p>When you launch an instance, it enters the <code>pending</code> state.After the instance is ready for you, it enters the <code>running</code> state.To check the state of your instance, call <a>DescribeInstances</a>.</p><p>If you don't specify a security group when launching an instance, Amazon EC2 usesthe default security group. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security Groups</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Linux instances have access to the public key of the key pair at boot.You can use this key to provide secure access to the instance.Amazon EC2 public images use this feature to provide secure access without passwords.For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key Pairs</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>You can provide optional user data when launching an instance. For moreinformation, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html">InstanceMetadata</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>		<p>If any of the AMIs have a product code attached for which the user has not 			subscribed, <code>RunInstances</code> fails.</p> 
+ * <p>Launches the specified number of instances using an AMI for which you have permissions.</p><p>When you launch an instance, it enters the <code>pending</code> state.After the instance is ready for you, it enters the <code>running</code> state.To check the state of your instance, call <a>DescribeInstances</a>.</p><p>If you don't specify a security group when launching an instance, Amazon EC2 usesthe default security group. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security Groups</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Linux instances have access to the public key of the key pair at boot.You can use this key to provide secure access to the instance.Amazon EC2 public images use this feature to provide secure access without passwords.For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key Pairs</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>You can provide optional user data when launching an instance. For moreinformation, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html">InstanceMetadata</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>		<p>If any of the AMIs have a product code attached for which the user has not 			subscribed, <code>RunInstances</code> fails.</p><p>For more information about troubleshooting, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What To Do If AnInstance Immediately Terminates</a>, and <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting Connecting to Your Instance</a> in the<i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
  *
  * @param request A container for the necessary parameters to execute the RunInstances service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2RunInstancesResult.
+ * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2Reservation.
  *
  * @see AWSEC2RunInstancesRequest
- * @see AWSEC2RunInstancesResult
+ * @see AWSEC2Reservation
  */
 - (BFTask *)runInstances:(AWSEC2RunInstancesRequest *)request;
 
@@ -1702,7 +1762,7 @@
 - (BFTask *)startInstances:(AWSEC2StartInstancesRequest *)request;
 
 /**
- * <p>Stops an Amazon EBS-backed instance. Each time you transition an instance from 				stopped to started, Amazon EC2 charges a full instance hour, even if transitions happen 				multiple times within a single hour.</p> 			<p>You can't start or stop Spot Instances.</p> 			<p>Instances that use Amazon EBS volumes as their root devices can be quickly stopped 				and started. When an instance is stopped, the compute resources are released and you 				are not billed for hourly instance usage. However, your root partition Amazon EBS 				volume remains, continues to persist your data, and you are charged for Amazon EBS 				volume usage. You can restart your instance at any time.</p> 			<p>Before stopping an instance, make sure it is in a state from which it can 				be restarted. Stopping an instance does not preserve data stored in RAM.</p> 			<p>Performing this operation on an instance that uses an instance store as its 				root device returns an error.</p><p>You can stop, start, and terminate EBS-backed instances. You can only terminate instance store-backed instances. What happens to an instance differs if you stop it or terminate it. For example, when you stop an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, the root device and any other devices attached during the instance launch are automatically deleted. For more information about the differences between stopping and terminating instances, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance Lifecycle</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
+ * <p>Stops an Amazon EBS-backed instance. Each time you transition an instance from 				stopped to started, Amazon EC2 charges a full instance hour, even if transitions happen 				multiple times within a single hour.</p> 			<p>You can't start or stop Spot Instances.</p> 			<p>Instances that use Amazon EBS volumes as their root devices can be quickly stopped 				and started. When an instance is stopped, the compute resources are released and you 				are not billed for hourly instance usage. However, your root partition Amazon EBS 				volume remains, continues to persist your data, and you are charged for Amazon EBS 				volume usage. You can restart your instance at any time.</p> 			<p>Before stopping an instance, make sure it is in a state from which it can 				be restarted. Stopping an instance does not preserve data stored in RAM.</p> 			<p>Performing this operation on an instance that uses an instance store as its 				root device returns an error.</p><p>You can stop, start, and terminate EBS-backed instances. You can only terminate instance store-backed instances. What happens to an instance differs if you stop it or terminate it. For example, when you stop an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, the root device and any other devices attached during the instance launch are automatically deleted. For more information about the differences between stopping and terminating instances, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance Lifecycle</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>For more information about troubleshooting, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">TroubleshootingStopping Your Instance</a> in the<i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
  *
  * @param request A container for the necessary parameters to execute the StopInstances service method.
  *
@@ -1714,7 +1774,7 @@
 - (BFTask *)stopInstances:(AWSEC2StopInstancesRequest *)request;
 
 /**
- * <p>Shuts down one or more instances. This operation is idempotent; if you terminate 				an instance more than once, each call succeeds.</p> 			<p>Terminated instances remain visible after termination (for approximately one 				hour).</p> 			<p>By default, Amazon EC2 deletes all Amazon EBS volumes that were attached 				when the instance launched. Volumes attached after instance launch 				continue running.</p><p>You can stop, start, and terminate EBS-backed instances. You can only terminate instance store-backed instances. What happens to an instance differs if you stop it or terminate it. For example, when you stop an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, the root device and any other devices attached during the instance launch are automatically deleted. For more information about the differences between stopping and terminating instances, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance Lifecycle</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
+ * <p>Shuts down one or more instances. This operation is idempotent; if you terminate 				an instance more than once, each call succeeds.</p> 			<p>Terminated instances remain visible after termination (for approximately one 				hour).</p> 			<p>By default, Amazon EC2 deletes all Amazon EBS volumes that were attached 				when the instance launched. Volumes attached after instance launch 				continue running.</p><p>You can stop, start, and terminate EBS-backed instances. You can only terminate instance store-backed instances. What happens to an instance differs if you stop it or terminate it. For example, when you stop an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, the root device and any other devices attached during the instance launch are automatically deleted. For more information about the differences between stopping and terminating instances, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance Lifecycle</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>For more information about troubleshooting, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting Terminating Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
  *
  * @param request A container for the necessary parameters to execute the TerminateInstances service method.
  *

@@ -15,7 +15,8 @@
 
 #import <Foundation/Foundation.h>
 
-#define AZLogFormat @"%@ line:%d|%s|"
+
+#define AZLogFormat @"%@ line:%d | %s | "
 
 #define AZLogError(fmt, ...)    [[AZLogger defaultLogger] log:AZLogLevelError format:(AZLogFormat fmt), [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, __PRETTY_FUNCTION__, ##__VA_ARGS__]
 #define AZLogWarn(fmt, ...)    [[AZLogger defaultLogger] log:AZLogLevelWarn format:(AZLogFormat fmt), [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, __PRETTY_FUNCTION__, ##__VA_ARGS__]

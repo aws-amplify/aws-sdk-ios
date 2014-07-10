@@ -16,12 +16,10 @@
 #import "AWSURLResponseSerialization.h"
 
 #import "AZLogging.h"
-#import "AZHAL.h"
 
 #import "AWSService.h"
 #import "AWSValidation.h"
 #import "AWSSerialization.h"
-#import "AWSHALModel.h"
 #import "TMCache.h"
 
 NSString *const AWSGeneralErrorDomain = @"com.amazonaws.AWSGeneralErrorDomain";
@@ -61,6 +59,22 @@ static NSDictionary *errorCodeDictionary = nil;
                                                                    encoding:NSUTF8StringEncoding]);
     }
     
+    NSString *responseContentTypeStr = [[response allHeaderFields] objectForKey:@"Content-Type"];
+    if (responseContentTypeStr) {
+        if ([responseContentTypeStr rangeOfString:@"text/html"].location != NSNotFound) {
+            //found html response rather than json format. should be an error.
+            if (error) {
+                NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                
+                
+                *error = [NSError errorWithDomain:AWSGeneralErrorDomain
+                                             code:AWSGeneralErrorUnknown
+                                         userInfo:@{NSLocalizedDescriptionKey : message?message:[NSNull null]}];
+                return nil;
+            }
+        }
+    }
+    
     if (!data) {
         return nil;
     }
@@ -79,7 +93,7 @@ static NSDictionary *errorCodeDictionary = nil;
                                                    error:error];
 
         //Parse AWSGeneralError
-        if (!*error && [result isKindOfClass:[NSDictionary class]]) {
+        if ([result isKindOfClass:[NSDictionary class]]) {
             if ([errorCodeDictionary objectForKey:[[[result objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]]) {
                 if (error) {
                     *error = [NSError errorWithDomain:AWSGeneralErrorDomain
@@ -98,72 +112,6 @@ static NSDictionary *errorCodeDictionary = nil;
                     data:(id)data
                    error:(NSError *__autoreleasing *)error {
     return YES;
-}
-
-@end
-
-@interface AWSHALService()
-
-@property (nonatomic, strong) TMCache *cache;
-
-@end
-
-@implementation AWSHALResponseSerializer
-
-- (instancetype)initWithOutputClass:(Class)outputClass
-                         HALService:(AWSHALService *)HALService {
-    if (self = [super initWithOutputClass:outputClass]) {
-        _HALService = HALService;
-    }
-
-    return self;
-}
-
-- (id)responseObjectForResponse:(NSHTTPURLResponse *)response
-                originalRequest:(NSURLRequest *)originalRequest
-                 currentRequest:(NSURLRequest *)currentRequest
-                           data:(id)data
-                          error:(NSError *__autoreleasing *)error {
-    if ([data isKindOfClass:[NSData class]]) {
-        AZLogVerbose(@"Response body: [%@]", [[NSString alloc] initWithData:data
-                                                                   encoding:NSUTF8StringEncoding]);
-    }
-
-    id responseObject = [super responseObjectForResponse:response
-                                         originalRequest:originalRequest
-                                          currentRequest:currentRequest
-                                                    data:data
-                                                   error:error];
-    AZHALResource *responseResource = [AZHALResource resourceWithJSONObject:responseObject];
-    if (responseResource) {
-        [self cacheResource:responseResource];
-
-        if (self.outputClass) {
-            responseResource = [[self.outputClass alloc] initWithHALResource:responseResource
-                                                                  HALService:self.HALService];
-        }
-    }
-
-    return responseResource;
-}
-
-- (void)cacheResource:(AZHALResource *)HALResource {
-    AZHALLink *selfLink = HALResource.links[@"self"];
-    [self.HALService.cache setObject:HALResource forKey:selfLink.href];
-
-    if ([HALResource.embedded count] > 0) {
-        for (NSString *key in HALResource.embedded) {
-            if ([HALResource.embedded[key] isKindOfClass:[AZHALResource class]]) {
-                [self cacheResource:HALResource.embedded[key]];
-            } else if ([HALResource.embedded[key] isKindOfClass:[NSArray class]]) {
-                for (AZHALResource *resource in HALResource.embedded[key]) {
-                    if ([resource isKindOfClass:[AZHALResource class]]) {
-                        [self cacheResource:resource];
-                    }
-                }
-            }
-        }
-    }
 }
 
 @end
@@ -192,9 +140,13 @@ static NSDictionary *errorCodeDictionary = nil;
 
     NSError *error = nil;
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:resource ofType:@"json"];
-    serializer.serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                       options:kNilOptions
-                                                                         error:&error];
+    if (filePath == nil) {
+        AZLogError(@"can not find %@.json file in the project",actionName);
+    } else {
+        serializer.serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                           options:kNilOptions
+                                                                             error:&error];
+    }
     if (error) {
         AZLogError(@"Error: [%@]", error);
     }
@@ -278,6 +230,22 @@ static NSDictionary *errorCodeDictionary = nil;
         AZLogVerbose(@"Response body: [%@]", [[NSString alloc] initWithData:data
                                                                    encoding:NSUTF8StringEncoding]);
     }
+    
+    NSString *responseContentTypeStr = [[response allHeaderFields] objectForKey:@"Content-Type"];
+    if (responseContentTypeStr) {
+        if ([responseContentTypeStr rangeOfString:@"text/html"].location != NSNotFound) {
+            //found html response rather than xml format. should be an error.
+            if (error) {
+                NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                
+                
+                *error = [NSError errorWithDomain:AWSGeneralErrorDomain
+                                             code:AWSGeneralErrorUnknown
+                                         userInfo:@{NSLocalizedDescriptionKey : message?message:[NSNull null]}];
+                return nil;
+            }
+        }
+    }
 
     if (![self validateResponse:response fromRequest:currentRequest data:data error:error]) {
         return nil;
@@ -286,8 +254,16 @@ static NSDictionary *errorCodeDictionary = nil;
     NSDictionary *shapeRules = [self.serviceDefinitionJSON objectForKey:@"shapes"];
     AWSJSONDictionary *outputRules = [[AWSJSONDictionary alloc] initWithDictionary:[anActionRules objectForKey:@"output"] JSONDefinitionRule:shapeRules];
 
-    //try to parse data if it is a blob type
-    NSMutableDictionary *resultDic = [self parsePayloadData:data rules:outputRules];
+    //try to parse data if it is a blob type, do not process it if the response status code is not 2xx
+    NSMutableDictionary *resultDic = nil;
+    if (response.statusCode >= 200 && response.statusCode < 300 ) {
+        resultDic = [self parsePayloadData:data rules:outputRules];
+    } else {
+        if ([data isKindOfClass:[NSURL class]]) {
+            data = [NSData dataWithContentsOfFile:[(NSURL *)data path]];
+        }
+    }
+    
     if ([resultDic count] == 0) {
         //if not blob type, try to parse as XML string
         resultDic = [AWSXMLParser dictionaryForXMLData:data
@@ -301,9 +277,9 @@ static NSDictionary *errorCodeDictionary = nil;
 
     //Parse AWSGeneralError
     NSDictionary *errorInfo = resultDic[@"Error"];
-    if (!*error && errorInfo) {
+    if (errorInfo) {
         if (errorInfo[@"Code"] && errorCodeDictionary[errorInfo[@"Code"]]) {
-            if (error) {
+            if (error && (*error == nil)) {
                 *error = [NSError errorWithDomain:AWSGeneralErrorDomain
                                              code:[errorCodeDictionary[errorInfo[@"Code"]] integerValue]
                                          userInfo:@{NSLocalizedDescriptionKey :[errorInfo objectForKey:@"Message"]?[errorInfo objectForKey:@"Message"]:[NSNull null]}

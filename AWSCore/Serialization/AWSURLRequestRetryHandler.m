@@ -32,7 +32,7 @@
     return self;
 }
 
--(BOOL)isClockSkewError:(NSError *)error {
+- (BOOL)isClockSkewError:(NSError *)error {
     if (error.code == AWSGeneralErrorRequestTimeTooSkewed
         || error.code == AWSGeneralErrorInvalidSignatureException
         || error.code == AWSGeneralErrorRequestExpired

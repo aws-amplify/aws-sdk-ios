@@ -88,31 +88,27 @@ typedef NS_ENUM(NSInteger, AZHTTPMethod) {
 @protocol AZURLRequestSerializer <NSObject>
 
 @required
-- (BOOL)validateRequest:(NSURLRequest *)request
-                  error:(NSError *__autoreleasing *)error;
-- (BOOL)serializeRequest:(NSMutableURLRequest *)request
-                 headers:(NSDictionary *)headers
-              parameters:(NSDictionary *)parameters
-                   error:(NSError *__autoreleasing *)error;
+- (BFTask *)validateRequest:(NSURLRequest *)request;
+- (BFTask *)serializeRequest:(NSMutableURLRequest *)request
+                     headers:(NSDictionary *)headers
+                  parameters:(NSDictionary *)parameters;
 
 @end
 
 @protocol AZNetworkingRequestInterceptor <NSObject>
 
 @required
-- (BOOL)interceptRequest:(NSMutableURLRequest *)request
-                   error:(NSError *__autoreleasing *)error;
+- (BFTask *)interceptRequest:(NSMutableURLRequest *)request;
 
 @end
 
 @protocol AZNetworkingHTTPResponseInterceptor <NSObject>
 
 @required
-- (BOOL)interceptResponse:(NSHTTPURLResponse *)response
-                     data:(id)data
-          originalRequest:(NSURLRequest *)originalRequest
-           currentRequest:(NSURLRequest *)currentRequest
-                    error:(NSError *__autoreleasing *)error;
+- (BFTask *)interceptResponse:(NSHTTPURLResponse *)response
+                         data:(id)data
+              originalRequest:(NSURLRequest *)originalRequest
+               currentRequest:(NSURLRequest *)currentRequest;
 
 @end
 

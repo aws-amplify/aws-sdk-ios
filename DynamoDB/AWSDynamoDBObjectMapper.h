@@ -29,18 +29,6 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
      *  <p>AWSDynamoDBObjectMapperSaveBehaviorUpdate will not affect unmodeled attributes on a save operation and a nil value for the modeled attribute will remove it from that item in DynamoDB.<p>Because of the limitation of updateItem request, the implementation of AWSDynamoDBObjectMapperSaveBehaviorUpdate will send a putItem request when a key-only object is being saved, and it will send another updateItem request if the given key(s) already exists in the table.<p>By default, the mapper uses AWSDynamoDBObjectMapperSaveBehaviorUpdate.
      */
     AWSDynamoDBObjectMapperSaveBehaviorUpdate,
-    /**
-     *  AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNilAttributes is similar to AWSDynamoDBObjectMapperSaveBehaviorUpdate, except that it ignores any nil value attribute(s) and will NOT remove them from that item in DynamoDB. It also guarantees to send only one single updateItem request, no matter the object is key-only or not.
-     */
-    AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNilAttributes,
-    /**
-     *  AWSDynamoDBObjectMapperSaveBehaviorClobber will clear and replace all attributes, included unmodeled ones, (delete and recreate) on save. Versioned field constraints will also be disregarded.
-     */
-    AWSDynamoDBObjectMapperSaveBehaviorClobber,
-    /**
-     *  AWSDynamoDBObjectMapperSaveBehaviorAppendSet treats scalar attributes (String, Number, Binary) the same as AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNilAttributes does. However, for set attributes, it will append to the existing attribute value, instead of overriding it. Caller needs to make sure that the modeled attribute type matches the existing set type, otherwise it would result in a service exception.
-     */
-    AWSDynamoDBObjectMapperSaveBehaviorAppendSet,
 };
 
 @class BFTask;
@@ -74,82 +62,227 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
 
 @end
 
+/**
+ *  Object mapper for domain-object interaction with DynamoDB.
+ */
 @interface AWSDynamoDBObjectMapper : NSObject
 
 @property (nonatomic, strong, readonly) AWSDynamoDB *dynamoDB;
+
 @property (nonatomic, strong, readonly) AWSDynamoDBObjectMapperConfiguration *configuration;
-// PaginationLoadingStrategy: LAZY_LOADING, ITERATION_ONLY, EAGER_LOADING
-// TableNameOverride: putting prefixes, use different table name
 
 + (instancetype)defaultDynamoDBObjectMapper;
 
 - (instancetype)initWithDynamoDB:(AWSDynamoDB *)dynamoDB
                    configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration;
 
+/**
+ *  Saves the object given into DynamoDB, using the default configuration.
+ *
+ *  @param model A model to save.
+ *
+ *  @return BFTask.
+ */
 - (BFTask *)save:(AWSDynamoDBModel *)model;
 
+/**
+ *  Saves the object given into DynamoDB, using the specified configuration.
+ *
+ *  @param model         A model to save.
+ *  @param configuration A configuration.
+ *
+ *  @return BFTask.
+ */
 - (BFTask *)save:(AWSDynamoDBModel *)model
    configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration;
 
+/**
+ *  Deletes the given object from its DynamoDB table using the default configuration.
+ *
+ *  @param model A model to delete.
+ *
+ *  @return BFTask.
+ */
 - (BFTask *)remove:(AWSDynamoDBModel *)model;
 
+/**
+ *  Deletes the given object from its DynamoDB table using the specified configuration.
+ *
+ *  @param model         A model to delete.
+ *  @param configuration A configuration.
+ *
+ *  @return BFTask.
+ */
 - (BFTask *)remove:(AWSDynamoDBModel *)model
      configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration;
 
+/**
+ *  Loads an object with a hash and range key, using the default configuration.
+ *
+ *  @param resultClass The class of the result object.
+ *  @param hashKey     A hash key value.
+ *  @param rangeKey    A range key value.
+ *
+ *  @return BFTask.
+ */
 - (BFTask *)load:(Class)resultClass
          hashKey:(id)hashKey
         rangeKey:(id)rangeKey;
 
+/**
+ *  Returns an object with the given hash key, or null if no such object exists.
+ *
+ *  @param resultClass   The class of the result object.
+ *  @param hashKey       A hash key value.
+ *  @param rangeKey      A range key value.
+ *  @param configuration A configuration.
+ *
+ *  @return BFTask.
+ */
 - (BFTask *)load:(Class)resultClass
          hashKey:(id)hashKey
         rangeKey:(id)rangeKey
    configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration;
 
+/**
+ *  Queries an Amazon DynamoDB table and returns the matching results as an unmodifiable list of instantiated objects, using the default configuration.
+ *
+ *  @param resultClass The class of the result object.
+ *  @param expression  An expression object.
+ *
+ *  @return BFTask.
+ */
 - (BFTask *)query:(Class)resultClass
        expression:(AWSDynamoDBQueryExpression *)expression;
 
+/**
+ *  Queries an Amazon DynamoDB table and returns the matching results as an unmodifiable list of instantiated objects.
+ *
+ *  @param resultClass   The class of the result object.
+ *  @param expression    An expression object.
+ *  @param configuration A configuration.
+ *
+ *  @return BFTask.
+ */
 - (BFTask *)query:(Class)resultClass
        expression:(AWSDynamoDBQueryExpression *)expression
     configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration;
 
+/**
+ *  Scans through an Amazon DynamoDB table and returns the matching results as an AWSDynamoDBPaginatedOutput of instantiated objects, using the default configuration.
+ *
+ *  @param resultClass The class of the result object.
+ *  @param expression  An expression object.
+ *
+ *  @return BFTask.
+ */
 - (BFTask *)scan:(Class)resultClass
       expression:(AWSDynamoDBScanExpression *)expression;
 
+/**
+ *  Scans through an Amazon DynamoDB table and returns the matching results as an AWSDynamoDBPaginatedOutput of instantiated objects.
+ *
+ *  @param resultClass   The class of the result object.
+ *  @param expression    An expression object.
+ *  @param configuration A configuration.
+ *
+ *  @return BFTask.
+ */
 - (BFTask *)scan:(Class)resultClass
       expression:(AWSDynamoDBScanExpression *)expression
    configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration;
 
 @end
 
+/**
+ *  Immutable configuration object for service call behavior. An instance of this configuration is supplied to every DynamoDBMapper at construction. New instances can be given to the mapper object on individual save, load, and remove operations to override the defaults.
+ */
 @interface AWSDynamoDBObjectMapperConfiguration : NSObject <NSCopying>
 
+/**
+ *  The behavior for the save operation.
+ */
 @property (nonatomic, assign) AWSDynamoDBObjectMapperSaveBehavior saveBehavior;
+
+/**
+ *  When set to @YES, AWSDynamoDBObjectMapper uses consistent read to read data from the table. When set to @NO, it uses eventually consistant read.
+ */
 @property (nonatomic, strong) NSNumber *consistentRead;
 
 @end
 
+/**
+ *   A query expression.
+ */
 @interface AWSDynamoDBQueryExpression : NSObject
 
+/**
+ *  When set to @YES, AWSDynamoDBObjectMapper scans the index forward. When set to @NO, it scans the other direction.
+ */
 @property (nonatomic, strong) NSNumber *scanIndexForward;
+
+/**
+ *  The value of the hash key.
+ */
 @property (nonatomic, strong) id hashKeyValues;
+
+/**
+ *  The range key conditions.
+ */
 @property (nonatomic, strong) NSDictionary *rangeKeyConditions;
+
+/**
+ *  The exclusive start key.
+ */
 @property (nonatomic, strong) NSDictionary *exclusiveStartKey;
+
+/**
+ *  The limit.
+ */
 @property (nonatomic, strong) NSNumber *limit;
+
+/**
+ *  The index name.
+ */
 @property (nonatomic, strong) NSString *indexName;
 
 @end
 
+/**
+ *  Options for filtering results from a scan operation. For example, callers can specify filter conditions so that only objects whose attributes match different conditions are returned (see ComparisonOperator for more information on the available comparison types).
+ */
 @interface AWSDynamoDBScanExpression : NSObject
 
+/**
+ *  The scan filter.
+ */
 @property (nonatomic, strong) NSDictionary *scanFilter;
+
+/**
+ *  The exclusive start key.
+ */
 @property (nonatomic, strong) NSDictionary *exclusiveStartKey;
+
+/**
+ *  The limit.
+ */
 @property (nonatomic, strong) NSNumber *limit;
 
 @end
 
+/**
+ *  The paginated output object.
+ */
 @interface AWSDynamoDBPaginatedOutput : NSObject
 
+/**
+ *  The array of items.
+ */
 @property (nonatomic, strong) NSArray *items;
+
+/**
+ *  The last evaluated key.
+ */
 @property (nonatomic, strong) NSDictionary *lastEvaluatedKey;
 
 @end

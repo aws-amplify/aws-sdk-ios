@@ -5,12 +5,13 @@
     "serviceAbbreviation":"CloudWatch",
     "serviceFullName":"Amazon CloudWatch",
     "signatureVersion":"v4",
-    "type":"query",
-    "xmlNamespace":"http://monitoring.amazonaws.com/doc/2010-08-01/"
+    "xmlNamespace":"http://monitoring.amazonaws.com/doc/2010-08-01/",
+    "protocol":"query"
   },
   "documentation":"<p>This is the <i>Amazon CloudWatch API Reference</i>. This guide provides detailed\n\t\t\tinformation about Amazon CloudWatch actions, data types, parameters, and\n\t\t\terrors. For detailed information about Amazon CloudWatch features and their associated API calls,\n\t\t\tgo to the <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide\">Amazon CloudWatch Developer Guide</a>.\n\t\t</p>\n\t\t<p>Amazon CloudWatch is a web service that enables you to publish, monitor, and manage various metrics,\n\t\t\tas well as configure alarm actions based on data from metrics. For more information about this product\n\t\t\tgo to <a href=\"http://aws.amazon.com/cloudwatch\">http://aws.amazon.com/cloudwatch</a>.\n\t\t</p>\n\n        <p>\n\t\t\tFor information about the namespace, metric names, and dimensions that other Amazon Web Services products use to send metrics to Cloudwatch,\n\t\t\tgo to <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html\">Amazon CloudWatch Metrics, Namespaces, and Dimensions Reference</a>\n\t\t\tin the <i>Amazon CloudWatch Developer Guide</i>.\n\t\t</p>\n\n\t\t<p>Use the following links to get started using the <i>Amazon CloudWatch API Reference</i>:</p>\n\t\t<ul>\n\t\t\t<li>\n<a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Operations.html\">Actions</a>: An alphabetical list of all Amazon CloudWatch actions.</li>\n\t\t\t<li>\n<a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Types.html\">Data Types</a>: An alphabetical list of all Amazon CloudWatch data types.</li>\n\t\t\t<li>\n<a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CommonParameters.html\">Common Parameters</a>: Parameters that all Query actions can use.</li>\n\t\t\t<li>\n<a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CommonErrors.html\">Common Errors</a>: Client and server errors that all actions can return.</li>\n\t\t\t<li>\n<a href=\"http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html\">Regions and Endpoints</a>: Itemized regions and endpoints for all AWS products.</li>\n\t\t\t<li>\n<a href=\"http://monitoring.amazonaws.com/doc/2010-08-01/CloudWatch.wsdl\">WSDL Location</a>: http://monitoring.amazonaws.com/doc/2010-08-01/CloudWatch.wsdl</li>\n\t\t</ul>\n\t\t\n\t\t\n\t\t<p>In addition to using the Amazon CloudWatch API, you can also use the following SDKs and third-party libraries to\n\t\t\taccess Amazon CloudWatch programmatically.</p>\n\t\t\n\t\t<ul>\n\t\t\t<li><a href=\"http://aws.amazon.com/documentation/sdkforjava/\">AWS SDK for Java Documentation</a></li>\n\t\t\t<li><a href=\"http://aws.amazon.com/documentation/sdkfornet/\">AWS SDK for .NET Documentation</a></li>\n\t\t\t<li><a href=\"http://aws.amazon.com/documentation/sdkforphp/\">AWS SDK for PHP Documentation</a></li>\n\t\t\t<li><a href=\"http://aws.amazon.com/documentation/sdkforruby/\">AWS SDK for Ruby Documentation</a></li>\n\t\t</ul>\n\t\t\n\t\t<p>Developers in the AWS developer community also provide their\town libraries, which you can find at the following AWS developer\n\t\t\tcenters:</p>\n\t\t<ul>\n\t\t\t<li><a href=\"http://aws.amazon.com/java/\">AWS Java Developer Center</a></li>\n\t\t\t<li><a href=\"http://aws.amazon.com/php/\">AWS PHP Developer Center</a></li>\n\t\t\t<li><a href=\"http://aws.amazon.com/python/\">AWS Python Developer Center</a></li>\n\t\t\t<li><a href=\"http://aws.amazon.com/ruby/\">AWS Ruby Developer Center</a></li>\n\t\t\t<li><a href=\"http://aws.amazon.com/net/\">AWS Windows and .NET Developer Center</a></li>\n\t\t</ul>",
   "operations":{
     "DeleteAlarms":{
+      "name":"DeleteAlarms",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -19,6 +20,11 @@
       "errors":[
         {
           "shape":"ResourceNotFound",
+          "error":{
+            "code":"ResourceNotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n\t\tThe named resource does not exist.\n\t\t</p>"
         }
@@ -26,6 +32,7 @@
       "documentation":"<p>\n\t\tDeletes all specified alarms.\n\t\tIn the event of an error, no alarms are deleted.\n\t\t</p>"
     },
     "DescribeAlarmHistory":{
+      "name":"DescribeAlarmHistory",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -39,6 +46,11 @@
       "errors":[
         {
           "shape":"InvalidNextToken",
+          "error":{
+            "code":"InvalidNextToken",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n\t\tThe next token specified is invalid.\n\t\t</p>"
         }
@@ -46,6 +58,7 @@
       "documentation":"<p>\n\t\tRetrieves history for the specified alarm.\n\t\tFilter alarms by date range or item type.\n\t\tIf an alarm name is not specified,\n\t\tAmazon CloudWatch returns histories for\n\t\tall of the owner's alarms.\n\t\t</p>\n\t\t<note>\n\t\tAmazon CloudWatch retains the history of an alarm\n\t\tfor two weeks, whether or not you delete the alarm.\n\t\t</note>"
     },
     "DescribeAlarms":{
+      "name":"DescribeAlarms",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -59,6 +72,11 @@
       "errors":[
         {
           "shape":"InvalidNextToken",
+          "error":{
+            "code":"InvalidNextToken",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n\t\tThe next token specified is invalid.\n\t\t</p>"
         }
@@ -66,6 +84,7 @@
       "documentation":"<p>\n\t\tRetrieves alarms with the specified names.\n\t\tIf no name is specified, all alarms for the user are returned.\n\t\tAlarms can be retrieved by using only a prefix for the alarm name,\n\t\tthe alarm state, or a prefix for any action.\n\t\t</p>"
     },
     "DescribeAlarmsForMetric":{
+      "name":"DescribeAlarmsForMetric",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -79,6 +98,7 @@
       "documentation":"<p>\n\t\tRetrieves all alarms for a single metric.\n\t\tSpecify a statistic, period, or unit to filter\n\t\tthe set of alarms further.\n\t\t</p>"
     },
     "DisableAlarmActions":{
+      "name":"DisableAlarmActions",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -90,6 +110,7 @@
       "documentation":"<p>\n\t\tDisables actions for the specified alarms.\n\t\tWhen an alarm's actions are disabled the\n\t\talarm's state may change, but none of the\n\t\talarm's actions will execute.\n\t\t</p>"
     },
     "EnableAlarmActions":{
+      "name":"EnableAlarmActions",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -98,6 +119,7 @@
       "documentation":"<p>\n\t\tEnables actions for the specified alarms.\n\t\t</p>"
     },
     "GetMetricStatistics":{
+      "name":"GetMetricStatistics",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -111,45 +133,49 @@
       "errors":[
         {
           "shape":"InvalidParameterValueException",
+          "error":{
+            "code":"InvalidParameterValue",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n\t\tBad or out-of-range value was supplied for the input\n\t\tparameter.\n\t\t</p>"
         },
         {
           "shape":"MissingRequiredParameterException",
+          "error":{
+            "code":"MissingParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n\t\tAn input parameter that is mandatory for processing\n\t\tthe request is not supplied.\n\t\t</p>"
         },
         {
           "shape":"InvalidParameterCombinationException",
+          "error":{
+            "code":"InvalidParameterCombination",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n\t\tParameters that must not be used together were\n\t\tused together.\n\t\t</p>"
         },
         {
           "shape":"InternalServiceFault",
+          "error":{
+            "code":"InternalServiceError",
+            "httpStatusCode":500
+          },
           "exception":true,
-          "documentation":"<p>\n\t\tIndicates that the request processing has\n\t\tfailed due to some unknown error, exception, or failure.\n\t\t</p>"
+          "documentation":"<p>\n\t\tIndicates that the request processing has\n\t\tfailed due to some unknown error, exception, or failure.\n\t\t</p>",
+          "xmlOrder":["Message"]
         }
       ],
       "documentation":"<p>\n\t\tGets statistics for the specified metric.\n\t</p>\n\t\t<p>\n\t\t\tThe maximum number of data points returned from a single\n\t\t\t<code>GetMetricStatistics</code> request is 1,440, wereas the maximum number of data points\n\t\t\tthat can be queried is 50,850. If you make a request that generates more than 1,440 data points,\n\t\t\tAmazon CloudWatch returns an error. In such a case, you can alter the request by narrowing the specified\n\t\t\ttime range or increasing the specified period. Alternatively, you can make multiple requests across adjacent time ranges.\n\t\t</p>\n\t\t<p>\n\t\t\tAmazon CloudWatch aggregates data points based on the\n\t\t\tlength of the <code>period</code> that you specify. For example, if\n\t\t\tyou request statistics with a one-minute granularity, Amazon CloudWatch aggregates data points\n\t\t\twith time stamps that fall within the same one-minute period. In such a case, the data points queried can greatly outnumber the data points returned.\n\t\t</p>\n\n\t\t<p>\n\t\tThe following examples show various statistics allowed by the data point query maximum of 50,850\n\t\twhen you call <code>GetMetricStatistics</code> on Amazon EC2 instances with\n\t\tdetailed (one-minute) monitoring enabled:\n\t\t</p>\n\t\t<ul>\n\t\t\t<li>Statistics for up to 400 instances for a span of one hour</li>\n\t\t\t<li>Statistics for up to 35 instances over a span of 24 hours</li>\n\t\t\t<li>Statistics for up to 2 instances over a span of 2 weeks</li>\n\t\t</ul>\n\t\t<p>\n\t\t\tFor information about the namespace, metric names, and dimensions that other Amazon Web Services products use to send metrics to Cloudwatch,\n\t\t\tgo to <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html\">Amazon CloudWatch Metrics, Namespaces, and Dimensions Reference</a>\n\t\t\tin the <i>Amazon CloudWatch Developer Guide</i>.\n\t\t</p>"
     },
-    "ListHostInfo":{
-      "http":{
-        "method":"POST",
-        "requestUri":"/"
-      },
-      "output":{
-        "shape":"ListHostInfoOutput",
-        "resultWrapper":"ListHostInfoResult"
-      },
-      "errors":[
-        {
-          "shape":"InternalServiceFault",
-          "exception":true,
-          "documentation":"<p>\n\t\tIndicates that the request processing has\n\t\tfailed due to some unknown error, exception, or failure.\n\t\t</p>"
-        }
-      ]
-    },
     "ListMetrics":{
+      "name":"ListMetrics",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -158,16 +184,30 @@
       "output":{
         "shape":"ListMetricsOutput",
         "documentation":"<p>\n\t\tThe output for the <a>ListMetrics</a> action.\n\t\t</p>",
+        "xmlOrder":[
+          "Metrics",
+          "NextToken"
+        ],
         "resultWrapper":"ListMetricsResult"
       },
       "errors":[
         {
           "shape":"InternalServiceFault",
+          "error":{
+            "code":"InternalServiceError",
+            "httpStatusCode":500
+          },
           "exception":true,
-          "documentation":"<p>\n\t\tIndicates that the request processing has\n\t\tfailed due to some unknown error, exception, or failure.\n\t\t</p>"
+          "documentation":"<p>\n\t\tIndicates that the request processing has\n\t\tfailed due to some unknown error, exception, or failure.\n\t\t</p>",
+          "xmlOrder":["Message"]
         },
         {
           "shape":"InvalidParameterValueException",
+          "error":{
+            "code":"InvalidParameterValue",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n\t\tBad or out-of-range value was supplied for the input\n\t\tparameter.\n\t\t</p>"
         }
@@ -175,6 +215,7 @@
       "documentation":"<p>\n\t\tReturns a list of valid metrics stored for the AWS account owner.\n\t\tReturned metrics can be used with <a>GetMetricStatistics</a>\n\t\tto obtain statistical data for a given metric.\n\t\t</p>\n\t\t<note>\n\t\tUp to 500 results are returned for any one call.  To retrieve further\n\t\tresults, use returned <code>NextToken</code> values with subsequent\n\t\t<code>ListMetrics</code> operations.\n\t\t</note>\n\t\t<note>\n\t\t\tIf you create a metric with the <a>PutMetricData</a> action,\n\t\t\tallow up to fifteen minutes for the metric to appear in calls\n\t\t\tto the <code>ListMetrics</code> action. Statistics about the metric, \n\t\t\thowever, are available sooner using <a>GetMetricStatistics</a>.\n\t\t</note>"
     },
     "PutMetricAlarm":{
+      "name":"PutMetricAlarm",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -183,6 +224,11 @@
       "errors":[
         {
           "shape":"LimitExceededFault",
+          "error":{
+            "code":"LimitExceeded",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n\t\tThe quota for alarms for this customer has\n\t\talready been reached.\n\t\t</p>"
         }
@@ -190,6 +236,7 @@
       "documentation":"<p>\n\t\tCreates or updates an alarm and associates it\n\t\twith the specified Amazon CloudWatch metric. Optionally,\n\t\tthis operation can associate one or more Amazon Simple\n\t\tNotification Service resources with the alarm.\n\t\t</p>\n\t\t<p>\n\t\tWhen this operation creates an alarm, the alarm state is immediately\n\t\tset to <code>INSUFFICIENT_DATA</code>.  The alarm is evaluated and its\n\t\t<code>StateValue</code> is set appropriately.  Any actions associated\n\t\twith the <code>StateValue</code> is then executed.\n\t\t</p>\n\t\t<note>\n\t\tWhen updating an existing alarm, its <code>StateValue</code>\n\t\tis left unchanged.\n\t\t</note>"
     },
     "PutMetricData":{
+      "name":"PutMetricData",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -198,57 +245,49 @@
       "errors":[
         {
           "shape":"InvalidParameterValueException",
+          "error":{
+            "code":"InvalidParameterValue",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n\t\tBad or out-of-range value was supplied for the input\n\t\tparameter.\n\t\t</p>"
         },
         {
           "shape":"MissingRequiredParameterException",
+          "error":{
+            "code":"MissingParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n\t\tAn input parameter that is mandatory for processing\n\t\tthe request is not supplied.\n\t\t</p>"
         },
         {
           "shape":"InvalidParameterCombinationException",
+          "error":{
+            "code":"InvalidParameterCombination",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n\t\tParameters that must not be used together were\n\t\tused together.\n\t\t</p>"
         },
         {
           "shape":"InternalServiceFault",
+          "error":{
+            "code":"InternalServiceError",
+            "httpStatusCode":500
+          },
           "exception":true,
-          "documentation":"<p>\n\t\tIndicates that the request processing has\n\t\tfailed due to some unknown error, exception, or failure.\n\t\t</p>"
+          "documentation":"<p>\n\t\tIndicates that the request processing has\n\t\tfailed due to some unknown error, exception, or failure.\n\t\t</p>",
+          "xmlOrder":["Message"]
         }
       ],
       "documentation":"<p>\n\t\tPublishes metric data points to Amazon CloudWatch. Amazon Cloudwatch\n\t\tassociates the data points with the specified metric. If the specified metric does not exist,\n\t\tAmazon CloudWatch creates the metric. It can take up to fifteen minutes for a new metric to appear\n\t\tin calls to the <a>ListMetrics</a> action.</p>\n\n\t\t<p>\n\t\t\tThe size of a <function>PutMetricData</function> request is limited to 8 KB\n\t\t\tfor HTTP GET requests and 40 KB for HTTP POST requests.\n\t\t</p>\n\t\t<important>\n\t\t\tAlthough the <code>Value</code> parameter accepts numbers of type <code>Double</code>,\n\t\t\tAmazon CloudWatch truncates values with very large exponents.\n\t\t\tValues with base-10 exponents greater than 126 (1 x 10^126) are truncated.\n\t\t\tLikewise, values with base-10 exponents less than -130 (1 x 10^-130) are also truncated.\n\t\t</important>\n\t\t\n\t\t<p>Data that is timestamped 24 hours or more in the past may take in excess of 48 hours to become\n\t\t\tavailable from submission time using <code>GetMetricStatistics</code>.</p>\n\n\t\t<examples>\n\t\t\t<queryrequest>\nThe following example puts data for a single metric containing one dimension:\n\nhttps://monitoring.amazonaws.com/doc/2010-08-01/\n?Action=PutMetricData\n&Version=2010-08-01\n&Namespace=TestNamespace\n&MetricData.member.1.MetricName=buffers\n&MetricData.member.1.Unit=Bytes\n&MetricData.member.1.Value=231434333\n&MetricData.member.1.Dimensions.member.1.Name=InstanceType\n&MetricData.member.1.Dimensions.member.1.Value=m1.small\n&AUTHPARAMS\n\n\nThe following example puts data for a single metric containing two dimensions:\n\nhttps://monitoring.amazonaws.com/doc/2010-08-01/\n?Action=PutMetricData\n&Version=2010-08-01\n&Namespace=TestNamespace\n&MetricData.member.1.MetricName=buffers\n&MetricData.member.1.Unit=Bytes\n&MetricData.member.1.Value=231434333\n&MetricData.member.1.Dimensions.member.1.Name=InstanceID\n&MetricData.member.1.Dimensions.member.1.Value=i-aaba32d4\n&MetricData.member.1.Dimensions.member.2.Name=InstanceType\n&MetricData.member.1.Dimensions.member.2.Value=m1.small\n&AUTHPARAMS\n\n\nThe following example puts data for two metrics, each with two dimensions:\n\nhttps://monitoring.amazonaws.com/doc/2010-08-01/\n?Action=PutMetricData\n&Version=2010-08-01\n&Namespace=TestNamespace\n&MetricData.member.1.MetricName=buffers\n&MetricData.member.1.Unit=Bytes\n&MetricData.member.1.Value=231434333\n&MetricData.member.1.Dimensions.member.1.Name=InstanceID\n&MetricData.member.1.Dimensions.member.1.Value=i-aaba32d4\n&MetricData.member.1.Dimensions.member.2.Name=InstanceType\n&MetricData.member.1.Dimensions.member.2.Value=m1.small\n&MetricData.member.2.MetricName=latency\n&MetricData.member.2.Unit=Milliseconds\n&MetricData.member.2.Value=23\n&MetricData.member.2.Dimensions.member.1.Name=InstanceID\n&MetricData.member.2.Dimensions.member.1.Value=i-aaba32d4\n&MetricData.member.2.Dimensions.member.2.Name=InstanceType\n&MetricData.member.2.Dimensions.member.2.Value=m1.small\n&AUTHPARAMS\n\t\t\t</queryrequest>\n\t\t\t<queryresponse>\n<PutMetricDataResponse xmlns=\"http://monitoring.amazonaws.com/doc/2010-08-01/\">\n  <ResponseMetadata>\n    <RequestId>e16fc4d3-9a04-11e0-9362-093a1cae5385</RequestId>\n  </ResponseMetadata>\n</PutMetricDataResponse>  \n\t\t\t</queryresponse>\n\t\t</examples>"
     },
-    "PutMetricDataBatch":{
-      "http":{
-        "method":"POST",
-        "requestUri":"/"
-      },
-      "input":{"shape":"PutMetricDataBatchInput"},
-      "errors":[
-        {
-          "shape":"InvalidParameterValueException",
-          "exception":true,
-          "documentation":"<p>\n\t\tBad or out-of-range value was supplied for the input\n\t\tparameter.\n\t\t</p>"
-        },
-        {
-          "shape":"MissingRequiredParameterException",
-          "exception":true,
-          "documentation":"<p>\n\t\tAn input parameter that is mandatory for processing\n\t\tthe request is not supplied.\n\t\t</p>"
-        },
-        {
-          "shape":"InvalidParameterCombinationException",
-          "exception":true,
-          "documentation":"<p>\n\t\tParameters that must not be used together were\n\t\tused together.\n\t\t</p>"
-        },
-        {
-          "shape":"InternalServiceFault",
-          "exception":true,
-          "documentation":"<p>\n\t\tIndicates that the request processing has\n\t\tfailed due to some unknown error, exception, or failure.\n\t\t</p>"
-        }
-      ]
-    },
     "SetAlarmState":{
+      "name":"SetAlarmState",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -257,11 +296,21 @@
       "errors":[
         {
           "shape":"ResourceNotFound",
+          "error":{
+            "code":"ResourceNotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n\t\tThe named resource does not exist.\n\t\t</p>"
         },
         {
           "shape":"InvalidFormatFault",
+          "error":{
+            "code":"InvalidFormat",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>\n\t\tData was not syntactically valid JSON.\n\t\t</p>"
         }
@@ -270,11 +319,6 @@
     }
   },
   "shapes":{
-    "AccountId":{
-      "type":"string",
-      "min":1,
-      "max":255
-    },
     "ActionPrefix":{
       "type":"string",
       "min":1,
@@ -336,12 +380,6 @@
       "member":{"shape":"AlarmName"},
       "max":100
     },
-    "AmpQueue":{"type":"string"},
-    "AmpQueues":{
-      "type":"list",
-      "member":{"shape":"AmpQueue"}
-    },
-    "AutoDecompose":{"type":"boolean"},
     "AwsQueryErrorMessage":{"type":"string"},
     "ComparisonOperator":{
       "type":"string",
@@ -357,51 +395,48 @@
       "members":{
         "Timestamp":{
           "shape":"Timestamp",
-          "documentation":"<p>\n\t\t\tThe time stamp used for the datapoint. Amazon CloudWatch uses Coordinated Universal Time (UTC) when returning time stamps, which do not accommodate seasonal adjustments such as daylight savings time. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp\">Time stamps</a> in the <i>Amazon CloudWatch Developer Guide</i>.\n\t\t</p>",
-          "xmlOrder":0
+          "documentation":"<p>\n\t\t\tThe time stamp used for the datapoint. Amazon CloudWatch uses Coordinated Universal Time (UTC) when returning time stamps, which do not accommodate seasonal adjustments such as daylight savings time. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp\">Time stamps</a> in the <i>Amazon CloudWatch Developer Guide</i>.\n\t\t</p>"
         },
         "SampleCount":{
           "shape":"DatapointValue",
-          "documentation":"<p>\n\t\tThe number of metric values that contributed to the aggregate value\n\t\tof this datapoint.\n\t\t</p>",
-          "xmlOrder":1
+          "documentation":"<p>\n\t\tThe number of metric values that contributed to the aggregate value\n\t\tof this datapoint.\n\t\t</p>"
         },
         "Average":{
           "shape":"DatapointValue",
-          "documentation":"<p>\n\t\tThe average of metric values that correspond to the datapoint.\n\t\t</p>",
-          "xmlOrder":2
+          "documentation":"<p>\n\t\tThe average of metric values that correspond to the datapoint.\n\t\t</p>"
         },
         "Sum":{
           "shape":"DatapointValue",
-          "documentation":"<p>\n\t\tThe sum of metric values used for the datapoint.\n\t\t</p>",
-          "xmlOrder":3
+          "documentation":"<p>\n\t\tThe sum of metric values used for the datapoint.\n\t\t</p>"
         },
         "Minimum":{
           "shape":"DatapointValue",
-          "documentation":"<p>\n\t\tThe minimum metric value used for the datapoint.\n\t\t</p>",
-          "xmlOrder":4
+          "documentation":"<p>\n\t\tThe minimum metric value used for the datapoint.\n\t\t</p>"
         },
         "Maximum":{
           "shape":"DatapointValue",
-          "documentation":"<p>\n\t\tThe maximum of the metric value used for the datapoint.\n\t\t</p>",
-          "xmlOrder":5
+          "documentation":"<p>\n\t\tThe maximum of the metric value used for the datapoint.\n\t\t</p>"
         },
         "Unit":{
           "shape":"StandardUnit",
-          "documentation":"<p>\n\t\tThe standard unit used for the datapoint.\n\t\t</p>",
-          "xmlOrder":6
+          "documentation":"<p>\n\t\tThe standard unit used for the datapoint.\n\t\t</p>"
         }
       },
-      "documentation":"<p>\n\t\tThe <code>Datapoint</code> data type encapsulates the statistical data\n\t\tthat Amazon CloudWatch computes from metric data.\n\t\t</p>"
+      "documentation":"<p>\n\t\tThe <code>Datapoint</code> data type encapsulates the statistical data\n\t\tthat Amazon CloudWatch computes from metric data.\n\t\t</p>",
+      "xmlOrder":[
+        "Timestamp",
+        "SampleCount",
+        "Average",
+        "Sum",
+        "Minimum",
+        "Maximum",
+        "Unit"
+      ]
     },
     "DatapointValue":{"type":"double"},
     "Datapoints":{
       "type":"list",
       "member":{"shape":"Datapoint"}
-    },
-    "DatastoreEndpoint":{"type":"string"},
-    "DatastoreEndpoints":{
-      "type":"list",
-      "member":{"shape":"DatastoreEndpoint"}
     },
     "DeleteAlarmsInput":{
       "type":"structure",
@@ -551,16 +586,18 @@
       "members":{
         "Name":{
           "shape":"DimensionName",
-          "documentation":"<p>\n\t\tThe name of the dimension.\n\t\t</p>",
-          "xmlOrder":0
+          "documentation":"<p>\n\t\tThe name of the dimension.\n\t\t</p>"
         },
         "Value":{
           "shape":"DimensionValue",
-          "documentation":"<p>\n\t\tThe value representing the dimension measurement\n\t\t</p>",
-          "xmlOrder":1
+          "documentation":"<p>\n\t\tThe value representing the dimension measurement\n\t\t</p>"
         }
       },
-      "documentation":"<p>\n\t\tThe <code>Dimension</code> data type further expands on the\n\t\tidentity of a metric using a Name, Value pair.\n\t\t</p>\n\t\t<p>For examples that use one or more dimensions, see <a>PutMetricData</a>.</p>"
+      "documentation":"<p>\n\t\tThe <code>Dimension</code> data type further expands on the\n\t\tidentity of a metric using a Name, Value pair.\n\t\t</p>\n\t\t<p>For examples that use one or more dimensions, see <a>PutMetricData</a>.</p>",
+      "xmlOrder":[
+        "Name",
+        "Value"
+      ]
     },
     "DimensionFilter":{
       "type":"structure",
@@ -705,18 +742,21 @@
       "min":1,
       "max":255
     },
-    "HostName":{"type":"string"},
     "InternalServiceFault":{
       "type":"structure",
       "members":{
         "Message":{
           "shape":"FaultDescription",
-          "documentation":"<p></p>",
-          "xmlOrder":0
+          "documentation":"<p></p>"
         }
       },
+      "error":{
+        "code":"InternalServiceError",
+        "httpStatusCode":500
+      },
       "exception":true,
-      "documentation":"<p>\n\t\tIndicates that the request processing has\n\t\tfailed due to some unknown error, exception, or failure.\n\t\t</p>"
+      "documentation":"<p>\n\t\tIndicates that the request processing has\n\t\tfailed due to some unknown error, exception, or failure.\n\t\t</p>",
+      "xmlOrder":["Message"]
     },
     "InvalidFormatFault":{
       "type":"structure",
@@ -725,6 +765,11 @@
           "shape":"ErrorMessage",
           "documentation":"<p></p>"
         }
+      },
+      "error":{
+        "code":"InvalidFormat",
+        "httpStatusCode":400,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>\n\t\tData was not syntactically valid JSON.\n\t\t</p>"
@@ -737,6 +782,11 @@
           "documentation":"<p></p>"
         }
       },
+      "error":{
+        "code":"InvalidNextToken",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>\n\t\tThe next token specified is invalid.\n\t\t</p>"
     },
@@ -747,6 +797,11 @@
           "shape":"AwsQueryErrorMessage",
           "documentation":"<p></p>"
         }
+      },
+      "error":{
+        "code":"InvalidParameterCombination",
+        "httpStatusCode":400,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>\n\t\tParameters that must not be used together were\n\t\tused together.\n\t\t</p>"
@@ -759,6 +814,11 @@
           "documentation":"<p></p>"
         }
       },
+      "error":{
+        "code":"InvalidParameterValue",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>\n\t\tBad or out-of-range value was supplied for the input\n\t\tparameter.\n\t\t</p>"
     },
@@ -770,20 +830,13 @@
           "documentation":"<p></p>"
         }
       },
+      "error":{
+        "code":"LimitExceeded",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>\n\t\tThe quota for alarms for this customer has\n\t\talready been reached.\n\t\t</p>"
-    },
-    "ListHostInfoOutput":{
-      "type":"structure",
-      "members":{
-        "HostName":{"shape":"HostName"},
-        "StackName":{"shape":"StackName"},
-        "Marketplace":{"shape":"Marketplace"},
-        "Region":{"shape":"Region"},
-        "SdbDatastoreEndpoints":{"shape":"SdbDatastoreEndpoints"},
-        "DatastoreEndpoints":{"shape":"DatastoreEndpoints"},
-        "AmpQueues":{"shape":"AmpQueues"}
-      }
     },
     "ListMetricsInput":{
       "type":"structure",
@@ -811,18 +864,19 @@
       "members":{
         "Metrics":{
           "shape":"Metrics",
-          "documentation":"<p>\n\t\tA list of metrics used to generate statistics for an AWS account.\n\t\t</p>",
-          "xmlOrder":0
+          "documentation":"<p>\n\t\tA list of metrics used to generate statistics for an AWS account.\n\t\t</p>"
         },
         "NextToken":{
           "shape":"NextToken",
-          "documentation":"<p>\n\t\tA string that marks the start of the next batch of returned results.\n\t\t</p>",
-          "xmlOrder":1
+          "documentation":"<p>\n\t\tA string that marks the start of the next batch of returned results.\n\t\t</p>"
         }
       },
-      "documentation":"<p>\n\t\tThe output for the <a>ListMetrics</a> action.\n\t\t</p>"
+      "documentation":"<p>\n\t\tThe output for the <a>ListMetrics</a> action.\n\t\t</p>",
+      "xmlOrder":[
+        "Metrics",
+        "NextToken"
+      ]
     },
-    "Marketplace":{"type":"string"},
     "MaxRecords":{
       "type":"integer",
       "min":1,
@@ -833,132 +887,136 @@
       "members":{
         "Namespace":{
           "shape":"Namespace",
-          "documentation":"<p>\n\t\tThe namespace of the metric.\n\t\t</p>",
-          "xmlOrder":0
+          "documentation":"<p>\n\t\tThe namespace of the metric.\n\t\t</p>"
         },
         "MetricName":{
           "shape":"MetricName",
-          "documentation":"<p>\n\t\tThe name of the metric.\n\t\t</p>",
-          "xmlOrder":1
+          "documentation":"<p>\n\t\tThe name of the metric.\n\t\t</p>"
         },
         "Dimensions":{
           "shape":"Dimensions",
-          "documentation":"<p>\n\t\tA list of dimensions associated with the metric.\n\t\t</p>",
-          "xmlOrder":2
+          "documentation":"<p>\n\t\tA list of dimensions associated with the metric.\n\t\t</p>"
         }
       },
-      "documentation":"<p>\n\t\tThe <code>Metric</code> data type contains\n\t\tinformation about a specific metric. If you call\n\t\t<a>ListMetrics</a>, Amazon CloudWatch returns\n\t\tinformation contained by this data type.\n\t\t</p>\n\t\t<p>\n\t\t\tThe example in the Examples section publishes two metrics named buffers and latency. \n\t\t\tBoth metrics are in the examples namespace. Both metrics have two dimensions, InstanceID and InstanceType.\n\t\t</p>"
+      "documentation":"<p>\n\t\tThe <code>Metric</code> data type contains\n\t\tinformation about a specific metric. If you call\n\t\t<a>ListMetrics</a>, Amazon CloudWatch returns\n\t\tinformation contained by this data type.\n\t\t</p>\n\t\t<p>\n\t\t\tThe example in the Examples section publishes two metrics named buffers and latency. \n\t\t\tBoth metrics are in the examples namespace. Both metrics have two dimensions, InstanceID and InstanceType.\n\t\t</p>",
+      "xmlOrder":[
+        "Namespace",
+        "MetricName",
+        "Dimensions"
+      ]
     },
     "MetricAlarm":{
       "type":"structure",
       "members":{
         "AlarmName":{
           "shape":"AlarmName",
-          "documentation":"<p>\n\t\tThe name of the alarm.\n\t\t</p>",
-          "xmlOrder":0
+          "documentation":"<p>\n\t\tThe name of the alarm.\n\t\t</p>"
         },
         "AlarmArn":{
           "shape":"AlarmArn",
-          "documentation":"<p>\n\t\tThe Amazon Resource Name (ARN) of the alarm.\n\t\t</p>",
-          "xmlOrder":1
+          "documentation":"<p>\n\t\tThe Amazon Resource Name (ARN) of the alarm.\n\t\t</p>"
         },
         "AlarmDescription":{
           "shape":"AlarmDescription",
-          "documentation":"<p>\n\t\tThe description for the alarm.\n\t\t</p>",
-          "xmlOrder":2
+          "documentation":"<p>\n\t\tThe description for the alarm.\n\t\t</p>"
         },
         "AlarmConfigurationUpdatedTimestamp":{
           "shape":"Timestamp",
-          "documentation":"<p>\n\t\t\tThe time stamp of the last update to the alarm configuration. Amazon CloudWatch uses Coordinated Universal Time (UTC) when returning time stamps, which do not accommodate seasonal adjustments such as daylight savings time. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp\">Time stamps</a> in the <i>Amazon CloudWatch Developer Guide</i>.\n\t\t</p>",
-          "xmlOrder":3
+          "documentation":"<p>\n\t\t\tThe time stamp of the last update to the alarm configuration. Amazon CloudWatch uses Coordinated Universal Time (UTC) when returning time stamps, which do not accommodate seasonal adjustments such as daylight savings time. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp\">Time stamps</a> in the <i>Amazon CloudWatch Developer Guide</i>.\n\t\t</p>"
         },
         "ActionsEnabled":{
           "shape":"ActionsEnabled",
-          "documentation":"<p>\n\t\tIndicates whether actions should be executed\n\t\tduring any changes to the alarm's state.\n\t\t</p>",
-          "xmlOrder":4
+          "documentation":"<p>\n\t\tIndicates whether actions should be executed\n\t\tduring any changes to the alarm's state.\n\t\t</p>"
         },
         "OKActions":{
           "shape":"ResourceList",
-          "documentation":"<p>\n\t\tThe list of actions to execute when this alarm\n\t\ttransitions into an <code>OK</code> state\n\t\tfrom any other state. Each action is specified as an\n\t\tAmazon Resource Number (ARN).\n\t\tCurrently the only actions supported are publishing\n\t\tto an Amazon SNS topic and triggering an Auto Scaling policy.\n\t\t</p>",
-          "xmlOrder":5
+          "documentation":"<p>\n\t\tThe list of actions to execute when this alarm\n\t\ttransitions into an <code>OK</code> state\n\t\tfrom any other state. Each action is specified as an\n\t\tAmazon Resource Number (ARN).\n\t\tCurrently the only actions supported are publishing\n\t\tto an Amazon SNS topic and triggering an Auto Scaling policy.\n\t\t</p>"
         },
         "AlarmActions":{
           "shape":"ResourceList",
-          "documentation":"<p>\n\t\tThe list of actions to execute when this alarm\n\t\ttransitions into an <code>ALARM</code> state\n\t\tfrom any other state. Each action is specified as an\n\t\tAmazon Resource Number (ARN).\n\t\tCurrently the only actions supported are publishing\n\t\tto an Amazon SNS topic and triggering an Auto Scaling policy.\n\t\t</p>",
-          "xmlOrder":6
+          "documentation":"<p>\n\t\tThe list of actions to execute when this alarm\n\t\ttransitions into an <code>ALARM</code> state\n\t\tfrom any other state. Each action is specified as an\n\t\tAmazon Resource Number (ARN).\n\t\tCurrently the only actions supported are publishing\n\t\tto an Amazon SNS topic and triggering an Auto Scaling policy.\n\t\t</p>"
         },
         "InsufficientDataActions":{
           "shape":"ResourceList",
-          "documentation":"<p>\n\t\tThe list of actions to execute when this alarm\n\t\ttransitions into an <code>INSUFFICIENT_DATA</code> state\n\t\tfrom any other state. Each action is specified as an\n\t\tAmazon Resource Number (ARN).\n\t\tCurrently the only actions supported are publishing\n\t\tto an Amazon SNS topic or triggering an Auto Scaling policy.\n\t\t</p>\n\t\t<important>The current WSDL lists this attribute as <code>UnknownActions</code>.</important>",
-          "xmlOrder":7
+          "documentation":"<p>\n\t\tThe list of actions to execute when this alarm\n\t\ttransitions into an <code>INSUFFICIENT_DATA</code> state\n\t\tfrom any other state. Each action is specified as an\n\t\tAmazon Resource Number (ARN).\n\t\tCurrently the only actions supported are publishing\n\t\tto an Amazon SNS topic or triggering an Auto Scaling policy.\n\t\t</p>\n\t\t<important>The current WSDL lists this attribute as <code>UnknownActions</code>.</important>"
         },
         "StateValue":{
           "shape":"StateValue",
-          "documentation":"<p>\n\t\tThe state value for the alarm.\n\t\t</p>",
-          "xmlOrder":8
+          "documentation":"<p>\n\t\tThe state value for the alarm.\n\t\t</p>"
         },
         "StateReason":{
           "shape":"StateReason",
-          "documentation":"<p>\n\t\tA human-readable explanation for the alarm's state.\n\t\t</p>",
-          "xmlOrder":9
+          "documentation":"<p>\n\t\tA human-readable explanation for the alarm's state.\n\t\t</p>"
         },
         "StateReasonData":{
           "shape":"StateReasonData",
-          "documentation":"<p>\n\t\tAn explanation for the alarm's state in machine-readable JSON format\n\t\t</p>",
-          "xmlOrder":10
+          "documentation":"<p>\n\t\tAn explanation for the alarm's state in machine-readable JSON format\n\t\t</p>"
         },
         "StateUpdatedTimestamp":{
           "shape":"Timestamp",
-          "documentation":"<p>\n\t\t\tThe time stamp of the last update to the alarm's state. Amazon CloudWatch uses Coordinated Universal Time (UTC) when returning time stamps, which do not accommodate seasonal adjustments such as daylight savings time. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp\">Time stamps</a> in the <i>Amazon CloudWatch Developer Guide</i>.\n\t\t</p>",
-          "xmlOrder":11
+          "documentation":"<p>\n\t\t\tThe time stamp of the last update to the alarm's state. Amazon CloudWatch uses Coordinated Universal Time (UTC) when returning time stamps, which do not accommodate seasonal adjustments such as daylight savings time. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp\">Time stamps</a> in the <i>Amazon CloudWatch Developer Guide</i>.\n\t\t</p>"
         },
         "MetricName":{
           "shape":"MetricName",
-          "documentation":"<p>\n\t\tThe name of the alarm's metric.\n\t\t</p>",
-          "xmlOrder":12
+          "documentation":"<p>\n\t\tThe name of the alarm's metric.\n\t\t</p>"
         },
         "Namespace":{
           "shape":"Namespace",
-          "documentation":"<p>\n\t\tThe namespace of alarm's associated metric.\n\t\t</p>",
-          "xmlOrder":13
+          "documentation":"<p>\n\t\tThe namespace of alarm's associated metric.\n\t\t</p>"
         },
         "Statistic":{
           "shape":"Statistic",
-          "documentation":"<p>\n\t\tThe statistic to apply to the alarm's associated metric.\n\t\t</p>",
-          "xmlOrder":14
+          "documentation":"<p>\n\t\tThe statistic to apply to the alarm's associated metric.\n\t\t</p>"
         },
         "Dimensions":{
           "shape":"Dimensions",
-          "documentation":"<p>\n\t\tThe list of dimensions associated with the alarm's associated metric.\n\t\t</p>",
-          "xmlOrder":15
+          "documentation":"<p>\n\t\tThe list of dimensions associated with the alarm's associated metric.\n\t\t</p>"
         },
         "Period":{
           "shape":"Period",
-          "documentation":"<p>\n\t\tThe period in seconds over which the statistic is applied.\n\t\t</p>",
-          "xmlOrder":16
+          "documentation":"<p>\n\t\tThe period in seconds over which the statistic is applied.\n\t\t</p>"
         },
         "Unit":{
           "shape":"StandardUnit",
-          "documentation":"<p>\n\t\tThe unit of the alarm's associated metric.\n\t\t</p>",
-          "xmlOrder":17
+          "documentation":"<p>\n\t\tThe unit of the alarm's associated metric.\n\t\t</p>"
         },
         "EvaluationPeriods":{
           "shape":"EvaluationPeriods",
-          "documentation":"<p>\n\t\tThe number of periods over which data is compared to the\n\t\tspecified threshold.\n\t\t</p>",
-          "xmlOrder":18
+          "documentation":"<p>\n\t\tThe number of periods over which data is compared to the\n\t\tspecified threshold.\n\t\t</p>"
         },
         "Threshold":{
           "shape":"Threshold",
-          "documentation":"<p>\n\t\tThe value against which the specified statistic is compared.\n\t\t</p>",
-          "xmlOrder":19
+          "documentation":"<p>\n\t\tThe value against which the specified statistic is compared.\n\t\t</p>"
         },
         "ComparisonOperator":{
           "shape":"ComparisonOperator",
-          "documentation":"<p>\n\t\tThe arithmetic operation to use when comparing the specified\n\t\t<code>Statistic</code> and <code>Threshold</code>. The specified\n\t\t<code>Statistic</code> value is used as the first operand.\n\t\t</p>",
-          "xmlOrder":20
+          "documentation":"<p>\n\t\tThe arithmetic operation to use when comparing the specified\n\t\t<code>Statistic</code> and <code>Threshold</code>. The specified\n\t\t<code>Statistic</code> value is used as the first operand.\n\t\t</p>"
         }
       },
-      "documentation":"<p>\n\t\tThe <a>MetricAlarm</a> data type represents\n\t\tan alarm. You can use <a>PutMetricAlarm</a>\n\t\tto create or update an alarm.\n\t\t</p>"
+      "documentation":"<p>\n\t\tThe <a>MetricAlarm</a> data type represents\n\t\tan alarm. You can use <a>PutMetricAlarm</a>\n\t\tto create or update an alarm.\n\t\t</p>",
+      "xmlOrder":[
+        "AlarmName",
+        "AlarmArn",
+        "AlarmDescription",
+        "AlarmConfigurationUpdatedTimestamp",
+        "ActionsEnabled",
+        "OKActions",
+        "AlarmActions",
+        "InsufficientDataActions",
+        "StateValue",
+        "StateReason",
+        "StateReasonData",
+        "StateUpdatedTimestamp",
+        "MetricName",
+        "Namespace",
+        "Statistic",
+        "Dimensions",
+        "Period",
+        "Unit",
+        "EvaluationPeriods",
+        "Threshold",
+        "ComparisonOperator"
+      ]
     },
     "MetricAlarms":{
       "type":"list",
@@ -967,24 +1025,6 @@
     "MetricData":{
       "type":"list",
       "member":{"shape":"MetricDatum"}
-    },
-    "MetricDataBatch":{
-      "type":"structure",
-      "required":[
-        "AccountId",
-        "Namespace",
-        "MetricData"
-      ],
-      "members":{
-        "AccountId":{"shape":"AccountId"},
-        "Namespace":{"shape":"Namespace"},
-        "MetricData":{"shape":"MetricData"},
-        "AutoDecompose":{"shape":"AutoDecompose"}
-      }
-    },
-    "MetricDataBatches":{
-      "type":"list",
-      "member":{"shape":"MetricDataBatch"}
     },
     "MetricDatum":{
       "type":"structure",
@@ -1034,6 +1074,11 @@
           "shape":"AwsQueryErrorMessage",
           "documentation":"<p></p>"
         }
+      },
+      "error":{
+        "code":"MissingParameter",
+        "httpStatusCode":400,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>\n\t\tAn input parameter that is mandatory for processing\n\t\tthe request is not supplied.\n\t\t</p>"
@@ -1124,13 +1169,6 @@
         }
       }
     },
-    "PutMetricDataBatchInput":{
-      "type":"structure",
-      "required":["MetricDataBatches"],
-      "members":{
-        "MetricDataBatches":{"shape":"MetricDataBatches"}
-      }
-    },
     "PutMetricDataInput":{
       "type":"structure",
       "required":[
@@ -1148,7 +1186,6 @@
         }
       }
     },
-    "Region":{"type":"string"},
     "ResourceList":{
       "type":"list",
       "member":{"shape":"ResourceName"},
@@ -1167,13 +1204,13 @@
           "documentation":"<p></p>"
         }
       },
+      "error":{
+        "code":"ResourceNotFound",
+        "httpStatusCode":404,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>\n\t\tThe named resource does not exist.\n\t\t</p>"
-    },
-    "SdbDatastoreEndpoint":{"type":"string"},
-    "SdbDatastoreEndpoints":{
-      "type":"list",
-      "member":{"shape":"SdbDatastoreEndpoint"}
     },
     "SetAlarmStateInput":{
       "type":"structure",
@@ -1201,7 +1238,6 @@
         }
       }
     },
-    "StackName":{"type":"string"},
     "StandardUnit":{
       "type":"string",
       "enum":[

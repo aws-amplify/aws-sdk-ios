@@ -45,18 +45,18 @@
     [super tearDown];
 }
 
-- (void)testListHostInfo {
+- (void)testListMetrics {
     AWSCloudWatch *cloudWatch = [AWSCloudWatch defaultCloudWatch];
 
-    [[[cloudWatch listHostInfo:nil] continueWithBlock:^id(BFTask *task) {
+    [[[cloudWatch listMetrics:nil] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
 
         if (task.result) {
-            XCTAssertTrue([task.result isKindOfClass:[AWSCloudWatchListHostInfoOutput class]]);
-            AWSCloudWatchListHostInfoOutput *listHostInfoOutput = task.result;
-            XCTAssertNotNil(listHostInfoOutput.hostName);
+            XCTAssertTrue([task.result isKindOfClass:[AWSCloudWatchListMetricsOutput class]]);
+            AWSCloudWatchListMetricsOutput *listMetricsOutput = task.result;
+            XCTAssertNotNil(listMetricsOutput.metrics);
         }
 
         return nil;

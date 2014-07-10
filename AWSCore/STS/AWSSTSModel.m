@@ -73,8 +73,13 @@ NSString *const AWSSTSErrorDomain = @"com.amazonaws.AWSSTSErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"assumedRoleUser" : @"AssumedRoleUser",
+             @"audience" : @"Audience",
              @"credentials" : @"Credentials",
+             @"issuer" : @"Issuer",
+             @"nameQualifier" : @"NameQualifier",
              @"packedPolicySize" : @"PackedPolicySize",
+             @"subject" : @"Subject",
+             @"subjectType" : @"SubjectType",
              };
 }
 
@@ -108,8 +113,10 @@ NSString *const AWSSTSErrorDomain = @"com.amazonaws.AWSSTSErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"assumedRoleUser" : @"AssumedRoleUser",
+             @"audience" : @"Audience",
              @"credentials" : @"Credentials",
              @"packedPolicySize" : @"PackedPolicySize",
+             @"provider" : @"Provider",
              @"subjectFromWebIdentityToken" : @"SubjectFromWebIdentityToken",
              };
 }

@@ -23,6 +23,8 @@
 NSUInteger const AWSS3TransferManagerMinimumPartSize = 5 * 1024 * 1024; // 5MB
 NSString *const AWSS3TransferManagerCacheName = @"com.amazonaws.AWSS3TransferManager.CacheName";
 NSString *const AWSS3TransferManagerErrorDomain = @"com.amazonaws.AWSS3TransferManagerErrorDomain";
+NSUInteger const AWSS3TransferManagerByteLimitDefault = 5 * 1024 * 1024; // 5MB
+NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the data indefinitely unless it hits the size limit.
 
 @interface AWSS3TransferManager()
 
@@ -38,7 +40,9 @@ NSString *const AWSS3TransferManagerErrorDomain = @"com.amazonaws.AWSS3TransferM
 @property (nonatomic, strong) NSMutableArray *completedPartsArray;
 @property (nonatomic, strong) NSString *uploadId;
 @property (nonatomic, strong) NSString *cacheIdentifier;
+@property (atomic, strong) AWSS3UploadPartRequest *currentUploadingPart;
 
+@property (atomic, assign) int64_t totalSuccessfullySentPartsDataLength;
 @end
 
 @interface AWSS3TransferManagerDownloadRequest ()
@@ -57,20 +61,22 @@ NSString *const AWSS3TransferManagerErrorDomain = @"com.amazonaws.AWSS3TransferM
         return nil;
     }
 
-    static AWSS3TransferManager *_defaultS3TrasnferManager = nil;
+    static AWSS3TransferManager *_defaultS3TransferManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         AWSS3 *s3 = [[AWSS3 alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration];
-        _defaultS3TrasnferManager = [[AWSS3TransferManager alloc] initWithS3:s3];
+        _defaultS3TransferManager = [[AWSS3TransferManager alloc] initWithS3:s3];
     });
 
-    return _defaultS3TrasnferManager;
+    return _defaultS3TransferManager;
 }
 
 - (instancetype)initWithS3:(AWSS3 *)s3 {
     if (self = [super init]) {
         _s3 = s3;
         _cache = [[TMCache alloc] initWithName:AWSS3TransferManagerCacheName];
+        _cache.diskCache.byteLimit = AWSS3TransferManagerByteLimitDefault;
+        _cache.diskCache.ageLimit = AWSS3TransferManagerAgeLimitDefault;
     }
 
     return self;
@@ -120,15 +126,21 @@ NSString *const AWSS3TransferManagerErrorDomain = @"com.amazonaws.AWSS3TransferM
         if (fileSize > AWSS3TransferManagerMinimumPartSize) {
             return [self multipartUpload:uploadRequest fileSize:fileSize cacheKey:cacheKey];
         } else {
-            return [self putObject:uploadRequest cacheKey:cacheKey];
+            return [self putObject:uploadRequest fileSize:fileSize cacheKey:cacheKey];
         }
     }] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             if ([task.error.domain isEqualToString:NSURLErrorDomain]
                 && task.error.code == NSURLErrorCancelled) {
-                return [BFTask taskWithError:[NSError errorWithDomain:AWSS3TransferManagerErrorDomain
-                                                                 code:AWSS3TransferManagerErrorCancelled
-                                                             userInfo:task.error.userInfo]];
+                if (uploadRequest.state == AWSS3TransferManagerRequestStatePaused) {
+                    return [BFTask taskWithError:[NSError errorWithDomain:AWSS3TransferManagerErrorDomain
+                                                                     code:AWSS3TransferManagerErrorPaused
+                                                                 userInfo:task.error.userInfo]];
+                } else {
+                    return [BFTask taskWithError:[NSError errorWithDomain:AWSS3TransferManagerErrorDomain
+                                                                     code:AWSS3TransferManagerErrorCancelled
+                                                                 userInfo:task.error.userInfo]];
+                }
             } else {
                 return [BFTask taskWithError:task.error];
             }
@@ -141,7 +153,9 @@ NSString *const AWSS3TransferManagerErrorDomain = @"com.amazonaws.AWSS3TransferM
 }
 
 - (BFTask *)putObject:(AWSS3TransferManagerUploadRequest *)uploadRequest
+             fileSize:(unsigned long long) fileSize
              cacheKey:(NSString *)cacheKey {
+    uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
     AWSS3PutObjectRequest *putObjectRequest = [AWSS3PutObjectRequest new];
     [putObjectRequest az_copyPropertiesFromObject:uploadRequest];
 
@@ -178,6 +192,7 @@ NSString *const AWSS3TransferManagerErrorDomain = @"com.amazonaws.AWSS3TransferM
     if ([[uploadRequest valueForKey:@"pausedPartCount"] integerValue] == 0) {
         AWSS3CreateMultipartUploadRequest *createMultipartUploadRequest = [AWSS3CreateMultipartUploadRequest new];
         [createMultipartUploadRequest az_copyPropertiesFromObject:uploadRequest];
+        [createMultipartUploadRequest setValue:[AZNetworkingRequest new] forKey:@"internalRequest"]; //recreate a new internalRequest
         initRequest = [self.s3 createMultipartUpload:createMultipartUploadRequest];
         [uploadRequest setValue:[NSMutableArray arrayWithCapacity:partCount] forKey:@"completedPartsArray"];
     } else {
@@ -187,6 +202,7 @@ NSString *const AWSS3TransferManagerErrorDomain = @"com.amazonaws.AWSS3TransferM
 
     AWSS3CompleteMultipartUploadRequest *completeMultipartUploadRequest = [AWSS3CompleteMultipartUploadRequest new];
     [completeMultipartUploadRequest az_copyPropertiesFromObject:uploadRequest];
+    [completeMultipartUploadRequest setValue:[AZNetworkingRequest new] forKey:@"internalRequest"]; //recreate a new internalRequest
 
     BFTask *uploadTask = [[[initRequest continueWithSuccessBlock:^id(BFTask *task) {
         AWSS3CreateMultipartUploadOutput *output = task.result;
@@ -204,12 +220,13 @@ NSString *const AWSS3TransferManagerErrorDomain = @"com.amazonaws.AWSS3TransferM
             c = 1;
         }
 
+        __block int64_t multiplePartsTotalBytesSent = 0;
+        
         for (NSInteger i = c; i < partCount + 1; i++) {
             uploadPartsTask = [uploadPartsTask continueWithSuccessBlock:^id(BFTask *task) {
 
                 //Cancel this task if state is canceling
                 if (uploadRequest.state == AWSS3TransferManagerRequestStateCanceling) {
-                    [self abortMultipartUploadsForRequest:uploadRequest];
                     //return a error task
                     NSDictionary *userInfo = @{NSLocalizedDescriptionKey: [NSString stringWithFormat:NSLocalizedString(@"S3 MultipartUpload has been cancelled.", nil)]};
                     return [BFTask taskWithError:[NSError errorWithDomain:AWSS3TransferManagerErrorDomain code:AWSS3TransferManagerErrorCancelled userInfo:userInfo]];
@@ -221,7 +238,7 @@ NSString *const AWSS3TransferManagerErrorDomain = @"com.amazonaws.AWSS3TransferM
 
                     //return an error task
                     NSDictionary *userInfo = @{NSLocalizedDescriptionKey: [NSString stringWithFormat:NSLocalizedString(@"S3 MultipartUpload has been paused.", nil)]};
-                    return [BFTask taskWithError:[NSError errorWithDomain:AWSS3TransferManagerErrorDomain code:AWSS3TransferManagerErrorCancelled userInfo:userInfo]];
+                    return [BFTask taskWithError:[NSError errorWithDomain:AWSS3TransferManagerErrorDomain code:AWSS3TransferManagerErrorPaused userInfo:userInfo]];
                 }
 
                 NSUInteger dataLength = i == partCount ? (NSUInteger)fileSize - ((i - 1) * AWSS3TransferManagerMinimumPartSize) : AWSS3TransferManagerMinimumPartSize;
@@ -229,16 +246,39 @@ NSString *const AWSS3TransferManagerErrorDomain = @"com.amazonaws.AWSS3TransferM
                 NSFileHandle *fileHandle = [NSFileHandle fileHandleForReadingAtPath:[uploadRequest.body path]];
                 [fileHandle seekToFileOffset:(i - 1) * AWSS3TransferManagerMinimumPartSize];
                 NSData *partData = [fileHandle readDataOfLength:dataLength];
+                NSURL *tempURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[[NSUUID UUID] UUIDString]]];
+                [partData writeToURL:tempURL atomically:YES];
+                partData = nil;
+                [fileHandle closeFile];
 
                 AWSS3UploadPartRequest *uploadPartRequest = [AWSS3UploadPartRequest new];
                 uploadPartRequest.bucket = uploadRequest.bucket;
                 uploadPartRequest.key = uploadRequest.key;
                 uploadPartRequest.partNumber = @(i);
-                uploadPartRequest.body = partData;
+                uploadPartRequest.body = tempURL;
                 uploadPartRequest.contentLength = @(dataLength);
                 uploadPartRequest.uploadId = output.uploadId?output.uploadId:uploadRequest.uploadId;
+                
+                uploadRequest.currentUploadingPart = uploadPartRequest; //retain the current uploading parts for cancel/pause purpose
+                
+                //reprocess the progressFeed received from s3 client
+                uploadPartRequest.uploadProgress = ^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
 
-                return [[self.s3 uploadPart:uploadPartRequest] continueWithSuccessBlock:^id(BFTask *task) {
+                     AZNetworkingRequest *internalRequest = [uploadRequest valueForKey:@"internalRequest"];
+                    if (internalRequest.uploadProgress) {
+                        int64_t previousSentDataLengh = [[uploadRequest valueForKey:@"totalSuccessfullySentPartsDataLength"] longLongValue];
+                        if (multiplePartsTotalBytesSent == 0) {
+                            multiplePartsTotalBytesSent += bytesSent;
+                            multiplePartsTotalBytesSent += previousSentDataLengh;
+                            internalRequest.uploadProgress(bytesSent,multiplePartsTotalBytesSent,fileSize);
+                        } else {
+                            multiplePartsTotalBytesSent += bytesSent;
+                            internalRequest.uploadProgress(bytesSent,multiplePartsTotalBytesSent,fileSize);
+                        }
+                    }
+                };
+
+                return [[[self.s3 uploadPart:uploadPartRequest] continueWithSuccessBlock:^id(BFTask *task) {
                     AWSS3UploadPartOutput *partOuput = task.result;
 
                     AWSS3CompletedPart *completedPart = [AWSS3CompletedPart new];
@@ -247,7 +287,20 @@ NSString *const AWSS3TransferManagerErrorDomain = @"com.amazonaws.AWSS3TransferM
 
                     NSMutableArray *completedParts = [uploadRequest valueForKey:@"completedPartsArray"];
                     [completedParts addObject:completedPart];
+                    
+                    int64_t totalSentLenght = [[uploadRequest valueForKey:@"totalSuccessfullySentPartsDataLength"] longLongValue];
+                    totalSentLenght += dataLength;
+                    
+                    [uploadRequest setValue:@(totalSentLenght) forKey:@"totalSuccessfullySentPartsDataLength"];
 
+                    return nil;
+                }] continueWithBlock:^id(BFTask *task) {
+                    NSError *error = nil;
+                    [[NSFileManager defaultManager] removeItemAtURL:tempURL
+                                                              error:&error];
+                    if (error) {
+                        AZLogError(@"Failed to delete a temporary file for part upload: [%@]", error);
+                    }
                     return nil;
                 }];
             }];
@@ -255,6 +308,8 @@ NSString *const AWSS3TransferManagerErrorDomain = @"com.amazonaws.AWSS3TransferM
 
         return uploadPartsTask;
     }] continueWithSuccessBlock:^id(BFTask *task) {
+        
+        //If all parts upload succeed, send completeMultipartUpload request
         NSMutableArray *completedParts = [uploadRequest valueForKey:@"completedPartsArray"];
         if ([completedParts count] != partCount) {
             NSDictionary *userInfo = @{NSLocalizedDescriptionKey: [NSString stringWithFormat:NSLocalizedString(@"All elements of completedParts must be an instance of AWSS3CompletedPart.", nil)]};
@@ -273,6 +328,10 @@ NSString *const AWSS3TransferManagerErrorDomain = @"com.amazonaws.AWSS3TransferM
         //delete cached Object if state is not Paused
         if (uploadRequest.state != AWSS3TransferManagerRequestStatePaused) {
             [self.cache removeObjectForKey:cacheKey];
+        }
+        
+        if (uploadRequest.state == AWSS3TransferManagerRequestStateCanceling) {
+            [self abortMultipartUploadsForRequest:uploadRequest];
         }
         
         if (task.error) {
@@ -418,9 +477,16 @@ NSString *const AWSS3TransferManagerErrorDomain = @"com.amazonaws.AWSS3TransferM
         if (task.error) {
             if ([task.error.domain isEqualToString:NSURLErrorDomain]
                 && task.error.code == NSURLErrorCancelled) {
-                return [BFTask taskWithError:[NSError errorWithDomain:AWSS3TransferManagerErrorDomain
-                                                                 code:AWSS3TransferManagerErrorCancelled
-                                                             userInfo:task.error.userInfo]];
+                if (downloadRequest.state == AWSS3TransferManagerRequestStatePaused) {
+                    return [BFTask taskWithError:[NSError errorWithDomain:AWSS3TransferManagerErrorDomain
+                                                                     code:AWSS3TransferManagerErrorPaused
+                                                                 userInfo:task.error.userInfo]];
+                } else {
+                    return [BFTask taskWithError:[NSError errorWithDomain:AWSS3TransferManagerErrorDomain
+                                                                     code:AWSS3TransferManagerErrorCancelled
+                                                                 userInfo:task.error.userInfo]];
+                }
+                
             } else {
                 return [BFTask taskWithError:task.error];
             }
@@ -548,7 +614,8 @@ NSString *const AWSS3TransferManagerErrorDomain = @"com.amazonaws.AWSS3TransferM
         unsigned long long fileSize = [attributes fileSize];
         if (fileSize > AWSS3TransferManagerMinimumPartSize) {
             //If using multipart upload, need to cancel current parts upload and send AbortMultiPartUpload Request.
-            // TODO:
+            [self.currentUploadingPart cancel];
+            
         } else {
             //Otherwise, just call super to cancel current task.
             return [super cancel];

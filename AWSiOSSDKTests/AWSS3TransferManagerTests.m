@@ -66,7 +66,7 @@ static NSURL *tempSmallURL = nil;
             [tempBaseString appendFormat:@"%d", i];
         }
         
-        for (int32_t j = 0; j < 30; j++) {
+        for (int32_t j = 0; j < 15; j++) {
             @autoreleasepool {
                 [fileHandle writeData:[tempBaseString dataUsingEncoding:NSUTF8StringEncoding]];
             }
@@ -129,12 +129,12 @@ static NSURL *tempSmallURL = nil;
     uploadRequest1.bucket = testBucketNameGeneral;
     uploadRequest1.key = keyName1;
     uploadRequest1.body = testDataURL;
-    uploadRequest1.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-    uploadRequest1.contentEncoding = @"aws-chunked";
+    
+ 
     BFTask *uploadTask1 = [[transferManager upload:uploadRequest1] continueWithBlock:^id(BFTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
-        XCTAssertEqual(AWSS3TransferManagerErrorCancelled, task.error.code);
+        XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
         
         return nil;
     }];
@@ -144,12 +144,12 @@ static NSURL *tempSmallURL = nil;
     uploadRequest2.bucket = testBucketNameGeneral;
     uploadRequest2.key = keyName2;
     uploadRequest2.body = testDataURL;
-    uploadRequest2.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-    uploadRequest2.contentEncoding = @"aws-chunked";
+  
+   
     BFTask *uploadTask2 = [[transferManager upload:uploadRequest2] continueWithBlock:^id(BFTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
-        XCTAssertEqual(AWSS3TransferManagerErrorCancelled, task.error.code);
+        XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
         
         return nil;
     }];
@@ -167,7 +167,7 @@ static NSURL *tempSmallURL = nil;
         //Should return Cancelled Task Error
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
-        XCTAssertEqual(AWSS3TransferManagerErrorCancelled, task.error.code);
+        XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
         return nil;
     }];
     
@@ -182,7 +182,7 @@ static NSURL *tempSmallURL = nil;
         //Should return Cancelled Task Error
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
-        XCTAssertEqual(AWSS3TransferManagerErrorCancelled, task.error.code);
+        XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
         return nil;
     }];
     
@@ -324,10 +324,7 @@ static NSURL *tempSmallURL = nil;
     NSURL *testDataURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
     [[NSFileManager defaultManager] createSymbolicLinkAtURL:testDataURL withDestinationURL:tempLargeURL error:&error];
     XCTAssertNil(error, @"The request failed. error: [%@]", error);
-    NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:tempLargeURL.path
-                                                                                error:&error];
-    XCTAssertNil(error, @"The request failed. error: [%@]", error);
-    unsigned long long fileSize = [attributes fileSize];
+
 
 
 
@@ -336,8 +333,8 @@ static NSURL *tempSmallURL = nil;
     uploadRequest1.bucket = testBucketNameGeneral;
     uploadRequest1.key = keyName1;
     uploadRequest1.body = testDataURL;
-    uploadRequest1.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-    uploadRequest1.contentEncoding = @"aws-chunked";
+
+
     BFTask *uploadTask1 = [[transferManager upload:uploadRequest1] continueWithBlock:^id(BFTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
@@ -351,8 +348,8 @@ static NSURL *tempSmallURL = nil;
     uploadRequest2.bucket = testBucketNameGeneral;
     uploadRequest2.key = keyName2;
     uploadRequest2.body = testDataURL;
-    uploadRequest2.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-    uploadRequest2.contentEncoding = @"aws-chunked";
+
+   
     BFTask *uploadTask2 = [[transferManager upload:uploadRequest2] continueWithBlock:^id(BFTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
@@ -422,18 +419,15 @@ static NSURL *tempSmallURL = nil;
     NSURL *testDataURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
     [[NSFileManager defaultManager] createSymbolicLinkAtURL:testDataURL withDestinationURL:tempLargeURL error:&error];
     XCTAssertNil(error, @"The request failed. error: [%@]", error);
-    NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:tempLargeURL.path
-                                                                                error:&error];
-    XCTAssertNil(error, @"The request failed. error: [%@]", error);
-    unsigned long long fileSize = [attributes fileSize];
+
 
 
     AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
     uploadRequest.bucket = testBucketNameGeneral;
     uploadRequest.key = keyName;
     uploadRequest.body = testDataURL;
-    uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-    uploadRequest.contentEncoding = @"aws-chunked";
+
+
     [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
@@ -519,18 +513,15 @@ static NSURL *tempSmallURL = nil;
     NSURL *testDataURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
     [[NSFileManager defaultManager] createSymbolicLinkAtURL:testDataURL withDestinationURL:tempSmallURL error:&error];
     XCTAssertNil(error, @"The request failed. error: [%@]", error);
-    NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:tempSmallURL.path
-                                                                                error:&error];
-    XCTAssertNil(error, @"The request failed. error: [%@]", error);
-    unsigned long long fileSize = [attributes fileSize];
+
 
 
     AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
     uploadRequest.bucket = testBucketNameGeneral;
     uploadRequest.key = keyName;
     uploadRequest.body = testDataURL;
-    uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-    uploadRequest.contentEncoding = @"aws-chunked";
+
+ 
     [[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
@@ -557,18 +548,15 @@ static NSURL *tempSmallURL = nil;
         NSURL *testDataURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
         [[NSFileManager defaultManager] createSymbolicLinkAtURL:testDataURL withDestinationURL:tempLargeURL error:&error];
         XCTAssertNil(error, @"The request failed. error: [%@]", error);
-        NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:tempLargeURL.path
-                                                                                    error:&error];
-        XCTAssertNil(error, @"The request failed. error: [%@]", error);
-        unsigned long long fileSize = [attributes fileSize];
+
 
 
         AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
         uploadRequest.bucket = testBucketNameGeneral;
         uploadRequest.key = keyNameSecond;
         uploadRequest.body = testDataURL;
-        uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-        uploadRequest.contentEncoding = @"aws-chunked";
+      
+
         BFTask *uploadRequestLarge = [[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
             XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
             XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
@@ -579,12 +567,12 @@ static NSURL *tempSmallURL = nil;
         }];
 
         //wait a few moment and cancel the task
-        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
         [uploadRequest cancel];
         [uploadRequestLarge waitUntilFinished];
       
 
-//        XCTAssertNotNil(uploadRequest.uploadId, @"S3TransferManagerUploadRequest should now have a uploadID returned from server");
+        XCTAssertNotNil([uploadRequest valueForKey:@"uploadId"], @"S3TransferManagerUploadRequest should now have a uploadID returned from server");
 
         //wait a few moment and check if there are some pending parts that haven't been cleared.
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:2]];
@@ -592,10 +580,10 @@ static NSURL *tempSmallURL = nil;
         AWSS3ListPartsRequest *listPartsReq = [AWSS3ListPartsRequest new];
         listPartsReq.bucket = testBucketNameGeneral;
         listPartsReq.key = keyNameSecond;
-//        listPartsReq.uploadId = uploadRequest.uploadId;
+        listPartsReq.uploadId = [uploadRequest valueForKey:@"uploadId"];
         [[[s3 listParts:listPartsReq] continueWithBlock:^id(BFTask *task) {
-            XCTAssertTrue(task.error, @"Expected 'Upload does not exist' error, but got nil");
-            XCTAssertEqual(AWSS3ErrorNoSuchKey, task.error.code);
+            XCTAssertTrue(task.error, @"Expected 'NoSuchUpload' error, but got nil");
+            XCTAssertEqual(AWSS3ErrorNoSuchUpload, task.error.code);
 
             AWSS3ListPartsOutput *listPartsOutput = task.result;
             if ([listPartsOutput.parts count] != 0) {
@@ -606,7 +594,7 @@ static NSURL *tempSmallURL = nil;
     }
 }
 
-- (void)testTMDownloadSmallSize {
+- (void)testTMDownloadSmallSizeWithProgressFeedback {
 
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
@@ -634,14 +622,30 @@ static NSURL *tempSmallURL = nil;
     uploadRequest.bucket = testBucketNameGeneral;
     uploadRequest.key = keyName;
     uploadRequest.body = testDataURL;
-    uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-    uploadRequest.contentEncoding = @"aws-chunked";
+   
+ 
+    
+    __block int64_t accumulatedUploadBytes = 0;
+    __block int64_t totalUploadedBytes = 0;
+    __block int64_t totalExpectedUploadBytes = 0;
+    uploadRequest.uploadProgress = ^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
+        
+        //NSLog(@"keyName:%@ bytesSent: %lld, totalBytesSent: %lld, totalBytesExpectedToSend: %lld",keyName,bytesSent,totalBytesSent,totalBytesExpectedToSend);
+        accumulatedUploadBytes += bytesSent;
+        totalUploadedBytes = totalBytesSent;
+        totalExpectedUploadBytes = totalBytesExpectedToSend;
+    };
+    
     [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
         return nil;
     }] waitUntilFinished];
 
+    XCTAssertEqual(totalUploadedBytes, accumulatedUploadBytes, @"total of accumulatedUploadBytes is not equal to totalUploadedBytes");
+    XCTAssertEqual(fileSize, totalUploadedBytes, @"totalUploaded Bytes is not equal to fileSize");
+    XCTAssertEqual(fileSize, totalExpectedUploadBytes);
+    
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
 
     //Download the same file from the bucket
@@ -652,6 +656,16 @@ static NSURL *tempSmallURL = nil;
     NSString *downloadFileName = [NSString stringWithFormat:@"%@-downloaded-%@",NSStringFromSelector(_cmd),testBucketNameGeneral];
     downloadRequest.downloadingFileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:downloadFileName]];
 
+    __block int64_t accumulatedDownloadBytes = 0;
+    __block int64_t totalDownloadedBytes = 0;
+    __block int64_t totalExpectedDownloadBytes = 0;
+    downloadRequest.downloadProgress = ^(int64_t bytesWritten, int64_t totalBytesWritten, int64_t totalBytesExpectedToWrite) {
+        accumulatedDownloadBytes += bytesWritten;
+        totalDownloadedBytes = totalBytesWritten;
+        totalExpectedDownloadBytes = totalBytesExpectedToWrite;
+        //NSLog(@"keyName:%@ bytesWritten: %lld, totalBytesWritten: %lld, totalBytesExpectedtoWrite: %lld",NSStringFromSelector(_cmd), bytesWritten,totalBytesWritten,totalBytesExpectedToWrite);
+    };
+    
     [[[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerDownloadOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3TransferManagerDownloadOutput class]),NSStringFromClass([task.result class]));
@@ -665,6 +679,10 @@ static NSURL *tempSmallURL = nil;
         return nil;
 
     }] waitUntilFinished];
+    
+    XCTAssertEqual(totalDownloadedBytes, accumulatedDownloadBytes, @"accumulatedDownloadBytes is not equal to totalDownloadedBytes");
+    XCTAssertEqual(fileSize, totalDownloadedBytes,@"total downloaded fileSize is not equal to uploaded fileSize");
+    XCTAssertEqual(fileSize, totalExpectedDownloadBytes);
 
     
     //Delete the object
@@ -680,7 +698,7 @@ static NSURL *tempSmallURL = nil;
 
 }
 
-- (void)testTMDownloadLargeSize {
+- (void)testTMDownloadLargeSizeWithProgressFeedback {
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
 
@@ -705,8 +723,8 @@ static NSURL *tempSmallURL = nil;
     uploadRequest.bucket = testBucketNameGeneral;
     uploadRequest.key = keyName;
     uploadRequest.body = testDataURL;
-    uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-    uploadRequest.contentEncoding = @"aws-chunked";
+   
+   
     [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
@@ -723,6 +741,16 @@ static NSURL *tempSmallURL = nil;
     NSString *downloadFileName = [NSString stringWithFormat:@"%@-downloaded-%@",NSStringFromSelector(_cmd),testBucketNameGeneral];
     downloadRequest.downloadingFileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:downloadFileName]];
 
+    __block int64_t accumulatedDownloadBytes = 0;
+    __block int64_t totalDownloadedBytes = 0;
+    __block int64_t totalExpectedDownloadBytes = 0;
+    downloadRequest.downloadProgress = ^(int64_t bytesWritten, int64_t totalBytesWritten, int64_t totalBytesExpectedToWrite) {
+        accumulatedDownloadBytes += bytesWritten;
+        totalDownloadedBytes = totalBytesWritten;
+        totalExpectedDownloadBytes = totalBytesExpectedToWrite;
+        //NSLog(@"keyName:%@ bytesWritten: %lld, totalBytesWritten: %lld, totalBytesExpectedtoWrite: %lld",NSStringFromSelector(_cmd), bytesWritten,totalBytesWritten,totalBytesExpectedToWrite);
+    };
+    
     [[[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerDownloadOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3TransferManagerDownloadOutput class]),NSStringFromClass([task.result class]));
@@ -738,6 +766,10 @@ static NSURL *tempSmallURL = nil;
 
     }] waitUntilFinished];
 
+    XCTAssertEqual(totalDownloadedBytes, accumulatedDownloadBytes, @"accumulatedDownloadBytes is not equal to totalDownloadedBytes");
+    XCTAssertEqual(fileSize, totalDownloadedBytes,@"total downloaded fileSize is not equal to uploaded fileSize");
+    XCTAssertEqual(fileSize, totalExpectedDownloadBytes);
+
     //Delete the object
     AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
     deleteObjectRequest.bucket = testBucketNameGeneral;
@@ -751,7 +783,7 @@ static NSURL *tempSmallURL = nil;
 
 }
 
-- (void)testTMDownloadPauseAndResume {
+- (void)testTMDownloadPauseAndResumeWithProgressFeedback {
 
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
@@ -778,8 +810,8 @@ static NSURL *tempSmallURL = nil;
     uploadRequest.bucket = testBucketNameGeneral;
     uploadRequest.key = keyName;
     uploadRequest.body = testDataURL;
-    uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-    uploadRequest.contentEncoding = @"aws-chunked";
+
+    
     [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
@@ -796,11 +828,21 @@ static NSURL *tempSmallURL = nil;
     NSString *downloadFileName = [NSString stringWithFormat:@"%@-downloaded-%@",NSStringFromSelector(_cmd),testBucketNameGeneral];
     downloadRequest.downloadingFileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:downloadFileName]];
 
+    __block int64_t accumulatedDownloadBytes = 0;
+    __block int64_t totalDownloadedBytes = 0;
+    __block int64_t totalExpectedDownloadBytes = 0;
+    downloadRequest.downloadProgress = ^(int64_t bytesWritten, int64_t totalBytesWritten, int64_t totalBytesExpectedToWrite) {
+        accumulatedDownloadBytes += bytesWritten;
+        totalDownloadedBytes = totalBytesWritten;
+        totalExpectedDownloadBytes = totalBytesExpectedToWrite;
+        //NSLog(@"keyName:%@ bytesWritten: %lld, totalBytesWritten: %lld, totalBytesExpectedtoWrite: %lld",NSStringFromSelector(_cmd), bytesWritten,totalBytesWritten,totalBytesExpectedToWrite);
+    };
+    
     BFTask *pausedTaskOne = [[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertNil(task.result, @"task result should be nil since it has already been cancelled");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
-        XCTAssertEqual(AWSS3TransferManagerErrorCancelled, task.error.code);
+        XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
         return nil;
     }];
 
@@ -821,7 +863,7 @@ static NSURL *tempSmallURL = nil;
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertNil(task.result, @"task result should be nil since it has already been cancelled");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
-        XCTAssertEqual(AWSS3TransferManagerErrorCancelled, task.error.code);
+        XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
         return nil;
     }];
 
@@ -850,8 +892,9 @@ static NSURL *tempSmallURL = nil;
     }] waitUntilFinished];
     AZLogDebug(@"(S3 Transfer Manager) Download Task has been resumed.");
 
-
-
+    XCTAssertEqual(fileSize, accumulatedDownloadBytes, @"accumulatedDownloadBytes is not equal to total file size");
+    XCTAssertEqual(fileSize, totalDownloadedBytes,@"total downloaded fileSize is not equal to uploaded fileSize");
+    XCTAssertEqual(fileSize, totalExpectedDownloadBytes);
 
     //Cleaning Up
     //Delete the object
@@ -884,17 +927,14 @@ static NSURL *tempSmallURL = nil;
     NSURL *testDataURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
     [[NSFileManager defaultManager] createSymbolicLinkAtURL:testDataURL withDestinationURL:tempLargeURL error:&error];
     XCTAssertNil(error, @"The request failed. error: [%@]", error);
-    NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:tempLargeURL.path
-                                                                                error:&error];
-    XCTAssertNil(error, @"The request failed. error: [%@]", error);
-    unsigned long long fileSize = [attributes fileSize];
+ 
 
     AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
     uploadRequest.bucket = testBucketNameGeneral;
     uploadRequest.key = keyName;
     uploadRequest.body = testDataURL;
-    uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-    uploadRequest.contentEncoding = @"aws-chunked";
+   
+ 
     [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
@@ -915,7 +955,7 @@ static NSURL *tempSmallURL = nil;
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertNil(task.result, @"task result should be nil since it has already been cancelled");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
-        XCTAssertEqual(AWSS3TransferManagerErrorCancelled, task.error.code);
+        XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
         return nil;
     }];
 
@@ -985,7 +1025,7 @@ static NSURL *tempSmallURL = nil;
 
 }
 
-- (void)testTMUploadPauseAndResumeSmallSize {
+- (void)testTMUploadPauseAndResumeSmallSizeWithProgressFeedback {
 
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
@@ -1011,12 +1051,25 @@ static NSURL *tempSmallURL = nil;
     uploadRequest.bucket = testBucketNameGeneral;
     uploadRequest.key = keyName;
     uploadRequest.body = testDataURL;
-    uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-    uploadRequest.contentEncoding = @"aws-chunked";
+ 
+   
+    
+    __block int64_t accumulatedUploadBytes = 0;
+    __block int64_t totalUploadedBytes = 0;
+    __block int64_t totalExpectedUploadBytes = 0;
+    uploadRequest.uploadProgress = ^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
+        
+        //NSLog(@"keyName:%@ bytesSent: %lld, totalBytesSent: %lld, totalBytesExpectedToSend: %lld",keyName,bytesSent,totalBytesSent,totalBytesExpectedToSend);
+        accumulatedUploadBytes += bytesSent;
+        totalUploadedBytes = totalBytesSent;
+        totalExpectedUploadBytes = totalBytesExpectedToSend;
+    };
+
+    
     BFTask *uploadTaskSmall = [[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
-        XCTAssertEqual(AWSS3TransferManagerErrorCancelled, task.error.code);
+        XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
         return nil;
     }];
 
@@ -1036,6 +1089,10 @@ static NSURL *tempSmallURL = nil;
         return nil;
     }] waitUntilFinished];
 
+    //XCTAssertEqual(fileSize, accumulatedUploadBytes, @"total of accumulatedUploadBytes is not equal to fileSize");
+    XCTAssertEqual(fileSize, totalUploadedBytes, @"totalUploaded Bytes is not equal to fileSize");
+    XCTAssertEqual(fileSize, totalExpectedUploadBytes);
+    
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
 
     AWSS3ListObjectsRequest *listObjectReq = [AWSS3ListObjectsRequest new];
@@ -1075,7 +1132,7 @@ static NSURL *tempSmallURL = nil;
 
 }
 
-- (void)testTMUploadPauseAndResumeLargeSize {
+- (void)testTMUploadPauseAndResumeLargeSizeWithProgressFeedback {
 
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
@@ -1100,12 +1157,24 @@ static NSURL *tempSmallURL = nil;
     uploadRequest.bucket = testBucketNameGeneral;
     uploadRequest.key = keyName;
     uploadRequest.body = testDataURL;
-    uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-    uploadRequest.contentEncoding = @"aws-chunked";
+  
+ 
+    
+    __block int64_t accumulatedUploadBytes = 0;
+    __block int64_t totalUploadedBytes = 0;
+    __block int64_t totalExpectedUploadBytes = 0;
+    uploadRequest.uploadProgress = ^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
+        
+        //NSLog(@"keyName:%@ bytesSent: %lld, totalBytesSent: %lld, totalBytesExpectedToSend: %lld",keyName,bytesSent,totalBytesSent,totalBytesExpectedToSend);
+        accumulatedUploadBytes += bytesSent;
+        totalUploadedBytes = totalBytesSent;
+        totalExpectedUploadBytes = totalBytesExpectedToSend;
+    };
+    
     BFTask *uploadTaskSmall = [[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
-        XCTAssertEqual(AWSS3TransferManagerErrorCancelled, task.error.code);
+        XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
         return nil;
     }];
 
@@ -1124,7 +1193,7 @@ static NSURL *tempSmallURL = nil;
     BFTask *taskTwo = [[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
-        XCTAssertEqual(AWSS3TransferManagerErrorCancelled, task.error.code);
+        XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
         return nil;
     }];
 
@@ -1146,7 +1215,10 @@ static NSURL *tempSmallURL = nil;
         return nil;
     }] waitUntilFinished];
 
-
+    XCTAssertEqual(fileSize, accumulatedUploadBytes, @"total of accumulatedUploadBytes is not equal to fileSize");
+    XCTAssertEqual(fileSize, totalUploadedBytes, @"totalUploaded Bytes is not equal to fileSize");
+    XCTAssertEqual(fileSize, totalExpectedUploadBytes);
+    
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
     
     AWSS3ListObjectsRequest *listObjectReq = [AWSS3ListObjectsRequest new];
@@ -1187,7 +1259,7 @@ static NSURL *tempSmallURL = nil;
 }
 
 
-- (void)testTMUploadLargeSize {
+- (void)testTMUploadLargeSizeWithProgressFeedback {
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
 
@@ -1212,14 +1284,28 @@ static NSURL *tempSmallURL = nil;
     uploadRequest.bucket = testBucketNameGeneral;
     uploadRequest.key = keyName;
     uploadRequest.body = testDataURL;
-    uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-
+ 
+    __block int64_t accumulatedUploadBytes = 0;
+    __block int64_t totalUploadedBytes = 0;
+    __block int64_t totalExpectedUploadBytes = 0;
+    uploadRequest.uploadProgress = ^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
+        
+        //NSLog(@"keyName:%@ bytesSent: %lld, totalBytesSent: %lld, totalBytesExpectedToSend: %lld",keyName,bytesSent,totalBytesSent,totalBytesExpectedToSend);
+        accumulatedUploadBytes += bytesSent;
+        totalUploadedBytes = totalBytesSent;
+        totalExpectedUploadBytes = totalBytesExpectedToSend;
+    };
+    
     [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
         return nil;
     }] waitUntilFinished];
 
+    XCTAssertEqual(totalUploadedBytes, accumulatedUploadBytes, @"total of accumulatedUploadBytes is not equal to totalUploadedBytes");
+    XCTAssertEqual(fileSize, totalUploadedBytes, @"totalUploaded Bytes is not equal to fileSize");
+    XCTAssertEqual(fileSize, totalExpectedUploadBytes);
+    
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
 
     AWSS3ListObjectsRequest *listObjectReq = [AWSS3ListObjectsRequest new];
@@ -1258,7 +1344,7 @@ static NSURL *tempSmallURL = nil;
     }] waitUntilFinished];
 }
 
-- (void)testTMUploadSmallSize {
+- (void)testTMUploadSmallSizeWithProgressFeedback {
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
 
@@ -1283,14 +1369,30 @@ static NSURL *tempSmallURL = nil;
     uploadRequest.bucket = testBucketNameGeneral;
     uploadRequest.key = keyName;
     uploadRequest.body = testDataURL;
-    uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-    uploadRequest.contentEncoding = @"aws-chunked";
+ 
+  
 
+    __block int64_t accumulatedUploadBytes = 0;
+    __block int64_t totalUploadedBytes = 0;
+    __block int64_t totalExpectedUploadBytes = 0;
+    uploadRequest.uploadProgress = ^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
+        
+        //NSLog(@"keyName:%@ bytesSent: %lld, totalBytesSent: %lld, totalBytesExpectedToSend: %lld",keyName,bytesSent,totalBytesSent,totalBytesExpectedToSend);
+        accumulatedUploadBytes += bytesSent;
+        totalUploadedBytes = totalBytesSent;
+        totalExpectedUploadBytes = totalBytesExpectedToSend;
+    };
+    
     [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
         return nil;
     }] waitUntilFinished];
+    
+    XCTAssertEqual(totalUploadedBytes, accumulatedUploadBytes, @"total of accumulatedUploadBytes is not equal to totalUploadedBytes");
+    XCTAssertEqual(fileSize, totalUploadedBytes, @"totalUploaded Bytes is not equal to fileSize");
+    XCTAssertEqual(fileSize, totalExpectedUploadBytes);
+
 
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
 

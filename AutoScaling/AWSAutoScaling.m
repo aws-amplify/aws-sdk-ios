@@ -41,13 +41,14 @@
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
-                            @"InvalidClientTokenId" : @(AWSAutoScalingErrorInvalidClientTokenId),
                             @"IncompleteSignature" : @(AWSAutoScalingErrorIncompleteSignature),
-                            @"AlreadyExists" : @(AWSAutoScalingErrorAlreadyExists),
+                            @"InvalidClientTokenId" : @(AWSAutoScalingErrorInvalidClientTokenId),
+                            @"MissingAuthenticationToken" : @(AWSAutoScalingErrorMissingAuthenticationToken),
+                            @"AlreadyExistsFault" : @(AWSAutoScalingErrorAlreadyExists),
                             @"InvalidNextToken" : @(AWSAutoScalingErrorInvalidNextToken),
-                            @"LimitExceeded" : @(AWSAutoScalingErrorLimitExceeded),
-                            @"ResourceInUse" : @(AWSAutoScalingErrorResourceInUse),
-                            @"ScalingActivityInProgress" : @(AWSAutoScalingErrorScalingActivityInProgress),
+                            @"LimitExceededFault" : @(AWSAutoScalingErrorLimitExceeded),
+                            @"ResourceInUseFault" : @(AWSAutoScalingErrorResourceInUse),
+                            @"ScalingActivityInProgressFault" : @(AWSAutoScalingErrorScalingActivityInProgress),
                             };
 }
 

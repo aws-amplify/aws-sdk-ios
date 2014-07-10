@@ -38,6 +38,7 @@ typedef NS_ENUM(NSInteger, AWSSQSErrorType) {
     AWSSQSErrorQueueNameExists,
     AWSSQSErrorReceiptHandleIsInvalid,
     AWSSQSErrorTooManyEntriesInBatchRequest,
+    AWSSQSErrorUnsupportedOperation,
 };
 
 typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
@@ -81,6 +82,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @class AWSSQSListQueuesRequest;
 @class AWSSQSListQueuesResult;
 @class AWSSQSMessage;
+@class AWSSQSMessageAttributeValue;
 @class AWSSQSReceiveMessageRequest;
 @class AWSSQSReceiveMessageResult;
 @class AWSSQSRemovePermissionRequest;
@@ -242,14 +244,14 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 
 /**
- * <p>The name for the queue to be created.</p>
- */
-@property (nonatomic, strong) NSString *queueName;
-
-/**
  * <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters the <code>CreateQueue</code> action uses:</p><p><ul><li><code>DelaySeconds</code> - The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 (zero).</li><li><code>MaximumMessageSize</code> - The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).</li><li><code>MessageRetentionPeriod</code> - The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).</li><li><code>Policy</code> - The queue's policy. A valid form-url-encoded policy. For more information about policy structure, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html">Basic Policy Structure</a> in the <i>Amazon SQS Developer Guide</i>.For more information about form-url-encoding, see<a href="http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1">http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1</a>.</li><li><code>ReceiveMessageWaitTimeSeconds</code> - The time for which a <a>ReceiveMessage</a> call will wait for a message to arrive. An integer from 0 to 20 (seconds). The default for this attribute is 0. </li><li><code>VisibilityTimeout</code> - The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</li></ul></p>
  */
 @property (nonatomic, strong) NSDictionary *attributes;
+
+/**
+ * <p>The name for the queue to be created.</p>
+ */
+@property (nonatomic, strong) NSString *queueName;
 
 @end
 
@@ -362,14 +364,14 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 
 /**
- * <p>The URL of the Amazon SQS queue to take action on.</p>
- */
-@property (nonatomic, strong) NSString *queueUrl;
-
-/**
  * <p>A list of attributes to retrieve information for. </p>
  */
 @property (nonatomic, strong) NSArray *attributeNames;
+
+/**
+ * <p>The URL of the Amazon SQS queue to take action on.</p>
+ */
+@property (nonatomic, strong) NSString *queueUrl;
 
 @end
 
@@ -483,6 +485,16 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSString *MD5OfBody;
 
 /**
+ * <p>An MD5 digest of the non-URL-encoded message attribute string. This can be used to verify that Amazon SQS received the message correctly. Amazon SQS first URL decodes the message before creating the MD5 digest. For information about MD5, go to <a href="http://www.faqs.org/rfcs/rfc1321.html">http://www.faqs.org/rfcs/rfc1321.html</a>.</p>
+ */
+@property (nonatomic, strong) NSString *MD5OfMessageAttributes;
+
+/**
+ * <p>Each message attribute consists of a Name, Type, and Value. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV">Message Attribute Items</a>.</p>
+ */
+@property (nonatomic, strong) NSDictionary *messageAttributes;
+
+/**
  * <p>A unique identifier for the message. Message IDs are considered unique across all AWS accounts for an extended period of time.</p>
  */
 @property (nonatomic, strong) NSString *messageId;
@@ -491,6 +503,40 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
  * <p>An identifier associated with the act of receiving the message.A new receipt handle is returned every time you receive a message.When deleting a message, you provide the last received receipt handle to delete the message.</p>
  */
 @property (nonatomic, strong) NSString *receiptHandle;
+
+@end
+
+/**
+ * <p>The user-specified message attribute value. For string data types, the value attribute has the same restrictions on the content as the message body. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html">SendMessage</a>.</p><p>Name, type, and value must not be empty or null. In addition, the message body should not be empty or null. All parts of the message attribute, including name, type, and value, are included in the message size restriction, which is currently 256 KB (262,144 bytes).</p>
+ * Required parameters: [DataType]
+ */
+@interface AWSSQSMessageAttributeValue : AZModel
+
+
+/**
+ * <p>Not implemented. Reserved for future use.</p>
+ */
+@property (nonatomic, strong) NSArray *binaryListValues;
+
+/**
+ * <p>Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.</p>
+ */
+@property (nonatomic, strong) NSData *binaryValue;
+
+/**
+ * <p>Amazon SQS supports the following logical data types: String, Number, and Binary. In addition, you can append your own custom labels. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributes.DataTypes">Message Attribute Data Types</a>.</p>
+ */
+@property (nonatomic, strong) NSString *dataType;
+
+/**
+ * <p>Not implemented. Reserved for future use.</p>
+ */
+@property (nonatomic, strong) NSArray *stringListValues;
+
+/**
+ * <p>Strings are Unicode with UTF8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters</a>.</p>
+ */
+@property (nonatomic, strong) NSString *stringValue;
 
 @end
 
@@ -503,9 +549,14 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSArray *attributeNames;
 
 /**
- * <p>The maximum number of messages to return. Amazon SQS never returns more messages than this value but may return fewer.</p><p>All of the messages are not necessarily returned.</p>
+ * <p>The maximum number of messages to return. Amazon SQS never returns more messages than this value but may return fewer. Values can be from 1 to 10. Default is 1.</p><p>All of the messages are not necessarily returned.</p>
  */
 @property (nonatomic, strong) NSNumber *maxNumberOfMessages;
+
+/**
+ * <p>The message attribute Name can contain the following characters: A-Z, a-z, 0-9, underscore(_), hyphen(-), and period (.).The message attribute name must not start or end with a period, and it should not have successive periods. The message attribute name is case sensitive and must be unique among all attributenames for the message. The message attribute name can be up to 256 characters long. Attribute names cannot start with "AWS." or "Amazon." because these prefixes are reserved for use by Amazon Web Services.</p>
+ */
+@property (nonatomic, strong) NSArray *messageAttributeNames;
 
 /**
  * <p>The URL of the Amazon SQS queue to take action on.</p>
@@ -585,6 +636,11 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSString *id;
 
 /**
+ * <p>Each message attribute consists of a Name, Type, and Value. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV">Message Attribute Items</a>.</p>
+ */
+@property (nonatomic, strong) NSDictionary *messageAttributes;
+
+/**
  * <p>Body of the message.</p>
  */
 @property (nonatomic, strong) NSString *messageBody;
@@ -623,6 +679,11 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSString *id;
 
 /**
+ * <p>An MD5 digest of the non-URL-encoded message attribute string. This can be used to verify that Amazon SQS received the message batch correctly. Amazon SQS first URL decodes the message before creating the MD5 digest. For information about MD5, go to <a href="http://www.faqs.org/rfcs/rfc1321.html">http://www.faqs.org/rfcs/rfc1321.html</a>.</p>
+ */
+@property (nonatomic, strong) NSString *MD5OfMessageAttributes;
+
+/**
  * <p>An MD5 digest of the non-URL-encoded message body string. This can be used to verify that Amazon SQS received the message correctly. Amazon SQS first URL decodes the message before creating the MD5 digest. For information about MD5, go to <a href="http://www.faqs.org/rfcs/rfc1321.html">http://www.faqs.org/rfcs/rfc1321.html</a>.</p>
  */
 @property (nonatomic, strong) NSString *MD5OfMessageBody;
@@ -643,6 +704,11 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSNumber *delaySeconds;
 
 /**
+ * <p>Each message attribute consists of a Name, Type, and Value. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV">Message Attribute Items</a>.</p>
+ */
+@property (nonatomic, strong) NSDictionary *messageAttributes;
+
+/**
  * <p>The message to send. String maximum 256 KB in size. For a list of allowed characters, see the preceding important note.</p>
  */
 @property (nonatomic, strong) NSString *messageBody;
@@ -661,6 +727,11 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 
 /**
+ * <p>An MD5 digest of the non-URL-encoded message attribute string. This can be used to verify that Amazon SQS received the message correctly. Amazon SQS first URL decodes the message before creating the MD5 digest. For information about MD5, go to <a href="http://www.faqs.org/rfcs/rfc1321.html">http://www.faqs.org/rfcs/rfc1321.html</a>.</p>
+ */
+@property (nonatomic, strong) NSString *MD5OfMessageAttributes;
+
+/**
  * <p>An MD5 digest of the non-URL-encoded message body string. This can be used to verify that Amazon SQS received the message correctly. Amazon SQS first URL decodes the message before creating the MD5 digest. For information about MD5, go to <a href="http://www.faqs.org/rfcs/rfc1321.html">http://www.faqs.org/rfcs/rfc1321.html</a>.</p>
  */
 @property (nonatomic, strong) NSString *MD5OfMessageBody;
@@ -676,13 +747,13 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 
 /**
- * <p>The URL of the Amazon SQS queue to take action on.</p>
- */
-@property (nonatomic, strong) NSString *queueUrl;
-
-/**
  * <p>A map of attributes to set.</p><p>The following lists the names, descriptions, and values of the special request parameters the <code>SetQueueAttributes</code> action uses:</p><p><ul><li><code>DelaySeconds</code> - The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 (zero).</li><li><code>MaximumMessageSize</code> - The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).</li><li><code>MessageRetentionPeriod</code> - The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).</li><li><code>Policy</code> - The queue's policy. A valid form-url-encoded policy. For more information about policy structure, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html">Basic Policy Structure</a> in the <i>Amazon SQS Developer Guide</i>.For more information about form-url-encoding, see<a href="http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1">http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1</a>.</li><li><code>ReceiveMessageWaitTimeSeconds</code> - The time for which a ReceiveMessage call will wait for a message to arrive. An integer from 0 to 20 (seconds). The default for this attribute is 0. </li><li><code>VisibilityTimeout</code> - The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see Visibility Timeout in the <i>Amazon SQS Developer Guide</i>.</li><li><code>RedrivePolicy</code> - The parameters for dead letter queue functionality of the source queue.For more information about RedrivePolicy and dead letter queues, see Using Amazon SQS Dead Letter Queues in the <i>Amazon SQS Developer Guide</i>.</li></ul></p>
  */
 @property (nonatomic, strong) NSDictionary *attributes;
+
+/**
+ * <p>The URL of the Amazon SQS queue to take action on.</p>
+ */
+@property (nonatomic, strong) NSString *queueUrl;
 
 @end

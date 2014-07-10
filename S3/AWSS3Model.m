@@ -2681,23 +2681,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
     }];
 }
 
-+ (NSValueTransformer *)replicateSourceIfMatchJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
-    } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
-    }];
-}
-
 + (NSValueTransformer *)replicateSourceIfModifiedSinceJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
-    } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
-    }];
-}
-
-+ (NSValueTransformer *)replicateSourceIfNoneMatchJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
         return [NSDate az_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
@@ -3095,23 +3079,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              };
 }
 
-+ (NSValueTransformer *)replicateSourceIfMatchJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
-    } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
-    }];
-}
-
 + (NSValueTransformer *)replicateSourceIfModifiedSinceJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
-    } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
-    }];
-}
-
-+ (NSValueTransformer *)replicateSourceIfNoneMatchJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
         return [NSDate az_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {

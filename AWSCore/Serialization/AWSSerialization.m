@@ -14,7 +14,7 @@
  */
 
 #import "AWSSerialization.h"
-#import "XMLWriter.h"
+#import "AWSXMLWriter.h"
 #import "AZCategory.h"
 #import "AZLogging.h"
 #import "XMLDictionary.h"
@@ -115,7 +115,7 @@ NSString *const AWSXMLParserErrorDomain = @"com.amazonaws.AWSXMLParserErrorDomai
     return resultData;
 }
 
-+ (XMLWriter *)xmlBuildForDictionary:(NSDictionary *)params actionName:(NSString *)actionName serviceDefinitionRule:(NSDictionary *)serviceDefinitionRule error:(NSError *__autoreleasing *)error {
++ (AWSXMLWriter *)xmlBuildForDictionary:(NSDictionary *)params actionName:(NSString *)actionName serviceDefinitionRule:(NSDictionary *)serviceDefinitionRule error:(NSError *__autoreleasing *)error {
 
     NSDictionary *actionRule = [[[serviceDefinitionRule objectForKey:@"operations"] objectForKey:actionName] objectForKey:@"input"];
     NSDictionary *definitionRules = [serviceDefinitionRule objectForKey:@"shapes"];
@@ -133,14 +133,14 @@ NSString *const AWSXMLParserErrorDomain = @"com.amazonaws.AWSXMLParserErrorDomai
     }
 
 
-    XMLWriter* xmlWriter = [[XMLWriter alloc]init];
+    AWSXMLWriter* xmlWriter = [[AWSXMLWriter alloc]init];
 
     AWSJSONDictionary *rules = [[AWSJSONDictionary alloc] initWithDictionary:actionRule JSONDefinitionRule:definitionRules];
     [self serializeStructure:params rules:rules xmlWriter:xmlWriter error:error isRootRule:YES];
     return xmlWriter;
 }
 
-+ (BOOL)serializeStructure:(NSDictionary *)params rules:(AWSJSONDictionary *)rules xmlWriter:(XMLWriter *)xmlWriter error:(NSError *__autoreleasing *)error isRootRule:(BOOL)isRootRule {
++ (BOOL)serializeStructure:(NSDictionary *)params rules:(AWSJSONDictionary *)rules xmlWriter:(AWSXMLWriter *)xmlWriter error:(NSError *__autoreleasing *)error isRootRule:(BOOL)isRootRule {
 
     AWSJSONDictionary *structureMembersRule = rules[@"members"]?rules[@"members"]:@{};
 
@@ -165,7 +165,7 @@ NSString *const AWSXMLParserErrorDomain = @"com.amazonaws.AWSXMLParserErrorDomai
         id value = params[memberName];
         if (value) {
 
-            if (memberRules[@"xmlattribute"]) {
+            if (memberRules[@"xmlAttribute"]) {
                 //It should be an attribute, will be proceed in applyNamespacesAndAttributesByRules
                 return;
             }
@@ -182,10 +182,10 @@ NSString *const AWSXMLParserErrorDomain = @"com.amazonaws.AWSXMLParserErrorDomai
     return isValid;
 }
 
-+ (BOOL)serializeList:(NSArray *)list name:(NSString *)name rules:(AWSJSONDictionary *)rules xmlWriter:(XMLWriter *)xmlWriter error:(NSError *__autoreleasing *)error {
++ (BOOL)serializeList:(NSArray *)list name:(NSString *)name rules:(AWSJSONDictionary *)rules xmlWriter:(AWSXMLWriter *)xmlWriter error:(NSError *__autoreleasing *)error {
 
     AWSJSONDictionary *memberRules = rules[@"member"]?rules[@"member"]:@{};
-    NSString *xmlListName = rules[@"xmlName"]?rules[@"xmlName"]:name;
+    NSString *xmlListName = rules[@"locationName"]?rules[@"locationName"]:name;
 
     __block BOOL isValid = YES;
     __block NSError *blockErr = nil;
@@ -220,8 +220,8 @@ NSString *const AWSXMLParserErrorDomain = @"com.amazonaws.AWSXMLParserErrorDomai
     return isValid;
 }
 
-+ (BOOL)serializeMember:(id)params name:(NSString *)memberName rules:(AWSJSONDictionary *)rules xmlWriter:(XMLWriter *)xmlWriter error:(NSError *__autoreleasing *)error {
-    NSString *xmlElementName = rules[@"xmlName"]?rules[@"xmlName"]:memberName;
++ (BOOL)serializeMember:(id)params name:(NSString *)memberName rules:(AWSJSONDictionary *)rules xmlWriter:(AWSXMLWriter *)xmlWriter error:(NSError *__autoreleasing *)error {
+    NSString *xmlElementName = rules[@"locationName"]?rules[@"locationName"]:memberName;
     NSString *rulesType = rules[@"type"];
     if ([rulesType isEqualToString:@"structure"]) {
         [xmlWriter writeStartElement:xmlElementName];
@@ -282,7 +282,7 @@ NSString *const AWSXMLParserErrorDomain = @"com.amazonaws.AWSXMLParserErrorDomai
     return YES;
 }
 
-+ (void)applyNamespacesAndAttributesByRules:(NSDictionary *)rules params:(id)params xmlWriter:(XMLWriter *)xmlWriter {
++ (void)applyNamespacesAndAttributesByRules:(NSDictionary *)rules params:(id)params xmlWriter:(AWSXMLWriter *)xmlWriter {
     id xmlNamespaceValue = rules[@"xmlNamespace"];
     if (xmlNamespaceValue) {
         if ([xmlNamespaceValue isKindOfClass:[NSDictionary class]]) {
@@ -297,8 +297,8 @@ NSString *const AWSXMLParserErrorDomain = @"com.amazonaws.AWSXMLParserErrorDomai
         }
     }
 
-    if ([rules[@"members"][@"Type"][@"xmlattribute"] boolValue]) {
-        NSString *xmlName = rules[@"members"][@"Type"][@"xmlName"];
+    if ([rules[@"members"][@"Type"][@"xmlAttribute"] boolValue]) {
+        NSString *xmlName = rules[@"members"][@"Type"][@"locationName"];
         if (params[@"Type"]) {
             [xmlWriter writeAttribute:xmlName value:params[@"Type"]];
         }
@@ -320,7 +320,8 @@ NSString *const AWSXMLParserErrorDomain = @"com.amazonaws.AWSXMLParserErrorDomai
 
 + (NSMutableDictionary *)preprocessDictionary:(NSMutableDictionary *)fromDictionary operationName:(NSString *)operationName actionRule:(NSDictionary *)actionRule serviceDefinitionRule:(NSDictionary *)serviceDefinitionRule {
 
-    NSString *serviceTypeStr = serviceDefinitionRule[@"metadata"][@"type"];
+    NSString *serviceTypeStr = serviceDefinitionRule[@"metadata"][@"type"]?serviceDefinitionRule[@"metadata"][@"type"]:serviceDefinitionRule[@"metadata"][@"protocol"];
+    
 
     if ([serviceTypeStr isEqualToString:@"query"]) {
         NSNumber *isResultWrapped = serviceDefinitionRule[@"metadata"][@"resultWrapped"];
@@ -427,7 +428,7 @@ NSString *const AWSXMLParserErrorDomain = @"com.amazonaws.AWSXMLParserErrorDomai
 
         if ([obj isKindOfClass:[NSDictionary class]] && ([obj[@"type"] isEqualToString:@"list"] || [obj[@"type"] isEqualToString:@"map"])) {
             if ([obj[@"flattened"] boolValue]) {
-                NSString *objXMLName = obj[@"member"][@"xmlName"]?obj[@"member"][@"xmlName"]:obj[@"xmlName"];
+                NSString *objXMLName = obj[@"member"][@"locationName"]?obj[@"member"][@"locationName"]:obj[@"locationName"];
                 objXMLName = objXMLName?objXMLName:@"member";
                 if ([xmlName isEqualToString:objXMLName]) {
                     result = key;
@@ -435,7 +436,7 @@ NSString *const AWSXMLParserErrorDomain = @"com.amazonaws.AWSXMLParserErrorDomai
                     return;
                 }
             } else {
-                if ([xmlName isEqualToString:obj[@"xmlName"]]) {
+                if ([xmlName isEqualToString:obj[@"locationName"]]) {
                     result = key;
                     *stop = YES;
                     return;
@@ -444,8 +445,8 @@ NSString *const AWSXMLParserErrorDomain = @"com.amazonaws.AWSXMLParserErrorDomai
 
         }
 
-        if ([obj isKindOfClass:[NSDictionary class]] && [obj objectForKey:@"xmlName"]) {
-            if ([xmlName isEqualToString:[obj objectForKey:@"xmlName"]]) {
+        if ([obj isKindOfClass:[NSDictionary class]] && [obj objectForKey:@"locationName"]) {
+            if ([xmlName isEqualToString:[obj objectForKey:@"locationName"]]) {
                 result = key;
                 *stop = YES;
                 return;
@@ -505,7 +506,10 @@ NSString *const AWSXMLParserErrorDomain = @"com.amazonaws.AWSXMLParserErrorDomai
         } else {
             NSString *keyName = [self findKeyNameByXMLName:xmlName rules:rules];
             if (!keyName) {
-                AZLogWarn(@"Can not find the xmlName:%@ in definition to validate xml data", xmlName);
+                if (![xmlName isEqualToString:@"_xmlns"] && ![xmlName isEqualToString:@"requestId"]) {
+                    AZLogWarn(@"Can not find the xmlName:%@ in definition to serialize xml data: %@", xmlName, [value description]);
+                }
+                
                 /*[self failWithCode:AWSXMLParserXMLNameNotFoundInDefinition
                  description:[NSString stringWithFormat:@"Can not find the xmlName:%@ in definition to validate xml data", xmlName]
                  error:&blockErr];
@@ -570,7 +574,7 @@ NSString *const AWSXMLParserErrorDomain = @"com.amazonaws.AWSXMLParserErrorDomai
 
     //If not flattened, need to manually flatten it.
     if (![rules[@"flattened"] boolValue]) {
-        NSString *memberName = memberRules[@"xmlName"]?memberRules[@"xmlName"]:@"member";
+        NSString *memberName = memberRules[@"locationName"]?memberRules[@"locationName"]:@"member";
         if (![list isKindOfClass:[NSDictionary class]]) {
             [self failWithCode:AWSXMLParserUnExpectedType description:[NSString stringWithFormat:@"unflattened xml(list type) should be dictionary but got:%@",NSStringFromClass([list class])] error:error];
             return @[];

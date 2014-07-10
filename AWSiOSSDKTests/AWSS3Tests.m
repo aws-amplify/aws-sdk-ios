@@ -245,7 +245,8 @@ static NSString *testBucketNameGeneral = nil;
     putObjectRequest.key = keyName;
     putObjectRequest.body = testObjectData;
     putObjectRequest.contentLength = [NSNumber numberWithUnsignedInteger:[testObjectData length]];
-    putObjectRequest.contentEncoding = @"aws-chunked";
+
+    putObjectRequest.contentType = @"video/mpeg";
 
     [[[s3 putObject:putObjectRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
@@ -282,7 +283,32 @@ static NSString *testBucketNameGeneral = nil;
     }] waitUntilFinished];
 }
 
-- (void)testPutGetAndDeleteObjectByFilePath {
+-(void)testGetByFilePathFailed {
+    NSString *keyName = @"ios-test-get-non-existed-key";
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    
+    AWSS3GetObjectRequest *getObjectRequest = [AWSS3GetObjectRequest new];
+    getObjectRequest.bucket = testBucketNameGeneral;
+    getObjectRequest.key = keyName;
+    
+    //assign the file path to be written.
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
+    NSString *fileName = [NSString stringWithFormat:@"%@-%@",NSStringFromSelector(_cmd),testBucketNameGeneral];
+    NSString *filePath = [documentsPath stringByAppendingPathComponent:fileName];
+    getObjectRequest.downloadingFileURL = [NSURL fileURLWithPath:filePath];
+    
+    [[[s3 getObject:getObjectRequest] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNotNil(task.error, @"The request should failed but the error is nil");
+        XCTAssertEqual(AWSS3ErrorNoSuchKey, task.error.code, @"expected AWSS3ErrorNoSuchKey Error but got error code:%ld",(long)task.error.code);
+        XCTAssertNil(task.result, @"result should be nil but got something.");
+        
+        
+        return nil;
+    }] waitUntilFinished];
+    
+}
+- (void)testPutGetAndDeleteObjectByFilePathWithProgressFeedback {
     NSString *keyName = @"ios-test-put-get-and-delete-obj";
     NSString *getObjectFilePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"s3-2006-03-01" ofType:@"json"];
     XCTAssertNotNil(getObjectFilePath);
@@ -295,8 +321,17 @@ static NSString *testBucketNameGeneral = nil;
     putObjectRequest.key = keyName;
     putObjectRequest.body = [NSURL fileURLWithPath:getObjectFilePath];
     putObjectRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-    putObjectRequest.contentEncoding = @"aws-chunked";
+   
 
+    __block int64_t totalUploadedBytes = 0;
+    __block int64_t totalExpectedUploadBytes = 0;
+    putObjectRequest.uploadProgress = ^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
+       
+        //NSLog(@"bytesSent: %lld, totalBytesSent: %lld, totalBytesExpectedToSend: %lld",bytesSent,totalBytesSent,totalBytesExpectedToSend);
+        totalUploadedBytes = totalBytesSent;
+        totalExpectedUploadBytes = totalBytesExpectedToSend;
+    };
+    
     [[[s3 putObject:putObjectRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3PutObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3PutObjectOutput class]),[task.result description]);
@@ -307,6 +342,9 @@ static NSString *testBucketNameGeneral = nil;
 
     }] waitUntilFinished];
 
+    XCTAssertEqual(fileSize, totalUploadedBytes, @"totalUploaded Bytes is not equal to fileSize");
+    XCTAssertEqual(fileSize, totalExpectedUploadBytes);
+    
     AWSS3GetObjectRequest *getObjectRequest = [AWSS3GetObjectRequest new];
     getObjectRequest.bucket = testBucketNameGeneral;
     getObjectRequest.key = keyName;
@@ -316,7 +354,15 @@ static NSString *testBucketNameGeneral = nil;
     NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
     NSString *filePath = [documentsPath stringByAppendingPathComponent:@"s3ResponseDataFile.txt"];
     getObjectRequest.downloadingFileURL = [NSURL fileURLWithPath:filePath];
-
+    
+    __block int64_t totalDownloadedBytes = 0;
+    __block int64_t totalExpectedDownloadBytes = 0;
+    getObjectRequest.downloadProgress = ^(int64_t bytesWritten, int64_t totalBytesWritten, int64_t totalBytesExpectedToWrite) {
+        totalDownloadedBytes = totalBytesWritten;
+        totalExpectedDownloadBytes = totalBytesExpectedToWrite;
+        //NSLog(@"bytesWritten: %lld, totalBytesWritten: %lld, totalBytesExpectedtoWrite: %lld", bytesWritten,totalBytesWritten,totalBytesExpectedToWrite);
+    };
+    
     [[[s3 getObject:getObjectRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3GetObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3GetObjectOutput class]),[task.result description]);
@@ -331,7 +377,10 @@ static NSString *testBucketNameGeneral = nil;
 
         return nil;
     }] waitUntilFinished];
-
+    
+    XCTAssertEqual(fileSize, totalDownloadedBytes,@"total downloaded fileSize is not equal to uploaded fileSize");
+    XCTAssertEqual(fileSize, totalExpectedDownloadBytes);
+    
     AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
     deleteObjectRequest.bucket = testBucketNameGeneral;
     deleteObjectRequest.key = keyName;
@@ -343,7 +392,7 @@ static NSString *testBucketNameGeneral = nil;
     }] waitUntilFinished];
 }
 
-- (void)testPutAndDeleteObject256KB {
+- (void)testPutGetAndDeleteObject256KBWithProgressFeedback {
     NSString *keyName = @"ios-test-put-and-delete-256KB";
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
@@ -354,12 +403,23 @@ static NSString *testBucketNameGeneral = nil;
 
     unsigned char *largeData = malloc(AWSS3Test256KB) ;
     memset(largeData, 5, AWSS3Test256KB);
-    NSData *data = [[NSData alloc] initWithBytesNoCopy:largeData length:AWSS3Test256KB];
+    NSData *testObjectData = [[NSData alloc] initWithBytesNoCopy:largeData length:AWSS3Test256KB];
 
-    putObjectRequest.body = data;
-    putObjectRequest.contentLength = [NSNumber numberWithUnsignedInteger:[data length]];
-    putObjectRequest.contentEncoding = @"aws-chunked";
+    putObjectRequest.body = testObjectData;
+    putObjectRequest.contentLength = [NSNumber numberWithUnsignedInteger:[testObjectData length]];
 
+
+    __block int64_t accumulatedUploadBytes = 0;
+    __block int64_t totalUploadedBytes = 0;
+    __block int64_t totalExpectedUploadBytes = 0;
+    putObjectRequest.uploadProgress = ^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
+     
+        //NSLog(@"bytesSent: %lld, totalBytesSent: %lld, totalBytesExpectedToSend: %lld",bytesSent,totalBytesSent,totalBytesExpectedToSend);
+        accumulatedUploadBytes += bytesSent;
+        totalUploadedBytes = totalBytesSent;
+        totalExpectedUploadBytes = totalBytesExpectedToSend;
+    };
+    
     [[[s3 putObject:putObjectRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3PutObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3PutObjectOutput class]),[task.result description]);
@@ -370,6 +430,10 @@ static NSString *testBucketNameGeneral = nil;
 
     }] waitUntilFinished];
 
+    XCTAssertEqual(totalUploadedBytes, accumulatedUploadBytes, @"total of accumulatedUploadBytes is not equal to totalUploadedBytes");
+    XCTAssertEqual(AWSS3Test256KB, totalUploadedBytes, @"totalUploaded Bytes is not equal to fileSize");
+    XCTAssertEqual(AWSS3Test256KB, totalExpectedUploadBytes);
+    
     AWSS3ListObjectsRequest *listObjectReq = [AWSS3ListObjectsRequest new];
     listObjectReq.bucket = testBucketNameGeneral;
 
@@ -391,6 +455,34 @@ static NSString *testBucketNameGeneral = nil;
         return nil;
     }] waitUntilFinished];
 
+    AWSS3GetObjectRequest *getObjectRequest = [AWSS3GetObjectRequest new];
+    getObjectRequest.bucket = testBucketNameGeneral;
+    getObjectRequest.key = keyName;
+    
+    __block int64_t accumulatedDownloadBytes = 0;
+    __block int64_t totalDownloadedBytes = 0;
+    __block int64_t totalExpectedDownloadBytes = 0;
+    getObjectRequest.downloadProgress = ^(int64_t bytesWritten, int64_t totalBytesWritten, int64_t totalBytesExpectedToWrite) {
+        accumulatedDownloadBytes += bytesWritten;
+        totalDownloadedBytes = totalBytesWritten;
+        totalExpectedDownloadBytes = totalBytesExpectedToWrite;
+        //NSLog(@"bytesWritten: %lld, totalBytesWritten: %lld, totalBytesExpectedtoWrite: %lld", bytesWritten,totalBytesWritten,totalBytesExpectedToWrite);
+    };
+    
+    [[[s3 getObject:getObjectRequest] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3GetObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3GetObjectOutput class]),[task.result description]);
+        AWSS3GetObjectOutput *getObjectOutput = task.result;
+        NSData *receivedBody = getObjectOutput.body;
+        XCTAssertEqualObjects(testObjectData,receivedBody, @"received object is different from sent object, expect:%@ but got:%@",[[NSString alloc] initWithData:testObjectData encoding:NSUTF8StringEncoding],[[NSString alloc] initWithData:receivedBody encoding:NSUTF8StringEncoding]);
+        return nil;
+        
+    }] waitUntilFinished];
+    
+    XCTAssertEqual(totalDownloadedBytes, accumulatedDownloadBytes, @"accumulatedDownloadBytes is not equal to totalDownloadedBytes");
+    XCTAssertEqual(AWSS3Test256KB, totalDownloadedBytes,@"total downloaded fileSize is not equal to uploaded fileSize");
+    XCTAssertEqual(AWSS3Test256KB, totalExpectedDownloadBytes);
+    
     AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
     deleteObjectRequest.bucket = testBucketNameGeneral;
     deleteObjectRequest.key = keyName;

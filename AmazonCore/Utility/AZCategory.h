@@ -14,6 +14,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "TMCache.h"
 
 FOUNDATION_EXPORT NSString *const AZDateISO8601DateFormat1;
 FOUNDATION_EXPORT NSString *const AZDateISO8601DateFormat2;

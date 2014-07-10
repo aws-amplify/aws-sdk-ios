@@ -18,12 +18,37 @@
 
 NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
+@implementation AWSEC2AcceptVpcPeeringConnectionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"vpcPeeringConnectionId" : @"VpcPeeringConnectionId",
+             };
+}
+
+@end
+
+@implementation AWSEC2AcceptVpcPeeringConnectionResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"vpcPeeringConnection" : @"VpcPeeringConnection",
+             };
+}
+
++ (NSValueTransformer *)vpcPeeringConnectionJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2VpcPeeringConnection class]];
+}
+
+@end
+
 @implementation AWSEC2AccountAttribute
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"attributeName" : @"attributeName",
-             @"attributeValues" : @"attributeValues",
+             @"attributeName" : @"AttributeName",
+             @"attributeValues" : @"AttributeValues",
              };
 }
 
@@ -37,7 +62,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"attributeValue" : @"attributeValue",
+             @"attributeValue" : @"AttributeValue",
              };
 }
 
@@ -47,14 +72,14 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"allocationId" : @"AllocationId",
+             @"associationId" : @"AssociationId",
+             @"domain" : @"Domain",
              @"instanceId" : @"InstanceId",
+             @"networkInterfaceId" : @"NetworkInterfaceId",
+             @"networkInterfaceOwnerId" : @"NetworkInterfaceOwnerId",
+             @"privateIpAddress" : @"PrivateIpAddress",
              @"publicIp" : @"PublicIp",
-             @"allocationId" : @"allocationId",
-             @"associationId" : @"associationId",
-             @"domain" : @"domain",
-             @"networkInterfaceId" : @"networkInterfaceId",
-             @"networkInterfaceOwnerId" : @"networkInterfaceOwnerId",
-             @"privateIpAddress" : @"privateIpAddress",
              };
 }
 
@@ -87,7 +112,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"domain" : @"Domain",
-             @"dryRun" : @"dryRun",
+             @"dryRun" : @"DryRun",
              };
 }
 
@@ -119,9 +144,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"allocationId" : @"AllocationId",
+             @"domain" : @"Domain",
              @"publicIp" : @"PublicIp",
-             @"allocationId" : @"allocationId",
-             @"domain" : @"domain",
              };
 }
 
@@ -153,10 +178,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"allowReassignment" : @"allowReassignment",
-             @"networkInterfaceId" : @"networkInterfaceId",
-             @"privateIpAddresses" : @"privateIpAddresses",
-             @"secondaryPrivateIpAddressCount" : @"secondaryPrivateIpAddressCount",
+             @"allowReassignment" : @"AllowReassignment",
+             @"networkInterfaceId" : @"NetworkInterfaceId",
+             @"privateIpAddresses" : @"PrivateIpAddresses",
+             @"secondaryPrivateIpAddressCount" : @"SecondaryPrivateIpAddressCount",
              };
 }
 
@@ -167,12 +192,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"allocationId" : @"AllocationId",
+             @"allowReassociation" : @"AllowReassociation",
+             @"dryRun" : @"DryRun",
              @"instanceId" : @"InstanceId",
+             @"networkInterfaceId" : @"NetworkInterfaceId",
+             @"privateIpAddress" : @"PrivateIpAddress",
              @"publicIp" : @"PublicIp",
-             @"allowReassociation" : @"allowReassociation",
-             @"dryRun" : @"dryRun",
-             @"networkInterfaceId" : @"networkInterfaceId",
-             @"privateIpAddress" : @"privateIpAddress",
              };
 }
 
@@ -182,7 +207,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"associationId" : @"associationId",
+             @"associationId" : @"AssociationId",
              };
 }
 
@@ -193,8 +218,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"dhcpOptionsId" : @"DhcpOptionsId",
+             @"dryRun" : @"DryRun",
              @"vpcId" : @"VpcId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -204,9 +229,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"routeTableId" : @"routeTableId",
-             @"subnetId" : @"subnetId",
+             @"dryRun" : @"DryRun",
+             @"routeTableId" : @"RouteTableId",
+             @"subnetId" : @"SubnetId",
              };
 }
 
@@ -216,7 +241,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"associationId" : @"associationId",
+             @"associationId" : @"AssociationId",
              };
 }
 
@@ -226,9 +251,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"internetGatewayId" : @"internetGatewayId",
-             @"vpcId" : @"vpcId",
+             @"dryRun" : @"DryRun",
+             @"internetGatewayId" : @"InternetGatewayId",
+             @"vpcId" : @"VpcId",
              };
 }
 
@@ -238,10 +263,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"deviceIndex" : @"deviceIndex",
-             @"dryRun" : @"dryRun",
-             @"instanceId" : @"instanceId",
-             @"networkInterfaceId" : @"networkInterfaceId",
+             @"deviceIndex" : @"DeviceIndex",
+             @"dryRun" : @"DryRun",
+             @"instanceId" : @"InstanceId",
+             @"networkInterfaceId" : @"NetworkInterfaceId",
              };
 }
 
@@ -251,7 +276,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"attachmentId" : @"attachmentId",
+             @"attachmentId" : @"AttachmentId",
              };
 }
 
@@ -262,9 +287,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"device" : @"Device",
+             @"dryRun" : @"DryRun",
              @"instanceId" : @"InstanceId",
              @"volumeId" : @"VolumeId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -288,9 +313,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"vpcId" : @"VpcId",
              @"vpnGatewayId" : @"VpnGatewayId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -314,7 +339,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"value" : @"value",
+             @"value" : @"Value",
              };
 }
 
@@ -324,7 +349,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"value" : @"value",
+             @"value" : @"Value",
              };
 }
 
@@ -334,15 +359,15 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"cidrIp" : @"cidrIp",
-             @"dryRun" : @"dryRun",
-             @"fromPort" : @"fromPort",
-             @"groupId" : @"groupId",
-             @"ipPermissions" : @"ipPermissions",
-             @"ipProtocol" : @"ipProtocol",
-             @"sourceSecurityGroupName" : @"sourceSecurityGroupName",
-             @"sourceSecurityGroupOwnerId" : @"sourceSecurityGroupOwnerId",
-             @"toPort" : @"toPort",
+             @"cidrIp" : @"CidrIp",
+             @"dryRun" : @"DryRun",
+             @"fromPort" : @"FromPort",
+             @"groupId" : @"GroupId",
+             @"ipPermissions" : @"IpPermissions",
+             @"ipProtocol" : @"IpProtocol",
+             @"sourceSecurityGroupName" : @"SourceSecurityGroupName",
+             @"sourceSecurityGroupOwnerId" : @"SourceSecurityGroupOwnerId",
+             @"toPort" : @"ToPort",
              };
 }
 
@@ -357,6 +382,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"cidrIp" : @"CidrIp",
+             @"dryRun" : @"DryRun",
              @"fromPort" : @"FromPort",
              @"groupId" : @"GroupId",
              @"groupName" : @"GroupName",
@@ -365,7 +391,6 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
              @"sourceSecurityGroupName" : @"SourceSecurityGroupName",
              @"sourceSecurityGroupOwnerId" : @"SourceSecurityGroupOwnerId",
              @"toPort" : @"ToPort",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -379,11 +404,15 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"messages" : @"Messages",
+             @"regionName" : @"RegionName",
              @"state" : @"State",
-             @"messages" : @"messages",
-             @"regionName" : @"regionName",
-             @"zoneName" : @"zoneName",
+             @"zoneName" : @"ZoneName",
              };
+}
+
++ (NSValueTransformer *)messagesJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2AvailabilityZoneMessage class]];
 }
 
 + (NSValueTransformer *)stateJSONTransformer {
@@ -403,17 +432,23 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
     }];
 }
 
-+ (NSValueTransformer *)messagesJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2AvailabilityZoneMessage class]];
-}
-
 @end
 
 @implementation AWSEC2AvailabilityZoneMessage
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"message" : @"message",
+             @"message" : @"Message",
+             };
+}
+
+@end
+
+@implementation AWSEC2BlobAttributeValue
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"value" : @"Value",
              };
 }
 
@@ -424,9 +459,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"deviceName" : @"DeviceName",
+             @"ebs" : @"Ebs",
+             @"noDevice" : @"NoDevice",
              @"virtualName" : @"VirtualName",
-             @"ebs" : @"ebs",
-             @"noDevice" : @"noDevice",
              };
 }
 
@@ -440,9 +475,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"instanceId" : @"InstanceId",
              @"storage" : @"Storage",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -570,7 +605,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"bundleId" : @"BundleId",
-             @"dryRun" : @"dryRun",
+             @"dryRun" : @"DryRun",
              };
 }
 
@@ -594,9 +629,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"conversionTaskId" : @"conversionTaskId",
-             @"dryRun" : @"dryRun",
-             @"reasonMessage" : @"reasonMessage",
+             @"conversionTaskId" : @"ConversionTaskId",
+             @"dryRun" : @"DryRun",
+             @"reasonMessage" : @"ReasonMessage",
              };
 }
 
@@ -606,7 +641,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"exportTaskId" : @"exportTaskId",
+             @"exportTaskId" : @"ExportTaskId",
              };
 }
 
@@ -616,7 +651,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"reservedInstancesListingId" : @"reservedInstancesListingId",
+             @"reservedInstancesListingId" : @"ReservedInstancesListingId",
              };
 }
 
@@ -626,7 +661,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"reservedInstancesListings" : @"reservedInstancesListings",
+             @"reservedInstancesListings" : @"ReservedInstancesListings",
              };
 }
 
@@ -640,8 +675,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"spotInstanceRequestIds" : @"spotInstanceRequestIds",
+             @"dryRun" : @"DryRun",
+             @"spotInstanceRequestIds" : @"SpotInstanceRequestIds",
              };
 }
 
@@ -651,7 +686,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"cancelledSpotInstanceRequests" : @"cancelledSpotInstanceRequests",
+             @"cancelledSpotInstanceRequests" : @"CancelledSpotInstanceRequests",
              };
 }
 
@@ -665,8 +700,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"spotInstanceRequestId" : @"spotInstanceRequestId",
-             @"state" : @"state",
+             @"spotInstanceRequestId" : @"SpotInstanceRequestId",
+             @"state" : @"State",
              };
 }
 
@@ -713,9 +748,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"instanceId" : @"InstanceId",
              @"productCode" : @"ProductCode",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -735,13 +770,13 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"conversionTaskId" : @"conversionTaskId",
-             @"expirationTime" : @"expirationTime",
-             @"importInstance" : @"importInstance",
-             @"importVolume" : @"importVolume",
-             @"state" : @"state",
-             @"statusMessage" : @"statusMessage",
-             @"tags" : @"tags",
+             @"conversionTaskId" : @"ConversionTaskId",
+             @"expirationTime" : @"ExpirationTime",
+             @"importInstance" : @"ImportInstance",
+             @"importVolume" : @"ImportVolume",
+             @"state" : @"State",
+             @"statusMessage" : @"StatusMessage",
+             @"tags" : @"Tags",
              };
 }
 
@@ -796,9 +831,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"bgpAsn" : @"BgpAsn",
+             @"dryRun" : @"DryRun",
              @"publicIp" : @"PublicIp",
              @"type" : @"Type",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -840,7 +875,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"dhcpConfigurations" : @"DhcpConfigurations",
-             @"dryRun" : @"dryRun",
+             @"dryRun" : @"DryRun",
              };
 }
 
@@ -868,12 +903,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"blockDeviceMappings" : @"blockDeviceMappings",
-             @"description" : @"description",
-             @"dryRun" : @"dryRun",
-             @"instanceId" : @"instanceId",
-             @"name" : @"name",
-             @"noReboot" : @"noReboot",
+             @"blockDeviceMappings" : @"BlockDeviceMappings",
+             @"description" : @"Description",
+             @"dryRun" : @"DryRun",
+             @"instanceId" : @"InstanceId",
+             @"name" : @"Name",
+             @"noReboot" : @"NoReboot",
              };
 }
 
@@ -887,7 +922,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"imageId" : @"imageId",
+             @"imageId" : @"ImageId",
              };
 }
 
@@ -897,10 +932,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"description",
-             @"exportToS3Task" : @"exportToS3Task",
-             @"instanceId" : @"instanceId",
-             @"targetEnvironment" : @"targetEnvironment",
+             @"description" : @"Description",
+             @"exportToS3Task" : @"ExportToS3Task",
+             @"instanceId" : @"InstanceId",
+             @"targetEnvironment" : @"TargetEnvironment",
              };
 }
 
@@ -941,7 +976,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"exportTask" : @"exportTask",
+             @"exportTask" : @"ExportTask",
              };
 }
 
@@ -955,7 +990,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
+             @"dryRun" : @"DryRun",
              };
 }
 
@@ -965,7 +1000,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"internetGateway" : @"internetGateway",
+             @"internetGateway" : @"InternetGateway",
              };
 }
 
@@ -979,8 +1014,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"keyName" : @"KeyName",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -1004,15 +1039,15 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"cidrBlock" : @"cidrBlock",
-             @"dryRun" : @"dryRun",
-             @"egress" : @"egress",
-             @"icmpTypeCode" : @"icmpTypeCode",
-             @"networkAclId" : @"networkAclId",
-             @"portRange" : @"portRange",
-             @"protocol" : @"protocol",
-             @"ruleAction" : @"ruleAction",
-             @"ruleNumber" : @"ruleNumber",
+             @"cidrBlock" : @"CidrBlock",
+             @"dryRun" : @"DryRun",
+             @"egress" : @"Egress",
+             @"icmpTypeCode" : @"IcmpTypeCode",
+             @"networkAclId" : @"NetworkAclId",
+             @"portRange" : @"PortRange",
+             @"protocol" : @"Protocol",
+             @"ruleAction" : @"RuleAction",
+             @"ruleNumber" : @"RuleNumber",
              };
 }
 
@@ -1052,8 +1087,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"vpcId" : @"vpcId",
+             @"dryRun" : @"DryRun",
+             @"vpcId" : @"VpcId",
              };
 }
 
@@ -1063,7 +1098,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"networkAcl" : @"networkAcl",
+             @"networkAcl" : @"NetworkAcl",
              };
 }
 
@@ -1077,13 +1112,13 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"description",
-             @"dryRun" : @"dryRun",
-             @"groups" : @"groups",
-             @"privateIpAddress" : @"privateIpAddress",
-             @"privateIpAddresses" : @"privateIpAddresses",
-             @"secondaryPrivateIpAddressCount" : @"secondaryPrivateIpAddressCount",
-             @"subnetId" : @"subnetId",
+             @"description" : @"Description",
+             @"dryRun" : @"DryRun",
+             @"groups" : @"Groups",
+             @"privateIpAddress" : @"PrivateIpAddress",
+             @"privateIpAddresses" : @"PrivateIpAddresses",
+             @"secondaryPrivateIpAddressCount" : @"SecondaryPrivateIpAddressCount",
+             @"subnetId" : @"SubnetId",
              };
 }
 
@@ -1097,7 +1132,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"networkInterface" : @"networkInterface",
+             @"networkInterface" : @"NetworkInterface",
              };
 }
 
@@ -1111,9 +1146,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"groupName" : @"groupName",
-             @"strategy" : @"strategy",
+             @"dryRun" : @"DryRun",
+             @"groupName" : @"GroupName",
+             @"strategy" : @"Strategy",
              };
 }
 
@@ -1140,10 +1175,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"clientToken" : @"clientToken",
-             @"instanceCount" : @"instanceCount",
-             @"priceSchedules" : @"priceSchedules",
-             @"reservedInstancesId" : @"reservedInstancesId",
+             @"clientToken" : @"ClientToken",
+             @"instanceCount" : @"InstanceCount",
+             @"priceSchedules" : @"PriceSchedules",
+             @"reservedInstancesId" : @"ReservedInstancesId",
              };
 }
 
@@ -1157,7 +1192,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"reservedInstancesListings" : @"reservedInstancesListings",
+             @"reservedInstancesListings" : @"ReservedInstancesListings",
              };
 }
 
@@ -1171,12 +1206,13 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"destinationCidrBlock" : @"destinationCidrBlock",
-             @"dryRun" : @"dryRun",
-             @"gatewayId" : @"gatewayId",
-             @"instanceId" : @"instanceId",
-             @"networkInterfaceId" : @"networkInterfaceId",
-             @"routeTableId" : @"routeTableId",
+             @"destinationCidrBlock" : @"DestinationCidrBlock",
+             @"dryRun" : @"DryRun",
+             @"gatewayId" : @"GatewayId",
+             @"instanceId" : @"InstanceId",
+             @"networkInterfaceId" : @"NetworkInterfaceId",
+             @"routeTableId" : @"RouteTableId",
+             @"vpcPeeringConnectionId" : @"VpcPeeringConnectionId",
              };
 }
 
@@ -1186,8 +1222,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"vpcId" : @"vpcId",
+             @"dryRun" : @"DryRun",
+             @"vpcId" : @"VpcId",
              };
 }
 
@@ -1197,7 +1233,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"routeTable" : @"routeTable",
+             @"routeTable" : @"RouteTable",
              };
 }
 
@@ -1212,9 +1248,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"description" : @"Description",
+             @"dryRun" : @"DryRun",
              @"groupName" : @"GroupName",
              @"vpcId" : @"VpcId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -1224,7 +1260,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"groupId" : @"groupId",
+             @"groupId" : @"GroupId",
              };
 }
 
@@ -1235,8 +1271,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"description" : @"Description",
+             @"dryRun" : @"DryRun",
              @"volumeId" : @"VolumeId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -1260,9 +1296,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"bucket" : @"bucket",
-             @"dryRun" : @"dryRun",
-             @"prefix" : @"prefix",
+             @"bucket" : @"Bucket",
+             @"dryRun" : @"DryRun",
+             @"prefix" : @"Prefix",
              };
 }
 
@@ -1272,7 +1308,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"spotDatafeedSubscription" : @"spotDatafeedSubscription",
+             @"spotDatafeedSubscription" : @"SpotDatafeedSubscription",
              };
 }
 
@@ -1288,8 +1324,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return @{
              @"availabilityZone" : @"AvailabilityZone",
              @"cidrBlock" : @"CidrBlock",
+             @"dryRun" : @"DryRun",
              @"vpcId" : @"VpcId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -1313,9 +1349,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"resources" : @"resources",
-             @"tags" : @"tags",
+             @"dryRun" : @"DryRun",
+             @"resources" : @"Resources",
+             @"tags" : @"Tags",
              };
 }
 
@@ -1377,11 +1413,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"availabilityZone" : @"AvailabilityZone",
+             @"dryRun" : @"DryRun",
+             @"encrypted" : @"Encrypted",
              @"iops" : @"Iops",
              @"size" : @"Size",
              @"snapshotId" : @"SnapshotId",
              @"volumeType" : @"VolumeType",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -1423,13 +1460,40 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 @end
 
+@implementation AWSEC2CreateVpcPeeringConnectionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"peerOwnerId" : @"PeerOwnerId",
+             @"peerVpcId" : @"PeerVpcId",
+             @"vpcId" : @"VpcId",
+             };
+}
+
+@end
+
+@implementation AWSEC2CreateVpcPeeringConnectionResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"vpcPeeringConnection" : @"VpcPeeringConnection",
+             };
+}
+
++ (NSValueTransformer *)vpcPeeringConnectionJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2VpcPeeringConnection class]];
+}
+
+@end
+
 @implementation AWSEC2CreateVpcRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"cidrBlock" : @"CidrBlock",
-             @"dryRun" : @"dryRun",
-             @"instanceTenancy" : @"instanceTenancy",
+             @"dryRun" : @"DryRun",
+             @"instanceTenancy" : @"InstanceTenancy",
              };
 }
 
@@ -1476,10 +1540,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"customerGatewayId" : @"CustomerGatewayId",
+             @"dryRun" : @"DryRun",
+             @"options" : @"Options",
              @"type" : @"Type",
              @"vpnGatewayId" : @"VpnGatewayId",
-             @"dryRun" : @"dryRun",
-             @"options" : @"options",
              };
 }
 
@@ -1519,8 +1583,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"availabilityZone" : @"AvailabilityZone",
+             @"dryRun" : @"DryRun",
              @"type" : @"Type",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -1565,8 +1629,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
              @"customerGatewayId" : @"CustomerGatewayId",
              @"ipAddress" : @"IpAddress",
              @"state" : @"State",
+             @"tags" : @"Tags",
              @"type" : @"Type",
-             @"tags" : @"tags",
              };
 }
 
@@ -1581,7 +1645,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"customerGatewayId" : @"CustomerGatewayId",
-             @"dryRun" : @"dryRun",
+             @"dryRun" : @"DryRun",
              };
 }
 
@@ -1592,7 +1656,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"dhcpOptionsId" : @"DhcpOptionsId",
-             @"dryRun" : @"dryRun",
+             @"dryRun" : @"DryRun",
              };
 }
 
@@ -1602,8 +1666,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"internetGatewayId" : @"internetGatewayId",
+             @"dryRun" : @"DryRun",
+             @"internetGatewayId" : @"InternetGatewayId",
              };
 }
 
@@ -1613,8 +1677,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"keyName" : @"KeyName",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -1624,10 +1688,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"egress" : @"egress",
-             @"networkAclId" : @"networkAclId",
-             @"ruleNumber" : @"ruleNumber",
+             @"dryRun" : @"DryRun",
+             @"egress" : @"Egress",
+             @"networkAclId" : @"NetworkAclId",
+             @"ruleNumber" : @"RuleNumber",
              };
 }
 
@@ -1637,8 +1701,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"networkAclId" : @"networkAclId",
+             @"dryRun" : @"DryRun",
+             @"networkAclId" : @"NetworkAclId",
              };
 }
 
@@ -1648,8 +1712,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"networkInterfaceId" : @"networkInterfaceId",
+             @"dryRun" : @"DryRun",
+             @"networkInterfaceId" : @"NetworkInterfaceId",
              };
 }
 
@@ -1659,8 +1723,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"groupName" : @"groupName",
+             @"dryRun" : @"DryRun",
+             @"groupName" : @"GroupName",
              };
 }
 
@@ -1670,9 +1734,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"destinationCidrBlock" : @"destinationCidrBlock",
-             @"dryRun" : @"dryRun",
-             @"routeTableId" : @"routeTableId",
+             @"destinationCidrBlock" : @"DestinationCidrBlock",
+             @"dryRun" : @"DryRun",
+             @"routeTableId" : @"RouteTableId",
              };
 }
 
@@ -1682,8 +1746,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"routeTableId" : @"routeTableId",
+             @"dryRun" : @"DryRun",
+             @"routeTableId" : @"RouteTableId",
              };
 }
 
@@ -1693,9 +1757,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"groupId" : @"GroupId",
              @"groupName" : @"GroupName",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -1705,8 +1769,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"snapshotId" : @"SnapshotId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -1716,7 +1780,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
+             @"dryRun" : @"DryRun",
              };
 }
 
@@ -1726,8 +1790,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"subnetId" : @"SubnetId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -1737,9 +1801,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"resources" : @"resources",
-             @"tags" : @"tags",
+             @"dryRun" : @"DryRun",
+             @"resources" : @"Resources",
+             @"tags" : @"Tags",
              };
 }
 
@@ -1753,8 +1817,29 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"volumeId" : @"VolumeId",
-             @"dryRun" : @"dryRun",
+             };
+}
+
+@end
+
+@implementation AWSEC2DeleteVpcPeeringConnectionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"vpcPeeringConnectionId" : @"VpcPeeringConnectionId",
+             };
+}
+
+@end
+
+@implementation AWSEC2DeleteVpcPeeringConnectionResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"returned" : @"Return",
              };
 }
 
@@ -1764,8 +1849,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"vpcId" : @"VpcId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -1775,8 +1860,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"vpnConnectionId" : @"VpnConnectionId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -1797,8 +1882,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"vpnGatewayId" : @"VpnGatewayId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -1808,8 +1893,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"imageId" : @"ImageId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -1819,8 +1904,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"attributeNames" : @"attributeNames",
-             @"dryRun" : @"dryRun",
+             @"attributeNames" : @"AttributeNames",
+             @"dryRun" : @"DryRun",
              };
 }
 
@@ -1830,7 +1915,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"accountAttributes" : @"accountAttributes",
+             @"accountAttributes" : @"AccountAttributes",
              };
 }
 
@@ -1844,10 +1929,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"allocationIds" : @"AllocationIds",
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
              @"publicIps" : @"PublicIps",
-             @"allocationIds" : @"allocationIds",
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
              };
 }
 
@@ -1875,9 +1960,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
              @"zoneNames" : @"ZoneNames",
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
              };
 }
 
@@ -1906,8 +1991,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"bundleIds" : @"BundleIds",
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
              };
 }
 
@@ -1935,9 +2020,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"conversionTaskIds" : @"conversionTaskIds",
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
+             @"conversionTaskIds" : @"ConversionTaskIds",
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
              };
 }
 
@@ -1951,7 +2036,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"conversionTasks" : @"conversionTasks",
+             @"conversionTasks" : @"ConversionTasks",
              };
 }
 
@@ -1966,8 +2051,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"customerGatewayIds" : @"CustomerGatewayIds",
+             @"dryRun" : @"DryRun",
              @"filters" : @"Filters",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -1996,8 +2081,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"dhcpOptionsIds" : @"DhcpOptionsIds",
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
              };
 }
 
@@ -2025,7 +2110,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"exportTaskIds" : @"exportTaskIds",
+             @"exportTaskIds" : @"ExportTaskIds",
              };
 }
 
@@ -2035,7 +2120,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"exportTasks" : @"exportTasks",
+             @"exportTasks" : @"ExportTasks",
              };
 }
 
@@ -2050,8 +2135,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attribute" : @"Attribute",
+             @"dryRun" : @"DryRun",
              @"imageId" : @"ImageId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -2117,11 +2202,11 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"executableUsers" : @"ExecutableUsers",
+             @"filters" : @"Filters",
              @"imageIds" : @"ImageIds",
              @"owners" : @"Owners",
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
              };
 }
 
@@ -2149,9 +2234,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"attribute" : @"attribute",
-             @"dryRun" : @"dryRun",
-             @"instanceId" : @"instanceId",
+             @"attribute" : @"Attribute",
+             @"dryRun" : @"DryRun",
+             @"instanceId" : @"InstanceId",
              };
 }
 
@@ -2193,6 +2278,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"ebsOptimized"]) {
             return @(AWSEC2InstanceAttributeNameEBSOptimized);
         }
+        if ([value isEqualToString:@"sriovNetSupport"]) {
+            return @(AWSEC2InstanceAttributeNameSriovNetSupport);
+        }
         return @(AWSEC2InstanceAttributeNameUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2220,6 +2308,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"groupSet";
             case AWSEC2InstanceAttributeNameEBSOptimized:
                 return @"ebsOptimized";
+            case AWSEC2InstanceAttributeNameSriovNetSupport:
+                return @"sriovNetSupport";
             case AWSEC2InstanceAttributeNameUnknown:
             default:
                 return nil;
@@ -2247,12 +2337,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
+             @"includeAllInstances" : @"IncludeAllInstances",
              @"instanceIds" : @"InstanceIds",
              @"maxResults" : @"MaxResults",
              @"nextToken" : @"NextToken",
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
-             @"includeAllInstances" : @"includeAllInstances",
              };
 }
 
@@ -2266,8 +2356,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"instanceStatuses" : @"instanceStatuses",
-             @"nextToken" : @"nextToken",
+             @"instanceStatuses" : @"InstanceStatuses",
+             @"nextToken" : @"NextToken",
              };
 }
 
@@ -2281,11 +2371,11 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
              @"instanceIds" : @"InstanceIds",
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
-             @"maxResults" : @"maxResults",
-             @"nextToken" : @"nextToken",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
              };
 }
 
@@ -2299,8 +2389,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"nextToken" : @"NextToken",
              @"reservations" : @"Reservations",
-             @"nextToken" : @"nextToken",
              };
 }
 
@@ -2314,9 +2404,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
-             @"internetGatewayIds" : @"internetGatewayIds",
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
+             @"internetGatewayIds" : @"InternetGatewayIds",
              };
 }
 
@@ -2330,7 +2420,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"internetGateways" : @"internetGateways",
+             @"internetGateways" : @"InternetGateways",
              };
 }
 
@@ -2344,9 +2434,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
              @"keyNames" : @"KeyNames",
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
              };
 }
 
@@ -2374,9 +2464,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
-             @"networkAclIds" : @"networkAclIds",
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
+             @"networkAclIds" : @"NetworkAclIds",
              };
 }
 
@@ -2390,7 +2480,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"networkAcls" : @"networkAcls",
+             @"networkAcls" : @"NetworkAcls",
              };
 }
 
@@ -2404,12 +2494,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"attachment" : @"attachment",
-             @"description" : @"description",
-             @"dryRun" : @"dryRun",
-             @"groups" : @"groups",
-             @"networkInterfaceId" : @"networkInterfaceId",
-             @"sourceDestCheck" : @"sourceDestCheck",
+             @"attachment" : @"Attachment",
+             @"description" : @"Description",
+             @"dryRun" : @"DryRun",
+             @"groups" : @"Groups",
+             @"networkInterfaceId" : @"NetworkInterfaceId",
+             @"sourceDestCheck" : @"SourceDestCheck",
              };
 }
 
@@ -2419,11 +2509,11 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"attachment" : @"attachment",
-             @"description" : @"description",
-             @"groups" : @"groups",
-             @"networkInterfaceId" : @"networkInterfaceId",
-             @"sourceDestCheck" : @"sourceDestCheck",
+             @"attachment" : @"Attachment",
+             @"description" : @"Description",
+             @"groups" : @"Groups",
+             @"networkInterfaceId" : @"NetworkInterfaceId",
+             @"sourceDestCheck" : @"SourceDestCheck",
              };
 }
 
@@ -2449,9 +2539,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
-             @"networkInterfaceIds" : @"networkInterfaceIds",
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
+             @"networkInterfaceIds" : @"NetworkInterfaceIds",
              };
 }
 
@@ -2465,7 +2555,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"networkInterfaces" : @"networkInterfaces",
+             @"networkInterfaces" : @"NetworkInterfaces",
              };
 }
 
@@ -2479,9 +2569,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
-             @"groupNames" : @"groupNames",
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
+             @"groupNames" : @"GroupNames",
              };
 }
 
@@ -2495,7 +2585,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"placementGroups" : @"placementGroups",
+             @"placementGroups" : @"PlacementGroups",
              };
 }
 
@@ -2509,9 +2599,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
              @"regionNames" : @"RegionNames",
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
              };
 }
 
@@ -2539,9 +2629,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"filters" : @"filters",
-             @"reservedInstancesId" : @"reservedInstancesId",
-             @"reservedInstancesListingId" : @"reservedInstancesListingId",
+             @"filters" : @"Filters",
+             @"reservedInstancesId" : @"ReservedInstancesId",
+             @"reservedInstancesListingId" : @"ReservedInstancesListingId",
              };
 }
 
@@ -2555,7 +2645,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"reservedInstancesListings" : @"reservedInstancesListings",
+             @"reservedInstancesListings" : @"ReservedInstancesListings",
              };
 }
 
@@ -2569,9 +2659,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"filters" : @"Filters",
+             @"nextToken" : @"NextToken",
              @"reservedInstancesModificationIds" : @"ReservedInstancesModificationIds",
-             @"filters" : @"filters",
-             @"nextToken" : @"nextToken",
              };
 }
 
@@ -2585,8 +2675,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"nextToken" : @"nextToken",
-             @"reservedInstancesModifications" : @"reservedInstancesModifications",
+             @"nextToken" : @"NextToken",
+             @"reservedInstancesModifications" : @"ReservedInstancesModifications",
              };
 }
 
@@ -2601,20 +2691,46 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"availabilityZone" : @"AvailabilityZone",
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
              @"includeMarketplace" : @"IncludeMarketplace",
+             @"instanceTenancy" : @"InstanceTenancy",
              @"instanceType" : @"InstanceType",
              @"maxDuration" : @"MaxDuration",
              @"maxInstanceCount" : @"MaxInstanceCount",
+             @"maxResults" : @"MaxResults",
              @"minDuration" : @"MinDuration",
+             @"nextToken" : @"NextToken",
+             @"offeringType" : @"OfferingType",
              @"productDescription" : @"ProductDescription",
              @"reservedInstancesOfferingIds" : @"ReservedInstancesOfferingIds",
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
-             @"instanceTenancy" : @"instanceTenancy",
-             @"maxResults" : @"maxResults",
-             @"nextToken" : @"nextToken",
-             @"offeringType" : @"offeringType",
              };
+}
+
++ (NSValueTransformer *)filtersJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2Filter class]];
+}
+
++ (NSValueTransformer *)instanceTenancyJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"default"]) {
+            return @(AWSEC2TenancyDefault);
+        }
+        if ([value isEqualToString:@"dedicated"]) {
+            return @(AWSEC2TenancyDedicated);
+        }
+        return @(AWSEC2TenancyUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2TenancyDefault:
+                return @"default";
+            case AWSEC2TenancyDedicated:
+                return @"dedicated";
+            case AWSEC2TenancyUnknown:
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)instanceTypeJSONTransformer {
@@ -2709,6 +2825,21 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"cg1.4xlarge"]) {
             return @(AWSEC2InstanceTypeCG1_4xlarge);
         }
+        if ([value isEqualToString:@"r3.large"]) {
+            return @(AWSEC2InstanceTypeR3_large);
+        }
+        if ([value isEqualToString:@"r3.xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_xlarge);
+        }
+        if ([value isEqualToString:@"r3.2xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_2xlarge);
+        }
+        if ([value isEqualToString:@"r3.4xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_4xlarge);
+        }
+        if ([value isEqualToString:@"r3.8xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_8xlarge);
+        }
         return @(AWSEC2InstanceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2772,7 +2903,44 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"g2.2xlarge";
             case AWSEC2InstanceTypeCG1_4xlarge:
                 return @"cg1.4xlarge";
+            case AWSEC2InstanceTypeR3_large:
+                return @"r3.large";
+            case AWSEC2InstanceTypeR3_xlarge:
+                return @"r3.xlarge";
+            case AWSEC2InstanceTypeR3_2xlarge:
+                return @"r3.2xlarge";
+            case AWSEC2InstanceTypeR3_4xlarge:
+                return @"r3.4xlarge";
+            case AWSEC2InstanceTypeR3_8xlarge:
+                return @"r3.8xlarge";
             case AWSEC2InstanceTypeUnknown:
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)offeringTypeJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"Heavy Utilization"]) {
+            return @(AWSEC2OfferingTypeValuesHeavyUtilization);
+        }
+        if ([value isEqualToString:@"Medium Utilization"]) {
+            return @(AWSEC2OfferingTypeValuesMediumUtilization);
+        }
+        if ([value isEqualToString:@"Light Utilization"]) {
+            return @(AWSEC2OfferingTypeValuesLightUtilization);
+        }
+        return @(AWSEC2OfferingTypeValuesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2OfferingTypeValuesHeavyUtilization:
+                return @"Heavy Utilization";
+            case AWSEC2OfferingTypeValuesMediumUtilization:
+                return @"Medium Utilization";
+            case AWSEC2OfferingTypeValuesLightUtilization:
+                return @"Light Utilization";
+            case AWSEC2OfferingTypeValuesUnknown:
             default:
                 return nil;
         }
@@ -2811,67 +2979,14 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
     }];
 }
 
-+ (NSValueTransformer *)filtersJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2Filter class]];
-}
-
-+ (NSValueTransformer *)instanceTenancyJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"default"]) {
-            return @(AWSEC2TenancyDefault);
-        }
-        if ([value isEqualToString:@"dedicated"]) {
-            return @(AWSEC2TenancyDedicated);
-        }
-        return @(AWSEC2TenancyUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSEC2TenancyDefault:
-                return @"default";
-            case AWSEC2TenancyDedicated:
-                return @"dedicated";
-            case AWSEC2TenancyUnknown:
-            default:
-                return nil;
-        }
-    }];
-}
-
-+ (NSValueTransformer *)offeringTypeJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"Heavy Utilization"]) {
-            return @(AWSEC2OfferingTypeValuesHeavyUtilization);
-        }
-        if ([value isEqualToString:@"Medium Utilization"]) {
-            return @(AWSEC2OfferingTypeValuesMediumUtilization);
-        }
-        if ([value isEqualToString:@"Light Utilization"]) {
-            return @(AWSEC2OfferingTypeValuesLightUtilization);
-        }
-        return @(AWSEC2OfferingTypeValuesUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSEC2OfferingTypeValuesHeavyUtilization:
-                return @"Heavy Utilization";
-            case AWSEC2OfferingTypeValuesMediumUtilization:
-                return @"Medium Utilization";
-            case AWSEC2OfferingTypeValuesLightUtilization:
-                return @"Light Utilization";
-            case AWSEC2OfferingTypeValuesUnknown:
-            default:
-                return nil;
-        }
-    }];
-}
-
 @end
 
 @implementation AWSEC2DescribeReservedInstancesOfferingsResult
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"nextToken" : @"NextToken",
              @"reservedInstancesOfferings" : @"ReservedInstancesOfferings",
-             @"nextToken" : @"nextToken",
              };
 }
 
@@ -2885,10 +3000,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
+             @"offeringType" : @"OfferingType",
              @"reservedInstancesIds" : @"ReservedInstancesIds",
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
-             @"offeringType" : @"offeringType",
              };
 }
 
@@ -2943,9 +3058,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
-             @"routeTableIds" : @"routeTableIds",
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
+             @"routeTableIds" : @"RouteTableIds",
              };
 }
 
@@ -2959,7 +3074,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"routeTables" : @"routeTables",
+             @"routeTables" : @"RouteTables",
              };
 }
 
@@ -2973,10 +3088,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
              @"groupIds" : @"GroupIds",
              @"groupNames" : @"GroupNames",
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
              };
 }
 
@@ -3005,8 +3120,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attribute" : @"Attribute",
+             @"dryRun" : @"DryRun",
              @"snapshotId" : @"SnapshotId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -3039,8 +3154,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"createVolumePermissions" : @"CreateVolumePermissions",
-             @"productCodes" : @"productCodes",
-             @"snapshotId" : @"snapshotId",
+             @"productCodes" : @"ProductCodes",
+             @"snapshotId" : @"SnapshotId",
              };
 }
 
@@ -3058,11 +3173,11 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
              @"ownerIds" : @"OwnerIds",
              @"restorableByUserIds" : @"RestorableByUserIds",
              @"snapshotIds" : @"SnapshotIds",
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
              };
 }
 
@@ -3090,7 +3205,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
+             @"dryRun" : @"DryRun",
              };
 }
 
@@ -3100,7 +3215,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"spotDatafeedSubscription" : @"spotDatafeedSubscription",
+             @"spotDatafeedSubscription" : @"SpotDatafeedSubscription",
              };
 }
 
@@ -3114,9 +3229,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
-             @"spotInstanceRequestIds" : @"spotInstanceRequestIds",
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
+             @"spotInstanceRequestIds" : @"SpotInstanceRequestIds",
              };
 }
 
@@ -3130,7 +3245,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"spotInstanceRequests" : @"spotInstanceRequests",
+             @"spotInstanceRequests" : @"SpotInstanceRequests",
              };
 }
 
@@ -3144,15 +3259,15 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"availabilityZone" : @"availabilityZone",
-             @"dryRun" : @"dryRun",
-             @"endTime" : @"endTime",
-             @"filters" : @"filters",
-             @"instanceTypes" : @"instanceTypes",
-             @"maxResults" : @"maxResults",
-             @"nextToken" : @"nextToken",
-             @"productDescriptions" : @"productDescriptions",
-             @"startTime" : @"startTime",
+             @"availabilityZone" : @"AvailabilityZone",
+             @"dryRun" : @"DryRun",
+             @"endTime" : @"EndTime",
+             @"filters" : @"Filters",
+             @"instanceTypes" : @"InstanceTypes",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"productDescriptions" : @"ProductDescriptions",
+             @"startTime" : @"StartTime",
              };
 }
 
@@ -3182,8 +3297,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"nextToken" : @"nextToken",
-             @"spotPriceHistory" : @"spotPriceHistory",
+             @"nextToken" : @"NextToken",
+             @"spotPriceHistory" : @"SpotPriceHistory",
              };
 }
 
@@ -3197,9 +3312,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"filters" : @"Filters",
              @"subnetIds" : @"SubnetIds",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -3227,10 +3342,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
-             @"maxResults" : @"maxResults",
-             @"nextToken" : @"nextToken",
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
              };
 }
 
@@ -3244,8 +3359,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"nextToken" : @"nextToken",
-             @"tags" : @"tags",
+             @"nextToken" : @"NextToken",
+             @"tags" : @"Tags",
              };
 }
 
@@ -3260,8 +3375,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attribute" : @"Attribute",
+             @"dryRun" : @"DryRun",
              @"volumeId" : @"VolumeId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -3293,9 +3408,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"autoEnableIO" : @"autoEnableIO",
-             @"productCodes" : @"productCodes",
-             @"volumeId" : @"volumeId",
+             @"autoEnableIO" : @"AutoEnableIO",
+             @"productCodes" : @"ProductCodes",
+             @"volumeId" : @"VolumeId",
              };
 }
 
@@ -3313,11 +3428,11 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
              @"maxResults" : @"MaxResults",
              @"nextToken" : @"NextToken",
              @"volumeIds" : @"VolumeIds",
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
              };
 }
 
@@ -3331,8 +3446,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"nextToken" : @"nextToken",
-             @"volumeStatuses" : @"volumeStatuses",
+             @"nextToken" : @"NextToken",
+             @"volumeStatuses" : @"VolumeStatuses",
              };
 }
 
@@ -3346,9 +3461,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
              @"volumeIds" : @"VolumeIds",
-             @"dryRun" : @"dryRun",
-             @"filters" : @"filters",
              };
 }
 
@@ -3377,8 +3492,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attribute" : @"Attribute",
+             @"dryRun" : @"DryRun",
              @"vpcId" : @"VpcId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -3410,9 +3525,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"enableDnsHostnames" : @"EnableDnsHostnames",
+             @"enableDnsSupport" : @"EnableDnsSupport",
              @"vpcId" : @"VpcId",
-             @"enableDnsHostnames" : @"enableDnsHostnames",
-             @"enableDnsSupport" : @"enableDnsSupport",
              };
 }
 
@@ -3426,13 +3541,43 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 @end
 
+@implementation AWSEC2DescribeVpcPeeringConnectionsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
+             @"vpcPeeringConnectionIds" : @"VpcPeeringConnectionIds",
+             };
+}
+
++ (NSValueTransformer *)filtersJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2Filter class]];
+}
+
+@end
+
+@implementation AWSEC2DescribeVpcPeeringConnectionsResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"vpcPeeringConnections" : @"VpcPeeringConnections",
+             };
+}
+
++ (NSValueTransformer *)vpcPeeringConnectionsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2VpcPeeringConnection class]];
+}
+
+@end
+
 @implementation AWSEC2DescribeVpcsRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"filters" : @"Filters",
              @"vpcIds" : @"VpcIds",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -3460,9 +3605,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"filters" : @"Filters",
              @"vpnConnectionIds" : @"VpnConnectionIds",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -3490,9 +3635,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"filters" : @"Filters",
              @"vpnGatewayIds" : @"VpnGatewayIds",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -3520,9 +3665,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"internetGatewayId" : @"internetGatewayId",
-             @"vpcId" : @"vpcId",
+             @"dryRun" : @"DryRun",
+             @"internetGatewayId" : @"InternetGatewayId",
+             @"vpcId" : @"VpcId",
              };
 }
 
@@ -3532,9 +3677,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"attachmentId" : @"attachmentId",
-             @"dryRun" : @"dryRun",
-             @"force" : @"force",
+             @"attachmentId" : @"AttachmentId",
+             @"dryRun" : @"DryRun",
+             @"force" : @"Force",
              };
 }
 
@@ -3545,10 +3690,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"device" : @"Device",
+             @"dryRun" : @"DryRun",
              @"force" : @"Force",
              @"instanceId" : @"InstanceId",
              @"volumeId" : @"VolumeId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -3572,9 +3717,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"vpcId" : @"VpcId",
              @"vpnGatewayId" : @"VpnGatewayId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -3597,7 +3742,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return @{
              @"dhcpConfigurations" : @"DhcpConfigurations",
              @"dhcpOptionsId" : @"DhcpOptionsId",
-             @"tags" : @"tags",
+             @"tags" : @"Tags",
              };
 }
 
@@ -3627,8 +3772,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"associationId" : @"AssociationId",
+             @"dryRun" : @"DryRun",
              @"publicIp" : @"PublicIp",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -3638,8 +3783,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"associationId" : @"associationId",
-             @"dryRun" : @"dryRun",
+             @"associationId" : @"AssociationId",
+             @"dryRun" : @"DryRun",
              };
 }
 
@@ -3669,10 +3814,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"checksum" : @"checksum",
-             @"format" : @"format",
-             @"importManifestUrl" : @"importManifestUrl",
-             @"size" : @"size",
+             @"checksum" : @"Checksum",
+             @"format" : @"Format",
+             @"importManifestUrl" : @"ImportManifestUrl",
+             @"size" : @"Size",
              };
 }
 
@@ -3709,9 +3854,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"bytes" : @"bytes",
-             @"format" : @"format",
-             @"importManifestUrl" : @"importManifestUrl",
+             @"bytes" : @"Bytes",
+             @"format" : @"Format",
+             @"importManifestUrl" : @"ImportManifestUrl",
              };
 }
 
@@ -3748,8 +3893,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"id" : @"id",
-             @"size" : @"size",
+             @"id" : @"Id",
+             @"size" : @"Size",
              };
 }
 
@@ -3759,11 +3904,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"deleteOnTermination" : @"deleteOnTermination",
-             @"iops" : @"iops",
-             @"snapshotId" : @"snapshotId",
-             @"volumeSize" : @"volumeSize",
-             @"volumeType" : @"volumeType",
+             @"deleteOnTermination" : @"DeleteOnTermination",
+             @"encrypted" : @"Encrypted",
+             @"iops" : @"Iops",
+             @"snapshotId" : @"SnapshotId",
+             @"volumeSize" : @"VolumeSize",
+             @"volumeType" : @"VolumeType",
              };
 }
 
@@ -3795,10 +3941,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"attachTime" : @"attachTime",
-             @"deleteOnTermination" : @"deleteOnTermination",
-             @"status" : @"status",
-             @"volumeId" : @"volumeId",
+             @"attachTime" : @"AttachTime",
+             @"deleteOnTermination" : @"DeleteOnTermination",
+             @"status" : @"Status",
+             @"volumeId" : @"VolumeId",
              };
 }
 
@@ -3848,8 +3994,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"deleteOnTermination" : @"deleteOnTermination",
-             @"volumeId" : @"volumeId",
+             @"deleteOnTermination" : @"DeleteOnTermination",
+             @"volumeId" : @"VolumeId",
              };
 }
 
@@ -3870,8 +4016,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"volumeId" : @"volumeId",
+             @"dryRun" : @"DryRun",
+             @"volumeId" : @"VolumeId",
              };
 }
 
@@ -3881,12 +4027,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"description",
-             @"exportTaskId" : @"exportTaskId",
-             @"exportToS3Task" : @"exportToS3Task",
-             @"instanceExportDetails" : @"instanceExportDetails",
-             @"state" : @"state",
-             @"statusMessage" : @"statusMessage",
+             @"description" : @"Description",
+             @"exportTaskId" : @"ExportTaskId",
+             @"exportToS3Task" : @"ExportToS3Task",
+             @"instanceExportDetails" : @"InstanceExportDetails",
+             @"state" : @"State",
+             @"statusMessage" : @"StatusMessage",
              };
 }
 
@@ -3936,10 +4082,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"containerFormat" : @"containerFormat",
-             @"diskImageFormat" : @"diskImageFormat",
-             @"s3Bucket" : @"s3Bucket",
-             @"s3Key" : @"s3Key",
+             @"containerFormat" : @"ContainerFormat",
+             @"diskImageFormat" : @"DiskImageFormat",
+             @"s3Bucket" : @"S3Bucket",
+             @"s3Key" : @"S3Key",
              };
 }
 
@@ -3993,10 +4139,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"containerFormat" : @"containerFormat",
-             @"diskImageFormat" : @"diskImageFormat",
-             @"s3Bucket" : @"s3Bucket",
-             @"s3Prefix" : @"s3Prefix",
+             @"containerFormat" : @"ContainerFormat",
+             @"diskImageFormat" : @"DiskImageFormat",
+             @"s3Bucket" : @"S3Bucket",
+             @"s3Prefix" : @"S3Prefix",
              };
 }
 
@@ -4061,8 +4207,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"instanceId" : @"InstanceId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -4092,8 +4238,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"instanceId" : @"InstanceId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -4123,8 +4269,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"groupId" : @"GroupId",
              @"groupName" : @"GroupName",
-             @"groupId" : @"groupId",
              };
 }
 
@@ -4134,8 +4280,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"arn" : @"arn",
-             @"id" : @"id",
+             @"arn" : @"Arn",
+             @"id" : @"Id",
              };
 }
 
@@ -4145,8 +4291,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"arn" : @"arn",
-             @"name" : @"name",
+             @"arn" : @"Arn",
+             @"name" : @"Name",
              };
 }
 
@@ -4156,8 +4302,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"code" : @"code",
-             @"type" : @"type",
+             @"code" : @"Code",
+             @"type" : @"Type",
              };
 }
 
@@ -4168,27 +4314,27 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"architecture" : @"Architecture",
+             @"blockDeviceMappings" : @"BlockDeviceMappings",
+             @"description" : @"Description",
+             @"hypervisor" : @"Hypervisor",
              @"imageId" : @"ImageId",
              @"imageLocation" : @"ImageLocation",
+             @"imageOwnerAlias" : @"ImageOwnerAlias",
              @"imageType" : @"ImageType",
              @"kernelId" : @"KernelId",
+             @"name" : @"Name",
              @"ownerId" : @"OwnerId",
              @"platform" : @"Platform",
              @"productCodes" : @"ProductCodes",
              @"public" : @"Public",
              @"ramdiskId" : @"RamdiskId",
+             @"rootDeviceName" : @"RootDeviceName",
+             @"rootDeviceType" : @"RootDeviceType",
+             @"sriovNetSupport" : @"SriovNetSupport",
              @"state" : @"State",
-             @"blockDeviceMappings" : @"blockDeviceMappings",
-             @"description" : @"description",
-             @"hypervisor" : @"hypervisor",
-             @"imageOwnerAlias" : @"imageOwnerAlias",
-             @"name" : @"name",
-             @"rootDeviceName" : @"rootDeviceName",
-             @"rootDeviceType" : @"rootDeviceType",
-             @"sriovNetSupport" : @"sriovNetSupport",
-             @"stateReason" : @"stateReason",
-             @"tags" : @"tags",
-             @"virtualizationType" : @"virtualizationType",
+             @"stateReason" : @"StateReason",
+             @"tags" : @"Tags",
+             @"virtualizationType" : @"VirtualizationType",
              };
 }
 
@@ -4208,6 +4354,32 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
             case AWSEC2ArchitectureValuesX86_64:
                 return @"x86_64";
             case AWSEC2ArchitectureValuesUnknown:
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)blockDeviceMappingsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2BlockDeviceMapping class]];
+}
+
++ (NSValueTransformer *)hypervisorJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"ovm"]) {
+            return @(AWSEC2HypervisorTypeOvm);
+        }
+        if ([value isEqualToString:@"xen"]) {
+            return @(AWSEC2HypervisorTypeXen);
+        }
+        return @(AWSEC2HypervisorTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2HypervisorTypeOvm:
+                return @"ovm";
+            case AWSEC2HypervisorTypeXen:
+                return @"xen";
+            case AWSEC2HypervisorTypeUnknown:
             default:
                 return nil;
         }
@@ -4262,54 +4434,6 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2ProductCode class]];
 }
 
-+ (NSValueTransformer *)stateJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"available"]) {
-            return @(AWSEC2ImageStateAvailable);
-        }
-        if ([value isEqualToString:@"deregistered"]) {
-            return @(AWSEC2ImageStateDeregistered);
-        }
-        return @(AWSEC2ImageStateUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSEC2ImageStateAvailable:
-                return @"available";
-            case AWSEC2ImageStateDeregistered:
-                return @"deregistered";
-            case AWSEC2ImageStateUnknown:
-            default:
-                return nil;
-        }
-    }];
-}
-
-+ (NSValueTransformer *)blockDeviceMappingsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2BlockDeviceMapping class]];
-}
-
-+ (NSValueTransformer *)hypervisorJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"ovm"]) {
-            return @(AWSEC2HypervisorTypeOvm);
-        }
-        if ([value isEqualToString:@"xen"]) {
-            return @(AWSEC2HypervisorTypeXen);
-        }
-        return @(AWSEC2HypervisorTypeUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSEC2HypervisorTypeOvm:
-                return @"ovm";
-            case AWSEC2HypervisorTypeXen:
-                return @"xen";
-            case AWSEC2HypervisorTypeUnknown:
-            default:
-                return nil;
-        }
-    }];
-}
-
 + (NSValueTransformer *)rootDeviceTypeJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"ebs"]) {
@@ -4326,6 +4450,28 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
             case AWSEC2DeviceTypeInstanceStore:
                 return @"instance-store";
             case AWSEC2DeviceTypeUnknown:
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)stateJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"available"]) {
+            return @(AWSEC2ImageStateAvailable);
+        }
+        if ([value isEqualToString:@"deregistered"]) {
+            return @(AWSEC2ImageStateDeregistered);
+        }
+        return @(AWSEC2ImageStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2ImageStateAvailable:
+                return @"available";
+            case AWSEC2ImageStateDeregistered:
+                return @"deregistered";
+            case AWSEC2ImageStateUnknown:
             default:
                 return nil;
         }
@@ -4369,26 +4515,18 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"blockDeviceMappings" : @"BlockDeviceMappings",
+             @"description" : @"Description",
              @"imageId" : @"ImageId",
+             @"kernelId" : @"KernelId",
              @"launchPermissions" : @"LaunchPermissions",
              @"productCodes" : @"ProductCodes",
-             @"description" : @"description",
-             @"kernelId" : @"kernelId",
-             @"ramdiskId" : @"ramdiskId",
-             @"sriovNetSupport" : @"sriovNetSupport",
+             @"ramdiskId" : @"RamdiskId",
+             @"sriovNetSupport" : @"SriovNetSupport",
              };
 }
 
 + (NSValueTransformer *)blockDeviceMappingsJSONTransformer {
 	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2BlockDeviceMapping class]];
-}
-
-+ (NSValueTransformer *)launchPermissionsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2LaunchPermission class]];
-}
-
-+ (NSValueTransformer *)productCodesJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2ProductCode class]];
 }
 
 + (NSValueTransformer *)descriptionJSONTransformer {
@@ -4397,6 +4535,14 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)kernelIdJSONTransformer {
 	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeValue class]];
+}
+
++ (NSValueTransformer *)launchPermissionsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2LaunchPermission class]];
+}
+
++ (NSValueTransformer *)productCodesJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2ProductCode class]];
 }
 
 + (NSValueTransformer *)ramdiskIdJSONTransformer {
@@ -4413,16 +4559,16 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"additionalInfo" : @"additionalInfo",
-             @"architecture" : @"architecture",
-             @"groupNames" : @"groupNames",
-             @"instanceInitiatedShutdownBehavior" : @"instanceInitiatedShutdownBehavior",
-             @"instanceType" : @"instanceType",
-             @"monitoring" : @"monitoring",
-             @"placement" : @"placement",
-             @"privateIpAddress" : @"privateIpAddress",
-             @"subnetId" : @"subnetId",
-             @"userData" : @"userData",
+             @"additionalInfo" : @"AdditionalInfo",
+             @"architecture" : @"Architecture",
+             @"groupNames" : @"GroupNames",
+             @"instanceInitiatedShutdownBehavior" : @"InstanceInitiatedShutdownBehavior",
+             @"instanceType" : @"InstanceType",
+             @"monitoring" : @"Monitoring",
+             @"placement" : @"Placement",
+             @"privateIpAddress" : @"PrivateIpAddress",
+             @"subnetId" : @"SubnetId",
+             @"userData" : @"UserData",
              };
 }
 
@@ -4562,6 +4708,21 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"cg1.4xlarge"]) {
             return @(AWSEC2InstanceTypeCG1_4xlarge);
         }
+        if ([value isEqualToString:@"r3.large"]) {
+            return @(AWSEC2InstanceTypeR3_large);
+        }
+        if ([value isEqualToString:@"r3.xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_xlarge);
+        }
+        if ([value isEqualToString:@"r3.2xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_2xlarge);
+        }
+        if ([value isEqualToString:@"r3.4xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_4xlarge);
+        }
+        if ([value isEqualToString:@"r3.8xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_8xlarge);
+        }
         return @(AWSEC2InstanceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4625,6 +4786,16 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"g2.2xlarge";
             case AWSEC2InstanceTypeCG1_4xlarge:
                 return @"cg1.4xlarge";
+            case AWSEC2InstanceTypeR3_large:
+                return @"r3.large";
+            case AWSEC2InstanceTypeR3_xlarge:
+                return @"r3.xlarge";
+            case AWSEC2InstanceTypeR3_2xlarge:
+                return @"r3.2xlarge";
+            case AWSEC2InstanceTypeR3_4xlarge:
+                return @"r3.4xlarge";
+            case AWSEC2InstanceTypeR3_8xlarge:
+                return @"r3.8xlarge";
             case AWSEC2InstanceTypeUnknown:
             default:
                 return nil;
@@ -4642,11 +4813,11 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"description",
-             @"diskImages" : @"diskImages",
-             @"dryRun" : @"dryRun",
-             @"launchSpecification" : @"launchSpecification",
-             @"platform" : @"platform",
+             @"description" : @"Description",
+             @"diskImages" : @"DiskImages",
+             @"dryRun" : @"DryRun",
+             @"launchSpecification" : @"LaunchSpecification",
+             @"platform" : @"Platform",
              };
 }
 
@@ -4681,7 +4852,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"conversionTask" : @"conversionTask",
+             @"conversionTask" : @"ConversionTask",
              };
 }
 
@@ -4695,10 +4866,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"description",
-             @"instanceId" : @"instanceId",
-             @"platform" : @"platform",
-             @"volumes" : @"volumes",
+             @"description" : @"Description",
+             @"instanceId" : @"InstanceId",
+             @"platform" : @"Platform",
+             @"volumes" : @"Volumes",
              };
 }
 
@@ -4729,13 +4900,13 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"availabilityZone" : @"availabilityZone",
-             @"bytesConverted" : @"bytesConverted",
-             @"description" : @"description",
-             @"image" : @"image",
-             @"status" : @"status",
-             @"statusMessage" : @"statusMessage",
-             @"volume" : @"volume",
+             @"availabilityZone" : @"AvailabilityZone",
+             @"bytesConverted" : @"BytesConverted",
+             @"description" : @"Description",
+             @"image" : @"Image",
+             @"status" : @"Status",
+             @"statusMessage" : @"StatusMessage",
+             @"volume" : @"Volume",
              };
 }
 
@@ -4753,9 +4924,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"keyName" : @"keyName",
-             @"publicKeyMaterial" : @"publicKeyMaterial",
+             @"dryRun" : @"DryRun",
+             @"keyName" : @"KeyName",
+             @"publicKeyMaterial" : @"PublicKeyMaterial",
              };
 }
 
@@ -4765,8 +4936,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"keyFingerprint" : @"keyFingerprint",
-             @"keyName" : @"keyName",
+             @"keyFingerprint" : @"KeyFingerprint",
+             @"keyName" : @"KeyName",
              };
 }
 
@@ -4776,11 +4947,11 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"availabilityZone" : @"availabilityZone",
-             @"description" : @"description",
-             @"dryRun" : @"dryRun",
-             @"image" : @"image",
-             @"volume" : @"volume",
+             @"availabilityZone" : @"AvailabilityZone",
+             @"description" : @"Description",
+             @"dryRun" : @"DryRun",
+             @"image" : @"Image",
+             @"volume" : @"Volume",
              };
 }
 
@@ -4798,7 +4969,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"conversionTask" : @"conversionTask",
+             @"conversionTask" : @"ConversionTask",
              };
 }
 
@@ -4812,11 +4983,11 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"availabilityZone" : @"availabilityZone",
-             @"bytesConverted" : @"bytesConverted",
-             @"description" : @"description",
-             @"image" : @"image",
-             @"volume" : @"volume",
+             @"availabilityZone" : @"AvailabilityZone",
+             @"bytesConverted" : @"BytesConverted",
+             @"description" : @"Description",
+             @"image" : @"Image",
+             @"volume" : @"Volume",
              };
 }
 
@@ -4835,13 +5006,21 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"amiLaunchIndex" : @"AmiLaunchIndex",
+             @"architecture" : @"Architecture",
+             @"blockDeviceMappings" : @"BlockDeviceMappings",
+             @"clientToken" : @"ClientToken",
+             @"ebsOptimized" : @"EbsOptimized",
+             @"hypervisor" : @"Hypervisor",
+             @"iamInstanceProfile" : @"IamInstanceProfile",
              @"imageId" : @"ImageId",
              @"instanceId" : @"InstanceId",
+             @"instanceLifecycle" : @"InstanceLifecycle",
              @"instanceType" : @"InstanceType",
              @"kernelId" : @"KernelId",
              @"keyName" : @"KeyName",
              @"launchTime" : @"LaunchTime",
              @"monitoring" : @"Monitoring",
+             @"networkInterfaces" : @"NetworkInterfaces",
              @"placement" : @"Placement",
              @"platform" : @"Platform",
              @"privateDnsName" : @"PrivateDnsName",
@@ -4850,28 +5029,89 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
              @"publicDnsName" : @"PublicDnsName",
              @"publicIpAddress" : @"PublicIpAddress",
              @"ramdiskId" : @"RamdiskId",
+             @"rootDeviceName" : @"RootDeviceName",
+             @"rootDeviceType" : @"RootDeviceType",
+             @"securityGroups" : @"SecurityGroups",
+             @"sourceDestCheck" : @"SourceDestCheck",
+             @"spotInstanceRequestId" : @"SpotInstanceRequestId",
+             @"sriovNetSupport" : @"SriovNetSupport",
              @"state" : @"State",
+             @"stateReason" : @"StateReason",
              @"stateTransitionReason" : @"StateTransitionReason",
              @"subnetId" : @"SubnetId",
+             @"tags" : @"Tags",
+             @"virtualizationType" : @"VirtualizationType",
              @"vpcId" : @"VpcId",
-             @"architecture" : @"architecture",
-             @"blockDeviceMappings" : @"blockDeviceMappings",
-             @"clientToken" : @"clientToken",
-             @"ebsOptimized" : @"ebsOptimized",
-             @"hypervisor" : @"hypervisor",
-             @"iamInstanceProfile" : @"iamInstanceProfile",
-             @"instanceLifecycle" : @"instanceLifecycle",
-             @"networkInterfaces" : @"networkInterfaces",
-             @"rootDeviceName" : @"rootDeviceName",
-             @"rootDeviceType" : @"rootDeviceType",
-             @"securityGroups" : @"securityGroups",
-             @"sourceDestCheck" : @"sourceDestCheck",
-             @"spotInstanceRequestId" : @"spotInstanceRequestId",
-             @"sriovNetSupport" : @"sriovNetSupport",
-             @"stateReason" : @"stateReason",
-             @"tags" : @"tags",
-             @"virtualizationType" : @"virtualizationType",
              };
+}
+
++ (NSValueTransformer *)architectureJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"i386"]) {
+            return @(AWSEC2ArchitectureValuesI386);
+        }
+        if ([value isEqualToString:@"x86_64"]) {
+            return @(AWSEC2ArchitectureValuesX86_64);
+        }
+        return @(AWSEC2ArchitectureValuesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2ArchitectureValuesI386:
+                return @"i386";
+            case AWSEC2ArchitectureValuesX86_64:
+                return @"x86_64";
+            case AWSEC2ArchitectureValuesUnknown:
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)blockDeviceMappingsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceBlockDeviceMapping class]];
+}
+
++ (NSValueTransformer *)hypervisorJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"ovm"]) {
+            return @(AWSEC2HypervisorTypeOvm);
+        }
+        if ([value isEqualToString:@"xen"]) {
+            return @(AWSEC2HypervisorTypeXen);
+        }
+        return @(AWSEC2HypervisorTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2HypervisorTypeOvm:
+                return @"ovm";
+            case AWSEC2HypervisorTypeXen:
+                return @"xen";
+            case AWSEC2HypervisorTypeUnknown:
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)iamInstanceProfileJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2IamInstanceProfile class]];
+}
+
++ (NSValueTransformer *)instanceLifecycleJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"spot"]) {
+            return @(AWSEC2InstanceLifecycleTypeSpot);
+        }
+        return @(AWSEC2InstanceLifecycleTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2InstanceLifecycleTypeSpot:
+                return @"spot";
+            case AWSEC2InstanceLifecycleTypeUnknown:
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)instanceTypeJSONTransformer {
@@ -4966,6 +5206,21 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"cg1.4xlarge"]) {
             return @(AWSEC2InstanceTypeCG1_4xlarge);
         }
+        if ([value isEqualToString:@"r3.large"]) {
+            return @(AWSEC2InstanceTypeR3_large);
+        }
+        if ([value isEqualToString:@"r3.xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_xlarge);
+        }
+        if ([value isEqualToString:@"r3.2xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_2xlarge);
+        }
+        if ([value isEqualToString:@"r3.4xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_4xlarge);
+        }
+        if ([value isEqualToString:@"r3.8xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_8xlarge);
+        }
         return @(AWSEC2InstanceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -5029,6 +5284,16 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"g2.2xlarge";
             case AWSEC2InstanceTypeCG1_4xlarge:
                 return @"cg1.4xlarge";
+            case AWSEC2InstanceTypeR3_large:
+                return @"r3.large";
+            case AWSEC2InstanceTypeR3_xlarge:
+                return @"r3.xlarge";
+            case AWSEC2InstanceTypeR3_2xlarge:
+                return @"r3.2xlarge";
+            case AWSEC2InstanceTypeR3_4xlarge:
+                return @"r3.4xlarge";
+            case AWSEC2InstanceTypeR3_8xlarge:
+                return @"r3.8xlarge";
             case AWSEC2InstanceTypeUnknown:
             default:
                 return nil;
@@ -5046,6 +5311,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)monitoringJSONTransformer {
 	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2Monitoring class]];
+}
+
++ (NSValueTransformer *)networkInterfacesJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceNetworkInterface class]];
 }
 
 + (NSValueTransformer *)placementJSONTransformer {
@@ -5073,83 +5342,6 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2ProductCode class]];
 }
 
-+ (NSValueTransformer *)stateJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceState class]];
-}
-
-+ (NSValueTransformer *)architectureJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"i386"]) {
-            return @(AWSEC2ArchitectureValuesI386);
-        }
-        if ([value isEqualToString:@"x86_64"]) {
-            return @(AWSEC2ArchitectureValuesX86_64);
-        }
-        return @(AWSEC2ArchitectureValuesUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSEC2ArchitectureValuesI386:
-                return @"i386";
-            case AWSEC2ArchitectureValuesX86_64:
-                return @"x86_64";
-            case AWSEC2ArchitectureValuesUnknown:
-            default:
-                return nil;
-        }
-    }];
-}
-
-+ (NSValueTransformer *)blockDeviceMappingsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceBlockDeviceMapping class]];
-}
-
-+ (NSValueTransformer *)hypervisorJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"ovm"]) {
-            return @(AWSEC2HypervisorTypeOvm);
-        }
-        if ([value isEqualToString:@"xen"]) {
-            return @(AWSEC2HypervisorTypeXen);
-        }
-        return @(AWSEC2HypervisorTypeUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSEC2HypervisorTypeOvm:
-                return @"ovm";
-            case AWSEC2HypervisorTypeXen:
-                return @"xen";
-            case AWSEC2HypervisorTypeUnknown:
-            default:
-                return nil;
-        }
-    }];
-}
-
-+ (NSValueTransformer *)iamInstanceProfileJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2IamInstanceProfile class]];
-}
-
-+ (NSValueTransformer *)instanceLifecycleJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"spot"]) {
-            return @(AWSEC2InstanceLifecycleTypeSpot);
-        }
-        return @(AWSEC2InstanceLifecycleTypeUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSEC2InstanceLifecycleTypeSpot:
-                return @"spot";
-            case AWSEC2InstanceLifecycleTypeUnknown:
-            default:
-                return nil;
-        }
-    }];
-}
-
-+ (NSValueTransformer *)networkInterfacesJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceNetworkInterface class]];
-}
-
 + (NSValueTransformer *)rootDeviceTypeJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"ebs"]) {
@@ -5174,6 +5366,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)securityGroupsJSONTransformer {
 	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2GroupIdentifier class]];
+}
+
++ (NSValueTransformer *)stateJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceState class]];
 }
 
 + (NSValueTransformer *)stateReasonJSONTransformer {
@@ -5212,18 +5408,19 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"blockDeviceMappings" : @"blockDeviceMappings",
-             @"disableApiTermination" : @"disableApiTermination",
-             @"ebsOptimized" : @"ebsOptimized",
-             @"instanceId" : @"instanceId",
-             @"instanceInitiatedShutdownBehavior" : @"instanceInitiatedShutdownBehavior",
-             @"instanceType" : @"instanceType",
-             @"kernelId" : @"kernelId",
-             @"productCodes" : @"productCodes",
-             @"ramdiskId" : @"ramdiskId",
-             @"rootDeviceName" : @"rootDeviceName",
-             @"sriovNetSupport" : @"sriovNetSupport",
-             @"userData" : @"userData",
+             @"blockDeviceMappings" : @"BlockDeviceMappings",
+             @"disableApiTermination" : @"DisableApiTermination",
+             @"ebsOptimized" : @"EbsOptimized",
+             @"instanceId" : @"InstanceId",
+             @"instanceInitiatedShutdownBehavior" : @"InstanceInitiatedShutdownBehavior",
+             @"instanceType" : @"InstanceType",
+             @"kernelId" : @"KernelId",
+             @"productCodes" : @"ProductCodes",
+             @"ramdiskId" : @"RamdiskId",
+             @"rootDeviceName" : @"RootDeviceName",
+             @"sourceDestCheck" : @"SourceDestCheck",
+             @"sriovNetSupport" : @"SriovNetSupport",
+             @"userData" : @"UserData",
              };
 }
 
@@ -5263,6 +5460,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeValue class]];
 }
 
++ (NSValueTransformer *)sourceDestCheckJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeBooleanValue class]];
+}
+
 + (NSValueTransformer *)sriovNetSupportJSONTransformer {
 	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeValue class]];
 }
@@ -5277,8 +5478,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"deviceName" : @"deviceName",
-             @"ebs" : @"ebs",
+             @"deviceName" : @"DeviceName",
+             @"ebs" : @"Ebs",
              };
 }
 
@@ -5292,10 +5493,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"deviceName" : @"deviceName",
-             @"ebs" : @"ebs",
-             @"noDevice" : @"noDevice",
-             @"virtualName" : @"virtualName",
+             @"deviceName" : @"DeviceName",
+             @"ebs" : @"Ebs",
+             @"noDevice" : @"NoDevice",
+             @"virtualName" : @"VirtualName",
              };
 }
 
@@ -5309,8 +5510,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"instanceCount" : @"instanceCount",
-             @"state" : @"state",
+             @"instanceCount" : @"InstanceCount",
+             @"state" : @"State",
              };
 }
 
@@ -5352,8 +5553,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"instanceId" : @"instanceId",
-             @"targetEnvironment" : @"targetEnvironment",
+             @"instanceId" : @"InstanceId",
+             @"targetEnvironment" : @"TargetEnvironment",
              };
 }
 
@@ -5405,19 +5606,19 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"association" : @"association",
-             @"attachment" : @"attachment",
-             @"description" : @"description",
-             @"groups" : @"groups",
-             @"networkInterfaceId" : @"networkInterfaceId",
-             @"ownerId" : @"ownerId",
-             @"privateDnsName" : @"privateDnsName",
-             @"privateIpAddress" : @"privateIpAddress",
-             @"privateIpAddresses" : @"privateIpAddresses",
-             @"sourceDestCheck" : @"sourceDestCheck",
-             @"status" : @"status",
-             @"subnetId" : @"subnetId",
-             @"vpcId" : @"vpcId",
+             @"association" : @"Association",
+             @"attachment" : @"Attachment",
+             @"description" : @"Description",
+             @"groups" : @"Groups",
+             @"networkInterfaceId" : @"NetworkInterfaceId",
+             @"ownerId" : @"OwnerId",
+             @"privateDnsName" : @"PrivateDnsName",
+             @"privateIpAddress" : @"PrivateIpAddress",
+             @"privateIpAddresses" : @"PrivateIpAddresses",
+             @"sourceDestCheck" : @"SourceDestCheck",
+             @"status" : @"Status",
+             @"subnetId" : @"SubnetId",
+             @"vpcId" : @"VpcId",
              };
 }
 
@@ -5475,9 +5676,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"ipOwnerId" : @"ipOwnerId",
-             @"publicDnsName" : @"publicDnsName",
-             @"publicIp" : @"publicIp",
+             @"ipOwnerId" : @"IpOwnerId",
+             @"publicDnsName" : @"PublicDnsName",
+             @"publicIp" : @"PublicIp",
              };
 }
 
@@ -5487,11 +5688,11 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"attachTime" : @"attachTime",
-             @"attachmentId" : @"attachmentId",
-             @"deleteOnTermination" : @"deleteOnTermination",
-             @"deviceIndex" : @"deviceIndex",
-             @"status" : @"status",
+             @"attachTime" : @"AttachTime",
+             @"attachmentId" : @"AttachmentId",
+             @"deleteOnTermination" : @"DeleteOnTermination",
+             @"deviceIndex" : @"DeviceIndex",
+             @"status" : @"Status",
              };
 }
 
@@ -5541,16 +5742,16 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"associatePublicIpAddress" : @"associatePublicIpAddress",
-             @"deleteOnTermination" : @"deleteOnTermination",
-             @"description" : @"description",
-             @"deviceIndex" : @"deviceIndex",
-             @"groups" : @"groups",
-             @"networkInterfaceId" : @"networkInterfaceId",
-             @"privateIpAddress" : @"privateIpAddress",
-             @"privateIpAddresses" : @"privateIpAddresses",
-             @"secondaryPrivateIpAddressCount" : @"secondaryPrivateIpAddressCount",
-             @"subnetId" : @"subnetId",
+             @"associatePublicIpAddress" : @"AssociatePublicIpAddress",
+             @"deleteOnTermination" : @"DeleteOnTermination",
+             @"description" : @"Description",
+             @"deviceIndex" : @"DeviceIndex",
+             @"groups" : @"Groups",
+             @"networkInterfaceId" : @"NetworkInterfaceId",
+             @"privateIpAddress" : @"PrivateIpAddress",
+             @"privateIpAddresses" : @"PrivateIpAddresses",
+             @"secondaryPrivateIpAddressCount" : @"SecondaryPrivateIpAddressCount",
+             @"subnetId" : @"SubnetId",
              };
 }
 
@@ -5564,10 +5765,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"association" : @"association",
-             @"primary" : @"primary",
-             @"privateDnsName" : @"privateDnsName",
-             @"privateIpAddress" : @"privateIpAddress",
+             @"association" : @"Association",
+             @"primary" : @"Primary",
+             @"privateDnsName" : @"PrivateDnsName",
+             @"privateIpAddress" : @"PrivateIpAddress",
              };
 }
 
@@ -5654,12 +5855,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"availabilityZone" : @"availabilityZone",
-             @"events" : @"events",
-             @"instanceId" : @"instanceId",
-             @"instanceState" : @"instanceState",
-             @"instanceStatus" : @"instanceStatus",
-             @"systemStatus" : @"systemStatus",
+             @"availabilityZone" : @"AvailabilityZone",
+             @"events" : @"Events",
+             @"instanceId" : @"InstanceId",
+             @"instanceState" : @"InstanceState",
+             @"instanceStatus" : @"InstanceStatus",
+             @"systemStatus" : @"SystemStatus",
              };
 }
 
@@ -5685,9 +5886,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"impairedSince" : @"impairedSince",
-             @"name" : @"name",
-             @"status" : @"status",
+             @"impairedSince" : @"ImpairedSince",
+             @"name" : @"Name",
+             @"status" : @"Status",
              };
 }
 
@@ -5749,10 +5950,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"code" : @"code",
-             @"description" : @"description",
-             @"notAfter" : @"notAfter",
-             @"notBefore" : @"notBefore",
+             @"code" : @"Code",
+             @"description" : @"Description",
+             @"notAfter" : @"NotAfter",
+             @"notBefore" : @"NotBefore",
              };
 }
 
@@ -5815,8 +6016,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"details" : @"details",
-             @"status" : @"status",
+             @"details" : @"Details",
+             @"status" : @"Status",
              };
 }
 
@@ -5862,9 +6063,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"attachments" : @"attachments",
-             @"internetGatewayId" : @"internetGatewayId",
-             @"tags" : @"tags",
+             @"attachments" : @"Attachments",
+             @"internetGatewayId" : @"InternetGatewayId",
+             @"tags" : @"Tags",
              };
 }
 
@@ -5882,8 +6083,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"state" : @"state",
-             @"vpcId" : @"vpcId",
+             @"state" : @"State",
+             @"vpcId" : @"VpcId",
              };
 }
 
@@ -6027,26 +6228,22 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"addressingType" : @"AddressingType",
+             @"blockDeviceMappings" : @"BlockDeviceMappings",
+             @"ebsOptimized" : @"EbsOptimized",
+             @"iamInstanceProfile" : @"IamInstanceProfile",
+             @"imageId" : @"ImageId",
+             @"instanceType" : @"InstanceType",
+             @"kernelId" : @"KernelId",
+             @"keyName" : @"KeyName",
+             @"monitoring" : @"Monitoring",
+             @"networkInterfaces" : @"NetworkInterfaces",
+             @"placement" : @"Placement",
+             @"ramdiskId" : @"RamdiskId",
              @"securityGroups" : @"SecurityGroups",
-             @"addressingType" : @"addressingType",
-             @"blockDeviceMappings" : @"blockDeviceMappings",
-             @"ebsOptimized" : @"ebsOptimized",
-             @"iamInstanceProfile" : @"iamInstanceProfile",
-             @"imageId" : @"imageId",
-             @"instanceType" : @"instanceType",
-             @"kernelId" : @"kernelId",
-             @"keyName" : @"keyName",
-             @"monitoringEnabled" : @"monitoringEnabled",
-             @"networkInterfaces" : @"networkInterfaces",
-             @"placement" : @"placement",
-             @"ramdiskId" : @"ramdiskId",
-             @"subnetId" : @"subnetId",
-             @"userData" : @"userData",
+             @"subnetId" : @"SubnetId",
+             @"userData" : @"UserData",
              };
-}
-
-+ (NSValueTransformer *)securityGroupsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2GroupIdentifier class]];
 }
 
 + (NSValueTransformer *)blockDeviceMappingsJSONTransformer {
@@ -6149,6 +6346,21 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"cg1.4xlarge"]) {
             return @(AWSEC2InstanceTypeCG1_4xlarge);
         }
+        if ([value isEqualToString:@"r3.large"]) {
+            return @(AWSEC2InstanceTypeR3_large);
+        }
+        if ([value isEqualToString:@"r3.xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_xlarge);
+        }
+        if ([value isEqualToString:@"r3.2xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_2xlarge);
+        }
+        if ([value isEqualToString:@"r3.4xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_4xlarge);
+        }
+        if ([value isEqualToString:@"r3.8xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_8xlarge);
+        }
         return @(AWSEC2InstanceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -6212,11 +6424,25 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"g2.2xlarge";
             case AWSEC2InstanceTypeCG1_4xlarge:
                 return @"cg1.4xlarge";
+            case AWSEC2InstanceTypeR3_large:
+                return @"r3.large";
+            case AWSEC2InstanceTypeR3_xlarge:
+                return @"r3.xlarge";
+            case AWSEC2InstanceTypeR3_2xlarge:
+                return @"r3.2xlarge";
+            case AWSEC2InstanceTypeR3_4xlarge:
+                return @"r3.4xlarge";
+            case AWSEC2InstanceTypeR3_8xlarge:
+                return @"r3.8xlarge";
             case AWSEC2InstanceTypeUnknown:
             default:
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)monitoringJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2RunInstancesMonitoringEnabled class]];
 }
 
 + (NSValueTransformer *)networkInterfacesJSONTransformer {
@@ -6227,6 +6453,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2SpotPlacement class]];
 }
 
++ (NSValueTransformer *)securityGroupsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2GroupIdentifier class]];
+}
+
 @end
 
 @implementation AWSEC2ModifyImageAttributeRequest
@@ -6235,6 +6465,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return @{
              @"attribute" : @"Attribute",
              @"description" : @"Description",
+             @"dryRun" : @"DryRun",
              @"imageId" : @"ImageId",
              @"launchPermission" : @"LaunchPermission",
              @"operationType" : @"OperationType",
@@ -6242,7 +6473,6 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
              @"userGroups" : @"UserGroups",
              @"userIds" : @"UserIds",
              @"value" : @"Value",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -6260,26 +6490,22 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"attribute" : @"Attribute",
+             @"blockDeviceMappings" : @"BlockDeviceMappings",
+             @"disableApiTermination" : @"DisableApiTermination",
+             @"dryRun" : @"DryRun",
+             @"ebsOptimized" : @"EbsOptimized",
+             @"groups" : @"Groups",
+             @"instanceId" : @"InstanceId",
+             @"instanceInitiatedShutdownBehavior" : @"InstanceInitiatedShutdownBehavior",
+             @"instanceType" : @"InstanceType",
+             @"kernel" : @"Kernel",
+             @"ramdisk" : @"Ramdisk",
              @"sourceDestCheck" : @"SourceDestCheck",
-             @"attribute" : @"attribute",
-             @"blockDeviceMappings" : @"blockDeviceMappings",
-             @"disableApiTermination" : @"disableApiTermination",
-             @"dryRun" : @"dryRun",
-             @"ebsOptimized" : @"ebsOptimized",
-             @"groups" : @"groups",
-             @"instanceId" : @"instanceId",
-             @"instanceInitiatedShutdownBehavior" : @"instanceInitiatedShutdownBehavior",
-             @"instanceType" : @"instanceType",
-             @"kernel" : @"kernel",
-             @"ramdisk" : @"ramdisk",
-             @"sriovNetSupport" : @"sriovNetSupport",
-             @"userData" : @"userData",
-             @"value" : @"value",
+             @"sriovNetSupport" : @"SriovNetSupport",
+             @"userData" : @"UserData",
+             @"value" : @"Value",
              };
-}
-
-+ (NSValueTransformer *)sourceDestCheckJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeBooleanValue class]];
 }
 
 + (NSValueTransformer *)attributeJSONTransformer {
@@ -6320,6 +6546,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"ebsOptimized"]) {
             return @(AWSEC2InstanceAttributeNameEBSOptimized);
         }
+        if ([value isEqualToString:@"sriovNetSupport"]) {
+            return @(AWSEC2InstanceAttributeNameSriovNetSupport);
+        }
         return @(AWSEC2InstanceAttributeNameUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -6347,6 +6576,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"groupSet";
             case AWSEC2InstanceAttributeNameEBSOptimized:
                 return @"ebsOptimized";
+            case AWSEC2InstanceAttributeNameSriovNetSupport:
+                return @"sriovNetSupport";
             case AWSEC2InstanceAttributeNameUnknown:
             default:
                 return nil;
@@ -6382,12 +6613,16 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeValue class]];
 }
 
++ (NSValueTransformer *)sourceDestCheckJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeBooleanValue class]];
+}
+
 + (NSValueTransformer *)sriovNetSupportJSONTransformer {
 	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeValue class]];
 }
 
 + (NSValueTransformer *)userDataJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeValue class]];
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2BlobAttributeValue class]];
 }
 
 @end
@@ -6396,12 +6631,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"attachment" : @"attachment",
-             @"description" : @"description",
-             @"dryRun" : @"dryRun",
-             @"groups" : @"groups",
-             @"networkInterfaceId" : @"networkInterfaceId",
-             @"sourceDestCheck" : @"sourceDestCheck",
+             @"attachment" : @"Attachment",
+             @"description" : @"Description",
+             @"dryRun" : @"DryRun",
+             @"groups" : @"Groups",
+             @"networkInterfaceId" : @"NetworkInterfaceId",
+             @"sourceDestCheck" : @"SourceDestCheck",
              };
 }
 
@@ -6423,9 +6658,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"clientToken" : @"ClientToken",
              @"reservedInstancesIds" : @"ReservedInstancesIds",
-             @"clientToken" : @"clientToken",
-             @"targetConfigurations" : @"targetConfigurations",
+             @"targetConfigurations" : @"TargetConfigurations",
              };
 }
 
@@ -6439,7 +6674,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"reservedInstancesModificationId" : @"reservedInstancesModificationId",
+             @"reservedInstancesModificationId" : @"ReservedInstancesModificationId",
              };
 }
 
@@ -6451,11 +6686,11 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return @{
              @"attribute" : @"Attribute",
              @"createVolumePermission" : @"CreateVolumePermission",
+             @"dryRun" : @"DryRun",
              @"groupNames" : @"GroupNames",
              @"operationType" : @"OperationType",
              @"snapshotId" : @"SnapshotId",
              @"userIds" : @"UserIds",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -6492,8 +6727,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoEnableIO" : @"AutoEnableIO",
+             @"dryRun" : @"DryRun",
              @"volumeId" : @"VolumeId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -6523,8 +6758,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"instanceIds" : @"InstanceIds",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -6585,12 +6820,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"associations" : @"associations",
-             @"entries" : @"entries",
-             @"isDefault" : @"isDefault",
-             @"networkAclId" : @"networkAclId",
-             @"tags" : @"tags",
-             @"vpcId" : @"vpcId",
+             @"associations" : @"Associations",
+             @"entries" : @"Entries",
+             @"isDefault" : @"IsDefault",
+             @"networkAclId" : @"NetworkAclId",
+             @"tags" : @"Tags",
+             @"vpcId" : @"VpcId",
              };
 }
 
@@ -6612,9 +6847,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"networkAclAssociationId" : @"networkAclAssociationId",
-             @"networkAclId" : @"networkAclId",
-             @"subnetId" : @"subnetId",
+             @"networkAclAssociationId" : @"NetworkAclAssociationId",
+             @"networkAclId" : @"NetworkAclId",
+             @"subnetId" : @"SubnetId",
              };
 }
 
@@ -6624,13 +6859,13 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"cidrBlock" : @"cidrBlock",
-             @"egress" : @"egress",
-             @"icmpTypeCode" : @"icmpTypeCode",
-             @"portRange" : @"portRange",
-             @"protocol" : @"protocol",
-             @"ruleAction" : @"ruleAction",
-             @"ruleNumber" : @"ruleNumber",
+             @"cidrBlock" : @"CidrBlock",
+             @"egress" : @"Egress",
+             @"icmpTypeCode" : @"IcmpTypeCode",
+             @"portRange" : @"PortRange",
+             @"protocol" : @"Protocol",
+             @"ruleAction" : @"RuleAction",
+             @"ruleNumber" : @"RuleNumber",
              };
 }
 
@@ -6670,24 +6905,24 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"association" : @"association",
-             @"attachment" : @"attachment",
-             @"availabilityZone" : @"availabilityZone",
-             @"description" : @"description",
-             @"groups" : @"groups",
-             @"macAddress" : @"macAddress",
-             @"networkInterfaceId" : @"networkInterfaceId",
-             @"ownerId" : @"ownerId",
-             @"privateDnsName" : @"privateDnsName",
-             @"privateIpAddress" : @"privateIpAddress",
-             @"privateIpAddresses" : @"privateIpAddresses",
-             @"requesterId" : @"requesterId",
-             @"requesterManaged" : @"requesterManaged",
-             @"sourceDestCheck" : @"sourceDestCheck",
-             @"status" : @"status",
-             @"subnetId" : @"subnetId",
-             @"tagSet" : @"tagSet",
-             @"vpcId" : @"vpcId",
+             @"association" : @"Association",
+             @"attachment" : @"Attachment",
+             @"availabilityZone" : @"AvailabilityZone",
+             @"description" : @"Description",
+             @"groups" : @"Groups",
+             @"macAddress" : @"MacAddress",
+             @"networkInterfaceId" : @"NetworkInterfaceId",
+             @"ownerId" : @"OwnerId",
+             @"privateDnsName" : @"PrivateDnsName",
+             @"privateIpAddress" : @"PrivateIpAddress",
+             @"privateIpAddresses" : @"PrivateIpAddresses",
+             @"requesterId" : @"RequesterId",
+             @"requesterManaged" : @"RequesterManaged",
+             @"sourceDestCheck" : @"SourceDestCheck",
+             @"status" : @"Status",
+             @"subnetId" : @"SubnetId",
+             @"tagSet" : @"TagSet",
+             @"vpcId" : @"VpcId",
              };
 }
 
@@ -6749,10 +6984,11 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"allocationId" : @"allocationId",
-             @"associationId" : @"associationId",
-             @"ipOwnerId" : @"ipOwnerId",
-             @"publicIp" : @"publicIp",
+             @"allocationId" : @"AllocationId",
+             @"associationId" : @"AssociationId",
+             @"ipOwnerId" : @"IpOwnerId",
+             @"publicDnsName" : @"PublicDnsName",
+             @"publicIp" : @"PublicIp",
              };
 }
 
@@ -6762,13 +6998,13 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"attachTime" : @"attachTime",
-             @"attachmentId" : @"attachmentId",
-             @"deleteOnTermination" : @"deleteOnTermination",
-             @"deviceIndex" : @"deviceIndex",
-             @"instanceId" : @"instanceId",
-             @"instanceOwnerId" : @"instanceOwnerId",
-             @"status" : @"status",
+             @"attachTime" : @"AttachTime",
+             @"attachmentId" : @"AttachmentId",
+             @"deleteOnTermination" : @"DeleteOnTermination",
+             @"deviceIndex" : @"DeviceIndex",
+             @"instanceId" : @"InstanceId",
+             @"instanceOwnerId" : @"InstanceOwnerId",
+             @"status" : @"Status",
              };
 }
 
@@ -6818,8 +7054,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"attachmentId" : @"attachmentId",
-             @"deleteOnTermination" : @"deleteOnTermination",
+             @"attachmentId" : @"AttachmentId",
+             @"deleteOnTermination" : @"DeleteOnTermination",
              };
 }
 
@@ -6829,10 +7065,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"association" : @"association",
-             @"primary" : @"primary",
-             @"privateDnsName" : @"privateDnsName",
-             @"privateIpAddress" : @"privateIpAddress",
+             @"association" : @"Association",
+             @"primary" : @"Primary",
+             @"privateDnsName" : @"PrivateDnsName",
+             @"privateIpAddress" : @"PrivateIpAddress",
              };
 }
 
@@ -6847,8 +7083,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"availabilityZone" : @"AvailabilityZone",
-             @"groupName" : @"groupName",
-             @"tenancy" : @"tenancy",
+             @"groupName" : @"GroupName",
+             @"tenancy" : @"Tenancy",
              };
 }
 
@@ -6880,9 +7116,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"groupName" : @"groupName",
-             @"state" : @"state",
-             @"strategy" : @"strategy",
+             @"groupName" : @"GroupName",
+             @"state" : @"State",
+             @"strategy" : @"Strategy",
              };
 }
 
@@ -6941,8 +7177,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"from" : @"from",
-             @"to" : @"to",
+             @"from" : @"From",
+             @"to" : @"To",
              };
 }
 
@@ -6952,10 +7188,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"active" : @"active",
-             @"currencyCode" : @"currencyCode",
-             @"price" : @"price",
-             @"term" : @"term",
+             @"active" : @"Active",
+             @"currencyCode" : @"CurrencyCode",
+             @"price" : @"Price",
+             @"term" : @"Term",
              };
 }
 
@@ -6982,9 +7218,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"currencyCode" : @"currencyCode",
-             @"price" : @"price",
-             @"term" : @"term",
+             @"currencyCode" : @"CurrencyCode",
+             @"price" : @"Price",
+             @"term" : @"Term",
              };
 }
 
@@ -7011,8 +7247,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"count" : @"count",
-             @"price" : @"price",
+             @"count" : @"Count",
+             @"price" : @"Price",
              };
 }
 
@@ -7022,8 +7258,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"primary" : @"primary",
-             @"privateIpAddress" : @"privateIpAddress",
+             @"primary" : @"Primary",
+             @"privateIpAddress" : @"PrivateIpAddress",
              };
 }
 
@@ -7066,7 +7302,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"gatewayId" : @"gatewayId",
+             @"gatewayId" : @"GatewayId",
              };
 }
 
@@ -7076,10 +7312,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"instanceCount" : @"InstanceCount",
+             @"limitPrice" : @"LimitPrice",
              @"reservedInstancesOfferingId" : @"ReservedInstancesOfferingId",
-             @"dryRun" : @"dryRun",
-             @"limitPrice" : @"limitPrice",
              };
 }
 
@@ -7103,8 +7339,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"instanceIds" : @"InstanceIds",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -7114,8 +7350,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"amount" : @"amount",
-             @"frequency" : @"frequency",
+             @"amount" : @"Amount",
+             @"frequency" : @"Frequency",
              };
 }
 
@@ -7153,17 +7389,17 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"architecture" : @"Architecture",
+             @"blockDeviceMappings" : @"BlockDeviceMappings",
+             @"description" : @"Description",
+             @"dryRun" : @"DryRun",
              @"imageLocation" : @"ImageLocation",
-             @"architecture" : @"architecture",
-             @"blockDeviceMappings" : @"blockDeviceMappings",
-             @"description" : @"description",
-             @"dryRun" : @"dryRun",
-             @"kernelId" : @"kernelId",
-             @"name" : @"name",
-             @"ramdiskId" : @"ramdiskId",
-             @"rootDeviceName" : @"rootDeviceName",
-             @"sriovNetSupport" : @"sriovNetSupport",
-             @"virtualizationType" : @"virtualizationType",
+             @"kernelId" : @"KernelId",
+             @"name" : @"Name",
+             @"ramdiskId" : @"RamdiskId",
+             @"rootDeviceName" : @"RootDeviceName",
+             @"sriovNetSupport" : @"SriovNetSupport",
+             @"virtualizationType" : @"VirtualizationType",
              };
 }
 
@@ -7205,13 +7441,34 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 @end
 
+@implementation AWSEC2RejectVpcPeeringConnectionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"vpcPeeringConnectionId" : @"VpcPeeringConnectionId",
+             };
+}
+
+@end
+
+@implementation AWSEC2RejectVpcPeeringConnectionResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"returned" : @"Return",
+             };
+}
+
+@end
+
 @implementation AWSEC2ReleaseAddressRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"allocationId" : @"AllocationId",
+             @"dryRun" : @"DryRun",
              @"publicIp" : @"PublicIp",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -7221,9 +7478,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"associationId" : @"associationId",
-             @"dryRun" : @"dryRun",
-             @"networkAclId" : @"networkAclId",
+             @"associationId" : @"AssociationId",
+             @"dryRun" : @"DryRun",
+             @"networkAclId" : @"NetworkAclId",
              };
 }
 
@@ -7233,7 +7490,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"latestAssociationId" : @"newAssociationId",
+             @"latestAssociationId" : @"NewAssociationId",
              };
 }
 
@@ -7243,15 +7500,15 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"cidrBlock" : @"cidrBlock",
-             @"dryRun" : @"dryRun",
-             @"egress" : @"egress",
-             @"icmpTypeCode" : @"icmpTypeCode",
-             @"networkAclId" : @"networkAclId",
-             @"portRange" : @"portRange",
-             @"protocol" : @"protocol",
-             @"ruleAction" : @"ruleAction",
-             @"ruleNumber" : @"ruleNumber",
+             @"cidrBlock" : @"CidrBlock",
+             @"dryRun" : @"DryRun",
+             @"egress" : @"Egress",
+             @"icmpTypeCode" : @"IcmpTypeCode",
+             @"networkAclId" : @"NetworkAclId",
+             @"portRange" : @"PortRange",
+             @"protocol" : @"Protocol",
+             @"ruleAction" : @"RuleAction",
+             @"ruleNumber" : @"RuleNumber",
              };
 }
 
@@ -7291,12 +7548,13 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"destinationCidrBlock" : @"destinationCidrBlock",
-             @"dryRun" : @"dryRun",
-             @"gatewayId" : @"gatewayId",
-             @"instanceId" : @"instanceId",
-             @"networkInterfaceId" : @"networkInterfaceId",
-             @"routeTableId" : @"routeTableId",
+             @"destinationCidrBlock" : @"DestinationCidrBlock",
+             @"dryRun" : @"DryRun",
+             @"gatewayId" : @"GatewayId",
+             @"instanceId" : @"InstanceId",
+             @"networkInterfaceId" : @"NetworkInterfaceId",
+             @"routeTableId" : @"RouteTableId",
+             @"vpcPeeringConnectionId" : @"VpcPeeringConnectionId",
              };
 }
 
@@ -7306,9 +7564,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"associationId" : @"associationId",
-             @"dryRun" : @"dryRun",
-             @"routeTableId" : @"routeTableId",
+             @"associationId" : @"AssociationId",
+             @"dryRun" : @"DryRun",
+             @"routeTableId" : @"RouteTableId",
              };
 }
 
@@ -7318,7 +7576,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"latestAssociationId" : @"newAssociationId",
+             @"latestAssociationId" : @"NewAssociationId",
              };
 }
 
@@ -7330,10 +7588,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return @{
              @"clientToken" : @"ClientToken",
              @"description" : @"Description",
+             @"dryRun" : @"DryRun",
              @"name" : @"Name",
              @"sourceImageId" : @"SourceImageId",
              @"sourceRegion" : @"SourceRegion",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -7354,9 +7612,11 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"description" : @"Description",
+             @"destinationRegion" : @"DestinationRegion",
+             @"dryRun" : @"DryRun",
+             @"presignedUrl" : @"PresignedUrl",
              @"sourceRegion" : @"SourceRegion",
              @"sourceSnapshotId" : @"SourceSnapshotId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -7376,13 +7636,13 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"description",
-             @"dryRun" : @"dryRun",
-             @"endTime" : @"endTime",
-             @"instances" : @"instances",
-             @"reasonCodes" : @"reasonCodes",
-             @"startTime" : @"startTime",
-             @"status" : @"status",
+             @"description" : @"Description",
+             @"dryRun" : @"DryRun",
+             @"endTime" : @"EndTime",
+             @"instances" : @"Instances",
+             @"reasonCodes" : @"ReasonCodes",
+             @"startTime" : @"StartTime",
+             @"status" : @"Status",
              };
 }
 
@@ -7430,15 +7690,15 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"availabilityZoneGroup" : @"availabilityZoneGroup",
-             @"dryRun" : @"dryRun",
-             @"instanceCount" : @"instanceCount",
-             @"launchGroup" : @"launchGroup",
-             @"launchSpecification" : @"launchSpecification",
-             @"spotPrice" : @"spotPrice",
-             @"type" : @"type",
-             @"validFrom" : @"validFrom",
-             @"validUntil" : @"validUntil",
+             @"availabilityZoneGroup" : @"AvailabilityZoneGroup",
+             @"dryRun" : @"DryRun",
+             @"instanceCount" : @"InstanceCount",
+             @"launchGroup" : @"LaunchGroup",
+             @"launchSpecification" : @"LaunchSpecification",
+             @"spotPrice" : @"SpotPrice",
+             @"type" : @"Type",
+             @"validFrom" : @"ValidFrom",
+             @"validUntil" : @"ValidUntil",
              };
 }
 
@@ -7490,7 +7750,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"spotInstanceRequests" : @"spotInstanceRequests",
+             @"spotInstanceRequests" : @"SpotInstanceRequests",
              };
 }
 
@@ -7526,8 +7786,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"amount" : @"amount",
-             @"currencyCode" : @"currencyCode",
+             @"amount" : @"Amount",
+             @"currencyCode" : @"CurrencyCode",
              };
 }
 
@@ -7555,22 +7815,39 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"availabilityZone" : @"AvailabilityZone",
+             @"currencyCode" : @"CurrencyCode",
              @"duration" : @"Duration",
              @"end" : @"End",
              @"fixedPrice" : @"FixedPrice",
              @"instanceCount" : @"InstanceCount",
+             @"instanceTenancy" : @"InstanceTenancy",
              @"instanceType" : @"InstanceType",
+             @"offeringType" : @"OfferingType",
              @"productDescription" : @"ProductDescription",
+             @"recurringCharges" : @"RecurringCharges",
              @"reservedInstancesId" : @"ReservedInstancesId",
              @"start" : @"Start",
              @"state" : @"State",
+             @"tags" : @"Tags",
              @"usagePrice" : @"UsagePrice",
-             @"currencyCode" : @"currencyCode",
-             @"instanceTenancy" : @"instanceTenancy",
-             @"offeringType" : @"offeringType",
-             @"recurringCharges" : @"recurringCharges",
-             @"tags" : @"tags",
              };
+}
+
++ (NSValueTransformer *)currencyCodeJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"USD"]) {
+            return @(AWSEC2CurrencyCodeValuesUSD);
+        }
+        return @(AWSEC2CurrencyCodeValuesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2CurrencyCodeValuesUSD:
+                return @"USD";
+            case AWSEC2CurrencyCodeValuesUnknown:
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)endJSONTransformer {
@@ -7578,6 +7855,28 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         return [NSDate az_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
         return [date az_stringValue:AZDateISO8601DateFormat1];
+    }];
+}
+
++ (NSValueTransformer *)instanceTenancyJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"default"]) {
+            return @(AWSEC2TenancyDefault);
+        }
+        if ([value isEqualToString:@"dedicated"]) {
+            return @(AWSEC2TenancyDedicated);
+        }
+        return @(AWSEC2TenancyUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2TenancyDefault:
+                return @"default";
+            case AWSEC2TenancyDedicated:
+                return @"dedicated";
+            case AWSEC2TenancyUnknown:
+            default:
+                return nil;
+        }
     }];
 }
 
@@ -7673,6 +7972,21 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"cg1.4xlarge"]) {
             return @(AWSEC2InstanceTypeCG1_4xlarge);
         }
+        if ([value isEqualToString:@"r3.large"]) {
+            return @(AWSEC2InstanceTypeR3_large);
+        }
+        if ([value isEqualToString:@"r3.xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_xlarge);
+        }
+        if ([value isEqualToString:@"r3.2xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_2xlarge);
+        }
+        if ([value isEqualToString:@"r3.4xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_4xlarge);
+        }
+        if ([value isEqualToString:@"r3.8xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_8xlarge);
+        }
         return @(AWSEC2InstanceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -7736,7 +8050,44 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"g2.2xlarge";
             case AWSEC2InstanceTypeCG1_4xlarge:
                 return @"cg1.4xlarge";
+            case AWSEC2InstanceTypeR3_large:
+                return @"r3.large";
+            case AWSEC2InstanceTypeR3_xlarge:
+                return @"r3.xlarge";
+            case AWSEC2InstanceTypeR3_2xlarge:
+                return @"r3.2xlarge";
+            case AWSEC2InstanceTypeR3_4xlarge:
+                return @"r3.4xlarge";
+            case AWSEC2InstanceTypeR3_8xlarge:
+                return @"r3.8xlarge";
             case AWSEC2InstanceTypeUnknown:
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)offeringTypeJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"Heavy Utilization"]) {
+            return @(AWSEC2OfferingTypeValuesHeavyUtilization);
+        }
+        if ([value isEqualToString:@"Medium Utilization"]) {
+            return @(AWSEC2OfferingTypeValuesMediumUtilization);
+        }
+        if ([value isEqualToString:@"Light Utilization"]) {
+            return @(AWSEC2OfferingTypeValuesLightUtilization);
+        }
+        return @(AWSEC2OfferingTypeValuesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2OfferingTypeValuesHeavyUtilization:
+                return @"Heavy Utilization";
+            case AWSEC2OfferingTypeValuesMediumUtilization:
+                return @"Medium Utilization";
+            case AWSEC2OfferingTypeValuesLightUtilization:
+                return @"Light Utilization";
+            case AWSEC2OfferingTypeValuesUnknown:
             default:
                 return nil;
         }
@@ -7773,6 +8124,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)recurringChargesJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2RecurringCharge class]];
 }
 
 + (NSValueTransformer *)startJSONTransformer {
@@ -7815,76 +8170,6 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
     }];
 }
 
-+ (NSValueTransformer *)currencyCodeJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"USD"]) {
-            return @(AWSEC2CurrencyCodeValuesUSD);
-        }
-        return @(AWSEC2CurrencyCodeValuesUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSEC2CurrencyCodeValuesUSD:
-                return @"USD";
-            case AWSEC2CurrencyCodeValuesUnknown:
-            default:
-                return nil;
-        }
-    }];
-}
-
-+ (NSValueTransformer *)instanceTenancyJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"default"]) {
-            return @(AWSEC2TenancyDefault);
-        }
-        if ([value isEqualToString:@"dedicated"]) {
-            return @(AWSEC2TenancyDedicated);
-        }
-        return @(AWSEC2TenancyUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSEC2TenancyDefault:
-                return @"default";
-            case AWSEC2TenancyDedicated:
-                return @"dedicated";
-            case AWSEC2TenancyUnknown:
-            default:
-                return nil;
-        }
-    }];
-}
-
-+ (NSValueTransformer *)offeringTypeJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"Heavy Utilization"]) {
-            return @(AWSEC2OfferingTypeValuesHeavyUtilization);
-        }
-        if ([value isEqualToString:@"Medium Utilization"]) {
-            return @(AWSEC2OfferingTypeValuesMediumUtilization);
-        }
-        if ([value isEqualToString:@"Light Utilization"]) {
-            return @(AWSEC2OfferingTypeValuesLightUtilization);
-        }
-        return @(AWSEC2OfferingTypeValuesUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSEC2OfferingTypeValuesHeavyUtilization:
-                return @"Heavy Utilization";
-            case AWSEC2OfferingTypeValuesMediumUtilization:
-                return @"Medium Utilization";
-            case AWSEC2OfferingTypeValuesLightUtilization:
-                return @"Light Utilization";
-            case AWSEC2OfferingTypeValuesUnknown:
-            default:
-                return nil;
-        }
-    }];
-}
-
-+ (NSValueTransformer *)recurringChargesJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2RecurringCharge class]];
-}
-
 + (NSValueTransformer *)tagsJSONTransformer {
 	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
 }
@@ -7895,10 +8180,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"availabilityZone" : @"availabilityZone",
-             @"instanceCount" : @"instanceCount",
-             @"instanceType" : @"instanceType",
-             @"platform" : @"platform",
+             @"availabilityZone" : @"AvailabilityZone",
+             @"instanceCount" : @"InstanceCount",
+             @"instanceType" : @"InstanceType",
+             @"platform" : @"Platform",
              };
 }
 
@@ -7994,6 +8279,21 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"cg1.4xlarge"]) {
             return @(AWSEC2InstanceTypeCG1_4xlarge);
         }
+        if ([value isEqualToString:@"r3.large"]) {
+            return @(AWSEC2InstanceTypeR3_large);
+        }
+        if ([value isEqualToString:@"r3.xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_xlarge);
+        }
+        if ([value isEqualToString:@"r3.2xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_2xlarge);
+        }
+        if ([value isEqualToString:@"r3.4xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_4xlarge);
+        }
+        if ([value isEqualToString:@"r3.8xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_8xlarge);
+        }
         return @(AWSEC2InstanceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -8057,6 +8357,16 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"g2.2xlarge";
             case AWSEC2InstanceTypeCG1_4xlarge:
                 return @"cg1.4xlarge";
+            case AWSEC2InstanceTypeR3_large:
+                return @"r3.large";
+            case AWSEC2InstanceTypeR3_xlarge:
+                return @"r3.xlarge";
+            case AWSEC2InstanceTypeR3_2xlarge:
+                return @"r3.2xlarge";
+            case AWSEC2InstanceTypeR3_4xlarge:
+                return @"r3.4xlarge";
+            case AWSEC2InstanceTypeR3_8xlarge:
+                return @"r3.8xlarge";
             case AWSEC2InstanceTypeUnknown:
             default:
                 return nil;
@@ -8070,7 +8380,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"reservedInstancesId" : @"reservedInstancesId",
+             @"reservedInstancesId" : @"ReservedInstancesId",
              };
 }
 
@@ -8080,16 +8390,16 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"clientToken" : @"clientToken",
-             @"createDate" : @"createDate",
-             @"instanceCounts" : @"instanceCounts",
-             @"priceSchedules" : @"priceSchedules",
-             @"reservedInstancesId" : @"reservedInstancesId",
-             @"reservedInstancesListingId" : @"reservedInstancesListingId",
-             @"status" : @"status",
-             @"statusMessage" : @"statusMessage",
-             @"tags" : @"tags",
-             @"updateDate" : @"updateDate",
+             @"clientToken" : @"ClientToken",
+             @"createDate" : @"CreateDate",
+             @"instanceCounts" : @"InstanceCounts",
+             @"priceSchedules" : @"PriceSchedules",
+             @"reservedInstancesId" : @"ReservedInstancesId",
+             @"reservedInstancesListingId" : @"ReservedInstancesListingId",
+             @"status" : @"Status",
+             @"statusMessage" : @"StatusMessage",
+             @"tags" : @"Tags",
+             @"updateDate" : @"UpdateDate",
              };
 }
 
@@ -8159,15 +8469,15 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"clientToken" : @"clientToken",
-             @"createDate" : @"createDate",
-             @"effectiveDate" : @"effectiveDate",
-             @"modificationResults" : @"modificationResults",
-             @"reservedInstancesIds" : @"reservedInstancesIds",
-             @"reservedInstancesModificationId" : @"reservedInstancesModificationId",
-             @"status" : @"status",
-             @"statusMessage" : @"statusMessage",
-             @"updateDate" : @"updateDate",
+             @"clientToken" : @"ClientToken",
+             @"createDate" : @"CreateDate",
+             @"effectiveDate" : @"EffectiveDate",
+             @"modificationResults" : @"ModificationResults",
+             @"reservedInstancesIds" : @"ReservedInstancesIds",
+             @"reservedInstancesModificationId" : @"ReservedInstancesModificationId",
+             @"status" : @"Status",
+             @"statusMessage" : @"StatusMessage",
+             @"updateDate" : @"UpdateDate",
              };
 }
 
@@ -8209,8 +8519,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"reservedInstancesId" : @"reservedInstancesId",
-             @"targetConfiguration" : @"targetConfiguration",
+             @"reservedInstancesId" : @"ReservedInstancesId",
+             @"targetConfiguration" : @"TargetConfiguration",
              };
 }
 
@@ -8225,19 +8535,58 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"availabilityZone" : @"AvailabilityZone",
+             @"currencyCode" : @"CurrencyCode",
              @"duration" : @"Duration",
              @"fixedPrice" : @"FixedPrice",
+             @"instanceTenancy" : @"InstanceTenancy",
              @"instanceType" : @"InstanceType",
+             @"marketplace" : @"Marketplace",
+             @"offeringType" : @"OfferingType",
+             @"pricingDetails" : @"PricingDetails",
              @"productDescription" : @"ProductDescription",
+             @"recurringCharges" : @"RecurringCharges",
              @"reservedInstancesOfferingId" : @"ReservedInstancesOfferingId",
              @"usagePrice" : @"UsagePrice",
-             @"currencyCode" : @"currencyCode",
-             @"instanceTenancy" : @"instanceTenancy",
-             @"marketplace" : @"marketplace",
-             @"offeringType" : @"offeringType",
-             @"pricingDetails" : @"pricingDetails",
-             @"recurringCharges" : @"recurringCharges",
              };
+}
+
++ (NSValueTransformer *)currencyCodeJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"USD"]) {
+            return @(AWSEC2CurrencyCodeValuesUSD);
+        }
+        return @(AWSEC2CurrencyCodeValuesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2CurrencyCodeValuesUSD:
+                return @"USD";
+            case AWSEC2CurrencyCodeValuesUnknown:
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)instanceTenancyJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"default"]) {
+            return @(AWSEC2TenancyDefault);
+        }
+        if ([value isEqualToString:@"dedicated"]) {
+            return @(AWSEC2TenancyDedicated);
+        }
+        return @(AWSEC2TenancyUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2TenancyDefault:
+                return @"default";
+            case AWSEC2TenancyDedicated:
+                return @"dedicated";
+            case AWSEC2TenancyUnknown:
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)instanceTypeJSONTransformer {
@@ -8332,6 +8681,21 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"cg1.4xlarge"]) {
             return @(AWSEC2InstanceTypeCG1_4xlarge);
         }
+        if ([value isEqualToString:@"r3.large"]) {
+            return @(AWSEC2InstanceTypeR3_large);
+        }
+        if ([value isEqualToString:@"r3.xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_xlarge);
+        }
+        if ([value isEqualToString:@"r3.2xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_2xlarge);
+        }
+        if ([value isEqualToString:@"r3.4xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_4xlarge);
+        }
+        if ([value isEqualToString:@"r3.8xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_8xlarge);
+        }
         return @(AWSEC2InstanceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -8395,78 +8759,17 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"g2.2xlarge";
             case AWSEC2InstanceTypeCG1_4xlarge:
                 return @"cg1.4xlarge";
+            case AWSEC2InstanceTypeR3_large:
+                return @"r3.large";
+            case AWSEC2InstanceTypeR3_xlarge:
+                return @"r3.xlarge";
+            case AWSEC2InstanceTypeR3_2xlarge:
+                return @"r3.2xlarge";
+            case AWSEC2InstanceTypeR3_4xlarge:
+                return @"r3.4xlarge";
+            case AWSEC2InstanceTypeR3_8xlarge:
+                return @"r3.8xlarge";
             case AWSEC2InstanceTypeUnknown:
-            default:
-                return nil;
-        }
-    }];
-}
-
-+ (NSValueTransformer *)productDescriptionJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"Linux/UNIX"]) {
-            return @(AWSEC2RIProductDescriptionLinuxUNIX);
-        }
-        if ([value isEqualToString:@"Linux/UNIX (Amazon VPC)"]) {
-            return @(AWSEC2RIProductDescriptionLinuxUNIXAmazonVPC);
-        }
-        if ([value isEqualToString:@"Windows"]) {
-            return @(AWSEC2RIProductDescriptionWindows);
-        }
-        if ([value isEqualToString:@"Windows (Amazon VPC)"]) {
-            return @(AWSEC2RIProductDescriptionWindowsAmazonVPC);
-        }
-        return @(AWSEC2RIProductDescriptionUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSEC2RIProductDescriptionLinuxUNIX:
-                return @"Linux/UNIX";
-            case AWSEC2RIProductDescriptionLinuxUNIXAmazonVPC:
-                return @"Linux/UNIX (Amazon VPC)";
-            case AWSEC2RIProductDescriptionWindows:
-                return @"Windows";
-            case AWSEC2RIProductDescriptionWindowsAmazonVPC:
-                return @"Windows (Amazon VPC)";
-            case AWSEC2RIProductDescriptionUnknown:
-            default:
-                return nil;
-        }
-    }];
-}
-
-+ (NSValueTransformer *)currencyCodeJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"USD"]) {
-            return @(AWSEC2CurrencyCodeValuesUSD);
-        }
-        return @(AWSEC2CurrencyCodeValuesUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSEC2CurrencyCodeValuesUSD:
-                return @"USD";
-            case AWSEC2CurrencyCodeValuesUnknown:
-            default:
-                return nil;
-        }
-    }];
-}
-
-+ (NSValueTransformer *)instanceTenancyJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"default"]) {
-            return @(AWSEC2TenancyDefault);
-        }
-        if ([value isEqualToString:@"dedicated"]) {
-            return @(AWSEC2TenancyDedicated);
-        }
-        return @(AWSEC2TenancyUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSEC2TenancyDefault:
-                return @"default";
-            case AWSEC2TenancyDedicated:
-                return @"dedicated";
-            case AWSEC2TenancyUnknown:
             default:
                 return nil;
         }
@@ -8504,6 +8807,38 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2PricingDetail class]];
 }
 
++ (NSValueTransformer *)productDescriptionJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"Linux/UNIX"]) {
+            return @(AWSEC2RIProductDescriptionLinuxUNIX);
+        }
+        if ([value isEqualToString:@"Linux/UNIX (Amazon VPC)"]) {
+            return @(AWSEC2RIProductDescriptionLinuxUNIXAmazonVPC);
+        }
+        if ([value isEqualToString:@"Windows"]) {
+            return @(AWSEC2RIProductDescriptionWindows);
+        }
+        if ([value isEqualToString:@"Windows (Amazon VPC)"]) {
+            return @(AWSEC2RIProductDescriptionWindowsAmazonVPC);
+        }
+        return @(AWSEC2RIProductDescriptionUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2RIProductDescriptionLinuxUNIX:
+                return @"Linux/UNIX";
+            case AWSEC2RIProductDescriptionLinuxUNIXAmazonVPC:
+                return @"Linux/UNIX (Amazon VPC)";
+            case AWSEC2RIProductDescriptionWindows:
+                return @"Windows";
+            case AWSEC2RIProductDescriptionWindowsAmazonVPC:
+                return @"Windows (Amazon VPC)";
+            case AWSEC2RIProductDescriptionUnknown:
+            default:
+                return nil;
+        }
+    }];
+}
+
 + (NSValueTransformer *)recurringChargesJSONTransformer {
 	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2RecurringCharge class]];
 }
@@ -8515,8 +8850,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attribute" : @"Attribute",
+             @"dryRun" : @"DryRun",
              @"imageId" : @"ImageId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -8543,9 +8878,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"attribute" : @"attribute",
-             @"dryRun" : @"dryRun",
-             @"instanceId" : @"instanceId",
+             @"attribute" : @"Attribute",
+             @"dryRun" : @"DryRun",
+             @"instanceId" : @"InstanceId",
              };
 }
 
@@ -8587,6 +8922,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"ebsOptimized"]) {
             return @(AWSEC2InstanceAttributeNameEBSOptimized);
         }
+        if ([value isEqualToString:@"sriovNetSupport"]) {
+            return @(AWSEC2InstanceAttributeNameSriovNetSupport);
+        }
         return @(AWSEC2InstanceAttributeNameUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -8614,6 +8952,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"groupSet";
             case AWSEC2InstanceAttributeNameEBSOptimized:
                 return @"ebsOptimized";
+            case AWSEC2InstanceAttributeNameSriovNetSupport:
+                return @"sriovNetSupport";
             case AWSEC2InstanceAttributeNameUnknown:
             default:
                 return nil;
@@ -8627,9 +8967,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dryRun" : @"dryRun",
-             @"networkInterfaceId" : @"networkInterfaceId",
-             @"sourceDestCheck" : @"sourceDestCheck",
+             @"dryRun" : @"DryRun",
+             @"networkInterfaceId" : @"NetworkInterfaceId",
+             @"sourceDestCheck" : @"SourceDestCheck",
              };
 }
 
@@ -8640,8 +8980,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attribute" : @"Attribute",
+             @"dryRun" : @"DryRun",
              @"snapshotId" : @"SnapshotId",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -8673,15 +9013,15 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"cidrIp" : @"cidrIp",
-             @"dryRun" : @"dryRun",
-             @"fromPort" : @"fromPort",
-             @"groupId" : @"groupId",
-             @"ipPermissions" : @"ipPermissions",
-             @"ipProtocol" : @"ipProtocol",
-             @"sourceSecurityGroupName" : @"sourceSecurityGroupName",
-             @"sourceSecurityGroupOwnerId" : @"sourceSecurityGroupOwnerId",
-             @"toPort" : @"toPort",
+             @"cidrIp" : @"CidrIp",
+             @"dryRun" : @"DryRun",
+             @"fromPort" : @"FromPort",
+             @"groupId" : @"GroupId",
+             @"ipPermissions" : @"IpPermissions",
+             @"ipProtocol" : @"IpProtocol",
+             @"sourceSecurityGroupName" : @"SourceSecurityGroupName",
+             @"sourceSecurityGroupOwnerId" : @"SourceSecurityGroupOwnerId",
+             @"toPort" : @"ToPort",
              };
 }
 
@@ -8696,6 +9036,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"cidrIp" : @"CidrIp",
+             @"dryRun" : @"DryRun",
              @"fromPort" : @"FromPort",
              @"groupId" : @"GroupId",
              @"groupName" : @"GroupName",
@@ -8704,7 +9045,6 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
              @"sourceSecurityGroupName" : @"SourceSecurityGroupName",
              @"sourceSecurityGroupOwnerId" : @"SourceSecurityGroupOwnerId",
              @"toPort" : @"ToPort",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -8718,13 +9058,14 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"destinationCidrBlock" : @"destinationCidrBlock",
-             @"gatewayId" : @"gatewayId",
-             @"instanceId" : @"instanceId",
-             @"instanceOwnerId" : @"instanceOwnerId",
-             @"networkInterfaceId" : @"networkInterfaceId",
-             @"origin" : @"origin",
-             @"state" : @"state",
+             @"destinationCidrBlock" : @"DestinationCidrBlock",
+             @"gatewayId" : @"GatewayId",
+             @"instanceId" : @"InstanceId",
+             @"instanceOwnerId" : @"InstanceOwnerId",
+             @"networkInterfaceId" : @"NetworkInterfaceId",
+             @"origin" : @"Origin",
+             @"state" : @"State",
+             @"vpcPeeringConnectionId" : @"VpcPeeringConnectionId",
              };
 }
 
@@ -8783,12 +9124,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"associations" : @"associations",
-             @"propagatingVgws" : @"propagatingVgws",
-             @"routeTableId" : @"routeTableId",
-             @"routes" : @"routes",
-             @"tags" : @"tags",
-             @"vpcId" : @"vpcId",
+             @"associations" : @"Associations",
+             @"propagatingVgws" : @"PropagatingVgws",
+             @"routeTableId" : @"RouteTableId",
+             @"routes" : @"Routes",
+             @"tags" : @"Tags",
+             @"vpcId" : @"VpcId",
              };
 }
 
@@ -8814,10 +9155,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"main" : @"main",
-             @"routeTableAssociationId" : @"routeTableAssociationId",
-             @"routeTableId" : @"routeTableId",
-             @"subnetId" : @"subnetId",
+             @"main" : @"Main",
+             @"routeTableAssociationId" : @"RouteTableAssociationId",
+             @"routeTableId" : @"RouteTableId",
+             @"subnetId" : @"SubnetId",
              };
 }
 
@@ -8827,7 +9168,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"enabled" : @"enabled",
+             @"enabled" : @"Enabled",
              };
 }
 
@@ -8837,34 +9178,60 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"additionalInfo" : @"AdditionalInfo",
              @"blockDeviceMappings" : @"BlockDeviceMappings",
+             @"clientToken" : @"ClientToken",
+             @"disableApiTermination" : @"DisableApiTermination",
+             @"dryRun" : @"DryRun",
+             @"ebsOptimized" : @"EbsOptimized",
+             @"iamInstanceProfile" : @"IamInstanceProfile",
              @"imageId" : @"ImageId",
+             @"instanceInitiatedShutdownBehavior" : @"InstanceInitiatedShutdownBehavior",
              @"instanceType" : @"InstanceType",
              @"kernelId" : @"KernelId",
              @"keyName" : @"KeyName",
              @"maxCount" : @"MaxCount",
              @"minCount" : @"MinCount",
              @"monitoring" : @"Monitoring",
+             @"networkInterfaces" : @"NetworkInterfaces",
              @"placement" : @"Placement",
+             @"privateIpAddress" : @"PrivateIpAddress",
              @"ramdiskId" : @"RamdiskId",
              @"securityGroupIds" : @"SecurityGroupIds",
              @"securityGroups" : @"SecurityGroups",
              @"subnetId" : @"SubnetId",
              @"userData" : @"UserData",
-             @"additionalInfo" : @"additionalInfo",
-             @"clientToken" : @"clientToken",
-             @"disableApiTermination" : @"disableApiTermination",
-             @"dryRun" : @"dryRun",
-             @"ebsOptimized" : @"ebsOptimized",
-             @"iamInstanceProfile" : @"iamInstanceProfile",
-             @"instanceInitiatedShutdownBehavior" : @"instanceInitiatedShutdownBehavior",
-             @"networkInterfaces" : @"networkInterfaces",
-             @"privateIpAddress" : @"privateIpAddress",
              };
 }
 
 + (NSValueTransformer *)blockDeviceMappingsJSONTransformer {
 	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2BlockDeviceMapping class]];
+}
+
++ (NSValueTransformer *)iamInstanceProfileJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2IamInstanceProfileSpecification class]];
+}
+
++ (NSValueTransformer *)instanceInitiatedShutdownBehaviorJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"stop"]) {
+            return @(AWSEC2ShutdownBehaviorStop);
+        }
+        if ([value isEqualToString:@"terminate"]) {
+            return @(AWSEC2ShutdownBehaviorTerminate);
+        }
+        return @(AWSEC2ShutdownBehaviorUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2ShutdownBehaviorStop:
+                return @"stop";
+            case AWSEC2ShutdownBehaviorTerminate:
+                return @"terminate";
+            case AWSEC2ShutdownBehaviorUnknown:
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)instanceTypeJSONTransformer {
@@ -8959,6 +9326,21 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"cg1.4xlarge"]) {
             return @(AWSEC2InstanceTypeCG1_4xlarge);
         }
+        if ([value isEqualToString:@"r3.large"]) {
+            return @(AWSEC2InstanceTypeR3_large);
+        }
+        if ([value isEqualToString:@"r3.xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_xlarge);
+        }
+        if ([value isEqualToString:@"r3.2xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_2xlarge);
+        }
+        if ([value isEqualToString:@"r3.4xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_4xlarge);
+        }
+        if ([value isEqualToString:@"r3.8xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_8xlarge);
+        }
         return @(AWSEC2InstanceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -9022,6 +9404,16 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"g2.2xlarge";
             case AWSEC2InstanceTypeCG1_4xlarge:
                 return @"cg1.4xlarge";
+            case AWSEC2InstanceTypeR3_large:
+                return @"r3.large";
+            case AWSEC2InstanceTypeR3_xlarge:
+                return @"r3.xlarge";
+            case AWSEC2InstanceTypeR3_2xlarge:
+                return @"r3.2xlarge";
+            case AWSEC2InstanceTypeR3_4xlarge:
+                return @"r3.4xlarge";
+            case AWSEC2InstanceTypeR3_8xlarge:
+                return @"r3.8xlarge";
             case AWSEC2InstanceTypeUnknown:
             default:
                 return nil;
@@ -9033,38 +9425,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2RunInstancesMonitoringEnabled class]];
 }
 
-+ (NSValueTransformer *)placementJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2Placement class]];
-}
-
-+ (NSValueTransformer *)iamInstanceProfileJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2IamInstanceProfileSpecification class]];
-}
-
-+ (NSValueTransformer *)instanceInitiatedShutdownBehaviorJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"stop"]) {
-            return @(AWSEC2ShutdownBehaviorStop);
-        }
-        if ([value isEqualToString:@"terminate"]) {
-            return @(AWSEC2ShutdownBehaviorTerminate);
-        }
-        return @(AWSEC2ShutdownBehaviorUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSEC2ShutdownBehaviorStop:
-                return @"stop";
-            case AWSEC2ShutdownBehaviorTerminate:
-                return @"terminate";
-            case AWSEC2ShutdownBehaviorUnknown:
-            default:
-                return nil;
-        }
-    }];
-}
-
 + (NSValueTransformer *)networkInterfacesJSONTransformer {
 	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceNetworkInterfaceSpecification class]];
+}
+
++ (NSValueTransformer *)placementJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2Placement class]];
 }
 
 @end
@@ -9102,13 +9468,13 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"description" : @"Description",
+             @"groupId" : @"GroupId",
              @"groupName" : @"GroupName",
              @"ipPermissions" : @"IpPermissions",
+             @"ipPermissionsEgress" : @"IpPermissionsEgress",
              @"ownerId" : @"OwnerId",
-             @"groupId" : @"groupId",
-             @"ipPermissionsEgress" : @"ipPermissionsEgress",
-             @"tags" : @"tags",
-             @"vpcId" : @"vpcId",
+             @"tags" : @"Tags",
+             @"vpcId" : @"VpcId",
              };
 }
 
@@ -9131,15 +9497,16 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"description" : @"Description",
+             @"encrypted" : @"Encrypted",
+             @"ownerAlias" : @"OwnerAlias",
              @"ownerId" : @"OwnerId",
              @"progress" : @"Progress",
              @"snapshotId" : @"SnapshotId",
              @"startTime" : @"StartTime",
              @"state" : @"State",
+             @"tags" : @"Tags",
              @"volumeId" : @"VolumeId",
              @"volumeSize" : @"VolumeSize",
-             @"ownerAlias" : @"ownerAlias",
-             @"tags" : @"tags",
              };
 }
 
@@ -9188,11 +9555,11 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"bucket" : @"bucket",
-             @"fault" : @"fault",
-             @"ownerId" : @"ownerId",
-             @"prefix" : @"prefix",
-             @"state" : @"state",
+             @"bucket" : @"Bucket",
+             @"fault" : @"Fault",
+             @"ownerId" : @"OwnerId",
+             @"prefix" : @"Prefix",
+             @"state" : @"State",
              };
 }
 
@@ -9228,22 +9595,22 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"availabilityZoneGroup" : @"availabilityZoneGroup",
-             @"createTime" : @"createTime",
-             @"fault" : @"fault",
-             @"instanceId" : @"instanceId",
-             @"launchGroup" : @"launchGroup",
-             @"launchSpecification" : @"launchSpecification",
-             @"launchedAvailabilityZone" : @"launchedAvailabilityZone",
-             @"productDescription" : @"productDescription",
-             @"spotInstanceRequestId" : @"spotInstanceRequestId",
-             @"spotPrice" : @"spotPrice",
-             @"state" : @"state",
-             @"status" : @"status",
-             @"tags" : @"tags",
-             @"type" : @"type",
-             @"validFrom" : @"validFrom",
-             @"validUntil" : @"validUntil",
+             @"availabilityZoneGroup" : @"AvailabilityZoneGroup",
+             @"createTime" : @"CreateTime",
+             @"fault" : @"Fault",
+             @"instanceId" : @"InstanceId",
+             @"launchGroup" : @"LaunchGroup",
+             @"launchSpecification" : @"LaunchSpecification",
+             @"launchedAvailabilityZone" : @"LaunchedAvailabilityZone",
+             @"productDescription" : @"ProductDescription",
+             @"spotInstanceRequestId" : @"SpotInstanceRequestId",
+             @"spotPrice" : @"SpotPrice",
+             @"state" : @"State",
+             @"status" : @"Status",
+             @"tags" : @"Tags",
+             @"type" : @"Type",
+             @"validFrom" : @"ValidFrom",
+             @"validUntil" : @"ValidUntil",
              };
 }
 
@@ -9384,8 +9751,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"code" : @"code",
-             @"message" : @"message",
+             @"code" : @"Code",
+             @"message" : @"Message",
              };
 }
 
@@ -9395,9 +9762,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"code" : @"code",
-             @"message" : @"message",
-             @"updateTime" : @"updateTime",
+             @"code" : @"Code",
+             @"message" : @"Message",
+             @"updateTime" : @"UpdateTime",
              };
 }
 
@@ -9415,8 +9782,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"availabilityZone" : @"availabilityZone",
-             @"groupName" : @"groupName",
+             @"availabilityZone" : @"AvailabilityZone",
+             @"groupName" : @"GroupName",
              };
 }
 
@@ -9426,11 +9793,11 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"availabilityZone" : @"availabilityZone",
-             @"instanceType" : @"instanceType",
-             @"productDescription" : @"productDescription",
-             @"spotPrice" : @"spotPrice",
-             @"timestamp" : @"timestamp",
+             @"availabilityZone" : @"AvailabilityZone",
+             @"instanceType" : @"InstanceType",
+             @"productDescription" : @"ProductDescription",
+             @"spotPrice" : @"SpotPrice",
+             @"timestamp" : @"Timestamp",
              };
 }
 
@@ -9526,6 +9893,21 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"cg1.4xlarge"]) {
             return @(AWSEC2InstanceTypeCG1_4xlarge);
         }
+        if ([value isEqualToString:@"r3.large"]) {
+            return @(AWSEC2InstanceTypeR3_large);
+        }
+        if ([value isEqualToString:@"r3.xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_xlarge);
+        }
+        if ([value isEqualToString:@"r3.2xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_2xlarge);
+        }
+        if ([value isEqualToString:@"r3.4xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_4xlarge);
+        }
+        if ([value isEqualToString:@"r3.8xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_8xlarge);
+        }
         return @(AWSEC2InstanceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -9589,6 +9971,16 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"g2.2xlarge";
             case AWSEC2InstanceTypeCG1_4xlarge:
                 return @"cg1.4xlarge";
+            case AWSEC2InstanceTypeR3_large:
+                return @"r3.large";
+            case AWSEC2InstanceTypeR3_xlarge:
+                return @"r3.xlarge";
+            case AWSEC2InstanceTypeR3_2xlarge:
+                return @"r3.2xlarge";
+            case AWSEC2InstanceTypeR3_4xlarge:
+                return @"r3.4xlarge";
+            case AWSEC2InstanceTypeR3_8xlarge:
+                return @"r3.8xlarge";
             case AWSEC2InstanceTypeUnknown:
             default:
                 return nil;
@@ -9642,9 +10034,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"additionalInfo" : @"AdditionalInfo",
+             @"dryRun" : @"DryRun",
              @"instanceIds" : @"InstanceIds",
-             @"additionalInfo" : @"additionalInfo",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -9654,7 +10046,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"startingInstances" : @"startingInstances",
+             @"startingInstances" : @"StartingInstances",
              };
 }
 
@@ -9668,8 +10060,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"code" : @"code",
-             @"message" : @"message",
+             @"code" : @"Code",
+             @"message" : @"Message",
              };
 }
 
@@ -9679,9 +10071,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
+             @"force" : @"Force",
              @"instanceIds" : @"InstanceIds",
-             @"dryRun" : @"dryRun",
-             @"force" : @"force",
              };
 }
 
@@ -9691,7 +10083,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"stoppingInstances" : @"stoppingInstances",
+             @"stoppingInstances" : @"StoppingInstances",
              };
 }
 
@@ -9726,8 +10118,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
              @"mapPublicIpOnLaunch" : @"MapPublicIpOnLaunch",
              @"state" : @"State",
              @"subnetId" : @"SubnetId",
+             @"tags" : @"Tags",
              @"vpcId" : @"VpcId",
-             @"tags" : @"tags",
              };
 }
 
@@ -9763,8 +10155,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"key" : @"key",
-             @"value" : @"value",
+             @"key" : @"Key",
+             @"value" : @"Value",
              };
 }
 
@@ -9774,10 +10166,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"key" : @"key",
-             @"resourceId" : @"resourceId",
-             @"resourceType" : @"resourceType",
-             @"value" : @"value",
+             @"key" : @"Key",
+             @"resourceId" : @"ResourceId",
+             @"resourceType" : @"ResourceType",
+             @"value" : @"Value",
              };
 }
 
@@ -9884,8 +10276,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"instanceIds" : @"InstanceIds",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -9909,8 +10301,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"networkInterfaceId" : @"networkInterfaceId",
-             @"privateIpAddresses" : @"privateIpAddresses",
+             @"networkInterfaceId" : @"NetworkInterfaceId",
+             @"privateIpAddresses" : @"PrivateIpAddresses",
              };
 }
 
@@ -9920,8 +10312,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"instanceIds" : @"InstanceIds",
-             @"dryRun" : @"dryRun",
              };
 }
 
@@ -9957,11 +10349,11 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"acceptedRouteCount" : @"acceptedRouteCount",
-             @"lastStatusChange" : @"lastStatusChange",
-             @"outsideIpAddress" : @"outsideIpAddress",
-             @"status" : @"status",
-             @"statusMessage" : @"statusMessage",
+             @"acceptedRouteCount" : @"AcceptedRouteCount",
+             @"lastStatusChange" : @"LastStatusChange",
+             @"outsideIpAddress" : @"OutsideIpAddress",
+             @"status" : @"Status",
+             @"statusMessage" : @"StatusMessage",
              };
 }
 
@@ -10004,13 +10396,14 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
              @"attachments" : @"Attachments",
              @"availabilityZone" : @"AvailabilityZone",
              @"createTime" : @"CreateTime",
+             @"encrypted" : @"Encrypted",
+             @"iops" : @"Iops",
              @"size" : @"Size",
              @"snapshotId" : @"SnapshotId",
              @"state" : @"State",
+             @"tags" : @"Tags",
              @"volumeId" : @"VolumeId",
-             @"iops" : @"iops",
-             @"tags" : @"tags",
-             @"volumeType" : @"volumeType",
+             @"volumeType" : @"VolumeType",
              };
 }
 
@@ -10101,11 +10494,11 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attachTime" : @"AttachTime",
+             @"deleteOnTermination" : @"DeleteOnTermination",
              @"device" : @"Device",
              @"instanceId" : @"InstanceId",
              @"state" : @"State",
              @"volumeId" : @"VolumeId",
-             @"deleteOnTermination" : @"deleteOnTermination",
              };
 }
 
@@ -10155,7 +10548,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"size" : @"size",
+             @"size" : @"Size",
              };
 }
 
@@ -10165,10 +10558,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"code" : @"code",
-             @"description" : @"description",
-             @"eventId" : @"eventId",
-             @"eventType" : @"eventType",
+             @"code" : @"Code",
+             @"description" : @"Description",
+             @"eventId" : @"EventId",
+             @"eventType" : @"EventType",
              };
 }
 
@@ -10178,8 +10571,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"name" : @"name",
-             @"status" : @"status",
+             @"name" : @"Name",
+             @"status" : @"Status",
              };
 }
 
@@ -10211,11 +10604,11 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"description",
-             @"eventId" : @"eventId",
-             @"eventType" : @"eventType",
-             @"notAfter" : @"notAfter",
-             @"notBefore" : @"notBefore",
+             @"description" : @"Description",
+             @"eventId" : @"EventId",
+             @"eventType" : @"EventType",
+             @"notAfter" : @"NotAfter",
+             @"notBefore" : @"NotBefore",
              };
 }
 
@@ -10241,8 +10634,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"details" : @"details",
-             @"status" : @"status",
+             @"details" : @"Details",
+             @"status" : @"Status",
              };
 }
 
@@ -10283,11 +10676,11 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"actions" : @"actions",
-             @"availabilityZone" : @"availabilityZone",
-             @"events" : @"events",
-             @"volumeId" : @"volumeId",
-             @"volumeStatus" : @"volumeStatus",
+             @"actions" : @"Actions",
+             @"availabilityZone" : @"AvailabilityZone",
+             @"events" : @"Events",
+             @"volumeId" : @"VolumeId",
+             @"volumeStatus" : @"VolumeStatus",
              };
 }
 
@@ -10311,34 +10704,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return @{
              @"cidrBlock" : @"CidrBlock",
              @"dhcpOptionsId" : @"DhcpOptionsId",
+             @"instanceTenancy" : @"InstanceTenancy",
+             @"isDefault" : @"IsDefault",
              @"state" : @"State",
+             @"tags" : @"Tags",
              @"vpcId" : @"VpcId",
-             @"instanceTenancy" : @"instanceTenancy",
-             @"isDefault" : @"isDefault",
-             @"tags" : @"tags",
              };
-}
-
-+ (NSValueTransformer *)stateJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"pending"]) {
-            return @(AWSEC2VpcStatePending);
-        }
-        if ([value isEqualToString:@"available"]) {
-            return @(AWSEC2VpcStateAvailable);
-        }
-        return @(AWSEC2VpcStateUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSEC2VpcStatePending:
-                return @"pending";
-            case AWSEC2VpcStateAvailable:
-                return @"available";
-            case AWSEC2VpcStateUnknown:
-            default:
-                return nil;
-        }
-    }];
 }
 
 + (NSValueTransformer *)instanceTenancyJSONTransformer {
@@ -10357,6 +10728,28 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
             case AWSEC2TenancyDedicated:
                 return @"dedicated";
             case AWSEC2TenancyUnknown:
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)stateJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"pending"]) {
+            return @(AWSEC2VpcStatePending);
+        }
+        if ([value isEqualToString:@"available"]) {
+            return @(AWSEC2VpcStateAvailable);
+        }
+        return @(AWSEC2VpcStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2VpcStatePending:
+                return @"pending";
+            case AWSEC2VpcStateAvailable:
+                return @"available";
+            case AWSEC2VpcStateUnknown:
             default:
                 return nil;
         }
@@ -10412,21 +10805,91 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 @end
 
+@implementation AWSEC2VpcPeeringConnection
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"accepterVpcInfo" : @"AccepterVpcInfo",
+             @"expirationTime" : @"ExpirationTime",
+             @"requesterVpcInfo" : @"RequesterVpcInfo",
+             @"status" : @"Status",
+             @"tags" : @"Tags",
+             @"vpcPeeringConnectionId" : @"VpcPeeringConnectionId",
+             };
+}
+
++ (NSValueTransformer *)accepterVpcInfoJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2VpcPeeringConnectionVpcInfo class]];
+}
+
++ (NSValueTransformer *)expirationTimeJSONTransformer {
+	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate az_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+        return [date az_stringValue:AZDateISO8601DateFormat1];
+    }];
+}
+
++ (NSValueTransformer *)requesterVpcInfoJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2VpcPeeringConnectionVpcInfo class]];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2VpcPeeringConnectionStateReason class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
+}
+
+@end
+
+@implementation AWSEC2VpcPeeringConnectionStateReason
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"code" : @"Code",
+             @"message" : @"Message",
+             };
+}
+
+@end
+
+@implementation AWSEC2VpcPeeringConnectionVpcInfo
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cidrBlock" : @"CidrBlock",
+             @"ownerId" : @"OwnerId",
+             @"vpcId" : @"VpcId",
+             };
+}
+
+@end
+
 @implementation AWSEC2VpnConnection
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"customerGatewayConfiguration" : @"CustomerGatewayConfiguration",
              @"customerGatewayId" : @"CustomerGatewayId",
+             @"options" : @"Options",
+             @"routes" : @"Routes",
              @"state" : @"State",
+             @"tags" : @"Tags",
              @"type" : @"Type",
+             @"vgwTelemetry" : @"VgwTelemetry",
              @"vpnConnectionId" : @"VpnConnectionId",
              @"vpnGatewayId" : @"VpnGatewayId",
-             @"options" : @"options",
-             @"routes" : @"routes",
-             @"tags" : @"tags",
-             @"vgwTelemetry" : @"vgwTelemetry",
              };
+}
+
++ (NSValueTransformer *)optionsJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2VpnConnectionOptions class]];
+}
+
++ (NSValueTransformer *)routesJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2VpnStaticRoute class]];
 }
 
 + (NSValueTransformer *)stateJSONTransformer {
@@ -10459,6 +10922,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
 }
 
 + (NSValueTransformer *)typeJSONTransformer {
@@ -10478,18 +10945,6 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
     }];
 }
 
-+ (NSValueTransformer *)optionsJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2VpnConnectionOptions class]];
-}
-
-+ (NSValueTransformer *)routesJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2VpnStaticRoute class]];
-}
-
-+ (NSValueTransformer *)tagsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
-}
-
 + (NSValueTransformer *)vgwTelemetryJSONTransformer {
 	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2VgwTelemetry class]];
 }
@@ -10500,7 +10955,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"staticRoutesOnly" : @"staticRoutesOnly",
+             @"staticRoutesOnly" : @"StaticRoutesOnly",
              };
 }
 
@@ -10510,7 +10965,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"staticRoutesOnly" : @"staticRoutesOnly",
+             @"staticRoutesOnly" : @"StaticRoutesOnly",
              };
 }
 
@@ -10522,10 +10977,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return @{
              @"availabilityZone" : @"AvailabilityZone",
              @"state" : @"State",
+             @"tags" : @"Tags",
              @"type" : @"Type",
              @"vpcAttachments" : @"VpcAttachments",
              @"vpnGatewayId" : @"VpnGatewayId",
-             @"tags" : @"tags",
              };
 }
 
@@ -10559,6 +11014,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
 }
 
 + (NSValueTransformer *)typeJSONTransformer {
@@ -10582,19 +11041,15 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2VpcAttachment class]];
 }
 
-+ (NSValueTransformer *)tagsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
-}
-
 @end
 
 @implementation AWSEC2VpnStaticRoute
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"destinationCidrBlock" : @"destinationCidrBlock",
-             @"source" : @"source",
-             @"state" : @"state",
+             @"destinationCidrBlock" : @"DestinationCidrBlock",
+             @"source" : @"Source",
+             @"state" : @"State",
              };
 }
 

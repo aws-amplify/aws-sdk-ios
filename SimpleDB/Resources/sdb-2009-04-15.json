@@ -4,12 +4,13 @@
     "endpointPrefix":"sdb",
     "serviceFullName":"Amazon SimpleDB",
     "signatureVersion":"v2",
-    "type":"query",
-    "xmlNamespace":"http://sdb.amazonaws.com/doc/2009-04-15/"
+    "xmlNamespace":"http://sdb.amazonaws.com/doc/2009-04-15/",
+    "protocol":"query"
   },
   "documentation":"Amazon SimpleDB is a web service providing the core database functions of\n        data indexing and querying in the cloud. By offloading the time and effort associated with\n        building and operating a web-scale database, SimpleDB provides developers the freedom to focus\n        on application development.\n\n        <p>\n        A traditional, clustered relational database requires a sizable upfront capital outlay,\n        is complex to design, and often requires extensive and repetitive database administration.\n        Amazon SimpleDB is dramatically simpler, requiring no schema, automatically indexing your data\n        and providing a simple API for storage and access. This approach eliminates the administrative\n        burden of data modeling, index maintenance, and performance tuning. Developers gain access to\n        this functionality within Amazon's proven computing environment, are able to scale instantly,\n        and pay only for what they use.\n        </p>\n\n        <p>\n        Visit <a href=\"http://aws.amazon.com/simpledb/\">http://aws.amazon.com/simpledb/</a> for\n        more information.\n        </p>",
   "operations":{
     "BatchDeleteAttributes":{
+      "name":"BatchDeleteAttributes",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -18,6 +19,7 @@
       "documentation":"<p>\n        Performs multiple DeleteAttributes operations in a single call, which reduces round trips and latencies.\n        This enables Amazon SimpleDB to optimize requests, which generally yields better throughput.\n        </p>\n        <note>\n            <p>\n            If you specify BatchDeleteAttributes without attributes or values,\n            all the attributes for the item are deleted.\n            </p>\n            <p>\n            BatchDeleteAttributes is an idempotent operation;\n            running it multiple times on the same item or attribute doesn't result in an error.\n            </p>\n            <p>\n            The BatchDeleteAttributes operation succeeds or fails in its entirety. There are no partial deletes.\n            You can execute multiple BatchDeleteAttributes operations and other operations in parallel.\n            However, large numbers of concurrent BatchDeleteAttributes calls can result in Service Unavailable (503) responses.\n            </p>\n            <p>\n            This operation is vulnerable to exceeding the maximum URL size when making a REST request using the HTTP GET method.\n            </p>\n            <p>\n            This operation does not support conditions using Expected.X.Name, Expected.X.Value, or Expected.X.Exists.\n            </p>\n        </note>\n        <p>\n        The following limitations are enforced for this operation:\n           <ul>\n               <li>1 MB request size</li>\n               <li>25 item limit per BatchDeleteAttributes operation</li>\n           </ul>\n        </p>"
     },
     "BatchPutAttributes":{
+      "name":"BatchPutAttributes",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -26,46 +28,91 @@
       "errors":[
         {
           "shape":"DuplicateItemName",
+          "error":{
+            "code":"DuplicateItemName",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The item name was specified more than once. </p>"
         },
         {
           "shape":"InvalidParameterValue",
+          "error":{
+            "code":"InvalidParameterValue",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The value for a parameter is invalid.</p>"
         },
         {
           "shape":"MissingParameter",
+          "error":{
+            "code":"MissingParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The request must contain the specified missing parameter.</p>"
         },
         {
           "shape":"NoSuchDomain",
+          "error":{
+            "code":"NoSuchDomain",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The specified domain does not exist.</p>"
         },
         {
           "shape":"NumberItemAttributesExceeded",
+          "error":{
+            "code":"NumberItemAttributesExceeded",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Too many attributes in this item.</p>"
         },
         {
           "shape":"NumberDomainAttributesExceeded",
+          "error":{
+            "code":"NumberDomainAttributesExceeded",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Too many attributes in this domain.</p>"
         },
         {
           "shape":"NumberDomainBytesExceeded",
+          "error":{
+            "code":"NumberDomainBytesExceeded",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Too many bytes in this domain.</p>"
         },
         {
           "shape":"NumberSubmittedItemsExceeded",
+          "error":{
+            "code":"NumberSubmittedItemsExceeded",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Too many items exist in a single call.</p>"
         },
         {
           "shape":"NumberSubmittedAttributesExceeded",
+          "error":{
+            "code":"NumberSubmittedAttributesExceeded",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Too many attributes exist in a single call.</p>"
         }
@@ -73,6 +120,7 @@
       "documentation":"<p>\n\t    The <code>BatchPutAttributes</code> operation creates or replaces attributes within\n\t\tone or more items.  By using this operation, the client can perform multiple\n\t\t<a>PutAttribute</a> operation with a single call.  This helps yield savings in round trips\n\t\tand latencies, enabling Amazon SimpleDB to optimize requests and generally produce better throughput.\n\t\t</p>\n\n        <p>\n\t\tThe client may specify the item name with the <code>Item.X.ItemName</code> parameter.\n\t\tThe client may specify new attributes using a combination of the\n\t\t<code>Item.X.Attribute.Y.Name</code> and <code>Item.X.Attribute.Y.Value</code>\n\t\tparameters. The client may specify the first attribute for the first item using the parameters\n\t\t<code>Item.0.Attribute.0.Name</code> and <code>Item.0.Attribute.0.Value</code>,\n\t\tand for the second attribute for the first item by the parameters\n\t\t<code>Item.0.Attribute.1.Name</code> and <code>Item.0.Attribute.1.Value</code>,\n\t\tand so on.\n        </p>\n\n        <p>\n\t\tAttributes are uniquely identified within an item by their name/value\n\t\tcombination. For example, a single item can have the attributes <code>{\n\t\t\"first_name\", \"first_value\" }</code> and <code>{ \"first_name\", \"second_value\" }</code>.\n\t\tHowever, it cannot have two attribute instances where both the\n\t\t<code>Item.X.Attribute.Y.Name</code> and <code>Item.X.Attribute.Y.Value</code>\n\t\tare the same.\n        </p>\n\n        <p>\n        Optionally, the requester can supply the <code>Replace</code> parameter for each\n\t\tindividual value. Setting this value to <code>true</code> will cause the new\n\t\tattribute values to replace the existing attribute values. For\n\t\texample, if an item <code>I</code> has the attributes <code>{ 'a', '1' }, { 'b', '2'}</code>\n\t\tand <code>{ 'b', '3' }</code> and the requester does a BatchPutAttributes of <code>{'I',\n\t\t'b', '4' }</code> with the Replace parameter set to true, the final\n\t\tattributes of the item will be <code>{ 'a', '1' }</code> and <code>{ 'b', '4' }</code>,\n\t\treplacing the previous values of the 'b' attribute with the new value.\n        </p>\n\n        <note>\n\t\tYou cannot specify an empty string as an item or as an attribute name.\n\t\tThe <code>BatchPutAttributes</code> operation succeeds or fails in its entirety.\n        There are no partial puts.\n        </note>\n\n        <important>\n        This operation is vulnerable to exceeding the maximum URL size when making\n        a REST request using the HTTP GET method.\n        This operation does not support conditions using <code>Expected.X.Name</code>,\n        <code>Expected.X.Value</code>, or\n        <code>Expected.X.Exists</code>.\n        </important>\n\n        <p>\n        You can execute multiple <code>BatchPutAttributes</code> operations and other operations in parallel.\n        However, large numbers of concurrent <code>BatchPutAttributes</code> calls can result in\n        Service Unavailable (503) responses.\n        </p>\n\n        <p>\n        The following limitations are enforced for this operation:\n        <ul>\n            <li>256 attribute name-value pairs per item</li>\n            <li>1 MB request size</li>\n            <li>1 billion attributes per domain</li>\n            <li>10 GB of total user data storage per domain</li>\n            <li>25 item limit per <code>BatchPutAttributes</code> operation</li>\n        </ul>\n        </p>"
     },
     "CreateDomain":{
+      "name":"CreateDomain",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -81,16 +129,31 @@
       "errors":[
         {
           "shape":"InvalidParameterValue",
+          "error":{
+            "code":"InvalidParameterValue",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The value for a parameter is invalid.</p>"
         },
         {
           "shape":"MissingParameter",
+          "error":{
+            "code":"MissingParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The request must contain the specified missing parameter.</p>"
         },
         {
           "shape":"NumberDomainsExceeded",
+          "error":{
+            "code":"NumberDomainsExceeded",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Too many domains exist per this account.</p>"
         }
@@ -98,6 +161,7 @@
       "documentation":"<p>\n\t\tThe <code>CreateDomain</code> operation creates a new domain. The domain name should\n\t\tbe unique among the domains associated with the Access Key ID provided\n\t\tin the request. The <code>CreateDomain</code> operation may take 10 or more seconds to complete.\n\t\t</p>\n\n        <note>\n\t\tCreateDomain is an idempotent operation; running it multiple times using the same\n\t\tdomain name will not result in an error response.\n        </note>\n\n        <p>\n        The client can create up to 100 domains per account.\n        </p>\n\n        <p>\n        If the client requires additional domains, go to\n        <a href=\"http://aws.amazon.com/contact-us/simpledb-limit-request/\">\n        http://aws.amazon.com/contact-us/simpledb-limit-request/</a>.\n        </p>"
     },
     "DeleteAttributes":{
+      "name":"DeleteAttributes",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -106,21 +170,41 @@
       "errors":[
         {
           "shape":"InvalidParameterValue",
+          "error":{
+            "code":"InvalidParameterValue",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The value for a parameter is invalid.</p>"
         },
         {
           "shape":"MissingParameter",
+          "error":{
+            "code":"MissingParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The request must contain the specified missing parameter.</p>"
         },
         {
           "shape":"NoSuchDomain",
+          "error":{
+            "code":"NoSuchDomain",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The specified domain does not exist.</p>"
         },
         {
           "shape":"AttributeDoesNotExist",
+          "error":{
+            "code":"AttributeDoesNotExist",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The specified attribute does not exist.</p>"
         }
@@ -128,6 +212,7 @@
       "documentation":"<p>\n        Deletes one or more attributes associated with an item.\n        If all attributes of the item are deleted, the item is deleted.\n        </p>\n\n        <note>\n        If <code>DeleteAttributes</code> is called without being passed any attributes or values\n        specified, all the attributes for the item are deleted.\n        </note>\n\n        <p>\n        <code>DeleteAttributes</code> is an idempotent operation; running it multiple\n        times on the same item or attribute does not result in an error response.\n        </p>\n\n        <p>\n        Because Amazon SimpleDB makes multiple copies of item data and uses an\n        eventual consistency update model, performing a <a>GetAttributes</a> or\n        <a>Select</a> operation (read) immediately after a <code>DeleteAttributes</code> or\n        <a>PutAttributes</a> operation (write) might not return updated item data.\n        </p>"
     },
     "DeleteDomain":{
+      "name":"DeleteDomain",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -136,6 +221,11 @@
       "errors":[
         {
           "shape":"MissingParameter",
+          "error":{
+            "code":"MissingParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The request must contain the specified missing parameter.</p>"
         }
@@ -143,6 +233,7 @@
       "documentation":"<p>\n\t    The <code>DeleteDomain</code> operation deletes a domain. Any items\n\t\t(and their attributes) in the domain are deleted as well.\n\t\tThe <code>DeleteDomain</code> operation might take 10 or more seconds to complete.\n\t\t</p>\n\n        <note>\n        Running <code>DeleteDomain</code> on a domain that does not exist or running the\n\t\tfunction multiple times using the same domain name will not result in an error response.\n        </note>"
     },
     "DomainMetadata":{
+      "name":"DomainMetadata",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -155,11 +246,21 @@
       "errors":[
         {
           "shape":"MissingParameter",
+          "error":{
+            "code":"MissingParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The request must contain the specified missing parameter.</p>"
         },
         {
           "shape":"NoSuchDomain",
+          "error":{
+            "code":"NoSuchDomain",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The specified domain does not exist.</p>"
         }
@@ -167,6 +268,7 @@
       "documentation":"<p>\n\t\tReturns information about the domain, including when the domain was created,\n\t\tthe number of items and attributes in the domain,\n\t\tand the size of the attribute names and values.\n\t\t</p>"
     },
     "GetAttributes":{
+      "name":"GetAttributes",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -179,16 +281,31 @@
       "errors":[
         {
           "shape":"InvalidParameterValue",
+          "error":{
+            "code":"InvalidParameterValue",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The value for a parameter is invalid.</p>"
         },
         {
           "shape":"MissingParameter",
+          "error":{
+            "code":"MissingParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The request must contain the specified missing parameter.</p>"
         },
         {
           "shape":"NoSuchDomain",
+          "error":{
+            "code":"NoSuchDomain",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The specified domain does not exist.</p>"
         }
@@ -196,6 +313,7 @@
       "documentation":"<p>\n        Returns all of the attributes associated with the specified item.\n        Optionally, the attributes returned can be limited to one or\n        more attributes by specifying an attribute name parameter.\n        </p>\n\n        <p>\n        If the item does not exist on the replica that was accessed\n        for this operation, an empty set is returned. The system does\n        not return an error as it cannot guarantee the item does\n        not exist on other replicas.\n        </p>\n\n        <note>\n        If GetAttributes is called without being passed any attribute names, all\n        the attributes for the item are returned.\n        </note>"
     },
     "ListDomains":{
+      "name":"ListDomains",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -208,11 +326,21 @@
       "errors":[
         {
           "shape":"InvalidParameterValue",
+          "error":{
+            "code":"InvalidParameterValue",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The value for a parameter is invalid.</p>"
         },
         {
           "shape":"InvalidNextToken",
+          "error":{
+            "code":"InvalidNextToken",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The specified NextToken is not valid. </p>"
         }
@@ -220,6 +348,7 @@
       "documentation":"<p>\n        The <code>ListDomains</code> operation lists all domains associated with the\n        Access Key ID. It returns domain names up to the limit set by\n        <a href=\"#MaxNumberOfDomains\">MaxNumberOfDomains</a>.\n        A <a href=\"#NextToken\">NextToken</a> is returned if there are more\n    \tthan <code>MaxNumberOfDomains</code> domains. Calling <code>ListDomains</code> successive\n        times with the <code>NextToken</code> provided by the operation\n        returns up to <code>MaxNumberOfDomains</code> more domain names\n        with each successive operation call.\n        </p>"
     },
     "PutAttributes":{
+      "name":"PutAttributes",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -228,36 +357,71 @@
       "errors":[
         {
           "shape":"InvalidParameterValue",
+          "error":{
+            "code":"InvalidParameterValue",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The value for a parameter is invalid.</p>"
         },
         {
           "shape":"MissingParameter",
+          "error":{
+            "code":"MissingParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The request must contain the specified missing parameter.</p>"
         },
         {
           "shape":"NoSuchDomain",
+          "error":{
+            "code":"NoSuchDomain",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The specified domain does not exist.</p>"
         },
         {
           "shape":"NumberDomainAttributesExceeded",
+          "error":{
+            "code":"NumberDomainAttributesExceeded",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Too many attributes in this domain.</p>"
         },
         {
           "shape":"NumberDomainBytesExceeded",
+          "error":{
+            "code":"NumberDomainBytesExceeded",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Too many bytes in this domain.</p>"
         },
         {
           "shape":"NumberItemAttributesExceeded",
+          "error":{
+            "code":"NumberItemAttributesExceeded",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Too many attributes in this item.</p>"
         },
         {
           "shape":"AttributeDoesNotExist",
+          "error":{
+            "code":"AttributeDoesNotExist",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The specified attribute does not exist.</p>"
         }
@@ -265,6 +429,7 @@
       "documentation":"<p>\n\t\tThe PutAttributes operation creates or replaces attributes\n\t\tin an item. The client may specify new attributes using a combination\n\t\tof the <code>Attribute.X.Name</code> and <code>Attribute.X.Value</code>\n\t\tparameters. The client specifies the first attribute by the parameters\n\t\t<code>Attribute.0.Name</code> and <code>Attribute.0.Value</code>,\n\t\tthe second attribute by the parameters <code>Attribute.1.Name</code>\n\t\tand <code>Attribute.1.Value</code>, and so on.\n\t\t</p>\n\n        <p>\n\t\tAttributes are uniquely identified in an item by their name/value\n\t\tcombination. For example, a single item can have the attributes\n\t\t<code>{ \"first_name\", \"first_value\" }</code> and <code>{ \"first_name\",\n\t\tsecond_value\" }</code>. However, it cannot have two attribute instances\n\t\twhere both the <code>Attribute.X.Name</code> and <code>Attribute.X.Value</code>\n\t\tare the same.\n        </p>\n\n        <p>\n        Optionally, the requestor can supply the <code>Replace</code> parameter for each\n\t\tindividual attribute. Setting this value to <code>true</code> causes the new\n\t\tattribute value to replace the existing attribute value(s).\n\t\tFor example, if an item has the attributes <code>{ 'a', '1' }</code>,\n\t\t<code>{ 'b', '2'}</code> and <code>{ 'b', '3' }</code> and the requestor\n        calls  <code>PutAttributes</code> using the attributes <code>{ 'b', '4' }</code> with\n        the <code>Replace</code> parameter set to true, the final attributes of the item are changed\n\t\tto <code>{ 'a', '1' }</code> and <code>{ 'b', '4' }</code>, which replaces the\n\t\tprevious values of the 'b' attribute with the new value.\n        </p>\n\n        <note>\n        Using <code>PutAttributes</code> to replace attribute values that do not exist will not\n\t\tresult in an error response.\n        </note>\n\n        <p>\n        You cannot specify an empty string as an attribute name.\n        </p>\n\n        <p>\n        Because Amazon SimpleDB makes multiple copies of client data and uses\n        an eventual consistency update model, an immediate <a>GetAttributes</a>\n        or <a>Select</a> operation (read) immediately after a <a>PutAttributes</a> or\n        <a>DeleteAttributes</a> operation (write) might not return the updated data.\n        </p>\n\n        <p>\n        The following limitations are enforced for this operation:\n\n        <ul>\n           <li>256 total attribute name-value pairs per item</li>\n           <li>One billion attributes per domain</li>\n           <li>10 GB of total user data storage per domain</li>\n        </ul>\n        </p>"
     },
     "Select":{
+      "name":"Select",
       "http":{
         "method":"POST",
         "requestUri":"/"
@@ -277,46 +442,91 @@
       "errors":[
         {
           "shape":"InvalidParameterValue",
+          "error":{
+            "code":"InvalidParameterValue",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The value for a parameter is invalid.</p>"
         },
         {
           "shape":"InvalidNextToken",
+          "error":{
+            "code":"InvalidNextToken",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The specified NextToken is not valid. </p>"
         },
         {
           "shape":"InvalidNumberPredicates",
+          "error":{
+            "code":"InvalidNumberPredicates",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Too many predicates exist in the query expression.</p>"
         },
         {
           "shape":"InvalidNumberValueTests",
+          "error":{
+            "code":"InvalidNumberValueTests",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Too many predicates exist in the query expression.</p>"
         },
         {
           "shape":"InvalidQueryExpression",
+          "error":{
+            "code":"InvalidQueryExpression",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The specified query expression syntax is not valid.</p>"
         },
         {
           "shape":"MissingParameter",
+          "error":{
+            "code":"MissingParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The request must contain the specified missing parameter.</p>"
         },
         {
           "shape":"NoSuchDomain",
+          "error":{
+            "code":"NoSuchDomain",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>The specified domain does not exist.</p>"
         },
         {
           "shape":"RequestTimeout",
+          "error":{
+            "code":"RequestTimeout",
+            "httpStatusCode":408,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>A timeout occurred when attempting to\n    query the specified domain with specified query expression.</p>"
         },
         {
           "shape":"TooManyRequestedAttributes",
+          "error":{
+            "code":"TooManyRequestedAttributes",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"<p>Too many attributes requested.</p>"
         }
@@ -356,6 +566,11 @@
       "members":{
         "BoxUsage":{"shape":"Float"}
       },
+      "error":{
+        "code":"AttributeDoesNotExist",
+        "httpStatusCode":404,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>The specified attribute does not exist.</p>"
     },
@@ -363,7 +578,7 @@
       "type":"list",
       "member":{
         "shape":"Attribute",
-        "xmlName":"Attribute"
+        "locationName":"Attribute"
       },
       "flattened":true
     },
@@ -371,7 +586,7 @@
       "type":"list",
       "member":{
         "shape":"String",
-        "xmlName":"AttributeName"
+        "locationName":"AttributeName"
       },
       "flattened":true
     },
@@ -426,7 +641,7 @@
       "members":{
         "Name":{
           "shape":"String",
-          "xmlName":"ItemName"
+          "locationName":"ItemName"
         },
         "Attributes":{"shape":"AttributeList"}
       }
@@ -435,7 +650,7 @@
       "type":"list",
       "member":{
         "shape":"DeletableItem",
-        "xmlName":"Item"
+        "locationName":"Item"
       },
       "flattened":true
     },
@@ -521,7 +736,7 @@
       "type":"list",
       "member":{
         "shape":"String",
-        "xmlName":"DomainName"
+        "locationName":"DomainName"
       },
       "flattened":true
     },
@@ -529,6 +744,11 @@
       "type":"structure",
       "members":{
         "BoxUsage":{"shape":"Float"}
+      },
+      "error":{
+        "code":"DuplicateItemName",
+        "httpStatusCode":400,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>The item name was specified more than once. </p>"
@@ -574,6 +794,11 @@
       "members":{
         "BoxUsage":{"shape":"Float"}
       },
+      "error":{
+        "code":"InvalidNextToken",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>The specified NextToken is not valid. </p>"
     },
@@ -581,6 +806,11 @@
       "type":"structure",
       "members":{
         "BoxUsage":{"shape":"Float"}
+      },
+      "error":{
+        "code":"InvalidNumberPredicates",
+        "httpStatusCode":400,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>Too many predicates exist in the query expression.</p>"
@@ -590,6 +820,11 @@
       "members":{
         "BoxUsage":{"shape":"Float"}
       },
+      "error":{
+        "code":"InvalidNumberValueTests",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>Too many predicates exist in the query expression.</p>"
     },
@@ -598,6 +833,11 @@
       "members":{
         "BoxUsage":{"shape":"Float"}
       },
+      "error":{
+        "code":"InvalidParameterValue",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>The value for a parameter is invalid.</p>"
     },
@@ -605,6 +845,11 @@
       "type":"structure",
       "members":{
         "BoxUsage":{"shape":"Float"}
+      },
+      "error":{
+        "code":"InvalidQueryExpression",
+        "httpStatusCode":400,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>The specified query expression syntax is not valid.</p>"
@@ -635,7 +880,7 @@
       "type":"list",
       "member":{
         "shape":"Item",
-        "xmlName":"Item"
+        "locationName":"Item"
       },
       "flattened":true
     },
@@ -671,6 +916,11 @@
       "members":{
         "BoxUsage":{"shape":"Float"}
       },
+      "error":{
+        "code":"MissingParameter",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>The request must contain the specified missing parameter.</p>"
     },
@@ -678,6 +928,11 @@
       "type":"structure",
       "members":{
         "BoxUsage":{"shape":"Float"}
+      },
+      "error":{
+        "code":"NoSuchDomain",
+        "httpStatusCode":400,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>The specified domain does not exist.</p>"
@@ -687,6 +942,11 @@
       "members":{
         "BoxUsage":{"shape":"Float"}
       },
+      "error":{
+        "code":"NumberDomainAttributesExceeded",
+        "httpStatusCode":409,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>Too many attributes in this domain.</p>"
     },
@@ -694,6 +954,11 @@
       "type":"structure",
       "members":{
         "BoxUsage":{"shape":"Float"}
+      },
+      "error":{
+        "code":"NumberDomainBytesExceeded",
+        "httpStatusCode":409,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>Too many bytes in this domain.</p>"
@@ -703,6 +968,11 @@
       "members":{
         "BoxUsage":{"shape":"Float"}
       },
+      "error":{
+        "code":"NumberDomainsExceeded",
+        "httpStatusCode":409,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>Too many domains exist per this account.</p>"
     },
@@ -710,6 +980,11 @@
       "type":"structure",
       "members":{
         "BoxUsage":{"shape":"Float"}
+      },
+      "error":{
+        "code":"NumberItemAttributesExceeded",
+        "httpStatusCode":409,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>Too many attributes in this item.</p>"
@@ -719,6 +994,11 @@
       "members":{
         "BoxUsage":{"shape":"Float"}
       },
+      "error":{
+        "code":"NumberSubmittedAttributesExceeded",
+        "httpStatusCode":409,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"<p>Too many attributes exist in a single call.</p>"
     },
@@ -726,6 +1006,11 @@
       "type":"structure",
       "members":{
         "BoxUsage":{"shape":"Float"}
+      },
+      "error":{
+        "code":"NumberSubmittedItemsExceeded",
+        "httpStatusCode":409,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>Too many items exist in a single call.</p>"
@@ -782,7 +1067,7 @@
       "type":"list",
       "member":{
         "shape":"ReplaceableAttribute",
-        "xmlName":"Attribute"
+        "locationName":"Attribute"
       },
       "flattened":true
     },
@@ -796,7 +1081,7 @@
         "Name":{
           "shape":"String",
           "documentation":"The name of the replaceable item.",
-          "xmlName":"ItemName"
+          "locationName":"ItemName"
         },
         "Attributes":{
           "shape":"ReplaceableAttributeList",
@@ -809,7 +1094,7 @@
       "type":"list",
       "member":{
         "shape":"ReplaceableItem",
-        "xmlName":"Item"
+        "locationName":"Item"
       },
       "flattened":true
     },
@@ -817,6 +1102,11 @@
       "type":"structure",
       "members":{
         "BoxUsage":{"shape":"Float"}
+      },
+      "error":{
+        "code":"RequestTimeout",
+        "httpStatusCode":408,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>A timeout occurred when attempting to\n    query the specified domain with specified query expression.</p>"
@@ -857,6 +1147,11 @@
       "type":"structure",
       "members":{
         "BoxUsage":{"shape":"Float"}
+      },
+      "error":{
+        "code":"TooManyRequestedAttributes",
+        "httpStatusCode":400,
+        "senderFault":true
       },
       "exception":true,
       "documentation":"<p>Too many attributes requested.</p>"
