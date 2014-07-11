@@ -556,7 +556,7 @@ NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427ae41e464
 
 @interface AWSS3ChunkedEncodingInputStream()
 
-@property (nonatomic, weak) id<NSStreamDelegate> delegate;
+@property (nonatomic, weak) id<NSStreamDelegate> streamDelegate;
 
 // original input stream
 @property (nonatomic, strong) NSInputStream *stream;
@@ -594,7 +594,7 @@ NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427ae41e464
                     headerSignature:(NSString *)headerSignature {
     if (self = [super init]) {
         _stream = stream;
-        _delegate = self;
+        _streamDelegate = self;
         _date = [date copy];
         _scope = [scope copy];
         _kSigning = [kSigning copy];
@@ -720,9 +720,9 @@ NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427ae41e464
 
 - (void)setDelegate:(id)delegate {
     if (delegate == nil) {
-        _delegate = self;
+        _streamDelegate = self;
     } else {
-        _delegate = delegate;
+        _streamDelegate = delegate;
     }
 }
 
