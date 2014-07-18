@@ -110,3 +110,9 @@ cp -a SES/*.h $FRAMEWORK_DIR/Headers/
 cp -a SimpleDB/*.h $FRAMEWORK_DIR/Headers/
 cp -a SNS/*.h $FRAMEWORK_DIR/Headers/
 cp -a SQS/*.h $FRAMEWORK_DIR/Headers/
+
+
+# correct the way to import framework's header
+cd $FRAMEWORK_DIR/Headers
+"$SOURCE_ROOT"/Scripts/SdkHeader.sh
+

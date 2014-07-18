@@ -17,7 +17,7 @@
 
 #import <XCTest/XCTest.h>
 #import "Kinesis.h"
-#import "AWSKinesis.h"
+#import "AWSTestUtility.h"
 
 NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
 
@@ -31,13 +31,7 @@ static NSString *testStreamName = nil;
 
 + (void)setUp {
     [super setUp];
-
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
-        AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
-                                                                               credentialsProvider:credentialsProvider];
-        [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
-    }
+    [AWSTestUtility setupCognitoCredentialsProvider];
 
     NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];
     testStreamName = [NSString stringWithFormat:@"%@-%f", AWSKinesisRecorderTestStream, timeIntervalSinceReferenceDate];

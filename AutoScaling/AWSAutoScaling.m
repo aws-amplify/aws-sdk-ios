@@ -123,7 +123,8 @@ static NSDictionary *errorCodeDictionary = nil;
                                                     data:data
                                                    error:error];
     if(retryType == AZNetworkingRetryTypeShouldNotRetry
-       && [error.domain isEqualToString:AWSAutoScalingErrorDomain]) {
+       && [error.domain isEqualToString:AWSAutoScalingErrorDomain]
+       && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
             case AWSAutoScalingErrorIncompleteSignature:
             case AWSAutoScalingErrorInvalidClientTokenId:

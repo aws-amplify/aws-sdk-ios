@@ -268,13 +268,26 @@ static NSTimeInterval _clockskew = 0.0;
 }
 
 - (NSString *)az_stringWithURLEncoding {
-    NSString *encoded = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)self, NULL, (CFStringRef)@"!*'\();:@&=+$,/?%#[] ", kCFStringEncodingUTF8));
-    return encoded;
+    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
+                                                                                 (__bridge CFStringRef)[self az_decodeURLEncoding],
+                                                                                 NULL,
+                                                                                 (CFStringRef)@"!*'\();:@&=+$,/?%#[] ",
+                                                                                 kCFStringEncodingUTF8));
 }
 
 - (NSString *)az_stringWithURLEncodingExceptSlash {
-    NSString *encoded = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)self, NULL, (CFStringRef)@"!*'\();:@&=+$,?%#[] ", kCFStringEncodingUTF8));
-    return encoded;
+    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
+                                                                                 (__bridge CFStringRef)[self az_decodeURLEncoding],
+                                                                                 NULL,
+                                                                                 (CFStringRef)@"!*'\();:@&=+$,?%#[] ",
+                                                                                 kCFStringEncodingUTF8));
+}
+
+- (NSString *)az_decodeURLEncoding {
+    return (__bridge NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL,
+                                                                                        (__bridge CFStringRef)self,
+                                                                                        CFSTR(""),
+                                                                                        kCFStringEncodingUTF8);
 }
 
 @end

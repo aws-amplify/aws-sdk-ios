@@ -17,6 +17,7 @@
 
 #import <XCTest/XCTest.h>
 #import "AWSCore.h"
+#import "AWSTestUtility.h"
 
 @interface AWSCognitoCredentialsProviderTests : XCTestCase
 
@@ -41,12 +42,8 @@ BOOL _identityChanged;
 #pragma mark - Set up/Tear down
 
 + (void)setUp {
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
-        AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
-                                                                               credentialsProvider:credentialsProvider];
-        [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
-    }
+    [super setUp];
+    [AWSTestUtility setupCognitoCredentialsProvider];
 
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
                                                                           ofType:@"json"];

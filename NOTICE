@@ -33,7 +33,6 @@ This software includes third party software subject to the following copyrights:
 - OCMock - Copyright (c) 2004-2008 by Mulle Kybernetik - https://github.com/erikdoe/ocmock/blob/f34e053c8901e8d36d59a582c35e78dcd50d743a/Source/License.txt
 - OCHamcrest - Copyright 2014 hamcrest.org - BSD License - 
 - NSData+GZIP.m - Copyright (C) 2012 Charcoal Design - zlib License
-- Reachability - Copyright (c) 2011, Tony Million. All rights reserved. - https://github.com/tonymillion/Reachability/blob/master/LICENCE.txt
-- Reachability.m - Copyright (C) 2010 Apple Inc. All Rights Reserved. - https://developer.apple.com/library/ios/samplecode/Reachability/Reachability.zip (Embedded in the source code)
+- Reachability - Copyright (c) 2011-2013, Tony Million. All rights reserved. - https://github.com/tonymillion/Reachability/blob/master/LICENCE.txt
 
 The licenses for these third party components are included in the License file.

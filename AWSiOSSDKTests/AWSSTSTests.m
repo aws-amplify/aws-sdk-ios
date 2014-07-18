@@ -17,6 +17,7 @@
 
 #import <XCTest/XCTest.h>
 #import "STS.h"
+#import "AWSTestUtility.h"
 
 @interface AWSTestCredentialsProvider : NSObject <AWSCredentialsProvider>
 
@@ -38,13 +39,7 @@
 
 + (void)setUp {
     [super setUp];
-
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
-        AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
-                                                                               credentialsProvider:credentialsProvider];
-        [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
-    }
+    [AWSTestUtility setupSTS];
 }
 
 - (void)setUp {
@@ -56,7 +51,7 @@
 }
 
 - (void)testGetSessionToken {
-    AWSSTS *sts = [AWSSTS defaultSTS];
+    AWSSTS *sts = (AWSSTS *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilitySTSKey];
 
     AWSSTSGetSessionTokenRequest *getSessionTokenRequest = [AWSSTSGetSessionTokenRequest new];
     getSessionTokenRequest.durationSeconds = @900;
@@ -79,10 +74,9 @@
 }
 
 + (void)runServiceWithStsCredential {
-
     AWSTestCredentialsProvider *testCredentialProvider = [AWSTestCredentialsProvider new];
 
-    AWSSTS *sts = [AWSSTS defaultSTS];
+    AWSSTS *sts = (AWSSTS *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilitySTSKey];
 
     AWSSTSGetSessionTokenRequest *getSessionTokenRequest = [AWSSTSGetSessionTokenRequest new];
     getSessionTokenRequest.durationSeconds = @900;

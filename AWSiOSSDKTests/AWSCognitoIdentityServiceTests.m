@@ -18,6 +18,7 @@
 #import <XCTest/XCTest.h>
 #import "CognitoIdentityService.h"
 #import "STS.h"
+#import "AWSTestUtility.h"
 
 @interface AWSCognitoIdentityServiceTests : XCTestCase
 
@@ -27,13 +28,7 @@
 
 + (void)setUp {
     [super setUp];
-
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
-        AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
-                                                                               credentialsProvider:credentialsProvider];
-        [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
-    }
+    [AWSTestUtility setupCognitoIdentityService];
 }
 
 - (void)setUp {
@@ -47,7 +42,7 @@
 }
 
 - (void)testListIdentityPools {
-    AWSCognitoIdentityService *cib = [AWSCognitoIdentityService defaultCognitoIdentityService];
+    AWSCognitoIdentityService *cib = (AWSCognitoIdentityService *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilityCognitoIdentityServiceKey];
 
     AWSCognitoIdentityServiceListIdentityPoolsInput *listPools = [AWSCognitoIdentityServiceListIdentityPoolsInput new];
     listPools.maxResults = [NSNumber numberWithInt:10];
@@ -65,7 +60,7 @@
 }
 
 - (void)testCreateDeleteIdentityPool {
-    AWSCognitoIdentityService *cib = [AWSCognitoIdentityService defaultCognitoIdentityService];
+    AWSCognitoIdentityService *cib = (AWSCognitoIdentityService *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilityCognitoIdentityServiceKey];
 
     AWSCognitoIdentityServiceCreateIdentityPoolInput *createPool = [AWSCognitoIdentityServiceCreateIdentityPoolInput new];
     createPool.identityPoolName = @"CIBiOSTestCreateDeleteIdentityPool";
@@ -95,7 +90,7 @@
 }
 
 - (void)testDeleteIdentityPoolFailed {
-    AWSCognitoIdentityService *cib = [AWSCognitoIdentityService defaultCognitoIdentityService];
+    AWSCognitoIdentityService *cib = (AWSCognitoIdentityService *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilityCognitoIdentityServiceKey];
     AWSCognitoIdentityServiceDeleteIdentityPoolInput *deletePool = [AWSCognitoIdentityServiceDeleteIdentityPoolInput new];
     deletePool.identityPoolId = @"us-east-1:aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"; //Non-existent PoolId
 
@@ -108,7 +103,7 @@
 }
 
 - (void)testUpdateIdentityPoolPoolFailed {
-    AWSCognitoIdentityService *cib = [AWSCognitoIdentityService defaultCognitoIdentityService];
+    AWSCognitoIdentityService *cib = (AWSCognitoIdentityService *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilityCognitoIdentityServiceKey];
 
     AWSCognitoIdentityServiceIdentityPool *updatePoolInput = [AWSCognitoIdentityServiceIdentityPool new];
     updatePoolInput.identityPoolId = @"us-east-1:aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"; //Non-existent PoolId
@@ -124,9 +119,8 @@
 
 
 - (void)testGetIdGetToken {
-
-    AWSSTS *sts = [AWSSTS defaultSTS];
-    AWSCognitoIdentityService *cib = [AWSCognitoIdentityService defaultCognitoIdentityService];
+    AWSSTS *sts = (AWSSTS *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilitySTSKey];
+    AWSCognitoIdentityService *cib = (AWSCognitoIdentityService *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilityCognitoIdentityServiceKey];
 
     __block AWSSTSAssumeRoleWithWebIdentityRequest *wifRequest = nil;
 

@@ -17,6 +17,7 @@
 
 #import <XCTest/XCTest.h>
 #import "CloudWatch.h"
+#import "AWSTestUtility.h"
 
 @interface AWSCloudWatchTests : XCTestCase
 
@@ -26,13 +27,7 @@
 
 + (void)setUp {
     [super setUp];
-
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
-        AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
-                                                                               credentialsProvider:credentialsProvider];
-        [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
-    }
+    [AWSTestUtility setupCognitoCredentialsProvider];
 }
 
 - (void)setUp {

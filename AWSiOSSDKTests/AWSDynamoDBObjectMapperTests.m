@@ -17,6 +17,7 @@
 
 #import <XCTest/XCTest.h>
 #import "DynamoDB.h"
+#import "AWSTestUtility.h"
 
 NSString *const AWSDynamoDBObjectMapperTestTable = @"DynamoDBOMTest";
 
@@ -57,13 +58,7 @@ static NSString *tableName = nil;
 
 + (void)setUp {
     [super setUp];
-
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
-        AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
-                                                                               credentialsProvider:credentialsProvider];
-        [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
-    }
+    [AWSTestUtility setupCognitoCredentialsProvider];
 
     NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];
     tableName = [NSString stringWithFormat:@"%@-%f", AWSDynamoDBObjectMapperTestTable, timeIntervalSinceReferenceDate];
@@ -205,10 +200,10 @@ static NSString *tableName = nil;
             } else {
                 succeeded = YES;
             }
-        
+
         return nil;
     }] waitUntilFinished];
-    
+
     return succeeded;
 }
 
@@ -288,7 +283,7 @@ static NSString *tableName = nil;
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
-
+        
         return nil;
     }] waitUntilFinished];
 }

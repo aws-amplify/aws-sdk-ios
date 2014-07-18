@@ -55,13 +55,13 @@
     double testTime = [testDate timeIntervalSince1970];
     double expectedTime = 660096000;
 
-    XCTAssertEqual(testTime, expectedTime, "Failed to create a proper date from string usingAZDateDateStampFormat");
+    XCTAssertEqualWithAccuracy(testTime, expectedTime, 10, "Failed to create a proper date from string usingAZDateDateStampFormat");
 
     NSString *testStringAZDateAmzDateFormat = @"19901202T000000Z";
     NSDate *testDateAmz = [NSDate az_dateFromString:testStringAZDateAmzDateFormat format:AZDateISO8601DateFormat2];
     double testTimeAmz = [testDateAmz timeIntervalSince1970];
 
-    XCTAssertEqual(testTimeAmz, expectedTime, "Failed to create a proper date from string usingAZDateAmzDateFormat");
+    XCTAssertEqualWithAccuracy(testTimeAmz, expectedTime, 10, "Failed to create a proper date from string usingAZDateAmzDateFormat");
 }
 
 @end

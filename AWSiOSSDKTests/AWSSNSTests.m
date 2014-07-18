@@ -17,6 +17,7 @@
 
 #import <XCTest/XCTest.h>
 #import "SNS.h"
+#import "AWSTestUtility.h"
 
 @interface AWSSNSTests : XCTestCase
 
@@ -26,13 +27,7 @@
 
 + (void)setUp {
     [super setUp];
-
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
-        AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
-                                                                               credentialsProvider:credentialsProvider];
-        [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
-    }
+    [AWSTestUtility setupCognitoCredentialsProvider];
 }
 
 - (void)setUp {
@@ -76,6 +71,41 @@
     }] waitUntilFinished];
 }
 
+- (void)testCreatePlatformEndpointWithAttributes {
+    AWSSNS *sns = [AWSSNS defaultSNS];
+    XCTAssertNotNil(sns);
+    
+    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
+                                                                          ofType:@"json"];
+    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                    options:NSJSONReadingMutableContainers
+                                                                      error:nil];
+    NSString *platformApplicationArn = credentialsJson[@"snsTestAppArn"];
+    
+    if ([platformApplicationArn length] > 0) {
+        
+        AWSSNSCreatePlatformEndpointInput *createEndpointInput = [AWSSNSCreatePlatformEndpointInput new];
+        createEndpointInput.platformApplicationArn = platformApplicationArn;
+        createEndpointInput.token = @"0123456789";
+        createEndpointInput.attributes  = @{@"Attributes.entry.1.key": @"Enabled",@"Attributes.entry.1.value":@"true"};
+        
+        [[[sns createPlatformEndpoint:createEndpointInput] continueWithBlock:^id(BFTask *task) {
+            if (task.error) {
+                XCTFail(@"Error: [%@]", task.error);
+            }
+            
+            if (task.result) {
+                XCTAssertTrue([task.result isKindOfClass:[AWSSNSCreateEndpointResponse class]]);
+                AWSSNSCreateEndpointResponse *response = task.result;
+                XCTAssertNotNil(response.endpointArn, @"response endpointArn should not be nil!");
+            }
+            
+            return nil;
+        }] waitUntilFinished];
+    } else {
+        NSLog(@"Warning: can not get snsTestAppArn from credentials.json, you may need to update your credentials file");
+    }
+}
 @end
 
 #endif

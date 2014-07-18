@@ -128,13 +128,12 @@ static NSDictionary *errorCodeDictionary = nil;
                                                     data:data
                                                    error:error];
     if(retryType == AZNetworkingRetryTypeShouldNotRetry
-       && [error.domain isEqualToString:AWSS3ErrorDomain]) {
+       && [error.domain isEqualToString:AWSS3ErrorDomain]
+       && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
-            case AWSS3ErrorAccessDenied:
             case AWSS3ErrorExpiredToken:
             case AWSS3ErrorInvalidAccessKeyId:
             case AWSS3ErrorInvalidToken:
-            case AWSS3ErrorSignatureDoesNotMatch:
             case AWSS3ErrorTokenRefreshRequired:
             retryType = AZNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
             break;

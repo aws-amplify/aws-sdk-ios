@@ -126,7 +126,8 @@ static NSDictionary *errorCodeDictionary = nil;
                                                     data:data
                                                    error:error];
     if(retryType == AZNetworkingRetryTypeShouldNotRetry
-       && [error.domain isEqualToString:AWSCloudWatchErrorDomain]) {
+       && [error.domain isEqualToString:AWSCloudWatchErrorDomain]
+       && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
             case AWSCloudWatchErrorIncompleteSignature:
             case AWSCloudWatchErrorInvalidClientTokenId:

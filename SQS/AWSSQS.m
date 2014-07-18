@@ -132,7 +132,8 @@ static NSDictionary *errorCodeDictionary = nil;
                                                     data:data
                                                    error:error];
     if(retryType == AZNetworkingRetryTypeShouldNotRetry
-       && [error.domain isEqualToString:AWSSQSErrorDomain]) {
+       && [error.domain isEqualToString:AWSSQSErrorDomain]
+       && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
             case AWSSQSErrorIncompleteSignature:
             case AWSSQSErrorInvalidClientTokenId:

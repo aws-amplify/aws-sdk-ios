@@ -132,7 +132,8 @@ static NSDictionary *errorCodeDictionary = nil;
                                                     data:data
                                                    error:error];
     if(retryType == AZNetworkingRetryTypeShouldNotRetry
-       && [error.domain isEqualToString:AWSElasticLoadBalancingErrorDomain]) {
+       && [error.domain isEqualToString:AWSElasticLoadBalancingErrorDomain]
+       && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
             case AWSElasticLoadBalancingErrorIncompleteSignature:
             case AWSElasticLoadBalancingErrorInvalidClientTokenId:

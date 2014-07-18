@@ -306,6 +306,42 @@
 
 @implementation AWSQueryStringRequestSerializer
 
+- (NSMutableString *)processParameters:(NSDictionary *)parameters QueryString:(NSMutableString *)queryString {
+    for (NSString *key in parameters) {
+        id obj = parameters[key];
+        
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            [self processParameters:obj QueryString:queryString];
+        } else {
+            
+            if ([queryString length] > 0) {
+                [queryString appendString:@"&"];
+            }
+            
+            if ([obj isKindOfClass:[NSString class]]) {
+                [queryString appendString:[key az_stringWithURLEncoding]];
+                [queryString appendString:@"="];
+                [queryString appendString:[obj az_stringWithURLEncoding]];
+            } else if ([obj isKindOfClass:[NSNumber class]]) {
+                [queryString appendString:[key az_stringWithURLEncoding]];
+                [queryString appendString:@"="];
+                [queryString appendString:[[obj stringValue] az_stringWithURLEncoding]];
+            } else if ([obj isKindOfClass:[NSDate class]]) {
+                [queryString appendString:[key az_stringWithURLEncoding]];
+                [queryString appendString:@"="];
+                [queryString appendString:[[obj az_stringValue:self.dateFormat] az_stringWithURLEncoding]];
+            } else {
+                AZLogError(@"key[%@] is invalid.", key);
+                [queryString appendString:[key az_stringWithURLEncoding]];
+                [queryString appendString:@"="];
+                [queryString appendString:[[obj description]az_stringWithURLEncoding]];
+            }
+        }
+    }
+    
+    return queryString;
+}
+
 - (BFTask *)serializeRequest:(NSMutableURLRequest *)request
                      headers:(NSDictionary *)headers
                   parameters:(NSDictionary *)parameters {
@@ -316,30 +352,7 @@
         [parameters setValue:obj forKey:key];
     }];
 
-    [parameters enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        if ([queryString length] > 0) {
-            [queryString appendString:@"&"];
-        }
-
-        if ([obj isKindOfClass:[NSString class]]) {
-            [queryString appendString:[key az_stringWithURLEncoding]];
-            [queryString appendString:@"="];
-            [queryString appendString:[obj az_stringWithURLEncoding]];
-        } else if ([obj isKindOfClass:[NSNumber class]]) {
-            [queryString appendString:[key az_stringWithURLEncoding]];
-            [queryString appendString:@"="];
-            [queryString appendString:[[obj stringValue] az_stringWithURLEncoding]];
-        } else if ([obj isKindOfClass:[NSDate class]]) {
-            [queryString appendString:[key az_stringWithURLEncoding]];
-            [queryString appendString:@"="];
-            [queryString appendString:[[obj az_stringValue:self.dateFormat] az_stringWithURLEncoding]];
-        } else {
-            // TODO: This shouldn't happen. We should log this.
-            [queryString appendString:[key az_stringWithURLEncoding]];
-            [queryString appendString:@"="];
-            [queryString appendString:[obj description]];
-        }
-    }];
+    queryString = [self processParameters:parameters QueryString:queryString];
 
     if ([queryString length] > 0) {
         request.HTTPBody = [queryString dataUsingEncoding:NSUTF8StringEncoding];

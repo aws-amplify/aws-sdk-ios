@@ -15,7 +15,7 @@
 
 #import <sys/xattr.h>
 #import <UIKit/UIKit.h>
-#import "AIReachability.h"
+#import "Reachability.h"
 #import "AWSMobileAnalyticsIOSSystem.h"
 #import "AWSMobileAnalyticsIOSLifeCycleManager.h"
 #import "AZLogging.h"
@@ -43,7 +43,7 @@ static NSString *const IOSVersion5_0_1 = @"5.0.1";
 
         _lifeCycleManager = [AWSMobileAnalyticsIOSLifeCycleManager manager];
         
-        AIReachability *reachability = [AIReachability reachabilityForInternetConnection];
+        Reachability *reachability = [Reachability reachabilityForInternetConnection];
         self.connectivity = [[AWSMobileAnalyticsIOSConnectivity alloc] initWithReachability:reachability];
         
         NSFileManager *internalFileManager = [NSFileManager defaultManager];

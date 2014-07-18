@@ -134,7 +134,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoLoginProviderKey) {
 /**
  *  Refreshes the locally stored credentials. The SDK automatically calls this method when necessary, and you do not need to call this method manually.
  *
- *  @return <#return value description#>
+ *  @return BFTask
  */
 - (BFTask *)refresh;
 

@@ -17,6 +17,7 @@
 
 #import <XCTest/XCTest.h>
 #import "DynamoDB.h"
+#import "AWSTestUtility.h"
 
 NSString *const AWSDynamoDBTestTable1 = @"AWSSDKForiOSv2Test1";
 NSString *const AWSDynamoDBTestTable2 = @"AWSSDKForiOSv2Test2";
@@ -34,13 +35,7 @@ static NSString *table2Name = nil;
 
 + (void)setUp {
     [super setUp];
-
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
-        AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
-                                                                               credentialsProvider:credentialsProvider];
-        [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
-    }
+    [AWSTestUtility setupCognitoCredentialsProvider];
 
     NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];
     table1Name = [NSString stringWithFormat:@"%@-%f", AWSDynamoDBTestTable1, timeIntervalSinceReferenceDate];
@@ -725,48 +720,48 @@ static NSString *table2Name = nil;
 }
 
 /*
-- (void)testThrottling {
-    XCTAssertTrue([[self class] createTable:table2Name], @"Failed to create a table.");
+ - (void)testThrottling {
+ XCTAssertTrue([[self class] createTable:table2Name], @"Failed to create a table.");
 
-    AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
+ AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
 
-    NSMutableString *mutableString = [NSMutableString new];
-    for(int32_t i = 0; i < 5000; i++) {
-        [mutableString appendString:@"0123456789"];
-    }
+ NSMutableString *mutableString = [NSMutableString new];
+ for(int32_t i = 0; i < 5000; i++) {
+ [mutableString appendString:@"0123456789"];
+ }
 
-    BFTask *task = [BFTask taskWithResult:nil];
+ BFTask *task = [BFTask taskWithResult:nil];
 
-    for (int32_t i = 0; i < 200; i++) {
-        task = [task continueWithSuccessBlock:^id(BFTask *task) {
-            //Put item
-            AWSDynamoDBPutItemInput *putItemInput = [AWSDynamoDBPutItemInput new];
-            putItemInput.tableName = table2Name;
-            AWSDynamoDBAttributeValue *hashValue = [AWSDynamoDBAttributeValue new];
-            hashValue.S = [NSString stringWithFormat:@"testPutItem%d", i];
-            AWSDynamoDBAttributeValue *otherValue = [AWSDynamoDBAttributeValue new];
-            otherValue.S = [NSString stringWithFormat:@"%@%d", mutableString, i];
-            putItemInput.item = @{
-                                  @"hashKey" : hashValue,
-                                  @"otherKey" : otherValue
-                                  };
-            return [dynamoDB putItem:putItemInput];
-        }];
-    }
-    
-    [[task continueWithBlock:^id(BFTask *task) {
-        if (!task.error
-            && !([task.error.domain isEqualToString:AWSDynamoDBErrorDomain]
-                 || task.error.code == AWSDynamoDBErrorProvisionedThroughputExceeded)) {
-                XCTFail(@"Throttling didn't happen. result: [%@] error: [%@]", task.result, task.error);
-            }
-        
-        return nil;
-    }] waitUntilFinished];
-    
-    XCTAssertTrue([[self class] deleteTable:table2Name], @"Failed to delete a table.");
-}
-*/
+ for (int32_t i = 0; i < 200; i++) {
+ task = [task continueWithSuccessBlock:^id(BFTask *task) {
+ //Put item
+ AWSDynamoDBPutItemInput *putItemInput = [AWSDynamoDBPutItemInput new];
+ putItemInput.tableName = table2Name;
+ AWSDynamoDBAttributeValue *hashValue = [AWSDynamoDBAttributeValue new];
+ hashValue.S = [NSString stringWithFormat:@"testPutItem%d", i];
+ AWSDynamoDBAttributeValue *otherValue = [AWSDynamoDBAttributeValue new];
+ otherValue.S = [NSString stringWithFormat:@"%@%d", mutableString, i];
+ putItemInput.item = @{
+ @"hashKey" : hashValue,
+ @"otherKey" : otherValue
+ };
+ return [dynamoDB putItem:putItemInput];
+ }];
+ }
+
+ [[task continueWithBlock:^id(BFTask *task) {
+ if (!task.error
+ && !([task.error.domain isEqualToString:AWSDynamoDBErrorDomain]
+ || task.error.code == AWSDynamoDBErrorProvisionedThroughputExceeded)) {
+ XCTFail(@"Throttling didn't happen. result: [%@] error: [%@]", task.result, task.error);
+ }
+ 
+ return nil;
+ }] waitUntilFinished];
+ 
+ XCTAssertTrue([[self class] deleteTable:table2Name], @"Failed to delete a table.");
+ }
+ */
 
 @end
 

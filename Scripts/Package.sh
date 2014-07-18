@@ -12,26 +12,12 @@ if [ -x "Scripts/SdkPackage.sh" ]; then
 	Scripts/SdkPackage.sh
 fi
 
-if [ -x "Scripts/BoltsPackage.sh" ]; then
-	Scripts/BoltsPackage.sh
-fi
-
-if [ -x "Scripts/CSURITemplatePackage.sh" ]; then
-	Scripts/CSURITemplatePackage.sh
-fi
-
-if [ -x "Scripts/MantlePackage.sh" ]; then
-	Scripts/MantlePackage.sh 
-fi
-
-if [ -x "Scripts/TMCachePackage.sh" ]; then
-	Scripts/TMCachePackage.sh
-fi
-
-if [ -x "Scripts/XMLDictionaryPackage.sh" ]; then
-	Scripts/XMLDictionaryPackage.sh
-fi
-
-if [ -x "Scripts/UICKeyChainStore.sh" ]; then
-	Scripts/UICKeyChainStore.sh
+if [ -x "Scripts/PodFramework.sh" ]; then
+	Scripts/PodFramework.sh Bolts
+	Scripts/PodFramework.sh CSURITemplate
+	Scripts/PodFramework.sh Mantle
+	Scripts/PodFramework.sh TMCache
+	Scripts/PodFramework.sh XMLDictionary
+	Scripts/PodFramework.sh UICKeyChainStore
+	Scripts/PodFramework.sh Reachability
 fi

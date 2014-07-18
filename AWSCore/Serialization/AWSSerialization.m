@@ -379,13 +379,15 @@ NSString *const AWSXMLParserErrorDomain = @"com.amazonaws.AWSXMLParserErrorDomai
         return nil;
     }
 
-    //[XMLDictionaryParser sharedInstance].attributesMode = XMLDictionaryAttributesModeDiscard;
+    [XMLDictionaryParser sharedInstance].attributesMode = XMLDictionaryAttributesModeDiscard; //discard all xml attributes. e.g. xmlns
     [XMLDictionaryParser sharedInstance].stripEmptyNodes = NO;
-    //[XMLDictionaryParser sharedInstance].nodeNameMode = XMLDictionaryNodeNameModeNever;
-    NSMutableDictionary *xmlDictionary = [[[XMLDictionaryParser sharedInstance] dictionaryWithData:data] mutableCopy]; //TODO: need error parameters for parsing
-    NSString *rootNodeName = [xmlDictionary nodeName];
-    [xmlDictionary removeObjectForKey:XMLDictionaryNodeNameKey];
-
+    [XMLDictionaryParser sharedInstance].wrapRootNode = YES; //wrapRootNode for easy process
+    [XMLDictionaryParser sharedInstance].nodeNameMode = XMLDictionaryNodeNameModeNever; //do not need rootName anymore since rootNode is wrapped.
+    NSMutableDictionary *rootXmlDictionary = [[[XMLDictionaryParser sharedInstance] dictionaryWithData:data] mutableCopy]; //TODO: need error parameters for parsing
+    NSString *rootNodeName = [[rootXmlDictionary allKeys] firstObject];
+ 
+    NSMutableDictionary *xmlDictionary = ([rootXmlDictionary[rootNodeName] isKindOfClass:[NSDictionary class]] && [rootXmlDictionary[rootNodeName] count] > 0)?rootXmlDictionary[rootNodeName]:rootXmlDictionary;
+    
     if (*error) {
         return nil;
     } else if ([rootNodeName isEqualToString:@"Error"]) {
@@ -412,6 +414,15 @@ NSString *const AWSXMLParserErrorDomain = @"com.amazonaws.AWSXMLParserErrorDomai
 
         NSMutableDictionary *parsedData = [self parseStructure:xmlDictionary rules:rules error:error];
 
+        if ([parsedData count] == 0) {
+            //try again with rootDictionary if it is S3 response
+            NSString *serviceTypeStr = serviceDefinitionRule[@"metadata"][@"type"]?serviceDefinitionRule[@"metadata"][@"type"]:serviceDefinitionRule[@"metadata"][@"protocol"];
+            if ([serviceTypeStr isEqualToString:@"rest-xml"]) {
+                xmlDictionary = [self preprocessDictionary:xmlDictionary operationName:actionName actionRule:actionRule serviceDefinitionRule:serviceDefinitionRule];
+                parsedData = [self parseStructure:xmlDictionary rules:rules error:error];
+            }
+        }
+        
         return parsedData;
     };
 }
@@ -596,8 +607,7 @@ NSString *const AWSXMLParserErrorDomain = @"com.amazonaws.AWSXMLParserErrorDomai
     }
 
     if (![list isKindOfClass:[NSArray class]]) {
-        [self failWithCode:AWSXMLParserUnExpectedType description:[NSString stringWithFormat:@"xml(list type) should be an array but got:%@",NSStringFromClass([list class])] error:error];
-        return @[];
+        return @[list];
     }
     [list enumerateObjectsUsingBlock:^(id value, NSUInteger idx, BOOL *stop) {
         [data addObject:[self parseMember:value rules:memberRules error:&blockErr]];
@@ -629,7 +639,13 @@ NSString *const AWSXMLParserErrorDomain = @"com.amazonaws.AWSXMLParserErrorDomai
     if (![self validateConstraint:values rules:rules error:error]) return @"XMLPARSER:ERROR";
 
     if ([rulesType isEqualToString:@"string"]) {
-        return values;
+        if ([values isKindOfClass:[NSString class]]) {
+            return values;
+        } else if ([values isKindOfClass:[NSDictionary class]] && [values count] == 0) {
+            return @"";
+        } else {
+            return [values description];
+        }
     } else if ([rulesType isEqualToString:@"structure"]) {
         return [self parseStructure:values rules:rules[@"members"]?rules[@"members"]:@{} error:error];
     } else if ([rulesType isEqualToString:@"list"]) {

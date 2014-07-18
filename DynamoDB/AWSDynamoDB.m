@@ -117,7 +117,8 @@ static NSDictionary *errorCodeDictionary = nil;
                                                     data:data
                                                    error:error];
     if(retryType == AZNetworkingRetryTypeShouldNotRetry
-       && [error.domain isEqualToString:AWSDynamoDBErrorDomain]) {
+       && [error.domain isEqualToString:AWSDynamoDBErrorDomain]
+       && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
             case AWSDynamoDBErrorProvisionedThroughputExceeded:
                 retryType = AZNetworkingRetryTypeShouldRetry;

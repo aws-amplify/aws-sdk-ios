@@ -486,7 +486,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
 
 @end
 
-#pragma mark - AWSSignatureV2BodySigner
+#pragma mark - AWSSignatureV2Signer
 
 @interface AWSSignatureV2Signer()
 
@@ -586,6 +586,8 @@ NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427ae41e464
 @end
 
 @implementation AWSS3ChunkedEncodingInputStream
+
+@synthesize delegate = _delegate;
 
 - (instancetype)initWithInputStream:(NSInputStream *)stream
                                date:(NSDate *)date

@@ -115,10 +115,10 @@ static NSDictionary *errorCodeDictionary = nil;
                                                     data:data
                                                    error:error];
     if(retryType == AZNetworkingRetryTypeShouldNotRetry
-       && [error.domain isEqualToString:AWSEC2ErrorDomain]) {
+       && [error.domain isEqualToString:AWSEC2ErrorDomain]
+       && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
             case AWSEC2ErrorAuthFailure:
-            case AWSEC2ErrorSignatureDoesNotMatch:
                 retryType = AZNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
                 break;
 

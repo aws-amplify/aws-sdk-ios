@@ -29,6 +29,7 @@
 #import "ElasticLoadBalancing.h"
 #import "Kinesis.h"
 #import "AWSKinesis.h"
+#import "AWSTestUtility.h"
 
 @import ObjectiveC.runtime;
 
@@ -43,15 +44,16 @@ Method _originalDateMethod;
 Method _mockDateMethod;
 static char mockDateKey;
 
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
-    
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
+    [AWSTestUtility setupCognitoCredentialsProvider];
+
+    if (![[AWSServiceManager defaultServiceManager] serviceForKey:@"test-sts"]) {
         AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
         AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
                                                                                credentialsProvider:credentialsProvider];
-        [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+        AWSSTS *sts = [[AWSSTS alloc] initWithConfiguration:configuration];
+        [[AWSServiceManager defaultServiceManager] setService:sts forKey:@"test-sts"];
     }
     
     // Start by having the mock return the test startup date
@@ -178,8 +180,7 @@ static char mockDateKey;
         
         if (task.result) {
             AWSSimpleDBListDomainsResult *listDomainsResult = task.result;
-            XCTAssertNotNil(listDomainsResult.domainNames, @" doemainNames Array should not be nil.");
-            AZLogDebug(@"[%@]", listDomainsResult);
+            XCTAssertNotNil(listDomainsResult, @"listDomainsResult should not be nil.");
         }
         
         return nil;
@@ -389,7 +390,7 @@ static char mockDateKey;
     XCTAssertFalse([NSDate az_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
-    AWSSTS *sts = [AWSSTS defaultSTS];
+    AWSSTS *sts = (AWSSTS *)[[AWSServiceManager defaultServiceManager] serviceForKey:@"test-sts"];
     XCTAssertNotNil(sts);
     
     AWSSTSGetSessionTokenRequest *getSessionTokenRequest = [AWSSTSGetSessionTokenRequest new];

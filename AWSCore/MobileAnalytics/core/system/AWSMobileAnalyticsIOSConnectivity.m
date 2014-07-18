@@ -14,17 +14,17 @@
  */
 
 #import "AWSMobileAnalyticsIOSConnectivity.h"
-#import "AIReachability.h"
+#import "Reachability.h"
 
 @interface AWSMobileAnalyticsIOSConnectivity()
 
-@property (nonatomic, readwrite) AIReachability* reachability;
+@property (nonatomic, readwrite) Reachability* reachability;
 
 @end
 
 @implementation AWSMobileAnalyticsIOSConnectivity
 
--(id) initWithReachability:(AIReachability*) theReachability
+-(id) initWithReachability:(Reachability*) theReachability
 {
     if(self = [super init])
     {

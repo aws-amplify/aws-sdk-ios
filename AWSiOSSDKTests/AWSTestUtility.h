@@ -14,20 +14,14 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "AWSMobileAnalyticsConnectivity.h"
 
-@class Reachability;
+FOUNDATION_EXPORT NSString *const AWSTestUtilitySTSKey;
+FOUNDATION_EXPORT NSString *const AWSTestUtilityCognitoIdentityServiceKey;
 
-@interface AWSMobileAnalyticsIOSConnectivity : NSObject<AWSMobileAnalyticsConnectivity>
+@interface AWSTestUtility : NSObject
 
--(id) initWithReachability:(Reachability*) theReachability;
-
-@property (nonatomic, readonly) Reachability* reachability;
-
--(BOOL) isConnected;
-
--(BOOL) hasWifi;
-
--(BOOL) hasWAN;
++ (void)setupCognitoCredentialsProvider;
++ (void)setupSTS;
++ (void)setupCognitoIdentityService;
 
 @end

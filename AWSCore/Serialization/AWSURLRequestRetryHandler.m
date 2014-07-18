@@ -40,7 +40,7 @@
         || error.code == AWSGeneralErrorAuthFailure) {
         return YES;
     }
-    
+
     return NO;
 }
 
@@ -52,16 +52,20 @@
         self.isClockSkewRetried = YES;
         return AZNetworkingRetryTypeShouldCorrectClockSkewAndRetry;
     }
-    
+
     if (currentRetryCount >= self.maxRetryCount) {
         return AZNetworkingRetryTypeShouldNotRetry;
     }
 
     if ([error.domain isEqualToString:NSURLErrorDomain]) {
-        return AZNetworkingRetryTypeShouldRetry;
+        switch (error.code) {
+            case kCFURLErrorNotConnectedToInternet:
+                return AZNetworkingRetryTypeShouldNotRetry;
+
+            default:
+                return AZNetworkingRetryTypeShouldRetry;
+        }
     }
-    
-    //TODO: Add Clock Skew Here
 
     switch (response.statusCode) {
         case 500:
@@ -72,7 +76,7 @@
         default:
             break;
     }
-    
+
     return AZNetworkingRetryTypeShouldNotRetry;
 }
 

@@ -54,19 +54,23 @@ static NSDictionary *errorCodeDictionary = nil;
                  currentRequest:(NSURLRequest *)currentRequest
                            data:(id)data
                           error:(NSError *__autoreleasing *)error {
+    if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+        AZLogDebug(@"Response header: [%@]", response.allHeaderFields);
+    }
+
     if ([data isKindOfClass:[NSData class]]) {
         AZLogVerbose(@"Response body: [%@]", [[NSString alloc] initWithData:data
                                                                    encoding:NSUTF8StringEncoding]);
     }
-    
+
     NSString *responseContentTypeStr = [[response allHeaderFields] objectForKey:@"Content-Type"];
     if (responseContentTypeStr) {
         if ([responseContentTypeStr rangeOfString:@"text/html"].location != NSNotFound) {
             //found html response rather than json format. should be an error.
             if (error) {
                 NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                
-                
+
+
                 *error = [NSError errorWithDomain:AWSGeneralErrorDomain
                                              code:AWSGeneralErrorUnknown
                                          userInfo:@{NSLocalizedDescriptionKey : message?message:[NSNull null]}];
@@ -74,7 +78,7 @@ static NSDictionary *errorCodeDictionary = nil;
             }
         }
     }
-    
+
     if (!data) {
         return nil;
     }
@@ -226,19 +230,23 @@ static NSDictionary *errorCodeDictionary = nil;
                  currentRequest:(NSURLRequest *)currentRequest
                            data:(id)data
                           error:(NSError *__autoreleasing *)error {
+    if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+        AZLogDebug(@"Response header: [%@]", response.allHeaderFields);
+    }
+
     if ([data isKindOfClass:[NSData class]]) {
         AZLogVerbose(@"Response body: [%@]", [[NSString alloc] initWithData:data
                                                                    encoding:NSUTF8StringEncoding]);
     }
-    
+
     NSString *responseContentTypeStr = [[response allHeaderFields] objectForKey:@"Content-Type"];
     if (responseContentTypeStr) {
         if ([responseContentTypeStr rangeOfString:@"text/html"].location != NSNotFound) {
             //found html response rather than xml format. should be an error.
             if (error) {
                 NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                
-                
+
+
                 *error = [NSError errorWithDomain:AWSGeneralErrorDomain
                                              code:AWSGeneralErrorUnknown
                                          userInfo:@{NSLocalizedDescriptionKey : message?message:[NSNull null]}];
@@ -263,7 +271,7 @@ static NSDictionary *errorCodeDictionary = nil;
             data = [NSData dataWithContentsOfFile:[(NSURL *)data path]];
         }
     }
-    
+
     if ([resultDic count] == 0) {
         //if not blob type, try to parse as XML string
         resultDic = [AWSXMLParser dictionaryForXMLData:data

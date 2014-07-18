@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'AWSiOSSDKv2'
-  s.version      = '2.0.3'
+  s.version      = '2.0.4'
   s.summary      = 'Amazon Web Services SDK for iOS.'
 
   s.description  = 'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'
@@ -21,6 +21,7 @@ Pod::Spec.new do |s|
   s.dependency 'CSURITemplate', '~> 0.3.0'
   s.dependency 'XMLDictionary', '~> 1.4.0'
   s.dependency 'UICKeyChainStore', '~> 1.0.5'
+  s.dependency 'Reachability', '~> 3.1.1'
 
   s.requires_arc = true
 

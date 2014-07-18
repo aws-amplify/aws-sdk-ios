@@ -17,6 +17,7 @@
 
 #import <XCTest/XCTest.h>
 #import "S3.h"
+#import "AWSTestUtility.h"
 
 @interface AWSS3TransferManagerTests : XCTestCase
 
@@ -31,15 +32,7 @@ static NSURL *tempSmallURL = nil;
 
 + (void)setUp {
     [super setUp];
-    //[AZLogger defaultLogger].logLevel = AZLogLevelVerbose;
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
-        AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
-                                                                               credentialsProvider:credentialsProvider];
-        [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
-    }
+    [AWSTestUtility setupCognitoCredentialsProvider];
 
     //Create bucketName
     NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];

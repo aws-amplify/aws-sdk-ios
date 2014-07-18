@@ -134,7 +134,8 @@ static NSDictionary *errorCodeDictionary = nil;
                                                     data:data
                                                    error:error];
     if(retryType == AZNetworkingRetryTypeShouldNotRetry
-       && [error.domain isEqualToString:AWSSimpleDBErrorDomain]) {
+       && [error.domain isEqualToString:AWSSimpleDBErrorDomain]
+       && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
             case AWSSimpleDBErrorAccessFailure:
             case AWSSimpleDBErrorAuthFailure:
@@ -193,7 +194,6 @@ static NSDictionary *errorCodeDictionary = nil;
                                                                                   endpoint:_endpoint];
 
         _configuration.baseURL = _endpoint.URL;
-        _configuration.requestSerializer = [AWSJSONRequestSerializer new];
         _configuration.requestInterceptors = @[[AWSNetworkingRequestInterceptor new], signer];
         _configuration.retryHandler = [[AWSSimpleDBRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
         _configuration.headers = @{@"Host" : _endpoint.hostName};

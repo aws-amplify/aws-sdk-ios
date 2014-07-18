@@ -32,3 +32,4 @@ AWS*.framework
 credentials.json
 Pods
 Podfile.lock
+Documentation

@@ -146,7 +146,8 @@ static NSDictionary *errorCodeDictionary = nil;
                                                     data:data
                                                    error:error];
     if(retryType == AZNetworkingRetryTypeShouldNotRetry
-       && [error.domain isEqualToString:AWSEventRecorderServiceErrorDomain]) {
+       && [error.domain isEqualToString:AWSEventRecorderServiceErrorDomain]
+       && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
             case AWSEventRecorderServiceErrorIncompleteSignature:
             case AWSEventRecorderServiceErrorInvalidClientTokenId:

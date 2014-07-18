@@ -125,7 +125,8 @@ static NSDictionary *errorCodeDictionary = nil;
                                                     data:data
                                                    error:error];
     if(retryType == AZNetworkingRetryTypeShouldNotRetry
-       && [error.domain isEqualToString:AWSSNSErrorDomain]) {
+       && [error.domain isEqualToString:AWSSNSErrorDomain]
+       && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
             case AWSSNSErrorIncompleteSignature:
             case AWSSNSErrorInvalidClientTokenId:

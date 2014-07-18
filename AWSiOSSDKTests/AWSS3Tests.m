@@ -17,6 +17,7 @@
 
 #import <XCTest/XCTest.h>
 #import "S3.h"
+#import "AWSTestUtility.h"
 
 @interface AWSS3Tests : XCTestCase
 
@@ -32,13 +33,7 @@ static NSString *testBucketNameGeneral = nil;
 
 + (void)setUp {
     [super setUp];
-
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
-        AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
-                                                                               credentialsProvider:credentialsProvider];
-        [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
-    }
+    [AWSTestUtility setupCognitoCredentialsProvider];
 
     //Create bucketName
     NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];
@@ -66,6 +61,10 @@ static NSString *testBucketNameGeneral = nil;
 
     AWSS3CreateBucketRequest *createBucketReq = [AWSS3CreateBucketRequest new];
     createBucketReq.bucket = bucketName;
+
+//    AWSS3CreateBucketConfiguration *createBucketConfiguration = [AWSS3CreateBucketConfiguration new];
+//    createBucketConfiguration.locationConstraint = AWSS3BucketLocationConstraintUSWest2;
+//    createBucketReq.createBucketConfiguration = createBucketConfiguration;
 
     __block BOOL success = NO;
     [[[s3 createBucket:createBucketReq] continueWithBlock:^id(BFTask *task) {
@@ -617,6 +616,22 @@ static NSString *testBucketNameGeneral = nil;
     [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),[task.result description]);
+        return nil;
+    }] waitUntilFinished];
+}
+
+- (void)testGetBucketLocation {
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    AWSS3GetBucketLocationRequest *getBucketLocationRequest = [AWSS3GetBucketLocationRequest new];
+    getBucketLocationRequest.bucket = testBucketNameGeneral;
+
+    [[[s3 getBucketLocation:getBucketLocationRequest] continueWithBlock:^id(BFTask *task) {
+        if(task.error != nil){
+            XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        }
+        
+        AWSS3GetBucketLocationOutput *getBucketLocationOutput = task.result;
+        XCTAssertEqual(getBucketLocationOutput.locationConstraint, AWSS3BucketLocationConstraintBlank);
         return nil;
     }] waitUntilFinished];
 }
