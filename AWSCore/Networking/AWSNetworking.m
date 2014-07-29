@@ -85,7 +85,7 @@
         NSString *systemName = [[[UIDevice currentDevice] systemName] stringByReplacingOccurrencesOfString:@" " withString:@"-"];
         NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
         NSString *localeIdentifier = [[NSLocale currentLocale] localeIdentifier];
-        _userAgent = [NSString stringWithFormat:@"aws-sdk-iOS/%@ %@/%@ %@", @"2.0.4", systemName, systemVersion, localeIdentifier];
+        _userAgent = [NSString stringWithFormat:@"aws-sdk-iOS/%@ %@/%@ %@", @"2.0.5", systemName, systemVersion, localeIdentifier];
     });
 
     return _userAgent;

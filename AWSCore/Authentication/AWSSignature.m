@@ -287,7 +287,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
 
     NSString *dateStamp = [xAmzDate az_stringValue:AZDateShortDateFormat1];
 
-    NSString *path = [request.URL.path az_stringWithURLEncodingExceptSlash];
+    NSString *path = [request.URL.path az_stringWithURLEncodingPath];
     if (path.length == 0) {
         path = [NSString stringWithFormat:@"/"];
     }

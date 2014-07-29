@@ -30,6 +30,9 @@
 
 @interface AWSQueryStringRequestSerializer : NSObject <AZURLRequestSerializer>
 
++ (instancetype)serializerWithResource:(NSString *)resource
+                            actionName:(NSString *)actionName;
+
 @property (nonatomic, strong) NSDictionary *additionalParameters;
 @property (nonatomic, strong) NSString *dateFormat;
 

@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.0.4"
+VERSION="2.0.5"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -44,7 +44,6 @@ else
     rm -rf ./docs_tmp/AWSCore/MobileAnalytics/event
     rm -rf ./docs_tmp/AWSCore/MobileAnalytics/monetization
     rm -rf ./docs_tmp/AWSCore/MobileAnalytics/session
-    rm -rf ./docs_tmp/AWSCore/MobileAnalytics/ThirdParty
     rm -rf ./docs_tmp/AWSCore/MobileAnalytics/AZCommon/ClientContext
     rm -rf ./docs_tmp/AWSCore/MobileAnalytics/include/core
     rm -rf ./docs_tmp/AWSCore/MobileAnalytics/include/delivery
@@ -93,5 +92,3 @@ else
 
 	exit 0
 fi
-
-

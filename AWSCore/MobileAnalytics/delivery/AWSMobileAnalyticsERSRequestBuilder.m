@@ -16,7 +16,7 @@
 #import "AWSMobileAnalyticsERSRequestBuilder.h"
 #import "AWSMobileAnalyticsConstants.h"
 #import "AWSMobileAnalyticsConfigurationKeys.h"
-#import "AIDataGZIP.h"
+#import "GZIP.h"
 #import "AWSMobileAnalyticsSerializable.h"
 #import "AWSMobileAnalyticsSerializerFactory.h"
 
@@ -76,7 +76,7 @@ static NSString* const CONTENT_ENCODING_KEY = @"Content-Encoding";
     NSData* jsonData = [self createBodyFromObjects:theObjects];
 
     // compress the string and set the compressed header
-    NSData* compressedBody = [AIDataGZIP gzippedData:jsonData];
+    NSData* compressedBody = [jsonData gzippedData];
     [request setPostBody:compressedBody];
     [request addHeader:@"gzip" forName:CONTENT_ENCODING_KEY];
     

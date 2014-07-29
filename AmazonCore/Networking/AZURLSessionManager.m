@@ -196,9 +196,13 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
         mutableRequest.HTTPMethod = [NSString az_stringWithHTTPMethod:delegate.request.HTTPMethod];
 
         if ([request.requestSerializer respondsToSelector:@selector(serializeRequest:headers:parameters:)]) {
-            [request.requestSerializer serializeRequest:mutableRequest
+            BFTask *resultTask = [request.requestSerializer serializeRequest:mutableRequest
                                                 headers:request.headers
                                              parameters:request.parameters];
+            //if serialization has error, abort task.
+            if (resultTask.error) {
+                return resultTask;
+            }
         }
 
         BFTask *sequencialTask = [BFTask taskWithResult:nil];

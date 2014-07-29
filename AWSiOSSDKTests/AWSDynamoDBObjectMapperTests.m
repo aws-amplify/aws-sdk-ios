@@ -154,8 +154,8 @@ static NSString *tableName = nil;
             rangeKeySchemaElement.keyType = AWSDynamoDBKeyTypeRange;
 
             AWSDynamoDBProvisionedThroughput *provisionedThroughput = [AWSDynamoDBProvisionedThroughput new];
-            provisionedThroughput.readCapacityUnits = @1;
-            provisionedThroughput.writeCapacityUnits = @1;
+            provisionedThroughput.readCapacityUnits = @5;
+            provisionedThroughput.writeCapacityUnits = @5;
 
             AWSDynamoDBCreateTableInput *createTableInput = [AWSDynamoDBCreateTableInput new];
             createTableInput.tableName = tableName;
@@ -229,25 +229,27 @@ static NSString *tableName = nil;
     [[[[[[[[[BFTask taskWithResult:nil] continueWithBlock:^id(BFTask *task) {
         NSMutableArray *tasks = [NSMutableArray new];
 
-        for (int32_t i = 0; i < 20; i++) {
-            TestObject *testObject = [TestObject new];
-            testObject.hashKey = @"hash-key";
-            testObject.rangeKey = [NSString stringWithFormat:@"range-%02d", i];
-            testObject.stringAttribute = [NSString stringWithFormat:@"string-attr-%02d", i];
-            testObject.numberAttribute = @(i);
+        for (int32_t j = 0; j < 5; j++) {
+            for (int32_t i = 0; i < 20; i++) {
+                TestObject *testObject = [TestObject new];
+                testObject.hashKey = [NSString stringWithFormat:@"hash-key-%02d", j];
+                testObject.rangeKey = [NSString stringWithFormat:@"range-%02d", i];
+                testObject.stringAttribute = [NSString stringWithFormat:@"string-attr-%02d", i];
+                testObject.numberAttribute = @(i);
 
-            [tasks addObject:[dynamoDBObjectMapper save:testObject]];
+                [tasks addObject:[dynamoDBObjectMapper save:testObject]];
+            }
         }
 
         return [BFTask taskForCompletionOfAllTasks:tasks];
     }] continueWithSuccessBlock:^id(BFTask *task) {
         return [dynamoDBObjectMapper load:[TestObject class]
-                                  hashKey:@"hash-key"
+                                  hashKey:@"hash-key-01"
                                  rangeKey:@"range-05"];
     }] continueWithSuccessBlock:^id(BFTask *task) {
         XCTAssertEqual([task.result class], [TestObject class]);
         TestObject *testObject = task.result;
-        XCTAssertEqualObjects(testObject.hashKey, @"hash-key");
+        XCTAssertEqualObjects(testObject.hashKey, @"hash-key-01");
         XCTAssertEqualObjects(testObject.rangeKey, @"range-05");
         XCTAssertEqualObjects(testObject.stringAttribute, @"string-attr-05");
         XCTAssertEqualObjects(testObject.numberAttribute, @5);
@@ -266,7 +268,7 @@ static NSString *tableName = nil;
         return [BFTask taskForCompletionOfAllTasks:tasks];
     }] continueWithSuccessBlock:^id(BFTask *task) {
         AWSDynamoDBQueryExpression *queryExpression = [AWSDynamoDBQueryExpression new];
-        queryExpression.hashKeyValues = @"hash-key";
+        queryExpression.hashKeyValues = @"hash-key-02";
         return [dynamoDBObjectMapper query:[TestObject class]
                                 expression:queryExpression];
     }] continueWithSuccessBlock:^id(BFTask *task) {

@@ -20,7 +20,7 @@
 #import "AWSSerialization.h"
 #import "AZCategory.h"
 #import "AZLogging.h"
-#import "AIDataGZip.h"
+#import "GZIP.h"
 
 @interface AWSJSONRequestSerializer()
 
@@ -53,7 +53,7 @@
 
             if (headers[@"Content-Encoding"] && [headers[@"Content-Encoding"] rangeOfString:@"gzip"].location != NSNotFound) {
                 //gzip the body
-                request.HTTPBody = [AIDataGZIP gzippedData:bodyData];
+                request.HTTPBody = [bodyData gzippedData];
             } else {
                 request.HTTPBody = bodyData;
             }
@@ -260,9 +260,9 @@
         NSString *queryString = nil;
         for (NSString *key in sortedKeys) {
             if (!queryString) {
-                queryString = [NSString stringWithFormat:@"?%@=%@",key,queryStringDictionary[key]];
+                queryString = [NSString stringWithFormat:@"?%@=%@",[key az_stringWithURLEncoding],[queryStringDictionary[key] az_stringWithURLEncoding]];
             } else {
-                NSString *appendString = [NSString stringWithFormat:@"&%@=%@",key,queryStringDictionary[key]];
+                NSString *appendString = [NSString stringWithFormat:@"&%@=%@",[key az_stringWithURLEncoding],[queryStringDictionary[key] az_stringWithURLEncoding]];
                 queryString = [queryString stringByAppendingString:appendString];
             }
         }
@@ -277,7 +277,7 @@
     NSRange r = [rawURI rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"{}"]];
     if (r.location != NSNotFound) {
         if (error) {
-            *error = [NSError errorWithDomain:AWSValidationErrorDomain code:AWSValidationURIIsInvalid userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"the constructed request URI is invalid:%@",rawURI] forKey:NSLocalizedDescriptionKey]];
+            *error = [NSError errorWithDomain:AWSValidationErrorDomain code:AWSValidationURIIsInvalid userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"the constructed request queryString is invalid:%@",rawURI] forKey:NSLocalizedDescriptionKey]];
         }
         request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/", request.URL]];
 
@@ -291,8 +291,16 @@
         if ( (hasQuestionMark.location != NSNotFound) && (hasEqualMark.location == NSNotFound) ) {
             rawURI = [rawURI stringByAppendingString:@"="];
         }
-        request.URL = [NSURL URLWithString: [NSString stringWithFormat:@"%@%@", request.URL,rawURI]];
-
+        
+        NSString *finalURL = [NSString stringWithFormat:@"%@%@", request.URL,rawURI];
+        request.URL = [NSURL URLWithString:finalURL];
+        if (!request.URL) {
+            if (error) {
+                *error = [NSError errorWithDomain:AWSValidationErrorDomain code:AWSValidationURIIsInvalid userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"unable the assigned URL to request, URL may be invalid:%@",finalURL] forKey:NSLocalizedDescriptionKey]];
+            }
+            return NO;
+        }
+        
         return YES;
     }
 }
@@ -302,11 +310,36 @@
 
 @interface AWSQueryStringRequestSerializer()
 
+@property (nonatomic, strong) NSDictionary *serviceDefinitionJSON;
+@property (nonatomic, strong) NSString *actionName;
+
 @end
 
 @implementation AWSQueryStringRequestSerializer
 
-- (NSMutableString *)processParameters:(NSDictionary *)parameters QueryString:(NSMutableString *)queryString {
++ (instancetype)serializerWithResource:(NSString *)resource
+                            actionName:(NSString *)actionName {
+    
+    AWSQueryStringRequestSerializer *serializer = [self new];
+    NSError *error = nil;
+    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:resource ofType:@"json"];
+    if (filePath == nil) {
+        AZLogError(@"can not find %@.json file in the project",actionName);
+    } else {
+        serializer.serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                           options:kNilOptions
+                                                                             error:&error];
+    }
+    if (error) {
+        AZLogError(@"Error: [%@]", error);
+    }
+    
+    serializer.actionName = actionName;
+    
+    return serializer;
+    
+}
+- (void)processParameters:(NSDictionary *)parameters QueryString:(NSMutableString *)queryString {
     for (NSString *key in parameters) {
         id obj = parameters[key];
         
@@ -321,7 +354,8 @@
             if ([obj isKindOfClass:[NSString class]]) {
                 [queryString appendString:[key az_stringWithURLEncoding]];
                 [queryString appendString:@"="];
-                [queryString appendString:[obj az_stringWithURLEncoding]];
+                NSString *urlEncodedString = [obj az_stringWithURLEncoding];
+                [queryString appendString:urlEncodedString];
             } else if ([obj isKindOfClass:[NSNumber class]]) {
                 [queryString appendString:[key az_stringWithURLEncoding]];
                 [queryString appendString:@"="];
@@ -338,33 +372,47 @@
             }
         }
     }
-    
-    return queryString;
+
 }
 
 - (BFTask *)serializeRequest:(NSMutableURLRequest *)request
                      headers:(NSDictionary *)headers
                   parameters:(NSDictionary *)parameters {
-    NSMutableString *queryString = [NSMutableString new];
 
     parameters = [parameters mutableCopy];
     [self.additionalParameters enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [parameters setValue:obj forKey:key];
     }];
 
-    queryString = [self processParameters:parameters QueryString:queryString];
+    //Need to add version and actionName
+    
+    NSError *error = nil;
+    NSDictionary *formattedParams = [AWSQueryParamBuilder buildFormattedParams:parameters
+                                                               actionName:self.actionName
+                                                    serviceDefinitionRule:self.serviceDefinitionJSON error:&error];
+    if (error) {
+        return [BFTask taskWithError:error];
+    }
+    
+    NSMutableString *queryString = [NSMutableString new];
+    [self processParameters:formattedParams QueryString:queryString];
 
     if ([queryString length] > 0) {
         request.HTTPBody = [queryString dataUsingEncoding:NSUTF8StringEncoding];
     }
     AZLogVerbose(@"Request body: [%@]", [[NSString alloc] initWithData:request.HTTPBody
                                                               encoding:NSUTF8StringEncoding]);
-    
-    for (NSString *key in headers.allKeys) {
-        [request setValue:[headers objectForKey:key] forHTTPHeaderField:key];
+    //contruct addtional headers
+    if (headers) {
+        //generate HTTP header here
+        for (NSString *key in headers.allKeys) {
+            [request setValue:[headers objectForKey:key] forHTTPHeaderField:key];
+        }
     }
     
     return [BFTask taskWithResult:nil];
+
+
 }
 
 - (BFTask *)validateRequest:(NSURLRequest *)request {

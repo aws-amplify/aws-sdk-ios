@@ -31,6 +31,7 @@ static NSString *_testDomainName = nil;
 + (void)setUp {
     [super setUp];
     [AWSTestUtility setupCognitoCredentialsProvider];
+    //[AWSTestUtility setupCrdentialsViaFile];
 
     NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];
     _testDomainName = [NSString stringWithFormat:@"%@%lld", AWSSimpleDBTestDomainNamePrefix, (int64_t)timeIntervalSinceReferenceDate];
@@ -89,6 +90,122 @@ static NSString *_testDomainName = nil;
             XCTAssertNotNil(selectResult, @"selectResult should not be nil.");
         }
 
+        return nil;
+    }] waitUntilFinished];
+}
+
+- (void)testSelectWithLike {
+    AWSSimpleDB *sdb = [AWSSimpleDB defaultSimpleDB];
+    NSString *myItemName = [NSString stringWithFormat:@"itemName%@",NSStringFromSelector(_cmd)];
+    
+    AWSSimpleDBPutAttributesRequest *putAttributesRequest = [AWSSimpleDBPutAttributesRequest new];
+    putAttributesRequest.domainName = _testDomainName;
+    putAttributesRequest.itemName =myItemName;
+    
+    AWSSimpleDBReplaceableAttribute *attribute1 = [AWSSimpleDBReplaceableAttribute new];
+    attribute1.name = @"Color";
+    attribute1.value = @"Blue";
+    attribute1.replace = @YES;
+    
+    AWSSimpleDBReplaceableAttribute *attribute2 = [AWSSimpleDBReplaceableAttribute new];
+    attribute2.name = @"Size";
+    attribute2.value = @"20";
+    
+    
+    putAttributesRequest.attributes = @[attribute1,attribute2];
+    
+    [[[[sdb putAttributes:putAttributesRequest] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        AWSSimpleDBSelectRequest *selectRequest = [AWSSimpleDBSelectRequest new];
+        selectRequest.selectExpression = [NSString stringWithFormat:@"select * from `%@` where Color like 'Bl%%'", _testDomainName];
+        
+        sleep(2);
+        return [sdb select:selectRequest];
+    }] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        AWSSimpleDBSelectResult  *selectResult = task.result;
+        XCTAssertNotNil(selectResult.items, @"selectResult should not be nil.");
+        
+        BOOL isFound = NO;
+        for (AWSSimpleDBItem *anItem in selectResult.items) {
+            if ([anItem.name isEqualToString:myItemName]) {
+                for (AWSSimpleDBAttribute *attribute in anItem.attributes) {
+                    if ([attribute.name isEqualToString:@"Color"] && [attribute.value isEqualToString:@"Blue"]) {
+                        isFound = YES;
+                    }
+                }
+            }
+        }
+        
+        XCTAssertTrue(isFound, @"can not find the expected result from select response.");
+        
+        
+        return nil;
+    }] waitUntilFinished];
+}
+
+-(void)testCheckRetainTrailingSpace {
+    AWSSimpleDB *sdb = [AWSSimpleDB defaultSimpleDB];
+    NSString *myItemName = [NSString stringWithFormat:@"itemName%@",NSStringFromSelector(_cmd)];
+    
+    AWSSimpleDBPutAttributesRequest *putAttributesRequest = [AWSSimpleDBPutAttributesRequest new];
+    putAttributesRequest.domainName = _testDomainName;
+    putAttributesRequest.itemName = myItemName;
+    
+    AWSSimpleDBReplaceableAttribute *attribute1 = [AWSSimpleDBReplaceableAttribute new];
+    attribute1.name = @"Color";
+    attribute1.value = @"RedWithTrailingSpace     ";
+    //attribute1.replace = @YES;
+    
+    AWSSimpleDBReplaceableAttribute *attribute2 = [AWSSimpleDBReplaceableAttribute new];
+    attribute2.name = @"Size";
+    attribute2.value = @"99 ";
+    
+    putAttributesRequest.attributes = @[attribute1,attribute2];
+    
+    [[[[sdb putAttributes:putAttributesRequest] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        AWSSimpleDBSelectRequest *selectRequest = [AWSSimpleDBSelectRequest new];
+        selectRequest.selectExpression = [NSString stringWithFormat:@"select * from `%@`", _testDomainName];
+        
+        sleep(2);
+        return [sdb select:selectRequest];
+    }] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        AWSSimpleDBSelectResult  *selectResult = task.result;
+        XCTAssertNotNil(selectResult.items, @"selectResult should not be nil.");
+        
+        BOOL isFound1 = NO;
+        BOOL isFound2 = NO;
+        for (AWSSimpleDBItem *anItem in selectResult.items) {
+            if ([anItem.name isEqualToString:myItemName]) {
+                for (AWSSimpleDBAttribute *attribute in anItem.attributes) {
+                    if ([attribute.name isEqualToString:@"Color"] && [attribute.value isEqualToString:@"RedWithTrailingSpace     "]) {
+                        isFound1 = YES;
+                    }
+                    if ([attribute.name isEqualToString:@"Size"] && [attribute.value isEqualToString:@"99 "]) {
+                        isFound2 = YES;
+                    }
+                    
+                }
+            }
+        }
+        
+        XCTAssertTrue(isFound1&&isFound2, @"can not find the expected result from select response.");
+        
+        
         return nil;
     }] waitUntilFinished];
 }

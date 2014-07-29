@@ -87,7 +87,7 @@
         AWSSNSCreatePlatformEndpointInput *createEndpointInput = [AWSSNSCreatePlatformEndpointInput new];
         createEndpointInput.platformApplicationArn = platformApplicationArn;
         createEndpointInput.token = @"0123456789";
-        createEndpointInput.attributes  = @{@"Attributes.entry.1.key": @"Enabled",@"Attributes.entry.1.value":@"true"};
+        createEndpointInput.attributes  = @{@"Enabled":@"true"};
         
         [[[sns createPlatformEndpoint:createEndpointInput] continueWithBlock:^id(BFTask *task) {
             if (task.error) {

@@ -268,15 +268,15 @@ static NSTimeInterval _clockskew = 0.0;
 }
 
 - (NSString *)az_stringWithURLEncoding {
-    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
+    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                                                                  (__bridge CFStringRef)[self az_decodeURLEncoding],
                                                                                  NULL,
                                                                                  (CFStringRef)@"!*'\();:@&=+$,/?%#[] ",
                                                                                  kCFStringEncodingUTF8));
 }
 
-- (NSString *)az_stringWithURLEncodingExceptSlash {
-    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
+- (NSString *)az_stringWithURLEncodingPath {
+    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                                                                  (__bridge CFStringRef)[self az_decodeURLEncoding],
                                                                                  NULL,
                                                                                  (CFStringRef)@"!*'\();:@&=+$,?%#[] ",
@@ -284,10 +284,8 @@ static NSTimeInterval _clockskew = 0.0;
 }
 
 - (NSString *)az_decodeURLEncoding {
-    return (__bridge NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL,
-                                                                                        (__bridge CFStringRef)self,
-                                                                                        CFSTR(""),
-                                                                                        kCFStringEncodingUTF8);
+    NSString *result = [self stringByRemovingPercentEncoding];
+    return result?result:self;
 }
 
 @end

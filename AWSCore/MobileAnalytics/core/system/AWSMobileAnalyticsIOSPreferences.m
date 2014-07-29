@@ -14,7 +14,7 @@
  */
 
 #import "AWSMobileAnalyticsIOSPreferences.h"
-#import "AIDataGZIP.h"
+#import "GZIP.h"
 #import "AZLogging.h"
 
 NSString * const AIPreferencesFilename = @"preferences";

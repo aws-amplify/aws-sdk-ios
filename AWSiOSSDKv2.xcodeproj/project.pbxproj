@@ -219,7 +219,6 @@
 		EA2AF83E195E206B007DDDD4 /* AWSMobileAnalyticsPausedSessionState.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2AF802195E206B007DDDD4 /* AWSMobileAnalyticsPausedSessionState.m */; };
 		EA2AF83F195E206B007DDDD4 /* AWSMobileAnalyticsSession.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2AF803195E206B007DDDD4 /* AWSMobileAnalyticsSession.m */; };
 		EA2AF840195E206B007DDDD4 /* AWSMobileAnalyticsSessionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2AF804195E206B007DDDD4 /* AWSMobileAnalyticsSessionStore.m */; };
-		EA2AF841195E206B007DDDD4 /* AIDataGZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2AF808195E206B007DDDD4 /* AIDataGZIP.m */; };
 		EFEAC89619295448005FEDE4 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EFEAC89419295311005FEDE4 /* libsqlite3.dylib */; };
 		EFEAC897192954B2005FEDE4 /* libAWSiOSSDKv2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5D83D61857AA3100907C25 /* libAWSiOSSDKv2.a */; };
 /* End PBXBuildFile section */
@@ -665,8 +664,6 @@
 		EA2AF802195E206B007DDDD4 /* AWSMobileAnalyticsPausedSessionState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSMobileAnalyticsPausedSessionState.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		EA2AF803195E206B007DDDD4 /* AWSMobileAnalyticsSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSMobileAnalyticsSession.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		EA2AF804195E206B007DDDD4 /* AWSMobileAnalyticsSessionStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSMobileAnalyticsSessionStore.m; sourceTree = "<group>"; };
-		EA2AF807195E206B007DDDD4 /* AIDataGZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDataGZIP.h; sourceTree = "<group>"; };
-		EA2AF808195E206B007DDDD4 /* AIDataGZIP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDataGZIP.m; sourceTree = "<group>"; };
 		EAC25F5E195E4A4500675156 /* AWSServiceEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSServiceEnum.h; sourceTree = "<group>"; };
 		EADE666419539C4100313444 /* GenerateAppleDocs.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = GenerateAppleDocs.sh; path = Scripts/GenerateAppleDocs.sh; sourceTree = "<group>"; };
 		EFEAC89419295311005FEDE4 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -1519,7 +1516,6 @@
 				EA2AF79F195E206B007DDDD4 /* include */,
 				EA2AF7FA195E206B007DDDD4 /* monetization */,
 				EA2AF7FE195E206B007DDDD4 /* session */,
-				EA2AF805195E206B007DDDD4 /* ThirdParty */,
 			);
 			path = MobileAnalytics;
 			sourceTree = "<group>";
@@ -1850,23 +1846,6 @@
 				EA2AF804195E206B007DDDD4 /* AWSMobileAnalyticsSessionStore.m */,
 			);
 			path = session;
-			sourceTree = "<group>";
-		};
-		EA2AF805195E206B007DDDD4 /* ThirdParty */ = {
-			isa = PBXGroup;
-			children = (
-				EA2AF806195E206B007DDDD4 /* gzip */,
-			);
-			path = ThirdParty;
-			sourceTree = "<group>";
-		};
-		EA2AF806195E206B007DDDD4 /* gzip */ = {
-			isa = PBXGroup;
-			children = (
-				EA2AF807195E206B007DDDD4 /* AIDataGZIP.h */,
-				EA2AF808195E206B007DDDD4 /* AIDataGZIP.m */,
-			);
-			path = gzip;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2248,7 +2227,6 @@
 				EA2AF82B195E206B007DDDD4 /* AWSMobileAnalyticsDateUtils.m in Sources */,
 				CEE68C17193FB11A00259EFF /* AWSKinesisRecorder.m in Sources */,
 				EA2AF838195E206B007DDDD4 /* AWSMobileAnalyticsAppleMonetizationEventBuilder.m in Sources */,
-				EA2AF841195E206B007DDDD4 /* AIDataGZIP.m in Sources */,
 				EA2AF821195E206B007DDDD4 /* AWSMobileAnalyticsRandomUUIDGenerator.m in Sources */,
 				CE4AB8D919085CFB00E0600E /* AWSSerialization.m in Sources */,
 				BDBA90C118EE43D3004EE131 /* AWSCredentialsProvider.m in Sources */,

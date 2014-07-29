@@ -24,6 +24,9 @@
 #import "AWSURLResponseSerialization.h"
 #import "AWSURLRequestRetryHandler.h"
 
+NSString *const AWSSNSDefinitionFileName = @"sns-2010-03-31";
+
+
 @interface AWSSNSResponseSerializer : AWSXMLResponseSerializer
 
 @property (nonatomic, assign) Class outputClass;
@@ -185,7 +188,6 @@ static NSDictionary *errorCodeDictionary = nil;
                                                                                   endpoint:_endpoint];
 
         _configuration.baseURL = _endpoint.URL;
-        _configuration.requestSerializer = [AWSJSONRequestSerializer new];
         _configuration.requestInterceptors = @[[AWSNetworkingRequestInterceptor new], signer];
         _configuration.retryHandler = [[AWSSNSRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
         _configuration.headers = @{@"Host" : _endpoint.hostName};
@@ -214,13 +216,11 @@ static NSDictionary *errorCodeDictionary = nil;
     }
     networkingRequest.HTTPMethod = HTTPMethod;
 
-    AWSQueryStringRequestSerializer *requestSerializer = [AWSQueryStringRequestSerializer new];
-    requestSerializer.additionalParameters = @{@"Action" : operationName,
-                                               @"Version" : @"2010-03-31"};
+    AWSQueryStringRequestSerializer *requestSerializer = [AWSQueryStringRequestSerializer serializerWithResource:AWSSNSDefinitionFileName actionName:operationName];
     networkingRequest.requestSerializer = requestSerializer;
 
     networkingRequest.responseSerializer = [AWSSNSResponseSerializer serializerWithOutputClass:outputClass
-                                                                                      resource:@"sns-2010-03-31"
+                                                                                      resource:AWSSNSDefinitionFileName
                                                                                     actionName:operationName];
 
     return [self.networking sendRequest:networkingRequest];

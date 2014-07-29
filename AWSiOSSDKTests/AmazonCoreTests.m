@@ -40,7 +40,7 @@
     NSString *dateString = [testDateAZDateDateStampFormat az_stringValue:AZDateShortDateFormat1];
     NSString *correctString = @"19901202";
 
-    XCTAssertTrue([correctString isEqualToString:dateString],@"dateToString failed.  Expecting: %@ , Actual: %@",correctString,dateString);
+    XCTAssertEqualWithAccuracy([dateString doubleValue], [correctString doubleValue], 10);
 
     NSDate *testDateAZDateAmzDateFormat = [NSDate dateWithTimeIntervalSince1970:660096000];
     NSString *dateStringAZDateAmzDateFormat = [testDateAZDateAmzDateFormat az_stringValue:AZDateISO8601DateFormat2];
@@ -62,6 +62,13 @@
     double testTimeAmz = [testDateAmz timeIntervalSince1970];
 
     XCTAssertEqualWithAccuracy(testTimeAmz, expectedTime, 10, "Failed to create a proper date from string usingAZDateAmzDateFormat");
+}
+
+- (void)testUrlEncode {
+    NSString *inputOne = @"test %";
+    NSString *inputTwo = [NSString stringWithFormat:@"test %%"];
+    XCTAssertEqualObjects([inputOne az_stringWithURLEncoding], @"test%20%25");
+    XCTAssertEqualObjects([inputTwo az_stringWithURLEncoding], @"test%20%25");
 }
 
 @end

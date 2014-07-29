@@ -16,7 +16,7 @@
 #import "AWSCore.h"
 
 #import "AIDeliveryIntegrationTests.h"
-#import "AIDataGZIP.h"
+#import "GZIP.h"
 
 @interface DeliveryBlockingInterceptor : BlockingInterceptor
 
@@ -39,7 +39,7 @@
 
 +(NSArray*) decompressData:(NSData *)theCompressedData
 {
-    NSData *data = [AIDataGZIP gunzippedData:theCompressedData];
+    NSData *data = [theCompressedData gunzippedData];
     id<AWSMobileAnalyticsSerializer> deserializer = [AWSMobileAnalyticsSerializerFactory serializerFromFormatType:JSON];
     return [deserializer readArray:data];
 }

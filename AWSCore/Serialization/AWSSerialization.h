@@ -47,6 +47,17 @@ typedef NS_ENUM(NSInteger, AWSXMLParserErrorType) {
     AWSXMLParserInvalidXMLValue,
 };
 
+//defined domain for errors from AWSRuntime.
+FOUNDATION_EXPORT NSString *const AWSQueryParamBuilderErrorDomain;
+
+/* NSError codes in AWSErrorDomain. */
+typedef NS_ENUM(NSInteger, AWSQueryParamBuilderErrorType) {
+    AWSQueryParamBuilderUnknownError,
+    AWSQueryParamBuilderDefinitionFileIsEmpty,
+    AWSQueryParamBuilderUndefinedActionRule,
+    AWSQueryParamBuilderInternalError,
+};
+
 @interface AWSJSONDictionary : NSDictionary
 
 - (instancetype)initWithDictionary:(NSDictionary *)otherDictionary
@@ -72,9 +83,20 @@ typedef NS_ENUM(NSInteger, AWSXMLParserErrorType) {
 
 @interface AWSXMLParser : NSObject
 
-+ (NSMutableDictionary *)dictionaryForXMLData:(NSData *)data
++ (AWSXMLParser *)sharedInstance;
+
+- (NSMutableDictionary *)dictionaryForXMLData:(NSData *)data
                                    actionName:(NSString *)actionName
                         serviceDefinitionRule:(NSDictionary *)serviceDefinitionRule
                                         error:(NSError *__autoreleasing *)error;
+
+@end
+
+@interface AWSQueryParamBuilder : NSObject
+
++ (NSDictionary *)buildFormattedParams:(NSDictionary *)params
+                            actionName:(NSString *)actionName
+                 serviceDefinitionRule:(NSDictionary *)serviceDefinitionRule
+                                 error:(NSError *__autoreleasing *)error;
 
 @end

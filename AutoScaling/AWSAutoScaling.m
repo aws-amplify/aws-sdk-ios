@@ -24,6 +24,9 @@
 #import "AWSURLResponseSerialization.h"
 #import "AWSURLRequestRetryHandler.h"
 
+NSString *const AWSAutoScalingDefinitionFileName = @"autoscaling-2011-01-01";
+
+
 @interface AWSAutoScalingResponseSerializer : AWSXMLResponseSerializer
 
 @property (nonatomic, assign) Class outputClass;
@@ -183,7 +186,6 @@ static NSDictionary *errorCodeDictionary = nil;
                                                                                   endpoint:_endpoint];
 
         _configuration.baseURL = _endpoint.URL;
-        _configuration.requestSerializer = [AWSJSONRequestSerializer new];
         _configuration.requestInterceptors = @[[AWSNetworkingRequestInterceptor new], signer];
         _configuration.retryHandler = [[AWSAutoScalingRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
         _configuration.headers = @{@"Host" : _endpoint.hostName};
@@ -212,13 +214,12 @@ static NSDictionary *errorCodeDictionary = nil;
     }
     networkingRequest.HTTPMethod = HTTPMethod;
 
-    AWSQueryStringRequestSerializer *requestSerializer = [AWSQueryStringRequestSerializer new];
-    requestSerializer.additionalParameters = @{@"Action" : operationName,
-                                               @"Version" : @"2011-01-01"};
+    AWSQueryStringRequestSerializer *requestSerializer = [AWSQueryStringRequestSerializer serializerWithResource:AWSAutoScalingDefinitionFileName actionName:operationName];
+    
     networkingRequest.requestSerializer = requestSerializer;
 
     networkingRequest.responseSerializer = [AWSAutoScalingResponseSerializer serializerWithOutputClass:outputClass
-                                                                                              resource:@"autoscaling-2011-01-01"
+                                                                                              resource:AWSAutoScalingDefinitionFileName
                                                                                             actionName:operationName];
 
     return [self.networking sendRequest:networkingRequest];

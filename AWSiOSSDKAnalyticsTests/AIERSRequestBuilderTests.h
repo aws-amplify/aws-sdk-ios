@@ -20,7 +20,7 @@
 #import "AWSMobileAnalyticsSerializerFactory.h"
 #import "AIInsightsContextBuilder.h"
 #import "AWSMobileAnalyticsConfigurationKeys.h"
-#import "AIDataGZIP.h"
+#import "GZIP.h"
 #import "AWSMobileAnalyticsStringUtils.h"
 #import "AWSMobileAnalyticsRequest.h"
 #import "AWSMobileAnalyticsDefaultHttpClient.h"

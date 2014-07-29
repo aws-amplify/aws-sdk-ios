@@ -25,9 +25,18 @@
 
 @implementation AWSSESTests
 
+static NSString *_verifiedEmailAddress = nil;
+
 + (void)setUp {
     [super setUp];
     [AWSTestUtility setupCognitoCredentialsProvider];
+
+    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
+                                                                          ofType:@"json"];
+    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                    options:NSJSONReadingMutableContainers
+                                                                      error:nil];
+    _verifiedEmailAddress = credentialsJson[@"verifiedEmailAddress"];
 }
 
 - (void)setUp {
@@ -59,12 +68,49 @@
     }] waitUntilFinished];
 }
 
+/*
+ This is a manual test, and you need to verify that
+ you received the test email to your verified email address.
+ */
+- (void)testSendEmail {
+    AWSSES *ses = [AWSSES defaultSES];
+
+    AWSSESSendEmailRequest *sendEmailRequest = [AWSSESSendEmailRequest new];
+    sendEmailRequest.source = _verifiedEmailAddress;
+
+    AWSSESDestination *destination = [AWSSESDestination new];
+    destination.toAddresses = @[_verifiedEmailAddress];
+    sendEmailRequest.destination = destination;
+
+    AWSSESMessage *message = [AWSSESMessage new];
+    AWSSESContent *subject = [AWSSESContent new];
+    subject.data = @"Test Subject";
+    subject.charset = @"UTF-8";
+    message.subject = subject;
+
+    AWSSESContent *content = [AWSSESContent new];
+    content.data = @"Test Body";
+    content.charset = @"UTF-8";
+
+    AWSSESBody *body = [AWSSESBody new];
+    body.text = content;
+    message.body = body;
+    sendEmailRequest.message = message;
+
+    [[[ses sendEmail:sendEmailRequest] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        return nil;
+    }] waitUntilFinished];
+}
+
 - (void)testVerifyEmailIdentityFailed {
     AWSSES *ses = [AWSSES defaultSES];
-    
+
     AWSSESVerifyEmailIdentityRequest *identityRequest = [AWSSESVerifyEmailIdentityRequest new];
     identityRequest.emailAddress = @""; //email address is empty
-    
+
     [[[ses verifyEmailIdentity:identityRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNotNil(task.error, @"expected EmailAddressNotValid Error but got nil");
         return nil;

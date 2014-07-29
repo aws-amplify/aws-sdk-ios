@@ -70,7 +70,7 @@ FOUNDATION_EXPORT NSString *const AZDateShortDateFormat1;
 + (NSString *)az_randomStringWithLength:(NSUInteger)length;
 - (BOOL)az_isBase64Data;
 - (NSString *)az_stringWithURLEncoding;
-- (NSString *)az_stringWithURLEncodingExceptSlash;
+- (NSString *)az_stringWithURLEncodingPath;
 
 @end
 

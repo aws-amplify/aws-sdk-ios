@@ -24,6 +24,8 @@
 #import "AWSURLResponseSerialization.h"
 #import "AWSURLRequestRetryHandler.h"
 
+NSString *const AWSSimpleDBDefinitionFileName = @"sdb-2009-04-15";
+
 @interface AWSSimpleDBResponseSerializer : AWSXMLResponseSerializer
 
 @property (nonatomic, assign) Class outputClass;
@@ -222,13 +224,14 @@ static NSDictionary *errorCodeDictionary = nil;
     }
     networkingRequest.HTTPMethod = HTTPMethod;
 
-    AWSQueryStringRequestSerializer *requestSerializer = [AWSQueryStringRequestSerializer new];
-    requestSerializer.additionalParameters = @{@"Action" : operationName,
-                                               @"Version" : @"2009-04-15"};
+    AWSQueryStringRequestSerializer *requestSerializer = [AWSQueryStringRequestSerializer serializerWithResource:AWSSimpleDBDefinitionFileName
+                                                                                                      actionName:operationName];
+//    requestSerializer.additionalParameters = @{@"Action" : operationName,
+//                                               @"Version" : @"2009-04-15"};
     networkingRequest.requestSerializer = requestSerializer;
 
     networkingRequest.responseSerializer = [AWSSimpleDBResponseSerializer serializerWithOutputClass:outputClass
-                                                                                           resource:@"sdb-2009-04-15"
+                                                                                           resource:AWSSimpleDBDefinitionFileName
                                                                                          actionName:operationName];
 
     return [self.networking sendRequest:networkingRequest];

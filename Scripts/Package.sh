@@ -20,4 +20,5 @@ if [ -x "Scripts/PodFramework.sh" ]; then
 	Scripts/PodFramework.sh XMLDictionary
 	Scripts/PodFramework.sh UICKeyChainStore
 	Scripts/PodFramework.sh Reachability
+	Scripts/PodFramework.sh GZIP
 fi

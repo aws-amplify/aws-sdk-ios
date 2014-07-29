@@ -15,7 +15,7 @@
 
 #define HC_SHORTHAND
 
-#import <objc/objc-runtime.h>
+#import <objc/runtime.h>
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #import <SenTestingKit/SenTestingKit.h>
 #import <OCMock/OCMock.h>

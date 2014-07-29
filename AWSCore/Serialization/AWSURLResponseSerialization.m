@@ -274,10 +274,10 @@ static NSDictionary *errorCodeDictionary = nil;
 
     if ([resultDic count] == 0) {
         //if not blob type, try to parse as XML string
-        resultDic = [AWSXMLParser dictionaryForXMLData:data
-                                            actionName:self.actionName
-                                 serviceDefinitionRule:self.serviceDefinitionJSON
-                                                 error:error];
+        resultDic = [[AWSXMLParser sharedInstance] dictionaryForXMLData:data
+                                                             actionName:self.actionName
+                                                  serviceDefinitionRule:self.serviceDefinitionJSON
+                                                                  error:error];
     }
 
     //parse response header

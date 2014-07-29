@@ -21,6 +21,14 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
 
 @implementation AWSTestUtility
 
++(void)setupCrdentialsViaFile {
+    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
+        AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
+        AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
+                                                                               credentialsProvider:credentialsProvider];
+        [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+    }
+}
 + (void)setupCognitoCredentialsProvider {
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
         NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"

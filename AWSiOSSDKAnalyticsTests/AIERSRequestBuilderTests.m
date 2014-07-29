@@ -78,7 +78,7 @@ static NSString *const UNIQUE_ID = @"abc123";
 
 +(NSArray*) decompressData:(NSData *)theCompressedData
 {
-    NSData *data = [AIDataGZIP gunzippedData:theCompressedData];
+    NSData *data = [theCompressedData gunzippedData];
     id<AWSMobileAnalyticsSerializer> deserializer = [AWSMobileAnalyticsSerializerFactory serializerFromFormatType:JSON];
     return [deserializer readArray:data];
 }

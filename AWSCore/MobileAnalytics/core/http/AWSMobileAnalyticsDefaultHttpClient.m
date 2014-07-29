@@ -18,7 +18,7 @@
 #import "AZCategory.h"
 #import "AWSMobileAnalyticsInstanceIdInterceptor.h"
 #import "AWSMobileAnalyticsClientContextInterceptor.h"
-#import "AIDataGZIP.h"
+#import "GZIP.h"
 #import "AWSMobileAnalyticsDefaultSessionClient.h"
 #import "AZLogging.h"
 
@@ -102,7 +102,7 @@ NSString *const insightsDefaultRunLoopMode = @"com.amazon.insights.DefaultRunLoo
     
     //adapt the body
     if ([theRequest postBody]) {
-        NSData *unzippedBody = [AIDataGZIP gunzippedData:[theRequest postBody]];
+        NSData *unzippedBody = [[theRequest postBody] gunzippedData];
         NSArray *sourceEventsArray = [NSJSONSerialization JSONObjectWithData:unzippedBody options:kNilOptions error:NULL];
         NSAssert([sourceEventsArray isKindOfClass:[NSArray class]] , @"invalid postBody: postBody should be an array");
         

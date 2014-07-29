@@ -231,6 +231,71 @@ static NSString *testBucketNameGeneral = nil;
     }] waitUntilFinished];
 }
 
+- (void)testParamsURLEncoding {
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    XCTAssertNotNil(s3);
+    
+    NSString *keyName = @" name with!@#$%^&+-end";
+
+    
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:3]];
+    
+    NSString *testObjectStr = @"a test object string.";
+    NSData *testObjectData = [testObjectStr dataUsingEncoding:NSUTF8StringEncoding];
+    
+    AWSS3PutObjectRequest *putObjectRequest = [AWSS3PutObjectRequest new];
+    putObjectRequest.bucket = testBucketNameGeneral;
+    putObjectRequest.key = keyName;
+    putObjectRequest.body = testObjectData;
+    putObjectRequest.contentLength = [NSNumber numberWithUnsignedInteger:[testObjectData length]];
+    
+    putObjectRequest.contentType = @"video/mpeg";
+    
+    [[[s3 putObject:putObjectRequest] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3PutObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3PutObjectOutput class]),[task.result description]);
+        AWSS3PutObjectOutput *putObjectOutput = task.result;
+        XCTAssertNotNil(putObjectOutput.ETag);
+        XCTAssertEqual(putObjectOutput.serverSideEncryption, AWSS3ServerSideEncryptionUnknown);
+        return nil;
+        
+    }] waitUntilFinished];
+    
+     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:3]];
+    
+    //List Object with parameters need URL Encoding
+    AWSS3ListObjectsRequest *listObjectReq = [AWSS3ListObjectsRequest new];
+    listObjectReq.bucket = testBucketNameGeneral;
+    
+    listObjectReq.marker = keyName;
+    listObjectReq.prefix = @" name";
+    
+    [[[s3 listObjects:listObjectReq] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3ListObjectsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListObjectsOutput class]));
+        AWSS3ListObjectsOutput *listObjectsOutput = task.result;
+     
+        
+        for (AWSS3Object *s3Object in listObjectsOutput.contents) {
+            XCTAssertTrue([s3Object.lastModified isKindOfClass:[NSDate class]], @"listObject doesn't contain LastModified(NSDate)");
+        }
+        
+        return nil;
+    }] waitUntilFinished];
+    
+    //Delete Object
+    AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
+    deleteObjectRequest.bucket = testBucketNameGeneral;
+    deleteObjectRequest.key = keyName;
+    
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),[task.result description]);
+        return nil;
+    }] waitUntilFinished];
+
+}
+
 - (void)testPutGetAndDeleteObject {
     NSString *testObjectStr = @"a test object string.";
     NSString *keyName = @"ios-test-put-get-and-delete-obj";

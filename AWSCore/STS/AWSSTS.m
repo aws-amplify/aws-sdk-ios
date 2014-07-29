@@ -24,6 +24,8 @@
 #import "AWSURLResponseSerialization.h"
 #import "AWSURLRequestRetryHandler.h"
 
+NSString *const AWSSTSDefinitionFileName = @"sts-2011-06-15";
+
 @interface AWSSTSResponseSerializer : AWSXMLResponseSerializer
 
 @property (nonatomic, assign) Class outputClass;
@@ -200,13 +202,12 @@ static NSDictionary *errorCodeDictionary = nil;
     }
     networkingRequest.HTTPMethod = HTTPMethod;
 
-    AWSQueryStringRequestSerializer *requestSerializer = [AWSQueryStringRequestSerializer new];
-    requestSerializer.additionalParameters = @{@"Action" : operationName,
-                                               @"Version" : @"2011-06-15"};
+    AWSQueryStringRequestSerializer *requestSerializer = [AWSQueryStringRequestSerializer serializerWithResource:AWSSTSDefinitionFileName
+                                                                                                      actionName:operationName];
     networkingRequest.requestSerializer = requestSerializer;
 
     networkingRequest.responseSerializer = [AWSSTSResponseSerializer serializerWithOutputClass:outputClass
-                                                                                      resource:@"sts-2011-06-15"
+                                                                                      resource:AWSSTSDefinitionFileName
                                                                                     actionName:operationName];
 
     return [self.networking sendRequest:networkingRequest];
