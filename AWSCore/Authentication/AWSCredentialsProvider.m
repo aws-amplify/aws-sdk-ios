@@ -126,7 +126,7 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
                                   forKey:@"expiration"];
             }
         } else {
-            // reset the values for the credenails
+            // reset the values for the credentials
             @synchronized(self) {
                 [self.keychain removeItemForKey:@"accessKey"];
                 [self.keychain removeItemForKey:@"secretKey"];
@@ -337,7 +337,7 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
                     [self.keychain synchronize];
                 }
             } else {
-                // reset the values for the credenails
+                // reset the values for the credentials
                 @synchronized(self) {
                     self.keychain[@"accessKey"] = nil;
                     self.keychain[@"secretKey"] = nil;
