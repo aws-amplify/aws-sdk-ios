@@ -60,7 +60,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoLoginProviderKey) {
 
 @end
 
-@interface AWSAnonymousCreentialsProvider : NSObject <AWSCredentialsProvider>
+@interface AWSAnonymousCredentialsProvider : NSObject <AWSCredentialsProvider>
 
 @end
 
