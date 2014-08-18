@@ -58,11 +58,11 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
 
 @end
 
-@interface AWSAnonymousCreentialsProvider()
+@interface AWSAnonymousCredentialsProvider()
 
 @end
 
-@implementation AWSAnonymousCreentialsProvider
+@implementation AWSAnonymousCredentialsProvider
 
 @end
 
@@ -96,7 +96,7 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
         _webIdentityToken = webIdentityToken;
         _roleArn = roleArn;
 
-        AWSAnonymousCreentialsProvider *credentialsProvider = [AWSAnonymousCreentialsProvider new];
+        AWSAnonymousCredentialsProvider *credentialsProvider = [AWSAnonymousCredentialsProvider new];
         AWSServiceConfiguration *configuration = [AWSServiceConfiguration configurationWithRegion:regionType
                                                                               credentialsProvider:credentialsProvider];
 
@@ -254,7 +254,7 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
             [_keychain synchronize];
         }
 
-        AWSAnonymousCreentialsProvider *credentialsProvider = [AWSAnonymousCreentialsProvider new];
+        AWSAnonymousCredentialsProvider *credentialsProvider = [AWSAnonymousCredentialsProvider new];
         AWSServiceConfiguration *configuration = [AWSServiceConfiguration configurationWithRegion:regionType
                                                                               credentialsProvider:credentialsProvider];
 
