@@ -140,7 +140,7 @@ NSTimeInterval const AWSKinesisRecorderAgeLimitDefault = 0.0; // Keeps the data 
                     } else {
                         [self.cache removeObjectForKey:key];
                     }
-                    return nil;
+                    return task;
                 }]];
             } else {
                 AZLogError(@"Only AWSKinesisPutRecordInput should be in the queue. [%@]", [queuedObject class]);
