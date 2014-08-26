@@ -25,7 +25,6 @@
 @interface AWSS3 : AWSService
 
 @property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration;
-@property (nonatomic, strong, readonly) AWSEndpoint *endpoint;
 
 + (instancetype)defaultS3;
 

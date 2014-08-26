@@ -15,13 +15,16 @@
 
 #import "AWSSerialization.h"
 #import "AWSXMLWriter.h"
-#import "AZCategory.h"
-#import "AZLogging.h"
+#import "AWSCategory.h"
+#import "AWSLogging.h"
 #import "XMLDictionary.h"
 
 NSString *const AWSXMLBuilderErrorDomain = @"com.amazonaws.AWSXMLBuilderErrorDomain";
 NSString *const AWSXMLParserErrorDomain = @"com.amazonaws.AWSXMLParserErrorDomain";
 NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamBuilderErrorDomain";
+NSString *const AWSEC2ParamBuilderErrorDomain = @"com.amazonaws.AWSEC2ParamBuilderErrorDomain";
+NSString *const AWSJSONBuilderErrorDomain = @"com.amazonaws.AWSJSONBuilderErrorDomain";
+NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDomain";
 @interface AWSJSONDictionary()
 
 @property (nonatomic, strong) NSDictionary *embeddedDictionary;
@@ -134,9 +137,20 @@ NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamB
 
 
     AWSXMLWriter* xmlWriter = [[AWSXMLWriter alloc]init];
-
     AWSJSONDictionary *rules = [[AWSJSONDictionary alloc] initWithDictionary:actionRule JSONDefinitionRule:definitionRules];
+
+    NSString *xmlElementName = rules[@"locationName"];
+    if (xmlElementName) {
+        [xmlWriter writeStartElement:xmlElementName];
+        [self applyNamespacesAndAttributesByRules:rules params:params xmlWriter:xmlWriter];
+    }
+
     [self serializeStructure:params rules:rules xmlWriter:xmlWriter error:error isRootRule:YES];
+
+    if (xmlElementName) {
+        [xmlWriter writeEndElement:xmlElementName];
+    }
+
     return xmlWriter;
 }
 
@@ -151,11 +165,14 @@ NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamB
             id value = params[payloadMemberName];
             if (value) {
                 AWSJSONDictionary *payloadMemberRules = structureMembersRule[payloadMemberName];
-                return [self serializeMember:value name:payloadMemberName rules:payloadMemberRules xmlWriter:xmlWriter error:error];
+                return [self serializeMember:value name:payloadMemberName rules:payloadMemberRules isPayloadType:YES xmlWriter:xmlWriter error:error];
+            } else {
+                //no payload exists, should return
+                return YES;
             }
 
         }
-        return YES;
+        //if no payload trait, continue to process
     }
 
     __block BOOL isValid = YES;
@@ -170,8 +187,13 @@ NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamB
                 return;
             }
 
+            if (memberRules[@"location"]) {
+                //It should be another location rather than body, will be process at different place
+                return;
+            }
 
-            if (![self serializeMember:value name:memberName rules:memberRules xmlWriter:xmlWriter error:&blockErr]) {
+
+            if (![self serializeMember:value name:memberName rules:memberRules isPayloadType:NO xmlWriter:xmlWriter error:&blockErr]) {
                 *stop = YES;
                 isValid = NO;
                 return;
@@ -192,7 +214,7 @@ NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamB
     if ([rules[@"flattened"] boolValue]) {
 
         [list enumerateObjectsUsingBlock:^(id value, NSUInteger idx, BOOL *stop) {
-            if (![self serializeMember:value name:xmlListName rules:memberRules xmlWriter:xmlWriter error:&blockErr]) {
+            if (![self serializeMember:value name:xmlListName rules:memberRules isPayloadType:NO xmlWriter:xmlWriter error:&blockErr]) {
                 *stop = YES;
                 isValid = NO;
                 return ;
@@ -204,8 +226,8 @@ NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamB
         [xmlWriter writeStartElement:xmlListName];
 
         [list enumerateObjectsUsingBlock:^(id value, NSUInteger idx, BOOL *stop) {
-
-            if (![self serializeMember:value name:name rules:memberRules xmlWriter:xmlWriter error:&blockErr]) {
+            //non-flattened list without locationName should use 'member' as default name
+            if (![self serializeMember:value name:@"member" rules:memberRules isPayloadType:NO xmlWriter:xmlWriter error:&blockErr]) {
                 *stop = YES;
                 isValid = NO;
 
@@ -220,7 +242,7 @@ NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamB
     return isValid;
 }
 
-+ (BOOL)serializeMember:(id)params name:(NSString *)memberName rules:(AWSJSONDictionary *)rules xmlWriter:(AWSXMLWriter *)xmlWriter error:(NSError *__autoreleasing *)error {
++ (BOOL)serializeMember:(id)params name:(NSString *)memberName rules:(AWSJSONDictionary *)rules isPayloadType:(Boolean)isPayloadType xmlWriter:(AWSXMLWriter *)xmlWriter error:(NSError *__autoreleasing *)error {
     NSString *xmlElementName = rules[@"locationName"]?rules[@"locationName"]:memberName;
     NSString *rulesType = rules[@"type"];
     if ([rulesType isEqualToString:@"structure"]) {
@@ -236,13 +258,11 @@ NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamB
         NSDate *timeStampDate;
         //maybe a NSDate type or NSNumber type or NSString type
         if ([params isKindOfClass:[NSString class]]) {
-            if ([params doubleValue] == 0.0) {
-                //not a float type, just pass the string
-                [xmlWriter writeStartElement:xmlElementName];
-                [xmlWriter writeCharacters:params];
-                [xmlWriter writeEndElement:xmlElementName];
-            } else {
-                //need to convert to NSDate type
+            //try parse the string to NSDate first
+            timeStampDate = [NSDate aws_dateFromString:params];
+
+            //if failed, then parse it as double value
+            if (!timeStampDate) {
                 timeStampDate = [NSDate dateWithTimeIntervalSince1970:[params doubleValue]];
             }
         } else if ([params isKindOfClass:[NSNumber class]]) {
@@ -254,27 +274,59 @@ NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamB
         }
 
         //generate string presentation of timestamp
-        NSString *timestampStr = [timeStampDate az_stringValue:AZDateISO8601DateFormat2];
+        NSString *timestampStr = @"";
+        if ([rules[@"timestampFormat"] isEqualToString:@"iso8601"]) {
+            timestampStr = [timeStampDate aws_stringValue:AWSDateISO8601DateFormat1];
+        } else if ([rules[@"timestampFormat"] isEqualToString:@"unixTimestamp"]) {
+            timestampStr = [NSString stringWithFormat:@"%.lf",[timeStampDate timeIntervalSince1970]];
+        } else {
+            timestampStr = [timeStampDate aws_stringValue:AWSDateRFC822DateFormat1];
+        }
 
-        [xmlWriter writeStartElement:xmlElementName];
+
+        if (isPayloadType == NO) [xmlWriter writeStartElement:xmlElementName];
         [xmlWriter writeCharacters:timestampStr];
-        [xmlWriter writeEndElement:xmlElementName];
+        if (isPayloadType == NO) [xmlWriter writeEndElement:xmlElementName];
     } else if ([rulesType isEqualToString:@"integer"] || [rulesType isEqualToString:@"long"] || [rulesType isEqualToString:@"float"] || [rulesType isEqualToString:@"double"]) {
         NSNumber *numberValue = params;
-        [xmlWriter writeStartElement:xmlElementName];
+        if (isPayloadType == NO) [xmlWriter writeStartElement:xmlElementName];
         [xmlWriter writeCharacters:[numberValue stringValue]];
-        [xmlWriter writeEndElement:xmlElementName];
+        if (isPayloadType == NO) [xmlWriter writeEndElement:xmlElementName];
     } else if ([rulesType isEqualToString:@"blob"]) {
-        //TODO: validate if base64 format
-        //just skip, will be handled as special case. may be streaming type
+        //just handle the non-streaming body, streaming body will be handled in 'constructURIandHeadersAndBody' method
+        if ([rules[@"streaming"] boolValue] == NO) {
+
+            //encode NSData to Base64String
+            if ([params isKindOfClass:[NSString class]]) {
+                params = [params dataUsingEncoding:NSUTF8StringEncoding];
+            }
+            if ([params isKindOfClass:[NSData class]]) {
+                if (isPayloadType == NO) {
+                    NSString *base64encodedStr = [params base64EncodedStringWithOptions:0];
+                    [xmlWriter writeStartElement:xmlElementName];
+                    [xmlWriter writeCharacters:base64encodedStr];
+                    [xmlWriter writeEndElement:xmlElementName];
+                } else {
+                    //Do not base64 encoding if it is payload type
+                    NSString* utf8String = [[NSString alloc] initWithData:params encoding:NSUTF8StringEncoding];
+                    [xmlWriter writeCharacters:utf8String?utf8String:@""];
+                }
+
+            } else {
+                [self failWithCode:AWSXMLBuilderInvalidXMLValue description:@"'blob' value should be a NSData type." error:error];
+                return NO;
+            }
+
+        }
+
     } else if ([rulesType isEqualToString:@"boolean"]) {
-        [xmlWriter writeStartElement:xmlElementName];
+        if (isPayloadType == NO) [xmlWriter writeStartElement:xmlElementName];
         [xmlWriter writeCharacters:[params boolValue]?@"true":@"false"];
-        [xmlWriter writeEndElement:xmlElementName];
+        if (isPayloadType == NO) [xmlWriter writeEndElement:xmlElementName];
     } else if ([rulesType isEqualToString:@"string"]) {
-        [xmlWriter writeStartElement:xmlElementName];
+        if (isPayloadType == NO) [xmlWriter writeStartElement:xmlElementName];
         [xmlWriter writeCharacters:params];
-        [xmlWriter writeEndElement:xmlElementName];
+        if (isPayloadType == NO) [xmlWriter writeEndElement:xmlElementName];
     } else {
         [self failWithCode:AWSXMLBuilderUnCatchedRuleTypeInDifinitionFile description:[NSString stringWithFormat:@"uncatched ruletype:%@ for value:%@",rulesType,[params description]] error:error];
         return NO;
@@ -407,7 +459,11 @@ NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamB
         return nil;
     }
 
-    NSMutableDictionary *rootXmlDictionary = [[self.xmlDictionaryParser dictionaryWithData:data] mutableCopy]; //TODO: need error parameters for parsing
+    NSMutableDictionary *rootXmlDictionary = nil;
+    if ([data isKindOfClass:[NSData class]]) {
+        rootXmlDictionary = [[self.xmlDictionaryParser dictionaryWithData:data] mutableCopy]; //TODO: need error parameters for parsing
+    }
+
     NSString *rootNodeName = [[rootXmlDictionary allKeys] firstObject];
 
     NSMutableDictionary *xmlDictionary = ([rootXmlDictionary[rootNodeName] isKindOfClass:[NSDictionary class]] && [rootXmlDictionary[rootNodeName] count] > 0)?rootXmlDictionary[rootNodeName]:rootXmlDictionary;
@@ -431,12 +487,25 @@ NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamB
     }else {
         AWSJSONDictionary *rules = [[AWSJSONDictionary alloc] initWithDictionary:actionRule JSONDefinitionRule:definitionRules];
 
-        xmlDictionary = [AWSXMLParser preprocessDictionary:xmlDictionary operationName:actionName actionRule:actionRule serviceDefinitionRule:serviceDefinitionRule];
+        xmlDictionary = [AWSXMLParser preprocessDictionary:xmlDictionary operationName:actionName actionRule:rules serviceDefinitionRule:serviceDefinitionRule];
 
-
+        NSString *isPayloadData = rules[@"payload"];
         rules = rules[@"members"]?rules[@"members"]:@{};
+        NSMutableDictionary *parsedData = [NSMutableDictionary new];
 
-        NSMutableDictionary *parsedData = [AWSXMLParser parseStructure:xmlDictionary rules:rules error:error];
+        if (isPayloadData) {
+            //check if it is streaming type
+            if (rules[isPayloadData][@"streaming"]) {
+                parsedData[isPayloadData] = data;
+                return parsedData;
+            }
+
+            rules = rules[isPayloadData][@"members"];
+            parsedData[isPayloadData] = [AWSXMLParser parseStructure:xmlDictionary rules:rules error:error];
+        } else {
+            parsedData = [AWSXMLParser parseStructure:xmlDictionary rules:rules error:error];
+        }
+
 
         if ([parsedData count] == 0) {
             //try again with rootDictionary if it is S3 response
@@ -542,7 +611,7 @@ NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamB
             NSString *keyName = [self findKeyNameByXMLName:xmlName rules:rules];
             if (!keyName) {
                 if (![xmlName isEqualToString:@"_xmlns"] && ![xmlName isEqualToString:@"requestId"]) {
-                    AZLogWarn(@"Can not find the xmlName:%@ in definition to serialize xml data: %@", xmlName, [value description]);
+                    AWSLogWarn(@"Can not find the xmlName:%@ in definition to serialize xml data: %@", xmlName, [value description]);
                 }
 
                 /*[self failWithCode:AWSXMLParserXMLNameNotFoundInDefinition
@@ -570,29 +639,49 @@ NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamB
     return data;
 }
 
-+ (NSMutableDictionary *)parseMap:(NSArray *)map rules:(AWSJSONDictionary *)rules error:(NSError *__autoreleasing *)error {
++ (NSMutableDictionary *)parseMap:(id)map rules:(AWSJSONDictionary *)rules error:(NSError *__autoreleasing *)error {
     AWSJSONDictionary *keyRules = rules[@"key"]?rules[@"key"]:@{};
     AWSJSONDictionary *valueRules = rules[@"value"]?rules[@"value"]:@{};
-    NSString *keyName = keyRules[@"name"]?keyRules[@"name"]:@"key";
-    NSString *valueName = valueRules[@"name"]?valueRules[@"name"]:@"value";
+    NSString *keyName = keyRules[@"locationName"]?keyRules[@"locationName"]:@"key";
+    NSString *valueName = valueRules[@"locationName"]?valueRules[@"locationName"]:@"value";
 
     __block NSMutableDictionary *data = [NSMutableDictionary dictionary];
 
     if (![self validateConstraint:map rules:rules error:error]) return data;
 
-    if ([map isKindOfClass:[NSDictionary class]]) {
-        // if 'map' isn't an array but a dictionary, we create a new array containing our object
-        map = @[map];
+    NSArray *mapList = nil;
+    if ([rules[@"flattened"] boolValue] == NO) {
+        //If it is non-flatened map,retrive the array with key 'entry' if it has one
+        if ([map isKindOfClass:[NSDictionary class]] && [map objectForKey:@"entry"]) {
+            mapList = [map objectForKey:@"entry"];
+        } else {
+            mapList = map;
+        }
+    } else {
+        mapList = map;
     }
 
-    if (![map isKindOfClass:[NSArray class]]) {
-        [self failWithCode:AWSXMLParserUnExpectedType description:[NSString stringWithFormat:@"xml(map type) should be an array but got:%@",NSStringFromClass([map class])] error:error];
+
+    //if no content, return empty dictionary
+    if (!mapList) {
+        return data;
+    }
+    // if 'map' array has only one entry, it will be treat as dictionary, we need to add a array wrapper for that.
+    if ([mapList isKindOfClass:[NSDictionary class]]) {
+        mapList = @[mapList];
+    }
+
+    if (![mapList isKindOfClass:[NSArray class]]) {
+        [self failWithCode:AWSXMLParserUnExpectedType description:[NSString stringWithFormat:@"xml(mapList type) should be an array but got:%@",NSStringFromClass([mapList class])] error:error];
         return [NSMutableDictionary new];
     } else {
         __block NSError *blockErr = nil;
-        [map enumerateObjectsUsingBlock:^(id entry, NSUInteger idx, BOOL *stop) {
-            data[entry[keyName]] = [self parseMember:entry[valueName] rules:valueRules error:&blockErr];
-            if (blockErr) *stop = YES;
+        [mapList enumerateObjectsUsingBlock:^(id entry, NSUInteger idx, BOOL *stop) {
+            NSString *dataKeyName = entry[keyName];
+            if (dataKeyName) {
+                data[dataKeyName] = [self parseMember:entry[valueName] rules:valueRules error:&blockErr];
+                if (blockErr) *stop = YES;
+            }
         }];
         if (error) *error = blockErr;
         return data;
@@ -662,7 +751,7 @@ NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamB
     //validate the value
     if (![self validateConstraint:values rules:rules error:error]) return @"XMLPARSER:ERROR";
 
-    if ([rulesType isEqualToString:@"string"]) {
+    if ([rulesType isEqualToString:@"string"] || [rulesType isEqualToString:@"character"]) {
         if ([values isKindOfClass:[NSString class]]) {
             return values;
         } else if ([values isKindOfClass:[NSDictionary class]] && [values count] == 0) {
@@ -697,10 +786,46 @@ NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamB
         }
     } else if ([rulesType isEqualToString:@"timestamp"]) {
         //a value with NSNumber type should be a good timestamp.
-        return values;
-    } else if ([rulesType isEqualToString:@"blob"]) {
+        NSDate *timeStampDate;
+        //maybe a NSDate type or NSNumber type or NSString type
         if ([values isKindOfClass:[NSString class]]) {
-            return values;
+            //try parse the string to NSDate first
+            timeStampDate = [NSDate aws_dateFromString:values];
+
+            //if failed, then parse it as double value
+            if (!timeStampDate) {
+                timeStampDate = [NSDate dateWithTimeIntervalSince1970:[values doubleValue]];
+            }
+        } else if ([values isKindOfClass:[NSNumber class]]) {
+            //need to convert to NSDate type
+            timeStampDate = [NSDate dateWithTimeIntervalSince1970:[values doubleValue]];
+
+        } else if ([values isKindOfClass:[NSDate class]]) {
+            timeStampDate = values;
+        }
+
+        //generate string presentation of timestamp
+        NSString *timestampStr = @"";
+        if ([rules[@"timestampFormat"] isEqualToString:@"iso8601"]) {
+            timestampStr = [timeStampDate aws_stringValue:AWSDateISO8601DateFormat1];
+        } else if ([rules[@"timestampFormat"] isEqualToString:@"unixTimestamp"]) {
+            timestampStr = [NSString stringWithFormat:@"%.lf",[timeStampDate timeIntervalSince1970]];
+        } else {
+            timestampStr = [timeStampDate aws_stringValue:AWSDateISO8601DateFormat1];
+        }
+
+        return timestampStr;
+
+    } else if ([rulesType isEqualToString:@"blob"]) {
+
+        //decode Base64Str to NSData
+        if ([values isKindOfClass:[NSString class]]) {
+            NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:values options:0];
+            //return origin string value if can not be encoded.
+            return decodedData?decodedData:values;
+        } else {
+            [self failWithCode:AWSXMLParserInvalidXMLValue description:@"blob value should be NSString type" error:error];
+            return [NSData new];
         }
     }
 
@@ -731,9 +856,9 @@ NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamB
 
 
     //add ActionName
-    NSString *urlEncodedActionName = [actionName az_stringWithURLEncoding];
+    NSString *urlEncodedActionName = [actionName aws_stringWithURLEncoding];
     if (!urlEncodedActionName) {
-        AZLogError(@"actionName is nil!");
+        AWSLogError(@"actionName is nil!");
         [self failWithCode:AWSQueryParamBuilderInternalError description:@"actionName is nil" error:error];
         return nil;
     }
@@ -743,15 +868,15 @@ NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamB
 
     //add Version Number
     if (serviceDefinitionRule[@"metadata"] && serviceDefinitionRule[@"metadata"][@"apiVersion"] && [serviceDefinitionRule[@"metadata"][@"apiVersion"] isKindOfClass:[NSString class]]) {
-        NSString *urlEncodedAPIVersion = [serviceDefinitionRule[@"metadata"][@"apiVersion"] az_stringWithURLEncoding];
+        NSString *urlEncodedAPIVersion = [serviceDefinitionRule[@"metadata"][@"apiVersion"] aws_stringWithURLEncoding];
         if (urlEncodedAPIVersion) {
             [formattedParams setObject:urlEncodedAPIVersion forKey:@"Version"];
         } else {
-            AZLogError(@"can not encode APIVersion String:%@",urlEncodedAPIVersion);
+            AWSLogError(@"can not encode APIVersion String:%@",urlEncodedAPIVersion);
         }
 
     } else {
-        AZLogError(@"can not find apiVersion keyword in definition file!");
+        AWSLogError(@"can not find apiVersion keyword in definition file!");
     }
 
     if ([params count] == 0) {
@@ -840,8 +965,9 @@ NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamB
         prefix = [prefix stringByAppendingString:@".entry"];
     }
 
+    NSArray *allKeysArray = [[values allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     int index = 0;
-    for (NSString *key in values) {
+    for (NSString *key in allKeysArray) {
         id value = values[key];
         [self serializeMember:key rules:mapRules[@"key"] prefix:[NSString stringWithFormat:@"%@.%d.%@",prefix,index+1,[self queryName:mapRules[@"key"] withDefaultName:@"key"]] formattedParams:formattedParams error:error];
 
@@ -873,12 +999,11 @@ NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamB
         NSDate *timeStampDate;
         //maybe a NSDate type or NSNumber type or NSString type
         if ([value isKindOfClass:[NSString class]]) {
-            if ([value doubleValue] == 0.0) {
-                //not a float type, just pass the string
-                formattedParams[prefix] = value;
-                return YES;
-            } else {
-                //need to convert to NSDate type
+            //try parse the string to NSDate first
+            timeStampDate = [NSDate aws_dateFromString:value];
+
+            //if failed, then parse it as double value
+            if (!timeStampDate) {
                 timeStampDate = [NSDate dateWithTimeIntervalSince1970:[value doubleValue]];
             }
         } else if ([value isKindOfClass:[NSNumber class]]) {
@@ -890,31 +1015,626 @@ NSString *const AWSQueryParamBuilderErrorDomain = @"com.amazonaws.AWSQueryParamB
         }
 
         //generate string presentation of timestamp
-        NSString *timestampStr = [timeStampDate az_stringValue:AZDateISO8601DateFormat2];
+        //generate string presentation of timestamp
+        NSString *timestampStr = @"";
+        if ([shape[@"timestampFormat"] isEqualToString:@"iso8601"]) {
+            timestampStr = [timeStampDate aws_stringValue:AWSDateISO8601DateFormat1];
+        } else if ([shape[@"timestampFormat"] isEqualToString:@"unixTimestamp"]) {
+            timestampStr = [NSString stringWithFormat:@"%.lf",[timeStampDate timeIntervalSince1970]];
+        } else {
+            //default timeStamp format
+            timestampStr = [timeStampDate aws_stringValue:AWSDateISO8601DateFormat1];
+        }
+
+        if (!timestampStr) {
+            timestampStr = @"";
+        }
 
         formattedParams[prefix] = timestampStr;
 
     } else if ([rulesType isEqualToString:@"blob"]) {
-        //TODO: validate if base64 format
+
+        //encode NSData to Base64String
+        if ([value isKindOfClass:[NSString class]]) {
+            value = [value dataUsingEncoding:NSUTF8StringEncoding];
+        }
         if ([value isKindOfClass:[NSData class]]) {
-            formattedParams[prefix] = [value base64EncodedDataWithOptions:0];
-        } else if ([value isKindOfClass:[NSString class]]) {
-            formattedParams[prefix] = [value az_base64EncodedString];
+            NSString *base64encodedStr = [value base64EncodedStringWithOptions:0];
+            formattedParams[prefix] = base64encodedStr?base64encodedStr:@"";
         } else {
+            [self failWithCode:AWSQueryParamBuilderInvalidParameter description:@"'blob' value should be a NSData type." error:error];
             return NO;
         }
-        
+
     } else if ([rulesType isEqualToString:@"boolean"]) {
         formattedParams[prefix] = [value boolValue]?@"true":@"false";
     } else {
         formattedParams[prefix] = value;
     }
-    
+
     return YES;
 }
 
 + (NSString *)queryName:(NSDictionary *)shape withDefaultName:(NSString *)defaultName {
-    
+
     return shape[@"locationName"]?shape[@"locationName"]:defaultName;
 }
+@end
+
+@implementation AWSEC2ParamBuilder
+
++ (BOOL)failWithCode:(NSInteger)code description:(NSString *)description error:(NSError *__autoreleasing *)error {
+    if (error) {
+        *error = [NSError errorWithDomain:AWSEC2ParamBuilderErrorDomain
+                                     code:code
+                                 userInfo:@{NSLocalizedDescriptionKey : description}];
+    }
+    return NO;
+}
+
++ (NSDictionary *)buildFormattedParams:(NSDictionary *)params
+                            actionName:(NSString *)actionName
+                 serviceDefinitionRule:(NSDictionary *)serviceDefinitionRule
+                                 error:(NSError *__autoreleasing *)error {
+    NSMutableDictionary *formattedParams = [NSMutableDictionary new];
+
+
+    //add ActionName
+    NSString *urlEncodedActionName = [actionName aws_stringWithURLEncoding];
+    if (!urlEncodedActionName) {
+        AWSLogError(@"actionName is nil!");
+        [self failWithCode:AWSEC2ParamBuilderInternalError description:@"actionName is nil" error:error];
+        return nil;
+    }
+
+    [formattedParams setObject:urlEncodedActionName forKey:@"Action"];
+
+
+    //add Version Number
+    if (serviceDefinitionRule[@"metadata"] && serviceDefinitionRule[@"metadata"][@"apiVersion"] && [serviceDefinitionRule[@"metadata"][@"apiVersion"] isKindOfClass:[NSString class]]) {
+        NSString *urlEncodedAPIVersion = [serviceDefinitionRule[@"metadata"][@"apiVersion"] aws_stringWithURLEncoding];
+        if (urlEncodedAPIVersion) {
+            [formattedParams setObject:urlEncodedAPIVersion forKey:@"Version"];
+        } else {
+            AWSLogError(@"can not encode APIVersion String:%@",urlEncodedAPIVersion);
+        }
+
+    } else {
+        AWSLogError(@"can not find apiVersion keyword in definition file!");
+    }
+
+    if ([params count] == 0) {
+        return formattedParams;
+    }
+
+    //add params
+    NSDictionary *actionRule = [[[serviceDefinitionRule objectForKey:@"operations"] objectForKey:actionName] objectForKey:@"input"];
+    NSDictionary *definitionRules = [serviceDefinitionRule objectForKey:@"shapes"];
+
+    if (definitionRules == (id)[NSNull null] ||  [definitionRules count] == 0) {
+        [self failWithCode:AWSEC2ParamBuilderDefinitionFileIsEmpty description:@"JSON definition File is empty or can not be found" error:error];
+        return nil;
+    }
+
+
+
+    if ([actionRule count] == 0) {
+        [self failWithCode:AWSEC2ParamBuilderUndefinedActionRule description:@"Invalid argument: actionRule is Empty" error:error];
+        return nil;
+    }
+
+    AWSJSONDictionary *rules = [[AWSJSONDictionary alloc] initWithDictionary:actionRule JSONDefinitionRule:definitionRules];
+
+
+    [AWSEC2ParamBuilder serializeStructure:params rules:rules prefix:@"" formattedParams:formattedParams  error:error];
+
+
+    return formattedParams;
+
+}
+
++ (BOOL)serializeStructure:(NSDictionary *)values rules:(AWSJSONDictionary *)structureRules prefix:(NSString *)prefix formattedParams:(NSMutableDictionary *)formattedParams error:(NSError *__autoreleasing *)error {
+
+    for (NSString *name in values) {
+        id value = values[name];
+
+        AWSJSONDictionary *memberShape = structureRules[@"members"][name];
+        if (memberShape && value) {
+            [self serializeMember:value rules:memberShape prefix:[NSString stringWithFormat:@"%@%@",prefix,[self queryName:memberShape withDefaultName:name]] formattedParams:formattedParams error:error];
+            if (error && *error != nil) {
+                return NO;
+            }
+        }
+    }
+    return YES;
+}
+
++ (BOOL)serializeList:(NSArray *)values rules:(AWSJSONDictionary *)listRules prefix:(NSString *)prefix formattedParams:(NSMutableDictionary *)formattedParams error:(NSError *__autoreleasing *)error {
+    if (values == nil) {
+        if (prefix) {
+            [formattedParams setObject:prefix forKey:@""];
+        }
+        return YES;
+    }
+
+    for (int i = 0; i < [values count] ; i++) {
+        id value = values[i];
+        [self serializeMember:value rules:listRules[@"member"] prefix:[NSString stringWithFormat:@"%@.%d",prefix,i+1] formattedParams:formattedParams error:error];
+        if (error && *error != nil) {
+            return NO;
+        }
+    }
+
+    return YES;
+}
+
++ (BOOL)serializeMember:(id)value rules:(AWSJSONDictionary *)shape prefix:(NSString *)prefix formattedParams:(NSMutableDictionary *)formattedParams error:(NSError *__autoreleasing *)error {
+
+    if (prefix == nil) {
+        prefix = @"";
+    }
+
+    NSString *rulesType = shape[@"type"];
+    if ([rulesType isEqualToString:@"structure"]) {
+        [self serializeStructure:value rules:shape prefix:[NSString stringWithFormat:@"%@.",prefix] formattedParams:formattedParams error:error];
+    } else if ([rulesType isEqualToString:@"list"]) {
+        [self serializeList:value rules:shape prefix:prefix formattedParams:formattedParams error:error];
+    } else if ([rulesType isEqualToString:@"map"]) {
+        // EC2 does not have any map type yet
+        [self failWithCode:AWSEC2ParamBuilderInternalError description:@"serialize map type value has not been implemented yet" error:error];
+        return NO;
+
+    } else if ([rulesType isEqualToString:@"timestamp"]) {
+        NSDate *timeStampDate;
+        //maybe a NSDate type or NSNumber type or NSString type
+        if ([value isKindOfClass:[NSString class]]) {
+            //try parse the string to NSDate first
+            timeStampDate = [NSDate aws_dateFromString:value];
+
+            //if failed, then parse it as double value
+            if (!timeStampDate) {
+                timeStampDate = [NSDate dateWithTimeIntervalSince1970:[value doubleValue]];
+            }
+        } else if ([value isKindOfClass:[NSNumber class]]) {
+            //need to convert to NSDate type
+            timeStampDate = [NSDate dateWithTimeIntervalSince1970:[value doubleValue]];
+
+        } else if ([value isKindOfClass:[NSDate class]]) {
+            timeStampDate = value;
+        }
+
+        //generate string presentation of timestamp
+        NSString *timestampStr = @"";
+        if ([shape[@"timestampFormat"] isEqualToString:@"iso8601"]) {
+            timestampStr = [timeStampDate aws_stringValue:AWSDateISO8601DateFormat1];
+        } else if ([shape[@"timestampFormat"] isEqualToString:@"unixTimestamp"]) {
+            timestampStr = [NSString stringWithFormat:@"%.lf",[timeStampDate timeIntervalSince1970]];
+        } else {
+            //default timeStamp format
+            timestampStr = [timeStampDate aws_stringValue:AWSDateISO8601DateFormat1];
+        }
+
+        if (!timestampStr) {
+            timestampStr = @"";
+        }
+
+        formattedParams[prefix] = timestampStr;
+
+    } else if ([rulesType isEqualToString:@"blob"]) {
+
+        //encode NSData to Base64String
+        if ([value isKindOfClass:[NSString class]]) {
+            value = [value dataUsingEncoding:NSUTF8StringEncoding];
+        }
+        if ([value isKindOfClass:[NSData class]]) {
+            NSString *base64encodedStr = [value base64EncodedStringWithOptions:0];
+            formattedParams[prefix] = base64encodedStr?base64encodedStr:@"";
+        } else {
+            [self failWithCode:AWSEC2ParamBuilderInvalidParameter description:@"'blob' value should be a NSData type." error:error];
+            return NO;
+        }
+
+    } else if ([rulesType isEqualToString:@"boolean"]) {
+        formattedParams[prefix] = [value boolValue]?@"true":@"false";
+    } else {
+        formattedParams[prefix] = value;
+    }
+
+    return YES;
+}
+
++ (NSString *)queryName:(NSDictionary *)shape withDefaultName:(NSString *)defaultName {
+
+    NSString *resultStr = shape[@"queryName"]?shape[@"queryName"]:[self upperCaseFirstChar:shape[@"locationName"]];
+
+    return resultStr?resultStr:defaultName;
+}
+
++ (NSString *)upperCaseFirstChar:(NSString *) inputString {
+    if ([inputString length] < 1) {
+        return nil;
+    }
+    return [[[inputString substringToIndex:1] uppercaseString] stringByAppendingString: [inputString length]>1 ? [inputString substringFromIndex:1] : @"" ];
+}
+
+@end
+
+@implementation AWSJSONBuilder
+
++ (BOOL)failWithCode:(NSInteger)code description:(NSString *)description error:(NSError *__autoreleasing *)error {
+    if (error) {
+        *error = [NSError errorWithDomain:AWSJSONBuilderErrorDomain
+                                     code:code
+                                 userInfo:@{NSLocalizedDescriptionKey : description}];
+    }
+    return NO;
+}
+
++ (NSData *)jsonDataForDictionary:(NSDictionary *)params
+                       actionName:(NSString *)actionName
+            serviceDefinitionRule:(NSDictionary *)serviceDefinitionRule
+                            error:(NSError *__autoreleasing *)error {
+
+    id serializedJsonObject = [self buildJSONDictionary:params actionName:actionName serviceDefinitionRule:serviceDefinitionRule error:error];
+
+    if (!serializedJsonObject) {
+        serializedJsonObject = @{};
+    }
+
+    if ([NSJSONSerialization isValidJSONObject:serializedJsonObject] == NO) {
+        [self failWithCode:AWSJSONBuilderInvalidParameter description:[NSString stringWithFormat:@"serialized object is not a valid json Object: %@",serializedJsonObject] error:error];
+        return nil;
+    }
+
+    NSData *bodyData = [NSJSONSerialization dataWithJSONObject:serializedJsonObject
+                                                       options:0
+                                                         error:error];
+
+    return bodyData;
+
+}
+
++ (NSDictionary *)buildJSONDictionary:(NSDictionary *)params
+                           actionName:(NSString *)actionName
+                serviceDefinitionRule:(NSDictionary *)serviceDefinitionRule
+                                error:(NSError *__autoreleasing *)error {
+
+    if ([params count] == 0) {
+        return nil;
+    }
+
+    NSDictionary *actionRule = [[[serviceDefinitionRule objectForKey:@"operations"] objectForKey:actionName] objectForKey:@"input"];
+    NSDictionary *definitionRules = [serviceDefinitionRule objectForKey:@"shapes"];
+
+    if (definitionRules == (id)[NSNull null] ||  [definitionRules count] == 0) {
+        AWSLogError(@"JSON definition File is empty or can not be found, will return un-serialized dictionary");
+        return params;
+    }
+
+
+
+    if ([actionRule count] == 0) {
+        [self failWithCode:AWSJSONBuilderUndefinedActionRule description:@"Invalid argument: actionRule is Empty" error:error];
+        return nil;
+    }
+
+    AWSJSONDictionary *rules = [[AWSJSONDictionary alloc] initWithDictionary:actionRule JSONDefinitionRule:definitionRules];
+
+    NSDictionary *resultParams = [self serializeMember:rules value:params error:error];
+
+    return resultParams;
+
+
+}
+
++ (NSDictionary *)serializeStructure:(NSDictionary *)structureRules values:(NSDictionary *)values error:(NSError *__autoreleasing *)error {
+
+    NSMutableDictionary *data = [NSMutableDictionary new];
+
+    for (NSString *key in values) {
+        id value = values[key];
+
+        AWSJSONDictionary *memberShape = structureRules[@"members"][key];
+        if (memberShape && value) {
+            NSString *name = memberShape[@"locationName"]?memberShape[@"locationName"]:key;
+            data[name] = [self serializeMember:memberShape value:value error:error];
+        }
+
+    }
+
+    return data;
+}
+
++ (NSArray *)serializeList:(NSDictionary *)listRules values:(NSArray *)values error:(NSError *__autoreleasing *)error {
+    NSMutableArray *dataArray = [NSMutableArray new];
+
+    for (id value in values) {
+
+        [dataArray addObject:[self serializeMember:listRules[@"member"] value:value error:error]];
+
+    }
+
+    return dataArray;
+}
+
++ (NSDictionary *)serializeMap:(NSDictionary *)mapRules values:(NSDictionary *)values error:(NSError *__autoreleasing *)error {
+
+    NSMutableDictionary *data = [NSMutableDictionary new];
+
+    for (NSString *key in values) {
+        id value = values[key];
+        data[key] = [self serializeMember:mapRules[@"value"] value:value error:error];
+    }
+
+    return data;
+
+}
+
++ (id)serializeMember:(NSDictionary *)shape value:(id)value error:(NSError *__autoreleasing *)error {
+
+    NSString *rulesType = shape[@"type"];
+    if ([rulesType isEqualToString:@"structure"]) {
+
+        if (![value isKindOfClass:[NSDictionary class]]) {
+            [self failWithCode:AWSJSONBuilderInvalidParameter description:[NSString stringWithFormat:@"a structure input should be a dictionary but got:%@",value] error:error];
+            return @{};
+        } else {
+
+            return [self serializeStructure:shape values:value error:error];
+        }
+
+    } else if ([rulesType isEqualToString:@"list"]) {
+
+        if (![value isKindOfClass:[NSArray class]]) {
+            [self failWithCode:AWSJSONBuilderInvalidParameter description:[NSString stringWithFormat:@"a list input should be an array but got:%@",value] error:error];
+            return @[];
+        } else {
+            return [self serializeList:shape values:value error:error];
+        }
+
+
+    } else if ([rulesType isEqualToString:@"map"]) {
+
+        if (![value isKindOfClass:[NSDictionary class]]) {
+            [self failWithCode:AWSJSONBuilderInvalidParameter description:[NSString stringWithFormat:@"a map input should be a dictionary but got:%@",value] error:error];
+            return @{};
+        } else {
+            return [self serializeMap:shape values:value error:error];
+        }
+
+    } else if ([rulesType isEqualToString:@"timestamp"]) {
+
+        NSDate *timeStampDate;
+        //maybe a NSDate type or NSNumber type or NSString type
+        if ([value isKindOfClass:[NSString class]]) {
+            //try parse the string to NSDate first
+            timeStampDate = [NSDate aws_dateFromString:value];
+
+            //if failed, then parse it as double value
+            if (!timeStampDate) {
+                timeStampDate = [NSDate dateWithTimeIntervalSince1970:[value doubleValue]];
+            }
+        } else if ([value isKindOfClass:[NSNumber class]]) {
+            //need to convert to NSDate type
+            timeStampDate = [NSDate dateWithTimeIntervalSince1970:[value doubleValue]];
+
+        } else if ([value isKindOfClass:[NSDate class]]) {
+            timeStampDate = value;
+        }
+
+        return [NSNumber numberWithDouble:[timeStampDate timeIntervalSince1970]];
+
+
+    } else if ([rulesType isEqualToString:@"blob"]) {
+
+        //encode NSData to Base64String
+        if ([value isKindOfClass:[NSString class]]) {
+            value = [value dataUsingEncoding:NSUTF8StringEncoding];
+        }
+        if ([value isKindOfClass:[NSData class]]) {
+            NSString *base64encodedStr = [value base64EncodedStringWithOptions:0];
+            return base64encodedStr?base64encodedStr:@"";
+        } else {
+            [self failWithCode:AWSJSONBuilderInvalidParameter description:@"'blob' value should be a NSData type." error:error];
+            return @"";
+        }
+
+    } else {
+
+        return value;
+
+    }
+}
+
+@end
+
+@implementation AWSJSONParser
+
++ (BOOL)failWithCode:(NSInteger)code description:(NSString *)description error:(NSError *__autoreleasing *)error {
+    if (error) {
+        *error = [NSError errorWithDomain:AWSJSONParserErrorDomain
+                                     code:code
+                                 userInfo:@{NSLocalizedDescriptionKey : description}];
+    }
+    return NO;
+}
+
++ (NSDictionary *)dictionaryForJsonData:(NSData *)data
+                             actionName:(NSString *)actionName
+                  serviceDefinitionRule:(NSDictionary *)serviceDefinitionRule
+                                  error:(NSError *__autoreleasing *)error {
+
+    if (!data) {
+        return [NSMutableDictionary new];
+    }
+
+    NSDictionary *resultDic =  [NSJSONSerialization JSONObjectWithData:data
+                                                               options:0
+                                                                 error:error];
+
+
+    NSDictionary *actionRule = [[[serviceDefinitionRule objectForKey:@"operations"] objectForKey:actionName] objectForKey:@"output"];
+    if (actionRule == (id)[NSNull null]) {
+        actionRule = @{};
+    }
+
+    NSDictionary *definitionRules = [serviceDefinitionRule objectForKey:@"shapes"];
+    if (definitionRules == (id)[NSNull null]) {
+        definitionRules = @{};
+    }
+    if ([definitionRules count] == 0) {
+        AWSLogError(@"JSON definition File is empty or can not be found, will return un-serialized dictionary");
+        return resultDic;
+    }
+
+    //if the response is error message, just return
+    if ([resultDic objectForKey:@"__type"] || [resultDic aws_objectForCaseInsensitiveKey:@"message"]) {
+        return resultDic;
+    }
+
+    AWSJSONDictionary *rules = [[AWSJSONDictionary alloc] initWithDictionary:actionRule JSONDefinitionRule:definitionRules];
+
+    NSDictionary *serializedDic = [self serializeMember:rules value:resultDic target:nil error:error];
+
+    return serializedDic;
+}
+
++ (NSString *)findMemberName:(NSString*)locationName structureRules:(NSDictionary *)structureRules {
+
+    for (NSString *aMember in structureRules[@"members"]) {
+        NSDictionary *memberShape = structureRules[@"members"][aMember];
+
+        if ([memberShape[@"locationName"] isEqualToString:locationName]) {
+            return aMember;
+        }
+    }
+
+    return locationName;
+}
+
++ (id)serializeStructure:(NSDictionary *)structureRules values:(NSDictionary *)values target:(id)target error:(NSError *__autoreleasing *)error{
+    if (!target) {
+        target = [NSMutableDictionary new];
+    }
+
+    for (NSString *serialized_name in values) {
+        id value = values[serialized_name];
+
+        NSString *memberName = [self findMemberName:serialized_name structureRules:structureRules];
+
+        AWSJSONDictionary *memberShape = structureRules[@"members"][memberName];
+        if (memberShape && value) {
+            // NSString *name = memberShape[@"locationName"]?memberShape[@"locationName"]:serialized_name;
+            target[memberName] = [self serializeMember:memberShape value:value target:nil error:(NSError *__autoreleasing *)error];
+        }
+
+    }
+    return target;
+
+}
+
++ (NSMutableArray *)serializeList:(NSDictionary *)listRules values:(NSDictionary *)values target:(id)target error:(NSError *__autoreleasing *)error{
+    if (!target) {
+        target = [NSMutableArray new];
+    }
+
+    for (NSString *value in values) {
+        [target addObject:[self serializeMember:listRules[@"member"] value:value target:nil error:(NSError *__autoreleasing *)error]];
+    }
+
+    return target;
+}
+
++ (NSMutableDictionary *) serializeMap:(NSDictionary *)mapRules values:(NSDictionary *)values target:(id)target error:(NSError *__autoreleasing *)error{
+    if (!target) {
+        target = [NSMutableDictionary new];
+    }
+
+    for (NSString *key in values) {
+        id value = values[key];
+
+        target[key] = [self serializeMember:mapRules[@"value"] value:value target:nil error:(NSError *__autoreleasing *)error];
+    }
+
+    return target;
+}
+
++ (id)serializeMember:(NSDictionary *)shape value:(id)value target:(id)target error:(NSError *__autoreleasing *)error{
+    if (!value) {
+        return nil;
+    }
+
+    NSString *rulesType = shape[@"type"];
+    if ([rulesType isEqualToString:@"structure"]) {
+
+        if (![value isKindOfClass:[NSDictionary class]]) {
+            [self failWithCode:AWSJSONParserInvalidParameter description:[NSString stringWithFormat:@"a structure input should be a dictionary but got:%@",value] error:error];
+            return @{};
+        } else {
+
+            return [self serializeStructure:shape values:value target:target error:error];
+        }
+
+    } else if ([rulesType isEqualToString:@"list"]) {
+
+        if (![value isKindOfClass:[NSArray class]]) {
+            [self failWithCode:AWSJSONParserInvalidParameter description:[NSString stringWithFormat:@"a list input should be an array but got:%@",value] error:error];
+            return @[];
+        } else {
+            return [self serializeList:shape values:value target:target error:error];
+        }
+
+
+    } else if ([rulesType isEqualToString:@"map"]) {
+
+        if (![value isKindOfClass:[NSDictionary class]]) {
+            [self failWithCode:AWSJSONParserInvalidParameter description:[NSString stringWithFormat:@"a map input should be a dictionary but got:%@",value] error:error];
+            return @{};
+        } else {
+            return [self serializeMap:shape values:value target:target error:error];
+        }
+        
+    } else if ([rulesType isEqualToString:@"timestamp"]) {
+        
+        NSDate *timeStampDate;
+        //maybe a NSDate type or NSNumber type or NSString type
+        if ([value isKindOfClass:[NSString class]]) {
+            //try parse the string to NSDate first
+            timeStampDate = [NSDate aws_dateFromString:value];
+            
+            //if failed, then parse it as double value
+            if (!timeStampDate) {
+                timeStampDate = [NSDate dateWithTimeIntervalSince1970:[value doubleValue]];
+            }
+        } else if ([value isKindOfClass:[NSNumber class]]) {
+            //need to convert to NSDate type
+            timeStampDate = [NSDate dateWithTimeIntervalSince1970:[value doubleValue]];
+            
+        } else if ([value isKindOfClass:[NSDate class]]) {
+            timeStampDate = value;
+        }
+        
+        return [NSNumber numberWithDouble:[timeStampDate timeIntervalSince1970]];
+        
+        
+    } else if ([rulesType isEqualToString:@"blob"]) {
+        
+        //decode Base64Str to NSData
+        if ([value isKindOfClass:[NSString class]]) {
+            NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:value options:0];
+            //return origin string value if can not be encoded.
+            return decodedData?decodedData:value;
+        } else {
+            [self failWithCode:AWSJSONParserInvalidParameter description:@"blob value should be NSString type." error:error];
+            return [NSData new];
+        }
+        
+    } else {
+        
+        return value;
+        
+    }
+    
+}
+
 @end

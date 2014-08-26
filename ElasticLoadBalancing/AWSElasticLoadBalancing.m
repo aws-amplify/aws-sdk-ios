@@ -15,8 +15,8 @@
 
 #import "AWSElasticLoadBalancing.h"
 
-#import "AZNetworking.h"
-#import "AZCategory.h"
+#import "AWSNetworking.h"
+#import "AWSCategory.h"
 #import "AWSSignature.h"
 #import "AWSService.h"
 #import "AWSNetworking.h"
@@ -46,23 +46,25 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"IncompleteSignature" : @(AWSElasticLoadBalancingErrorIncompleteSignature),
                             @"InvalidClientTokenId" : @(AWSElasticLoadBalancingErrorInvalidClientTokenId),
                             @"MissingAuthenticationToken" : @(AWSElasticLoadBalancingErrorMissingAuthenticationToken),
-                            @"AccessPointNotFoundException" : @(AWSElasticLoadBalancingErrorAccessPointNotFound),
-                            @"CertificateNotFoundException" : @(AWSElasticLoadBalancingErrorCertificateNotFound),
-                            @"DuplicateAccessPointNameException" : @(AWSElasticLoadBalancingErrorDuplicateAccessPointName),
-                            @"DuplicateListenerException" : @(AWSElasticLoadBalancingErrorDuplicateListener),
-                            @"DuplicatePolicyNameException" : @(AWSElasticLoadBalancingErrorDuplicatePolicyName),
-                            @"InvalidConfigurationRequestException" : @(AWSElasticLoadBalancingErrorInvalidConfigurationRequest),
-                            @"InvalidEndPointException" : @(AWSElasticLoadBalancingErrorInvalidEndPoint),
-                            @"InvalidSchemeException" : @(AWSElasticLoadBalancingErrorInvalidScheme),
-                            @"InvalidSecurityGroupException" : @(AWSElasticLoadBalancingErrorInvalidSecurityGroup),
-                            @"InvalidSubnetException" : @(AWSElasticLoadBalancingErrorInvalidSubnet),
-                            @"ListenerNotFoundException" : @(AWSElasticLoadBalancingErrorListenerNotFound),
-                            @"LoadBalancerAttributeNotFoundException" : @(AWSElasticLoadBalancingErrorLoadBalancerAttributeNotFound),
-                            @"PolicyNotFoundException" : @(AWSElasticLoadBalancingErrorPolicyNotFound),
-                            @"PolicyTypeNotFoundException" : @(AWSElasticLoadBalancingErrorPolicyTypeNotFound),
-                            @"SubnetNotFoundException" : @(AWSElasticLoadBalancingErrorSubnetNotFound),
-                            @"TooManyAccessPointsException" : @(AWSElasticLoadBalancingErrorTooManyAccessPoints),
-                            @"TooManyPoliciesException" : @(AWSElasticLoadBalancingErrorTooManyPolicies),
+                            @"LoadBalancerNotFound" : @(AWSElasticLoadBalancingErrorAccessPointNotFound),
+                            @"CertificateNotFound" : @(AWSElasticLoadBalancingErrorCertificateNotFound),
+                            @"DuplicateLoadBalancerName" : @(AWSElasticLoadBalancingErrorDuplicateAccessPointName),
+                            @"DuplicateListener" : @(AWSElasticLoadBalancingErrorDuplicateListener),
+                            @"DuplicatePolicyName" : @(AWSElasticLoadBalancingErrorDuplicatePolicyName),
+                            @"DuplicateTagKeys" : @(AWSElasticLoadBalancingErrorDuplicateTagKeys),
+                            @"InvalidConfigurationRequest" : @(AWSElasticLoadBalancingErrorInvalidConfigurationRequest),
+                            @"InvalidInstance" : @(AWSElasticLoadBalancingErrorInvalidEndPoint),
+                            @"InvalidScheme" : @(AWSElasticLoadBalancingErrorInvalidScheme),
+                            @"InvalidSecurityGroup" : @(AWSElasticLoadBalancingErrorInvalidSecurityGroup),
+                            @"InvalidSubnet" : @(AWSElasticLoadBalancingErrorInvalidSubnet),
+                            @"ListenerNotFound" : @(AWSElasticLoadBalancingErrorListenerNotFound),
+                            @"LoadBalancerAttributeNotFound" : @(AWSElasticLoadBalancingErrorLoadBalancerAttributeNotFound),
+                            @"PolicyNotFound" : @(AWSElasticLoadBalancingErrorPolicyNotFound),
+                            @"PolicyTypeNotFound" : @(AWSElasticLoadBalancingErrorPolicyTypeNotFound),
+                            @"SubnetNotFound" : @(AWSElasticLoadBalancingErrorSubnetNotFound),
+                            @"TooManyLoadBalancers" : @(AWSElasticLoadBalancingErrorTooManyAccessPoints),
+                            @"TooManyPolicies" : @(AWSElasticLoadBalancingErrorTooManyPolicies),
+                            @"TooManyTags" : @(AWSElasticLoadBalancingErrorTooManyTags),
                             };
 }
 
@@ -94,7 +96,7 @@ static NSDictionary *errorCodeDictionary = nil;
             if (error) {
                 *error = [NSError errorWithDomain:AWSElasticLoadBalancingErrorDomain
                                              code:[errorCodeDictionary[errorInfo[@"Code"]] integerValue]
-                                         userInfo:@{NSLocalizedDescriptionKey :[errorInfo objectForKey:@"Message"]?[errorInfo objectForKey:@"Message"]:[NSNull null]}
+                                         userInfo:errorInfo
                           ];
                 return responseObject;
             }
@@ -102,8 +104,7 @@ static NSDictionary *errorCodeDictionary = nil;
             if (error) {
                 *error = [NSError errorWithDomain:AWSElasticLoadBalancingErrorDomain
                                              code:AWSElasticLoadBalancingErrorUnknown
-                                         userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"%@ -- %@",[errorInfo objectForKey:@"Code"],[errorInfo objectForKey:@"Message"]?[errorInfo objectForKey:@"Message"]:[NSNull null]]
-                                                    }];
+                                         userInfo:errorInfo];
                 return responseObject;
             }
         }
@@ -125,22 +126,22 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSElasticLoadBalancingRequestRetryHandler
 
-- (AZNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
+- (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
                             response:(NSHTTPURLResponse *)response
                                 data:(NSData *)data
                                error:(NSError *)error {
-    AZNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
+    AWSNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
                                                 response:response
                                                     data:data
                                                    error:error];
-    if(retryType == AZNetworkingRetryTypeShouldNotRetry
+    if(retryType == AWSNetworkingRetryTypeShouldNotRetry
        && [error.domain isEqualToString:AWSElasticLoadBalancingErrorDomain]
        && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
             case AWSElasticLoadBalancingErrorIncompleteSignature:
             case AWSElasticLoadBalancingErrorInvalidClientTokenId:
             case AWSElasticLoadBalancingErrorMissingAuthenticationToken:
-                retryType = AZNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
+                retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
                 break;
 
             default:
@@ -155,15 +156,14 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @interface AWSRequest()
 
-@property (nonatomic, strong) AZNetworkingRequest *internalRequest;
+@property (nonatomic, strong) AWSNetworkingRequest *internalRequest;
 
 @end
 
 @interface AWSElasticLoadBalancing()
 
-@property (nonatomic, strong) AZNetworking *networking;
+@property (nonatomic, strong) AWSNetworking *networking;
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
-@property (nonatomic, strong) AWSEndpoint *endpoint;
 
 @end
 
@@ -187,25 +187,25 @@ static NSDictionary *errorCodeDictionary = nil;
     if (self = [super init]) {
         _configuration = [configuration copy];
 
-        _endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
-                                            service:AWSServiceElasticLoadBalancing];
+        _configuration.endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
+                                                          service:AWSServiceElasticLoadBalancing];
 
-        AWSSignatureV2Signer *signer = [AWSSignatureV2Signer signerWithCredentialsProvider:_configuration.credentialsProvider
-                                                                                  endpoint:_endpoint];
+        AWSSignatureV4Signer *signer = [AWSSignatureV4Signer signerWithCredentialsProvider:_configuration.credentialsProvider
+                                                                                  endpoint:_configuration.endpoint];
 
-        _configuration.baseURL = _endpoint.URL;
+        _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.requestInterceptors = @[[AWSNetworkingRequestInterceptor new], signer];
         _configuration.retryHandler = [[AWSElasticLoadBalancingRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
-        _configuration.headers = @{@"Host" : _endpoint.hostName};
+        _configuration.headers = @{@"Host" : _configuration.endpoint.hostName};
 
-        _networking = [AZNetworking networking:_configuration];
+        _networking = [AWSNetworking networking:_configuration];
     }
 
     return self;
 }
 
 - (BFTask *)invokeRequest:(AWSRequest *)request
-               HTTPMethod:(AZHTTPMethod)HTTPMethod
+               HTTPMethod:(AWSHTTPMethod)HTTPMethod
                 URLString:(NSString *) URLString
              targetPrefix:(NSString *)targetPrefix
             operationName:(NSString *)operationName
@@ -214,9 +214,9 @@ static NSDictionary *errorCodeDictionary = nil;
         request = [AWSRequest new];
     }
 
-    AZNetworkingRequest *networkingRequest = request.internalRequest;
+    AWSNetworkingRequest *networkingRequest = request.internalRequest;
     if (request) {
-        networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] az_removeNullValues];
+        networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
     } else {
         networkingRequest.parameters = @{};
     }
@@ -226,17 +226,26 @@ static NSDictionary *errorCodeDictionary = nil;
     networkingRequest.requestSerializer = requestSerializer;
 
     networkingRequest.responseSerializer = [AWSElasticLoadBalancingResponseSerializer serializerWithOutputClass:outputClass
-                                                                                      resource:AWSELBDefinitionFileName
-                                                                                    actionName:operationName];
+                                                                                                       resource:AWSELBDefinitionFileName
+                                                                                                     actionName:operationName];
 
     return [self.networking sendRequest:networkingRequest];
 }
 
 #pragma mark - Service method
 
+- (BFTask *)addTags:(AWSElasticLoadBalancingAddTagsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"AddTags"
+                   outputClass:[AWSElasticLoadBalancingAddTagsOutput class]];
+}
+
 - (BFTask *)applySecurityGroupsToLoadBalancer:(AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ApplySecurityGroupsToLoadBalancer"
@@ -245,7 +254,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)attachLoadBalancerToSubnets:(AWSElasticLoadBalancingAttachLoadBalancerToSubnetsInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"AttachLoadBalancerToSubnets"
@@ -254,7 +263,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)configureHealthCheck:(AWSElasticLoadBalancingConfigureHealthCheckInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ConfigureHealthCheck"
@@ -263,7 +272,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createAppCookieStickinessPolicy:(AWSElasticLoadBalancingCreateAppCookieStickinessPolicyInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateAppCookieStickinessPolicy"
@@ -272,7 +281,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createLBCookieStickinessPolicy:(AWSElasticLoadBalancingCreateLBCookieStickinessPolicyInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateLBCookieStickinessPolicy"
@@ -281,7 +290,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createLoadBalancer:(AWSElasticLoadBalancingCreateAccessPointInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateLoadBalancer"
@@ -290,7 +299,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createLoadBalancerListeners:(AWSElasticLoadBalancingCreateLoadBalancerListenerInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateLoadBalancerListeners"
@@ -299,7 +308,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createLoadBalancerPolicy:(AWSElasticLoadBalancingCreateLoadBalancerPolicyInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateLoadBalancerPolicy"
@@ -308,7 +317,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteLoadBalancer:(AWSElasticLoadBalancingDeleteAccessPointInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteLoadBalancer"
@@ -317,7 +326,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteLoadBalancerListeners:(AWSElasticLoadBalancingDeleteLoadBalancerListenerInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteLoadBalancerListeners"
@@ -326,7 +335,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteLoadBalancerPolicy:(AWSElasticLoadBalancingDeleteLoadBalancerPolicyInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteLoadBalancerPolicy"
@@ -335,7 +344,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deregisterInstancesFromLoadBalancer:(AWSElasticLoadBalancingDeregisterEndPointsInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeregisterInstancesFromLoadBalancer"
@@ -344,7 +353,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeInstanceHealth:(AWSElasticLoadBalancingDescribeEndPointStateInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeInstanceHealth"
@@ -353,7 +362,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeLoadBalancerAttributes:(AWSElasticLoadBalancingDescribeLoadBalancerAttributesInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeLoadBalancerAttributes"
@@ -362,7 +371,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeLoadBalancerPolicies:(AWSElasticLoadBalancingDescribeLoadBalancerPoliciesInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeLoadBalancerPolicies"
@@ -371,7 +380,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeLoadBalancerPolicyTypes:(AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeLoadBalancerPolicyTypes"
@@ -380,16 +389,25 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeLoadBalancers:(AWSElasticLoadBalancingDescribeAccessPointsInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeLoadBalancers"
                    outputClass:[AWSElasticLoadBalancingDescribeAccessPointsOutput class]];
 }
 
+- (BFTask *)describeTags:(AWSElasticLoadBalancingDescribeTagsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeTags"
+                   outputClass:[AWSElasticLoadBalancingDescribeTagsOutput class]];
+}
+
 - (BFTask *)detachLoadBalancerFromSubnets:(AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DetachLoadBalancerFromSubnets"
@@ -398,7 +416,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)disableAvailabilityZonesForLoadBalancer:(AWSElasticLoadBalancingRemoveAvailabilityZonesInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DisableAvailabilityZonesForLoadBalancer"
@@ -407,7 +425,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)enableAvailabilityZonesForLoadBalancer:(AWSElasticLoadBalancingAddAvailabilityZonesInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"EnableAvailabilityZonesForLoadBalancer"
@@ -416,7 +434,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)modifyLoadBalancerAttributes:(AWSElasticLoadBalancingModifyLoadBalancerAttributesInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ModifyLoadBalancerAttributes"
@@ -425,16 +443,25 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)registerInstancesWithLoadBalancer:(AWSElasticLoadBalancingRegisterEndPointsInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"RegisterInstancesWithLoadBalancer"
                    outputClass:[AWSElasticLoadBalancingRegisterEndPointsOutput class]];
 }
 
+- (BFTask *)removeTags:(AWSElasticLoadBalancingRemoveTagsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"RemoveTags"
+                   outputClass:[AWSElasticLoadBalancingRemoveTagsOutput class]];
+}
+
 - (BFTask *)setLoadBalancerListenerSSLCertificate:(AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"SetLoadBalancerListenerSSLCertificate"
@@ -443,7 +470,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)setLoadBalancerPoliciesForBackendServer:(AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"SetLoadBalancerPoliciesForBackendServer"
@@ -452,7 +479,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)setLoadBalancerPoliciesOfListener:(AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"SetLoadBalancerPoliciesOfListener"

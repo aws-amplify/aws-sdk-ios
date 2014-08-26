@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AWSNetworking.h"
-#import "AZModel.h"
+#import "AWSModel.h"
 
 FOUNDATION_EXPORT NSString *const AWSSTSErrorDomain;
 
@@ -92,7 +92,7 @@ typedef NS_ENUM(NSInteger, AWSSTSErrorType) {
 /**
  * <p>Contains the result of a successful call to the <a>AssumeRole</a> action, including temporary AWS credentials that can be used to make AWS requests. </p>
  */
-@interface AWSSTSAssumeRoleResponse : AZModel
+@interface AWSSTSAssumeRoleResponse : AWSModel
 
 
 /**
@@ -116,12 +116,12 @@ typedef NS_ENUM(NSInteger, AWSSTSErrorType) {
 
 
 /**
- * <p>The duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set to 3600 seconds. An expiration can also be specified in the SAML authentication response's <code>NotOnOrAfter</code> value. The actual expiration time is whichever value is shorter. </p><note>The maximum duration for a session is 1 hour, and the minimum duration is 15 minutes, even if values outside this range are specified. </note>
+ * <p>The duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set to 3600 seconds. An expiration can also be specified in the SAML authentication response's <code>NotOnOrAfter</code> value. The actual expiration time is whichever value is shorter. </p>
  */
 @property (nonatomic, strong) NSNumber *durationSeconds;
 
 /**
- * <p>An IAM policy in JSON format.</p><p>The policy parameter is optional. If you pass a policy, the temporary security credentials that are returned by the operation have the permissions that are allowed by both the access policy of the role that is being assumed, <i><b>and</b></i> the policy that you pass. This gives you a way to further restrict the permissions for the resulting temporary security credentials. You cannot use the passed policy to grant permissions that are in excess of those allowed by the access policy of the role that is being assumed. For more information, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html">Permissions for AssumeRoleWithSAML</a> in <i>Using Temporary Security Credentials</i>. </p><note>The policy must be 2048 bytes or shorter, and its packed size must be less than 450 bytes.</note>
+ * <p>An IAM policy in JSON format.</p><p>The policy parameter is optional. If you pass a policy, the temporary security credentials that are returned by the operation have the permissions that are allowed by both the access policy of the role that is being assumed, <i><b>and</b></i> the policy that you pass. This gives you a way to further restrict the permissions for the resulting temporary security credentials. You cannot use the passed policy to grant permissions that are in excess of those allowed by the access policy of the role that is being assumed. For more information, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html">Permissions for AssumeRoleWithSAML</a> in <i>Using Temporary Security Credentials</i>. </p>
  */
 @property (nonatomic, strong) NSString *policy;
 
@@ -145,7 +145,7 @@ typedef NS_ENUM(NSInteger, AWSSTSErrorType) {
 /**
  * <p>Contains the result of a successful call to the <a>AssumeRoleWithSAML</a> action, including temporary AWS credentials that can be used to make AWS requests. </p>
  */
-@interface AWSSTSAssumeRoleWithSAMLResponse : AZModel
+@interface AWSSTSAssumeRoleWithSAMLResponse : AWSModel
 
 
 /**
@@ -208,7 +208,7 @@ typedef NS_ENUM(NSInteger, AWSSTSErrorType) {
 /**
  * <p>Contains the result of a successful call to the <a>AssumeRoleWithWebIdentity</a> action, including temporary AWS credentials that can be used to make AWS requests. </p>
  */
-@interface AWSSTSAssumeRoleWithWebIdentityResponse : AZModel
+@interface AWSSTSAssumeRoleWithWebIdentityResponse : AWSModel
 
 
 /**
@@ -247,7 +247,7 @@ typedef NS_ENUM(NSInteger, AWSSTSErrorType) {
  * <p>The identifiers for the temporary security credentials that the operation returns. </p>
  * Required parameters: [AssumedRoleId, Arn]
  */
-@interface AWSSTSAssumedRoleUser : AZModel
+@interface AWSSTSAssumedRoleUser : AWSModel
 
 
 /**
@@ -266,7 +266,7 @@ typedef NS_ENUM(NSInteger, AWSSTSErrorType) {
  * <p>AWS credentials for API authentication.</p>
  * Required parameters: [AccessKeyId, SecretAccessKey, SessionToken, Expiration]
  */
-@interface AWSSTSCredentials : AZModel
+@interface AWSSTSCredentials : AWSModel
 
 
 /**
@@ -304,7 +304,7 @@ typedef NS_ENUM(NSInteger, AWSSTSErrorType) {
 /**
  * <p>A document that contains additional information about the authorization status of a request from an encoded message that is returned in response to an AWS request. </p>
  */
-@interface AWSSTSDecodeAuthorizationMessageResponse : AZModel
+@interface AWSSTSDecodeAuthorizationMessageResponse : AWSModel
 
 
 /**
@@ -318,7 +318,7 @@ typedef NS_ENUM(NSInteger, AWSSTSErrorType) {
  * <p>Identifiers for the federated user that is associated with the credentials.</p>
  * Required parameters: [FederatedUserId, Arn]
  */
-@interface AWSSTSFederatedUser : AZModel
+@interface AWSSTSFederatedUser : AWSModel
 
 
 /**
@@ -356,7 +356,7 @@ typedef NS_ENUM(NSInteger, AWSSTSErrorType) {
 /**
  * <p>Contains the result of a successful call to the <a>GetFederationToken</a> action, including temporary AWS credentials that can be used to make AWS requests. </p>
  */
-@interface AWSSTSGetFederationTokenResponse : AZModel
+@interface AWSSTSGetFederationTokenResponse : AWSModel
 
 
 /**
@@ -399,7 +399,7 @@ typedef NS_ENUM(NSInteger, AWSSTSErrorType) {
 /**
  * <p>Contains the result of a successful call to the <a>GetSessionToken</a> action, including temporary AWS credentials that can be used to make AWS requests. </p>
  */
-@interface AWSSTSGetSessionTokenResponse : AZModel
+@interface AWSSTSGetSessionTokenResponse : AWSModel
 
 
 /**

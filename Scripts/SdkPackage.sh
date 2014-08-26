@@ -81,10 +81,10 @@ lipo -create "Build/Debug-iphonesimulator/lib${PROJECT}.a" "Build/Debug64-iphone
 
 # Now copy headerfile
 echo "Framework: Copying assets into current version..."
-cp -a AmazonCore/*.h $FRAMEWORK_DIR/Headers/
-cp -a AmazonCore/Logging/*.h $FRAMEWORK_DIR/Headers/
-cp -a AmazonCore/Networking/*.h $FRAMEWORK_DIR/Headers/
-cp -a AmazonCore/Utility/*.h $FRAMEWORK_DIR/Headers/
+# cp -a AmazonCore/*.h $FRAMEWORK_DIR/Headers/
+# cp -a AmazonCore/Logging/*.h $FRAMEWORK_DIR/Headers/
+# cp -a AmazonCore/Networking/*.h $FRAMEWORK_DIR/Headers/
+cp -a AWSCore/Utility/*.h $FRAMEWORK_DIR/Headers/
 
 cp -a AWSCore/*.h $FRAMEWORK_DIR/Headers/
 cp -a AWSCore/Authentication/*.h $FRAMEWORK_DIR/Headers/

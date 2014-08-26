@@ -13,30 +13,30 @@
  * permissions and limitations under the License.
  */
 
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
-@implementation AZLogger
+@implementation AWSLogger
 
 - (instancetype)init {
     if (self = [super init]) {
-        _logLevel = AZLogLevelNone;
+        _logLevel = AWSLogLevelNone;
     }
 
     return self;
 }
 
 + (instancetype)defaultLogger {
-    static AZLogger *_defaultLogger = nil;
+    static AWSLogger *_defaultLogger = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _defaultLogger = [AZLogger new];
-        _defaultLogger.logLevel = AZLogLevelError; //set default logLevel
+        _defaultLogger = [AWSLogger new];
+        _defaultLogger.logLevel = AWSLogLevelError; //set default logLevel
     });
 
     return _defaultLogger;
 }
 
-- (void)log:(AZLogLevel)logLevel format:(NSString *)fmt, ... NS_FORMAT_FUNCTION(2, 3) {
+- (void)log:(AWSLogLevel)logLevel format:(NSString *)fmt, ... NS_FORMAT_FUNCTION(2, 3) {
     if(self.logLevel >= logLevel) {
         va_list args;
         va_start(args, fmt);
@@ -45,25 +45,25 @@
     }
 }
 
-- (NSString *)logLevelLabel:(AZLogLevel)logLevel {
+- (NSString *)logLevelLabel:(AWSLogLevel)logLevel {
     switch (logLevel) {
-        case AZLogLevelError:
+        case AWSLogLevelError:
             return @"Error";
 
-        case AZLogLevelWarn:
+        case AWSLogLevelWarn:
             return @"Warn";
 
-        case AZLogLevelInfo:
+        case AWSLogLevelInfo:
             return @"Info";
 
-        case AZLogLevelDebug:
+        case AWSLogLevelDebug:
             return @"Debug";
 
-        case AZLogLevelVerbose:
+        case AWSLogLevelVerbose:
             return @"Verbose";
 
-        case AZLogLevelUnknown:
-        case AZLogLevelNone:
+        case AWSLogLevelUnknown:
+        case AWSLogLevelNone:
         default:
             return @"?";
     }

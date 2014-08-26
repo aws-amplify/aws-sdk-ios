@@ -23,84 +23,81 @@
 #import "AWSMobileAnalyticsDefaultDeliveryClient.h"
 #import "AWSMobileAnalyticsIOSLifeCycleManager.h"
 #import "AWSMobileAnalyticsIOSClientContext.h"
-#import "AWSMobileAnalyticsClientConfiguration.h"
+#import "AWSMobileAnalyticsConfiguration.h"
 #import "AWSMobileAnalyticsIOSClientContext.h"
-#import "AWSMobileAnalyticsClientConfiguration.h"
+#import "AWSMobileAnalyticsConfiguration.h"
 
 @interface AWSMobileAnalyticsDefaultContext()
+
 @property(nonatomic) id<AWSMobileAnalyticsUniqueIdService> uniqueIdService;
+
 @end
 
 @implementation AWSMobileAnalyticsDefaultContext
 
-+(id<AWSMobileAnalyticsContext>) contextWithIdentifier:(NSString*) theIdentifier
-                                    withSdkInfo:(AWSMobileAnalyticsSDKInfo*)sdkInfo
-                      withConfigurationSettings:(NSDictionary*)settings
-{
++ (id<AWSMobileAnalyticsContext>) contextWithIdentifier:(NSString*) theIdentifier
+                                            withSdkInfo:(AWSMobileAnalyticsSDKInfo*)sdkInfo
+                              withConfigurationSettings:(NSDictionary*)settings {
     return [AWSMobileAnalyticsDefaultContext contextWithIdentifier:theIdentifier
-                                    withClientConfiguration:[AWSMobileAnalyticsClientConfiguration defaultClientConfiguration]
-                                                withSdkInfo:sdkInfo
-                                  withConfigurationSettings:settings];
+                                           withClientConfiguration:[AWSMobileAnalyticsConfiguration new]
+                                                       withSdkInfo:sdkInfo
+                                         withConfigurationSettings:settings];
 }
 
 + (id<AWSMobileAnalyticsContext>) contextWithIdentifier:(NSString*) theIdentifier
-                         withClientConfiguration:(AWSMobileAnalyticsClientConfiguration *)clientConfiguration
-                                     withSdkInfo:(AWSMobileAnalyticsSDKInfo*)sdkInfo
-                       withConfigurationSettings:(NSDictionary*)settings
-{
+                                withClientConfiguration:(AWSMobileAnalyticsConfiguration *)clientConfiguration
+                                            withSdkInfo:(AWSMobileAnalyticsSDKInfo*)sdkInfo
+                              withConfigurationSettings:(NSDictionary*)settings {
     return [[AWSMobileAnalyticsDefaultContext alloc] initWithIdentifier:theIdentifier
-                                         withClientConfiguration:clientConfiguration
-                                                     withSdkInfo:sdkInfo
-                                       withConfigurationSettings:settings];
+                                                withClientConfiguration:clientConfiguration
+                                                            withSdkInfo:sdkInfo
+                                              withConfigurationSettings:settings];
 }
 
--(id<AWSMobileAnalyticsContext>) initWithIdentifier:(NSString*) theIdentifier
-                     withClientConfiguration:(AWSMobileAnalyticsClientConfiguration *)clientConfiguration
-                                 withSdkInfo:(AWSMobileAnalyticsSDKInfo*)sdkInfo
-                   withConfigurationSettings:(NSDictionary*)settings
-{
-    if (self = [super init])
-    {
+- (id<AWSMobileAnalyticsContext>) initWithIdentifier:(NSString*) theIdentifier
+                             withClientConfiguration:(AWSMobileAnalyticsConfiguration *)clientConfiguration
+                                         withSdkInfo:(AWSMobileAnalyticsSDKInfo*)sdkInfo
+                           withConfigurationSettings:(NSDictionary*)settings {
+    if (self = [super init]) {
         _identifier = theIdentifier;
-        
-      
+
+
         _sdkInfo = sdkInfo;
-        
+
         _system = [[AWSMobileAnalyticsIOSSystem alloc] initWithIdentifier:theIdentifier];
-        
+
         _uniqueIdService = [AWSMobileAnalyticsPrefsUniqueIdService idService];
         _uniqueId = [self.uniqueIdService getUniqueIdWithContext:self]; // TODO: this may need to be broken up since self is not fully instantiated yet
-        
+
         // now that we have the id, create the client context from the client configuration that
         // was passed in
-        AWSMobileAnalyticsClientEnvironment *environment = clientConfiguration.environment;
+        AWSMobileAnalyticsEnvironment *environment = clientConfiguration.environment;
         _clientContext = [AWSMobileAnalyticsIOSClientContext clientContextWithAppVersion:environment.appVersion
-                                                            withAppBuild:environment.appBuild
-                                                      withAppPackageName:environment.appPackageName
-                                                             withAppName:environment.appName
-                                                    withCustomAttributes:clientConfiguration.attributes];
-        
+                                                                            withAppBuild:environment.appBuild
+                                                                      withAppPackageName:environment.appPackageName
+                                                                             withAppName:environment.appName
+                                                                    withCustomAttributes:clientConfiguration.attributes];
+
         _httpClient = [[AWSMobileAnalyticsDefaultHttpClient alloc] init];
 		[_httpClient addInterceptor:[[AWSMobileAnalyticsSDKInfoInterceptor alloc] initWithSDKInfo:_sdkInfo]];
         [_httpClient addInterceptor:[[AWSMobileAnalyticsInstanceIdInterceptor alloc] initWithInstanceId:_uniqueId]];
         [_httpClient addInterceptor:[AWSMobileAnalyticsClientContextInterceptor contextInterceptorWithClientContext:_clientContext]];
-      
+
         [_httpClient addInterceptor:[[AWSMobileAnalyticsLogInterceptor alloc] init]];
-        
+
         NSOperationQueue* queue = [[NSOperationQueue alloc] init];
         [queue setMaxConcurrentOperationCount:1];
-        
-        
+
+
         _configuration = [AWSMobileAnalyticsHttpCachingConfiguration configurationWithContext:self
-                                                              withFileManager:_system.fileManager
-                                                         withOverrideSettings:settings
-                                                           withOperationQueue:queue];
+                                                                              withFileManager:_system.fileManager
+                                                                         withOverrideSettings:settings
+                                                                           withOperationQueue:queue];
     }
     return self;
 }
 
--(void) synchronize
-{
+- (void)synchronize {
     _uniqueId = [self.uniqueIdService getUniqueIdWithContext:self];
     [_configuration refresh];
 }

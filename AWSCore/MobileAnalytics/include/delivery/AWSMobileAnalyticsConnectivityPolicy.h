@@ -20,7 +20,7 @@
 @interface AWSMobileAnalyticsConnectivityPolicy : NSObject <AWSMobileAnalyticsDeliveryPolicy>
 
 +(AWSMobileAnalyticsConnectivityPolicy*)policyWithConnectivity:(id<AWSMobileAnalyticsConnectivity>)connectivity
-                             withConfiguration:(id<AWSMobileAnalyticsConfiguration>)configuration
+                             withConfiguration:(id<AWSMobileAnalyticsConfiguring>)configuration
                                   withAllowWan:(BOOL)allowWan;
 
 -(BOOL)isAllowed;

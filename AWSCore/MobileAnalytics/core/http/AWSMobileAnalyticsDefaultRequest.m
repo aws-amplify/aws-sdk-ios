@@ -14,7 +14,7 @@
  */
 
 #import "AWSMobileAnalyticsDefaultRequest.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 @implementation AWSMobileAnalyticsDefaultRequest
 
@@ -104,7 +104,7 @@
 
 -(id) initWithDictionary: (NSDictionary *) theDictionary
 {
-    AZLogError( @"Initialization from NSDictionary is not supported for AWSMobileAnalyticsDefaultRequest");
+    AWSLogError( @"Initialization from NSDictionary is not supported for AWSMobileAnalyticsDefaultRequest");
     return [self init];
 }
 

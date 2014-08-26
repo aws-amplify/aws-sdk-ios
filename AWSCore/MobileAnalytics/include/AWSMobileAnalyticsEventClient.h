@@ -71,8 +71,8 @@
  * @param theKey the name of the attribute to add
  */
 @required
--(void) addGlobalAttribute:(NSString *) theValue
-                    forKey:(NSString *) theKey;
+- (void)addGlobalAttribute:(NSString *)theValue
+                    forKey:(NSString *)theKey;
 
 /**
  * Adds the specified attribute to all subsequent recorded events with the specified event type.
@@ -81,9 +81,9 @@
  * @param theEventType the type of events to add the attribute to
  */
 @required
--(void) addGlobalAttribute:(NSString *) theValue
-                    forKey:(NSString *) theKey
-              forEventType:(NSString *) theEventType;
+- (void)addGlobalAttribute:(NSString *)theValue
+                    forKey:(NSString *)theKey
+              forEventType:(NSString *)theEventType;
 
 /**
  * Adds the specified metric to all subsequent recorded events.
@@ -91,8 +91,8 @@
  * @param theKey the name of the metric to add
  */
 @required
--(void) addGlobalMetric:(NSNumber *) theValue
-                 forKey:(NSString *) theKey;
+- (void)addGlobalMetric:(NSNumber *)theValue
+                 forKey:(NSString *)theKey;
 
 /**
  * Adds the specified metric to all subsequent recorded events with the specified event type.
@@ -101,16 +101,16 @@
  * @param theEventType the type of events to add the metric to
  */
 @required
--(void) addGlobalMetric:(NSNumber *) theValue
-                 forKey:(NSString *) theKey
-           forEventType:(NSString *) theEventType;
+- (void)addGlobalMetric:(NSNumber *)theValue
+                 forKey:(NSString *)theKey
+           forEventType:(NSString *)theEventType;
 
 /**
  * Removes the specified attribute. All subsequent recorded events will no longer have this global attribute.
  * @param theKey the key of the attribute to remove
  */
 @required
--(void) removeGlobalAttributeForKey:(NSString*) theKey;
+- (void)removeGlobalAttributeForKey:(NSString*) theKey;
 
 /**
  * Removes the specified attribute. All subsequent recorded events with the specified event type will no longer have this global attribute.
@@ -118,7 +118,7 @@
  * @param theEventType the type of events to remove the attribute from
  */
 @required
--(void) removeGlobalAttributeForKey:(NSString*) theKey
+- (void)removeGlobalAttributeForKey:(NSString*) theKey
                        forEventType:(NSString*) theEventType;
 
 /**
@@ -126,7 +126,7 @@
  * @param theKey the key of the metric to remove
  */
 @required
--(void) removeGlobalMetricForKey:(NSString*) theKey;
+- (void)removeGlobalMetricForKey:(NSString*) theKey;
 
 /**
  * Removes the specified metric. All subsequent recorded events with the specified event type will no longer have this global metric.
@@ -134,7 +134,7 @@
  * @param theEventType the type of events to remove the metric from
  */
 @required
--(void) removeGlobalMetricForKey:(NSString*) theKey
+- (void)removeGlobalMetricForKey:(NSString*) theKey
                     forEventType:(NSString*) theEventType;
 
 /**
@@ -142,7 +142,7 @@
  * @param theEvent The AWSMobileAnalyticsEvent to persist
  */
 @required
--(void) recordEvent:(id<AWSMobileAnalyticsEvent>)theEvent;
+- (void)recordEvent:(id<AWSMobileAnalyticsEvent>)theEvent;
 
 /**
  * Create an AWSMobileAnalyticsEvent with the specified theEventType
@@ -150,7 +150,7 @@
  * @returns an AWSMobileAnalyticsEvent with the specified event type
  */
 @required
--(id<AWSMobileAnalyticsEvent>) createEventWithEventType:(NSString *) theEventType;
+- (id<AWSMobileAnalyticsEvent>)createEventWithEventType:(NSString *)theEventType;
 
 /**
  * Submits all recorded events to the Mobile Analytics Website. If you try to submit
@@ -159,6 +159,6 @@
  * are automatically submitted when the application goes into the background.
  */
 @required
--(void) submitEvents;
+- (void)submitEvents;
 
 @end

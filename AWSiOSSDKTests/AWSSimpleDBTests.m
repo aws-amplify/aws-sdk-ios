@@ -13,7 +13,7 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_SIMPLEDB
+#if AWS_TEST_SIMPLEDB && !AWS_TEST_BJS_INSTEAD
 
 #import <XCTest/XCTest.h>
 #import "SimpleDB.h"
@@ -67,7 +67,7 @@ static NSString *_testDomainName = nil;
         if (task.result) {
             AWSSimpleDBListDomainsResult *listDomainsResult = task.result;
             XCTAssertNotNil(listDomainsResult.domainNames, @" doemainNames Array should not be nil.");
-            AZLogDebug(@"[%@]", listDomainsResult);
+            AWSLogDebug(@"[%@]", listDomainsResult);
         }
 
         return nil;
@@ -75,7 +75,7 @@ static NSString *_testDomainName = nil;
 }
 
 - (void)testSelect {
-    [[AZLogger defaultLogger] setLogLevel:AZLogLevelVerbose];
+    [[AWSLogger defaultLogger] setLogLevel:AWSLogLevelVerbose];
     AWSSimpleDB *sdb = [AWSSimpleDB defaultSimpleDB];
 
     AWSSimpleDBSelectRequest *selectRequest = [AWSSimpleDBSelectRequest new];
@@ -94,44 +94,63 @@ static NSString *_testDomainName = nil;
     }] waitUntilFinished];
 }
 
+- (void)testSelectWithNonEnglishTableName {
+    [[AWSLogger defaultLogger] setLogLevel:AWSLogLevelVerbose];
+    AWSSimpleDB *sdb = [AWSSimpleDB defaultSimpleDB];
+
+    AWSSimpleDBSelectRequest *selectRequest = [AWSSimpleDBSelectRequest new];
+    selectRequest.selectExpression = [NSString stringWithFormat:@"select * from `%@` where fakeAttribute = 'フェイクアトリビュート'", _testDomainName];
+    [[[sdb select:selectRequest] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+
+        if (task.result) {
+            AWSSimpleDBSelectResult *selectResult = task.result;
+            XCTAssertNotNil(selectResult, @"selectResult should not be nil.");
+        }
+
+        return nil;
+    }] waitUntilFinished];
+}
+
 - (void)testSelectWithLike {
     AWSSimpleDB *sdb = [AWSSimpleDB defaultSimpleDB];
     NSString *myItemName = [NSString stringWithFormat:@"itemName%@",NSStringFromSelector(_cmd)];
-    
+
     AWSSimpleDBPutAttributesRequest *putAttributesRequest = [AWSSimpleDBPutAttributesRequest new];
     putAttributesRequest.domainName = _testDomainName;
     putAttributesRequest.itemName =myItemName;
-    
+
     AWSSimpleDBReplaceableAttribute *attribute1 = [AWSSimpleDBReplaceableAttribute new];
     attribute1.name = @"Color";
     attribute1.value = @"Blue";
     attribute1.replace = @YES;
-    
+
     AWSSimpleDBReplaceableAttribute *attribute2 = [AWSSimpleDBReplaceableAttribute new];
     attribute2.name = @"Size";
     attribute2.value = @"20";
-    
-    
+
     putAttributesRequest.attributes = @[attribute1,attribute2];
-    
+
     [[[[sdb putAttributes:putAttributesRequest] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
-        
+
         AWSSimpleDBSelectRequest *selectRequest = [AWSSimpleDBSelectRequest new];
         selectRequest.selectExpression = [NSString stringWithFormat:@"select * from `%@` where Color like 'Bl%%'", _testDomainName];
-        
+
         sleep(2);
         return [sdb select:selectRequest];
     }] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
-        
+
         AWSSimpleDBSelectResult  *selectResult = task.result;
         XCTAssertNotNil(selectResult.items, @"selectResult should not be nil.");
-        
+
         BOOL isFound = NO;
         for (AWSSimpleDBItem *anItem in selectResult.items) {
             if ([anItem.name isEqualToString:myItemName]) {
@@ -142,10 +161,10 @@ static NSString *_testDomainName = nil;
                 }
             }
         }
-        
+
         XCTAssertTrue(isFound, @"can not find the expected result from select response.");
-        
-        
+
+
         return nil;
     }] waitUntilFinished];
 }
@@ -153,40 +172,40 @@ static NSString *_testDomainName = nil;
 -(void)testCheckRetainTrailingSpace {
     AWSSimpleDB *sdb = [AWSSimpleDB defaultSimpleDB];
     NSString *myItemName = [NSString stringWithFormat:@"itemName%@",NSStringFromSelector(_cmd)];
-    
+
     AWSSimpleDBPutAttributesRequest *putAttributesRequest = [AWSSimpleDBPutAttributesRequest new];
     putAttributesRequest.domainName = _testDomainName;
     putAttributesRequest.itemName = myItemName;
-    
+
     AWSSimpleDBReplaceableAttribute *attribute1 = [AWSSimpleDBReplaceableAttribute new];
     attribute1.name = @"Color";
     attribute1.value = @"RedWithTrailingSpace     ";
     //attribute1.replace = @YES;
-    
+
     AWSSimpleDBReplaceableAttribute *attribute2 = [AWSSimpleDBReplaceableAttribute new];
     attribute2.name = @"Size";
     attribute2.value = @"99 ";
-    
+
     putAttributesRequest.attributes = @[attribute1,attribute2];
-    
+
     [[[[sdb putAttributes:putAttributesRequest] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
-        
+
         AWSSimpleDBSelectRequest *selectRequest = [AWSSimpleDBSelectRequest new];
         selectRequest.selectExpression = [NSString stringWithFormat:@"select * from `%@`", _testDomainName];
-        
+
         sleep(2);
         return [sdb select:selectRequest];
     }] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
-        
+
         AWSSimpleDBSelectResult  *selectResult = task.result;
         XCTAssertNotNil(selectResult.items, @"selectResult should not be nil.");
-        
+
         BOOL isFound1 = NO;
         BOOL isFound2 = NO;
         for (AWSSimpleDBItem *anItem in selectResult.items) {
@@ -198,14 +217,14 @@ static NSString *_testDomainName = nil;
                     if ([attribute.name isEqualToString:@"Size"] && [attribute.value isEqualToString:@"99 "]) {
                         isFound2 = YES;
                     }
-                    
+
                 }
             }
         }
-        
+
         XCTAssertTrue(isFound1&&isFound2, @"can not find the expected result from select response.");
-        
-        
+
+
         return nil;
     }] waitUntilFinished];
 }

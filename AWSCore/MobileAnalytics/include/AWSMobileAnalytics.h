@@ -18,38 +18,40 @@
 #import "AWSMobileAnalyticsEventClient.h"
 
 #import "AWSCore.h"
-#import "AWSMobileAnalyticsClientConfiguration.h"
+#import "AWSMobileAnalyticsConfiguration.h"
 
 @class AWSMobileAnalytics;
-@class AWSMobileAnalyticsClientConfiguration;
-@protocol AZCredentialProvider;
-typedef void(^AIInitializationCompletionBlock)(AWSMobileAnalytics *);
+@class AWSServiceConfiguration;
+@class AWSMobileAnalyticsConfiguration;
+
+typedef void(^AWSInitializationCompletionBlock)(AWSMobileAnalytics *);
 
 @interface AWSMobileAnalytics : NSObject
 
 /**
- * Return the AWSMobileAnalyticsEventClient
- * @returns the AWSMobileAnalyticsEventClient to create, record, and submit events
+ * Returns the `AWSMobileAnalyticsEventClient`.
+ * @returns the `AWSMobileAnalyticsEventClient` to create, record, and submit events.
  */
 @property (nonatomic, readonly) id<AWSMobileAnalyticsEventClient> eventClient;
 
+/**
+ * Creates an `AWSMobileAnalytics` instance with the specified `appId` using the default `configuration` if the instance does not already exists for the `appId`. If an instance exists for the given `appId`, returns the existing instance. `configuration` and `completionBlock` are ignored if an instance exists for the given `appId`. The strong reference to the instance is maintained by `AWSMobileAnalytics`, and the developer does not need to retain it manually.
+ *
+ * @param appId An appId used to distinguish multiple instances of AWSMobileAnalytics.
+ * @returns The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.
+ */
++ (instancetype)mobileAnalyticsForAppId:(NSString *)appId;
 
 /**
- * Create an AWSMobileAnalytics instance with the specified identifier using provided eventRecorderService instance.
- * @param appNamespace A UUID(universally unique identifier) provided by user for multi-tenancy purpose.
- * @param completionBlock A AIInitializationCompletionBlock that allows developers to handle custom logic after initialization but before the session begins.
- * @returns The AWSMobileAnalytics instance with the specified identifier, or nil if eventRecorderService does not exist or theIdentifier is empty.
+ * Creates an `AWSMobileAnalytics` instance with the specified `appId` using provided `configuration` if the instance does not already exists for the `appId`. If an instance exists for the given `appId`, returns the existing instance. `configuration` and `completionBlock` are ignored if an instance exists for the given `appId`. The strong reference to the instance is maintained by `AWSMobileAnalytics`, and the developer does not need to retain it manually.
+ *
+ * @param appId An appId used to distinguish multiple instances of AWSMobileAnalytics.
+ * @param configuration A configuraiton object. By default, it uses [AWSServiceManager defaultServiceManager].defaultServiceConfiguration to access the service.
+ * @param completionBlock A AWSInitializationCompletionBlock that allows developers to handle custom logic after initialization but before the session begins.
+ * @returns The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.
  */
-+(AWSMobileAnalytics *) mobileAnalyticsWithEventRecorderService:(AWSEventRecorderService *)eventRecorderService
-                                        appNamespace:(NSString *)appNamespace
-                                   completionBlock:(AIInitializationCompletionBlock)completionBlock;
-
-
-/**
- * Create an AWSMobileAnalytics instance with the specified identifier using defaultServiceConfiguration.
- * @param appNamespace A UUID(universally unique identifier) provided by user for multi-tenancy purpose.
- * @returns The AWSMobileAnalytics instance with the specified identifier, or nil if defaultServiceConfiguration does not exist or theIdentifier is empty.
- */
-+(instancetype) defaultMobileAnalyticsWithAppNamespace:(NSString *)appNamespace;
++ (instancetype)mobileAnalyticsForAppId:(NSString *)appId
+                          configuration:(AWSMobileAnalyticsConfiguration *)configuration
+                        completionBlock:(AWSInitializationCompletionBlock)completionBlock;
 
 @end

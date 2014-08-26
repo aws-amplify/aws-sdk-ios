@@ -15,8 +15,8 @@
 
 #import "AWSSNS.h"
 
-#import "AZNetworking.h"
-#import "AZCategory.h"
+#import "AWSNetworking.h"
+#import "AWSCategory.h"
 #import "AWSSignature.h"
 #import "AWSService.h"
 #import "AWSNetworking.h"
@@ -47,14 +47,15 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"IncompleteSignature" : @(AWSSNSErrorIncompleteSignature),
                             @"InvalidClientTokenId" : @(AWSSNSErrorInvalidClientTokenId),
                             @"MissingAuthenticationToken" : @(AWSSNSErrorMissingAuthenticationToken),
-                            @"AuthorizationErrorException" : @(AWSSNSErrorAuthorizationError),
-                            @"EndpointDisabledException" : @(AWSSNSErrorEndpointDisabled),
-                            @"InternalErrorException" : @(AWSSNSErrorInternalError),
-                            @"InvalidParameterException" : @(AWSSNSErrorInvalidParameter),
-                            @"NotFoundException" : @(AWSSNSErrorNotFound),
-                            @"PlatformApplicationDisabledException" : @(AWSSNSErrorPlatformApplicationDisabled),
-                            @"SubscriptionLimitExceededException" : @(AWSSNSErrorSubscriptionLimitExceeded),
-                            @"TopicLimitExceededException" : @(AWSSNSErrorTopicLimitExceeded),
+                            @"AuthorizationError" : @(AWSSNSErrorAuthorizationError),
+                            @"EndpointDisabled" : @(AWSSNSErrorEndpointDisabled),
+                            @"InternalError" : @(AWSSNSErrorInternalError),
+                            @"InvalidParameter" : @(AWSSNSErrorInvalidParameter),
+                            @"ParameterValueInvalid" : @(AWSSNSErrorInvalidParameterValue),
+                            @"NotFound" : @(AWSSNSErrorNotFound),
+                            @"PlatformApplicationDisabled" : @(AWSSNSErrorPlatformApplicationDisabled),
+                            @"SubscriptionLimitExceeded" : @(AWSSNSErrorSubscriptionLimitExceeded),
+                            @"TopicLimitExceeded" : @(AWSSNSErrorTopicLimitExceeded),
                             };
 }
 
@@ -87,7 +88,7 @@ static NSDictionary *errorCodeDictionary = nil;
             if (error) {
                 *error = [NSError errorWithDomain:AWSSNSErrorDomain
                                              code:[errorCodeDictionary[errorInfo[@"Code"]] integerValue]
-                                         userInfo:@{NSLocalizedDescriptionKey :[errorInfo objectForKey:@"Message"]?[errorInfo objectForKey:@"Message"]:[NSNull null]}
+                                         userInfo:errorInfo
                           ];
                 return responseObject;
             }
@@ -95,8 +96,7 @@ static NSDictionary *errorCodeDictionary = nil;
             if (error) {
                 *error = [NSError errorWithDomain:AWSSNSErrorDomain
                                              code:AWSSNSErrorUnknown
-                                         userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"%@ -- %@",[errorInfo objectForKey:@"Code"],[errorInfo objectForKey:@"Message"]?[errorInfo objectForKey:@"Message"]:[NSNull null]]
-                                                    }];
+                                         userInfo:errorInfo];
                 return responseObject;
             }
         }
@@ -119,22 +119,22 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSSNSRequestRetryHandler
 
-- (AZNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
+- (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
                             response:(NSHTTPURLResponse *)response
                                 data:(NSData *)data
                                error:(NSError *)error {
-    AZNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
+    AWSNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
                                                 response:response
                                                     data:data
                                                    error:error];
-    if(retryType == AZNetworkingRetryTypeShouldNotRetry
+    if(retryType == AWSNetworkingRetryTypeShouldNotRetry
        && [error.domain isEqualToString:AWSSNSErrorDomain]
        && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
             case AWSSNSErrorIncompleteSignature:
             case AWSSNSErrorInvalidClientTokenId:
             case AWSSNSErrorMissingAuthenticationToken:
-                retryType = AZNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
+                retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
                 break;
 
             default:
@@ -149,15 +149,14 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @interface AWSRequest()
 
-@property (nonatomic, strong) AZNetworkingRequest *internalRequest;
+@property (nonatomic, strong) AWSNetworkingRequest *internalRequest;
 
 @end
 
 @interface AWSSNS()
 
-@property (nonatomic, strong) AZNetworking *networking;
+@property (nonatomic, strong) AWSNetworking *networking;
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
-@property (nonatomic, strong) AWSEndpoint *endpoint;
 
 @end
 
@@ -181,25 +180,25 @@ static NSDictionary *errorCodeDictionary = nil;
     if (self = [super init]) {
         _configuration = [configuration copy];
 
-        _endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
-                                            service:AWSServiceSNS];
+        _configuration.endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
+                                                          service:AWSServiceSNS];
 
         AWSSignatureV4Signer *signer = [AWSSignatureV4Signer signerWithCredentialsProvider:_configuration.credentialsProvider
-                                                                                  endpoint:_endpoint];
+                                                                                  endpoint:_configuration.endpoint];
 
-        _configuration.baseURL = _endpoint.URL;
+        _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.requestInterceptors = @[[AWSNetworkingRequestInterceptor new], signer];
         _configuration.retryHandler = [[AWSSNSRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
-        _configuration.headers = @{@"Host" : _endpoint.hostName};
+        _configuration.headers = @{@"Host" : _configuration.endpoint.hostName};
 
-        _networking = [AZNetworking networking:_configuration];
+        _networking = [AWSNetworking networking:_configuration];
     }
 
     return self;
 }
 
 - (BFTask *)invokeRequest:(AWSRequest *)request
-               HTTPMethod:(AZHTTPMethod)HTTPMethod
+               HTTPMethod:(AWSHTTPMethod)HTTPMethod
                 URLString:(NSString *) URLString
              targetPrefix:(NSString *)targetPrefix
             operationName:(NSString *)operationName
@@ -208,9 +207,9 @@ static NSDictionary *errorCodeDictionary = nil;
         request = [AWSRequest new];
     }
 
-    AZNetworkingRequest *networkingRequest = request.internalRequest;
+    AWSNetworkingRequest *networkingRequest = request.internalRequest;
     if (request) {
-        networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] az_removeNullValues];
+        networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
     } else {
         networkingRequest.parameters = @{};
     }
@@ -230,7 +229,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)addPermission:(AWSSNSAddPermissionInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"AddPermission"
@@ -239,7 +238,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)confirmSubscription:(AWSSNSConfirmSubscriptionInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ConfirmSubscription"
@@ -248,7 +247,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createPlatformApplication:(AWSSNSCreatePlatformApplicationInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreatePlatformApplication"
@@ -257,7 +256,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createPlatformEndpoint:(AWSSNSCreatePlatformEndpointInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreatePlatformEndpoint"
@@ -266,7 +265,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createTopic:(AWSSNSCreateTopicInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateTopic"
@@ -275,7 +274,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteEndpoint:(AWSSNSDeleteEndpointInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteEndpoint"
@@ -284,7 +283,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deletePlatformApplication:(AWSSNSDeletePlatformApplicationInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeletePlatformApplication"
@@ -293,7 +292,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteTopic:(AWSSNSDeleteTopicInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteTopic"
@@ -302,7 +301,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getEndpointAttributes:(AWSSNSGetEndpointAttributesInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"GetEndpointAttributes"
@@ -311,7 +310,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getPlatformApplicationAttributes:(AWSSNSGetPlatformApplicationAttributesInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"GetPlatformApplicationAttributes"
@@ -320,7 +319,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getSubscriptionAttributes:(AWSSNSGetSubscriptionAttributesInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"GetSubscriptionAttributes"
@@ -329,7 +328,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getTopicAttributes:(AWSSNSGetTopicAttributesInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"GetTopicAttributes"
@@ -338,7 +337,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)listEndpointsByPlatformApplication:(AWSSNSListEndpointsByPlatformApplicationInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ListEndpointsByPlatformApplication"
@@ -347,7 +346,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)listPlatformApplications:(AWSSNSListPlatformApplicationsInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ListPlatformApplications"
@@ -356,7 +355,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)listSubscriptions:(AWSSNSListSubscriptionsInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ListSubscriptions"
@@ -365,7 +364,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)listSubscriptionsByTopic:(AWSSNSListSubscriptionsByTopicInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ListSubscriptionsByTopic"
@@ -374,7 +373,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)listTopics:(AWSSNSListTopicsInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ListTopics"
@@ -383,7 +382,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)publish:(AWSSNSPublishInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"Publish"
@@ -392,7 +391,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)removePermission:(AWSSNSRemovePermissionInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"RemovePermission"
@@ -401,7 +400,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)setEndpointAttributes:(AWSSNSSetEndpointAttributesInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"SetEndpointAttributes"
@@ -410,7 +409,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)setPlatformApplicationAttributes:(AWSSNSSetPlatformApplicationAttributesInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"SetPlatformApplicationAttributes"
@@ -419,7 +418,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)setSubscriptionAttributes:(AWSSNSSetSubscriptionAttributesInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"SetSubscriptionAttributes"
@@ -428,7 +427,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)setTopicAttributes:(AWSSNSSetTopicAttributesInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"SetTopicAttributes"
@@ -437,7 +436,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)subscribe:(AWSSNSSubscribeInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"Subscribe"
@@ -446,7 +445,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)unsubscribe:(AWSSNSUnsubscribeInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"Unsubscribe"

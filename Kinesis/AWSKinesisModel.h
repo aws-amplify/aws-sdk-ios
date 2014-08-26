@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AWSNetworking.h"
-#import "AZModel.h"
+#import "AWSModel.h"
 
 FOUNDATION_EXPORT NSString *const AWSKinesisErrorDomain;
 
@@ -76,12 +76,12 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 
 
 /**
- * <p>The number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greaterprovisioned throughput.</p><p><b>Note:</b> The default limit for an AWS account is 10 shards per stream.If you need to create a stream with more than 10 shards, <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">contact AWS Support</a> to increase the limit on your account.</p>
+ * <p>The number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.</p><p><b>Note:</b> The default limit for an AWS account is 10 shards per stream. If you need to create a stream with more than 10 shards, <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">contact AWS Support</a> to increase the limit on your account.</p>
  */
 @property (nonatomic, strong) NSNumber *shardCount;
 
 /**
- * <p>A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream.It is also scoped by region. That is, two streams in two different AWS accounts can have the same name,and two streams in the same AWS account, but in two different regions, can have the same name.</p>
+ * <p>A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by region. That is, two streams in two different AWS accounts can have the same name, and two streams in the same AWS account, but in two different regions, can have the same name.</p>
  */
 @property (nonatomic, strong) NSString *streamName;
 
@@ -129,11 +129,11 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
  * <p>Represents the output of a <code>DescribeStream</code> operation.</p>
  * Required parameters: [StreamDescription]
  */
-@interface AWSKinesisDescribeStreamOutput : AZModel
+@interface AWSKinesisDescribeStreamOutput : AWSModel
 
 
 /**
- * <p>Contains the current status of the stream, the stream ARN, an array of shard objects that comprise the stream,and states whether there are more shards available.</p>
+ * <p>Contains the current status of the stream, the stream ARN, an array of shard objects that comprise the stream, and states whether there are more shards available.</p>
  */
 @property (nonatomic, strong) AWSKinesisStreamDescription *streamDescription;
 
@@ -162,11 +162,11 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
  * <p>Represents the output of a <code>GetRecords</code> operation.</p>
  * Required parameters: [Records]
  */
-@interface AWSKinesisGetRecordsOutput : AZModel
+@interface AWSKinesisGetRecordsOutput : AWSModel
 
 
 /**
- * <p>The next position in the shard from which to start sequentially reading data records.If set to <code>null</code>, the shard has been closed and the requested iterator will not return any more data. </p>
+ * <p>The next position in the shard from which to start sequentially reading data records. If set to <code>null</code>, the shard has been closed and the requested iterator will not return any more data. </p>
  */
 @property (nonatomic, strong) NSString *nextShardIterator;
 
@@ -190,7 +190,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @property (nonatomic, strong) NSString *shardId;
 
 /**
- * <p>Determines how the shard iterator is used to start reading data records from the shard.</p><p>The following are the valid shard iterator types:</p><ul><li>AT_SEQUENCE_NUMBER -Start reading exactly from the position denoted by a specific sequence number.</li><li>AFTER_SEQUENCE_NUMBER- Start reading right after the position denoted by a specific sequence number.</li><li>TRIM_HORIZON -Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.</li><li>LATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.</li></ul>
+ * <p>Determines how the shard iterator is used to start reading data records from the shard.</p><p>The following are the valid shard iterator types:</p><ul><li>AT_SEQUENCE_NUMBER - Start reading exactly from the position denoted by a specific sequence number.</li><li>AFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a specific sequence number.</li><li>TRIM_HORIZON - Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.</li><li>LATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.</li></ul>
  */
 @property (nonatomic, assign) AWSKinesisShardIteratorType shardIteratorType;
 
@@ -209,7 +209,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 /**
  * <p>Represents the output of a <code>GetShardIterator</code> operation.</p>
  */
-@interface AWSKinesisGetShardIteratorOutput : AZModel
+@interface AWSKinesisGetShardIteratorOutput : AWSModel
 
 
 /**
@@ -223,7 +223,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
  * <p>The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.</p>
  * Required parameters: [StartingHashKey, EndingHashKey]
  */
-@interface AWSKinesisHashKeyRange : AZModel
+@interface AWSKinesisHashKeyRange : AWSModel
 
 
 /**
@@ -260,7 +260,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
  * <p>Represents the output of a <code>ListStreams</code> operation.</p>
  * Required parameters: [StreamNames, HasMoreStreams]
  */
-@interface AWSKinesisListStreamsOutput : AZModel
+@interface AWSKinesisListStreamsOutput : AWSModel
 
 
 /**
@@ -317,7 +317,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @property (nonatomic, strong) NSString *explicitHashKey;
 
 /**
- * <p>Determines which shard in the stream the data record is assigned to.Partition keys are Unicode strings with a maximum length limit of 256 bytes.Amazon Kinesis uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards.As a result of this hashing mechanism, all data records with the same partition key will map to the same shard within the stream.</p>
+ * <p>Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 bytes. Amazon Kinesis uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key will map to the same shard within the stream.</p>
  */
 @property (nonatomic, strong) NSString *partitionKey;
 
@@ -337,7 +337,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
  * <p>Represents the output of a <code>PutRecord</code> operation.</p>
  * Required parameters: [ShardId, SequenceNumber]
  */
-@interface AWSKinesisPutRecordOutput : AZModel
+@interface AWSKinesisPutRecordOutput : AWSModel
 
 
 /**
@@ -356,7 +356,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
  * <p>The unit of data of the Amazon Kinesis stream, which is composed of a sequence number, a partition key, and a data blob.</p>
  * Required parameters: [SequenceNumber, Data, PartitionKey]
  */
-@interface AWSKinesisRecord : AZModel
+@interface AWSKinesisRecord : AWSModel
 
 
 /**
@@ -380,7 +380,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
  * <p>The range of possible sequence numbers for the shard.</p>
  * Required parameters: [StartingSequenceNumber]
  */
-@interface AWSKinesisSequenceNumberRange : AZModel
+@interface AWSKinesisSequenceNumberRange : AWSModel
 
 
 /**
@@ -399,7 +399,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
  * <p>A uniquely identified group of data records in an Amazon Kinesis stream.</p>
  * Required parameters: [ShardId, HashKeyRange, SequenceNumberRange]
  */
-@interface AWSKinesisShard : AZModel
+@interface AWSKinesisShard : AWSModel
 
 
 /**
@@ -453,7 +453,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
  * <p>Represents the output of a <code>DescribeStream</code> operation.</p>
  * Required parameters: [StreamName, StreamARN, StreamStatus, Shards, HasMoreShards]
  */
-@interface AWSKinesisStreamDescription : AZModel
+@interface AWSKinesisStreamDescription : AWSModel
 
 
 /**

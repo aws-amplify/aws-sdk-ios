@@ -18,7 +18,7 @@
 #import "Reachability.h"
 #import "AWSMobileAnalyticsIOSSystem.h"
 #import "AWSMobileAnalyticsIOSLifeCycleManager.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
@@ -61,7 +61,7 @@ static NSString *const IOSVersion5_0_1 = @"5.0.1";
         {
             if(![rootDirectory mkdirs])
             {
-                AZLogError( @"Failed to create data directory for path %@", absolutePath);
+                AWSLogError( @"Failed to create data directory for path %@", absolutePath);
             }
         }
         
@@ -78,7 +78,7 @@ static NSString *const IOSVersion5_0_1 = @"5.0.1";
         }
         else
         {
-            AZLogError( @"The Mobile Analytics root directory could not be created");
+            AWSLogError( @"The Mobile Analytics root directory could not be created");
             NSAssert([rootDirectory exists], @"The Mobile Analytics root directory could not be created");
         }
     }
@@ -104,7 +104,7 @@ static NSString *const IOSVersion5_0_1 = @"5.0.1";
                                       forKey: NSURLIsExcludedFromBackupKey
                                        error: &error];
         if(!success){
-            AZLogError( @"Error excluding %@ from backup %@", [theUrl lastPathComponent], error);
+            AWSLogError( @"Error excluding %@ from backup %@", [theUrl lastPathComponent], error);
         }
         return success;
     }
@@ -113,7 +113,7 @@ static NSString *const IOSVersion5_0_1 = @"5.0.1";
         NSString* path = [theUrl path];
         if(![theFileManager fileExistsAtPath:path])
         {
-            AZLogError( @"URL %@ references a nonexistent file location", theUrl);
+            AWSLogError( @"URL %@ references a nonexistent file location", theUrl);
             return NO;
         }
         

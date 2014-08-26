@@ -22,7 +22,7 @@
 #import "AWSMobileAnalyticsSerializable.h"
 #import "AWSMobileAnalyticsSerializerFactory.h"
 #import "AWSMobileAnalyticsStringUtils.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 #import <UIKit/UIKit.h>
 
 static NSSet* RETRY_REQUEST_CODES = nil;
@@ -30,7 +30,7 @@ static unsigned int MAX_OPERATIONS = 1000;
 
 @interface AWSMobileAnalyticsDefaultDeliveryClient()
 @property(nonatomic)id<AWSMobileAnalyticsHttpClient> httpClient;
-@property(nonatomic)id<AWSMobileAnalyticsConfiguration> configuration;
+@property(nonatomic)id<AWSMobileAnalyticsConfiguring> configuration;
 @property(nonatomic)AWSMobileAnalyticsDeliveryPolicyFactory* factory;
 @property(nonatomic)AWSMobileAnalyticsERSRequestBuilder* builder;
 @property(nonatomic)NSOperationQueue* operationQueue;
@@ -85,7 +85,7 @@ static unsigned int MAX_OPERATIONS = 1000;
 
 
 -(id)initWithHttpClient:(id<AWSMobileAnalyticsHttpClient>)client
-      withConfiguration:(id<AWSMobileAnalyticsConfiguration>)configuration
+      withConfiguration:(id<AWSMobileAnalyticsConfiguring>)configuration
    withLifeCycleManager:(id<AWSMobileAnalyticsLifeCycleManager>)lifeCycleManager
       withPolicyFactory:(AWSMobileAnalyticsDeliveryPolicyFactory*)factory
      withRequestBuilder:(AWSMobileAnalyticsERSRequestBuilder*)builder
@@ -133,7 +133,7 @@ static unsigned int MAX_OPERATIONS = 1000;
 -(void) enqueueEventForDelivery:(id<AWSMobileAnalyticsInternalEvent>) theEvent
 {
     if(self.operationQueue.operationCount >= MAX_OPERATIONS) {
-        AZLogWarn(@"The event is being dropped because too many operations enqueued");
+        AWSLogWarn(@"The event is being dropped because too many operations enqueued");
         return;
     }
     
@@ -141,23 +141,23 @@ static unsigned int MAX_OPERATIONS = 1000;
         NSData* serializedEventData = [self.serializer writeObject:theEvent];
         NSString* serializedEvent = [[NSString alloc] initWithData:serializedEventData encoding:NSUTF8StringEncoding];
         
-        if([[AZLogger defaultLogger] logLevel] >=  AZLogLevelDebug)
+        if([[AWSLogger defaultLogger] logLevel] >=  AWSLogLevelDebug)
         {
             NSMutableString* output = [[NSMutableString alloc]init];
             [output appendString:@"\n==========Batch Object==========\n"];
             [output appendString:serializedEvent];
-            AZLogDebug( @"%@", output);
+            AWSLogDebug( @"%@", output);
         }
         
         NSError* error = nil;
         [self.eventStore put:serializedEvent withError:&error];
         if(error)
         {
-            AZLogError( @"event was not stored: %@", [error localizedDescription]);
+            AWSLogError( @"event was not stored: %@", [error localizedDescription]);
         }
         else
         {
-            AZLogInfo(@"Event: '%@' recorded to local filestore", [AWSMobileAnalyticsStringUtils clipString:theEvent.eventType toMaxChars:5 andAppendEllipses:YES]);
+            AWSLogInfo(@"Event: '%@' recorded to local filestore", [AWSMobileAnalyticsStringUtils clipString:theEvent.eventType toMaxChars:5 andAppendEllipses:YES]);
         }
     }];
 }
@@ -175,7 +175,7 @@ static unsigned int MAX_OPERATIONS = 1000;
 -(void) attemptDeliveryUsingPolicies:(NSArray*)policies
 {
     if(self.operationQueue.operationCount >= MAX_OPERATIONS) {
-        AZLogWarn(@"Submission request being dropped because too many operations enqueued");
+        AWSLogWarn(@"Submission request being dropped because too many operations enqueued");
         return;
     }
     
@@ -238,7 +238,7 @@ static unsigned int MAX_OPERATIONS = 1000;
         
         
         NSTimeInterval totalTime = [[NSDate date] timeIntervalSinceDate:start];
-        AZLogInfo( @"Time of attemptDelivery: %f", totalTime);
+        AWSLogInfo( @"Time of attemptDelivery: %f", totalTime);
     }];
 }
 
@@ -261,7 +261,7 @@ static unsigned int MAX_OPERATIONS = 1000;
     id<AWSMobileAnalyticsRequest> request = [self.builder buildWithObjects:events];
     if(!request)
     {
-        AZLogError( @"There was an error when building the http request");
+        AWSLogError( @"There was an error when building the http request");
         return submitted;
     }
     
@@ -270,24 +270,24 @@ static unsigned int MAX_OPERATIONS = 1000;
     id<AWSMobileAnalyticsResponse> response = [self.httpClient execute:request withRetries:requestRetries withTimeout:timeout];
 
     if(!response) {
-        AZLogError( @"The http request returned a null http response");
+        AWSLogError( @"The http request returned a null http response");
         return submitted;
     }
-    AZLogVerbose( @"The http response code is %d", response.code);
+    AWSLogVerbose( @"The http response code is %d", response.code);
     
     if(response.code/100 == 2)
     {
-        AZLogInfo(@"Successful submission of %lu events. Response code:%d", (unsigned long)[events count], response.code);
+        AWSLogInfo(@"Successful submission of %lu events. Response code:%d", (unsigned long)[events count], response.code);
         submitted = YES;
     }
     else if(response.code/100 == 4 && ![RETRY_REQUEST_CODES containsObject:[NSNumber numberWithInt:response.code]])
     {
-        AZLogError(@"Server rejected submission of %lu events.(Pending events will be removed from queue) Response code:%d, Error Message:%@", (unsigned long)[events count], response.code, response.error);
+        AWSLogError(@"Server rejected submission of %lu events.(Pending events will be removed from queue) Response code:%d, Error Message:%@", (unsigned long)[events count], response.code, response.error);
         submitted = YES;
     }
     else
     {
-        AZLogError(@"Unable to successfully deliver events to server. Response code: %d. Error Message:%@", response.code, response.error);
+        AWSLogError(@"Unable to successfully deliver events to server. Response code: %d. Error Message:%@", response.code, response.error);
     }
     
     // inform the policies that we've attempted a submission

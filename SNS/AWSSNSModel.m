@@ -14,7 +14,7 @@
  */
 
 #import "AWSSNSModel.h"
-#import "AZCategory.h"
+#import "AWSCategory.h"
 
 NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
@@ -366,6 +366,18 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 @end
 
+@implementation AWSSNSMessageAttributeValue
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"binaryValue" : @"BinaryValue",
+             @"dataType" : @"DataType",
+             @"stringValue" : @"StringValue",
+             };
+}
+
+@end
+
 @implementation AWSSNSPlatformApplication
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -382,11 +394,20 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"message" : @"Message",
+             @"messageAttributes" : @"MessageAttributes",
              @"messageStructure" : @"MessageStructure",
              @"subject" : @"Subject",
              @"targetArn" : @"TargetArn",
              @"topicArn" : @"TopicArn",
              };
+}
+
++ (NSValueTransformer *)messageAttributesJSONTransformer {
+	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSNSMessageAttributeValue class]];
+	} reverseBlock:^id(id mapMTLDictionary) {
+		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+	}];
 }
 
 @end

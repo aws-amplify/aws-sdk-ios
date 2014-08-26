@@ -27,7 +27,7 @@ static id mockContext = nil;
 
 -(void)setUp
 {
-    mockConfiguration = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsConfiguration)];
+    mockConfiguration = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsConfiguring)];
     [[[mockConfiguration stub] andReturnValue:@YES] boolForKey:@"allowWANEventDelivery" withOptValue:YES];
     
     mockConnectivity = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsConnectivity)];
@@ -83,7 +83,7 @@ static id mockContext = nil;
 -(void)test_isAllowed_hasOnlyWan_WanAllowedByUserButNotConfig_policyIsFalse
 {
     // recreate the context to have configuration return false for allowWan
-    mockConfiguration = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsConfiguration)];
+    mockConfiguration = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsConfiguring)];
     [[[mockConfiguration stub] andReturnValue:@NO] boolForKey:@"allowWANEventDelivery" withOptValue:YES];
     
     AIInsightsContextBuilder* builder = [AIInsightsContextBuilder builder];

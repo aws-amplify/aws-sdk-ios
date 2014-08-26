@@ -14,7 +14,7 @@
  */
 
 #import "AWSSTSModel.h"
-#import "AZCategory.h"
+#import "AWSCategory.h"
 
 NSString *const AWSSTSErrorDomain = @"com.amazonaws.AWSSTSErrorDomain";
 
@@ -155,9 +155,9 @@ NSString *const AWSSTSErrorDomain = @"com.amazonaws.AWSSTSErrorDomain";
 
 + (NSValueTransformer *)expirationJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 

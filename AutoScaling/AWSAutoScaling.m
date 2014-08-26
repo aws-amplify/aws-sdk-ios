@@ -15,8 +15,8 @@
 
 #import "AWSAutoScaling.h"
 
-#import "AZNetworking.h"
-#import "AZCategory.h"
+#import "AWSNetworking.h"
+#import "AWSCategory.h"
 #import "AWSSignature.h"
 #import "AWSService.h"
 #import "AWSNetworking.h"
@@ -47,11 +47,11 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"IncompleteSignature" : @(AWSAutoScalingErrorIncompleteSignature),
                             @"InvalidClientTokenId" : @(AWSAutoScalingErrorInvalidClientTokenId),
                             @"MissingAuthenticationToken" : @(AWSAutoScalingErrorMissingAuthenticationToken),
-                            @"AlreadyExistsFault" : @(AWSAutoScalingErrorAlreadyExists),
+                            @"AlreadyExists" : @(AWSAutoScalingErrorAlreadyExists),
                             @"InvalidNextToken" : @(AWSAutoScalingErrorInvalidNextToken),
-                            @"LimitExceededFault" : @(AWSAutoScalingErrorLimitExceeded),
-                            @"ResourceInUseFault" : @(AWSAutoScalingErrorResourceInUse),
-                            @"ScalingActivityInProgressFault" : @(AWSAutoScalingErrorScalingActivityInProgress),
+                            @"LimitExceeded" : @(AWSAutoScalingErrorLimitExceeded),
+                            @"ResourceInUse" : @(AWSAutoScalingErrorResourceInUse),
+                            @"ScalingActivityInProgress" : @(AWSAutoScalingErrorScalingActivityInProgress),
                             };
 }
 
@@ -84,7 +84,7 @@ static NSDictionary *errorCodeDictionary = nil;
             if (error) {
                 *error = [NSError errorWithDomain:AWSAutoScalingErrorDomain
                                              code:[errorCodeDictionary[errorInfo[@"Code"]] integerValue]
-                                         userInfo:@{NSLocalizedDescriptionKey :[errorInfo objectForKey:@"Message"]?[errorInfo objectForKey:@"Message"]:[NSNull null]}
+                                         userInfo:errorInfo
                           ];
                 return responseObject;
             }
@@ -92,12 +92,11 @@ static NSDictionary *errorCodeDictionary = nil;
             if (error) {
                 *error = [NSError errorWithDomain:AWSAutoScalingErrorDomain
                                              code:AWSAutoScalingErrorUnknown
-                                         userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"%@ -- %@",[errorInfo objectForKey:@"Code"],[errorInfo objectForKey:@"Message"]?[errorInfo objectForKey:@"Message"]:[NSNull null]]
-                                                    }];
+                                         userInfo:errorInfo];
                 return responseObject;
             }
         }
-        
+
 
         if (self.outputClass) {
             responseObject = [MTLJSONAdapter modelOfClass:self.outputClass
@@ -117,22 +116,22 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSAutoScalingRequestRetryHandler
 
-- (AZNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
+- (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
                             response:(NSHTTPURLResponse *)response
                                 data:(NSData *)data
                                error:(NSError *)error {
-    AZNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
+    AWSNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
                                                 response:response
                                                     data:data
                                                    error:error];
-    if(retryType == AZNetworkingRetryTypeShouldNotRetry
+    if(retryType == AWSNetworkingRetryTypeShouldNotRetry
        && [error.domain isEqualToString:AWSAutoScalingErrorDomain]
        && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
             case AWSAutoScalingErrorIncompleteSignature:
             case AWSAutoScalingErrorInvalidClientTokenId:
             case AWSAutoScalingErrorMissingAuthenticationToken:
-                retryType = AZNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
+                retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
                 break;
 
             default:
@@ -147,15 +146,14 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @interface AWSRequest()
 
-@property (nonatomic, strong) AZNetworkingRequest *internalRequest;
+@property (nonatomic, strong) AWSNetworkingRequest *internalRequest;
 
 @end
 
 @interface AWSAutoScaling()
 
-@property (nonatomic, strong) AZNetworking *networking;
+@property (nonatomic, strong) AWSNetworking *networking;
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
-@property (nonatomic, strong) AWSEndpoint *endpoint;
 
 @end
 
@@ -179,25 +177,25 @@ static NSDictionary *errorCodeDictionary = nil;
     if (self = [super init]) {
         _configuration = [configuration copy];
 
-        _endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
-                                            service:AWSServiceAutoScaling];
+        _configuration.endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
+                                                          service:AWSServiceAutoScaling];
 
         AWSSignatureV4Signer *signer = [AWSSignatureV4Signer signerWithCredentialsProvider:_configuration.credentialsProvider
-                                                                                  endpoint:_endpoint];
+                                                                                  endpoint:_configuration.endpoint];
 
-        _configuration.baseURL = _endpoint.URL;
+        _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.requestInterceptors = @[[AWSNetworkingRequestInterceptor new], signer];
         _configuration.retryHandler = [[AWSAutoScalingRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
-        _configuration.headers = @{@"Host" : _endpoint.hostName};
+        _configuration.headers = @{@"Host" : _configuration.endpoint.hostName};
 
-        _networking = [AZNetworking networking:_configuration];
+        _networking = [AWSNetworking networking:_configuration];
     }
 
     return self;
 }
 
 - (BFTask *)invokeRequest:(AWSRequest *)request
-               HTTPMethod:(AZHTTPMethod)HTTPMethod
+               HTTPMethod:(AWSHTTPMethod)HTTPMethod
                 URLString:(NSString *) URLString
              targetPrefix:(NSString *)targetPrefix
             operationName:(NSString *)operationName
@@ -206,16 +204,16 @@ static NSDictionary *errorCodeDictionary = nil;
         request = [AWSRequest new];
     }
 
-    AZNetworkingRequest *networkingRequest = request.internalRequest;
+    AWSNetworkingRequest *networkingRequest = request.internalRequest;
     if (request) {
-        networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] az_removeNullValues];
+        networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
     } else {
         networkingRequest.parameters = @{};
     }
     networkingRequest.HTTPMethod = HTTPMethod;
 
     AWSQueryStringRequestSerializer *requestSerializer = [AWSQueryStringRequestSerializer serializerWithResource:AWSAutoScalingDefinitionFileName actionName:operationName];
-    
+
     networkingRequest.requestSerializer = requestSerializer;
 
     networkingRequest.responseSerializer = [AWSAutoScalingResponseSerializer serializerWithOutputClass:outputClass
@@ -229,16 +227,25 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)attachInstances:(AWSAutoScalingAttachInstancesQuery *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"AttachInstances"
                    outputClass:nil];
 }
 
+- (BFTask *)completeLifecycleAction:(AWSAutoScalingCompleteLifecycleActionType *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CompleteLifecycleAction"
+                   outputClass:[AWSAutoScalingCompleteLifecycleActionAnswer class]];
+}
+
 - (BFTask *)createAutoScalingGroup:(AWSAutoScalingCreateAutoScalingGroupType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateAutoScalingGroup"
@@ -247,7 +254,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createLaunchConfiguration:(AWSAutoScalingCreateLaunchConfigurationType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateLaunchConfiguration"
@@ -256,7 +263,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createOrUpdateTags:(AWSAutoScalingCreateOrUpdateTagsType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateOrUpdateTags"
@@ -265,7 +272,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteAutoScalingGroup:(AWSAutoScalingDeleteAutoScalingGroupType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteAutoScalingGroup"
@@ -274,16 +281,25 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteLaunchConfiguration:(AWSAutoScalingLaunchConfigurationNameType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteLaunchConfiguration"
                    outputClass:nil];
 }
 
+- (BFTask *)deleteLifecycleHook:(AWSAutoScalingDeleteLifecycleHookType *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteLifecycleHook"
+                   outputClass:[AWSAutoScalingDeleteLifecycleHookAnswer class]];
+}
+
 - (BFTask *)deleteNotificationConfiguration:(AWSAutoScalingDeleteNotificationConfigurationType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteNotificationConfiguration"
@@ -292,7 +308,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deletePolicy:(AWSAutoScalingDeletePolicyType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeletePolicy"
@@ -301,7 +317,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteScheduledAction:(AWSAutoScalingDeleteScheduledActionType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteScheduledAction"
@@ -310,7 +326,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteTags:(AWSAutoScalingDeleteTagsType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteTags"
@@ -319,7 +335,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeAccountLimits:(AWSRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeAccountLimits"
@@ -328,7 +344,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeAdjustmentTypes:(AWSRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeAdjustmentTypes"
@@ -337,7 +353,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeAutoScalingGroups:(AWSAutoScalingAutoScalingGroupNamesType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeAutoScalingGroups"
@@ -346,7 +362,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeAutoScalingInstances:(AWSAutoScalingDescribeAutoScalingInstancesType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeAutoScalingInstances"
@@ -355,7 +371,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeAutoScalingNotificationTypes:(AWSRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeAutoScalingNotificationTypes"
@@ -364,16 +380,34 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeLaunchConfigurations:(AWSAutoScalingLaunchConfigurationNamesType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeLaunchConfigurations"
                    outputClass:[AWSAutoScalingLaunchConfigurationsType class]];
 }
 
+- (BFTask *)describeLifecycleHookTypes:(AWSRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeLifecycleHookTypes"
+                   outputClass:[AWSAutoScalingDescribeLifecycleHookTypesAnswer class]];
+}
+
+- (BFTask *)describeLifecycleHooks:(AWSAutoScalingDescribeLifecycleHooksType *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeLifecycleHooks"
+                   outputClass:[AWSAutoScalingDescribeLifecycleHooksAnswer class]];
+}
+
 - (BFTask *)describeMetricCollectionTypes:(AWSRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeMetricCollectionTypes"
@@ -382,7 +416,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeNotificationConfigurations:(AWSAutoScalingDescribeNotificationConfigurationsType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeNotificationConfigurations"
@@ -391,7 +425,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describePolicies:(AWSAutoScalingDescribePoliciesType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribePolicies"
@@ -400,7 +434,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeScalingActivities:(AWSAutoScalingDescribeScalingActivitiesType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeScalingActivities"
@@ -409,7 +443,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeScalingProcessTypes:(AWSRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeScalingProcessTypes"
@@ -418,7 +452,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeScheduledActions:(AWSAutoScalingDescribeScheduledActionsType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeScheduledActions"
@@ -427,7 +461,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeTags:(AWSAutoScalingDescribeTagsType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeTags"
@@ -436,16 +470,25 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeTerminationPolicyTypes:(AWSRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeTerminationPolicyTypes"
                    outputClass:[AWSAutoScalingDescribeTerminationPolicyTypesAnswer class]];
 }
 
+- (BFTask *)detachInstances:(AWSAutoScalingDetachInstancesQuery *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DetachInstances"
+                   outputClass:[AWSAutoScalingDetachInstancesAnswer class]];
+}
+
 - (BFTask *)disableMetricsCollection:(AWSAutoScalingDisableMetricsCollectionQuery *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DisableMetricsCollection"
@@ -454,25 +497,52 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)enableMetricsCollection:(AWSAutoScalingEnableMetricsCollectionQuery *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"EnableMetricsCollection"
                    outputClass:nil];
 }
 
+- (BFTask *)enterStandby:(AWSAutoScalingEnterStandbyQuery *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"EnterStandby"
+                   outputClass:[AWSAutoScalingEnterStandbyAnswer class]];
+}
+
 - (BFTask *)executePolicy:(AWSAutoScalingExecutePolicyType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ExecutePolicy"
                    outputClass:nil];
 }
 
+- (BFTask *)exitStandby:(AWSAutoScalingExitStandbyQuery *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ExitStandby"
+                   outputClass:[AWSAutoScalingExitStandbyAnswer class]];
+}
+
+- (BFTask *)putLifecycleHook:(AWSAutoScalingPutLifecycleHookType *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"PutLifecycleHook"
+                   outputClass:[AWSAutoScalingPutLifecycleHookAnswer class]];
+}
+
 - (BFTask *)putNotificationConfiguration:(AWSAutoScalingPutNotificationConfigurationType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"PutNotificationConfiguration"
@@ -481,7 +551,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)putScalingPolicy:(AWSAutoScalingPutScalingPolicyType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"PutScalingPolicy"
@@ -490,16 +560,25 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)putScheduledUpdateGroupAction:(AWSAutoScalingPutScheduledUpdateGroupActionType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"PutScheduledUpdateGroupAction"
                    outputClass:nil];
 }
 
+- (BFTask *)recordLifecycleActionHeartbeat:(AWSAutoScalingRecordLifecycleActionHeartbeatType *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"RecordLifecycleActionHeartbeat"
+                   outputClass:[AWSAutoScalingRecordLifecycleActionHeartbeatAnswer class]];
+}
+
 - (BFTask *)resumeProcesses:(AWSAutoScalingScalingProcessQuery *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ResumeProcesses"
@@ -508,7 +587,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)setDesiredCapacity:(AWSAutoScalingSetDesiredCapacityType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"SetDesiredCapacity"
@@ -517,7 +596,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)setInstanceHealth:(AWSAutoScalingSetInstanceHealthQuery *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"SetInstanceHealth"
@@ -526,7 +605,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)suspendProcesses:(AWSAutoScalingScalingProcessQuery *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"SuspendProcesses"
@@ -535,7 +614,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)terminateInstanceInAutoScalingGroup:(AWSAutoScalingTerminateInstanceInAutoScalingGroupType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"TerminateInstanceInAutoScalingGroup"
@@ -544,7 +623,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)updateAutoScalingGroup:(AWSAutoScalingUpdateAutoScalingGroupType *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"UpdateAutoScalingGroup"

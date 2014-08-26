@@ -14,9 +14,9 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "AWSMobileAnalyticsConfiguration.h"
+#import "AWSMobileAnalyticsConfiguring.h"
 
-@interface AITestConfiguration : NSObject<AWSMobileAnalyticsConfiguration>
+@interface AITestConfiguration : NSObject <AWSMobileAnalyticsConfiguring>
 
 +(AITestConfiguration *) configurationWithDictionary:(NSDictionary *) theConfiguration;
 

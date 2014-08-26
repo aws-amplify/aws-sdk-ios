@@ -15,16 +15,16 @@
 
 #import "AWSEC2.h"
 
-#import "AZNetworking.h"
+#import "AWSNetworking.h"
 #import "AWSSignature.h"
 #import "AWSService.h"
-#import "AZCategory.h"
+#import "AWSCategory.h"
 #import "AWSNetworking.h"
 #import "AWSURLRequestSerialization.h"
 #import "AWSURLResponseSerialization.h"
 #import "AWSURLRequestRetryHandler.h"
 
-NSString *const AWSEC2DefinitionFileName = @"ec2-2014-05-01";
+NSString *const AWSEC2DefinitionFileName = @"ec2-2014-06-15";
 
 
 @interface AWSEC2ResponseSerializer : AWSXMLResponseSerializer
@@ -76,7 +76,7 @@ static NSDictionary *errorCodeDictionary = nil;
             if (error) {
                 *error = [NSError errorWithDomain:AWSEC2ErrorDomain
                                              code:[errorCodeDictionary[errorInfo[@"Code"]] integerValue]
-                                         userInfo:@{NSLocalizedDescriptionKey :[errorInfo objectForKey:@"Message"]?[errorInfo objectForKey:@"Message"]:[NSNull null]}
+                                         userInfo:errorInfo
                           ];
                 return responseObject;
             }
@@ -84,11 +84,10 @@ static NSDictionary *errorCodeDictionary = nil;
             if (error) {
                 *error = [NSError errorWithDomain:AWSEC2ErrorDomain
                                              code:AWSEC2ErrorUnknown
-                                         userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"%@ -- %@",[errorInfo objectForKey:@"Code"],[errorInfo objectForKey:@"Message"]?[errorInfo objectForKey:@"Message"]:[NSNull null]]
-                                                    }];
+                                         userInfo:errorInfo];
                 return responseObject;
             }
-            
+
         }
 
         if (self.outputClass) {
@@ -109,20 +108,20 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSEC2RequestRetryHandler
 
-- (AZNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
+- (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
                             response:(NSHTTPURLResponse *)response
                                 data:(NSData *)data
                                error:(NSError *)error {
-    AZNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
+    AWSNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
                                                 response:response
                                                     data:data
                                                    error:error];
-    if(retryType == AZNetworkingRetryTypeShouldNotRetry
+    if(retryType == AWSNetworkingRetryTypeShouldNotRetry
        && [error.domain isEqualToString:AWSEC2ErrorDomain]
        && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
             case AWSEC2ErrorAuthFailure:
-                retryType = AZNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
+                retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
                 break;
 
             default:
@@ -137,15 +136,14 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @interface AWSRequest()
 
-@property (nonatomic, strong) AZNetworkingRequest *internalRequest;
+@property (nonatomic, strong) AWSNetworkingRequest *internalRequest;
 
 @end
 
 @interface AWSEC2()
 
-@property (nonatomic, strong) AZNetworking *networking;
+@property (nonatomic, strong) AWSNetworking *networking;
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
-@property (nonatomic, strong) AWSEndpoint *endpoint;
 
 @end
 
@@ -169,25 +167,25 @@ static NSDictionary *errorCodeDictionary = nil;
     if (self = [super init]) {
         _configuration = [configuration copy];
 
-        _endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
-                                            service:AWSServiceEC2];
+        _configuration.endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
+                                                          service:AWSServiceEC2];
 
         AWSSignatureV4Signer *signer = [AWSSignatureV4Signer signerWithCredentialsProvider:_configuration.credentialsProvider
-                                                                                  endpoint:_endpoint];
+                                                                                  endpoint:_configuration.endpoint];
 
-        _configuration.baseURL = _endpoint.URL;
+        _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.requestInterceptors = @[[AWSNetworkingRequestInterceptor new], signer];
         _configuration.retryHandler = [[AWSEC2RequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
-        _configuration.headers = @{@"Host" : _endpoint.hostName};
+        _configuration.headers = @{@"Host" : _configuration.endpoint.hostName};
 
-        _networking = [AZNetworking networking:_configuration];
+        _networking = [AWSNetworking networking:_configuration];
     }
 
     return self;
 }
 
 - (BFTask *)invokeRequest:(AWSRequest *)request
-               HTTPMethod:(AZHTTPMethod)HTTPMethod
+               HTTPMethod:(AWSHTTPMethod)HTTPMethod
                 URLString:(NSString *) URLString
              targetPrefix:(NSString *)targetPrefix
             operationName:(NSString *)operationName
@@ -196,15 +194,15 @@ static NSDictionary *errorCodeDictionary = nil;
         request = [AWSRequest new];
     }
 
-    AZNetworkingRequest *networkingRequest = request.internalRequest;
+    AWSNetworkingRequest *networkingRequest = request.internalRequest;
     if (request) {
-        networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] az_removeNullValues];
+        networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
     } else {
         networkingRequest.parameters = @{};
     }
     networkingRequest.HTTPMethod = HTTPMethod;
 
-    AWSQueryStringRequestSerializer *requestSerializer = [AWSQueryStringRequestSerializer serializerWithResource:AWSEC2DefinitionFileName actionName:operationName];
+    AWSQueryStringRequestSerializer *requestSerializer = [AWSEC2RequestSerializer serializerWithResource:AWSEC2DefinitionFileName actionName:operationName];
     networkingRequest.requestSerializer = requestSerializer;
 
     networkingRequest.responseSerializer = [AWSEC2ResponseSerializer serializerWithOutputClass:outputClass
@@ -218,7 +216,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)acceptVpcPeeringConnection:(AWSEC2AcceptVpcPeeringConnectionRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"AcceptVpcPeeringConnection"
@@ -227,7 +225,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)allocateAddress:(AWSEC2AllocateAddressRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"AllocateAddress"
@@ -236,7 +234,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)assignPrivateIpAddresses:(AWSEC2AssignPrivateIpAddressesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"AssignPrivateIpAddresses"
@@ -245,7 +243,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)associateAddress:(AWSEC2AssociateAddressRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"AssociateAddress"
@@ -254,7 +252,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)associateDhcpOptions:(AWSEC2AssociateDhcpOptionsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"AssociateDhcpOptions"
@@ -263,7 +261,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)associateRouteTable:(AWSEC2AssociateRouteTableRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"AssociateRouteTable"
@@ -272,7 +270,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)attachInternetGateway:(AWSEC2AttachInternetGatewayRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"AttachInternetGateway"
@@ -281,7 +279,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)attachNetworkInterface:(AWSEC2AttachNetworkInterfaceRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"AttachNetworkInterface"
@@ -290,7 +288,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)attachVolume:(AWSEC2AttachVolumeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"AttachVolume"
@@ -299,7 +297,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)attachVpnGateway:(AWSEC2AttachVpnGatewayRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"AttachVpnGateway"
@@ -308,7 +306,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)authorizeSecurityGroupEgress:(AWSEC2AuthorizeSecurityGroupEgressRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"AuthorizeSecurityGroupEgress"
@@ -317,7 +315,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)authorizeSecurityGroupIngress:(AWSEC2AuthorizeSecurityGroupIngressRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"AuthorizeSecurityGroupIngress"
@@ -326,7 +324,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)bundleInstance:(AWSEC2BundleInstanceRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"BundleInstance"
@@ -335,7 +333,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)cancelBundleTask:(AWSEC2CancelBundleTaskRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CancelBundleTask"
@@ -344,7 +342,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)cancelConversionTask:(AWSEC2CancelConversionRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CancelConversionTask"
@@ -353,7 +351,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)cancelExportTask:(AWSEC2CancelExportTaskRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CancelExportTask"
@@ -362,7 +360,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)cancelReservedInstancesListing:(AWSEC2CancelReservedInstancesListingRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CancelReservedInstancesListing"
@@ -371,7 +369,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)cancelSpotInstanceRequests:(AWSEC2CancelSpotInstanceRequestsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CancelSpotInstanceRequests"
@@ -380,7 +378,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)confirmProductInstance:(AWSEC2ConfirmProductInstanceRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ConfirmProductInstance"
@@ -389,7 +387,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createCustomerGateway:(AWSEC2CreateCustomerGatewayRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateCustomerGateway"
@@ -398,7 +396,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createDhcpOptions:(AWSEC2CreateDhcpOptionsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateDhcpOptions"
@@ -407,7 +405,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createImage:(AWSEC2CreateImageRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateImage"
@@ -416,7 +414,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createInstanceExportTask:(AWSEC2CreateInstanceExportTaskRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateInstanceExportTask"
@@ -425,7 +423,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createInternetGateway:(AWSEC2CreateInternetGatewayRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateInternetGateway"
@@ -434,7 +432,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createKeyPair:(AWSEC2CreateKeyPairRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateKeyPair"
@@ -443,7 +441,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createNetworkAcl:(AWSEC2CreateNetworkAclRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateNetworkAcl"
@@ -452,7 +450,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createNetworkAclEntry:(AWSEC2CreateNetworkAclEntryRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateNetworkAclEntry"
@@ -461,7 +459,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createNetworkInterface:(AWSEC2CreateNetworkInterfaceRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateNetworkInterface"
@@ -470,7 +468,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createPlacementGroup:(AWSEC2CreatePlacementGroupRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreatePlacementGroup"
@@ -479,7 +477,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createReservedInstancesListing:(AWSEC2CreateReservedInstancesListingRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateReservedInstancesListing"
@@ -488,7 +486,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createRoute:(AWSEC2CreateRouteRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateRoute"
@@ -497,7 +495,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createRouteTable:(AWSEC2CreateRouteTableRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateRouteTable"
@@ -506,7 +504,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createSecurityGroup:(AWSEC2CreateSecurityGroupRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateSecurityGroup"
@@ -515,7 +513,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createSnapshot:(AWSEC2CreateSnapshotRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateSnapshot"
@@ -524,7 +522,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createSpotDatafeedSubscription:(AWSEC2CreateSpotDatafeedSubscriptionRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateSpotDatafeedSubscription"
@@ -533,7 +531,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createSubnet:(AWSEC2CreateSubnetRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateSubnet"
@@ -542,7 +540,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createTags:(AWSEC2CreateTagsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateTags"
@@ -551,7 +549,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createVolume:(AWSEC2CreateVolumeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateVolume"
@@ -560,7 +558,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createVpc:(AWSEC2CreateVpcRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateVpc"
@@ -569,7 +567,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createVpcPeeringConnection:(AWSEC2CreateVpcPeeringConnectionRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateVpcPeeringConnection"
@@ -578,7 +576,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createVpnConnection:(AWSEC2CreateVpnConnectionRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateVpnConnection"
@@ -587,7 +585,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createVpnConnectionRoute:(AWSEC2CreateVpnConnectionRouteRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateVpnConnectionRoute"
@@ -596,7 +594,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createVpnGateway:(AWSEC2CreateVpnGatewayRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateVpnGateway"
@@ -605,7 +603,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteCustomerGateway:(AWSEC2DeleteCustomerGatewayRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteCustomerGateway"
@@ -614,7 +612,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteDhcpOptions:(AWSEC2DeleteDhcpOptionsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteDhcpOptions"
@@ -623,7 +621,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteInternetGateway:(AWSEC2DeleteInternetGatewayRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteInternetGateway"
@@ -632,7 +630,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteKeyPair:(AWSEC2DeleteKeyPairRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteKeyPair"
@@ -641,7 +639,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteNetworkAcl:(AWSEC2DeleteNetworkAclRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteNetworkAcl"
@@ -650,7 +648,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteNetworkAclEntry:(AWSEC2DeleteNetworkAclEntryRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteNetworkAclEntry"
@@ -659,7 +657,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteNetworkInterface:(AWSEC2DeleteNetworkInterfaceRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteNetworkInterface"
@@ -668,7 +666,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deletePlacementGroup:(AWSEC2DeletePlacementGroupRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeletePlacementGroup"
@@ -677,7 +675,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteRoute:(AWSEC2DeleteRouteRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteRoute"
@@ -686,7 +684,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteRouteTable:(AWSEC2DeleteRouteTableRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteRouteTable"
@@ -695,7 +693,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteSecurityGroup:(AWSEC2DeleteSecurityGroupRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteSecurityGroup"
@@ -704,7 +702,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteSnapshot:(AWSEC2DeleteSnapshotRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteSnapshot"
@@ -713,7 +711,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteSpotDatafeedSubscription:(AWSEC2DeleteSpotDatafeedSubscriptionRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteSpotDatafeedSubscription"
@@ -722,7 +720,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteSubnet:(AWSEC2DeleteSubnetRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteSubnet"
@@ -731,7 +729,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteTags:(AWSEC2DeleteTagsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteTags"
@@ -740,7 +738,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteVolume:(AWSEC2DeleteVolumeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteVolume"
@@ -749,7 +747,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteVpc:(AWSEC2DeleteVpcRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteVpc"
@@ -758,7 +756,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteVpcPeeringConnection:(AWSEC2DeleteVpcPeeringConnectionRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteVpcPeeringConnection"
@@ -767,7 +765,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteVpnConnection:(AWSEC2DeleteVpnConnectionRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteVpnConnection"
@@ -776,7 +774,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteVpnConnectionRoute:(AWSEC2DeleteVpnConnectionRouteRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteVpnConnectionRoute"
@@ -785,7 +783,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteVpnGateway:(AWSEC2DeleteVpnGatewayRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteVpnGateway"
@@ -794,7 +792,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deregisterImage:(AWSEC2DeregisterImageRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeregisterImage"
@@ -803,7 +801,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeAccountAttributes:(AWSEC2DescribeAccountAttributesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeAccountAttributes"
@@ -812,7 +810,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeAddresses:(AWSEC2DescribeAddressesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeAddresses"
@@ -821,7 +819,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeAvailabilityZones:(AWSEC2DescribeAvailabilityZonesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeAvailabilityZones"
@@ -830,7 +828,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeBundleTasks:(AWSEC2DescribeBundleTasksRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeBundleTasks"
@@ -839,7 +837,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeConversionTasks:(AWSEC2DescribeConversionTasksRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeConversionTasks"
@@ -848,7 +846,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeCustomerGateways:(AWSEC2DescribeCustomerGatewaysRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeCustomerGateways"
@@ -857,7 +855,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeDhcpOptions:(AWSEC2DescribeDhcpOptionsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeDhcpOptions"
@@ -866,7 +864,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeExportTasks:(AWSEC2DescribeExportTasksRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeExportTasks"
@@ -875,7 +873,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeImageAttribute:(AWSEC2DescribeImageAttributeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeImageAttribute"
@@ -884,7 +882,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeImages:(AWSEC2DescribeImagesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeImages"
@@ -893,7 +891,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeInstanceAttribute:(AWSEC2DescribeInstanceAttributeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeInstanceAttribute"
@@ -902,7 +900,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeInstanceStatus:(AWSEC2DescribeInstanceStatusRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeInstanceStatus"
@@ -911,7 +909,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeInstances:(AWSEC2DescribeInstancesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeInstances"
@@ -920,7 +918,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeInternetGateways:(AWSEC2DescribeInternetGatewaysRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeInternetGateways"
@@ -929,7 +927,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeKeyPairs:(AWSEC2DescribeKeyPairsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeKeyPairs"
@@ -938,7 +936,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeNetworkAcls:(AWSEC2DescribeNetworkAclsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeNetworkAcls"
@@ -947,7 +945,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeNetworkInterfaceAttribute:(AWSEC2DescribeNetworkInterfaceAttributeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeNetworkInterfaceAttribute"
@@ -956,7 +954,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeNetworkInterfaces:(AWSEC2DescribeNetworkInterfacesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeNetworkInterfaces"
@@ -965,7 +963,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describePlacementGroups:(AWSEC2DescribePlacementGroupsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribePlacementGroups"
@@ -974,7 +972,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeRegions:(AWSEC2DescribeRegionsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeRegions"
@@ -983,7 +981,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeReservedInstances:(AWSEC2DescribeReservedInstancesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeReservedInstances"
@@ -992,7 +990,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeReservedInstancesListings:(AWSEC2DescribeReservedInstancesListingsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeReservedInstancesListings"
@@ -1001,7 +999,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeReservedInstancesModifications:(AWSEC2DescribeReservedInstancesModificationsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeReservedInstancesModifications"
@@ -1010,7 +1008,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeReservedInstancesOfferings:(AWSEC2DescribeReservedInstancesOfferingsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeReservedInstancesOfferings"
@@ -1019,7 +1017,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeRouteTables:(AWSEC2DescribeRouteTablesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeRouteTables"
@@ -1028,7 +1026,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeSecurityGroups:(AWSEC2DescribeSecurityGroupsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeSecurityGroups"
@@ -1037,7 +1035,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeSnapshotAttribute:(AWSEC2DescribeSnapshotAttributeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeSnapshotAttribute"
@@ -1046,7 +1044,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeSnapshots:(AWSEC2DescribeSnapshotsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeSnapshots"
@@ -1055,7 +1053,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeSpotDatafeedSubscription:(AWSEC2DescribeSpotDatafeedSubscriptionRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeSpotDatafeedSubscription"
@@ -1064,7 +1062,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeSpotInstanceRequests:(AWSEC2DescribeSpotInstanceRequestsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeSpotInstanceRequests"
@@ -1073,7 +1071,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeSpotPriceHistory:(AWSEC2DescribeSpotPriceHistoryRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeSpotPriceHistory"
@@ -1082,7 +1080,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeSubnets:(AWSEC2DescribeSubnetsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeSubnets"
@@ -1091,7 +1089,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeTags:(AWSEC2DescribeTagsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeTags"
@@ -1100,7 +1098,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeVolumeAttribute:(AWSEC2DescribeVolumeAttributeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeVolumeAttribute"
@@ -1109,7 +1107,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeVolumeStatus:(AWSEC2DescribeVolumeStatusRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeVolumeStatus"
@@ -1118,7 +1116,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeVolumes:(AWSEC2DescribeVolumesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeVolumes"
@@ -1127,7 +1125,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeVpcAttribute:(AWSEC2DescribeVpcAttributeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeVpcAttribute"
@@ -1136,7 +1134,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeVpcPeeringConnections:(AWSEC2DescribeVpcPeeringConnectionsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeVpcPeeringConnections"
@@ -1145,7 +1143,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeVpcs:(AWSEC2DescribeVpcsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeVpcs"
@@ -1154,7 +1152,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeVpnConnections:(AWSEC2DescribeVpnConnectionsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeVpnConnections"
@@ -1163,7 +1161,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeVpnGateways:(AWSEC2DescribeVpnGatewaysRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeVpnGateways"
@@ -1172,7 +1170,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)detachInternetGateway:(AWSEC2DetachInternetGatewayRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DetachInternetGateway"
@@ -1181,7 +1179,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)detachNetworkInterface:(AWSEC2DetachNetworkInterfaceRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DetachNetworkInterface"
@@ -1190,7 +1188,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)detachVolume:(AWSEC2DetachVolumeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DetachVolume"
@@ -1199,7 +1197,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)detachVpnGateway:(AWSEC2DetachVpnGatewayRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DetachVpnGateway"
@@ -1208,7 +1206,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)disableVgwRoutePropagation:(AWSEC2DisableVgwRoutePropagationRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DisableVgwRoutePropagation"
@@ -1217,7 +1215,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)disassociateAddress:(AWSEC2DisassociateAddressRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DisassociateAddress"
@@ -1226,7 +1224,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)disassociateRouteTable:(AWSEC2DisassociateRouteTableRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DisassociateRouteTable"
@@ -1235,7 +1233,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)enableVgwRoutePropagation:(AWSEC2EnableVgwRoutePropagationRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"EnableVgwRoutePropagation"
@@ -1244,7 +1242,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)enableVolumeIO:(AWSEC2EnableVolumeIORequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"EnableVolumeIO"
@@ -1253,7 +1251,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getConsoleOutput:(AWSEC2GetConsoleOutputRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"GetConsoleOutput"
@@ -1262,7 +1260,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getPasswordData:(AWSEC2GetPasswordDataRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"GetPasswordData"
@@ -1271,7 +1269,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)importInstance:(AWSEC2ImportInstanceRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ImportInstance"
@@ -1280,7 +1278,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)importKeyPair:(AWSEC2ImportKeyPairRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ImportKeyPair"
@@ -1289,7 +1287,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)importVolume:(AWSEC2ImportVolumeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ImportVolume"
@@ -1298,7 +1296,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)modifyImageAttribute:(AWSEC2ModifyImageAttributeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ModifyImageAttribute"
@@ -1307,7 +1305,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)modifyInstanceAttribute:(AWSEC2ModifyInstanceAttributeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ModifyInstanceAttribute"
@@ -1316,7 +1314,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)modifyNetworkInterfaceAttribute:(AWSEC2ModifyNetworkInterfaceAttributeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ModifyNetworkInterfaceAttribute"
@@ -1325,7 +1323,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)modifyReservedInstances:(AWSEC2ModifyReservedInstancesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ModifyReservedInstances"
@@ -1334,16 +1332,25 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)modifySnapshotAttribute:(AWSEC2ModifySnapshotAttributeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ModifySnapshotAttribute"
                    outputClass:nil];
 }
 
+- (BFTask *)modifySubnetAttribute:(AWSEC2ModifySubnetAttributeRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifySubnetAttribute"
+                   outputClass:nil];
+}
+
 - (BFTask *)modifyVolumeAttribute:(AWSEC2ModifyVolumeAttributeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ModifyVolumeAttribute"
@@ -1352,7 +1359,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)modifyVpcAttribute:(AWSEC2ModifyVpcAttributeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ModifyVpcAttribute"
@@ -1361,7 +1368,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)monitorInstances:(AWSEC2MonitorInstancesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"MonitorInstances"
@@ -1370,7 +1377,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)purchaseReservedInstancesOffering:(AWSEC2PurchaseReservedInstancesOfferingRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"PurchaseReservedInstancesOffering"
@@ -1379,7 +1386,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)rebootInstances:(AWSEC2RebootInstancesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"RebootInstances"
@@ -1388,7 +1395,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)registerImage:(AWSEC2RegisterImageRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"RegisterImage"
@@ -1397,7 +1404,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)rejectVpcPeeringConnection:(AWSEC2RejectVpcPeeringConnectionRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"RejectVpcPeeringConnection"
@@ -1406,7 +1413,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)releaseAddress:(AWSEC2ReleaseAddressRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ReleaseAddress"
@@ -1415,7 +1422,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)replaceNetworkAclAssociation:(AWSEC2ReplaceNetworkAclAssociationRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ReplaceNetworkAclAssociation"
@@ -1424,7 +1431,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)replaceNetworkAclEntry:(AWSEC2ReplaceNetworkAclEntryRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ReplaceNetworkAclEntry"
@@ -1433,7 +1440,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)replaceRoute:(AWSEC2ReplaceRouteRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ReplaceRoute"
@@ -1442,7 +1449,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)replaceRouteTableAssociation:(AWSEC2ReplaceRouteTableAssociationRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ReplaceRouteTableAssociation"
@@ -1451,7 +1458,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)replicateImage:(AWSEC2ReplicateImageRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ReplicateImage"
@@ -1460,7 +1467,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)replicateSnapshot:(AWSEC2ReplicateSnapshotRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ReplicateSnapshot"
@@ -1469,7 +1476,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)reportInstanceStatus:(AWSEC2ReportInstanceStatusRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ReportInstanceStatus"
@@ -1478,7 +1485,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)requestSpotInstances:(AWSEC2RequestSpotInstancesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"RequestSpotInstances"
@@ -1487,7 +1494,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)resetImageAttribute:(AWSEC2ResetImageAttributeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ResetImageAttribute"
@@ -1496,7 +1503,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)resetInstanceAttribute:(AWSEC2ResetInstanceAttributeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ResetInstanceAttribute"
@@ -1505,7 +1512,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)resetNetworkInterfaceAttribute:(AWSEC2ResetNetworkInterfaceAttributeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ResetNetworkInterfaceAttribute"
@@ -1514,7 +1521,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)resetSnapshotAttribute:(AWSEC2ResetSnapshotAttributeRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ResetSnapshotAttribute"
@@ -1523,7 +1530,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)revokeSecurityGroupEgress:(AWSEC2RevokeSecurityGroupEgressRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"RevokeSecurityGroupEgress"
@@ -1532,7 +1539,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)revokeSecurityGroupIngress:(AWSEC2RevokeSecurityGroupIngressRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"RevokeSecurityGroupIngress"
@@ -1541,7 +1548,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)runInstances:(AWSEC2RunInstancesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"RunInstances"
@@ -1550,7 +1557,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)startInstances:(AWSEC2StartInstancesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"StartInstances"
@@ -1559,7 +1566,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)stopInstances:(AWSEC2StopInstancesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"StopInstances"
@@ -1568,7 +1575,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)terminateInstances:(AWSEC2TerminateInstancesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"TerminateInstances"
@@ -1577,7 +1584,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)unassignPrivateIpAddresses:(AWSEC2UnassignPrivateIpAddressesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"UnassignPrivateIpAddresses"
@@ -1586,7 +1593,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)unmonitorInstances:(AWSEC2UnmonitorInstancesRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"UnmonitorInstances"

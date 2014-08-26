@@ -25,7 +25,6 @@
 @interface AWSEventRecorderService : AWSService
 
 @property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration;
-@property (nonatomic, strong, readonly) AWSEndpoint *endpoint;
 
 + (instancetype)defaultEventRecorderService;
 

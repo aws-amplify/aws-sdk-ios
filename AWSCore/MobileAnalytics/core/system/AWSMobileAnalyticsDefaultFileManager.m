@@ -17,7 +17,7 @@
 #import "AWSMobileAnalyticsBufferedReader.h"
 #import "AWSMobileAnalyticsWriter.h"
 #import "AWSMobileAnalyticsSerializerFactory.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framework.AIDefaultFileManagerErrorDomain";
 
@@ -58,7 +58,7 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
     NSError *error = nil;
     if([AWSMobileAnalyticsStringUtils isBlank:theDirectoryPath])
     {
-        AZLogWarn( @"The directory path was blank");
+        AWSLogWarn( @"The directory path was blank");
         error =[AWSMobileAnalyticsErrorUtils errorWithDomain:AIDefaultFileManagerErrorDomain
                   withDescription: @"The path was blank"
                     withErrorCode:AIDefaultFileManagerErrorCode_EmptyOrNilPath];
@@ -506,7 +506,7 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
     
     if(theReader == nil)
     {
-        AZLogError( @"The reader provided was nil.");
+        AWSLogError( @"The reader provided was nil.");
         error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AIDefaultFileManagerErrorDomain
                               withDescription:@"Nil reader"
                                 withErrorCode: AIDefaultFileManagerErrorCode_NilReader];
@@ -529,7 +529,7 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
     
     if(error != nil)
     {
-        AZLogError( @"There was an error while reading the contents from the file %@. %@", theFile.absolutePath, [error localizedDescription]);
+        AWSLogError( @"There was an error while reading the contents from the file %@. %@", theFile.absolutePath, [error localizedDescription]);
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         if([theFile exists])
         {
@@ -575,7 +575,7 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
                                     withErrorCode: AIDefaultFileManagerErrorCode_ErrorParsingFileContents];
         }
         
-        AZLogWarn( @"Not able to parse the contents from the file %@. %@. It is common if that file hasn't been created yet.", theFile.absolutePath, [error localizedDescription]);
+        AWSLogWarn( @"Not able to parse the contents from the file %@. %@. It is common if that file hasn't been created yet.", theFile.absolutePath, [error localizedDescription]);
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         if([theFile exists])
         {
@@ -633,7 +633,7 @@ withDataProcessor:(AIDataProcessor) theDataProcessor
     {
         if(![theFile createNewFile])
         {
-            AZLogError( @"There was an error while attempting to create the file.");
+            AWSLogError( @"There was an error while attempting to create the file.");
             error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AIDefaultFileManagerErrorDomain
                                   withDescription:@"Failed to create file to write data to"
                                     withErrorCode: AIDefaultFileManagerErrorCode_UnableToCreateFile];
@@ -644,7 +644,7 @@ withDataProcessor:(AIDataProcessor) theDataProcessor
     
     if(theWriter == nil)
     {
-        AZLogError( @"The writer provided was nil.");
+        AWSLogError( @"The writer provided was nil.");
         error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AIDefaultFileManagerErrorDomain
                               withDescription:@"Nil writer"
                                 withErrorCode: AIDefaultFileManagerErrorCode_NilWriter];
@@ -684,11 +684,11 @@ withDataProcessor:(AIDataProcessor) theDataProcessor
         {
             if(error != nil)
             {
-                AZLogError( @"There was an error while attempting to write to the file. %@", [error localizedDescription]);
+                AWSLogError( @"There was an error while attempting to write to the file. %@", [error localizedDescription]);
             }
             else
             {
-                AZLogError( @"There was an error while attempting to write to the file.");
+                AWSLogError( @"There was an error while attempting to write to the file.");
             }
         }
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];

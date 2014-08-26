@@ -13,21 +13,21 @@
  * permissions and limitations under the License.
  */
 
-#import "AZSynchronizedMutableDictionary.h"
+#import "AWSSynchronizedMutableDictionary.h"
 
-@interface AZSynchronizedMutableDictionary()
+@interface AWSSynchronizedMutableDictionary()
 
 @property (nonatomic, strong) NSMutableDictionary *dictionary;
 @property (nonatomic, strong) dispatch_queue_t dispatchQueue;
 
 @end
 
-@implementation AZSynchronizedMutableDictionary
+@implementation AWSSynchronizedMutableDictionary
 
 - (instancetype)init {
     if (self = [super init]) {
         _dictionary = [NSMutableDictionary new];
-        _dispatchQueue = dispatch_queue_create("com.amazonaws.AZSynchronizedMutableDictionary", DISPATCH_QUEUE_SERIAL);
+        _dispatchQueue = dispatch_queue_create("com.amazonaws.AWSSynchronizedMutableDictionary", DISPATCH_QUEUE_SERIAL);
     }
 
     return self;
@@ -61,6 +61,14 @@
             [self.dictionary setObject:anObject forKey:aKey];
         }
     });
+}
+
+- (NSArray *)allKeys {
+    __block NSArray *allKeys = nil;
+    dispatch_sync(self.dispatchQueue, ^{
+        allKeys = [self.dictionary allKeys];
+    });
+    return allKeys;
 }
 
 @end

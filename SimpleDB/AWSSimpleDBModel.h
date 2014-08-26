@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AWSNetworking.h"
-#import "AZModel.h"
+#import "AWSModel.h"
 
 FOUNDATION_EXPORT NSString *const AWSSimpleDBErrorDomain;
 
@@ -68,7 +68,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
  * <p></p>
  * Required parameters: [Name, Value]
  */
-@interface AWSSimpleDBAttribute : AZModel
+@interface AWSSimpleDBAttribute : AWSModel
 
 
 /**
@@ -127,13 +127,13 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 
 
 /**
- * The name of the domain to create. The name can range between 3 and 255 		characters and can contain the following characters: a-z, A-Z, 0-9, 		'_', '-', and '.'.
+ * The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'.
  */
 @property (nonatomic, strong) NSString *domainName;
 
 @end
 
-@interface AWSSimpleDBDeletableItem : AZModel
+@interface AWSSimpleDBDeletableItem : AWSModel
 
 @property (nonatomic, strong) NSArray *attributes;
 @property (nonatomic, strong) NSString *name;
@@ -154,7 +154,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 @property (nonatomic, strong) NSString *domainName;
 
 /**
- * The update condition which, if specified, determines whether the specified attributes will be deleted or not.The update condition must be satisfied in order for this request to be processed and the attributes to be deleted.
+ * The update condition which, if specified, determines whether the specified attributes will be deleted or not. The update condition must be satisfied in order for this request to be processed and the attributes to be deleted.
  */
 @property (nonatomic, strong) AWSSimpleDBUpdateCondition *expected;
 
@@ -185,7 +185,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 
 @end
 
-@interface AWSSimpleDBDomainMetadataResult : AZModel
+@interface AWSSimpleDBDomainMetadataResult : AWSModel
 
 
 /**
@@ -234,7 +234,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 @property (nonatomic, strong) NSArray *attributeNames;
 
 /**
- * Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If <code>true</code>, any data previously written to SimpleDB will be returned.Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read.
+ * Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If <code>true</code>, any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read.
  */
 @property (nonatomic, strong) NSNumber *consistentRead;
 
@@ -250,7 +250,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 
 @end
 
-@interface AWSSimpleDBGetAttributesResult : AZModel
+@interface AWSSimpleDBGetAttributesResult : AWSModel
 
 
 /**
@@ -264,7 +264,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
  * <p></p>
  * Required parameters: [Name, Attributes]
  */
-@interface AWSSimpleDBItem : AZModel
+@interface AWSSimpleDBItem : AWSModel
 
 
 /**
@@ -288,7 +288,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 
 
 /**
- * The maximum number of domain names you want returned.The range is 1 to 100.The default setting is 100.
+ * The maximum number of domain names you want returned. The range is 1 to 100. The default setting is 100.
  */
 @property (nonatomic, strong) NSNumber *maxNumberOfDomains;
 
@@ -299,7 +299,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 
 @end
 
-@interface AWSSimpleDBListDomainsResult : AZModel
+@interface AWSSimpleDBListDomainsResult : AWSModel
 
 
 /**
@@ -328,7 +328,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 @property (nonatomic, strong) NSString *domainName;
 
 /**
- * The update condition which, if specified, determines whether the specified attributes will be updated or not.The update condition must be satisfied in order for this request to be processed and the attributes to be updated.
+ * The update condition which, if specified, determines whether the specified attributes will be updated or not. The update condition must be satisfied in order for this request to be processed and the attributes to be updated.
  */
 @property (nonatomic, strong) AWSSimpleDBUpdateCondition *expected;
 
@@ -343,7 +343,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
  * <p></p>
  * Required parameters: [Name, Value]
  */
-@interface AWSSimpleDBReplaceableAttribute : AZModel
+@interface AWSSimpleDBReplaceableAttribute : AWSModel
 
 
 /**
@@ -367,7 +367,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
  * <p></p>
  * Required parameters: [Name, Attributes]
  */
-@interface AWSSimpleDBReplaceableItem : AZModel
+@interface AWSSimpleDBReplaceableItem : AWSModel
 
 
 /**
@@ -386,7 +386,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 
 
 /**
- * Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If <code>true</code>, any data previously written to SimpleDB will be returned.Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read.
+ * Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If <code>true</code>, any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read.
  */
 @property (nonatomic, strong) NSNumber *consistentRead;
 
@@ -402,7 +402,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 
 @end
 
-@interface AWSSimpleDBSelectResult : AZModel
+@interface AWSSimpleDBSelectResult : AWSModel
 
 
 /**
@@ -420,7 +420,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 /**
  * <p> Specifies the conditions under which data should be updated. If an update condition is specified for a request, the data will only be updated if the condition is satisfied. For example, if an attribute with a specific name and value exists, or if a specific attribute doesn't exist. </p>
  */
-@interface AWSSimpleDBUpdateCondition : AZModel
+@interface AWSSimpleDBUpdateCondition : AWSModel
 
 
 /**
@@ -434,7 +434,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 @property (nonatomic, strong) NSString *name;
 
 /**
- * <p>The value of an attribute.This value can only be specified when the <code>Exists</code> parameter is equal to <code>true</code>.</p>
+ * <p>The value of an attribute. This value can only be specified when the <code>Exists</code> parameter is equal to <code>true</code>.</p>
  */
 @property (nonatomic, strong) NSString *value;
 

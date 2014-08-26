@@ -21,7 +21,7 @@
 
 +(AWSMobileAnalyticsDeliveryPolicyFactory*)factoryWithSystem:(id<AWSMobileAnalyticsSystem>)system
                              withPreferences:(id<AWSMobileAnalyticsPreferences>)preferences
-                           withConfiguration:(id<AWSMobileAnalyticsConfiguration>)configuration
+                           withConfiguration:(id<AWSMobileAnalyticsConfiguring>)configuration
                       withAllowWanSubmission:(BOOL)allowWan;
 
 -(id<AWSMobileAnalyticsDeliveryPolicy>) createConnectivityPolicy;

@@ -13,27 +13,27 @@
  * permissions and limitations under the License.
  */
 
-#import "AZURLSessionManager.h"
+#import "AWSURLSessionManager.h"
 
-#import "AZSynchronizedMutableDictionary.h"
-#import "AZLogging.h"
-#import "AZCategory.h"
+#import "AWSSynchronizedMutableDictionary.h"
+#import "AWSLogging.h"
+#import "AWSCategory.h"
 #import "AWSSignature.h"
 
-#pragma mark - AZURLSessionManagerDelegate
+#pragma mark - AWSURLSessionManagerDelegate
 
-typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
-    AZURLSessionTaskTypeUnknown,
-    AZURLSessionTaskTypeData,
-    AZURLSessionTaskTypeDownload,
-    AZURLSessionTaskTypeUpload
+typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
+    AWSURLSessionTaskTypeUnknown,
+    AWSURLSessionTaskTypeData,
+    AWSURLSessionTaskTypeDownload,
+    AWSURLSessionTaskTypeUpload
 };
 
-@interface AZURLSessionManagerDelegate : NSObject
+@interface AWSURLSessionManagerDelegate : NSObject
 
-@property (nonatomic, assign) AZURLSessionTaskType taskType;
-@property (nonatomic, copy) AZNetworkingCompletionHandlerBlock dataTaskCompletionHandler;
-@property (nonatomic, strong) AZNetworkingRequest *request;
+@property (nonatomic, assign) AWSURLSessionTaskType taskType;
+@property (nonatomic, copy) AWSNetworkingCompletionHandlerBlock dataTaskCompletionHandler;
+@property (nonatomic, strong) AWSNetworkingRequest *request;
 @property (nonatomic, strong) NSURL *uploadingFileURL;
 @property (nonatomic, strong) NSURL *downloadingFileURL;
 
@@ -50,11 +50,11 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
 
 @end
 
-@implementation AZURLSessionManagerDelegate
+@implementation AWSURLSessionManagerDelegate
 
 - (instancetype)init {
     if (self = [super init]) {
-        _taskType = AZURLSessionTaskTypeUnknown;
+        _taskType = AWSURLSessionTaskTypeUnknown;
     }
 
     return self;
@@ -62,26 +62,26 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
 
 @end
 
-#pragma mark - AZNetworkingRequest
+#pragma mark - AWSNetworkingRequest
 
-@interface AZNetworkingRequest()
+@interface AWSNetworkingRequest()
 
-@property (nonatomic, strong) id task;
+@property (nonatomic, strong) NSURLSessionTask *task;
 
 @end
 
-#pragma mark - AZURLSessionManager
+#pragma mark - AWSURLSessionManager
 
-//const int64_t AZMinimumDownloadTaskSize = 1000000;
+//const int64_t AWSMinimumDownloadTaskSize = 1000000;
 
-@interface AZURLSessionManager()
+@interface AWSURLSessionManager()
 
 @property (nonatomic, strong) NSURLSession *session;
-@property (nonatomic, strong) AZSynchronizedMutableDictionary *sessionManagerDelegates;
+@property (nonatomic, strong) AWSSynchronizedMutableDictionary *sessionManagerDelegates;
 
 @end
 
-@implementation AZURLSessionManager
+@implementation AWSURLSessionManager
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -92,20 +92,20 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
         _session = [NSURLSession sessionWithConfiguration:sessionConfiguration
                                                  delegate:self
                                             delegateQueue:operationQueue];
-        _sessionManagerDelegates = [AZSynchronizedMutableDictionary new];
+        _sessionManagerDelegates = [AWSSynchronizedMutableDictionary new];
     }
 
     return self;
 }
 
-- (void)dataTaskWithRequest:(AZNetworkingRequest *)request
-          completionHandler:(AZNetworkingCompletionHandlerBlock)completionHandler {
+- (void)dataTaskWithRequest:(AWSNetworkingRequest *)request
+          completionHandler:(AWSNetworkingCompletionHandlerBlock)completionHandler {
     [request assignProperties:self.configuration];
 
-    AZURLSessionManagerDelegate *delegate = [AZURLSessionManagerDelegate new];
+    AWSURLSessionManagerDelegate *delegate = [AWSURLSessionManagerDelegate new];
     delegate.dataTaskCompletionHandler = completionHandler;
     delegate.request = request;
-    delegate.taskType = AZURLSessionTaskTypeData;
+    delegate.taskType = AWSURLSessionTaskTypeData;
     delegate.downloadingFileURL = request.downloadingFileURL;
     delegate.uploadingFileURL = request.uploadingFileURL;
     delegate.shouldWriteDirectly = request.shouldWriteDirectly;
@@ -113,30 +113,30 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
     [self taskWithDelegate:delegate];
 }
 
-- (void)downloadTaskWithRequest:(AZNetworkingRequest *)request
-              completionHandler:(AZNetworkingCompletionHandlerBlock)completionHandler {
+- (void)downloadTaskWithRequest:(AWSNetworkingRequest *)request
+              completionHandler:(AWSNetworkingCompletionHandlerBlock)completionHandler {
     [request assignProperties:self.configuration];
 
-    AZURLSessionManagerDelegate *delegate = [AZURLSessionManagerDelegate new];
+    AWSURLSessionManagerDelegate *delegate = [AWSURLSessionManagerDelegate new];
     delegate.dataTaskCompletionHandler = completionHandler;
     delegate.request = request;
-    delegate.taskType = AZURLSessionTaskTypeDownload;
+    delegate.taskType = AWSURLSessionTaskTypeDownload;
     delegate.downloadingFileURL = request.downloadingFileURL;
     delegate.shouldWriteDirectly = request.shouldWriteDirectly;
 }
 
-- (void)uploadTaskWithRequest:(AZNetworkingRequest *)request
-            completionHandler:(AZNetworkingCompletionHandlerBlock)completionHandler {
+- (void)uploadTaskWithRequest:(AWSNetworkingRequest *)request
+            completionHandler:(AWSNetworkingCompletionHandlerBlock)completionHandler {
     [request assignProperties:self.configuration];
 
-    AZURLSessionManagerDelegate *delegate = [AZURLSessionManagerDelegate new];
+    AWSURLSessionManagerDelegate *delegate = [AWSURLSessionManagerDelegate new];
     delegate.dataTaskCompletionHandler = completionHandler;
     delegate.request = request;
-    delegate.taskType = AZURLSessionTaskTypeUpload;
+    delegate.taskType = AWSURLSessionTaskTypeUpload;
     delegate.uploadingFileURL = request.uploadingFileURL;
 }
 
-- (void)taskWithDelegate:(AZURLSessionManagerDelegate *)delegate {
+- (void)taskWithDelegate:(AWSURLSessionManagerDelegate *)delegate {
     delegate.responseData = nil;
     delegate.responseObject = nil;
     delegate.error = nil;
@@ -182,18 +182,18 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
 
         return nil;
     }] continueWithSuccessBlock:^id(BFTask *task) {
-        AZNetworkingRequest *request = delegate.request;
+        AWSNetworkingRequest *request = delegate.request;
         if (request.isCancelled) {
             if (delegate.dataTaskCompletionHandler) {
-                AZNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
-                completionHandler(nil, [NSError errorWithDomain:AZNetworkingErrorDomain
-                                                           code:AZNetworkingErrorCancelled
+                AWSNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
+                completionHandler(nil, [NSError errorWithDomain:AWSNetworkingErrorDomain
+                                                           code:AWSNetworkingErrorCancelled
                                                        userInfo:nil]);
             }
             return nil;
         }
 
-        mutableRequest.HTTPMethod = [NSString az_stringWithHTTPMethod:delegate.request.HTTPMethod];
+        mutableRequest.HTTPMethod = [NSString aws_stringWithHTTPMethod:delegate.request.HTTPMethod];
 
         if ([request.requestSerializer respondsToSelector:@selector(serializeRequest:headers:parameters:)]) {
             BFTask *resultTask = [request.requestSerializer serializeRequest:mutableRequest
@@ -206,7 +206,7 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
         }
 
         BFTask *sequencialTask = [BFTask taskWithResult:nil];
-        for(id<AZNetworkingRequestInterceptor>interceptor in request.requestInterceptors) {
+        for(id<AWSNetworkingRequestInterceptor>interceptor in request.requestInterceptors) {
             if ([interceptor respondsToSelector:@selector(interceptRequest:)]) {
                 sequencialTask = [sequencialTask continueWithSuccessBlock:^id(BFTask *task) {
                     return [interceptor interceptRequest:mutableRequest];
@@ -216,7 +216,7 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
 
         return task;
     }] continueWithSuccessBlock:^id(BFTask *task) {
-        AZNetworkingRequest *request = delegate.request;
+        AWSNetworkingRequest *request = delegate.request;
         if ([request.requestSerializer respondsToSelector:@selector(validateRequest:)]) {
             return [request.requestSerializer validateRequest:mutableRequest];
         } else {
@@ -224,15 +224,15 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
         }
     }] continueWithSuccessBlock:^id(BFTask *task) {
         switch (delegate.taskType) {
-            case AZURLSessionTaskTypeData:
+            case AWSURLSessionTaskTypeData:
                 delegate.request.task = [self.session dataTaskWithRequest:mutableRequest];
                 break;
 
-            case AZURLSessionTaskTypeDownload:
+            case AWSURLSessionTaskTypeDownload:
                 delegate.request.task = [self.session downloadTaskWithRequest:mutableRequest];
                 break;
 
-            case AZURLSessionTaskTypeUpload:
+            case AWSURLSessionTaskTypeUpload:
                 delegate.request.task = [self.session uploadTaskWithRequest:mutableRequest
                                                                    fromFile:delegate.uploadingFileURL];
                 break;
@@ -246,14 +246,14 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
                                              forKey:@(((NSURLSessionTask *)delegate.request.task).taskIdentifier)];
             [delegate.request.task resume];
         } else {
-            AZLogError(@"Invalid AZURLSessionTaskType.");
+            AWSLogError(@"Invalid AWSURLSessionTaskType.");
         }
 
         return nil;
     }] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             if (delegate.dataTaskCompletionHandler) {
-                AZNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
+                AWSNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
                 completionHandler(nil, task.error);
             }
         }
@@ -265,7 +265,7 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)sessionTask didCompleteWithError:(NSError *)error {
     [[[BFTask taskWithResult:nil] continueWithSuccessBlock:^id(BFTask *task) {
-        AZURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(sessionTask.taskIdentifier)];
+        AWSURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(sessionTask.taskIdentifier)];
 
         if (delegate.downloadingFileURL) {
             [delegate.responseFilehandle closeFile];
@@ -285,11 +285,11 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
             if ([delegate.tempDownloadedFileURL isEqual:delegate.downloadingFileURL] == NO) {
 
                 if ([[NSFileManager defaultManager] fileExistsAtPath:delegate.downloadingFileURL.path]) {
-                    AZLogWarn(@"Warning: target file already exists, will be overwritten at the file path: %@",delegate.downloadingFileURL);
+                    AWSLogWarn(@"Warning: target file already exists, will be overwritten at the file path: %@",delegate.downloadingFileURL);
                     [[NSFileManager defaultManager] removeItemAtPath:delegate.downloadingFileURL.path error:&error];
                 }
                 if (error) {
-                    AZLogError(@"Delete File Error: [%@]",error);
+                    AWSLogError(@"Delete File Error: [%@]",error);
                 }
                 error = nil;
                 [[NSFileManager defaultManager] moveItemAtURL:delegate.tempDownloadedFileURL
@@ -314,7 +314,8 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
                     delegate.responseObject = delegate.downloadingFileURL;
                 }
             }
-        } else if (delegate.responseData || [[httpResponse allHeaderFields][@"Content-Length"] integerValue] == 0) {
+        } else if (!delegate.error) {
+            // need to call responseSerializer if there is no client-side error.
             if ([delegate.request.responseSerializer respondsToSelector:@selector(responseObjectForResponse:originalRequest:currentRequest:data:error:)]) {
                 NSError *error = nil;
                 delegate.responseObject = [delegate.request.responseSerializer responseObjectForResponse:httpResponse
@@ -335,26 +336,26 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
         if (delegate.error
             && [sessionTask.response isKindOfClass:[NSHTTPURLResponse class]]
             && delegate.request.retryHandler) {
-            AZNetworkingRetryType retryType = [delegate.request.retryHandler shouldRetry:delegate.currentRetryCount
+            AWSNetworkingRetryType retryType = [delegate.request.retryHandler shouldRetry:delegate.currentRetryCount
                                                                                 response:(NSHTTPURLResponse *)sessionTask.response
                                                                                     data:delegate.responseData
                                                                                    error:delegate.error];
             switch (retryType) {
-                case AZNetworkingRetryTypeShouldCorrectClockSkewAndRetry: {
+                case AWSNetworkingRetryTypeShouldCorrectClockSkewAndRetry: {
                     //Correct Clock Skew
                     if ([sessionTask.response isKindOfClass:[NSHTTPURLResponse class]]) {
                         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)sessionTask.response;
                         NSString *dateStr = [[httpResponse allHeaderFields] objectForKey:@"Date"];
                         NSDate *serverTime = nil;
                         if ([dateStr length] > 0) {
-                            serverTime = [NSDate az_dateFromString:dateStr];
+                            serverTime = [NSDate aws_dateFromString:dateStr];
                         } else {
                             //If response header does not have 'Date' field, try to extract timeInfo from messageBody.
                             // currently only been used for SQS.
                             if ([delegate.responseObject isKindOfClass:[NSDictionary class]]) {
-                                NSString *messageBody = delegate.responseObject[@"Error"][@"Message"];
+                                NSString *messageBody = [delegate.responseObject[@"Error"] aws_objectForCaseInsensitiveKey:@"Message"];
                                 if (messageBody) {
-                                    serverTime = [NSDate az_getDateFromMessageBody:messageBody];
+                                    serverTime = [NSDate aws_getDateFromMessageBody:messageBody];
                                 }
                             }
                         }
@@ -362,13 +363,13 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
                         if (serverTime) {
                             NSDate *deviceTime = [NSDate date];
                             NSTimeInterval skewTime = [deviceTime timeIntervalSinceDate:serverTime];
-                            [NSDate az_setRuntimeClockSkew:skewTime];
+                            [NSDate aws_setRuntimeClockSkew:skewTime];
                         }
 
                     }
                 }
 
-                case AZNetworkingRetryTypeShouldRefreshCredentialsAndRetry: {
+                case AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry: {
                     id signer = [delegate.request.requestInterceptors lastObject];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
@@ -381,7 +382,7 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
 #pragma clang diagnostic pop
                 }
 
-                case AZNetworkingRetryTypeShouldRetry: {
+                case AWSNetworkingRetryTypeShouldRetry: {
                     NSTimeInterval timeIntervalToSleep = [delegate.request.retryHandler timeIntervalForRetry:delegate.currentRetryCount
                                                                                                     response:(NSHTTPURLResponse *)sessionTask.response
                                                                                                         data:delegate.responseData
@@ -392,16 +393,16 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
                 }
                     break;
 
-                case AZNetworkingRetryTypeShouldNotRetry: {
+                case AWSNetworkingRetryTypeShouldNotRetry: {
                     if (delegate.dataTaskCompletionHandler) {
-                        AZNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
+                        AWSNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
                         completionHandler(delegate.responseObject, delegate.error);
                     }
                 }
                     break;
 
                 default:
-                    AZLogError(@"Unknown retry type. This should not happen.");
+                    AWSLogError(@"Unknown retry type. This should not happen.");
                     NSAssert(NO, @"Unknown retry type. This should not happen.");
                     break;
             }
@@ -413,7 +414,7 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
             }
 
             if (delegate.dataTaskCompletionHandler) {
-                AZNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
+                AWSNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
                 completionHandler(delegate.responseObject, delegate.error);
             }
         }
@@ -425,8 +426,8 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
 }
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didSendBodyData:(int64_t)bytesSent totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
-    AZURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(task.taskIdentifier)];
-    AZNetworkingUploadProgressBlock uploadProgress = delegate.request.uploadProgress;
+    AWSURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(task.taskIdentifier)];
+    AWSNetworkingUploadProgressBlock uploadProgress = delegate.request.uploadProgress;
     if (uploadProgress) {
         
         NSURLSessionTask *sessionTask = delegate.request.task;
@@ -451,32 +452,32 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response
  completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler {
-    AZURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(dataTask.taskIdentifier)];
+    AWSURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(dataTask.taskIdentifier)];
     if (delegate.downloadingFileURL) {
 
         if (delegate.shouldWriteDirectly) {
             //If set (e..g by S3 Transfer Manager), downloaded data will be wrote to the downloadingFileURL directly, if the file already exists, it will appended to the end.
-            AZLogDebug(@"DirectWrite is On, downloaded data will be wrote to the downloadingFileURL directly, if the file already exists, it will appended to the end.\
+            AWSLogDebug(@"DirectWrite is On, downloaded data will be wrote to the downloadingFileURL directly, if the file already exists, it will appended to the end.\
                        Original file may be modified even the downloading task has been paused/cancelled later.");
             delegate.tempDownloadedFileURL = delegate.downloadingFileURL;
             NSError *error = nil;
             if ([[NSFileManager defaultManager] fileExistsAtPath:delegate.tempDownloadedFileURL.path]) {
-                AZLogDebug(@"target file already exists, will be appended at the file path: %@",delegate.tempDownloadedFileURL);
+                AWSLogDebug(@"target file already exists, will be appended at the file path: %@",delegate.tempDownloadedFileURL);
                 delegate.responseFilehandle = [NSFileHandle fileHandleForUpdatingURL:delegate.tempDownloadedFileURL error:&error];
                 if (error) {
-                    AZLogError(@"Error: [%@]", error);
+                    AWSLogError(@"Error: [%@]", error);
                 }
                 [delegate.responseFilehandle seekToEndOfFile];
 
             } else {
                 //Create the file
                 if (![[NSFileManager defaultManager] createFileAtPath:delegate.tempDownloadedFileURL.path contents:nil attributes:nil]) {
-                    AZLogError(@"Error: Can not create file with file path:%@",delegate.tempDownloadedFileURL.path);
+                    AWSLogError(@"Error: Can not create file with file path:%@",delegate.tempDownloadedFileURL.path);
                 }
                 error = nil;
                 delegate.responseFilehandle = [NSFileHandle fileHandleForWritingToURL:delegate.tempDownloadedFileURL error:&error];
                 if (error) {
-                    AZLogError(@"Error: [%@]", error);
+                    AWSLogError(@"Error: [%@]", error);
                 }
             }
 
@@ -486,19 +487,19 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
             delegate.tempDownloadedFileURL  = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:tempFileName]];
             NSError *error = nil;
             if ([[NSFileManager defaultManager] fileExistsAtPath:delegate.tempDownloadedFileURL.path]) {
-                AZLogWarn(@"Warning: target file already exists, will be overwritten at the file path: %@",delegate.tempDownloadedFileURL);
+                AWSLogWarn(@"Warning: target file already exists, will be overwritten at the file path: %@",delegate.tempDownloadedFileURL);
                 [[NSFileManager defaultManager] removeItemAtPath:delegate.tempDownloadedFileURL.path error:&error];
             }
             if (error) {
-                AZLogError(@"Error: [%@]", error);
+                AWSLogError(@"Error: [%@]", error);
             }
             if (![[NSFileManager defaultManager] createFileAtPath:delegate.tempDownloadedFileURL.path contents:nil attributes:nil]) {
-                AZLogError(@"Error: Can not create file with file path:%@",delegate.tempDownloadedFileURL.path);
+                AWSLogError(@"Error: Can not create file with file path:%@",delegate.tempDownloadedFileURL.path);
             }
             error = nil;
             delegate.responseFilehandle = [NSFileHandle fileHandleForWritingToURL:delegate.tempDownloadedFileURL error:&error];
             if (error) {
-                AZLogError(@"Error: [%@]", error);
+                AWSLogError(@"Error: [%@]", error);
             }
         }
 
@@ -506,7 +507,7 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
 
     //    if([response isKindOfClass:[NSHTTPURLResponse class]]) {
     //        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-    //        if ([[[httpResponse allHeaderFields] objectForKey:@"Content-Length"] longLongValue] >= AZMinimumDownloadTaskSize) {
+    //        if ([[[httpResponse allHeaderFields] objectForKey:@"Content-Length"] longLongValue] >= AWSMinimumDownloadTaskSize) {
     //            completionHandler(NSURLSessionResponseBecomeDownload);
     //            return;
     //        }
@@ -516,12 +517,12 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
 }
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask {
-    AZURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(downloadTask.taskIdentifier)];
+    AWSURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(downloadTask.taskIdentifier)];
     delegate.request.task = downloadTask;
 }
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
-    AZURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(dataTask.taskIdentifier)];
+    AWSURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(dataTask.taskIdentifier)];
     
     if (delegate.downloadingFileURL) {
         [delegate.responseFilehandle writeData:data];
@@ -533,7 +534,7 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
         }
     }
     
-    AZNetworkingDownloadProgressBlock downloadProgress = delegate.request.downloadProgress;
+    AWSNetworkingDownloadProgressBlock downloadProgress = delegate.request.downloadProgress;
     if (downloadProgress) {
         
         int64_t bytesWritten = [data length];
@@ -561,7 +562,7 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
 #pragma mark - NSURLSessionDownloadDelegate
 
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location {
-    AZURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(downloadTask.taskIdentifier)];
+    AWSURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(downloadTask.taskIdentifier)];
     if (!delegate.error) {
         NSError *error = nil;
         [[NSFileManager defaultManager] moveItemAtURL:location
@@ -577,8 +578,8 @@ typedef NS_ENUM(NSInteger, AZURLSessionTaskType) {
 }
 
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
-    AZURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(downloadTask.taskIdentifier)];
-    AZNetworkingDownloadProgressBlock downloadProgress = delegate.request.downloadProgress;
+    AWSURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(downloadTask.taskIdentifier)];
+    AWSNetworkingDownloadProgressBlock downloadProgress = delegate.request.downloadProgress;
     if (downloadProgress) {
         downloadProgress(bytesWritten, totalBytesWritten, totalBytesExpectedToWrite);
     }

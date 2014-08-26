@@ -40,10 +40,10 @@
                                      withLocale:(NSString*)locale;
 -(AIInsightsContextBuilder*)withApplicationVersion:(NSString*)appVersion
                                          withBuild:(NSString*)appBuild
-                                              withPackageName:(NSString*)appPackageName;
+                                   withPackageName:(NSString*)appPackageName;
 -(AIInsightsContextBuilder*)withUniqueId:(NSString*)uniqueId;
 
--(AIInsightsContextBuilder*)withConfiguration:(id<AWSMobileAnalyticsConfiguration>)configuration;
+-(AIInsightsContextBuilder*)withConfiguration:(id<AWSMobileAnalyticsConfiguring>)configuration;
 -(AIInsightsContextBuilder*)withHttpClient:(id<AWSMobileAnalyticsHttpClient>)httpClient;
 -(AIInsightsContextBuilder*)withPreferences:(id<AWSMobileAnalyticsPreferences>)preferences;
 -(AIInsightsContextBuilder*)withLifeCycleManager:(id<AWSMobileAnalyticsLifeCycleManager>)lifeCycleManager;

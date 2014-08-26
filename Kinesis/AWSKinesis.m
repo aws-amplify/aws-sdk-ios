@@ -15,8 +15,8 @@
 
 #import "AWSKinesis.h"
 
-#import "AZNetworking.h"
-#import "AZCategory.h"
+#import "AWSNetworking.h"
+#import "AWSCategory.h"
 #import "AWSSignature.h"
 #import "AWSService.h"
 #import "AWSNetworking.h"
@@ -24,11 +24,15 @@
 #import "AWSURLResponseSerialization.h"
 #import "AWSURLRequestRetryHandler.h"
 
+NSString *const AWSKinesisDefinitionFileName = @"kinesis-2013-12-02";
+
 @interface AWSKinesisResponseSerializer : AWSJSONResponseSerializer
 
 @property (nonatomic, assign) Class outputClass;
 
-+ (instancetype)serializerWithOutputClass:(Class)outputClass;
++ (instancetype)serializerWithOutputClass:(Class)outputClass
+                                 resource:(NSString *)resource
+                               actionName:(NSString *)actionName;
 
 @end
 
@@ -53,8 +57,10 @@ static NSDictionary *errorCodeDictionary = nil;
 
 #pragma mark -
 
-+ (instancetype)serializerWithOutputClass:(Class)outputClass {
-    AWSKinesisResponseSerializer *serializer = [AWSKinesisResponseSerializer new];
++ (instancetype)serializerWithOutputClass:(Class)outputClass
+                                 resource:(NSString *)resource
+                               actionName:(NSString *)actionName {
+    AWSKinesisResponseSerializer *serializer = [AWSKinesisResponseSerializer serializerWithResource:resource actionName:actionName];
     serializer.outputClass = outputClass;
 
     return serializer;
@@ -75,14 +81,14 @@ static NSDictionary *errorCodeDictionary = nil;
             if (error) {
                 *error = [NSError errorWithDomain:AWSKinesisErrorDomain
                                              code:[[errorCodeDictionary objectForKey:[[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]] integerValue]
-                                         userInfo:@{NSLocalizedDescriptionKey : [responseObject objectForKey:@"message"]?[responseObject objectForKey:@"message"]:[NSNull null]}];
+                                         userInfo:responseObject];
             }
             return responseObject;
         } else if ([[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]) {
             if (error) {
                 *error = [NSError errorWithDomain:AWSKinesisErrorDomain
                                              code:AWSKinesisErrorUnknown
-                                         userInfo:@{NSLocalizedDescriptionKey : [responseObject objectForKey:@"message"]?[responseObject objectForKey:@"message"]:[NSNull null]}];
+                                         userInfo:responseObject];
             }
             return responseObject;
         }
@@ -105,22 +111,22 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSKinesisRequestRetryHandler
 
-- (AZNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
-                            response:(NSHTTPURLResponse *)response
-                                data:(NSData *)data
-                               error:(NSError *)error {
-    AZNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
-                                                response:response
-                                                    data:data
-                                                   error:error];
-    if(retryType == AZNetworkingRetryTypeShouldNotRetry
+- (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
+                             response:(NSHTTPURLResponse *)response
+                                 data:(NSData *)data
+                                error:(NSError *)error {
+    AWSNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
+                                                 response:response
+                                                     data:data
+                                                    error:error];
+    if(retryType == AWSNetworkingRetryTypeShouldNotRetry
        && [error.domain isEqualToString:AWSKinesisErrorDomain]
        && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
             case AWSKinesisErrorIncompleteSignature:
             case AWSKinesisErrorInvalidClientTokenId:
             case AWSKinesisErrorMissingAuthenticationToken:
-                retryType = AZNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
+                retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
                 break;
 
             default:
@@ -135,15 +141,14 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @interface AWSRequest()
 
-@property (nonatomic, strong) AZNetworkingRequest *internalRequest;
+@property (nonatomic, strong) AWSNetworkingRequest *internalRequest;
 
 @end
 
 @interface AWSKinesis()
 
-@property (nonatomic, strong) AZNetworking *networking;
+@property (nonatomic, strong) AWSNetworking *networking;
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
-@property (nonatomic, strong) AWSEndpoint *endpoint;
 
 @end
 
@@ -167,29 +172,28 @@ static NSDictionary *errorCodeDictionary = nil;
     if (self = [super init]) {
         _configuration = [configuration copy];
 
-        _endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
-                                            service:AWSServiceKinesis];
+        _configuration.endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
+                                                          service:AWSServiceKinesis];
 
         AWSSignatureV4Signer *signer = [AWSSignatureV4Signer signerWithCredentialsProvider:_configuration.credentialsProvider
-                                                                                  endpoint:_endpoint];
+                                                                                  endpoint:_configuration.endpoint];
 
-        _configuration.baseURL = _endpoint.URL;
-        _configuration.requestSerializer = [AWSJSONRequestSerializer new];
+        _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.requestInterceptors = @[[AWSNetworkingRequestInterceptor new], signer];
         _configuration.retryHandler = [[AWSKinesisRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
         _configuration.headers = @{
-                                   @"Host" : _endpoint.hostName,
+                                   @"Host" : _configuration.endpoint.hostName,
                                    @"Content-Type" : @"application/x-amz-json-1.1"
                                    };
 
-        _networking = [AZNetworking networking:_configuration];
+        _networking = [AWSNetworking networking:_configuration];
     }
 
     return self;
 }
 
 - (BFTask *)invokeRequest:(AWSRequest *)request
-               HTTPMethod:(AZHTTPMethod)HTTPMethod
+               HTTPMethod:(AWSHTTPMethod)HTTPMethod
                 URLString:(NSString *) URLString
              targetPrefix:(NSString *)targetPrefix
             operationName:(NSString *)operationName
@@ -198,19 +202,19 @@ static NSDictionary *errorCodeDictionary = nil;
         request = [AWSRequest new];
     }
 
-    AZNetworkingRequest *networkingRequest = request.internalRequest;
+    AWSNetworkingRequest *networkingRequest = request.internalRequest;
     if (request) {
-        networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] az_removeNullValues];
+        networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
     } else {
         networkingRequest.parameters = @{};
     }
-    
+
     NSMutableDictionary *headers = [NSMutableDictionary new];
     headers[@"X-Amz-Target"] = [NSString stringWithFormat:@"%@.%@", targetPrefix, operationName];
     networkingRequest.headers = headers;
-
     networkingRequest.HTTPMethod = HTTPMethod;
-    networkingRequest.responseSerializer = [AWSKinesisResponseSerializer serializerWithOutputClass:outputClass];
+    networkingRequest.responseSerializer = [AWSKinesisResponseSerializer serializerWithOutputClass:outputClass resource:AWSKinesisDefinitionFileName actionName:operationName];
+    networkingRequest.requestSerializer = [AWSJSONRequestSerializer serializerWithResource:AWSKinesisDefinitionFileName actionName:operationName];
 
     return [self.networking sendRequest:networkingRequest];
 }
@@ -219,7 +223,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createStream:(AWSKinesisCreateStreamInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@"Kinesis_20131202"
                  operationName:@"CreateStream"
@@ -228,7 +232,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteStream:(AWSKinesisDeleteStreamInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@"Kinesis_20131202"
                  operationName:@"DeleteStream"
@@ -237,7 +241,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeStream:(AWSKinesisDescribeStreamInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@"Kinesis_20131202"
                  operationName:@"DescribeStream"
@@ -246,7 +250,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getRecords:(AWSKinesisGetRecordsInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@"Kinesis_20131202"
                  operationName:@"GetRecords"
@@ -255,7 +259,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getShardIterator:(AWSKinesisGetShardIteratorInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@"Kinesis_20131202"
                  operationName:@"GetShardIterator"
@@ -264,7 +268,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)listStreams:(AWSKinesisListStreamsInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@"Kinesis_20131202"
                  operationName:@"ListStreams"
@@ -273,7 +277,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)mergeShards:(AWSKinesisMergeShardsInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@"Kinesis_20131202"
                  operationName:@"MergeShards"
@@ -282,7 +286,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)putRecord:(AWSKinesisPutRecordInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@"Kinesis_20131202"
                  operationName:@"PutRecord"
@@ -291,7 +295,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)splitShard:(AWSKinesisSplitShardInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@"Kinesis_20131202"
                  operationName:@"SplitShard"

@@ -14,7 +14,7 @@
  */
 
 #import "AWSMobileAnalyticsLogInterceptor.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 @implementation AWSMobileAnalyticsLogInterceptor
 
@@ -22,11 +22,11 @@
 {
     @try
     {
-        AZLogDebug( @"%@", theRequest);
+        AWSLogDebug( @"%@", theRequest);
     }
     @catch (NSException *exception)
     {
-        AZLogWarn( @"%@", exception);
+        AWSLogWarn( @"%@", exception);
     }
 }
 
@@ -34,11 +34,11 @@
 {
     @try
     {
-        AZLogDebug( @"%@", theResponse);
+        AWSLogDebug( @"%@", theResponse);
     }
     @catch (NSException *exception)
     {
-        AZLogWarn( @"%@", exception);
+        AWSLogWarn( @"%@", exception);
     }
 }
 

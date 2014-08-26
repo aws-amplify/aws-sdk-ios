@@ -15,8 +15,8 @@
 
 #import "AWSCloudWatch.h"
 
-#import "AZNetworking.h"
-#import "AZCategory.h"
+#import "AWSNetworking.h"
+#import "AWSCategory.h"
 #import "AWSSignature.h"
 #import "AWSService.h"
 #import "AWSNetworking.h"
@@ -47,13 +47,13 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"IncompleteSignature" : @(AWSCloudWatchErrorIncompleteSignature),
                             @"InvalidClientTokenId" : @(AWSCloudWatchErrorInvalidClientTokenId),
                             @"MissingAuthenticationToken" : @(AWSCloudWatchErrorMissingAuthenticationToken),
-                            @"InternalServiceFault" : @(AWSCloudWatchErrorInternalService),
-                            @"InvalidFormatFault" : @(AWSCloudWatchErrorInvalidFormat),
+                            @"InternalServiceError" : @(AWSCloudWatchErrorInternalService),
+                            @"InvalidFormat" : @(AWSCloudWatchErrorInvalidFormat),
                             @"InvalidNextToken" : @(AWSCloudWatchErrorInvalidNextToken),
-                            @"InvalidParameterCombinationException" : @(AWSCloudWatchErrorInvalidParameterCombination),
-                            @"InvalidParameterValueException" : @(AWSCloudWatchErrorInvalidParameterValue),
-                            @"LimitExceededFault" : @(AWSCloudWatchErrorLimitExceeded),
-                            @"MissingRequiredParameterException" : @(AWSCloudWatchErrorMissingRequiredParameter),
+                            @"InvalidParameterCombination" : @(AWSCloudWatchErrorInvalidParameterCombination),
+                            @"InvalidParameterValue" : @(AWSCloudWatchErrorInvalidParameterValue),
+                            @"LimitExceeded" : @(AWSCloudWatchErrorLimitExceeded),
+                            @"MissingParameter" : @(AWSCloudWatchErrorMissingRequiredParameter),
                             @"ResourceNotFound" : @(AWSCloudWatchErrorResourceNotFound),
                             };
 }
@@ -86,7 +86,7 @@ static NSDictionary *errorCodeDictionary = nil;
             if (error) {
                 *error = [NSError errorWithDomain:AWSCloudWatchErrorDomain
                                              code:[errorCodeDictionary[errorInfo[@"Code"]] integerValue]
-                                         userInfo:@{NSLocalizedDescriptionKey :[errorInfo objectForKey:@"Message"]?[errorInfo objectForKey:@"Message"]:[NSNull null]}
+                                         userInfo:errorInfo
                           ];
                 return responseObject;
             }
@@ -94,13 +94,12 @@ static NSDictionary *errorCodeDictionary = nil;
             if (error) {
                 *error = [NSError errorWithDomain:AWSCloudWatchErrorDomain
                                              code:AWSCloudWatchErrorUnknown
-                                         userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"%@ -- %@",[errorInfo objectForKey:@"Code"],[errorInfo objectForKey:@"Message"]?[errorInfo objectForKey:@"Message"]:[NSNull null]]
-                                                    }];
+                                         userInfo:errorInfo];
                 return responseObject;
             }
-            
+
         }
-        
+
 
         if (self.outputClass) {
             responseObject = [MTLJSONAdapter modelOfClass:self.outputClass
@@ -120,22 +119,22 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSCloudWatchRequestRetryHandler
 
-- (AZNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
+- (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
                             response:(NSHTTPURLResponse *)response
                                 data:(NSData *)data
                                error:(NSError *)error {
-    AZNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
+    AWSNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
                                                 response:response
                                                     data:data
                                                    error:error];
-    if(retryType == AZNetworkingRetryTypeShouldNotRetry
+    if(retryType == AWSNetworkingRetryTypeShouldNotRetry
        && [error.domain isEqualToString:AWSCloudWatchErrorDomain]
        && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
             case AWSCloudWatchErrorIncompleteSignature:
             case AWSCloudWatchErrorInvalidClientTokenId:
             case AWSCloudWatchErrorMissingAuthenticationToken:
-                retryType = AZNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
+                retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
                 break;
 
             default:
@@ -150,15 +149,14 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @interface AWSRequest()
 
-@property (nonatomic, strong) AZNetworkingRequest *internalRequest;
+@property (nonatomic, strong) AWSNetworkingRequest *internalRequest;
 
 @end
 
 @interface AWSCloudWatch()
 
-@property (nonatomic, strong) AZNetworking *networking;
+@property (nonatomic, strong) AWSNetworking *networking;
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
-@property (nonatomic, strong) AWSEndpoint *endpoint;
 
 @end
 
@@ -182,25 +180,25 @@ static NSDictionary *errorCodeDictionary = nil;
     if (self = [super init]) {
         _configuration = [configuration copy];
 
-        _endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
-                                            service:AWSServiceCloudWatch];
+        _configuration.endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
+                                                          service:AWSServiceCloudWatch];
 
         AWSSignatureV4Signer *signer = [AWSSignatureV4Signer signerWithCredentialsProvider:_configuration.credentialsProvider
-                                                                                  endpoint:_endpoint];
+                                                                                  endpoint:_configuration.endpoint];
 
-        _configuration.baseURL = _endpoint.URL;
+        _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.requestInterceptors = @[[AWSNetworkingRequestInterceptor new], signer];
         _configuration.retryHandler = [[AWSURLRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
-        _configuration.headers = @{@"Host" : _endpoint.hostName};
+        _configuration.headers = @{@"Host" : _configuration.endpoint.hostName};
 
-        _networking = [AZNetworking networking:_configuration];
+        _networking = [AWSNetworking networking:_configuration];
     }
 
     return self;
 }
 
 - (BFTask *)invokeRequest:(AWSRequest *)request
-               HTTPMethod:(AZHTTPMethod)HTTPMethod
+               HTTPMethod:(AWSHTTPMethod)HTTPMethod
                 URLString:(NSString *) URLString
              targetPrefix:(NSString *)targetPrefix
             operationName:(NSString *)operationName
@@ -209,9 +207,9 @@ static NSDictionary *errorCodeDictionary = nil;
         request = [AWSRequest new];
     }
 
-    AZNetworkingRequest *networkingRequest = request.internalRequest;
+    AWSNetworkingRequest *networkingRequest = request.internalRequest;
     if (request) {
-        networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] az_removeNullValues];
+        networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
     } else {
         networkingRequest.parameters = @{};
     }
@@ -231,7 +229,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteAlarms:(AWSCloudWatchDeleteAlarmsInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteAlarms"
@@ -240,7 +238,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeAlarmHistory:(AWSCloudWatchDescribeAlarmHistoryInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeAlarmHistory"
@@ -249,7 +247,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeAlarms:(AWSCloudWatchDescribeAlarmsInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeAlarms"
@@ -258,7 +256,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)describeAlarmsForMetric:(AWSCloudWatchDescribeAlarmsForMetricInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeAlarmsForMetric"
@@ -267,7 +265,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)disableAlarmActions:(AWSCloudWatchDisableAlarmActionsInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DisableAlarmActions"
@@ -276,7 +274,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)enableAlarmActions:(AWSCloudWatchEnableAlarmActionsInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"EnableAlarmActions"
@@ -285,7 +283,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getMetricStatistics:(AWSCloudWatchGetMetricStatisticsInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"GetMetricStatistics"
@@ -294,7 +292,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)listMetrics:(AWSCloudWatchListMetricsInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ListMetrics"
@@ -303,7 +301,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)putMetricAlarm:(AWSCloudWatchPutMetricAlarmInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"PutMetricAlarm"
@@ -312,7 +310,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)putMetricData:(AWSCloudWatchPutMetricDataInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"PutMetricData"
@@ -321,7 +319,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)setAlarmState:(AWSCloudWatchSetAlarmStateInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"SetAlarmState"

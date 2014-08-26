@@ -18,7 +18,7 @@
 #import "../core/AWSMobileAnalyticsContext.h"
 
 @interface AWSMobileAnalyticsERSRequestBuilder : NSObject
-+(AWSMobileAnalyticsERSRequestBuilder *)builderWithConfiguration:(id<AWSMobileAnalyticsConfiguration>)configuration
++(AWSMobileAnalyticsERSRequestBuilder *)builderWithConfiguration:(id<AWSMobileAnalyticsConfiguring>)configuration
                                   withHttpClient:(id<AWSMobileAnalyticsHttpClient>)httpClient
                               withApplicationKey:(NSString*)applicationKey
                                     withUniqueId:(NSString*)uniqueId;

@@ -16,12 +16,12 @@
 #import "AWSMobileAnalyticsActiveSessionState.h"
 #import "AWSMobileAnalyticsDefaultSessionClient+SessionState.h"
 #import "AWSMobileAnalyticsSession.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 @implementation AWSMobileAnalyticsActiveSessionState
 
 -(void)resumeWithSessionClient:(AWSMobileAnalyticsDefaultSessionClient *)sessionClient{
-    AZLogVerbose( @"Session Resume Failed: Session is already running.");
+    AWSLogVerbose( @"Session Resume Failed: Session is already running.");
 }
 
 -(void)pauseWithSessionClient:(AWSMobileAnalyticsDefaultSessionClient *)sessionClient{
@@ -36,7 +36,7 @@
         [sessionClient startNewSession];
         [sessionClient changeState:SESSION_STATE_ACTIVE];
     }else{
-        AZLogVerbose( @"Session Start Failed: Previous session was started too recently.");
+        AWSLogVerbose( @"Session Start Failed: Previous session was started too recently.");
     }
 }
 
@@ -46,11 +46,11 @@
 }
 
 -(void)enterStateWithSessionClient:(AWSMobileAnalyticsDefaultSessionClient *)sessionClient{
-    AZLogVerbose( @"Session State: Entering Active State.");
+    AWSLogVerbose( @"Session State: Entering Active State.");
 }
 
 -(void)exitStateWithSessionClient:(AWSMobileAnalyticsDefaultSessionClient *)sessionClient{
-    AZLogVerbose( @"Session State: Exiting Active State.");
+    AWSLogVerbose( @"Session State: Exiting Active State.");
 }
 
 @end

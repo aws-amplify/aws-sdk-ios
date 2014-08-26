@@ -18,10 +18,10 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
 #import <CommonCrypto/CommonCryptor.h>
-#import "AZCategory.h"
+#import "AWSCategory.h"
 #import "AWSService.h"
 #import "AWSCredentialsProvider.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 NSString *const AWSSigV4Marker = @"AWS4";
 NSString *const AWSSigV4Algorithm = @"AWS4-HMAC-SHA256";
@@ -110,7 +110,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
 
     NSData *digestData = [NSData dataWithBytes:digestRaw length:digestLength];
 
-    return [digestData az_base64EncodedString];
+    return [digestData aws_base64EncodedString];
 }
 
 @end
@@ -185,8 +185,8 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
     //    }
 
     NSDate *date = [NSDate date];
-    NSString *dateStamp = [date az_stringValue:AZDateShortDateFormat1];
-    //NSString *dateTime  = [date az_stringValue:AZDateAmzDateFormat];
+    NSString *dateStamp = [date aws_stringValue:AWSDateShortDateFormat1];
+    //NSString *dateTime  = [date aws_stringValue:AWSDateAmzDateFormat];
 
     NSString *scope = [NSString stringWithFormat:@"%@/%@/%@/%@", dateStamp, self.endpoint.regionName, self.endpoint.serviceName, AWSSigV4Terminator];
     NSString *signingCredentials = [NSString stringWithFormat:@"%@/%@", self.credentialsProvider.accessKey, scope];
@@ -199,7 +199,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
         path = [NSString stringWithFormat:@"/"];
     } else {
         // SigV4 signs escaped path string
-        path = [[path az_stringWithURLEncoding] stringByReplacingOccurrencesOfString:@"\%2F" withString:@"/"];
+        path = [[path aws_stringWithURLEncoding] stringByReplacingOccurrencesOfString:@"\%2F" withString:@"/"];
     }
     NSString *query = urlRequest.URL.query;
     if (query == nil) {
@@ -238,14 +238,14 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
                                                          query:query
                                                        headers:headers
                                                  contentSha256:contentSha256];
-    AZLogDebug(@"Canonical request: [%@]", canonicalRequest);
+    AWSLogDebug(@"Canonical request: [%@]", canonicalRequest);
 
     NSString *stringToSign = [NSString stringWithFormat:@"%@\n%@\n%@\n%@",
                               AWSSigV4Algorithm,
                               [urlRequest valueForHTTPHeaderField:@"X-Amz-Date"],
                               scope,
                               [AWSSignatureSignerUtility hexEncode:[AWSSignatureSignerUtility hashString:canonicalRequest]]];
-    AZLogDebug(@"AWS4 String to Sign: [%@]", stringToSign);
+    AWSLogDebug(@"AWS4 String to Sign: [%@]", stringToSign);
 
     NSData *kSigning  = [self getV4DerivedKey:self.credentialsProvider.secretKey
                                          date:dateStamp
@@ -282,12 +282,12 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
         return nil;
     }
 
-    NSDate *xAmzDate = [NSDate az_dateFromString:[request valueForHTTPHeaderField:@"X-Amz-Date"]
-                                          format:AZDateISO8601DateFormat2];
+    NSDate *xAmzDate = [NSDate aws_dateFromString:[request valueForHTTPHeaderField:@"X-Amz-Date"]
+                                          format:AWSDateISO8601DateFormat2];
 
-    NSString *dateStamp = [xAmzDate az_stringValue:AZDateShortDateFormat1];
+    NSString *dateStamp = [xAmzDate aws_stringValue:AWSDateShortDateFormat1];
 
-    NSString *path = [request.URL.path az_stringWithURLEncodingPath];
+    NSString *path = [request.URL.path aws_stringWithURLEncodingPath];
     if (path.length == 0) {
         path = [NSString stringWithFormat:@"/"];
     }
@@ -304,8 +304,8 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
                                                        headers:request.allHTTPHeaderFields
                                                  contentSha256:contentSha256];
 
-    AZLogDebug(@"AWS4 Canonical Request: [%@]", canonicalRequest);
-    AZLogDebug(@"payload %@",[[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding]);
+    AWSLogDebug(@"AWS4 Canonical Request: [%@]", canonicalRequest);
+    AWSLogDebug(@"payload %@",[[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding]);
 
     NSString *scope = [NSString stringWithFormat:@"%@/%@/%@/%@",
                        dateStamp,
@@ -321,7 +321,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
                               scope,
                               [AWSSignatureSignerUtility hexEncode:[AWSSignatureSignerUtility hashString:canonicalRequest]]];
 
-    AZLogDebug(@"AWS4 String to Sign: [%@]", stringToSign);
+    AWSLogDebug(@"AWS4 String to Sign: [%@]", stringToSign);
 
     NSData *kSigning  = [self getV4DerivedKey:self.credentialsProvider.secretKey
                                          date:dateStamp
@@ -455,9 +455,9 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
         NSString *key   = [sortedKeys objectAtIndex:index];
         NSString *value = (NSString *)[parameters valueForKey:key];
 
-        [mutableHTTPBodyString appendString:[key az_stringWithURLEncoding]];
+        [mutableHTTPBodyString appendString:[key aws_stringWithURLEncoding]];
         [mutableHTTPBodyString appendString:@"="];
-        [mutableHTTPBodyString appendString:[value az_stringWithURLEncoding]];
+        [mutableHTTPBodyString appendString:[value aws_stringWithURLEncoding]];
 
         if (index < [sortedKeys count] - 1) {
             [mutableHTTPBodyString appendString:@"&"];
@@ -527,7 +527,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
         [parameters setObject:@"HmacSHA256" forKey:@"SignatureMethod"];
         [parameters setObject:@"2" forKey:@"SignatureVersion"];
         [parameters setObject:self.credentialsProvider.accessKey forKey:@"AWSAccessKeyId"];
-        [parameters setObject:[[NSDate date] az_stringValue:AZDateISO8601DateFormat3]
+        [parameters setObject:[[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3]
                        forKey:@"Timestamp"];
         //Added SecurityToken field in QueryString for SigV2 if STS has been used.
         if ([self.credentialsProvider respondsToSelector:@selector(sessionKey)]) {
@@ -540,7 +540,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
         NSString *signature = [AWSSignatureSignerUtility HMACSign:dataToSign
                                                           withKey:self.credentialsProvider.secretKey
                                                    usingAlgorithm:kCCHmacAlgSHA256];
-        [canonicalizedQueryString appendFormat:@"&Signature=%@", [signature az_stringWithURLEncoding]];
+        [canonicalizedQueryString appendFormat:@"&Signature=%@", [signature aws_stringWithURLEncoding]];
         request.HTTPBody = [canonicalizedQueryString dataUsingEncoding:NSUTF8StringEncoding];
 
         return nil;
@@ -639,7 +639,7 @@ NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427ae41e464
     NSData *data = [NSData dataWithBytesNoCopy:chunkBuffer length:read];
     [self.chunkData appendData:[self getSignedChunk:data]];
 
-    AZLogDebug(@"stream read: %ld, chunk size: %lu", (long)read, (unsigned long)[self.chunkData length]);
+    AWSLogDebug(@"stream read: %ld, chunk size: %lu", (long)read, (unsigned long)[self.chunkData length]);
 
     return YES;
 }
@@ -650,18 +650,18 @@ NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427ae41e464
     NSString *stringToSign = [NSString stringWithFormat:
                               @"%@\n%@\n%@\n%@\n%@\n%@",
                               @"AWS4-HMAC-SHA256-PAYLOAD",
-                              [self.date az_stringValue:AZDateISO8601DateFormat2],
+                              [self.date aws_stringValue:AWSDateISO8601DateFormat2],
                               self.scope,
                               self.priorSha256,
                               emptyStringSha256,
                               chunkSha256];
-    AZLogDebug(@"AWS4 String to Sign: [%@]", stringToSign);
+    AWSLogDebug(@"AWS4 String to Sign: [%@]", stringToSign);
 
     NSData *signature = [AWSSignatureSignerUtility sha256HMacWithData:[stringToSign dataUsingEncoding:NSUTF8StringEncoding]
                                                               withKey:self.kSigning];
     self.priorSha256 = [self dataToHexString:signature];
     NSString *chunkedHeader = [NSString stringWithFormat:@"%06lx;chunk-signature=%@\r\n", (unsigned long)[data length], self.priorSha256];
-    AZLogDebug(@"AWS4 Chunked Header: [%@]", chunkedHeader);
+    AWSLogDebug(@"AWS4 Chunked Header: [%@]", chunkedHeader);
 
     NSMutableData *signedChunk = [NSMutableData data];
     [signedChunk appendData:[chunkedHeader dataUsingEncoding:NSUTF8StringEncoding]];

@@ -15,7 +15,7 @@
       "name":"AbortMultipartUpload",
       "http":{
         "method":"DELETE",
-        "requestUri":"/{Bucket}/{Key}"
+        "requestUri":"/{Bucket}/{Key+}"
       },
       "input":{"shape":"AbortMultipartUploadRequest"},
       "errors":[
@@ -25,14 +25,14 @@
           "documentation":"The specified multipart upload does not exist."
         }
       ],
-      "documentation":"<p>Aborts a multipart upload.</p>\n<p>To verify that all parts have been removed, so you don't get charged for the part storage, you should call the List Parts operation and ensure the parts list is empty.</p>",
+      "documentation":"<p>Aborts a multipart upload.</p> <p>To verify that all parts have been removed, so you don't get charged for the part storage, you should call the List Parts operation and ensure the parts list is empty.</p>",
       "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/mpUploadAbort.html"
     },
     "CompleteMultipartUpload":{
       "name":"CompleteMultipartUpload",
       "http":{
         "method":"POST",
-        "requestUri":"/{Bucket}/{Key}"
+        "requestUri":"/{Bucket}/{Key+}"
       },
       "input":{"shape":"CompleteMultipartUploadRequest"},
       "output":{"shape":"CompleteMultipartUploadOutput"},
@@ -43,7 +43,7 @@
       "name":"CopyObject",
       "http":{
         "method":"PUT",
-        "requestUri":"/{Bucket}/{Key}"
+        "requestUri":"/{Bucket}/{Key+}"
       },
       "input":{"shape":"CopyObjectRequest"},
       "output":{"shape":"CopyObjectOutput"},
@@ -81,11 +81,11 @@
       "name":"CreateMultipartUpload",
       "http":{
         "method":"POST",
-        "requestUri":"/{Bucket}/{Key}?uploads"
+        "requestUri":"/{Bucket}/{Key+}?uploads"
       },
       "input":{"shape":"CreateMultipartUploadRequest"},
       "output":{"shape":"CreateMultipartUploadOutput"},
-      "documentation":"<p>Initiates a multipart upload and returns an upload ID.</p>\n<p><b>Note:</b> After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.</p>",
+      "documentation":"<p>Initiates a multipart upload and returns an upload ID.</p> <p><b>Note:</b> After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.</p>",
       "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/mpUploadInitiate.html",
       "alias":"InitiateMultipartUpload"
     },
@@ -153,7 +153,7 @@
       "name":"DeleteObject",
       "http":{
         "method":"DELETE",
-        "requestUri":"/{Bucket}/{Key}"
+        "requestUri":"/{Bucket}/{Key+}"
       },
       "input":{"shape":"DeleteObjectRequest"},
       "output":{"shape":"DeleteObjectOutput"},
@@ -297,7 +297,7 @@
       "name":"GetObject",
       "http":{
         "method":"GET",
-        "requestUri":"/{Bucket}/{Key}"
+        "requestUri":"/{Bucket}/{Key+}"
       },
       "input":{"shape":"GetObjectRequest"},
       "output":{"shape":"GetObjectOutput"},
@@ -315,7 +315,7 @@
       "name":"GetObjectAcl",
       "http":{
         "method":"GET",
-        "requestUri":"/{Bucket}/{Key}?acl"
+        "requestUri":"/{Bucket}/{Key+}?acl"
       },
       "input":{"shape":"GetObjectAclRequest"},
       "output":{"shape":"GetObjectAclOutput"},
@@ -333,7 +333,7 @@
       "name":"GetObjectTorrent",
       "http":{
         "method":"GET",
-        "requestUri":"/{Bucket}/{Key}?torrent"
+        "requestUri":"/{Bucket}/{Key+}?torrent"
       },
       "input":{"shape":"GetObjectTorrentRequest"},
       "output":{"shape":"GetObjectTorrentOutput"},
@@ -361,7 +361,7 @@
       "name":"HeadObject",
       "http":{
         "method":"HEAD",
-        "requestUri":"/{Bucket}/{Key}"
+        "requestUri":"/{Bucket}/{Key+}"
       },
       "input":{"shape":"HeadObjectRequest"},
       "output":{"shape":"HeadObjectOutput"},
@@ -432,7 +432,7 @@
       "name":"ListParts",
       "http":{
         "method":"GET",
-        "requestUri":"/{Bucket}/{Key}"
+        "requestUri":"/{Bucket}/{Key+}"
       },
       "input":{"shape":"ListPartsRequest"},
       "output":{"shape":"ListPartsOutput"},
@@ -495,11 +495,7 @@
         "method":"PUT",
         "requestUri":"/{Bucket}?policy"
       },
-      "input":{
-        "shape":"PutBucketPolicyRequest",
-        "xmlNamespace":"http://s3.amazonaws.com/doc/2006-03-01/",
-        "locationName":"PutBucketPolicyRequest"
-      },
+      "input":{"shape":"PutBucketPolicyRequest"},
       "documentation":"Replaces a policy on a bucket. If the bucket already has a policy, the one in this request completely replaces it.",
       "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketPUTpolicy.html"
     },
@@ -547,7 +543,7 @@
       "name":"PutObject",
       "http":{
         "method":"PUT",
-        "requestUri":"/{Bucket}/{Key}"
+        "requestUri":"/{Bucket}/{Key+}"
       },
       "input":{"shape":"PutObjectRequest"},
       "output":{"shape":"PutObjectOutput"},
@@ -558,7 +554,7 @@
       "name":"PutObjectAcl",
       "http":{
         "method":"PUT",
-        "requestUri":"/{Bucket}/{Key}?acl"
+        "requestUri":"/{Bucket}/{Key+}?acl"
       },
       "input":{"shape":"PutObjectAclRequest"},
       "errors":[
@@ -575,7 +571,7 @@
       "name":"RestoreObject",
       "http":{
         "method":"POST",
-        "requestUri":"/{Bucket}/{Key}?restore"
+        "requestUri":"/{Bucket}/{Key+}?restore"
       },
       "input":{"shape":"RestoreObjectRequest"},
       "errors":[
@@ -593,18 +589,18 @@
       "name":"UploadPart",
       "http":{
         "method":"PUT",
-        "requestUri":"/{Bucket}/{Key}"
+        "requestUri":"/{Bucket}/{Key+}"
       },
       "input":{"shape":"UploadPartRequest"},
       "output":{"shape":"UploadPartOutput"},
-      "documentation":"<p>Uploads a part in a multipart upload.</p>\n<p><b>Note:</b> After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.</p>",
+      "documentation":"<p>Uploads a part in a multipart upload.</p> <p><b>Note:</b> After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.</p>",
       "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/mpUploadUploadPart.html"
     },
     "UploadPartCopy":{
       "name":"UploadPartCopy",
       "http":{
         "method":"PUT",
-        "requestUri":"/{Bucket}/{Key}"
+        "requestUri":"/{Bucket}/{Key+}"
       },
       "input":{"shape":"UploadPartCopyRequest"},
       "output":{"shape":"UploadPartCopyOutput"},
@@ -848,7 +844,7 @@
         "MultipartUpload":{
           "shape":"CompletedMultipartUpload",
           "locationName":"CompleteMultipartUpload",
-          "xmlNamespace":"http://s3.amazonaws.com/doc/2006-03-01/"
+          "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}
         },
         "UploadId":{
           "shape":"MultipartUploadId",
@@ -924,6 +920,18 @@
           "location":"header",
           "locationName":"x-amz-server-side-encryption",
           "documentation":"The Server-side encryption algorithm used when storing this object in S3."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used."
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key."
         }
       },
       "payload":"CopyObjectResult"
@@ -1071,6 +1079,42 @@
           "location":"header",
           "locationName":"x-amz-website-redirect-location",
           "documentation":"If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"Specifies the algorithm to use to when encrypting the object (e.g., AES256)."
+        },
+        "SSECustomerKey":{
+          "shape":"SSECustomerKey",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key",
+          "documentation":"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header."
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
+        },
+        "CopySourceSSECustomerAlgorithm":{
+          "shape":"CopySourceSSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-copy-source-server-side-encryption-customer-algorithm",
+          "documentation":"Specifies the algorithm to use when decrypting the source object (e.g., AES256)."
+        },
+        "CopySourceSSECustomerKey":{
+          "shape":"CopySourceSSECustomerKey",
+          "location":"header",
+          "locationName":"x-amz-copy-source-server-side-encryption-customer-key",
+          "documentation":"Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created."
+        },
+        "CopySourceSSECustomerKeyMD5":{
+          "shape":"CopySourceSSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-copy-source-server-side-encryption-customer-key-MD5",
+          "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
         }
       }
     },
@@ -1103,6 +1147,12 @@
     "CopySourceIfNoneMatch":{"type":"string"},
     "CopySourceIfUnmodifiedSince":{"type":"timestamp"},
     "CopySourceRange":{"type":"string"},
+    "CopySourceSSECustomerAlgorithm":{"type":"string"},
+    "CopySourceSSECustomerKey":{
+      "type":"string",
+      "sensitive":true
+    },
+    "CopySourceSSECustomerKeyMD5":{"type":"string"},
     "CopySourceVersionId":{"type":"string"},
     "CreateBucketConfiguration":{
       "type":"structure",
@@ -1140,7 +1190,7 @@
         },
         "CreateBucketConfiguration":{
           "shape":"CreateBucketConfiguration",
-          "xmlNamespace":"http://s3.amazonaws.com/doc/2006-03-01/",
+          "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},
           "locationName":"CreateBucketConfiguration"
         },
         "GrantFullControl":{
@@ -1197,6 +1247,18 @@
           "location":"header",
           "locationName":"x-amz-server-side-encryption",
           "documentation":"The Server-side encryption algorithm used when storing this object in S3."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used."
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key."
         }
       }
     },
@@ -1306,6 +1368,24 @@
           "location":"header",
           "locationName":"x-amz-website-redirect-location",
           "documentation":"If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"Specifies the algorithm to use to when encrypting the object (e.g., AES256)."
+        },
+        "SSECustomerKey":{
+          "shape":"SSECustomerKey",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key",
+          "documentation":"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header."
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
         }
       }
     },
@@ -1496,7 +1576,7 @@
         },
         "Delete":{
           "shape":"Delete",
-          "xmlNamespace":"http://s3.amazonaws.com/doc/2006-03-01/",
+          "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},
           "locationName":"Delete"
         },
         "MFA":{
@@ -1941,6 +2021,18 @@
           "location":"headers",
           "documentation":"A map of metadata to store with the object in S3.",
           "locationName":"x-amz-meta-"
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used."
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key."
         }
       },
       "payload":"Body"
@@ -2033,6 +2125,24 @@
           "location":"querystring",
           "locationName":"versionId",
           "documentation":"VersionId used to reference a specific version of the object."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"Specifies the algorithm to use to when encrypting the object (e.g., AES256)."
+        },
+        "SSECustomerKey":{
+          "shape":"SSECustomerKey",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key",
+          "documentation":"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header."
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
         }
       }
     },
@@ -2237,6 +2347,18 @@
           "location":"headers",
           "documentation":"A map of metadata to store with the object in S3.",
           "locationName":"x-amz-meta-"
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used."
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key."
         }
       }
     },
@@ -2292,6 +2414,24 @@
           "location":"querystring",
           "locationName":"versionId",
           "documentation":"VersionId used to reference a specific version of the object."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"Specifies the algorithm to use to when encrypting the object (e.g., AES256)."
+        },
+        "SSECustomerKey":{
+          "shape":"SSECustomerKey",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key",
+          "documentation":"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header."
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
         }
       }
     },
@@ -2794,6 +2934,30 @@
       "exception":true,
       "documentation":"The specified multipart upload does not exist."
     },
+    "NoncurrentVersionExpiration":{
+      "type":"structure",
+      "members":{
+        "NoncurrentDays":{
+          "shape":"Days",
+          "documentation":"Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href=\"/AmazonS3/latest/dev/s3-access-control.html\">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide."
+        }
+      },
+      "documentation":"Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime."
+    },
+    "NoncurrentVersionTransition":{
+      "type":"structure",
+      "members":{
+        "NoncurrentDays":{
+          "shape":"Days",
+          "documentation":"Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href=\"/AmazonS3/latest/dev/s3-access-control.html\">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide."
+        },
+        "StorageClass":{
+          "shape":"TransitionStorageClass",
+          "documentation":"The class of storage used to store the object."
+        }
+      },
+      "documentation":"Container for the transition rule that describes when noncurrent objects transition to the GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the GLACIER storage class at a specific period in the object's lifetime."
+    },
     "NotificationConfiguration":{
       "type":"structure",
       "required":["TopicConfiguration"],
@@ -2987,7 +3151,7 @@
         },
         "AccessControlPolicy":{
           "shape":"AccessControlPolicy",
-          "xmlNamespace":"http://s3.amazonaws.com/doc/2006-03-01/",
+          "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},
           "locationName":"AccessControlPolicy"
         },
         "Bucket":{
@@ -3044,7 +3208,7 @@
         },
         "CORSConfiguration":{
           "shape":"CORSConfiguration",
-          "xmlNamespace":"http://s3.amazonaws.com/doc/2006-03-01/",
+          "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},
           "locationName":"CORSConfiguration"
         },
         "ContentMD5":{
@@ -3071,7 +3235,7 @@
         },
         "LifecycleConfiguration":{
           "shape":"LifecycleConfiguration",
-          "xmlNamespace":"http://s3.amazonaws.com/doc/2006-03-01/",
+          "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},
           "locationName":"LifecycleConfiguration"
         }
       },
@@ -3091,7 +3255,7 @@
         },
         "BucketLoggingStatus":{
           "shape":"BucketLoggingStatus",
-          "xmlNamespace":"http://s3.amazonaws.com/doc/2006-03-01/",
+          "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},
           "locationName":"BucketLoggingStatus"
         },
         "ContentMD5":{
@@ -3121,7 +3285,7 @@
         },
         "NotificationConfiguration":{
           "shape":"NotificationConfiguration",
-          "xmlNamespace":"http://s3.amazonaws.com/doc/2006-03-01/",
+          "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},
           "locationName":"NotificationConfiguration"
         }
       },
@@ -3170,7 +3334,7 @@
         },
         "RequestPaymentConfiguration":{
           "shape":"RequestPaymentConfiguration",
-          "xmlNamespace":"http://s3.amazonaws.com/doc/2006-03-01/",
+          "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},
           "locationName":"RequestPaymentConfiguration"
         }
       },
@@ -3195,7 +3359,7 @@
         },
         "Tagging":{
           "shape":"Tagging",
-          "xmlNamespace":"http://s3.amazonaws.com/doc/2006-03-01/",
+          "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},
           "locationName":"Tagging"
         }
       },
@@ -3226,7 +3390,7 @@
         },
         "VersioningConfiguration":{
           "shape":"VersioningConfiguration",
-          "xmlNamespace":"http://s3.amazonaws.com/doc/2006-03-01/",
+          "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},
           "locationName":"VersioningConfiguration"
         }
       },
@@ -3251,7 +3415,7 @@
         },
         "WebsiteConfiguration":{
           "shape":"WebsiteConfiguration",
-          "xmlNamespace":"http://s3.amazonaws.com/doc/2006-03-01/",
+          "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},
           "locationName":"WebsiteConfiguration"
         }
       },
@@ -3272,7 +3436,7 @@
         },
         "AccessControlPolicy":{
           "shape":"AccessControlPolicy",
-          "xmlNamespace":"http://s3.amazonaws.com/doc/2006-03-01/",
+          "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},
           "locationName":"AccessControlPolicy"
         },
         "Bucket":{
@@ -3349,6 +3513,18 @@
           "location":"header",
           "locationName":"x-amz-version-id",
           "documentation":"Version of the object."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used."
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key."
         }
       }
     },
@@ -3473,6 +3649,24 @@
           "location":"header",
           "locationName":"x-amz-website-redirect-location",
           "documentation":"If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"Specifies the algorithm to use to when encrypting the object (e.g., AES256)."
+        },
+        "SSECustomerKey":{
+          "shape":"SSECustomerKey",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key",
+          "documentation":"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header."
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
         }
       },
       "payload":"Body"
@@ -3554,9 +3748,14 @@
           "location":"uri",
           "locationName":"Key"
         },
+        "VersionId":{
+          "shape":"ObjectVersionId",
+          "location":"querystring",
+          "locationName":"versionId"
+        },
         "RestoreRequest":{
           "shape":"RestoreRequest",
-          "xmlNamespace":"http://s3.amazonaws.com/doc/2006-03-01/",
+          "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},
           "locationName":"RestoreRequest"
         }
       },
@@ -3613,7 +3812,9 @@
           "shape":"ExpirationStatus",
           "documentation":"If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied."
         },
-        "Transition":{"shape":"Transition"}
+        "Transition":{"shape":"Transition"},
+        "NoncurrentVersionTransition":{"shape":"NoncurrentVersionTransition"},
+        "NoncurrentVersionExpiration":{"shape":"NoncurrentVersionExpiration"}
       }
     },
     "Rules":{
@@ -3621,6 +3822,12 @@
       "member":{"shape":"Rule"},
       "flattened":true
     },
+    "SSECustomerAlgorithm":{"type":"string"},
+    "SSECustomerKey":{
+      "type":"string",
+      "sensitive":true
+    },
+    "SSECustomerKeyMD5":{"type":"string"},
     "ServerSideEncryption":{
       "type":"string",
       "enum":["AES256"]
@@ -3746,6 +3953,18 @@
           "location":"header",
           "locationName":"x-amz-server-side-encryption",
           "documentation":"The Server-side encryption algorithm used when storing this object in S3."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used."
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key."
         }
       },
       "payload":"CopyPartResult"
@@ -3817,6 +4036,42 @@
           "location":"querystring",
           "locationName":"uploadId",
           "documentation":"Upload ID identifying the multipart upload whose part is being copied."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"Specifies the algorithm to use to when encrypting the object (e.g., AES256)."
+        },
+        "SSECustomerKey":{
+          "shape":"SSECustomerKey",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key",
+          "documentation":"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request."
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
+        },
+        "CopySourceSSECustomerAlgorithm":{
+          "shape":"CopySourceSSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-copy-source-server-side-encryption-customer-algorithm",
+          "documentation":"Specifies the algorithm to use when decrypting the source object (e.g., AES256)."
+        },
+        "CopySourceSSECustomerKey":{
+          "shape":"CopySourceSSECustomerKey",
+          "location":"header",
+          "locationName":"x-amz-copy-source-server-side-encryption-customer-key",
+          "documentation":"Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created."
+        },
+        "CopySourceSSECustomerKeyMD5":{
+          "shape":"CopySourceSSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-copy-source-server-side-encryption-customer-key-MD5",
+          "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
         }
       }
     },
@@ -3834,6 +4089,18 @@
           "location":"header",
           "locationName":"ETag",
           "documentation":"Entity tag for the uploaded object."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used."
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key."
         }
       }
     },
@@ -3882,6 +4149,24 @@
           "location":"querystring",
           "locationName":"uploadId",
           "documentation":"Upload ID identifying the multipart upload whose part is being uploaded."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"Specifies the algorithm to use to when encrypting the object (e.g., AES256)."
+        },
+        "SSECustomerKey":{
+          "shape":"SSECustomerKey",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key",
+          "documentation":"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request."
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
         }
       },
       "payload":"Body"

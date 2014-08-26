@@ -14,7 +14,6 @@ fi
 
 if [ -x "Scripts/PodFramework.sh" ]; then
 	Scripts/PodFramework.sh Bolts
-	Scripts/PodFramework.sh CSURITemplate
 	Scripts/PodFramework.sh Mantle
 	Scripts/PodFramework.sh TMCache
 	Scripts/PodFramework.sh XMLDictionary

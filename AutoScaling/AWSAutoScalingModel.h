@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AWSNetworking.h"
-#import "AZModel.h"
+#import "AWSModel.h"
 
 FOUNDATION_EXPORT NSString *const AWSAutoScalingErrorDomain;
 
@@ -34,10 +34,18 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingErrorType) {
 typedef NS_ENUM(NSInteger, AWSAutoScalingLifecycleState) {
     AWSAutoScalingLifecycleStateUnknown,
     AWSAutoScalingLifecycleStatePending,
+    AWSAutoScalingLifecycleStatePendingWait,
+    AWSAutoScalingLifecycleStatePendingProceed,
     AWSAutoScalingLifecycleStateQuarantined,
     AWSAutoScalingLifecycleStateInService,
     AWSAutoScalingLifecycleStateTerminating,
+    AWSAutoScalingLifecycleStateTerminatingWait,
+    AWSAutoScalingLifecycleStateTerminatingProceed,
     AWSAutoScalingLifecycleStateTerminated,
+    AWSAutoScalingLifecycleStateDetaching,
+    AWSAutoScalingLifecycleStateDetached,
+    AWSAutoScalingLifecycleStateEnteringStandby,
+    AWSAutoScalingLifecycleStateStandby,
 };
 
 typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
@@ -47,6 +55,8 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
     AWSAutoScalingScalingActivityStatusCodeWaitingForInstanceId,
     AWSAutoScalingScalingActivityStatusCodePreInService,
     AWSAutoScalingScalingActivityStatusCodeInProgress,
+    AWSAutoScalingScalingActivityStatusCodeWaitingForELBConnectionDraining,
+    AWSAutoScalingScalingActivityStatusCodeMidLifecycleAction,
     AWSAutoScalingScalingActivityStatusCodeSuccessful,
     AWSAutoScalingScalingActivityStatusCodeFailed,
     AWSAutoScalingScalingActivityStatusCodeCancelled,
@@ -64,10 +74,14 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @class AWSAutoScalingAutoScalingInstanceDetails;
 @class AWSAutoScalingAutoScalingInstancesType;
 @class AWSAutoScalingBlockDeviceMapping;
+@class AWSAutoScalingCompleteLifecycleActionAnswer;
+@class AWSAutoScalingCompleteLifecycleActionType;
 @class AWSAutoScalingCreateAutoScalingGroupType;
 @class AWSAutoScalingCreateLaunchConfigurationType;
 @class AWSAutoScalingCreateOrUpdateTagsType;
 @class AWSAutoScalingDeleteAutoScalingGroupType;
+@class AWSAutoScalingDeleteLifecycleHookAnswer;
+@class AWSAutoScalingDeleteLifecycleHookType;
 @class AWSAutoScalingDeleteNotificationConfigurationType;
 @class AWSAutoScalingDeletePolicyType;
 @class AWSAutoScalingDeleteScheduledActionType;
@@ -76,6 +90,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @class AWSAutoScalingDescribeAdjustmentTypesAnswer;
 @class AWSAutoScalingDescribeAutoScalingInstancesType;
 @class AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer;
+@class AWSAutoScalingDescribeLifecycleHookTypesAnswer;
+@class AWSAutoScalingDescribeLifecycleHooksAnswer;
+@class AWSAutoScalingDescribeLifecycleHooksType;
 @class AWSAutoScalingDescribeMetricCollectionTypesAnswer;
 @class AWSAutoScalingDescribeNotificationConfigurationsAnswer;
 @class AWSAutoScalingDescribeNotificationConfigurationsType;
@@ -84,11 +101,17 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @class AWSAutoScalingDescribeScheduledActionsType;
 @class AWSAutoScalingDescribeTagsType;
 @class AWSAutoScalingDescribeTerminationPolicyTypesAnswer;
+@class AWSAutoScalingDetachInstancesAnswer;
+@class AWSAutoScalingDetachInstancesQuery;
 @class AWSAutoScalingDisableMetricsCollectionQuery;
 @class AWSAutoScalingEbs;
 @class AWSAutoScalingEnableMetricsCollectionQuery;
 @class AWSAutoScalingEnabledMetric;
+@class AWSAutoScalingEnterStandbyAnswer;
+@class AWSAutoScalingEnterStandbyQuery;
 @class AWSAutoScalingExecutePolicyType;
+@class AWSAutoScalingExitStandbyAnswer;
+@class AWSAutoScalingExitStandbyQuery;
 @class AWSAutoScalingFilter;
 @class AWSAutoScalingInstance;
 @class AWSAutoScalingInstanceMonitoring;
@@ -96,6 +119,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @class AWSAutoScalingLaunchConfigurationNameType;
 @class AWSAutoScalingLaunchConfigurationNamesType;
 @class AWSAutoScalingLaunchConfigurationsType;
+@class AWSAutoScalingLifecycleHook;
 @class AWSAutoScalingMetricCollectionType;
 @class AWSAutoScalingMetricGranularityType;
 @class AWSAutoScalingNotificationConfiguration;
@@ -103,9 +127,13 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @class AWSAutoScalingPolicyARNType;
 @class AWSAutoScalingProcessType;
 @class AWSAutoScalingProcessesType;
+@class AWSAutoScalingPutLifecycleHookAnswer;
+@class AWSAutoScalingPutLifecycleHookType;
 @class AWSAutoScalingPutNotificationConfigurationType;
 @class AWSAutoScalingPutScalingPolicyType;
 @class AWSAutoScalingPutScheduledUpdateGroupActionType;
+@class AWSAutoScalingRecordLifecycleActionHeartbeatAnswer;
+@class AWSAutoScalingRecordLifecycleActionHeartbeatType;
 @class AWSAutoScalingScalingPolicy;
 @class AWSAutoScalingScalingProcessQuery;
 @class AWSAutoScalingScheduledActionsType;
@@ -123,7 +151,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  * <p> The output for the <a>DescribeScalingActivities</a> action. </p>
  * Required parameters: [Activities]
  */
-@interface AWSAutoScalingActivitiesType : AZModel
+@interface AWSAutoScalingActivitiesType : AWSModel
 
 
 /**
@@ -139,10 +167,10 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @end
 
 /**
- * <p> A scaling Activity is a long-running process thatrepresents a change to your AutoScalingGroup,such as changing the size of the group.It can also be a process to replace an instance,or a process to perform any other long-running operationssupported by the API. </p>
+ * <p> A scaling Activity is a long-running process that represents a change to your AutoScalingGroup, such as changing the size of the group. It can also be a process to replace an instance, or a process to perform any other long-running operations supported by the API. </p>
  * Required parameters: [ActivityId, AutoScalingGroupName, Cause, StartTime, StatusCode]
  */
-@interface AWSAutoScalingActivity : AZModel
+@interface AWSAutoScalingActivity : AWSModel
 
 
 /**
@@ -159,11 +187,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  * <p> Contains the reason the activity was begun. </p>
  */
 @property (nonatomic, strong) NSString *cause;
-
-/**
- * <p> Contains a friendly, more verbose description of the scaling activity. </p>
- */
-@property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSString *detail;
 
 /**
  * <p> Contains details of the scaling activity. </p>
@@ -200,7 +224,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 /**
  * <p> The output for the <a>TerminateInstanceInAutoScalingGroup</a> action. </p>
  */
-@interface AWSAutoScalingActivityType : AZModel
+@interface AWSAutoScalingActivityType : AWSModel
 
 
 /**
@@ -211,9 +235,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @end
 
 /**
- * <p> Specifies whether the <a>PutScalingPolicy</a><code>ScalingAdjustment</code> parameter isan absolute number or a percentage of the current capacity.</p>
+ * <p> Specifies whether the <a>PutScalingPolicy</a><code>ScalingAdjustment</code> parameter is an absolute number or a percentage of the current capacity. </p>
  */
-@interface AWSAutoScalingAdjustmentType : AZModel
+@interface AWSAutoScalingAdjustmentType : AWSModel
 
 
 /**
@@ -226,7 +250,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 /**
  * <p>The Alarm data type.</p>
  */
-@interface AWSAutoScalingAlarm : AZModel
+@interface AWSAutoScalingAlarm : AWSModel
 
 
 /**
@@ -245,12 +269,12 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 
 /**
- * <p> The name of the Auto Scaling group to which to attach the specified instance(s).</p>
+ * <p> The name of the Auto Scaling group to which to attach the specified instance(s). </p>
  */
 @property (nonatomic, strong) NSString *autoScalingGroupName;
 
 /**
- * <p> One or more IDs of the Amazon EC2 instances to attach to the specified Auto Scaling group.You must specify at least one instance ID.</p>
+ * <p> One or more IDs of the Amazon EC2 instances to attach to the specified Auto Scaling group. You must specify at least one instance ID. </p>
  */
 @property (nonatomic, strong) NSArray *instanceIds;
 
@@ -260,7 +284,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  * <p> The AutoScalingGroup data type. </p>
  * Required parameters: [AutoScalingGroupName, LaunchConfigurationName, MinSize, MaxSize, DesiredCapacity, DefaultCooldown, AvailabilityZones, HealthCheckType, CreatedTime]
  */
-@interface AWSAutoScalingAutoScalingGroup : AZModel
+@interface AWSAutoScalingAutoScalingGroup : AWSModel
 
 
 /**
@@ -334,12 +358,12 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber *minSize;
 
 /**
- * <p> The name of the cluster placement group, if applicable. For more information, go to<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html"> Using Cluster Instances</a> in the Amazon EC2 User Guide. </p>
+ * <p> The name of the cluster placement group, if applicable. For more information, go to <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html"> Using Cluster Instances</a> in the Amazon EC2 User Guide. </p>
  */
 @property (nonatomic, strong) NSString *placementGroup;
 
 /**
- * <p> 		The current state of the Auto Scaling group when a <a>DeleteAutoScalingGroup</a> action is in progress. </p>
+ * <p> The current state of the Auto Scaling group when a <a>DeleteAutoScalingGroup</a> action is in progress. </p>
  */
 @property (nonatomic, strong) NSString *status;
 
@@ -354,12 +378,12 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSArray *tags;
 
 /**
- * <p>A standalone termination policy or a list of termination policies for this Auto Scaling group.</p>
+ * <p> A standalone termination policy or a list of termination policies for this Auto Scaling group. </p>
  */
 @property (nonatomic, strong) NSArray *terminationPolicies;
 
 /**
- * <p> The subnet identifier for the Amazon VPC connection, if applicable. You can specify several subnets in acomma-separated list.</p><p> When you specify <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, ensure that thesubnets' Availability Zones match the values you specify for <code>AvailabilityZones</code>. </p>
+ * <p> The subnet identifier for the Amazon VPC connection, if applicable. You can specify several subnets in a comma-separated list. </p><p> When you specify <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, ensure that the subnets' Availability Zones match the values you specify for <code>AvailabilityZones</code>. </p>
  */
 @property (nonatomic, strong) NSString *VPCZoneIdentifier;
 
@@ -372,7 +396,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 
 /**
- * <p>A list of Auto Scaling group names. </p>
+ * <p> A list of Auto Scaling group names. </p>
  */
 @property (nonatomic, strong) NSArray *autoScalingGroupNames;
 
@@ -392,7 +416,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  * <p> The <code>AutoScalingGroupsType</code> data type. </p>
  * Required parameters: [AutoScalingGroups]
  */
-@interface AWSAutoScalingAutoScalingGroupsType : AZModel
+@interface AWSAutoScalingAutoScalingGroupsType : AWSModel
 
 
 /**
@@ -411,7 +435,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  * <p> The <code>AutoScalingInstanceDetails</code> data type. </p>
  * Required parameters: [InstanceId, AutoScalingGroupName, AvailabilityZone, LifecycleState, HealthStatus, LaunchConfigurationName]
  */
-@interface AWSAutoScalingAutoScalingInstanceDetails : AZModel
+@interface AWSAutoScalingAutoScalingInstanceDetails : AWSModel
 
 
 /**
@@ -425,7 +449,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString *availabilityZone;
 
 /**
- * <p> The health status of this instance."Healthy" means that the instance is healthy and should remain in service. "Unhealthy" means that the instance is unhealthy. Auto Scaling should terminate and replace it. </p>
+ * <p> The health status of this instance. "Healthy" means that the instance is healthy and should remain in service. "Unhealthy" means that the instance is unhealthy. Auto Scaling should terminate and replace it. </p>
  */
 @property (nonatomic, strong) NSString *healthStatus;
 
@@ -449,7 +473,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 /**
  * <p> The <code>AutoScalingInstancesType</code> data type. </p>
  */
-@interface AWSAutoScalingAutoScalingInstancesType : AZModel
+@interface AWSAutoScalingAutoScalingInstancesType : AWSModel
 
 
 /**
@@ -468,7 +492,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  * <p> The <code>BlockDeviceMapping</code> data type. </p>
  * Required parameters: [DeviceName]
  */
-@interface AWSAutoScalingBlockDeviceMapping : AZModel
+@interface AWSAutoScalingBlockDeviceMapping : AWSModel
 
 
 /**
@@ -482,7 +506,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) AWSAutoScalingEbs *ebs;
 
 /**
- * <p> Suppresses the device mapping. </p><note>If <code>NoDevice</code> is set to <code>true</code> for the root device, the instance might fail the EC2 health check.Auto Scaling launches a replacement instance if the instance fails the health check.</note>
+ * <p> Suppresses the device mapping. </p>
  */
 @property (nonatomic, strong) NSNumber *noDevice;
 
@@ -490,6 +514,39 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  * <p>The virtual name associated with the device. </p>
  */
 @property (nonatomic, strong) NSString *virtualName;
+
+@end
+
+/**
+ * <p>The output of the <a>CompleteLifecycleAction</a>. </p>
+ */
+@interface AWSAutoScalingCompleteLifecycleActionAnswer : AWSModel
+
+
+@end
+
+@interface AWSAutoScalingCompleteLifecycleActionType : AWSRequest
+
+
+/**
+ * <p>The name of the Auto Scaling group to which the lifecycle hook belongs.</p>
+ */
+@property (nonatomic, strong) NSString *autoScalingGroupName;
+
+/**
+ * <p>The action the Auto Scaling group should take. The value for this parameter can be either <code>CONTINUE</code> or <code>ABANDON</code>.</p>
+ */
+@property (nonatomic, strong) NSString *lifecycleActionResult;
+
+/**
+ * <p>A universally unique identifier (UUID) that identifies a specific lifecycle action associated with an instance. Auto Scaling sends this token to the notification target you specified when you created the lifecycle hook.</p>
+ */
+@property (nonatomic, strong) NSString *lifecycleActionToken;
+
+/**
+ * <p>The name of the lifecycle hook.</p>
+ */
+@property (nonatomic, strong) NSString *lifecycleHookName;
 
 @end
 
@@ -511,37 +568,37 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSArray *availabilityZones;
 
 /**
- * <p> The amount of time, in seconds, between a successful scaling activity and the succeeding scaling activity.</p><p>If a <code>DefaultCooldown</code> period is not specified, Auto Scaling uses the default value of 300 as the default cool down period for the Auto Scaling group. For more information,see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AS_Concepts.html#Cooldown">Cooldown Period</a></p>
+ * <p> The amount of time, in seconds, between a successful scaling activity and the succeeding scaling activity.</p><p>If a <code>DefaultCooldown</code> period is not specified, Auto Scaling uses the default value of 300 as the default cool down period for the Auto Scaling group. For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AS_Concepts.html#Cooldown">Cooldown Period</a></p>
  */
 @property (nonatomic, strong) NSNumber *defaultCooldown;
 
 /**
- * <p> The number of Amazon EC2 instances that should be running in the group. The desired capacity must be greater than or equal to the minimum size and less than orequal to the maximum size specified for the Auto Scaling group.</p>
+ * <p> The number of Amazon EC2 instances that should be running in the group. The desired capacity must be greater than or equal to the minimum size and less than or equal to the maximum size specified for the Auto Scaling group. </p>
  */
 @property (nonatomic, strong) NSNumber *desiredCapacity;
 
 /**
- * <p>Length of time in seconds after a new Amazon EC2 instance comes into service that Auto Scaling starts checking its health. During this time any health check failure for the that instance is ignored.</p><p>This is required if you are adding <code>ELB</code> health check. Frequently, new instances need to warm up, briefly,before they can pass a health check. To provide ample warm-up time, set the health check grace period of the group tomatch the expected startup period of your application.</p>
+ * <p>Length of time in seconds after a new Amazon EC2 instance comes into service that Auto Scaling starts checking its health. During this time any health check failure for the that instance is ignored.</p><p>This is required if you are adding <code>ELB</code> health check. Frequently, new instances need to warm up, briefly, before they can pass a health check. To provide ample warm-up time, set the health check grace period of the group to match the expected startup period of your application.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-add-elb-healthcheck.html#as-add-elb-healthcheck-api">Add an Elastic Load Balancing Health Check</a>.</p>
  */
 @property (nonatomic, strong) NSNumber *healthCheckGracePeriod;
 
 /**
- * <p>The service you want the health checks from, Amazon EC2 or Elastic Load Balancer. Valid values are <code>EC2</code> or <code>ELB</code>.</p><p>By default, the Auto Scaling health check uses the results of Amazon EC2 instance status checks to determine the health of an instance. For more information,see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AS_Concepts.html#healthcheck">Health Check</a>.</p>
+ * <p>The service you want the health checks from, Amazon EC2 or Elastic Load Balancer. Valid values are <code>EC2</code> or <code>ELB</code>.</p><p>By default, the Auto Scaling health check uses the results of Amazon EC2 instance status checks to determine the health of an instance. For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AS_Concepts.html#healthcheck">Health Check</a>.</p>
  */
 @property (nonatomic, strong) NSString *healthCheckType;
 
 /**
- * <p> The ID of the Amazon EC2 instance you want to use to create the Auto Scaling group. Use this attribute if you want to create an Auto Scaling group using an EC2 instance instead of a launch configuration.</p><p> When you use an instance to create an Auto Scaling group, a new launch configuration is first createdand then associated with the Auto Scaling group. The new launch configuration derivesall its attributes from the instance that is used to create the Auto Scaling group,with the exception of <code>BlockDeviceMapping</code>.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-asg-from-instance.html">Create an Auto Scaling Group Using EC2 Instance</a> in the <i>Auto Scaling Developer Guide</i>.</p>
+ * <p> The ID of the Amazon EC2 instance you want to use to create the Auto Scaling group. Use this attribute if you want to create an Auto Scaling group using an EC2 instance instead of a launch configuration. </p><p> When you use an instance to create an Auto Scaling group, a new launch configuration is first created and then associated with the Auto Scaling group. The new launch configuration derives all its attributes from the instance that is used to create the Auto Scaling group, with the exception of <code>BlockDeviceMapping</code>. </p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-asg-from-instance.html">Create an Auto Scaling Group Using EC2 Instance</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString *instanceId;
 
 /**
- * <p> The name of an existing launch configuration to use to launch new instances. Use this attributeif you want to create an Auto Scaling group using an existing launch configuration instead of an EC2 instance. </p>
+ * <p> The name of an existing launch configuration to use to launch new instances. Use this attribute if you want to create an Auto Scaling group using an existing launch configuration instead of an EC2 instance. </p>
  */
 @property (nonatomic, strong) NSString *launchConfigurationName;
 
 /**
- * <p> A list of existing Elastic Load Balancing load balancers to use. The load balancers must be associated with the AWS account. </p><p>For information on using load balancers, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html">Use Load Balancer to Load Balance Your Auto Scaling Group</a> in the <i>Auto Scaling Developer Guide</i>.</p>
+ * <p> A list of existing Elastic Load Balancing load balancers to use. The load balancers must be associated with the AWS account. </p><p>For information on using load balancers, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html">Load Balance Your Auto Scaling Group</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSArray *loadBalancerNames;
 
@@ -556,22 +613,22 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber *minSize;
 
 /**
- * <p>Physical location of an existing cluster placement group into which you want to launch your instances. For information about cluster placement group, see<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html">Using Cluster Instances</a></p>
+ * <p>Physical location of an existing cluster placement group into which you want to launch your instances. For information about cluster placement group, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html">Using Cluster Instances</a></p>
  */
 @property (nonatomic, strong) NSString *placementGroup;
 
 /**
- * <p> The tag to be created or updated. Each tag should be defined by its resource type, resource ID, key, value,and a propagate flag. Valid values: key=<i>value</i>, value=<i>value</i>, propagate=<i>true</i> or <i>false</i>.Value and propagate are optional parameters.</p><p>For information about using tags, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html">Tag Your Auto Scaling Groups and Amazon EC2 Instances</a> in the <i>Auto Scaling Developer Guide</i>. </p>
+ * <p> The tag to be created or updated. Each tag should be defined by its resource type, resource ID, key, value, and a propagate flag. Valid values: key=<i>value</i>, value=<i>value</i>, propagate=<i>true</i> or <i>false</i>. Value and propagate are optional parameters.</p><p>For information about using tags, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html">Tag Your Auto Scaling Groups and Amazon EC2 Instances</a> in the <i>Auto Scaling Developer Guide</i>. </p>
  */
 @property (nonatomic, strong) NSArray *tags;
 
 /**
- * <p>A standalone termination policy or a list of termination policies used to select the instance to terminate.The policies are executed in the order that they are listed. </p><p> For more information on configuring a termination policy for your Auto Scaling group, see<a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html">Instance Termination Policy for Your Auto Scaling Group</a> inthe <i>Auto Scaling Developer Guide</i>. </p>
+ * <p>A standalone termination policy or a list of termination policies used to select the instance to terminate. The policies are executed in the order that they are listed. </p><p> For more information on configuring a termination policy for your Auto Scaling group, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html">Instance Termination Policy for Your Auto Scaling Group</a> in the <i>Auto Scaling Developer Guide</i>. </p>
  */
 @property (nonatomic, strong) NSArray *terminationPolicies;
 
 /**
- * <p>A comma-separated list of subnet identifiers of Amazon Virtual Private Clouds (Amazon VPCs).</p><p>If you specify subnets and Availability Zones with this call, ensure that the subnets' Availability Zonesmatch the Availability Zones specified. </p><p>For information on launching your Auto Scaling group into Amazon VPC subnets, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html">Launch Auto Scaling Instances into Amazon VPC</a> in the <i>Auto Scaling Developer Guide</i> .</p>
+ * <p>A comma-separated list of subnet identifiers of Amazon Virtual Private Clouds (Amazon VPCs).</p><p>If you specify subnets and Availability Zones with this call, ensure that the subnets' Availability Zones match the Availability Zones specified. </p><p>For information on launching your Auto Scaling group into Amazon VPC subnets, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html">Auto Scaling in Amazon Virtual Private Cloud</a> in the <i>Auto Scaling Developer Guide</i> .</p>
  */
 @property (nonatomic, strong) NSString *VPCZoneIdentifier;
 
@@ -585,7 +642,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 
 /**
- * <p>Used for Auto Scaling groups that launch instances into an Amazon Virtual Private Cloud (Amazon VPC). Specifies whether to assign a public IP address to each instance launched in a Amazon VPC.</p><note><p>If you specify a value for this parameter, be sure to specify at least one VPC subnet using the <i>VPCZoneIdentifier</i> parameter when you create your Auto Scaling group. </p></note><p>Default: If the instance is launched into a default subnet in a default VPC, the default is <code>true</code>.If the instance is launched into a nondefault subnet in a VPC, the default is <code>false</code>. For information about the platforms supported by Auto Scaling, see<a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_BasicSetup.html">Get Started with Auto Scaling Using the Command Line Interface</a>.</p>
+ * <p>Used for Auto Scaling groups that launch instances into an Amazon Virtual Private Cloud (Amazon VPC). Specifies whether to assign a public IP address to each instance launched in a Amazon VPC. For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html">Auto Scaling in Amazon Virtual Private Cloud</a>.</p><p>Default: If the instance is launched into a default subnet in a default VPC, the default is <code>true</code>. If the instance is launched into a nondefault subnet in a VPC, the default is <code>false</code>. For information about default VPC and VPC platforms, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide//as-supported-platforms.html">Supported Platforms</a>.</p>
  */
 @property (nonatomic, strong) NSNumber *associatePublicIpAddress;
 
@@ -595,27 +652,27 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSArray *blockDeviceMappings;
 
 /**
- * <p> Whether the instance is optimized for EBS I/O.The optimization providesdedicated throughput to Amazon EBS and an optimized configuration stack to provideoptimal EBS I/O performance. This optimization is not available with all instancetypes. Additional usage charges apply when using an EBS Optimized instance.By default the instance is not optimized for EBS I/O.For information about EBS-optimized instances, go to <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#EBSOptimized">EBS-Optimized Instances</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p>
+ * <p> Whether the instance is optimized for EBS I/O. The optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization is not available with all instance types. Additional usage charges apply when using an EBS Optimized instance. By default the instance is not optimized for EBS I/O. For information about EBS-optimized instances, go to <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#EBSOptimized">EBS-Optimized Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p>
  */
 @property (nonatomic, strong) NSNumber *ebsOptimized;
 
 /**
- * <p>The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance.</p><p>Amazon EC2 instances launched with an IAM role willautomatically have AWS security credentials available. You can use IAM roles with Auto Scaling to automatically enable applications running on your Amazon EC2 instancesto securely access other AWS resources. For information on launching EC2 instances with an IAM role, go to <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-iam-role.html">Launching Auto Scaling Instances With an IAM Role</a> in the <i>Auto Scaling Developer Guide</i>.</p>
+ * <p>The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance.</p><p>Amazon EC2 instances launched with an IAM role will automatically have AWS security credentials available. You can use IAM roles with Auto Scaling to automatically enable applications running on your Amazon EC2 instances to securely access other AWS resources. For information on launching EC2 instances with an IAM role, go to <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-iam-role.html">Launching Auto Scaling Instances With an IAM Role</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString *iamInstanceProfile;
 
 /**
- * <p> Unique ID of the Amazon Machine Image (AMI) you want to use to launch your EC2 instances. For information about finding Amazon EC2 AMIs,see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding a Suitable AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * <p> Unique ID of the Amazon Machine Image (AMI) you want to use to launch your EC2 instances. For information about finding Amazon EC2 AMIs, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding a Suitable AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString *imageId;
 
 /**
- * <p> The ID of the Amazon EC2 instance you want to use to create the launch configuration. Use this attribute if you wantthe launch configuration to derive its attributes from an EC2 instance.</p><p> When you use an instance to create a launch configuration, all you need to specify is the <code>InstanceId</code>.The new launch configuration, by default, derives all the attributes from the specified instance with the exceptionof <code>BlockDeviceMapping</code>.</p><p>If you want to create a launch configuration with <code>BlockDeviceMapping</code> or override any other instanceattributes, specify them as part of the same request.</p><p>For more information on using an InstanceID to create a launch configuration, see<a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-lc-with-instanceID.html">Create a Launch Configuration Using an Amazon EC2 Instance</a> inthe <i>Auto Scaling Developer Guide</i>.</p>
+ * <p> The ID of the Amazon EC2 instance you want to use to create the launch configuration. Use this attribute if you want the launch configuration to derive its attributes from an EC2 instance. </p><p> When you use an instance to create a launch configuration, all you need to specify is the <code>InstanceId</code>. The new launch configuration, by default, derives all the attributes from the specified instance with the exception of <code>BlockDeviceMapping</code>. </p><p>If you want to create a launch configuration with <code>BlockDeviceMapping</code> or override any other instance attributes, specify them as part of the same request.</p><p>For more information on using an InstanceID to create a launch configuration, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-lc-with-instanceID.html">Create a Launch Configuration Using an Amazon EC2 Instance</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString *instanceId;
 
 /**
- * <p>Enables detailed monitoring if it is disabled. Detailed monitoring is enabled by default.</p><p> When detailed monitoring is enabled, Amazon Cloudwatch will generate metrics every minute and your account will be charged a fee.When you disable detailed monitoring, by specifying <code>False</code>, Cloudwatch will generate metrics every 5 minutes.For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-instance-monitoring.html">Monitor Your Auto Scaling Instances</a>. For information about Amazon CloudWatch, see the <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/Welcome.html">Amazon CloudWatch Developer Guide</a>.</p>
+ * <p>Enables detailed monitoring if it is disabled. Detailed monitoring is enabled by default.</p><p> When detailed monitoring is enabled, Amazon Cloudwatch will generate metrics every minute and your account will be charged a fee. When you disable detailed monitoring, by specifying <code>False</code>, Cloudwatch will generate metrics every 5 minutes. For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-instance-monitoring.html">Monitor Your Auto Scaling Instances</a>. For information about Amazon CloudWatch, see the <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/Welcome.html">Amazon CloudWatch Developer Guide</a>. </p>
  */
 @property (nonatomic, strong) AWSAutoScalingInstanceMonitoring *instanceMonitoring;
 
@@ -630,7 +687,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString *kernelId;
 
 /**
- * <p> The name of the Amazon EC2 key pair.For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/generating-a-keypair.html">Getting a Key Pair</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p>
+ * <p> The name of the Amazon EC2 key pair. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/generating-a-keypair.html">Getting a Key Pair</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p>
  */
 @property (nonatomic, strong) NSString *keyName;
 
@@ -640,7 +697,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString *launchConfigurationName;
 
 /**
- * <p>The tenancy of the instance. An instance with a tenancy of <code>dedicated</code> runs on single-tenant hardware and can only be launched into a VPC.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html">Auto Scaling in Amazon Virtual Private Cloud</a> in the <i>Auto Scaling Developer Guide</i>. </p><p>Valid values: <code>default</code> | <code>dedicated</code></p>
+ * <p>The tenancy of the instance. An instance with a tenancy of <code>dedicated</code> runs on single-tenant hardware and can only be launched in a VPC.</p><p>You must set the value of this parameter to <code>dedicated</code> if want to launch Dedicated Instances in a shared tenancy VPC (VPC with instance placement tenancy attribute set to <code>default</code>).</p><p>If you specify a value for this parameter, be sure to specify at least one VPC subnet using the <i>VPCZoneIdentifier</i> parameter when you create your Auto Scaling group. </p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html">Auto Scaling in Amazon Virtual Private Cloud</a> in the <i>Auto Scaling Developer Guide</i>. </p><p>Valid values: <code>default</code> | <code>dedicated</code></p>
  */
 @property (nonatomic, strong) NSString *placementTenancy;
 
@@ -650,17 +707,17 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString *ramdiskId;
 
 /**
- * <p> The security groups with which to associate Amazon EC2 or Amazon VPCinstances.</p><p>If your instances are launched in EC2, you can either specify Amazon EC2 security group names or the security group IDs. For more information about Amazon EC2 security groups, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/index.html?using-network-security.html"> Using Security Groups</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>If your instances are launched within VPC, specify Amazon VPC security group IDs.For more information about Amazon VPC security groups, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/index.html?VPC_SecurityGroups.html">Security Groups</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. </p>
+ * <p> The security groups with which to associate Amazon EC2 or Amazon VPC instances.</p><p>If your instances are launched in EC2, you can either specify Amazon EC2 security group names or the security group IDs. For more information about Amazon EC2 security groups, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/index.html?using-network-security.html"> Using Security Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>If your instances are launched within VPC, specify Amazon VPC security group IDs. For more information about Amazon VPC security groups, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/index.html?VPC_SecurityGroups.html">Security Groups</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. </p>
  */
 @property (nonatomic, strong) NSArray *securityGroups;
 
 /**
- * <p>The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when theprice you specify exceeds the current Spot market price. For more information on launching Spot Instances, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html"> Using Auto Scaling to Launch Spot Instances</a> in the <i>Auto Scaling Developer Guide</i>. </p>
+ * <p>The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot market price. For more information on launching Spot Instances, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html"> Using Auto Scaling to Launch Spot Instances</a> in the <i>Auto Scaling Developer Guide</i>. </p>
  */
 @property (nonatomic, strong) NSString *spotPrice;
 
 /**
- * <p> The user data to make available to the launched Amazon EC2 instances. For more information about Amazon EC2 user data, see<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html#instancedata-user-data-retrieval">User Data Retrieval</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p><note> At this time, Auto Scaling launch configurations don't support compressed(e.g. zipped) user data files. </note>
+ * <p> The user data to make available to the launched Amazon EC2 instances. For more information about Amazon EC2 user data, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html#instancedata-user-data-retrieval">User Data Retrieval</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p>
  */
 @property (nonatomic, strong) NSString *userData;
 
@@ -674,7 +731,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 
 /**
- * <p> The tag to be created or updated. Each tag should be defined by its resource type, resource ID, key, value,and a propagate flag. The resource type and resource ID identify the type and name of resource for which thetag is created. Currently, <code>auto-scaling-group</code> is the only supported resource type. The validvalue for the resource ID is <i>groupname</i>. </p><p>The <code>PropagateAtLaunch</code> flag defines whether the new tag will be applied to instances launched bythe Auto Scaling group. Valid values are <code>true</code> or <code>false</code>. However, instances that are alreadyrunning will not get the new or updated tag. Likewise, when you modify a tag, the updated version will beapplied only to new instances launched by the Auto Scaling group after the change. Running instances that hadthe previous version of the tag will continue to have the older tag.</p><p>When you create a tag and a tag of the same name already exists, the operation overwrites the previous tagdefinition, but you will not get an error message. </p>
+ * <p> The tag to be created or updated. Each tag should be defined by its resource type, resource ID, key, value, and a propagate flag. The resource type and resource ID identify the type and name of resource for which the tag is created. Currently, <code>auto-scaling-group</code> is the only supported resource type. The valid value for the resource ID is <i>groupname</i>. </p><p>The <code>PropagateAtLaunch</code> flag defines whether the new tag will be applied to instances launched by the Auto Scaling group. Valid values are <code>true</code> or <code>false</code>. However, instances that are already running will not get the new or updated tag. Likewise, when you modify a tag, the updated version will be applied only to new instances launched by the Auto Scaling group after the change. Running instances that had the previous version of the tag will continue to have the older tag. </p><p>When you create a tag and a tag of the same name already exists, the operation overwrites the previous tag definition, but you will not get an error message. </p>
  */
 @property (nonatomic, strong) NSArray *tags;
 
@@ -693,9 +750,32 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString *autoScalingGroupName;
 
 /**
- * <p>Starting with API version 2011-01-01, specifies that the Auto Scaling group will be deleted along with all instancesassociated with the group, without waiting for all instances to be terminated.</p>
+ * <p>Starting with API version 2011-01-01, specifies that the Auto Scaling group will be deleted along with all instances associated with the group, without waiting for all instances to be terminated. This parameter also deletes any lifecycle actions associated with the group. </p>
  */
 @property (nonatomic, strong) NSNumber *forceDelete;
+
+@end
+
+/**
+ * <p>The output of the <a>DeleteLifecycleHook</a> action. </p>
+ */
+@interface AWSAutoScalingDeleteLifecycleHookAnswer : AWSModel
+
+
+@end
+
+@interface AWSAutoScalingDeleteLifecycleHookType : AWSRequest
+
+
+/**
+ * <p>The name of the Auto Scaling group to which the lifecycle hook belongs.</p>
+ */
+@property (nonatomic, strong) NSString *autoScalingGroupName;
+
+/**
+ * <p>The name of the lifecycle hook.</p>
+ */
+@property (nonatomic, strong) NSString *lifecycleHookName;
 
 @end
 
@@ -764,16 +844,16 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 
 /**
- * <p>Each tag should be defined by its resource type, resource ID, key, value, and a propagate flag.Valid values are: Resource type = <i>auto-scaling-group</i>, Resource ID = <i>AutoScalingGroupName</i>,key=<i>value</i>, value=<i>value</i>, propagate=<i>true</i> or <i>false</i>. </p>
+ * <p>Each tag should be defined by its resource type, resource ID, key, value, and a propagate flag. Valid values are: Resource type = <i>auto-scaling-group</i>, Resource ID = <i>AutoScalingGroupName</i>, key=<i>value</i>, value=<i>value</i>, propagate=<i>true</i> or <i>false</i>. </p>
  */
 @property (nonatomic, strong) NSArray *tags;
 
 @end
 
 /**
- * <p>The output of the <a>DescribeAccountLimitsResult</a> action.</p>
+ * <p> The output of the <a>DescribeAccountLimitsResult</a> action. </p>
  */
-@interface AWSAutoScalingDescribeAccountLimitsAnswer : AZModel
+@interface AWSAutoScalingDescribeAccountLimitsAnswer : AWSModel
 
 
 /**
@@ -791,7 +871,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 /**
  * <p> The output of the <a>DescribeAdjustmentTypes</a> action. </p>
  */
-@interface AWSAutoScalingDescribeAdjustmentTypesAnswer : AZModel
+@interface AWSAutoScalingDescribeAdjustmentTypesAnswer : AWSModel
 
 
 /**
@@ -805,7 +885,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 
 /**
- * <p> The list of Auto Scaling instances to describe.If this list is omitted, all auto scaling instances are described.The list of requested instances cannot contain more than 50 items. If unknown instances are requested, they are ignored with no error. </p>
+ * <p> The list of Auto Scaling instances to describe. If this list is omitted, all auto scaling instances are described. The list of requested instances cannot contain more than 50 items. If unknown instances are requested, they are ignored with no error. </p>
  */
 @property (nonatomic, strong) NSArray *instanceIds;
 
@@ -815,7 +895,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber *maxRecords;
 
 /**
- * <p> The token returned by a previous callto indicate that there is more data available. </p>
+ * <p> The token returned by a previous call to indicate that there is more data available. </p>
  */
 @property (nonatomic, strong) NSString *nextToken;
 
@@ -824,20 +904,58 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 /**
  * <p>The <code>AutoScalingNotificationTypes</code> data type.</p>
  */
-@interface AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer : AZModel
+@interface AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer : AWSModel
 
 
 /**
- * <p>Returns a list of all notification types supported by Auto Scaling. They are:</p><ul><li><p><code>autoscaling:EC2_INSTANCE_LAUNCH</code></p></li><li><p><code>autoscaling:EC2_INSTANCE_LAUNCH_ERROR</code></p></li><li><p><code>autoscaling:EC2_INSTANCE_TERMINATE</code></p></li><li><p><code>autoscaling:EC2_INSTANCE_TERMINATE_ERROR</code></p></li><li><p><code>autoscaling:TEST_NOTIFICATION</code></p></li></ul> 
+ * <p>Returns a list of all notification types supported by Auto Scaling. They are:</p><ul><li><p><code>autoscaling:EC2_INSTANCE_LAUNCH</code></p></li><li><p><code>autoscaling:EC2_INSTANCE_LAUNCH_ERROR</code></p></li><li><p><code>autoscaling:EC2_INSTANCE_TERMINATE</code></p></li><li><p><code>autoscaling:EC2_INSTANCE_TERMINATE_ERROR</code></p></li><li><p><code>autoscaling:TEST_NOTIFICATION</code></p></li></ul>
  */
 @property (nonatomic, strong) NSArray *autoScalingNotificationTypes;
+
+@end
+
+@interface AWSAutoScalingDescribeLifecycleHookTypesAnswer : AWSModel
+
+
+/**
+ * <p>Returns a list of all notification types supported by Auto Scaling. They are:</p><ul><li><p><code>autoscaling:EC2_INSTANCE_LAUNCHING</code></p></li><li><p><code>autoscaling:EC2_INSTANCE_TERMINATING</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSArray *lifecycleHookTypes;
+
+@end
+
+/**
+ * <p>The output of the <a>DescribeLifecycleHooks</a> action. </p>
+ */
+@interface AWSAutoScalingDescribeLifecycleHooksAnswer : AWSModel
+
+
+/**
+ * <p> A list describing the lifecycle hooks that belong to the specified Auto Scaling group. </p>
+ */
+@property (nonatomic, strong) NSArray *lifecycleHooks;
+
+@end
+
+@interface AWSAutoScalingDescribeLifecycleHooksType : AWSRequest
+
+
+/**
+ * <p>The name of one or more Auto Scaling groups.</p>
+ */
+@property (nonatomic, strong) NSString *autoScalingGroupName;
+
+/**
+ * <p>The name of one or more lifecycle hooks.</p>
+ */
+@property (nonatomic, strong) NSArray *lifecycleHookNames;
 
 @end
 
 /**
  * <p>The output of the <a>DescribeMetricCollectionTypes</a> action.</p>
  */
-@interface AWSAutoScalingDescribeMetricCollectionTypesAnswer : AZModel
+@interface AWSAutoScalingDescribeMetricCollectionTypesAnswer : AWSModel
 
 
 /**
@@ -846,7 +964,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSArray *granularities;
 
 /**
- * <p>The list of Metrics collected. The following metrics are supported: </p><ul><li><p>GroupMinSize</p></li><li><p>GroupMaxSize</p></li><li><p>GroupDesiredCapacity</p></li><li><p>GroupInServiceInstances</p></li><li><p>GroupPendingInstances</p></li><li><p>GroupTerminatingInstances</p></li><li><p>GroupTotalInstances</p></li></ul>
+ * <p>The list of Metrics collected. The following metrics are supported: </p><ul><li><p>GroupMinSize</p></li><li><p>GroupMaxSize</p></li><li><p>GroupDesiredCapacity</p></li><li><p>GroupInServiceInstances</p></li><li><p>GroupPendingInstances</p></li><li><p>GroupStandbyInstances</p></li><li><p>GroupTerminatingInstances</p></li><li><p>GroupTotalInstances</p></li></ul>
  */
 @property (nonatomic, strong) NSArray *metrics;
 
@@ -856,7 +974,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  * <p>The output of the <a>DescribeNotificationConfigurations</a> action.</p>
  * Required parameters: [NotificationConfigurations]
  */
-@interface AWSAutoScalingDescribeNotificationConfigurationsAnswer : AZModel
+@interface AWSAutoScalingDescribeNotificationConfigurationsAnswer : AWSModel
 
 
 /**
@@ -923,7 +1041,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 
 /**
- * <p> A list containing the activity IDs of the desired scaling activities. If this list is omitted, all activities are described.If an <code>AutoScalingGroupName</code> is provided, the results are limited to that group. The list of requested activities cannot contain more than 50 items. If unknown activities are requested, they are ignored with no error. </p>
+ * <p> A list containing the activity IDs of the desired scaling activities. If this list is omitted, all activities are described. If an <code>AutoScalingGroupName</code> is provided, the results are limited to that group. The list of requested activities cannot contain more than 50 items. If unknown activities are requested, they are ignored with no error. </p>
  */
 @property (nonatomic, strong) NSArray *activityIds;
 
@@ -986,7 +1104,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 
 /**
- * <p> The value of the filter type used to identify the tagsto be returned. For example, you can filter so that tags are returnedaccording to Auto Scaling group, the key and value, or whetherthe new tag will be applied to instances launched after thetag is created (PropagateAtLaunch).</p>
+ * <p> The value of the filter type used to identify the tags to be returned. For example, you can filter so that tags are returned according to Auto Scaling group, the key and value, or whether the new tag will be applied to instances launched after the tag is created (PropagateAtLaunch). </p>
  */
 @property (nonatomic, strong) NSArray *filters;
 
@@ -996,7 +1114,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber *maxRecords;
 
 /**
- * <p> A string that marks the start of the next batchof returned results. </p>
+ * <p> A string that marks the start of the next batch of returned results. </p>
  */
 @property (nonatomic, strong) NSString *nextToken;
 
@@ -1005,13 +1123,46 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 /**
  * <p>The <code>TerminationPolicyTypes</code> data type.</p>
  */
-@interface AWSAutoScalingDescribeTerminationPolicyTypesAnswer : AZModel
+@interface AWSAutoScalingDescribeTerminationPolicyTypesAnswer : AWSModel
 
 
 /**
- * <p>Termination policies supported by Auto Scaling. They are:<code>OldestInstance</code>, <code>OldestLaunchConfiguration</code>, <code>NewestInstance</code>, <code>ClosestToNextInstanceHour</code>, <code>Default</code></p>
+ * <p> Termination policies supported by Auto Scaling. They are: <code>OldestInstance</code>, <code>OldestLaunchConfiguration</code>, <code>NewestInstance</code>, <code>ClosestToNextInstanceHour</code>, <code>Default</code></p>
  */
 @property (nonatomic, strong) NSArray *terminationPolicyTypes;
+
+@end
+
+/**
+ * <p>The output of the <a>DetachInstances</a> action. </p>
+ */
+@interface AWSAutoScalingDetachInstancesAnswer : AWSModel
+
+
+/**
+ * <p> A list describing the activities related to detaching the instances from the Auto Scaling group. </p>
+ */
+@property (nonatomic, strong) NSArray *activities;
+
+@end
+
+@interface AWSAutoScalingDetachInstancesQuery : AWSRequest
+
+
+/**
+ * <p> The name of the Auto Scaling group from which to detach instances. </p>
+ */
+@property (nonatomic, strong) NSString *autoScalingGroupName;
+
+/**
+ * <p> A list of instances to detach from the Auto Scaling group. You must specify at least one instance ID. </p>
+ */
+@property (nonatomic, strong) NSArray *instanceIds;
+
+/**
+ * <p> Specifies if the detached instance should decrement the desired capacity value for the Auto Scaling group. If set to <code>True</code>, the Auto Scaling group decrements the desired capacity value by the number of instances detached. </p>
+ */
+@property (nonatomic, strong) NSNumber *shouldDecrementDesiredCapacity;
 
 @end
 
@@ -1024,7 +1175,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString *autoScalingGroupName;
 
 /**
- * <p> The list of metrics to disable. If no metrics are specified, all metrics are disabled. The following metrics are supported: </p><ul><li><p>GroupMinSize</p></li><li><p>GroupMaxSize</p></li><li><p>GroupDesiredCapacity</p></li><li><p>GroupInServiceInstances</p></li><li><p>GroupPendingInstances</p></li><li><p>GroupTerminatingInstances</p></li><li><p>GroupTotalInstances</p></li></ul>
+ * <p> The list of metrics to disable. If no metrics are specified, all metrics are disabled. The following metrics are supported: </p><ul><li><p>GroupMinSize</p></li><li><p>GroupMaxSize</p></li><li><p>GroupDesiredCapacity</p></li><li><p>GroupInServiceInstances</p></li><li><p>GroupPendingInstances</p></li><li><p>GroupStandbyInstances</p></li><li><p>GroupTerminatingInstances</p></li><li><p>GroupTotalInstances</p></li></ul>
  */
 @property (nonatomic, strong) NSArray *metrics;
 
@@ -1033,7 +1184,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 /**
  * <p>The Ebs data type.</p>
  */
-@interface AWSAutoScalingEbs : AZModel
+@interface AWSAutoScalingEbs : AWSModel
 
 
 /**
@@ -1077,7 +1228,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString *granularity;
 
 /**
- * <p> The list of metrics to collect. If no metrics are specified, all metrics are enabled. The following metrics are supported: </p><ul><li><p>GroupMinSize</p></li><li><p>GroupMaxSize</p></li><li><p>GroupDesiredCapacity</p></li><li><p>GroupInServiceInstances</p></li><li><p>GroupPendingInstances</p></li><li><p>GroupTerminatingInstances</p></li><li><p>GroupTotalInstances</p></li></ul>
+ * <p> The list of metrics to collect. If no metrics are specified, all metrics are enabled. The following metrics are supported: </p><ul><li><p>GroupMinSize</p></li><li><p>GroupMaxSize</p></li><li><p>GroupDesiredCapacity</p></li><li><p>GroupInServiceInstances</p></li><li><p>GroupPendingInstances</p></li><li><p>GroupStandbyInstances</p></li><li><p>GroupTerminatingInstances</p></li><li><p>GroupTotalInstances</p></li></ul>
  */
 @property (nonatomic, strong) NSArray *metrics;
 
@@ -1086,11 +1237,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 /**
  * <p> The <code>EnabledMetric</code> data type. </p>
  */
-@interface AWSAutoScalingEnabledMetric : AZModel
+@interface AWSAutoScalingEnabledMetric : AWSModel
 
 
 /**
- * <p> The granularity of the enabled metric.</p>
+ * <p> The granularity of the enabled metric. </p>
  */
 @property (nonatomic, strong) NSString *granularity;
 
@@ -1098,6 +1249,39 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  * <p> The name of the enabled metric. </p>
  */
 @property (nonatomic, strong) NSString *metric;
+
+@end
+
+/**
+ * <p>The output of the <a>EnterStandby</a> action. </p>
+ */
+@interface AWSAutoScalingEnterStandbyAnswer : AWSModel
+
+
+/**
+ * <p> A list describing the activities related to moving instances into Standby mode. </p>
+ */
+@property (nonatomic, strong) NSArray *activities;
+
+@end
+
+@interface AWSAutoScalingEnterStandbyQuery : AWSRequest
+
+
+/**
+ * <p> The name of the Auto Scaling group from which to move instances into Standby mode. </p>
+ */
+@property (nonatomic, strong) NSString *autoScalingGroupName;
+
+/**
+ * <p> The instances to move into Standby mode. You must specify at least one instance ID. </p>
+ */
+@property (nonatomic, strong) NSArray *instanceIds;
+
+/**
+ * <p> Specifies whether the instances moved to Standby mode count as part of the Auto Scaling group's desired capacity. If set, the desired capacity for the Auto Scaling group decrements by the number of instances moved to Standby mode. </p>
+ */
+@property (nonatomic, strong) NSNumber *shouldDecrementDesiredCapacity;
 
 @end
 
@@ -1110,7 +1294,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString *autoScalingGroupName;
 
 /**
- * <p>Set to <code>True</code> if you want Auto Scaling to waitfor the cooldown period associated with the Auto Scaling groupto complete before executing the policy.</p><p>Set to <code>False</code> if you want Auto Scaling to circumvent the cooldown period associated with the Auto Scaling group and execute the policy before the cooldown period ends. </p><p>For information about cooldown period, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AS_Concepts.html#Cooldown">Cooldown Period</a>in the <i>Auto Scaling Developer Guide</i>.</p>
+ * <p>Set to <code>True</code> if you want Auto Scaling to wait for the cooldown period associated with the Auto Scaling group to complete before executing the policy.</p><p>Set to <code>False</code> if you want Auto Scaling to circumvent the cooldown period associated with the Auto Scaling group and execute the policy before the cooldown period ends. </p><p>For information about cooldown period, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AS_Concepts.html#Cooldown">Cooldown Period</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSNumber *honorCooldown;
 
@@ -1122,13 +1306,41 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @end
 
 /**
- * <p>The <code>Filter</code> data type.</p>
+ * <p>The output of the <a>ExitStandby</a> action. </p>
  */
-@interface AWSAutoScalingFilter : AZModel
+@interface AWSAutoScalingExitStandbyAnswer : AWSModel
 
 
 /**
- * <p> The name of the filter. Valid Name values are:<code>"auto-scaling-group"</code>, <code>"key"</code>, <code>"value"</code>, and <code>"propagate-at-launch"</code>. </p>
+ * <p>A list describing the activities related to moving instances out of Standby mode.</p>
+ */
+@property (nonatomic, strong) NSArray *activities;
+
+@end
+
+@interface AWSAutoScalingExitStandbyQuery : AWSRequest
+
+
+/**
+ * <p> The name of the Auto Scaling group from which to move instances out of Standby mode. </p>
+ */
+@property (nonatomic, strong) NSString *autoScalingGroupName;
+
+/**
+ * <p> A list of instances to move out of Standby mode. You must specify at least one instance ID. </p>
+ */
+@property (nonatomic, strong) NSArray *instanceIds;
+
+@end
+
+/**
+ * <p>The <code>Filter</code> data type.</p>
+ */
+@interface AWSAutoScalingFilter : AWSModel
+
+
+/**
+ * <p> The name of the filter. Valid Name values are: <code>"auto-scaling-group"</code>, <code>"key"</code>, <code>"value"</code>, and <code>"propagate-at-launch"</code>. </p>
  */
 @property (nonatomic, strong) NSString *name;
 
@@ -1143,7 +1355,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  * <p> The <code>Instance</code> data type. </p>
  * Required parameters: [InstanceId, AvailabilityZone, LifecycleState, HealthStatus, LaunchConfigurationName]
  */
-@interface AWSAutoScalingInstance : AZModel
+@interface AWSAutoScalingInstance : AWSModel
 
 
 /**
@@ -1167,7 +1379,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString *launchConfigurationName;
 
 /**
- * <p> Contains a description of the current <i>lifecycle</i> state.</p><note><p>The <code>Quarantined</code> lifecycle state is currently not used.</p></note>
+ * <p> Contains a description of the current <i>lifecycle</i> state. </p>
  */
 @property (nonatomic, assign) AWSAutoScalingLifecycleState lifecycleState;
 
@@ -1176,7 +1388,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 /**
  * <p> The <code>InstanceMonitoring</code> data type. </p>
  */
-@interface AWSAutoScalingInstanceMonitoring : AZModel
+@interface AWSAutoScalingInstanceMonitoring : AWSModel
 
 
 /**
@@ -1190,7 +1402,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  * <p> The <code>LaunchConfiguration</code> data type. </p>
  * Required parameters: [LaunchConfigurationName, ImageId, InstanceType, CreatedTime]
  */
-@interface AWSAutoScalingLaunchConfiguration : AZModel
+@interface AWSAutoScalingLaunchConfiguration : AWSModel
 
 
 /**
@@ -1214,7 +1426,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber *ebsOptimized;
 
 /**
- * <p>Provides the name or the Amazon Resource Name (ARN) of theinstance profile associated with the IAM role for the instance.The instance profile contains the IAM role. </p>
+ * <p>Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role. </p>
  */
 @property (nonatomic, strong) NSString *iamInstanceProfile;
 
@@ -1254,7 +1466,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString *launchConfigurationName;
 
 /**
- * <p>Specifies the tenancy of the instance. It can be either <code>default</code> or <code>dedicated</code>.An instance with <code>dedicated</code> tenancy runs in an isolated, single-tenant hardware and it can only be launched in a VPC.</p>
+ * <p>Specifies the tenancy of the instance. It can be either <code>default</code> or <code>dedicated</code>. An instance with <code>dedicated</code> tenancy runs in an isolated, single-tenant hardware and it can only be launched in a VPC.</p>
  */
 @property (nonatomic, strong) NSString *placementTenancy;
 
@@ -1321,7 +1533,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  * <p> The <code>LaunchConfigurationsType</code> data type. </p>
  * Required parameters: [LaunchConfigurations]
  */
-@interface AWSAutoScalingLaunchConfigurationsType : AZModel
+@interface AWSAutoScalingLaunchConfigurationsType : AWSModel
 
 
 /**
@@ -1337,9 +1549,62 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @end
 
 /**
+ * <p> A lifecycle hook tells Auto Scaling that you want to perform an action when an instance launches or terminates. When you have a lifecycle hook in place, the Auto Scaling group will either: </p><ul><li> Pause the instance after it launches, but before it is put into service </li><li> Pause the instance as it terminates, but before it is fully terminated </li></ul><p>To learn more, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html">Auto Scaling Pending State</a> and <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html">Auto Scaling Terminating State</a>.</p>
+ */
+@interface AWSAutoScalingLifecycleHook : AWSModel
+
+
+/**
+ * <p> The name of the Auto Scaling group to which the lifecycle action belongs. </p>
+ */
+@property (nonatomic, strong) NSString *autoScalingGroupName;
+
+/**
+ * <p>Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either <code>CONTINUE</code> or <code>ABANDON</code>. The default value for this parameter is <code>CONTINUE</code>.</p>
+ */
+@property (nonatomic, strong) NSString *defaultResult;
+
+/**
+ * <p>The maximum length of time an instance can remain in a <code>Pending:Wait</code> or <code>Terminating:Wait</code> state. Currently, this value is set at 48 hours.</p>
+ */
+@property (nonatomic, strong) NSNumber *globalTimeout;
+
+/**
+ * <p>Defines the amount of time that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the <code>DefaultResult</code> parameter. You can prevent the lifecycle hook from timing out by calling <a>RecordLifecycleActionHeartbeat</a>.</p>
+ */
+@property (nonatomic, strong) NSNumber *heartbeatTimeout;
+
+/**
+ * <p> The name of the lifecycle action hook. </p>
+ */
+@property (nonatomic, strong) NSString *lifecycleHookName;
+
+/**
+ * <p>The Amazon EC2 instance state to which you want to attach the lifecycle hook. See <a>DescribeLifecycleHooks</a> for a list of available lifecycle hook types.</p>
+ */
+@property (nonatomic, strong) NSString *lifecycleTransition;
+
+/**
+ * <p>Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.</p>
+ */
+@property (nonatomic, strong) NSString *notificationMetadata;
+
+/**
+ * <p>The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic. The notification message sent to the target will include:</p><ul><li>Lifecycle action token</li><li>User account ID</li><li>Name of the Auto Scaling group</li><li>Lifecycle hook name</li><li>EC2 instance ID</li><li>Lifecycle transition</li><li>Notification metadata</li></ul>
+ */
+@property (nonatomic, strong) NSString *notificationTargetARN;
+
+/**
+ * <p>The ARN of the Amazon IAM role that allows the Auto Scaling group to publish to the specified notification target.</p>
+ */
+@property (nonatomic, strong) NSString *roleARN;
+
+@end
+
+/**
  * <p> The MetricCollectionType data type. </p>
  */
-@interface AWSAutoScalingMetricCollectionType : AZModel
+@interface AWSAutoScalingMetricCollectionType : AWSModel
 
 @property (nonatomic, strong) NSString *metric;
 
@@ -1348,7 +1613,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 /**
  * <p> The MetricGranularityType data type. </p>
  */
-@interface AWSAutoScalingMetricGranularityType : AZModel
+@interface AWSAutoScalingMetricGranularityType : AWSModel
 
 
 /**
@@ -1361,7 +1626,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 /**
  * <p> The <code>NotificationConfiguration</code> data type. </p>
  */
-@interface AWSAutoScalingNotificationConfiguration : AZModel
+@interface AWSAutoScalingNotificationConfiguration : AWSModel
 
 
 /**
@@ -1384,11 +1649,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 /**
  * <p> The <code>PoliciesType</code> data type. </p>
  */
-@interface AWSAutoScalingPoliciesType : AZModel
+@interface AWSAutoScalingPoliciesType : AWSModel
 
 
 /**
- * <p> A string that marks the start of the next batch of returned results.</p>
+ * <p> A string that marks the start of the next batch of returned results. </p>
  */
 @property (nonatomic, strong) NSString *nextToken;
 
@@ -1402,7 +1667,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 /**
  * <p> The <code>PolicyARNType</code> data type. </p>
  */
-@interface AWSAutoScalingPolicyARNType : AZModel
+@interface AWSAutoScalingPolicyARNType : AWSModel
 
 
 /**
@@ -1413,10 +1678,10 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @end
 
 /**
- * <p> There are two primary Auto Scaling process types--<code>Launch</code> and <code>Terminate</code>. The <code>Launch</code> process creates a new Amazon EC2 instance for an Auto Scaling group, and the <code>Terminate</code> process removes an existing Amazon EC2 instance. </p><p> The remaining Auto Scaling process types relate to specific Auto Scaling features: <ul><li>AddToLoadBalancer</li><li>AlarmNotification</li><li>AZRebalance</li><li>HealthCheck</li><li>ReplaceUnhealthy</li><li>ScheduledActions</li></ul></p><important><p> If you suspend <code>Launch</code> or <code>Terminate</code>, all other process types are affected to varying degrees. The following descriptions discuss how each process type is affected by a suspension of <code>Launch</code> or <code>Terminate</code>. </p></important><p> The <code>AddToLoadBalancer</code> process type adds instances to the load balancerwhen the instances are launched. If you suspend this process, Auto Scaling will launchthe instances but will not add them to the load balancer. If you resume the<code>AddToLoadBalancer</code> process, Auto Scaling will also resume adding new instances to the loadbalancer when they are launched. However, Auto Scaling will not add running instances that were launched while the process was suspended; those instances must be added manually using thethe <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_RegisterInstancesWithLoadBalancer.html"> RegisterInstancesWithLoadBalancer</a> call in the <i>Elastic Load Balancing API Reference</i>. </p><p> The <code>AlarmNotification</code> process type accepts notifications from Amazon CloudWatch alarms that are associated with the Auto Scaling group. If you suspend the <code>AlarmNotification</code> process type, Auto Scaling will not automatically execute scaling policies that would be triggered by alarms. </p><p> Although the <code>AlarmNotification</code> process type is not directly affected by a suspension of <code>Launch</code> or <code>Terminate</code>, alarm notifications are often used to signal that a change in the size of the Auto Scaling group is warranted. If you suspend <code>Launch</code> or <code>Terminate</code>, Auto Scaling might not be able to implement the alarm's associated policy. </p><p> The <code>AZRebalance</code> process type seeks to maintain a balanced number ofinstances across Availability Zones within a Region. If you remove an Availability Zone from your Auto Scaling group or an Availability Zone otherwise becomes unhealthy or unavailable, Auto Scaling launches new instances in anunaffected Availability Zone before terminating the unhealthy or unavailable instances.When the unhealthy Availability Zone returns to a healthy state, Auto Scaling automatically redistributes the application instances evenly across all of the designated Availability Zones. </p><important><p> If you call <a>SuspendProcesses</a> on the <code>launch</code> process type, the <code>AZRebalance</code> process will neither launch new instances nor terminate existing instances.This is because the <code>AZRebalance</code> process terminates existing instances only after launching the replacement instances.</p><p> If you call <a>SuspendProcesses</a> on the <code>terminate</code> process type, the <code>AZRebalance</code> process can cause your Auto Scaling group to grow up to ten percent larger than the maximum size. This is because Auto Scaling allows groups to temporarily grow larger than the maximum size during rebalancing activities. If Auto Scaling cannot terminate instances, your Auto Scaling group could remain up to ten percent larger than the maximum size until you resume the <code>terminate</code> process type. </p></important><p> The <code>HealthCheck</code> process type checks the health of the instances. Auto Scaling marks an instance as unhealthy if Amazon EC2 or Elastic Load Balancinginforms Auto Scaling that the instance is unhealthy. The <code>HealthCheck</code> process can override the health status of an instance that you set with <a>SetInstanceHealth</a>. </p><p> The <code>ReplaceUnhealthy</code> process type terminates instances that are marked as unhealthy and subsequently creates new instances to replace them. This process calls both of the primary process types--first <code>Terminate</code> and then <code>Launch</code>.</p><important><p> The <code>HealthCheck</code> process type works in conjunction with the<code>ReplaceUnhealthly</code> process type to provide health check functionality. If you suspend either <code>Launch</code> or <code>Terminate</code>, the <code>ReplaceUnhealthy</code> process type will not function properly. </p></important><p> The <code>ScheduledActions</code> process type performs scheduled actions that you create with <a>PutScheduledUpdateGroupAction</a>. Scheduled actions often involve launching new instances or terminating existing instances. If you suspend either<code>Launch</code> or <code>Terminate</code>, your scheduled actions might not function as expected. </p>
+ * <p> There are two primary Auto Scaling process types--<code>Launch</code> and <code>Terminate</code>. The <code>Launch</code> process creates a new Amazon EC2 instance for an Auto Scaling group, and the <code>Terminate</code> process removes an existing Amazon EC2 instance. </p><p> The remaining Auto Scaling process types relate to specific Auto Scaling features: <ul><li>AddToLoadBalancer</li><li>AlarmNotification</li><li>AZRebalance</li><li>HealthCheck</li><li>ReplaceUnhealthy</li><li>ScheduledActions</li></ul></p><important><p> If you suspend <code>Launch</code> or <code>Terminate</code>, all other process types are affected to varying degrees. The following descriptions discuss how each process type is affected by a suspension of <code>Launch</code> or <code>Terminate</code>. </p></important><p> The <code>AddToLoadBalancer</code> process type adds instances to the load balancer when the instances are launched. If you suspend this process, Auto Scaling will launch the instances but will not add them to the load balancer. If you resume the <code>AddToLoadBalancer</code> process, Auto Scaling will also resume adding new instances to the load balancer when they are launched. However, Auto Scaling will not add running instances that were launched while the process was suspended; those instances must be added manually using the the <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_RegisterInstancesWithLoadBalancer.html"> RegisterInstancesWithLoadBalancer</a> call in the <i>Elastic Load Balancing API Reference</i>. </p><p> The <code>AlarmNotification</code> process type accepts notifications from Amazon CloudWatch alarms that are associated with the Auto Scaling group. If you suspend the <code>AlarmNotification</code> process type, Auto Scaling will not automatically execute scaling policies that would be triggered by alarms. </p><p> Although the <code>AlarmNotification</code> process type is not directly affected by a suspension of <code>Launch</code> or <code>Terminate</code>, alarm notifications are often used to signal that a change in the size of the Auto Scaling group is warranted. If you suspend <code>Launch</code> or <code>Terminate</code>, Auto Scaling might not be able to implement the alarm's associated policy. </p><p> The <code>AZRebalance</code> process type seeks to maintain a balanced number of instances across Availability Zones within a Region. If you remove an Availability Zone from your Auto Scaling group or an Availability Zone otherwise becomes unhealthy or unavailable, Auto Scaling launches new instances in an unaffected Availability Zone before terminating the unhealthy or unavailable instances. When the unhealthy Availability Zone returns to a healthy state, Auto Scaling automatically redistributes the application instances evenly across all of the designated Availability Zones. </p><important><p> If you call <a>SuspendProcesses</a> on the <code>launch</code> process type, the <code>AZRebalance</code> process will neither launch new instances nor terminate existing instances. This is because the <code>AZRebalance</code> process terminates existing instances only after launching the replacement instances. </p><p> If you call <a>SuspendProcesses</a> on the <code>terminate</code> process type, the <code>AZRebalance</code> process can cause your Auto Scaling group to grow up to ten percent larger than the maximum size. This is because Auto Scaling allows groups to temporarily grow larger than the maximum size during rebalancing activities. If Auto Scaling cannot terminate instances, your Auto Scaling group could remain up to ten percent larger than the maximum size until you resume the <code>terminate</code> process type. </p></important><p> The <code>HealthCheck</code> process type checks the health of the instances. Auto Scaling marks an instance as unhealthy if Amazon EC2 or Elastic Load Balancing informs Auto Scaling that the instance is unhealthy. The <code>HealthCheck</code> process can override the health status of an instance that you set with <a>SetInstanceHealth</a>. </p><p> The <code>ReplaceUnhealthy</code> process type terminates instances that are marked as unhealthy and subsequently creates new instances to replace them. This process calls both of the primary process types--first <code>Terminate</code> and then <code>Launch</code>. </p><important><p> The <code>HealthCheck</code> process type works in conjunction with the <code>ReplaceUnhealthly</code> process type to provide health check functionality. If you suspend either <code>Launch</code> or <code>Terminate</code>, the <code>ReplaceUnhealthy</code> process type will not function properly. </p></important><p> The <code>ScheduledActions</code> process type performs scheduled actions that you create with <a>PutScheduledUpdateGroupAction</a>. Scheduled actions often involve launching new instances or terminating existing instances. If you suspend either <code>Launch</code> or <code>Terminate</code>, your scheduled actions might not function as expected. </p>
  * Required parameters: [ProcessName]
  */
-@interface AWSAutoScalingProcessType : AZModel
+@interface AWSAutoScalingProcessType : AWSModel
 
 
 /**
@@ -1429,13 +1694,66 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 /**
  * <p> The output of the <a>DescribeScalingProcessTypes</a> action. </p>
  */
-@interface AWSAutoScalingProcessesType : AZModel
+@interface AWSAutoScalingProcessesType : AWSModel
 
 
 /**
  * <p> A list of <a>ProcessType</a> names. </p>
  */
 @property (nonatomic, strong) NSArray *processes;
+
+@end
+
+/**
+ * <p>The output of the <a>PutLifecycleHook</a> action. </p>
+ */
+@interface AWSAutoScalingPutLifecycleHookAnswer : AWSModel
+
+
+@end
+
+@interface AWSAutoScalingPutLifecycleHookType : AWSRequest
+
+
+/**
+ * <p>The name of the Auto Scaling group to which you want to assign the lifecycle hook.</p>
+ */
+@property (nonatomic, strong) NSString *autoScalingGroupName;
+
+/**
+ * <p>Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either <code>CONTINUE</code> or <code>ABANDON</code>. The default value for this parameter is <code>ABANDON</code>.</p>
+ */
+@property (nonatomic, strong) NSString *defaultResult;
+
+/**
+ * <p>Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the <code>DefaultResult</code> parameter. You can prevent the lifecycle hook from timing out by calling <a>RecordLifecycleActionHeartbeat</a>. The default value for this parameter is 3600 seconds (1 hour).</p>
+ */
+@property (nonatomic, strong) NSNumber *heartbeatTimeout;
+
+/**
+ * <p>The name of the lifecycle hook.</p>
+ */
+@property (nonatomic, strong) NSString *lifecycleHookName;
+
+/**
+ * <p>The Amazon EC2 instance state to which you want to attach the lifecycle hook. See <a>DescribeLifecycleHookTypes</a> for a list of available lifecycle hook types.</p>
+ */
+@property (nonatomic, strong) NSString *lifecycleTransition;
+
+/**
+ * <p>Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.</p>
+ */
+@property (nonatomic, strong) NSString *notificationMetadata;
+
+/**
+ * <p>The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic. </p><p>The notification message sent to the target will include:</p><ul><li><b>LifecycleActionToken</b>. The Lifecycle action token.</li><li><b>AccountId</b>. The user account ID.</li><li><b>AutoScalingGroupName</b>. The name of the Auto Scaling group.</li><li><b>LifecycleHookName</b>. The lifecycle hook name.</li><li><b>EC2InstanceId</b>. The EC2 instance ID.</li><li><b>LifecycleTransition</b>. The lifecycle transition.</li><li><b>NotificationMetadata</b>. The notification metadata.</li></ul><p>This operation uses the JSON format when sending notifications to an Amazon SQS queue, and an email key/value pair format when sending notifications to an Amazon SNS topic.</p><p>When you call this operation, a test message is sent to the notification target. This test message contains an additional key/value pair: <code>Event:autoscaling:TEST_NOTIFICATION</code>.</p>
+ */
+@property (nonatomic, strong) NSString *notificationTargetARN;
+
+/**
+ * <p>The ARN of the Amazon IAM role that allows the Auto Scaling group to publish to the specified notification target.</p>
+ */
+@property (nonatomic, strong) NSString *roleARN;
 
 @end
 
@@ -1448,7 +1766,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString *autoScalingGroupName;
 
 /**
- * <p>The type of event that will cause the notification to be sent. For detailsabout notification types supported by Auto Scaling, see <a>DescribeAutoScalingNotificationTypes</a>.</p>
+ * <p>The type of event that will cause the notification to be sent. For details about notification types supported by Auto Scaling, see <a>DescribeAutoScalingNotificationTypes</a>.</p>
  */
 @property (nonatomic, strong) NSArray *notificationTypes;
 
@@ -1463,7 +1781,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 
 /**
- * <p> Specifies whether the <code>ScalingAdjustment</code> isan absolute number or a percentage of the current capacity. Valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>. </p><p>For more information about the adjustment types supported by Auto Scaling, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html">Scale Based on Demand</a>.</p>
+ * <p> Specifies whether the <code>ScalingAdjustment</code> is an absolute number or a percentage of the current capacity. Valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>. </p><p>For more information about the adjustment types supported by Auto Scaling, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html">Scale Based on Demand</a>.</p>
  */
 @property (nonatomic, strong) NSString *adjustmentType;
 
@@ -1473,12 +1791,12 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString *autoScalingGroupName;
 
 /**
- * <p> The amount of time, in seconds, after a scalingactivity completes and before the next scaling activity can start. </p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AS_Concepts.html#Cooldown">Cooldown Period</a></p>
+ * <p> The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start. </p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AS_Concepts.html#Cooldown">Cooldown Period</a></p>
  */
 @property (nonatomic, strong) NSNumber *cooldown;
 
 /**
- * <p>Used with <code>AdjustmentType</code> with the value <code>PercentChangeInCapacity</code>,the scaling policy changes the <code>DesiredCapacity</code> of the Auto Scaling group by at least the number of instances specified in the value.</p><p>You will get a <code>ValidationError</code> if you use <code>MinAdjustmentStep</code> on a policy with an <code>AdjustmentType</code>other than <code>PercentChangeInCapacity</code>.</p>
+ * <p> Used with <code>AdjustmentType</code> with the value <code>PercentChangeInCapacity</code>, the scaling policy changes the <code>DesiredCapacity</code> of the Auto Scaling group by at least the number of instances specified in the value. </p><p> You will get a <code>ValidationError</code> if you use <code>MinAdjustmentStep</code> on a policy with an <code>AdjustmentType</code> other than <code>PercentChangeInCapacity</code>. </p>
  */
 @property (nonatomic, strong) NSNumber *minAdjustmentStep;
 
@@ -1488,7 +1806,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString *policyName;
 
 /**
- * <p> The number of instances by which to scale.<code>AdjustmentType</code> determines the interpretation of this number (e.g., as an absolute number or as a percentage of the existing Auto Scaling group size). A positive increment adds to the current capacity and a negative value removes from the current capacity. </p>
+ * <p> The number of instances by which to scale. <code>AdjustmentType</code> determines the interpretation of this number (e.g., as an absolute number or as a percentage of the existing Auto Scaling group size). A positive increment adds to the current capacity and a negative value removes from the current capacity. </p>
  */
 @property (nonatomic, strong) NSNumber *scalingAdjustment;
 
@@ -1523,7 +1841,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber *minSize;
 
 /**
- * <p> 		The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format. For information		about cron syntax, go to <a href="http://en.wikipedia.org/wiki/Cron">Wikipedia, The Free Encyclopedia</a>.</p><p>When <code>StartTime</code> and <code>EndTime</code> are specified with <code>Recurrence</code>, they form the boundaries of when the recurringaction will start and stop.</p>
+ * <p> The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format. For information about cron syntax, go to <a href="http://en.wikipedia.org/wiki/Cron">Wikipedia, The Free Encyclopedia</a>.</p><p>When <code>StartTime</code> and <code>EndTime</code> are specified with <code>Recurrence</code>, they form the boundaries of when the recurring action will start and stop.</p>
  */
 @property (nonatomic, strong) NSString *recurrence;
 
@@ -1538,20 +1856,48 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSDate *startTime;
 
 /**
- * <p><code>Time</code> is deprecated.</p><p>The time for this action to start. <code>Time</code> is an alias for <code>StartTime</code>and can be specified instead of <code>StartTime</code>,or vice versa. If both <code>Time</code> and <code>StartTime</code> are specified,their values should be identical. Otherwise, <code>PutScheduledUpdateGroupAction</code> will return an error.</p>
+ * <p><code>Time</code> is deprecated.</p><p>The time for this action to start. <code>Time</code> is an alias for <code>StartTime</code> and can be specified instead of <code>StartTime</code>, or vice versa. If both <code>Time</code> and <code>StartTime</code> are specified, their values should be identical. Otherwise, <code>PutScheduledUpdateGroupAction</code> will return an error.</p>
  */
 @property (nonatomic, strong) NSDate *time;
 
 @end
 
 /**
- * <p> The <code>ScalingPolicy</code> data type. </p>
+ * <p>The output of the <a>RecordLifecycleActionHeartbeat</a> action. </p>
  */
-@interface AWSAutoScalingScalingPolicy : AZModel
+@interface AWSAutoScalingRecordLifecycleActionHeartbeatAnswer : AWSModel
+
+
+@end
+
+@interface AWSAutoScalingRecordLifecycleActionHeartbeatType : AWSRequest
 
 
 /**
- * <p> Specifies whether the <code>ScalingAdjustment</code> isan absolute number or a percentage of the current capacity. Valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>. </p>
+ * <p>The name of the Auto Scaling group to which the hook belongs.</p>
+ */
+@property (nonatomic, strong) NSString *autoScalingGroupName;
+
+/**
+ * <p>A token that uniquely identifies a specific lifecycle action associated with an instance. Auto Scaling sends this token to the notification target you specified when you created the lifecycle hook.</p>
+ */
+@property (nonatomic, strong) NSString *lifecycleActionToken;
+
+/**
+ * <p>The name of the lifecycle hook.</p>
+ */
+@property (nonatomic, strong) NSString *lifecycleHookName;
+
+@end
+
+/**
+ * <p> The <code>ScalingPolicy</code> data type. </p>
+ */
+@interface AWSAutoScalingScalingPolicy : AWSModel
+
+
+/**
+ * <p> Specifies whether the <code>ScalingAdjustment</code> is an absolute number or a percentage of the current capacity. Valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>. </p>
  */
 @property (nonatomic, strong) NSString *adjustmentType;
 
@@ -1571,7 +1917,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber *cooldown;
 
 /**
- * <p>Changes the <code>DesiredCapacity</code> of the Auto Scaling group by at least the specified number of instances. </p>
+ * <p> Changes the <code>DesiredCapacity</code> of the Auto Scaling group by at least the specified number of instances. </p>
  */
 @property (nonatomic, strong) NSNumber *minAdjustmentStep;
 
@@ -1586,7 +1932,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString *policyName;
 
 /**
- * <p> The number associated with the specifiedadjustment type. A positive value adds to the current capacity and a negative value removes from the current capacity. </p>
+ * <p> The number associated with the specified adjustment type. A positive value adds to the current capacity and a negative value removes from the current capacity. </p>
  */
 @property (nonatomic, strong) NSNumber *scalingAdjustment;
 
@@ -1608,9 +1954,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @end
 
 /**
- * <p> A scaling action that is scheduled for a future time and date. An action can be scheduled up to thirty days in advance. </p><p> 	Starting with API version 2011-01-01, you can use <code>recurrence</code>	to specify that a scaling action occurs regularly on a schedule.</p>
+ * <p> A scaling action that is scheduled for a future time and date. An action can be scheduled up to thirty days in advance. </p><p> Starting with API version 2011-01-01, you can use <code>recurrence</code> to specify that a scaling action occurs regularly on a schedule. </p>
  */
-@interface AWSAutoScalingScheduledActionsType : AZModel
+@interface AWSAutoScalingScheduledActionsType : AWSModel
 
 
 /**
@@ -1628,7 +1974,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 /**
  * <p> This data type stores information about a scheduled update to an Auto Scaling group. </p>
  */
-@interface AWSAutoScalingScheduledUpdateGroupAction : AZModel
+@interface AWSAutoScalingScheduledUpdateGroupAction : AWSModel
 
 
 /**
@@ -1701,7 +2047,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber *desiredCapacity;
 
 /**
- * <p> By default, <code>SetDesiredCapacity</code> overrides any cooldown period associated with the Auto Scaling group. Set to<code>True</code> if you want Auto Scaling to wait for the cooldownperiod associated with the Auto Scaling group to complete beforeinitiating a scaling activity to set your Auto Scaling group to the new capacity setting. </p>
+ * <p> By default, <code>SetDesiredCapacity</code> overrides any cooldown period associated with the Auto Scaling group. Set to <code>True</code> if you want Auto Scaling to wait for the cooldown period associated with the Auto Scaling group to complete before initiating a scaling activity to set your Auto Scaling group to the new capacity setting. </p>
  */
 @property (nonatomic, strong) NSNumber *honorCooldown;
 
@@ -1711,7 +2057,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 
 /**
- * <p> The health status of the instance.Set to <code>Healthy</code> if you want the instance to remain in service. Set to <code>Unhealthy</code> if you want the instance to be out of service. Auto Scaling will terminate and replace the unhealthy instance. </p>
+ * <p> The health status of the instance. Set to <code>Healthy</code> if you want the instance to remain in service. Set to <code>Unhealthy</code> if you want the instance to be out of service. Auto Scaling will terminate and replace the unhealthy instance. </p>
  */
 @property (nonatomic, strong) NSString *healthStatus;
 
@@ -1721,7 +2067,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString *instanceId;
 
 /**
- * <p>If the Auto Scaling group of the specified instance has a <code>HealthCheckGracePeriod</code>specified for the group, by default, this call will respect the grace period. Set thisto <code>False</code>, if you do not want the call to respect the grace period associatedwith the group.</p><p>For more information, see the <code>HealthCheckGracePeriod</code> parameter description in the<a>CreateAutoScalingGroup</a> action. </p>
+ * <p>If the Auto Scaling group of the specified instance has a <code>HealthCheckGracePeriod</code> specified for the group, by default, this call will respect the grace period. Set this to <code>False</code>, if you do not want the call to respect the grace period associated with the group.</p><p>For more information, see the <code>HealthCheckGracePeriod</code> parameter description in the <a>CreateAutoScalingGroup</a> action. </p>
  */
 @property (nonatomic, strong) NSNumber *shouldRespectGracePeriod;
 
@@ -1730,7 +2076,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 /**
  * <p> An Auto Scaling process that has been suspended. For more information, see <a>ProcessType</a>. </p>
  */
-@interface AWSAutoScalingSuspendedProcess : AZModel
+@interface AWSAutoScalingSuspendedProcess : AWSModel
 
 
 /**
@@ -1749,7 +2095,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  * <p> The tag applied to an Auto Scaling group. </p>
  * Required parameters: [Key]
  */
-@interface AWSAutoScalingTag : AZModel
+@interface AWSAutoScalingTag : AWSModel
 
 
 /**
@@ -1758,7 +2104,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString *key;
 
 /**
- * <p> Specifies whether the new tag will be applied to instances launched afterthe tag is created. The same behavior applies to updates: If you change atag, the changed tag will be applied to all instances launched after you madethe change. </p>
+ * <p> Specifies whether the new tag will be applied to instances launched after the tag is created. The same behavior applies to updates: If you change a tag, the changed tag will be applied to all instances launched after you made the change. </p>
  */
 @property (nonatomic, strong) NSNumber *propagateAtLaunch;
 
@@ -1768,12 +2114,12 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString *resourceId;
 
 /**
- * <p> The kind of resource to which the tag is applied. Currently, Auto Scalingsupports the <code>auto-scaling-group</code> resource type. </p>
+ * <p> The kind of resource to which the tag is applied. Currently, Auto Scaling supports the <code>auto-scaling-group</code> resource type. </p>
  */
 @property (nonatomic, strong) NSString *resourceType;
 
 /**
- * <p> The value of the tag.</p>
+ * <p> The value of the tag. </p>
  */
 @property (nonatomic, strong) NSString *value;
 
@@ -1782,7 +2128,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 /**
  * <p> The tag applied to an Auto Scaling group. </p>
  */
-@interface AWSAutoScalingTagDescription : AZModel
+@interface AWSAutoScalingTagDescription : AWSModel
 
 
 /**
@@ -1791,7 +2137,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString *key;
 
 /**
- * <p> Specifies whether the new tag will be applied to instances launched afterthe tag is created. The same behavior applies to updates: If you change atag, the changed tag will be applied to all instances launched after you madethe change. </p>
+ * <p> Specifies whether the new tag will be applied to instances launched after the tag is created. The same behavior applies to updates: If you change a tag, the changed tag will be applied to all instances launched after you made the change. </p>
  */
 @property (nonatomic, strong) NSNumber *propagateAtLaunch;
 
@@ -1801,7 +2147,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString *resourceId;
 
 /**
- * <p> The kind of resource to which the tag is applied. Currently, Auto Scalingsupports the <code>auto-scaling-group</code> resource type. </p>
+ * <p> The kind of resource to which the tag is applied. Currently, Auto Scaling supports the <code>auto-scaling-group</code> resource type. </p>
  */
 @property (nonatomic, strong) NSString *resourceType;
 
@@ -1815,16 +2161,16 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 /**
  * <p></p>
  */
-@interface AWSAutoScalingTagsType : AZModel
+@interface AWSAutoScalingTagsType : AWSModel
 
 
 /**
- * <p> A string used to mark the start of the next batch of returned results.</p>
+ * <p> A string used to mark the start of the next batch of returned results. </p>
  */
 @property (nonatomic, strong) NSString *nextToken;
 
 /**
- * <p>The list of tags. </p>
+ * <p> The list of tags. </p>
  */
 @property (nonatomic, strong) NSArray *tags;
 
@@ -1867,7 +2213,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSArray *availabilityZones;
 
 /**
- * <p> The amount of time, in seconds, after a scaling activitycompletes before any further scaling activities can start. For more information,see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AS_Concepts.html#Cooldown">Cooldown Period</a>.</p>
+ * <p> The amount of time, in seconds, after a scaling activity completes before any further scaling activities can start. For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AS_Concepts.html#Cooldown">Cooldown Period</a>. </p>
  */
 @property (nonatomic, strong) NSNumber *defaultCooldown;
 
@@ -1877,12 +2223,12 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber *desiredCapacity;
 
 /**
- * <p> The length of time that Auto Scaling waits before checking an instance's health status. The grace period begins when the instance passes System Status and the Instance Status checks from Amazon EC2. For more information, see<a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceStatus.html">DescribeInstanceStatus</a>. </p>
+ * <p> The length of time that Auto Scaling waits before checking an instance's health status. The grace period begins when the instance passes System Status and the Instance Status checks from Amazon EC2. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceStatus.html">DescribeInstanceStatus</a>. </p>
  */
 @property (nonatomic, strong) NSNumber *healthCheckGracePeriod;
 
 /**
- * <p> The type of health check for the instances in the Auto Scaling group.The health check type can either be <code>EC2</code> for Amazon EC2 or <code>ELB</code> for Elastic Load Balancing. </p>
+ * <p> The type of health check for the instances in the Auto Scaling group. The health check type can either be <code>EC2</code> for Amazon EC2 or <code>ELB</code> for Elastic Load Balancing. </p>
  */
 @property (nonatomic, strong) NSString *healthCheckType;
 
@@ -1902,17 +2248,17 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber *minSize;
 
 /**
- * <p> The name of the cluster placement group, if applicable. For more information, go to<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html"> Using Cluster Instances</a> in the Amazon EC2 User Guide. </p>
+ * <p> The name of the cluster placement group, if applicable. For more information, go to <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html"> Using Cluster Instances</a> in the Amazon EC2 User Guide. </p>
  */
 @property (nonatomic, strong) NSString *placementGroup;
 
 /**
- * <p> A standalone termination policy or a list of termination policies used to select the instance to terminate.The policies are executed in the order that they are listed.</p><p> For more information on creating a termination policy for your Auto Scaling group, go to<a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html">Instance Termination Policy for Your Auto Scaling Group</a> in thethe <i>Auto Scaling Developer Guide</i>. </p>
+ * <p> A standalone termination policy or a list of termination policies used to select the instance to terminate. The policies are executed in the order that they are listed. </p><p> For more information on creating a termination policy for your Auto Scaling group, go to <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html">Instance Termination Policy for Your Auto Scaling Group</a> in the the <i>Auto Scaling Developer Guide</i>. </p>
  */
 @property (nonatomic, strong) NSArray *terminationPolicies;
 
 /**
- * <p> The subnet identifier for the Amazon VPC connection, if applicable. You can specify several subnets in acomma-separated list.</p><p> When you specify <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, ensure that thesubnets' Availability Zones match the values you specify for <code>AvailabilityZones</code>. </p><p> For more information on creating your Auto Scaling group in Amazon VPC by specifying subnets, see<a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html">Launch Auto Scaling Instances into Amazon VPC</a> in thethe <i>Auto Scaling Developer Guide</i>. </p>
+ * <p> The subnet identifier for the Amazon VPC connection, if applicable. You can specify several subnets in a comma-separated list. </p><p> When you specify <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, ensure that the subnets' Availability Zones match the values you specify for <code>AvailabilityZones</code>. </p><p> For more information on creating your Auto Scaling group in Amazon VPC by specifying subnets, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html">Launch Auto Scaling Instances into Amazon VPC</a> in the the <i>Auto Scaling Developer Guide</i>. </p>
  */
 @property (nonatomic, strong) NSString *VPCZoneIdentifier;
 

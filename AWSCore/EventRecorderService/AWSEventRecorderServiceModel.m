@@ -14,7 +14,7 @@
  */
 
 #import "AWSEventRecorderServiceModel.h"
-#import "AZCategory.h"
+#import "AWSCategory.h"
 
 NSString *const AWSEventRecorderServiceErrorDomain = @"com.amazonaws.AWSEventRecorderServiceErrorDomain";
 

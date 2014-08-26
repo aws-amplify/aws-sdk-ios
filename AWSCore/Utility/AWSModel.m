@@ -13,9 +13,9 @@
  * permissions and limitations under the License.
  */
 
-#import "AZModel.h"
+#import "AWSModel.h"
 
-@implementation AZModel
+@implementation AWSModel
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return nil;
@@ -36,14 +36,14 @@
 
 @end
 
-@implementation AZModelUtility
+@implementation AWSModelUtility
 
 + (NSDictionary *)mapMTLDictionaryFromJSONArrayDictionary:(NSDictionary *)JSONArrayDictionary arrayElementType:(NSString *)arrayElementType withModelClass:(Class) modelClass {
 
     NSMutableDictionary *mutableDictionary = [NSMutableDictionary new];
     for (NSString *key in [JSONArrayDictionary allKeys]) {
         if ([arrayElementType isEqualToString:@"map"]) {
-            [mutableDictionary setObject:[AZModelUtility mapMTLArrayFromJSONArray:JSONArrayDictionary[key] withModelClass:modelClass] forKey:key];
+            [mutableDictionary setObject:[AWSModelUtility mapMTLArrayFromJSONArray:JSONArrayDictionary[key] withModelClass:modelClass] forKey:key];
         } else if  ([arrayElementType isEqualToString:@"structure"]) {
             NSValueTransformer *valueFransformer =  [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[modelClass class]];
             [mutableDictionary setObject:[valueFransformer transformedValue:JSONArrayDictionary[key]] forKey:key];
@@ -56,9 +56,9 @@
     NSMutableDictionary *mutableDictionary = [NSMutableDictionary new];
     for (NSString *key in [mapMTLDictionary allKeys]) {
         if ([arrayElementType isEqualToString:@"map"]) {
-            [mutableDictionary setObject:[AZModelUtility JSONArrayFromMapMTLArray:mapMTLDictionary[key]] forKey:key];
+            [mutableDictionary setObject:[AWSModelUtility JSONArrayFromMapMTLArray:mapMTLDictionary[key]] forKey:key];
         } else if ([arrayElementType isEqualToString:@"structure"]) {
-            NSValueTransformer *valueFransformer = [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AZModel class]];
+            NSValueTransformer *valueFransformer = [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSModel class]];
             [mutableDictionary setObject:[valueFransformer reverseTransformedValue:mapMTLDictionary[key]] forKey:key];
         }
     }
@@ -69,7 +69,7 @@
 + (NSArray *)mapMTLArrayFromJSONArray:(NSArray *)JSONArray withModelClass:(Class)modelClass {
     NSMutableArray *mutableArray = [NSMutableArray new];
     for (NSDictionary *aDic in JSONArray) {
-        NSDictionary *tmpDic = [AZModelUtility mapMTLDictionaryFromJSONDictionary:aDic withModelClass:[modelClass class]];
+        NSDictionary *tmpDic = [AWSModelUtility mapMTLDictionaryFromJSONDictionary:aDic withModelClass:[modelClass class]];
         [mutableArray addObject:tmpDic];
     };
     return mutableArray;
@@ -79,7 +79,7 @@
 + (NSArray *)JSONArrayFromMapMTLArray:(NSArray *)mapMTLArray {
     NSMutableArray *mutableArray = [NSMutableArray new];
     for (NSDictionary *aDic in mapMTLArray) {
-        NSDictionary *tmpDic = [AZModelUtility JSONDictionaryFromMapMTLDictionary:aDic];
+        NSDictionary *tmpDic = [AWSModelUtility JSONDictionaryFromMapMTLDictionary:aDic];
         [mutableArray addObject:tmpDic];
     };
     return mutableArray;

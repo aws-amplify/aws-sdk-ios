@@ -14,7 +14,7 @@
  */
 
 #import "AWSKinesisModel.h"
-#import "AZCategory.h"
+#import "AWSCategory.h"
 
 NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
@@ -203,15 +203,6 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
              };
 }
 
-+ (NSValueTransformer *)dataJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSData *(NSString *value) {
-        return [[NSData alloc] initWithBase64EncodedString:value
-                                                   options:kNilOptions];
-    } reverseBlock:^NSString *(NSData *value) {
-        return [value az_base64EncodedString];
-    }];
-}
-
 @end
 
 @implementation AWSKinesisPutRecordOutput
@@ -233,15 +224,6 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
              @"partitionKey" : @"PartitionKey",
              @"sequenceNumber" : @"SequenceNumber",
              };
-}
-
-+ (NSValueTransformer *)dataJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSData *(NSString *value) {
-        return [[NSData alloc] initWithBase64EncodedString:value
-                                                   options:kNilOptions];
-    } reverseBlock:^NSString *(NSData *value) {
-        return [value az_base64EncodedString];
-    }];
 }
 
 @end

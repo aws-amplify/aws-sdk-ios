@@ -22,6 +22,9 @@ typedef NS_ENUM(NSInteger, AWSS3TransferManagerErrorType) {
     AWSS3TransferManagerErrorCancelled,
     AWSS3TransferManagerErrorPaused,
     AWSS3TransferManagerErrorCompleted,
+    AWSS3TransferManagerErrorInternalInConsistency,
+    AWSS3TransferManagerErrorMissingRequiredParameters,
+    AWSS3TransferManagerErrorInvalidParameters,
 };
 
 typedef NS_ENUM(NSInteger, AWSS3TransferManagerRequestState) {
@@ -45,11 +48,18 @@ typedef void (^AWSS3TransferManagerResumeAllBlock) (AWSRequest *request);
  */
 @interface AWSS3TransferManager : AWSService
 
-@property (nonatomic, strong, readonly) AWSS3 *s3;
-
 + (instancetype)defaultS3TransferManager;
 
-- (instancetype)initWithS3:(AWSS3 *)s3;
+/**
+ *  Returns an instance of this service client using `configuration` and `identifier`.
+ *
+ *  @param configuration An object to configure the internal `AWSS3`. At least `regionType` and `credentialsProvider` need to be set.
+ *  @param identifier    An unique identifier for AWSS3TransferManager to create a disk cache. Multiple instances with the same identifier are allowed and can safely access the same data on disk.
+ *
+ *  @return An instance of this service client.
+ */
+- (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration
+                           identifier:(NSString *)identifier;
 
 /**
  *  Schedules a new transfer to upload data to Amazon S3.
@@ -98,6 +108,18 @@ typedef void (^AWSS3TransferManagerResumeAllBlock) (AWSRequest *request);
  *  @return BFTask.
  */
 - (BFTask *)clearCache;
+
+
+/**
+ *  The limit of the disk cache size in bytes. When exceeded, older requests will be discarded. Setting this value to 0.0 meaning no practical limit. The default value is 5MB.
+ */
+@property (nonatomic, assign) NSUInteger diskByteLimit;
+
+/**
+ *  The age limit of the cached requests. When exceeded, requests older than the specified age will be discarded. Setting this value to 0 meaning no practical limit. The default is no age limit(i.e. 0.0).
+ */
+@property (nonatomic, assign) NSTimeInterval diskAgeLimit;
+
 
 @end
 

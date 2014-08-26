@@ -32,29 +32,29 @@ NSString * credentials = nil;
 
 - (void)test_createInstanceUsingOnlyCredentials_allPropertiesNotNil
 {
-    AWSMobileAnalytics* instance = [AWSMobileAnalytics defaultMobileAnalyticsWithAppNamespace:APP_KEY];
-    
+    AWSMobileAnalytics* instance = [AWSMobileAnalytics mobileAnalyticsForAppId:APP_KEY];
+
 
     assertThat([instance eventClient], is(notNilValue()));
-   
+
 }
 
 - (void)test_createInstanceUsingCredentialsAndNilOptions_allPropertiesNotNil
 {
-    AWSMobileAnalytics* instance = [AWSMobileAnalytics defaultMobileAnalyticsWithAppNamespace:APP_KEY];
-    
+    AWSMobileAnalytics* instance = [AWSMobileAnalytics mobileAnalyticsForAppId:APP_KEY];
+
 
     assertThat([instance eventClient], is(notNilValue()));
- 
+
 }
 
 - (void)test_createInstanceUsingCredentialsAndNilOptionsAndCompletionBlock_allPropertiesNotNil
 {
-    AWSMobileAnalytics* instance = [AWSMobileAnalytics defaultMobileAnalyticsWithAppNamespace:APP_KEY];
-    
+    AWSMobileAnalytics* instance = [AWSMobileAnalytics mobileAnalyticsForAppId:APP_KEY];
+
 
     assertThat([instance eventClient], is(notNilValue()));
- 
+    
 }
 
 @end

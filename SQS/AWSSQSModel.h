@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AWSNetworking.h"
-#import "AZModel.h"
+#import "AWSModel.h"
 
 FOUNDATION_EXPORT NSString *const AWSSQSErrorDomain;
 
@@ -103,7 +103,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSArray *AWSAccountIds;
 
 /**
- * <p>The action the client wants to allow for the specified principal.The following are valid values: <code>* | SendMessage | ReceiveMessage | DeleteMessage | ChangeMessageVisibility | GetQueueAttributes | GetQueueUrl</code>.For more information about these actions, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes">Understanding Permissions</a> in the <i>Amazon SQS Developer Guide</i>.</p><p>Specifying <code>SendMessage</code>, <code>DeleteMessage</code>, or <code>ChangeMessageVisibility</code> for the<code>ActionName.n</code> also grants permissions for the corresponding batch versions of those actions: <code>SendMessageBatch</code>, <code>DeleteMessageBatch</code>, and <code>ChangeMessageVisibilityBatch</code>.</p>
+ * <p>The action the client wants to allow for the specified principal. The following are valid values: <code>* | SendMessage | ReceiveMessage | DeleteMessage | ChangeMessageVisibility | GetQueueAttributes | GetQueueUrl</code>. For more information about these actions, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes">Understanding Permissions</a> in the <i>Amazon SQS Developer Guide</i>.</p><p>Specifying <code>SendMessage</code>, <code>DeleteMessage</code>, or <code>ChangeMessageVisibility</code> for the <code>ActionName.n</code> also grants permissions for the corresponding batch versions of those actions: <code>SendMessageBatch</code>, <code>DeleteMessageBatch</code>, and <code>ChangeMessageVisibilityBatch</code>.</p>
  */
 @property (nonatomic, strong) NSArray *actions;
 
@@ -123,7 +123,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
  * <p>This is used in the responses of batch API to give a detailed description of the result of an action on each entry in the request.</p>
  * Required parameters: [Id, SenderFault, Code]
  */
-@interface AWSSQSBatchResultErrorEntry : AZModel
+@interface AWSSQSBatchResultErrorEntry : AWSModel
 
 
 /**
@@ -164,10 +164,10 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @end
 
 /**
- * <p>Encloses a receipt handle and an entry id for each message in <a>ChangeMessageVisibilityBatch</a>. </p><important><p>All of the following parameters are list parameters that must be prefixed with <code>ChangeMessageVisibilityBatchRequestEntry.n</code>,where <code>n</code> is an integer value starting with 1. For example, a parameter list for this action might look like this:</p></important><p><code>&amp;ChangeMessageVisibilityBatchRequestEntry.1.Id=change_visibility_msg_2</code></p><p><code>&amp;ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=<replaceable>Your_Receipt_Handle</replaceable></code></p><p><code>&amp;ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=45</code></p>
+ * <p>Encloses a receipt handle and an entry id for each message in <a>ChangeMessageVisibilityBatch</a>. </p><important><p>All of the following parameters are list parameters that must be prefixed with <code>ChangeMessageVisibilityBatchRequestEntry.n</code>, where <code>n</code> is an integer value starting with 1. For example, a parameter list for this action might look like this:</p></important><p><code>&amp;ChangeMessageVisibilityBatchRequestEntry.1.Id=change_visibility_msg_2</code></p><p><code>&amp;ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=<replaceable>Your_Receipt_Handle</replaceable></code></p><p><code>&amp;ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=45</code></p>
  * Required parameters: [Id, ReceiptHandle]
  */
-@interface AWSSQSChangeMessageVisibilityBatchRequestEntry : AZModel
+@interface AWSSQSChangeMessageVisibilityBatchRequestEntry : AWSModel
 
 
 /**
@@ -188,10 +188,10 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @end
 
 /**
- * <p> For each message in the batch, the response contains a<a>ChangeMessageVisibilityBatchResultEntry</a> tag if the message succeeds ora <a>BatchResultErrorEntry</a> tag if the message fails. </p>
+ * <p> For each message in the batch, the response contains a <a>ChangeMessageVisibilityBatchResultEntry</a> tag if the message succeeds or a <a>BatchResultErrorEntry</a> tag if the message fails. </p>
  * Required parameters: [Successful, Failed]
  */
-@interface AWSSQSChangeMessageVisibilityBatchResult : AZModel
+@interface AWSSQSChangeMessageVisibilityBatchResult : AWSModel
 
 
 /**
@@ -210,7 +210,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
  * <p>Encloses the id of an entry in <a>ChangeMessageVisibilityBatch</a>.</p>
  * Required parameters: [Id]
  */
-@interface AWSSQSChangeMessageVisibilityBatchResultEntry : AZModel
+@interface AWSSQSChangeMessageVisibilityBatchResultEntry : AWSModel
 
 
 /**
@@ -244,7 +244,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 
 /**
- * <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters the <code>CreateQueue</code> action uses:</p><p><ul><li><code>DelaySeconds</code> - The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 (zero).</li><li><code>MaximumMessageSize</code> - The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).</li><li><code>MessageRetentionPeriod</code> - The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).</li><li><code>Policy</code> - The queue's policy. A valid form-url-encoded policy. For more information about policy structure, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html">Basic Policy Structure</a> in the <i>Amazon SQS Developer Guide</i>.For more information about form-url-encoding, see<a href="http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1">http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1</a>.</li><li><code>ReceiveMessageWaitTimeSeconds</code> - The time for which a <a>ReceiveMessage</a> call will wait for a message to arrive. An integer from 0 to 20 (seconds). The default for this attribute is 0. </li><li><code>VisibilityTimeout</code> - The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</li></ul></p>
+ * <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters the <code>CreateQueue</code> action uses:</p><p><ul><li><code>DelaySeconds</code> - The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 (zero).</li><li><code>MaximumMessageSize</code> - The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).</li><li><code>MessageRetentionPeriod</code> - The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).</li><li><code>Policy</code> - The queue's policy. A valid form-url-encoded policy. For more information about policy structure, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html">Basic Policy Structure</a> in the <i>Amazon SQS Developer Guide</i>. For more information about form-url-encoding, see <a href="http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1">http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1</a>.</li><li><code>ReceiveMessageWaitTimeSeconds</code> - The time for which a <a>ReceiveMessage</a> call will wait for a message to arrive. An integer from 0 to 20 (seconds). The default for this attribute is 0. </li><li><code>VisibilityTimeout</code> - The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</li></ul></p>
  */
 @property (nonatomic, strong) NSDictionary *attributes;
 
@@ -258,7 +258,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  * <p>Returns the QueueUrl element of the created queue.</p>
  */
-@interface AWSSQSCreateQueueResult : AZModel
+@interface AWSSQSCreateQueueResult : AWSModel
 
 
 /**
@@ -287,7 +287,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
  * <p>Encloses a receipt handle and an identifier for it.</p>
  * Required parameters: [Id, ReceiptHandle]
  */
-@interface AWSSQSDeleteMessageBatchRequestEntry : AZModel
+@interface AWSSQSDeleteMessageBatchRequestEntry : AWSModel
 
 
 /**
@@ -303,10 +303,10 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @end
 
 /**
- * <p> For each message in the batch, the response contains a<a>DeleteMessageBatchResultEntry</a> tag if the message is deleted ora <a>BatchResultErrorEntry</a> tag if the message cannot be deleted. </p>
+ * <p> For each message in the batch, the response contains a <a>DeleteMessageBatchResultEntry</a> tag if the message is deleted or a <a>BatchResultErrorEntry</a> tag if the message cannot be deleted. </p>
  * Required parameters: [Successful, Failed]
  */
-@interface AWSSQSDeleteMessageBatchResult : AZModel
+@interface AWSSQSDeleteMessageBatchResult : AWSModel
 
 
 /**
@@ -325,7 +325,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
  * <p>Encloses the id an entry in <a>DeleteMessageBatch</a>.</p>
  * Required parameters: [Id]
  */
-@interface AWSSQSDeleteMessageBatchResultEntry : AZModel
+@interface AWSSQSDeleteMessageBatchResultEntry : AWSModel
 
 
 /**
@@ -378,7 +378,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  * A list of returned queue attributes.
  */
-@interface AWSSQSGetQueueAttributesResult : AZModel
+@interface AWSSQSGetQueueAttributesResult : AWSModel
 
 
 /**
@@ -392,7 +392,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 
 /**
- * <p>The name of the queue whose URL must be fetched.Maximum 80 characters; alphanumeric characters, hyphens (-), and underscores (_) are allowed.</p>
+ * <p>The name of the queue whose URL must be fetched. Maximum 80 characters; alphanumeric characters, hyphens (-), and underscores (_) are allowed.</p>
  */
 @property (nonatomic, strong) NSString *queueName;
 
@@ -404,9 +404,9 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @end
 
 /**
- * <p>For more information, see<a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/UnderstandingResponses.html">Responses</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+ * <p>For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/UnderstandingResponses.html">Responses</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  */
-@interface AWSSQSGetQueueUrlResult : AZModel
+@interface AWSSQSGetQueueUrlResult : AWSModel
 
 
 /**
@@ -430,7 +430,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
  * A list of your dead letter source queues.
  * Required parameters: [queueUrls]
  */
-@interface AWSSQSListDeadLetterSourceQueuesResult : AZModel
+@interface AWSSQSListDeadLetterSourceQueuesResult : AWSModel
 
 
 /**
@@ -453,7 +453,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  * A list of your queues.
  */
-@interface AWSSQSListQueuesResult : AZModel
+@interface AWSSQSListQueuesResult : AWSModel
 
 
 /**
@@ -466,11 +466,11 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  * <p>An Amazon SQS message.</p>
  */
-@interface AWSSQSMessage : AZModel
+@interface AWSSQSMessage : AWSModel
 
 
 /**
- * <p><code>SenderId</code>, <code>SentTimestamp</code>, <code>ApproximateReceiveCount</code>, and/or<code>ApproximateFirstReceiveTimestamp</code>. <code>SentTimestamp</code> and <code>ApproximateFirstReceiveTimestamp</code> are each returned as an integer representing the<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
+ * <p><code>SenderId</code>, <code>SentTimestamp</code>, <code>ApproximateReceiveCount</code>, and/or <code>ApproximateFirstReceiveTimestamp</code>. <code>SentTimestamp</code> and <code>ApproximateFirstReceiveTimestamp</code> are each returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
  */
 @property (nonatomic, strong) NSDictionary *attributes;
 
@@ -500,7 +500,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSString *messageId;
 
 /**
- * <p>An identifier associated with the act of receiving the message.A new receipt handle is returned every time you receive a message.When deleting a message, you provide the last received receipt handle to delete the message.</p>
+ * <p>An identifier associated with the act of receiving the message. A new receipt handle is returned every time you receive a message. When deleting a message, you provide the last received receipt handle to delete the message.</p>
  */
 @property (nonatomic, strong) NSString *receiptHandle;
 
@@ -510,7 +510,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
  * <p>The user-specified message attribute value. For string data types, the value attribute has the same restrictions on the content as the message body. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html">SendMessage</a>.</p><p>Name, type, and value must not be empty or null. In addition, the message body should not be empty or null. All parts of the message attribute, including name, type, and value, are included in the message size restriction, which is currently 256 KB (262,144 bytes).</p>
  * Required parameters: [DataType]
  */
-@interface AWSSQSMessageAttributeValue : AZModel
+@interface AWSSQSMessageAttributeValue : AWSModel
 
 
 /**
@@ -544,7 +544,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 
 /**
- * <p>A list of attributes that need to be returned along with each message.</p><p> The following lists the names and descriptions of the attributes that can be returned: </p><ul><li><code>All</code> - returns all values.</li><li><code>ApproximateFirstReceiveTimestamp</code> - returns the time when the message was first received (epoch time in milliseconds).</li><li><code>ApproximateReceiveCount</code> - returns the number of times a message has been received but not deleted.</li><li><code>SenderId</code> - returns the AWS account number (or the IP address, if anonymous access is allowed) of the sender.</li><li><code>SentTimestamp</code> - returns the time when the message was sent (epoch time in milliseconds).</li></ul>
+ * <p>A list of attributes that need to be returned along with each message. </p><p> The following lists the names and descriptions of the attributes that can be returned: </p><ul><li><code>All</code> - returns all values.</li><li><code>ApproximateFirstReceiveTimestamp</code> - returns the time when the message was first received (epoch time in milliseconds).</li><li><code>ApproximateReceiveCount</code> - returns the number of times a message has been received but not deleted.</li><li><code>SenderId</code> - returns the AWS account number (or the IP address, if anonymous access is allowed) of the sender.</li><li><code>SentTimestamp</code> - returns the time when the message was sent (epoch time in milliseconds).</li></ul>
  */
 @property (nonatomic, strong) NSArray *attributeNames;
 
@@ -554,7 +554,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSNumber *maxNumberOfMessages;
 
 /**
- * <p>The message attribute Name can contain the following characters: A-Z, a-z, 0-9, underscore(_), hyphen(-), and period (.).The message attribute name must not start or end with a period, and it should not have successive periods. The message attribute name is case sensitive and must be unique among all attributenames for the message. The message attribute name can be up to 256 characters long. Attribute names cannot start with "AWS." or "Amazon." because these prefixes are reserved for use by Amazon Web Services.</p>
+ * <p>The message attribute Name can contain the following characters: A-Z, a-z, 0-9, underscore(_), hyphen(-), and period (.). The message attribute name must not start or end with a period, and it should not have successive periods. The message attribute name is case sensitive and must be unique among all attribute names for the message. The message attribute name can be up to 256 characters long. Attribute names cannot start with "AWS." or "Amazon." because these prefixes are reserved for use by Amazon Web Services.</p>
  */
 @property (nonatomic, strong) NSArray *messageAttributeNames;
 
@@ -569,7 +569,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSNumber *visibilityTimeout;
 
 /**
- * <p>The duration (in seconds) for which the call will wait for a message to arrive in the queue before returning.If a message is available, the call will return sooner than WaitTimeSeconds.</p>
+ * <p>The duration (in seconds) for which the call will wait for a message to arrive in the queue before returning. If a message is available, the call will return sooner than WaitTimeSeconds.</p>
  */
 @property (nonatomic, strong) NSNumber *waitTimeSeconds;
 
@@ -578,7 +578,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  * A list of received messages.
  */
-@interface AWSSQSReceiveMessageResult : AZModel
+@interface AWSSQSReceiveMessageResult : AWSModel
 
 
 /**
@@ -622,7 +622,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
  * <p>Contains the details of a single Amazon SQS message along with a <code>Id</code>. </p>
  * Required parameters: [Id, MessageBody]
  */
-@interface AWSSQSSendMessageBatchRequestEntry : AZModel
+@interface AWSSQSSendMessageBatchRequestEntry : AWSModel
 
 
 /**
@@ -651,7 +651,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
  * <p>For each message in the batch, the response contains a <a>SendMessageBatchResultEntry</a> tag if the message succeeds or a <a>BatchResultErrorEntry</a> tag if the message fails.</p>
  * Required parameters: [Successful, Failed]
  */
-@interface AWSSQSSendMessageBatchResult : AZModel
+@interface AWSSQSSendMessageBatchResult : AWSModel
 
 
 /**
@@ -670,7 +670,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
  * <p>Encloses a message ID for successfully enqueued message of a <a>SendMessageBatch</a>.</p>
  * Required parameters: [Id, MessageId, MD5OfMessageBody]
  */
-@interface AWSSQSSendMessageBatchResultEntry : AZModel
+@interface AWSSQSSendMessageBatchResultEntry : AWSModel
 
 
 /**
@@ -699,7 +699,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 
 /**
- * <p> The number of seconds (0 to 900 - 15 minutes) to delay a specific message. Messages with a positive <code>DelaySeconds</code> valuebecome available for processing after the delay time is finished. If you don't specify a value, the default value for the queue applies. </p>
+ * <p> The number of seconds (0 to 900 - 15 minutes) to delay a specific message. Messages with a positive <code>DelaySeconds</code> value become available for processing after the delay time is finished. If you don't specify a value, the default value for the queue applies. </p>
  */
 @property (nonatomic, strong) NSNumber *delaySeconds;
 
@@ -723,7 +723,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  * <p>The MD5OfMessageBody and MessageId elements.</p>
  */
-@interface AWSSQSSendMessageResult : AZModel
+@interface AWSSQSSendMessageResult : AWSModel
 
 
 /**
@@ -737,7 +737,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSString *MD5OfMessageBody;
 
 /**
- * <p> An element containing the message ID of the message sent to the queue. For more information, see<a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html">Queue and Message Identifiers</a>in the <i>Amazon SQS Developer Guide</i>. </p>
+ * <p> An element containing the message ID of the message sent to the queue. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html">Queue and Message Identifiers</a> in the <i>Amazon SQS Developer Guide</i>. </p>
  */
 @property (nonatomic, strong) NSString *messageId;
 
@@ -747,7 +747,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 
 /**
- * <p>A map of attributes to set.</p><p>The following lists the names, descriptions, and values of the special request parameters the <code>SetQueueAttributes</code> action uses:</p><p><ul><li><code>DelaySeconds</code> - The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 (zero).</li><li><code>MaximumMessageSize</code> - The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).</li><li><code>MessageRetentionPeriod</code> - The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).</li><li><code>Policy</code> - The queue's policy. A valid form-url-encoded policy. For more information about policy structure, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html">Basic Policy Structure</a> in the <i>Amazon SQS Developer Guide</i>.For more information about form-url-encoding, see<a href="http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1">http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1</a>.</li><li><code>ReceiveMessageWaitTimeSeconds</code> - The time for which a ReceiveMessage call will wait for a message to arrive. An integer from 0 to 20 (seconds). The default for this attribute is 0. </li><li><code>VisibilityTimeout</code> - The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see Visibility Timeout in the <i>Amazon SQS Developer Guide</i>.</li><li><code>RedrivePolicy</code> - The parameters for dead letter queue functionality of the source queue.For more information about RedrivePolicy and dead letter queues, see Using Amazon SQS Dead Letter Queues in the <i>Amazon SQS Developer Guide</i>.</li></ul></p>
+ * <p>A map of attributes to set.</p><p>The following lists the names, descriptions, and values of the special request parameters the <code>SetQueueAttributes</code> action uses:</p><p><ul><li><code>DelaySeconds</code> - The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 (zero).</li><li><code>MaximumMessageSize</code> - The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).</li><li><code>MessageRetentionPeriod</code> - The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).</li><li><code>Policy</code> - The queue's policy. A valid form-url-encoded policy. For more information about policy structure, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html">Basic Policy Structure</a> in the <i>Amazon SQS Developer Guide</i>. For more information about form-url-encoding, see <a href="http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1">http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1</a>.</li><li><code>ReceiveMessageWaitTimeSeconds</code> - The time for which a ReceiveMessage call will wait for a message to arrive. An integer from 0 to 20 (seconds). The default for this attribute is 0. </li><li><code>VisibilityTimeout</code> - The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see Visibility Timeout in the <i>Amazon SQS Developer Guide</i>.</li><li><code>RedrivePolicy</code> - The parameters for dead letter queue functionality of the source queue. For more information about RedrivePolicy and dead letter queues, see Using Amazon SQS Dead Letter Queues in the <i>Amazon SQS Developer Guide</i>.</li></ul></p>
  */
 @property (nonatomic, strong) NSDictionary *attributes;
 

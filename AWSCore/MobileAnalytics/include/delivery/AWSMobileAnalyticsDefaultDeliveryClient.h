@@ -33,7 +33,7 @@
                                   withOperationQueue:(NSOperationQueue*)operationQueue;
 
 -(id)initWithHttpClient:(id<AWSMobileAnalyticsHttpClient>)client
-      withConfiguration:(id<AWSMobileAnalyticsConfiguration>)configuration
+      withConfiguration:(id<AWSMobileAnalyticsConfiguring>)configuration
    withLifeCycleManager:(id<AWSMobileAnalyticsLifeCycleManager>)lifeCycleManager
       withPolicyFactory:(AWSMobileAnalyticsDeliveryPolicyFactory*)factory
      withRequestBuilder:(AWSMobileAnalyticsERSRequestBuilder*)builder

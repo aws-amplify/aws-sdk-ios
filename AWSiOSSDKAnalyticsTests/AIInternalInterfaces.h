@@ -20,7 +20,7 @@
 @property (nonatomic, readonly) id<AWSMobileAnalyticsDeliveryClient>  deliveryClient;
 +(AWSMobileAnalytics*) insightsWithContext:(id<AWSMobileAnalyticsContext>) theContext
                              withOptions:(id<AWSMobileAnalyticsOptions>) theOptions
-                     withCompletionBlock:(AIInitializationCompletionBlock)completionBlock;
+                     withCompletionBlock:(AWSInitializationCompletionBlock)completionBlock;
 +(void)removeCachedInstances;
 @end
 

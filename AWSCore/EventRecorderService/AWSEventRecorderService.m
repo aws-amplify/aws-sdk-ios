@@ -15,8 +15,8 @@
 
 #import "AWSEventRecorderService.h"
 
-#import "AZNetworking.h"
-#import "AZCategory.h"
+#import "AWSNetworking.h"
+#import "AWSCategory.h"
 #import "AWSNetworking.h"
 #import "AWSSignature.h"
 #import "AWSService.h"
@@ -25,14 +25,15 @@
 #import "AWSURLResponseSerialization.h"
 #import "AWSURLRequestRetryHandler.h"
 
-
-
+NSString *const AWSERSDefinitionFileName = @"mobileanalytics-2014-06-30";
 
 @interface AWSEventRecorderServiceResponseSerializer : AWSJSONResponseSerializer
 
 @property (nonatomic, assign) Class outputClass;
 
-+ (instancetype)serializerWithOutputClass:(Class)outputClass;
++ (instancetype)serializerWithOutputClass:(Class)outputClass
+                                 resource:(NSString *)resource
+                               actionName:(NSString *)actionName;
 @end
 
 
@@ -43,17 +44,19 @@
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
-                             @"com.amazonaws.glers.v20140630#IncompleteSignature" : @(AWSEventRecorderServiceErrorIncompleteSignature),
-                             @"com.amazonaws.glers.v20140630#InvalidClientTokenId" : @(AWSEventRecorderServiceErrorInvalidClientTokenId),
-                             @"com.amazonaws.glers.v20140630#MissingAuthenticationToken" : @(AWSEventRecorderServiceErrorMissingAuthenticationToken),
-                             @"com.amazonaws.glers.v20140630#BadRequestException" : @(AWSEventRecorderServiceErrorBadRequest),
-                             };
+                            @"IncompleteSignature" : @(AWSEventRecorderServiceErrorIncompleteSignature),
+                            @"InvalidClientTokenId" : @(AWSEventRecorderServiceErrorInvalidClientTokenId),
+                            @"MissingAuthenticationToken" : @(AWSEventRecorderServiceErrorMissingAuthenticationToken),
+                            @"BadRequestException" : @(AWSEventRecorderServiceErrorBadRequest),
+                            };
 }
 
-+ (instancetype)serializerWithOutputClass:(Class)outputClass {
-    AWSEventRecorderServiceResponseSerializer *serializer = [AWSEventRecorderServiceResponseSerializer new];
++ (instancetype)serializerWithOutputClass:(Class)outputClass
+                                 resource:(NSString *)resource
+                               actionName:(NSString *)actionName {
+    AWSEventRecorderServiceResponseSerializer *serializer = [AWSEventRecorderServiceResponseSerializer serializerWithResource:resource actionName:actionName];
     serializer.outputClass = outputClass;
-    
+
     return serializer;
 }
 
@@ -75,34 +78,36 @@ static NSDictionary *errorCodeDictionary = nil;
         *error = [NSError errorWithDomain:(*error).domain
                                      code:(*error).code
                                  userInfo:richUserInfo];
-        
+
     }
     if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
         NSString *errorTypeStr = [[response allHeaderFields] objectForKey:@"x-amzn-ErrorType"];
         NSString *errorTypeHeader = [[errorTypeStr componentsSeparatedByString:@":"] firstObject];
-        
+
         if ([errorTypeStr length] > 0 && errorTypeHeader) {
-            if (errorCodeDictionary[errorTypeHeader]) {
+            if (errorCodeDictionary[[[errorTypeHeader componentsSeparatedByString:@"#"] lastObject]]) {
                 if (error) {
-                    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : [responseObject objectForKey:@"message"]?[responseObject objectForKey:@"message"]:[NSNull null],
+                    NSMutableDictionary *userInfo = [@{
                                                NSLocalizedFailureReasonErrorKey : errorTypeStr,
                                                @"responseStatusCode" : @([response statusCode]),
                                                @"responseHeaders" : [response allHeaderFields],
                                                @"responseDataSize" : @(data?[data length]:0),
-                                               };
+                                               } mutableCopy];
+                    [userInfo addEntriesFromDictionary:responseObject];
                     *error = [NSError errorWithDomain:AWSEventRecorderServiceErrorDomain
-                                                 code:[[errorCodeDictionary objectForKey:errorTypeHeader] integerValue]
+                                                 code:[[errorCodeDictionary objectForKey:[[errorTypeHeader componentsSeparatedByString:@"#"] lastObject]] integerValue]
                                              userInfo:userInfo];
                 }
                 return responseObject;
             } else if (errorTypeHeader) {
                 if (error) {
-                    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : [responseObject objectForKey:@"message"]?[responseObject objectForKey:@"message"]:[NSNull null],
-                                               NSLocalizedFailureReasonErrorKey : errorTypeStr,
-                                               @"responseStatusCode" : @([response statusCode]),
-                                               @"responseHeaders" : [response allHeaderFields],
-                                               @"responseDataSize" : @(data?[data length]:0),
-                                               };
+                    NSMutableDictionary *userInfo = [@{
+                                                       NSLocalizedFailureReasonErrorKey : errorTypeStr,
+                                                       @"responseStatusCode" : @([response statusCode]),
+                                                       @"responseHeaders" : [response allHeaderFields],
+                                                       @"responseDataSize" : @(data?[data length]:0),
+                                                       } mutableCopy];
+                    [userInfo addEntriesFromDictionary:responseObject];
                     *error = [NSError errorWithDomain:AWSEventRecorderServiceErrorDomain
                                                  code:AWSEventRecorderServiceErrorUnknown
                                              userInfo:userInfo];
@@ -110,21 +115,21 @@ static NSDictionary *errorCodeDictionary = nil;
                 return responseObject;
             }
         }
-        
+
         if (self.outputClass) {
             responseObject = [MTLJSONAdapter modelOfClass:self.outputClass
                                        fromJSONDictionary:responseObject
                                                     error:error];
         }
     }
-    
+
     if (responseObject == nil) {
         return @{@"responseStatusCode" : @([response statusCode]),
                  @"responseHeaders" : [response allHeaderFields],
                  @"responseDataSize" : @(data?[data length]:0),
                  };
-    } 
-    
+    }
+
     return responseObject;
 }
 
@@ -137,29 +142,29 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSEventRecorderServiceRequestRetryHandler
 
-- (AZNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
+- (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
                             response:(NSHTTPURLResponse *)response
                                 data:(NSData *)data
                                error:(NSError *)error {
-    AZNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
+    AWSNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
                                                 response:response
                                                     data:data
                                                    error:error];
-    if(retryType == AZNetworkingRetryTypeShouldNotRetry
+    if(retryType == AWSNetworkingRetryTypeShouldNotRetry
        && [error.domain isEqualToString:AWSEventRecorderServiceErrorDomain]
        && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
             case AWSEventRecorderServiceErrorIncompleteSignature:
             case AWSEventRecorderServiceErrorInvalidClientTokenId:
             case AWSEventRecorderServiceErrorMissingAuthenticationToken:
-                retryType = AZNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
+                retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
                 break;
-                
+
             default:
                 break;
         }
     }
-    
+
     return retryType;
 }
 
@@ -169,15 +174,14 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @interface AWSRequest()
 
-@property (nonatomic, strong) AZNetworkingRequest *internalRequest;
+@property (nonatomic, strong) AWSNetworkingRequest *internalRequest;
 
 @end
 
 @interface AWSEventRecorderService()
 
-@property (nonatomic, strong) AZNetworking *networking;
+@property (nonatomic, strong) AWSNetworking *networking;
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
-@property (nonatomic, strong) AWSEndpoint *endpoint;
 
 @end
 
@@ -187,43 +191,42 @@ static NSDictionary *errorCodeDictionary = nil;
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
         return nil;
     }
-    
+
     static AWSEventRecorderService *_defaultAWSGameLabEventRecorderService = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _defaultAWSGameLabEventRecorderService = [[AWSEventRecorderService alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration];
     });
-    
+
     return _defaultAWSGameLabEventRecorderService;
 }
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
         _configuration = configuration;
-        
-        _endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
-                                            service:AWSServiceGameLabEventRecorder];
-        
+
+        _configuration.endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
+                                                          service:AWSServiceGameLabEventRecorder];
+
         AWSSignatureV4Signer *signer = [AWSSignatureV4Signer signerWithCredentialsProvider:_configuration.credentialsProvider
-                                                                                  endpoint:_endpoint];
-        
-        _configuration.baseURL = _endpoint.URL;
-        _configuration.requestSerializer = [AWSJSONRequestSerializer new];
+                                                                                  endpoint:_configuration.endpoint];
+
+        _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.requestInterceptors = @[[AWSNetworkingRequestInterceptor new], signer];
         _configuration.retryHandler = [[AWSEventRecorderServiceRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
-        _configuration.headers = @{@"Host" : _endpoint.hostName,
+        _configuration.headers = @{@"Host" : _configuration.endpoint.hostName,
                                    @"Content-Type" : @"application/x-amz-json-1.1",
                                    @"Accept-Encoding" : @"",
                                    @"Content-Encoding": @"gzip"
                                    };
-        
-        _networking = [AZNetworking networking:_configuration];
+
+        _networking = [AWSNetworking networking:_configuration];
     }
     return self;
 }
 
 - (BFTask *)invokeRequest:(AWSRequest *)request
-               HTTPMethod:(AZHTTPMethod)HTTPMethod
+               HTTPMethod:(AWSHTTPMethod)HTTPMethod
                 URLString:(NSString *) URLString
              targetPrefix:(NSString *)targetPrefix
             operationName:(NSString *)operationName
@@ -231,14 +234,14 @@ static NSDictionary *errorCodeDictionary = nil;
     if (!request) {
         request = [AWSRequest new];
     }
-    
-    AZNetworkingRequest *networkingRequest = request.internalRequest;
+
+    AWSNetworkingRequest *networkingRequest = request.internalRequest;
     if (request) {
-        networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] az_removeNullValues];
+        networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
     } else {
         networkingRequest.parameters = @{};
     }
-    
+
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     __block NSString *blockSafeURLString = [URLString copy];
     [networkingRequest.parameters enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
@@ -247,32 +250,33 @@ static NSDictionary *errorCodeDictionary = nil;
             [parameters setObject:obj forKey:key];
         } else {
             blockSafeURLString = [blockSafeURLString stringByReplacingOccurrencesOfString:stringToFind
-                                                                               withString:[obj az_stringWithURLEncoding]];
+                                                                               withString:[obj aws_stringWithURLEncoding]];
         }
     }];
     networkingRequest.parameters = parameters;
-    
+
     NSMutableDictionary *headers = [NSMutableDictionary new];
     headers[@"X-Amz-Target"] = [NSString stringWithFormat:@"%@.%@", targetPrefix, operationName];
-    
+
     networkingRequest.headers = headers;
     networkingRequest.URLString = blockSafeURLString;
     networkingRequest.HTTPMethod = HTTPMethod;
-    networkingRequest.responseSerializer = [AWSEventRecorderServiceResponseSerializer serializerWithOutputClass:outputClass];
-    
+    networkingRequest.responseSerializer = [AWSEventRecorderServiceResponseSerializer serializerWithOutputClass:outputClass resource:AWSERSDefinitionFileName actionName:operationName];
+    networkingRequest.requestSerializer = [AWSJSONRequestSerializer serializerWithResource:AWSERSDefinitionFileName actionName:operationName];
+
     return [self.networking sendRequest:networkingRequest];
 }
 
-    
+
 #pragma mark - Service method
-    
+
 - (BFTask *)putEvents:(AWSEventRecorderServicePutEventsInput *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/2014-06-05/events"
                   targetPrefix:@"AWSEventRecorderService"
                  operationName:@"PutEvents"
                    outputClass:nil];
-}    
-    
+}
+
 @end

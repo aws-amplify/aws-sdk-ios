@@ -22,7 +22,7 @@
 #import "AWSMobileAnalyticsJSONSerializer.h"
 #import "AWSMobileAnalyticsConfigurationKeys.h"
 #import "AWSMobileAnalyticsSerializerFactory.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 static NSString* const CONFIG_KEY = @"configuration";
 static NSString* const CONFIG_KEY_LAST_SYNC = @"configuration.lastSyncDate";
@@ -86,11 +86,11 @@ NSString * const AIConfigurationFileStoreFilename = @"configuration";
         {
             if(createError != nil)
             {
-                AZLogError( @"Error creating preferences file. %@", [createError localizedDescription]);
+                AWSLogError( @"Error creating preferences file. %@", [createError localizedDescription]);
             }
             else
             {
-                AZLogError( @"The preferences file could not be created");
+                AWSLogError( @"The preferences file could not be created");
             }
             return nil;
         }
@@ -119,14 +119,14 @@ NSString * const AIConfigurationFileStoreFilename = @"configuration";
     {
         if(error != nil)
         {
-            AZLogWarn( @"Unable to load the configuration from the file. %@, it is common if the file has not been created yet.", [error localizedDescription]);
+            AWSLogWarn( @"Unable to load the configuration from the file. %@, it is common if the file has not been created yet.", [error localizedDescription]);
             // Reset to never synchronized status if the file cannot be read due to missing file or corrupted file
             [self.preferences putDouble:0.0 forKey:CONFIG_KEY_LAST_SYNC];
             self.lastConfigSyncTimestamp = 0.0;
         }
         else
         {
-            AZLogError( @"There was an error while attempting to load the confinguration from the file.");
+            AWSLogError( @"There was an error while attempting to load the confinguration from the file.");
         }
         return overrideSettings;
     }
@@ -158,11 +158,11 @@ NSString * const AIConfigurationFileStoreFilename = @"configuration";
     {
         if(error != nil)
         {
-            AZLogError( @"There was an error while attempting to write the configuration to the file. %@", [error localizedDescription]);
+            AWSLogError( @"There was an error while attempting to write the configuration to the file. %@", [error localizedDescription]);
         }
         else
         {
-            AZLogError( @"There was an error while attempting to write the configuration to the file.");
+            AWSLogError( @"There was an error while attempting to write the configuration to the file.");
         }
     }
 }
@@ -327,7 +327,7 @@ NSString * const AIConfigurationFileStoreFilename = @"configuration";
 //                    self.lastConfigSyncTimestamp = nowTimestamp;
 //                }
 //                
-//                AZLogDebug( @"\n==========Server-synced Configuration==========\n%@", serverConfig);
+//                AWSLogDebug( @"\n==========Server-synced Configuration==========\n%@", serverConfig);
 //            }
 //        }
 //    }];

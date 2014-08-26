@@ -15,11 +15,11 @@
 
 #import "Mantle.h"
 
-@interface AZModel : MTLModel <MTLJSONSerializing>
+@interface AWSModel : MTLModel <MTLJSONSerializing>
 
 @end
 
-@interface AZModelUtility : NSObject
+@interface AWSModelUtility : NSObject
 
 + (NSDictionary *)mapMTLDictionaryFromJSONArrayDictionary:(NSDictionary *)JSONArrayDictionary
                                          arrayElementType:(NSString *)arrayElementType

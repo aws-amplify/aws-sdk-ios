@@ -167,69 +167,6 @@
         }
       ]
     },
-    "GetIdentityPoolAnalytics":{
-      "name":"GetIdentityPoolAnalytics",
-      "http":{
-        "method":"POST",
-        "requestUri":"/"
-      },
-      "input":{"shape":"GetIdentityPoolAnalyticsRequest"},
-      "output":{"shape":"GetIdentityPoolAnalyticsResponse"},
-      "errors":[
-        {
-          "shape":"ResourceNotFoundException",
-          "error":{"httpStatusCode":404},
-          "exception":true
-        },
-        {
-          "shape":"InvalidParameterException",
-          "error":{"httpStatusCode":400},
-          "exception":true
-        }
-      ]
-    },
-    "GetIdentityPoolDailyAnalytics":{
-      "name":"GetIdentityPoolDailyAnalytics",
-      "http":{
-        "method":"POST",
-        "requestUri":"/"
-      },
-      "input":{"shape":"GetIdentityPoolDailyAnalyticsRequest"},
-      "output":{"shape":"GetIdentityPoolDailyAnalyticsResponse"},
-      "errors":[
-        {
-          "shape":"ResourceNotFoundException",
-          "error":{"httpStatusCode":404},
-          "exception":true
-        },
-        {
-          "shape":"InvalidParameterException",
-          "error":{"httpStatusCode":400},
-          "exception":true
-        }
-      ]
-    },
-    "GetIdentityProviderDailyAnalytics":{
-      "name":"GetIdentityProviderDailyAnalytics",
-      "http":{
-        "method":"POST",
-        "requestUri":"/"
-      },
-      "input":{"shape":"GetIdentityProviderDailyAnalyticsRequest"},
-      "output":{"shape":"GetIdentityProviderDailyAnalyticsResponse"},
-      "errors":[
-        {
-          "shape":"ResourceNotFoundException",
-          "error":{"httpStatusCode":404},
-          "exception":true
-        },
-        {
-          "shape":"InvalidParameterException",
-          "error":{"httpStatusCode":400},
-          "exception":true
-        }
-      ]
-    },
     "GetOpenIdToken":{
       "name":"GetOpenIdToken",
       "http":{
@@ -439,12 +376,6 @@
         "SupportedLoginProviders":{"shape":"IdentityProviders"}
       }
     },
-    "DayString":{
-      "type":"string",
-      "min":10,
-      "max":10,
-      "pattern":"^(201)([4-9]|(20)[2-9][\\d])[-](0[1-9]|1[012])[-](0[1-9]|[12][\\d]|3[01])$"
-    },
     "DeleteIdentityPoolInput":{
       "type":"structure",
       "required":["IdentityPoolId"],
@@ -477,60 +408,6 @@
         "IdentityId":{"shape":"IdentityId"}
       }
     },
-    "GetIdentityPoolAnalyticsRequest":{
-      "type":"structure",
-      "required":["IdentityPoolId"],
-      "members":{
-        "IdentityPoolId":{"shape":"IdentityPoolId"}
-      }
-    },
-    "GetIdentityPoolAnalyticsResponse":{
-      "type":"structure",
-      "members":{
-        "IdentityPoolId":{"shape":"IdentityPoolId"},
-        "TotalIdentityCount":{"shape":"Long"},
-        "IdentityAnalyticsList":{"shape":"IdentityAnalyticsList"}
-      }
-    },
-    "GetIdentityPoolDailyAnalyticsRequest":{
-      "type":"structure",
-      "required":["IdentityPoolId"],
-      "members":{
-        "IdentityPoolId":{"shape":"IdentityPoolId"},
-        "StartDay":{"shape":"DayString"},
-        "Token":{"shape":"PaginationKey"}
-      }
-    },
-    "GetIdentityPoolDailyAnalyticsResponse":{
-      "type":"structure",
-      "members":{
-        "IdentityPoolId":{"shape":"IdentityPoolId"},
-        "IdentityPoolDailyIdentities":{"shape":"IdentityDailyAnalyticsList"},
-        "NextToken":{"shape":"PaginationKey"}
-      }
-    },
-    "GetIdentityProviderDailyAnalyticsRequest":{
-      "type":"structure",
-      "required":[
-        "IdentityPoolId",
-        "IdentityProviderId"
-      ],
-      "members":{
-        "IdentityPoolId":{"shape":"IdentityPoolId"},
-        "IdentityProviderId":{"shape":"IdentityProviderId"},
-        "StartDay":{"shape":"DayString"},
-        "Token":{"shape":"PaginationKey"}
-      }
-    },
-    "GetIdentityProviderDailyAnalyticsResponse":{
-      "type":"structure",
-      "members":{
-        "IdentityPoolId":{"shape":"IdentityPoolId"},
-        "IdentityProviderId":{"shape":"IdentityProviderId"},
-        "IdentityProviderDailyIdentities":{"shape":"IdentityDailyAnalyticsList"},
-        "NextToken":{"shape":"PaginationKey"}
-      }
-    },
     "GetOpenIdTokenInput":{
       "type":"structure",
       "required":["IdentityId"],
@@ -549,29 +426,6 @@
     "IdentitiesList":{
       "type":"list",
       "member":{"shape":"IdentityDescription"}
-    },
-    "IdentityAnalytics":{
-      "type":"structure",
-      "members":{
-        "IdentityProviderId":{"shape":"IdentityProviderId"},
-        "IdentityCount":{"shape":"Long"}
-      }
-    },
-    "IdentityAnalyticsList":{
-      "type":"list",
-      "member":{"shape":"IdentityAnalytics"}
-    },
-    "IdentityDailyAnalytics":{
-      "type":"structure",
-      "members":{
-        "Date":{"shape":"DayString"},
-        "TotalIdentities":{"shape":"Long"},
-        "NewIdentities":{"shape":"Long"}
-      }
-    },
-    "IdentityDailyAnalyticsList":{
-      "type":"list",
-      "member":{"shape":"IdentityDailyAnalytics"}
     },
     "IdentityDescription":{
       "type":"structure",
@@ -674,11 +528,14 @@
     },
     "ListIdentitiesInput":{
       "type":"structure",
-      "required":["IdentityPoolId"],
+      "required":[
+        "IdentityPoolId",
+        "MaxResults"
+      ],
       "members":{
         "IdentityPoolId":{"shape":"IdentityPoolId"},
-        "Limit":{"shape":"QueryLimit"},
-        "Token":{"shape":"PaginationKey"}
+        "MaxResults":{"shape":"QueryLimit"},
+        "NextToken":{"shape":"PaginationKey"}
       }
     },
     "ListIdentitiesResponse":{
@@ -691,9 +548,10 @@
     },
     "ListIdentityPoolsInput":{
       "type":"structure",
+      "required":["MaxResults"],
       "members":{
-        "Limit":{"shape":"QueryLimit"},
-        "Token":{"shape":"PaginationKey"}
+        "MaxResults":{"shape":"QueryLimit"},
+        "NextToken":{"shape":"PaginationKey"}
       }
     },
     "ListIdentityPoolsResponse":{
@@ -713,7 +571,6 @@
       "value":{"shape":"IdentityProviderToken"},
       "max":3
     },
-    "Long":{"type":"long"},
     "NotAuthorizedException":{
       "type":"structure",
       "members":{

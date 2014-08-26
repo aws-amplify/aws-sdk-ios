@@ -13,7 +13,7 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_KINESIS
+#if AWS_TEST_KINESIS && !AWS_TEST_BJS_INSTEAD
 
 #import <XCTest/XCTest.h>
 #import "Kinesis.h"
@@ -113,6 +113,7 @@ static NSString *testStreamName = nil;
     AWSKinesis *kinesis = [AWSKinesis defaultKinesis];
 
     NSMutableArray *tasks = [NSMutableArray new];
+    NSMutableArray *returnedRecords = [NSMutableArray new];
 
     for (int32_t i = 0; i < 100; i++) {
         AWSKinesisPutRecordInput *putRecordInput = [AWSKinesisPutRecordInput new];
@@ -142,21 +143,19 @@ static NSString *testStreamName = nil;
         return [kinesis getShardIterator:getShardIteratorInput];
     }] continueWithSuccessBlock:^id(BFTask *task) {
         AWSKinesisGetShardIteratorOutput *getShardIteratorOutput = task.result;
-
-        AWSKinesisGetRecordsInput *getRecordsInput = [AWSKinesisGetRecordsInput new];
-        getRecordsInput.shardIterator = getShardIteratorOutput.shardIterator;
-        return [kinesis getRecords:getRecordsInput];
+        return [self getRecords:returnedRecords
+                  shardIterator:getShardIteratorOutput.shardIterator
+                        counter:0];
     }] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         } else {
-            AWSKinesisGetRecordsOutput *getRecordsOutput = task.result;
             int32_t i = 0;
-            for (AWSKinesisRecord *record in getRecordsOutput.records) {
+            for (AWSKinesisRecord *record in returnedRecords) {
                 XCTAssertTrue([[[NSString alloc] initWithData:record.data encoding:NSUTF8StringEncoding] hasPrefix:@"TestString-"]);
                 i++;
             }
-            XCTAssertTrue(i > 90);
+            XCTAssertTrue(i == 100, @"Record count: %d", i);
         }
 
         return nil;
@@ -173,9 +172,26 @@ static NSString *testStreamName = nil;
         XCTAssertNotNil(task.error, @"expected error but got nil");
         XCTAssertEqual(AWSKinesisErrorResourceNotFound, task.error.code, @"expected AWSKinesisErrorResourceNotFound(6) but got %ld",(long)task.error.code);
         return nil;
-        
+
     }] waitUntilFinished];
-    
+
+}
+
+- (BFTask *)getRecords:(NSMutableArray *)returnedRecords shardIterator:(NSString *)shardIterator counter:(int32_t)counter {
+    AWSKinesis *kinesis = [AWSKinesis defaultKinesis];
+    AWSKinesisGetRecordsInput *getRecordsInput = [AWSKinesisGetRecordsInput new];
+    getRecordsInput.shardIterator = shardIterator;
+    return [[kinesis getRecords:getRecordsInput] continueWithSuccessBlock:^id(BFTask *task) {
+        AWSKinesisGetRecordsOutput *getRecordsOutput = task.result;
+        [returnedRecords addObjectsFromArray:getRecordsOutput.records];
+
+        if (counter < 10 || [getRecordsOutput.records count] > 0) {
+            return [self getRecords:returnedRecords
+                      shardIterator:getRecordsOutput.nextShardIterator
+                            counter:counter + 1];
+        }
+        return nil;
+    }];
 }
 
 @end

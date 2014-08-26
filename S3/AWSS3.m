@@ -15,10 +15,10 @@
 
 #import "AWSS3.h"
 
-#import "AZNetworking.h"
+#import "AWSNetworking.h"
 #import "AWSSignature.h"
 #import "AWSService.h"
-#import "AZCategory.h"
+#import "AWSCategory.h"
 #import "AWSNetworking.h"
 #import "AWSURLRequestSerialization.h"
 #import "AWSURLResponseSerialization.h"
@@ -87,7 +87,7 @@ static NSDictionary *errorCodeDictionary = nil;
             if (error) {
                 *error = [NSError errorWithDomain:AWSS3ErrorDomain
                                              code:[errorCodeDictionary[errorInfo[@"Code"]] integerValue]
-                                         userInfo:@{NSLocalizedDescriptionKey :[errorInfo objectForKey:@"Message"]?[errorInfo objectForKey:@"Message"]:[NSNull null]}
+                                         userInfo:errorInfo
                           ];
                 return responseObject;
             }
@@ -95,8 +95,7 @@ static NSDictionary *errorCodeDictionary = nil;
             if (error) {
                 *error = [NSError errorWithDomain:AWSS3ErrorDomain
                                              code:AWSS3ErrorUnknown
-                                         userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"%@ -- %@",[errorInfo objectForKey:@"Code"],[errorInfo objectForKey:@"Message"]?[errorInfo objectForKey:@"Message"]:[NSNull null]]
-                                                    }];
+                                         userInfo:errorInfo];
                 return responseObject;
             }
         }
@@ -119,15 +118,15 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSS3RequestRetryHandler
 
-- (AZNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
+- (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
                             response:(NSHTTPURLResponse *)response
                                 data:(NSData *)data
                                error:(NSError *)error {
-    AZNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
+    AWSNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
                                                 response:response
                                                     data:data
                                                    error:error];
-    if(retryType == AZNetworkingRetryTypeShouldNotRetry
+    if(retryType == AWSNetworkingRetryTypeShouldNotRetry
        && [error.domain isEqualToString:AWSS3ErrorDomain]
        && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
@@ -135,11 +134,11 @@ static NSDictionary *errorCodeDictionary = nil;
             case AWSS3ErrorInvalidAccessKeyId:
             case AWSS3ErrorInvalidToken:
             case AWSS3ErrorTokenRefreshRequired:
-            retryType = AZNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
-            break;
+                retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
+                break;
 
             default:
-            break;
+                break;
         }
     }
 
@@ -150,7 +149,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @interface AWSRequest()
 
-@property (nonatomic, strong) AZNetworkingRequest *internalRequest;
+@property (nonatomic, strong) AWSNetworkingRequest *internalRequest;
 
 @end
 
@@ -159,9 +158,8 @@ static NSDictionary *errorCodeDictionary = nil;
  */
 @interface AWSS3()
 
-@property (nonatomic, strong) AZNetworking *networking;
+@property (nonatomic, strong) AWSNetworking *networking;
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
-@property (nonatomic, strong) AWSEndpoint *endpoint;
 
 @end
 
@@ -188,20 +186,20 @@ static NSDictionary *errorCodeDictionary = nil;
     if (self = [super init]) {
         _configuration = [configuration copy];
 
-        _endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
-                                            service:AWSServiceS3];
+        _configuration.endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
+                                                          service:AWSServiceS3];
 
         AWSSignatureV4Signer *signer = [AWSSignatureV4Signer signerWithCredentialsProvider:_configuration.credentialsProvider
-                                                                                  endpoint:_endpoint];
+                                                                                  endpoint:_configuration.endpoint];
 
-        _configuration.baseURL = _endpoint.URL;
+        _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.requestInterceptors = @[[AWSNetworkingRequestInterceptor new], signer];
         _configuration.retryHandler = [[AWSS3RequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
         _configuration.headers = @{
-                                   @"Host" : _endpoint.hostName,
+                                   @"Host" : _configuration.endpoint.hostName,
                                    };
 
-        _networking = [AZNetworking networking:_configuration];
+        _networking = [AWSNetworking networking:_configuration];
 
     }
 
@@ -213,14 +211,14 @@ static NSDictionary *errorCodeDictionary = nil;
     NSString *keyPath;
     NSString *resQuery;
 
-    keyPath  = (objectName == nil ? [NSString stringWithFormat:@"%@", bucketName] : [NSString stringWithFormat:@"%@/%@", bucketName, [objectName az_stringWithURLEncoding]]);
+    keyPath  = (objectName == nil ? [NSString stringWithFormat:@"%@", bucketName] : [NSString stringWithFormat:@"%@/%@", bucketName, [objectName aws_stringWithURLEncoding]]);
     resQuery = (subResource == nil ? @"" : [NSString stringWithFormat:@"?%@", subResource]);
 
-    return [NSString stringWithFormat:@"%@/%@%@", self.endpoint.URL, keyPath, resQuery];
+    return [NSString stringWithFormat:@"%@/%@%@", self.configuration.endpoint.URL, keyPath, resQuery];
 }
 
 - (BFTask *)invokeRequest:(AWSRequest *)request
-               HTTPMethod:(AZHTTPMethod)HTTPMethod
+               HTTPMethod:(AWSHTTPMethod)HTTPMethod
                 URLString:(NSString *) URLString
              targetPrefix:(NSString *)targetPrefix
             operationName:(NSString *)operationName
@@ -229,9 +227,9 @@ static NSDictionary *errorCodeDictionary = nil;
         request = [AWSRequest new];
     }
 
-    AZNetworkingRequest *networkingRequest = request.internalRequest;
+    AWSNetworkingRequest *networkingRequest = request.internalRequest;
     if (request) {
-        networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] az_removeNullValues];
+        networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
     } else {
         networkingRequest.parameters = @{};
     }
@@ -251,8 +249,8 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)abortMultipartUpload:(AWSS3AbortMultipartUploadRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodDELETE
-                     URLString:@"/{Bucket}/{Key}"
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/{Bucket}/{Key+}"
                   targetPrefix:@""
                  operationName:@"AbortMultipartUpload"
                    outputClass:nil];
@@ -260,8 +258,8 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)completeMultipartUpload:(AWSS3CompleteMultipartUploadRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
-                     URLString:@"/{Bucket}/{Key}"
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/{Bucket}/{Key+}"
                   targetPrefix:@""
                  operationName:@"CompleteMultipartUpload"
                    outputClass:[AWSS3CompleteMultipartUploadOutput class]];
@@ -269,7 +267,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createBucket:(AWSS3CreateBucketRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPUT
+                    HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}"
                   targetPrefix:@""
                  operationName:@"CreateBucket"
@@ -278,8 +276,8 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)createMultipartUpload:(AWSS3CreateMultipartUploadRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
-                     URLString:@"/{Bucket}/{Key}?uploads"
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/{Bucket}/{Key+}?uploads"
                   targetPrefix:@""
                  operationName:@"CreateMultipartUpload"
                    outputClass:[AWSS3CreateMultipartUploadOutput class]];
@@ -287,7 +285,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteBucket:(AWSS3DeleteBucketRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodDELETE
+                    HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/{Bucket}"
                   targetPrefix:@""
                  operationName:@"DeleteBucket"
@@ -296,7 +294,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteBucketCors:(AWSS3DeleteBucketCorsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodDELETE
+                    HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/{Bucket}?cors"
                   targetPrefix:@""
                  operationName:@"DeleteBucketCors"
@@ -305,7 +303,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteBucketLifecycle:(AWSS3DeleteBucketLifecycleRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodDELETE
+                    HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/{Bucket}?lifecycle"
                   targetPrefix:@""
                  operationName:@"DeleteBucketLifecycle"
@@ -314,7 +312,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteBucketPolicy:(AWSS3DeleteBucketPolicyRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodDELETE
+                    HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/{Bucket}?policy"
                   targetPrefix:@""
                  operationName:@"DeleteBucketPolicy"
@@ -323,7 +321,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteBucketTagging:(AWSS3DeleteBucketTaggingRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodDELETE
+                    HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/{Bucket}?tagging"
                   targetPrefix:@""
                  operationName:@"DeleteBucketTagging"
@@ -332,7 +330,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteBucketWebsite:(AWSS3DeleteBucketWebsiteRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodDELETE
+                    HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/{Bucket}?website"
                   targetPrefix:@""
                  operationName:@"DeleteBucketWebsite"
@@ -341,8 +339,8 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteObject:(AWSS3DeleteObjectRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodDELETE
-                     URLString:@"/{Bucket}/{Key}"
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/{Bucket}/{Key+}"
                   targetPrefix:@""
                  operationName:@"DeleteObject"
                    outputClass:[AWSS3DeleteObjectOutput class]];
@@ -350,7 +348,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)deleteObjects:(AWSS3DeleteObjectsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
+                    HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/{Bucket}?delete"
                   targetPrefix:@""
                  operationName:@"DeleteObjects"
@@ -359,7 +357,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getBucketAcl:(AWSS3GetBucketAclRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodGET
+                    HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?acl"
                   targetPrefix:@""
                  operationName:@"GetBucketAcl"
@@ -368,7 +366,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getBucketCors:(AWSS3GetBucketCorsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodGET
+                    HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?cors"
                   targetPrefix:@""
                  operationName:@"GetBucketCors"
@@ -377,7 +375,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getBucketLifecycle:(AWSS3GetBucketLifecycleRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodGET
+                    HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?lifecycle"
                   targetPrefix:@""
                  operationName:@"GetBucketLifecycle"
@@ -386,7 +384,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getBucketLocation:(AWSS3GetBucketLocationRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodGET
+                    HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?location"
                   targetPrefix:@""
                  operationName:@"GetBucketLocation"
@@ -395,7 +393,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getBucketLogging:(AWSS3GetBucketLoggingRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodGET
+                    HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?logging"
                   targetPrefix:@""
                  operationName:@"GetBucketLogging"
@@ -404,7 +402,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getBucketNotification:(AWSS3GetBucketNotificationRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodGET
+                    HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?notification"
                   targetPrefix:@""
                  operationName:@"GetBucketNotification"
@@ -413,7 +411,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getBucketPolicy:(AWSS3GetBucketPolicyRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodGET
+                    HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?policy"
                   targetPrefix:@""
                  operationName:@"GetBucketPolicy"
@@ -422,7 +420,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getBucketRequestPayment:(AWSS3GetBucketRequestPaymentRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodGET
+                    HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?requestPayment"
                   targetPrefix:@""
                  operationName:@"GetBucketRequestPayment"
@@ -431,7 +429,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getBucketTagging:(AWSS3GetBucketTaggingRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodGET
+                    HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?tagging"
                   targetPrefix:@""
                  operationName:@"GetBucketTagging"
@@ -440,7 +438,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getBucketVersioning:(AWSS3GetBucketVersioningRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodGET
+                    HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?versioning"
                   targetPrefix:@""
                  operationName:@"GetBucketVersioning"
@@ -449,7 +447,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getBucketWebsite:(AWSS3GetBucketWebsiteRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodGET
+                    HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?website"
                   targetPrefix:@""
                  operationName:@"GetBucketWebsite"
@@ -458,8 +456,8 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getObject:(AWSS3GetObjectRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodGET
-                     URLString:@"/{Bucket}/{Key}"
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/{Bucket}/{Key+}"
                   targetPrefix:@""
                  operationName:@"GetObject"
                    outputClass:[AWSS3GetObjectOutput class]];
@@ -467,8 +465,8 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getObjectAcl:(AWSS3GetObjectAclRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodGET
-                     URLString:@"/{Bucket}/{Key}?acl"
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/{Bucket}/{Key+}?acl"
                   targetPrefix:@""
                  operationName:@"GetObjectAcl"
                    outputClass:[AWSS3GetObjectAclOutput class]];
@@ -476,8 +474,8 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)getObjectTorrent:(AWSS3GetObjectTorrentRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodGET
-                     URLString:@"/{Bucket}/{Key}?torrent"
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/{Bucket}/{Key+}?torrent"
                   targetPrefix:@""
                  operationName:@"GetObjectTorrent"
                    outputClass:[AWSS3GetObjectTorrentOutput class]];
@@ -485,7 +483,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)headBucket:(AWSS3HeadBucketRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodHEAD
+                    HTTPMethod:AWSHTTPMethodHEAD
                      URLString:@"/{Bucket}"
                   targetPrefix:@""
                  operationName:@"HeadBucket"
@@ -494,8 +492,8 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)headObject:(AWSS3HeadObjectRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodHEAD
-                     URLString:@"/{Bucket}/{Key}"
+                    HTTPMethod:AWSHTTPMethodHEAD
+                     URLString:@"/{Bucket}/{Key+}"
                   targetPrefix:@""
                  operationName:@"HeadObject"
                    outputClass:[AWSS3HeadObjectOutput class]];
@@ -503,7 +501,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)listBuckets:(AWSRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodGET
+                    HTTPMethod:AWSHTTPMethodGET
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ListBuckets"
@@ -512,7 +510,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)listMultipartUploads:(AWSS3ListMultipartUploadsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodGET
+                    HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?uploads"
                   targetPrefix:@""
                  operationName:@"ListMultipartUploads"
@@ -521,7 +519,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)listObjectVersions:(AWSS3ListObjectVersionsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodGET
+                    HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?versions"
                   targetPrefix:@""
                  operationName:@"ListObjectVersions"
@@ -530,7 +528,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)listObjects:(AWSS3ListObjectsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodGET
+                    HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}"
                   targetPrefix:@""
                  operationName:@"ListObjects"
@@ -539,8 +537,8 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)listParts:(AWSS3ListPartsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodGET
-                     URLString:@"/{Bucket}/{Key}"
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/{Bucket}/{Key+}"
                   targetPrefix:@""
                  operationName:@"ListParts"
                    outputClass:[AWSS3ListPartsOutput class]];
@@ -548,7 +546,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)putBucketAcl:(AWSS3PutBucketAclRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPUT
+                    HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?acl"
                   targetPrefix:@""
                  operationName:@"PutBucketAcl"
@@ -557,7 +555,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)putBucketCors:(AWSS3PutBucketCorsRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPUT
+                    HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?cors"
                   targetPrefix:@""
                  operationName:@"PutBucketCors"
@@ -566,7 +564,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)putBucketLifecycle:(AWSS3PutBucketLifecycleRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPUT
+                    HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?lifecycle"
                   targetPrefix:@""
                  operationName:@"PutBucketLifecycle"
@@ -575,7 +573,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)putBucketLogging:(AWSS3PutBucketLoggingRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPUT
+                    HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?logging"
                   targetPrefix:@""
                  operationName:@"PutBucketLogging"
@@ -584,7 +582,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)putBucketNotification:(AWSS3PutBucketNotificationRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPUT
+                    HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?notification"
                   targetPrefix:@""
                  operationName:@"PutBucketNotification"
@@ -593,7 +591,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)putBucketPolicy:(AWSS3PutBucketPolicyRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPUT
+                    HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?policy"
                   targetPrefix:@""
                  operationName:@"PutBucketPolicy"
@@ -602,7 +600,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)putBucketRequestPayment:(AWSS3PutBucketRequestPaymentRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPUT
+                    HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?requestPayment"
                   targetPrefix:@""
                  operationName:@"PutBucketRequestPayment"
@@ -611,7 +609,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)putBucketTagging:(AWSS3PutBucketTaggingRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPUT
+                    HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?tagging"
                   targetPrefix:@""
                  operationName:@"PutBucketTagging"
@@ -620,7 +618,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)putBucketVersioning:(AWSS3PutBucketVersioningRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPUT
+                    HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?versioning"
                   targetPrefix:@""
                  operationName:@"PutBucketVersioning"
@@ -629,7 +627,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)putBucketWebsite:(AWSS3PutBucketWebsiteRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPUT
+                    HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?website"
                   targetPrefix:@""
                  operationName:@"PutBucketWebsite"
@@ -638,8 +636,8 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)putObject:(AWSS3PutObjectRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPUT
-                     URLString:@"/{Bucket}/{Key}"
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/{Bucket}/{Key+}"
                   targetPrefix:@""
                  operationName:@"PutObject"
                    outputClass:[AWSS3PutObjectOutput class]];
@@ -647,8 +645,8 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)putObjectAcl:(AWSS3PutObjectAclRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPUT
-                     URLString:@"/{Bucket}/{Key}?acl"
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/{Bucket}/{Key+}?acl"
                   targetPrefix:@""
                  operationName:@"PutObjectAcl"
                    outputClass:nil];
@@ -656,8 +654,8 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)replicateObject:(AWSS3ReplicateObjectRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPUT
-                     URLString:@"/{Bucket}/{Key}"
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/{Bucket}/{Key+}"
                   targetPrefix:@""
                  operationName:@"ReplicateObject"
                    outputClass:[AWSS3ReplicateObjectOutput class]];
@@ -665,8 +663,8 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)restoreObject:(AWSS3RestoreObjectRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPOST
-                     URLString:@"/{Bucket}/{Key}?restore"
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/{Bucket}/{Key+}?restore"
                   targetPrefix:@""
                  operationName:@"RestoreObject"
                    outputClass:nil];
@@ -674,8 +672,8 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)uploadPart:(AWSS3UploadPartRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPUT
-                     URLString:@"/{Bucket}/{Key}"
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/{Bucket}/{Key+}"
                   targetPrefix:@""
                  operationName:@"UploadPart"
                    outputClass:[AWSS3UploadPartOutput class]];
@@ -683,8 +681,8 @@ static NSDictionary *errorCodeDictionary = nil;
 
 - (BFTask *)uploadPartCopy:(AWSS3UploadPartCopyRequest *)request {
     return [self invokeRequest:request
-                    HTTPMethod:AZHTTPMethodPUT
-                     URLString:@"/{Bucket}/{Key}"
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/{Bucket}/{Key+}"
                   targetPrefix:@""
                  operationName:@"UploadPartCopy"
                    outputClass:[AWSS3UploadPartCopyOutput class]];

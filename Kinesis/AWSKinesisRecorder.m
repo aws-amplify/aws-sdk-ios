@@ -17,8 +17,8 @@
 #import "AWSKinesis.h"
 #import "TMCache.h"
 #import "Bolts.h"
-#import "AZLogging.h"
-#import "AZCategory.h"
+#import "AWSLogging.h"
+#import "AWSCategory.h"
 
 NSString *const AWSKinesisRecorderByteThresholdReachedNotification = @"com.amazonaws.AWSKinesisRecorderByteThresholdReachedNotification";
 NSString *const AWSKinesisRecorderCacheName = @"com.amazonaws.AWSKinesisRecorderCacheName.Cache";
@@ -42,9 +42,8 @@ NSTimeInterval const AWSKinesisRecorderAgeLimitDefault = 0.0; // Keeps the data 
     static AWSKinesisRecorder *_defaultKinesisRecorder = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        AWSKinesis *kinesis = [[AWSKinesis alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration];
-        _defaultKinesisRecorder = [[AWSKinesisRecorder alloc] initWithKinesis:kinesis
-                                                                    cacheName:AWSKinesisRecorderCacheName];
+        _defaultKinesisRecorder = [[AWSKinesisRecorder alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration
+                                                                          cacheName:AWSKinesisRecorderCacheName];
     });
 
     return _defaultKinesisRecorder;
@@ -52,20 +51,20 @@ NSTimeInterval const AWSKinesisRecorderAgeLimitDefault = 0.0; // Keeps the data 
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration
                            identifier:(NSString *)identifier {
-    if (self = [super init]) {
-        _kinesis = [[AWSKinesis alloc] initWithConfiguration:configuration];
-        _cache = [[TMCache alloc] initWithName:[NSString stringWithFormat:@"%@.%@", AWSKinesisRecorderCacheName, identifier]];
-        _cache.diskCache.byteLimit = AWSKinesisRecorderByteLimitDefault;
-        _cache.diskCache.ageLimit = AWSKinesisRecorderAgeLimitDefault;
+    if (self = [self initWithConfiguration:configuration
+                                 cacheName:[NSString stringWithFormat:@"%@.%@", AWSKinesisRecorderCacheName, identifier]]) {
     }
     return self;
 }
 
-- (instancetype)initWithKinesis:(AWSKinesis *)kinesis
-                      cacheName:(NSString *)cacheName {
+- (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration
+                            cacheName:(NSString *)cacheName {
     if (self = [super init]) {
-        _kinesis = kinesis;
-        _cache = [[TMCache alloc] initWithName:cacheName];
+        _kinesis = [[AWSKinesis alloc] initWithConfiguration:configuration];
+        NSString *rootPath = [NSTemporaryDirectory() stringByAppendingPathComponent:AWSKinesisRecorderCacheName];
+        _cache = [[TMCache alloc] initWithName:cacheName
+                                      rootPath:rootPath];
+        AWSLogDebug(@"The cache root path: %@", rootPath);
         _cache.diskCache.byteLimit = AWSKinesisRecorderByteLimitDefault;
         _cache.diskCache.ageLimit = AWSKinesisRecorderAgeLimitDefault;
     }
@@ -77,14 +76,14 @@ NSTimeInterval const AWSKinesisRecorderAgeLimitDefault = 0.0; // Keeps the data 
     AWSKinesisPutRecordInput *putRecordInput = [AWSKinesisPutRecordInput new];
     putRecordInput.data = data;
     putRecordInput.streamName = streamName;
-    putRecordInput.partitionKey = [NSString az_randomStringWithLength:36];
+    putRecordInput.partitionKey = [NSString aws_randomStringWithLength:36];
 
     BFTaskCompletionSource *taskCompletionSource = [BFTaskCompletionSource taskCompletionSource];
     NSTimeInterval timeIntervalSince1970 = [[NSDate date] timeIntervalSince1970];
 
     __block AWSKinesisRecorder *kinesisRecorder = self;
     [self.cache setObject:putRecordInput
-                   forKey:[NSString stringWithFormat:@"%10.10f.%@", timeIntervalSince1970, [NSString az_randomStringWithLength:10]]
+                   forKey:[NSString stringWithFormat:@"%10.10f.%@", timeIntervalSince1970, [NSString aws_randomStringWithLength:10]]
                     block:^(TMCache *cache, NSString *key, id object) {
                         [taskCompletionSource setResult:object];
 
@@ -123,28 +122,32 @@ NSTimeInterval const AWSKinesisRecorderAgeLimitDefault = 0.0; // Keeps the data 
     }] continueWithSuccessBlock:^id(BFTask *task) {
         NSMutableArray *tasks = [NSMutableArray new];
         for (NSString *key in task.result) {
-            id queuedObject = [self.cache objectForKey:key];
-            if ([queuedObject isKindOfClass:[AWSKinesisPutRecordInput class]]) {
-                [tasks addObject:[[self.kinesis putRecord:queuedObject] continueWithBlock:^id(BFTask *task) {
-                    if (task.error) {
-                        if ([task.error.domain isEqualToString:AWSKinesisErrorDomain]) {
-                            switch (task.error.code) {
-                                case AWSKinesisErrorUnknown:
-                                case AWSKinesisErrorResourceNotFound:
-                                    [self.cache removeObjectForKey:key];
-                                    break;
-                                default:
-                                    break;
+            BFTaskCompletionSource *taskCompletionSource = [BFTaskCompletionSource taskCompletionSource];
+            [self.cache objectForKey:key block:^(TMCache *cache, NSString *key, id object) {
+                if ([object isKindOfClass:[AWSKinesisPutRecordInput class]]) {
+                    [[self.kinesis putRecord:object] continueWithBlock:^id(BFTask *task) {
+                        if (task.error) {
+                            if ([task.error.domain isEqualToString:AWSKinesisErrorDomain]) {
+                                switch (task.error.code) {
+                                    case AWSKinesisErrorUnknown:
+                                    case AWSKinesisErrorResourceNotFound:
+                                        [self.cache removeObjectForKey:key block:nil];
+                                        break;
+                                    default:
+                                        break;
+                                }
                             }
+                        } else {
+                            [self.cache removeObjectForKey:key block:nil];
                         }
-                    } else {
-                        [self.cache removeObjectForKey:key];
-                    }
-                    return nil;
-                }]];
-            } else {
-                AZLogError(@"Only AWSKinesisPutRecordInput should be in the queue. [%@]", [queuedObject class]);
-            }
+                        [taskCompletionSource setResult:task];
+                        return nil;
+                    }];
+                } else {
+                    AWSLogError(@"Only AWSKinesisPutRecordInput should be in the queue. [%@]", [object class]);
+                }
+            }];
+            [tasks addObject:taskCompletionSource.task];
         }
         return [BFTask taskForCompletionOfAllTasks:tasks];
     }];

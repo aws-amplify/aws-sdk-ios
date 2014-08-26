@@ -63,10 +63,10 @@
     AWSEC2 *ec2 = [AWSEC2 defaultEC2];
     
     AWSEC2AttachVolumeRequest *volumeRequest = [AWSEC2AttachVolumeRequest new];
-    volumeRequest.volumeId = @""; //VolumeId is empty
+    volumeRequest.volumeId = @"invalidVolumeId"; //VolumeId is empty
     
     [[[ec2 attachVolume:volumeRequest] continueWithBlock:^id(BFTask *task) {
-        XCTAssertNotNil(task.error, @"expected MissingParameter error but got nil");
+        XCTAssertNotNil(task.error, @"expected InvalidParameterValue error but got nil");
         return nil;
     }] waitUntilFinished];
 }

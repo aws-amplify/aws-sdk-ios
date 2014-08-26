@@ -14,7 +14,7 @@
  */
 
 //
-#if AWS_TEST_ANALYTICS
+#if AWS_TEST_ANALYTICS && !AWS_TEST_BJS_INSTEAD
 
 #import <XCTest/XCTest.h>
 #import "AWSCore.h"
@@ -39,40 +39,40 @@
 }
 
 - (void)test_createMobileAnalyticsInstance {
-    AWSMobileAnalytics* insights = [AWSMobileAnalytics defaultMobileAnalyticsWithAppNamespace:@"newuniqueid"];
+    AWSMobileAnalytics* insights = [AWSMobileAnalytics mobileAnalyticsForAppId:@"newuniqueid"];
     XCTAssertNotNil([insights eventClient]);
 }
 
 - (void)test_createAndSubmitEvent{
-    AWSMobileAnalytics* insights = [AWSMobileAnalytics defaultMobileAnalyticsWithAppNamespace:@"newuniqueid"];
+    AWSMobileAnalytics* insights = [AWSMobileAnalytics mobileAnalyticsForAppId:@"newuniqueid"];
     XCTAssertNotNil([insights eventClient]);
-    
+
     // Record when the user completes level 1
     // Get the event client from Insights instance.
     id<AWSMobileAnalyticsEventClient>  eventClient = insights.eventClient;
-    
+
     // Create a level completion event.
     id<AWSMobileAnalyticsEvent>  level1Event = [eventClient createEventWithEventType:@"level1Complete"];
-    
+
     // add an attribute to know what weapon the user completed the level with
     [level1Event addAttribute:@"sword" forKey:@"weaponUsed"];
     // add a metric to know how many coins the user collected in the level
     [level1Event addMetric:@105 forKey:@"coinsCollected"];
-    
+
     // add a metric to know how long it took the user to complete the level
     [level1Event addMetric:@300 forKey:@"levelDuration"];
-    
+
     // Record the level completion event.
     [eventClient recordEvent:level1Event];
-    
+
     //ValueForceSubmissionWaitTime is 60 sec. need to wait before forceSubmitEvents take effect.
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:65]];
-    
+
     //submit the event
     [eventClient submitEvents];
-    
+
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
-    
+
     id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [insights valueForKey:@"deliveryClient"];
     NSArray *batchedEvents = [deliveryClient batchedEvents];
     //batchedEvents should be empty if all events has been sent successfully.
@@ -80,143 +80,138 @@
 }
 
 - (void)test_createAndSubmitMonetizationEvent {
-    
-    AWSMobileAnalytics* insights = [AWSMobileAnalytics defaultMobileAnalyticsWithAppNamespace:@"newuniqueid"];
+
+    AWSMobileAnalytics* insights = [AWSMobileAnalytics mobileAnalyticsForAppId:@"newuniqueid"];
     XCTAssertNotNil([insights eventClient]);
-    
+
     // get the event client for the builder
     id<AWSMobileAnalyticsEventClient> eventClient = insights.eventClient;
-    
+
     // create a builder that can record purchase events from Apple
     AWSMobileAnalyticsAppleMonetizationEventBuilder* builder = [AWSMobileAnalyticsAppleMonetizationEventBuilder builderWithEventClient:eventClient];
-    
+
     // set the product id of the purchased item (obtained from the SKPurchaseTransaction object)
     [builder withProductId:@"sampleProductId1234567"];
-    
+
     // set the item price and price locale (obtained from the SKProduct object)
     [builder withItemPrice:0.99
             andPriceLocale:[NSLocale currentLocale]];
-    
+
     // set the quantity of item(s) purchased (obtained from the SKPurchaseTransaction object)
     [builder withQuantity:10];
-    
+
     // set the transactionId of the transaction (obtained from the SKPurchaseTransaction object)
     [builder withTransactionId:@"transcationid1234567"];
-    
+
     // build the monetization event
     id<AWSMobileAnalyticsEvent> purchaseEvent = [builder build];
-    
+
     // add any additional metrics/attributes and record
     [eventClient recordEvent:purchaseEvent];
-    
+
     //ValueForceSubmissionWaitTime is 60 sec. need to wait before forceSubmitEvents take effect.
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:65]];
-    
+
     //submit the event
     [eventClient submitEvents];
-    
+
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
-    
+
     id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [insights valueForKey:@"deliveryClient"];
     NSArray *batchedEvents = [deliveryClient batchedEvents];
     //batchedEvents should be empty if all events has been sent successfully.
     XCTAssertEqual(0, [batchedEvents count], @"batchedEvents is not empty,events delivery may have failed!");
-    
+
 }
 
 - (void)test_createAndSubmitEventCustomClientContext{
-    
     //=====Notice============================
     // Custom ClientConfiguration muse be set before Init AWSMobileAnalytics
     // Modification of clientConfiguration has no effect after AWSMobileAnalytics has been initialized.
-    
+
     //add custom attributes in clientContext
-    [AWSMobileAnalyticsClientConfiguration defaultClientConfiguration].attributes = @{@"legacy_id":@"1234567"};
+    AWSMobileAnalyticsConfiguration *mobileAnalyticsConfiguration = [AWSMobileAnalyticsConfiguration new];
+    mobileAnalyticsConfiguration.attributes = @{@"legacy_id":@"1234567"};
     //overwrite app_title which will be originally read from value of @"CFBundleDisplayName" in app's plist.
-    [AWSMobileAnalyticsClientConfiguration defaultClientConfiguration].environment.appName = @"myappname";
-    
-    
-    AWSMobileAnalytics* insights = [AWSMobileAnalytics defaultMobileAnalyticsWithAppNamespace:@"newuniqueid"];
+    mobileAnalyticsConfiguration.environment.appName = @"myappname";
+
+    AWSMobileAnalytics* insights = [AWSMobileAnalytics mobileAnalyticsForAppId:@"newuniqueid"
+                                                                 configuration:mobileAnalyticsConfiguration
+                                                               completionBlock:nil];
     XCTAssertNotNil([insights eventClient]);
 
- 
-    
     // Record when the user completes level 1
     // Get the event client from Insights instance.
     id<AWSMobileAnalyticsEventClient>  eventClient = insights.eventClient;
-    
+
     // Create a level completion event.
     id<AWSMobileAnalyticsEvent>  level1Event = [eventClient createEventWithEventType:@"level1Complete"];
-    
+
     // add an attribute to know what weapon the user completed the level with
     [level1Event addAttribute:@"sword" forKey:@"weaponUsed"];
     // add a metric to know how many coins the user collected in the level
     [level1Event addMetric:@105 forKey:@"coinsCollected"];
-    
+
     // add a metric to know how long it took the user to complete the level
     [level1Event addMetric:@300 forKey:@"levelDuration"];
-    
+
     // Record the level completion event.
     [eventClient recordEvent:level1Event];
-    
+
     //ValueForceSubmissionWaitTime is 60 sec. need to wait before forceSubmitEvents take effect.
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:65]];
-    
+
     //submit the event
     [eventClient submitEvents];
-    
+
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
     id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [insights valueForKey:@"deliveryClient"];
     NSArray *batchedEvents = [deliveryClient batchedEvents];
     //batchedEvents should be empty if all events has been sent successfully.
     XCTAssertEqual(0, [batchedEvents count], @"batchedEvents is not empty,events delivery may have failed!");
 
-    
+
 }
 
-- (void)test_createAndSubmitEventCustomServiceConfiguration{
-    
+- (void)test_createAndSubmitEventCustomServiceConfiguration {
     AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
     AWSServiceConfiguration *customServiceConfig = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
                                                                                  credentialsProvider:credentialsProvider];
-    
-    
-    AWSEventRecorderService *ers = [[AWSEventRecorderService alloc] initWithConfiguration:customServiceConfig];
-    
-    AWSMobileAnalytics* insights = [AWSMobileAnalytics mobileAnalyticsWithEventRecorderService:ers appNamespace:@"someuniqueid2" completionBlock:nil];
-    
-    
+    AWSMobileAnalyticsConfiguration *configuration = [AWSMobileAnalyticsConfiguration new];
+    configuration.serviceConfiguration = customServiceConfig;
+    AWSMobileAnalytics* insights = [AWSMobileAnalytics mobileAnalyticsForAppId:@"someuniqueid2"
+                                                                 configuration:configuration
+                                                               completionBlock:nil];
+
     // Record when the user completes level 1
     // Get the event client from Insights instance.
     id<AWSMobileAnalyticsEventClient>  eventClient = insights.eventClient;
-    
+
     // Create a level completion event.
     id<AWSMobileAnalyticsEvent>  level1Event = [eventClient createEventWithEventType:@"level1Complete"];
-    
+
     // add an attribute to know what weapon the user completed the level with
     [level1Event addAttribute:@"sword" forKey:@"weaponUsed"];
     // add a metric to know how many coins the user collected in the level
     [level1Event addMetric:@105 forKey:@"coinsCollected"];
-    
+
     // add a metric to know how long it took the user to complete the level
     [level1Event addMetric:@300 forKey:@"levelDuration"];
-    
+
     // Record the level completion event.
     [eventClient recordEvent:level1Event];
-    
+
     //ValueForceSubmissionWaitTime is 60 sec. need to wait before forceSubmitEvents take effect.
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:65]];
-    
+
     //submit the event
     [eventClient submitEvents];
-    
+
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
     id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [insights valueForKey:@"deliveryClient"];
     NSArray *batchedEvents = [deliveryClient batchedEvents];
     //batchedEvents should be empty if all events has been sent successfully.
     XCTAssertEqual(0, [batchedEvents count], @"batchedEvents is not empty,events delivery may have failed!");
-
-    
 }
 
 @end

@@ -14,7 +14,7 @@
  */
 
 #import "AWSValidation.h"
-#import "AZCategory.h"
+#import "AWSCategory.h"
 
 NSString *const AWSValidationErrorDomain = @"com.amazonaws.AWSValidationErrorDomain";
 
@@ -282,7 +282,7 @@ NSString *const AWSValidationErrorDomain = @"com.amazonaws.AWSValidationErrorDom
 + (BOOL)validateBinaryWithContext:(NSString *)context  data:(id)data error:(NSError *__autoreleasing *)error {
     //The Binary should be a base64 format
     if ([data isKindOfClass:[NSString class]]) {
-        if ([data az_isBase64Data]) return YES;
+        if ([data aws_isBase64Data]) return YES;
     }
 
     return [self failWithCode:AWSValidationInvalidBase64Data

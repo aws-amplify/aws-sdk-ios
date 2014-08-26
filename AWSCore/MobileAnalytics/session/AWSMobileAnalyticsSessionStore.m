@@ -15,7 +15,7 @@
 
 #import "AWSMobileAnalyticsSessionStore.h"
 #import "AWSMobileAnalyticsStringUtils.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 static NSString* const SESSION_FILE_NAME = @"sessionFile";
 
@@ -42,11 +42,11 @@ static NSString* const KEY_SESSION_STOP_TIME = @"sessionStopTime";
         {
             if(createError != nil)
             {
-                AZLogError( @"Error creating session file. %@", [createError localizedDescription]);
+                AWSLogError( @"Error creating session file. %@", [createError localizedDescription]);
             }
             else
             {
-                AZLogError( @"The session file could not be created");
+                AWSLogError( @"The session file could not be created");
             }
             return nil;
         }
@@ -74,7 +74,7 @@ static NSString* const KEY_SESSION_STOP_TIME = @"sessionStopTime";
     
     AWSMobileAnalyticsSession* session = [self createSessionFromSerializedDictionary:serializedSession];
     if(session == nil){
-        AZLogWarn( @"Can not obtain session details from the file. It is common if there is no previous paused session saved in the file.");
+        AWSLogWarn( @"Can not obtain session details from the file. It is common if there is no previous paused session saved in the file.");
         return nil;
     }
 
@@ -135,11 +135,11 @@ static NSString* const KEY_SESSION_STOP_TIME = @"sessionStopTime";
     {
         if(error != nil)
         {
-            AZLogError( @"There was an error while attempting to write the session to the file. %@", [error localizedDescription]);
+            AWSLogError( @"There was an error while attempting to write the session to the file. %@", [error localizedDescription]);
         }
         else
         {
-            AZLogError( @"There was an error while attempting to write the session to the file.");
+            AWSLogError( @"There was an error while attempting to write the session to the file.");
         }
     }
 }
@@ -163,11 +163,11 @@ static NSString* const KEY_SESSION_STOP_TIME = @"sessionStopTime";
     {
         if(error != nil)
         {
-            AZLogError( @"There was an error while attempting to delete the session file. %@", [error localizedDescription]);
+            AWSLogError( @"There was an error while attempting to delete the session file. %@", [error localizedDescription]);
         }
         else
         {
-             AZLogError( @"There was an error while attempting to delete the session file.");
+             AWSLogError( @"There was an error while attempting to delete the session file.");
         }
         
         return NO;

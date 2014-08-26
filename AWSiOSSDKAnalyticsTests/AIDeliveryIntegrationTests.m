@@ -17,6 +17,8 @@
 
 #import "AIDeliveryIntegrationTests.h"
 #import "GZIP.h"
+#import "AWSCategory.h"
+#import "AWSEventRecorderService.h"
 
 @interface DeliveryBlockingInterceptor : BlockingInterceptor
 
@@ -373,7 +375,7 @@
     //add fake session.id
     [event addAttribute:@"ccesskey-11111111-20140606-231017274" forKey:SESSION_ID_ATTRIBUTE_KEY];
     //add startTimeStamp
-    [event addAttribute:[[NSDate date] az_stringValue:AZDateISO8601DateFormat3] forKey:SESSION_START_TIME_ATTRIBUTE_KEY];
+    [event addAttribute:[[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3] forKey:SESSION_START_TIME_ATTRIBUTE_KEY];
     //set eventRecorderService object
     id<AWSMobileAnalyticsHttpClient>httpClient = [deliveryClient valueForKey:@"httpClient"];
     AWSEventRecorderService *ers = [[AWSEventRecorderService alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].

@@ -13,7 +13,7 @@
  * permissions and limitations under the License.
  */
 
-#import "AZCategory.h"
+#import "AWSCategory.h"
 #import "AWSMobileAnalyticsDefaultSessionClient.h"
 #import "AWSMobileAnalyticsSession.h"
 #import "AWSMobileAnalyticsContext.h"
@@ -24,7 +24,7 @@
 #import "AWSMobileAnalyticsPausedSessionState.h"
 #import "AWSMobileAnalyticsSessionClientState.h"
 #import "AWSMobileAnalyticsDelayedBlock.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 //Event Type Constants ---------------------------
 NSString *const SESSION_START_EVENT_TYPE = @"_session.start";
@@ -182,7 +182,7 @@ static AWSMobileAnalyticsActiveSessionState* ACTIVE_SESSION_STATE;
     
     // Generate new session object
     self.session = [AWSMobileAnalyticsSession sessionWithContext:self.context];
-    AZLogVerbose( @"Firing Session Event: Start");
+    AWSLogVerbose( @"Firing Session Event: Start");
     
     // Prepare Event Tagging
     [self.eventClient addGlobalAttribute:[self.session sessionId] forKey:SESSION_ID_ATTRIBUTE_KEY];
@@ -190,7 +190,7 @@ static AWSMobileAnalyticsActiveSessionState* ACTIVE_SESSION_STATE;
     
     
     //latest ERS Server's API Change, SessionStartTime need to be included in every request
-    NSString* sessionStartTimeString = [self.session.startTime az_stringValue:AZDateISO8601DateFormat3];
+    NSString* sessionStartTimeString = [self.session.startTime aws_stringValue:AWSDateISO8601DateFormat3];
     [self.eventClient addGlobalAttribute:sessionStartTimeString forKey:SESSION_START_TIME_ATTRIBUTE_KEY];
     
     // Fire Session start Event
@@ -198,7 +198,7 @@ static AWSMobileAnalyticsActiveSessionState* ACTIVE_SESSION_STATE;
     id<AWSMobileAnalyticsInternalEvent> startEvent = [self.eventClient createInternalEvent:SESSION_START_EVENT_TYPE];
     [self.eventClient recordEvent:startEvent andApplyGlobalAttributes:YES];
     
-    AZLogInfo( "Session Started.");
+    AWSLogInfo( "Session Started.");
 }
 
 -(void)endCurrentSession{
@@ -207,9 +207,9 @@ static AWSMobileAnalyticsActiveSessionState* ACTIVE_SESSION_STATE;
     }
     
     // Fire Session stop Event
-    AZLogVerbose( @"Firing Session Event: Stop");
-    NSString* sessionStartTimeString = [self.session.startTime az_stringValue:AZDateISO8601DateFormat3];
-    NSString* sessionStopTimeString = [self.session.stopTime az_stringValue:AZDateISO8601DateFormat3];
+    AWSLogVerbose( @"Firing Session Event: Stop");
+    NSString* sessionStartTimeString = [self.session.startTime aws_stringValue:AWSDateISO8601DateFormat3];
+    NSString* sessionStopTimeString = [self.session.stopTime aws_stringValue:AWSDateISO8601DateFormat3];
     id<AWSMobileAnalyticsInternalEvent> stopEvent = [self.eventClient createInternalEvent:SESSION_STOP_EVENT_TYPE];
     [stopEvent addMetric:[NSNumber numberWithUnsignedLongLong:[self.session timeDurationInMillis]] forKey:SESSION_DURATION_METRIC_KEY];
     [stopEvent addAttribute:self.session.sessionId forKey:SESSION_ID_ATTRIBUTE_KEY];
@@ -222,27 +222,27 @@ static AWSMobileAnalyticsActiveSessionState* ACTIVE_SESSION_STATE;
     
     // Kill current session object
     self.session = nil;
-    AZLogInfo( "Session Stopped.");
+    AWSLogInfo( "Session Stopped.");
     
     [self.deliveryClient forceDeliveryAndWaitForCompletion:NO];
 }
 
 -(void)pauseCurrentSession{
     [self.session pause];
-    AZLogVerbose( @"Firing Session Event: Pause");
+    AWSLogVerbose( @"Firing Session Event: Pause");
     id<AWSMobileAnalyticsInternalEvent> pauseEvent = [self.eventClient createInternalEvent:SESSION_PAUSE_EVENT_TYPE];
     [pauseEvent addMetric:[NSNumber numberWithUnsignedLongLong:[self.session timeDurationInMillis]] forKey:SESSION_DURATION_METRIC_KEY];
     [self.eventClient recordEvent:pauseEvent andApplyGlobalAttributes:YES];
-    AZLogInfo( "Session Paused.");    
+    AWSLogInfo( "Session Paused.");    
 }
 
 -(void)resumeCurrentSession{
    
     [self.session resume];
-    AZLogVerbose( @"Firing Session Event: Resume");
+    AWSLogVerbose( @"Firing Session Event: Resume");
     id<AWSMobileAnalyticsInternalEvent> resumeEvent = [self.eventClient createInternalEvent:SESSION_RESUME_EVENT_TYPE];
     [self.eventClient recordEvent:resumeEvent andApplyGlobalAttributes:YES];
-    AZLogInfo( "Session Resumed.");
+    AWSLogInfo( "Session Resumed.");
 }
 
 

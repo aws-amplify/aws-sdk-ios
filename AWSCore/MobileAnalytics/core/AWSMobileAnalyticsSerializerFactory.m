@@ -14,7 +14,7 @@
  */
 
 #import "AWSMobileAnalyticsSerializerFactory.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 @interface AIDefaultSerializer : NSObject<AWSMobileAnalyticsSerializer>
 - (NSData *) writeObject:(id) theObject;
@@ -27,7 +27,7 @@
 
 - (NSData *) writeObject:(id) theObject
 {
-    AZLogWarn( @"Using the DefaultSerializer, only serializing the object's description to NSData");
+    AWSLogWarn( @"Using the DefaultSerializer, only serializing the object's description to NSData");
     if(theObject == nil)
         return nil;
     
@@ -36,7 +36,7 @@
 
 - (NSData *) writeArray:(NSArray *) theArray
 {
-    AZLogWarn( @"Using the DefaultSerializer, only serializing the array's description to NSData");
+    AWSLogWarn( @"Using the DefaultSerializer, only serializing the array's description to NSData");
     if(theArray == nil)
         return nil;
     
@@ -45,12 +45,12 @@
 
 - (void) readObject:(NSData *) theData
 {
-    AZLogWarn( @"Using the DefaultSerializer, do not know how to handle the data. Doing nothing");
+    AWSLogWarn( @"Using the DefaultSerializer, do not know how to handle the data. Doing nothing");
 }
 
 - (NSArray *) readArray:(NSData *) theData
 {
-    AZLogWarn( @"Using the DefaultSerializer, do not know how to handle the data. Doing nothing");
+    AWSLogWarn( @"Using the DefaultSerializer, do not know how to handle the data. Doing nothing");
     return nil;
 }
 

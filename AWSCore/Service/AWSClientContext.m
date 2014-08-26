@@ -17,7 +17,7 @@
 #import <UIKit/UIKit.h>
 #import <sys/types.h>
 #import <sys/sysctl.h>
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 NSString *const AWSClientContextDeviceIdKey = @"com.amazonaws.AWSClientContext.DeviceID";
 NSString *const AWSClientContextVersion = @"1.0";
@@ -118,7 +118,7 @@ NSString *const AWSClientContextUnknown = @"Unknown";
                                                        options:kNilOptions
                                                          error:&error];
     if (error) {
-        AZLogError(@"Failed to generate a JSON string: [%@]", error);
+        AWSLogError(@"Failed to generate a JSON string: [%@]", error);
         return nil;
     }
 

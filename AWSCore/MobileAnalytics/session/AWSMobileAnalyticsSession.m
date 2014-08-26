@@ -17,7 +17,7 @@
 #import "AWSMobileAnalyticsDateUtils.h"
 #import "AWSMobileAnalyticsStringUtils.h"
 #import "AWSMobileAnalyticsContext.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 #define _SESSION_ID_DATE_FORMAT    @"yyyyMMdd"
 #define _SESSION_ID_TIME_FORMAT    @"HHmmssSSS"
@@ -98,9 +98,9 @@
     
     UTCTimeMillis duration = end - start;
     
-    AZLogVerbose( "start: %llu", start);
-    AZLogVerbose( "end: %llu", end);
-    AZLogVerbose( "duration: %llu", duration);
+    AWSLogVerbose( "start: %llu", start);
+    AWSLogVerbose( "end: %llu", end);
+    AWSLogVerbose( "duration: %llu", duration);
     
     return duration;
 }

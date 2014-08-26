@@ -14,7 +14,7 @@
  */
 
 #import "AWSMobileAnalyticsDefaultResponse.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 @implementation AWSMobileAnalyticsDefaultResponse
 
@@ -59,11 +59,11 @@
 {
     if(!self.isFinishedLoading)
     {
-        AZLogWarn( @"Attempting to access the response before its finished loading");
+        AWSLogWarn( @"Attempting to access the response before its finished loading");
     }
     if(self.response == nil || [self.response length] == 0)
     {
-        AZLogWarn( @"The response was nil or empty");
+        AWSLogWarn( @"The response was nil or empty");
         return [NSString string];
     }
     return [AWSMobileAnalyticsStringUtils dataToString:self.response];
@@ -72,7 +72,7 @@
 -(void)processConnectionTimeout
 {
     if (!self.isFinishedLoading && !self.error) {
-        AZLogVerbose( @"AWSMobileAnalyticsDefaultResponse: processConnectionTimeout");
+        AWSLogVerbose( @"AWSMobileAnalyticsDefaultResponse: processConnectionTimeout");
         self.didConnectionTimeout = YES;
         self.isFinishedLoading = YES;
     }
@@ -84,7 +84,7 @@
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
     self.code = (int)[httpResponse statusCode] ;
     
-    AZLogVerbose( @"AWSMobileAnalyticsDefaultResponse: connection:didReceiveResponse: %ld", (long)[httpResponse statusCode]);
+    AWSLogVerbose( @"AWSMobileAnalyticsDefaultResponse: connection:didReceiveResponse: %ld", (long)[httpResponse statusCode]);
     
     self->_headers = [NSMutableDictionary dictionaryWithDictionary:httpResponse.allHeaderFields];
     
@@ -94,14 +94,14 @@
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    AZLogVerbose( @"AWSMobileAnalyticsDefaultResponse: connection:didReceiveData: %lu", (unsigned long)[data length]);
+    AWSLogVerbose( @"AWSMobileAnalyticsDefaultResponse: connection:didReceiveData: %lu", (unsigned long)[data length]);
     //append data to the body
     [self.response appendData:data];
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    AZLogVerbose( @"AWSMobileAnalyticsDefaultResponse: connectionDidFinishLoading");
+    AWSLogVerbose( @"AWSMobileAnalyticsDefaultResponse: connectionDidFinishLoading");
     
     self.responseSize = [self.response length];
     
@@ -119,7 +119,7 @@
   didFailWithError:(NSError *)error
 {
     //Log the error
-    AZLogError( @"AWSMobileAnalyticsDefaultResponse: didFailWithError: %@", error);
+    AWSLogError( @"AWSMobileAnalyticsDefaultResponse: didFailWithError: %@", error);
     self.error = error;
     self.isFinishedLoading = YES;
 }
@@ -179,7 +179,7 @@
 
 -(id) initWithDictionary: (NSDictionary *) theDictionary
 {
-    AZLogError( @"Initialization from NSDictionary is not supported for AWSMobileAnalyticsDefaultResponse");
+    AWSLogError( @"Initialization from NSDictionary is not supported for AWSMobileAnalyticsDefaultResponse");
     return [self init];
 }
 

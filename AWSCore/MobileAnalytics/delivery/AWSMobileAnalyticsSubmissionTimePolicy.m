@@ -14,7 +14,7 @@
  */
 
 #import "AWSMobileAnalyticsSubmissionTimePolicy.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 static NSString* const SUBMITTED_TIME_KEY = @"AWSMobileAnalyticsSubmissionTimePolicy.submissionTime";
 
 @interface AWSMobileAnalyticsSubmissionTimePolicy()
@@ -49,7 +49,7 @@ static NSString* const SUBMITTED_TIME_KEY = @"AWSMobileAnalyticsSubmissionTimePo
     NSTimeInterval timeSinceLastSubmission = [[NSDate date] timeIntervalSince1970] - self.lastSubmittedTime;
     
     if (!(timeSinceLastSubmission > self.waitInterval)) {
-        AZLogWarn(@"Submission request being dropped because it has been submitted too frequently, please try again in %.f seconds.",self.waitInterval - timeSinceLastSubmission);
+        AWSLogWarn(@"Submission request being dropped because it has been submitted too frequently, please try again in %.f seconds.",self.waitInterval - timeSinceLastSubmission);
     }
     return timeSinceLastSubmission > self.waitInterval;
 }

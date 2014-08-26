@@ -15,12 +15,13 @@
 
 #import "AWSMobileAnalyticsDefaultHttpClient.h"
 #import "AWSCore.h"
-#import "AZCategory.h"
+#import "AWSCategory.h"
 #import "AWSMobileAnalyticsInstanceIdInterceptor.h"
 #import "AWSMobileAnalyticsClientContextInterceptor.h"
 #import "GZIP.h"
 #import "AWSMobileAnalyticsDefaultSessionClient.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
+#import "AWSEventRecorderService.h"
 
 NSString *const insightsDefaultRunLoopMode = @"com.amazon.insights.DefaultRunLoopMode";
 
@@ -79,7 +80,7 @@ NSString *const insightsDefaultRunLoopMode = @"com.amazon.insights.DefaultRunLoo
     
     AWSEventRecorderService *ers = self.eventRecorderService;
     if (ers == nil) {
-        AZLogError( @"AWSEventRecorderService is nil! ");
+        AWSLogError( @"AWSEventRecorderService is nil! ");
     }
     
     AWSEventRecorderServicePutEventsInput *putEventInput = [AWSEventRecorderServicePutEventsInput new];
@@ -138,7 +139,7 @@ NSString *const insightsDefaultRunLoopMode = @"com.amazon.insights.DefaultRunLoo
             
             //process others
             serviceEvent.eventType = event[@"event_type"];
-            serviceEvent.timestamp = [[NSDate date] az_stringValue:AZDateISO8601DateFormat3];
+            serviceEvent.timestamp = [[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3];
         
             
             
@@ -198,12 +199,12 @@ NSString *const insightsDefaultRunLoopMode = @"com.amazon.insights.DefaultRunLoo
 //    int attempts = 1;
 //    int maxAttempts = (theRetries > 0) ? theRetries + 1 : 1;
 //    
-//    AZLogDebug( @"Will attempt the request a maximum of %d times", maxAttempts);
+//    AWSLogDebug( @"Will attempt the request a maximum of %d times", maxAttempts);
 //    NSTimeInterval totalRequestTime = 0.0;
 //    while (attempts <= maxAttempts) {
 //        
 //        NSDate* requestStartDate = [NSDate date];
-//        AZLogDebug( @"Attempt %d of %d", attempts, maxAttempts);
+//        AWSLogDebug( @"Attempt %d of %d", attempts, maxAttempts);
 //        
 //        //Attach the request to the response
 //        response.originatingRequest = theRequest;
@@ -235,7 +236,7 @@ NSString *const insightsDefaultRunLoopMode = @"com.amazon.insights.DefaultRunLoo
 //        }
 //        
 //        NSTimeInterval elapsedTime = [[NSDate date] timeIntervalSinceDate:requestStartDate];
-//        AZLogDebug( @"Time of request %f", elapsedTime);
+//        AWSLogDebug( @"Time of request %f", elapsedTime);
 //        totalRequestTime += elapsedTime;
 //        
 //        if (response.didTimeout) {

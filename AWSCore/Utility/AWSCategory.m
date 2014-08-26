@@ -13,21 +13,21 @@
  * permissions and limitations under the License.
  */
 
-#import "AZCategory.h"
+#import "AWSCategory.h"
 #import <objc/runtime.h>
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
-NSString *const AZDateRFC822DateFormat1 = @"EEE, dd MMM yyyy HH:mm:ss z";
-NSString *const AZDateISO8601DateFormat1 = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
-NSString *const AZDateISO8601DateFormat2 = @"yyyyMMdd'T'HHmmss'Z'";
-NSString *const AZDateISO8601DateFormat3 = @"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
-NSString *const AZDateShortDateFormat1 = @"yyyyMMdd";
+NSString *const AWSDateRFC822DateFormat1 = @"EEE, dd MMM yyyy HH:mm:ss z";
+NSString *const AWSDateISO8601DateFormat1 = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
+NSString *const AWSDateISO8601DateFormat2 = @"yyyyMMdd'T'HHmmss'Z'";
+NSString *const AWSDateISO8601DateFormat3 = @"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+NSString *const AWSDateShortDateFormat1 = @"yyyyMMdd";
 
-@implementation NSData (AZ)
+@implementation NSData (AWS)
 
 static char base64EncodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
-- (NSString *)az_base64EncodedString {
+- (NSString *)aws_base64EncodedString {
     NSMutableString *result;
     unsigned char   *raw;
     unsigned long   length;
@@ -83,17 +83,17 @@ static char base64EncodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 
 @end
 
-@implementation NSDate (AZ)
+@implementation NSDate (AWS)
 
 static NSTimeInterval _clockskew = 0.0;
 
-+ (NSDate *)az_dateFromString:(NSString *)string {
++ (NSDate *)aws_dateFromString:(NSString *)string {
     NSDate *parsedDate = nil;
-    NSArray *arrayOfDateFormat = @[AZDateRFC822DateFormat1,AZDateISO8601DateFormat1,AZDateISO8601DateFormat2,AZDateISO8601DateFormat3];
+    NSArray *arrayOfDateFormat = @[AWSDateRFC822DateFormat1,AWSDateISO8601DateFormat1,AWSDateISO8601DateFormat2,AWSDateISO8601DateFormat3];
 
     for (NSString *dateFormat in arrayOfDateFormat) {
         if (!parsedDate) {
-            parsedDate = [NSDate az_dateFromString:string format:dateFormat];
+            parsedDate = [NSDate aws_dateFromString:string format:dateFormat];
         } else {
             break;
         }
@@ -102,7 +102,7 @@ static NSTimeInterval _clockskew = 0.0;
     return parsedDate;
 }
 
-+ (NSDate *)az_dateFromString:(NSString *)string format:(NSString *)dateFormat {
++ (NSDate *)aws_dateFromString:(NSString *)string format:(NSString *)dateFormat {
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     dateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
     dateFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
@@ -115,7 +115,7 @@ static NSTimeInterval _clockskew = 0.0;
     return localDate;
 }
 
-- (NSString *)az_stringValue:(NSString *)dateFormat {
+- (NSString *)aws_stringValue:(NSString *)dateFormat {
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     dateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
     dateFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
@@ -128,21 +128,21 @@ static NSTimeInterval _clockskew = 0.0;
     return formatted;
 }
 
-+ (void)az_setRuntimeClockSkew:(NSTimeInterval)clockskew
++ (void)aws_setRuntimeClockSkew:(NSTimeInterval)clockskew
 {
     @synchronized(self) {
         _clockskew = clockskew;
     }
 }
 
-+ (NSTimeInterval)az_getRuntimeClockSkew
++ (NSTimeInterval)aws_getRuntimeClockSkew
 {
     @synchronized(self) {
         return _clockskew;
     }
 }
 
-+ (NSDate *)az_getDateFromMessageBody:(NSString *)messageBody
++ (NSDate *)aws_getDateFromMessageBody:(NSString *)messageBody
 {
     if ([messageBody length] == 0) {
         return nil;
@@ -156,7 +156,7 @@ static NSTimeInterval _clockskew = 0.0;
         time =  [self getTimeUsingBeginTag:@" (" andEndTag:@" + 15 min.)" fromResponseBody:messageBody];
     }
 
-    return [self az_dateFromString:time];
+    return [self aws_dateFromString:time];
 }
 
 + (NSString *)getTimeUsingBeginTag:(NSString *)bTag andEndTag:(NSString *)eTag fromResponseBody:(NSString *)responseBody {
@@ -176,9 +176,9 @@ static NSTimeInterval _clockskew = 0.0;
 
 @end
 
-@implementation NSDictionary (AZ)
+@implementation NSDictionary (AWS)
 
-- (NSDictionary *)az_removeNullValues {
+- (NSDictionary *)aws_removeNullValues {
     NSMutableDictionary *mutableDictionary = [NSMutableDictionary new];
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         if (obj != [NSNull null]) {
@@ -191,12 +191,12 @@ static NSTimeInterval _clockskew = 0.0;
 
 @end
 
-@implementation NSObject (AZ)
+@implementation NSObject (AWS)
 
-- (NSDictionary *)az_properties {
+- (NSDictionary *)aws_properties {
     NSMutableDictionary *propertyDictionary;
     if ([self superclass] != [NSObject class]) {
-    	propertyDictionary = [NSMutableDictionary dictionaryWithDictionary:[[self superclass] az_properties]];
+    	propertyDictionary = [NSMutableDictionary dictionaryWithDictionary:[[self superclass] aws_properties]];
     } else {
     	propertyDictionary = [NSMutableDictionary dictionary];
     }
@@ -220,9 +220,9 @@ static NSTimeInterval _clockskew = 0.0;
     return propertyDictionary;
 }
 
-- (void)az_copyPropertiesFromObject:(NSObject *)object {
-    NSDictionary *propertiesToObject = [self az_properties];
-    NSDictionary *propertiesFromObject = [object az_properties];
+- (void)aws_copyPropertiesFromObject:(NSObject *)object {
+    NSDictionary *propertiesToObject = [self aws_properties];
+    NSDictionary *propertiesFromObject = [object aws_properties];
     for (NSString *key in [propertiesFromObject allKeys]) {
         if ([propertiesToObject objectForKey:key]) {
             NSString *attributes = [propertiesFromObject valueForKey:key];
@@ -243,9 +243,9 @@ static NSTimeInterval _clockskew = 0.0;
 
 @end
 
-@implementation NSString (AZ)
+@implementation NSString (AWS)
 
-+ (NSString *)az_randomStringWithLength:(NSUInteger)length {
++ (NSString *)aws_randomStringWithLength:(NSUInteger)length {
     NSMutableString *randomString = [NSMutableString new];
     for (int32_t i = 0; i < length; i++) {
         @autoreleasepool {
@@ -255,7 +255,7 @@ static NSTimeInterval _clockskew = 0.0;
     return randomString;
 }
 
-- (BOOL)az_isBase64Data {
+- (BOOL)aws_isBase64Data {
     if ([self length] % 4 == 0) {
         static NSCharacterSet *invertedBase64CharacterSet = nil;
         if (invertedBase64CharacterSet == nil) {
@@ -267,32 +267,32 @@ static NSTimeInterval _clockskew = 0.0;
     return NO;
 }
 
-- (NSString *)az_stringWithURLEncoding {
+- (NSString *)aws_stringWithURLEncoding {
     return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                                 (__bridge CFStringRef)[self az_decodeURLEncoding],
+                                                                                 (__bridge CFStringRef)[self aws_decodeURLEncoding],
                                                                                  NULL,
                                                                                  (CFStringRef)@"!*'\();:@&=+$,/?%#[] ",
                                                                                  kCFStringEncodingUTF8));
 }
 
-- (NSString *)az_stringWithURLEncodingPath {
+- (NSString *)aws_stringWithURLEncodingPath {
     return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                                 (__bridge CFStringRef)[self az_decodeURLEncoding],
+                                                                                 (__bridge CFStringRef)[self aws_decodeURLEncoding],
                                                                                  NULL,
                                                                                  (CFStringRef)@"!*'\();:@&=+$,?%#[] ",
                                                                                  kCFStringEncodingUTF8));
 }
 
-- (NSString *)az_decodeURLEncoding {
+- (NSString *)aws_decodeURLEncoding {
     NSString *result = [self stringByRemovingPercentEncoding];
     return result?result:self;
 }
 
 @end
 
-@implementation NSURL (AZ)
+@implementation NSURL (AWS)
 
-- (NSURL *)az_URLByAppendingQuery:(NSDictionary *)query {
+- (NSURL *)aws_URLByAppendingQuery:(NSDictionary *)query {
     if ([query count] == 0) {
         return self;
     }
@@ -315,11 +315,11 @@ static NSTimeInterval _clockskew = 0.0;
             value = [query[key] stringValue];
         } else {
             value = [query[key] description];
-            AZLogWarn(@"Query value is neither NSString nor NSNumber. This method should properly handle this datatype. [%@]", query[key]);
+            AWSLogWarn(@"Query value is neither NSString nor NSNumber. This method should properly handle this datatype. [%@]", query[key]);
         }
         [queryString appendString:[NSString stringWithFormat:@"%@=%@",
-                                   [correctedKey az_stringWithURLEncoding],
-                                   [value az_stringWithURLEncoding]]];
+                                   [correctedKey aws_stringWithURLEncoding],
+                                   [value aws_stringWithURLEncoding]]];
     }
 
     return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@",
@@ -328,4 +328,16 @@ static NSTimeInterval _clockskew = 0.0;
                                  queryString]];
 }
 
+@end
+
+@implementation NSDictionary (caseInsensitive)
+
+-(id) aws_objectForCaseInsensitiveKey:(id)aKey {
+    for (NSString *key in self.allKeys) {
+        if ([key compare:aKey options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+            return [self objectForKey:key];
+        }
+    }
+    return  nil;
+}
 @end

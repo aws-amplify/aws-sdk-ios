@@ -90,16 +90,25 @@
 @implementation AWSDynamoDBObjectMapper
 
 + (instancetype)defaultDynamoDBObjectMapper {
-    AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [[AWSDynamoDBObjectMapper alloc] initWithDynamoDB:[AWSDynamoDB defaultDynamoDB]
-                                                                                        configuration:[AWSDynamoDBObjectMapperConfiguration new]];
-    return dynamoDBObjectMapper;
+    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
+        return nil;
+    }
+    
+    static AWSDynamoDBObjectMapper *_dynamoDBObjectMapper  = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _dynamoDBObjectMapper = [[AWSDynamoDBObjectMapper alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration
+                                                             objectMapperConfiguration:[AWSDynamoDBObjectMapperConfiguration new]];
+    });
+    
+    return _dynamoDBObjectMapper;
 }
 
-- (instancetype)initWithDynamoDB:(AWSDynamoDB *)dynamoDB
-                   configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration {
+- (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration
+            objectMapperConfiguration:(AWSDynamoDBObjectMapperConfiguration *)objectMapperConfiguration {
     if (self = [super init]) {
-        _dynamoDB = dynamoDB;
-        _configuration = [configuration copy];
+        _dynamoDB = [[AWSDynamoDB alloc] initWithConfiguration:configuration];
+        _configuration = [objectMapperConfiguration copy];
     }
 
     return self;

@@ -14,7 +14,7 @@
  */
 
 #import "AWSEC2Model.h"
-#import "AZCategory.h"
+#import "AWSCategory.h"
 
 NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
@@ -295,20 +295,6 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 @end
 
-@implementation AWSEC2AttachVolumeResult
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"attachment" : @"Attachment",
-             };
-}
-
-+ (NSValueTransformer *)attachmentJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2VolumeAttachment class]];
-}
-
-@end
-
 @implementation AWSEC2AttachVpnGatewayRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -522,9 +508,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)startTimeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -581,9 +567,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)updateTimeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -880,7 +866,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 }
 
 + (NSValueTransformer *)dhcpConfigurationsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2DhcpConfiguration class]];
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2LatestDhcpConfiguration class]];
 }
 
 @end
@@ -904,7 +890,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"blockDeviceMappings" : @"BlockDeviceMappings",
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"dryRun" : @"DryRun",
              @"instanceId" : @"InstanceId",
              @"name" : @"Name",
@@ -932,7 +918,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"exportToS3Task" : @"ExportToS3Task",
              @"instanceId" : @"InstanceId",
              @"targetEnvironment" : @"TargetEnvironment",
@@ -1021,20 +1007,6 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 @end
 
-@implementation AWSEC2CreateKeyPairResult
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"keyPair" : @"KeyPair",
-             };
-}
-
-+ (NSValueTransformer *)keyPairJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2KeyPair class]];
-}
-
-@end
-
 @implementation AWSEC2CreateNetworkAclEntryRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1112,7 +1084,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"dryRun" : @"DryRun",
              @"groups" : @"Groups",
              @"privateIpAddress" : @"PrivateIpAddress",
@@ -1247,7 +1219,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"dryRun" : @"DryRun",
              @"groupName" : @"GroupName",
              @"vpcId" : @"VpcId",
@@ -1270,24 +1242,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"dryRun" : @"DryRun",
              @"volumeId" : @"VolumeId",
              };
-}
-
-@end
-
-@implementation AWSEC2CreateSnapshotResult
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"snapshot" : @"Snapshot",
-             };
-}
-
-+ (NSValueTransformer *)snapshotJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2Snapshot class]];
 }
 
 @end
@@ -1430,6 +1388,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"io1"]) {
             return @(AWSEC2VolumeTypeIO1);
         }
+        if ([value isEqualToString:@"gp2"]) {
+            return @(AWSEC2VolumeTypeGp2);
+        }
         return @(AWSEC2VolumeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1437,25 +1398,13 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"standard";
             case AWSEC2VolumeTypeIO1:
                 return @"io1";
+            case AWSEC2VolumeTypeGp2:
+                return @"gp2";
             case AWSEC2VolumeTypeUnknown:
             default:
                 return nil;
         }
     }];
-}
-
-@end
-
-@implementation AWSEC2CreateVolumeResult
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"volume" : @"Volume",
-             };
-}
-
-+ (NSValueTransformer *)volumeJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2Volume class]];
 }
 
 @end
@@ -2184,20 +2133,6 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 @end
 
-@implementation AWSEC2DescribeImageAttributeResult
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"imageAttribute" : @"ImageAttribute",
-             };
-}
-
-+ (NSValueTransformer *)imageAttributeJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2ImageAttribute class]];
-}
-
-@end
-
 @implementation AWSEC2DescribeImagesRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2315,20 +2250,6 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return nil;
         }
     }];
-}
-
-@end
-
-@implementation AWSEC2DescribeInstanceAttributeResult
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"instanceAttribute" : @"InstanceAttribute",
-             };
-}
-
-+ (NSValueTransformer *)instanceAttributeJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceAttribute class]];
 }
 
 @end
@@ -2494,13 +2415,42 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"attachment" : @"Attachment",
-             @"description" : @"Description",
+             @"attribute" : @"Attribute",
              @"dryRun" : @"DryRun",
-             @"groups" : @"Groups",
              @"networkInterfaceId" : @"NetworkInterfaceId",
-             @"sourceDestCheck" : @"SourceDestCheck",
              };
+}
+
++ (NSValueTransformer *)attributeJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"description"]) {
+            return @(AWSEC2NetworkInterfaceAttributeDescription);
+        }
+        if ([value isEqualToString:@"groupSet"]) {
+            return @(AWSEC2NetworkInterfaceAttributeGroupSet);
+        }
+        if ([value isEqualToString:@"sourceDestCheck"]) {
+            return @(AWSEC2NetworkInterfaceAttributeSourceDestCheck);
+        }
+        if ([value isEqualToString:@"attachment"]) {
+            return @(AWSEC2NetworkInterfaceAttributeAttachment);
+        }
+        return @(AWSEC2NetworkInterfaceAttributeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2NetworkInterfaceAttributeDescription:
+                return @"description";
+            case AWSEC2NetworkInterfaceAttributeGroupSet:
+                return @"groupSet";
+            case AWSEC2NetworkInterfaceAttributeSourceDestCheck:
+                return @"sourceDestCheck";
+            case AWSEC2NetworkInterfaceAttributeAttachment:
+                return @"attachment";
+            case AWSEC2NetworkInterfaceAttributeUnknown:
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -2510,7 +2460,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attachment" : @"Attachment",
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"groups" : @"Groups",
              @"networkInterfaceId" : @"NetworkInterfaceId",
              @"sourceDestCheck" : @"SourceDestCheck",
@@ -2521,7 +2471,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2NetworkInterfaceAttachment class]];
 }
 
-+ (NSValueTransformer *)descriptionJSONTransformer {
++ (NSValueTransformer *)detailJSONTransformer {
 	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeValue class]];
 }
 
@@ -2762,6 +2712,15 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"m3.2xlarge"]) {
             return @(AWSEC2InstanceTypeM3_2xlarge);
         }
+        if ([value isEqualToString:@"t2.micro"]) {
+            return @(AWSEC2InstanceTypeT2_micro);
+        }
+        if ([value isEqualToString:@"t2.small"]) {
+            return @(AWSEC2InstanceTypeT2_small);
+        }
+        if ([value isEqualToString:@"t2.medium"]) {
+            return @(AWSEC2InstanceTypeT2_medium);
+        }
         if ([value isEqualToString:@"m2.xlarge"]) {
             return @(AWSEC2InstanceTypeM2_xlarge);
         }
@@ -2861,6 +2820,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"m3.xlarge";
             case AWSEC2InstanceTypeM3_2xlarge:
                 return @"m3.2xlarge";
+            case AWSEC2InstanceTypeT2_micro:
+                return @"t2.micro";
+            case AWSEC2InstanceTypeT2_small:
+                return @"t2.small";
+            case AWSEC2InstanceTypeT2_medium:
+                return @"t2.medium";
             case AWSEC2InstanceTypeM2_xlarge:
                 return @"m2.xlarge";
             case AWSEC2InstanceTypeM2_2xlarge:
@@ -3273,9 +3238,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)endTimeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -3285,9 +3250,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)startTimeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -3699,20 +3664,6 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 @end
 
-@implementation AWSEC2DetachVolumeResult
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"attachment" : @"Attachment",
-             };
-}
-
-+ (NSValueTransformer *)attachmentJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2VolumeAttachment class]];
-}
-
-@end
-
 @implementation AWSEC2DetachVpnGatewayRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -3732,6 +3683,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
              @"key" : @"Key",
              @"values" : @"Values",
              };
+}
+
++ (NSValueTransformer *)valuesJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2AttributeValue class]];
 }
 
 @end
@@ -3794,7 +3749,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"image" : @"Image",
              @"volume" : @"Volume",
              };
@@ -3921,6 +3876,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"io1"]) {
             return @(AWSEC2VolumeTypeIO1);
         }
+        if ([value isEqualToString:@"gp2"]) {
+            return @(AWSEC2VolumeTypeGp2);
+        }
         return @(AWSEC2VolumeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3928,6 +3886,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"standard";
             case AWSEC2VolumeTypeIO1:
                 return @"io1";
+            case AWSEC2VolumeTypeGp2:
+                return @"gp2";
             case AWSEC2VolumeTypeUnknown:
             default:
                 return nil;
@@ -3950,9 +3910,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)attachTimeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -4027,7 +3987,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"exportTaskId" : @"ExportTaskId",
              @"exportToS3Task" : @"ExportToS3Task",
              @"instanceExportDetails" : @"InstanceExportDetails",
@@ -4226,9 +4186,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)timestampJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -4257,9 +4217,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)timestampJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -4315,7 +4275,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return @{
              @"architecture" : @"Architecture",
              @"blockDeviceMappings" : @"BlockDeviceMappings",
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"hypervisor" : @"Hypervisor",
              @"imageId" : @"ImageId",
              @"imageLocation" : @"ImageLocation",
@@ -4515,7 +4475,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"blockDeviceMappings" : @"BlockDeviceMappings",
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"imageId" : @"ImageId",
              @"kernelId" : @"KernelId",
              @"launchPermissions" : @"LaunchPermissions",
@@ -4529,7 +4489,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2BlockDeviceMapping class]];
 }
 
-+ (NSValueTransformer *)descriptionJSONTransformer {
++ (NSValueTransformer *)detailJSONTransformer {
 	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeValue class]];
 }
 
@@ -4645,6 +4605,15 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"m3.2xlarge"]) {
             return @(AWSEC2InstanceTypeM3_2xlarge);
         }
+        if ([value isEqualToString:@"t2.micro"]) {
+            return @(AWSEC2InstanceTypeT2_micro);
+        }
+        if ([value isEqualToString:@"t2.small"]) {
+            return @(AWSEC2InstanceTypeT2_small);
+        }
+        if ([value isEqualToString:@"t2.medium"]) {
+            return @(AWSEC2InstanceTypeT2_medium);
+        }
         if ([value isEqualToString:@"m2.xlarge"]) {
             return @(AWSEC2InstanceTypeM2_xlarge);
         }
@@ -4744,6 +4713,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"m3.xlarge";
             case AWSEC2InstanceTypeM3_2xlarge:
                 return @"m3.2xlarge";
+            case AWSEC2InstanceTypeT2_micro:
+                return @"t2.micro";
+            case AWSEC2InstanceTypeT2_small:
+                return @"t2.small";
+            case AWSEC2InstanceTypeT2_medium:
+                return @"t2.medium";
             case AWSEC2InstanceTypeM2_xlarge:
                 return @"m2.xlarge";
             case AWSEC2InstanceTypeM2_2xlarge:
@@ -4813,7 +4788,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"diskImages" : @"DiskImages",
              @"dryRun" : @"DryRun",
              @"launchSpecification" : @"LaunchSpecification",
@@ -4866,7 +4841,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"instanceId" : @"InstanceId",
              @"platform" : @"Platform",
              @"volumes" : @"Volumes",
@@ -4902,7 +4877,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return @{
              @"availabilityZone" : @"AvailabilityZone",
              @"bytesConverted" : @"BytesConverted",
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"image" : @"Image",
              @"status" : @"Status",
              @"statusMessage" : @"StatusMessage",
@@ -4948,7 +4923,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"availabilityZone" : @"AvailabilityZone",
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"dryRun" : @"DryRun",
              @"image" : @"Image",
              @"volume" : @"Volume",
@@ -4985,7 +4960,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return @{
              @"availabilityZone" : @"AvailabilityZone",
              @"bytesConverted" : @"BytesConverted",
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"image" : @"Image",
              @"volume" : @"Volume",
              };
@@ -5143,6 +5118,15 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"m3.2xlarge"]) {
             return @(AWSEC2InstanceTypeM3_2xlarge);
         }
+        if ([value isEqualToString:@"t2.micro"]) {
+            return @(AWSEC2InstanceTypeT2_micro);
+        }
+        if ([value isEqualToString:@"t2.small"]) {
+            return @(AWSEC2InstanceTypeT2_small);
+        }
+        if ([value isEqualToString:@"t2.medium"]) {
+            return @(AWSEC2InstanceTypeT2_medium);
+        }
         if ([value isEqualToString:@"m2.xlarge"]) {
             return @(AWSEC2InstanceTypeM2_xlarge);
         }
@@ -5242,6 +5226,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"m3.xlarge";
             case AWSEC2InstanceTypeM3_2xlarge:
                 return @"m3.2xlarge";
+            case AWSEC2InstanceTypeT2_micro:
+                return @"t2.micro";
+            case AWSEC2InstanceTypeT2_small:
+                return @"t2.small";
+            case AWSEC2InstanceTypeT2_medium:
+                return @"t2.medium";
             case AWSEC2InstanceTypeM2_xlarge:
                 return @"m2.xlarge";
             case AWSEC2InstanceTypeM2_2xlarge:
@@ -5303,9 +5293,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)launchTimeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -5411,6 +5401,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
              @"blockDeviceMappings" : @"BlockDeviceMappings",
              @"disableApiTermination" : @"DisableApiTermination",
              @"ebsOptimized" : @"EbsOptimized",
+             @"groups" : @"Groups",
              @"instanceId" : @"InstanceId",
              @"instanceInitiatedShutdownBehavior" : @"InstanceInitiatedShutdownBehavior",
              @"instanceType" : @"InstanceType",
@@ -5434,6 +5425,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)ebsOptimizedJSONTransformer {
 	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeBooleanValue class]];
+}
+
++ (NSValueTransformer *)groupsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2GroupIdentifier class]];
 }
 
 + (NSValueTransformer *)instanceInitiatedShutdownBehaviorJSONTransformer {
@@ -5608,7 +5603,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return @{
              @"association" : @"Association",
              @"attachment" : @"Attachment",
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"groups" : @"Groups",
              @"networkInterfaceId" : @"NetworkInterfaceId",
              @"ownerId" : @"OwnerId",
@@ -5698,9 +5693,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)attachTimeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -5744,7 +5739,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return @{
              @"associatePublicIpAddress" : @"AssociatePublicIpAddress",
              @"deleteOnTermination" : @"DeleteOnTermination",
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"deviceIndex" : @"DeviceIndex",
              @"groups" : @"Groups",
              @"networkInterfaceId" : @"NetworkInterfaceId",
@@ -5894,9 +5889,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)impairedSinceJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -5951,7 +5946,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"code" : @"Code",
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"notAfter" : @"NotAfter",
              @"notBefore" : @"NotBefore",
              };
@@ -5996,17 +5991,17 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)notAfterJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)notBeforeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -6177,6 +6172,17 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 @end
 
+@implementation AWSEC2LatestDhcpConfiguration
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"key" : @"Key",
+             @"values" : @"Values",
+             };
+}
+
+@end
+
 @implementation AWSEC2LaunchPermission
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -6283,6 +6289,15 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"m3.2xlarge"]) {
             return @(AWSEC2InstanceTypeM3_2xlarge);
         }
+        if ([value isEqualToString:@"t2.micro"]) {
+            return @(AWSEC2InstanceTypeT2_micro);
+        }
+        if ([value isEqualToString:@"t2.small"]) {
+            return @(AWSEC2InstanceTypeT2_small);
+        }
+        if ([value isEqualToString:@"t2.medium"]) {
+            return @(AWSEC2InstanceTypeT2_medium);
+        }
         if ([value isEqualToString:@"m2.xlarge"]) {
             return @(AWSEC2InstanceTypeM2_xlarge);
         }
@@ -6382,6 +6397,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"m3.xlarge";
             case AWSEC2InstanceTypeM3_2xlarge:
                 return @"m3.2xlarge";
+            case AWSEC2InstanceTypeT2_micro:
+                return @"t2.micro";
+            case AWSEC2InstanceTypeT2_small:
+                return @"t2.small";
+            case AWSEC2InstanceTypeT2_medium:
+                return @"t2.medium";
             case AWSEC2InstanceTypeM2_xlarge:
                 return @"m2.xlarge";
             case AWSEC2InstanceTypeM2_2xlarge:
@@ -6464,7 +6485,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attribute" : @"Attribute",
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"dryRun" : @"DryRun",
              @"imageId" : @"ImageId",
              @"launchPermission" : @"LaunchPermission",
@@ -6476,7 +6497,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
              };
 }
 
-+ (NSValueTransformer *)descriptionJSONTransformer {
++ (NSValueTransformer *)detailJSONTransformer {
 	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeValue class]];
 }
 
@@ -6632,7 +6653,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attachment" : @"Attachment",
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"dryRun" : @"DryRun",
              @"groups" : @"Groups",
              @"networkInterfaceId" : @"NetworkInterfaceId",
@@ -6644,7 +6665,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2NetworkInterfaceAttachmentChanges class]];
 }
 
-+ (NSValueTransformer *)descriptionJSONTransformer {
++ (NSValueTransformer *)detailJSONTransformer {
 	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeValue class]];
 }
 
@@ -6722,6 +6743,21 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 @end
 
+@implementation AWSEC2ModifySubnetAttributeRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"mapPublicIpOnLaunch" : @"MapPublicIpOnLaunch",
+             @"subnetId" : @"SubnetId",
+             };
+}
+
++ (NSValueTransformer *)mapPublicIpOnLaunchJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeBooleanValue class]];
+}
+
+@end
+
 @implementation AWSEC2ModifyVolumeAttributeRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -6730,6 +6766,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
              @"dryRun" : @"DryRun",
              @"volumeId" : @"VolumeId",
              };
+}
+
++ (NSValueTransformer *)autoEnableIOJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeBooleanValue class]];
 }
 
 @end
@@ -6908,7 +6948,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
              @"association" : @"Association",
              @"attachment" : @"Attachment",
              @"availabilityZone" : @"AvailabilityZone",
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"groups" : @"Groups",
              @"macAddress" : @"MacAddress",
              @"networkInterfaceId" : @"NetworkInterfaceId",
@@ -7010,9 +7050,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)attachTimeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -7391,7 +7431,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return @{
              @"architecture" : @"Architecture",
              @"blockDeviceMappings" : @"BlockDeviceMappings",
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"dryRun" : @"DryRun",
              @"imageLocation" : @"ImageLocation",
              @"kernelId" : @"KernelId",
@@ -7587,7 +7627,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"clientToken" : @"ClientToken",
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"dryRun" : @"DryRun",
              @"name" : @"Name",
              @"sourceImageId" : @"SourceImageId",
@@ -7611,8 +7651,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"Description",
              @"destinationRegion" : @"DestinationRegion",
+             @"detail" : @"Description",
              @"dryRun" : @"DryRun",
              @"presignedUrl" : @"PresignedUrl",
              @"sourceRegion" : @"SourceRegion",
@@ -7636,7 +7676,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"dryRun" : @"DryRun",
              @"endTime" : @"EndTime",
              @"instances" : @"Instances",
@@ -7648,17 +7688,17 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)endTimeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)startTimeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -7703,7 +7743,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 }
 
 + (NSValueTransformer *)launchSpecificationJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2LaunchSpecification class]];
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2RequestSpotLaunchSpecification class]];
 }
 
 + (NSValueTransformer *)typeJSONTransformer {
@@ -7730,17 +7770,17 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)validFromJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)validUntilJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -7760,124 +7800,35 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 @end
 
-@implementation AWSEC2Reservation
+@implementation AWSEC2RequestSpotLaunchSpecification
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"groups" : @"Groups",
-             @"instances" : @"Instances",
-             @"ownerId" : @"OwnerId",
-             @"requesterId" : @"RequesterId",
-             @"reservationId" : @"ReservationId",
-             };
-}
-
-+ (NSValueTransformer *)groupsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2GroupIdentifier class]];
-}
-
-+ (NSValueTransformer *)instancesJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2Instance class]];
-}
-
-@end
-
-@implementation AWSEC2ReservedInstanceLimitPrice
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"amount" : @"Amount",
-             @"currencyCode" : @"CurrencyCode",
-             };
-}
-
-+ (NSValueTransformer *)currencyCodeJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"USD"]) {
-            return @(AWSEC2CurrencyCodeValuesUSD);
-        }
-        return @(AWSEC2CurrencyCodeValuesUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSEC2CurrencyCodeValuesUSD:
-                return @"USD";
-            case AWSEC2CurrencyCodeValuesUnknown:
-            default:
-                return nil;
-        }
-    }];
-}
-
-@end
-
-@implementation AWSEC2ReservedInstances
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"availabilityZone" : @"AvailabilityZone",
-             @"currencyCode" : @"CurrencyCode",
-             @"duration" : @"Duration",
-             @"end" : @"End",
-             @"fixedPrice" : @"FixedPrice",
-             @"instanceCount" : @"InstanceCount",
-             @"instanceTenancy" : @"InstanceTenancy",
+             @"addressingType" : @"AddressingType",
+             @"blockDeviceMappings" : @"BlockDeviceMappings",
+             @"ebsOptimized" : @"EbsOptimized",
+             @"iamInstanceProfile" : @"IamInstanceProfile",
+             @"imageId" : @"ImageId",
              @"instanceType" : @"InstanceType",
-             @"offeringType" : @"OfferingType",
-             @"productDescription" : @"ProductDescription",
-             @"recurringCharges" : @"RecurringCharges",
-             @"reservedInstancesId" : @"ReservedInstancesId",
-             @"start" : @"Start",
-             @"state" : @"State",
-             @"tags" : @"Tags",
-             @"usagePrice" : @"UsagePrice",
+             @"kernelId" : @"KernelId",
+             @"keyName" : @"KeyName",
+             @"monitoring" : @"Monitoring",
+             @"networkInterfaces" : @"NetworkInterfaces",
+             @"placement" : @"Placement",
+             @"ramdiskId" : @"RamdiskId",
+             @"securityGroupIds" : @"SecurityGroupIds",
+             @"securityGroups" : @"SecurityGroups",
+             @"subnetId" : @"SubnetId",
+             @"userData" : @"UserData",
              };
 }
 
-+ (NSValueTransformer *)currencyCodeJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"USD"]) {
-            return @(AWSEC2CurrencyCodeValuesUSD);
-        }
-        return @(AWSEC2CurrencyCodeValuesUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSEC2CurrencyCodeValuesUSD:
-                return @"USD";
-            case AWSEC2CurrencyCodeValuesUnknown:
-            default:
-                return nil;
-        }
-    }];
++ (NSValueTransformer *)blockDeviceMappingsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2BlockDeviceMapping class]];
 }
 
-+ (NSValueTransformer *)endJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
-    } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
-    }];
-}
-
-+ (NSValueTransformer *)instanceTenancyJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"default"]) {
-            return @(AWSEC2TenancyDefault);
-        }
-        if ([value isEqualToString:@"dedicated"]) {
-            return @(AWSEC2TenancyDedicated);
-        }
-        return @(AWSEC2TenancyUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSEC2TenancyDefault:
-                return @"default";
-            case AWSEC2TenancyDedicated:
-                return @"dedicated";
-            case AWSEC2TenancyUnknown:
-            default:
-                return nil;
-        }
-    }];
++ (NSValueTransformer *)iamInstanceProfileJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2IamInstanceProfileSpecification class]];
 }
 
 + (NSValueTransformer *)instanceTypeJSONTransformer {
@@ -7908,6 +7859,15 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         }
         if ([value isEqualToString:@"m3.2xlarge"]) {
             return @(AWSEC2InstanceTypeM3_2xlarge);
+        }
+        if ([value isEqualToString:@"t2.micro"]) {
+            return @(AWSEC2InstanceTypeT2_micro);
+        }
+        if ([value isEqualToString:@"t2.small"]) {
+            return @(AWSEC2InstanceTypeT2_small);
+        }
+        if ([value isEqualToString:@"t2.medium"]) {
+            return @(AWSEC2InstanceTypeT2_medium);
         }
         if ([value isEqualToString:@"m2.xlarge"]) {
             return @(AWSEC2InstanceTypeM2_xlarge);
@@ -8008,6 +7968,348 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"m3.xlarge";
             case AWSEC2InstanceTypeM3_2xlarge:
                 return @"m3.2xlarge";
+            case AWSEC2InstanceTypeT2_micro:
+                return @"t2.micro";
+            case AWSEC2InstanceTypeT2_small:
+                return @"t2.small";
+            case AWSEC2InstanceTypeT2_medium:
+                return @"t2.medium";
+            case AWSEC2InstanceTypeM2_xlarge:
+                return @"m2.xlarge";
+            case AWSEC2InstanceTypeM2_2xlarge:
+                return @"m2.2xlarge";
+            case AWSEC2InstanceTypeM2_4xlarge:
+                return @"m2.4xlarge";
+            case AWSEC2InstanceTypeCR1_8xlarge:
+                return @"cr1.8xlarge";
+            case AWSEC2InstanceTypeI2_xlarge:
+                return @"i2.xlarge";
+            case AWSEC2InstanceTypeI2_2xlarge:
+                return @"i2.2xlarge";
+            case AWSEC2InstanceTypeI2_4xlarge:
+                return @"i2.4xlarge";
+            case AWSEC2InstanceTypeI2_8xlarge:
+                return @"i2.8xlarge";
+            case AWSEC2InstanceTypeHI1_4xlarge:
+                return @"hi1.4xlarge";
+            case AWSEC2InstanceTypeHS1_8xlarge:
+                return @"hs1.8xlarge";
+            case AWSEC2InstanceTypeC1_medium:
+                return @"c1.medium";
+            case AWSEC2InstanceTypeC1_xlarge:
+                return @"c1.xlarge";
+            case AWSEC2InstanceTypeC3_large:
+                return @"c3.large";
+            case AWSEC2InstanceTypeC3_xlarge:
+                return @"c3.xlarge";
+            case AWSEC2InstanceTypeC3_2xlarge:
+                return @"c3.2xlarge";
+            case AWSEC2InstanceTypeC3_4xlarge:
+                return @"c3.4xlarge";
+            case AWSEC2InstanceTypeC3_8xlarge:
+                return @"c3.8xlarge";
+            case AWSEC2InstanceTypeCC1_4xlarge:
+                return @"cc1.4xlarge";
+            case AWSEC2InstanceTypeCC2_8xlarge:
+                return @"cc2.8xlarge";
+            case AWSEC2InstanceTypeG2_2xlarge:
+                return @"g2.2xlarge";
+            case AWSEC2InstanceTypeCG1_4xlarge:
+                return @"cg1.4xlarge";
+            case AWSEC2InstanceTypeR3_large:
+                return @"r3.large";
+            case AWSEC2InstanceTypeR3_xlarge:
+                return @"r3.xlarge";
+            case AWSEC2InstanceTypeR3_2xlarge:
+                return @"r3.2xlarge";
+            case AWSEC2InstanceTypeR3_4xlarge:
+                return @"r3.4xlarge";
+            case AWSEC2InstanceTypeR3_8xlarge:
+                return @"r3.8xlarge";
+            case AWSEC2InstanceTypeUnknown:
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)monitoringJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2RunInstancesMonitoringEnabled class]];
+}
+
++ (NSValueTransformer *)networkInterfacesJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceNetworkInterfaceSpecification class]];
+}
+
++ (NSValueTransformer *)placementJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2SpotPlacement class]];
+}
+
+@end
+
+@implementation AWSEC2Reservation
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"groups" : @"Groups",
+             @"instances" : @"Instances",
+             @"ownerId" : @"OwnerId",
+             @"requesterId" : @"RequesterId",
+             @"reservationId" : @"ReservationId",
+             };
+}
+
++ (NSValueTransformer *)groupsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2GroupIdentifier class]];
+}
+
++ (NSValueTransformer *)instancesJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEC2Instance class]];
+}
+
+@end
+
+@implementation AWSEC2ReservedInstanceLimitPrice
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"amount" : @"Amount",
+             @"currencyCode" : @"CurrencyCode",
+             };
+}
+
++ (NSValueTransformer *)currencyCodeJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"USD"]) {
+            return @(AWSEC2CurrencyCodeValuesUSD);
+        }
+        return @(AWSEC2CurrencyCodeValuesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2CurrencyCodeValuesUSD:
+                return @"USD";
+            case AWSEC2CurrencyCodeValuesUnknown:
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSEC2ReservedInstances
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"availabilityZone" : @"AvailabilityZone",
+             @"currencyCode" : @"CurrencyCode",
+             @"duration" : @"Duration",
+             @"end" : @"End",
+             @"fixedPrice" : @"FixedPrice",
+             @"instanceCount" : @"InstanceCount",
+             @"instanceTenancy" : @"InstanceTenancy",
+             @"instanceType" : @"InstanceType",
+             @"offeringType" : @"OfferingType",
+             @"productDescription" : @"ProductDescription",
+             @"recurringCharges" : @"RecurringCharges",
+             @"reservedInstancesId" : @"ReservedInstancesId",
+             @"start" : @"Start",
+             @"state" : @"State",
+             @"tags" : @"Tags",
+             @"usagePrice" : @"UsagePrice",
+             };
+}
+
++ (NSValueTransformer *)currencyCodeJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"USD"]) {
+            return @(AWSEC2CurrencyCodeValuesUSD);
+        }
+        return @(AWSEC2CurrencyCodeValuesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2CurrencyCodeValuesUSD:
+                return @"USD";
+            case AWSEC2CurrencyCodeValuesUnknown:
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)endJSONTransformer {
+	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
+}
+
++ (NSValueTransformer *)instanceTenancyJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"default"]) {
+            return @(AWSEC2TenancyDefault);
+        }
+        if ([value isEqualToString:@"dedicated"]) {
+            return @(AWSEC2TenancyDedicated);
+        }
+        return @(AWSEC2TenancyUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2TenancyDefault:
+                return @"default";
+            case AWSEC2TenancyDedicated:
+                return @"dedicated";
+            case AWSEC2TenancyUnknown:
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)instanceTypeJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"t1.micro"]) {
+            return @(AWSEC2InstanceTypeT1_micro);
+        }
+        if ([value isEqualToString:@"m1.small"]) {
+            return @(AWSEC2InstanceTypeM1_small);
+        }
+        if ([value isEqualToString:@"m1.medium"]) {
+            return @(AWSEC2InstanceTypeM1_medium);
+        }
+        if ([value isEqualToString:@"m1.large"]) {
+            return @(AWSEC2InstanceTypeM1_large);
+        }
+        if ([value isEqualToString:@"m1.xlarge"]) {
+            return @(AWSEC2InstanceTypeM1_xlarge);
+        }
+        if ([value isEqualToString:@"m3.medium"]) {
+            return @(AWSEC2InstanceTypeM3_medium);
+        }
+        if ([value isEqualToString:@"m3.large"]) {
+            return @(AWSEC2InstanceTypeM3_large);
+        }
+        if ([value isEqualToString:@"m3.xlarge"]) {
+            return @(AWSEC2InstanceTypeM3_xlarge);
+        }
+        if ([value isEqualToString:@"m3.2xlarge"]) {
+            return @(AWSEC2InstanceTypeM3_2xlarge);
+        }
+        if ([value isEqualToString:@"t2.micro"]) {
+            return @(AWSEC2InstanceTypeT2_micro);
+        }
+        if ([value isEqualToString:@"t2.small"]) {
+            return @(AWSEC2InstanceTypeT2_small);
+        }
+        if ([value isEqualToString:@"t2.medium"]) {
+            return @(AWSEC2InstanceTypeT2_medium);
+        }
+        if ([value isEqualToString:@"m2.xlarge"]) {
+            return @(AWSEC2InstanceTypeM2_xlarge);
+        }
+        if ([value isEqualToString:@"m2.2xlarge"]) {
+            return @(AWSEC2InstanceTypeM2_2xlarge);
+        }
+        if ([value isEqualToString:@"m2.4xlarge"]) {
+            return @(AWSEC2InstanceTypeM2_4xlarge);
+        }
+        if ([value isEqualToString:@"cr1.8xlarge"]) {
+            return @(AWSEC2InstanceTypeCR1_8xlarge);
+        }
+        if ([value isEqualToString:@"i2.xlarge"]) {
+            return @(AWSEC2InstanceTypeI2_xlarge);
+        }
+        if ([value isEqualToString:@"i2.2xlarge"]) {
+            return @(AWSEC2InstanceTypeI2_2xlarge);
+        }
+        if ([value isEqualToString:@"i2.4xlarge"]) {
+            return @(AWSEC2InstanceTypeI2_4xlarge);
+        }
+        if ([value isEqualToString:@"i2.8xlarge"]) {
+            return @(AWSEC2InstanceTypeI2_8xlarge);
+        }
+        if ([value isEqualToString:@"hi1.4xlarge"]) {
+            return @(AWSEC2InstanceTypeHI1_4xlarge);
+        }
+        if ([value isEqualToString:@"hs1.8xlarge"]) {
+            return @(AWSEC2InstanceTypeHS1_8xlarge);
+        }
+        if ([value isEqualToString:@"c1.medium"]) {
+            return @(AWSEC2InstanceTypeC1_medium);
+        }
+        if ([value isEqualToString:@"c1.xlarge"]) {
+            return @(AWSEC2InstanceTypeC1_xlarge);
+        }
+        if ([value isEqualToString:@"c3.large"]) {
+            return @(AWSEC2InstanceTypeC3_large);
+        }
+        if ([value isEqualToString:@"c3.xlarge"]) {
+            return @(AWSEC2InstanceTypeC3_xlarge);
+        }
+        if ([value isEqualToString:@"c3.2xlarge"]) {
+            return @(AWSEC2InstanceTypeC3_2xlarge);
+        }
+        if ([value isEqualToString:@"c3.4xlarge"]) {
+            return @(AWSEC2InstanceTypeC3_4xlarge);
+        }
+        if ([value isEqualToString:@"c3.8xlarge"]) {
+            return @(AWSEC2InstanceTypeC3_8xlarge);
+        }
+        if ([value isEqualToString:@"cc1.4xlarge"]) {
+            return @(AWSEC2InstanceTypeCC1_4xlarge);
+        }
+        if ([value isEqualToString:@"cc2.8xlarge"]) {
+            return @(AWSEC2InstanceTypeCC2_8xlarge);
+        }
+        if ([value isEqualToString:@"g2.2xlarge"]) {
+            return @(AWSEC2InstanceTypeG2_2xlarge);
+        }
+        if ([value isEqualToString:@"cg1.4xlarge"]) {
+            return @(AWSEC2InstanceTypeCG1_4xlarge);
+        }
+        if ([value isEqualToString:@"r3.large"]) {
+            return @(AWSEC2InstanceTypeR3_large);
+        }
+        if ([value isEqualToString:@"r3.xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_xlarge);
+        }
+        if ([value isEqualToString:@"r3.2xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_2xlarge);
+        }
+        if ([value isEqualToString:@"r3.4xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_4xlarge);
+        }
+        if ([value isEqualToString:@"r3.8xlarge"]) {
+            return @(AWSEC2InstanceTypeR3_8xlarge);
+        }
+        return @(AWSEC2InstanceTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2InstanceTypeT1_micro:
+                return @"t1.micro";
+            case AWSEC2InstanceTypeM1_small:
+                return @"m1.small";
+            case AWSEC2InstanceTypeM1_medium:
+                return @"m1.medium";
+            case AWSEC2InstanceTypeM1_large:
+                return @"m1.large";
+            case AWSEC2InstanceTypeM1_xlarge:
+                return @"m1.xlarge";
+            case AWSEC2InstanceTypeM3_medium:
+                return @"m3.medium";
+            case AWSEC2InstanceTypeM3_large:
+                return @"m3.large";
+            case AWSEC2InstanceTypeM3_xlarge:
+                return @"m3.xlarge";
+            case AWSEC2InstanceTypeM3_2xlarge:
+                return @"m3.2xlarge";
+            case AWSEC2InstanceTypeT2_micro:
+                return @"t2.micro";
+            case AWSEC2InstanceTypeT2_small:
+                return @"t2.small";
+            case AWSEC2InstanceTypeT2_medium:
+                return @"t2.medium";
             case AWSEC2InstanceTypeM2_xlarge:
                 return @"m2.xlarge";
             case AWSEC2InstanceTypeM2_2xlarge:
@@ -8132,9 +8434,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)startJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -8215,6 +8517,15 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         }
         if ([value isEqualToString:@"m3.2xlarge"]) {
             return @(AWSEC2InstanceTypeM3_2xlarge);
+        }
+        if ([value isEqualToString:@"t2.micro"]) {
+            return @(AWSEC2InstanceTypeT2_micro);
+        }
+        if ([value isEqualToString:@"t2.small"]) {
+            return @(AWSEC2InstanceTypeT2_small);
+        }
+        if ([value isEqualToString:@"t2.medium"]) {
+            return @(AWSEC2InstanceTypeT2_medium);
         }
         if ([value isEqualToString:@"m2.xlarge"]) {
             return @(AWSEC2InstanceTypeM2_xlarge);
@@ -8315,6 +8626,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"m3.xlarge";
             case AWSEC2InstanceTypeM3_2xlarge:
                 return @"m3.2xlarge";
+            case AWSEC2InstanceTypeT2_micro:
+                return @"t2.micro";
+            case AWSEC2InstanceTypeT2_small:
+                return @"t2.small";
+            case AWSEC2InstanceTypeT2_medium:
+                return @"t2.medium";
             case AWSEC2InstanceTypeM2_xlarge:
                 return @"m2.xlarge";
             case AWSEC2InstanceTypeM2_2xlarge:
@@ -8405,9 +8722,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)createDateJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -8457,9 +8774,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)updateDateJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -8483,17 +8800,17 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)createDateJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)effectiveDateJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -8507,9 +8824,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)updateDateJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -8618,6 +8935,15 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"m3.2xlarge"]) {
             return @(AWSEC2InstanceTypeM3_2xlarge);
         }
+        if ([value isEqualToString:@"t2.micro"]) {
+            return @(AWSEC2InstanceTypeT2_micro);
+        }
+        if ([value isEqualToString:@"t2.small"]) {
+            return @(AWSEC2InstanceTypeT2_small);
+        }
+        if ([value isEqualToString:@"t2.medium"]) {
+            return @(AWSEC2InstanceTypeT2_medium);
+        }
         if ([value isEqualToString:@"m2.xlarge"]) {
             return @(AWSEC2InstanceTypeM2_xlarge);
         }
@@ -8717,6 +9043,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"m3.xlarge";
             case AWSEC2InstanceTypeM3_2xlarge:
                 return @"m3.2xlarge";
+            case AWSEC2InstanceTypeT2_micro:
+                return @"t2.micro";
+            case AWSEC2InstanceTypeT2_small:
+                return @"t2.small";
+            case AWSEC2InstanceTypeT2_medium:
+                return @"t2.medium";
             case AWSEC2InstanceTypeM2_xlarge:
                 return @"m2.xlarge";
             case AWSEC2InstanceTypeM2_2xlarge:
@@ -9263,6 +9595,15 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"m3.2xlarge"]) {
             return @(AWSEC2InstanceTypeM3_2xlarge);
         }
+        if ([value isEqualToString:@"t2.micro"]) {
+            return @(AWSEC2InstanceTypeT2_micro);
+        }
+        if ([value isEqualToString:@"t2.small"]) {
+            return @(AWSEC2InstanceTypeT2_small);
+        }
+        if ([value isEqualToString:@"t2.medium"]) {
+            return @(AWSEC2InstanceTypeT2_medium);
+        }
         if ([value isEqualToString:@"m2.xlarge"]) {
             return @(AWSEC2InstanceTypeM2_xlarge);
         }
@@ -9362,6 +9703,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"m3.xlarge";
             case AWSEC2InstanceTypeM3_2xlarge:
                 return @"m3.2xlarge";
+            case AWSEC2InstanceTypeT2_micro:
+                return @"t2.micro";
+            case AWSEC2InstanceTypeT2_small:
+                return @"t2.small";
+            case AWSEC2InstanceTypeT2_medium:
+                return @"t2.medium";
             case AWSEC2InstanceTypeM2_xlarge:
                 return @"m2.xlarge";
             case AWSEC2InstanceTypeM2_2xlarge:
@@ -9435,20 +9782,6 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 @end
 
-@implementation AWSEC2RunInstancesResult
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"reservation" : @"Reservation",
-             };
-}
-
-+ (NSValueTransformer *)reservationJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEC2Reservation class]];
-}
-
-@end
-
 @implementation AWSEC2S3Storage
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -9467,7 +9800,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"groupId" : @"GroupId",
              @"groupName" : @"GroupName",
              @"ipPermissions" : @"IpPermissions",
@@ -9496,7 +9829,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"encrypted" : @"Encrypted",
              @"ownerAlias" : @"OwnerAlias",
              @"ownerId" : @"OwnerId",
@@ -9512,9 +9845,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)startTimeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -9616,9 +9949,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)createTimeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -9731,17 +10064,17 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)validFromJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)validUntilJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -9770,9 +10103,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)updateTimeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -9829,6 +10162,15 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         }
         if ([value isEqualToString:@"m3.2xlarge"]) {
             return @(AWSEC2InstanceTypeM3_2xlarge);
+        }
+        if ([value isEqualToString:@"t2.micro"]) {
+            return @(AWSEC2InstanceTypeT2_micro);
+        }
+        if ([value isEqualToString:@"t2.small"]) {
+            return @(AWSEC2InstanceTypeT2_small);
+        }
+        if ([value isEqualToString:@"t2.medium"]) {
+            return @(AWSEC2InstanceTypeT2_medium);
         }
         if ([value isEqualToString:@"m2.xlarge"]) {
             return @(AWSEC2InstanceTypeM2_xlarge);
@@ -9929,6 +10271,12 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"m3.xlarge";
             case AWSEC2InstanceTypeM3_2xlarge:
                 return @"m3.2xlarge";
+            case AWSEC2InstanceTypeT2_micro:
+                return @"t2.micro";
+            case AWSEC2InstanceTypeT2_small:
+                return @"t2.small";
+            case AWSEC2InstanceTypeT2_medium:
+                return @"t2.medium";
             case AWSEC2InstanceTypeM2_xlarge:
                 return @"m2.xlarge";
             case AWSEC2InstanceTypeM2_2xlarge:
@@ -10022,9 +10370,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)timestampJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -10359,9 +10707,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)lastStatusChangeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -10413,9 +10761,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)createTimeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -10473,6 +10821,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
         if ([value isEqualToString:@"io1"]) {
             return @(AWSEC2VolumeTypeIO1);
         }
+        if ([value isEqualToString:@"gp2"]) {
+            return @(AWSEC2VolumeTypeGp2);
+        }
         return @(AWSEC2VolumeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -10480,6 +10831,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return @"standard";
             case AWSEC2VolumeTypeIO1:
                 return @"io1";
+            case AWSEC2VolumeTypeGp2:
+                return @"gp2";
             case AWSEC2VolumeTypeUnknown:
             default:
                 return nil;
@@ -10504,9 +10857,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)attachTimeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -10559,7 +10912,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"code" : @"Code",
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"eventId" : @"EventId",
              @"eventType" : @"EventType",
              };
@@ -10604,7 +10957,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"eventId" : @"EventId",
              @"eventType" : @"EventType",
              @"notAfter" : @"NotAfter",
@@ -10614,17 +10967,17 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)notAfterJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)notBeforeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -10824,9 +11177,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)expirationTimeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 

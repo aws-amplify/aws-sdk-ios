@@ -15,7 +15,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "AZModel.h"
+#import "AWSService.h"
+#import "AWSModel.h"
 
 /**
  *  Enumeration of behaviors for the save operation.
@@ -32,6 +33,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
 };
 
 @class BFTask;
+@class AWSServiceConfiguration;
 @class AWSDynamoDB;
 @class AWSDynamoDBObjectMapperConfiguration;
 @class AWSDynamoDBQueryExpression;
@@ -50,7 +52,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
 
 @end
 
-@interface AWSDynamoDBModel : AZModel
+@interface AWSDynamoDBModel : AWSModel
 
 - (instancetype)initWithItem:(NSDictionary *)item;
 
@@ -65,16 +67,14 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
 /**
  *  Object mapper for domain-object interaction with DynamoDB.
  */
-@interface AWSDynamoDBObjectMapper : NSObject
-
-@property (nonatomic, strong, readonly) AWSDynamoDB *dynamoDB;
+@interface AWSDynamoDBObjectMapper : AWSService
 
 @property (nonatomic, strong, readonly) AWSDynamoDBObjectMapperConfiguration *configuration;
 
 + (instancetype)defaultDynamoDBObjectMapper;
 
-- (instancetype)initWithDynamoDB:(AWSDynamoDB *)dynamoDB
-                   configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration
+            objectMapperConfiguration:(AWSDynamoDBObjectMapperConfiguration *)objectMapperConfiguration;
 
 /**
  *  Saves the object given into DynamoDB, using the default configuration.

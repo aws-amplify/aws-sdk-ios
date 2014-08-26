@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AWSNetworking.h"
-#import "AZModel.h"
+#import "AWSModel.h"
 
 FOUNDATION_EXPORT NSString *const AWSSESErrorDomain;
 
@@ -37,6 +37,7 @@ typedef NS_ENUM(NSInteger, AWSSESNotificationType) {
     AWSSESNotificationTypeUnknown,
     AWSSESNotificationTypeBounce,
     AWSSESNotificationTypeComplaint,
+    AWSSESNotificationTypeDelivery,
 };
 
 typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
@@ -92,7 +93,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  * <p>Represents the body of the message. You can specify text, HTML, or both. If you use both, then the message should display correctly in the widest variety of email clients. </p>
  */
-@interface AWSSESBody : AZModel
+@interface AWSSESBody : AWSModel
 
 
 /**
@@ -111,7 +112,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
  * <p>Represents textual data, plus an optional character set specification.</p><p>By default, the text must be 7-bit ASCII, due to the constraints of the SMTP protocol. If the text must contain any other characters, then you must also specify a character set. Examples include UTF-8, ISO-8859-1, and Shift_JIS. </p>
  * Required parameters: [Data]
  */
-@interface AWSSESContent : AZModel
+@interface AWSSESContent : AWSModel
 
 
 /**
@@ -141,9 +142,9 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- * <p>An empty element.Receiving this element indicates that the request completed successfully.</p>
+ * <p>An empty element. Receiving this element indicates that the request completed successfully.</p>
  */
-@interface AWSSESDeleteIdentityResponse : AZModel
+@interface AWSSESDeleteIdentityResponse : AWSModel
 
 
 @end
@@ -163,9 +164,9 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- * <p>Represents the destination of the message, consisting of To:, CC:, and BCC: fields.</p><p> By default, the string must be 7-bit ASCII. If the text must contain any other characters,then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string.MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>.For more information, see <a href="http://tools.ietf.org/html/rfc2047">RFC 2047</a>. </p>
+ * <p>Represents the destination of the message, consisting of To:, CC:, and BCC: fields.</p><p> By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href="http://tools.ietf.org/html/rfc2047">RFC 2047</a>. </p>
  */
-@interface AWSSESDestination : AZModel
+@interface AWSSESDestination : AWSModel
 
 
 /**
@@ -203,7 +204,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
  * <p>Represents a list of all the DKIM attributes for the specified identity.</p>
  * Required parameters: [DkimAttributes]
  */
-@interface AWSSESGetIdentityDkimAttributesResponse : AZModel
+@interface AWSSESGetIdentityDkimAttributesResponse : AWSModel
 
 
 /**
@@ -213,10 +214,6 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 
 @end
 
-/**
- * <!-- p>Returns the notification attributes for a given list of identities (email address or domain names).</p -->
- * Required parameters: [Identities]
- */
 @interface AWSSESGetIdentityNotificationAttributesRequest : AWSRequest
 
 
@@ -228,10 +225,10 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- * <p>Describes whether an identity has a bounce topic or complaint topic set, or feedbackforwarding enabled.</p>
+ * <p>Describes whether an identity has Amazon Simple Notification Service (Amazon SNS) topics set for bounce, complaint, and/or delivery notifications, and specifies whether feedback forwarding is enabled for bounce and complaint notifications.</p>
  * Required parameters: [NotificationAttributes]
  */
-@interface AWSSESGetIdentityNotificationAttributesResponse : AZModel
+@interface AWSSESGetIdentityNotificationAttributesResponse : AWSModel
 
 
 /**
@@ -259,7 +256,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
  * <p>Represents the verification attributes for a list of identities.</p>
  * Required parameters: [VerificationAttributes]
  */
-@interface AWSSESGetIdentityVerificationAttributesResponse : AZModel
+@interface AWSSESGetIdentityVerificationAttributesResponse : AWSModel
 
 
 /**
@@ -272,7 +269,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  * <p>Represents the user's current activity limits returned from a successful <code>GetSendQuota</code> request. </p>
  */
-@interface AWSSESGetSendQuotaResponse : AZModel
+@interface AWSSESGetSendQuotaResponse : AWSModel
 
 
 /**
@@ -295,7 +292,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  * <p>Represents a list of <code>SendDataPoint</code> items returned from a successful <code>GetSendStatistics</code> request. This list contains aggregated data from the previous two weeks of sending activity. </p>
  */
-@interface AWSSESGetSendStatisticsResponse : AZModel
+@interface AWSSESGetSendStatisticsResponse : AWSModel
 
 
 /**
@@ -309,7 +306,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
  * <p>Represents the DKIM attributes of a verified email address or a domain.</p>
  * Required parameters: [DkimEnabled, DkimVerificationStatus]
  */
-@interface AWSSESIdentityDkimAttributes : AZModel
+@interface AWSSESIdentityDkimAttributes : AWSModel
 
 
 /**
@@ -323,31 +320,36 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @property (nonatomic, strong) NSArray *dkimTokens;
 
 /**
- * <p>Describes whether Amazon SES has successfully verified the DKIM DNS records (tokens) published in the domain name's DNS.(This only applies to domain identities, not email address identities.)</p>
+ * <p>Describes whether Amazon SES has successfully verified the DKIM DNS records (tokens) published in the domain name's DNS. (This only applies to domain identities, not email address identities.)</p>
  */
 @property (nonatomic, assign) AWSSESVerificationStatus dkimVerificationStatus;
 
 @end
 
 /**
- * <p>Represents the notification attributes of an identity, including whether a bounceor complaint topic are set, and whether feedback forwarding is enabled.</p>
- * Required parameters: [BounceTopic, ComplaintTopic, ForwardingEnabled]
+ * <p>Represents the notification attributes of an identity, including whether an identity has Amazon Simple Notification Service (Amazon SNS) topics set for bounce, complaint, and/or delivery notifications, and whether feedback forwarding is enabled for bounce and complaint notifications.</p>
+ * Required parameters: [BounceTopic, ComplaintTopic, DeliveryTopic, ForwardingEnabled]
  */
-@interface AWSSESIdentityNotificationAttributes : AZModel
+@interface AWSSESIdentityNotificationAttributes : AWSModel
 
 
 /**
- * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topicwhere Amazon SES will publish bounce notifications.</p>
+ * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish bounce notifications.</p>
  */
 @property (nonatomic, strong) NSString *bounceTopic;
 
 /**
- * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topicwhere Amazon SES will publish complaint notifications.</p>
+ * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish complaint notifications.</p>
  */
 @property (nonatomic, strong) NSString *complaintTopic;
 
 /**
- * <p>Describes whether Amazon SES will forward feedback as email. <code>true</code> indicatesthat Amazon SES will forward feedback as email, while <code>false</code> indicates thatfeedback will be published only to the specified Bounce and Complaint topics.</p>
+ * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish delivery notifications.</p>
+ */
+@property (nonatomic, strong) NSString *deliveryTopic;
+
+/**
+ * <p>Describes whether Amazon SES will forward bounce and complaint notifications as email. <code>true</code> indicates that Amazon SES will forward bounce and complaint notifications as email, while <code>false</code> indicates that bounce and complaint notifications will be published only to the specified bounce and complaint Amazon SNS topics.</p>
  */
 @property (nonatomic, strong) NSNumber *forwardingEnabled;
 
@@ -357,7 +359,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
  * <p>Represents the verification attributes of a single identity.</p>
  * Required parameters: [VerificationStatus]
  */
-@interface AWSSESIdentityVerificationAttributes : AZModel
+@interface AWSSESIdentityVerificationAttributes : AWSModel
 
 
 /**
@@ -399,7 +401,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
  * <p>Represents a list of all verified identities for the AWS Account.</p>
  * Required parameters: [Identities]
  */
-@interface AWSSESListIdentitiesResponse : AZModel
+@interface AWSSESListIdentitiesResponse : AWSModel
 
 
 /**
@@ -417,7 +419,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  * <p>Represents a list of all the email addresses verified for the current user.</p>
  */
-@interface AWSSESListVerifiedEmailAddressesResponse : AZModel
+@interface AWSSESListVerifiedEmailAddressesResponse : AWSModel
 
 
 /**
@@ -431,7 +433,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
  * <p>Represents the message to be sent, composed of a subject and a body.</p>
  * Required parameters: [Subject, Body]
  */
-@interface AWSSESMessage : AZModel
+@interface AWSSESMessage : AWSModel
 
 
 /**
@@ -450,11 +452,11 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
  * <p>Represents the raw data of the message.</p>
  * Required parameters: [Data]
  */
-@interface AWSSESRawMessage : AZModel
+@interface AWSSESRawMessage : AWSModel
 
 
 /**
- * <p>The raw data of the message. The client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, MIME encoding, and base64 encoding (if necessary). </p><p>For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Amazon SES Developer Guide</a>. </p>
+ * <p>The raw data of the message. The client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, MIME encoding, and base64 encoding (if necessary). </p><p>The To:, CC:, and BCC: headers in the raw message can contain a group list. </p><p>For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Amazon SES Developer Guide</a>. </p>
  */
 @property (nonatomic, strong) NSData *data;
 
@@ -463,7 +465,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  * <p>Represents sending statistics data. Each <code>SendDataPoint</code> contains statistics for a 15-minute period of sending activity. </p>
  */
-@interface AWSSESSendDataPoint : AZModel
+@interface AWSSESSendDataPoint : AWSModel
 
 
 /**
@@ -516,12 +518,12 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @property (nonatomic, strong) NSArray *replyToAddresses;
 
 /**
- * <p>The email address to which bounce notifications are to be forwarded. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the <code>ReturnPath</code> parameter. </p>
+ * <p>The email address to which bounces and complaints are to be forwarded when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the <code>ReturnPath</code> parameter. </p>
  */
 @property (nonatomic, strong) NSString *returnPath;
 
 /**
- * <p>The identity's email address.</p><p> By default, the string must be 7-bit ASCII. If the text must contain any other characters,then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string.MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>.For more information, see <a href="http://tools.ietf.org/html/rfc2047">RFC 2047</a>. </p>
+ * <p>The identity's email address.</p><p> By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href="http://tools.ietf.org/html/rfc2047">RFC 2047</a>. </p>
  */
 @property (nonatomic, strong) NSString *source;
 
@@ -531,7 +533,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
  * <p>Represents a unique message ID returned from a successful <code>SendEmail</code> request. </p>
  * Required parameters: [MessageId]
  */
-@interface AWSSESSendEmailResponse : AZModel
+@interface AWSSESSendEmailResponse : AWSModel
 
 
 /**
@@ -549,7 +551,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 
 
 /**
- * <p>A list of destinations for the message.</p>
+ * <p>A list of destinations for the message, consisting of To:, CC:, and BCC: addresses.</p>
  */
 @property (nonatomic, strong) NSArray *destinations;
 
@@ -559,7 +561,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @property (nonatomic, strong) AWSSESRawMessage *rawMessage;
 
 /**
- * <p>The identity's email address.</p><p> By default, the string must be 7-bit ASCII. If the text must contain any other characters,then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string.MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>.For more information, see <a href="http://tools.ietf.org/html/rfc2047">RFC 2047</a>. </p><note>If you specify the <code>Source</code> parameter, then bounce notifications and complaints will be sent to this email address. This takes precedence over any <i>Return-Path</i> header that you might include in the raw text of the message. </note>
+ * <p>The identity's email address.</p><p> By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href="http://tools.ietf.org/html/rfc2047">RFC 2047</a>. </p>
  */
 @property (nonatomic, strong) NSString *source;
 
@@ -569,7 +571,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
  * <p>Represents a unique message ID returned from a successful <code>SendRawEmail</code> request. </p>
  * Required parameters: [MessageId]
  */
-@interface AWSSESSendRawEmailResponse : AZModel
+@interface AWSSESSendRawEmailResponse : AWSModel
 
 
 /**
@@ -587,7 +589,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 
 
 /**
- * <p>Sets whether DKIM signing is enabled for an identity.Set to <code>true</code> to enable DKIM signing for this identity;<code>false</code> to disable it. </p>
+ * <p>Sets whether DKIM signing is enabled for an identity. Set to <code>true</code> to enable DKIM signing for this identity; <code>false</code> to disable it. </p>
  */
 @property (nonatomic, strong) NSNumber *dkimEnabled;
 
@@ -599,9 +601,9 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- * <p>An empty element.Receiving this element indicates that the request completed successfully.</p>
+ * <p>An empty element. Receiving this element indicates that the request completed successfully.</p>
  */
-@interface AWSSESSetIdentityDkimEnabledResponse : AZModel
+@interface AWSSESSetIdentityDkimEnabledResponse : AWSModel
 
 
 @end
@@ -610,21 +612,21 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 
 
 /**
- * <p>Sets whether Amazon SES will forward feedback notifications as email. <code>true</code> specifies that Amazon SES will forward feedback notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. <code>false</code> specifies that Amazon SESwill publish feedback notifications only through Amazon SNS. This value can only be set to <code>false</code> whentopics are specified for both <code>Bounce</code> and <code>Complaint</code> topic types.</p>
+ * <p>Sets whether Amazon SES will forward bounce and complaint notifications as email. <code>true</code> specifies that Amazon SES will forward bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. <code>false</code> specifies that Amazon SES will publish bounce and complaint notifications only through Amazon SNS. This value can only be set to <code>false</code> when Amazon SNS topics are set for both <code>Bounce</code> and <code>Complaint</code> notification types.</p>
  */
 @property (nonatomic, strong) NSNumber *forwardingEnabled;
 
 /**
- * <p>The identity for which to set feedback notification forwarding. Examples: <code>user@example.com</code>, <code>example.com</code>.</p>
+ * <p>The identity for which to set bounce and complaint notification forwarding. Examples: <code>user@example.com</code>, <code>example.com</code>.</p>
  */
 @property (nonatomic, strong) NSString *identity;
 
 @end
 
 /**
- * <p>An empty element.Receiving this element indicates that the request completed successfully.</p>
+ * <p>An empty element. Receiving this element indicates that the request completed successfully.</p>
  */
-@interface AWSSESSetIdentityFeedbackForwardingEnabledResponse : AZModel
+@interface AWSSESSetIdentityFeedbackForwardingEnabledResponse : AWSModel
 
 
 @end
@@ -637,26 +639,26 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 
 
 /**
- * <p>The identity for which the topic will be set.Examples: <code>user@example.com</code>, <code>example.com</code>.</p>
+ * <p>The identity for which the Amazon SNS topic will be set. Examples: <code>user@example.com</code>, <code>example.com</code>.</p>
  */
 @property (nonatomic, strong) NSString *identity;
 
 /**
- * <p>The type of feedback notifications that will be published to the specified topic.</p>
+ * <p>The type of notifications that will be published to the specified Amazon SNS topic.</p>
  */
 @property (nonatomic, assign) AWSSESNotificationType notificationType;
 
 /**
- * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.If the parameter is omitted from the request or a null value is passed, the topic is cleared and publishing is disabled.</p>
+ * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from the request or a null value is passed, <code>SnsTopic</code> is cleared and publishing is disabled.</p>
  */
 @property (nonatomic, strong) NSString *snsTopic;
 
 @end
 
 /**
- * <p>An empty element.Receiving this element indicates that the request completed successfully.</p>
+ * <p>An empty element. Receiving this element indicates that the request completed successfully.</p>
  */
-@interface AWSSESSetIdentityNotificationTopicResponse : AZModel
+@interface AWSSESSetIdentityNotificationTopicResponse : AWSModel
 
 
 @end
@@ -679,7 +681,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
  * <p>Represents the DNS records that must be published in the domain name's DNS to complete DKIM setup.</p>
  * Required parameters: [DkimTokens]
  */
-@interface AWSSESVerifyDomainDkimResponse : AZModel
+@interface AWSSESVerifyDomainDkimResponse : AWSModel
 
 
 /**
@@ -707,7 +709,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
  * <p>Represents a token used for domain ownership verification.</p>
  * Required parameters: [VerificationToken]
  */
-@interface AWSSESVerifyDomainIdentityResponse : AZModel
+@interface AWSSESVerifyDomainIdentityResponse : AWSModel
 
 
 /**
@@ -746,9 +748,9 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- * <p>An empty element.Receiving this element indicates that the request completed successfully.</p>
+ * <p>An empty element. Receiving this element indicates that the request completed successfully.</p>
  */
-@interface AWSSESVerifyEmailIdentityResponse : AZModel
+@interface AWSSESVerifyEmailIdentityResponse : AWSModel
 
 
 @end

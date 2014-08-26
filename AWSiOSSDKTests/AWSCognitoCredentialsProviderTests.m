@@ -13,7 +13,7 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_COGNITO_CREDENTIALS_PROVIDER
+#if AWS_TEST_COGNITO_CREDENTIALS_PROVIDER && !AWS_TEST_BJS_INSTEAD
 
 #import <XCTest/XCTest.h>
 #import "AWSCore.h"
@@ -163,13 +163,17 @@ BOOL _identityChanged;
 
 - (void)testProviderKeychain {
     AWSCognitoCredentialsProvider *provider1 = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
+                                                                                             identityId:nil
                                                                                               accountId:AWSCognitoCredentialsProviderTestsAccountID
                                                                                          identityPoolId:_identityPoolIdAuth
                                                                                           unauthRoleArn:AWSCognitoCredentialsProviderTestsUnauthRoleArn
-                                                                                            authRoleArn:AWSCognitoCredentialsProviderTestsAuthRoleArn];
+                                                                                            authRoleArn:AWSCognitoCredentialsProviderTestsAuthRoleArn
+                                                                                                 logins:nil];
+    [provider1 clearKeychain];
+    
     __block AWSCognitoCredentialsProvider *provider2 = nil;
 
-    [[[[provider1 getIdentityId] continueWithSuccessBlock:^id(BFTask *task) {
+    [[[[provider1 refresh] continueWithSuccessBlock:^id(BFTask *task) {
         XCTAssertNil(task.error);
         XCTAssertNotNil(provider1.identityId, @"Unable to get identityId");
 
@@ -182,9 +186,23 @@ BOOL _identityChanged;
     }] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error);
         XCTAssertEqualObjects(provider1.identityId, provider2.identityId);
+        
+        XCTAssertNotNil(provider2.accessKey);
+        XCTAssertNotNil(provider2.secretKey);
+        XCTAssertNotNil(provider2.sessionKey);
+        XCTAssertNotNil(provider2.expiration);
 
-        return nil;
+        return [provider2 refresh];
     }] waitUntilFinished];
+    
+    provider2.logins = @{
+                         @(AWSCognitoLoginProviderKeyFacebook) : _facebookToken
+                         };
+    
+    XCTAssertNil(provider2.accessKey);
+    XCTAssertNil(provider2.secretKey);
+    XCTAssertNil(provider2.sessionKey);
+    XCTAssertNil(provider2.expiration);
 }
 
 - (void)testProviderFailure {
@@ -291,8 +309,8 @@ BOOL _identityChanged;
     NSString *oldId = dictionary[AWSCognitoNotificationNewId];
     NSString *newId = dictionary[AWSCognitoNotificationPreviousId];
     
-    AZLogDebug(@"OLD ID: %@", oldId);
-    AZLogDebug(@"NEW ID: %@", newId);
+    AWSLogDebug(@"OLD ID: %@", oldId);
+    AWSLogDebug(@"NEW ID: %@", newId);
     _identityChanged = YES;
 }
 

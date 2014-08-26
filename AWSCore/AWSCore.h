@@ -15,8 +15,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "AmazonCore.h"
-
 #import "AWSService.h"
 #import "AWSNetworking.h"
 #import "AWSCredentialsProvider.h"
@@ -24,9 +22,9 @@
 #import "AWSURLRequestSerialization.h"
 #import "AWSURLResponseSerialization.h"
 #import "AWSClientContext.h"
+#import "AWSCategory.h"
+#import "AWSLogging.h"
 
 #import "STS.h"
 #import "CognitoIdentityService.h"
-
-#import "EventRecorderService.h"
 #import "MobileAnalytics.h"

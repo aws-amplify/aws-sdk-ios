@@ -14,33 +14,32 @@
  */
 
 #import "AISessionIntegrationTests.h"
-#import "AZCategory.h"
+#import "AWSCategory.h"
 AWSMobileAnalyticsDefaultSessionClient* target = nil;
 id<AWSMobileAnalyticsInternalEventClient> eventClient = nil;
 TestEventObserver2* interceptor = nil;
 
 @interface AWSMobileAnalytics()
-+(void)removeCachedInstances;
-@property (nonatomic, readonly) id<AWSMobileAnalyticsContext> insightsContext;
+
+@property (nonatomic, readonly) id<AWSMobileAnalyticsContext> mobileAnalyticsContext;
 @property (nonatomic, readonly) id<AWSMobileAnalyticsSessionClient>   sessionClient;
 @property (nonatomic, readonly) id<AWSMobileAnalyticsDeliveryClient>  deliveryClient;
+
++ (void)removeCachedInstances;
 
 @end
 
 @implementation AISessionIntegrationTests
 
-- (void)setUp
-{
-    AWSEventRecorderService *ers = [[AWSEventRecorderService alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].
-                                           defaultServiceConfiguration];
-    AWSMobileAnalytics* insights = [AWSMobileAnalytics mobileAnalyticsWithEventRecorderService:ers appNamespace:APP_KEY completionBlock:^(AWSMobileAnalytics *instance) {
-        interceptor = [[TestEventObserver2 alloc] initObserver];
-        eventClient = (id<AWSMobileAnalyticsInternalEventClient>) [instance eventClient];
-        [eventClient addEventObserver:interceptor];
-    }];
+- (void)setUp {
+    AWSMobileAnalytics* insights = [AWSMobileAnalytics mobileAnalyticsForAppId:APP_KEY
+                                                                 configuration:[AWSMobileAnalyticsConfiguration new]
+                                                               completionBlock:^(AWSMobileAnalytics *instance) {
+                                                                   interceptor = [[TestEventObserver2 alloc] initObserver];
+                                                                   eventClient = (id<AWSMobileAnalyticsInternalEventClient>) [instance eventClient];
+                                                                   [eventClient addEventObserver:interceptor];
+                                                               }];
     target = [insights sessionClient];
-    
-    
 }
 
 - (void)tearDown
@@ -68,13 +67,13 @@ TestEventObserver2* interceptor = nil;
     [target stopSession];
     assertThat([interceptor lastEvent], is(notNilValue()));
     assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(equalTo(sesId)));
-    
+
     [NSThread sleepForTimeInterval:1.111];
-    
+
     [target startSession];
     assertThat([interceptor lastEvent], is(notNilValue()));
     assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], isNot(equalTo(sesId)));
-    
+
     sesId = [[target session] sessionId];
     [target stopSession];
     assertThat([interceptor lastEvent], is(notNilValue()));
@@ -83,64 +82,64 @@ TestEventObserver2* interceptor = nil;
 
 - (void) test_SessionIdTag_ScopedCustomEvents
 {
-    
+
     NSString* sesId = [[target session] sessionId];
     [eventClient recordEvent:[eventClient createEventWithEventType:@"in-scope_1"]];
     assertThat([interceptor lastEvent], is(notNilValue()));
     assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(equalTo(sesId)));
-    
+
     [eventClient recordEvent:[eventClient createEventWithEventType:@"in-scope_2"]];
     assertThat([interceptor lastEvent], is(notNilValue()));
     assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(equalTo(sesId)));
-    
+
     [target stopSession];
-    
+
     [eventClient recordEvent:[eventClient createEventWithEventType:@"out-scope_1"]];
     assertThat([interceptor lastEvent], is(notNilValue()));
     assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], nilValue());
-    
+
     [eventClient recordEvent:[eventClient createEventWithEventType:@"out-scope_2"]];
     assertThat([interceptor lastEvent], is(notNilValue()));
     assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], nilValue());
-    
+
     [target startSession];
-    
+
     sesId = [[target session] sessionId];
     [eventClient recordEvent:[eventClient createEventWithEventType:@"in-scope_3"]];
     assertThat([interceptor lastEvent], is(notNilValue()));
     assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(equalTo(sesId)));
-    
+
     [eventClient recordEvent:[eventClient createEventWithEventType:@"in-scope_4"]];
     assertThat([interceptor lastEvent], is(notNilValue()));
     assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(equalTo(sesId)));
 }
 
 - (void) test_SessionEvents_haveCorrectAttributes
-{   
+{
     assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(notNilValue()));
-    
+
     // hold onto the session ref so it doesn't get removed
     AWSMobileAnalyticsSession* activeSession = target.session;
-    
+
     [NSThread sleepForTimeInterval:.5];
-    
+
     [target stopSession];
     assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(notNilValue()));
     assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(activeSession.sessionId));
-    
-    
+
+
     // check the duration
     assertThat([[interceptor lastEvent] metricForKey:SESSION_DURATION_METRIC_KEY], is(notNilValue()));
     UTCTimeMillis startTimeMillis = [AWSMobileAnalyticsDateUtils utcTimeMillisFromDate:activeSession.startTime];
     UTCTimeMillis stopTimeMillis = [AWSMobileAnalyticsDateUtils utcTimeMillisFromDate:activeSession.stopTime];
     assertThatLongLong([[[interceptor lastEvent] metricForKey:SESSION_DURATION_METRIC_KEY] longLongValue], is(equalToLongLong(stopTimeMillis - startTimeMillis)));
-    
+
     // check the start and stop attributes
     //NSString* startTime = [[NSNumber numberWithUnsignedLongLong:startTimeMillis] stringValue];
-    NSString *startTimeString = [activeSession.startTime az_stringValue:AZDateISO8601DateFormat3];
+    NSString *startTimeString = [activeSession.startTime aws_stringValue:AWSDateISO8601DateFormat3];
     //NSString* stopTime = [[NSNumber numberWithUnsignedLongLong:stopTimeMillis] stringValue];
-    NSString *stopTimeString = [activeSession.stopTime az_stringValue:AZDateISO8601DateFormat3];
-    
+    NSString *stopTimeString = [activeSession.stopTime aws_stringValue:AWSDateISO8601DateFormat3];
+
     assertThat([[interceptor lastEvent] attributeForKey:SESSION_START_TIME_ATTRIBUTE_KEY], is(equalTo(startTimeString)));
     assertThat([[interceptor lastEvent] attributeForKey:SESSION_END_TIME_ATTRIBUTE_KEY], is(equalTo(stopTimeString)));
 }
@@ -149,10 +148,10 @@ TestEventObserver2* interceptor = nil;
 {
     [NSThread sleepForTimeInterval:5];
     [target stopSession];
-    
+
     long long duration = [[[interceptor lastEvent] metricForKey:SESSION_DURATION_METRIC_KEY] longLongValue];
     NSLog(@"duration: %lld", duration);
-    
+
     assertThatBool(duration >= 5000, is(equalToBool(YES)));
     assertThatBool(duration <= 8000, is(equalToBool(YES)));
 }

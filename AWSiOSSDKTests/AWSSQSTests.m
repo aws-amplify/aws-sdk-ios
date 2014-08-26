@@ -53,7 +53,7 @@
 
         if (task.result) {
             AWSSQSListQueuesResult *listQueuesResult = task.result;
-            AZLogDebug(@"[%@]", listQueuesResult);
+            AWSLogDebug(@"[%@]", listQueuesResult);
             XCTAssertNotNil(listQueuesResult.queueUrls);
         }
 

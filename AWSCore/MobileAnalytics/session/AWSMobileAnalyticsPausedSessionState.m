@@ -16,7 +16,7 @@
 #import "AWSMobileAnalyticsPausedSessionState.h"
 #import "AWSMobileAnalyticsDefaultSessionClient+SessionState.h"
 #import "AWSMobileAnalyticsSession.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 @implementation AWSMobileAnalyticsPausedSessionState
 
@@ -26,13 +26,13 @@
         [sessionClient resumeCurrentSession];
         [sessionClient changeState:SESSION_STATE_ACTIVE];
     }else{
-        AZLogVerbose( @"Session has expired. Starting a fresh one...");
+        AWSLogVerbose( @"Session has expired. Starting a fresh one...");
         [self startWithSessionClient:sessionClient];
     }
 }
 
 -(void)pauseWithSessionClient:(AWSMobileAnalyticsDefaultSessionClient *)sessionClient{
-    AZLogVerbose( @"Session Pause Failed: Session is already paused.");
+    AWSLogVerbose( @"Session Pause Failed: Session is already paused.");
 }
 
 -(void)startWithSessionClient:(AWSMobileAnalyticsDefaultSessionClient *)sessionClient{
@@ -47,13 +47,13 @@
 }
 
 -(void)enterStateWithSessionClient:(AWSMobileAnalyticsDefaultSessionClient *)sessionClient{
-    AZLogVerbose( @"Session State: Entering Paused State.");
+    AWSLogVerbose( @"Session State: Entering Paused State.");
     [sessionClient.sessionStore persistSessionDetails:sessionClient.session];
     [sessionClient waitForSessionTimeout];
 }
 
 -(void)exitStateWithSessionClient:(AWSMobileAnalyticsDefaultSessionClient *)sessionClient{
-    AZLogVerbose( @"Session State: Exiting Paused State.");
+    AWSLogVerbose( @"Session State: Exiting Paused State.");
     // this will be executed on a main thread bg operation queue
     [sessionClient cancelDelayedBlock];
     [sessionClient.sessionStore deletePesistedSession];

@@ -14,7 +14,7 @@
  */
 
 #import "AWSSQSModel.h"
-#import "AZCategory.h"
+#import "AWSCategory.h"
 
 NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 
@@ -307,9 +307,9 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 
 + (NSValueTransformer *)messageAttributesJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AZModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSQSMessageAttributeValue class]];
+		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSQSMessageAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AZModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
 	}];
 }
 
@@ -397,9 +397,9 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 
 + (NSValueTransformer *)messageAttributesJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AZModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSQSMessageAttributeValue class]];
+		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSQSMessageAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AZModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
 	}];
 }
 
@@ -450,9 +450,9 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 
 + (NSValueTransformer *)messageAttributesJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AZModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSQSMessageAttributeValue class]];
+		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSQSMessageAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AZModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
 	}];
 }
 

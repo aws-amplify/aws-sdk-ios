@@ -15,25 +15,37 @@
 
 #import <Foundation/Foundation.h>
 
-#import "AZNetworking.h"
+#import "AWSNetworking.h"
+#import "AWSSerialization.h"
 
-@interface AWSJSONRequestSerializer : NSObject <AZURLRequestSerializer>
-
-@end
-
-@interface AWSXMLRequestSerializer : NSObject <AZURLRequestSerializer>
+@interface AWSJSONRequestSerializer : NSObject <AWSURLRequestSerializer>
 
 + (instancetype)serializerWithResource:(NSString *)resource
                             actionName:(NSString *)actionName;
 
 @end
 
-@interface AWSQueryStringRequestSerializer : NSObject <AZURLRequestSerializer>
+@interface AWSXMLRequestSerializer : NSObject <AWSURLRequestSerializer>
+
++ (instancetype)serializerWithResource:(NSString *)resource
+                            actionName:(NSString *)actionName;
+
++ (BOOL)constructURIandHeadersAndBody:(NSMutableURLRequest *)request
+                                rules:(AWSJSONDictionary *)rules parameters:(NSDictionary *)params
+                            uriSchema:(NSString *)uriSchema
+                                error:(NSError *__autoreleasing *)error;
+@end
+
+@interface AWSQueryStringRequestSerializer : NSObject <AWSURLRequestSerializer>
 
 + (instancetype)serializerWithResource:(NSString *)resource
                             actionName:(NSString *)actionName;
 
 @property (nonatomic, strong) NSDictionary *additionalParameters;
 @property (nonatomic, strong) NSString *dateFormat;
+
+@end
+
+@interface AWSEC2RequestSerializer : AWSQueryStringRequestSerializer <AWSURLRequestSerializer>
 
 @end

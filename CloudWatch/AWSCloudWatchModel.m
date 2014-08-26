@@ -14,7 +14,7 @@
  */
 
 #import "AWSCloudWatchModel.h"
-#import "AZCategory.h"
+#import "AWSCategory.h"
 
 NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDomain";
 
@@ -59,9 +59,9 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 
 + (NSValueTransformer *)timestampJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -83,9 +83,9 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 
 + (NSValueTransformer *)timestampJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -263,9 +263,9 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 
 + (NSValueTransformer *)endDateJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -298,9 +298,9 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 
 + (NSValueTransformer *)startDateJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -658,17 +658,17 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 
 + (NSValueTransformer *)endTimeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)startTimeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -914,9 +914,9 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 
 + (NSValueTransformer *)alarmConfigurationUpdatedTimestampJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -958,9 +958,9 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 
 + (NSValueTransformer *)stateUpdatedTimestampJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -1200,9 +1200,9 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 
 + (NSValueTransformer *)timestampJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 

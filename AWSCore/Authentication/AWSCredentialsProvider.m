@@ -16,6 +16,7 @@
 #import "AWSCredentialsProvider.h"
 #import "STS.h"
 #import "UICKeyChainStore.h"
+#import "AWSLogging.h"
 
 NSString *const AWSCognitoIdentityIdChangedNotification = @"com.amazonaws.services.cognitoidentity.AWSCognitoIdentityIdChangedNotification";
 NSString *const AWSCognitoNotificationPreviousId = @"PREVID";
@@ -76,25 +77,29 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
 @implementation AWSWebIdentityCredentialsProvider
 
 + (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
-                                 provider:(NSString *)provider
-                         webIdentityToken:(NSString *)webIdentityToken
-                                  roleArn:(NSString *)roleArn {
+                               providerId:(NSString *)providerId
+                                  roleArn:(NSString *)roleArn
+                          roleSessionName:(NSString *)roleSessionName
+                         webIdentityToken:(NSString *)webIdentityToken {
     AWSWebIdentityCredentialsProvider *credentialsProvider = [[AWSWebIdentityCredentialsProvider alloc] initWithRegionType:regionType
-                                                                                                                  provider:provider
-                                                                                                          webIdentityToken:webIdentityToken
-                                                                                                                   roleArn:roleArn];
+                                                                                                                providerId:providerId
+                                                                                                                   roleArn:roleArn
+                                                                                                           roleSessionName:roleSessionName
+                                                                                                          webIdentityToken:webIdentityToken];
     return credentialsProvider;
 }
 
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
-                          provider:(NSString *)provider
-                  webIdentityToken:(NSString *)webIdentityToken
-                           roleArn:(NSString *)roleArn {
+                        providerId:(NSString *)providerId
+                           roleArn:(NSString *)roleArn
+                   roleSessionName:(NSString *)roleSessionName
+                  webIdentityToken:(NSString *)webIdentityToken {
     if (self = [super init]) {
-        _keychain = [UICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@.%@", provider, webIdentityToken, roleArn]];
-        _provider = provider;
-        _webIdentityToken = webIdentityToken;
+        _keychain = [UICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@.%@", providerId, webIdentityToken, roleArn]];
+        _providerId = providerId;
         _roleArn = roleArn;
+        _roleSessionName = roleSessionName;
+        _webIdentityToken = webIdentityToken;
 
         AWSAnonymousCredentialsProvider *credentialsProvider = [AWSAnonymousCredentialsProvider new];
         AWSServiceConfiguration *configuration = [AWSServiceConfiguration configurationWithRegion:regionType
@@ -109,9 +114,11 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
 - (BFTask *)refresh {
     // request new credentials
     AWSSTSAssumeRoleWithWebIdentityRequest *webIdentityRequest = [AWSSTSAssumeRoleWithWebIdentityRequest new];
+    webIdentityRequest.providerId = self.providerId;
     webIdentityRequest.roleArn = self.roleArn;
+    webIdentityRequest.roleSessionName = self.roleSessionName;
     webIdentityRequest.webIdentityToken = self.webIdentityToken;
-    webIdentityRequest.roleSessionName = @"iOS-Provider";
+
     return [[self.sts assumeRoleWithWebIdentity:webIdentityRequest] continueWithBlock:^id(BFTask *task) {
         if (task.result) {
             AWSSTSAssumeRoleWithWebIdentityResponse *wifResponse = task.result;
@@ -132,6 +139,7 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
                 [self.keychain removeItemForKey:@"secretKey"];
                 [self.keychain removeItemForKey:@"sessionKey"];
                 [self.keychain removeItemForKey:@"expiration"];
+                [self.keychain synchronize];
             }
         }
 
@@ -285,12 +293,12 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
                     return task;
                 }
 
-                AZLogError(@"GetOpenIdToken failed. Error is [%@]", task.error);
-                AZLogVerbose(@"Calling GetId");
+                AWSLogError(@"GetOpenIdToken failed. Error is [%@]", task.error);
+                AWSLogVerbose(@"Calling GetId");
                 // if it's auth, reset id and refetch
                 [self clearKeychain];
                 return [[self getIdentityId] continueWithSuccessBlock:^id(BFTask *task) {
-                    AZLogVerbose(@"Retrying GetOpenIdToken");
+                    AWSLogVerbose(@"Retrying GetOpenIdToken");
 
                     // retry get token
                     AWSCognitoIdentityServiceGetOpenIdTokenInput *tokenRetry = [AWSCognitoIdentityServiceGetOpenIdTokenInput new];
@@ -338,20 +346,14 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
                 }
             } else {
                 // reset the values for the credentials
-                @synchronized(self) {
-                    self.keychain[@"accessKey"] = nil;
-                    self.keychain[@"secretKey"] = nil;
-                    self.keychain[@"sessionKey"] = nil;
-                    self.keychain[@"expiration"] = nil;
-                    [self.keychain synchronize];
-                }
+                [self clearCredentials];
             }
 
             return task;
         }];
     }] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
-            AZLogError(@"Unable to refresh. Error is [%@]", task.error);
+            AWSLogError(@"Unable to refresh. Error is [%@]", task.error);
         }
 
         dispatch_semaphore_signal(semaphore);
@@ -376,7 +378,7 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
 
                 return [[self.cib getId:getIdInput] continueWithBlock:^id(BFTask *task) {
                     if (task.error) {
-                        AZLogError(@"GetId failed. Error is [%@]", task.error);
+                        AWSLogError(@"GetId failed. Error is [%@]", task.error);
                     } else {
                         AWSCognitoIdentityServiceGetIdResponse *getIdResponse = task.result;
                         [self postIdentityIdChangedNotification:getIdResponse.identityId];
@@ -398,11 +400,17 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
 
 - (void)clearKeychain {
     @synchronized(self) {
-        self.keychain[@"identityId"] = nil;
-        self.keychain[@"accessKey"] = nil;
-        self.keychain[@"secretKey"] = nil;
-        self.keychain[@"sessionKey"] = nil;
-        self.keychain[@"expiration"] = nil;
+        [self.keychain removeItemForKey:@"identityId"];
+        [self clearCredentials];
+    }
+}
+
+- (void)clearCredentials {
+    @synchronized(self) {
+        [self.keychain removeItemForKey:@"accessKey"];
+        [self.keychain removeItemForKey:@"secretKey"];
+        [self.keychain removeItemForKey:@"sessionKey"];
+        [self.keychain removeItemForKey:@"expiration"];
         [self.keychain synchronize];
     }
 }
@@ -444,6 +452,9 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
 
 - (void)setLogins:(NSDictionary *)logins {
     _logins = [self updateKeysForLogins:logins];
+    // invalidate the credentials, so next time we
+    // are forced to get a new token (and perhaps merge)
+    [self clearCredentials];
 }
 
 - (NSDictionary *)updateKeysForLogins:(NSDictionary *)logins {

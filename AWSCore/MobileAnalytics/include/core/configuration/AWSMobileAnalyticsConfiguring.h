@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol AWSMobileAnalyticsConfiguration <NSObject>
+@protocol AWSMobileAnalyticsConfiguring <NSObject>
 
 //@required
 //- (BOOL)          boolForKey: (NSString*) key;

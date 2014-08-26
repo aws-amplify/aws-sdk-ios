@@ -14,7 +14,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "configuration/AWSMobileAnalyticsConfiguration.h"
+#import "configuration/AWSMobileAnalyticsConfiguring.h"
 #import "../delivery/AWSMobileAnalyticsDeliveryClient.h"
 #import "http/AWSMobileAnalyticsHttpClient.h"
 #import "util/AWSMobileAnalyticsSDKInfo.h"
@@ -33,7 +33,7 @@
 @property (nonatomic, retain, readonly) id<AWSMobileAnalyticsClientContext> clientContext;
 
 @required
-@property (nonatomic, retain, readonly) id<AWSMobileAnalyticsConfiguration> configuration;
+@property (nonatomic, retain, readonly) id<AWSMobileAnalyticsConfiguring> configuration;
 
 @required
 @property (nonatomic, retain, readonly) NSString* uniqueId;

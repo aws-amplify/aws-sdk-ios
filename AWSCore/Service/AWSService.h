@@ -14,9 +14,11 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "AZNetworking.h"
+#import "AWSNetworking.h"
 #import "AWSCredentialsProvider.h"
 #import "AWSServiceEnum.h"
+
+@class AWSEndpoint;
 
 #pragma mark - AWSService
 
@@ -44,10 +46,11 @@
 
 #pragma mark - AWSServiceConfiguration
 
-@interface AWSServiceConfiguration : AZNetworkingConfiguration
+@interface AWSServiceConfiguration : AWSNetworkingConfiguration
 
-@property (nonatomic, readonly, assign) AWSRegionType regionType;
-@property (nonatomic, readonly, strong) id<AWSCredentialsProvider> credentialsProvider;
+@property (nonatomic, assign, readonly) AWSRegionType regionType;
+@property (nonatomic, strong, readonly) id<AWSCredentialsProvider> credentialsProvider;
+@property (nonatomic, strong) AWSEndpoint *endpoint;
 @property (nonatomic, assign) int32_t maxRetryCount;
 
 + (instancetype)configurationWithRegion:(AWSRegionType)regionType

@@ -14,7 +14,7 @@
  */
 
 #import "AWSMobileAnalyticsAppleMonetizationEventBuilder.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 static NSString* const APPLE_STORE = @"Apple";
 
@@ -64,22 +64,22 @@ static NSString* const APPLE_STORE = @"Apple";
 
 -(BOOL)isValid{
     if([self productId] == nil){
-        AZLogError(@"Apple Monetization event is not valid: it requires the product id");
+        AWSLogError(@"Apple Monetization event is not valid: it requires the product id");
         return false;
     }
     
     if([self transactionId] == nil){
-        AZLogError(@"Apple Monetization event is not valid: it requires the transaction id");
+        AWSLogError(@"Apple Monetization event is not valid: it requires the transaction id");
         return false;
     }
     
     if(self.isItemPriceSet != YES){
-        AZLogError(@"Apple Monetization event is not valid: it requires the item price and locale");
+        AWSLogError(@"Apple Monetization event is not valid: it requires the item price and locale");
         return false;
     }
     
     if(self.isQuantitySet != YES){
-        AZLogError(@"Apple Monetization event is not valid: it requires the quantity");
+        AWSLogError(@"Apple Monetization event is not valid: it requires the quantity");
         return false;
     }
     

@@ -15,12 +15,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AZSynchronizedMutableDictionary : NSObject
+@interface AWSSynchronizedMutableDictionary : NSObject
 
 - (id)objectForKey:(id)aKey;
 - (void)removeObjectForKey:(id)aKey;
 - (void)setObject:(id)anObject forKey:(id <NSCopying>)aKey;
 
 - (void)conditionallySetObject:(id)anObject forKey:(id <NSCopying>)aKey;
+
+- (NSArray *)allKeys;
 
 @end

@@ -13,19 +13,14 @@
  * permissions and limitations under the License.
  */
 
-#import "AWSMobileAnalyticsClientConfiguration.h"
+#import "AWSMobileAnalyticsConfiguration.h"
+#import "AWSService.h"
 
-@implementation AWSMobileAnalyticsClientEnvironment
+@implementation AWSMobileAnalyticsEnvironment
 
 static NSString* const UNKNOWN = @"Unknown";
 
-+(AWSMobileAnalyticsClientEnvironment *)defaultEnvironment
-{
-    return [[self alloc] init];
-}
-
--(instancetype)init
-{
+-(instancetype)init {
     if(self = [super init]) {
         //App Details
         NSString *shortVersionString = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
@@ -40,30 +35,19 @@ static NSString* const UNKNOWN = @"Unknown";
     return self;
 }
 
-
 @end
 
-@implementation AWSMobileAnalyticsClientConfiguration
+@implementation AWSMobileAnalyticsConfiguration
 
-+(AWSMobileAnalyticsClientConfiguration *)defaultClientConfiguration
-{
-    static AWSMobileAnalyticsClientConfiguration *sharedConfiguration = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedConfiguration = [[self alloc] init];
-    });
-    return sharedConfiguration;
-}
-
--(instancetype)init
-{
-    if(self = [super init]) {
+- (instancetype)init {
+    if (self = [super init]) {
         _attributes = [NSDictionary dictionary];
         _useHttps = YES;
-        _environment = [AWSMobileAnalyticsClientEnvironment defaultEnvironment];
+        _environment = [AWSMobileAnalyticsEnvironment new];
         _transmitOnWAN = NO;
         _enableEvents = YES;
-        _identificationStrategy = AZAppIdentificationStrategy_Private;
+        _identificationStrategy = AWSAppIdentificationStrategyPrivate;
+        _serviceConfiguration = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
     }
     return self;
 }

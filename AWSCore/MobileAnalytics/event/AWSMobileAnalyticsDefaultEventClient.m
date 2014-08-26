@@ -15,7 +15,7 @@
 
 #import "AWSMobileAnalyticsDefaultEventClient.h"
 #import "AWSMobileAnalyticsDefaultEvent.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 static NSString* const EVENT_SCHEMA_VERSION = @"v2.0";
 static NSString* const ANALYTICS_ENABLED = @"isAnalyticsEnabled";
@@ -81,7 +81,7 @@ allowsEventCollection: (BOOL) eventCollection
 
 -(void) submitEvents
 {
-    AZLogVerbose( @"Notifying delivery client of submission request.");
+    AWSLogVerbose( @"Notifying delivery client of submission request.");
     [self.deliveryClient attemptDelivery];
 }
 
@@ -97,7 +97,7 @@ allowsEventCollection: (BOOL) eventCollection
 {
     if (theEventType == nil)
     {
-        AZLogWarn( @"Nil event type provided to createInternalEvent");
+        AWSLogWarn( @"Nil event type provided to createInternalEvent");
         return nil;
     }
     return [AWSMobileAnalyticsDefaultEvent defaultEventWithInsightsContext:self.context withEventTimestamp:theTimestamp withEventType:theEventType];
@@ -109,7 +109,7 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
     //- Argument Checks ---------------------------------------------=
     if (theEvent == nil)
     {
-        AZLogInfo( @"Nil event provided to recordEvent");
+        AWSLogInfo( @"Nil event provided to recordEvent");
         return;
     }
     
@@ -177,10 +177,10 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
 
 -(void) notifyObserversForInternalEvent:(id<AWSMobileAnalyticsInternalEvent>) theEvent
 {
-    AZLogVerbose( @"Notifying AWSMobileAnalyticsEventObservers");
-    if([[AZLogger defaultLogger] logLevel] >=  AZLogLevelVerbose)
+    AWSLogVerbose( @"Notifying AWSMobileAnalyticsEventObservers");
+    if([[AWSLogger defaultLogger] logLevel] >=  AWSLogLevelVerbose)
     {
-        AZLogVerbose( @"%@", theEvent);
+        AWSLogVerbose( @"%@", theEvent);
     }
     
     for (id<AWSMobileAnalyticsEventObserver> observer in self.eventObservers)
@@ -194,12 +194,12 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
 {
     if (theValue == nil)
     {
-        AZLogVerbose( @"Nil value provided to addGlobalAttribute");
+        AWSLogVerbose( @"Nil value provided to addGlobalAttribute");
         return;
     }
     if (theKey == nil)
     {
-        AZLogVerbose( @"Nil key provided to addGlobalAttribute");
+        AWSLogVerbose( @"Nil key provided to addGlobalAttribute");
         return;
     }
     
@@ -215,17 +215,17 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
 {
     if (theEventType == nil)
     {
-        AZLogVerbose( @"Nil event type passed into addGlobalAttribute");
+        AWSLogVerbose( @"Nil event type passed into addGlobalAttribute");
         return;
     }
     if (theKey == nil)
     {
-        AZLogVerbose( @"Nil key passed into addGlobalAttribute");
+        AWSLogVerbose( @"Nil key passed into addGlobalAttribute");
         return;
     }
     if (theValue == nil)
     {
-        AZLogVerbose( @"Nil value passed into addGlobalAttribute");
+        AWSLogVerbose( @"Nil value passed into addGlobalAttribute");
         return;
     }
     
@@ -244,12 +244,12 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
 {
     if (theValue == nil)
     {
-        AZLogVerbose( @"Nil value provided to addGlobalMetric");
+        AWSLogVerbose( @"Nil value provided to addGlobalMetric");
         return;
     }
     if (theKey == nil)
     {
-        AZLogVerbose( @"Nil key provided to addGlobalMetric");
+        AWSLogVerbose( @"Nil key provided to addGlobalMetric");
         return;
     }
 
@@ -265,17 +265,17 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
 {
     if (theEventType == nil)
     {
-        AZLogVerbose( @"Nil event type passed into addGlobalMetric");
+        AWSLogVerbose( @"Nil event type passed into addGlobalMetric");
         return;
     }
     if (theKey == nil)
     {
-        AZLogVerbose( @"Nil key passed into addGlobalMetric");
+        AWSLogVerbose( @"Nil key passed into addGlobalMetric");
         return;
     }
     if (theValue == nil)
     {
-        AZLogVerbose( @"Nil value passed into addGlobalMetric");
+        AWSLogVerbose( @"Nil value passed into addGlobalMetric");
         return;
     }
     
@@ -294,7 +294,7 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
 {
     if (theObserver == nil)
     {
-        AZLogVerbose( @"Nil observer passed to addEventObserver");
+        AWSLogVerbose( @"Nil observer passed to addEventObserver");
         return;
     }
     
@@ -308,7 +308,7 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
 {
     if (theObserver == nil)
     {
-        AZLogVerbose( @"Nil observer passed to removeEventObserver");
+        AWSLogVerbose( @"Nil observer passed to removeEventObserver");
         return;
     }
     
@@ -319,7 +319,7 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
 {
     if (theKey == nil)
     {
-        AZLogVerbose( @"Nil key provided to removeGlobalAttributeForKey");
+        AWSLogVerbose( @"Nil key provided to removeGlobalAttributeForKey");
         return;
     }
     
@@ -334,12 +334,12 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
 {
     if (theEventType == nil)
     {
-        AZLogVerbose( @"Nil event type passed into removeGlobalAttributeForKey");
+        AWSLogVerbose( @"Nil event type passed into removeGlobalAttributeForKey");
         return;
     }
     if (theKey == nil)
     {
-        AZLogVerbose( @"Nil key passed into removeGlobalAttribute");
+        AWSLogVerbose( @"Nil key passed into removeGlobalAttribute");
         return;
     }
     
@@ -356,7 +356,7 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
 {
     if (theKey == nil)
     {
-        AZLogVerbose( @"Nil key provided to removeGlobalMetric");
+        AWSLogVerbose( @"Nil key provided to removeGlobalMetric");
         return;
     }
     
@@ -372,12 +372,12 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
 {
     if (theEventType == nil)
     {
-        AZLogVerbose( @"Nil event type passed into removeGlobalMetric");
+        AWSLogVerbose( @"Nil event type passed into removeGlobalMetric");
         return;
     }
     if (theKey == nil)
     {
-        AZLogVerbose( @"Nil key passed into removeGlobalMetric");
+        AWSLogVerbose( @"Nil key passed into removeGlobalMetric");
         return;
     }
     

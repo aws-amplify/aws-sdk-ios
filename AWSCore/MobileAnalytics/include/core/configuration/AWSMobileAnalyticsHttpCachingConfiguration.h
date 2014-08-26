@@ -14,7 +14,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "AWSMobileAnalyticsConfiguration.h"
+#import "AWSMobileAnalyticsConfiguring.h"
 #import "../system/AWSMobileAnalyticsFileManager.h"
 
 @protocol AWSMobileAnalyticsHttpClient;
@@ -23,7 +23,7 @@
 
 FOUNDATION_EXPORT NSString * const AIConfigurationFileStoreFilename;
 
-@interface AWSMobileAnalyticsHttpCachingConfiguration : NSObject <AWSMobileAnalyticsConfiguration>
+@interface AWSMobileAnalyticsHttpCachingConfiguration : NSObject <AWSMobileAnalyticsConfiguring>
 +(AWSMobileAnalyticsHttpCachingConfiguration*)configurationWithContext:(id<AWSMobileAnalyticsContext>)context
                                        withFileManager:(id<AWSMobileAnalyticsFileManager>)fileManager
                                   withOverrideSettings:(NSDictionary*)overrideSettings

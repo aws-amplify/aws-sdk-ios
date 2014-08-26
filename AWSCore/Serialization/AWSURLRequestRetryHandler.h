@@ -15,9 +15,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "AZNetworking.h"
+#import "AWSNetworking.h"
 
-@interface AWSURLRequestRetryHandler : NSObject <AZURLRequestRetryHandler>
+@interface AWSURLRequestRetryHandler : NSObject <AWSURLRequestRetryHandler>
 
 @property (nonatomic, assign) uint32_t maxRetryCount;
 

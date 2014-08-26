@@ -44,12 +44,12 @@ static NSURL *tempSmallURL = nil;
     tempLargeURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-s3tmTestTempLarge",testBucketNameGeneral]]];
     NSError *error = nil;
     if (![[NSFileManager defaultManager] createFileAtPath:tempLargeURL.path contents:nil attributes:nil]) {
-        AZLogError(@"Error: Can not create file with file path:%@",tempLargeURL.path);
+        AWSLogError(@"Error: Can not create file with file path:%@",tempLargeURL.path);
     }
     error = nil;
     NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingToURL:tempLargeURL error:&error];
     if (error) {
-        AZLogError(@"Error: [%@]", error);
+        AWSLogError(@"Error: [%@]", error);
     }
     
     @autoreleasepool {
@@ -59,7 +59,13 @@ static NSURL *tempSmallURL = nil;
             [tempBaseString appendFormat:@"%d", i];
         }
         
-        for (int32_t j = 0; j < 15; j++) {
+        int multiplier;
+#if AWS_TEST_BJS_INSTEAD
+        multiplier = 5;
+#else
+        multiplier = 15;
+#endif
+        for (int32_t j = 0; j < multiplier; j++) {
             @autoreleasepool {
                 [fileHandle writeData:[tempBaseString dataUsingEncoding:NSUTF8StringEncoding]];
             }
@@ -71,12 +77,12 @@ static NSURL *tempSmallURL = nil;
             tempSmallURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-s3tmTestTempSmall",testBucketNameGeneral]]];
             NSError *error = nil;
             if (![[NSFileManager defaultManager] createFileAtPath:tempSmallURL.path contents:nil attributes:nil]) {
-                AZLogError(@"Error: Can not create file with file path:%@",tempSmallURL.path);
+                AWSLogError(@"Error: Can not create file with file path:%@",tempSmallURL.path);
             }
             error = nil;
             NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingToURL:tempSmallURL error:&error];
             if (error) {
-                AZLogError(@"Error: [%@]", error);
+                AWSLogError(@"Error: [%@]", error);
             }
             
             [fileHandle writeData:[tempBaseString dataUsingEncoding:NSUTF8StringEncoding]]; //baseString 800000 = 4.68MB
@@ -181,7 +187,7 @@ static NSURL *tempSmallURL = nil;
     
     
     //Wait a few second and then pause all tasks
-    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:2]];
     [[transferManager pauseAll] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error); //should not return error if successfully paused.
         return nil;
@@ -587,6 +593,77 @@ static NSURL *tempSmallURL = nil;
     }
 }
 
+- (void)testTMDownloadWithoutDownloadingFileURL {
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    XCTAssertNotNil(s3);
+    
+    AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
+    XCTAssertNotNil(transferManager);
+    
+    
+    //Upload a file to the bucket
+    NSString *keyName = [NSString stringWithFormat:@"%@/test.dat",NSStringFromSelector(_cmd)];;
+    
+    NSError *error = nil;
+    XCTAssertTrue([[NSFileManager defaultManager] fileExistsAtPath:tempSmallURL.path]);
+    NSString *fileName = [NSString stringWithFormat:@"%@-%@",NSStringFromSelector(_cmd),testBucketNameGeneral];
+    NSURL *testDataURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+    [[NSFileManager defaultManager] createSymbolicLinkAtURL:testDataURL withDestinationURL:tempSmallURL error:&error];
+    XCTAssertNil(error, @"The request failed. error: [%@]", error);
+    
+    
+    AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
+    uploadRequest.bucket = testBucketNameGeneral;
+    uploadRequest.key = keyName;
+    uploadRequest.body = testDataURL;
+    
+    
+    [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
+        return nil;
+    }] waitUntilFinished];
+    
+    
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
+    
+    //Download the same file from the bucket multiple times
+    for (int i=0; i<3; i++) {
+        
+        AWSS3TransferManagerDownloadRequest *downloadRequest = [AWSS3TransferManagerDownloadRequest new];
+        downloadRequest.bucket = testBucketNameGeneral;
+        downloadRequest.key = keyName;
+        
+        
+        [[[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+            XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+            XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerDownloadOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3TransferManagerDownloadOutput class]),NSStringFromClass([task.result class]));
+            AWSS3TransferManagerDownloadOutput *output = task.result;
+            NSURL *receivedBodyURL = output.body;
+            XCTAssertTrue([receivedBodyURL isKindOfClass:[NSURL class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([receivedBodyURL class]));
+            
+            //Compare file content
+            XCTAssertTrue([[NSFileManager defaultManager] contentsEqualAtPath:receivedBodyURL.path andPath:[[NSFileManager defaultManager] destinationOfSymbolicLinkAtPath:testDataURL.path error:nil]], @"received and sent file are different1");
+            
+            return nil;
+            
+        }] waitUntilFinished];
+        
+    }
+    
+    //Delete the object
+    AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
+    deleteObjectRequest.bucket = testBucketNameGeneral;
+    deleteObjectRequest.key = keyName;
+    
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),NSStringFromClass([task.result class]));
+        return nil;
+    }] waitUntilFinished];
+
+    
+}
 - (void)testTMDownloadSmallSizeWithProgressFeedback {
 
     AWSS3 *s3 = [AWSS3 defaultS3];
@@ -840,13 +917,14 @@ static NSURL *tempSmallURL = nil;
     }];
 
     //wait a few seconds and then pause it.
-    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:2]];
     [[[downloadRequest pause] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error); //should not return error if successfully paused.
         return nil;
     }] waitUntilFinished];
 
-    AZLogDebug(@"(S3 Transfer Manager) Download Task has been paused.");
+    AWSLogDebug(@"(S3 Transfer Manager) Download Task has been paused.");
+    NSLog(@"(S3 Transfer Manager) Download Task has been paused.");
     [pausedTaskOne waitUntilFinished]; //make sure callback has been called.
 
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
@@ -871,6 +949,8 @@ static NSURL *tempSmallURL = nil;
 
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
     //resume the task
+    NSLog(@"(S3 Transfer Manager) Download Task has been resumed.");
+    AWSLogDebug(@"(S3 Transfer Manager) Download Task has been resumed.");
     [[[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerDownloadOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3TransferManagerDownloadOutput class]),NSStringFromClass([task.result class]));
@@ -883,8 +963,8 @@ static NSURL *tempSmallURL = nil;
 
         return nil;
     }] waitUntilFinished];
-    AZLogDebug(@"(S3 Transfer Manager) Download Task has been resumed.");
 
+     NSLog(@"(S3 Transfer Manager) Download Task has been finished.");
     XCTAssertEqual(fileSize, accumulatedDownloadBytes, @"accumulatedDownloadBytes is not equal to total file size");
     XCTAssertEqual(fileSize, totalDownloadedBytes,@"total downloaded fileSize is not equal to uploaded fileSize");
     XCTAssertEqual(fileSize, totalExpectedDownloadBytes);
@@ -903,6 +983,63 @@ static NSURL *tempSmallURL = nil;
 
 }
 
+- (void)testTMWithMissingParameters {
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    XCTAssertNotNil(s3);
+    
+    AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
+    XCTAssertNotNil(transferManager);
+    
+    
+    //Upload a file to the bucket
+    NSString *keyName = NSStringFromSelector(_cmd);
+    
+    NSError *error = nil;
+    XCTAssertTrue([[NSFileManager defaultManager] fileExistsAtPath:tempSmallURL.path]);
+    NSString *fileName = [NSString stringWithFormat:@"%@-%@",NSStringFromSelector(_cmd),testBucketNameGeneral];
+    NSURL *testDataURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+    [[NSFileManager defaultManager] createSymbolicLinkAtURL:testDataURL withDestinationURL:tempSmallURL error:&error];
+    XCTAssertNil(error, @"The request failed. error: [%@]", error);
+    
+    
+    AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
+    uploadRequest.bucket = testBucketNameGeneral;
+    uploadRequest.key = keyName;
+    uploadRequest.body = [NSData data];  //invalid type of body, should be instance of NSURL class.
+    
+    
+    [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNotNil(task.error,@"Expect got 'InvalidParameters' Error, but got nil");
+        XCTAssertNil(task.result, @"task result should be nil since it returns errors");
+        XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
+        XCTAssertEqual(AWSS3TransferManagerErrorInvalidParameters, task.error.code);
+
+        return nil;
+    }] waitUntilFinished];
+    
+    
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:2]];
+    
+    //Download the same file from the bucket
+    AWSS3TransferManagerDownloadRequest *downloadRequest = [AWSS3TransferManagerDownloadRequest new];
+    downloadRequest.bucket = testBucketNameGeneral;
+    //downloadRequest.key = keyName;
+    
+    NSString *downloadFileName = [NSString stringWithFormat:@"%@-downloaded-%@",NSStringFromSelector(_cmd),testBucketNameGeneral];
+    downloadRequest.downloadingFileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:downloadFileName]];
+    
+    
+    [[[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNotNil(task.error,@"Expect got 'MIssingParameters' Error, but got nil");
+        XCTAssertNil(task.result, @"task result should be nil since it returns errors");
+        XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
+        XCTAssertEqual(AWSS3TransferManagerErrorMissingRequiredParameters, task.error.code);
+        return nil;
+        
+    }] waitUntilFinished];
+    
+
+}
 - (void)testTMDownloadPauseAndResumeWithFailedTask {
 
     AWSS3 *s3 = [AWSS3 defaultS3];
@@ -953,13 +1090,13 @@ static NSURL *tempSmallURL = nil;
     }];
 
     //wait a few seconds and then pause it.
-    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:2]];
     [[[downloadRequest pause] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error); //should not return error if successfully paused.
         return nil;
     }] waitUntilFinished];
 
-    AZLogDebug(@"(S3 Transfer Manager) Download Task has been paused.");
+    AWSLogDebug(@"(S3 Transfer Manager) Download Task has been paused.");
     [pausedTaskOne waitUntilFinished]; //make sure callback has been called.
 
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
@@ -999,7 +1136,7 @@ static NSURL *tempSmallURL = nil;
         XCTAssertEqual(AWSS3TransferManagerErrorCompleted, task.error.code, @"expected got  'AWSS3TransferManagerErrorCompleted' error code, but got:%ld",(long)task.error.code);
         return nil;
     }] waitUntilFinished];
-    AZLogDebug(@"(S3 Transfer Manager) Download Task has been resumed.");
+    AWSLogDebug(@"(S3 Transfer Manager) Download Task has been resumed.");
 
 
 
@@ -1051,7 +1188,6 @@ static NSURL *tempSmallURL = nil;
     __block int64_t totalUploadedBytes = 0;
     __block int64_t totalExpectedUploadBytes = 0;
     uploadRequest.uploadProgress = ^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
-        
         //NSLog(@"keyName:%@ bytesSent: %lld, totalBytesSent: %lld, totalBytesExpectedToSend: %lld",keyName,bytesSent,totalBytesSent,totalBytesExpectedToSend);
         accumulatedUploadBytes += bytesSent;
         totalUploadedBytes = totalBytesSent;
@@ -1083,6 +1219,7 @@ static NSURL *tempSmallURL = nil;
     }] waitUntilFinished];
 
     //XCTAssertEqual(fileSize, accumulatedUploadBytes, @"total of accumulatedUploadBytes is not equal to fileSize");
+    
     XCTAssertEqual(fileSize, totalUploadedBytes, @"totalUploaded Bytes is not equal to fileSize");
     XCTAssertEqual(fileSize, totalExpectedUploadBytes);
     
@@ -1157,7 +1294,6 @@ static NSURL *tempSmallURL = nil;
     __block int64_t totalUploadedBytes = 0;
     __block int64_t totalExpectedUploadBytes = 0;
     uploadRequest.uploadProgress = ^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
-        
         //NSLog(@"keyName:%@ bytesSent: %lld, totalBytesSent: %lld, totalBytesExpectedToSend: %lld",keyName,bytesSent,totalBytesSent,totalBytesExpectedToSend);
         accumulatedUploadBytes += bytesSent;
         totalUploadedBytes = totalBytesSent;
@@ -1282,7 +1418,6 @@ static NSURL *tempSmallURL = nil;
     __block int64_t totalUploadedBytes = 0;
     __block int64_t totalExpectedUploadBytes = 0;
     uploadRequest.uploadProgress = ^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
-        
         //NSLog(@"keyName:%@ bytesSent: %lld, totalBytesSent: %lld, totalBytesExpectedToSend: %lld",keyName,bytesSent,totalBytesSent,totalBytesExpectedToSend);
         accumulatedUploadBytes += bytesSent;
         totalUploadedBytes = totalBytesSent;
@@ -1369,8 +1504,7 @@ static NSURL *tempSmallURL = nil;
     __block int64_t totalUploadedBytes = 0;
     __block int64_t totalExpectedUploadBytes = 0;
     uploadRequest.uploadProgress = ^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
-        
-        //NSLog(@"keyName:%@ bytesSent: %lld, totalBytesSent: %lld, totalBytesExpectedToSend: %lld",keyName,bytesSent,totalBytesSent,totalBytesExpectedToSend);
+        //NSLog(@"keyName:%@ bytesSent: %lld, totalBytesSent: %lld, totalBytesExpectedToSend: %lld",keyName,bytesSent,totalBytesSent,totalBytesExpectedToSend);        
         accumulatedUploadBytes += bytesSent;
         totalUploadedBytes = totalBytesSent;
         totalExpectedUploadBytes = totalBytesExpectedToSend;
@@ -1425,12 +1559,312 @@ static NSURL *tempSmallURL = nil;
     }] waitUntilFinished];
 }
 
+- (void)testArchiver {
+    NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"uploadRequest"];
+    
+    AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
+    uploadRequest.bucket = @"test-bucket";
+    uploadRequest.key = @"test-key";
+    uploadRequest.body = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"test-body"]];
+    
+    XCTAssertTrue([uploadRequest respondsToSelector:@selector(encodeWithCoder:)]);
+    
+    XCTAssertTrue([NSKeyedArchiver archiveRootObject:uploadRequest
+                                              toFile:filePath]);
+    AWSS3TransferManagerUploadRequest *unarchivedObject = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    
+    XCTAssertEqualObjects(unarchivedObject.bucket, uploadRequest.bucket);
+    XCTAssertEqualObjects(unarchivedObject.key, uploadRequest.key);
+    XCTAssertEqualObjects(unarchivedObject.body, uploadRequest.body);
+}
+
+- (void)testCleanCacheTempFileAfterPause {
+    
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    XCTAssertNotNil(s3);
+    
+    AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
+    XCTAssertNotNil(transferManager);
+    
+    
+    //Upload a file to the bucket
+    NSString *keyName = NSStringFromSelector(_cmd);
+    NSError *error = nil;
+    XCTAssertTrue([[NSFileManager defaultManager] fileExistsAtPath:tempLargeURL.path]);
+    NSString *fileName = [NSString stringWithFormat:@"%@-%@",NSStringFromSelector(_cmd),testBucketNameGeneral];
+    NSURL *testDataURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+    [[NSFileManager defaultManager] createSymbolicLinkAtURL:testDataURL withDestinationURL:tempLargeURL error:&error];
+    XCTAssertNil(error, @"The request failed. error: [%@]", error);
+ 
+    AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
+    uploadRequest.bucket = testBucketNameGeneral;
+    uploadRequest.key = keyName;
+    uploadRequest.body = testDataURL;
+    
+    
+    [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
+        return nil;
+    }] waitUntilFinished];
+    
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
+    
+    //Download the same file from the bucket
+    AWSS3TransferManagerDownloadRequest *downloadRequest = [AWSS3TransferManagerDownloadRequest new];
+    downloadRequest.bucket = testBucketNameGeneral;
+    downloadRequest.key = keyName;
+    
+    NSString *downloadFileName = [NSString stringWithFormat:@"%@-downloaded-%@",NSStringFromSelector(_cmd),testBucketNameGeneral];
+    downloadRequest.downloadingFileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:downloadFileName]];
+    
+    BFTask *pausedTaskOne = [[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
+        XCTAssertNil(task.result, @"task result should be nil since it has already been cancelled");
+        XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
+        XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
+        return nil;
+    }];
+    
+    //wait a few seconds and then pause it.
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+    [[[downloadRequest pause] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error); //should not return error if successfully paused.
+        return nil;
+    }] waitUntilFinished];
+    
+    AWSLogDebug(@"(S3 Transfer Manager) Download Task has been paused.");
+    [pausedTaskOne waitUntilFinished]; //make sure callback has been called.
+    
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
+    
+    
+    // clean the cache, make sure the temp file is deleted
+    NSURL *tempFileURL = [downloadRequest valueForKey:@"temporaryFileURL"];
+    XCTAssertNotNil(tempFileURL,@"download request's temp file should not be nil");
+    XCTAssertTrue([[NSFileManager defaultManager] fileExistsAtPath:[tempFileURL path]],@"temp file should exist if download is paused");
+    
+    NSLog(@"%s:%d the object's temp file is %@",__FILE__,__LINE__,[tempFileURL path]);
+    
+    [transferManager clearCache];
+    [NSThread sleepForTimeInterval:2.0f];
+    
+    XCTAssertFalse([[NSFileManager defaultManager] fileExistsAtPath:[tempFileURL path]],@"download request's temp file should be deleted, but not");
+    
+    
+    //Delete the object
+    AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
+    deleteObjectRequest.bucket = testBucketNameGeneral;
+    deleteObjectRequest.key = keyName;
+    
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),NSStringFromClass([task.result class]));
+        return nil;
+    }] waitUntilFinished];
+    
+}
+
+- (void)testCleanCacheTempFileAfterCancel{
+    NSCondition *condition = [NSCondition new];
+    
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    XCTAssertNotNil(s3);
+    AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
+    XCTAssertNotNil(transferManager);
+    
+    //Upload a large file to the bucket
+    NSString *keyName =[NSString stringWithFormat:@"%@-large",NSStringFromSelector(_cmd)];
+    NSError *error = nil;
+    XCTAssertTrue([[NSFileManager defaultManager] fileExistsAtPath:tempLargeURL.path]);
+    NSString *fileName = [NSString stringWithFormat:@"%@-%@",NSStringFromSelector(_cmd),testBucketNameGeneral];
+    NSURL *testDataURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+    [[NSFileManager defaultManager] createSymbolicLinkAtURL:testDataURL withDestinationURL:tempLargeURL error:&error];
+    XCTAssertNil(error, @"The request failed. error: [%@]", error);
+    
+    
+    
+    AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
+    uploadRequest.bucket = testBucketNameGeneral;
+    uploadRequest.key = keyName;
+    uploadRequest.body = testDataURL;
+    
+    
+    [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
+        return nil;
+    }] waitUntilFinished];
+    
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
+    
+    //Check if uploaded file is on S3
+    AWSS3ListObjectsRequest *listObjectReq = [AWSS3ListObjectsRequest new];
+    listObjectReq.bucket = testBucketNameGeneral;
+    
+    [[[s3 listObjects:listObjectReq] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3ListObjectsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListObjectsOutput class]));
+        AWSS3ListObjectsOutput *listObjectsOutput = task.result;
+        XCTAssertEqualObjects(listObjectsOutput.name, testBucketNameGeneral);
+        
+        BOOL match = NO;
+        for (AWSS3Object *s3Object in listObjectsOutput.contents) {
+            if ([s3Object.key isEqualToString:keyName] && [s3Object.key isEqualToString:keyName]) {
+                match = YES;
+            }
+        }
+        
+        XCTAssertTrue(match, @"Didn't find the uploaded object in the bucket!");
+        
+        return nil;
+    }] waitUntilFinished];
+    
+    //Download the same file from the bucket
+    AWSS3TransferManagerDownloadRequest *downloadRequest = [AWSS3TransferManagerDownloadRequest new];
+    downloadRequest.bucket = testBucketNameGeneral;
+    downloadRequest.key = keyName;
+    
+    NSString *downloadFileName = [NSString stringWithFormat:@"%@-downloaded-%@",NSStringFromSelector(_cmd),testBucketNameGeneral];
+    downloadRequest.downloadingFileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:downloadFileName]];
+    
+    [[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+        //Should return Cancelled Task Error
+        XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
+        XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
+        XCTAssertEqual(AWSS3TransferManagerErrorCancelled, task.error.code);
+        
+        [condition signal];
+        return nil;
+        
+    }];
+    
+    //Wait a few second and then cancel the task
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.5]];
+    [condition lock];
+    [downloadRequest cancel];
+    [condition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:180]];
+    [condition unlock];
+    
+    
+    // clean the cache, make sure the temp file is deleted
+    NSURL *tempFileURL = [downloadRequest valueForKey:@"temporaryFileURL"];
+    NSLog(@"%s:%d temp file is %@",__FILE__,__LINE__,[tempFileURL path]);
+    XCTAssertFalse([[NSFileManager defaultManager] fileExistsAtPath:[tempFileURL path]],@"download request's temp file should be deleted, but not");
+    
+    //Delete the object
+    AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
+    deleteObjectRequest.bucket = testBucketNameGeneral;
+    deleteObjectRequest.key = keyName;
+    
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),NSStringFromClass([task.result class]));
+        return nil;
+    }] waitUntilFinished];
+    
+}
+
+- (void)testCleanCacheTempFileAgeLimit {
+    
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    XCTAssertNotNil(s3);
+    
+    AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
+    XCTAssertNotNil(transferManager);
+    
+    
+    //Upload a file to the bucket
+    NSString *keyName = NSStringFromSelector(_cmd);
+    NSError *error = nil;
+    XCTAssertTrue([[NSFileManager defaultManager] fileExistsAtPath:tempLargeURL.path]);
+    NSString *fileName = [NSString stringWithFormat:@"%@-%@",NSStringFromSelector(_cmd),testBucketNameGeneral];
+    NSURL *testDataURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+    [[NSFileManager defaultManager] createSymbolicLinkAtURL:testDataURL withDestinationURL:tempLargeURL error:&error];
+    XCTAssertNil(error, @"The request failed. error: [%@]", error);
+    
+    AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
+    uploadRequest.bucket = testBucketNameGeneral;
+    uploadRequest.key = keyName;
+    uploadRequest.body = testDataURL;
+    
+    
+    [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
+        return nil;
+    }] waitUntilFinished];
+    
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
+    
+    //Download the same file from the bucket
+    AWSS3TransferManagerDownloadRequest *downloadRequest = [AWSS3TransferManagerDownloadRequest new];
+    downloadRequest.bucket = testBucketNameGeneral;
+    downloadRequest.key = keyName;
+    
+    NSString *downloadFileName = [NSString stringWithFormat:@"%@-downloaded-%@",NSStringFromSelector(_cmd),testBucketNameGeneral];
+    downloadRequest.downloadingFileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:downloadFileName]];
+    
+    BFTask *pausedTaskOne = [[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
+        XCTAssertNil(task.result, @"task result should be nil since it has already been cancelled");
+        XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
+        XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
+        return nil;
+    }];
+    
+    //wait a few seconds and then pause it.
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+    [[[downloadRequest pause] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error); //should not return error if successfully paused.
+        return nil;
+    }] waitUntilFinished];
+    
+    AWSLogDebug(@"(S3 Transfer Manager) Download Task has been paused.");
+    [pausedTaskOne waitUntilFinished]; //make sure callback has been called.
+    
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
+    
+    
+    // clean the cache, make sure the temp file is deleted
+    NSURL *tempFileURL = [downloadRequest valueForKey:@"temporaryFileURL"];
+    XCTAssertNotNil(tempFileURL,@"download request's temp file should not be nil");
+    XCTAssertTrue([[NSFileManager defaultManager] fileExistsAtPath:[tempFileURL path]],@"temp file should exist if download is paused");
+    
+    transferManager.diskAgeLimit = 10;
+    
+    [NSThread sleepForTimeInterval:11];
+    
+    XCTAssertFalse([[NSFileManager defaultManager] fileExistsAtPath:[tempFileURL path]],@"download request's temp file should be deleted, but not");
+    
+    transferManager.diskAgeLimit = 0.0;
+    
+    //Delete the object
+    AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
+    deleteObjectRequest.bucket = testBucketNameGeneral;
+    deleteObjectRequest.key = keyName;
+    
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),NSStringFromClass([task.result class]));
+        return nil;
+    }] waitUntilFinished];
+}
+
+#pragma mark -
+
 + (BOOL)createBucketWithName:(NSString *)bucketName {
     AWSS3 *s3 = [AWSS3 defaultS3];
 
     AWSS3CreateBucketRequest *createBucketReq = [AWSS3CreateBucketRequest new];
     createBucketReq.bucket = bucketName;
 
+#if AWS_TEST_BJS_INSTEAD
+    AWSS3CreateBucketConfiguration *createBucketConfiguration = [AWSS3CreateBucketConfiguration new];
+    createBucketConfiguration.locationConstraint = AWSS3BucketLocationConstraintCNNorth1;
+    createBucketReq.createBucketConfiguration = createBucketConfiguration;
+#endif
+    
     __block BOOL success = NO;
     [[[s3 createBucket:createBucketReq] continueWithBlock:^id(BFTask *task) {
         if (task.error) {

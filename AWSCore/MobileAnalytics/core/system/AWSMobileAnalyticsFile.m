@@ -14,7 +14,7 @@
  */
 
 #import "AWSMobileAnalyticsFile.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 @interface AWSMobileAnalyticsFile()
 @property (nonatomic, readwrite) NSFileManager* fileManager;
@@ -46,7 +46,7 @@
         self.fileManager = theFileManager;
         if(self.fileManager == nil)
         {
-            AZLogWarn( @"The file path is nil.");
+            AWSLogWarn( @"The file path is nil.");
             return nil;
         }
         
@@ -66,7 +66,7 @@
             }
             else
             {
-                AZLogWarn( @"Both parent path name and child path name were nil");
+                AWSLogWarn( @"Both parent path name and child path name were nil");
                 self->_absolutePath = nil;
             }
         }
@@ -113,12 +113,12 @@
 {
     if(self.fileManager == nil)
     {
-        AZLogWarn( @"The file manager is nil.");
+        AWSLogWarn( @"The file manager is nil.");
         return NO;
     }
     if([AWSMobileAnalyticsStringUtils isBlank:self.absolutePath])
     {
-        AZLogWarn( @"The file path is nil.");
+        AWSLogWarn( @"The file path is nil.");
         return NO;
     }
     
@@ -148,12 +148,12 @@
                                                       error:&error];
         if(error != nil)
         {
-            AZLogError( @"The file could not be deleted. Error:%@", [error localizedDescription]);
+            AWSLogError( @"The file could not be deleted. Error:%@", [error localizedDescription]);
         }
     }
     else
     {
-        AZLogWarn( @"The file does not exist. path:%@", self.absolutePath);
+        AWSLogWarn( @"The file does not exist. path:%@", self.absolutePath);
         deleted = NO;
     }
     return deleted;
@@ -163,12 +163,12 @@
 {
     if([AWSMobileAnalyticsStringUtils isBlank:self.absolutePath])
     {
-        AZLogWarn( @"The file path is nil.");
+        AWSLogWarn( @"The file path is nil.");
         return NO;
     }
     if(self.fileManager == nil)
     {
-        AZLogWarn( @"The file manager is nil.");
+        AWSLogWarn( @"The file manager is nil.");
         return NO;
     }
     
@@ -179,12 +179,12 @@
 {
     if(self.absolutePath == nil)
     {
-        AZLogWarn( @"The file path is nil.");
+        AWSLogWarn( @"The file path is nil.");
         return NO;
     }
     if(self.fileManager == nil)
     {
-        AZLogWarn( @"The file manager is nil.");
+        AWSLogWarn( @"The file manager is nil.");
         return NO;
     }
     
@@ -200,7 +200,7 @@
                                    attributes:nil
                                         error:&error];
     if(error != nil) {
-        AZLogError( @"The directory could not be created. Error:%@", [error localizedDescription]);
+        AWSLogError( @"The directory could not be created. Error:%@", [error localizedDescription]);
         created = NO;
         self->_isDirectory = NO;
         self->_isFile = NO;
@@ -224,7 +224,7 @@
     NSDictionary *attributes = [self.fileManager attributesOfItemAtPath:self.absolutePath error:&error];
     if(error != nil || attributes == nil)
     {
-        AZLogError( @"The file size could not be determined. Error:%@", [error localizedDescription]);
+        AWSLogError( @"The file size could not be determined. Error:%@", [error localizedDescription]);
         return -1;
     }
     return [attributes fileSize];
@@ -242,7 +242,7 @@
     
     if(error != nil)
     {
-        AZLogError( @"The list of files in directory could not be retreived. Error:%@", [error localizedDescription]);
+        AWSLogError( @"The list of files in directory could not be retreived. Error:%@", [error localizedDescription]);
        return [NSArray array]; 
     }
     
@@ -264,7 +264,7 @@
     BOOL success = [self.fileManager moveItemAtPath:self.absolutePath toPath:newAbsolutePath error:&error];
     if(error != nil)
     {
-        AZLogError( @"Failed to rename file to %@. Error:%@", theNewFilename, [error localizedDescription]);
+        AWSLogError( @"Failed to rename file to %@. Error:%@", theNewFilename, [error localizedDescription]);
         success = NO;
     }
     return success;

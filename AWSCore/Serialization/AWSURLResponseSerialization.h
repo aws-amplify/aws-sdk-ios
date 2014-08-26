@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "AZNetworking.h"
+#import "AWSNetworking.h"
 
 FOUNDATION_EXPORT NSString *const AWSGeneralErrorDomain;
 
@@ -28,15 +28,17 @@ typedef NS_ENUM(NSInteger, AWSGeneralErrorType) {
     AWSGeneralErrorAuthFailure
 };
 
-@interface AWSJSONResponseSerializer : NSObject <AZHTTPURLResponseSerializer>
+@interface AWSJSONResponseSerializer : NSObject <AWSHTTPURLResponseSerializer>
 
 @property (nonatomic, assign) Class outputClass;
 
 - (instancetype)initWithOutputClass:(Class)outputClass;
 
++ (instancetype)serializerWithResource:(NSString *)resource actionName:(NSString *)actionName;
+
 @end
 
-@interface AWSXMLResponseSerializer : NSObject <AZHTTPURLResponseSerializer>
+@interface AWSXMLResponseSerializer : NSObject <AWSHTTPURLResponseSerializer>
 
 + (instancetype)serializerWithResource:(NSString *)resource actionName:(NSString *)actionName;
 

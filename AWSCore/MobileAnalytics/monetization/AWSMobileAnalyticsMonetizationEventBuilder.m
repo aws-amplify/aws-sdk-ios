@@ -15,7 +15,7 @@
 
 #import "AWSMobileAnalyticsStringUtils.h"
 #import "AWSMobileAnalyticsMonetizationEventBuilder.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 static NSString* const PURCHASE_EVENT_NAME = @"_monetization.purchase";
 
@@ -75,7 +75,7 @@ static NSString* const PURCHASE_EVENT_TRANSACTION_ID_ATTR = @"_transaction_id";
 }
 
 -(BOOL) isValid{
-    AZLogWarn(@"You are required to override the isValid method of the monetization event builder");
+    AWSLogWarn(@"You are required to override the isValid method of the monetization event builder");
     return false;
 }
 
@@ -147,28 +147,28 @@ static NSString* const PURCHASE_EVENT_TRANSACTION_ID_ATTR = @"_transaction_id";
 
 -(BOOL)doBaseValidation{
     if (eventClient == nil) {
-        AZLogError(@"Cannot build Monetization event: the eventClient is null");
+        AWSLogError(@"Cannot build Monetization event: the eventClient is null");
         return false;
     }
     
     if ([AWSMobileAnalyticsStringUtils isBlank:productId]) {
-        AZLogError(@"Base Monetization event is not valid: it is missing the product id");
+        AWSLogError(@"Base Monetization event is not valid: it is missing the product id");
         return false;
     }
     
     if (!isQuantitySet) {
-        AZLogError(@"Base Monetization event is not valid: it is missing the quantity");
+        AWSLogError(@"Base Monetization event is not valid: it is missing the quantity");
         return false;
     }
     
     if ([AWSMobileAnalyticsStringUtils isBlank:store]) {
-        AZLogError(@"Base Monetization event is not valid: it is missing the store");
+        AWSLogError(@"Base Monetization event is not valid: it is missing the store");
         return false;
     }
     
     if ([AWSMobileAnalyticsStringUtils isBlank:currency] || !isItemPriceSet) {
         if([AWSMobileAnalyticsStringUtils isBlank:formattedItemPrice]){
-            AZLogError(@"Base Monetization event is not valid: it requires the formatted price or the currency and price");
+            AWSLogError(@"Base Monetization event is not valid: it requires the formatted price or the currency and price");
             return false;
         }
     }

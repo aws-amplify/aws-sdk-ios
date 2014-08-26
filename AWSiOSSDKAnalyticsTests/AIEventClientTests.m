@@ -35,7 +35,7 @@ static id mockDelivery = nil;
 
 -(void)setUp
 {
-    mockConfiguration = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsConfiguration)];
+    mockConfiguration = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsConfiguring)];
     [[[mockConfiguration stub] andReturn:@"ver"] stringForKey:@"versionKey" withOptValue:@"ver"];
     [[[mockConfiguration stub] andReturnValue:@YES] boolForKey:@"isAnalyticsEnabled" withOptValue:YES];
     
@@ -131,7 +131,7 @@ static id mockDelivery = nil;
 
 -(void) test_recordEvent_analyticsDisabled_doesNotRecord
 {
-    mockConfiguration = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsConfiguration)];
+    mockConfiguration = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsConfiguring)];
     [[[mockConfiguration stub] andReturn:@"ver"] stringForKey:@"versionKey" withOptValue:@"ver"];
     [[[mockConfiguration stub] andReturnValue:@NO] boolForKey:@"isAnalyticsEnabled" withOptValue:YES];
     

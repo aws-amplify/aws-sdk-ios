@@ -14,7 +14,7 @@
  */
 
 #import "AWSSimpleDBModel.h"
-#import "AZCategory.h"
+#import "AWSCategory.h"
 
 NSString *const AWSSimpleDBErrorDomain = @"com.amazonaws.AWSSimpleDBErrorDomain";
 

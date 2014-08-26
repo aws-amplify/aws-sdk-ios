@@ -14,7 +14,7 @@
  */
 
 #import "AWSMobileAnalyticsVirtualMonetizationEventBuilder.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 static NSString* const VIRTUAL_STORE = @"Virtual";
 
@@ -53,22 +53,22 @@ static NSString* const VIRTUAL_STORE = @"Virtual";
 
 -(BOOL)isValid{
     if([self productId] == nil){
-        AZLogError(@"Virtual Monetization event is not valid: it requires the product id");
+        AWSLogError(@"Virtual Monetization event is not valid: it requires the product id");
         return false;
     }
     
     if(!self.isQuantitySet){
-        AZLogError(@"Virtual Monetization event is not valid: it is missing the quantity");
+        AWSLogError(@"Virtual Monetization event is not valid: it is missing the quantity");
         return false;
     }
     
     if(!self.isItemPriceSet){
-        AZLogError(@"Virtual Monetization event is not valid: it is missing the numerical price");
+        AWSLogError(@"Virtual Monetization event is not valid: it is missing the numerical price");
         return false;
     }
     
     if ([self currency] == nil){
-        AZLogError(@"Virtual Monetization event is not valid: it requires the currency");
+        AWSLogError(@"Virtual Monetization event is not valid: it requires the currency");
         return false;
     }
     

@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AWSNetworking.h"
-#import "AZModel.h"
+#import "AWSModel.h"
 
 FOUNDATION_EXPORT NSString *const AWSS3ErrorDomain;
 
@@ -249,6 +249,8 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @class AWSS3ListPartsRequest;
 @class AWSS3LoggingEnabled;
 @class AWSS3MultipartUpload;
+@class AWSS3NoncurrentVersionExpiration;
+@class AWSS3NoncurrentVersionTransition;
 @class AWSS3NotificationConfiguration;
 @class AWSS3Object;
 @class AWSS3ObjectIdentifier;
@@ -299,7 +301,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3AccessControlPolicy : AZModel
+@interface AWSS3AccessControlPolicy : AWSModel
 
 
 /**
@@ -310,7 +312,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3Bucket : AZModel
+@interface AWSS3Bucket : AWSModel
 
 
 /**
@@ -325,19 +327,19 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3BucketLoggingStatus : AZModel
+@interface AWSS3BucketLoggingStatus : AWSModel
 
 @property (nonatomic, strong) AWSS3LoggingEnabled *loggingEnabled;
 
 @end
 
-@interface AWSS3CORSConfiguration : AZModel
+@interface AWSS3CORSConfiguration : AWSModel
 
 @property (nonatomic, strong) NSArray *CORSRules;
 
 @end
 
-@interface AWSS3CORSRule : AZModel
+@interface AWSS3CORSRule : AWSModel
 
 
 /**
@@ -367,13 +369,13 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3CommonPrefix : AZModel
+@interface AWSS3CommonPrefix : AWSModel
 
 @property (nonatomic, strong) NSString *prefix;
 
 @end
 
-@interface AWSS3CompleteMultipartUploadOutput : AZModel
+@interface AWSS3CompleteMultipartUploadOutput : AWSModel
 
 @property (nonatomic, strong) NSString *bucket;
 
@@ -410,13 +412,13 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3CompletedMultipartUpload : AZModel
+@interface AWSS3CompletedMultipartUpload : AWSModel
 
 @property (nonatomic, strong) NSArray *parts;
 
 @end
 
-@interface AWSS3CompletedPart : AZModel
+@interface AWSS3CompletedPart : AWSModel
 
 
 /**
@@ -431,7 +433,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3Condition : AZModel
+@interface AWSS3Condition : AWSModel
 
 
 /**
@@ -446,7 +448,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3CreateBucketConfiguration : AZModel
+@interface AWSS3CreateBucketConfiguration : AWSModel
 
 
 /**
@@ -456,7 +458,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3CreateBucketOutput : AZModel
+@interface AWSS3CreateBucketOutput : AWSModel
 
 @property (nonatomic, strong) NSString *location;
 
@@ -499,7 +501,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3CreateMultipartUploadOutput : AZModel
+@interface AWSS3CreateMultipartUploadOutput : AWSModel
 
 
 /**
@@ -511,6 +513,16 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
  * Object key for which the multipart upload was initiated.
  */
 @property (nonatomic, strong) NSString *key;
+
+/**
+ * If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+ */
+@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+
+/**
+ * If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
  * The Server-side encryption algorithm used when storing this object in S3.
@@ -590,6 +602,21 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSDictionary *metadata;
 
 /**
+ * Specifies the algorithm to use to when encrypting the object (e.g., AES256).
+ */
+@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+
+/**
+ * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKey;
+
+/**
+ * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+
+/**
  * The Server-side encryption algorithm used when storing this object in S3.
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
@@ -606,7 +633,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3Delete : AZModel
+@interface AWSS3Delete : AWSModel
 
 @property (nonatomic, strong) NSArray *objects;
 
@@ -653,7 +680,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3DeleteMarkerEntry : AZModel
+@interface AWSS3DeleteMarkerEntry : AWSModel
 
 
 /**
@@ -679,7 +706,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3DeleteObjectOutput : AZModel
+@interface AWSS3DeleteObjectOutput : AWSModel
 
 
 /**
@@ -711,7 +738,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3DeleteObjectsOutput : AZModel
+@interface AWSS3DeleteObjectsOutput : AWSModel
 
 @property (nonatomic, strong) NSArray *deleted;
 @property (nonatomic, strong) NSArray *errors;
@@ -730,7 +757,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3DeletedObject : AZModel
+@interface AWSS3DeletedObject : AWSModel
 
 @property (nonatomic, strong) NSNumber *deleteMarker;
 @property (nonatomic, strong) NSString *deleteMarkerVersionId;
@@ -739,7 +766,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3Error : AZModel
+@interface AWSS3Error : AWSModel
 
 @property (nonatomic, strong) NSString *code;
 @property (nonatomic, strong) NSString *key;
@@ -748,7 +775,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3ErrorDocument : AZModel
+@interface AWSS3ErrorDocument : AWSModel
 
 
 /**
@@ -758,7 +785,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3GetBucketAclOutput : AZModel
+@interface AWSS3GetBucketAclOutput : AWSModel
 
 
 /**
@@ -775,7 +802,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3GetBucketCorsOutput : AZModel
+@interface AWSS3GetBucketCorsOutput : AWSModel
 
 @property (nonatomic, strong) NSArray *CORSRules;
 
@@ -787,7 +814,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3GetBucketLifecycleOutput : AZModel
+@interface AWSS3GetBucketLifecycleOutput : AWSModel
 
 @property (nonatomic, strong) NSArray *rules;
 
@@ -799,7 +826,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3GetBucketLocationOutput : AZModel
+@interface AWSS3GetBucketLocationOutput : AWSModel
 
 @property (nonatomic, assign) AWSS3BucketLocationConstraint locationConstraint;
 
@@ -811,7 +838,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3GetBucketLoggingOutput : AZModel
+@interface AWSS3GetBucketLoggingOutput : AWSModel
 
 @property (nonatomic, strong) AWSS3LoggingEnabled *loggingEnabled;
 
@@ -823,7 +850,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3GetBucketNotificationOutput : AZModel
+@interface AWSS3GetBucketNotificationOutput : AWSModel
 
 @property (nonatomic, strong) AWSS3TopicConfiguration *topicConfiguration;
 
@@ -835,7 +862,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3GetBucketPolicyOutput : AZModel
+@interface AWSS3GetBucketPolicyOutput : AWSModel
 
 
 /**
@@ -851,7 +878,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3GetBucketRequestPaymentOutput : AZModel
+@interface AWSS3GetBucketRequestPaymentOutput : AWSModel
 
 
 /**
@@ -867,7 +894,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3GetBucketTaggingOutput : AZModel
+@interface AWSS3GetBucketTaggingOutput : AWSModel
 
 @property (nonatomic, strong) NSArray *tagSet;
 
@@ -879,7 +906,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3GetBucketVersioningOutput : AZModel
+@interface AWSS3GetBucketVersioningOutput : AWSModel
 
 
 /**
@@ -900,7 +927,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3GetBucketWebsiteOutput : AZModel
+@interface AWSS3GetBucketWebsiteOutput : AWSModel
 
 @property (nonatomic, strong) AWSS3ErrorDocument *errorDocument;
 @property (nonatomic, strong) AWSS3IndexDocument *indexDocument;
@@ -915,7 +942,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3GetObjectAclOutput : AZModel
+@interface AWSS3GetObjectAclOutput : AWSModel
 
 
 /**
@@ -938,7 +965,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3GetObjectOutput : AZModel
+@interface AWSS3GetObjectOutput : AWSModel
 
 @property (nonatomic, strong) NSString *acceptRanges;
 
@@ -1018,6 +1045,16 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSString *restore;
 
 /**
+ * If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+ */
+@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+
+/**
+ * If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+
+/**
  * The Server-side encryption algorithm used when storing this object in S3.
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
@@ -1095,13 +1132,28 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSDate *responseExpires;
 
 /**
+ * Specifies the algorithm to use to when encrypting the object (e.g., AES256).
+ */
+@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+
+/**
+ * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKey;
+
+/**
+ * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+
+/**
  * VersionId used to reference a specific version of the object.
  */
 @property (nonatomic, strong) NSString *versionId;
 
 @end
 
-@interface AWSS3GetObjectTorrentOutput : AZModel
+@interface AWSS3GetObjectTorrentOutput : AWSModel
 
 @property (nonatomic, strong) id body;
 
@@ -1114,7 +1166,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3Grant : AZModel
+@interface AWSS3Grant : AWSModel
 
 @property (nonatomic, strong) AWSS3Grantee *grantee;
 
@@ -1125,7 +1177,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3Grantee : AZModel
+@interface AWSS3Grantee : AWSModel
 
 
 /**
@@ -1161,7 +1213,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3HeadObjectOutput : AZModel
+@interface AWSS3HeadObjectOutput : AWSModel
 
 @property (nonatomic, strong) NSString *acceptRanges;
 
@@ -1236,6 +1288,16 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSString *restore;
 
 /**
+ * If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+ */
+@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+
+/**
+ * If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+
+/**
  * The Server-side encryption algorithm used when storing this object in S3.
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
@@ -1283,13 +1345,28 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSString *range;
 
 /**
+ * Specifies the algorithm to use to when encrypting the object (e.g., AES256).
+ */
+@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+
+/**
+ * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKey;
+
+/**
+ * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+
+/**
  * VersionId used to reference a specific version of the object.
  */
 @property (nonatomic, strong) NSString *versionId;
 
 @end
 
-@interface AWSS3IndexDocument : AZModel
+@interface AWSS3IndexDocument : AWSModel
 
 
 /**
@@ -1299,7 +1376,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3Initiator : AZModel
+@interface AWSS3Initiator : AWSModel
 
 
 /**
@@ -1314,13 +1391,13 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3LifecycleConfiguration : AZModel
+@interface AWSS3LifecycleConfiguration : AWSModel
 
 @property (nonatomic, strong) NSArray *rules;
 
 @end
 
-@interface AWSS3LifecycleExpiration : AZModel
+@interface AWSS3LifecycleExpiration : AWSModel
 
 
 /**
@@ -1335,14 +1412,14 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3ListBucketsOutput : AZModel
+@interface AWSS3ListBucketsOutput : AWSModel
 
 @property (nonatomic, strong) NSArray *buckets;
 @property (nonatomic, strong) AWSS3Owner *owner;
 
 @end
 
-@interface AWSS3ListMultipartUploadsOutput : AZModel
+@interface AWSS3ListMultipartUploadsOutput : AWSModel
 
 
 /**
@@ -1430,7 +1507,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3ListObjectVersionsOutput : AZModel
+@interface AWSS3ListObjectVersionsOutput : AWSModel
 
 @property (nonatomic, strong) NSArray *commonPrefixes;
 @property (nonatomic, strong) NSArray *deleteMarkers;
@@ -1503,7 +1580,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3ListObjectsOutput : AZModel
+@interface AWSS3ListObjectsOutput : AWSModel
 
 @property (nonatomic, strong) NSArray *commonPrefixes;
 @property (nonatomic, strong) NSArray *contents;
@@ -1560,7 +1637,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3ListPartsOutput : AZModel
+@interface AWSS3ListPartsOutput : AWSModel
 
 
 /**
@@ -1634,7 +1711,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3LoggingEnabled : AZModel
+@interface AWSS3LoggingEnabled : AWSModel
 
 
 /**
@@ -1650,7 +1727,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3MultipartUpload : AZModel
+@interface AWSS3MultipartUpload : AWSModel
 
 
 /**
@@ -1681,13 +1758,44 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3NotificationConfiguration : AZModel
+/**
+ * Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
+ */
+@interface AWSS3NoncurrentVersionExpiration : AWSModel
+
+
+/**
+ * Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href="/AmazonS3/latest/dev/s3-access-control.html">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.
+ */
+@property (nonatomic, strong) NSNumber *noncurrentDays;
+
+@end
+
+/**
+ * Container for the transition rule that describes when noncurrent objects transition to the GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the GLACIER storage class at a specific period in the object's lifetime.
+ */
+@interface AWSS3NoncurrentVersionTransition : AWSModel
+
+
+/**
+ * Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href="/AmazonS3/latest/dev/s3-access-control.html">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.
+ */
+@property (nonatomic, strong) NSNumber *noncurrentDays;
+
+/**
+ * The class of storage used to store the object.
+ */
+@property (nonatomic, assign) AWSS3TransitionStorageClass storageClass;
+
+@end
+
+@interface AWSS3NotificationConfiguration : AWSModel
 
 @property (nonatomic, strong) AWSS3TopicConfiguration *topicConfiguration;
 
 @end
 
-@interface AWSS3Object : AZModel
+@interface AWSS3Object : AWSModel
 
 @property (nonatomic, strong) NSString *ETag;
 @property (nonatomic, strong) NSString *key;
@@ -1702,7 +1810,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3ObjectIdentifier : AZModel
+@interface AWSS3ObjectIdentifier : AWSModel
 
 
 /**
@@ -1717,7 +1825,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3ObjectVersion : AZModel
+@interface AWSS3ObjectVersion : AWSModel
 
 @property (nonatomic, strong) NSString *ETag;
 
@@ -1754,14 +1862,14 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3Owner : AZModel
+@interface AWSS3Owner : AWSModel
 
 @property (nonatomic, strong) NSString *displayName;
 @property (nonatomic, strong) NSString *ID;
 
 @end
 
-@interface AWSS3Part : AZModel
+@interface AWSS3Part : AWSModel
 
 
 /**
@@ -1944,7 +2052,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3PutObjectOutput : AZModel
+@interface AWSS3PutObjectOutput : AWSModel
 
 
 /**
@@ -1956,6 +2064,16 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
  * If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
  */
 @property (nonatomic, strong) NSDate *expiration;
+
+/**
+ * If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+ */
+@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+
+/**
+ * If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
  * The Server-side encryption algorithm used when storing this object in S3.
@@ -2042,6 +2160,21 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSDictionary *metadata;
 
 /**
+ * Specifies the algorithm to use to when encrypting the object (e.g., AES256).
+ */
+@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+
+/**
+ * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKey;
+
+/**
+ * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+
+/**
  * The Server-side encryption algorithm used when storing this object in S3.
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
@@ -2058,7 +2191,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3Redirect : AZModel
+@interface AWSS3Redirect : AWSModel
 
 
 /**
@@ -2088,7 +2221,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3RedirectAllRequestsTo : AZModel
+@interface AWSS3RedirectAllRequestsTo : AWSModel
 
 
 /**
@@ -2103,7 +2236,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3ReplicateObjectOutput : AZModel
+@interface AWSS3ReplicateObjectOutput : AWSModel
 
 
 /**
@@ -2112,6 +2245,16 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSDate *expiration;
 @property (nonatomic, strong) AWSS3ReplicateObjectResult *replicateObjectResult;
 @property (nonatomic, strong) NSString *replicateSourceVersionId;
+
+/**
+ * If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+ */
+@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+
+/**
+ * If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
  * The Server-side encryption algorithm used when storing this object in S3.
@@ -2194,6 +2337,24 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSDate *replicateSourceIfModifiedSince;
 @property (nonatomic, strong) NSString *replicateSourceIfNoneMatch;
 @property (nonatomic, strong) NSDate *replicateSourceIfUnmodifiedSince;
+@property (nonatomic, strong) NSString *replicateSourceSSECustomerAlgorithm;
+@property (nonatomic, strong) NSString *replicateSourceSSECustomerKey;
+@property (nonatomic, strong) NSString *replicateSourceSSECustomerKeyMD5;
+
+/**
+ * Specifies the algorithm to use to when encrypting the object (e.g., AES256).
+ */
+@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+
+/**
+ * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKey;
+
+/**
+ * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
  * The Server-side encryption algorithm used when storing this object in S3.
@@ -2212,14 +2373,14 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3ReplicateObjectResult : AZModel
+@interface AWSS3ReplicateObjectResult : AWSModel
 
 @property (nonatomic, strong) NSString *ETag;
 @property (nonatomic, strong) NSDate *lastModified;
 
 @end
 
-@interface AWSS3ReplicatePartResult : AZModel
+@interface AWSS3ReplicatePartResult : AWSModel
 
 
 /**
@@ -2234,7 +2395,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3RequestPaymentConfiguration : AZModel
+@interface AWSS3RequestPaymentConfiguration : AWSModel
 
 
 /**
@@ -2249,10 +2410,11 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSString *bucket;
 @property (nonatomic, strong) NSString *key;
 @property (nonatomic, strong) AWSS3RestoreRequest *restoreRequest;
+@property (nonatomic, strong) NSString *versionId;
 
 @end
 
-@interface AWSS3RestoreRequest : AZModel
+@interface AWSS3RestoreRequest : AWSModel
 
 
 /**
@@ -2262,7 +2424,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3RoutingRule : AZModel
+@interface AWSS3RoutingRule : AWSModel
 
 
 /**
@@ -2277,7 +2439,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3Rule : AZModel
+@interface AWSS3Rule : AWSModel
 
 @property (nonatomic, strong) AWSS3LifecycleExpiration *expiration;
 
@@ -2285,6 +2447,16 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
  * Unique identifier for the rule. The value cannot be longer than 255 characters.
  */
 @property (nonatomic, strong) NSString *ID;
+
+/**
+ * Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
+ */
+@property (nonatomic, strong) AWSS3NoncurrentVersionExpiration *noncurrentVersionExpiration;
+
+/**
+ * Container for the transition rule that describes when noncurrent objects transition to the GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the GLACIER storage class at a specific period in the object's lifetime.
+ */
+@property (nonatomic, strong) AWSS3NoncurrentVersionTransition *noncurrentVersionTransition;
 
 /**
  * Prefix identifying one or more objects to which the rule applies.
@@ -2299,7 +2471,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3Tag : AZModel
+@interface AWSS3Tag : AWSModel
 
 
 /**
@@ -2314,13 +2486,13 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3Tagging : AZModel
+@interface AWSS3Tagging : AWSModel
 
 @property (nonatomic, strong) NSArray *tagSet;
 
 @end
 
-@interface AWSS3TargetGrant : AZModel
+@interface AWSS3TargetGrant : AWSModel
 
 @property (nonatomic, strong) AWSS3Grantee *grantee;
 
@@ -2331,7 +2503,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3TopicConfiguration : AZModel
+@interface AWSS3TopicConfiguration : AWSModel
 
 
 /**
@@ -2346,7 +2518,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3Transition : AZModel
+@interface AWSS3Transition : AWSModel
 
 
 /**
@@ -2366,10 +2538,20 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3UploadPartCopyOutput : AZModel
+@interface AWSS3UploadPartCopyOutput : AWSModel
 
 @property (nonatomic, strong) AWSS3ReplicatePartResult *replicatePartResult;
 @property (nonatomic, strong) NSString *replicateSourceVersionId;
+
+/**
+ * If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+ */
+@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+
+/**
+ * If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
  * The Server-side encryption algorithm used when storing this object in S3.
@@ -2393,6 +2575,24 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSString *replicateSourceIfNoneMatch;
 @property (nonatomic, strong) NSDate *replicateSourceIfUnmodifiedSince;
 @property (nonatomic, strong) NSString *replicateSourceRange;
+@property (nonatomic, strong) NSString *replicateSourceSSECustomerAlgorithm;
+@property (nonatomic, strong) NSString *replicateSourceSSECustomerKey;
+@property (nonatomic, strong) NSString *replicateSourceSSECustomerKeyMD5;
+
+/**
+ * Specifies the algorithm to use to when encrypting the object (e.g., AES256).
+ */
+@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+
+/**
+ * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKey;
+
+/**
+ * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
  * Upload ID identifying the multipart upload whose part is being copied.
@@ -2401,13 +2601,23 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3UploadPartOutput : AZModel
+@interface AWSS3UploadPartOutput : AWSModel
 
 
 /**
  * Entity tag for the uploaded object.
  */
 @property (nonatomic, strong) NSString *ETag;
+
+/**
+ * If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+ */
+@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+
+/**
+ * If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
  * The Server-side encryption algorithm used when storing this object in S3.
@@ -2434,13 +2644,28 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSNumber *partNumber;
 
 /**
+ * Specifies the algorithm to use to when encrypting the object (e.g., AES256).
+ */
+@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+
+/**
+ * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKey;
+
+/**
+ * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
+ */
+@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+
+/**
  * Upload ID identifying the multipart upload whose part is being uploaded.
  */
 @property (nonatomic, strong) NSString *uploadId;
 
 @end
 
-@interface AWSS3VersioningConfiguration : AZModel
+@interface AWSS3VersioningConfiguration : AWSModel
 
 
 /**
@@ -2455,7 +2680,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3WebsiteConfiguration : AZModel
+@interface AWSS3WebsiteConfiguration : AWSModel
 
 @property (nonatomic, strong) AWSS3ErrorDocument *errorDocument;
 @property (nonatomic, strong) AWSS3IndexDocument *indexDocument;

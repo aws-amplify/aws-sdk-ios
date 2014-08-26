@@ -30,6 +30,7 @@
 #import "Kinesis.h"
 #import "AWSKinesis.h"
 #import "AWSTestUtility.h"
+#import "AWSEventRecorderService.h"
 
 @import ObjectiveC.runtime;
 
@@ -65,7 +66,7 @@ static char mockDateKey;
     method_exchangeImplementations(_originalDateMethod, _mockDateMethod);
    
     //make sure current runTimeClockSkew is 0
-    [NSDate az_setRuntimeClockSkew:0];
+    [NSDate aws_setRuntimeClockSkew:0];
    
 
 }
@@ -78,7 +79,7 @@ static char mockDateKey;
     // Revert the swizzle
     method_exchangeImplementations(_mockDateMethod, _originalDateMethod);
     //reset RunTimeClockSkew
-    [NSDate az_setRuntimeClockSkew:0];
+    [NSDate aws_setRuntimeClockSkew:0];
 }
 
 // Mock Method, replaces [NSDate date]
@@ -92,9 +93,10 @@ static char mockDateKey;
 }
 
 // ERS Test
+#if !AWS_TEST_BJS_INSTEAD
 -(void)testClockSkewERS
 {
-    XCTAssertFalse([NSDate az_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSEventRecorderService *ers = [AWSEventRecorderService defaultEventRecorderService];
@@ -108,11 +110,11 @@ static char mockDateKey;
     eventOne.attributes = @{};
     eventOne.version = @"v2.0";
     eventOne.eventType = @"_session.start";
-    eventOne.timestamp = [[NSDate date] az_stringValue:AZDateISO8601DateFormat3];
+    eventOne.timestamp = [[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3];
     
     AWSEventRecorderServiceSession *serviceSession = [AWSEventRecorderServiceSession new];
     serviceSession.id = @"SMZSP1G8-21c9ac01-20140604-171714026";
-    serviceSession.startTimestamp = [[NSDate date] az_stringValue:AZDateISO8601DateFormat3];
+    serviceSession.startTimestamp = [[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3];
     
     eventOne.session = serviceSession;
     
@@ -144,11 +146,11 @@ static char mockDateKey;
 
     
 }
-
+#endif
 // S3 Test
 -(void)testClockSkewS3
 {
-    XCTAssertFalse([NSDate az_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
    
     AWSS3 *s3 = [AWSS3 defaultS3];
@@ -164,9 +166,10 @@ static char mockDateKey;
 }
 
 //SimpleDB Tests
+#if !AWS_TEST_BJS_INSTEAD
 -(void)testClockSkewSimpleDB
 {
-    XCTAssertFalse([NSDate az_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSSimpleDB *sdb = [AWSSimpleDB defaultSimpleDB];
@@ -186,11 +189,12 @@ static char mockDateKey;
         return nil;
     }] waitUntilFinished];
 }
+#endif
 
 //DynamoDB Test
 -(void)testClockSkewDynamoDB
 {
-    XCTAssertFalse([NSDate az_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
@@ -214,7 +218,7 @@ static char mockDateKey;
 //SQS Test
 -(void)testClockSkewSQS
 {
-    XCTAssertFalse([NSDate az_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSSQS *sqs = [AWSSQS defaultSQS];
@@ -228,7 +232,7 @@ static char mockDateKey;
         
         if (task.result) {
             AWSSQSListQueuesResult *listQueuesResult = task.result;
-            AZLogDebug(@"[%@]", listQueuesResult);
+            AWSLogDebug(@"[%@]", listQueuesResult);
             XCTAssertNotNil(listQueuesResult.queueUrls);
         }
         
@@ -240,7 +244,7 @@ static char mockDateKey;
 //SNS Test
 -(void)testClockSkewSNS
 {
-    XCTAssertFalse([NSDate az_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSSNS *sns = [AWSSNS defaultSNS];
@@ -265,7 +269,7 @@ static char mockDateKey;
 //CloudWatch Test
 -(void)testClockSkewCW
 {
-    XCTAssertFalse([NSDate az_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSCloudWatch *cloudWatch = [AWSCloudWatch defaultCloudWatch];
@@ -287,9 +291,10 @@ static char mockDateKey;
 }
 
 //SES Test
+#if !AWS_TEST_BJS_INSTEAD
 -(void)testClockSkewSES
 {
-    XCTAssertFalse([NSDate az_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSSES *ses = [AWSSES defaultSES];
@@ -310,11 +315,12 @@ static char mockDateKey;
         return nil;
     }] waitUntilFinished];
 }
+#endif
 
 //EC2 Test
 -(void)testClockSkewEC2
 {
-    XCTAssertFalse([NSDate az_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSEC2 *ec2 = [AWSEC2 defaultEC2];
@@ -339,7 +345,7 @@ static char mockDateKey;
 //ELB Test
 -(void)testClockSkewELB
 {
-    XCTAssertFalse([NSDate az_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     AWSElasticLoadBalancing *elb = [AWSElasticLoadBalancing defaultElasticLoadBalancing];
     XCTAssertNotNil(elb);
@@ -363,7 +369,7 @@ static char mockDateKey;
 //AutoScaling Test
 -(void)testClockSkewAS
 {
-    XCTAssertFalse([NSDate az_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSAutoScaling *autoScaling = [AWSAutoScaling defaultAutoScaling];
@@ -387,7 +393,7 @@ static char mockDateKey;
 //STS Test
 -(void)testClockSkewSTS
 {
-    XCTAssertFalse([NSDate az_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSSTS *sts = (AWSSTS *)[[AWSServiceManager defaultServiceManager] serviceForKey:@"test-sts"];
@@ -415,9 +421,10 @@ static char mockDateKey;
 }
 
 //Kinesis Test
+#if !AWS_TEST_BJS_INSTEAD
 -(void)testClockSkewKinesis
 {
-    XCTAssertFalse([NSDate az_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSKinesis *kinesis = [AWSKinesis defaultKinesis];
@@ -438,18 +445,20 @@ static char mockDateKey;
         return nil;
     }] waitUntilFinished];
 }
+#endif
 
 //Cognito Identity Service Test
+#if !AWS_TEST_BJS_INSTEAD
 -(void)testClockSkewCognitoIdentityService
 {
-    XCTAssertFalse([NSDate az_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
     AWSCognitoIdentityService *cib = [AWSCognitoIdentityService defaultCognitoIdentityService];
     XCTAssertNotNil(cib);
     
     AWSCognitoIdentityServiceListIdentityPoolsInput *listPools = [AWSCognitoIdentityServiceListIdentityPoolsInput new];
-    listPools.maxResults = [NSNumber numberWithInt:10];
+    listPools.maxResults = @10;
     [[[cib listIdentityPools:listPools] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
@@ -463,6 +472,7 @@ static char mockDateKey;
     }] waitUntilFinished];
 
 }
+#endif
 
 //TODO: Add ClockSkew Test for AWSCognitoService
 

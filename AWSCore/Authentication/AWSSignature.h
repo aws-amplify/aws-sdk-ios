@@ -14,7 +14,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "AZNetworking.h"
+#import "AWSNetworking.h"
 
 @class AWSEndpoint;
 
@@ -29,7 +29,7 @@
 
 @end
 
-@interface AWSSignatureV4Signer : NSObject <AZNetworkingRequestInterceptor>
+@interface AWSSignatureV4Signer : NSObject <AWSNetworkingRequestInterceptor>
 
 @property (nonatomic, strong, readonly) id<AWSCredentialsProvider> credentialsProvider;
 
@@ -41,7 +41,7 @@
 
 @end
 
-@interface AWSSignatureV2Signer : NSObject <AZNetworkingRequestInterceptor>
+@interface AWSSignatureV2Signer : NSObject <AWSNetworkingRequestInterceptor>
 
 @property (nonatomic, strong, readonly) id<AWSCredentialsProvider> credentialsProvider;
 

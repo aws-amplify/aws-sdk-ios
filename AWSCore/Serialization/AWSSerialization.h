@@ -56,6 +56,43 @@ typedef NS_ENUM(NSInteger, AWSQueryParamBuilderErrorType) {
     AWSQueryParamBuilderDefinitionFileIsEmpty,
     AWSQueryParamBuilderUndefinedActionRule,
     AWSQueryParamBuilderInternalError,
+    AWSQueryParamBuilderInvalidParameter,
+};
+
+//defined domain for errors from AWSRuntime.
+FOUNDATION_EXPORT NSString *const AWSEC2ParamBuilderErrorDomain;
+
+/* NSError codes in AWSErrorDomain. */
+typedef NS_ENUM(NSInteger, AWSEC2ParamBuilderErrorType) {
+    AWSEC2ParamBuilderUnknownError,
+    AWSEC2ParamBuilderDefinitionFileIsEmpty,
+    AWSEC2ParamBuilderUndefinedActionRule,
+    AWSEC2ParamBuilderInternalError,
+    AWSEC2ParamBuilderInvalidParameter,
+};
+
+//defined domain for errors from AWSRuntime.
+FOUNDATION_EXPORT NSString *const AWSJSONBuilderErrorDomain;
+
+/* NSError codes in AWSErrorDomain. */
+typedef NS_ENUM(NSInteger, AWSJSONBuilderErrorType) {
+    AWSJSONBuilderUnknownError,
+    AWSJSONBuilderDefinitionFileIsEmpty,
+    AWSJSONBuilderUndefinedActionRule,
+    AWSJSONBuilderInternalError,
+    AWSJSONBuilderInvalidParameter,
+};
+
+//defined domain for errors from AWSRuntime.
+FOUNDATION_EXPORT NSString *const AWSJSONParserErrorDomain;
+
+/* NSError codes in AWSErrorDomain. */
+typedef NS_ENUM(NSInteger, AWSJSONParserErrorType) {
+    AWSJSONParserUnknownError,
+    AWSJSONParserDefinitionFileIsEmpty,
+    AWSJSONParserUndefinedActionRule,
+    AWSJSONParserInternalError,
+    AWSJSONParserInvalidParameter,
 };
 
 @interface AWSJSONDictionary : NSDictionary
@@ -100,3 +137,34 @@ typedef NS_ENUM(NSInteger, AWSQueryParamBuilderErrorType) {
                                  error:(NSError *__autoreleasing *)error;
 
 @end
+
+@interface AWSEC2ParamBuilder : NSObject
+
++ (NSDictionary *)buildFormattedParams:(NSDictionary *)params
+                            actionName:(NSString *)actionName
+                 serviceDefinitionRule:(NSDictionary *)serviceDefinitionRule
+                                 error:(NSError *__autoreleasing *)error;
+
+@end
+
+@interface AWSJSONBuilder : NSObject
+
++ (NSData *)jsonDataForDictionary:(NSDictionary *)params
+                       actionName:(NSString *)actionName
+            serviceDefinitionRule:(NSDictionary *)serviceDefinitionRule
+                            error:(NSError *__autoreleasing *)error;
+
+@end
+
+@interface AWSJSONParser : NSObject
+
++ (NSDictionary *)dictionaryForJsonData:(NSData *)data
+                             actionName:(NSString *)actionName
+                  serviceDefinitionRule:(NSDictionary *)serviceDefinitionRule
+                                  error:(NSError *__autoreleasing *)error;
+
+@end
+
+
+
+

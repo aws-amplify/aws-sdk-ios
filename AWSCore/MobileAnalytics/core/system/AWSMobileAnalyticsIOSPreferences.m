@@ -15,7 +15,7 @@
 
 #import "AWSMobileAnalyticsIOSPreferences.h"
 #import "GZIP.h"
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 NSString * const AIPreferencesFilename = @"preferences";
 
@@ -43,7 +43,7 @@ NSString * const AIIOSPreferencesErrorDomain = @"com.amazon.insights-framework.A
         NSAssert(theFileManager != nil, @"The file manager should not have been nil");
         if(theFileManager == nil)
         {
-            AZLogError( @"The file manager should not have been nil");
+            AWSLogError( @"The file manager should not have been nil");
             return nil;
         }
         
@@ -59,11 +59,11 @@ NSString * const AIIOSPreferencesErrorDomain = @"com.amazon.insights-framework.A
         {
             if(createError != nil)
             {
-                AZLogError( @"Error creating preferences file. %@", [createError localizedDescription]);
+                AWSLogError( @"Error creating preferences file. %@", [createError localizedDescription]);
             }
             else
             {
-                AZLogError( @"The preferences file could not be created");
+                AWSLogError( @"The preferences file could not be created");
             }
             return nil;
         }
@@ -79,11 +79,11 @@ NSString * const AIIOSPreferencesErrorDomain = @"com.amazon.insights-framework.A
     {
         if(error != nil)
         {
-            AZLogError( @"There was an error while attempting to write the preferences to the file. %@", [error localizedDescription]);
+            AWSLogError( @"There was an error while attempting to write the preferences to the file. %@", [error localizedDescription]);
         }
         else
         {
-            AZLogError( @"There was an error while attempting to write the preferences to the file.");
+            AWSLogError( @"There was an error while attempting to write the preferences to the file.");
         }
     }
 }
@@ -97,11 +97,11 @@ NSString * const AIIOSPreferencesErrorDomain = @"com.amazon.insights-framework.A
     {
         if(error != nil)
         {
-            AZLogWarn( @"Unable to load the preferences from the file. %@. It is common if the file has not been created yet.", [error localizedDescription]);
+            AWSLogWarn( @"Unable to load the preferences from the file. %@. It is common if the file has not been created yet.", [error localizedDescription]);
         }
         else
         {
-            AZLogError( @"There was an error while attempting to load the preferences from the file.");
+            AWSLogError( @"There was an error while attempting to load the preferences from the file.");
         }
         
     }
@@ -120,12 +120,12 @@ NSString * const AIIOSPreferencesErrorDomain = @"com.amazon.insights-framework.A
 {
     if(self.preferences == nil)
     {
-        AZLogWarn( @"The preferences were nil");
+        AWSLogWarn( @"The preferences were nil");
         return defaultValue;
     }
     else if([AWSMobileAnalyticsStringUtils isBlank:theKey])
     {
-        AZLogWarn( @"The key was blank");
+        AWSLogWarn( @"The key was blank");
         return defaultValue;
     }
 
@@ -147,12 +147,12 @@ NSString * const AIIOSPreferencesErrorDomain = @"com.amazon.insights-framework.A
 {
     if(self.preferences == nil)
     {
-        AZLogWarn( @"The preferences were nil");
+        AWSLogWarn( @"The preferences were nil");
         return defaultValue;
     }
     else if([AWSMobileAnalyticsStringUtils isBlank:theKey])
     {
-        AZLogWarn( @"The key was blank");
+        AWSLogWarn( @"The key was blank");
         return defaultValue;
     }
     
@@ -174,12 +174,12 @@ NSString * const AIIOSPreferencesErrorDomain = @"com.amazon.insights-framework.A
 {
     if(self.preferences == nil)
     {
-        AZLogWarn( @"The user defaults were nil");
+        AWSLogWarn( @"The user defaults were nil");
         return defaultValue;
     }
     else if([AWSMobileAnalyticsStringUtils isBlank:theKey])
     {
-        AZLogWarn( @"The key was blank");
+        AWSLogWarn( @"The key was blank");
         return defaultValue;
     }
     
@@ -201,12 +201,12 @@ NSString * const AIIOSPreferencesErrorDomain = @"com.amazon.insights-framework.A
 {
     if(self.preferences == nil)
     {
-        AZLogWarn( @"The preferences were nil");
+        AWSLogWarn( @"The preferences were nil");
         return defaultValue;
     }
     else if([AWSMobileAnalyticsStringUtils isBlank:theKey])
     {
-        AZLogWarn( @"The key was blank");
+        AWSLogWarn( @"The key was blank");
         return defaultValue;
     }
 
@@ -228,12 +228,12 @@ NSString * const AIIOSPreferencesErrorDomain = @"com.amazon.insights-framework.A
 {
     if(self.preferences == nil)
     {
-        AZLogWarn( @"The preferences were nil");
+        AWSLogWarn( @"The preferences were nil");
         return defaultValue;
     }
     else if([AWSMobileAnalyticsStringUtils isBlank:theKey])
     {
-        AZLogWarn( @"The key was blank");
+        AWSLogWarn( @"The key was blank");
         return defaultValue;
     }
     
@@ -281,17 +281,17 @@ NSString * const AIIOSPreferencesErrorDomain = @"com.amazon.insights-framework.A
 {
     if(self.preferences == nil)
     {
-        AZLogWarn( @"The preferences were nil");
+        AWSLogWarn( @"The preferences were nil");
         return;
     }
     else if([AWSMobileAnalyticsStringUtils isBlank:theKey])
     {
-        AZLogWarn( @"The key was blank");
+        AWSLogWarn( @"The key was blank");
         return;
     }
     else if(theValue == nil)
     {
-        AZLogWarn( @"The key was nil");
+        AWSLogWarn( @"The key was nil");
         return;
     }
     

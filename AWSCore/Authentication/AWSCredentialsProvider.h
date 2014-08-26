@@ -73,17 +73,21 @@ typedef NS_ENUM(NSInteger, AWSCognitoLoginProviderKey) {
 
 @property (nonatomic, strong) NSString *webIdentityToken;
 @property (nonatomic, strong) NSString *roleArn;
-@property (nonatomic, strong) NSString *provider;
+@property (nonatomic, strong) NSString *roleSessionName;
+
+@property (nonatomic, strong) NSString *providerId;
 
 + (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
-                                 provider:(NSString *)provider
-                         webIdentityToken:(NSString *)webIdentityToken
-                                  roleArn:(NSString *)roleArn;
+                               providerId:(NSString *)providerId
+                                  roleArn:(NSString *)roleArn
+                          roleSessionName:(NSString *)roleSessionName
+                         webIdentityToken:(NSString *)webIdentityToken;
 
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
-                          provider:(NSString *)provider
-                  webIdentityToken:(NSString *)webIdentityToken
-                           roleArn:(NSString *)roleArn;
+                        providerId:(NSString *)providerId
+                           roleArn:(NSString *)roleArn
+                   roleSessionName:(NSString *)roleSessionName
+                  webIdentityToken:(NSString *)webIdentityToken;
 
 - (BFTask *)refresh;
 
@@ -141,5 +145,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoLoginProviderKey) {
 - (BFTask *)getIdentityId;
 
 - (void)clearKeychain;
+
+- (void)clearCredentials;
 
 @end

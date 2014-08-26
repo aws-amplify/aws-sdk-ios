@@ -38,7 +38,7 @@
 
 @property (nonatomic, retain, readonly) id<AWSMobileAnalyticsClientContext> clientContext;
 
-@property (nonatomic, retain, readonly) id<AWSMobileAnalyticsConfiguration> configuration;
+@property (nonatomic, retain, readonly) id<AWSMobileAnalyticsConfiguring> configuration;
 
 @property (nonatomic, retain, readonly) NSString* uniqueId;
 

@@ -21,25 +21,25 @@
 #import "http/AWSMobileAnalyticsClientContextInterceptor.h"
 #import "http/AWSMobileAnalyticsInstanceIdInterceptor.h"
 
-@class AWSMobileAnalyticsClientConfiguration;
+@class AWSMobileAnalyticsConfiguration;
 
 @interface AWSMobileAnalyticsDefaultContext : NSObject<AWSMobileAnalyticsContext>
 
-+(id<AWSMobileAnalyticsContext>) contextWithIdentifier:(NSString*) theCredentials
-                                    withSdkInfo:(AWSMobileAnalyticsSDKInfo*)sdkInfo
-                      withConfigurationSettings:(NSDictionary*)settings;
++ (id<AWSMobileAnalyticsContext>)contextWithIdentifier:(NSString*) theCredentials
+                                           withSdkInfo:(AWSMobileAnalyticsSDKInfo*)sdkInfo
+                             withConfigurationSettings:(NSDictionary*)settings;
 
-+(id<AWSMobileAnalyticsContext>) contextWithIdentifier:(NSString*) theCredentials
-                        withClientConfiguration:(AWSMobileAnalyticsClientConfiguration *)clientConfiguration
-                                    withSdkInfo:(AWSMobileAnalyticsSDKInfo*)sdkInfo
-                      withConfigurationSettings:(NSDictionary*)settings;
++ (id<AWSMobileAnalyticsContext>)contextWithIdentifier:(NSString*) theCredentials
+                               withClientConfiguration:(AWSMobileAnalyticsConfiguration *)clientConfiguration
+                                           withSdkInfo:(AWSMobileAnalyticsSDKInfo*)sdkInfo
+                             withConfigurationSettings:(NSDictionary*)settings;
 
 
 @property (nonatomic, retain, readonly) NSString* identifier;
 
 @property (nonatomic, retain, readonly) id<AWSMobileAnalyticsClientContext> clientContext;
 
-@property (nonatomic, retain, readonly) id<AWSMobileAnalyticsConfiguration> configuration;
+@property (nonatomic, retain, readonly) id<AWSMobileAnalyticsConfiguring> configuration;
 
 @property (nonatomic, retain, readonly) NSString* uniqueId;
 

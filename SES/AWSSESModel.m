@@ -14,7 +14,7 @@
  */
 
 #import "AWSSESModel.h"
-#import "AZCategory.h"
+#import "AWSCategory.h"
 
 NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
@@ -104,9 +104,9 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 + (NSValueTransformer *)dkimAttributesJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AZModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSESIdentityDkimAttributes class]];
+		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSESIdentityDkimAttributes class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AZModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
 	}];
 }
 
@@ -132,9 +132,9 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 + (NSValueTransformer *)notificationAttributesJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AZModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSESIdentityNotificationAttributes class]];
+		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSESIdentityNotificationAttributes class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AZModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
 	}];
 }
 
@@ -160,9 +160,9 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 + (NSValueTransformer *)verificationAttributesJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AZModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSESIdentityVerificationAttributes class]];
+		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSESIdentityVerificationAttributes class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AZModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
 	}];
 }
 
@@ -249,6 +249,7 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 	return @{
              @"bounceTopic" : @"BounceTopic",
              @"complaintTopic" : @"ComplaintTopic",
+             @"deliveryTopic" : @"DeliveryTopic",
              @"forwardingEnabled" : @"ForwardingEnabled",
              };
 }
@@ -401,9 +402,9 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 + (NSValueTransformer *)timestampJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -515,6 +516,9 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
         if ([value isEqualToString:@"Complaint"]) {
             return @(AWSSESNotificationTypeComplaint);
         }
+        if ([value isEqualToString:@"Delivery"]) {
+            return @(AWSSESNotificationTypeDelivery);
+        }
         return @(AWSSESNotificationTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -522,6 +526,8 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
                 return @"Bounce";
             case AWSSESNotificationTypeComplaint:
                 return @"Complaint";
+            case AWSSESNotificationTypeDelivery:
+                return @"Delivery";
             case AWSSESNotificationTypeUnknown:
             default:
                 return nil;

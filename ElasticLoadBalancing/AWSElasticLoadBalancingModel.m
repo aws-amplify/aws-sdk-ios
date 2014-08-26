@@ -14,7 +14,7 @@
  */
 
 #import "AWSElasticLoadBalancingModel.h"
-#import "AZCategory.h"
+#import "AWSCategory.h"
 
 NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticLoadBalancingErrorDomain";
 
@@ -49,6 +49,25 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
              @"availabilityZones" : @"AvailabilityZones",
              };
 }
+
+@end
+
+@implementation AWSElasticLoadBalancingAddTagsInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"loadBalancerNames" : @"LoadBalancerNames",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingTag class]];
+}
+
+@end
+
+@implementation AWSElasticLoadBalancingAddTagsOutput
 
 @end
 
@@ -156,6 +175,16 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @end
 
+@implementation AWSElasticLoadBalancingConnectionSettings
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"idleTimeout" : @"IdleTimeout",
+             };
+}
+
+@end
+
 @implementation AWSElasticLoadBalancingCreateAccessPointInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -166,11 +195,16 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
              @"scheme" : @"Scheme",
              @"securityGroups" : @"SecurityGroups",
              @"subnets" : @"Subnets",
+             @"tags" : @"Tags",
              };
 }
 
 + (NSValueTransformer *)listenersJSONTransformer {
 	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingListener class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingTag class]];
 }
 
 @end
@@ -346,6 +380,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 	return @{
              @"loadBalancerNames" : @"LoadBalancerNames",
              @"marker" : @"Marker",
+             @"pageSize" : @"PageSize",
              };
 }
 
@@ -468,6 +503,30 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @end
 
+@implementation AWSElasticLoadBalancingDescribeTagsInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"loadBalancerNames" : @"LoadBalancerNames",
+             };
+}
+
+@end
+
+@implementation AWSElasticLoadBalancingDescribeTagsOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tagDescriptions" : @"TagDescriptions",
+             };
+}
+
++ (NSValueTransformer *)tagDescriptionsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingTagDescription class]];
+}
+
+@end
+
 @implementation AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -517,7 +576,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"instanceId" : @"InstanceId",
              @"reasonCode" : @"ReasonCode",
              @"state" : @"State",
@@ -572,6 +631,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 	return @{
              @"accessLog" : @"AccessLog",
              @"connectionDraining" : @"ConnectionDraining",
+             @"connectionSettings" : @"ConnectionSettings",
              @"crossZoneLoadBalancing" : @"CrossZoneLoadBalancing",
              };
 }
@@ -582,6 +642,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 + (NSValueTransformer *)connectionDrainingJSONTransformer {
 	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingConnectionDraining class]];
+}
+
++ (NSValueTransformer *)connectionSettingsJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingConnectionSettings class]];
 }
 
 + (NSValueTransformer *)crossZoneLoadBalancingJSONTransformer {
@@ -619,9 +683,9 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 + (NSValueTransformer *)createdTimeJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -727,7 +791,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
              @"attributeType" : @"AttributeType",
              @"cardinality" : @"Cardinality",
              @"defaultValue" : @"DefaultValue",
-             @"description" : @"Description",
+             @"detail" : @"Description",
              };
 }
 
@@ -753,7 +817,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"description" : @"Description",
+             @"detail" : @"Description",
              @"policyAttributeTypeDescriptions" : @"PolicyAttributeTypeDescriptions",
              @"policyTypeName" : @"PolicyTypeName",
              };
@@ -815,6 +879,25 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @end
 
+@implementation AWSElasticLoadBalancingRemoveTagsInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"loadBalancerNames" : @"LoadBalancerNames",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingTagKeyOnly class]];
+}
+
+@end
+
+@implementation AWSElasticLoadBalancingRemoveTagsOutput
+
+@end
+
 @implementation AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -869,6 +952,42 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 	return @{
              @"groupName" : @"GroupName",
              @"ownerAlias" : @"OwnerAlias",
+             };
+}
+
+@end
+
+@implementation AWSElasticLoadBalancingTag
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"key" : @"Key",
+             @"value" : @"Value",
+             };
+}
+
+@end
+
+@implementation AWSElasticLoadBalancingTagDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"loadBalancerName" : @"LoadBalancerName",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingTag class]];
+}
+
+@end
+
+@implementation AWSElasticLoadBalancingTagKeyOnly
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"key" : @"Key",
              };
 }
 

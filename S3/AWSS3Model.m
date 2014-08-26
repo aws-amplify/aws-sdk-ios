@@ -14,7 +14,7 @@
  */
 
 #import "AWSS3Model.h"
-#import "AZCategory.h"
+#import "AWSCategory.h"
 
 NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
@@ -60,9 +60,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSValueTransformer *)creationDateJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -136,9 +136,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSValueTransformer *)expirationJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -350,6 +350,8 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 	return @{
              @"bucket" : @"Bucket",
              @"key" : @"Key",
+             @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
+             @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"uploadId" : @"UploadId",
              };
@@ -392,6 +394,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"grantWriteACP" : @"GrantWriteACP",
              @"key" : @"Key",
              @"metadata" : @"Metadata",
+             @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
+             @"SSECustomerKey" : @"SSECustomerKey",
+             @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"storageClass" : @"StorageClass",
              @"websiteRedirectLocation" : @"WebsiteRedirectLocation",
@@ -442,9 +447,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSValueTransformer *)expiresJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -578,9 +583,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSValueTransformer *)lastModifiedJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -1128,6 +1133,8 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"metadata" : @"Metadata",
              @"missingMeta" : @"MissingMeta",
              @"restore" : @"Restore",
+             @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
+             @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"versionId" : @"VersionId",
              @"websiteRedirectLocation" : @"WebsiteRedirectLocation",
@@ -1136,25 +1143,25 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSValueTransformer *)expirationJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)expiresJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)lastModifiedJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -1194,31 +1201,34 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"responseContentLanguage" : @"ResponseContentLanguage",
              @"responseContentType" : @"ResponseContentType",
              @"responseExpires" : @"ResponseExpires",
+             @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
+             @"SSECustomerKey" : @"SSECustomerKey",
+             @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
              @"versionId" : @"VersionId",
              };
 }
 
 + (NSValueTransformer *)ifModifiedSinceJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)ifUnmodifiedSinceJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)responseExpiresJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -1367,6 +1377,8 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"metadata" : @"Metadata",
              @"missingMeta" : @"MissingMeta",
              @"restore" : @"Restore",
+             @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
+             @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"versionId" : @"VersionId",
              @"websiteRedirectLocation" : @"WebsiteRedirectLocation",
@@ -1375,25 +1387,25 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSValueTransformer *)expirationJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)expiresJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)lastModifiedJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -1427,23 +1439,26 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"ifUnmodifiedSince" : @"IfUnmodifiedSince",
              @"key" : @"Key",
              @"range" : @"Range",
+             @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
+             @"SSECustomerKey" : @"SSECustomerKey",
+             @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
              @"versionId" : @"VersionId",
              };
 }
 
 + (NSValueTransformer *)ifModifiedSinceJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)ifUnmodifiedSinceJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -1495,9 +1510,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSValueTransformer *)dateJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -1857,9 +1872,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSValueTransformer *)initiatedJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -1887,6 +1902,44 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
             case AWSS3StorageClassReducedRedundancy:
                 return @"REDUCED_REDUNDANCY";
             case AWSS3StorageClassUnknown:
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSS3NoncurrentVersionExpiration
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"noncurrentDays" : @"NoncurrentDays",
+             };
+}
+
+@end
+
+@implementation AWSS3NoncurrentVersionTransition
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"noncurrentDays" : @"NoncurrentDays",
+             @"storageClass" : @"StorageClass",
+             };
+}
+
++ (NSValueTransformer *)storageClassJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"GLACIER"]) {
+            return @(AWSS3TransitionStorageClassGlacier);
+        }
+        return @(AWSS3TransitionStorageClassUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSS3TransitionStorageClassGlacier:
+                return @"GLACIER";
+            case AWSS3TransitionStorageClassUnknown:
             default:
                 return nil;
         }
@@ -1924,9 +1977,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSValueTransformer *)lastModifiedJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -1991,9 +2044,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSValueTransformer *)lastModifiedJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -2044,9 +2097,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSValueTransformer *)lastModifiedJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -2318,6 +2371,8 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 	return @{
              @"ETag" : @"ETag",
              @"expiration" : @"Expiration",
+             @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
+             @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"versionId" : @"VersionId",
              };
@@ -2325,9 +2380,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSValueTransformer *)expirationJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -2371,6 +2426,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"grantWriteACP" : @"GrantWriteACP",
              @"key" : @"Key",
              @"metadata" : @"Metadata",
+             @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
+             @"SSECustomerKey" : @"SSECustomerKey",
+             @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"storageClass" : @"StorageClass",
              @"websiteRedirectLocation" : @"WebsiteRedirectLocation",
@@ -2421,9 +2479,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSValueTransformer *)expiresJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -2544,15 +2602,17 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"expiration" : @"Expiration",
              @"replicateObjectResult" : @"CopyObjectResult",
              @"replicateSourceVersionId" : @"CopySourceVersionId",
+             @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
+             @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
              @"serverSideEncryption" : @"ServerSideEncryption",
              };
 }
 
 + (NSValueTransformer *)expirationJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -2603,6 +2663,12 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"replicateSourceIfModifiedSince" : @"CopySourceIfModifiedSince",
              @"replicateSourceIfNoneMatch" : @"CopySourceIfNoneMatch",
              @"replicateSourceIfUnmodifiedSince" : @"CopySourceIfUnmodifiedSince",
+             @"replicateSourceSSECustomerAlgorithm" : @"CopySourceSSECustomerAlgorithm",
+             @"replicateSourceSSECustomerKey" : @"CopySourceSSECustomerKey",
+             @"replicateSourceSSECustomerKeyMD5" : @"CopySourceSSECustomerKeyMD5",
+             @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
+             @"SSECustomerKey" : @"SSECustomerKey",
+             @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"storageClass" : @"StorageClass",
              @"websiteRedirectLocation" : @"WebsiteRedirectLocation",
@@ -2653,9 +2719,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSValueTransformer *)expiresJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -2683,17 +2749,17 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSValueTransformer *)replicateSourceIfModifiedSinceJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)replicateSourceIfUnmodifiedSinceJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -2749,9 +2815,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSValueTransformer *)lastModifiedJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -2768,9 +2834,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSValueTransformer *)lastModifiedJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -2815,6 +2881,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"bucket" : @"Bucket",
              @"key" : @"Key",
              @"restoreRequest" : @"RestoreRequest",
+             @"versionId" : @"VersionId",
              };
 }
 
@@ -2859,6 +2926,8 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 	return @{
              @"expiration" : @"Expiration",
              @"ID" : @"ID",
+             @"noncurrentVersionExpiration" : @"NoncurrentVersionExpiration",
+             @"noncurrentVersionTransition" : @"NoncurrentVersionTransition",
              @"prefix" : @"Prefix",
              @"status" : @"Status",
              @"transition" : @"Transition",
@@ -2867,6 +2936,14 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSValueTransformer *)expirationJSONTransformer {
 	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSS3LifecycleExpiration class]];
+}
+
++ (NSValueTransformer *)noncurrentVersionExpirationJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSS3NoncurrentVersionExpiration class]];
+}
+
++ (NSValueTransformer *)noncurrentVersionTransitionJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSS3NoncurrentVersionTransition class]];
 }
 
 + (NSValueTransformer *)statusJSONTransformer {
@@ -3004,9 +3081,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSValueTransformer *)dateJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -3035,6 +3112,8 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 	return @{
              @"replicatePartResult" : @"CopyPartResult",
              @"replicateSourceVersionId" : @"CopySourceVersionId",
+             @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
+             @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
              @"serverSideEncryption" : @"ServerSideEncryption",
              };
 }
@@ -3075,23 +3154,29 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"replicateSourceIfNoneMatch" : @"CopySourceIfNoneMatch",
              @"replicateSourceIfUnmodifiedSince" : @"CopySourceIfUnmodifiedSince",
              @"replicateSourceRange" : @"CopySourceRange",
+             @"replicateSourceSSECustomerAlgorithm" : @"CopySourceSSECustomerAlgorithm",
+             @"replicateSourceSSECustomerKey" : @"CopySourceSSECustomerKey",
+             @"replicateSourceSSECustomerKeyMD5" : @"CopySourceSSECustomerKeyMD5",
+             @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
+             @"SSECustomerKey" : @"SSECustomerKey",
+             @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
              @"uploadId" : @"UploadId",
              };
 }
 
 + (NSValueTransformer *)replicateSourceIfModifiedSinceJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)replicateSourceIfUnmodifiedSinceJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate az_dateFromString:str];
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date az_stringValue:AZDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -3102,6 +3187,8 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ETag" : @"ETag",
+             @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
+             @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
              @"serverSideEncryption" : @"ServerSideEncryption",
              };
 }
@@ -3135,6 +3222,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"contentMD5" : @"ContentMD5",
              @"key" : @"Key",
              @"partNumber" : @"PartNumber",
+             @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
+             @"SSECustomerKey" : @"SSECustomerKey",
+             @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
              @"uploadId" : @"UploadId",
              };
 }

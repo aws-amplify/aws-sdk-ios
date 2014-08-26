@@ -61,8 +61,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisRecorderByteThresholdReachedNotifica
  *  Returns an instance of this service client using `configuration` and `identifier`.
  *
  *  @param configuration An object to configure the internal `AWSKinesis`. At least `regionType` and `credentialsProvider` need to be set.
- *  @param identifier    An unique identifier for AWSKinesisRecorder to create a disk cache. Multiple instances with the same identifier are allowed and can safely access
- the same data on disk.
+ *  @param identifier    An unique identifier for AWSKinesisRecorder to create a disk cache. Multiple instances with the same identifier are allowed and can safely access the same data on disk.
  *
  *  @return An instance of this service client.
  */

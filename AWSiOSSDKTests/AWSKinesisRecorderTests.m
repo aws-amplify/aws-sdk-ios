@@ -13,7 +13,7 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_KINESIS_RECORDER
+#if AWS_TEST_KINESIS_RECORDER && !AWS_TEST_BJS_INSTEAD
 
 #import <XCTest/XCTest.h>
 #import "Kinesis.h"
@@ -105,7 +105,6 @@ static NSString *testStreamName = nil;
     [[[[[[[BFTask taskForCompletionOfAllTasks:tasks] continueWithSuccessBlock:^id(BFTask *task) {
         return [kinesisRecorder submitAllRecords];
     }] continueWithSuccessBlock:^id(BFTask *task) {
-        sleep(10);
         AWSKinesisDescribeStreamInput *describeStreamInput = [AWSKinesisDescribeStreamInput new];
         describeStreamInput.streamName = testStreamName;
         return [kinesis describeStream:describeStreamInput];

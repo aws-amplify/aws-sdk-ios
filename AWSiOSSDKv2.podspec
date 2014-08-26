@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'AWSiOSSDKv2'
-  s.version      = '2.0.5'
+  s.version      = '2.0.6'
   s.summary      = 'Amazon Web Services SDK for iOS.'
 
   s.description  = 'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.dependency 'Bolts', '~> 1.1.0'
   s.dependency 'Mantle', '~> 1.4.1'
-  s.dependency 'TMCache', '~> 1.2.0'
+  s.dependency 'TMCache', '~> 1.2.1'
   s.dependency 'CSURITemplate', '~> 0.3.0'
   s.dependency 'XMLDictionary', '~> 1.4.0'
   s.dependency 'UICKeyChainStore', '~> 1.0.5'
@@ -27,8 +27,8 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.subspec 'AWSCore' do |aws|
-    aws.source_files = 'AmazonCore/*.{h,m}', 'AmazonCore/**/*.{h,m}', 'AWSCore/*.{h,m}', 'AWSCore/**/*.{h,m}'
-    aws.resources = ['AWSCore/STS/Resources/*.json']
+    aws.source_files = 'AWSCore/*.{h,m}', 'AWSCore/**/*.{h,m}'
+    aws.resources = ['AWSCore/**/Resources/*.json']
   end
 
   s.subspec 'AutoScaling' do |autoscaling|

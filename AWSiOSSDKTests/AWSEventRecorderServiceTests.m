@@ -13,18 +13,18 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_ERS
-
+#if AWS_TEST_EVENT_RECORDER_SERVICE && !AWS_TEST_BJS_INSTEAD
 
 #import <XCTest/XCTest.h>
 #import "AWSCore.h"
 #import "AWSTestUtility.h"
+#import "AWSEventRecorderService.h"
 
-@interface AWSERSTests : XCTestCase
+@interface AWSEventRecorderServiceTests : XCTestCase
 
 @end
 
-@implementation AWSERSTests
+@implementation AWSEventRecorderServiceTests
 
 - (void)setUp
 {
@@ -37,8 +37,7 @@
     [super tearDown];
 }
 
-- (void)testPutEvents
-{
+- (void)testPutEvents {
     AWSEventRecorderService *ers = [AWSEventRecorderService defaultEventRecorderService];
     
     AWSEventRecorderServicePutEventsInput *putEventInput = [AWSEventRecorderServicePutEventsInput new];
@@ -49,11 +48,11 @@
     eventOne.attributes = @{};
     eventOne.version = @"v2.0";
     eventOne.eventType = @"_session.start";
-    eventOne.timestamp = [[NSDate date] az_stringValue:AZDateISO8601DateFormat3];
+    eventOne.timestamp = [[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3];
     
     AWSEventRecorderServiceSession *serviceSession = [AWSEventRecorderServiceSession new];
     serviceSession.id = @"SMZSP1G8-21c9ac01-20140604-171714026";
-    serviceSession.startTimestamp = [[NSDate date] az_stringValue:AZDateISO8601DateFormat3];
+    serviceSession.startTimestamp = [[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3];
     
     eventOne.session = serviceSession;
     

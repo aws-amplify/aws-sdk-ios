@@ -40,7 +40,7 @@ static id mockIterator = nil;
 - (void)setUp
 {
     mockHttpClient = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsHttpClient)];
-    mockConfiguration = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsConfiguration)];
+    mockConfiguration = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsConfiguring)];
     mockLifeCycleManager = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsLifeCycleManager)];
     mockDeliveryPolicyFactory = [OCMockObject niceMockForClass:[AWSMobileAnalyticsDeliveryPolicyFactory class]];
     mockERSRequestBuilder = [OCMockObject niceMockForClass:[AWSMobileAnalyticsERSRequestBuilder class]];

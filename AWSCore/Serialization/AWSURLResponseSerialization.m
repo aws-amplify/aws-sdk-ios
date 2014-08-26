@@ -15,12 +15,11 @@
 
 #import "AWSURLResponseSerialization.h"
 
-#import "AZLogging.h"
+#import "AWSLogging.h"
 
 #import "AWSService.h"
 #import "AWSValidation.h"
 #import "AWSSerialization.h"
-#import "TMCache.h"
 
 NSString *const AWSGeneralErrorDomain = @"com.amazonaws.AWSGeneralErrorDomain";
 
@@ -28,6 +27,12 @@ NSString *const AWSGeneralErrorDomain = @"com.amazonaws.AWSGeneralErrorDomain";
 
 static NSDictionary *errorCodeDictionary = nil;
 
+@interface AWSJSONResponseSerializer()
+
+@property (nonatomic, strong) NSDictionary *serviceDefinitionJSON;
+@property (nonatomic, strong) NSString *actionName;
+
+@end
 
 @implementation AWSJSONResponseSerializer
 
@@ -49,17 +54,39 @@ static NSDictionary *errorCodeDictionary = nil;
     return self;
 }
 
++ (instancetype)serializerWithResource:(NSString *)resource actionName:(NSString *)actionName {
+    AWSJSONResponseSerializer *serializer = [self new];
+    
+    NSError *error = nil;
+    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:resource ofType:@"json"];
+    if (filePath == nil) {
+        AWSLogError(@"can not find %@.json file in the project",resource);
+    } else {
+        serializer.serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                           options:kNilOptions
+                                                                             error:&error];
+    }
+    if (error) {
+        AWSLogError(@"Error: [%@]", error);
+    }
+    
+    serializer.actionName = actionName;
+    
+    return serializer;
+}
+
+
 - (id)responseObjectForResponse:(NSHTTPURLResponse *)response
                 originalRequest:(NSURLRequest *)originalRequest
                  currentRequest:(NSURLRequest *)currentRequest
                            data:(id)data
                           error:(NSError *__autoreleasing *)error {
     if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-        AZLogDebug(@"Response header: [%@]", response.allHeaderFields);
+        AWSLogDebug(@"Response header: [%@]", response.allHeaderFields);
     }
 
     if ([data isKindOfClass:[NSData class]]) {
-        AZLogVerbose(@"Response body: [%@]", [[NSString alloc] initWithData:data
+        AWSLogVerbose(@"Response body: [%@]", [[NSString alloc] initWithData:data
                                                                    encoding:NSUTF8StringEncoding]);
     }
 
@@ -92,9 +119,8 @@ static NSDictionary *errorCodeDictionary = nil;
     id result = nil;
 
     if (data) {
-        result = [NSJSONSerialization JSONObjectWithData:data
-                                                 options:0
-                                                   error:error];
+        //parse JSON data
+        result = [AWSJSONParser dictionaryForJsonData:data actionName:self.actionName serviceDefinitionRule:self.serviceDefinitionJSON error:error];
 
         //Parse AWSGeneralError
         if ([result isKindOfClass:[NSDictionary class]]) {
@@ -102,7 +128,7 @@ static NSDictionary *errorCodeDictionary = nil;
                 if (error) {
                     *error = [NSError errorWithDomain:AWSGeneralErrorDomain
                                                  code:[[errorCodeDictionary objectForKey:[[[result objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]] integerValue]
-                                             userInfo:@{NSLocalizedDescriptionKey : [result objectForKey:@"message"]?[result objectForKey:@"message"]:[NSNull null]}];
+                                             userInfo:result];
                 }
             }
         }
@@ -145,14 +171,14 @@ static NSDictionary *errorCodeDictionary = nil;
     NSError *error = nil;
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:resource ofType:@"json"];
     if (filePath == nil) {
-        AZLogError(@"can not find %@.json file in the project",actionName);
+        AWSLogError(@"can not find %@.json file in the project",resource);
     } else {
         serializer.serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                            options:kNilOptions
                                                                              error:&error];
     }
     if (error) {
-        AZLogError(@"Error: [%@]", error);
+        AWSLogError(@"Error: [%@]", error);
     }
 
     serializer.actionName = actionName;
@@ -168,27 +194,6 @@ static NSDictionary *errorCodeDictionary = nil;
     return YES;
 }
 
-- (NSMutableDictionary *)parsePayloadData:(NSData *)bodyData rules:(AWSJSONDictionary *)rules {
-    NSMutableDictionary *resultDictionary = [NSMutableDictionary new];
-    //If no rule or no data just return
-    if (rules == (id)[NSNull null] ||  [rules count] == 0 || !bodyData) {
-        return resultDictionary;
-    }
-
-    NSString *payloadMemberName = rules[@"payload"];
-    if (payloadMemberName) {
-        resultDictionary[payloadMemberName] = bodyData;
-    }
-
-    //    AWSJSONDictionary * allMemberRules = rules[@"members"] ? rules[@"members"] : @{};
-    //    [allMemberRules enumerateKeysAndObjectsUsingBlock:^(NSString *memberName, id memberRules, BOOL *stop) {
-    //        if ([memberRules isKindOfClass:[NSDictionary class]] && [memberRules[@"payload"] boolValue]) {
-    //            resultDictionary[memberName] = bodyData;
-    //        }
-    //    }];
-    return resultDictionary;
-}
-
 - (NSMutableDictionary *)parseResponseHeader:(NSDictionary *)responseHeaders
                                        rules:(AWSJSONDictionary *)rules
                               bodyDictionary:(NSMutableDictionary *)bodyDictionary
@@ -202,7 +207,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
     [rules enumerateKeysAndObjectsUsingBlock:^(NSString *memberName, id memberRules, BOOL *stop) {
         if ([memberRules isKindOfClass:[NSDictionary class]] && [memberRules[@"location"] isEqualToString:@"header"]) {
-            NSString *locationName = memberRules[@"locationName"];
+            NSString *locationName = memberRules[@"locationName"]?memberRules[@"locationName"]:memberName;
             if (locationName && responseHeaders[locationName]) {
                 NSString *rulesType = memberRules[@"type"];
                 if ([rulesType isEqualToString:@"integer"]) {
@@ -231,11 +236,11 @@ static NSDictionary *errorCodeDictionary = nil;
                            data:(id)data
                           error:(NSError *__autoreleasing *)error {
     if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-        AZLogDebug(@"Response header: [%@]", response.allHeaderFields);
+        AWSLogDebug(@"Response header: [%@]", response.allHeaderFields);
     }
 
     if ([data isKindOfClass:[NSData class]]) {
-        AZLogVerbose(@"Response body: [%@]", [[NSString alloc] initWithData:data
+        AWSLogVerbose(@"Response body: [%@]", [[NSString alloc] initWithData:data
                                                                    encoding:NSUTF8StringEncoding]);
     }
 
@@ -262,11 +267,13 @@ static NSDictionary *errorCodeDictionary = nil;
     NSDictionary *shapeRules = [self.serviceDefinitionJSON objectForKey:@"shapes"];
     AWSJSONDictionary *outputRules = [[AWSJSONDictionary alloc] initWithDictionary:[anActionRules objectForKey:@"output"] JSONDefinitionRule:shapeRules];
 
-    //try to parse data if it is a blob type, do not process it if the response status code is not 2xx
-    NSMutableDictionary *resultDic = nil;
+    
+    NSMutableDictionary *resultDic = [NSMutableDictionary new];
+
     if (response.statusCode >= 200 && response.statusCode < 300 ) {
-        resultDic = [self parsePayloadData:data rules:outputRules];
+        // status is good, we can keep NSURL as data 
     } else {
+        //if status error indicates error, need to convert NSURL to NSData for error processing
         if ([data isKindOfClass:[NSURL class]]) {
             data = [NSData dataWithContentsOfFile:[(NSURL *)data path]];
         }
@@ -290,7 +297,7 @@ static NSDictionary *errorCodeDictionary = nil;
             if (error && (*error == nil)) {
                 *error = [NSError errorWithDomain:AWSGeneralErrorDomain
                                              code:[errorCodeDictionary[errorInfo[@"Code"]] integerValue]
-                                         userInfo:@{NSLocalizedDescriptionKey :[errorInfo objectForKey:@"Message"]?[errorInfo objectForKey:@"Message"]:[NSNull null]}
+                                         userInfo:errorInfo
                           ];
             }
         }

@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AWSNetworking.h"
-#import "AZModel.h"
+#import "AWSModel.h"
 
 FOUNDATION_EXPORT NSString *const AWSEventRecorderServiceErrorDomain;
 
@@ -35,7 +35,7 @@ typedef NS_ENUM(NSInteger, AWSEventRecorderServiceErrorType) {
  * Represents a single event that happened on a client device. Attributes and metrics are optional.
  * Required parameters: [eventType, timestamp, session]
  */
-@interface AWSEventRecorderServiceEvent : AZModel
+@interface AWSEventRecorderServiceEvent : AWSModel
 
 @property (nonatomic, strong) NSDictionary *attributes;
 @property (nonatomic, strong) NSString *eventType;
@@ -57,7 +57,7 @@ typedef NS_ENUM(NSInteger, AWSEventRecorderServiceErrorType) {
 
 @end
 
-@interface AWSEventRecorderServiceSession : AZModel
+@interface AWSEventRecorderServiceSession : AWSModel
 
 @property (nonatomic, strong) NSNumber *duration;
 @property (nonatomic, strong) NSString *id;
