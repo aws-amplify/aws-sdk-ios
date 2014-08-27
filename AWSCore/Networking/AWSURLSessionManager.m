@@ -334,7 +334,7 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
     }
 
         if (delegate.error
-            && [sessionTask.response isKindOfClass:[NSHTTPURLResponse class]]
+            && ([sessionTask.response isKindOfClass:[NSHTTPURLResponse class]] || sessionTask.response == nil)
             && delegate.request.retryHandler) {
             AWSNetworkingRetryType retryType = [delegate.request.retryHandler shouldRetry:delegate.currentRetryCount
                                                                                 response:(NSHTTPURLResponse *)sessionTask.response
