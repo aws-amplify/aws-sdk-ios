@@ -107,7 +107,7 @@
 - (id)copyWithZone:(NSZone *)zone {
     AWSServiceConfiguration *configuration = [[[self class] allocWithZone:zone] initWithRegion:self.regionType
                                                                            credentialsProvider:self.credentialsProvider];
-
+    configuration.maxRetryCount = self.maxRetryCount;
     return configuration;
 }
 
