@@ -16,6 +16,6 @@
 #import <Foundation/Foundation.h>
 #import "AmazonInsightsSDKTests.h"
 
-@interface AISubmissionTimePolicyTests : SenTestCase
+@interface AISubmissionTimePolicyTests : XCTestCase
 
 @end

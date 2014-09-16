@@ -111,7 +111,7 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
         AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
         AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
                                                                                credentialsProvider:credentialsProvider];
-        AWSCognitoIdentityService *cis = [[AWSCognitoIdentityService alloc] initWithConfiguration:configuration];
+        AWSCognitoIdentity *cis = [[AWSCognitoIdentity alloc] initWithConfiguration:configuration];
         [[AWSServiceManager defaultServiceManager] setService:cis forKey:AWSTestUtilityCognitoIdentityServiceKey];
     }
 }

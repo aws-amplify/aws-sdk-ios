@@ -15,6 +15,6 @@
 
 #import "AmazonInsightsSDKTests.h"
 
-@interface AIStringUtilsTests : SenTestCase
+@interface AIStringUtilsTests : XCTestCase
 
 @end

@@ -17,6 +17,6 @@
 #import "AmazonInsightsSDKTests.h"
 #import "AWSMobileAnalyticsIOSLifeCycleManager.h"
 
-@interface AIIOSLifeCycleManagerTests : SenTestCase
+@interface AIIOSLifeCycleManagerTests : XCTestCase
 
 @end

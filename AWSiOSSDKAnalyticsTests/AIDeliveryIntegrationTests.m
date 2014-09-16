@@ -18,7 +18,7 @@
 #import "AIDeliveryIntegrationTests.h"
 #import "GZIP.h"
 #import "AWSCategory.h"
-#import "AWSEventRecorderService.h"
+#import "AWSMobileAnalyticsERS.h"
 
 @interface DeliveryBlockingInterceptor : BlockingInterceptor
 
@@ -378,10 +378,10 @@
     [event addAttribute:[[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3] forKey:SESSION_START_TIME_ATTRIBUTE_KEY];
     //set eventRecorderService object
     id<AWSMobileAnalyticsHttpClient>httpClient = [deliveryClient valueForKey:@"httpClient"];
-    AWSEventRecorderService *ers = [[AWSEventRecorderService alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].
+    AWSMobileAnalyticsERS *ers = [[AWSMobileAnalyticsERS alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].
                                            defaultServiceConfiguration];
     
-    httpClient.eventRecorderService = ers;
+    httpClient.ers = ers;
     
     
     [eventClient recordEvent:event];

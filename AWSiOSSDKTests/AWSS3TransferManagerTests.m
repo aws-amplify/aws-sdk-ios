@@ -1300,51 +1300,58 @@ static NSURL *tempSmallURL = nil;
         totalExpectedUploadBytes = totalBytesExpectedToSend;
     };
     
-    BFTask *uploadTaskSmall = [[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+    [[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
         XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
+        if ([task.error.domain isEqualToString:AWSS3TransferManagerErrorDomain] == NO || task.error.code != AWSS3TransferManagerErrorPaused) {
+            NSLog(@"unexpected error:%@",task.error);
+        }
         return nil;
     }];
 
-    //wait a few moment and pause the task
-    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
-    [[[uploadRequest pause] continueWithBlock:^id(BFTask *task) {
-        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error); //should not return error if successfully paused.
-        return nil;
-    }] waitUntilFinished];
+    //random pause and resume task until it finished
+    BFTask *currentTask = nil;
+    __block BOOL isFinished = NO;
+    for (int32_t i=0; i<10; i++) {
+        if (isFinished) break;
+        int randNum = rand() % (8 - 3) + 3; //create the random number between 3 to 8.
+        //wait a random moment and pause the task
+        NSLog(@"-------- Pause the Task in %d seconds--------",randNum);
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:randNum]];
+        NSLog(@"-------- Pausing the Task --------");
+        if (isFinished) break;
+        [[[uploadRequest pause] continueWithBlock:^id(BFTask *task) {
+            XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error); //should not return error if successfully paused.
+            return nil;
+        }] waitUntilFinished];
+        
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:3]];
+        NSLog(@"-------- Resume the Task --------");
+        //resume the upload
+        if (isFinished) break;
+        currentTask = [[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+            if (task.error) {
+                //if contains error, should be PauseError
+                XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
+                XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
+                if ([task.error.domain isEqualToString:AWSS3TransferManagerErrorDomain] == NO || task.error.code != AWSS3TransferManagerErrorPaused) {
+                    NSLog(@"unexpected error:%@",task.error);
+                    isFinished = YES;
+                }
+            } else {
+                isFinished = YES;
+                 XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
+            }
 
-    [uploadTaskSmall waitUntilFinished];
-
-    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:3]];
-
-    //resume the upload
-    BFTask *taskTwo = [[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
-        XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
-        XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
-        XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
-        return nil;
-    }];
-
-    // pause the task again
-    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
-    [[[uploadRequest pause] continueWithBlock:^id(BFTask *task) {
-        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error); //should not return error if successfully paused.
-        return nil;
-    }] waitUntilFinished];
-
-    [taskTwo waitUntilFinished];
-
-    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:3]];
-
-    //resume the upload
-    [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
-        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
-        XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
-        return nil;
-    }] waitUntilFinished];
-
-    XCTAssertEqual(fileSize, accumulatedUploadBytes, @"total of accumulatedUploadBytes is not equal to fileSize");
+            return nil;
+        }];
+    }
+    
+    [currentTask waitUntilFinished];
+    XCTAssertTrue(isFinished);
+    
+    //XCTAssertEqual(fileSize, accumulatedUploadBytes, @"total of accumulatedUploadBytes is not equal to fileSize");
     XCTAssertEqual(fileSize, totalUploadedBytes, @"totalUploaded Bytes is not equal to fileSize");
     XCTAssertEqual(fileSize, totalExpectedUploadBytes);
     

@@ -17,6 +17,6 @@
 #import "AmazonInsightsSDKTests.h"
 #import "AWSMobileAnalyticsDefaultDeliveryClient.h"
 
-@interface AIDefaultDeliveryClientTests : SenTestCase
+@interface AIDefaultDeliveryClientTests : XCTestCase
 
 @end

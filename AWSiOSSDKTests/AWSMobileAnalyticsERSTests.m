@@ -13,18 +13,18 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_EVENT_RECORDER_SERVICE && !AWS_TEST_BJS_INSTEAD
+#if AWS_TEST_MOBILE_ANALYTICS_ERS && !AWS_TEST_BJS_INSTEAD
 
 #import <XCTest/XCTest.h>
 #import "AWSCore.h"
 #import "AWSTestUtility.h"
-#import "AWSEventRecorderService.h"
+#import "AWSMobileAnalyticsERS.h"
 
-@interface AWSEventRecorderServiceTests : XCTestCase
+@interface AWSMobileAnalyticsERSTests : XCTestCase
 
 @end
 
-@implementation AWSEventRecorderServiceTests
+@implementation AWSMobileAnalyticsERSTests
 
 - (void)setUp
 {
@@ -38,19 +38,19 @@
 }
 
 - (void)testPutEvents {
-    AWSEventRecorderService *ers = [AWSEventRecorderService defaultEventRecorderService];
+    AWSMobileAnalyticsERS *ers = [AWSMobileAnalyticsERS defaultMobileAnalyticsERS];
     
-    AWSEventRecorderServicePutEventsInput *putEventInput = [AWSEventRecorderServicePutEventsInput new];
+    AWSMobileAnalyticsERSPutEventsInput *putEventInput = [AWSMobileAnalyticsERSPutEventsInput new];
 
     
-    AWSEventRecorderServiceEvent *eventOne = [AWSEventRecorderServiceEvent new];
+    AWSMobileAnalyticsERSEvent *eventOne = [AWSMobileAnalyticsERSEvent new];
     
     eventOne.attributes = @{};
     eventOne.version = @"v2.0";
     eventOne.eventType = @"_session.start";
     eventOne.timestamp = [[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3];
     
-    AWSEventRecorderServiceSession *serviceSession = [AWSEventRecorderServiceSession new];
+    AWSMobileAnalyticsERSSession *serviceSession = [AWSMobileAnalyticsERSSession new];
     serviceSession.id = @"SMZSP1G8-21c9ac01-20140604-171714026";
     serviceSession.startTimestamp = [[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3];
     

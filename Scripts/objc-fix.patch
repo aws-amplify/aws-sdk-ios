@@ -1,0 +1,96 @@
+commit 8041eb00578676832b15bc3cf2a130db93fc05ab
+Author: Yosuke Matsuda <matsuday@amazon.com>
+Date:   Fri Sep 12 16:04:56 2014 -0700
+
+    New
+
+diff --git a/AWSCore/Utility/AWSCategory.m b/AWSCore/Utility/AWSCategory.m
+index 1b24179..dd0a53a 100644
+--- a/AWSCore/Utility/AWSCategory.m
++++ b/AWSCore/Utility/AWSCategory.m
+@@ -16,6 +16,8 @@
+ #import "AWSCategory.h"
+ #import <objc/runtime.h>
+ #import "AWSLogging.h"
++#import "GZIP.h"
++#import "Mantle.h"
+ 
+ NSString *const AWSDateRFC822DateFormat1 = @"EEE, dd MMM yyyy HH:mm:ss z";
+ NSString *const AWSDateISO8601DateFormat1 = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
+@@ -23,6 +25,24 @@ NSString *const AWSDateISO8601DateFormat2 = @"yyyyMMdd'T'HHmmss'Z'";
+ NSString *const AWSDateISO8601DateFormat3 = @"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+ NSString *const AWSDateShortDateFormat1 = @"yyyyMMdd";
+ 
++@interface AWSCategory : NSObject
++
+++ (void)loadCategories;
++
++@end
++
++@implementation AWSCategory
++
+++ (void)loadCategories {
++    static dispatch_once_t onceToken;
++    dispatch_once(&onceToken, ^{
++        aws_loadGZIP();
++        aws_loadMTLPredefinedTransformerAdditions();
++    });
++}
++
++@end
++
+ @implementation NSData (AWS)
+ 
+ static char base64EncodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+diff --git a/Pods/GZIP/GZIP/GZIP.h b/Pods/GZIP/GZIP/GZIP.h
+index e1f5d78..426e6c8 100644
+--- a/Pods/GZIP/GZIP/GZIP.h
++++ b/Pods/GZIP/GZIP/GZIP.h
+@@ -33,6 +33,7 @@
+ 
+ #import <Foundation/Foundation.h>
+ 
++void aws_loadGZIP();
+ 
+ @interface NSData (GZIP)
+ 
+diff --git a/Pods/GZIP/GZIP/GZIP.m b/Pods/GZIP/GZIP/GZIP.m
+index ca9cbfd..bd69bf1 100644
+--- a/Pods/GZIP/GZIP/GZIP.m
++++ b/Pods/GZIP/GZIP/GZIP.m
+@@ -34,6 +34,8 @@
+ #import "GZIP.h"
+ #import <zlib.h>
+ 
++void aws_loadGZIP(){
++}
+ 
+ static const NSUInteger ChunkSize = 16384;
+ 
+diff --git a/Pods/Mantle/Mantle/NSValueTransformer+MTLPredefinedTransformerAdditions.h b/Pods/Mantle/Mantle/NSValueTransformer+MTLPredefinedTransformerAdditions.h
+index 3054ed5..aa9c9e6 100644
+--- a/Pods/Mantle/Mantle/NSValueTransformer+MTLPredefinedTransformerAdditions.h
++++ b/Pods/Mantle/Mantle/NSValueTransformer+MTLPredefinedTransformerAdditions.h
+@@ -8,6 +8,8 @@
+ 
+ #import <Foundation/Foundation.h>
+ 
++void aws_loadMTLPredefinedTransformerAdditions();
++
+ // The name for a value transformer that converts strings into URLs and back.
+ extern NSString * const MTLURLValueTransformerName;
+ 
+diff --git a/Pods/Mantle/Mantle/NSValueTransformer+MTLPredefinedTransformerAdditions.m b/Pods/Mantle/Mantle/NSValueTransformer+MTLPredefinedTransformerAdditions.m
+index 632bc03..b01bb1e 100644
+--- a/Pods/Mantle/Mantle/NSValueTransformer+MTLPredefinedTransformerAdditions.m
++++ b/Pods/Mantle/Mantle/NSValueTransformer+MTLPredefinedTransformerAdditions.m
+@@ -11,6 +11,9 @@
+ #import "MTLModel.h"
+ #import "MTLValueTransformer.h"
+ 
++void aws_loadMTLPredefinedTransformerAdditions(){
++}
++
+ NSString * const MTLURLValueTransformerName = @"MTLURLValueTransformerName";
+ NSString * const MTLBooleanValueTransformerName = @"MTLBooleanValueTransformerName";
+ 

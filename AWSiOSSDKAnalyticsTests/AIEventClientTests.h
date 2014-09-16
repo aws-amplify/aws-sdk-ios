@@ -16,6 +16,6 @@
 #import "AmazonInsightsSDKTests.h"
 #import "TestEventObserver.h"
 
-@interface AIEventClientTests : SenTestCase
+@interface AIEventClientTests : XCTestCase
 
 @end

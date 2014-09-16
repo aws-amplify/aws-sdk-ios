@@ -101,9 +101,9 @@ BOOL _identityChanged;
         AWSStaticCredentialsProvider *staticCredentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
         AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
                                                                                credentialsProvider:staticCredentialsProvider];
-        AWSCognitoIdentityService *cib = [[AWSCognitoIdentityService new] initWithConfiguration:configuration];
+        AWSCognitoIdentity *cib = [[AWSCognitoIdentity new] initWithConfiguration:configuration];
 
-        AWSCognitoIdentityServiceListIdentityPoolsInput *listPoolsInput = [AWSCognitoIdentityServiceListIdentityPoolsInput new];
+        AWSCognitoIdentityListIdentityPoolsInput *listPoolsInput = [AWSCognitoIdentityListIdentityPoolsInput new];
         listPoolsInput.maxResults = [NSNumber numberWithInt:10];
 
         return [cib listIdentityPools:listPoolsInput];
@@ -260,27 +260,27 @@ BOOL _identityChanged;
 }
 
 + (void)createIdentityPools {
-    AWSCognitoIdentityService *cib = [AWSCognitoIdentityService defaultCognitoIdentityService];
+    AWSCognitoIdentity *cib = [AWSCognitoIdentity defaultCognitoIdentity];
     NSMutableArray *tasks = [NSMutableArray new];
 
-    AWSCognitoIdentityServiceCreateIdentityPoolInput *createPoolForAuthProvider = [AWSCognitoIdentityServiceCreateIdentityPoolInput new];
+    AWSCognitoIdentityCreateIdentityPoolInput *createPoolForAuthProvider = [AWSCognitoIdentityCreateIdentityPoolInput new];
     createPoolForAuthProvider.identityPoolName = @"CIBiOSTestAuthProvider";
     createPoolForAuthProvider.allowUnauthenticatedIdentities = @YES;
     createPoolForAuthProvider.supportedLoginProviders = @{@"graph.facebook.com" : AWSCognitoCredentialsProviderTestsFacebookAppID};
 
     [tasks addObject:[[cib createIdentityPool:createPoolForAuthProvider] continueWithSuccessBlock:^id(BFTask *task) {
-        AWSCognitoIdentityServiceIdentityPool *identityPool = task.result;
+        AWSCognitoIdentityIdentityPool *identityPool = task.result;
         _identityPoolIdAuth = identityPool.identityPoolId;
 
         return nil;
     }]];
 
-    AWSCognitoIdentityServiceCreateIdentityPoolInput *createPoolForUnauthProvider = [AWSCognitoIdentityServiceCreateIdentityPoolInput new];
+    AWSCognitoIdentityCreateIdentityPoolInput *createPoolForUnauthProvider = [AWSCognitoIdentityCreateIdentityPoolInput new];
     createPoolForUnauthProvider.identityPoolName = @"CIBiOSTUnauthProvider";
     createPoolForUnauthProvider.allowUnauthenticatedIdentities = @YES;
 
     [tasks addObject:[[cib createIdentityPool:createPoolForUnauthProvider] continueWithSuccessBlock:^id(BFTask *task) {
-        AWSCognitoIdentityServiceIdentityPool *identityPool = task.result;
+        AWSCognitoIdentityIdentityPool *identityPool = task.result;
         _identityPoolIdUnauth = identityPool.identityPoolId;
 
         return nil;
@@ -290,14 +290,14 @@ BOOL _identityChanged;
 }
 
 + (void)deleteIdentityPools {
-    AWSCognitoIdentityService *cib = [AWSCognitoIdentityService defaultCognitoIdentityService];
+    AWSCognitoIdentity *cib = [AWSCognitoIdentity defaultCognitoIdentity];
     NSMutableArray *tasks = [NSMutableArray new];
 
-    AWSCognitoIdentityServiceDeleteIdentityPoolInput *deletePoolForAuth = [AWSCognitoIdentityServiceDeleteIdentityPoolInput new];
+    AWSCognitoIdentityDeleteIdentityPoolInput *deletePoolForAuth = [AWSCognitoIdentityDeleteIdentityPoolInput new];
     deletePoolForAuth.identityPoolId = _identityPoolIdAuth;
     [tasks addObject:[cib deleteIdentityPool:deletePoolForAuth]];
 
-    AWSCognitoIdentityServiceDeleteIdentityPoolInput *deletePoolForUnauth = [AWSCognitoIdentityServiceDeleteIdentityPoolInput new];
+    AWSCognitoIdentityDeleteIdentityPoolInput *deletePoolForUnauth = [AWSCognitoIdentityDeleteIdentityPoolInput new];
     deletePoolForUnauth.identityPoolId = _identityPoolIdUnauth;
     [tasks addObject:[cib deleteIdentityPool:deletePoolForUnauth]];
 

@@ -36,7 +36,7 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
 @interface AWSS3TransferManagerUploadRequest ()
 
 @property (nonatomic, assign) AWSS3TransferManagerRequestState state;
-@property (nonatomic, assign) NSUInteger pausedPartCount;
+@property (nonatomic, assign) NSUInteger currentUploadingPartNumber;
 @property (nonatomic, strong) NSMutableArray *completedPartsArray;
 @property (nonatomic, strong) NSString *uploadId;
 @property (nonatomic, strong) NSString *cacheIdentifier;
@@ -217,7 +217,7 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
     BFTask *initRequest = nil;
     
     //if it is a new request, Init multipart upload request
-    if ([[uploadRequest valueForKey:@"pausedPartCount"] integerValue] == 0) {
+    if ([[uploadRequest valueForKey:@"currentUploadingPartNumber"] integerValue] == 0) {
         AWSS3CreateMultipartUploadRequest *createMultipartUploadRequest = [AWSS3CreateMultipartUploadRequest new];
         [createMultipartUploadRequest aws_copyPropertiesFromObject:uploadRequest];
         [createMultipartUploadRequest setValue:[AWSNetworkingRequest new] forKey:@"internalRequest"]; //recreate a new internalRequest
@@ -243,7 +243,7 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
         }
         
         BFTask *uploadPartsTask = [BFTask taskWithResult:nil];
-        NSInteger c = [[uploadRequest valueForKey:@"pausedPartCount"] integerValue];
+        NSInteger c = [[uploadRequest valueForKey:@"currentUploadingPartNumber"] integerValue];
         if (c == 0) {
             c = 1;
         }
@@ -261,13 +261,14 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
                 }
                 //Pause this task if state is Paused
                 if (uploadRequest.state == AWSS3TransferManagerRequestStatePaused) {
-                    //Save the current partCount number
-                    [uploadRequest setValue:[NSNumber numberWithInteger:i] forKey:@"pausedPartCount"];
                     
                     //return an error task
                     NSDictionary *userInfo = @{NSLocalizedDescriptionKey: [NSString stringWithFormat:NSLocalizedString(@"S3 MultipartUpload has been paused.", nil)]};
                     return [BFTask taskWithError:[NSError errorWithDomain:AWSS3TransferManagerErrorDomain code:AWSS3TransferManagerErrorPaused userInfo:userInfo]];
                 }
+                
+                //if task can be contiuned, set the count, save the current partCount number
+                [uploadRequest setValue:[NSNumber numberWithInteger:i] forKey:@"currentUploadingPartNumber"];
                 
                 NSUInteger dataLength = i == partCount ? (NSUInteger)fileSize - ((i - 1) * AWSS3TransferManagerMinimumPartSize) : AWSS3TransferManagerMinimumPartSize;
                 
@@ -314,12 +315,18 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
                     completedPart.ETag = partOuput.ETag;
                     
                     NSMutableArray *completedParts = [uploadRequest valueForKey:@"completedPartsArray"];
-                    [completedParts addObject:completedPart];
+                    
+                    if (![completedParts containsObject:completedPart]) {
+                        [completedParts addObject:completedPart];
+                    }
                     
                     int64_t totalSentLenght = [[uploadRequest valueForKey:@"totalSuccessfullySentPartsDataLength"] longLongValue];
                     totalSentLenght += dataLength;
                     
                     [uploadRequest setValue:@(totalSentLenght) forKey:@"totalSuccessfullySentPartsDataLength"];
+                    
+                    //set currentUploadingPartNumber to i+1 to prevent it be downloaded again if pause happened right after parts finished.
+                    [uploadRequest setValue:[NSNumber numberWithInteger:i+1] forKey:@"currentUploadingPartNumber"];
                     
                     return nil;
                 }] continueWithBlock:^id(BFTask *task) {
@@ -329,7 +336,12 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
                     if (error) {
                         AWSLogError(@"Failed to delete a temporary file for part upload: [%@]", error);
                     }
-                    return nil;
+                    
+                    if (task.error) {
+                        return [BFTask taskWithError:task.error];
+                    } else {
+                        return nil;
+                    }
                 }];
             }];
         }
@@ -340,7 +352,7 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
         //If all parts upload succeed, send completeMultipartUpload request
         NSMutableArray *completedParts = [uploadRequest valueForKey:@"completedPartsArray"];
         if ([completedParts count] != partCount) {
-            NSDictionary *userInfo = @{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"completedParts count is not equal to totalPartCount. expect %lu but got %lu",(unsigned long)partCount,(unsigned long)[completedParts count]]};
+            NSDictionary *userInfo = @{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"completedParts count is not equal to totalPartCount. expect %lu but got %lu",(unsigned long)partCount,(unsigned long)[completedParts count]],@"completedParts":completedParts};
             return [BFTask taskWithError:[NSError errorWithDomain:AWSS3TransferManagerErrorDomain
                                                              code:AWSS3TransferManagerErrorUnknown
                                                          userInfo:userInfo]];
@@ -763,6 +775,7 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
             unsigned long long fileSize = [attributes fileSize];
             if (fileSize > AWSS3TransferManagerMinimumPartSize) {
                 //If using multipart upload, need to check state flag and then pause the current parts upload and save the current status.
+                [self.currentUploadingPart pause];
             } else {
                 //otherwise, pause the current task. (cancel without set isCancelled flag)
                 [super pause];

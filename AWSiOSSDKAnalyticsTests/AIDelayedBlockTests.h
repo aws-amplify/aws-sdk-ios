@@ -16,6 +16,6 @@
 #import <Foundation/Foundation.h>
 #import "AmazonInsightsSDKTests.h"
 
-@interface AIDelayedBlockTests : SenTestCase
+@interface AIDelayedBlockTests : XCTestCase
 
 @end

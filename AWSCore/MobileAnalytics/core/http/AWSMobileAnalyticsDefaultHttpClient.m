@@ -15,13 +15,12 @@
 
 #import "AWSMobileAnalyticsDefaultHttpClient.h"
 #import "AWSCore.h"
-#import "AWSCategory.h"
 #import "AWSMobileAnalyticsInstanceIdInterceptor.h"
 #import "AWSMobileAnalyticsClientContextInterceptor.h"
 #import "GZIP.h"
 #import "AWSMobileAnalyticsDefaultSessionClient.h"
 #import "AWSLogging.h"
-#import "AWSEventRecorderService.h"
+#import "AWSMobileAnalyticsERS.h"
 
 NSString *const insightsDefaultRunLoopMode = @"com.amazon.insights.DefaultRunLoopMode";
 
@@ -78,12 +77,12 @@ NSString *const insightsDefaultRunLoopMode = @"com.amazon.insights.DefaultRunLoo
         [interceptor before:theRequest];
     }
     
-    AWSEventRecorderService *ers = self.eventRecorderService;
+    AWSMobileAnalyticsERS *ers = self.ers;
     if (ers == nil) {
-        AWSLogError( @"AWSEventRecorderService is nil! ");
+        AWSLogError( @"AWSMobileAnalyticsERS is nil! ");
     }
     
-    AWSEventRecorderServicePutEventsInput *putEventInput = [AWSEventRecorderServicePutEventsInput new];
+    AWSMobileAnalyticsERSPutEventsInput *putEventInput = [AWSMobileAnalyticsERSPutEventsInput new];
     
     //the client-Context-id in the header  should be moved to Client-Context
     NSString *clientContextString = [[theRequest headers] objectForKey:CLIENT_CONTEXT_HEADER];
@@ -110,8 +109,8 @@ NSString *const insightsDefaultRunLoopMode = @"com.amazon.insights.DefaultRunLoo
         NSMutableArray *parsedEventsArray = [NSMutableArray new];
         for (NSDictionary *event in sourceEventsArray) {
             
-            AWSEventRecorderServiceEvent *serviceEvent = [AWSEventRecorderServiceEvent new];
-            AWSEventRecorderServiceSession *serviceSession = [AWSEventRecorderServiceSession new];
+            AWSMobileAnalyticsERSEvent *serviceEvent = [AWSMobileAnalyticsERSEvent new];
+            AWSMobileAnalyticsERSSession *serviceSession = [AWSMobileAnalyticsERSSession new];
             
             //process the attributes
             NSMutableDictionary *mutableAttributesDic = [event[@"attributes"] mutableCopy];
@@ -154,7 +153,7 @@ NSString *const insightsDefaultRunLoopMode = @"com.amazon.insights.DefaultRunLoo
         
         NSDictionary *resultDictionary = nil;
         if (task.error) {
-            if (task.error.domain != AWSEventRecorderServiceErrorDomain || task.error.domain != AWSGeneralErrorDomain) {
+            if (task.error.domain != AWSMobileAnalyticsERSErrorDomain || task.error.domain != AWSGeneralErrorDomain) {
                 //It is client side error, assign the error and return immediately
                 response.error = task.error;
                 return nil;

@@ -16,6 +16,6 @@
 #import <Foundation/Foundation.h>
 #import "AmazonInsightsSDKTests.h"
 
-@interface AIEncryptedReaderWriterTests : SenTestCase
+@interface AIEncryptedReaderWriterTests : XCTestCase
 
 @end

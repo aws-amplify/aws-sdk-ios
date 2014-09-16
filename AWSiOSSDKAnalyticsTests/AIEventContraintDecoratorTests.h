@@ -15,6 +15,6 @@
 
 #import "AmazonInsightsSDKTests.h"
 
-@interface AIEventContraintDecoratorTests : SenTestCase
+@interface AIEventContraintDecoratorTests : XCTestCase
 
 @end

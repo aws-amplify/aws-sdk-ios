@@ -13,12 +13,12 @@
  * permissions and limitations under the License.
  */
 
-#import "AWSEventRecorderServiceModel.h"
+#import "AWSMobileAnalyticsERSModel.h"
 #import "AWSCategory.h"
 
-NSString *const AWSEventRecorderServiceErrorDomain = @"com.amazonaws.AWSEventRecorderServiceErrorDomain";
+NSString *const AWSMobileAnalyticsERSErrorDomain = @"com.amazonaws.AWSMobileAnalyticsERSErrorDomain";
 
-@implementation AWSEventRecorderServiceEvent
+@implementation AWSMobileAnalyticsERSEvent
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -32,12 +32,12 @@ NSString *const AWSEventRecorderServiceErrorDomain = @"com.amazonaws.AWSEventRec
 }
 
 + (NSValueTransformer *)sessionJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSEventRecorderServiceSession class]];
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSMobileAnalyticsERSSession class]];
 }
 
 @end
 
-@implementation AWSEventRecorderServicePutEventsInput
+@implementation AWSMobileAnalyticsERSPutEventsInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -47,12 +47,12 @@ NSString *const AWSEventRecorderServiceErrorDomain = @"com.amazonaws.AWSEventRec
 }
 
 + (NSValueTransformer *)eventsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSEventRecorderServiceEvent class]];
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSMobileAnalyticsERSEvent class]];
 }
 
 @end
 
-@implementation AWSEventRecorderServiceSession
+@implementation AWSMobileAnalyticsERSSession
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{

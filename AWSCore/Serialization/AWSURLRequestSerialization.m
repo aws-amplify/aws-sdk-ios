@@ -56,7 +56,7 @@
 - (BFTask *)serializeRequest:(NSMutableURLRequest *)request
                      headers:(NSDictionary *)headers
                   parameters:(NSDictionary *)parameters {
-    NSError *error = nil;
+    request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
 
     //If parameters contains clientContext key, move it to http header. This is a sepcial case
     if ([parameters objectForKey:@"clientContext"]) {
@@ -82,6 +82,7 @@
         }
     }
 
+    NSError *error = nil;
     if (parameters) {
         if ([request.HTTPMethod isEqualToString:@"GET"]) {
             request.URL = [request.URL aws_URLByAppendingQuery:parameters];
@@ -89,14 +90,14 @@
             NSData *bodyData = [AWSJSONBuilder jsonDataForDictionary:parameters actionName:self.actionName serviceDefinitionRule:self.serviceDefinitionJSON error:&error];
 
             if (!error) {
-            
+
                 if (headers[@"Content-Encoding"] && [headers[@"Content-Encoding"] rangeOfString:@"gzip"].location != NSNotFound) {
                     //gzip the body
                     request.HTTPBody = [bodyData gzippedData];
                 } else {
                     request.HTTPBody = bodyData;
                 }
-                
+
             }
 
 
@@ -156,6 +157,8 @@
 - (BFTask *)serializeRequest:(NSMutableURLRequest *)request
                      headers:(NSDictionary *)headers
                   parameters:(NSDictionary *)parameters {
+    request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+
     NSDictionary *anActionRules = [[self.serviceDefinitionJSON objectForKey:@"operations"] objectForKey:self.actionName];
 
     NSDictionary *actionHTTPRule = [anActionRules objectForKey:@"http"];
@@ -270,17 +273,17 @@
             if ([memberRules[@"location"] isEqualToString:@"uri"]) {
                 NSString *keyToFind = [NSString stringWithFormat:@"{%@}", xmlElementName];
                 NSString *greedyKeyToFind = [NSString stringWithFormat:@"{%@+}", xmlElementName];
-                
+
                 if ([rawURI rangeOfString:keyToFind].location != NSNotFound) {
                     rawURI = [rawURI stringByReplacingOccurrencesOfString:keyToFind
                                                                withString:[valueStr aws_stringWithURLEncoding]];
-                    
+
                 } else if ([rawURI rangeOfString:greedyKeyToFind].location != NSNotFound) {
                     rawURI = [rawURI stringByReplacingOccurrencesOfString:greedyKeyToFind
                                                                withString:[valueStr aws_stringWithURLEncodingPath]];
                 }
-                
-                
+
+
             }
 
             //if it is queryString type, construct queryString
@@ -313,7 +316,7 @@
     if (hasQuestionMark.location != NSNotFound) {
         uriSchemaContainsQuestionMark = YES;
     }
-    
+
     if ([queryStringDictionary count]) {
         NSArray *myKeys = [queryStringDictionary allKeys];
         NSArray *sortedKeys = [myKeys sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
@@ -438,6 +441,8 @@
 - (BFTask *)serializeRequest:(NSMutableURLRequest *)request
                      headers:(NSDictionary *)headers
                   parameters:(NSDictionary *)parameters {
+    request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+
     parameters = [parameters mutableCopy];
     [self.additionalParameters enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [parameters setValue:obj forKey:key];
@@ -467,12 +472,12 @@
             [request setValue:[headers objectForKey:key] forHTTPHeaderField:key];
         }
     }
-    
+
     if (!request.allHTTPHeaderFields[@"Content-Type"]) {
         [request addValue:@"application/x-www-form-urlencoded; charset=utf-8"
        forHTTPHeaderField:@"Content-Type"];
     }
-    
+
     return [BFTask taskWithResult:nil];
 }
 
@@ -488,11 +493,13 @@
 - (BFTask *)serializeRequest:(NSMutableURLRequest *)request
                      headers:(NSDictionary *)headers
                   parameters:(NSDictionary *)parameters {
+    request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+
     parameters = [parameters mutableCopy];
     [self.additionalParameters enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [parameters setValue:obj forKey:key];
     }];
-    
+
     //Need to add version and actionName
     NSError *error = nil;
     NSDictionary *formattedParams = [AWSEC2ParamBuilder buildFormattedParams:parameters
@@ -501,10 +508,10 @@
     if (error) {
         return [BFTask taskWithError:error];
     }
-    
+
     NSMutableString *queryString = [NSMutableString new];
     [self processParameters:formattedParams queryString:queryString];
-    
+
     if ([queryString length] > 0) {
         request.HTTPBody = [queryString dataUsingEncoding:NSUTF8StringEncoding];
     }

@@ -27,7 +27,7 @@
 #import "AWSMobileAnalyticsConfiguration.h"
 #import "AWSMobileAnalyticsIOSClientContext.h"
 #import "AWSLogging.h"
-#import "AWSEventRecorderService.h"
+#import "AWSMobileAnalyticsERS.h"
 #import "AWSSynchronizedMutableDictionary.h"
 
 @interface AWSMobileAnalytics()
@@ -97,7 +97,7 @@ static AWSSynchronizedMutableDictionary *_mobileAnalyticsForAppNamespace = nil;
                                                                   withClientConfiguration:configuration
                                                                               withSdkInfo:[AWSMobileAnalyticsSDKInfo sdkInfoFromBrazil]
                                                                 withConfigurationSettings:settings];
-        _mobileAnalyticsContext.httpClient.eventRecorderService = [[AWSEventRecorderService alloc] initWithConfiguration:configuration.serviceConfiguration];;
+        _mobileAnalyticsContext.httpClient.ers = [[AWSMobileAnalyticsERS alloc] initWithConfiguration:configuration.serviceConfiguration];;
 
         _deliveryClient = [AWSMobileAnalyticsDefaultDeliveryClient deliveryClientWithContext:_mobileAnalyticsContext
                                                                              withWanDelivery:options.allowWANDelivery];

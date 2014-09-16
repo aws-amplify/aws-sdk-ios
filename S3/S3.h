@@ -17,3 +17,4 @@
 #import "AWSCore.h"
 #import "AWSS3.h"
 #import "AWSS3TransferManager.h"
+#import "AWSS3PreSignedURL.h"

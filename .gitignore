@@ -33,3 +33,7 @@ credentials.json
 Pods
 Podfile.lock
 Documentation
+Scripts/build.sh
+Scripts/gcovr
+Scripts/jenkins.py
+Scripts/ocunit2junit

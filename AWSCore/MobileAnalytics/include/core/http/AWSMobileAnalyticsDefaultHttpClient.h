@@ -23,7 +23,7 @@
     NSMutableArray *_interceptors;
 }
 
-@property (nonatomic, strong) AWSEventRecorderService *eventRecorderService;
+@property (nonatomic, strong) AWSMobileAnalyticsERS *ers;
 
 +(AWSMobileAnalyticsDefaultHttpClient *) httpClient;
 

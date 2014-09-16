@@ -22,7 +22,7 @@
 #import "AWSMobileAnalyticsDefaultFileManager.h"
 #import "AWSMobileAnalyticsIOSSystem.h"
 
-@interface AIFileEventStoreTests : SenTestCase
+@interface AIFileEventStoreTests : XCTestCase
 
 @property (nonatomic, readwrite) id<AWSMobileAnalyticsSystem> system;
 

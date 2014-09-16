@@ -1,7 +1,5 @@
 #!/bin/sh
 
-cd "$SOURCE_ROOT"
-
 # version
 FRAMEWORK_VERSION=A
 
@@ -9,7 +7,7 @@ FRAMEWORK_VERSION=A
 NAME="$1"
 
 # framework build path
-BUILD_PATH="Build/$NAME"
+BUILD_PATH="build/third-party"
 
 # full name of framework
 FRAMEWORK_DIR=$BUILD_PATH/$NAME.framework
@@ -36,7 +34,7 @@ ln -s Versions/Current/Resources $FRAMEWORK_DIR/Resources
 ln -s Versions/Current/$NAME $FRAMEWORK_DIR/$NAME
 
 echo "Framework: Creating library bolts " 
-lipo -create "Pods/build/Debug-iphonesimulator/libPods-${NAME}.a" "Pods/build/Debug64-iphonesimulator/libPods-${NAME}.a" "Pods/build/Release-iphoneos/libPods-${NAME}.a" "Pods/build/Release64-iphoneos/libPods-${NAME}.a" -o "$FRAMEWORK_DIR/Versions/Current/$NAME"
+lipo -create "build/Debug-iphonesimulator/libPods-${NAME}.a" "build/Release-iphoneos/libPods-${NAME}.a" -o "$FRAMEWORK_DIR/Versions/Current/$NAME"
 
 # copy header file
 if [ "$1" = "UICKeyChainStore" ]

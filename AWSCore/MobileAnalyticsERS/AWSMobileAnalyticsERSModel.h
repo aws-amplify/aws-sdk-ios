@@ -17,30 +17,30 @@
 #import "AWSNetworking.h"
 #import "AWSModel.h"
 
-FOUNDATION_EXPORT NSString *const AWSEventRecorderServiceErrorDomain;
+FOUNDATION_EXPORT NSString *const AWSMobileAnalyticsERSErrorDomain;
 
-typedef NS_ENUM(NSInteger, AWSEventRecorderServiceErrorType) {
-    AWSEventRecorderServiceErrorUnknown,
-    AWSEventRecorderServiceErrorIncompleteSignature,
-    AWSEventRecorderServiceErrorInvalidClientTokenId,
-    AWSEventRecorderServiceErrorMissingAuthenticationToken,
-    AWSEventRecorderServiceErrorBadRequest,
+typedef NS_ENUM(NSInteger, AWSMobileAnalyticsERSErrorType) {
+    AWSMobileAnalyticsERSErrorUnknown,
+    AWSMobileAnalyticsERSErrorIncompleteSignature,
+    AWSMobileAnalyticsERSErrorInvalidClientTokenId,
+    AWSMobileAnalyticsERSErrorMissingAuthenticationToken,
+    AWSMobileAnalyticsERSErrorBadRequest,
 };
 
-@class AWSEventRecorderServiceEvent;
-@class AWSEventRecorderServicePutEventsInput;
-@class AWSEventRecorderServiceSession;
+@class AWSMobileAnalyticsERSEvent;
+@class AWSMobileAnalyticsERSPutEventsInput;
+@class AWSMobileAnalyticsERSSession;
 
 /**
  * Represents a single event that happened on a client device. Attributes and metrics are optional.
  * Required parameters: [eventType, timestamp, session]
  */
-@interface AWSEventRecorderServiceEvent : AWSModel
+@interface AWSMobileAnalyticsERSEvent : AWSModel
 
 @property (nonatomic, strong) NSDictionary *attributes;
 @property (nonatomic, strong) NSString *eventType;
 @property (nonatomic, strong) NSDictionary *metrics;
-@property (nonatomic, strong) AWSEventRecorderServiceSession *session;
+@property (nonatomic, strong) AWSMobileAnalyticsERSSession *session;
 @property (nonatomic, strong) NSString *timestamp;
 @property (nonatomic, strong) NSString *version;
 
@@ -50,14 +50,14 @@ typedef NS_ENUM(NSInteger, AWSEventRecorderServiceErrorType) {
  * Describes a set of events
  * Required parameters: [events, clientContext]
  */
-@interface AWSEventRecorderServicePutEventsInput : AWSRequest
+@interface AWSMobileAnalyticsERSPutEventsInput : AWSRequest
 
 @property (nonatomic, strong) NSString *clientContext;
 @property (nonatomic, strong) NSArray *events;
 
 @end
 
-@interface AWSEventRecorderServiceSession : AWSModel
+@interface AWSMobileAnalyticsERSSession : AWSModel
 
 @property (nonatomic, strong) NSNumber *duration;
 @property (nonatomic, strong) NSString *id;

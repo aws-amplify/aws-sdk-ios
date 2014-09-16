@@ -79,8 +79,8 @@
     [internalFileManager removeItemAtPath:absolutePath error:&error];
 }
 
-- (unsigned int)testCaseCount {
-    unsigned int count = 0;
+- (NSUInteger)testCaseCount {
+    NSUInteger count = 0;
     
     if ([[self class] isKindOfClass:[AIIntegrationTestBase class]] == NO)
     {
@@ -90,7 +90,7 @@
     return count;
 }
 
-- (void)performTest:(SenTestRun *)testRun {
+- (void)performTest:(XCTestRun *)testRun {
     if ([[self class] isKindOfClass:[AIIntegrationTestBase class]] == NO)
     {
         NSArray *locales = [NSArray arrayWithObjects:@"en_US", @"ar_SA", @"ja_JP_JP", @"fr_FR", nil];

@@ -5,7 +5,7 @@
     "jsonVersion":"1.1",
     "serviceFullName":"AWS Event Recorder Service",
     "signatureVersion":"v4",
-    "targetPrefix":"AWSEventRecorderService",
+    "targetPrefix":"AWSMobileAnalyticsERS",
     "type":"json"
   },
   "documentation":"A service which is used to record Amazon Mobile Analytics events",

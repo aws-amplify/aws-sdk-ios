@@ -17,6 +17,6 @@
 #import "AWSMobileAnalyticsInstanceIdInterceptor.h"
 #import "AWSMobileAnalyticsDefaultRequest.h"
 
-@interface AIInstanceIdInterceptorTests : SenTestCase
+@interface AIInstanceIdInterceptorTests : XCTestCase
 
 @end

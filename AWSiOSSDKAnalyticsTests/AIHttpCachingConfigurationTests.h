@@ -15,7 +15,7 @@
 
 #import "AmazonInsightsSDKTests.h"
 
-@interface AIHttpCachingConfigurationTests : SenTestCase
+@interface AIHttpCachingConfigurationTests : XCTestCase
 
 
 @end

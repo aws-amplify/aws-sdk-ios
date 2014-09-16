@@ -18,6 +18,6 @@
 #import "AWSMobileAnalyticsDefaultEvent.h"
 #import "AWSMobileAnalyticsContext.h"
 
-@interface AIDefaultEventTests : SenTestCase
+@interface AIDefaultEventTests : XCTestCase
 
 @end

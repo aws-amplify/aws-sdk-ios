@@ -16,15 +16,15 @@
 #if AWS_TEST_COGNITO_IDENTITY_SERVICE && !AWS_TEST_BJS_INSTEAD
 
 #import <XCTest/XCTest.h>
-#import "CognitoIdentityService.h"
+#import "CognitoIdentity.h"
 #import "STS.h"
 #import "AWSTestUtility.h"
 
-@interface AWSCognitoIdentityServiceTests : XCTestCase
+@interface AWSCognitoIdentityTests : XCTestCase
 
 @end
 
-@implementation AWSCognitoIdentityServiceTests
+@implementation AWSCognitoIdentityTests
 
 + (void)setUp {
     [super setUp];
@@ -42,9 +42,9 @@
 }
 
 - (void)testListIdentityPools {
-    AWSCognitoIdentityService *cib = (AWSCognitoIdentityService *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilityCognitoIdentityServiceKey];
+    AWSCognitoIdentity *cib = (AWSCognitoIdentity *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilityCognitoIdentityServiceKey];
 
-    AWSCognitoIdentityServiceListIdentityPoolsInput *listPools = [AWSCognitoIdentityServiceListIdentityPoolsInput new];
+    AWSCognitoIdentityListIdentityPoolsInput *listPools = [AWSCognitoIdentityListIdentityPoolsInput new];
     listPools.maxResults = [NSNumber numberWithInt:10];
     [[[cib listIdentityPools:listPools] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
@@ -52,7 +52,7 @@
         }
 
         if (task.result) {
-            XCTAssertTrue([task.result isKindOfClass:[AWSCognitoIdentityServiceListIdentityPoolsResponse class]]);
+            XCTAssertTrue([task.result isKindOfClass:[AWSCognitoIdentityListIdentityPoolsResponse class]]);
         }
 
         return nil;
@@ -60,9 +60,9 @@
 }
 
 - (void)testCreateDeleteIdentityPool {
-    AWSCognitoIdentityService *cib = (AWSCognitoIdentityService *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilityCognitoIdentityServiceKey];
+    AWSCognitoIdentity *cib = (AWSCognitoIdentity *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilityCognitoIdentityServiceKey];
 
-    AWSCognitoIdentityServiceCreateIdentityPoolInput *createPool = [AWSCognitoIdentityServiceCreateIdentityPoolInput new];
+    AWSCognitoIdentityCreateIdentityPoolInput *createPool = [AWSCognitoIdentityCreateIdentityPoolInput new];
     createPool.identityPoolName = @"CIBiOSTestCreateDeleteIdentityPool";
     createPool.allowUnauthenticatedIdentities = @YES;
 
@@ -72,12 +72,12 @@
         }
 
         if (task.result) {
-            XCTAssertTrue([task.result isKindOfClass:[AWSCognitoIdentityServiceIdentityPool class]]);
+            XCTAssertTrue([task.result isKindOfClass:[AWSCognitoIdentityIdentityPool class]]);
         }
 
-        AWSCognitoIdentityServiceIdentityPool *identityPool = task.result;
+        AWSCognitoIdentityIdentityPool *identityPool = task.result;
 
-        AWSCognitoIdentityServiceDeleteIdentityPoolInput *deletePool = [AWSCognitoIdentityServiceDeleteIdentityPoolInput new];
+        AWSCognitoIdentityDeleteIdentityPoolInput *deletePool = [AWSCognitoIdentityDeleteIdentityPoolInput new];
         deletePool.identityPoolId = identityPool.identityPoolId;
         return [cib deleteIdentityPool:deletePool];
     }] continueWithBlock:^id(BFTask *task) {
@@ -90,29 +90,29 @@
 }
 
 - (void)testDeleteIdentityPoolFailed {
-    AWSCognitoIdentityService *cib = (AWSCognitoIdentityService *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilityCognitoIdentityServiceKey];
-    AWSCognitoIdentityServiceDeleteIdentityPoolInput *deletePool = [AWSCognitoIdentityServiceDeleteIdentityPoolInput new];
+    AWSCognitoIdentity *cib = (AWSCognitoIdentity *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilityCognitoIdentityServiceKey];
+    AWSCognitoIdentityDeleteIdentityPoolInput *deletePool = [AWSCognitoIdentityDeleteIdentityPoolInput new];
     deletePool.identityPoolId = @"us-east-1:aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"; //Non-existent PoolId
 
     [[[cib deleteIdentityPool:deletePool] continueWithBlock:^id(BFTask *task) {
         XCTAssertNotNil(task.error, @"expect error but got nil");
-        XCTAssertEqual(AWSCognitoIdentityServiceErrorResourceNotFound, task.error.code, @"expected AWSCognitoIdentityServiceErrorResourceNotFound but got:%ld",(long)task.error.code);
+        XCTAssertEqual(AWSCognitoIdentityErrorResourceNotFound, task.error.code, @"expected AWSCognitoIdentityErrorResourceNotFound but got:%ld",(long)task.error.code);
         return nil;
 
     }] waitUntilFinished];
 }
 
 - (void)testUpdateIdentityPoolPoolFailed {
-    AWSCognitoIdentityService *cib = (AWSCognitoIdentityService *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilityCognitoIdentityServiceKey];
+    AWSCognitoIdentity *cib = (AWSCognitoIdentity *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilityCognitoIdentityServiceKey];
 
-    AWSCognitoIdentityServiceIdentityPool *updatePoolInput = [AWSCognitoIdentityServiceIdentityPool new];
+    AWSCognitoIdentityIdentityPool *updatePoolInput = [AWSCognitoIdentityIdentityPool new];
     updatePoolInput.identityPoolId = @"us-east-1:aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"; //Non-existent PoolId
     updatePoolInput.identityPoolName = @"a new pool name";
 
     [[[cib updateIdentityPool:updatePoolInput] continueWithBlock:^id(BFTask *task) {
         XCTAssertNotNil(task.error, @"expect error but got nil");
 
-        XCTAssertEqual(AWSCognitoIdentityServiceErrorResourceNotFound, task.error.code, @"expected AWSCognitoIdentityServiceErrorResourceNotFound but got:%ld",(long)task.error.code);
+        XCTAssertEqual(AWSCognitoIdentityErrorResourceNotFound, task.error.code, @"expected AWSCognitoIdentityErrorResourceNotFound but got:%ld",(long)task.error.code);
         return nil;
     }] waitUntilFinished];
 }
@@ -120,20 +120,20 @@
 
 - (void)testGetIdGetToken {
     AWSSTS *sts = (AWSSTS *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilitySTSKey];
-    AWSCognitoIdentityService *cib = (AWSCognitoIdentityService *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilityCognitoIdentityServiceKey];
+    AWSCognitoIdentity *cib = (AWSCognitoIdentity *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilityCognitoIdentityServiceKey];
 
     __block AWSSTSAssumeRoleWithWebIdentityRequest *wifRequest = nil;
 
-    AWSCognitoIdentityServiceCreateIdentityPoolInput *createPool = [AWSCognitoIdentityServiceCreateIdentityPoolInput new];
+    AWSCognitoIdentityCreateIdentityPoolInput *createPool = [AWSCognitoIdentityCreateIdentityPoolInput new];
     createPool.identityPoolName = @"CIBiOSTestGetIdGetToken";
     createPool.allowUnauthenticatedIdentities = @YES;
 
     __block NSString *identityPoolId = nil;
 
     [[[[[cib createIdentityPool:createPool] continueWithBlock:^id(BFTask *task) {
-        AWSCognitoIdentityServiceIdentityPool *identityPool = task.result;
+        AWSCognitoIdentityIdentityPool *identityPool = task.result;
 
-        AWSCognitoIdentityServiceGetIdInput *getId = [AWSCognitoIdentityServiceGetIdInput new];
+        AWSCognitoIdentityGetIdInput *getId = [AWSCognitoIdentityGetIdInput new];
         getId.accountId = @"335750469596";
         identityPoolId = identityPool.identityPoolId;
         getId.identityPoolId = identityPool.identityPoolId;
@@ -145,12 +145,12 @@
         }
 
         if (task.result) {
-            XCTAssertTrue([task.result isKindOfClass:[AWSCognitoIdentityServiceGetIdResponse class]]);
+            XCTAssertTrue([task.result isKindOfClass:[AWSCognitoIdentityGetIdResponse class]]);
         }
 
-        AWSCognitoIdentityServiceGetIdResponse *idResult = task.result;
+        AWSCognitoIdentityGetIdResponse *idResult = task.result;
 
-        AWSCognitoIdentityServiceGetOpenIdTokenInput *getToken = [AWSCognitoIdentityServiceGetOpenIdTokenInput new];
+        AWSCognitoIdentityGetOpenIdTokenInput *getToken = [AWSCognitoIdentityGetOpenIdTokenInput new];
         getToken.identityId = idResult.identityId;
 
         return [cib getOpenIdToken:getToken];
@@ -161,10 +161,10 @@
         }
 
         if (task.result) {
-            XCTAssertTrue([task.result isKindOfClass:[AWSCognitoIdentityServiceGetOpenIdTokenResponse class]]);
+            XCTAssertTrue([task.result isKindOfClass:[AWSCognitoIdentityGetOpenIdTokenResponse class]]);
         }
 
-        AWSCognitoIdentityServiceGetOpenIdTokenResponse *token = task.result;
+        AWSCognitoIdentityGetOpenIdTokenResponse *token = task.result;
 
         wifRequest = [AWSSTSAssumeRoleWithWebIdentityRequest new];
         wifRequest.roleArn = @"arn:aws:iam::335750469596:role/TEST_CIB_ROLE";
@@ -182,7 +182,7 @@
         return nil;
     }] waitUntilFinished];
 
-    AWSCognitoIdentityServiceDeleteIdentityPoolInput *deletePool = [AWSCognitoIdentityServiceDeleteIdentityPoolInput new];
+    AWSCognitoIdentityDeleteIdentityPoolInput *deletePool = [AWSCognitoIdentityDeleteIdentityPoolInput new];
     deletePool.identityPoolId = identityPoolId;
     [[cib deleteIdentityPool:deletePool] waitUntilFinished];
 }

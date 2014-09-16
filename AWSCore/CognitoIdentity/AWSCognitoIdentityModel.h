@@ -17,39 +17,39 @@
 #import "AWSNetworking.h"
 #import "AWSModel.h"
 
-FOUNDATION_EXPORT NSString *const AWSCognitoIdentityServiceErrorDomain;
+FOUNDATION_EXPORT NSString *const AWSCognitoIdentityErrorDomain;
 
-typedef NS_ENUM(NSInteger, AWSCognitoIdentityServiceErrorType) {
-    AWSCognitoIdentityServiceErrorUnknown,
-    AWSCognitoIdentityServiceErrorIncompleteSignature,
-    AWSCognitoIdentityServiceErrorInvalidClientTokenId,
-    AWSCognitoIdentityServiceErrorMissingAuthenticationToken,
-    AWSCognitoIdentityServiceErrorInternalError,
-    AWSCognitoIdentityServiceErrorInvalidParameter,
-    AWSCognitoIdentityServiceErrorLimitExceeded,
-    AWSCognitoIdentityServiceErrorNotAuthorized,
-    AWSCognitoIdentityServiceErrorResourceConflict,
-    AWSCognitoIdentityServiceErrorResourceNotFound,
-    AWSCognitoIdentityServiceErrorTooManyRequests,
+typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
+    AWSCognitoIdentityErrorUnknown,
+    AWSCognitoIdentityErrorIncompleteSignature,
+    AWSCognitoIdentityErrorInvalidClientTokenId,
+    AWSCognitoIdentityErrorMissingAuthenticationToken,
+    AWSCognitoIdentityErrorInternalError,
+    AWSCognitoIdentityErrorInvalidParameter,
+    AWSCognitoIdentityErrorLimitExceeded,
+    AWSCognitoIdentityErrorNotAuthorized,
+    AWSCognitoIdentityErrorResourceConflict,
+    AWSCognitoIdentityErrorResourceNotFound,
+    AWSCognitoIdentityErrorTooManyRequests,
 };
 
-@class AWSCognitoIdentityServiceCreateIdentityPoolInput;
-@class AWSCognitoIdentityServiceDeleteIdentityPoolInput;
-@class AWSCognitoIdentityServiceDescribeIdentityPoolInput;
-@class AWSCognitoIdentityServiceGetIdInput;
-@class AWSCognitoIdentityServiceGetIdResponse;
-@class AWSCognitoIdentityServiceGetOpenIdTokenInput;
-@class AWSCognitoIdentityServiceGetOpenIdTokenResponse;
-@class AWSCognitoIdentityServiceIdentityDescription;
-@class AWSCognitoIdentityServiceIdentityPool;
-@class AWSCognitoIdentityServiceIdentityPoolShortDescription;
-@class AWSCognitoIdentityServiceListIdentitiesInput;
-@class AWSCognitoIdentityServiceListIdentitiesResponse;
-@class AWSCognitoIdentityServiceListIdentityPoolsInput;
-@class AWSCognitoIdentityServiceListIdentityPoolsResponse;
-@class AWSCognitoIdentityServiceUnlinkIdentityInput;
+@class AWSCognitoIdentityCreateIdentityPoolInput;
+@class AWSCognitoIdentityDeleteIdentityPoolInput;
+@class AWSCognitoIdentityDescribeIdentityPoolInput;
+@class AWSCognitoIdentityGetIdInput;
+@class AWSCognitoIdentityGetIdResponse;
+@class AWSCognitoIdentityGetOpenIdTokenInput;
+@class AWSCognitoIdentityGetOpenIdTokenResponse;
+@class AWSCognitoIdentityIdentityDescription;
+@class AWSCognitoIdentityIdentityPool;
+@class AWSCognitoIdentityIdentityPoolShortDescription;
+@class AWSCognitoIdentityListIdentitiesInput;
+@class AWSCognitoIdentityListIdentitiesResponse;
+@class AWSCognitoIdentityListIdentityPoolsInput;
+@class AWSCognitoIdentityListIdentityPoolsResponse;
+@class AWSCognitoIdentityUnlinkIdentityInput;
 
-@interface AWSCognitoIdentityServiceCreateIdentityPoolInput : AWSRequest
+@interface AWSCognitoIdentityCreateIdentityPoolInput : AWSRequest
 
 @property (nonatomic, strong) NSNumber *allowUnauthenticatedIdentities;
 @property (nonatomic, strong) NSString *identityPoolName;
@@ -57,19 +57,19 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityServiceErrorType) {
 
 @end
 
-@interface AWSCognitoIdentityServiceDeleteIdentityPoolInput : AWSRequest
+@interface AWSCognitoIdentityDeleteIdentityPoolInput : AWSRequest
 
 @property (nonatomic, strong) NSString *identityPoolId;
 
 @end
 
-@interface AWSCognitoIdentityServiceDescribeIdentityPoolInput : AWSRequest
+@interface AWSCognitoIdentityDescribeIdentityPoolInput : AWSRequest
 
 @property (nonatomic, strong) NSString *identityPoolId;
 
 @end
 
-@interface AWSCognitoIdentityServiceGetIdInput : AWSRequest
+@interface AWSCognitoIdentityGetIdInput : AWSRequest
 
 @property (nonatomic, strong) NSString *accountId;
 @property (nonatomic, strong) NSString *identityPoolId;
@@ -77,34 +77,34 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityServiceErrorType) {
 
 @end
 
-@interface AWSCognitoIdentityServiceGetIdResponse : AWSModel
+@interface AWSCognitoIdentityGetIdResponse : AWSModel
 
 @property (nonatomic, strong) NSString *identityId;
 
 @end
 
-@interface AWSCognitoIdentityServiceGetOpenIdTokenInput : AWSRequest
+@interface AWSCognitoIdentityGetOpenIdTokenInput : AWSRequest
 
 @property (nonatomic, strong) NSString *identityId;
 @property (nonatomic, strong) NSDictionary *logins;
 
 @end
 
-@interface AWSCognitoIdentityServiceGetOpenIdTokenResponse : AWSModel
+@interface AWSCognitoIdentityGetOpenIdTokenResponse : AWSModel
 
 @property (nonatomic, strong) NSString *identityId;
 @property (nonatomic, strong) NSString *token;
 
 @end
 
-@interface AWSCognitoIdentityServiceIdentityDescription : AWSModel
+@interface AWSCognitoIdentityIdentityDescription : AWSModel
 
 @property (nonatomic, strong) NSString *identityId;
 @property (nonatomic, strong) NSArray *logins;
 
 @end
 
-@interface AWSCognitoIdentityServiceIdentityPool : AWSRequest
+@interface AWSCognitoIdentityIdentityPool : AWSRequest
 
 @property (nonatomic, strong) NSNumber *allowUnauthenticatedIdentities;
 @property (nonatomic, strong) NSString *identityPoolId;
@@ -113,14 +113,14 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityServiceErrorType) {
 
 @end
 
-@interface AWSCognitoIdentityServiceIdentityPoolShortDescription : AWSModel
+@interface AWSCognitoIdentityIdentityPoolShortDescription : AWSModel
 
 @property (nonatomic, strong) NSString *identityPoolId;
 @property (nonatomic, strong) NSString *identityPoolName;
 
 @end
 
-@interface AWSCognitoIdentityServiceListIdentitiesInput : AWSRequest
+@interface AWSCognitoIdentityListIdentitiesInput : AWSRequest
 
 @property (nonatomic, strong) NSString *identityPoolId;
 @property (nonatomic, strong) NSNumber *maxResults;
@@ -128,7 +128,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityServiceErrorType) {
 
 @end
 
-@interface AWSCognitoIdentityServiceListIdentitiesResponse : AWSModel
+@interface AWSCognitoIdentityListIdentitiesResponse : AWSModel
 
 @property (nonatomic, strong) NSArray *identities;
 @property (nonatomic, strong) NSString *identityPoolId;
@@ -136,21 +136,21 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityServiceErrorType) {
 
 @end
 
-@interface AWSCognitoIdentityServiceListIdentityPoolsInput : AWSRequest
+@interface AWSCognitoIdentityListIdentityPoolsInput : AWSRequest
 
 @property (nonatomic, strong) NSNumber *maxResults;
 @property (nonatomic, strong) NSString *nextToken;
 
 @end
 
-@interface AWSCognitoIdentityServiceListIdentityPoolsResponse : AWSModel
+@interface AWSCognitoIdentityListIdentityPoolsResponse : AWSModel
 
 @property (nonatomic, strong) NSArray *identityPools;
 @property (nonatomic, strong) NSString *nextToken;
 
 @end
 
-@interface AWSCognitoIdentityServiceUnlinkIdentityInput : AWSRequest
+@interface AWSCognitoIdentityUnlinkIdentityInput : AWSRequest
 
 @property (nonatomic, strong) NSString *identityId;
 @property (nonatomic, strong) NSDictionary *logins;

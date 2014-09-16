@@ -15,4 +15,4 @@
 
 #import <Foundation/Foundation.h>
 #import "AWSCore.h"
-#import "AWSEventRecorderService.h"
+#import "AWSCognitoIdentity.h"

@@ -241,6 +241,52 @@ static NSTimeInterval _clockskew = 0.0;
     }
 }
 
+- (BOOL)aws_isDNSBucketName:(NSString *)theBucketName;
+{
+    if (theBucketName == nil) {
+        return NO;
+    }
+    
+    if ( [theBucketName length] < 3 || [theBucketName length] > 63) {
+        return NO;
+    }
+    
+    if ( [theBucketName hasSuffix:@"-"]) {
+        return NO;
+    }
+    
+    if ( [self aws_contains:theBucketName searchString:@"_"]) {
+        return NO;
+    }
+    
+    if ( [self aws_contains:theBucketName searchString:@"-."] ||
+        [self aws_contains:theBucketName searchString:@".-"]) {
+        return NO;
+    }
+    
+    if ( [[theBucketName lowercaseString] isEqualToString:theBucketName] == NO) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (BOOL)aws_isVirtualHostedStyleCompliant:(NSString *)theBucketName
+{
+    if (![self aws_isDNSBucketName:theBucketName]) {
+        return NO;
+    } else {
+        return ![self aws_contains:theBucketName searchString:@"."];
+    }
+}
+
+- (BOOL)aws_contains:(NSString *)sourceString searchString:(NSString *)searchString
+{
+    NSRange range = [sourceString rangeOfString:searchString];
+    
+    return (range.location != NSNotFound);
+}
+
 @end
 
 @implementation NSString (AWS)

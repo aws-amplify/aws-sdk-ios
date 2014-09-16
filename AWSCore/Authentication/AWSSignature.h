@@ -14,6 +14,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <CommonCrypto/CommonHMAC.h>
 #import "AWSNetworking.h"
 
 @class AWSEndpoint;
@@ -26,6 +27,7 @@
 + (NSString *)hashString:(NSString *)stringToHash;
 + (NSData *)hash:(NSData *)dataToHash;
 + (NSString *)hexEncode:(NSString *)string;
++ (NSString *)HMACSign:(NSData *)data withKey:(NSString *)key usingAlgorithm:(CCHmacAlgorithm)algorithm;
 
 @end
 

@@ -13,10 +13,10 @@
  * permissions and limitations under the License.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "AmazonInsightsSDKTests.h"
 #import "AWSMobileAnalyticsDefaultOptions.h"
 
-@interface AIDefaultInsightsOptionsTests : SenTestCase
+@interface AIDefaultInsightsOptionsTests : XCTestCase
 
 @end

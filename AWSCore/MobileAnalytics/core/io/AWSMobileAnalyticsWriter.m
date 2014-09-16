@@ -19,7 +19,6 @@
 #import <objc/runtime.h>
 #import <CommonCrypto/CommonCryptor.h>
 #import <CommonCrypto/CommonDigest.h>
-#import "GZIP.h"
 #import "AWSMobileAnalyticsBase64Utils.h"
 
 @interface AWSMobileAnalyticsWriter()

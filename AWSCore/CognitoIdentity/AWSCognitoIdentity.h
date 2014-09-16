@@ -15,30 +15,37 @@
 
 #import <Foundation/Foundation.h>
 #import "AWSService.h"
-#import "AWSEventRecorderServiceModel.h"
+#import "AWSCognitoIdentityModel.h"
 
 @class BFTask;
 
 /**
- * A service which is used to record Amazon Mobile Analytics events
+ * 
  */
-@interface AWSEventRecorderService : AWSService
+@interface AWSCognitoIdentity : AWSService
 
 @property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration;
 
-+ (instancetype)defaultEventRecorderService;
++ (instancetype)defaultCognitoIdentity;
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration;
 
-/**
- * Record a batch of events
- *
- * @param request A container for the necessary parameters to execute the PutEvents service method.
- *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSEventRecorderServiceErrorDomain domian and the following error code: AWSEventRecorderServiceErrorBadRequest.
- *
- * @see AWSEventRecorderServicePutEventsInput
- */
-- (BFTask *)putEvents:(AWSEventRecorderServicePutEventsInput *)request;
+- (BFTask *)createIdentityPool:(AWSCognitoIdentityCreateIdentityPoolInput *)request;
+
+- (BFTask *)deleteIdentityPool:(AWSCognitoIdentityDeleteIdentityPoolInput *)request;
+
+- (BFTask *)describeIdentityPool:(AWSCognitoIdentityDescribeIdentityPoolInput *)request;
+
+- (BFTask *)getId:(AWSCognitoIdentityGetIdInput *)request;
+
+- (BFTask *)getOpenIdToken:(AWSCognitoIdentityGetOpenIdTokenInput *)request;
+
+- (BFTask *)listIdentities:(AWSCognitoIdentityListIdentitiesInput *)request;
+
+- (BFTask *)listIdentityPools:(AWSCognitoIdentityListIdentityPoolsInput *)request;
+
+- (BFTask *)unlinkIdentity:(AWSCognitoIdentityUnlinkIdentityInput *)request;
+
+- (BFTask *)updateIdentityPool:(AWSCognitoIdentityIdentityPool *)request;
 
 @end

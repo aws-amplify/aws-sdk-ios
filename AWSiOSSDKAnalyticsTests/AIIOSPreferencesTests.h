@@ -17,7 +17,7 @@
 #import "AmazonInsightsSDKTests.h"
 #import "AWSMobileAnalyticsIOSPreferences.h"
 
-@interface AIIOSPreferencesTests : SenTestCase
+@interface AIIOSPreferencesTests : XCTestCase
 {
     id<AWSMobileAnalyticsFileManager> testFileManager;
     AWSMobileAnalyticsIOSPreferences *target;

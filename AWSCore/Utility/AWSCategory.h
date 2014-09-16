@@ -63,6 +63,8 @@ FOUNDATION_EXPORT NSString *const AWSDateShortDateFormat1;
 - (NSDictionary *)aws_properties;
 
 - (void)aws_copyPropertiesFromObject:(NSObject *)object;
+- (BOOL)aws_isDNSBucketName:(NSString *)theBucketName;
+- (BOOL)aws_isVirtualHostedStyleCompliant:(NSString *)theBucketName;
 
 @end
 

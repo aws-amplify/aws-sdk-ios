@@ -30,7 +30,7 @@
 #import "Kinesis.h"
 #import "AWSKinesis.h"
 #import "AWSTestUtility.h"
-#import "AWSEventRecorderService.h"
+#import "AWSMobileAnalyticsERS.h"
 
 @import ObjectiveC.runtime;
 
@@ -99,20 +99,20 @@ static char mockDateKey;
     XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
-    AWSEventRecorderService *ers = [AWSEventRecorderService defaultEventRecorderService];
+    AWSMobileAnalyticsERS *ers = [AWSMobileAnalyticsERS defaultMobileAnalyticsERS];
     XCTAssertNotNil(ers);
     
-    AWSEventRecorderServicePutEventsInput *putEventInput = [AWSEventRecorderServicePutEventsInput new];
+    AWSMobileAnalyticsERSPutEventsInput *putEventInput = [AWSMobileAnalyticsERSPutEventsInput new];
     
     
-    AWSEventRecorderServiceEvent *eventOne = [AWSEventRecorderServiceEvent new];
+    AWSMobileAnalyticsERSEvent *eventOne = [AWSMobileAnalyticsERSEvent new];
     
     eventOne.attributes = @{};
     eventOne.version = @"v2.0";
     eventOne.eventType = @"_session.start";
     eventOne.timestamp = [[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3];
     
-    AWSEventRecorderServiceSession *serviceSession = [AWSEventRecorderServiceSession new];
+    AWSMobileAnalyticsERSSession *serviceSession = [AWSMobileAnalyticsERSSession new];
     serviceSession.id = @"SMZSP1G8-21c9ac01-20140604-171714026";
     serviceSession.startTimestamp = [[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3];
     
@@ -454,10 +454,10 @@ static char mockDateKey;
     XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [self setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
     
-    AWSCognitoIdentityService *cib = [AWSCognitoIdentityService defaultCognitoIdentityService];
+    AWSCognitoIdentity *cib = [AWSCognitoIdentity defaultCognitoIdentity];
     XCTAssertNotNil(cib);
     
-    AWSCognitoIdentityServiceListIdentityPoolsInput *listPools = [AWSCognitoIdentityServiceListIdentityPoolsInput new];
+    AWSCognitoIdentityListIdentityPoolsInput *listPools = [AWSCognitoIdentityListIdentityPoolsInput new];
     listPools.maxResults = @10;
     [[[cib listIdentityPools:listPools] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
@@ -465,7 +465,7 @@ static char mockDateKey;
         }
         
         if (task.result) {
-            XCTAssertTrue([task.result isKindOfClass:[AWSCognitoIdentityServiceListIdentityPoolsResponse class]]);
+            XCTAssertTrue([task.result isKindOfClass:[AWSCognitoIdentityListIdentityPoolsResponse class]]);
         }
         
         return nil;

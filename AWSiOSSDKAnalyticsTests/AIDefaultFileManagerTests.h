@@ -17,6 +17,6 @@
 #import "AmazonInsightsSDKTests.h"
 #import "AWSMobileAnalyticsDefaultFileManager.h"
 
-@interface AIDefaultFileManagerTests : SenTestCase
+@interface AIDefaultFileManagerTests : XCTestCase
 
 @end

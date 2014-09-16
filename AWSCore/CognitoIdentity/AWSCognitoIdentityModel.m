@@ -13,12 +13,12 @@
  * permissions and limitations under the License.
  */
 
-#import "AWSCognitoIdentityServiceModel.h"
+#import "AWSCognitoIdentityModel.h"
 #import "AWSCategory.h"
 
-NSString *const AWSCognitoIdentityServiceErrorDomain = @"com.amazonaws.AWSCognitoIdentityServiceErrorDomain";
+NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdentityErrorDomain";
 
-@implementation AWSCognitoIdentityServiceCreateIdentityPoolInput
+@implementation AWSCognitoIdentityCreateIdentityPoolInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -30,7 +30,7 @@ NSString *const AWSCognitoIdentityServiceErrorDomain = @"com.amazonaws.AWSCognit
 
 @end
 
-@implementation AWSCognitoIdentityServiceDeleteIdentityPoolInput
+@implementation AWSCognitoIdentityDeleteIdentityPoolInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -40,7 +40,7 @@ NSString *const AWSCognitoIdentityServiceErrorDomain = @"com.amazonaws.AWSCognit
 
 @end
 
-@implementation AWSCognitoIdentityServiceDescribeIdentityPoolInput
+@implementation AWSCognitoIdentityDescribeIdentityPoolInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -50,7 +50,7 @@ NSString *const AWSCognitoIdentityServiceErrorDomain = @"com.amazonaws.AWSCognit
 
 @end
 
-@implementation AWSCognitoIdentityServiceGetIdInput
+@implementation AWSCognitoIdentityGetIdInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -62,7 +62,7 @@ NSString *const AWSCognitoIdentityServiceErrorDomain = @"com.amazonaws.AWSCognit
 
 @end
 
-@implementation AWSCognitoIdentityServiceGetIdResponse
+@implementation AWSCognitoIdentityGetIdResponse
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -72,7 +72,7 @@ NSString *const AWSCognitoIdentityServiceErrorDomain = @"com.amazonaws.AWSCognit
 
 @end
 
-@implementation AWSCognitoIdentityServiceGetOpenIdTokenInput
+@implementation AWSCognitoIdentityGetOpenIdTokenInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -83,7 +83,7 @@ NSString *const AWSCognitoIdentityServiceErrorDomain = @"com.amazonaws.AWSCognit
 
 @end
 
-@implementation AWSCognitoIdentityServiceGetOpenIdTokenResponse
+@implementation AWSCognitoIdentityGetOpenIdTokenResponse
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -94,7 +94,7 @@ NSString *const AWSCognitoIdentityServiceErrorDomain = @"com.amazonaws.AWSCognit
 
 @end
 
-@implementation AWSCognitoIdentityServiceIdentityDescription
+@implementation AWSCognitoIdentityIdentityDescription
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -105,7 +105,7 @@ NSString *const AWSCognitoIdentityServiceErrorDomain = @"com.amazonaws.AWSCognit
 
 @end
 
-@implementation AWSCognitoIdentityServiceIdentityPool
+@implementation AWSCognitoIdentityIdentityPool
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -118,7 +118,7 @@ NSString *const AWSCognitoIdentityServiceErrorDomain = @"com.amazonaws.AWSCognit
 
 @end
 
-@implementation AWSCognitoIdentityServiceIdentityPoolShortDescription
+@implementation AWSCognitoIdentityIdentityPoolShortDescription
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -129,7 +129,7 @@ NSString *const AWSCognitoIdentityServiceErrorDomain = @"com.amazonaws.AWSCognit
 
 @end
 
-@implementation AWSCognitoIdentityServiceListIdentitiesInput
+@implementation AWSCognitoIdentityListIdentitiesInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -141,7 +141,7 @@ NSString *const AWSCognitoIdentityServiceErrorDomain = @"com.amazonaws.AWSCognit
 
 @end
 
-@implementation AWSCognitoIdentityServiceListIdentitiesResponse
+@implementation AWSCognitoIdentityListIdentitiesResponse
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -152,12 +152,12 @@ NSString *const AWSCognitoIdentityServiceErrorDomain = @"com.amazonaws.AWSCognit
 }
 
 + (NSValueTransformer *)identitiesJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSCognitoIdentityServiceIdentityDescription class]];
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSCognitoIdentityIdentityDescription class]];
 }
 
 @end
 
-@implementation AWSCognitoIdentityServiceListIdentityPoolsInput
+@implementation AWSCognitoIdentityListIdentityPoolsInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -168,7 +168,7 @@ NSString *const AWSCognitoIdentityServiceErrorDomain = @"com.amazonaws.AWSCognit
 
 @end
 
-@implementation AWSCognitoIdentityServiceListIdentityPoolsResponse
+@implementation AWSCognitoIdentityListIdentityPoolsResponse
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -178,12 +178,12 @@ NSString *const AWSCognitoIdentityServiceErrorDomain = @"com.amazonaws.AWSCognit
 }
 
 + (NSValueTransformer *)identityPoolsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSCognitoIdentityServiceIdentityPoolShortDescription class]];
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSCognitoIdentityIdentityPoolShortDescription class]];
 }
 
 @end
 
-@implementation AWSCognitoIdentityServiceUnlinkIdentityInput
+@implementation AWSCognitoIdentityUnlinkIdentityInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{

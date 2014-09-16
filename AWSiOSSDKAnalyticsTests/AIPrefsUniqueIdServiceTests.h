@@ -15,6 +15,6 @@
 
 #import "AmazonInsightsSDKTests.h"
 
-@interface AIPrefsUniqueIdServiceTests : SenTestCase
+@interface AIPrefsUniqueIdServiceTests : XCTestCase
 
 @end

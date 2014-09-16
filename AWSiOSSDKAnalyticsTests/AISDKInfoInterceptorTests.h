@@ -17,6 +17,6 @@
 #import "AWSMobileAnalyticsSDKInfoInterceptor.h"
 #import "AWSMobileAnalyticsDefaultRequest.h"
 
-@interface AISDKInfoInterceptorTests : SenTestCase
+@interface AISDKInfoInterceptorTests : XCTestCase
 
 @end

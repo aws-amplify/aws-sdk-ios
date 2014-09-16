@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.0.6"
+VERSION="2.0.7"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -54,7 +54,7 @@ else
     then 
     	cp -r ../AWSiOSSDKCognitoSync/Cognito ./docs_tmp/Cognito
         rm -rf ./docs_tmp/Cognito/Internal
-    	cp -r ../AWSiOSSDKCognitoSync/CognitoSyncService ./docs_tmp/CognitoSyncService
+    	cp -r ../AWSiOSSDKCognitoSync/CognitoSync ./docs_tmp/CognitoSync
     fi
 
     cd docs_tmp

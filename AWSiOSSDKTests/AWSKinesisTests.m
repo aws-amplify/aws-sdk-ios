@@ -125,7 +125,7 @@ static NSString *testStreamName = nil;
     }
 
     [[[[[[BFTask taskForCompletionOfAllTasks:tasks] continueWithSuccessBlock:^id(BFTask *task) {
-        sleep(10);
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:30]];
         AWSKinesisDescribeStreamInput *describeStreamInput = [AWSKinesisDescribeStreamInput new];
         describeStreamInput.streamName = testStreamName;
         return [kinesis describeStream:describeStreamInput];

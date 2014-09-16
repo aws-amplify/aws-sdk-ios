@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0600"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -66,7 +66,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BDD11DED193FA13600AF60E1"
-               BuildableName = "AWSiOSSDKv2AnalyticsTests.octest"
+               BuildableName = "AWSiOSSDKv2AnalyticsTests.xctest"
                BlueprintName = "AWSiOSSDKv2AnalyticsTests"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
@@ -82,6 +82,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "CE5D83D51857AA3100907C25"
+            BuildableName = "libAWSiOSSDKv2.a"
+            BlueprintName = "AWSiOSSDKv2"
+            ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

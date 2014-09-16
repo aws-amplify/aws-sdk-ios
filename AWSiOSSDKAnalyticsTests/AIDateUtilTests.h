@@ -16,6 +16,6 @@
 #import "AmazonInsightsSDKTests.h"
 
 
-@interface AIDateUtilTests : SenTestCase
+@interface AIDateUtilTests : XCTestCase
 
 @end

@@ -2,7 +2,7 @@
  * Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  */
 
-#import "AWSCognitoIdentityService.h"
+#import "AWSCognitoIdentity.h"
 
 #import "AWSNetworking.h"
 #import "AWSCategory.h"
@@ -16,7 +16,7 @@
 
 NSString *const AWSCIBDefinitionFileName = @"cib-2014-06-30";
 
-@interface AWSCognitoIdentityServiceResponseSerializer : AWSJSONResponseSerializer
+@interface AWSCognitoIdentityResponseSerializer : AWSJSONResponseSerializer
 
 @property (nonatomic, assign) Class outputClass;
 
@@ -26,30 +26,30 @@ NSString *const AWSCIBDefinitionFileName = @"cib-2014-06-30";
 
 @end
 
-@implementation AWSCognitoIdentityServiceResponseSerializer
+@implementation AWSCognitoIdentityResponseSerializer
 
 #pragma mark - Service errors
 
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
-                            @"IncompleteSignature" : @(AWSCognitoIdentityServiceErrorIncompleteSignature),
-                            @"InvalidClientTokenId" : @(AWSCognitoIdentityServiceErrorInvalidClientTokenId),
-                            @"MissingAuthenticationToken" : @(AWSCognitoIdentityServiceErrorMissingAuthenticationToken),
-                            @"InternalErrorException" : @(AWSCognitoIdentityServiceErrorInternalError),
-                            @"InvalidParameterException" : @(AWSCognitoIdentityServiceErrorInvalidParameter),
-                            @"LimitExceededException" : @(AWSCognitoIdentityServiceErrorLimitExceeded),
-                            @"NotAuthorizedException" : @(AWSCognitoIdentityServiceErrorNotAuthorized),
-                            @"ResourceConflictException" : @(AWSCognitoIdentityServiceErrorResourceConflict),
-                            @"ResourceNotFoundException" : @(AWSCognitoIdentityServiceErrorResourceNotFound),
-                            @"TooManyRequestsException" : @(AWSCognitoIdentityServiceErrorTooManyRequests),
+                            @"IncompleteSignature" : @(AWSCognitoIdentityErrorIncompleteSignature),
+                            @"InvalidClientTokenId" : @(AWSCognitoIdentityErrorInvalidClientTokenId),
+                            @"MissingAuthenticationToken" : @(AWSCognitoIdentityErrorMissingAuthenticationToken),
+                            @"InternalErrorException" : @(AWSCognitoIdentityErrorInternalError),
+                            @"InvalidParameterException" : @(AWSCognitoIdentityErrorInvalidParameter),
+                            @"LimitExceededException" : @(AWSCognitoIdentityErrorLimitExceeded),
+                            @"NotAuthorizedException" : @(AWSCognitoIdentityErrorNotAuthorized),
+                            @"ResourceConflictException" : @(AWSCognitoIdentityErrorResourceConflict),
+                            @"ResourceNotFoundException" : @(AWSCognitoIdentityErrorResourceNotFound),
+                            @"TooManyRequestsException" : @(AWSCognitoIdentityErrorTooManyRequests),
                             };
 }
 
 + (instancetype)serializerWithOutputClass:(Class)outputClass
                                  resource:(NSString *)resource
                                actionName:(NSString *)actionName {
-    AWSCognitoIdentityServiceResponseSerializer *serializer = [AWSCognitoIdentityServiceResponseSerializer serializerWithResource:resource actionName:actionName];
+    AWSCognitoIdentityResponseSerializer *serializer = [AWSCognitoIdentityResponseSerializer serializerWithResource:resource actionName:actionName];
     serializer.outputClass = outputClass;
 
     return serializer;
@@ -68,15 +68,15 @@ static NSDictionary *errorCodeDictionary = nil;
     if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
         if ([errorCodeDictionary objectForKey:[[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]]) {
             if (error) {
-                *error = [NSError errorWithDomain:AWSCognitoIdentityServiceErrorDomain
+                *error = [NSError errorWithDomain:AWSCognitoIdentityErrorDomain
                                              code:[[errorCodeDictionary objectForKey:[[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]] integerValue]
                                          userInfo:responseObject];
             }
             return responseObject;
         } else if ([[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]) {
             if (error) {
-                *error = [NSError errorWithDomain:AWSCognitoIdentityServiceErrorDomain
-                                             code:AWSCognitoIdentityServiceErrorUnknown
+                *error = [NSError errorWithDomain:AWSCognitoIdentityErrorDomain
+                                             code:AWSCognitoIdentityErrorUnknown
                                          userInfo:responseObject];
             }
             return responseObject;
@@ -94,11 +94,11 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @end
 
-@interface AWSCognitoIdentityServiceRequestRetryHandler : AWSURLRequestRetryHandler
+@interface AWSCognitoIdentityRequestRetryHandler : AWSURLRequestRetryHandler
 
 @end
 
-@implementation AWSCognitoIdentityServiceRequestRetryHandler
+@implementation AWSCognitoIdentityRequestRetryHandler
 
 - (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
                              response:(NSHTTPURLResponse *)response
@@ -109,12 +109,12 @@ static NSDictionary *errorCodeDictionary = nil;
                                                      data:data
                                                     error:error];
     if(retryType == AWSNetworkingRetryTypeShouldNotRetry
-       && [error.domain isEqualToString:AWSCognitoIdentityServiceErrorDomain]
+       && [error.domain isEqualToString:AWSCognitoIdentityErrorDomain]
        && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
-            case AWSCognitoIdentityServiceErrorIncompleteSignature:
-            case AWSCognitoIdentityServiceErrorInvalidClientTokenId:
-            case AWSCognitoIdentityServiceErrorMissingAuthenticationToken:
+            case AWSCognitoIdentityErrorIncompleteSignature:
+            case AWSCognitoIdentityErrorInvalidClientTokenId:
+            case AWSCognitoIdentityErrorMissingAuthenticationToken:
                 retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
                 break;
 
@@ -134,27 +134,27 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @end
 
-@interface AWSCognitoIdentityService()
+@interface AWSCognitoIdentity()
 
 @property (nonatomic, strong) AWSNetworking *networking;
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
 
 @end
 
-@implementation AWSCognitoIdentityService
+@implementation AWSCognitoIdentity
 
-+ (instancetype)defaultCognitoIdentityService {
++ (instancetype)defaultCognitoIdentity {
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
         return nil;
     }
 
-    static AWSCognitoIdentityService *_defaultCognitoIdentityService = nil;
+    static AWSCognitoIdentity *_defaultCognitoIdentity = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _defaultCognitoIdentityService = [[AWSCognitoIdentityService alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration];
+        _defaultCognitoIdentity = [[AWSCognitoIdentity alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration];
     });
 
-    return _defaultCognitoIdentityService;
+    return _defaultCognitoIdentity;
 }
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
@@ -169,7 +169,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
         _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.requestInterceptors = @[[AWSNetworkingRequestInterceptor new], signer];
-        _configuration.retryHandler = [[AWSCognitoIdentityServiceRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
+        _configuration.retryHandler = [[AWSCognitoIdentityRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
         _configuration.headers = @{@"Host" : _configuration.endpoint.hostName,
                                    @"Content-Type" : @"application/x-amz-json-1.1"};
 
@@ -215,7 +215,7 @@ static NSDictionary *errorCodeDictionary = nil;
     networkingRequest.headers = headers;
     networkingRequest.URLString = blockSafeURLString;
     networkingRequest.HTTPMethod = HTTPMethod;
-    networkingRequest.responseSerializer = [AWSCognitoIdentityServiceResponseSerializer serializerWithOutputClass:outputClass resource:AWSCIBDefinitionFileName actionName:operationName];
+    networkingRequest.responseSerializer = [AWSCognitoIdentityResponseSerializer serializerWithOutputClass:outputClass resource:AWSCIBDefinitionFileName actionName:operationName];
     networkingRequest.requestSerializer = [AWSJSONRequestSerializer serializerWithResource:AWSCIBDefinitionFileName actionName:operationName];
 
     return [self.networking sendRequest:networkingRequest];
@@ -223,16 +223,16 @@ static NSDictionary *errorCodeDictionary = nil;
 
 #pragma mark - Service method
 
-- (BFTask *)createIdentityPool:(AWSCognitoIdentityServiceCreateIdentityPoolInput *)request {
+- (BFTask *)createIdentityPool:(AWSCognitoIdentityCreateIdentityPoolInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@"AWSCognitoIdentityService"
                  operationName:@"CreateIdentityPool"
-                   outputClass:[AWSCognitoIdentityServiceIdentityPool class]];
+                   outputClass:[AWSCognitoIdentityIdentityPool class]];
 }
 
-- (BFTask *)deleteIdentityPool:(AWSCognitoIdentityServiceDeleteIdentityPoolInput *)request {
+- (BFTask *)deleteIdentityPool:(AWSCognitoIdentityDeleteIdentityPoolInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -241,52 +241,52 @@ static NSDictionary *errorCodeDictionary = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)describeIdentityPool:(AWSCognitoIdentityServiceDescribeIdentityPoolInput *)request {
+- (BFTask *)describeIdentityPool:(AWSCognitoIdentityDescribeIdentityPoolInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@"AWSCognitoIdentityService"
                  operationName:@"DescribeIdentityPool"
-                   outputClass:[AWSCognitoIdentityServiceIdentityPool class]];
+                   outputClass:[AWSCognitoIdentityIdentityPool class]];
 }
 
-- (BFTask *)getId:(AWSCognitoIdentityServiceGetIdInput *)request {
+- (BFTask *)getId:(AWSCognitoIdentityGetIdInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@"AWSCognitoIdentityService"
                  operationName:@"GetId"
-                   outputClass:[AWSCognitoIdentityServiceGetIdResponse class]];
+                   outputClass:[AWSCognitoIdentityGetIdResponse class]];
 }
 
-- (BFTask *)getOpenIdToken:(AWSCognitoIdentityServiceGetOpenIdTokenInput *)request {
+- (BFTask *)getOpenIdToken:(AWSCognitoIdentityGetOpenIdTokenInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@"AWSCognitoIdentityService"
                  operationName:@"GetOpenIdToken"
-                   outputClass:[AWSCognitoIdentityServiceGetOpenIdTokenResponse class]];
+                   outputClass:[AWSCognitoIdentityGetOpenIdTokenResponse class]];
 }
 
-- (BFTask *)listIdentities:(AWSCognitoIdentityServiceListIdentitiesInput *)request {
+- (BFTask *)listIdentities:(AWSCognitoIdentityListIdentitiesInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@"AWSCognitoIdentityService"
                  operationName:@"ListIdentities"
-                   outputClass:[AWSCognitoIdentityServiceListIdentitiesResponse class]];
+                   outputClass:[AWSCognitoIdentityListIdentitiesResponse class]];
 }
 
-- (BFTask *)listIdentityPools:(AWSCognitoIdentityServiceListIdentityPoolsInput *)request {
+- (BFTask *)listIdentityPools:(AWSCognitoIdentityListIdentityPoolsInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@"AWSCognitoIdentityService"
                  operationName:@"ListIdentityPools"
-                   outputClass:[AWSCognitoIdentityServiceListIdentityPoolsResponse class]];
+                   outputClass:[AWSCognitoIdentityListIdentityPoolsResponse class]];
 }
 
-- (BFTask *)unlinkIdentity:(AWSCognitoIdentityServiceUnlinkIdentityInput *)request {
+- (BFTask *)unlinkIdentity:(AWSCognitoIdentityUnlinkIdentityInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -295,13 +295,13 @@ static NSDictionary *errorCodeDictionary = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)updateIdentityPool:(AWSCognitoIdentityServiceIdentityPool *)request {
+- (BFTask *)updateIdentityPool:(AWSCognitoIdentityIdentityPool *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@"AWSCognitoIdentityService"
                  operationName:@"UpdateIdentityPool"
-                   outputClass:[AWSCognitoIdentityServiceIdentityPool class]];
+                   outputClass:[AWSCognitoIdentityIdentityPool class]];
 }
 
 @end

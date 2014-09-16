@@ -185,7 +185,7 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
 @property (nonatomic, strong) NSString *identityPoolId;
 @property (nonatomic, strong) NSString *authRoleArn;
 @property (nonatomic, strong) NSString *unAuthRoleArn;
-@property (nonatomic, strong) AWSCognitoIdentityService *cib;
+@property (nonatomic, strong) AWSCognitoIdentity *cib;
 @property (nonatomic, strong) AWSSTS *sts;
 @property (nonatomic, strong) UICKeyChainStore *keychain;
 
@@ -266,7 +266,7 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
         AWSServiceConfiguration *configuration = [AWSServiceConfiguration configurationWithRegion:regionType
                                                                               credentialsProvider:credentialsProvider];
 
-        _cib = [[AWSCognitoIdentityService new] initWithConfiguration:configuration];
+        _cib = [[AWSCognitoIdentity new] initWithConfiguration:configuration];
         _sts = [[AWSSTS new] initWithConfiguration:configuration];
     }
 
@@ -280,7 +280,7 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
         return [self getIdentityId];
     }] continueWithSuccessBlock:^id(BFTask *task) {
-        AWSCognitoIdentityServiceGetOpenIdTokenInput *getTokenInput = [AWSCognitoIdentityServiceGetOpenIdTokenInput new];
+        AWSCognitoIdentityGetOpenIdTokenInput *getTokenInput = [AWSCognitoIdentityGetOpenIdTokenInput new];
         getTokenInput.identityId = self.identityId;
         getTokenInput.logins = self.logins;
 
@@ -301,7 +301,7 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
                     AWSLogVerbose(@"Retrying GetOpenIdToken");
 
                     // retry get token
-                    AWSCognitoIdentityServiceGetOpenIdTokenInput *tokenRetry = [AWSCognitoIdentityServiceGetOpenIdTokenInput new];
+                    AWSCognitoIdentityGetOpenIdTokenInput *tokenRetry = [AWSCognitoIdentityGetOpenIdTokenInput new];
                     tokenRetry.identityId = self.identityId;
                     tokenRetry.logins = self.logins;
 
@@ -311,7 +311,7 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
             return task;
         }];
     }] continueWithSuccessBlock:^id(BFTask *task) {
-        AWSCognitoIdentityServiceGetOpenIdTokenResponse *getTokenResponse = task.result;
+        AWSCognitoIdentityGetOpenIdTokenResponse *getTokenResponse = task.result;
         self.openIdToken = getTokenResponse.token;
         NSString *identityIdFromToken = getTokenResponse.identityId;
 
@@ -371,7 +371,7 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
             dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
 
             if (!self.identityId) {
-                AWSCognitoIdentityServiceGetIdInput *getIdInput = [AWSCognitoIdentityServiceGetIdInput new];
+                AWSCognitoIdentityGetIdInput *getIdInput = [AWSCognitoIdentityGetIdInput new];
                 getIdInput.accountId = self.accountId;
                 getIdInput.identityPoolId = self.identityPoolId;
                 getIdInput.logins = self.logins;
@@ -380,7 +380,7 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
                     if (task.error) {
                         AWSLogError(@"GetId failed. Error is [%@]", task.error);
                     } else {
-                        AWSCognitoIdentityServiceGetIdResponse *getIdResponse = task.result;
+                        AWSCognitoIdentityGetIdResponse *getIdResponse = task.result;
                         [self postIdentityIdChangedNotification:getIdResponse.identityId];
                         self.keychain[@"identityId"] = getIdResponse.identityId;
                         [self.keychain synchronize];

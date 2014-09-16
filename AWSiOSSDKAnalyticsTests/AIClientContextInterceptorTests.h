@@ -17,6 +17,6 @@
 #import "AWSMobileAnalyticsClientContextInterceptor.h"
 #import "AWSMobileAnalyticsDefaultRequest.h"
 
-@interface AIClientContextInterceptorTests : SenTestCase
+@interface AIClientContextInterceptorTests : XCTestCase
 
 @end

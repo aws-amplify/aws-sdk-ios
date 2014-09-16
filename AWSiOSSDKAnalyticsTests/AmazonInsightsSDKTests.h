@@ -17,7 +17,7 @@
 
 #import <objc/runtime.h>
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import <OCMock/OCMock.h>
 
 @interface NSString (RegExpExtensions)
@@ -39,6 +39,6 @@ withClassSelectorToSwizzle:(SEL)selectorToSwizzle
 
 @end
 
-@interface AmazonInsightsSDKTests : SenTestCase
+@interface AmazonInsightsSDKTests : XCTestCase
 void SwizzleClassMethod(Class c, SEL orig, SEL new);
 @end

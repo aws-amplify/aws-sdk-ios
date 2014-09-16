@@ -15,6 +15,6 @@
 
 #import "AmazonInsightsSDKTests.h"
 
-@interface AIActiveSessionStateTests : SenTestCase
+@interface AIActiveSessionStateTests : XCTestCase
 
 @end

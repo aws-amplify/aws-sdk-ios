@@ -25,7 +25,7 @@
 #import "AWSMobileAnalyticsRequest.h"
 #import "AWSMobileAnalyticsDefaultHttpClient.h"
 
-@interface AIERSRequestBuilderTests : SenTestCase
+@interface AIERSRequestBuilderTests : XCTestCase
 {
     AWSMobileAnalyticsERSRequestBuilder *_target;
     AITestConfiguration *_configuration;

@@ -34,7 +34,8 @@ static NSString *testBucketNameGeneral = nil;
 + (void)setUp {
     [super setUp];
     [AWSTestUtility setupCognitoCredentialsProvider];
-
+    //[AWSTestUtility setupCrdentialsViaFile];
+    
     //Create bucketName
     NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];
     testBucketNameGeneral = [NSString stringWithFormat:@"%@%lld", AWSS3TestBucketNamePrefix, (int64_t)timeIntervalSinceReferenceDate];
@@ -78,7 +79,7 @@ static NSString *testBucketNameGeneral = nil;
         return nil;
     }] waitUntilFinished];
 
-    sleep(5);
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
 
     return success;
 }
@@ -141,7 +142,7 @@ static NSString *testBucketNameGeneral = nil;
     
     [[[[[[s3 createBucket:createBucketReq] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
-        sleep(2);
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
         return [s3 listBuckets:nil];
     }] continueWithBlock:^id(BFTask *task) {
         //Check if bucket are there.
@@ -157,6 +158,7 @@ static NSString *testBucketNameGeneral = nil;
         return [s3 deleteBucket:deleteBucketReq];
     }] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
         return [s3 listBuckets:nil];
     }] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
@@ -210,6 +212,8 @@ static NSString *testBucketNameGeneral = nil;
 
     }] waitUntilFinished];
 
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+    
     XCTAssertTrue([AWSS3Tests deleteBucketWithName:grantBucketName]);
 }
 
@@ -251,8 +255,6 @@ static NSString *testBucketNameGeneral = nil;
     NSString *keyName = @" name with!@#$%^&+-end";
 
     
-    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:3]];
-    
     NSString *testObjectStr = @"a test object string.";
     NSData *testObjectData = [testObjectStr dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -274,7 +276,7 @@ static NSString *testBucketNameGeneral = nil;
         
     }] waitUntilFinished];
     
-     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:3]];
+     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
     
     //List Object with parameters need URL Encoding
     AWSS3ListObjectsRequest *listObjectReq = [AWSS3ListObjectsRequest new];
@@ -322,7 +324,6 @@ static NSString *testBucketNameGeneral = nil;
     putObjectRequest.key = keyName;
     putObjectRequest.body = testObjectData;
     putObjectRequest.contentLength = [NSNumber numberWithUnsignedInteger:[testObjectData length]];
-
     putObjectRequest.contentType = @"video/mpeg";
 
     [[[[[[[s3 putObject:putObjectRequest] continueWithSuccessBlock:^id(BFTask *task) {
@@ -335,6 +336,7 @@ static NSString *testBucketNameGeneral = nil;
         headObjectRequest.bucket = testBucketNameGeneral;
         headObjectRequest.key = keyName;
 
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
         return [s3 headObject:headObjectRequest];
     }] continueWithSuccessBlock:^id(BFTask *task) {
         XCTAssertTrue([task.result isKindOfClass:[AWSS3HeadObjectOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3HeadObjectOutput class]), [task.result description]);
@@ -425,7 +427,7 @@ static NSString *testBucketNameGeneral = nil;
 
     }] waitUntilFinished];
 
-    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
     
     XCTAssertEqual(fileSize, totalUploadedBytes, @"totalUploaded Bytes is not equal to fileSize");
     XCTAssertEqual(fileSize, totalExpectedUploadBytes);
@@ -514,6 +516,8 @@ static NSString *testBucketNameGeneral = nil;
         return nil;
 
     }] waitUntilFinished];
+    
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
 
     XCTAssertEqual(totalUploadedBytes, accumulatedUploadBytes, @"total of accumulatedUploadBytes is not equal to totalUploadedBytes");
     XCTAssertEqual(AWSS3Test256KB, totalUploadedBytes, @"totalUploaded Bytes is not equal to fileSize");
@@ -672,7 +676,7 @@ static NSString *testBucketNameGeneral = nil;
         return nil;
     }] waitUntilFinished];
 
-    sleep(5.0);
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:20]];
 
     AWSS3ListObjectsRequest *listObjectReq = [AWSS3ListObjectsRequest new];
     listObjectReq.bucket = testBucketNameGeneral;
@@ -726,6 +730,10 @@ static NSString *testBucketNameGeneral = nil;
     }] waitUntilFinished];
 }
 
+#if AWS_TEST_BJS_INSTEAD
+#else
+
+#endif
 @end
 
 #endif

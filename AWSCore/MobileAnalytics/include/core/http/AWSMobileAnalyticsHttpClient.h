@@ -18,13 +18,13 @@
 #import "AWSMobileAnalyticsRequest.h"
 #import "AWSMobileAnalyticsResponse.h"
 
-@class AWSEventRecorderService;
+@class AWSMobileAnalyticsERS;
 
 typedef BOOL (^RetryHandler)(int);
 
 @protocol AWSMobileAnalyticsHttpClient <NSObject>
 
-@property (nonatomic, strong) AWSEventRecorderService *eventRecorderService;
+@property (nonatomic, strong) AWSMobileAnalyticsERS *ers;
 
 @required
 -(void) addInterceptor: (id<AWSMobileAnalyticsInterceptor>) theInterceptor;

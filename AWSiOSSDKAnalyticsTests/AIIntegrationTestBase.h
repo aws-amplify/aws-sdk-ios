@@ -45,7 +45,7 @@
 #import "AIInternalInterfaces.h"
 #import "BlockingInterceptor.h"
 
-@interface AIIntegrationTestBase : SenTestCase
+@interface AIIntegrationTestBase : XCTestCase
 {
     id<AWSMobileAnalyticsContext> _context;
     AITestConfiguration *_configuration;

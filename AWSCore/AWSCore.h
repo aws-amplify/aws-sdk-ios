@@ -26,5 +26,5 @@
 #import "AWSLogging.h"
 
 #import "STS.h"
-#import "CognitoIdentityService.h"
+#import "CognitoIdentity.h"
 #import "MobileAnalytics.h"

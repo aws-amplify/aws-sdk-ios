@@ -1376,7 +1376,9 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
     if ([rulesType isEqualToString:@"structure"]) {
 
         if (![value isKindOfClass:[NSDictionary class]]) {
-            [self failWithCode:AWSJSONBuilderInvalidParameter description:[NSString stringWithFormat:@"a structure input should be a dictionary but got:%@",value] error:error];
+            if (![value isKindOfClass:[NSNull class]]) {
+                [self failWithCode:AWSJSONBuilderInvalidParameter description:[NSString stringWithFormat:@"a structure input should be a dictionary but got:%@",value] error:error];
+            }
             return @{};
         } else {
 
@@ -1386,7 +1388,9 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
     } else if ([rulesType isEqualToString:@"list"]) {
 
         if (![value isKindOfClass:[NSArray class]]) {
-            [self failWithCode:AWSJSONBuilderInvalidParameter description:[NSString stringWithFormat:@"a list input should be an array but got:%@",value] error:error];
+            if (![value isKindOfClass:[NSNull class]]) {
+                [self failWithCode:AWSJSONBuilderInvalidParameter description:[NSString stringWithFormat:@"a list input should be an array but got:%@",value] error:error];
+            }
             return @[];
         } else {
             return [self serializeList:shape values:value error:error];
@@ -1396,7 +1400,9 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
     } else if ([rulesType isEqualToString:@"map"]) {
 
         if (![value isKindOfClass:[NSDictionary class]]) {
-            [self failWithCode:AWSJSONBuilderInvalidParameter description:[NSString stringWithFormat:@"a map input should be a dictionary but got:%@",value] error:error];
+            if (![value isKindOfClass:[NSNull class]]) {
+                [self failWithCode:AWSJSONBuilderInvalidParameter description:[NSString stringWithFormat:@"a map input should be a dictionary but got:%@",value] error:error];
+            }
             return @{};
         } else {
             return [self serializeMap:shape values:value error:error];
@@ -1568,7 +1574,9 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
     if ([rulesType isEqualToString:@"structure"]) {
 
         if (![value isKindOfClass:[NSDictionary class]]) {
-            [self failWithCode:AWSJSONParserInvalidParameter description:[NSString stringWithFormat:@"a structure input should be a dictionary but got:%@",value] error:error];
+            if (![value isKindOfClass:[NSNull class]]) {
+                [self failWithCode:AWSJSONParserInvalidParameter description:[NSString stringWithFormat:@"a structure input should be a dictionary but got:%@",value] error:error];
+            }
             return @{};
         } else {
 
@@ -1578,7 +1586,9 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
     } else if ([rulesType isEqualToString:@"list"]) {
 
         if (![value isKindOfClass:[NSArray class]]) {
-            [self failWithCode:AWSJSONParserInvalidParameter description:[NSString stringWithFormat:@"a list input should be an array but got:%@",value] error:error];
+            if (![value isKindOfClass:[NSNull class]]) {
+                [self failWithCode:AWSJSONParserInvalidParameter description:[NSString stringWithFormat:@"a list input should be an array but got:%@",value] error:error];
+            }
             return @[];
         } else {
             return [self serializeList:shape values:value target:target error:error];
@@ -1588,7 +1598,9 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
     } else if ([rulesType isEqualToString:@"map"]) {
 
         if (![value isKindOfClass:[NSDictionary class]]) {
-            [self failWithCode:AWSJSONParserInvalidParameter description:[NSString stringWithFormat:@"a map input should be a dictionary but got:%@",value] error:error];
+            if (![value isKindOfClass:[NSNull class]]) {
+                [self failWithCode:AWSJSONParserInvalidParameter description:[NSString stringWithFormat:@"a map input should be a dictionary but got:%@",value] error:error];
+            }
             return @{};
         } else {
             return [self serializeMap:shape values:value target:target error:error];

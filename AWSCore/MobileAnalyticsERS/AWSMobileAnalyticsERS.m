@@ -13,7 +13,7 @@
  * permissions and limitations under the License.
  */
 
-#import "AWSEventRecorderService.h"
+#import "AWSMobileAnalyticsERS.h"
 
 #import "AWSNetworking.h"
 #import "AWSCategory.h"
@@ -27,7 +27,7 @@
 
 NSString *const AWSERSDefinitionFileName = @"mobileanalytics-2014-06-30";
 
-@interface AWSEventRecorderServiceResponseSerializer : AWSJSONResponseSerializer
+@interface AWSMobileAnalyticsERSResponseSerializer : AWSJSONResponseSerializer
 
 @property (nonatomic, assign) Class outputClass;
 
@@ -37,24 +37,24 @@ NSString *const AWSERSDefinitionFileName = @"mobileanalytics-2014-06-30";
 @end
 
 
-@implementation AWSEventRecorderServiceResponseSerializer
+@implementation AWSMobileAnalyticsERSResponseSerializer
 
 #pragma mark - Service errors
 
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
-                            @"IncompleteSignature" : @(AWSEventRecorderServiceErrorIncompleteSignature),
-                            @"InvalidClientTokenId" : @(AWSEventRecorderServiceErrorInvalidClientTokenId),
-                            @"MissingAuthenticationToken" : @(AWSEventRecorderServiceErrorMissingAuthenticationToken),
-                            @"BadRequestException" : @(AWSEventRecorderServiceErrorBadRequest),
+                            @"IncompleteSignature" : @(AWSMobileAnalyticsERSErrorIncompleteSignature),
+                            @"InvalidClientTokenId" : @(AWSMobileAnalyticsERSErrorInvalidClientTokenId),
+                            @"MissingAuthenticationToken" : @(AWSMobileAnalyticsERSErrorMissingAuthenticationToken),
+                            @"BadRequestException" : @(AWSMobileAnalyticsERSErrorBadRequest),
                             };
 }
 
 + (instancetype)serializerWithOutputClass:(Class)outputClass
                                  resource:(NSString *)resource
                                actionName:(NSString *)actionName {
-    AWSEventRecorderServiceResponseSerializer *serializer = [AWSEventRecorderServiceResponseSerializer serializerWithResource:resource actionName:actionName];
+    AWSMobileAnalyticsERSResponseSerializer *serializer = [AWSMobileAnalyticsERSResponseSerializer serializerWithResource:resource actionName:actionName];
     serializer.outputClass = outputClass;
 
     return serializer;
@@ -94,7 +94,7 @@ static NSDictionary *errorCodeDictionary = nil;
                                                @"responseDataSize" : @(data?[data length]:0),
                                                } mutableCopy];
                     [userInfo addEntriesFromDictionary:responseObject];
-                    *error = [NSError errorWithDomain:AWSEventRecorderServiceErrorDomain
+                    *error = [NSError errorWithDomain:AWSMobileAnalyticsERSErrorDomain
                                                  code:[[errorCodeDictionary objectForKey:[[errorTypeHeader componentsSeparatedByString:@"#"] lastObject]] integerValue]
                                              userInfo:userInfo];
                 }
@@ -108,8 +108,8 @@ static NSDictionary *errorCodeDictionary = nil;
                                                        @"responseDataSize" : @(data?[data length]:0),
                                                        } mutableCopy];
                     [userInfo addEntriesFromDictionary:responseObject];
-                    *error = [NSError errorWithDomain:AWSEventRecorderServiceErrorDomain
-                                                 code:AWSEventRecorderServiceErrorUnknown
+                    *error = [NSError errorWithDomain:AWSMobileAnalyticsERSErrorDomain
+                                                 code:AWSMobileAnalyticsERSErrorUnknown
                                              userInfo:userInfo];
                 }
                 return responseObject;
@@ -136,11 +136,11 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @end
 
-@interface AWSEventRecorderServiceRequestRetryHandler : AWSURLRequestRetryHandler
+@interface AWSMobileAnalyticsERSRequestRetryHandler : AWSURLRequestRetryHandler
 
 @end
 
-@implementation AWSEventRecorderServiceRequestRetryHandler
+@implementation AWSMobileAnalyticsERSRequestRetryHandler
 
 - (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
                             response:(NSHTTPURLResponse *)response
@@ -151,12 +151,12 @@ static NSDictionary *errorCodeDictionary = nil;
                                                     data:data
                                                    error:error];
     if(retryType == AWSNetworkingRetryTypeShouldNotRetry
-       && [error.domain isEqualToString:AWSEventRecorderServiceErrorDomain]
+       && [error.domain isEqualToString:AWSMobileAnalyticsERSErrorDomain]
        && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
-            case AWSEventRecorderServiceErrorIncompleteSignature:
-            case AWSEventRecorderServiceErrorInvalidClientTokenId:
-            case AWSEventRecorderServiceErrorMissingAuthenticationToken:
+            case AWSMobileAnalyticsERSErrorIncompleteSignature:
+            case AWSMobileAnalyticsERSErrorInvalidClientTokenId:
+            case AWSMobileAnalyticsERSErrorMissingAuthenticationToken:
                 retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
                 break;
 
@@ -178,27 +178,27 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @end
 
-@interface AWSEventRecorderService()
+@interface AWSMobileAnalyticsERS()
 
 @property (nonatomic, strong) AWSNetworking *networking;
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
 
 @end
 
-@implementation AWSEventRecorderService
+@implementation AWSMobileAnalyticsERS
 
-+ (instancetype)defaultEventRecorderService {
++ (instancetype)defaultMobileAnalyticsERS {
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
         return nil;
     }
 
-    static AWSEventRecorderService *_defaultAWSGameLabEventRecorderService = nil;
+    static AWSMobileAnalyticsERS *_defaultAWSGameLabMobileAnalyticsERS = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _defaultAWSGameLabEventRecorderService = [[AWSEventRecorderService alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration];
+        _defaultAWSGameLabMobileAnalyticsERS = [[AWSMobileAnalyticsERS alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration];
     });
 
-    return _defaultAWSGameLabEventRecorderService;
+    return _defaultAWSGameLabMobileAnalyticsERS;
 }
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
@@ -213,7 +213,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
         _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.requestInterceptors = @[[AWSNetworkingRequestInterceptor new], signer];
-        _configuration.retryHandler = [[AWSEventRecorderServiceRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
+        _configuration.retryHandler = [[AWSMobileAnalyticsERSRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
         _configuration.headers = @{@"Host" : _configuration.endpoint.hostName,
                                    @"Content-Type" : @"application/x-amz-json-1.1",
                                    @"Accept-Encoding" : @"",
@@ -261,7 +261,7 @@ static NSDictionary *errorCodeDictionary = nil;
     networkingRequest.headers = headers;
     networkingRequest.URLString = blockSafeURLString;
     networkingRequest.HTTPMethod = HTTPMethod;
-    networkingRequest.responseSerializer = [AWSEventRecorderServiceResponseSerializer serializerWithOutputClass:outputClass resource:AWSERSDefinitionFileName actionName:operationName];
+    networkingRequest.responseSerializer = [AWSMobileAnalyticsERSResponseSerializer serializerWithOutputClass:outputClass resource:AWSERSDefinitionFileName actionName:operationName];
     networkingRequest.requestSerializer = [AWSJSONRequestSerializer serializerWithResource:AWSERSDefinitionFileName actionName:operationName];
 
     return [self.networking sendRequest:networkingRequest];
@@ -270,11 +270,11 @@ static NSDictionary *errorCodeDictionary = nil;
 
 #pragma mark - Service method
 
-- (BFTask *)putEvents:(AWSEventRecorderServicePutEventsInput *)request {
+- (BFTask *)putEvents:(AWSMobileAnalyticsERSPutEventsInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/2014-06-05/events"
-                  targetPrefix:@"AWSEventRecorderService"
+                  targetPrefix:@"AmazonMobileAnalytics"
                  operationName:@"PutEvents"
                    outputClass:nil];
 }
