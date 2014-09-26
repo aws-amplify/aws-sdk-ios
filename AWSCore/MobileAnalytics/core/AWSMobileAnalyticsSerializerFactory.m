@@ -16,14 +16,14 @@
 #import "AWSMobileAnalyticsSerializerFactory.h"
 #import "AWSLogging.h"
 
-@interface AIDefaultSerializer : NSObject<AWSMobileAnalyticsSerializer>
+@interface AWSDefaultSerializer : NSObject<AWSMobileAnalyticsSerializer>
 - (NSData *) writeObject:(id) theObject;
 - (NSData *) writeArray:(NSArray *) theArray;
 - (void) readObject:(NSData *) theData;
 - (NSArray *) readArray:(NSData *) theData;
 @end
 
-@implementation AIDefaultSerializer
+@implementation AWSDefaultSerializer
 
 - (NSData *) writeObject:(id) theObject
 {
@@ -65,7 +65,7 @@
     {
         return [[AWSMobileAnalyticsJSONSerializer alloc] init];
     }
-    return [[AIDefaultSerializer alloc] init];
+    return [[AWSDefaultSerializer alloc] init];
 }
 
 @end

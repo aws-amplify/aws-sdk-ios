@@ -20,7 +20,7 @@
 #import "AWSURLSessionManager.h"
 
 NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDomain";
-NSString *const AWSiOSSDKVersion = @"2.0.7";
+NSString *const AWSiOSSDKVersion = @"2.0.8";
 
 #pragma mark - AWSHTTPMethod
 

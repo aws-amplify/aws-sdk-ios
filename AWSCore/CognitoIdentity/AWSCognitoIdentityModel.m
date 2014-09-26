@@ -23,6 +23,7 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"allowUnauthenticatedIdentities" : @"AllowUnauthenticatedIdentities",
+             @"developerProviderName" : @"DeveloperProviderName",
              @"identityPoolName" : @"IdentityPoolName",
              @"supportedLoginProviders" : @"SupportedLoginProviders",
              };
@@ -72,6 +73,30 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
 
 @end
 
+@implementation AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identityId" : @"IdentityId",
+             @"identityPoolId" : @"IdentityPoolId",
+             @"logins" : @"Logins",
+             @"tokenDuration" : @"TokenDuration",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identityId" : @"IdentityId",
+             @"token" : @"Token",
+             };
+}
+
+@end
+
 @implementation AWSCognitoIdentityGetOpenIdTokenInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -110,6 +135,7 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"allowUnauthenticatedIdentities" : @"AllowUnauthenticatedIdentities",
+             @"developerProviderName" : @"DeveloperProviderName",
              @"identityPoolId" : @"IdentityPoolId",
              @"identityPoolName" : @"IdentityPoolName",
              @"supportedLoginProviders" : @"SupportedLoginProviders",
@@ -179,6 +205,68 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
 
 + (NSValueTransformer *)identityPoolsJSONTransformer {
 	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSCognitoIdentityIdentityPoolShortDescription class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityLookupDeveloperIdentityInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"developerUserIdentifier" : @"DeveloperUserIdentifier",
+             @"identityId" : @"IdentityId",
+             @"identityPoolId" : @"IdentityPoolId",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityLookupDeveloperIdentityResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"developerUserIdentifierList" : @"DeveloperUserIdentifierList",
+             @"identityId" : @"IdentityId",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityMergeDeveloperIdentitiesInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"destinationUserIdentifier" : @"DestinationUserIdentifier",
+             @"developerProviderName" : @"DeveloperProviderName",
+             @"identityPoolId" : @"IdentityPoolId",
+             @"sourceUserIdentifier" : @"SourceUserIdentifier",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityMergeDeveloperIdentitiesResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identityId" : @"IdentityId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityUnlinkDeveloperIdentityInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"developerProviderName" : @"DeveloperProviderName",
+             @"developerUserIdentifier" : @"DeveloperUserIdentifier",
+             @"identityId" : @"IdentityId",
+             @"identityPoolId" : @"IdentityPoolId",
+             };
 }
 
 @end

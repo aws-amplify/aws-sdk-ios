@@ -15,13 +15,6 @@
 
 #import <Foundation/Foundation.h>
 
-//FOUNDATION_EXPORT NSInteger const IO_STREAM_CLOSED;
-//FOUNDATION_EXPORT NSInteger const IO_STREAM_NO_BYTES_WRITTEN;
-//FOUNDATION_EXPORT NSInteger const IO_ENCRYPTION_CHECKSUM_GENERATION_FAILED;
-//FOUNDATION_EXPORT NSInteger const IO_ENCRYPTION_CHECKSUM_LENGTH;
-//FOUNDATION_EXPORT NSInteger const IO_ENCRYPTION_CHECKSUM_INVALID;
-
-
 @interface AWSMobileAnalyticsErrorUtils : NSObject
 
 +(NSError *) errorWithDomain:(NSString *) theDomain

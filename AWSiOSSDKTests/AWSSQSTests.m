@@ -13,8 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_SQS
-
 #import <XCTest/XCTest.h>
 #import "SQS.h"
 #import "AWSTestUtility.h"
@@ -74,5 +72,3 @@
 }
 
 @end
-
-#endif

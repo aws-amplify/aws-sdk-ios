@@ -32,7 +32,7 @@
     if (self = [super init])
     {
         _identifier = theIdentifier;
-        _clientContext = [AWSMobileAnalyticsIOSClientContext defaultClientContext];
+        _clientContext = [AWSMobileAnalyticsIOSClientContext defaultClientContextWithAppId:theIdentifier];
         _sdkInfo = sdkInfo;
         
         _connectivity = [[TestConnectivity alloc] initWithConnected:YES hasWifi:YES hasWAN:YES];

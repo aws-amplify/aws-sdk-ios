@@ -157,6 +157,12 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @end
 
+@interface AWSServiceConfiguration()
+
+@property (nonatomic, strong) AWSEndpoint *endpoint;
+
+@end
+
 @implementation AWSAutoScaling
 
 + (instancetype)defaultAutoScaling {

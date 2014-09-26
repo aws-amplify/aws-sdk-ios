@@ -193,7 +193,7 @@ static unsigned int MAX_OPERATIONS = 1000;
         }
         
         BOOL successful = YES;
-        long maxRequestSize = [self.configuration longForKey:KeyMaxSubmissionSize withOptValue:ValueMaxSubmissionSize];
+        long maxRequestSize = [self.configuration longForKey:AWSKeyMaxSubmissionSize withOptValue:AWSValueMaxSubmissionSize];
         
         // get the batched items (they are stored in the event store as json strings
         NSMutableArray* eventArray = [NSMutableArray array];
@@ -201,7 +201,7 @@ static unsigned int MAX_OPERATIONS = 1000;
         
         long currentRequestLength = 0L;
         int submissions = 0;
-        int maxAllowedSubmissions = [self.configuration intForKey:KeyMaxSubmissionsAllowed withOptValue:ValueMaxSubmissionsAllowed];
+        int maxAllowedSubmissions = [self.configuration intForKey:AWSKeyMaxSubmissionsAllowed withOptValue:AWSValueMaxSubmissionsAllowed];
         
         
         while([iterator hasNext] && submissions < maxAllowedSubmissions)
@@ -265,8 +265,8 @@ static unsigned int MAX_OPERATIONS = 1000;
         return submitted;
     }
     
-    int requestRetries = [self.configuration intForKey:KeyEventRecorderMaxRetries withOptValue:ValueEventRecorderMaxRetries];
-    int timeout = [self.configuration intForKey:KeyEventRecorderRequestTimeout withOptValue:ValueEventRecorderRequestTimeout];
+    int requestRetries = [self.configuration intForKey:AWSKeyEventRecorderMaxRetries withOptValue:AWSValueEventRecorderMaxRetries];
+    int timeout = [self.configuration intForKey:AWSKeyEventRecorderRequestTimeout withOptValue:AWSValueEventRecorderRequestTimeout];
     id<AWSMobileAnalyticsResponse> response = [self.httpClient execute:request withRetries:requestRetries withTimeout:timeout];
 
     if(!response) {

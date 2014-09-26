@@ -24,5 +24,5 @@
 -(void)removeBackgroundObserver:(id)observer;
 -(id)addForegroundObserverUsingBlock:(LifeCycleNotificationBlock)block;
 -(void)removeForegroundObserver:(id)observer;
--(void)executeBackgroundTasks:(AIBackgroundQueue*) queue;
+-(void)executeBackgroundTasks:(AWSBackgroundQueue*) queue;
 @end

@@ -13,8 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_DYNAMODB_OBJECT_MAPPER
-
 #import <XCTest/XCTest.h>
 #import "DynamoDB.h"
 #import "AWSTestUtility.h"
@@ -226,7 +224,7 @@ static NSString *tableName = nil;
 - (void)testAll {
     AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
 
-    [[[[[[[[[BFTask taskWithResult:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[[[[[[[[BFTask taskWithResult:nil] continueWithBlock:^id(BFTask *task) {
         NSMutableArray *tasks = [NSMutableArray new];
 
         for (int32_t j = 0; j < 5; j++) {
@@ -281,6 +279,17 @@ static NSString *tableName = nil;
         }
 
         return [BFTask taskForCompletionOfAllTasks:tasks];
+    }] continueWithSuccessBlock:^id(BFTask *task) {
+        AWSDynamoDBQueryExpression *queryExpression = [AWSDynamoDBQueryExpression new];
+        queryExpression.hashKeyValues = @"invalid-key";
+        return [dynamoDBObjectMapper query:[TestObject class]
+                                expression:queryExpression];
+    }] continueWithSuccessBlock:^id(BFTask *task) {
+        XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBPaginatedOutput class]]);
+        AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
+        XCTAssertEqual([paginatedOutput.items count], 0);
+
+        return nil;
     }] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
@@ -291,5 +300,3 @@ static NSString *tableName = nil;
 }
 
 @end
-
-#endif

@@ -15,56 +15,55 @@
 
 #import "AWSMobileAnalyticsConfigurationKeys.h"
 
-NSString *const KeySyncInterval                = @"syncInterval";
-NSString *const KeyLastConfigSync              = @"lastConfigSync";
-NSString *const KeyConfigHost                  = @"configEndpoint";
-NSString *const KeyProjectHost                 = @"projectEndpoint";
-NSString *const KeyEventRecorderHost           = @"eventRecorderEndpoint";
-NSString *const KeyConfigRequestTimeout        = @"configRequestTimeout";
-NSString *const KeyProjectRequestTimeout       = @"allocationRequestTimeout";
-NSString *const KeyEventRecorderRequestTimeout = @"eventRecorderRequestTimeout";
-NSString *const KeyConfigMaxRetries            = @"configRequestRetries";
-NSString *const KeyProjectMaxRetries           = @"allocationRequestRetries";
-NSString *const KeyEventRecorderMaxRetries     = @"eventRecorderRequestRetries";
-NSString *const KeyAllowWANEventDelivery       = @"allowWANEventDelivery";
-NSString *const KeyLogLevel                    = @"logLevel";
-NSString *const KeyIsAnalyticsEnabled          = @"isAnalyticsEnabled";
+NSString *const AWSKeySyncInterval                = @"syncInterval";
+NSString *const AWSKeyLastConfigSync              = @"lastConfigSync";
+NSString *const AWSKeyConfigHost                  = @"configEndpoint";
+NSString *const AWSKeyProjectHost                 = @"projectEndpoint";
+NSString *const AWSKeyEventRecorderHost           = @"eventRecorderEndpoint";
+NSString *const AWSKeyConfigRequestTimeout        = @"configRequestTimeout";
+NSString *const AWSKeyProjectRequestTimeout       = @"allocationRequestTimeout";
+NSString *const AWSKeyEventRecorderRequestTimeout = @"eventRecorderRequestTimeout";
+NSString *const AWSKeyConfigMaxRetries            = @"configRequestRetries";
+NSString *const AWSKeyProjectMaxRetries           = @"allocationRequestRetries";
+NSString *const AWSKeyEventRecorderMaxRetries     = @"eventRecorderRequestRetries";
+NSString *const AWSKeyAllowWANEventDelivery       = @"allowWANEventDelivery";
+NSString *const AWSKeyLogLevel                    = @"logLevel";
+NSString *const AWSKeyIsAnalyticsEnabled          = @"isAnalyticsEnabled";
 
-NSString *const KeyMaxSubmissionSize           = @"maxSubmissionSize";
-NSString *const KeyMaxSubmissionsAllowed       = @"maxSubmissionAllowed";
-NSString *const KeyMaxStorageSize              = @"maxStorageSize";
-NSString *const KeyForceSubmissionWaitTime     = @"forceSubmissionWaitTime";
-NSString *const KeyBackgroundSubmissionWaitTime = @"backgroundSubmissionWaitTime";
-NSString *const KeyMaxPutOperations            = @"maxPutOperations";
-NSString *const KeySessionRestartDelay         = @"sessionRestartDelay";
-NSString *const KeySessionResumeDelay          = @"sessionResumeDelay";
+NSString *const AWSKeyMaxSubmissionSize           = @"maxSubmissionSize";
+NSString *const AWSKeyMaxSubmissionsAllowed       = @"maxSubmissionAllowed";
+NSString *const AWSKeyMaxStorageSize              = @"maxStorageSize";
+NSString *const AWSKeyForceSubmissionWaitTime     = @"forceSubmissionWaitTime";
+NSString *const AWSKeyBackgroundSubmissionWaitTime = @"backgroundSubmissionWaitTime";
+NSString *const AWSKeyMaxPutOperations            = @"maxPutOperations";
+NSString *const AWSKeySessionRestartDelay         = @"sessionRestartDelay";
+NSString *const AWSKeySessionResumeDelay          = @"sessionResumeDelay";
 
  
  
 
 
-int const ValueSyncInterval                = 60 * 60;
-double    const ValueLastConfigSync              = 0;
-NSString *const ValueConfigHost                  = @"https://test.com/1.0";
-NSString *const ValueProjectHost                 = @"https://test.com/1.0";
-NSString *const ValueEventRecorderHost           = @"http://mobileanalytics.amazonaws.com/2014-06-05";
-int const ValueConfigRequestTimeout        = 3;
-int const ValueProjectRequestTimeout       = 3;
-int const ValueEventRecorderRequestTimeout = 10;
-int const ValueConfigMaxRetries            = 2;
-int const ValueProjectMaxRetries           = 2;
-int const ValueEventRecorderMaxRetries     = 2;
-BOOL      const ValueAllowWANEventDelivery       = YES;
-NSString *const ValueVariationStorageLocation    = @"insights/appcache";
-NSString *const ValueLogLevel                  = @"ERROR";
-BOOL      const ValueIsAnalyticsEnabled          = YES;
+int const AWSValueSyncInterval                = 60 * 60;
+double    const AWSValueLastConfigSync              = 0;
+NSString *const AWSValueConfigHost                  = @"https://test.com/1.0";
+NSString *const AWSValueProjectHost                 = @"https://test.com/1.0";
+NSString *const AWSValueEventRecorderHost           = @"http://mobileanalytics.amazonaws.com/2014-06-05";
+int const AWSValueConfigRequestTimeout        = 3;
+int const AWSValueProjectRequestTimeout       = 3;
+int const AWSValueEventRecorderRequestTimeout = 10;
+int const AWSValueConfigMaxRetries            = 2;
+int const AWSValueProjectMaxRetries           = 2;
+int const AWSValueEventRecorderMaxRetries     = 2;
+BOOL      const AWSValueAllowWANEventDelivery       = YES;
+NSString *const AWSValueLogLevel                  = @"ERROR";
+BOOL      const AWSValueIsAnalyticsEnabled          = YES;
 
-int const ValueMaxSubmissionSize           = 1024 * 100; // 100 KB
-int const ValueMaxSubmissionsAllowed       = 3;
-int const ValueMaxStorageSize              = 1024 * 1024 * 5; // 5 MB
-double    const ValueForceSubmissionWaitTime     = 60; //default 60 sec
-double    const ValueBackgroundSubmissionWaitTime = 0;
-int const ValueMaxPutOperations            = 1000;
-int const ValueSessionRestartDelay         = 30000;
-int const ValueSessionResumeDelay          = 5000;
+int const AWSValueMaxSubmissionSize           = 1024 * 100; // 100 KB
+int const AWSValueMaxSubmissionsAllowed       = 3;
+int const AWSValueMaxStorageSize              = 1024 * 1024 * 5; // 5 MB
+double    const AWSValueForceSubmissionWaitTime     = 60; //default 60 sec
+double    const AWSValueBackgroundSubmissionWaitTime = 0;
+int const AWSValueMaxPutOperations            = 1000;
+int const AWSValueSessionRestartDelay         = 30000;
+int const AWSValueSessionResumeDelay          = 5000;
 

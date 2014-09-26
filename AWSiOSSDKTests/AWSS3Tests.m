@@ -13,8 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_S3
-
 #import <XCTest/XCTest.h>
 #import "S3.h"
 #import "AWSTestUtility.h"
@@ -325,6 +323,13 @@ static NSString *testBucketNameGeneral = nil;
     putObjectRequest.body = testObjectData;
     putObjectRequest.contentLength = [NSNumber numberWithUnsignedInteger:[testObjectData length]];
     putObjectRequest.contentType = @"video/mpeg";
+    
+    //Add User Metadata
+    NSDictionary *userMetaData = @{@"user-data-1": @"user-metadata-value1",
+                                   @"user-data-2": @"user-metadata-value2"};
+    
+    
+    putObjectRequest.metadata = userMetaData;
 
     [[[[[[[s3 putObject:putObjectRequest] continueWithSuccessBlock:^id(BFTask *task) {
         XCTAssertTrue([task.result isKindOfClass:[AWSS3PutObjectOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3PutObjectOutput class]), [task.result description]);
@@ -336,13 +341,15 @@ static NSString *testBucketNameGeneral = nil;
         headObjectRequest.bucket = testBucketNameGeneral;
         headObjectRequest.key = keyName;
 
-        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:15]];
         return [s3 headObject:headObjectRequest];
     }] continueWithSuccessBlock:^id(BFTask *task) {
         XCTAssertTrue([task.result isKindOfClass:[AWSS3HeadObjectOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3HeadObjectOutput class]), [task.result description]);
         AWSS3HeadObjectOutput *headObjectOutput = task.result;
         XCTAssertTrue([headObjectOutput.contentLength intValue] > 0, @"Content Length is 0: [%@]", headObjectOutput.contentLength);
 
+        XCTAssertEqualObjects(userMetaData, headObjectOutput.metadata, @"headObjectOutput doesn't contains the metadata we expected");
+        
         AWSS3GetObjectRequest *getObjectRequest = [AWSS3GetObjectRequest new];
         getObjectRequest.bucket = testBucketNameGeneral;
         getObjectRequest.key = keyName;
@@ -354,6 +361,8 @@ static NSString *testBucketNameGeneral = nil;
         NSData *receivedBody = getObjectOutput.body;
         XCTAssertEqualObjects(testObjectData,receivedBody, @"received object is different from sent object, expect:%@ but got:%@",[[NSString alloc] initWithData:testObjectData encoding:NSUTF8StringEncoding],[[NSString alloc] initWithData:receivedBody encoding:NSUTF8StringEncoding]);
 
+        XCTAssertEqualObjects(userMetaData, getObjectOutput.metadata, @"getObjectOutput doesn't contains the metadata we expected");
+        
         AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
         deleteObjectRequest.bucket = testBucketNameGeneral;
         deleteObjectRequest.key = keyName;
@@ -730,10 +739,4 @@ static NSString *testBucketNameGeneral = nil;
     }] waitUntilFinished];
 }
 
-#if AWS_TEST_BJS_INSTEAD
-#else
-
-#endif
 @end
-
-#endif

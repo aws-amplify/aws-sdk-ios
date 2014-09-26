@@ -19,7 +19,7 @@
 #import "AWSMobileAnalyticsDefaultFileManager.h"
 #import "AWSMobileAnalyticsIOSPreferences.h"
 
-static NSString *const INSIGHTS_ROOT = @"insights";
+static NSString *const AWSMobileAnalyticsRoot = @"mobile-analytics";
 
 @interface AWSMobileAnalyticsIOSSystem : NSObject<AWSMobileAnalyticsSystem>
 

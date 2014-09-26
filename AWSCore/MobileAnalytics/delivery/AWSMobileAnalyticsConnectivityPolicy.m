@@ -16,7 +16,7 @@
 #import "AWSMobileAnalyticsConnectivityPolicy.h"
 #import "AWSMobileAnalyticsConfigurationKeys.h"
 #import "AWSLogging.h"
-static NSString* const SUBMITTED_TIME_KEY = @"AWSMobileAnalyticsSubmissionTimePolicy.submissionTime";
+static NSString* const AWSMobileAnalyticsSubmittedTimeKey = @"AWSMobileAnalyticsSubmissionTimePolicy.submissionTime";
 
 @interface AWSMobileAnalyticsConnectivityPolicy()
 @property(nonatomic)id<AWSMobileAnalyticsConnectivity> connectivity;
@@ -52,7 +52,7 @@ static NSString* const SUBMITTED_TIME_KEY = @"AWSMobileAnalyticsSubmissionTimePo
 {
     BOOL isAllowed = NO;
     BOOL canTransmitOnWAN = self.allowWan &&
-                           [self.configuration boolForKey:KeyAllowWANEventDelivery withOptValue:ValueAllowWANEventDelivery];
+                           [self.configuration boolForKey:AWSKeyAllowWANEventDelivery withOptValue:AWSValueAllowWANEventDelivery];
     
     if([self.connectivity isConnected])
     {

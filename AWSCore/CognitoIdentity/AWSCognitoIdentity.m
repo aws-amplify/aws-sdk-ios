@@ -36,6 +36,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"IncompleteSignature" : @(AWSCognitoIdentityErrorIncompleteSignature),
                             @"InvalidClientTokenId" : @(AWSCognitoIdentityErrorInvalidClientTokenId),
                             @"MissingAuthenticationToken" : @(AWSCognitoIdentityErrorMissingAuthenticationToken),
+                            @"DeveloperUserAlreadyRegisteredException" : @(AWSCognitoIdentityErrorDeveloperUserAlreadyRegistered),
                             @"InternalErrorException" : @(AWSCognitoIdentityErrorInternalError),
                             @"InvalidParameterException" : @(AWSCognitoIdentityErrorInvalidParameter),
                             @"LimitExceededException" : @(AWSCognitoIdentityErrorLimitExceeded),
@@ -141,6 +142,12 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @end
 
+@interface AWSServiceConfiguration()
+
+@property (nonatomic, strong) AWSEndpoint *endpoint;
+
+@end
+
 @implementation AWSCognitoIdentity
 
 + (instancetype)defaultCognitoIdentity {
@@ -222,7 +229,6 @@ static NSDictionary *errorCodeDictionary = nil;
 }
 
 #pragma mark - Service method
-
 - (BFTask *)createIdentityPool:(AWSCognitoIdentityCreateIdentityPoolInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -268,6 +274,15 @@ static NSDictionary *errorCodeDictionary = nil;
                    outputClass:[AWSCognitoIdentityGetOpenIdTokenResponse class]];
 }
 
+- (BFTask *)getOpenIdTokenForDeveloperIdentity:(AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityService"
+                 operationName:@"GetOpenIdTokenForDeveloperIdentity"
+                   outputClass:[AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse class]];
+}
+
 - (BFTask *)listIdentities:(AWSCognitoIdentityListIdentitiesInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -284,6 +299,33 @@ static NSDictionary *errorCodeDictionary = nil;
                   targetPrefix:@"AWSCognitoIdentityService"
                  operationName:@"ListIdentityPools"
                    outputClass:[AWSCognitoIdentityListIdentityPoolsResponse class]];
+}
+
+- (BFTask *)lookupDeveloperIdentity:(AWSCognitoIdentityLookupDeveloperIdentityInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityService"
+                 operationName:@"LookupDeveloperIdentity"
+                   outputClass:[AWSCognitoIdentityLookupDeveloperIdentityResponse class]];
+}
+
+- (BFTask *)mergeDeveloperIdentities:(AWSCognitoIdentityMergeDeveloperIdentitiesInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityService"
+                 operationName:@"MergeDeveloperIdentities"
+                   outputClass:[AWSCognitoIdentityMergeDeveloperIdentitiesResponse class]];
+}
+
+- (BFTask *)unlinkDeveloperIdentity:(AWSCognitoIdentityUnlinkDeveloperIdentityInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityService"
+                 operationName:@"UnlinkDeveloperIdentity"
+                   outputClass:nil];
 }
 
 - (BFTask *)unlinkIdentity:(AWSCognitoIdentityUnlinkIdentityInput *)request {

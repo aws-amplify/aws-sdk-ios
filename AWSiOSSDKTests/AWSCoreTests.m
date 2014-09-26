@@ -13,8 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_AWS_CORE
-
 #import <XCTest/XCTest.h>
 #import "AWSCore.h"
 #import "AWSSerialization.h"
@@ -769,5 +767,3 @@
 }
 
 @end
-
-#endif

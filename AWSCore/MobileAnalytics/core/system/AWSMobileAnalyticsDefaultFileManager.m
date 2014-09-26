@@ -19,7 +19,7 @@
 #import "AWSMobileAnalyticsSerializerFactory.h"
 #import "AWSLogging.h"
 
-NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framework.AIDefaultFileManagerErrorDomain";
+NSString * const AWSDefaultFileManagerErrorDomain = @"com.amazon.insights-framework.AWSDefaultFileManagerErrorDomain";
 
 @implementation AWSMobileAnalyticsDefaultFileManager
 
@@ -59,9 +59,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
     if([AWSMobileAnalyticsStringUtils isBlank:theDirectoryPath])
     {
         AWSLogWarn( @"The directory path was blank");
-        error =[AWSMobileAnalyticsErrorUtils errorWithDomain:AIDefaultFileManagerErrorDomain
+        error =[AWSMobileAnalyticsErrorUtils errorWithDomain:AWSDefaultFileManagerErrorDomain
                   withDescription: @"The path was blank"
-                    withErrorCode:AIDefaultFileManagerErrorCode_EmptyOrNilPath];
+                    withErrorCode:AWSDefaultFileManagerErrorCode_EmptyOrNilPath];
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return nil;
         
@@ -84,9 +84,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
     {
         if(![dir mkdirs])
         {
-            error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AIDefaultFileManagerErrorDomain
+            error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AWSDefaultFileManagerErrorDomain
                                   withDescription: @"Unable to create directory"
-                                    withErrorCode:AIDefaultFileManagerErrorCode_UnableToCreateDirectory];
+                                    withErrorCode:AWSDefaultFileManagerErrorCode_UnableToCreateDirectory];
             [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
             return nil;
         }
@@ -120,9 +120,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
     }
     else
     {
-        error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AIDefaultFileManagerErrorDomain
+        error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AWSDefaultFileManagerErrorDomain
                               withDescription: @"Unable to retrieve directory"
-                                withErrorCode:AIDefaultFileManagerErrorCode_DirectoryError];
+                                withErrorCode:AWSDefaultFileManagerErrorCode_DirectoryError];
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return nil;
     }
@@ -137,9 +137,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
 {
     if([AWSMobileAnalyticsStringUtils isBlank:theDirectoryPath])
     {
-        NSError *error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AIDefaultFileManagerErrorDomain
+        NSError *error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AWSDefaultFileManagerErrorDomain
                                        withDescription: @"The path was blank"
-                                         withErrorCode:AIDefaultFileManagerErrorCode_EmptyOrNilPath];
+                                         withErrorCode:AWSDefaultFileManagerErrorCode_EmptyOrNilPath];
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return [NSArray array];
     }
@@ -155,9 +155,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
     NSError *error = nil;
     if(theFile == nil)
     {
-        error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AIDefaultFileManagerErrorDomain
+        error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AWSDefaultFileManagerErrorDomain
                               withDescription: @"The path was nil"
-                                withErrorCode:AIDefaultFileManagerErrorCode_EmptyOrNilPath];
+                                withErrorCode:AWSDefaultFileManagerErrorCode_EmptyOrNilPath];
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return [NSArray array];
     }
@@ -184,9 +184,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
 {
     if([AWSMobileAnalyticsStringUtils isBlank:theFilepath])
     {
-        NSError *error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AIDefaultFileManagerErrorDomain
+        NSError *error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AWSDefaultFileManagerErrorDomain
                                        withDescription: @"The path was blank"
-                                         withErrorCode:AIDefaultFileManagerErrorCode_EmptyOrNilPath];
+                                         withErrorCode:AWSDefaultFileManagerErrorCode_EmptyOrNilPath];
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return nil;
     }
@@ -202,9 +202,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
     NSError *error = nil;
     if(theFile == nil)
     {
-        error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AIDefaultFileManagerErrorDomain
+        error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AWSDefaultFileManagerErrorDomain
                               withDescription: @"The path was nil"
-                                withErrorCode:AIDefaultFileManagerErrorCode_EmptyOrNilPath];
+                                withErrorCode:AWSDefaultFileManagerErrorCode_EmptyOrNilPath];
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return nil;
     }
@@ -223,9 +223,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
     
     if(![file createNewFile])
     {
-        error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AIDefaultFileManagerErrorDomain
+        error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AWSDefaultFileManagerErrorDomain
                               withDescription: @"Unable to create file"
-                                withErrorCode:AIDefaultFileManagerErrorCode_UnableToCreateFile];
+                                withErrorCode:AWSDefaultFileManagerErrorCode_UnableToCreateFile];
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return nil;
     }
@@ -241,9 +241,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
 {
     if([AWSMobileAnalyticsStringUtils isBlank:theFilepath])
     {
-        NSError *error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AIDefaultFileManagerErrorDomain
+        NSError *error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AWSDefaultFileManagerErrorDomain
                                        withDescription: @"The path was nil"
-                                         withErrorCode:AIDefaultFileManagerErrorCode_EmptyOrNilPath];
+                                         withErrorCode:AWSDefaultFileManagerErrorCode_EmptyOrNilPath];
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return NO;
     }
@@ -260,9 +260,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
     NSError *error = nil;
     if(theFile == nil)
     {
-        error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AIDefaultFileManagerErrorDomain
+        error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AWSDefaultFileManagerErrorDomain
                               withDescription: @"The path was nil"
-                                withErrorCode:AIDefaultFileManagerErrorCode_EmptyOrNilPath];
+                                withErrorCode:AWSDefaultFileManagerErrorCode_EmptyOrNilPath];
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return NO;
     }
@@ -282,9 +282,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
     BOOL deleted = [file deleteFile];
     if(!deleted)
     {
-        error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AIDefaultFileManagerErrorDomain
+        error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AWSDefaultFileManagerErrorDomain
                               withDescription: @"Unable to delete file"
-                                withErrorCode:AIDefaultFileManagerErrorCode_UnableToDeleteFile];
+                                withErrorCode:AWSDefaultFileManagerErrorCode_UnableToDeleteFile];
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return NO;
     }
@@ -299,9 +299,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
 {
     if([AWSMobileAnalyticsStringUtils isBlank:theFilepath])
     {
-        NSError *error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AIDefaultFileManagerErrorDomain
+        NSError *error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AWSDefaultFileManagerErrorDomain
                                        withDescription: @"The path was nil"
-                                         withErrorCode:AIDefaultFileManagerErrorCode_EmptyOrNilPath];
+                                         withErrorCode:AWSDefaultFileManagerErrorCode_EmptyOrNilPath];
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return nil;
     }
@@ -318,9 +318,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
     NSError *error = nil;
     if(theFile == nil)
     {
-        error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AIDefaultFileManagerErrorDomain
+        error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AWSDefaultFileManagerErrorDomain
                               withDescription: @"The path was nil"
-                                withErrorCode:AIDefaultFileManagerErrorCode_EmptyOrNilPath];
+                                withErrorCode:AWSDefaultFileManagerErrorCode_EmptyOrNilPath];
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return nil;
     }
@@ -339,9 +339,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
     
     if(![file exists])
     {
-        error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AIDefaultFileManagerErrorDomain
+        error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AWSDefaultFileManagerErrorDomain
                               withDescription: @"The file doesn't exist"
-                                withErrorCode:AIDefaultFileManagerErrorCode_FileDoesNotExist];
+                                withErrorCode:AWSDefaultFileManagerErrorCode_FileDoesNotExist];
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return nil;
     }
@@ -364,9 +364,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
 {
     if([AWSMobileAnalyticsStringUtils isBlank:theFilepath])
     {
-        NSError *error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AIDefaultFileManagerErrorDomain
+        NSError *error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AWSDefaultFileManagerErrorDomain
                                        withDescription: @"The path was nil"
-                                         withErrorCode:AIDefaultFileManagerErrorCode_EmptyOrNilPath];
+                                         withErrorCode:AWSDefaultFileManagerErrorCode_EmptyOrNilPath];
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return nil;
     }
@@ -384,9 +384,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
     NSError *error = nil;
     if(theFile == nil)
     {
-        error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AIDefaultFileManagerErrorDomain
+        error = [AWSMobileAnalyticsErrorUtils errorWithDomain: AWSDefaultFileManagerErrorDomain
                               withDescription: @"The path was nil"
-                                withErrorCode:AIDefaultFileManagerErrorCode_EmptyOrNilPath];
+                                withErrorCode:AWSDefaultFileManagerErrorCode_EmptyOrNilPath];
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return nil;
     }
@@ -429,9 +429,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
     {
         if(error == nil)
         {
-            error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AIDefaultFileManagerErrorDomain
+            error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AWSDefaultFileManagerErrorDomain
                                   withDescription:@"Failed to create a writer to the file"
-                                    withErrorCode:AIDefaultFileManagerErrorCode_FailedOutputStreamCreation];
+                                    withErrorCode:AWSDefaultFileManagerErrorCode_FailedOutputStreamCreation];
         }
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return nil;
@@ -452,9 +452,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
     {
         if(error == nil)
         {
-            error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AIDefaultFileManagerErrorDomain
+            error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AWSDefaultFileManagerErrorDomain
                                   withDescription:@"Failed to create an input stream to the file"
-                                    withErrorCode: AIDefaultFileManagerErrorCode_FailedInputStreamCreation];
+                                    withErrorCode: AWSDefaultFileManagerErrorCode_FailedInputStreamCreation];
         }
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return nil;
@@ -476,7 +476,7 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
 
 -(NSDictionary *) readDataFromFile:(AWSMobileAnalyticsFile *) theFile
                         withFormat:(FormatType) theFormatType
-                 withDataProcessor:(AIDataProcessor) theDataProcessor
+                 withDataProcessor:(AWSDataProcessor) theDataProcessor
                          withError:(NSError **) theError
 {
     
@@ -487,7 +487,7 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
 
 -(NSDictionary *) readDataFromFile:(AWSMobileAnalyticsFile *) theFile
                         withReader:(id) theReader
-                 withDataProcessor:(AIDataProcessor) theDataProcessor
+                 withDataProcessor:(AWSDataProcessor) theDataProcessor
                         withFormat:(FormatType) theFormatType
                          withError:(NSError **) theError
 {
@@ -495,9 +495,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
     
     if(![theFile exists])
     {
-        error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AIDefaultFileManagerErrorDomain
+        error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AWSDefaultFileManagerErrorDomain
                               withDescription:@"Failed to create an input stream to the file"
-                                withErrorCode: AIDefaultFileManagerErrorCode_FileDoesNotExist];
+                                withErrorCode: AWSDefaultFileManagerErrorCode_FileDoesNotExist];
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return [NSDictionary dictionary];
     }
@@ -507,9 +507,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
     if(theReader == nil)
     {
         AWSLogError( @"The reader provided was nil.");
-        error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AIDefaultFileManagerErrorDomain
+        error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AWSDefaultFileManagerErrorDomain
                               withDescription:@"Nil reader"
-                                withErrorCode: AIDefaultFileManagerErrorCode_NilReader];
+                                withErrorCode: AWSDefaultFileManagerErrorCode_NilReader];
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return [NSDictionary dictionary];
     }
@@ -549,9 +549,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
         {
             if(error == nil)
             {
-                error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AIDefaultFileManagerErrorDomain
+                error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AWSDefaultFileManagerErrorDomain
                                       withDescription:@"Failed to process file contents"
-                                        withErrorCode: AIDefaultFileManagerErrorCode_ErrorProcessingFileContents];
+                                        withErrorCode: AWSDefaultFileManagerErrorCode_ErrorProcessingFileContents];
             }
             [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
             if([theFile exists])
@@ -570,9 +570,9 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
     {
         if(error == nil)
         {
-            error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AIDefaultFileManagerErrorDomain
+            error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AWSDefaultFileManagerErrorDomain
                                   withDescription:@"Failed to parse file contents"
-                                    withErrorCode: AIDefaultFileManagerErrorCode_ErrorParsingFileContents];
+                                    withErrorCode: AWSDefaultFileManagerErrorCode_ErrorParsingFileContents];
         }
         
         AWSLogWarn( @"Not able to parse the contents from the file %@. %@. It is common if that file hasn't been created yet.", theFile.absolutePath, [error localizedDescription]);
@@ -599,7 +599,7 @@ NSString * const AIDefaultFileManagerErrorDomain = @"com.amazon.insights-framewo
 -(BOOL) writeData:(id) theData
            toFile:(AWSMobileAnalyticsFile *) theFile
        withFormat:(FormatType) theFormatType
-withDataProcessor:(AIDataProcessor) theDataProcessor
+withDataProcessor:(AWSDataProcessor) theDataProcessor
         withError:(NSError **) theError
 {
     AWSMobileAnalyticsWriter *writer = [self tryCreateWriterWithFile:theFile withError:theError];
@@ -610,7 +610,7 @@ withDataProcessor:(AIDataProcessor) theDataProcessor
 -(BOOL) writeData:(id) theData
            toFile:(AWSMobileAnalyticsFile *) theFile
        withWriter:(id) theWriter
-withDataProcessor:(AIDataProcessor) theDataProcessor
+withDataProcessor:(AWSDataProcessor) theDataProcessor
        withFormat:(FormatType) theFormatType
         withError:(NSError **) theError
 {
@@ -634,9 +634,9 @@ withDataProcessor:(AIDataProcessor) theDataProcessor
         if(![theFile createNewFile])
         {
             AWSLogError( @"There was an error while attempting to create the file.");
-            error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AIDefaultFileManagerErrorDomain
+            error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AWSDefaultFileManagerErrorDomain
                                   withDescription:@"Failed to create file to write data to"
-                                    withErrorCode: AIDefaultFileManagerErrorCode_UnableToCreateFile];
+                                    withErrorCode: AWSDefaultFileManagerErrorCode_UnableToCreateFile];
             [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
             return NO;
         }
@@ -645,9 +645,9 @@ withDataProcessor:(AIDataProcessor) theDataProcessor
     if(theWriter == nil)
     {
         AWSLogError( @"The writer provided was nil.");
-        error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AIDefaultFileManagerErrorDomain
+        error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AWSDefaultFileManagerErrorDomain
                               withDescription:@"Nil writer"
-                                withErrorCode: AIDefaultFileManagerErrorCode_NilWriter];
+                                withErrorCode: AWSDefaultFileManagerErrorCode_NilWriter];
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         return NO;
     }
@@ -666,9 +666,9 @@ withDataProcessor:(AIDataProcessor) theDataProcessor
         {
             if(error == nil)
             {
-                error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AIDefaultFileManagerErrorDomain
+                error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AWSDefaultFileManagerErrorDomain
                                       withDescription:@"Failed to process data"
-                                        withErrorCode: AIDefaultFileManagerErrorCode_ErrorProcessingFileContents];
+                                        withErrorCode: AWSDefaultFileManagerErrorCode_ErrorProcessingFileContents];
             }
             [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
             if([theFile exists])

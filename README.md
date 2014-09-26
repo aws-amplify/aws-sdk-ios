@@ -1,9 +1,9 @@
-**This is a developer preview of the AWS SDK for iOS. The repository name may change when the SDK goes out of the preview.**
-
-# Version 2 of the AWS SDK for iOS Developer Preview
+# Version 2 of the AWS SDK for iOS
 
 [![Version](http://cocoapod-badges.herokuapp.com/v/AWSiOSSDKv2/badge.png)](http://cocoadocs.org/docsets/AWSiOSSDKv2)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/AWSiOSSDKv2/badge.png)](http://cocoadocs.org/docsets/AWSiOSSDKv2)
+
+**Version 2 of the AWS Mobile SDK for iOS has reached General Availability (GA) and is no longer in Developer Preview.  Version 1 is deprecated as of September 29, 2014 and will continue to be available until December 31, 2014 in our [aws-sdk-ios-v1](https://github.com/aws/aws-sdk-ios-v1) repository. If you are building new apps, we recommend you use Version 2.**
 
 ## Highlights
 
@@ -45,25 +45,30 @@ It is easy to use the AWS SDK for iOS with Swift. Please see five simple steps b
 
 1. Create a default service configuration by adding the following code snippet in the `@optional func application(_ application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool` application delegate method.
 
-        let credentialsProvider = AWSStaticCredentialsProvider.credentialsWithAccessKey(yourAccessKey, secretKey: yourSecretKey)
-        let defaultServiceConfiguration = AWSServiceConfiguration(region: AWSRegionType.USEast1, credentialsProvider: credentialsProvider)
+        let credentialsProvider = AWSCognitoCredentialsProvider.credentialsWithRegionType(
+            AWSRegionType.USEast1,
+            accountId: cognitoAccountId,
+            identityPoolId: cognitoIdentityPoolId,
+            unauthRoleArn: cognitoUnauthRoleArn,
+            authRoleArn: cognitoAuthRoleArn)
+        let defaultServiceConfiguration = AWSServiceConfiguration(
+            region: AWSRegionType.USEast1,
+            credentialsProvider: credentialsProvider)
         AWSServiceManager.defaultServiceManager().setDefaultServiceConfiguration(defaultServiceConfiguration)
 
 1. Make a call to the AWS services.
 
-		let dynamoDB = AWSDynamoDB.defaultDynamoDB()
+        let dynamoDB = AWSDynamoDB.defaultDynamoDB()
         let listTableInput = AWSDynamoDBListTablesInput()
-        dynamoDB.listTables(listTableInput).continueWithBlock{
-            (task: BFTask!) -> AnyObject! in
-            let listTablesOutput = task.result() as AWSDynamoDBListTablesOutput
+        dynamoDB.listTables(listTableInput).continueWithBlock{ (task: BFTask!) -> AnyObject! in
+            let listTablesOutput = task.result as AWSDynamoDBListTablesOutput
 
             for tableName : AnyObject in listTablesOutput.tableNames {
                 println("\(tableName)")
             }
 
             return nil
-            }
-
+        }
 
 ## Using Objective-C
 
@@ -83,6 +88,7 @@ It is easy to use the AWS SDK for iOS with Swift. Please see five simple steps b
 
 1. Make a call to the AWS services.
 
+		AWSS3Transfermanager *transferManager = [AWSS3Transfermanager defaultS3TransferManager];
 		AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
 	    uploadRequest.bucket = yourBucket;
 	    uploadRequest.key = yourKey;
@@ -94,7 +100,7 @@ It is easy to use the AWS SDK for iOS with Swift. Please see five simple steps b
 	        return nil;
 	    }];
 
-## Talk to UsThis is a Developer Preview, and we will make changes based on your feedback. Visit the [Issues](/aws/aws-ask-ios-v2/issues) to leave feedback and to connect with other users of the SDK.
+## Talk to UsVisit the [Issues](/aws/aws-ask-ios-v2/issues) to leave feedback and to connect with other users of the SDK.
 
 ## Author
 

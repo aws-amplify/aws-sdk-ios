@@ -15,6 +15,20 @@
 
 #import "AWSService.h"
 
+FOUNDATION_EXPORT NSString *const AWSS3PresignedURLErrorDomain;
+typedef NS_ENUM(NSInteger, AWSS3PresignedURLErrorType) {
+    AWSS3PresignedURLErrorUnknown,
+    AWSS3PresignedURLErrorAccessKeyIsNil,
+    AWSS3PresignedURLErrorSecretKeyIsNil,
+    AWSS3PresignedURLErrorBucketNameIsNil,
+    AWSS3PresignedURLErrorKeyNameIsNil,
+    AWSS3PresignedURLErrorInvalidExpiresDate,
+    AWSS3PresignedURLErrorUnsupportedHTTPVerbs,
+    AWSS3PresignedURLErrorEndpointIsNil,
+    AWSS3PresignedURLErrorInvalidServiceType,
+    AWSS3PreSignedURLErrorCredentialProviderIsNil,
+};
+
 @class AWSS3GetPreSignedURLRequest;
 
 @interface AWSS3PreSignedURLBuilder : AWSService
@@ -35,7 +49,7 @@
  * @return A pre-signed NSURL for the resource. return nil if any errors occured.
  * @see AWSS3GetPreSignedURLRequest
  */
-- (NSURL *)getPreSignedURL:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest;
+- (BFTask *)getPreSignedURL:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest;
 
 @end
 
@@ -59,7 +73,7 @@
 /**
  * Specifies the verb used in the pre-signed URL. accepted AWSHTTPMethodGET, AWSHTTPMethodPUT, AWSHTTPMethodHEAD.
  */
-@property (nonatomic, assign) AWSHTTPMethod httpMethod;
+@property (nonatomic, assign) AWSHTTPMethod HTTPMethod;
 
 /**
  * The time when the signature expires, specified as an NSDate object.
@@ -67,20 +81,19 @@
 @property (nonatomic, strong) NSDate *expires;
 
 /**
+ * (Optional) AWSS3GetPreSignedURLRequest will automatically refresh temporary credential if expiration duration in less than minimumCredentialsExpirationInterval. Only applied for credential provider using temporary token (e.g. CognitoIdentityProvider). Default value is 3000 seconds.
+ */
+@property (nonatomic, assign) NSTimeInterval minimumCredentialsExpirationInterval;
+
+/**
  * (Optional) VersionId used in the pre signed URL. Default is nil.
  */
 @property (nonatomic, strong) NSString *versionId;
 
 /**
- * Return a AWSS3PreSignedURLRequest object.
- * @param bucketName The name of the bucket.
- * @param bucketName The name of the S3 object.
- * @param httpMethod Specifies the verb used in the pre-signed URL. accepted AWSHTTPMethodGET, AWSHTTPMethodPUT, AWSHTTPMethodHEAD.
- * @param expires The time when the signature expires, specified as an NSDate object.
+ * (Optional) A standard MIME type describing the format of the object data. only apply when AWSHTTPMethod property is AWSHTTPMethodPUT. Default value is "binary/octet-stream".
  */
-- (instancetype)initWithBucket:(NSString *)bucketName
-                           key:(NSString *)keyName
-                    httpMethod:(AWSHTTPMethod)httpMethod
-                       expires:(NSDate *)expires;
+@property (nonatomic, strong) NSString *contentType;
+
 
 @end

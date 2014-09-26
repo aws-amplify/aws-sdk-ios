@@ -13,7 +13,7 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_KINESIS && !AWS_TEST_BJS_INSTEAD
+#if !AWS_TEST_BJS_INSTEAD
 
 #import <XCTest/XCTest.h>
 #import "Kinesis.h"
@@ -143,6 +143,7 @@ static NSString *testStreamName = nil;
         return [kinesis getShardIterator:getShardIteratorInput];
     }] continueWithSuccessBlock:^id(BFTask *task) {
         AWSKinesisGetShardIteratorOutput *getShardIteratorOutput = task.result;
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
         return [self getRecords:returnedRecords
                   shardIterator:getShardIteratorOutput.shardIterator
                         counter:0];

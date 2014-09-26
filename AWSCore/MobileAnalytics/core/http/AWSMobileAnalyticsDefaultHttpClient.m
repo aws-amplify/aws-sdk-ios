@@ -22,7 +22,7 @@
 #import "AWSLogging.h"
 #import "AWSMobileAnalyticsERS.h"
 
-NSString *const insightsDefaultRunLoopMode = @"com.amazon.insights.DefaultRunLoopMode";
+NSString *const AWSMobileAnalyticsDefaultRunLoopMode = @"com.amazonaws.mobile-analytics.AWSMobileAnalyticsDefaultRunLoopMode";
 
 @implementation AWSMobileAnalyticsDefaultHttpClient
 
@@ -85,7 +85,7 @@ NSString *const insightsDefaultRunLoopMode = @"com.amazon.insights.DefaultRunLoo
     AWSMobileAnalyticsERSPutEventsInput *putEventInput = [AWSMobileAnalyticsERSPutEventsInput new];
     
     //the client-Context-id in the header  should be moved to Client-Context
-    NSString *clientContextString = [[theRequest headers] objectForKey:CLIENT_CONTEXT_HEADER];
+    NSString *clientContextString = [[theRequest headers] objectForKey:AWSMobileAnalyticsClientContextHeader];
     NSMutableDictionary *clientContextDic = [[NSJSONSerialization JSONObjectWithData: [clientContextString dataUsingEncoding:NSUTF8StringEncoding]
                                                                              options:kNilOptions
                                                                                error:NULL] mutableCopy];
@@ -118,19 +118,19 @@ NSString *const insightsDefaultRunLoopMode = @"com.amazon.insights.DefaultRunLoo
             serviceEvent.version = mutableAttributesDic[@"ver"];
             [mutableAttributesDic removeObjectForKey:@"ver"];
             
-            serviceSession.id = mutableAttributesDic[SESSION_ID_ATTRIBUTE_KEY];
-            [mutableAttributesDic removeObjectForKey:SESSION_ID_ATTRIBUTE_KEY];
+            serviceSession.id = mutableAttributesDic[AWSSessionIDAttributeKey];
+            [mutableAttributesDic removeObjectForKey:AWSSessionIDAttributeKey];
             
-            serviceSession.startTimestamp = mutableAttributesDic[SESSION_START_TIME_ATTRIBUTE_KEY];
-            [mutableAttributesDic removeObjectForKey:SESSION_START_TIME_ATTRIBUTE_KEY];
+            serviceSession.startTimestamp = mutableAttributesDic[AWSSessionStartTimeAttributeKey];
+            [mutableAttributesDic removeObjectForKey:AWSSessionStartTimeAttributeKey];
             
             //move sessionStop time attribute session section
-            serviceSession.stopTimestamp = mutableAttributesDic[SESSION_END_TIME_ATTRIBUTE_KEY];
-            [mutableAttributesDic removeObjectForKey:SESSION_END_TIME_ATTRIBUTE_KEY];
+            serviceSession.stopTimestamp = mutableAttributesDic[AWSSessionEndTimeAttributeKey];
+            [mutableAttributesDic removeObjectForKey:AWSSessionEndTimeAttributeKey];
             
             //move session duration Time metrics to session section
-            serviceSession.duration = mutableMetricsDic[SESSION_DURATION_METRIC_KEY];
-            [mutableMetricsDic removeObjectForKey:SESSION_DURATION_METRIC_KEY];
+            serviceSession.duration = mutableMetricsDic[AWSSessionDurationMetricKey];
+            [mutableMetricsDic removeObjectForKey:AWSSessionDurationMetricKey];
             
             serviceEvent.session = serviceSession;
             serviceEvent.attributes = mutableAttributesDic;

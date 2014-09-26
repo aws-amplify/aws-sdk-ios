@@ -19,6 +19,7 @@
 @interface AWSMobileAnalyticsIOSClientContext : NSObject <AWSMobileAnalyticsClientContext>
 
 #pragma mark - App Details
+@property(nonatomic, readonly)NSString* appId;
 @property(nonatomic, readonly)NSString* appVersion;
 @property(nonatomic, readonly)NSString* appBuild;
 @property(nonatomic, readonly)NSString* appPackageName;
@@ -35,12 +36,14 @@
 #pragma mark - Custom Attributes
 @property (nonatomic, readonly) NSDictionary* customAttributes;
 + (AWSMobileAnalyticsIOSClientContext *) clientContextWithAppVersion:(NSString *)appVersion
-                                        withAppBuild:(NSString *)appBuild
-                                  withAppPackageName:(NSString *)appPackageName
-                                         withAppName:(NSString *)appName
-                                withCustomAttributes:(NSDictionary *)attributes;
-+ (AWSMobileAnalyticsIOSClientContext *) clientContextWithCustomAttributes:(NSDictionary *)customAttributes;
-+ (AWSMobileAnalyticsIOSClientContext *) defaultClientContext;
+                                                        withAppBuild:(NSString *)appBuild
+                                                  withAppPackageName:(NSString *)appPackageName
+                                                         withAppName:(NSString *)appName
+                                                withCustomAttributes:(NSDictionary *)attributes
+                                                           withAppId:(NSString *)appId;
++ (AWSMobileAnalyticsIOSClientContext *) clientContextWithCustomAttributes:(NSDictionary *)customAttributes
+                                                                 withAppId:(NSString *)appId;
++ (AWSMobileAnalyticsIOSClientContext *) defaultClientContextWithAppId:(NSString *)appId;
 
 #pragma mark - Helper Methods
 - (NSDictionary *)toDictionary;

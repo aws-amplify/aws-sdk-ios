@@ -76,7 +76,8 @@
                                                                             withAppBuild:environment.appBuild
                                                                       withAppPackageName:environment.appPackageName
                                                                              withAppName:environment.appName
-                                                                    withCustomAttributes:clientConfiguration.attributes];
+                                                                    withCustomAttributes:clientConfiguration.attributes
+                                                                               withAppId:theIdentifier];
 
         _httpClient = [[AWSMobileAnalyticsDefaultHttpClient alloc] init];
 		[_httpClient addInterceptor:[[AWSMobileAnalyticsSDKInfoInterceptor alloc] initWithSDKInfo:_sdkInfo]];

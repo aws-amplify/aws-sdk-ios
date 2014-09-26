@@ -102,8 +102,8 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
 {
     id mock_event = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsInternalEvent)];
     id mock_eventClient = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsInternalEventClient)];
-    [[[mock_eventClient stub] andReturn:mock_event] createEventWithEventType:SESSION_START_EVENT_TYPE];
-    [[[mock_eventClient stub] andReturn:mock_event] createEventWithEventType:SESSION_STOP_EVENT_TYPE];
+    [[[mock_eventClient stub] andReturn:mock_event] createEventWithEventType:AWSSessionStartEventType];
+    [[[mock_eventClient stub] andReturn:mock_event] createEventWithEventType:AWSSessionStopEventType];
 
     return mock_eventClient;
 }
@@ -224,7 +224,7 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
 
     [ec recordEvent:[ec createEventWithEventType:@"sessIDCheck"]];
     assertThat([interceptor lastEvent], is(notNilValue()));
-    assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(equalTo(sesId)));
+    assertThat([[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey], is(equalTo(sesId)));
 
     // we can't sleep otherwise we block the timer
     NSDate *runUntil = [NSDate dateWithTimeIntervalSinceNow:1.111];
@@ -233,7 +233,7 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
     [target startSession];
     [ec recordEvent:[ec createEventWithEventType:@"sessIDCheck"]];
     assertThat([interceptor lastEvent], is(notNilValue()));
-    assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(equalTo(sesId)));
+    assertThat([[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey], is(equalTo(sesId)));
 }
 
 - (void) test_StartSession_SessionIsActive_DoesNotStartNewSession_IfWithinTimeInterval{
@@ -297,11 +297,11 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
     [ec recordEvent:[ec createEventWithEventType:@"sessIDCheck"]];
     assertThatInteger([target getSessionState], is(equalToInteger(SESSION_STATE_INACTIVE)));
     assertThat([interceptor lastEvent], is(notNilValue()));
-    assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(nilValue()));
+    assertThat([[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey], is(nilValue()));
 
     [target startSession];
     assertThat([interceptor lastEvent], is(notNilValue()));
-    assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(notNilValue()));
+    assertThat([[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey], is(notNilValue()));
 }
 
 -(void)test_StartSession_SessionIsActive_StateChangedToActive{
@@ -333,27 +333,27 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
     NSString* newSessionID = [[target session] sessionId];
 
     assertThat([interceptor secondToLastEvent], is(notNilValue()));
-    assertThat([[interceptor secondToLastEvent] eventType], is(equalTo(SESSION_STOP_EVENT_TYPE)));
-    assertThat([[interceptor secondToLastEvent] attributeForKey:SESSION_END_TIME_ATTRIBUTE_KEY], is(notNilValue()));
-    assertThat([[interceptor secondToLastEvent] attributeForKey:SESSION_START_TIME_ATTRIBUTE_KEY], is(notNilValue()));
-    assertThat([[interceptor secondToLastEvent] metricForKey:SESSION_DURATION_METRIC_KEY], is(notNilValue()));
-    assertThat([[interceptor secondToLastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(notNilValue()));
-    assertThat([[interceptor secondToLastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(equalTo(oldSessionID)));
-    long long duration = [[[interceptor secondToLastEvent] metricForKey:SESSION_DURATION_METRIC_KEY] longLongValue];
+    assertThat([[interceptor secondToLastEvent] eventType], is(equalTo(AWSSessionStopEventType)));
+    assertThat([[interceptor secondToLastEvent] attributeForKey:AWSSessionEndTimeAttributeKey], is(notNilValue()));
+    assertThat([[interceptor secondToLastEvent] attributeForKey:AWSSessionStartTimeAttributeKey], is(notNilValue()));
+    assertThat([[interceptor secondToLastEvent] metricForKey:AWSSessionDurationMetricKey], is(notNilValue()));
+    assertThat([[interceptor secondToLastEvent] attributeForKey:AWSSessionIDAttributeKey], is(notNilValue()));
+    assertThat([[interceptor secondToLastEvent] attributeForKey:AWSSessionIDAttributeKey], is(equalTo(oldSessionID)));
+    long long duration = [[[interceptor secondToLastEvent] metricForKey:AWSSessionDurationMetricKey] longLongValue];
     NSLog(@"duration: %lld", duration);
 
     assertThatBool(duration >= 5000, is(equalToBool(YES)));
     assertThatBool(duration <= 7000, is(equalToBool(YES)));
 
     assertThat([interceptor lastEvent], is(notNilValue()));
-    assertThat([[interceptor lastEvent] eventType], is(equalTo(SESSION_START_EVENT_TYPE)));
-    assertThat([[interceptor lastEvent] attributeForKey:SESSION_END_TIME_ATTRIBUTE_KEY], is(nilValue()));
-    //assertThat([[interceptor lastEvent] attributeForKey:SESSION_START_TIME_ATTRIBUTE_KEY], is(nilValue()));
-    assertThat([[interceptor lastEvent] metricForKey:SESSION_DURATION_METRIC_KEY], is(nilValue()));
-    assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(notNilValue()));
-    assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(equalTo(newSessionID)));
+    assertThat([[interceptor lastEvent] eventType], is(equalTo(AWSSessionStartEventType)));
+    assertThat([[interceptor lastEvent] attributeForKey:AWSSessionEndTimeAttributeKey], is(nilValue()));
+    //assertThat([[interceptor lastEvent] attributeForKey:AWSSessionStartTimeAttributeKey], is(nilValue()));
+    assertThat([[interceptor lastEvent] metricForKey:AWSSessionDurationMetricKey], is(nilValue()));
+    assertThat([[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey], is(notNilValue()));
+    assertThat([[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey], is(equalTo(newSessionID)));
 
-    assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], isNot(equalTo([[interceptor secondToLastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY])));
+    assertThat([[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey], isNot(equalTo([[interceptor secondToLastEvent] attributeForKey:AWSSessionIDAttributeKey])));
 }
 
 -(void)test_StartSession_SessionIsPaused_ReplacesGlobalAttribute{
@@ -364,7 +364,7 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
     [ec addEventObserver:interceptor];
 
     [ec recordEvent:[ec createEventWithEventType:@"sessIDCheck"]];
-    NSString* oldSessionId = [[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY];
+    NSString* oldSessionId = [[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey];
 
     [target.state pauseWithSessionClient:target];
     [target cancelDelayedBlock];
@@ -372,7 +372,7 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
 
     [target startSession];
     [ec recordEvent:[ec createEventWithEventType:@"sessIDCheck2"]];
-    NSString* newSessionId = [[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY];
+    NSString* newSessionId = [[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey];
 
 
     assertThat(oldSessionId, is(notNilValue()));
@@ -400,7 +400,7 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
     [ec addEventObserver:interceptor];
 
     [ec recordEvent:[ec createEventWithEventType:@"sessIDCheck"]];
-    NSString* oldSessionId = [[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY];
+    NSString* oldSessionId = [[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey];
     // we can't sleep otherwise we block the timer
     NSDate *runUntil = [NSDate dateWithTimeIntervalSinceNow:5.0];
     [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
@@ -426,28 +426,28 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
     NSString* newSessionID = [[target session] sessionId];
 
     assertThat([interceptor secondToLastEvent], is(notNilValue()));
-    assertThat([[interceptor secondToLastEvent] eventType], is(equalTo(SESSION_STOP_EVENT_TYPE)));
-    assertThat([[interceptor secondToLastEvent] attributeForKey:SESSION_END_TIME_ATTRIBUTE_KEY], is(notNilValue()));
-    assertThat([[interceptor secondToLastEvent] attributeForKey:SESSION_START_TIME_ATTRIBUTE_KEY], is(notNilValue()));
-    assertThat([[interceptor secondToLastEvent] metricForKey:SESSION_DURATION_METRIC_KEY], is(notNilValue()));
-    assertThat([[interceptor secondToLastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(notNilValue()));
-    assertThat([[interceptor secondToLastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(equalTo(oldSessionId)));
-    long long duration = [[[interceptor secondToLastEvent] metricForKey:SESSION_DURATION_METRIC_KEY] longLongValue];
+    assertThat([[interceptor secondToLastEvent] eventType], is(equalTo(AWSSessionStopEventType)));
+    assertThat([[interceptor secondToLastEvent] attributeForKey:AWSSessionEndTimeAttributeKey], is(notNilValue()));
+    assertThat([[interceptor secondToLastEvent] attributeForKey:AWSSessionStartTimeAttributeKey], is(notNilValue()));
+    assertThat([[interceptor secondToLastEvent] metricForKey:AWSSessionDurationMetricKey], is(notNilValue()));
+    assertThat([[interceptor secondToLastEvent] attributeForKey:AWSSessionIDAttributeKey], is(notNilValue()));
+    assertThat([[interceptor secondToLastEvent] attributeForKey:AWSSessionIDAttributeKey], is(equalTo(oldSessionId)));
+    long long duration = [[[interceptor secondToLastEvent] metricForKey:AWSSessionDurationMetricKey] longLongValue];
     NSLog(@"duration: %lld", duration);
     assertThatBool(duration >= 5000, is(equalToBool(YES)));
     assertThatBool(duration <= 7000, is(equalToBool(YES)));
-    assertThat([[interceptor secondToLastEvent] attributeForKey:SESSION_START_TIME_ATTRIBUTE_KEY], is(equalTo([[NSDate dateWithTimeIntervalSince1970:[persistedStartTimeMillis doubleValue]/1000] aws_stringValue:AWSDateISO8601DateFormat3])));
-    assertThat([[interceptor secondToLastEvent] attributeForKey:SESSION_END_TIME_ATTRIBUTE_KEY], is(equalTo([[NSDate dateWithTimeIntervalSince1970:[persistedStopTimeMillis doubleValue]/1000] aws_stringValue:AWSDateISO8601DateFormat3])));
+    assertThat([[interceptor secondToLastEvent] attributeForKey:AWSSessionStartTimeAttributeKey], is(equalTo([[NSDate dateWithTimeIntervalSince1970:[persistedStartTimeMillis doubleValue]/1000] aws_stringValue:AWSDateISO8601DateFormat3])));
+    assertThat([[interceptor secondToLastEvent] attributeForKey:AWSSessionEndTimeAttributeKey], is(equalTo([[NSDate dateWithTimeIntervalSince1970:[persistedStopTimeMillis doubleValue]/1000] aws_stringValue:AWSDateISO8601DateFormat3])));
 
     assertThat([interceptor lastEvent], is(notNilValue()));
-    assertThat([[interceptor lastEvent] eventType], is(equalTo(SESSION_START_EVENT_TYPE)));
-    assertThat([[interceptor lastEvent] attributeForKey:SESSION_END_TIME_ATTRIBUTE_KEY], is(nilValue()));
-    //assertThat([[interceptor lastEvent] attributeForKey:SESSION_START_TIME_ATTRIBUTE_KEY], is(nilValue()));
-    assertThat([[interceptor lastEvent] metricForKey:SESSION_DURATION_METRIC_KEY], is(nilValue()));
-    assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(notNilValue()));
-    assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], is(equalTo(newSessionID)));
+    assertThat([[interceptor lastEvent] eventType], is(equalTo(AWSSessionStartEventType)));
+    assertThat([[interceptor lastEvent] attributeForKey:AWSSessionEndTimeAttributeKey], is(nilValue()));
+    //assertThat([[interceptor lastEvent] attributeForKey:AWSSessionStartTimeAttributeKey], is(nilValue()));
+    assertThat([[interceptor lastEvent] metricForKey:AWSSessionDurationMetricKey], is(nilValue()));
+    assertThat([[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey], is(notNilValue()));
+    assertThat([[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey], is(equalTo(newSessionID)));
 
-    assertThat([[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], isNot(equalTo([[interceptor secondToLastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY])));
+    assertThat([[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey], isNot(equalTo([[interceptor secondToLastEvent] attributeForKey:AWSSessionIDAttributeKey])));
 
     assertThat([target.sessionStore retrievePersistedSessionDetails], is(nilValue()));
 }
@@ -460,7 +460,7 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
     [ec addEventObserver:interceptor];
 
     [ec recordEvent:[ec createEventWithEventType:@"sessIDCheck"]];
-    NSString* oldSessionId = [[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY];
+    NSString* oldSessionId = [[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey];
     [NSThread sleepForTimeInterval:1.0];
     [target.state pauseWithSessionClient:target];
 
@@ -479,8 +479,8 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
 
     assertThat([newInterceptor secondToLastEvent], is(nilValue()));
     assertThat([newInterceptor lastEvent], is(notNilValue()));
-    assertThat([[newInterceptor lastEvent] eventType], is(equalTo(SESSION_START_EVENT_TYPE)));
-    assertThat([[newInterceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY], isNot(equalTo(oldSessionId)));
+    assertThat([[newInterceptor lastEvent] eventType], is(equalTo(AWSSessionStartEventType)));
+    assertThat([[newInterceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey], isNot(equalTo(oldSessionId)));
 }
 
 //Stop Session
@@ -507,11 +507,11 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
     [target stopSession];
     assertThatInteger([target getSessionState], is(equalToInteger(SESSION_STATE_INACTIVE)));
     [ec recordEvent:[ec createEventWithEventType:@"sessIDCheck"]];
-    NSString* oldSessionId = [[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY];
+    NSString* oldSessionId = [[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey];
 
     [target stopSession];
     [ec recordEvent:[ec createEventWithEventType:@"sessIDCheck2"]];
-    NSString* newSessionId = [[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY];
+    NSString* newSessionId = [[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey];
 
     assertThat(oldSessionId, is(nilValue()));
     assertThat(newSessionId, is(nilValue()));
@@ -528,7 +528,7 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
     assertThatInteger([target getSessionState], is(equalToInteger(SESSION_STATE_ACTIVE)));
     [target stopSession];
     assertThat([interceptor lastEvent], is(notNilValue()));
-    assertThat([[interceptor lastEvent] eventType], is(equalTo(SESSION_STOP_EVENT_TYPE)));
+    assertThat([[interceptor lastEvent] eventType], is(equalTo(AWSSessionStopEventType)));
 }
 
 -(void)test_StopSession_SessionIsActive_PausesOldSession{
@@ -559,11 +559,11 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
 
     assertThatInteger([target getSessionState], is(equalToInteger(SESSION_STATE_ACTIVE)));
     [ec recordEvent:[ec createEventWithEventType:@"sessIDCheck"]];
-    NSString* oldSessionId = [[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY];
+    NSString* oldSessionId = [[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey];
     [target stopSession];
 
     [ec recordEvent:[ec createEventWithEventType:@"sessIDCheck2"]];
-    NSString* newSessionId = [[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY];
+    NSString* newSessionId = [[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey];
 
     assertThat(oldSessionId, is(notNilValue()));
     assertThat(newSessionId, is(nilValue()));
@@ -592,7 +592,7 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
 
     [target stopSession];
     assertThat([interceptor lastEvent], is(notNilValue()));
-    assertThat([[interceptor lastEvent] eventType], is(equalTo(SESSION_STOP_EVENT_TYPE)));
+    assertThat([[interceptor lastEvent] eventType], is(equalTo(AWSSessionStopEventType)));
 }
 
 -(void)test_StopSession_SessionIsPaused_StateChangedToInactive{
@@ -620,7 +620,7 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
     [target cancelDelayedBlock];
 
     assertThat([interceptor lastEvent], is(notNilValue()));
-    assertThat([[interceptor lastEvent] eventType], is(equalTo(SESSION_PAUSE_EVENT_TYPE)));
+    assertThat([[interceptor lastEvent] eventType], is(equalTo(AWSSessionPauseEventType)));
 }
 
 -(void)test_PauseSession_SessionIsActive_KeepsGlobalAttribute{
@@ -632,12 +632,12 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
     assertThatInteger([target getSessionState], is(equalToInteger(SESSION_STATE_ACTIVE)));
 
     [ec recordEvent:[ec createEventWithEventType:@"sessIDCheck"]];
-    NSString* oldSessionId = [[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY];
+    NSString* oldSessionId = [[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey];
 
     [target.state pauseWithSessionClient:target];
     [target cancelDelayedBlock];
     [ec recordEvent:[ec createEventWithEventType:@"sessIDCheck2"]];
-    NSString* newSessionId = [[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY];
+    NSString* newSessionId = [[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey];
 
     assertThat(oldSessionId, isNot(nilValue()));
     assertThat(newSessionId, isNot(nilValue()));
@@ -668,7 +668,7 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
     [target.state pauseWithSessionClient:target];
     [target cancelDelayedBlock];
     assertThat([interceptor lastEvent], is(notNilValue()));
-    assertThat([[interceptor lastEvent] eventType], is(equalTo(SESSION_PAUSE_EVENT_TYPE)));
+    assertThat([[interceptor lastEvent] eventType], is(equalTo(AWSSessionPauseEventType)));
 }
 
 -(void)test_PauseSession_SessionIsInactive_StateIsNotChanged{
@@ -721,7 +721,7 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
     [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
 
 
-    long long duration = [[[interceptor lastEvent] metricForKey:SESSION_DURATION_METRIC_KEY] longLongValue];
+    long long duration = [[[interceptor lastEvent] metricForKey:AWSSessionDurationMetricKey] longLongValue];
     NSLog(@"duration: %lld", duration);
 
     assertThatBool(duration >= 2000, is(equalToBool(YES)));
@@ -745,7 +745,7 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
 
 
     assertThat([interceptor lastEvent], is(notNilValue()));
-    assertThat([[interceptor lastEvent] eventType], is(equalTo(SESSION_STOP_EVENT_TYPE)));
+    assertThat([[interceptor lastEvent] eventType], is(equalTo(AWSSessionStopEventType)));
 }
 
 //Resume Session
@@ -772,11 +772,11 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
     assertThatInteger([target getSessionState], is(equalToInteger(SESSION_STATE_ACTIVE)));
 
     [ec recordEvent:[ec createEventWithEventType:@"sessIDCheck"]];
-    NSString* oldSessionId = [[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY];
+    NSString* oldSessionId = [[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey];
 
     [target.state resumeWithSessionClient:target];
     [ec recordEvent:[ec createEventWithEventType:@"sessIDCheck2"]];
-    NSString* newSessionId = [[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY];
+    NSString* newSessionId = [[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey];
 
     assertThat(oldSessionId, isNot(nilValue()));
     assertThat(newSessionId, isNot(nilValue()));
@@ -796,7 +796,7 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
 
     [target startSession];
     assertThat([interceptor lastEvent], is(notNilValue()));
-    assertThat([[interceptor lastEvent] eventType], is(equalTo(SESSION_START_EVENT_TYPE)));
+    assertThat([[interceptor lastEvent] eventType], is(equalTo(AWSSessionStartEventType)));
 }
 
 -(void)test_ResumeSession_SessionIsInactive_StateChangedToActive{
@@ -821,7 +821,7 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
 
     [target.state resumeWithSessionClient:target];
     assertThat([interceptor lastEvent], is(notNilValue()));
-    assertThat([[interceptor lastEvent] eventType], is(equalTo(SESSION_RESUME_EVENT_TYPE)));
+    assertThat([[interceptor lastEvent] eventType], is(equalTo(AWSSessionResumeEventType)));
 }
 
 -(void)test_ResumeSession_SessionIsPaused_StateIsChanged_IfWithinTimeInterval{
@@ -843,11 +843,11 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
 
     [target.state pauseWithSessionClient:target];
     [ec recordEvent:[ec createEventWithEventType:@"sessIDCheck"]];
-    NSString* oldSessionId = [[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY];
+    NSString* oldSessionId = [[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey];
 
     [target.state resumeWithSessionClient:target];
     [ec recordEvent:[ec createEventWithEventType:@"sessIDCheck2"]];
-    NSString* newSessionId = [[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY];
+    NSString* newSessionId = [[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey];
 
     assertThat(oldSessionId, isNot(nilValue()));
     assertThat(newSessionId, isNot(nilValue()));
@@ -864,7 +864,7 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
     [target.state pauseWithSessionClient:target];
     [target cancelDelayedBlock];
     [ec recordEvent:[ec createEventWithEventType:@"sessIDCheck"]];
-    NSString* oldSessionId = [[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY];
+    NSString* oldSessionId = [[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey];
 
     // we can't sleep otherwise we block the timer
     NSDate *runUntil = [NSDate dateWithTimeIntervalSinceNow:(target.sessionResumeDelayMs / 1000.0) + 2.0];
@@ -873,7 +873,7 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
     
     [target.state resumeWithSessionClient:target];
     [ec recordEvent:[ec createEventWithEventType:@"sessIDCheck2"]];
-    NSString* newSessionId = [[interceptor lastEvent] attributeForKey:SESSION_ID_ATTRIBUTE_KEY];
+    NSString* newSessionId = [[interceptor lastEvent] attributeForKey:AWSSessionIDAttributeKey];
     
     assertThat(oldSessionId, isNot(nilValue()));
     assertThat(newSessionId, isNot(nilValue()));

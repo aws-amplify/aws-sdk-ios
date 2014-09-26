@@ -46,7 +46,7 @@ static NSString *const UNIQUE_ID = @"abc123";
 
 -(void) test_createHttpRequest_correctEndpointBasedOnConfig
 {
-    [self->_configuration setObject:@"https://test.com/9.0" forKey:KeyEventRecorderHost];
+    [self->_configuration setObject:@"https://test.com/9.0" forKey:AWSKeyEventRecorderHost];
     
     id<AWSMobileAnalyticsRequest> request = [self->_target buildWithObjects:[NSArray array]];
     assertThat([[request url] absoluteString], is(equalTo([NSString stringWithFormat:@"https://test.com/9.0/events"])));

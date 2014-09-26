@@ -16,8 +16,6 @@
 #import "AWSMobileAnalyticsDefaultEvent.h"
 #import "AWSMobileAnalyticsSDKInfo.h"
 
-static NSString* const PLATFORM = @"iOS";
-
 @interface AWSMobileAnalyticsDefaultEvent()
 @property (nonatomic, readwrite) NSString* eventType;
 @property (nonatomic, readwrite) UTCTimeMillis eventTimestamp;

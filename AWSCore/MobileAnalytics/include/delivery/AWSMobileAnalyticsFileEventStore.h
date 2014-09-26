@@ -21,8 +21,8 @@
 #import "../core/configuration/AWSMobileAnalyticsConfigurationKeys.h"
 #import "../core/util/AWSMobileAnalyticsErrorUtils.h"
 
-FOUNDATION_EXPORT NSString * const AIEventsDirectoryName;
-FOUNDATION_EXPORT NSString * const AIEventsFilename;
+FOUNDATION_EXPORT NSString * const AWSEventsDirectoryName;
+FOUNDATION_EXPORT NSString * const AWSEventsFilename;
 
 @interface AWSMobileAnalyticsFileEventStore : NSObject<AWSMobileAnalyticsEventStore>
  
@@ -43,7 +43,7 @@ FOUNDATION_EXPORT NSString * const AIEventsFilename;
 
 @end
 
-@interface AIFileEventIterator : NSObject<AWSMobileAnalyticsEventIterator>
+@interface AWSFileEventIterator : NSObject<AWSMobileAnalyticsEventIterator>
 
 -(id) initFileStore:(AWSMobileAnalyticsFileEventStore *) theEventStore;
 

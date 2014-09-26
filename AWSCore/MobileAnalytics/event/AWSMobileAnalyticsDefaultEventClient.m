@@ -17,8 +17,8 @@
 #import "AWSMobileAnalyticsDefaultEvent.h"
 #import "AWSLogging.h"
 
-static NSString* const EVENT_SCHEMA_VERSION = @"v2.0";
-static NSString* const ANALYTICS_ENABLED = @"isAnalyticsEnabled";
+static NSString* const AWSMobileAnalyticsEventSchemaVersion = @"v2.0";
+static NSString* const AWSMobileAnalyticsEnabled = @"isAnalyticsEnabled";
 
 @interface AWSMobileAnalyticsDefaultEventClient()
 @property (nonatomic, weak) id<AWSMobileAnalyticsDeliveryClient> deliveryClient;
@@ -59,7 +59,7 @@ allowsEventCollection: (BOOL) eventCollection
         
         
         NSString* verKey = [_context.configuration stringForKey:@"versionKey" withOptValue:@"ver"];
-        [_reservedAttributes setValue:EVENT_SCHEMA_VERSION forKey:verKey];
+        [_reservedAttributes setValue:AWSMobileAnalyticsEventSchemaVersion forKey:verKey];
         
         [self addEventObserver:self.deliveryClient];
     }
@@ -113,7 +113,7 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
         return;
     }
     
-    BOOL analyticsEnabled = [self.context.configuration boolForKey:ANALYTICS_ENABLED withOptValue:YES];
+    BOOL analyticsEnabled = [self.context.configuration boolForKey:AWSMobileAnalyticsEnabled withOptValue:YES];
     if(!self.allowEventCollection || !analyticsEnabled)
     {
         return;

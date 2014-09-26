@@ -13,8 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_STS
-
 #import <XCTest/XCTest.h>
 #import "STS.h"
 #import "AWSTestUtility.h"
@@ -63,5 +61,3 @@
 
 
 @end
-
-#endif

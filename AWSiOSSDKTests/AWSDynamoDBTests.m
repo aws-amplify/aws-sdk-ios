@@ -13,8 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_DYNAMODB
-
 #import <XCTest/XCTest.h>
 #import "DynamoDB.h"
 #import "AWSTestUtility.h"
@@ -822,5 +820,3 @@ static NSString *table2Name = nil;
  */
 
 @end
-
-#endif

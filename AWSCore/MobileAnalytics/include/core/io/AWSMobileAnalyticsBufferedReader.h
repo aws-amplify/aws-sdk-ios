@@ -15,10 +15,10 @@
 
 #import <Foundation/Foundation.h>
 
-FOUNDATION_EXPORT NSString * const AIBufferedReaderErrorDomain;
+FOUNDATION_EXPORT NSString * const AWSBufferedReaderErrorDomain;
 
-typedef NS_ENUM(NSInteger, AIBufferedReaderErrorCodes) {
-    AIBufferedReaderErrorCode_IOStreamClosed = 0
+typedef NS_ENUM(NSInteger, AWSBufferedReaderErrorCodes) {
+    AWSBufferedReaderErrorCode_IOStreamClosed = 0
 };
 
 @interface AWSMobileAnalyticsBufferedReader : NSObject

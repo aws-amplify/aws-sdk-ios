@@ -151,7 +151,7 @@
     NSString *encoding = [self->_headers valueForKey:CONTENT_ENCODING_HEADER_KEY];
     if([encoding isEqualToString:CONTENT_ENCODING_GZIP])
     {
-        [dictionary setValue:[AWSMobileAnalyticsBase64Utils base64EncodedString:self.response] forKey:@"response"];
+        [dictionary setValue:[self.response base64EncodedStringWithOptions:kNilOptions] forKey:@"response"];
     }
     else
     {

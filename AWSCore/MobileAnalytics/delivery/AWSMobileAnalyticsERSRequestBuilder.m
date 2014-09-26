@@ -65,7 +65,7 @@ static NSString* const CONTENT_ENCODING_KEY = @"Content-Encoding";
 
 - (id<AWSMobileAnalyticsRequest>)buildWithObjects:(NSArray *)theObjects
 {
-    NSString* endpoint = [self.configuration stringForKey:KeyEventRecorderHost withOptValue:ValueEventRecorderHost];
+    NSString* endpoint = [self.configuration stringForKey:AWSKeyEventRecorderHost withOptValue:AWSValueEventRecorderHost];
     NSString* appEndpoint = [NSString stringWithFormat:ENDPOINT_PATH, endpoint];
     
     id<AWSMobileAnalyticsRequest> request = [self.httpClient newRequest];

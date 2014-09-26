@@ -18,9 +18,6 @@
 #import "UICKeyChainStore.h"
 #import "AWSLogging.h"
 
-NSString *const AWSCognitoIdentityIdChangedNotification = @"com.amazonaws.services.cognitoidentity.AWSCognitoIdentityIdChangedNotification";
-NSString *const AWSCognitoNotificationPreviousId = @"PREVID";
-NSString *const AWSCognitoNotificationNewId = @"NEWID";
 NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCognitoCredentialsProviderErrorDomain";
 
 @interface AWSStaticCredentialsProvider()
@@ -180,12 +177,8 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
 
 @interface AWSCognitoCredentialsProvider()
 
-@property (nonatomic, strong) NSString *openIdToken;
-@property (nonatomic, strong) NSString *accountId;
-@property (nonatomic, strong) NSString *identityPoolId;
 @property (nonatomic, strong) NSString *authRoleArn;
 @property (nonatomic, strong) NSString *unAuthRoleArn;
-@property (nonatomic, strong) AWSCognitoIdentity *cib;
 @property (nonatomic, strong) AWSSTS *sts;
 @property (nonatomic, strong) UICKeyChainStore *keychain;
 
@@ -241,6 +234,19 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
     return credentials;
 }
 
++ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
+                         identityProvider:(id<AWSCognitoIdentityProvider>)identityProvider
+                            unauthRoleArn:(NSString *)unauthRoleArn
+                              authRoleArn:(NSString *)authRoleArn {
+    
+    AWSCognitoCredentialsProvider *credentials = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:regionType
+                                                                                          identityProvider:identityProvider
+                                                                                             unauthRoleArn:unauthRoleArn
+                                                                                               authRoleArn:authRoleArn];
+    return credentials;
+}
+
+
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
                         identityId:(NSString *)identityId
                          accountId:(NSString *)accountId
@@ -248,91 +254,73 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
                      unauthRoleArn:(NSString *)unauthRoleArn
                        authRoleArn:(NSString *)authRoleArn
                             logins:(NSDictionary *)logins {
+    
+    // check for a stored identity if one isn't explicitly set
+    if (!identityId) {
+        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@.%@", [NSBundle mainBundle].bundleIdentifier, [AWSCognitoCredentialsProvider class], identityPoolId]];
+        identityId = keychain[@"identityId"];
+    }
+    
+    AWSBasicCognitoIdentityProvider *identityProvider = [[AWSBasicCognitoIdentityProvider alloc]
+                                                       initWithRegionType:regionType
+                                                       identityId:identityId
+                                                       accountId:accountId
+                                                       identityPoolId:identityPoolId
+                                                       logins:logins];
+
+    
+    AWSCognitoCredentialsProvider *credentials = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:regionType
+                                                                                         identityProvider:identityProvider
+                                                                                             unauthRoleArn:unauthRoleArn
+                                                                                               authRoleArn:authRoleArn];
+
+    return credentials;
+}
+
+- (instancetype)initWithRegionType:(AWSRegionType)regionType
+                 identityProvider:(id<AWSCognitoIdentityProvider>) identityProvider
+                     unauthRoleArn:(NSString *)unauthRoleArn
+                       authRoleArn:(NSString *)authRoleArn {
     if (self = [super init]) {
-        _accountId = accountId;
-        _identityPoolId = identityPoolId;
         _unAuthRoleArn = unauthRoleArn;
         _authRoleArn = authRoleArn;
-        _logins = [self updateKeysForLogins:logins];
-
+        _identityProvider = identityProvider;
+        
         // initialize keychain - name spaced by app bundle and identity pool id
-        _keychain = [UICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@.%@", [NSBundle mainBundle].bundleIdentifier, [AWSCognitoCredentialsProvider class], identityPoolId]];
-        if (identityId) {
-            _keychain[@"identityId"] = identityId;
+        _keychain = [UICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@.%@", [NSBundle mainBundle].bundleIdentifier, [AWSCognitoCredentialsProvider class], identityProvider.identityPoolId]];
+        if (identityProvider.identityId) {
+            _keychain[@"identityId"] = identityProvider.identityId;
             [_keychain synchronize];
         }
-
+        
         AWSAnonymousCredentialsProvider *credentialsProvider = [AWSAnonymousCredentialsProvider new];
         AWSServiceConfiguration *configuration = [AWSServiceConfiguration configurationWithRegion:regionType
                                                                               credentialsProvider:credentialsProvider];
-
-        _cib = [[AWSCognitoIdentity new] initWithConfiguration:configuration];
+        
         _sts = [[AWSSTS new] initWithConfiguration:configuration];
     }
-
+    
     return self;
 }
 
 - (BFTask *)refresh {
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
 
-    return [[[[[[BFTask taskWithResult:nil] continueWithSuccessBlock:^id(BFTask *task) {
+    return [[[[BFTask taskWithResult:nil] continueWithSuccessBlock:^id(BFTask *task) {
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-        return [self getIdentityId];
+        return [self.identityProvider refresh];
     }] continueWithSuccessBlock:^id(BFTask *task) {
-        AWSCognitoIdentityGetOpenIdTokenInput *getTokenInput = [AWSCognitoIdentityGetOpenIdTokenInput new];
-        getTokenInput.identityId = self.identityId;
-        getTokenInput.logins = self.logins;
-
-        return [[self.cib getOpenIdToken:getTokenInput] continueWithBlock:^id(BFTask *task) {
-            // When an invalid identityId is cached in the keychain for auth,
-            // we will refresh the identityId and try to get OpenID token again.
-            if (task.error) {
-                // if it's unauth, just fail out
-                if (!self.logins) {
-                    return task;
-                }
-
-                AWSLogError(@"GetOpenIdToken failed. Error is [%@]", task.error);
-                AWSLogVerbose(@"Calling GetId");
-                // if it's auth, reset id and refetch
-                [self clearKeychain];
-                return [[self getIdentityId] continueWithSuccessBlock:^id(BFTask *task) {
-                    AWSLogVerbose(@"Retrying GetOpenIdToken");
-
-                    // retry get token
-                    AWSCognitoIdentityGetOpenIdTokenInput *tokenRetry = [AWSCognitoIdentityGetOpenIdTokenInput new];
-                    tokenRetry.identityId = self.identityId;
-                    tokenRetry.logins = self.logins;
-
-                    return [self.cib getOpenIdToken:tokenRetry];
-                }];
-            }
-            return task;
-        }];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
-        AWSCognitoIdentityGetOpenIdTokenResponse *getTokenResponse = task.result;
-        self.openIdToken = getTokenResponse.token;
-        NSString *identityIdFromToken = getTokenResponse.identityId;
-
-        if (![self.identityId isEqualToString:identityIdFromToken]) {
-            [self postIdentityIdChangedNotification:identityIdFromToken];
-            self.keychain[@"identityId"] = identityIdFromToken;
-            [self.keychain synchronize];
-        }
-
-        return nil;
-    }] continueWithSuccessBlock:^id(BFTask *task) {
-        NSString *roleArn = nil;
-        if ([self.logins count] > 0) {
+        self.keychain[@"identityId"] = self.identityProvider.identityId;
+        [self.keychain synchronize];
+        
+        NSString *roleArn = self.unAuthRoleArn;
+        if ([self.identityProvider isAuthenticated]) {
             roleArn = self.authRoleArn;
-        } else {
-            roleArn = self.unAuthRoleArn;
         }
 
         AWSSTSAssumeRoleWithWebIdentityRequest *webIdentityRequest = [AWSSTSAssumeRoleWithWebIdentityRequest new];
         webIdentityRequest.roleArn = roleArn;
-        webIdentityRequest.webIdentityToken = self.openIdToken;
+        webIdentityRequest.webIdentityToken = self.identityProvider.token;
         webIdentityRequest.roleSessionName = @"iOS-Provider";
         return [[self.sts assumeRoleWithWebIdentity:webIdentityRequest] continueWithBlock:^id(BFTask *task) {
             if (task.result) {
@@ -363,43 +351,22 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
 }
 
 - (BFTask *)getIdentityId {
-    if (self.identityId) {
-        return [BFTask taskWithResult:nil];
-    } else {
-        return [[BFTask taskWithResult:nil] continueWithBlock:^id(BFTask *task) {
-            dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
-            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-
-            if (!self.identityId) {
-                AWSCognitoIdentityGetIdInput *getIdInput = [AWSCognitoIdentityGetIdInput new];
-                getIdInput.accountId = self.accountId;
-                getIdInput.identityPoolId = self.identityPoolId;
-                getIdInput.logins = self.logins;
-
-                return [[self.cib getId:getIdInput] continueWithBlock:^id(BFTask *task) {
-                    if (task.error) {
-                        AWSLogError(@"GetId failed. Error is [%@]", task.error);
-                    } else {
-                        AWSCognitoIdentityGetIdResponse *getIdResponse = task.result;
-                        [self postIdentityIdChangedNotification:getIdResponse.identityId];
-                        self.keychain[@"identityId"] = getIdResponse.identityId;
-                        [self.keychain synchronize];
-                    }
-
-                    dispatch_semaphore_signal(semaphore);
-                    return nil;
-                }];
-            } else {
-                dispatch_semaphore_signal(semaphore);
-            }
-
-            return nil;
-        }];
-    }
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
+    
+    return [[[BFTask taskWithResult:nil] continueWithSuccessBlock:^id(BFTask *task) {
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        return [self.identityProvider getIdentityId];
+    }] continueWithBlock:^id(BFTask *task) {
+        self.keychain[@"identityId"] = self.identityProvider.identityId;
+        [self.keychain synchronize];
+        dispatch_semaphore_signal(semaphore);
+        return nil;
+    }];
 }
 
 - (void)clearKeychain {
     @synchronized(self) {
+        [self.identityProvider clear];
         [self.keychain removeItemForKey:@"identityId"];
         [self clearCredentials];
     }
@@ -451,54 +418,18 @@ NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCo
 }
 
 - (void)setLogins:(NSDictionary *)logins {
-    _logins = [self updateKeysForLogins:logins];
+    self.identityProvider.logins = logins;
     // invalidate the credentials, so next time we
     // are forced to get a new token (and perhaps merge)
     [self clearCredentials];
 }
 
-- (NSDictionary *)updateKeysForLogins:(NSDictionary *)logins {
-    if (logins == nil) {
-        return nil;
-    }
-
-    NSMutableDictionary *mutableLogin = [NSMutableDictionary new];
-    for (id key in logins) {
-        NSString *updatedKey = key;
-        if ([key isKindOfClass:[NSNumber class]]) {
-            switch ([(NSNumber *)key integerValue]) {
-                case AWSCognitoLoginProviderKeyFacebook:
-                    updatedKey = @"graph.facebook.com";
-                    break;
-                case AWSCognitoLoginProviderKeyGoogle:
-                    updatedKey = @"accounts.google.com";
-                    break;
-                case AWSCognitoLoginProviderKeyLoginWithAmazon:
-                    updatedKey = @"www.amazon.com";
-                    break;
-                case AWSCognitoLoginProviderKeyUnknown:
-                default:
-                    break;
-            }
-        }
-        mutableLogin[updatedKey] = logins[key];
-    }
-
-    return mutableLogin;
+- (NSDictionary *)logins {
+    return self.identityProvider.logins;
 }
 
-- (void)postIdentityIdChangedNotification:(NSString *)newId {
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-    if (self.identityId) {
-        [userInfo setObject:self.identityId forKey:AWSCognitoNotificationPreviousId];
-    }
-    [userInfo setObject:newId forKey:AWSCognitoNotificationNewId];
-
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:AWSCognitoIdentityIdChangedNotification
-                                                            object:self
-                                                          userInfo:userInfo];   
-    });
+- (NSString *)identityPoolId {
+    return self.identityProvider.identityPoolId;
 }
 
 @end

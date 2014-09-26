@@ -16,7 +16,7 @@
 #import "AWSMobileAnalyticsVirtualMonetizationEventBuilder.h"
 #import "AWSLogging.h"
 
-static NSString* const VIRTUAL_STORE = @"Virtual";
+static NSString* const AWSMobileAnalyticsVirtualStore = @"Virtual";
 
 @interface AWSMobileAnalyticsVirtualMonetizationEventBuilder()
 
@@ -32,7 +32,7 @@ static NSString* const VIRTUAL_STORE = @"Virtual";
 }
 -(AWSMobileAnalyticsVirtualMonetizationEventBuilder*) initWithEventClient:(id<AWSMobileAnalyticsEventClient>)theEventClient{
     AWSMobileAnalyticsVirtualMonetizationEventBuilder* virtualMonetizationEventBuilder = [super initWithEventClient:theEventClient];
-    [self setStore:VIRTUAL_STORE];
+    [self setStore:AWSMobileAnalyticsVirtualStore];
     return virtualMonetizationEventBuilder;
 }
 

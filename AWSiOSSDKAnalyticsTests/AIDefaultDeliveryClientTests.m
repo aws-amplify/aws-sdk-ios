@@ -48,9 +48,9 @@ static id mockIterator = nil;
     mockSerializer = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsSerializer)];
     mockIterator = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsEventIterator)];
     
-    [[[mockConfiguration stub] andReturnValue:OCMOCK_VALUE(ValueEventRecorderMaxRetries)] intForKey:KeyEventRecorderMaxRetries withOptValue:ValueEventRecorderMaxRetries];
-    [[[mockConfiguration stub] andReturnValue:OCMOCK_VALUE(ValueEventRecorderRequestTimeout)] intForKey:KeyEventRecorderRequestTimeout withOptValue:ValueEventRecorderRequestTimeout];
-    [[[mockConfiguration stub] andReturnValue:OCMOCK_VALUE(ValueMaxSubmissionsAllowed)] intForKey:KeyMaxSubmissionsAllowed withOptValue:ValueMaxSubmissionsAllowed];
+    [[[mockConfiguration stub] andReturnValue:OCMOCK_VALUE(AWSValueEventRecorderMaxRetries)] intForKey:AWSKeyEventRecorderMaxRetries withOptValue:AWSValueEventRecorderMaxRetries];
+    [[[mockConfiguration stub] andReturnValue:OCMOCK_VALUE(AWSValueEventRecorderRequestTimeout)] intForKey:AWSKeyEventRecorderRequestTimeout withOptValue:AWSValueEventRecorderRequestTimeout];
+    [[[mockConfiguration stub] andReturnValue:OCMOCK_VALUE(AWSValueMaxSubmissionsAllowed)] intForKey:AWSKeyMaxSubmissionsAllowed withOptValue:AWSValueMaxSubmissionsAllowed];
     
     [[[mockEventStore stub] andReturn:mockIterator] iterator];
     
@@ -108,7 +108,7 @@ static id mockIterator = nil;
 
 - (id)setupHttpResponse:(int)responseCode andExpect:(BOOL)isEpected onlyOnce:(BOOL)isCalledOnlyOnce
 {
-    [[[mockConfiguration stub] andReturnValue:OCMOCK_VALUE(ValueMaxSubmissionSizeDup)] longForKey:KeyMaxSubmissionSize withOptValue:ValueMaxSubmissionSizeDup];
+    [[[mockConfiguration stub] andReturnValue:OCMOCK_VALUE(ValueMaxSubmissionSizeDup)] longForKey:AWSKeyMaxSubmissionSize withOptValue:ValueMaxSubmissionSizeDup];
     
     id mockRequest = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsRequest)];
     [[[mockERSRequestBuilder stub] andReturn:mockRequest] buildWithObjects:OCMOCK_ANY];
@@ -117,12 +117,12 @@ static id mockIterator = nil;
     [(id<AWSMobileAnalyticsResponse>)[[mockResponse stub] andReturnValue:OCMOCK_VALUE(responseCode)] code];
     
     if (isEpected) {
-        [[[mockHttpClient expect] andReturn:mockResponse] execute:mockRequest withRetries:ValueEventRecorderMaxRetries withTimeout:ValueEventRecorderRequestTimeout];
+        [[[mockHttpClient expect] andReturn:mockResponse] execute:mockRequest withRetries:AWSValueEventRecorderMaxRetries withTimeout:AWSValueEventRecorderRequestTimeout];
         if (isCalledOnlyOnce) {
-            [[mockHttpClient reject] execute:mockRequest withRetries:ValueEventRecorderMaxRetries withTimeout:ValueEventRecorderRequestTimeout];
+            [[mockHttpClient reject] execute:mockRequest withRetries:AWSValueEventRecorderMaxRetries withTimeout:AWSValueEventRecorderRequestTimeout];
         }
     } else {
-        [[[mockHttpClient stub] andReturn:mockResponse] execute:mockRequest withRetries:ValueEventRecorderMaxRetries withTimeout:ValueEventRecorderRequestTimeout];
+        [[[mockHttpClient stub] andReturn:mockResponse] execute:mockRequest withRetries:AWSValueEventRecorderMaxRetries withTimeout:AWSValueEventRecorderRequestTimeout];
     }
     
     return mockRequest;
@@ -271,13 +271,13 @@ static id mockIterator = nil;
     [[[mockIterator stub] andReturn:@"{'event':'event'}"] next];
     [[[mockIterator stub] andDo:iteratorArgChecker] removeReadEvents];
     
-    [[[mockConfiguration stub] andReturnValue:OCMOCK_VALUE(ValueMaxSubmissionSizeDup)] longForKey:KeyMaxSubmissionSize withOptValue:ValueMaxSubmissionSizeDup];
+    [[[mockConfiguration stub] andReturnValue:OCMOCK_VALUE(ValueMaxSubmissionSizeDup)] longForKey:AWSKeyMaxSubmissionSize withOptValue:ValueMaxSubmissionSizeDup];
     
     [[[mockERSRequestBuilder stub] andDo:requestArgChecker] buildWithObjects:OCMOCK_ANY];
     
     id mockResponse = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsResponse)];
     [(id<AWSMobileAnalyticsResponse>)[[mockResponse stub] andReturnValue:OCMOCK_VALUE(responseCode)] code];
-    [[[mockHttpClient stub] andReturn:mockResponse] execute:OCMOCK_ANY withRetries:ValueEventRecorderMaxRetries withTimeout:ValueEventRecorderRequestTimeout];
+    [[[mockHttpClient stub] andReturn:mockResponse] execute:OCMOCK_ANY withRetries:AWSValueEventRecorderMaxRetries withTimeout:AWSValueEventRecorderRequestTimeout];
     
     [client attemptDelivery];
     [mockOperationQueue waitUntilAllOperationsAreFinished];
@@ -316,13 +316,13 @@ static id mockIterator = nil;
     [[[mockIterator stub] andReturn:@"{'event':'event'}"] next];
     [[[mockIterator stub] andDo:iteratorArgChecker] removeReadEvents];
     
-    [[[mockConfiguration stub] andReturnValue:OCMOCK_VALUE(ValueMaxSubmissionSizeSingleEvent)] longForKey:KeyMaxSubmissionSize withOptValue:ValueMaxSubmissionSizeDup];
+    [[[mockConfiguration stub] andReturnValue:OCMOCK_VALUE(ValueMaxSubmissionSizeSingleEvent)] longForKey:AWSKeyMaxSubmissionSize withOptValue:ValueMaxSubmissionSizeDup];
     
     [[[mockERSRequestBuilder stub] andDo:requestArgChecker] buildWithObjects:OCMOCK_ANY];
     
     id mockResponse = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsResponse)];
     [(id<AWSMobileAnalyticsResponse>)[[mockResponse stub] andReturnValue:OCMOCK_VALUE(responseCode)] code];
-    [[[mockHttpClient stub] andReturn:mockResponse] execute:OCMOCK_ANY withRetries:ValueEventRecorderMaxRetries withTimeout:ValueEventRecorderRequestTimeout];
+    [[[mockHttpClient stub] andReturn:mockResponse] execute:OCMOCK_ANY withRetries:AWSValueEventRecorderMaxRetries withTimeout:AWSValueEventRecorderRequestTimeout];
     
     [client attemptDelivery];
     [mockOperationQueue waitUntilAllOperationsAreFinished];
@@ -392,7 +392,7 @@ static id mockIterator = nil;
 {
     [self setupMockPoliciesWithConnectivityPolicy:YES andSubmissionTimePolicy:NO];
     [[mockEventStore reject] iterator];
-    [[mockHttpClient reject] execute:OCMOCK_ANY withRetries:ValueEventRecorderMaxRetries withTimeout:ValueEventRecorderRequestTimeout];
+    [[mockHttpClient reject] execute:OCMOCK_ANY withRetries:AWSValueEventRecorderMaxRetries withTimeout:AWSValueEventRecorderRequestTimeout];
     
     [client attemptDelivery];
     [mockOperationQueue waitUntilAllOperationsAreFinished];
@@ -405,7 +405,7 @@ static id mockIterator = nil;
 {
     [self setupMockPoliciesWithConnectivityPolicy:NO andSubmissionTimePolicy:YES];
     [[mockEventStore reject] iterator];
-    [[mockHttpClient reject] execute:OCMOCK_ANY withRetries:ValueEventRecorderMaxRetries withTimeout:ValueEventRecorderRequestTimeout];
+    [[mockHttpClient reject] execute:OCMOCK_ANY withRetries:AWSValueEventRecorderMaxRetries withTimeout:AWSValueEventRecorderRequestTimeout];
     
     [client attemptDelivery];
     [mockOperationQueue waitUntilAllOperationsAreFinished];

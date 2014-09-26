@@ -13,8 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_CLOCK_SKEW
-
 #import <XCTest/XCTest.h>
 #import "AWSCore.h"
 #import "S3.h"
@@ -474,8 +472,4 @@ static char mockDateKey;
 }
 #endif
 
-//TODO: Add ClockSkew Test for AWSCognitoService
-
 @end
-
-#endif

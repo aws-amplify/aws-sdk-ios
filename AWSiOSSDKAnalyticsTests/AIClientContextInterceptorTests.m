@@ -21,6 +21,7 @@
 - (void) test_clientContextAddedAsHeader
 {
     id mockClientContext = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsClientContext)];
+    [[[mockClientContext stub] andReturn:@"appId"] appId];
     [[[mockClientContext stub] andReturn:@"0.1"] appVersion];
     [[[mockClientContext stub] andReturn:@"123"] appBuild];
     [[[mockClientContext stub] andReturn:@"com.amazon.beef"] appPackageName];

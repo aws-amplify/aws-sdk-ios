@@ -60,10 +60,10 @@
     id observerCookie = [manager addBackgroundObserverUsingBlock:^(NSNotification* notification) {
         blockCalled = YES;
         assertThat([notification userInfo], notNilValue());
-        assertThat([[[notification userInfo] objectForKey:InsightsBackgroundQueueKey] class] , is(equalTo([AIBackgroundQueue class])));
+        assertThat([[[notification userInfo] objectForKey:AWSInsightsBackgroundQueueKey] class] , is(equalTo([AWSBackgroundQueue class])));
         
         // execute this in background
-        AIBackgroundQueue* queue = [[notification userInfo] objectForKey:InsightsBackgroundQueueKey];
+        AWSBackgroundQueue* queue = [[notification userInfo] objectForKey:AWSInsightsBackgroundQueueKey];
         [queue addBackgroundTaskUsingBlock:^(void) {
             innerBlockCalled = YES;
             dispatch_semaphore_signal(sema);
@@ -105,7 +105,7 @@
     
     NSCondition* condition = [[NSCondition alloc] init];
     
-    AIBackgroundQueue* workQueue = [AIBackgroundQueue emptyQueue];
+    AWSBackgroundQueue* workQueue = [AWSBackgroundQueue emptyQueue];
     [workQueue addBackgroundTaskUsingBlock:^(void) {
         [NSThread sleepForTimeInterval:1];
         block1Called = YES;
@@ -128,7 +128,7 @@
     
     [manager executeBackgroundTasks:workQueue];
     
-    AIBackgroundQueue* workQueue2 = [AIBackgroundQueue emptyQueue];
+    AWSBackgroundQueue* workQueue2 = [AWSBackgroundQueue emptyQueue];
     [workQueue2 addBackgroundTaskUsingBlock:^(void) {
         block3Called = YES;
         [condition lock];

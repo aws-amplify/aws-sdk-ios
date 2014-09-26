@@ -13,8 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_ELASTIC_LOAD_BALANCING
-
 #import <XCTest/XCTest.h>
 #import "ElasticLoadBalancing.h"
 #import "AWSTestUtility.h"
@@ -73,5 +71,3 @@
 }
 
 @end
-
-#endif

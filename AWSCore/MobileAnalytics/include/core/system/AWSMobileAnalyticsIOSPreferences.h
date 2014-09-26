@@ -20,16 +20,15 @@
 #import "../util/AWSMobileAnalyticsStringUtils.h"
 #import "../io/AWSMobileAnalyticsBufferedReader.h"
 #import "../util/AWSMobileAnalyticsErrorUtils.h"
-#import "../util/AWSMobileAnalyticsBase64Utils.h"
 #import "../AWSMobileAnalyticsSerializerFactory.h"
 
-FOUNDATION_EXPORT NSString * const AIPreferencesFilename;
+FOUNDATION_EXPORT NSString * const AWSPreferencesFilename;
 
-FOUNDATION_EXPORT NSString * const AIIOSPreferencesErrorDomain;
+FOUNDATION_EXPORT NSString * const AWSIOSPreferencesErrorDomain;
 
-typedef NS_ENUM(NSInteger, AIIOSPreferencesErrorCodes) {
-    AIIOSPreferencesErrorCode_FailedInputStreamCreation = 0,
-    AIIOSPreferencesErrorCode_FailedOutputStreamCreation
+typedef NS_ENUM(NSInteger, AWSIOSPreferencesErrorCodes) {
+    AWSIOSPreferencesErrorCode_FailedInputStreamCreation = 0,
+    AWSIOSPreferencesErrorCode_FailedOutputStreamCreation
 };
 
 @interface AWSMobileAnalyticsIOSPreferences : NSObject<AWSMobileAnalyticsPreferences>

@@ -16,9 +16,8 @@
 #import "AWSMobileAnalyticsFileEventStore.h"
 #import "AWSLogging.h"
 
-NSString * const AIEventsDirectoryName = @"events";
-NSString * const AIEventsFilename = @"eventsFile";
-static NSString *const ENCRYPTION_ALGORITHM = @"AES";
+NSString * const AWSEventsDirectoryName = @"events";
+NSString * const AWSEventsFilename = @"eventsFile";
 
 @implementation AWSMobileAnalyticsFileEventStore
 
@@ -55,7 +54,7 @@ static NSString *const ENCRYPTION_ALGORITHM = @"AES";
         self.lock = [[NSRecursiveLock alloc] init];
 
         NSError* error;
-		AWSMobileAnalyticsFile *eventsDirectory = [fileManager createDirectory:AIEventsDirectoryName error:&error];
+		AWSMobileAnalyticsFile *eventsDirectory = [fileManager createDirectory:AWSEventsDirectoryName error:&error];
         NSAssert(error == nil, @"There should not be an error when creating the events directory. Error: %@", [error localizedDescription]);
         if(error != nil || eventsDirectory == nil || ![eventsDirectory exists])
         {
@@ -79,7 +78,7 @@ static NSString *const ENCRYPTION_ALGORITHM = @"AES";
 
 -(NSString *) eventsFileName
 {
-    return [AIEventsDirectoryName stringByAppendingPathComponent:AIEventsFilename];
+    return [AWSEventsDirectoryName stringByAppendingPathComponent:AWSEventsFilename];
 }
 
 -(BOOL) put:(NSString *) theEvent withError:(NSError **) theError
@@ -97,7 +96,7 @@ static NSString *const ENCRYPTION_ALGORITHM = @"AES";
             [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
             return NO;
         }
-        int maxStorageSize = [self.context.configuration intForKey:KeyMaxStorageSize withOptValue:ValueMaxStorageSize];
+        int maxStorageSize = [self.context.configuration intForKey:AWSKeyMaxStorageSize withOptValue:AWSValueMaxStorageSize];
         if([theEvent length] + [self.eventsFile length] <= maxStorageSize)
         {
             [writer writeLine:theEvent error:&error];
@@ -142,7 +141,7 @@ static NSString *const ENCRYPTION_ALGORITHM = @"AES";
 
 -(id<AWSMobileAnalyticsEventIterator>) iterator
 {
-    return [[AIFileEventIterator alloc] initFileStore:self];
+    return [[AWSFileEventIterator alloc] initFileStore:self];
 }
 
 -(AWSMobileAnalyticsFile *) deleteReadEvents:(int) theLineNumber
@@ -191,7 +190,7 @@ static NSString *const ENCRYPTION_ALGORITHM = @"AES";
         {
             if([origEventsFile deleteFile])
             {
-                if([tempEventsFile renameTo:AIEventsFilename])
+                if([tempEventsFile renameTo:AWSEventsFilename])
                 {
                     self.eventsFile = [fileManager createFileWithPath:self.eventsFileName error:&error];
                 }
@@ -222,7 +221,7 @@ static NSString *const ENCRYPTION_ALGORITHM = @"AES";
 
 @end
 
-@implementation AIFileEventIterator
+@implementation AWSFileEventIterator
 
 -(id) initFileStore:(AWSMobileAnalyticsFileEventStore *) theEventStore
 {

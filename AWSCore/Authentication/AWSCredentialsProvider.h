@@ -15,21 +15,11 @@
 
 #import <Foundation/Foundation.h>
 #import "AWSServiceEnum.h"
-
-FOUNDATION_EXPORT NSString *const AWSCognitoIdentityIdChangedNotification;
-FOUNDATION_EXPORT NSString *const AWSCognitoNotificationPreviousId;
-FOUNDATION_EXPORT NSString *const AWSCognitoNotificationNewId;
+#import "AWSIdentityProvider.h"
 
 FOUNDATION_EXPORT NSString *const AWSCognitoCredentialsProviderErrorDomain;
 typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
     AWSCognitoCredentialsProviderErrorUnknown
-};
-
-typedef NS_ENUM(NSInteger, AWSCognitoLoginProviderKey) {
-    AWSCognitoLoginProviderKeyUnknown,
-    AWSCognitoLoginProviderKeyFacebook,
-    AWSCognitoLoginProviderKeyGoogle,
-    AWSCognitoLoginProviderKeyLoginWithAmazon,
 };
 
 @class BFTask;
@@ -100,6 +90,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoLoginProviderKey) {
 @property (nonatomic, strong, readonly) NSString *secretKey;
 @property (nonatomic, strong, readonly) NSString *sessionKey;
 @property (nonatomic, strong, readonly) NSDate *expiration;
+@property (nonatomic, strong, readonly) id<AWSCognitoIdentityProvider> identityProvider;
 
 @property (nonatomic, strong, readonly) NSString *identityId;
 @property (nonatomic, strong, readonly) NSString *identityPoolId;
@@ -127,6 +118,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoLoginProviderKey) {
                               authRoleArn:(NSString *)authRoleArn
                                    logins:(NSDictionary *)logins;
 
++ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
+                         identityProvider:(id<AWSCognitoIdentityProvider>)identityProvider
+                            unauthRoleArn:(NSString *)unauthRoleArn
+                              authRoleArn:(NSString *)authRoleArn;
+
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
                         identityId:(NSString *)identityId
                          accountId:(NSString *)accountId
@@ -134,6 +130,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoLoginProviderKey) {
                      unauthRoleArn:(NSString *)unauthRoleArn
                        authRoleArn:(NSString *)authRoleArn
                             logins:(NSDictionary *)logins;
+
+- (instancetype)initWithRegionType:(AWSRegionType)regionType
+                 identityProvider:(id<AWSCognitoIdentityProvider>) identityProvider
+                     unauthRoleArn:(NSString *)unauthRoleArn
+                       authRoleArn:(NSString *)authRoleArn;
 
 /**
  *  Refreshes the locally stored credentials. The SDK automatically calls this method when necessary, and you do not need to call this method manually.

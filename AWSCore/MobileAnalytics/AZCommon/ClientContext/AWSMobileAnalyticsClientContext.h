@@ -15,11 +15,14 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString* const CLIENT_CONTEXT_VERSION = @"1.0";
+static NSString* const AWSMobileAnalyticsClientContextVersion = @"1.0";
 
 @protocol AWSMobileAnalyticsClientContext <NSObject>
 
 #pragma mark - App Details
+
+@required
+@property(nonatomic, readonly)NSString* appId;
 
 @required
 @property(nonatomic, readonly)NSString* appVersion;

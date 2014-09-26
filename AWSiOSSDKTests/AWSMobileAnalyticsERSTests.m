@@ -13,7 +13,7 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_MOBILE_ANALYTICS_ERS && !AWS_TEST_BJS_INSTEAD
+#if !AWS_TEST_BJS_INSTEAD
 
 #import <XCTest/XCTest.h>
 #import "AWSCore.h"

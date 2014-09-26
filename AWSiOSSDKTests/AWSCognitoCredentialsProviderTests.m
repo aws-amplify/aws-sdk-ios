@@ -13,11 +13,79 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_COGNITO_CREDENTIALS_PROVIDER && !AWS_TEST_BJS_INSTEAD
+#if !AWS_TEST_BJS_INSTEAD
 
 #import <XCTest/XCTest.h>
 #import "AWSCore.h"
 #import "AWSTestUtility.h"
+
+// fake identity provider that calls Cognito Identity developer trusted APIs
+@interface AWSFakeCognitoIdentityProvider : AWSAbstractIdentityProvider
+@property (nonatomic, strong) AWSCognitoIdentity *cib;
+@property (nonatomic, strong) NSString *identityPoolId;
+@property (nonatomic, strong) NSString *identityId;
+@property (nonatomic, strong) NSString *token;
+@end
+
+@implementation AWSFakeCognitoIdentityProvider
+@synthesize identityPoolId=_identityPoolId;
+@synthesize identityId=_identityId;
+@synthesize token=_token;
+
+- (instancetype)initWithRegionType:(AWSRegionType)regionType
+                    identityPoolId:(NSString *)identityPoolId
+                            logins:(NSDictionary *)logins {
+    
+    if (self = [super init]) {
+        self.identityPoolId = identityPoolId;
+        self.logins = logins;
+        
+        AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
+        AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:regionType
+                                                                               credentialsProvider:credentialsProvider];
+        
+        _cib = [[AWSCognitoIdentity new] initWithConfiguration:configuration];
+    }
+    
+    return self;
+}
+
+- (BFTask *)getIdentityId {
+    if (self.identityId) {
+        return [BFTask taskWithResult:nil];
+    } else {
+        return [[BFTask taskWithResult:nil] continueWithBlock:^id(BFTask *task) {
+            
+            if (!self.identityId) {
+                return [self refresh];
+            }
+            return nil;
+        }];
+    }
+}
+
+- (BFTask *)refresh {
+    AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput *getTokenInput =
+    [AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput new];
+    
+    getTokenInput.identityId = self.identityId;
+    getTokenInput.identityPoolId = self.identityPoolId;
+    getTokenInput.logins = self.logins;
+    getTokenInput.tokenDuration = [NSNumber numberWithInt:60];
+    
+    return [[self.cib getOpenIdTokenForDeveloperIdentity:getTokenInput] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            AWSLogError(@"GetId failed. Error is [%@]", task.error);
+        } else {
+            AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse *getTokenResponse = task.result;
+            self.identityId = getTokenResponse.identityId;
+            self.token = getTokenResponse.token;
+        }
+        return nil;
+    }];
+}
+
+@end
 
 @interface AWSCognitoCredentialsProviderTests : XCTestCase
 
@@ -37,6 +105,11 @@ NSString *_facebookAppToken;
 NSString *_facebookId;
 BOOL _identityChanged;
 
+// Static cib client that uses long term credentials
+
+AWSCognitoIdentity *staticCib;
+
+
 @implementation AWSCognitoCredentialsProviderTests
 
 #pragma mark - Set up/Tear down
@@ -44,6 +117,11 @@ BOOL _identityChanged;
 + (void)setUp {
     [super setUp];
     [AWSTestUtility setupCognitoCredentialsProvider];
+    
+    AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
+    AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
+                                                                           credentialsProvider:credentialsProvider];
+    staticCib = [[AWSCognitoIdentity new] initWithConfiguration:configuration];
 
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
                                                                           ofType:@"json"];
@@ -89,28 +167,22 @@ BOOL _identityChanged;
                                                                                            authRoleArn:AWSCognitoCredentialsProviderTestsAuthRoleArn
                                                                                                 logins:nil];
     [provider clearKeychain];
-    [[[[[provider refresh] continueWithSuccessBlock:^id(BFTask *task) {
+    [[[[provider refresh] continueWithSuccessBlock:^id(BFTask *task) {
         XCTAssertNotNil(provider.identityId, @"Unable to get identityId");
         XCTAssertNotNil(provider.accessKey, @"Unable to get accessKey");
 
         provider.logins = @{@(AWSCognitoLoginProviderKeyFacebook) : _facebookToken};
         return [provider refresh];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
-        XCTAssertNil(task.error);
-
-        AWSStaticCredentialsProvider *staticCredentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
-        AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
-                                                                               credentialsProvider:staticCredentialsProvider];
-        AWSCognitoIdentity *cib = [[AWSCognitoIdentity new] initWithConfiguration:configuration];
-
-        AWSCognitoIdentityListIdentityPoolsInput *listPoolsInput = [AWSCognitoIdentityListIdentityPoolsInput new];
-        listPoolsInput.maxResults = [NSNumber numberWithInt:10];
-
-        return [cib listIdentityPools:listPoolsInput];
     }] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
+        
+        XCTAssertNotNil(provider.accessKey);
+        XCTAssertNotNil(provider.secretKey);
+        XCTAssertNotNil(provider.sessionKey);
+        XCTAssertNotNil(provider.expiration);
+        
         return nil;
     }] waitUntilFinished];
 }
@@ -168,7 +240,7 @@ BOOL _identityChanged;
                                                                                          identityPoolId:_identityPoolIdAuth
                                                                                           unauthRoleArn:AWSCognitoCredentialsProviderTestsUnauthRoleArn
                                                                                             authRoleArn:AWSCognitoCredentialsProviderTestsAuthRoleArn
-                                                                                                 logins:nil];
+                                                                                                 logins:@{@(AWSCognitoLoginProviderKeyFacebook) : _facebookToken}];
     [provider1 clearKeychain];
     
     __block AWSCognitoCredentialsProvider *provider2 = nil;
@@ -225,6 +297,32 @@ BOOL _identityChanged;
     }] waitUntilFinished];
 }
 
+#pragma mark - BYOI
+
+- (void)testBYOIProvider {
+    AWSFakeCognitoIdentityProvider *fakeIdentityProvider = [[AWSFakeCognitoIdentityProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                       identityPoolId:_identityPoolIdAuth
+                                                                                                               logins:@{
+                                                                                                                        @"iostests.com" : @"tester"
+                                                                                                                        }];
+    
+    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                       identityProvider:fakeIdentityProvider
+                                                                                          unauthRoleArn:AWSCognitoCredentialsProviderTestsUnauthRoleArn authRoleArn:AWSCognitoCredentialsProviderTestsAuthRoleArn];
+    
+    
+    [provider clearKeychain];
+    [[[provider refresh] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNotNil(provider.identityId, @"Unable to get identityId");
+        XCTAssertNotNil(provider.secretKey);
+        XCTAssertNotNil(provider.sessionKey);
+        XCTAssertNotNil(provider.expiration);
+        
+        return nil;
+    }] waitUntilFinished];
+    
+}
+
 #pragma mark - Utility
 
 + (void)createFBAccount {
@@ -260,15 +358,15 @@ BOOL _identityChanged;
 }
 
 + (void)createIdentityPools {
-    AWSCognitoIdentity *cib = [AWSCognitoIdentity defaultCognitoIdentity];
     NSMutableArray *tasks = [NSMutableArray new];
 
     AWSCognitoIdentityCreateIdentityPoolInput *createPoolForAuthProvider = [AWSCognitoIdentityCreateIdentityPoolInput new];
     createPoolForAuthProvider.identityPoolName = @"CIBiOSTestAuthProvider";
     createPoolForAuthProvider.allowUnauthenticatedIdentities = @YES;
     createPoolForAuthProvider.supportedLoginProviders = @{@"graph.facebook.com" : AWSCognitoCredentialsProviderTestsFacebookAppID};
+    createPoolForAuthProvider.developerProviderName = @"iostests.com";
 
-    [tasks addObject:[[cib createIdentityPool:createPoolForAuthProvider] continueWithSuccessBlock:^id(BFTask *task) {
+    [tasks addObject:[[staticCib createIdentityPool:createPoolForAuthProvider] continueWithSuccessBlock:^id(BFTask *task) {
         AWSCognitoIdentityIdentityPool *identityPool = task.result;
         _identityPoolIdAuth = identityPool.identityPoolId;
 
@@ -279,7 +377,7 @@ BOOL _identityChanged;
     createPoolForUnauthProvider.identityPoolName = @"CIBiOSTUnauthProvider";
     createPoolForUnauthProvider.allowUnauthenticatedIdentities = @YES;
 
-    [tasks addObject:[[cib createIdentityPool:createPoolForUnauthProvider] continueWithSuccessBlock:^id(BFTask *task) {
+    [tasks addObject:[[staticCib createIdentityPool:createPoolForUnauthProvider] continueWithSuccessBlock:^id(BFTask *task) {
         AWSCognitoIdentityIdentityPool *identityPool = task.result;
         _identityPoolIdUnauth = identityPool.identityPoolId;
 
@@ -290,16 +388,15 @@ BOOL _identityChanged;
 }
 
 + (void)deleteIdentityPools {
-    AWSCognitoIdentity *cib = [AWSCognitoIdentity defaultCognitoIdentity];
     NSMutableArray *tasks = [NSMutableArray new];
 
     AWSCognitoIdentityDeleteIdentityPoolInput *deletePoolForAuth = [AWSCognitoIdentityDeleteIdentityPoolInput new];
     deletePoolForAuth.identityPoolId = _identityPoolIdAuth;
-    [tasks addObject:[cib deleteIdentityPool:deletePoolForAuth]];
+    [tasks addObject:[staticCib deleteIdentityPool:deletePoolForAuth]];
 
     AWSCognitoIdentityDeleteIdentityPoolInput *deletePoolForUnauth = [AWSCognitoIdentityDeleteIdentityPoolInput new];
     deletePoolForUnauth.identityPoolId = _identityPoolIdUnauth;
-    [tasks addObject:[cib deleteIdentityPool:deletePoolForUnauth]];
+    [tasks addObject:[staticCib deleteIdentityPool:deletePoolForUnauth]];
 
     [[BFTask taskForCompletionOfAllTasks:tasks] waitUntilFinished];
 }

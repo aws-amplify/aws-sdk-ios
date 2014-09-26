@@ -225,6 +225,25 @@ static NSDictionary *errorCodeDictionary = nil;
                 }
             }
         }
+        
+        //if the location may contain multiple headers if it is a map type
+        if ([memberRules isKindOfClass:[NSDictionary class]] && [memberRules[@"location"] isEqualToString:@"headers"] && [memberRules[@"type"] isEqualToString:@"map"] ) {
+            NSString *locationName = memberRules[@"locationName"]?memberRules[@"locationName"]:memberName;
+            if (locationName) {
+                NSPredicate *metaDatapredicate = [NSPredicate predicateWithFormat:@"SELF like %@",[locationName stringByAppendingString:@"*"]];
+                NSArray *matchedArray = [[responseHeaders allKeys] filteredArrayUsingPredicate:metaDatapredicate];
+                NSMutableDictionary *mapDic = [NSMutableDictionary new];
+                for (NSString *fullHeaderName in matchedArray) {
+                    NSString *extractedHeaderName = [fullHeaderName stringByReplacingOccurrencesOfString:locationName withString:@""];
+                    if (extractedHeaderName) {
+                        mapDic[extractedHeaderName] = responseHeaders[fullHeaderName];
+                    }
+                }
+                if ([mapDic count] > 0 && memberName) {
+                 bodyDictionary[memberName] = mapDic;
+                }
+            }
+        }
     }];
 
     return bodyDictionary;

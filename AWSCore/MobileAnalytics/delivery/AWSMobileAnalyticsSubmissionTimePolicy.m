@@ -15,7 +15,7 @@
 
 #import "AWSMobileAnalyticsSubmissionTimePolicy.h"
 #import "AWSLogging.h"
-static NSString* const SUBMITTED_TIME_KEY = @"AWSMobileAnalyticsSubmissionTimePolicy.submissionTime";
+static NSString* const AWSMobileAnalyticsSubmittedTimeKey = @"AWSMobileAnalyticsSubmissionTimePolicy.submissionTime";
 
 @interface AWSMobileAnalyticsSubmissionTimePolicy()
 @property(nonatomic)id<AWSMobileAnalyticsPreferences> preferences;
@@ -39,7 +39,7 @@ static NSString* const SUBMITTED_TIME_KEY = @"AWSMobileAnalyticsSubmissionTimePo
         self.preferences = preferences;
         self.waitInterval = waitInterval;
         
-        self.lastSubmittedTime = [self.preferences doubleForKey:SUBMITTED_TIME_KEY withOptValue:0];
+        self.lastSubmittedTime = [self.preferences doubleForKey:AWSMobileAnalyticsSubmittedTimeKey withOptValue:0];
     }
     return self;
 }
@@ -59,7 +59,7 @@ static NSString* const SUBMITTED_TIME_KEY = @"AWSMobileAnalyticsSubmissionTimePo
     if(attemptSuccesful)
     {
         self.lastSubmittedTime = [[NSDate date] timeIntervalSince1970];
-        [self.preferences putDouble:self.lastSubmittedTime forKey:SUBMITTED_TIME_KEY];
+        [self.preferences putDouble:self.lastSubmittedTime forKey:AWSMobileAnalyticsSubmittedTimeKey];
     }
 }
 

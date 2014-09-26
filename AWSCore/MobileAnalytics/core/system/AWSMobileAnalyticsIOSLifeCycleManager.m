@@ -16,23 +16,23 @@
 #import "AWSMobileAnalyticsIOSLifeCycleManager.h"
 #import <UIKit/UIKit.h>
 
-NSString* const InsightsBackground = @"com.amazon.insights.AWSMobileAnalyticsIOSLifeCycleManager.background";
-NSString* const InsightsForeground = @"com.amazon.insights.AWSMobileAnalyticsIOSLifeCycleManager.foreground";
+NSString* const AWSInsightsBackground = @"com.amazon.insights.AWSMobileAnalyticsIOSLifeCycleManager.background";
+NSString* const AWSInsightsForeground = @"com.amazon.insights.AWSMobileAnalyticsIOSLifeCycleManager.foreground";
 
-NSString* const InsightsBackgroundQueueKey = @"com.amazon.insights.AWSMobileAnalyticsIOSLifeCycleManager.backgroundQueue";
+NSString* const AWSInsightsBackgroundQueueKey = @"com.amazon.insights.AWSMobileAnalyticsIOSLifeCycleManager.backgroundQueue";
 
-/***********************AIBackgroundQueue*******************/
-@interface AIBackgroundQueue()
+/***********************AWSBackgroundQueue*******************/
+@interface AWSBackgroundQueue()
 @property(nonatomic)NSMutableArray* blockArray;
 -(NSUInteger) count;
 
 @end
 
-@implementation AIBackgroundQueue
+@implementation AWSBackgroundQueue
 
-+(AIBackgroundQueue*) emptyQueue
++(AWSBackgroundQueue*) emptyQueue
 {
-    return [[AIBackgroundQueue alloc] init];
+    return [[AWSBackgroundQueue alloc] init];
 }
 
 -(id)init
@@ -49,7 +49,7 @@ NSString* const InsightsBackgroundQueueKey = @"com.amazon.insights.AWSMobileAnal
     return [self.blockArray count];
 }
 
--(void)addBackgroundTaskUsingBlock:(AIBackgroundBlock)block
+-(void)addBackgroundTaskUsingBlock:(AWSBackgroundBlock)block
 {
     [self.blockArray addObject:[block copy]];
 }
@@ -110,7 +110,7 @@ NSString* const InsightsBackgroundQueueKey = @"com.amazon.insights.AWSMobileAnal
 
 -(id)addBackgroundObserverUsingBlock:(LifeCycleNotificationBlock)block
 {
-    return [[NSNotificationCenter defaultCenter] addObserverForName:InsightsBackground object:self queue:nil usingBlock:[block copy]];
+    return [[NSNotificationCenter defaultCenter] addObserverForName:AWSInsightsBackground object:self queue:nil usingBlock:[block copy]];
 }
 
 -(void)removeBackgroundObserver:(id)observer
@@ -120,7 +120,7 @@ NSString* const InsightsBackgroundQueueKey = @"com.amazon.insights.AWSMobileAnal
 
 -(id)addForegroundObserverUsingBlock:(LifeCycleNotificationBlock)block
 {
-    return [[NSNotificationCenter defaultCenter] addObserverForName:InsightsForeground object:self queue:self.queue usingBlock:[block copy]];
+    return [[NSNotificationCenter defaultCenter] addObserverForName:AWSInsightsForeground object:self queue:self.queue usingBlock:[block copy]];
 }
 
 -(void)removeForegroundObserver:(id)observer
@@ -128,7 +128,7 @@ NSString* const InsightsBackgroundQueueKey = @"com.amazon.insights.AWSMobileAnal
     [[NSNotificationCenter defaultCenter] removeObserver:observer];
 }
 
--(void)executeBackgroundTasks:(AIBackgroundQueue*) queue
+-(void)executeBackgroundTasks:(AWSBackgroundQueue*) queue
 {
     UIApplication *app = [UIApplication sharedApplication];
     __block UIBackgroundTaskIdentifier task = [app beginBackgroundTaskWithExpirationHandler:^{
@@ -141,7 +141,7 @@ NSString* const InsightsBackgroundQueueKey = @"com.amazon.insights.AWSMobileAnal
         return;
     
     NSRecursiveLock *lock = [[NSRecursiveLock alloc] init];
-    for(AIBackgroundBlock block in queue)
+    for(AWSBackgroundBlock block in queue)
     {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             // execute the block and then clean up
@@ -167,11 +167,11 @@ NSString* const InsightsBackgroundQueueKey = @"com.amazon.insights.AWSMobileAnal
 -(void)applicationDidEnterBackground:(NSNotification*)notification
 {
     // create an empty Background queue
-    AIBackgroundQueue* queue = [AIBackgroundQueue emptyQueue];
+    AWSBackgroundQueue* queue = [AWSBackgroundQueue emptyQueue];
     
     // add queue to user info dictionary and broadcast to recipients
-    NSDictionary* userInfo = [NSDictionary dictionaryWithObjectsAndKeys:queue, InsightsBackgroundQueueKey, nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:InsightsBackground object:self userInfo:userInfo];
+    NSDictionary* userInfo = [NSDictionary dictionaryWithObjectsAndKeys:queue, AWSInsightsBackgroundQueueKey, nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:AWSInsightsBackground object:self userInfo:userInfo];
     
     //execute any backgrounded blocks that were added to the queue
     [self executeBackgroundTasks:queue];
@@ -180,7 +180,7 @@ NSString* const InsightsBackgroundQueueKey = @"com.amazon.insights.AWSMobileAnal
 
 -(void)applicationDidEnterForeground:(NSNotification*)notification
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:InsightsForeground object:self userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:AWSInsightsForeground object:self userInfo:nil];
 }
 
 @end

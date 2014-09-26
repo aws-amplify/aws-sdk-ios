@@ -165,6 +165,12 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @end
 
+@interface AWSServiceConfiguration()
+
+@property (nonatomic, strong) AWSEndpoint *endpoint;
+
+@end
+
 @implementation AWSSQS
 
 + (instancetype)defaultSQS {

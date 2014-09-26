@@ -110,7 +110,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
 
     NSData *digestData = [NSData dataWithBytes:digestRaw length:digestLength];
 
-    return [digestData aws_base64EncodedString];
+    return [digestData base64EncodedStringWithOptions:kNilOptions];
 }
 
 @end

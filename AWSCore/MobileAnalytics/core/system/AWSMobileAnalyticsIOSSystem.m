@@ -20,11 +20,6 @@
 #import "AWSMobileAnalyticsIOSLifeCycleManager.h"
 #import "AWSLogging.h"
 
-#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
-#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
-
-static NSString *const IOSVersion5_0_1 = @"5.0.1";
-
 @implementation AWSMobileAnalyticsIOSSystem
 
 -(id) initWithIdentifier: (NSString*) theIdentifier
@@ -42,20 +37,20 @@ static NSString *const IOSVersion5_0_1 = @"5.0.1";
         self.preferences = nil;
 
         _lifeCycleManager = [AWSMobileAnalyticsIOSLifeCycleManager manager];
-        
+
         Reachability *reachability = [Reachability reachabilityForInternetConnection];
         self.connectivity = [[AWSMobileAnalyticsIOSConnectivity alloc] initWithReachability:reachability];
-        
+
         NSFileManager *internalFileManager = [NSFileManager defaultManager];
-        
+
         //create the directory path where the application's data will reside
-        NSString *appDirPath = [INSIGHTS_ROOT stringByAppendingPathComponent:theIdentifier];
+        NSString *appDirPath = [AWSMobileAnalyticsRoot stringByAppendingPathComponent:theIdentifier];
         //Make the path absolute to the application current directory
         NSString *absolutePath = [theRootPath stringByAppendingPathComponent:appDirPath];
-        
+
         AWSMobileAnalyticsFile *rootDirectory = [[AWSMobileAnalyticsFile alloc] initWithFileMananager: internalFileManager
-                                                         withAbsolutePath: absolutePath];
-        
+                                                                                     withAbsolutePath: absolutePath];
+
         NSAssert(rootDirectory != nil, @"The root directory should not be nil");
         if(![rootDirectory exists])
         {
@@ -64,16 +59,16 @@ static NSString *const IOSVersion5_0_1 = @"5.0.1";
                 AWSLogError( @"Failed to create data directory for path %@", absolutePath);
             }
         }
-        
+
         if([rootDirectory exists])
         {
             //Set cache attributes for the root directory
-            [self addSkipBackupAttributeToItemAtURL:[NSURL fileURLWithPath:[theRootPath stringByAppendingPathComponent:INSIGHTS_ROOT]]
+            [self addSkipBackupAttributeToItemAtURL:[NSURL fileURLWithPath:[theRootPath stringByAppendingPathComponent:AWSMobileAnalyticsRoot]]
                                     withFileManager:internalFileManager];
-            
+
             self.fileManager = [[AWSMobileAnalyticsDefaultFileManager alloc] initWithFileManager: internalFileManager
-                                                                    withRootFile: rootDirectory];
-            
+                                                                                    withRootFile: rootDirectory];
+
             self.preferences = [AWSMobileAnalyticsIOSPreferences preferencesWithFileManager:self.fileManager];
         }
         else
@@ -87,9 +82,7 @@ static NSString *const IOSVersion5_0_1 = @"5.0.1";
 
 + (NSString *) rootFileDirectoryWithFileManager:(NSFileManager *) theFileManager
 {
-    BOOL greaterOrEqualTo5_0_1 = SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOSVersion5_0_1);
-    NSSearchPathDirectory searchPathDir = greaterOrEqualTo5_0_1 ? NSApplicationSupportDirectory : NSCachesDirectory;
-    NSArray* possibleURLs = [theFileManager URLsForDirectory:searchPathDir inDomains:NSUserDomainMask];
+    NSArray* possibleURLs = [theFileManager URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
     NSURL *url = [possibleURLs objectAtIndex:0];
     return [url path];
 }
@@ -97,32 +90,14 @@ static NSString *const IOSVersion5_0_1 = @"5.0.1";
 
 - (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)theUrl withFileManager:(NSFileManager *)theFileManager
 {
-    if (SYSTEM_VERSION_GREATER_THAN(IOSVersion5_0_1))
-    {
-        NSError *error = nil;
-        BOOL success = [theUrl setResourceValue: [NSNumber numberWithBool: YES]
-                                      forKey: NSURLIsExcludedFromBackupKey
-                                       error: &error];
-        if(!success){
-            AWSLogError( @"Error excluding %@ from backup %@", [theUrl lastPathComponent], error);
-        }
-        return success;
+    NSError *error = nil;
+    BOOL success = [theUrl setResourceValue: [NSNumber numberWithBool: YES]
+                                     forKey: NSURLIsExcludedFromBackupKey
+                                      error: &error];
+    if(!success){
+        AWSLogError( @"Error excluding %@ from backup %@", [theUrl lastPathComponent], error);
     }
-    else
-    {
-        NSString* path = [theUrl path];
-        if(![theFileManager fileExistsAtPath:path])
-        {
-            AWSLogError( @"URL %@ references a nonexistent file location", theUrl);
-            return NO;
-        }
-        
-        const char* filePath = [path fileSystemRepresentation];
-        const char* attrName = "com.apple.MobileBackup";
-        u_int8_t attrValue = 1;
-        int result = setxattr(filePath, attrName, &attrValue, sizeof(attrValue), 0, 0);
-        return result == 0;
-    }
+    return success;
 }
 
 @end

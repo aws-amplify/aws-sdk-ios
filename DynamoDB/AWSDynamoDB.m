@@ -161,6 +161,11 @@ static NSDictionary *errorCodeDictionary = nil;
 @property (nonatomic, strong) AWSNetworking *networking;
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
 
+@end
+
+@interface AWSServiceConfiguration()
+
+@property (nonatomic, strong) AWSEndpoint *endpoint;
 
 @end
 

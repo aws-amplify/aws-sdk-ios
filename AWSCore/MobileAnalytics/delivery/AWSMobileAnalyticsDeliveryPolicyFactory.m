@@ -53,8 +53,8 @@ withAllowWanSubmission:(BOOL)allowWan
         self.configuration = configuration;
         self.isWANAllowed = allowWan;
         self.preferences = preferences;
-        self.forceSubmissionInterval = [self.configuration doubleForKey:KeyForceSubmissionWaitTime withOptValue:ValueForceSubmissionWaitTime];
-        self.backgroundSubmissionInterval = [self.configuration doubleForKey:KeyBackgroundSubmissionWaitTime withOptValue:ValueBackgroundSubmissionWaitTime];;
+        self.forceSubmissionInterval = [self.configuration doubleForKey:AWSKeyForceSubmissionWaitTime withOptValue:AWSValueForceSubmissionWaitTime];
+        self.backgroundSubmissionInterval = [self.configuration doubleForKey:AWSKeyBackgroundSubmissionWaitTime withOptValue:AWSValueBackgroundSubmissionWaitTime];
     }
     return self;
 }

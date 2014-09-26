@@ -13,8 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_CLOUD_WATCH
-
 #import <XCTest/XCTest.h>
 #import "CloudWatch.h"
 #import "AWSTestUtility.h"
@@ -72,5 +70,3 @@
 }
 
 @end
-
-#endif 

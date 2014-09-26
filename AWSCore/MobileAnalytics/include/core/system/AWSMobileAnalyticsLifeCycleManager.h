@@ -15,19 +15,19 @@
 
 #import <Foundation/Foundation.h>
 
-FOUNDATION_EXPORT NSString* const InsightsBackground;
-FOUNDATION_EXPORT NSString* const InsightsForeground;
-FOUNDATION_EXPORT NSString* const InsightsBackgroundQueueKey;
+FOUNDATION_EXPORT NSString* const AWSInsightsBackground;
+FOUNDATION_EXPORT NSString* const AWSInsightsForeground;
+FOUNDATION_EXPORT NSString* const AWSInsightsBackgroundQueueKey;
 
 /**
  * A block that contains a notification parameter.
  */
 typedef void (^LifeCycleNotificationBlock)(NSNotification*);
-typedef void(^AIBackgroundBlock)(void);
+typedef void(^AWSBackgroundBlock)(void);
 
-@interface AIBackgroundQueue : NSObject <NSFastEnumeration>
-+(AIBackgroundQueue*) emptyQueue;
--(void)addBackgroundTaskUsingBlock:(AIBackgroundBlock)block;
+@interface AWSBackgroundQueue : NSObject <NSFastEnumeration>
++(AWSBackgroundQueue*) emptyQueue;
+-(void)addBackgroundTaskUsingBlock:(AWSBackgroundBlock)block;
 @end
 
 @protocol AWSMobileAnalyticsLifeCycleManager <NSObject>
@@ -38,7 +38,7 @@ typedef void(^AIBackgroundBlock)(void);
  * must deregister (most likely in dealloc).
  * @param block The notification block to run when app goes into the background.
  *              The userInfo field of the Notification allows you to get access
- *              to an AIBackgroundQueue using the InsightsBackgroundQueueKey.
+ *              to an AWSBackgroundQueue using the AWSInsightsBackgroundQueueKey.
  * @return an object used to unregister from this handler
  */
 @required
@@ -74,6 +74,6 @@ typedef void(^AIBackgroundBlock)(void);
  * tasks finish before allowing iOS to put the app to sleep
  */
 @required
--(void)executeBackgroundTasks:(AIBackgroundQueue*) queue;
+-(void)executeBackgroundTasks:(AWSBackgroundQueue*) queue;
 
 @end

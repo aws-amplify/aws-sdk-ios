@@ -17,9 +17,9 @@
 #import "AWSMobileAnalyticsErrorUtils.h"
 
 
-unsigned int const AIDefaultBufferSize = 8 * 1024;
+unsigned int const AWSDefaultBufferSize = 8 * 1024;
 
-NSString * const AIBufferedReaderErrorDomain = @"com.amazon.insights-framework.AIBufferedReaderErrorDomain";
+NSString * const AWSBufferedReaderErrorDomain = @"com.amazon.insights-framework.AWSBufferedReaderErrorDomain";
 
 @interface AWSMobileAnalyticsBufferedReader()
 
@@ -36,7 +36,7 @@ NSString * const AIBufferedReaderErrorDomain = @"com.amazon.insights-framework.A
 
 +(AWSMobileAnalyticsBufferedReader*)readerWithInputStream:(NSInputStream*)stream
 {
-    return [AWSMobileAnalyticsBufferedReader readerWithInputStream:stream withBufferLength:AIDefaultBufferSize];
+    return [AWSMobileAnalyticsBufferedReader readerWithInputStream:stream withBufferLength:AWSDefaultBufferSize];
 }
 
 +(AWSMobileAnalyticsBufferedReader*)readerWithInputStream:(NSInputStream*)stream
@@ -69,9 +69,9 @@ NSString * const AIBufferedReaderErrorDomain = @"com.amazon.insights-framework.A
     // do checks for improper state of underlying input stream
     if([self.inputStream streamStatus] == NSStreamStatusClosed)
     {
-        error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AIBufferedReaderErrorDomain
+        error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AWSBufferedReaderErrorDomain
                               withDescription:@"The underlying stream is closed"
-                                withErrorCode:AIBufferedReaderErrorCode_IOStreamClosed];
+                                withErrorCode:AWSBufferedReaderErrorCode_IOStreamClosed];
     }
     
     

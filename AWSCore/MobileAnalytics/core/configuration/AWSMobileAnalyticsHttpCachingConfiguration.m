@@ -30,7 +30,7 @@ static NSString* const CONFIG_KEY_LAST_SYNC = @"configuration.lastSyncDate";
 static NSString* const UNIQUE_ID_HEADER_NAME = @"x-amzn-UniqueId";
 static NSString* const CONFIG_URL_FORMAT = @"%@/applications/%@/configuration";
 
-NSString * const AIConfigurationFileStoreFilename = @"configuration";
+NSString * const AWSConfigurationFileStoreFilename = @"configuration";
 
 @interface AWSMobileAnalyticsHttpCachingConfiguration()
 @property(nonatomic)id<AWSMobileAnalyticsHttpClient> httpClient;
@@ -77,7 +77,7 @@ NSString * const AIConfigurationFileStoreFilename = @"configuration";
         self.lastConfigSyncTimestamp = [self.preferences doubleForKey:CONFIG_KEY_LAST_SYNC withOptValue:0.0];
         self.operationQueue = operationQueue;
         NSError *createError;
-        self.file = [self.fileManager createFileWithPath:AIConfigurationFileStoreFilename error:&createError];
+        self.file = [self.fileManager createFileWithPath:AWSConfigurationFileStoreFilename error:&createError];
         if(self.file != nil && createError == nil)
         {
             self.settings = [self loadPersistedSettingsAndMergeWith:overrideSettings];
@@ -298,19 +298,19 @@ NSString * const AIConfigurationFileStoreFilename = @"configuration";
 //    [self.operationQueue addOperationWithBlock:^{
 //        
 //        // TODO: Note the Java and ios sdk use the same key for sync interval but one is for ms- and one for secs
-//        NSTimeInterval syncInterval = [self doubleForKey:KeySyncInterval withOptValue:ValueSyncInterval];
+//        NSTimeInterval syncInterval = [self doubleForKey:AWSKeySyncInterval withOptValue:AWSValueSyncInterval];
 //        NSTimeInterval currentDate = [[NSDate date] timeIntervalSince1970];
 //        if(currentDate > self.lastConfigSyncTimestamp + syncInterval && self.connectivity.isConnected)
 //        {
 //            // create a config request
 //            id<AIRequest> configRequest = [AWSMobileAnalyticsHttpCachingConfiguration createConfigurationRequestWithClient:self.httpClient
-//                                                                                                  withHost:[self stringForKey:KeyConfigHost withOptValue:ValueConfigHost]
+//                                                                                                  withHost:[self stringForKey:AWSKeyConfigHost withOptValue:AWSValueConfigHost]
 //                                                                                        withApplicationKey:self.applicationKey
 //                                                                                              withUniqueId:self.uniqueId];
 //            
 //            id<AIResponse> configResponse = [self.httpClient execute:configRequest
-//                                                         withRetries:[self intForKey:KeyConfigMaxRetries withOptValue:ValueConfigMaxRetries]
-//                                                         withTimeout:[self intForKey:KeyConfigRequestTimeout withOptValue:ValueConfigRequestTimeout]];
+//                                                         withRetries:[self intForKey:AWSKeyConfigMaxRetries withOptValue:AWSValueConfigMaxRetries]
+//                                                         withTimeout:[self intForKey:AWSKeyConfigRequestTimeout withOptValue:AWSValueConfigRequestTimeout]];
 //            
 //            if ([configResponse code]/100 == 2)
 //            {

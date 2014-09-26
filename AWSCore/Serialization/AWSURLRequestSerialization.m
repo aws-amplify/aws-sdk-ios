@@ -60,7 +60,10 @@
 
     //If parameters contains clientContext key, move it to http header. This is a sepcial case
     if ([parameters objectForKey:@"clientContext"]) {
-        [request setValue:[parameters objectForKey:@"clientContext"] forHTTPHeaderField:@"x-amz-Client-Context"];
+        [request setValue:[[[parameters objectForKey:@"clientContext"] dataUsingEncoding:NSUTF8StringEncoding] base64EncodedStringWithOptions:kNilOptions]
+       forHTTPHeaderField:@"x-amz-Client-Context"];
+        [request setValue:@"base64"
+       forHTTPHeaderField:@"x-amz-Client-Context-Encoding"];
         NSMutableDictionary *mutableParameters = [parameters mutableCopy];
         [mutableParameters removeObjectForKey:@"clientContext"];
         parameters = mutableParameters;

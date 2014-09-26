@@ -76,9 +76,9 @@
     [reader close];
     
     // any calls after this are errors
-    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AIBufferedReaderErrorCode_IOStreamClosed]];
-    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AIBufferedReaderErrorCode_IOStreamClosed]];
-    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AIBufferedReaderErrorCode_IOStreamClosed]];
+    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AWSBufferedReaderErrorCode_IOStreamClosed]];
+    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AWSBufferedReaderErrorCode_IOStreamClosed]];
+    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AWSBufferedReaderErrorCode_IOStreamClosed]];
 }
 
 -(void)test_readLine_noNewLineAtEnd_returnFinalStringThenNil
@@ -106,9 +106,9 @@
     [reader close];
     
     // any calls after this are errors
-    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AIBufferedReaderErrorCode_IOStreamClosed]];
-    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AIBufferedReaderErrorCode_IOStreamClosed]];
-    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AIBufferedReaderErrorCode_IOStreamClosed]];
+    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AWSBufferedReaderErrorCode_IOStreamClosed]];
+    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AWSBufferedReaderErrorCode_IOStreamClosed]];
+    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AWSBufferedReaderErrorCode_IOStreamClosed]];
 }
 
 -(void)test_readingFromInputStream_multipleReadsRequired
@@ -134,7 +134,7 @@
     [reader close];
     
     // any calls after this are errors
-    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AIBufferedReaderErrorCode_IOStreamClosed]];
+    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AWSBufferedReaderErrorCode_IOStreamClosed]];
 }
 
 -(void)testReadingFromInputStream_largeStream
@@ -173,7 +173,7 @@
     [reader close];
     
     // any calls after this are errors
-    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AIBufferedReaderErrorCode_IOStreamClosed]];
+    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AWSBufferedReaderErrorCode_IOStreamClosed]];
 }
 
 -(void)test_close_afterClosing_allReadsAreErrors
@@ -191,9 +191,9 @@
     [reader close];
     
     // any calls after this are errors
-    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AIBufferedReaderErrorCode_IOStreamClosed]];
-    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AIBufferedReaderErrorCode_IOStreamClosed]];
-    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AIBufferedReaderErrorCode_IOStreamClosed]];
+    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AWSBufferedReaderErrorCode_IOStreamClosed]];
+    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AWSBufferedReaderErrorCode_IOStreamClosed]];
+    [self readFromReader:reader andVerifySuccessWith:NO andVerifyLineWith:nil andVerifyErrorCode:[NSNumber numberWithInt:AWSBufferedReaderErrorCode_IOStreamClosed]];
     
 }
 

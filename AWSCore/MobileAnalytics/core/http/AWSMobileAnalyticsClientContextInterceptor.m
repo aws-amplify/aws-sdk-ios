@@ -41,6 +41,8 @@
 {
     if(theRequest != nil)
     {
+        NSDictionary *servicesDetails = @{@"mobile_analytics":@{@"app_id":self.clientContext.appId}};
+        
         NSDictionary *clientDetails = @{@"app_package_name": self.clientContext.appPackageName,
                                         @"app_version_name": self.clientContext.appBuild,
                                         @"app_version_code": self.clientContext.appVersion,
@@ -55,14 +57,15 @@
         
         NSDictionary *custom = self.clientContext.customAttributes == nil ? @{} : self.clientContext.customAttributes;
         
-        NSDictionary *clientContext = @{@"version": CLIENT_CONTEXT_VERSION,
+        NSDictionary *clientContext = @{@"version": AWSMobileAnalyticsClientContextVersion,
                                         @"client": clientDetails,
                                         @"env": deviceDetails,
-                                        @"custom": custom};
+                                        @"custom": custom,
+                                        @"services": servicesDetails};
         
         NSString * clientInfoJson = [[NSString alloc] initWithData:[[AWSMobileAnalyticsSerializerFactory serializerFromFormatType:JSON] writeObject:clientContext] encoding:NSUTF8StringEncoding];
         
-        [theRequest addHeader:clientInfoJson forName:CLIENT_CONTEXT_HEADER];
+        [theRequest addHeader:clientInfoJson forName:AWSMobileAnalyticsClientContextHeader];
     }
 }
 

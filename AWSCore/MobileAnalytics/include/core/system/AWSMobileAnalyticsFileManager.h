@@ -17,7 +17,7 @@
 #import "AWSMobileAnalyticsFile.h"
 #import "../AWSMobileAnalyticsSerializerFactory.h"
 
-typedef NSData *(^ AIDataProcessor)(NSData *, NSError **);
+typedef NSData *(^ AWSDataProcessor)(NSData *, NSError **);
 
 @protocol AWSMobileAnalyticsFileManager <NSObject>
 -(AWSMobileAnalyticsFile*) createDirectory:(NSString*) theDirectoryPath
@@ -65,7 +65,7 @@ typedef NSData *(^ AIDataProcessor)(NSData *, NSError **);
 
 -(NSDictionary *) readDataFromFile:(AWSMobileAnalyticsFile *) theFile
                         withFormat:(FormatType) theFormatType
-                 withDataProcessor:(AIDataProcessor) theDataProcessor
+                 withDataProcessor:(AWSDataProcessor) theDataProcessor
                          withError:(NSError **) theError;
 
 
@@ -77,7 +77,7 @@ typedef NSData *(^ AIDataProcessor)(NSData *, NSError **);
 -(BOOL) writeData:(id) theData
            toFile:(AWSMobileAnalyticsFile *) theFile
        withFormat:(FormatType) theFormatType
-withDataProcessor:(AIDataProcessor) theDataProcessor
+withDataProcessor:(AWSDataProcessor) theDataProcessor
         withError:(NSError **) theError;
 
 @end

@@ -18,7 +18,6 @@
 #import "../util/AWSMobileAnalyticsStringUtils.h"
 #import "../AWSMobileAnalyticsSerializerFactory.h"
 #import "AWSMobileAnalyticsHttpConstants.h"
-#import "../util/AWSMobileAnalyticsBase64Utils.h"
 
 @interface AWSMobileAnalyticsDefaultResponse : NSObject<AWSMobileAnalyticsResponse>
 {

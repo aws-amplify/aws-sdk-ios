@@ -68,7 +68,7 @@
 - (BOOL)existsEventsFile
 {
     AWSMobileAnalyticsDefaultFileManager* fileManager = [[_context system] fileManager];
-    NSString *filename = [AIEventsDirectoryName stringByAppendingPathComponent:AIEventsFilename];
+    NSString *filename = [AWSEventsDirectoryName stringByAppendingPathComponent:AWSEventsFilename];
     AWSMobileAnalyticsFile* file = [[AWSMobileAnalyticsFile alloc] initWithFileMananager:[NSFileManager defaultManager]
                                               withParent:fileManager.rootFile
                                            withChildPath:filename];
@@ -78,7 +78,7 @@
 - (void)deleteEventsFile
 {
     AWSMobileAnalyticsDefaultFileManager* fileManager = [[_context system] fileManager];
-    NSString *filename = [AIEventsDirectoryName stringByAppendingPathComponent:AIEventsFilename];
+    NSString *filename = [AWSEventsDirectoryName stringByAppendingPathComponent:AWSEventsFilename];
     AWSMobileAnalyticsFile* file = [[AWSMobileAnalyticsFile alloc] initWithFileMananager:[NSFileManager defaultManager]
                                               withParent:fileManager.rootFile
                                            withChildPath:filename];
@@ -373,9 +373,9 @@
     id<AWSMobileAnalyticsEvent> event = [eventClient createEventWithEventType:@"my_event"];
     
     //add fake session.id
-    [event addAttribute:@"ccesskey-11111111-20140606-231017274" forKey:SESSION_ID_ATTRIBUTE_KEY];
+    [event addAttribute:@"ccesskey-11111111-20140606-231017274" forKey:AWSSessionIDAttributeKey];
     //add startTimeStamp
-    [event addAttribute:[[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3] forKey:SESSION_START_TIME_ATTRIBUTE_KEY];
+    [event addAttribute:[[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3] forKey:AWSSessionStartTimeAttributeKey];
     //set eventRecorderService object
     id<AWSMobileAnalyticsHttpClient>httpClient = [deliveryClient valueForKey:@"httpClient"];
     AWSMobileAnalyticsERS *ers = [[AWSMobileAnalyticsERS alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].

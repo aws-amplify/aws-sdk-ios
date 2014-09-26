@@ -50,7 +50,7 @@
 
 @property (nonatomic, assign, readonly) AWSRegionType regionType;
 @property (nonatomic, strong, readonly) id<AWSCredentialsProvider> credentialsProvider;
-@property (nonatomic, strong) AWSEndpoint *endpoint;
+@property (nonatomic, strong, readonly) AWSEndpoint *endpoint;
 @property (nonatomic, assign) int32_t maxRetryCount;
 
 + (instancetype)configurationWithRegion:(AWSRegionType)regionType

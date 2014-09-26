@@ -48,7 +48,7 @@ static AITestHttpClient* mockHttpClient = nil;
 {
     [[[mockFileManager stub] andReturn:mockPersistedConfig] readDataFromFile:OCMOCK_ANY withFormat:JSON withError:[OCMArg setTo:nil]];
     
-    [[[mockFileManager stub] andReturn:mockFile] createFileWithPath:AIConfigurationFileStoreFilename error:[OCMArg setTo:nil]];
+    [[[mockFileManager stub] andReturn:mockFile] createFileWithPath:AWSConfigurationFileStoreFilename error:[OCMArg setTo:nil]];
 
     return [AWSMobileAnalyticsHttpCachingConfiguration configurationWithContext:mockContext
                                          withFileManager:mockFileManager

@@ -21,12 +21,6 @@ FOUNDATION_EXPORT NSString *const AWSDateISO8601DateFormat2;
 FOUNDATION_EXPORT NSString *const AWSDateISO8601DateFormat3;
 FOUNDATION_EXPORT NSString *const AWSDateShortDateFormat1;
 
-@interface NSData (AWS)
-
-- (NSString *)aws_base64EncodedString;
-
-@end
-
 @interface NSDate (AWS)
 
 + (NSDate *)aws_dateFromString:(NSString *)string;

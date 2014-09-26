@@ -13,8 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_AUTO_SCALING
-
 #import <XCTest/XCTest.h>
 #import "AutoScaling.h"
 #import "AWSTestUtility.h"
@@ -73,5 +71,3 @@
 }
 
 @end
-
-#endif

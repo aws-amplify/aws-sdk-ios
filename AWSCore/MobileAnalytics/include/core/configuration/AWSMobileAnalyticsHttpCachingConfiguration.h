@@ -21,7 +21,7 @@
 @protocol AWSMobileAnalyticsContext;
 @protocol AWSMobileAnalyticsSerializer;
 
-FOUNDATION_EXPORT NSString * const AIConfigurationFileStoreFilename;
+FOUNDATION_EXPORT NSString * const AWSConfigurationFileStoreFilename;
 
 @interface AWSMobileAnalyticsHttpCachingConfiguration : NSObject <AWSMobileAnalyticsConfiguring>
 +(AWSMobileAnalyticsHttpCachingConfiguration*)configurationWithContext:(id<AWSMobileAnalyticsContext>)context

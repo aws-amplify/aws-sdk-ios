@@ -19,23 +19,23 @@
 #import "../util/AWSMobileAnalyticsErrorUtils.h"
 
 
-FOUNDATION_EXPORT NSString * const AIDefaultFileManagerErrorDomain;
+FOUNDATION_EXPORT NSString * const AWSDefaultFileManagerErrorDomain;
 
-typedef NS_ENUM(NSInteger, AIDefaultFileManagerErrorCodes) {
-    AIDefaultFileManagerErrorCode_UnableToCreateDirectory = 0,
-    AIDefaultFileManagerErrorCode_EmptyOrNilPath,
-    AIDefaultFileManagerErrorCode_DirectoryError,
-    AIDefaultFileManagerErrorCode_UnableToCreateFile,
-    AIDefaultFileManagerErrorCode_UnableToDeleteFile,
-    AIDefaultFileManagerErrorCode_FileDoesNotExist,
-    AIDefaultFileManagerErrorCode_FailedOutputStreamCreation,
-    AIDefaultFileManagerErrorCode_FailedInputStreamCreation,
-    AIDefaultFileManagerErrorCode_FailedReaderCreation,
-    AIDefaultFileManagerErrorCode_FailedWriterCreation,
-    AIDefaultFileManagerErrorCode_ErrorProcessingFileContents,
-    AIDefaultFileManagerErrorCode_ErrorParsingFileContents,
-    AIDefaultFileManagerErrorCode_NilReader,
-    AIDefaultFileManagerErrorCode_NilWriter
+typedef NS_ENUM(NSInteger, AWSDefaultFileManagerErrorCodes) {
+    AWSDefaultFileManagerErrorCode_UnableToCreateDirectory = 0,
+    AWSDefaultFileManagerErrorCode_EmptyOrNilPath,
+    AWSDefaultFileManagerErrorCode_DirectoryError,
+    AWSDefaultFileManagerErrorCode_UnableToCreateFile,
+    AWSDefaultFileManagerErrorCode_UnableToDeleteFile,
+    AWSDefaultFileManagerErrorCode_FileDoesNotExist,
+    AWSDefaultFileManagerErrorCode_FailedOutputStreamCreation,
+    AWSDefaultFileManagerErrorCode_FailedInputStreamCreation,
+    AWSDefaultFileManagerErrorCode_FailedReaderCreation,
+    AWSDefaultFileManagerErrorCode_FailedWriterCreation,
+    AWSDefaultFileManagerErrorCode_ErrorProcessingFileContents,
+    AWSDefaultFileManagerErrorCode_ErrorParsingFileContents,
+    AWSDefaultFileManagerErrorCode_NilReader,
+    AWSDefaultFileManagerErrorCode_NilWriter
 };
 
 @interface AWSMobileAnalyticsDefaultFileManager : NSObject<AWSMobileAnalyticsFileManager>
@@ -90,7 +90,7 @@ typedef NS_ENUM(NSInteger, AIDefaultFileManagerErrorCodes) {
 
 -(NSDictionary *) readDataFromFile:(AWSMobileAnalyticsFile *) theFile
                         withFormat:(FormatType) theFormatType
-                 withDataProcessor:(AIDataProcessor) theDataProcessor
+                 withDataProcessor:(AWSDataProcessor) theDataProcessor
                          withError:(NSError **) theError;
 
 -(BOOL) writeData:(id) theData
@@ -101,7 +101,7 @@ typedef NS_ENUM(NSInteger, AIDefaultFileManagerErrorCodes) {
 -(BOOL) writeData:(id) theData
            toFile:(AWSMobileAnalyticsFile *) theFile
        withFormat:(FormatType) theFormatType
-withDataProcessor:(AIDataProcessor) theDataProcessor
+withDataProcessor:(AWSDataProcessor) theDataProcessor
         withError:(NSError **) theError;
 
 

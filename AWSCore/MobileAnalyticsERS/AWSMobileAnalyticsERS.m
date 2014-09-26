@@ -185,6 +185,12 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @end
 
+@interface AWSServiceConfiguration()
+
+@property (nonatomic, strong) AWSEndpoint *endpoint;
+
+@end
+
 @implementation AWSMobileAnalyticsERS
 
 + (instancetype)defaultMobileAnalyticsERS {
@@ -206,7 +212,7 @@ static NSDictionary *errorCodeDictionary = nil;
         _configuration = configuration;
 
         _configuration.endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
-                                                          service:AWSServiceGameLabEventRecorder];
+                                                          service:AWSServiceMobileAnalytics];
 
         AWSSignatureV4Signer *signer = [AWSSignatureV4Signer signerWithCredentialsProvider:_configuration.credentialsProvider
                                                                                   endpoint:_configuration.endpoint];

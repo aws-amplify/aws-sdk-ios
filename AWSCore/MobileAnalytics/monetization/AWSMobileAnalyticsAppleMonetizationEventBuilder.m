@@ -16,7 +16,7 @@
 #import "AWSMobileAnalyticsAppleMonetizationEventBuilder.h"
 #import "AWSLogging.h"
 
-static NSString* const APPLE_STORE = @"Apple";
+static NSString* const AWSMobileAnalyticsAppleStore = @"Apple";
 
 @interface AWSMobileAnalyticsAppleMonetizationEventBuilder()
 
@@ -33,7 +33,7 @@ static NSString* const APPLE_STORE = @"Apple";
 
 -(AWSMobileAnalyticsAppleMonetizationEventBuilder*) initWithEventClient:(id<AWSMobileAnalyticsEventClient>)theEventClient{
     AWSMobileAnalyticsAppleMonetizationEventBuilder* appleMonetizationEventBuilder = [super initWithEventClient:theEventClient];
-    [self setStore:APPLE_STORE];
+    [self setStore:AWSMobileAnalyticsAppleStore];
     return appleMonetizationEventBuilder;
 }
 

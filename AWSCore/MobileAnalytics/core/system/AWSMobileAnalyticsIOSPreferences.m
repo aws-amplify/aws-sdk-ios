@@ -16,9 +16,9 @@
 #import "AWSMobileAnalyticsIOSPreferences.h"
 #import "AWSLogging.h"
 
-NSString * const AIPreferencesFilename = @"preferences";
+NSString * const AWSPreferencesFilename = @"preferences";
 
-NSString * const AIIOSPreferencesErrorDomain = @"com.amazon.insights-framework.AIIOSPreferencesErrorDomain";
+NSString * const AWSIOSPreferencesErrorDomain = @"com.amazon.insights-framework.AWSIOSPreferencesErrorDomain";
 
 @interface AWSMobileAnalyticsIOSPreferences()
 
@@ -49,7 +49,7 @@ NSString * const AIIOSPreferencesErrorDomain = @"com.amazon.insights-framework.A
         self.fileManager = theFileManager;
         
         NSError *createError;
-        self.file = [self.fileManager createFileWithPath:AIPreferencesFilename error:&createError];
+        self.file = [self.fileManager createFileWithPath:AWSPreferencesFilename error:&createError];
         if(self.file != nil && createError == nil)
         {
             [self loadPreferences];

@@ -56,7 +56,7 @@ NSString *const AIPrivateKey = @"0123456789abcdef0123456789abcdef";
 {
     NSFileManager *internalFileManager = [NSFileManager defaultManager];
     NSString *rootPath = [AWSMobileAnalyticsIOSSystem rootFileDirectoryWithFileManager:internalFileManager];
-    NSString *absolutePath = [rootPath stringByAppendingPathComponent:@"insights"];
+    NSString *absolutePath = [rootPath stringByAppendingPathComponent:AWSMobileAnalyticsRoot];
     
     NSError *error;
     [internalFileManager removeItemAtPath:absolutePath error:&error];

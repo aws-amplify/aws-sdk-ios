@@ -46,7 +46,7 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
     AWSServiceSNS,
     AWSServiceSQS,
     AWSServiceSTS,
-    AWSServiceGameLabEventRecorder,
+    AWSServiceMobileAnalytics,
 };
 
 #endif

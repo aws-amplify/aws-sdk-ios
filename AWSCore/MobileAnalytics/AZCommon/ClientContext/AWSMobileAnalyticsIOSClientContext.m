@@ -28,12 +28,13 @@ NSString* const UNKNOWN = @"Unknown";
 
 @implementation AWSMobileAnalyticsIOSClientContext
 
-+ (AWSMobileAnalyticsIOSClientContext *) defaultClientContext
++ (AWSMobileAnalyticsIOSClientContext *) defaultClientContextWithAppId:(NSString *)appId
 {
-    return [AWSMobileAnalyticsIOSClientContext clientContextWithCustomAttributes:nil];
+    return [AWSMobileAnalyticsIOSClientContext clientContextWithCustomAttributes:nil withAppId:appId];
 }
 
 + (AWSMobileAnalyticsIOSClientContext *) clientContextWithCustomAttributes:(NSDictionary *)customAttributes
+                                                                 withAppId:(NSString *)appId
 {
     //App Details
     NSString *shortVersionString = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
@@ -42,23 +43,26 @@ NSString* const UNKNOWN = @"Unknown";
     NSString *bundleDisplayName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
     
     return [AWSMobileAnalyticsIOSClientContext clientContextWithAppVersion:shortVersionString == nil ? UNKNOWN : shortVersionString
-                                              withAppBuild:bundleVersion == nil ? UNKNOWN : bundleVersion
-                                        withAppPackageName:bundleIdentifier == nil ? UNKNOWN : bundleIdentifier
-                                               withAppName:bundleDisplayName == nil ? UNKNOWN : bundleDisplayName
-                                      withCustomAttributes:customAttributes];
+                                                              withAppBuild:bundleVersion == nil ? UNKNOWN : bundleVersion
+                                                        withAppPackageName:bundleIdentifier == nil ? UNKNOWN : bundleIdentifier
+                                                               withAppName:bundleDisplayName == nil ? UNKNOWN : bundleDisplayName
+                                                      withCustomAttributes:customAttributes
+                                                                 withAppId:appId];
 }
 
 + (AWSMobileAnalyticsIOSClientContext *) clientContextWithAppVersion:(NSString *)appVersion
-                                        withAppBuild:(NSString *)appBuild
-                                  withAppPackageName:(NSString *)appPackageName
-                                         withAppName:(NSString *)appName
-                                withCustomAttributes:(NSDictionary *)attributes
+                                                        withAppBuild:(NSString *)appBuild
+                                                  withAppPackageName:(NSString *)appPackageName
+                                                         withAppName:(NSString *)appName
+                                                withCustomAttributes:(NSDictionary *)attributes
+                                                           withAppId:(NSString *)appId;
 {
     return [[AWSMobileAnalyticsIOSClientContext alloc] initWithAppVersion:appVersion
-                                             withAppBuild:appBuild
-                                       withAppPackageName:appPackageName
-                                              withAppName:appName
-                                     withCustomAttributes:attributes];
+                                                             withAppBuild:appBuild
+                                                       withAppPackageName:appPackageName
+                                                              withAppName:appName
+                                                     withCustomAttributes:attributes
+                                                                withAppId:appId];
 }
 
 
@@ -67,10 +71,12 @@ NSString* const UNKNOWN = @"Unknown";
                  withAppPackageName:(NSString *)appPackageName
                         withAppName:(NSString *)appName
                withCustomAttributes:(NSDictionary *)customAttributes
+                          withAppId:(NSString *)appId
 {
     self = [super init];
     if (self) {
         //App details
+        _appId = appId;
         _appVersion = appVersion;
         _appBuild = appBuild;
         _appPackageName = appPackageName;
@@ -113,6 +119,8 @@ NSString* const UNKNOWN = @"Unknown";
 
 - (NSDictionary *)toDictionary
 {
+    NSDictionary *servicesDetails = @{@"mobile_analytics":@{@"app_id":_appId}};
+    
     NSDictionary *clientDetails = @{@"app_package_name": _appPackageName,
                                     @"app_version_name": _appBuild,
                                     @"app_version_code": _appVersion,
@@ -127,10 +135,11 @@ NSString* const UNKNOWN = @"Unknown";
     
     NSDictionary *custom = _customAttributes == nil ? @{} : _customAttributes;
     
-    NSDictionary *clientContext = @{@"version": CLIENT_CONTEXT_VERSION,
+    NSDictionary *clientContext = @{@"version": AWSMobileAnalyticsClientContextVersion,
                                     @"client": clientDetails,
                                     @"env": deviceDetails,
-                                    @"custom": custom};
+                                    @"custom": custom,
+                                    @"services": servicesDetails};
     
     return clientContext;
 }

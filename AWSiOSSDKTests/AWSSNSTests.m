@@ -13,8 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#if AWS_TEST_SNS
-
 #import <XCTest/XCTest.h>
 #import "SNS.h"
 #import "AWSTestUtility.h"
@@ -108,5 +106,3 @@
 //    }
 //}
 @end
-
-#endif

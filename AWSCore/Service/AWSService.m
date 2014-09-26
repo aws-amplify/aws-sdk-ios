@@ -77,6 +77,8 @@
 
 @interface AWSServiceConfiguration()
 
+@property (nonatomic, strong) AWSEndpoint *endpoint;
+
 @end
 
 @implementation AWSServiceConfiguration
@@ -198,7 +200,7 @@ NSString *const AWSServiceNameSNS = @"sns";
 NSString *const AWSServiceNameSQS = @"sqs";
 NSString *const AWSServiceNameSTS = @"sts";
 
-NSString *const AWSServiceNameEventRecorder = @"mobileanalytics";
+NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
 
 @interface AWSEndpoint()
 
@@ -308,8 +310,8 @@ NSString *const AWSServiceNameEventRecorder = @"mobileanalytics";
             case AWSServiceSTS:
                 _serviceName = AWSServiceNameSTS;
                 break;
-            case AWSServiceGameLabEventRecorder:
-                _serviceName = AWSServiceNameEventRecorder;
+            case AWSServiceMobileAnalytics:
+                _serviceName = AWSServiceNameMobileAnalytics;
             default:
                 break;
         }

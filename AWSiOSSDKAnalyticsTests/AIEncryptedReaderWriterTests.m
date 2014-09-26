@@ -71,7 +71,7 @@
     success = [reader readLine:&lineRead withError:&error];
     assertThatBool(success, equalToBool(NO));
     assertThat(lineRead, is(nilValue()));
-    assertThatInteger([error code], is(equalToInteger(AIBufferedReaderErrorCode_IOStreamClosed)));
+    assertThatInteger([error code], is(equalToInteger(AWSBufferedReaderErrorCode_IOStreamClosed)));
 }
 
 @end

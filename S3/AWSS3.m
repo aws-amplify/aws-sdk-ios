@@ -153,9 +153,6 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @end
 
-/*
- * AWS S3 Client Private Interface
- */
 @interface AWSS3()
 
 @property (nonatomic, strong) AWSNetworking *networking;
@@ -163,9 +160,12 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @end
 
-/*
- * AWS S3 Implementation
- */
+@interface AWSServiceConfiguration()
+
+@property (nonatomic, strong) AWSEndpoint *endpoint;
+
+@end
+
 @implementation AWSS3
 
 + (instancetype)defaultS3 {

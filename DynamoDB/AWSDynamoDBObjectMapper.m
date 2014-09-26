@@ -130,7 +130,8 @@
             NSMutableDictionary *expected = [NSMutableDictionary new];
             for (id key in [model dictionaryValue]) {
                 if ([key isEqual:[[model class] performSelector:@selector(hashKeyAttribute)]]
-                    || [key isEqual:[[model class] performSelector:@selector(rangeKeyAttribute)]]) {
+                    || ([[model class] respondsToSelector:@selector(rangeKeyAttribute)]
+                        && [key isEqual:[[model class] performSelector:@selector(rangeKeyAttribute)]])) {
                     AWSDynamoDBCondition *condition = [AWSDynamoDBCondition new];
                     condition.comparisonOperator = AWSDynamoDBComparisonOperatorNull;
 

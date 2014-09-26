@@ -16,7 +16,7 @@
 #import <Foundation/Foundation.h>
 #import "AWSMobileAnalyticsDefaultInterceptor.h"
 
-static NSString* const CLIENT_CONTEXT_HEADER = @"x-amz-Client-Context";
+static NSString* const AWSMobileAnalyticsClientContextHeader = @"x-amz-Client-Context";
 
 @protocol AWSMobileAnalyticsClientContext;
 @interface AWSMobileAnalyticsClientContextInterceptor : AWSMobileAnalyticsDefaultInterceptor
