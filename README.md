@@ -78,9 +78,14 @@ It is easy to use the AWS SDK for iOS with Swift. Please see five simple steps b
 
 1. Create a default service configuration by adding the following code snippet in the `application:didFinishLaunchingWithOptions:` application delegate method.
 
-	    AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithAccessKey:@"YourAccessKey" secretKey:@"YourSecretKey"];
-	    AWSServiceConfiguration *configuration = [AWSServiceConfiguration configurationWithRegion:AWSRegionUSEast1 credentialsProvider:credentialsProvider];
-	    [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+        AWSCognitoCredentialsProvider *credentialsProvider = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
+                                                                                                            accountId:AWSAccountID
+                                                                                                       identityPoolId:CognitoPoolID
+                                                                                                        unauthRoleArn:CognitoRoleUnauth
+                                                                                                          authRoleArn:nil];
+        AWSServiceConfiguration *configuration = [AWSServiceConfiguration configurationWithRegion:AWSRegionUSEast1
+                                                                              credentialsProvider:credentialsProvider];
+        [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
 
 1. Import service headers where you want to use the services.
 
