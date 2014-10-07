@@ -177,12 +177,15 @@
     AWSJSONDictionary *inputRules = [[AWSJSONDictionary alloc] initWithDictionary:[anActionRules objectForKey:@"input"] JSONDefinitionRule:shapeRules];
 
     NSError *error = nil;
-    [AWSXMLRequestSerializer constructURIandHeadersAndBody:request
+    BOOL validationOK = [AWSXMLRequestSerializer validateURIandHeadersAndBody:request
                                                      rules:inputRules
                                                 parameters:parameters
-                                                 uriSchema:ruleURIStr
-                                                     error:&error];
+                                                 uriSchema:ruleURIStr];
 
+    if(!validationOK){
+        error = [NSError errorWithDomain:AWSValidationErrorDomain code:-666 userInfo:@{@"error":@"Something went wrong with validation"}];
+    }
+    
     if (!error) {
         //construct HTTPBody only if HTTPBodyStream is nil
         if (!request.HTTPBodyStream) {
@@ -215,10 +218,9 @@
     return [BFTask taskWithResult:nil];
 }
 
-+ (BOOL)constructURIandHeadersAndBody:(NSMutableURLRequest *)request
++ (BOOL)validateURIandHeadersAndBody:(NSMutableURLRequest *)request
                                 rules:(AWSJSONDictionary *)rules parameters:(NSDictionary *)params
-                            uriSchema:(NSString *)uriSchema
-                                error:(NSError *__autoreleasing *)error {
+                            uriSchema:(NSString *)uriSchema {
     //If no rule just return
     if (rules == (id)[NSNull null] ||  [rules count] == 0) {
         return YES;
@@ -297,7 +299,7 @@
             //If it is "Body" Type and streaming Type, contructBody
             if ([xmlElementName isEqualToString:@"Body"] && [memberRules[@"streaming"] boolValue]) {
                 if ([value isKindOfClass:[NSURL class]]) {
-                    if ([value checkResourceIsReachableAndReturnError:error]) {
+                    if ([value checkResourceIsReachableAndReturnError:nil]) {
                         request.HTTPBodyStream = [NSInputStream inputStreamWithURL:value];
                     }
 
@@ -309,10 +311,6 @@
             }
         }
     }];
-
-    if (*error) {
-        return NO;
-    }
 
     BOOL uriSchemaContainsQuestionMark = NO;
     NSRange hasQuestionMark = [uriSchema rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"?"]];
@@ -342,9 +340,6 @@
     //validate URL
     NSRange r = [rawURI rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"{}"]];
     if (r.location != NSNotFound) {
-        if (error) {
-            *error = [NSError errorWithDomain:AWSValidationErrorDomain code:AWSValidationURIIsInvalid userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"the constructed request queryString is invalid:%@",rawURI] forKey:NSLocalizedDescriptionKey]];
-        }
         request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/", request.URL]];
 
         return NO;
@@ -361,9 +356,6 @@
         NSString *finalURL = [NSString stringWithFormat:@"%@%@", request.URL,rawURI];
         request.URL = [NSURL URLWithString:finalURL];
         if (!request.URL) {
-            if (error) {
-                *error = [NSError errorWithDomain:AWSValidationErrorDomain code:AWSValidationURIIsInvalid userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"unable the assigned URL to request, URL may be invalid:%@",finalURL] forKey:NSLocalizedDescriptionKey]];
-            }
             return NO;
         }
 
