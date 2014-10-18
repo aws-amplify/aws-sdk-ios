@@ -173,9 +173,9 @@ NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURL
     //generate baseURL String (use virtualHostStyle if possible)
     NSString *keyPath = nil;
     if (bucketName == nil || [self aws_isVirtualHostedStyleCompliant:bucketName]) {
-        keyPath = (keyName == nil ? @"" : [NSString stringWithFormat:@"%@", [keyName aws_stringWithURLEncodingPath]]);
+        keyPath = (keyName == nil ? @"" : keyName]);
     } else {
-        keyPath = (keyName == nil ? [NSString stringWithFormat:@"%@", bucketName] : [NSString stringWithFormat:@"%@/%@", bucketName, [keyName aws_stringWithURLEncodingPath]]);
+        keyPath = (keyName == nil ? [NSString stringWithFormat:@"%@", bucketName] : [NSString stringWithFormat:@"%@/%@", bucketName, keyName]);
     }
 
     //generate correct hostName (use virtualHostStyle if possible)
@@ -242,7 +242,7 @@ NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURL
         }
     }
     else {
-        canonicalizedResource = [NSString stringWithFormat:@"/%@/%@", bucketName, [keyName aws_stringWithURLEncoding]];
+        canonicalizedResource = [NSString stringWithFormat:@"/%@/%@", bucketName, keyName];
     }
 
     NSString *stringToSign = [NSString stringWithFormat:@"%@\n%@\n%@\n%d\n%@%@",
