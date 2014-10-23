@@ -15,6 +15,7 @@
 
 #import "AWSDynamoDBObjectMapper.h"
 #import "AWSDynamoDB.h"
+#import "Bolts.h"
 
 @interface AWSDynamoDBAttributeValue (AWSDynamoDBObjectMapper)
 

@@ -28,3 +28,5 @@
 #import "STS.h"
 #import "CognitoIdentity.h"
 #import "MobileAnalytics.h"
+
+#import "Bolts.h"

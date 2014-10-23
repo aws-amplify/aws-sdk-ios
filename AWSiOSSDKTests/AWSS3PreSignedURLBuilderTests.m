@@ -91,6 +91,219 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
 
 }
 
+-(void)testObjectWithGreedyKey {
+    
+    NSArray *bucketNameArray = @[@"ios-v2-s3-tm-testdata",@"ios-v2-s3.periods"];
+    
+    for (NSString *myBucketName in bucketNameArray) {
+        
+        
+        NSString *keyName = [NSString stringWithFormat:@"%lld/presignedURL-greedykey",(int64_t)[NSDate timeIntervalSinceReferenceDate]];
+        //Put a object
+        AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
+        getPreSignedURLRequest.bucket = myBucketName;
+        getPreSignedURLRequest.key = keyName;
+        getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodPUT;
+        getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
+        
+        [[[[AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder] getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(BFTask *task) {
+            
+            if (task.error) {
+                XCTAssertNil(task.error);
+                return nil;
+            }
+            
+            NSURL *presignedURL = task.result;
+            
+            XCTAssertNotNil(presignedURL);
+            
+            //NSLog(@"(PUT)presigned URL (Put)is: %@",presignedURL.absoluteString);
+            
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
+            request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+            [request setHTTPMethod:@"PUT"];
+            
+            unsigned char *largeData = malloc(AWSS3PreSignedURLTest256KB) ;
+            memset(largeData, 5, AWSS3PreSignedURLTest256KB);
+            NSData *testObjectData = [[NSData alloc] initWithBytesNoCopy:largeData length:AWSS3PreSignedURLTest256KB];
+            
+            [request setHTTPBody:testObjectData];
+            
+            NSError *returnError = nil;
+            NSHTTPURLResponse *returnResponse = nil;
+            
+            NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
+            
+            XCTAssertNil(returnError, @"response contains error:%@ \n presigned URL is:%@",returnError,presignedURL.absoluteString);
+            
+            if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
+            
+            if ([responseData length] != 0) {
+                //expected the got 0 size returnData, but got something else.
+                NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+                XCTFail(@"Error response received:\n %@",responseString);
+            }
+            
+            return nil;
+        }] waitUntilFinished];
+        
+        //wait a few seconds
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+        
+        //Head the Object
+        AWSS3GetPreSignedURLRequest *getPreSignedURLRequest2 = [AWSS3GetPreSignedURLRequest new];
+        getPreSignedURLRequest2.bucket = myBucketName;
+        getPreSignedURLRequest2.key = keyName;
+        getPreSignedURLRequest2.HTTPMethod = AWSHTTPMethodHEAD;
+        getPreSignedURLRequest2.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
+        
+        
+        [[[[AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder] getPreSignedURL:getPreSignedURLRequest2] continueWithBlock:^id(BFTask *task) {
+            
+            if (task.error) {
+                XCTAssertNil(task.error);
+                return nil;
+            }
+            
+            NSURL *presignedURL = task.result;
+            XCTAssertNotNil(presignedURL);
+            
+            //NSLog(@"(HEAD)presigned URL is: %@",presignedURL.absoluteString);
+            
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
+            request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+            [request setHTTPMethod:@"HEAD"];
+            
+            NSError *returnError = nil;
+            NSHTTPURLResponse *returnResponse = nil;
+            
+            NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
+            
+            XCTAssertNil(returnError, @"response contains error:%@ \n presigned URL is:%@",returnError, presignedURL.absoluteString);
+            
+            if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
+            
+            XCTAssertEqual((unsigned long)AWSS3PreSignedURLTest256KB, [[[returnResponse allHeaderFields] objectForKey:@"Content-Length"] integerValue],@"received object is different from sent object. expect file size:%lu, got:%lu",(unsigned long)AWSS3PreSignedURLTest256KB,(long)[[[returnResponse allHeaderFields] objectForKey:@"Content-Length"] integerValue]);
+            
+            if ([responseData length] != 0) {
+                //expected the got 0 size returnData, but got something else.
+                NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+                XCTFail(@"Error response received:\n %@",responseString);
+            }
+            
+            return nil;
+        }] waitUntilFinished];
+        
+        //Get Object
+        AWSS3GetPreSignedURLRequest *getPreSignedURLRequest3 = [AWSS3GetPreSignedURLRequest new];
+        getPreSignedURLRequest3.bucket = myBucketName;
+        getPreSignedURLRequest3.key = keyName;
+        getPreSignedURLRequest3.HTTPMethod = AWSHTTPMethodGET;
+        getPreSignedURLRequest3.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
+        
+        
+        [[[[AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder] getPreSignedURL:getPreSignedURLRequest3] continueWithBlock:^id(BFTask *task) {
+            
+            if (task.error) {
+                XCTAssertNil(task.error);
+                return nil;
+            }
+            
+            NSURL *presignedURL = task.result;
+            
+            XCTAssertNotNil(presignedURL);
+            
+            //NSLog(@"(GET)presigned URL is: %@",presignedURL.absoluteString);
+            
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
+            request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+            
+            NSError *returnError = nil;
+            NSHTTPURLResponse *returnResponse = nil;
+            
+            NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
+            
+            XCTAssertNil(returnError, @"response contains error:%@,\n presigned URL is:%@",returnError,presignedURL.absoluteString);
+            
+            if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
+            
+            XCTAssertEqual((unsigned long)AWSS3PreSignedURLTest256KB, [responseData length],@"received object is different from sent object. expect file size:%lu, got:%lu",(unsigned long)AWSS3PreSignedURLTest256KB,(unsigned long)[responseData length]);
+            
+            return nil;
+        }] waitUntilFinished];
+        
+        //Delete Object
+        
+        AWSS3GetPreSignedURLRequest *getPreSignedURLRequest4 = [AWSS3GetPreSignedURLRequest new];
+        getPreSignedURLRequest4.bucket = myBucketName;
+        getPreSignedURLRequest4.key = keyName;
+        getPreSignedURLRequest4.HTTPMethod = AWSHTTPMethodDELETE;
+        getPreSignedURLRequest4.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
+        
+        [[[[AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder] getPreSignedURL:getPreSignedURLRequest4] continueWithBlock:^id(BFTask *task) {
+            
+            if (task.error) {
+                XCTAssertNil(task.error);
+                return nil;
+            }
+            
+            NSURL *presignedURL = task.result;
+            
+            XCTAssertNotNil(presignedURL);
+            
+            //NSLog(@"(DELETE)presigned URL is: %@",presignedURL.absoluteString);
+            
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
+            request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+            [request setHTTPMethod:@"DELETE"];
+            
+            NSError *returnError = nil;
+            NSHTTPURLResponse *returnResponse = nil;
+            
+            NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
+            
+            XCTAssertNil(returnError, @"response contains error:%@, \n presigned URL is:%@",returnError, presignedURL.absoluteString);
+            
+            if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
+            
+            if ([responseData length] != 0) {
+                //expected the got 0 size returnData, but got something else.
+                NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+                XCTFail(@"Error response received:\n %@",responseString);
+            }
+            
+            return nil;
+        }] waitUntilFinished];
+        
+        //wait a few seconds
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+        
+        //confirm object has been deleted
+        AWSS3 *s3 = [AWSS3 defaultS3];
+        
+        AWSS3GetObjectRequest *getObjectRequest = [AWSS3GetObjectRequest new];
+        getObjectRequest.bucket = myBucketName;
+        getObjectRequest.key = keyName;
+        
+        [[[s3 getObject:getObjectRequest] continueWithBlock:^id(BFTask *task) {
+            XCTAssertNotNil(task.error);
+            XCTAssertEqual(AWSS3ErrorNoSuchKey, task.error.code, @"expected AWSS3ErrorNoSuchKey Error but got:%ld",(long)task.error.code);
+            return nil;
+        }] waitUntilFinished];
+        
+        
+        //if failed to delete by presigned URL, delete it.
+        AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
+        deleteObjectRequest.bucket = myBucketName;
+        deleteObjectRequest.key = keyName;
+        [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+            return nil;
+        }] waitUntilFinished];
+        
+    }
+    
+}
+
 - (void)testGetObject {
 
     NSArray *bucketNameArray = @[@"ios-v2-s3-tm-testdata",@"ios-v2-s3.periods"];
@@ -106,6 +319,11 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
         AWSS3PreSignedURLBuilder *preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
         
         [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(BFTask *task) {
+            
+            if (task.error) {
+                XCTAssertNil(task.error);
+                return nil;
+            }
             
             NSURL *presignedURL = task.result;
             
@@ -153,6 +371,11 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
         AWSS3PreSignedURLBuilder *preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
         
         [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(BFTask *task) {
+            
+            if (task.error) {
+                XCTAssertNil(task.error);
+                return nil;
+            }
             
             NSURL *presignedURL = task.result;
             
@@ -246,6 +469,11 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
         
         [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(BFTask *task) {
             
+            if (task.error) {
+                XCTAssertNil(task.error);
+                return nil;
+            }
+            
             NSURL *presignedURL = task.result;
             XCTAssertNotNil(presignedURL);
             
@@ -323,6 +551,11 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
 
         AWSS3PreSignedURLBuilder *preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
         [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(BFTask *task) {
+            
+            if (task.error) {
+                XCTAssertNil(task.error);
+                return nil;
+            }
             
             NSURL *presignedURL = task.result;
             

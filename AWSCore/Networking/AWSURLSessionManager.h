@@ -14,7 +14,6 @@
  */
 
 #import <Foundation/Foundation.h>
-
 #import "AWSNetworking.h"
 
 @interface AWSURLSessionManager : NSObject <NSURLSessionDelegate, NSURLSessionDataDelegate, NSURLSessionDownloadDelegate>

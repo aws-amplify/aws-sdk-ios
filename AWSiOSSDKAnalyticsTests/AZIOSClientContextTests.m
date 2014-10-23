@@ -42,7 +42,8 @@
     //Device details
     UIDevice* currentDevice = [UIDevice currentDevice];
     assertThat(clientContext.deviceManufacturer, is(equalTo(@"apple")));
-    assertThat(clientContext.deviceModel, is(equalTo(@"iPhone Simulator")));
+    XCTAssertTrue([clientContext.deviceModel isEqualToString:@"iPhone Simulator"] ||
+                  [clientContext.deviceModel isEqualToString:@"iPad Simulator"]);
     assertThat(clientContext.devicePlatform, is(equalTo(@"iPhone OS")));
     assertThat(clientContext.deviceLocale, is(equalTo([[NSLocale autoupdatingCurrentLocale] localeIdentifier])));
     assertThat(clientContext.deviceModelVersion, is(equalTo([clientContext deviceModelVersionCode])));
@@ -71,7 +72,8 @@
     //Device details
     UIDevice* currentDevice = [UIDevice currentDevice];
     assertThat(clientContext.deviceManufacturer, is(equalTo(@"apple")));
-    assertThat(clientContext.deviceModel, is(equalTo(@"iPhone Simulator")));
+    XCTAssertTrue([clientContext.deviceModel isEqualToString:@"iPhone Simulator"] ||
+                  [clientContext.deviceModel isEqualToString:@"iPad Simulator"]);
     assertThat(clientContext.devicePlatform, is(equalTo(@"iPhone OS")));
     assertThat(clientContext.deviceLocale, is(equalTo([[NSLocale autoupdatingCurrentLocale] localeIdentifier])));
     assertThat(clientContext.deviceModelVersion, is(equalTo([clientContext deviceModelVersionCode])));
@@ -111,7 +113,8 @@
     //Device details
     UIDevice* currentDevice = [UIDevice currentDevice];
     assertThat(clientContext.deviceManufacturer, is(equalTo(@"apple")));
-    assertThat(clientContext.deviceModel, is(equalTo(@"iPhone Simulator")));
+    XCTAssertTrue([clientContext.deviceModel isEqualToString:@"iPhone Simulator"] ||
+                  [clientContext.deviceModel isEqualToString:@"iPad Simulator"]);
     assertThat(clientContext.devicePlatform, is(equalTo(@"iPhone OS")));
     assertThat(clientContext.deviceLocale, is(equalTo([[NSLocale autoupdatingCurrentLocale] localeIdentifier])));
     assertThat(clientContext.deviceModelVersion, is(equalTo([clientContext deviceModelVersionCode])));

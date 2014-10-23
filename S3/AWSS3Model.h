@@ -186,7 +186,6 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @class AWSS3CreateBucketRequest;
 @class AWSS3CreateMultipartUploadOutput;
 @class AWSS3CreateMultipartUploadRequest;
-@class AWSS3Delete;
 @class AWSS3DeleteBucketCorsRequest;
 @class AWSS3DeleteBucketLifecycleRequest;
 @class AWSS3DeleteBucketPolicyRequest;
@@ -272,6 +271,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @class AWSS3PutObjectRequest;
 @class AWSS3Redirect;
 @class AWSS3RedirectAllRequestsTo;
+@class AWSS3Remove;
 @class AWSS3ReplicateObjectOutput;
 @class AWSS3ReplicateObjectRequest;
 @class AWSS3ReplicateObjectResult;
@@ -633,17 +633,6 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3Delete : AWSModel
-
-@property (nonatomic, strong) NSArray *objects;
-
-/**
- * Element to enable quiet mode for the request. When you add this element, you must set its value to true.
- */
-@property (nonatomic, strong) NSNumber *quiet;
-
-@end
-
 @interface AWSS3DeleteBucketCorsRequest : AWSRequest
 
 @property (nonatomic, strong) NSString *bucket;
@@ -748,12 +737,12 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @interface AWSS3DeleteObjectsRequest : AWSRequest
 
 @property (nonatomic, strong) NSString *bucket;
-@property (nonatomic, strong) AWSS3Delete *delete;
 
 /**
  * The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
  */
 @property (nonatomic, strong) NSString *MFA;
+@property (nonatomic, strong) AWSS3Remove *remove;
 
 @end
 
@@ -2233,6 +2222,17 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
  * Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.
  */
 @property (nonatomic, assign) AWSS3Protocol protocol;
+
+@end
+
+@interface AWSS3Remove : AWSModel
+
+@property (nonatomic, strong) NSArray *objects;
+
+/**
+ * Element to enable quiet mode for the request. When you add this element, you must set its value to true.
+ */
+@property (nonatomic, strong) NSNumber *quiet;
 
 @end
 

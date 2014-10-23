@@ -130,6 +130,9 @@
                                                               withDeliveryClient:deliveryClient
                                                            allowsEventCollection:YES];
     
+    [eventClient addGlobalAttribute:@"test-seesion-id-value" forKey:AWSSessionIDAttributeKey];
+    [eventClient addGlobalAttribute:@"test-start-timstamp-value" forKey:AWSSessionStartTimeAttributeKey];
+    
     BlockingInterceptor* interceptor = [[BlockingInterceptor alloc] init];
     [interceptor setExpectedRequestURL:[NSURL URLWithString:[BASE_URL stringByAppendingFormat:@"%@/events", APP_KEY]]];
     [[_context httpClient] addInterceptor:interceptor];
@@ -162,6 +165,9 @@
     id<AWSMobileAnalyticsEventClient> eventClient = [AWSMobileAnalyticsDefaultEventClient eventClientWithContext:_context
                                                               withDeliveryClient:deliveryClient
                                                            allowsEventCollection:YES];
+    
+    [eventClient addGlobalAttribute:@"test-seesion-id-value" forKey:AWSSessionIDAttributeKey];
+    [eventClient addGlobalAttribute:@"test-start-timstamp-value" forKey:AWSSessionStartTimeAttributeKey];
     
     BlockingInterceptor* interceptor = [[BlockingInterceptor alloc] init];
     [interceptor setExpectedRequestURL:[NSURL URLWithString:[BASE_URL stringByAppendingFormat:@"%@/events", APP_KEY]]];
@@ -205,6 +211,9 @@
                                                               withDeliveryClient:deliveryClient
                                                            allowsEventCollection:YES];
     
+    [eventClient addGlobalAttribute:@"test-seesion-id-value" forKey:AWSSessionIDAttributeKey];
+    [eventClient addGlobalAttribute:@"test-start-timstamp-value" forKey:AWSSessionStartTimeAttributeKey];
+    
     BlockingInterceptor* interceptor = [[BlockingInterceptor alloc] init];
     [interceptor setExpectedRequestURL:[NSURL URLWithString:[BASE_URL stringByAppendingFormat:@"%@/events", APP_KEY]]];
     [[_context httpClient] addInterceptor:interceptor];
@@ -244,6 +253,9 @@
     id<AWSMobileAnalyticsEventClient> eventClient = [AWSMobileAnalyticsDefaultEventClient eventClientWithContext:_context
                                                               withDeliveryClient:deliveryClient
                                                            allowsEventCollection:YES];
+    
+    [eventClient addGlobalAttribute:@"test-seesion-id-value" forKey:AWSSessionIDAttributeKey];
+    [eventClient addGlobalAttribute:@"test-start-timstamp-value" forKey:AWSSessionStartTimeAttributeKey];
     
     BlockingInterceptor* interceptor = [[BlockingInterceptor alloc] init];
     [interceptor setExpectedRequestURL:[NSURL URLWithString:[BASE_URL stringByAppendingFormat:@"%@/events", APP_KEY]]];
@@ -287,6 +299,9 @@
                                                               withDeliveryClient:deliveryClient
                                                            allowsEventCollection:YES];
     
+    [eventClient addGlobalAttribute:@"test-seesion-id-value" forKey:AWSSessionIDAttributeKey];
+    [eventClient addGlobalAttribute:@"test-start-timstamp-value" forKey:AWSSessionStartTimeAttributeKey];
+    
     BlockingInterceptor* interceptor = [[BlockingInterceptor alloc] init];
     [interceptor setExpectedRequestURL:[NSURL URLWithString:[BASE_URL stringByAppendingFormat:@"%@/events", APP_KEY]]];
     [interceptor setExpectedResponseCode:-1000];
@@ -324,6 +339,9 @@
     id<AWSMobileAnalyticsEventClient> eventClient = [AWSMobileAnalyticsDefaultEventClient eventClientWithContext:_context
                                                               withDeliveryClient:deliveryClient
                                                            allowsEventCollection:YES];
+    
+    [eventClient addGlobalAttribute:@"test-seesion-id-value" forKey:AWSSessionIDAttributeKey];
+    [eventClient addGlobalAttribute:@"test-start-timstamp-value" forKey:AWSSessionStartTimeAttributeKey];
     
     BlockingInterceptor* interceptor = [[BlockingInterceptor alloc] init];
     [interceptor setExpectedRequestURL:[NSURL URLWithString:[BASE_URL stringByAppendingFormat:@"%@/events", APP_KEY]]];

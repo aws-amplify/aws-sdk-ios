@@ -75,7 +75,6 @@ static NSString *_testDomainName = nil;
 }
 
 - (void)testSelect {
-    [[AWSLogger defaultLogger] setLogLevel:AWSLogLevelVerbose];
     AWSSimpleDB *sdb = [AWSSimpleDB defaultSimpleDB];
 
     AWSSimpleDBSelectRequest *selectRequest = [AWSSimpleDBSelectRequest new];
@@ -95,7 +94,6 @@ static NSString *_testDomainName = nil;
 }
 
 - (void)testSelectWithNonEnglishTableName {
-    [[AWSLogger defaultLogger] setLogLevel:AWSLogLevelVerbose];
     AWSSimpleDB *sdb = [AWSSimpleDB defaultSimpleDB];
 
     AWSSimpleDBSelectRequest *selectRequest = [AWSSimpleDBSelectRequest new];

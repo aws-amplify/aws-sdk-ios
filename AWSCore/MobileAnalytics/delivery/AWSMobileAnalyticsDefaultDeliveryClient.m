@@ -23,6 +23,7 @@
 #import "AWSMobileAnalyticsSerializerFactory.h"
 #import "AWSMobileAnalyticsStringUtils.h"
 #import "AWSLogging.h"
+#import "AWSMObileAnalyticsDefaultSessionClient.h"
 #import <UIKit/UIKit.h>
 
 static NSSet* RETRY_REQUEST_CODES = nil;
@@ -130,10 +131,30 @@ static unsigned int MAX_OPERATIONS = 1000;
     [self enqueueEventForDelivery:theEvent];
 }
 
+-(BOOL) validateEvent:(id<AWSMobileAnalyticsInternalEvent>) theEvent {
+    
+    if (![theEvent attributeForKey:AWSSessionIDAttributeKey]) {
+        AWSLogError(@"Event: '%@' Validation Error: %@ is nil",theEvent.eventType,AWSSessionIDAttributeKey);
+        return NO;
+    }
+    
+    if (![theEvent attributeForKey:AWSSessionStartTimeAttributeKey]) {
+        AWSLogError(@"Event '%@' Validation Error: %@ is nil",theEvent.eventType,AWSSessionStartTimeAttributeKey);
+        return NO;
+    }
+    
+    return YES;
+}
+
 -(void) enqueueEventForDelivery:(id<AWSMobileAnalyticsInternalEvent>) theEvent
 {
     if(self.operationQueue.operationCount >= MAX_OPERATIONS) {
-        AWSLogWarn(@"The event is being dropped because too many operations enqueued");
+        AWSLogError(@"The event: '%@' is being dropped because too many operations enqueued.",theEvent.eventType);
+        return;
+    }
+    
+    if (![self validateEvent:theEvent]) {
+        AWSLogError(@"The event '%@'is being dropped because internal validation failed.",theEvent.eventType);
         return;
     }
     

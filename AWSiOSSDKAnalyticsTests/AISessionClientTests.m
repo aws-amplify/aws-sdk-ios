@@ -654,22 +654,24 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
     assertThatInteger([target getSessionState], is(equalToInteger(SESSION_STATE_PAUSED)));
 }
 
--(void)test_PauseSession_SessionIsInactive_FiresBlankPauseEvent{
+//Test has been permanently commented out since BlankPauseEvent is an invalid Event and won't be recorded in our SDK.
 
-    AWSMobileAnalytics* insights = [AWSMobileAnalytics mobileAnalyticsForAppId:TEST_APP_KEY];
-    AWSMobileAnalyticsDefaultSessionClient* target = [insights sessionClient];
-    TestEventObserver2* interceptor = [[TestEventObserver2 alloc] initObserver];
-    id<AWSMobileAnalyticsInternalEventClient> ec = (id<AWSMobileAnalyticsInternalEventClient>) [insights eventClient];
-    [ec addEventObserver:interceptor];
-
-    [target stopSession];
-    assertThatInteger([target getSessionState], is(equalToInteger(SESSION_STATE_INACTIVE)));
-
-    [target.state pauseWithSessionClient:target];
-    [target cancelDelayedBlock];
-    assertThat([interceptor lastEvent], is(notNilValue()));
-    assertThat([[interceptor lastEvent] eventType], is(equalTo(AWSSessionPauseEventType)));
-}
+//-(void)test_PauseSession_SessionIsInactive_FiresBlankPauseEvent{
+//
+//    AWSMobileAnalytics* insights = [AWSMobileAnalytics mobileAnalyticsForAppId:TEST_APP_KEY];
+//    AWSMobileAnalyticsDefaultSessionClient* target = [insights sessionClient];
+//    TestEventObserver2* interceptor = [[TestEventObserver2 alloc] initObserver];
+//    id<AWSMobileAnalyticsInternalEventClient> ec = (id<AWSMobileAnalyticsInternalEventClient>) [insights eventClient];
+//    [ec addEventObserver:interceptor];
+//
+//    [target stopSession];
+//    assertThatInteger([target getSessionState], is(equalToInteger(SESSION_STATE_INACTIVE)));
+//
+//    [target.state pauseWithSessionClient:target];
+//    [target cancelDelayedBlock];
+//    assertThat([interceptor lastEvent], is(notNilValue()));
+//    assertThat([[interceptor lastEvent] eventType], is(equalTo(AWSSessionPauseEventType)));
+//}
 
 -(void)test_PauseSession_SessionIsInactive_StateIsNotChanged{
 

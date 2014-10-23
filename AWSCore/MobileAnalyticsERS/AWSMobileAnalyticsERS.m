@@ -81,40 +81,52 @@ static NSDictionary *errorCodeDictionary = nil;
 
     }
     if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
-        NSString *errorTypeStr = [[response allHeaderFields] objectForKey:@"x-amzn-ErrorType"];
-        NSString *errorTypeHeader = [[errorTypeStr componentsSeparatedByString:@":"] firstObject];
+        NSString *errorTypeHeader = [[[[response allHeaderFields] objectForKey:@"x-amzn-ErrorType"] componentsSeparatedByString:@":"] firstObject];
 
-        if ([errorTypeStr length] > 0 && errorTypeHeader) {
-            if (errorCodeDictionary[[[errorTypeHeader componentsSeparatedByString:@"#"] lastObject]]) {
-                if (error) {
-                    NSMutableDictionary *userInfo = [@{
-                                               NSLocalizedFailureReasonErrorKey : errorTypeStr,
-                                               @"responseStatusCode" : @([response statusCode]),
-                                               @"responseHeaders" : [response allHeaderFields],
-                                               @"responseDataSize" : @(data?[data length]:0),
-                                               } mutableCopy];
-                    [userInfo addEntriesFromDictionary:responseObject];
-                    *error = [NSError errorWithDomain:AWSMobileAnalyticsERSErrorDomain
-                                                 code:[[errorCodeDictionary objectForKey:[[errorTypeHeader componentsSeparatedByString:@"#"] lastObject]] integerValue]
-                                             userInfo:userInfo];
-                }
-                return responseObject;
-            } else if (errorTypeHeader) {
-                if (error) {
-                    NSMutableDictionary *userInfo = [@{
-                                                       NSLocalizedFailureReasonErrorKey : errorTypeStr,
-                                                       @"responseStatusCode" : @([response statusCode]),
-                                                       @"responseHeaders" : [response allHeaderFields],
-                                                       @"responseDataSize" : @(data?[data length]:0),
-                                                       } mutableCopy];
-                    [userInfo addEntriesFromDictionary:responseObject];
-                    *error = [NSError errorWithDomain:AWSMobileAnalyticsERSErrorDomain
-                                                 code:AWSMobileAnalyticsERSErrorUnknown
-                                             userInfo:userInfo];
-                }
-                return responseObject;
-            }
+        //server may also return error message in the body, need to catch it.
+        if (errorTypeHeader == nil) {
+            errorTypeHeader = [responseObject objectForKey:@"__type"];
         }
+        
+
+        if (errorCodeDictionary[[[errorTypeHeader componentsSeparatedByString:@"#"] lastObject]]) {
+            if (error) {
+                NSMutableDictionary *userInfo = [@{
+                                                   NSLocalizedFailureReasonErrorKey : errorTypeHeader,
+                                                   @"responseStatusCode" : @([response statusCode]),
+                                                   @"responseHeaders" : [response allHeaderFields],
+                                                   @"responseDataSize" : @(data?[data length]:0),
+                                                   } mutableCopy];
+                [userInfo addEntriesFromDictionary:responseObject];
+                *error = [NSError errorWithDomain:AWSMobileAnalyticsERSErrorDomain
+                                             code:[[errorCodeDictionary objectForKey:[[errorTypeHeader componentsSeparatedByString:@"#"] lastObject]] integerValue]
+                                         userInfo:userInfo];
+            }
+            return responseObject;
+        } else if ([[errorTypeHeader componentsSeparatedByString:@"#"] lastObject]) {
+            if (error) {
+                NSMutableDictionary *userInfo = [@{
+                                                   NSLocalizedFailureReasonErrorKey : errorTypeHeader,
+                                                   @"responseStatusCode" : @([response statusCode]),
+                                                   @"responseHeaders" : [response allHeaderFields],
+                                                   @"responseDataSize" : @(data?[data length]:0),
+                                                   } mutableCopy];
+                [userInfo addEntriesFromDictionary:responseObject];
+                *error = [NSError errorWithDomain:AWSMobileAnalyticsERSErrorDomain
+                                             code:AWSMobileAnalyticsERSErrorUnknown
+                                         userInfo:userInfo];
+            }
+            return responseObject;
+        } else if (response.statusCode/100 != 2) {
+            //should be an error if not a 2xx response.
+            if (error) {
+                *error = [NSError errorWithDomain:AWSMobileAnalyticsERSErrorDomain
+                                             code:AWSMobileAnalyticsERSErrorUnknown
+                                         userInfo:responseObject];
+            }
+            return responseObject;
+        }
+        
 
         if (self.outputClass) {
             responseObject = [MTLJSONAdapter modelOfClass:self.outputClass

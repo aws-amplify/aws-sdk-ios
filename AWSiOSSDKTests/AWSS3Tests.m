@@ -402,6 +402,40 @@ static NSString *testBucketNameGeneral = nil;
     }] waitUntilFinished];
     
 }
+
+-(void)testGetObjectByFilePathCanceled {
+    
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    
+    AWSS3GetObjectRequest *getObjectRequest = [AWSS3GetObjectRequest new];
+    getObjectRequest.bucket = @"ios-v2-s3-tm-testdata";
+    getObjectRequest.key = @"temp.txt";
+    
+    //assign the file path to be written.
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
+    NSString *filePath = [documentsPath stringByAppendingPathComponent:@"s3TestCanceled.txt"];
+    getObjectRequest.downloadingFileURL = [NSURL fileURLWithPath:filePath];
+    
+    
+    BFTask *getObjTask = [[s3 getObject:getObjectRequest] continueWithBlock:^id(BFTask *task) {
+        //Should return Cancelled Task Error
+        XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
+        XCTAssertEqualObjects(NSURLErrorDomain, task.error.domain);
+        XCTAssertEqual(NSURLErrorCancelled, task.error.code);
+        return nil;
+    }];
+    
+    
+    //wait few sec then cancel this job
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.5]];
+    [getObjectRequest cancel];
+    
+    
+    [getObjTask waitUntilFinished];
+
+    
+}
 - (void)testPutGetAndDeleteObjectByFilePathWithProgressFeedback {
     NSString *keyName = @"ios-test-put-get-and-delete-obj";
     NSString *getObjectFilePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"s3-2006-03-01" ofType:@"json"];
@@ -488,8 +522,8 @@ static NSString *testBucketNameGeneral = nil;
     }] waitUntilFinished];
 }
 
-- (void)testPutGetAndDeleteObject256KBWithProgressFeedback {
-    NSString *keyName = @"ios-test-put-and-delete-256KB";
+- (void)testPutGetAndDeleteObject256KBWithProgressFeedbackAndGreedyKey {
+    NSString *keyName = @"testfolder/ios-test-put-and-delete-256KB";
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
 
@@ -590,6 +624,31 @@ static NSString *testBucketNameGeneral = nil;
         XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),[task.result description]);
         return nil;
     }] waitUntilFinished];
+    
+    //confirm it has been deleted
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+    
+    AWSS3ListObjectsRequest *listObjectReq2 = [AWSS3ListObjectsRequest new];
+    listObjectReq2.bucket = testBucketNameGeneral;
+    
+    [[[s3 listObjects:listObjectReq2] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3ListObjectsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListObjectsOutput class]));
+        AWSS3ListObjectsOutput *listObjectsOutput = task.result;
+        
+        XCTAssertEqualObjects(listObjectsOutput.name, testBucketNameGeneral);
+        
+        BOOL hasObject = NO;
+        for (AWSS3Object *s3Object in listObjectsOutput.contents) {
+            if ([s3Object.key isEqualToString:keyName]) {
+                hasObject = YES;
+            }
+        }
+        XCTAssertFalse(hasObject,@"object should be deleted but still existed.");
+        
+        return nil;
+    }] waitUntilFinished];
+    
 }
 
 - (void)testMultipartUploadWithComplete {

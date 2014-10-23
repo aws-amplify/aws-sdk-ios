@@ -79,7 +79,7 @@
     id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [insights valueForKey:@"deliveryClient"];
     NSArray *batchedEvents = [deliveryClient batchedEvents];
     //batchedEvents should be empty if all events has been sent successfully.
-    XCTAssertEqual(0, [batchedEvents count], @"batchedEvents is not empty,events delivery may have failed!");
+    XCTAssertEqual(0, [batchedEvents count], @"batchedEvents is not empty,events delivery may have failed!, batchedEvent:\n%@",batchedEvents);
     
     //call sumbitEvent again without waiting for ValueForceSubmissionWaitTime(default 60sec) will result submission request been ignored.
     id<AWSMobileAnalyticsEvent>  level2Event = [eventClient createEventWithEventType:@"level2Complete"];
@@ -97,7 +97,7 @@
     //submit it again, should be successful this time
     [eventClient submitEvents];
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
-    XCTAssertEqual(0, [[[insights valueForKey:@"deliveryClient"] batchedEvents] count], @"batchedEvents is not empty,events delivery may have failed!");
+    XCTAssertEqual(0, [[[insights valueForKey:@"deliveryClient"] batchedEvents] count], @"batchedEvents is not empty,events delivery may have failed! , batchedEvent:\n%@",batchedEvents);
 }
 
 - (void)test_createAndSubmitMultipleEventsWithGlobalAttributes{

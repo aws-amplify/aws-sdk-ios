@@ -26,6 +26,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoLoginProviderKey) {
     AWSCognitoLoginProviderKeyLoginWithAmazon,
 };
 
+FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderErrorDomain;
+typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderErrorType) {
+    AWSCognitoIdentityProviderErrorIdentityIsNil,
+};
+
 @class BFTask;
 
 @protocol AWSIdentityProvider <NSObject>

@@ -86,6 +86,7 @@
 - (instancetype)init {
     if(self = [super init]) {
         _regionType = AWSRegionUnknown;
+        _maxRetryCount = 3;
     }
 
     return self;
@@ -95,6 +96,7 @@
     if (self = [super init]) {
         _regionType = regionType;
         _credentialsProvider = credentialsProvider;
+        _maxRetryCount = 3;
     }
 
     return self;
@@ -177,11 +179,11 @@ NSString *const AWSRegionNameUSEast1 = @"us-east-1";
 NSString *const AWSRegionNameUSWest2 = @"us-west-2";
 NSString *const AWSRegionNameUSWest1 = @"us-west-1";
 NSString *const AWSRegionNameEUWest1 = @"eu-west-1";
+NSString *const AWSRegionNameEUCentral1 = @"eu-central-1";
 NSString *const AWSRegionNameAPSoutheast1 = @"ap-southeast-1";
-NSString *const AWSRegionNameAPSoutheast2 = @"ap-southeast-2";
 NSString *const AWSRegionNameAPNortheast1 = @"ap-northeast-1";
+NSString *const AWSRegionNameAPSoutheast2 = @"ap-southeast-2";
 NSString *const AWSRegionNameSAEast1 = @"sa-east-1";
-
 NSString *const AWSRegionNameCNNorth1 = @"cn-north-1";
 
 NSString *const AWSServiceNameAppStream = @"appstream";
@@ -226,7 +228,7 @@ NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
 }
 
 - (instancetype)initWithRegion:(AWSRegionType)regionType
-                    service:(AWSServiceType)serviceType
+                       service:(AWSServiceType)serviceType
                   useUnsafeURL:(BOOL)useUnsafeURL {
     if (self = [super init]) {
         _regionType = regionType;
@@ -245,6 +247,9 @@ NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
                 break;
             case AWSRegionEUWest1:
                 _regionName = AWSRegionNameEUWest1;
+                break;
+            case AWSRegionEUCentral1:
+                _regionName = AWSRegionNameEUCentral1;
                 break;
             case AWSRegionAPSoutheast1:
                 _regionName = AWSRegionNameAPSoutheast1;
@@ -317,9 +322,17 @@ NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
         }
 
         NSString *separator = @".";
-        if (_serviceType == AWSServiceS3 && _regionType != AWSRegionCNNorth1) {
-            separator = @"-";
-        }
+        if (_serviceType == AWSServiceS3
+            && (_regionType == AWSRegionUSEast1
+                || _regionType == AWSRegionUSWest1
+                || _regionType == AWSRegionUSWest2
+                || _regionType == AWSRegionEUWest1
+                || _regionType == AWSRegionAPSoutheast1
+                || _regionType == AWSRegionAPNortheast1
+                || _regionType == AWSRegionAPSoutheast2
+                || _regionType == AWSRegionSAEast1)) {
+                separator = @"-";
+            }
 
         NSString *HTTP_Type = @"https";
         if (_useUnsafeURL) {
@@ -334,13 +347,13 @@ NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
             } else {
                 _URL = [NSURL URLWithString:@"https://sts.amazonaws.com"];
             }
-            
+
         } else if (_serviceType == AWSServiceSimpleDB && _regionType == AWSRegionUSEast1) {
             _URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://sdb.amazonaws.com", HTTP_Type]];
         } else {
             _URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@%@%@.amazonaws.com", HTTP_Type, _serviceName, separator, _regionName]];
         }
-        
+
         //need to add ".cn" at end of URL if it is in China Region
         if ([_regionName hasPrefix:@"cn"]) {
             NSString *urlString = [_URL absoluteString];
@@ -352,12 +365,15 @@ NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
     return self;
 }
 
-+ (instancetype)endpointWithRegion:(AWSRegionType)regionType service:(AWSServiceType)serviceType {
++ (instancetype)endpointWithRegion:(AWSRegionType)regionType
+                           service:(AWSServiceType)serviceType {
     AWSEndpoint *endpoint = [[AWSEndpoint alloc] initWithRegion:regionType service:serviceType useUnsafeURL:NO];
     return endpoint;
 }
 
-+ (instancetype)endpointWithRegion:(AWSRegionType)regionType service:(AWSServiceType)serviceType useUnsafeURL:(BOOL)useUnsafeURL {
++ (instancetype)endpointWithRegion:(AWSRegionType)regionType
+                           service:(AWSServiceType)serviceType
+                      useUnsafeURL:(BOOL)useUnsafeURL {
     AWSEndpoint *endpoint = [[AWSEndpoint alloc] initWithRegion:regionType service:serviceType useUnsafeURL:useUnsafeURL];
     return endpoint;
 }

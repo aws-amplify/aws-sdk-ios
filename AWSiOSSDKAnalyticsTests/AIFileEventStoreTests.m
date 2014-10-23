@@ -280,7 +280,7 @@ static NSString *const SDK_VERSION = @"2.0.dev-build";
     
     NSTimeInterval duration = [end timeIntervalSinceDate:start];
     NSLog(@"It took %f to write %d events", duration, operationCounts*eventCounts);
-    assertThatBool(duration > 3.0, is(equalToBool(NO)));
+    assertThatBool(duration > 20.0, is(equalToBool(NO)));
     
     id<AWSMobileAnalyticsEventIterator> iter = eventStore.iterator;
     int linesRead = 0;

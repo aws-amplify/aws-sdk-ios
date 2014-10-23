@@ -13,6 +13,7 @@
  * permissions and limitations under the License.
  */
 
+#import "Bolts.h"
 #import "AWSMobileAnalyticsDefaultHttpClient.h"
 #import "AWSCore.h"
 #import "AWSMobileAnalyticsInstanceIdInterceptor.h"
@@ -147,17 +148,17 @@ NSString *const AWSMobileAnalyticsDefaultRunLoopMode = @"com.amazonaws.mobile-an
         putEventInput.events = parsedEventsArray;
     }
     
+    //Attach the request to the response
+    id<AWSMobileAnalyticsRequest> request = [[AWSMobileAnalyticsDefaultRequest alloc] init];
+    [request setUrl:ers.configuration.URL];
+    response.originatingRequest = request;
     
     NSDate* requestStartDate = [NSDate date];
     [[[ers putEvents:putEventInput] continueWithBlock:^id(BFTask *task) {
         
         NSDictionary *resultDictionary = nil;
         if (task.error) {
-            if (task.error.domain != AWSMobileAnalyticsERSErrorDomain || task.error.domain != AWSGeneralErrorDomain) {
-                //It is client side error, assign the error and return immediately
-                response.error = task.error;
-                return nil;
-            }
+            response.error = task.error;
             resultDictionary = task.error.userInfo;
         } else {
             if ([task.result isKindOfClass:[NSDictionary class]]) {

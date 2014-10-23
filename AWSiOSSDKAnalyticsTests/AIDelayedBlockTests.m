@@ -65,7 +65,7 @@
     __block BOOL wasExecutedReturnValue;
 
 
-    AWSMobileAnalyticsDelayedBlock* delayedBlock = [AWSMobileAnalyticsDelayedBlock delayedBlockWithDelay:1 withBlock:^(void) {
+    AWSMobileAnalyticsDelayedBlock* delayedBlock = [AWSMobileAnalyticsDelayedBlock delayedBlockWithDelay:delay withBlock:^(void) {
         blockWasCalled = YES;
         executionDate = [NSDate date];
     }];
@@ -84,9 +84,9 @@
     assertThatBool(wasExecutedReturnValue, is(equalToBool(YES)));
     assertThatBool(blockWasCalled, is(equalToBool(YES)));
     
-    // check that the delay is within 10%
-    assertThatBool([executionDate timeIntervalSinceDate:startDate] < delay * 1.10 , is(equalToBool(YES)));
-    assertThatBool([executionDate timeIntervalSinceDate:startDate] > delay * .90 , is(equalToBool(YES)));
+    // check that the delay is within 20%
+    XCTAssertLessThan([executionDate timeIntervalSinceDate:startDate], delay * 1.20);
+    XCTAssertGreaterThan([executionDate timeIntervalSinceDate:startDate], delay * .80);
 }
 
 @end

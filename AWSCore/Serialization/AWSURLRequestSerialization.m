@@ -21,6 +21,7 @@
 #import "AWSCategory.h"
 #import "AWSLogging.h"
 #import "GZIP.h"
+#import "Bolts.h"
 
 @interface AWSJSONRequestSerializer()
 

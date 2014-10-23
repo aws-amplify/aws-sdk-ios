@@ -15,8 +15,10 @@
 
 #import "AWSCore.h"
 #import "AWSIdentityProvider.h"
+#import "Bolts.h"
 
 NSString *const AWSCognitoIdentityIdChangedNotification = @"com.amazonaws.services.cognitoidentity.AWSCognitoIdentityIdChangedNotification";
+NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.service.cognitoidentity.AWSCognitoIdentityProvider";
 NSString *const AWSCognitoNotificationPreviousId = @"PREVID";
 NSString *const AWSCognitoNotificationNewId = @"NEWID";
 
@@ -49,7 +51,7 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
 }
 
 - (BOOL)isAuthenticated {
-    return [self.logins count] > 0;
+    return self.logins != nil && [self.logins count] > 0;
 }
 
 - (void)setLogins:(NSDictionary *)logins {
@@ -93,6 +95,10 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
         mutableLogin[updatedKey] = logins[key];
     }
     
+    if ([mutableLogin count] == 0) {
+        return nil;
+    }
+    
     return mutableLogin;
 }
 
@@ -115,6 +121,9 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
 @interface AWSBasicCognitoIdentityProvider()
 @property (nonatomic, strong) NSString *accountId;
 @property (nonatomic, strong) AWSCognitoIdentity *cib;
+@property (nonatomic, strong) BFExecutor *executor;
+@property (atomic, assign) int32_t count;
+@property (nonatomic, strong) dispatch_semaphore_t semaphore;
 @end
 
 @implementation AWSBasicCognitoIdentityProvider
@@ -128,6 +137,9 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
     
     if (self = [super init]) {
         _accountId = accountId;
+        _executor = [BFExecutor executorWithOperationQueue:[NSOperationQueue new]];
+        _count = 0;
+        _semaphore = dispatch_semaphore_create(0);
         self.identityPoolId = identityPoolId;
         self.identityId = identityId;
         self.logins = [self updateKeysForLogins:logins];
@@ -144,51 +156,79 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
 
 - (BFTask *)getIdentityId {
     if (self.identityId) {
-        return [BFTask taskWithResult:nil];
+        return [BFTask taskWithResult:self.identityId];
     } else {
-        return [[BFTask taskWithResult:nil] continueWithBlock:^id(BFTask *task) {
-                        
-            if (!self.identityId) {
+        return [[[BFTask taskWithResult:nil] continueWithExecutor:self.executor withBlock:^id(BFTask *task) {
+            self.count++;
+            if (self.count <= 1) {
                 AWSCognitoIdentityGetIdInput *getIdInput = [AWSCognitoIdentityGetIdInput new];
                 getIdInput.accountId = self.accountId;
                 getIdInput.identityPoolId = self.identityPoolId;
                 getIdInput.logins = self.logins;
                 
-                return [[self.cib getId:getIdInput] continueWithBlock:^id(BFTask *task) {
-                    if (task.error) {
-                        AWSLogError(@"GetId failed. Error is [%@]", task.error);
-                    } else {
-                        AWSCognitoIdentityGetIdResponse *getIdResponse = task.result;
-                        self.identityId = getIdResponse.identityId;
-                    }
-                    return nil;
-                }];
+                return [self.cib getId:getIdInput];
             }
-            return nil;
+            else {
+                dispatch_semaphore_wait(self.semaphore, dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC));
+                return nil;
+            }
+        }] continueWithBlock:^id(BFTask *task) {
+            self.count--;
+            dispatch_semaphore_signal(self.semaphore);
+            if (task.error) {
+                AWSLogError(@"GetId failed. Error is [%@]", task.error);
+                return task;
+            } else if (task.result) {
+                AWSCognitoIdentityGetIdResponse *getIdResponse = task.result;
+                self.identityId = getIdResponse.identityId;
+            }
+            return [BFTask taskWithResult:self.identityId];
         }];
     }
 }
 
 - (BFTask *)refresh {
     return [[[self getIdentityId] continueWithSuccessBlock:^id(BFTask *task) {
+        // This should never happen, but just in case
+        if (!self.identityId) {
+            AWSLogError(@"In refresh, but identitId is nil.");
+            AWSLogError(@"Result from getIdentityId is %@", task.result);
+            return [BFTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
+                                                             code:AWSCognitoIdentityProviderErrorIdentityIsNil
+                                                         userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
+                    ];
+        }
+        
         AWSCognitoIdentityGetOpenIdTokenInput *getTokenInput = [AWSCognitoIdentityGetOpenIdTokenInput new];
         getTokenInput.identityId = self.identityId;
         getTokenInput.logins = self.logins;
+        
         
         return [[self.cib getOpenIdToken:getTokenInput] continueWithBlock:^id(BFTask *task) {
             // When an invalid identityId is cached in the keychain for auth,
             // we will refresh the identityId and try to get OpenID token again.
             if (task.error) {
+                AWSLogError(@"GetOpenIdToken failed. Error is [%@]", task.error);
+            
                 // if it's unauth, just fail out
-                if (!self.logins) {
+                if (![self isAuthenticated]) {
                     return task;
                 }
                 
-                AWSLogError(@"GetOpenIdToken failed. Error is [%@]", task.error);
-                AWSLogVerbose(@"Calling GetId");
+                AWSLogVerbose(@"Resetting identity Id and calling getIdentityId");
                 // if it's auth, reset id and refetch
                 self.identityId = nil;
                 return [[self getIdentityId] continueWithSuccessBlock:^id(BFTask *task) {
+                    // This should never happen, but just in case
+                    if (!self.identityId) {
+                        AWSLogError(@"In refresh, but identitId is nil.");
+                        AWSLogError(@"Result from getIdentityId is %@", task.result);
+                        return [BFTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
+                                                                         code:AWSCognitoIdentityProviderErrorIdentityIsNil
+                                                                     userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
+                                ];
+                    }
+                    
                     AWSLogVerbose(@"Retrying GetOpenIdToken");
                     
                     // retry get token
@@ -205,6 +245,15 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
         AWSCognitoIdentityGetOpenIdTokenResponse *getTokenResponse = task.result;
         self.token = getTokenResponse.token;
         NSString *identityIdFromToken = getTokenResponse.identityId;
+        
+        // This should never happen, but just in case
+        if (!identityIdFromToken) {
+            AWSLogError(@"identityId from getOpenIdToken is nil");
+            return [BFTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
+                                                             code:AWSCognitoIdentityProviderErrorIdentityIsNil
+                                                         userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
+                    ];
+        }
         
         if (![self.identityId isEqualToString:identityIdFromToken]) {
             self.identityId = identityIdFromToken;

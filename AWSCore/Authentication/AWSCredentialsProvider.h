@@ -19,7 +19,8 @@
 
 FOUNDATION_EXPORT NSString *const AWSCognitoCredentialsProviderErrorDomain;
 typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
-    AWSCognitoCredentialsProviderErrorUnknown
+    AWSCognitoCredentialsProviderErrorUnknown,
+    AWSCognitoCredentialsProviderIdentityIdIsNil,
 };
 
 @class BFTask;

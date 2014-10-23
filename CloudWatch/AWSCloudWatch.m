@@ -120,25 +120,35 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSCloudWatchRequestRetryHandler
 
 - (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
-                            response:(NSHTTPURLResponse *)response
-                                data:(NSData *)data
-                               error:(NSError *)error {
+                             response:(NSHTTPURLResponse *)response
+                                 data:(NSData *)data
+                                error:(NSError *)error {
     AWSNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
-                                                response:response
-                                                    data:data
-                                                   error:error];
+                                                 response:response
+                                                     data:data
+                                                    error:error];
     if(retryType == AWSNetworkingRetryTypeShouldNotRetry
-       && [error.domain isEqualToString:AWSCloudWatchErrorDomain]
        && currentRetryCount < self.maxRetryCount) {
-        switch (error.code) {
-            case AWSCloudWatchErrorIncompleteSignature:
-            case AWSCloudWatchErrorInvalidClientTokenId:
-            case AWSCloudWatchErrorMissingAuthenticationToken:
-                retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
-                break;
+        if ([error.domain isEqualToString:AWSCloudWatchErrorDomain]) {
+            switch (error.code) {
+                case AWSCloudWatchErrorIncompleteSignature:
+                case AWSCloudWatchErrorInvalidClientTokenId:
+                case AWSCloudWatchErrorMissingAuthenticationToken:
+                    retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
+                    break;
 
-            default:
-                break;
+                default:
+                    break;
+            }
+        } else if ([error.domain isEqualToString:AWSGeneralErrorDomain]) {
+            switch (error.code) {
+                case AWSGeneralErrorSignatureDoesNotMatch:
+                    retryType = AWSNetworkingRetryTypeShouldCorrectClockSkewAndRetry;
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 
@@ -194,7 +204,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
         _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.requestInterceptors = @[[AWSNetworkingRequestInterceptor new], signer];
-        _configuration.retryHandler = [[AWSURLRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
+        _configuration.retryHandler = [[AWSCloudWatchRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
         _configuration.headers = @{@"Host" : _configuration.endpoint.hostName};
 
         _networking = [AWSNetworking networking:_configuration];

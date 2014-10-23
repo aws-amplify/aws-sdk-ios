@@ -110,7 +110,7 @@
             [recordEvent addAttribute:serverInfo forKey:@"serverInfo"];
         }
         
-        [self.eventClient recordEvent:recordEvent andApplyGlobalAttributes:NO];
+        [self.eventClient recordEvent:recordEvent andApplyGlobalAttributes:YES];
     }
 }
 

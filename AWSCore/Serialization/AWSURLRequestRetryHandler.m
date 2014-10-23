@@ -36,7 +36,6 @@
     if (error.code == AWSGeneralErrorRequestTimeTooSkewed
         || error.code == AWSGeneralErrorInvalidSignatureException
         || error.code == AWSGeneralErrorRequestExpired
-        || error.code == AWSGeneralErrorSignatureDoesNotMatch
         || error.code == AWSGeneralErrorAuthFailure) {
         return YES;
     }
@@ -59,7 +58,18 @@
 
     if ([error.domain isEqualToString:NSURLErrorDomain]) {
         switch (error.code) {
-            case kCFURLErrorNotConnectedToInternet:
+            case NSURLErrorCancelled:
+            case NSURLErrorBadURL:
+            case NSURLErrorNotConnectedToInternet:
+
+            case NSURLErrorSecureConnectionFailed:
+            case NSURLErrorServerCertificateHasBadDate:
+            case NSURLErrorServerCertificateUntrusted:
+            case NSURLErrorServerCertificateHasUnknownRoot:
+            case NSURLErrorServerCertificateNotYetValid:
+            case NSURLErrorClientCertificateRejected:
+            case NSURLErrorClientCertificateRequired:
+            case NSURLErrorCannotLoadFromNetwork:
                 return AWSNetworkingRetryTypeShouldNotRetry;
 
             default:

@@ -91,7 +91,7 @@ typedef NS_ENUM(NSInteger, AWSS3PresignedURLErrorType) {
 @property (nonatomic, strong) NSString *versionId;
 
 /**
- * (Optional) A standard MIME type describing the format of the object data. only apply when AWSHTTPMethod property is AWSHTTPMethodPUT. Default value is "binary/octet-stream".
+ * (Optional) A standard MIME type describing the format of the object data. only apply when AWSHTTPMethod property is AWSHTTPMethodPUT.
  */
 @property (nonatomic, strong) NSString *contentType;
 

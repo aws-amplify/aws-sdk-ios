@@ -196,6 +196,9 @@ AWSCognitoIdentity *staticCib;
                                                                                                  logins:@{
                                                                                                           @(AWSCognitoLoginProviderKeyFacebook) : _facebookToken
                                                                                                           }];
+    
+    [provider1 clearKeychain];
+    
     __block AWSCognitoCredentialsProvider *provider2 = nil;
     __block NSString *provider1IdentityId = nil;
 

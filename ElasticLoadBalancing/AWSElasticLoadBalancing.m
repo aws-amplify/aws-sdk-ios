@@ -127,25 +127,35 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSElasticLoadBalancingRequestRetryHandler
 
 - (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
-                            response:(NSHTTPURLResponse *)response
-                                data:(NSData *)data
-                               error:(NSError *)error {
+                             response:(NSHTTPURLResponse *)response
+                                 data:(NSData *)data
+                                error:(NSError *)error {
     AWSNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
-                                                response:response
-                                                    data:data
-                                                   error:error];
+                                                 response:response
+                                                     data:data
+                                                    error:error];
     if(retryType == AWSNetworkingRetryTypeShouldNotRetry
-       && [error.domain isEqualToString:AWSElasticLoadBalancingErrorDomain]
        && currentRetryCount < self.maxRetryCount) {
-        switch (error.code) {
-            case AWSElasticLoadBalancingErrorIncompleteSignature:
-            case AWSElasticLoadBalancingErrorInvalidClientTokenId:
-            case AWSElasticLoadBalancingErrorMissingAuthenticationToken:
-                retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
-                break;
+        if ([error.domain isEqualToString:AWSElasticLoadBalancingErrorDomain]) {
+            switch (error.code) {
+                case AWSElasticLoadBalancingErrorIncompleteSignature:
+                case AWSElasticLoadBalancingErrorInvalidClientTokenId:
+                case AWSElasticLoadBalancingErrorMissingAuthenticationToken:
+                    retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
+                    break;
 
-            default:
-                break;
+                default:
+                    break;
+            }
+        } else if ([error.domain isEqualToString:AWSGeneralErrorDomain]) {
+            switch (error.code) {
+                case AWSGeneralErrorSignatureDoesNotMatch:
+                    retryType = AWSNetworkingRetryTypeShouldCorrectClockSkewAndRetry;
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 

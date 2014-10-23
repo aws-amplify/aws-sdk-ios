@@ -17,6 +17,7 @@
 #import "AWSCategory.h"
 #import "AWSSignature.h"
 #import "AWSLogging.h"
+#import "Bolts.h"
 
 NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURLErrorDomain";
 
@@ -94,6 +95,16 @@ NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURL
                                                      userInfo:@{NSLocalizedDescriptionKey: @"credentialProvider in configuration can not be nil"}]
                 ];
     }
+        
+    //validate expiration date if using temporary token and refresh it if condition met
+    if ([credentialProvider respondsToSelector:@selector(expiration)]) {
+        if ([credentialProvider respondsToSelector:@selector(refresh)]) {
+            if ([credentialProvider.expiration timeIntervalSinceNow] < getPreSignedURLRequest.minimumCredentialsExpirationInterval) {
+                //need to refresh temp credential
+                [[credentialProvider refresh] waitUntilFinished];
+            }
+        }
+    }
 
     //validate accessKey
     if ([credentialProvider respondsToSelector:@selector(accessKey)] && [credentialProvider.accessKey length] > 0) {
@@ -160,15 +171,6 @@ NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURL
             break;
     }
 
-    //validate expiration date if using temporary token
-    if ([credentialProvider respondsToSelector:@selector(expiration)]) {
-        if ([credentialProvider respondsToSelector:@selector(refresh)]) {
-            if ([credentialProvider.expiration timeIntervalSinceNow] < getPreSignedURLRequest.minimumCredentialsExpirationInterval) {
-                //need to refresh temp credential
-                [[credentialProvider refresh] waitUntilFinished];
-            }
-        }
-    }
     
     //generate baseURL String (use virtualHostStyle if possible)
     NSString *keyPath = nil;
@@ -242,7 +244,7 @@ NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURL
         }
     }
     else {
-        canonicalizedResource = [NSString stringWithFormat:@"/%@/%@", bucketName, [keyName aws_stringWithURLEncoding]];
+        canonicalizedResource = [NSString stringWithFormat:@"/%@/%@", bucketName, [keyName aws_stringWithURLEncodingPath]];
     }
 
     NSString *stringToSign = [NSString stringWithFormat:@"%@\n%@\n%@\n%d\n%@%@",

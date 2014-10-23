@@ -494,21 +494,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 @end
 
-@implementation AWSS3Delete
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"objects" : @"Objects",
-             @"quiet" : @"Quiet",
-             };
-}
-
-+ (NSValueTransformer *)objectsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSS3ObjectIdentifier class]];
-}
-
-@end
-
 @implementation AWSS3DeleteBucketCorsRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -643,13 +628,13 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"bucket" : @"Bucket",
-             @"delete" : @"Delete",
              @"MFA" : @"MFA",
+             @"remove" : @"Delete",
              };
 }
 
-+ (NSValueTransformer *)deleteJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSS3Delete class]];
++ (NSValueTransformer *)removeJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSS3Remove class]];
 }
 
 @end
@@ -2591,6 +2576,21 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSS3Remove
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"objects" : @"Objects",
+             @"quiet" : @"Quiet",
+             };
+}
+
++ (NSValueTransformer *)objectsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSS3ObjectIdentifier class]];
 }
 
 @end

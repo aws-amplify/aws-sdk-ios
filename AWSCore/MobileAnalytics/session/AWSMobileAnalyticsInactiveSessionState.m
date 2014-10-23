@@ -26,9 +26,6 @@
 }
 
 -(void)pauseWithSessionClient:(AWSMobileAnalyticsDefaultSessionClient *)sessionClient{
-    id<AWSMobileAnalyticsInternalEvent> pauseEvent = [sessionClient.eventClient createInternalEvent:AWSSessionPauseEventType];
-    [sessionClient.eventClient recordEvent:pauseEvent andApplyGlobalAttributes:YES];
-    
     AWSLogVerbose( @"Session Pause Failed: No session is running.");
 }
 

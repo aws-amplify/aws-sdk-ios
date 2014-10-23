@@ -47,8 +47,6 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
 
 @interface AWSS3TransferManagerDownloadRequest ()
 
-@property (nonatomic, strong) NSURL *temporaryFileURL;
-@property (nonatomic, strong) NSURL *originalFileURL;
 @property (nonatomic, assign) AWSS3TransferManagerRequestState state;
 @property (nonatomic, strong) NSString *cacheIdentifier;
 
@@ -173,6 +171,8 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
                 return [BFTask taskWithError:task.error];
             }
         } else {
+            [uploadRequest setValue:[NSNumber numberWithInteger:AWSS3TransferManagerRequestStateCompleted]
+                             forKey:@"state"];
             return [BFTask taskWithResult:task.result];
         }
     }];
@@ -191,7 +191,7 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
         
         //delete cached Object if state is not Paused
         if (uploadRequest.state != AWSS3TransferManagerRequestStatePaused) {
-            [self removeObjectForKey:cacheKey removeTempFile:YES];
+            [self.cache removeObjectForKey:cacheKey];
         }
         if (task.error) {
             return [BFTask taskWithError:task.error];
@@ -367,7 +367,7 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
         
         //delete cached Object if state is not Paused
         if (uploadRequest.state != AWSS3TransferManagerRequestStatePaused) {
-            [self removeObjectForKey:cacheKey removeTempFile:YES];
+            [self.cache removeObjectForKey:cacheKey];
         }
         
         if (uploadRequest.state == AWSS3TransferManagerRequestStateCanceling) {
@@ -423,13 +423,10 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
     } else if (downloadRequest.state == AWSS3TransferManagerRequestStateCanceling){
         NSDictionary *userInfo = @{NSLocalizedDescriptionKey: [NSString stringWithFormat:NSLocalizedString(@"can not continue to download a cancelled task.", nil)]};
         return [BFTask taskWithError:[NSError errorWithDomain:AWSS3TransferManagerErrorDomain code:AWSS3TransferManagerErrorCancelled userInfo:userInfo]];
-    } else {
-        //change state to running
-        [downloadRequest setValue:[NSNumber numberWithInteger:AWSS3TransferManagerRequestStateRunning] forKey:@"state"];
     }
     
-    //Generate a new tempFileURL if it is a new request.∫
-    if ([downloadRequest valueForKey:@"temporaryFileURL"] == nil) {
+    //if it is a new request.
+    if (downloadRequest.state != AWSS3TransferManagerRequestStatePaused) {
         
         //If downloadFileURL is nil, create a URL in temporary folder for user.
         if (downloadRequest.downloadingFileURL == nil) {
@@ -458,22 +455,14 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
             }
             
             downloadRequest.downloadingFileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:generatedfileName]];
+        } else {
+            //if file already existed, remove it to avoid received data has been appended to exist file.
+            [[NSFileManager defaultManager] removeItemAtURL:downloadRequest.downloadingFileURL error:nil];
         }
         
-        //create a tempFileURL
-        NSString *tempFileName = [[downloadRequest.downloadingFileURL lastPathComponent] stringByAppendingString:cacheKey];
-        NSURL *tempFileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:tempFileName]];
-        
-        //save current downloadFileURL
-        [downloadRequest setValue:downloadRequest.downloadingFileURL forKey:@"originalFileURL"];
-        
-        //save the tempFileURL
-        [downloadRequest setValue:tempFileURL forKey:@"temporaryFileURL"];
-        //set the downloadURL to use this tempURL instead.
-        downloadRequest.downloadingFileURL = tempFileURL;
     } else {
         //if the is a paused task, set the range
-        NSURL *tempFileURL = [downloadRequest valueForKey:@"temporaryFileURL"];
+        NSURL *tempFileURL = downloadRequest.downloadingFileURL;
         if (tempFileURL) {
             if ([[NSFileManager defaultManager] fileExistsAtPath:tempFileURL.path] == NO) {
                 AWSLogError(@"tempfile is not exist, unable to resume");
@@ -490,6 +479,9 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
             
         }
     }
+    
+    //change state to running
+    [downloadRequest setValue:[NSNumber numberWithInteger:AWSS3TransferManagerRequestStateRunning] forKey:@"state"];
     
     //set shouldWriteDirectly to YES
     [downloadRequest setValue:@YES forKey:@"shouldWriteDirectly"];
@@ -512,45 +504,20 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
     [getObjectRequest aws_copyPropertiesFromObject:downloadRequest];
     
     BFTask *downloadTask = [[[self.s3 getObject:getObjectRequest] continueWithBlock:^id(BFTask *task) {
-        NSURL *tempFileURL = [downloadRequest valueForKey:@"temporaryFileURL"];
-        NSURL *originalFileURL = [downloadRequest valueForKey:@"originalFileURL"];
-        
-        if (task.error) {
-            //download got error, check if tempFile has been created.
-            if ([[NSFileManager defaultManager] fileExistsAtPath:tempFileURL.path]) {
-                AWSLogDebug(@"tempFile has not been created yet.");
-            }
-            
-            if (downloadRequest.state != AWSS3TransferManagerRequestStatePaused) {
-                [self removeObjectForKey:cacheKey removeTempFile:YES];
-            }
-            
-            return [BFTask taskWithError:task.error];
-        }
-        
-        //If task complete without error, move the completed file to originalFileURL
-        if (tempFileURL && originalFileURL) {
-            NSError *error = nil;
-            [[NSFileManager defaultManager] moveItemAtURL:tempFileURL
-                                                    toURL:originalFileURL
-                                                    error:&error];
-            if (error) {
-                //got error when try to move completed file.
-                return [BFTask taskWithError:error];
-            }
-        }
         
         //delete cached Object if state is not Paused
         if (downloadRequest.state != AWSS3TransferManagerRequestStatePaused) {
-            [self removeObjectForKey:cacheKey removeTempFile:YES];
+            [self.cache removeObjectForKey:cacheKey];
+        }
+        
+        if (task.error) {
+            
+            return [BFTask taskWithError:task.error];
         }
         
         AWSS3TransferManagerDownloadOutput *downloadOutput = [AWSS3TransferManagerDownloadOutput new];
         if (task.result) {
             AWSS3GetObjectOutput *getObjectOutput = task.result;
-            
-            //set the body to originalFileURL
-            getObjectOutput.body = [downloadRequest valueForKey:@"originalFileURL"];
             
             [downloadOutput aws_copyPropertiesFromObject:getObjectOutput];
         }
@@ -649,7 +616,7 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
         }
         
         //remove Resumed Object
-        [self removeObjectForKey:key removeTempFile:NO];
+        [self.cache removeObjectForKey:key];
     }
     
     return [[BFTask taskForCompletionOfAllTasks:tasks] continueWithBlock:^id(BFTask *task) {
@@ -663,57 +630,12 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
 
 - (BFTask *)clearCache {
     BFTaskCompletionSource *taskCompletionSource = [BFTaskCompletionSource new];
-
-    __block NSMutableArray* allKeys = [NSMutableArray new];
-    TMDiskCacheObjectBlock iterateObjectBlock = ^(TMDiskCache *cache, NSString *key, id <NSCoding> object, NSURL *fileURL){
-        [allKeys addObject:key];
-    };
-    [self.cache.diskCache enumerateObjectsWithBlock:iterateObjectBlock];
-    
-    for(id key in allKeys){
-        [self removeObjectForKey:key removeTempFile:YES];
-    }
+    [self.cache removeAllObjects:^(TMCache *cache) {
+        taskCompletionSource.result = nil;
+    }];
     
     return taskCompletionSource.task;
 }
-
-- (void)setDiskByteLimit:(NSUInteger)limit {
-    [self.cache.diskCache setByteLimit:limit];
-}
-
-- (void)setDiskAgeLimit:(NSTimeInterval)limit {
-    [self.cache.diskCache setAgeLimit:limit];
-}
-
--(void) removeObjectForKey:(NSString *)key removeTempFile:(BOOL)flag {
-    TMDiskCacheObjectBlock willDeleteObjectBlock = ^(TMDiskCache *cache, NSString *key, id <NSCoding> object, NSURL *fileURL){
-        id <NSCoding> theObject = nil;
-        if ([[NSFileManager defaultManager] fileExistsAtPath:[fileURL path]]) {
-            theObject = [NSKeyedUnarchiver unarchiveObjectWithFile:[fileURL path]];
-        }
-        id deleteObject = theObject;
-        if(deleteObject!=nil && [deleteObject isKindOfClass:[ AWSS3TransferManagerDownloadRequest class]]){
-            NSURL *tempFileURL = [deleteObject valueForKey:@"temporaryFileURL"];
-            if(tempFileURL){
-                NSError *error = nil;
-                if(tempFileURL != nil && [[NSFileManager defaultManager] fileExistsAtPath:[tempFileURL path]]){
-                    [[NSFileManager defaultManager] removeItemAtPath: [tempFileURL path] error: &error];
-                }
-            }
-        }
-    };
-    
-    if(flag){
-        [self.cache.diskCache setWillRemoveObjectBlock: willDeleteObjectBlock];
-    }
-    else{
-        [self.cache.diskCache setWillRemoveObjectBlock: nil];
-    }
-    
-    [self.cache removeObjectForKey:key];
-}
-
-
 
 - (void)abortMultipartUploadsForRequest:(AWSS3TransferManagerUploadRequest *)uploadRequest{
     AWSS3AbortMultipartUploadRequest *abortMultipartUploadRequest = [AWSS3AbortMultipartUploadRequest new];
@@ -734,6 +656,14 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
 @end
 
 @implementation AWSS3TransferManagerUploadRequest
+
+- (instancetype)init {
+    if (self = [super init]) {
+        _state = AWSS3TransferManagerRequestStateNotStarted;
+    }
+    
+    return self;
+}
 
 - (BFTask *)cancel {
     if (self.state != AWSS3TransferManagerRequestStateCompleted) {
@@ -794,6 +724,14 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
 @end
 
 @implementation AWSS3TransferManagerDownloadRequest
+
+- (instancetype)init {
+    if (self = [super init]) {
+        _state = AWSS3TransferManagerRequestStateNotStarted;
+    }
+    
+    return self;
+}
 
 - (BFTask *)cancel {
     if (self.state != AWSS3TransferManagerRequestStateCompleted) {

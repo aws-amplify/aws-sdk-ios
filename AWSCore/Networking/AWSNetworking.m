@@ -15,12 +15,13 @@
 
 #import "AWSNetworking.h"
 #import <UIKit/UIKit.h>
+#import "Bolts.h"
 #import "AWSCategory.h"
 #import "AWSModel.h"
 #import "AWSURLSessionManager.h"
 
 NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDomain";
-NSString *const AWSiOSSDKVersion = @"2.0.8";
+NSString *const AWSiOSSDKVersion = @"2.0.9";
 
 #pragma mark - AWSHTTPMethod
 

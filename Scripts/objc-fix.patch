@@ -1,11 +1,5 @@
-commit 8041eb00578676832b15bc3cf2a130db93fc05ab
-Author: Yosuke Matsuda <matsuday@amazon.com>
-Date:   Fri Sep 12 16:04:56 2014 -0700
-
-    New
-
 diff --git a/AWSCore/Utility/AWSCategory.m b/AWSCore/Utility/AWSCategory.m
-index 1b24179..dd0a53a 100644
+index b90afee..7ff2a12 100644
 --- a/AWSCore/Utility/AWSCategory.m
 +++ b/AWSCore/Utility/AWSCategory.m
 @@ -16,6 +16,8 @@
@@ -39,9 +33,9 @@ index 1b24179..dd0a53a 100644
 +
 +@end
 +
- @implementation NSData (AWS)
+ @implementation NSDate (AWS)
  
- static char base64EncodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+ static NSTimeInterval _clockskew = 0.0;
 diff --git a/Pods/GZIP/GZIP/GZIP.h b/Pods/GZIP/GZIP/GZIP.h
 index e1f5d78..426e6c8 100644
 --- a/Pods/GZIP/GZIP/GZIP.h

@@ -461,7 +461,9 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
 
     NSMutableDictionary *rootXmlDictionary = nil;
     if ([data isKindOfClass:[NSData class]]) {
-        rootXmlDictionary = [[self.xmlDictionaryParser dictionaryWithData:data] mutableCopy]; //TODO: need error parameters for parsing
+        @synchronized (self) {
+            rootXmlDictionary = [[self.xmlDictionaryParser dictionaryWithData:data] mutableCopy]; //TODO: need error parameters for parsing
+        }
     }
 
     NSString *rootNodeName = [[rootXmlDictionary allKeys] firstObject];
@@ -606,12 +608,14 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
     __block NSError *blockErr = nil;
     [structure enumerateKeysAndObjectsUsingBlock:^(NSString *xmlName, id value, BOOL *stop) {
         if ([xmlName isEqualToString:@"$"]) {
-            //TODO: do something
         } else {
             NSString *keyName = [self findKeyNameByXMLName:xmlName rules:rules];
             if (!keyName) {
-                if (![xmlName isEqualToString:@"_xmlns"] && ![xmlName isEqualToString:@"requestId"]) {
-                    AWSLogWarn(@"Can not find the xmlName:%@ in definition to serialize xml data: %@", xmlName, [value description]);
+                if (![xmlName isEqualToString:@"_xmlns"] &&
+                    ![xmlName isEqualToString:@"requestId"] &&
+                    ![xmlName isEqualToString:@"ResponseMetadata"] &&
+                    ![xmlName isEqualToString:@"__text"]) {
+                    AWSLogWarn(@"Response element ignored: no rule for %@ - %@", xmlName, [value description]);
                 }
 
                 /*[self failWithCode:AWSXMLParserXMLNameNotFoundInDefinition

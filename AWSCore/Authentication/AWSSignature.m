@@ -22,6 +22,7 @@
 #import "AWSService.h"
 #import "AWSCredentialsProvider.h"
 #import "AWSLogging.h"
+#import "Bolts.h"
 
 NSString *const AWSSigV4Marker = @"AWS4";
 NSString *const AWSSigV4Algorithm = @"AWS4-HMAC-SHA256";
