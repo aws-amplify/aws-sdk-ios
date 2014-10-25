@@ -1,5 +1,5 @@
 diff --git a/AWSCore/Utility/AWSCategory.m b/AWSCore/Utility/AWSCategory.m
-index b90afee..7ff2a12 100644
+index b90afee..e68ae2c 100644
 --- a/AWSCore/Utility/AWSCategory.m
 +++ b/AWSCore/Utility/AWSCategory.m
 @@ -16,6 +16,8 @@
@@ -11,7 +11,7 @@ index b90afee..7ff2a12 100644
  
  NSString *const AWSDateRFC822DateFormat1 = @"EEE, dd MMM yyyy HH:mm:ss z";
  NSString *const AWSDateISO8601DateFormat1 = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
-@@ -23,6 +25,24 @@ NSString *const AWSDateISO8601DateFormat2 = @"yyyyMMdd'T'HHmmss'Z'";
+@@ -23,6 +25,25 @@ NSString *const AWSDateISO8601DateFormat2 = @"yyyyMMdd'T'HHmmss'Z'";
  NSString *const AWSDateISO8601DateFormat3 = @"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
  NSString *const AWSDateShortDateFormat1 = @"yyyyMMdd";
  
@@ -28,6 +28,7 @@ index b90afee..7ff2a12 100644
 +    dispatch_once(&onceToken, ^{
 +        aws_loadGZIP();
 +        aws_loadMTLPredefinedTransformerAdditions();
++        aws_loadMTLNSCoding();
 +    });
 +}
 +
@@ -60,6 +61,33 @@ index ca9cbfd..bd69bf1 100644
 +}
  
  static const NSUInteger ChunkSize = 16384;
+ 
+diff --git a/Pods/Mantle/Mantle/MTLModel+NSCoding.h b/Pods/Mantle/Mantle/MTLModel+NSCoding.h
+index 94b8f7b..9d88359 100644
+--- a/Pods/Mantle/Mantle/MTLModel+NSCoding.h
++++ b/Pods/Mantle/Mantle/MTLModel+NSCoding.h
+@@ -8,6 +8,8 @@
+ 
+ #import "MTLModel.h"
+ 
++void aws_loadMTLNSCoding();
++
+ // Defines how a MTLModel property key should be encoded into an archive.
+ //
+ // MTLModelEncodingBehaviorExcluded      - The property should never be encoded.
+diff --git a/Pods/Mantle/Mantle/MTLModel+NSCoding.m b/Pods/Mantle/Mantle/MTLModel+NSCoding.m
+index 852f5ae..fd4f373 100644
+--- a/Pods/Mantle/Mantle/MTLModel+NSCoding.m
++++ b/Pods/Mantle/Mantle/MTLModel+NSCoding.m
+@@ -12,6 +12,9 @@
+ #import "MTLReflection.h"
+ #import <objc/runtime.h>
+ 
++void aws_loadMTLNSCoding(){
++}
++
+ // Used in archives to store the modelVersion of the archived instance.
+ static NSString * const MTLModelVersionKey = @"MTLModelVersion";
  
 diff --git a/Pods/Mantle/Mantle/NSValueTransformer+MTLPredefinedTransformerAdditions.h b/Pods/Mantle/Mantle/NSValueTransformer+MTLPredefinedTransformerAdditions.h
 index 3054ed5..aa9c9e6 100644

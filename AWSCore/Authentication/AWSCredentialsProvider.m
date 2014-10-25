@@ -21,11 +21,11 @@
 
 NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCognitoCredentialsProviderErrorDomain";
 
-NSString *const AWSCredentialsProviderKeychainAccessKeyId = @"AccessKeyId";
-NSString *const AWSCredentialsProviderKeychainSecretAccessKey = @"SecretAccessKey";
-NSString *const AWSCredentialsProviderKeychainSessionToken = @"SessionToken";
-NSString *const AWSCredentialsProviderKeychainExpiration = @"Expiration";
-NSString *const AWSCredentialsProviderKeychainIdentityId = @"IdentityId";
+NSString *const AWSCredentialsProviderKeychainAccessKeyId = @"accessKey";
+NSString *const AWSCredentialsProviderKeychainSecretAccessKey = @"secretKey";
+NSString *const AWSCredentialsProviderKeychainSessionToken = @"sessionKey";
+NSString *const AWSCredentialsProviderKeychainExpiration = @"expiration";
+NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 
 @interface AWSStaticCredentialsProvider()
 
@@ -75,10 +75,18 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"IdentityId";
 
 @property (nonatomic, strong) AWSSTS *sts;
 @property (nonatomic, strong) UICKeyChainStore *keychain;
+@property (nonatomic, strong) NSString *accessKey;
+@property (nonatomic, strong) NSString *secretKey;
+@property (nonatomic, strong) NSString *sessionKey;
+@property (nonatomic, strong) NSDate *expiration;
 
 @end
 
 @implementation AWSWebIdentityCredentialsProvider
+@synthesize accessKey=_accessKey;
+@synthesize secretKey=_secretKey;
+@synthesize sessionKey=_sessionKey;
+@synthesize expiration=_expiration;
 
 + (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
                                providerId:(NSString *)providerId
@@ -127,19 +135,19 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"IdentityId";
         if (task.result) {
             AWSSTSAssumeRoleWithWebIdentityResponse *wifResponse = task.result;
             @synchronized(self) {
-                self.keychain[AWSCredentialsProviderKeychainAccessKeyId] = wifResponse.credentials.accessKeyId;
-                self.keychain[AWSCredentialsProviderKeychainSecretAccessKey] = wifResponse.credentials.secretAccessKey;
-                self.keychain[AWSCredentialsProviderKeychainSessionToken] = wifResponse.credentials.sessionToken;
-                self.keychain[AWSCredentialsProviderKeychainExpiration] = [NSString stringWithFormat:@"%f", [wifResponse.credentials.expiration timeIntervalSince1970]];
+                self.accessKey = wifResponse.credentials.accessKeyId;
+                self.secretKey = wifResponse.credentials.secretAccessKey;
+                self.sessionKey = wifResponse.credentials.sessionToken;
+                self.expiration = wifResponse.credentials.expiration;
                 [self.keychain synchronize];
             }
         } else {
             // reset the values for the credentials
             @synchronized(self) {
-                self.keychain[AWSCredentialsProviderKeychainAccessKeyId] = nil;
-                self.keychain[AWSCredentialsProviderKeychainSecretAccessKey] = nil;
-                self.keychain[AWSCredentialsProviderKeychainSessionToken] = nil;
-                self.keychain[AWSCredentialsProviderKeychainExpiration] = nil;
+                self.accessKey = nil;
+                self.secretKey = nil;
+                self.sessionKey = nil;
+                self.expiration = nil;
                 [self.keychain synchronize];
             }
         }
@@ -150,32 +158,76 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"IdentityId";
 
 - (NSString *)accessKey {
     @synchronized(self) {
-        return [self.keychain stringForKey:AWSCredentialsProviderKeychainAccessKeyId];
+        if (!_accessKey) {
+            _accessKey = self.keychain[AWSCredentialsProviderKeychainAccessKeyId];
+        }
+        return _accessKey;
     }
 }
 
 - (NSString *)secretKey {
     @synchronized(self) {
-        return [self.keychain stringForKey:AWSCredentialsProviderKeychainSecretAccessKey];
+        if (!_secretKey) {
+            _secretKey = self.keychain[AWSCredentialsProviderKeychainSecretAccessKey];
+        }
+        return _secretKey;
     }
 }
 
 - (NSString *)sessionKey {
     @synchronized(self) {
-        return [self.keychain stringForKey:AWSCredentialsProviderKeychainSessionToken];
+        if (!_sessionKey) {
+            _sessionKey = self.keychain[AWSCredentialsProviderKeychainSessionToken];
+        }
+        return _sessionKey;
     }
 }
 
 - (NSDate *)expiration {
     @synchronized(self) {
-        NSString *expirationString = [self.keychain stringForKey:AWSCredentialsProviderKeychainExpiration];
-        if (expirationString) {
-            return [NSDate dateWithTimeIntervalSince1970:[expirationString doubleValue]];
-        } else {
-            return nil;
+        if (!_expiration) {
+            NSString *expirationString = self.keychain[AWSCredentialsProviderKeychainExpiration];
+            if (expirationString) {
+                _expiration = [NSDate dateWithTimeIntervalSince1970:[expirationString doubleValue]];
+            }
+        }
+        return _expiration;
+    }
+}
+
+- (void)setAccessKey:(NSString *)accessKey {
+    @synchronized(self) {
+        _accessKey = accessKey;
+        self.keychain[AWSCredentialsProviderKeychainAccessKeyId] = accessKey;
+    }
+}
+
+- (void) setSecretKey:(NSString *)secretKey {
+    @synchronized(self) {
+        _secretKey = secretKey;
+        self.keychain[AWSCredentialsProviderKeychainSecretAccessKey] = secretKey;
+    }
+}
+
+- (void) setSessionKey:(NSString *)sessionKey {
+    @synchronized(self) {
+        _sessionKey = sessionKey;
+        self.keychain[AWSCredentialsProviderKeychainSessionToken] = sessionKey;
+    }
+}
+
+- (void) setExpiration:(NSDate *)expiration {
+    @synchronized(self) {
+        _expiration = expiration;
+        if (expiration) {
+            self.keychain[AWSCredentialsProviderKeychainExpiration] = [NSString stringWithFormat:@"%f", [expiration timeIntervalSince1970]];
+        }
+        else {
+            self.keychain[AWSCredentialsProviderKeychainExpiration] = nil;
         }
     }
 }
+
 
 @end
 
@@ -188,10 +240,21 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"IdentityId";
 @property (nonatomic, strong) BFExecutor *refreshExecutor;
 @property (atomic, assign) int32_t count;
 @property (nonatomic, strong) dispatch_semaphore_t semaphore;
+@property (nonatomic, strong) NSString *identityId;
+@property (nonatomic, strong) NSString *accessKey;
+@property (nonatomic, strong) NSString *secretKey;
+@property (nonatomic, strong) NSString *sessionKey;
+@property (nonatomic, strong) NSDate *expiration;
 
 @end
 
 @implementation AWSCognitoCredentialsProvider
+
+@synthesize identityId=_identityId;
+@synthesize accessKey=_accessKey;
+@synthesize secretKey=_secretKey;
+@synthesize sessionKey=_sessionKey;
+@synthesize expiration=_expiration;
 
 + (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
                                 accountId:(NSString *)accountId
@@ -328,7 +391,7 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"IdentityId";
                             ];
                 }
                 
-                self.keychain[AWSCredentialsProviderKeychainIdentityId] = self.identityProvider.identityId;
+                self.identityId = self.identityProvider.identityId;
                 [self.keychain synchronize];
 
                 NSString *roleArn = self.unAuthRoleArn;
@@ -344,10 +407,10 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"IdentityId";
                     if (task.result) {
                         AWSSTSAssumeRoleWithWebIdentityResponse *webIdentityResponse = task.result;
                         @synchronized(self) {
-                            self.keychain[AWSCredentialsProviderKeychainAccessKeyId] = webIdentityResponse.credentials.accessKeyId;
-                            self.keychain[AWSCredentialsProviderKeychainSecretAccessKey] = webIdentityResponse.credentials.secretAccessKey;
-                            self.keychain[AWSCredentialsProviderKeychainSessionToken] = webIdentityResponse.credentials.sessionToken;
-                            self.keychain[AWSCredentialsProviderKeychainExpiration] = [NSString stringWithFormat:@"%f", [webIdentityResponse.credentials.expiration timeIntervalSince1970]];
+                            self.accessKey = webIdentityResponse.credentials.accessKeyId;
+                            self.secretKey = webIdentityResponse.credentials.secretAccessKey;
+                            self.sessionKey = webIdentityResponse.credentials.sessionToken;
+                            self.expiration = webIdentityResponse.credentials.expiration;
                             [self.keychain synchronize];
                         }
                     } else {
@@ -385,7 +448,7 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"IdentityId";
                                                          userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
                     ];
         }
-        self.keychain[AWSCredentialsProviderKeychainIdentityId] = self.identityProvider.identityId;
+        self.identityId = self.identityProvider.identityId;
         [self.keychain synchronize];
         return task;
     }];
@@ -394,52 +457,105 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"IdentityId";
 - (void)clearKeychain {
     @synchronized(self) {
         [self.identityProvider clear];
-        self.keychain[AWSCredentialsProviderKeychainIdentityId] = nil;
+        self.identityId = nil;
         [self clearCredentials];
     }
 }
 
 - (void)clearCredentials {
     @synchronized(self) {
-        self.keychain[AWSCredentialsProviderKeychainAccessKeyId] = nil;
-        self.keychain[AWSCredentialsProviderKeychainSecretAccessKey] = nil;
-        self.keychain[AWSCredentialsProviderKeychainSessionToken] = nil;
-        self.keychain[AWSCredentialsProviderKeychainExpiration] = nil;
+        self.accessKey = nil;
+        self.secretKey = nil;
+        self.sessionKey = nil;
+        self.expiration = nil;
         [self.keychain synchronize];
     }
 }
 
 - (NSString *)identityId {
     @synchronized(self) {
-        return [self.keychain stringForKey:AWSCredentialsProviderKeychainIdentityId];
+        if (!_identityId) {
+            _identityId = [self.keychain stringForKey:AWSCredentialsProviderKeychainIdentityId];
+        }
+        return _identityId;
     }
 }
 
 - (NSString *)accessKey {
     @synchronized(self) {
-        return self.keychain[AWSCredentialsProviderKeychainAccessKeyId];
+        if (!_accessKey) {
+            _accessKey = self.keychain[AWSCredentialsProviderKeychainAccessKeyId];
+        }
+        return _accessKey;
     }
 }
 
 - (NSString *)secretKey {
     @synchronized(self) {
-        return self.keychain[AWSCredentialsProviderKeychainSecretAccessKey];
+        if (!_secretKey) {
+            _secretKey = self.keychain[AWSCredentialsProviderKeychainSecretAccessKey];
+        }
+        return _secretKey;
     }
 }
 
 - (NSString *)sessionKey {
     @synchronized(self) {
-        return self.keychain[AWSCredentialsProviderKeychainSessionToken];
+        if (!_sessionKey) {
+            _sessionKey = self.keychain[AWSCredentialsProviderKeychainSessionToken];
+        }
+        return _sessionKey;
     }
 }
 
 - (NSDate *)expiration {
     @synchronized(self) {
-        NSString *expirationString = self.keychain[AWSCredentialsProviderKeychainExpiration];
-        if (expirationString) {
-            return [NSDate dateWithTimeIntervalSince1970:[expirationString doubleValue]];
-        } else {
-            return nil;
+        if (!_expiration) {
+            NSString *expirationString = self.keychain[AWSCredentialsProviderKeychainExpiration];
+            if (expirationString) {
+                _expiration = [NSDate dateWithTimeIntervalSince1970:[expirationString doubleValue]];
+            }
+        }
+        return _expiration;
+    }
+}
+
+- (void)setIdentityId:(NSString *)identityId {
+    @synchronized(self) {
+        _identityId = identityId;
+        self.keychain[AWSCredentialsProviderKeychainIdentityId] = identityId;
+    }
+}
+
+- (void)setAccessKey:(NSString *)accessKey {
+    @synchronized(self) {
+        _accessKey = accessKey;
+        self.keychain[AWSCredentialsProviderKeychainAccessKeyId] = accessKey;
+    }
+}
+
+- (void) setSecretKey:(NSString *)secretKey {
+    @synchronized(self) {
+        _secretKey = secretKey;
+        self.keychain[AWSCredentialsProviderKeychainSecretAccessKey] = secretKey;
+    }
+}
+
+- (void) setSessionKey:(NSString *)sessionKey {
+    @synchronized(self) {
+        _sessionKey = sessionKey;
+        self.keychain[AWSCredentialsProviderKeychainSessionToken] = sessionKey;
+    }
+}
+
+- (void) setExpiration:(NSDate *)expiration {
+    @synchronized(self) {
+        _expiration = expiration;
+        if (expiration) {
+            self.keychain[AWSCredentialsProviderKeychainExpiration] = [NSString stringWithFormat:@"%f", [expiration timeIntervalSince1970]];
+        }
+        else {
+            self.keychain[AWSCredentialsProviderKeychainExpiration] = nil;
         }
     }
 }
