@@ -16,9 +16,16 @@
 #import <Foundation/Foundation.h>
 #import "../core/AWSMobileAnalyticsContext.h"
 
+FOUNDATION_EXPORT NSString *const AWSMobileAnalyticsSessionIDDateFormat;
+FOUNDATION_EXPORT NSString *const AWSMobileAnalyticsSessionIDTimeFormat;
+FOUNDATION_EXPORT char const AWSMobileAnalyticsSessionIDDelimiter;
+FOUNDATION_EXPORT char const AWSMobileAnalyticsSessionIDPadChar;
+FOUNDATION_EXPORT NSUInteger const AWSMobileAnalyticsSessionIDAppKeyLength;
+FOUNDATION_EXPORT NSUInteger const AWSMobileAnalyticsSessionIDUniqIDLength;
+
 /**
  * An Immutable Session Object
- 
+
  * Represents a developer-defined session in the Mobile Analytics SDK.
  *
  * Is (presently) only used by the Default Session Client [AWSMobileAnalyticsDefaultSessionClient]
@@ -29,27 +36,18 @@
  */
 @interface AWSMobileAnalyticsSession : NSObject
 
-@property (nonatomic, strong, readonly) NSDate*   startTime;
-@property (nonatomic, strong, readonly) NSDate*   stopTime;
-@property (nonatomic, strong, readonly) NSString* sessionId;
-
-//- Static Constant Getters -------------- -\\ -
-+ (NSString *) SESSION_ID_DATE_FORMAT;
-+ (NSString *) SESSION_ID_TIME_FORMAT;
-+ (char)       SESSION_ID_DELIMITER;
-+ (char)       SESSION_ID_PAD_CHAR;
-+ (unsigned int) SESSION_ID_APP_KEY_LENGTH;
-+ (unsigned int) SESSION_ID_UNIQ_ID_LENGTH;
-//---------------------------------------- -// -
+@property (nonatomic, strong, readonly) NSDate *startTime;
+@property (nonatomic, strong, readonly) NSDate *stopTime;
+@property (nonatomic, strong, readonly) NSString *sessionId;
 
 /**
- * Static Constructor
- *
  * Requires Insights context for unique session id generation.
  */
-+ (id) sessionWithContext: (id<AWSMobileAnalyticsContext>) context;
+- (instancetype)initWithContext:(id <AWSMobileAnalyticsContext>)context;
 
-+ (id) sessionWithSessionId:(NSString *)sessionId withStartTime:(NSDate*)startTime withStopTime:(NSDate*)stopTime;
+- (instancetype)initWithSessionId:(NSString *)sessionId
+                    withStartTime:(NSDate *)startTime
+                     withStopTime:(NSDate *)stopTime;
 
 /**
  *
@@ -59,12 +57,12 @@
 /**
  *
  */
-- (void) stop;
+- (void)stop;
 
-- (BOOL) isPaused;
+- (BOOL)isPaused;
 
-- (void) pause;
+- (void)pause;
 
-- (void) resume;
+- (void)resume;
 
 @end

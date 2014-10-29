@@ -19,37 +19,38 @@
 #import "AWSMobileAnalyticsEventObserver.h"
 
 @protocol AWSMobileAnalyticsInternalEventClient <AWSMobileAnalyticsEventClient>
--(id<AWSMobileAnalyticsInternalEvent>) createInternalEvent:(NSString*) theEventType;
 
--(void)          recordEvent:(id<AWSMobileAnalyticsEvent>) theEvent
-    andApplyGlobalAttributes:(BOOL) applyGlobalAttributes;
+- (id<AWSMobileAnalyticsInternalEvent>)createInternalEvent:(NSString*) theEventType;
 
--(void) addGlobalAttribute:(NSString*) theValue
+- (void)recordEvent:(id<AWSMobileAnalyticsEvent>) theEvent
+andApplyGlobalAttributes:(BOOL) applyGlobalAttributes;
+
+- (void)addGlobalAttribute:(NSString*) theValue
                     forKey:(NSString*) theKey;
 
--(void) addGlobalAttribute:(NSString*) theValue
+- (void)addGlobalAttribute:(NSString*) theValue
                     forKey:(NSString*) theKey
               forEventType:(NSString*) theEventType;
 
--(void) addGlobalMetric:(NSNumber*) theValue
+- (void)addGlobalMetric:(NSNumber*) theValue
                  forKey:(NSString*) theKey;
 
--(void) addGlobalMetric:(NSNumber*) theValue
+- (void)addGlobalMetric:(NSNumber*) theValue
                  forKey:(NSString*) theKey
            forEventType:(NSString*) theEventType;
 
--(void) addEventObserver:(id<AWSMobileAnalyticsEventObserver>) theObserver;
+- (void)addEventObserver:(id<AWSMobileAnalyticsEventObserver>) theObserver;
 
--(void) removeEventObserver:(id<AWSMobileAnalyticsEventObserver>) theObserver;
+- (void)removeEventObserver:(id<AWSMobileAnalyticsEventObserver>) theObserver;
 
--(void) removeGlobalAttributeForKey:(NSString*) theKey;
+- (void)removeGlobalAttributeForKey:(NSString*) theKey;
 
--(void) removeGlobalAttributeForKey:(NSString*) theKey
+- (void)removeGlobalAttributeForKey:(NSString*) theKey
                        forEventType:(NSString*) theEventType;
 
--(void) removeGlobalMetricForKey:(NSString*) theKey;
+- (void)removeGlobalMetricForKey:(NSString*) theKey;
 
--(void) removeGlobalMetricForKey:(NSString*) theKey
+- (void)removeGlobalMetricForKey:(NSString*) theKey
                     forEventType:(NSString*) theEventType;
 
 @end

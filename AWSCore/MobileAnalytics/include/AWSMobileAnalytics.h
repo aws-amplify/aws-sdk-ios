@@ -32,7 +32,7 @@ typedef void(^AWSInitializationCompletionBlock)(AWSMobileAnalytics *);
  * Returns the `AWSMobileAnalyticsEventClient`.
  * @returns the `AWSMobileAnalyticsEventClient` to create, record, and submit events.
  */
-@property (nonatomic, readonly) id<AWSMobileAnalyticsEventClient> eventClient;
+@property (nonatomic, strong, readonly) id<AWSMobileAnalyticsEventClient> eventClient;
 
 /**
  * Creates an `AWSMobileAnalytics` instance with the specified `appId` using the default `configuration` if the instance does not already exists for the `appId`. If an instance exists for the given `appId`, returns the existing instance. `configuration` and `completionBlock` are ignored if an instance exists for the given `appId`. The strong reference to the instance is maintained by `AWSMobileAnalytics`, and the developer does not need to retain it manually.

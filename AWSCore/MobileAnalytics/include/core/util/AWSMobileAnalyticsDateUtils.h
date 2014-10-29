@@ -18,11 +18,13 @@
 typedef uint64_t UTCTimeMillis;
 
 @interface AWSMobileAnalyticsDateUtils : NSObject
-+ (NSString *)isoDateTimeWithTimestamp:(UTCTimeMillis) theTimeStamp;
+
++ (NSString *)isoDateTimeWithTimestamp:(UTCTimeMillis)theTimeStamp;
 + (NSString *)isoDateTime:(NSDate *)theDate;
 + (UTCTimeMillis)utcTimeMillisNow;
 + (UTCTimeMillis)utcTimeMillisFromDate:(NSDate*)theDate;
 + (NSDate*)dateFromutcTimeMillis:(UTCTimeMillis)utcMillis;
 + (NSString *)iso8061FormatDateStamp:(NSDate *)theDate;
 + (NSString *)iso8061FormatDateTime:(NSDate *)theDate;
+
 @end

@@ -54,14 +54,14 @@ typedef enum{
 @property (nonatomic, readonly) long sessionResumeDelayMs;
 
 /**
- * Static Constructor
+ * Constructor
  *
  * Requires Event and Delivery Client for Functionality
  * Requires Context for Session ID generation (passed to AWSMobileAnalyticsSession objects)
  */
-+ (id) sessionClientWithEventClient: (id<AWSMobileAnalyticsInternalEventClient>) eventClient
-                 withDeliveryClient: (id<AWSMobileAnalyticsDeliveryClient>)      deliveryClient
-                        withContext: (id<AWSMobileAnalyticsContext>)     context;
+- (instancetype)initWithEventClient:(id<AWSMobileAnalyticsInternalEventClient>)eventClient
+                 withDeliveryClient:(id<AWSMobileAnalyticsDeliveryClient>)deliveryClient
+                        withContext:(id<AWSMobileAnalyticsContext>)context;
 
 /**
  * Starts a Session
@@ -70,7 +70,7 @@ typedef enum{
  * - Starts Event Tagging by adding the Session's ID as a Global Attribute
  * - Enqueues a Session Start event in the Delivery Client
  */
-- (void) startSession;
+- (void)startSession;
 /**
  * Stops a Session
  *
@@ -78,6 +78,6 @@ typedef enum{
  * - Stops Event Tagging by removing the Session ID's Global Attribute
  * - Deactivates the Session by creating an immutable Session object
  */
-- (void) stopSession;
+- (void)stopSession;
 
 @end

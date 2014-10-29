@@ -21,8 +21,8 @@
 
 @interface AWSMobileAnalyticsDefaultEventClient : NSObject<AWSMobileAnalyticsInternalEventClient>
 
-+(id<AWSMobileAnalyticsInternalEventClient>) eventClientWithContext: (id<AWSMobileAnalyticsContext>) theContext
-                                 withDeliveryClient: (id<AWSMobileAnalyticsDeliveryClient>) theClient
-                              allowsEventCollection: (BOOL) eventCollection;
+- (instancetype)initWithContext:(id<AWSMobileAnalyticsContext>)theContext
+             withDeliveryClient:(id<AWSMobileAnalyticsDeliveryClient>)theClient
+          allowsEventCollection:(BOOL)eventCollection;
 
 @end

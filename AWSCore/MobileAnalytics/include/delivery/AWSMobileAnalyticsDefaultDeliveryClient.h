@@ -16,34 +16,36 @@
 #import <Foundation/Foundation.h>
 #import "AWSMobileAnalyticsDeliveryClient.h"
 #import "../core/AWSMobileAnalyticsContext.h"
-#import "AWSMobileAnalyticsDeliveryPolicyFactory.h"
-#import "AWSMobileAnalyticsERSRequestBuilder.h"
 #import "AWSMobileAnalyticsDeliveryPolicy.h"
 #import "AWSMobileAnalyticsEventStore.h"
 #import "AWSMobileAnalyticsFileEventStore.h"
 #import "AWSMobileAnalyticsSerializable.h"
 
+@class AWSMobileAnalyticsDeliveryPolicyFactory;
+@class AWSMobileAnalyticsERSRequestBuilder;
+
 @interface AWSMobileAnalyticsDefaultDeliveryClient : NSObject <AWSMobileAnalyticsDeliveryClient>
 
-+(AWSMobileAnalyticsDefaultDeliveryClient*)deliveryClientWithContext:(id<AWSMobileAnalyticsContext>)context
-                                     withWanDelivery:(BOOL)allowWANDelivery;
++ (instancetype)deliveryClientWithContext:(id<AWSMobileAnalyticsContext>)context
+                          withWanDelivery:(BOOL)allowWANDelivery;
 
-+(AWSMobileAnalyticsDefaultDeliveryClient*)deliveryClientWithContext:(id<AWSMobileAnalyticsContext>)context
-                                     withWanDelivery:(BOOL)allowWANDelivery
-                                  withOperationQueue:(NSOperationQueue*)operationQueue;
++ (instancetype)deliveryClientWithContext:(id<AWSMobileAnalyticsContext>)context
+                          withWanDelivery:(BOOL)allowWANDelivery
+                       withOperationQueue:(NSOperationQueue*)operationQueue;
 
--(id)initWithHttpClient:(id<AWSMobileAnalyticsHttpClient>)client
-      withConfiguration:(id<AWSMobileAnalyticsConfiguring>)configuration
-   withLifeCycleManager:(id<AWSMobileAnalyticsLifeCycleManager>)lifeCycleManager
-      withPolicyFactory:(AWSMobileAnalyticsDeliveryPolicyFactory*)factory
-     withRequestBuilder:(AWSMobileAnalyticsERSRequestBuilder*)builder
-     withOperationQueue:(NSOperationQueue*)operationQueue
-         withEventStore:(id<AWSMobileAnalyticsEventStore>)eventStore
-         withSerializer:(id<AWSMobileAnalyticsSerializer>)serializer;
+- (id)initWithHttpClient:(id<AWSMobileAnalyticsHttpClient>)client
+       withConfiguration:(id<AWSMobileAnalyticsConfiguring>)configuration
+    withLifeCycleManager:(id<AWSMobileAnalyticsLifeCycleManager>)lifeCycleManager
+       withPolicyFactory:(AWSMobileAnalyticsDeliveryPolicyFactory *)factory
+      withRequestBuilder:(AWSMobileAnalyticsERSRequestBuilder *)builder
+      withOperationQueue:(NSOperationQueue*)operationQueue
+          withEventStore:(id<AWSMobileAnalyticsEventStore>)eventStore
+          withSerializer:(id<AWSMobileAnalyticsSerializer>)serializer;
 
--(void) notify:(id<AWSMobileAnalyticsInternalEvent>) theEvent;
--(void) enqueueEventForDelivery:(id<AWSMobileAnalyticsInternalEvent>) theEvent;
--(void) attemptDelivery;
--(void) forceDeliveryAndWaitForCompletion:(BOOL)shouldWait;
--(NSArray*) batchedEvents;
+- (void)notify:(id<AWSMobileAnalyticsInternalEvent>)event;
+- (void)enqueueEventForDelivery:(id<AWSMobileAnalyticsInternalEvent>)event;
+- (void)attemptDelivery;
+- (void)forceDeliveryAndWaitForCompletion:(BOOL)shouldWait;
+- (NSArray *)batchedEvents;
+
 @end

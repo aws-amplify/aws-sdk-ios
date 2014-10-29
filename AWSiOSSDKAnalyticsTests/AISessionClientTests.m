@@ -95,7 +95,9 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
     [[[mock_context stub] andReturn:uniqId] uniqueId];
     //[[[mock_context stub] andReturn:mock_credentials] identifier];
 
-    return [AWSMobileAnalyticsDefaultSessionClient sessionClientWithEventClient:eventClient withDeliveryClient:deliveryClient withContext:mock_context];
+    return [[AWSMobileAnalyticsDefaultSessionClient alloc] initWithEventClient:eventClient
+                                                            withDeliveryClient:deliveryClient
+                                                                   withContext:mock_context];
 }
 
 +(id<AWSMobileAnalyticsInternalEventClient>)buildMockEventClient
@@ -160,7 +162,9 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
     id mockEventClient = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsInternalEventClient)];
     id mockDeliveryClient = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsDeliveryClient)];
 
-    AWSMobileAnalyticsDefaultSessionClient* target = [AWSMobileAnalyticsDefaultSessionClient sessionClientWithEventClient:mockEventClient withDeliveryClient:mockDeliveryClient withContext:mock_context];
+    AWSMobileAnalyticsDefaultSessionClient* target = [[AWSMobileAnalyticsDefaultSessionClient alloc] initWithEventClient:mockEventClient
+                                                                                                      withDeliveryClient:mockDeliveryClient
+                                                                                                             withContext:mock_context];
     assertThatLong(target.sessionResumeDelayMs, is(equalToLong(resumeDelay)));
     assertThatLong(target.sessionRestartDelayMs, is(equalToLong(restartDelay)));
 

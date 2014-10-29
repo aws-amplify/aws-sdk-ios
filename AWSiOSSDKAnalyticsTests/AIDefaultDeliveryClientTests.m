@@ -15,6 +15,9 @@
 
 #import "AIDefaultDeliveryClientTests.h"
 
+#import "AWSMobileAnalyticsDeliveryPolicyFactory.h"
+#import "AWSMobileAnalyticsERSRequestBuilder.h"
+
 static NSString *const APP_KEY = @"app_key";
 static NSString *const PRIVATE_KEY = @"private_key";
 static NSString *const UNIQUE_ID = @"BEEFBEEF-BEEF-BEEF-BEEF-BEEFBEEFBEEF";

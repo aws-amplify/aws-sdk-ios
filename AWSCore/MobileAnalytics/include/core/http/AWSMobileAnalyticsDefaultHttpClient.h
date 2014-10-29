@@ -19,20 +19,22 @@
 #import "AWSMobileAnalyticsDefaultResponse.h"
 
 @interface AWSMobileAnalyticsDefaultHttpClient : NSObject<AWSMobileAnalyticsHttpClient>
-{
-    NSMutableArray *_interceptors;
-}
 
 @property (nonatomic, strong) AWSMobileAnalyticsERS *ers;
 
-+(AWSMobileAnalyticsDefaultHttpClient *) httpClient;
++ (instancetype)httpClient;
 
--(void) addInterceptor: (id<AWSMobileAnalyticsInterceptor>) theInterceptor;
+- (void)addInterceptor:(id<AWSMobileAnalyticsInterceptor>)interceptor;
 
--(id<AWSMobileAnalyticsResponse>) execute:(id<AWSMobileAnalyticsRequest>) theRequest withRetries:(int) theRetries withTimeout:(NSTimeInterval) theTimeout;
+- (id<AWSMobileAnalyticsResponse>)execute:(id<AWSMobileAnalyticsRequest>)request
+                              withRetries:(int)retries
+                              withTimeout:(NSTimeInterval)timeout;
 
--(id<AWSMobileAnalyticsResponse>) execute:(id<AWSMobileAnalyticsRequest>) theRequest withRetries:(int) theRetries withTimeout:(NSTimeInterval) theTimeout withRetryHandler:(RetryHandler) theHandler;
+- (id<AWSMobileAnalyticsResponse>)execute:(id<AWSMobileAnalyticsRequest>)request
+                              withRetries:(int)retries
+                              withTimeout:(NSTimeInterval)timeout
+                         withRetryHandler:(RetryHandler)handler;
 
--(id<AWSMobileAnalyticsRequest>) newRequest;
+- (id<AWSMobileAnalyticsRequest>)freshRequest;
 
 @end

@@ -29,14 +29,12 @@ static int const MAX_EVENT_ATTRIBUTE_VALUE_LENGTH = 200;
 
 @implementation AWSMobileAnalyticsEventConstraintDecorator
 
-+(AWSMobileAnalyticsEventConstraintDecorator*) decoratorWithEvent:(id<AWSMobileAnalyticsEvent>) theEvent
-{
++ (instancetype)decoratorWithEvent:(id<AWSMobileAnalyticsEvent>)theEvent {
     return [[AWSMobileAnalyticsEventConstraintDecorator alloc] initWithEvent:theEvent withMaxAttributesAndMetrics:MAX_NUM_OF_METRICS_AND_ATTRIBUTES];
 }
 
--(AWSMobileAnalyticsEventConstraintDecorator*) initWithEvent:(id<AWSMobileAnalyticsEvent>) theEvent
-                 withMaxAttributesAndMetrics:(int) theMaxAttributesAndMetrics
-{
+- (instancetype)initWithEvent:(id<AWSMobileAnalyticsEvent>)theEvent
+  withMaxAttributesAndMetrics:(int)theMaxAttributesAndMetrics {
     if(self = [super init])
     {
         self.decoratedEvent = theEvent;
@@ -78,7 +76,7 @@ static int const MAX_EVENT_ATTRIBUTE_VALUE_LENGTH = 200;
             }
         }
     }
-    
+
 }
 
 -(NSString*) eventType
@@ -124,7 +122,7 @@ static int const MAX_EVENT_ATTRIBUTE_VALUE_LENGTH = 200;
     {
         AWSLogWarn(@"The %@ key has been trimmed to a length of %0d characters", theType, MAX_EVENT_ATTRIBUTE_METRIC_KEY_LENGTH);
     }
-    
+
     return trimmedKey;
 }
 
@@ -135,7 +133,7 @@ static int const MAX_EVENT_ATTRIBUTE_VALUE_LENGTH = 200;
     {
         AWSLogWarn( @"The attribute value has been trimmed to a length of %0d characters", MAX_EVENT_ATTRIBUTE_VALUE_LENGTH);
     }
-    
+
     return trimmedValue;
 }
 

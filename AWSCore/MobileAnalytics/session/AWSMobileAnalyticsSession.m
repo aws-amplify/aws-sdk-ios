@@ -19,15 +19,17 @@
 #import "AWSMobileAnalyticsContext.h"
 #import "AWSLogging.h"
 
-#define _SESSION_ID_DATE_FORMAT    @"yyyyMMdd"
-#define _SESSION_ID_TIME_FORMAT    @"HHmmssSSS"
-#define _SESSION_ID_DELIMITER      '-'
-#define _SESSION_ID_PAD_CHAR       '_'
-#define _SESSION_ID_APP_KEY_LENGTH 8
-#define _SESSION_ID_UNIQ_ID_LENGTH 8
+NSString *const AWSMobileAnalyticsSessionIDDateFormat = @"yyyyMMdd";
+NSString *const AWSMobileAnalyticsSessionIDTimeFormat = @"HHmmssSSS";
+char const AWSMobileAnalyticsSessionIDDelimiter = '-';
+char const AWSMobileAnalyticsSessionIDPadChar = '_';
+NSUInteger const AWSMobileAnalyticsSessionIDAppKeyLength = 8;
+NSUInteger const AWSMobileAnalyticsSessionIDUniqIDLength = 8;
 
 @interface AWSMobileAnalyticsSession()
+
 @property (nonatomic, strong, readwrite) NSDate*   stopTime;
+
 @end
 
 /**
@@ -37,30 +39,13 @@
  */
 @implementation AWSMobileAnalyticsSession
 
-//~ Static Literal Constant Getters ============================================ ~\\ -
-+ (NSString *) SESSION_ID_DATE_FORMAT    { return _SESSION_ID_DATE_FORMAT;    }
-+ (NSString *) SESSION_ID_TIME_FORMAT    { return _SESSION_ID_TIME_FORMAT;    }
-+ (char)       SESSION_ID_DELIMITER      { return _SESSION_ID_DELIMITER;      }
-+ (char)       SESSION_ID_PAD_CHAR       { return _SESSION_ID_PAD_CHAR;       }
-+ (unsigned int) SESSION_ID_APP_KEY_LENGTH { return _SESSION_ID_APP_KEY_LENGTH; }
-+ (unsigned int) SESSION_ID_UNIQ_ID_LENGTH { return _SESSION_ID_UNIQ_ID_LENGTH; }
-//~ ============================================================================ ~// -
-
 //~ CONSTRUCTORS =============================================================== ~\\ =
+
 /**
- * Constructor - Static Factory
+ * Constructor
  */
-+ (id) sessionWithContext: (id<AWSMobileAnalyticsContext>) context
-{
-    return [[AWSMobileAnalyticsSession alloc] initWithContext: context];
-}
-/**
- * Constructor - Actual
- */
-- (id) initWithContext: (id <AWSMobileAnalyticsContext>) context
-{
-    if(self = [super init])
-    {
+- (instancetype)initWithContext:(id <AWSMobileAnalyticsContext>)context {
+    if(self = [super init]) {
         _sessionId = [AWSMobileAnalyticsSession generateSessionIdWithContext:context];
         _startTime = [NSDate date];
         _stopTime  = nil;
@@ -68,23 +53,17 @@
     return self;
 }
 
-+ (id) sessionWithSessionId: (NSString *)sessionId
-              withStartTime: (NSDate*)startTime
-               withStopTime: (NSDate*)stopTime {
-    return [[AWSMobileAnalyticsSession alloc] initWithSessionId:sessionId withStartTime:startTime withStopTime:stopTime];
-}
-
-- (id) initWithSessionId: (NSString *)sessionId
-           withStartTime: (NSDate*)startTime
-            withStopTime: (NSDate*)stopTime{
-    if(self = [super init])
-    {
+- (instancetype)initWithSessionId:(NSString *)sessionId
+                    withStartTime:(NSDate *)startTime
+                     withStopTime:(NSDate *)stopTime {
+    if(self = [super init]) {
         _sessionId = sessionId;
         _startTime = startTime;
         _stopTime  = stopTime;
     }
     return self;
 }
+
 //~ ============================================================================ ~// =
 
 /**
@@ -92,16 +71,16 @@
  */
 - (UTCTimeMillis) timeDurationInMillis
 {
-    
+
     UTCTimeMillis start = [AWSMobileAnalyticsDateUtils utcTimeMillisFromDate:self.startTime];
     UTCTimeMillis end = self.stopTime != nil ? [AWSMobileAnalyticsDateUtils utcTimeMillisFromDate:self.stopTime] : [AWSMobileAnalyticsDateUtils utcTimeMillisNow];
-    
+
     UTCTimeMillis duration = end - start;
-    
+
     AWSLogVerbose( "start: %llu", start);
     AWSLogVerbose( "end: %llu", end);
     AWSLogVerbose( "duration: %llu", duration);
-    
+
     return duration;
 }
 
@@ -144,24 +123,28 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]]; // Universal Time Zone
     [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]]; // Assert Locale Format
-    
+
     // Trimmed Application Key
-    NSString * appKey = [AWSMobileAnalyticsStringUtils trimString:[context identifier] toLength:[AWSMobileAnalyticsSession SESSION_ID_APP_KEY_LENGTH] orPadWith: [AWSMobileAnalyticsSession SESSION_ID_PAD_CHAR]];
-    
+    NSString * appKey = [AWSMobileAnalyticsStringUtils trimString:[context identifier]
+                                                         toLength:AWSMobileAnalyticsSessionIDAppKeyLength
+                                                        orPadWith:AWSMobileAnalyticsSessionIDPadChar];
+
     // Trimmed Unique ID
-    NSString * uniqID = [AWSMobileAnalyticsStringUtils trimString:[context uniqueId] toLength:[AWSMobileAnalyticsSession SESSION_ID_UNIQ_ID_LENGTH] orPadWith:[AWSMobileAnalyticsSession SESSION_ID_PAD_CHAR]];
-    
+    NSString * uniqID = [AWSMobileAnalyticsStringUtils trimString:[context uniqueId]
+                                                         toLength:AWSMobileAnalyticsSessionIDUniqIDLength
+                                                        orPadWith:AWSMobileAnalyticsSessionIDPadChar];
+
     // Modified Timestamp: Day
-    [dateFormatter setDateFormat:[AWSMobileAnalyticsSession SESSION_ID_DATE_FORMAT]];
+    [dateFormatter setDateFormat:AWSMobileAnalyticsSessionIDDateFormat];
     NSString *timestamp_day = [dateFormatter stringFromDate:tDate];
-    
+
     // Modified Timestamp: Time
-    [dateFormatter setDateFormat:[AWSMobileAnalyticsSession SESSION_ID_TIME_FORMAT]];
+    [dateFormatter setDateFormat:AWSMobileAnalyticsSessionIDTimeFormat];
     NSString *timestamp_time = [dateFormatter stringFromDate:tDate];
-    
+
     // Assemble and return
     // <AppKey> - <UniqueID> - <Day> - <Time>
-    return [NSString stringWithFormat:@"%@%c%@%c%@%c%@", appKey, [AWSMobileAnalyticsSession SESSION_ID_DELIMITER], uniqID, [AWSMobileAnalyticsSession SESSION_ID_DELIMITER], timestamp_day, [AWSMobileAnalyticsSession SESSION_ID_DELIMITER], timestamp_time];
+    return [NSString stringWithFormat:@"%@%c%@%c%@%c%@", appKey, AWSMobileAnalyticsSessionIDDelimiter, uniqID, AWSMobileAnalyticsSessionIDDelimiter, timestamp_day, AWSMobileAnalyticsSessionIDDelimiter, timestamp_time];
     
 };
 

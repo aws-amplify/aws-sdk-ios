@@ -102,18 +102,18 @@ static AWSSynchronizedMutableDictionary *_mobileAnalyticsForAppNamespace = nil;
         _deliveryClient = [AWSMobileAnalyticsDefaultDeliveryClient deliveryClientWithContext:_mobileAnalyticsContext
                                                                              withWanDelivery:options.allowWANDelivery];
 
-        _eventClient = [AWSMobileAnalyticsDefaultEventClient eventClientWithContext:_mobileAnalyticsContext
-                                                                 withDeliveryClient:_deliveryClient
-                                                              allowsEventCollection:options.allowEventCollection];
+        _eventClient = [[AWSMobileAnalyticsDefaultEventClient alloc] initWithContext:_mobileAnalyticsContext
+                                                                  withDeliveryClient:_deliveryClient
+                                                               allowsEventCollection:options.allowEventCollection];
 
         id<AWSMobileAnalyticsInterceptor> reqTimingInterceptor = [[AWSMobileAnalyticsRequestTimingInterceptor alloc] initWithConnectivity:[_mobileAnalyticsContext.system connectivity]
                                                                                                                           withEventClient:(id<AWSMobileAnalyticsInternalEventClient>)_eventClient];
         [_mobileAnalyticsContext.httpClient addInterceptor:reqTimingInterceptor];
 
         // Session Client
-        _sessionClient = [AWSMobileAnalyticsDefaultSessionClient sessionClientWithEventClient:(id<AWSMobileAnalyticsInternalEventClient>)_eventClient
-                                                                           withDeliveryClient:_deliveryClient
-                                                                                  withContext:_mobileAnalyticsContext];
+        _sessionClient = [[AWSMobileAnalyticsDefaultSessionClient alloc] initWithEventClient:(id<AWSMobileAnalyticsInternalEventClient>)_eventClient
+                                                                          withDeliveryClient:_deliveryClient
+                                                                                 withContext:_mobileAnalyticsContext];
 
         // let the user do any final initialization
         if(completionBlock) {

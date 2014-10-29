@@ -62,7 +62,9 @@ static id mockFile = nil;
     UTCTimeMillis startTimeMillis = 1384992000000; // 11/21/2013 00:00:00 in ms
     UTCTimeMillis stopTimeMillis = 1384992060000; // 11/21/2013 00:01:00 in ms
     
-    AWSMobileAnalyticsSession* session = [AWSMobileAnalyticsSession sessionWithSessionId:@"dead-beef" withStartTime:[AWSMobileAnalyticsDateUtils dateFromutcTimeMillis:startTimeMillis] withStopTime:[AWSMobileAnalyticsDateUtils dateFromutcTimeMillis:stopTimeMillis]];
+    AWSMobileAnalyticsSession* session = [[AWSMobileAnalyticsSession alloc] initWithSessionId:@"dead-beef"
+                                                                                withStartTime:[AWSMobileAnalyticsDateUtils dateFromutcTimeMillis:startTimeMillis]
+                                                                                 withStopTime:[AWSMobileAnalyticsDateUtils dateFromutcTimeMillis:stopTimeMillis]];
     
     [[[mockFileManager stub] andReturnValue:@YES] writeData:[OCMArg checkWithBlock:^BOOL(id dictionary) {
         

@@ -26,14 +26,14 @@
 //      Or setter
 @interface AWSMobileAnalyticsDefaultEvent : NSObject<AWSMobileAnalyticsInternalEvent>
 
-+(AWSMobileAnalyticsDefaultEvent*) defaultEventFromEvent:(id<AWSMobileAnalyticsEvent>) theEvent
-                     withInsightsContext:(id<AWSMobileAnalyticsContext>) theContext
-                      withEventTimestamp:(UTCTimeMillis) theTimestamp;
++ (instancetype)defaultEventFromEvent:(id<AWSMobileAnalyticsEvent>) theEvent
+                  withInsightsContext:(id<AWSMobileAnalyticsContext>) theContext
+                   withEventTimestamp:(UTCTimeMillis) theTimestamp;
 
 
-+(AWSMobileAnalyticsDefaultEvent*) defaultEventWithInsightsContext:(id<AWSMobileAnalyticsContext>)theContext
-                                withEventTimestamp:(UTCTimeMillis) theTimestamp
-                                     withEventType:(NSString*) theEventType;
++ (instancetype)defaultEventWithInsightsContext:(id<AWSMobileAnalyticsContext>)theContext
+                             withEventTimestamp:(UTCTimeMillis) theTimestamp
+                                  withEventType:(NSString*) theEventType;
 
 @property (nonatomic, readonly) NSString* eventType;
 

@@ -26,7 +26,7 @@
 }
 
 -(void)pauseWithSessionClient:(AWSMobileAnalyticsDefaultSessionClient *)sessionClient{
-    AWSLogVerbose( @"Session Pause Failed: No session is running.");
+    AWSLogDebug( @"Session Pause Failed: No session is running.");
 }
 
 -(void)startWithSessionClient:(AWSMobileAnalyticsDefaultSessionClient *)sessionClient{
@@ -35,15 +35,15 @@
 }
 
 -(void)stopWithSessionClient:(AWSMobileAnalyticsDefaultSessionClient *)sessionClient{
-    AWSLogVerbose( @"Session Stop Failed: No session is running.");
+    AWSLogDebug( @"Session Stop Failed: No session is running.");
 }
 
 -(void)enterStateWithSessionClient:(AWSMobileAnalyticsDefaultSessionClient *)sessionClient{
-    AWSLogVerbose( @"Session State: Entering Inactive State.");
+    AWSLogDebug( @"Session State: Entering Inactive State.");
 }
 
 -(void)exitStateWithSessionClient:(AWSMobileAnalyticsDefaultSessionClient *)sessionClient{
-    AWSLogVerbose( @"Session State: Exiting Inactive State.");
+    AWSLogDebug( @"Session State: Exiting Inactive State.");
 }
 
 @end

@@ -18,7 +18,7 @@
 #import "../event/AWSMobileAnalyticsEventObserver.h"
 
 @protocol AWSMobileAnalyticsDeliveryClient <AWSMobileAnalyticsEventObserver>
--(void) enqueueEventForDelivery:(id<AWSMobileAnalyticsInternalEvent>) theEvent;
+-(void) enqueueEventForDelivery:(id<AWSMobileAnalyticsInternalEvent>) event;
 -(void) attemptDelivery;
 -(void) forceDeliveryAndWaitForCompletion:(BOOL)shouldWait;
 -(void) waitForDeliveryOperations;

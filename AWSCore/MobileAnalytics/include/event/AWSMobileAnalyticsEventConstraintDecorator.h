@@ -18,9 +18,9 @@
 
 @interface AWSMobileAnalyticsEventConstraintDecorator : NSObject<AWSMobileAnalyticsEvent>
 
--(NSString*) eventType;
+- (NSString*) eventType;
 
-+(AWSMobileAnalyticsEventConstraintDecorator*) decoratorWithEvent:(id<AWSMobileAnalyticsEvent>) theEvent;
++ (instancetype)decoratorWithEvent:(id<AWSMobileAnalyticsEvent>) theEvent;
 
 - (void)addAttribute:(NSString *)theValue
               forKey:(NSString *)theKey;

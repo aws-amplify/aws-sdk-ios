@@ -126,7 +126,7 @@
     
     id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [AWSMobileAnalyticsDefaultDeliveryClient deliveryClientWithContext:_context
                                                                              withWanDelivery:NO];
-    id<AWSMobileAnalyticsEventClient> eventClient = [AWSMobileAnalyticsDefaultEventClient eventClientWithContext:_context
+    id<AWSMobileAnalyticsEventClient> eventClient = [[AWSMobileAnalyticsDefaultEventClient alloc] initWithContext:_context
                                                               withDeliveryClient:deliveryClient
                                                            allowsEventCollection:YES];
     
@@ -162,7 +162,7 @@
     
     id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [AWSMobileAnalyticsDefaultDeliveryClient deliveryClientWithContext:_context
                                                                      withWanDelivery:NO];
-    id<AWSMobileAnalyticsEventClient> eventClient = [AWSMobileAnalyticsDefaultEventClient eventClientWithContext:_context
+    id<AWSMobileAnalyticsEventClient> eventClient = [[AWSMobileAnalyticsDefaultEventClient alloc] initWithContext:_context
                                                               withDeliveryClient:deliveryClient
                                                            allowsEventCollection:YES];
     
@@ -207,7 +207,7 @@
     
     id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [AWSMobileAnalyticsDefaultDeliveryClient deliveryClientWithContext:_context
                                                                              withWanDelivery:YES];
-    id<AWSMobileAnalyticsEventClient> eventClient = [AWSMobileAnalyticsDefaultEventClient eventClientWithContext:_context
+    id<AWSMobileAnalyticsEventClient> eventClient = [[AWSMobileAnalyticsDefaultEventClient alloc] initWithContext:_context
                                                               withDeliveryClient:deliveryClient
                                                            allowsEventCollection:YES];
     
@@ -250,7 +250,7 @@
     
     id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [AWSMobileAnalyticsDefaultDeliveryClient deliveryClientWithContext:_context
                                                                              withWanDelivery:NO];
-    id<AWSMobileAnalyticsEventClient> eventClient = [AWSMobileAnalyticsDefaultEventClient eventClientWithContext:_context
+    id<AWSMobileAnalyticsEventClient> eventClient = [[AWSMobileAnalyticsDefaultEventClient alloc] initWithContext:_context
                                                               withDeliveryClient:deliveryClient
                                                            allowsEventCollection:YES];
     
@@ -295,7 +295,7 @@
     
     id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [AWSMobileAnalyticsDefaultDeliveryClient deliveryClientWithContext:_context
                                                                              withWanDelivery:NO];
-    id<AWSMobileAnalyticsEventClient> eventClient = [AWSMobileAnalyticsDefaultEventClient eventClientWithContext:_context
+    id<AWSMobileAnalyticsEventClient> eventClient = [[AWSMobileAnalyticsDefaultEventClient alloc] initWithContext:_context
                                                               withDeliveryClient:deliveryClient
                                                            allowsEventCollection:YES];
     
@@ -336,7 +336,7 @@
     
     id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [AWSMobileAnalyticsDefaultDeliveryClient deliveryClientWithContext:_context
                                                                              withWanDelivery:NO];
-    id<AWSMobileAnalyticsEventClient> eventClient = [AWSMobileAnalyticsDefaultEventClient eventClientWithContext:_context
+    id<AWSMobileAnalyticsEventClient> eventClient = [[AWSMobileAnalyticsDefaultEventClient alloc] initWithContext:_context
                                                               withDeliveryClient:deliveryClient
                                                            allowsEventCollection:YES];
     
@@ -379,7 +379,7 @@
     
     AWSMobileAnalyticsDefaultDeliveryClient* deliveryClient = [AWSMobileAnalyticsDefaultDeliveryClient deliveryClientWithContext:_context
                                                                              withWanDelivery:NO];
-    id<AWSMobileAnalyticsEventClient> eventClient = [AWSMobileAnalyticsDefaultEventClient eventClientWithContext:_context
+    id<AWSMobileAnalyticsEventClient> eventClient = [[AWSMobileAnalyticsDefaultEventClient alloc] initWithContext:_context
                                                               withDeliveryClient:deliveryClient
                                                            allowsEventCollection:YES];
     

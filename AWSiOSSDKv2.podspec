@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'AWSiOSSDKv2'
-  s.version      = '2.0.10'
+  s.version      = '2.0.11'
   s.summary      = 'Amazon Web Services SDK for iOS.'
 
   s.description  = 'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'

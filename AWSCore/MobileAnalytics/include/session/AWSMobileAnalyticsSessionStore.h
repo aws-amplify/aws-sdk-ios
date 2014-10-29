@@ -20,12 +20,12 @@
 
 @interface AWSMobileAnalyticsSessionStore : NSObject
 
--(id)  initWithFileManager:(id<AWSMobileAnalyticsFileManager>)fileManager;
+- (instancetype)initWithFileManager:(id<AWSMobileAnalyticsFileManager>)fileManager;
 
--(AWSMobileAnalyticsSession*)retrievePersistedSessionDetails;
+- (AWSMobileAnalyticsSession *)retrievePersistedSessionDetails;
 
--(void)persistSessionDetails:(AWSMobileAnalyticsSession*)session;
+- (void)persistSessionDetails:(AWSMobileAnalyticsSession *)session;
 
--(BOOL)deletePesistedSession;
+- (BOOL)deletePesistedSession;
 
 @end

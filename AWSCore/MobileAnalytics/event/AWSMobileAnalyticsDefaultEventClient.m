@@ -34,36 +34,33 @@ static NSString* const AWSMobileAnalyticsEnabled = @"isAnalyticsEnabled";
 
 @implementation AWSMobileAnalyticsDefaultEventClient
 
-+(id) eventClientWithContext: (id<AWSMobileAnalyticsContext>) theContext
-          withDeliveryClient: (id<AWSMobileAnalyticsDeliveryClient>) theClient
-       allowsEventCollection: (BOOL) eventCollection
-{
-    return [[AWSMobileAnalyticsDefaultEventClient alloc] initWithContext:theContext withDeliveryClient:theClient allowsEventCollection:eventCollection];
++ (instancetype)eventClientWithContext:(id<AWSMobileAnalyticsContext>)theContext
+                    withDeliveryClient:(id<AWSMobileAnalyticsDeliveryClient>)theClient
+                 allowsEventCollection:(BOOL)eventCollection {
+    return [[AWSMobileAnalyticsDefaultEventClient alloc] initWithContext:theContext
+                                                      withDeliveryClient:theClient allowsEventCollection:eventCollection];
 }
 
--(id) initWithContext: (id<AWSMobileAnalyticsContext>) theContext
-   withDeliveryClient: (id<AWSMobileAnalyticsDeliveryClient>) theClient
-allowsEventCollection: (BOOL) eventCollection
-{
-    if (self = [super init])
-    {
-        self.context              = theContext;
-        self.deliveryClient       = theClient;
-        self.reservedAttributes   = [[NSMutableDictionary alloc] init];
-        self.eventTypeAttributes  = [[NSMutableDictionary alloc] init];
-        self.eventTypeMetrics     = [[NSMutableDictionary alloc] init];
-        self.globalAttributes     = [[NSMutableDictionary alloc] init];
-        self.globalMetrics        = [[NSMutableDictionary alloc] init];
-        self.eventObservers       = [[NSMutableArray alloc] init];
-        self.allowEventCollection = eventCollection;
-        
-        
+- (instancetype)initWithContext:(id<AWSMobileAnalyticsContext>)theContext
+             withDeliveryClient:(id<AWSMobileAnalyticsDeliveryClient>)theClient
+          allowsEventCollection:(BOOL)eventCollection {
+    if (self = [super init]) {
+        _context              = theContext;
+        _deliveryClient       = theClient;
+        _reservedAttributes   = [NSMutableDictionary new];
+        _eventTypeAttributes  = [NSMutableDictionary new];
+        _eventTypeMetrics     = [NSMutableDictionary new];
+        _globalAttributes     = [NSMutableDictionary new];
+        _globalMetrics        = [NSMutableDictionary new];
+        _eventObservers       = [NSMutableArray new];
+        _allowEventCollection = eventCollection;
+
         NSString* verKey = [_context.configuration stringForKey:@"versionKey" withOptValue:@"ver"];
         [_reservedAttributes setValue:AWSMobileAnalyticsEventSchemaVersion forKey:verKey];
-        
+
         [self addEventObserver:self.deliveryClient];
     }
-    
+
     return self;
 }
 
@@ -93,7 +90,7 @@ allowsEventCollection: (BOOL) eventCollection
 }
 
 -(id<AWSMobileAnalyticsInternalEvent>) createInternalEvent:(NSString*) theEventType
-                             withTimestamp:(long long) theTimestamp
+                                             withTimestamp:(long long) theTimestamp
 {
     if (theEventType == nil)
     {
@@ -112,15 +109,15 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
         AWSLogInfo( @"Nil event provided to recordEvent");
         return;
     }
-    
+
     BOOL analyticsEnabled = [self.context.configuration boolForKey:AWSMobileAnalyticsEnabled withOptValue:YES];
     if(!self.allowEventCollection || !analyticsEnabled)
     {
         return;
     }
-    
+
     id<AWSMobileAnalyticsInternalEvent> recordEvent = [AWSMobileAnalyticsDefaultEvent defaultEventFromEvent:theEvent withInsightsContext:self.context withEventTimestamp:[AWSMobileAnalyticsDateUtils utcTimeMillisNow]];
-    
+
     @synchronized(self)
     {
         //- Apply Attributes/Metrics ------------------------------------=
@@ -135,13 +132,13 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
                     [recordEvent addAttribute:[eventAttrs objectForKey:key] forKey:key];
                 }
             }
-            
+
             // Apply Global Attributes
             for (NSString *key in [self.globalAttributes allKeys])
             {
                 [recordEvent addAttribute:[self.globalAttributes objectForKey:key] forKey:key];
             }
-            
+
             NSDictionary* eventMets = [self.eventTypeMetrics objectForKey:[recordEvent eventType]];
             // Apply Event-Type Metrics
             if (eventMets)
@@ -156,21 +153,21 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
             {
                 [recordEvent addMetric:[self.globalMetrics objectForKey:key] forKey:key];
             }
-            
+
         }
-        
+
         for(NSString* key in [self.reservedAttributes allKeys])
         {
             NSString* attr = [recordEvent attributeForKey:key];
             [recordEvent addAttribute:[self.reservedAttributes objectForKey:key] forKey:key];
-            
+
             if(attr)
             {
                 [recordEvent addAttribute:attr forKey:[@"ud_" stringByAppendingString:key]];
             }
         }
     }
-    
+
     // Notify Observers
     [self notifyObserversForInternalEvent:recordEvent];
 }
@@ -182,7 +179,7 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
     {
         AWSLogVerbose( @"%@", theEvent);
     }
-    
+
     for (id<AWSMobileAnalyticsEventObserver> observer in self.eventObservers)
     {
         [observer notify:theEvent];
@@ -202,7 +199,7 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
         AWSLogVerbose( @"Nil key provided to addGlobalAttribute");
         return;
     }
-    
+
     @synchronized(self)
     {
         [self.globalAttributes setValue:theValue forKey:theKey];
@@ -228,7 +225,7 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
         AWSLogVerbose( @"Nil value passed into addGlobalAttribute");
         return;
     }
-    
+
     @synchronized(self)
     {
         if (![self.eventTypeAttributes objectForKey:theEventType])
@@ -278,7 +275,7 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
         AWSLogVerbose( @"Nil value passed into addGlobalMetric");
         return;
     }
-    
+
     @synchronized(self)
     {
         if (![self.eventTypeMetrics objectForKey:theEventType])
@@ -297,7 +294,7 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
         AWSLogVerbose( @"Nil observer passed to addEventObserver");
         return;
     }
-    
+
     if (![self.eventObservers containsObject:theObserver])
     {
         [self.eventObservers addObject:theObserver];
@@ -311,7 +308,7 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
         AWSLogVerbose( @"Nil observer passed to removeEventObserver");
         return;
     }
-    
+
     [self.eventObservers removeObject:theObserver];
 }
 
@@ -322,7 +319,7 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
         AWSLogVerbose( @"Nil key provided to removeGlobalAttributeForKey");
         return;
     }
-    
+
     @synchronized(self)
     {
         [self.globalAttributes removeObjectForKey:theKey];
@@ -342,7 +339,7 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
         AWSLogVerbose( @"Nil key passed into removeGlobalAttribute");
         return;
     }
-    
+
     @synchronized(self)
     {
         if ([self.eventTypeAttributes objectForKey:theEventType])
@@ -359,12 +356,12 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
         AWSLogVerbose( @"Nil key provided to removeGlobalMetric");
         return;
     }
-    
+
     @synchronized(self)
     {
         [self.globalMetrics removeObjectForKey:theKey];
     }
-    
+
 }
 
 -(void) removeGlobalMetricForKey:(NSString*) theKey
@@ -380,7 +377,7 @@ andApplyGlobalAttributes:(BOOL) applyGlobalAttributes
         AWSLogVerbose( @"Nil key passed into removeGlobalMetric");
         return;
     }
-    
+
     @synchronized(self)
     {
         if ([self.eventTypeMetrics objectForKey:theEventType])

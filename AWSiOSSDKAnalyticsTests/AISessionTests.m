@@ -25,7 +25,7 @@
 @implementation AISessionTests
 
 + (AWSMobileAnalyticsSession *) buildMockSessionWithAppKey: (NSString*) appKey
-                                withUniqId: (NSString*) uniqId
+                                                withUniqId: (NSString*) uniqId
 {
     // Build Credentials
     //id mock_credentials = [OCMockObject niceMockForProtocol:@protocol(AIInsightsCredentials)];
@@ -34,8 +34,8 @@
     id mock_context = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsContext)];
     [[[mock_context stub] andReturn:uniqId] uniqueId];
     //[[[mock_context stub] andReturn:mock_credentials] identifier];
-    
-    return [AWSMobileAnalyticsSession sessionWithContext:mock_context];
+
+    return [[AWSMobileAnalyticsSession alloc] initWithContext:mock_context];
 }
 
 
@@ -77,36 +77,36 @@
 - (void) testSessionId_isCorrectFormat
 {
     AWSMobileAnalyticsSession* target = [AISessionTests buildMockSessionWithAppKey:TEST_APP_KEY withUniqId:TEST_UNIQ_ID];
-    
+
     NSError* err = nil;
-    NSString* r = [NSString stringWithFormat:@"^([%ca-zA-Z0-9]){%i}%c([%ca-zA-Z0-9]){%i}%c[0-9]{%lu}%c[0-9]{%lu}$", [AWSMobileAnalyticsSession SESSION_ID_PAD_CHAR], [AWSMobileAnalyticsSession SESSION_ID_APP_KEY_LENGTH], [AWSMobileAnalyticsSession SESSION_ID_DELIMITER], [AWSMobileAnalyticsSession SESSION_ID_PAD_CHAR], [AWSMobileAnalyticsSession SESSION_ID_UNIQ_ID_LENGTH], [AWSMobileAnalyticsSession SESSION_ID_DELIMITER], (unsigned long)[[AWSMobileAnalyticsSession SESSION_ID_DATE_FORMAT] length], [AWSMobileAnalyticsSession SESSION_ID_DELIMITER], (unsigned long)[[AWSMobileAnalyticsSession SESSION_ID_TIME_FORMAT] length]];
+    NSString* r = [NSString stringWithFormat:@"^([%ca-zA-Z0-9]){%lu}%c([%ca-zA-Z0-9]){%lu}%c[0-9]{%lu}%c[0-9]{%lu}$", AWSMobileAnalyticsSessionIDPadChar, (unsigned long)AWSMobileAnalyticsSessionIDAppKeyLength, AWSMobileAnalyticsSessionIDDelimiter, AWSMobileAnalyticsSessionIDPadChar, (unsigned long)AWSMobileAnalyticsSessionIDUniqIDLength, AWSMobileAnalyticsSessionIDDelimiter, (unsigned long)[AWSMobileAnalyticsSessionIDDateFormat length], AWSMobileAnalyticsSessionIDDelimiter, (unsigned long)[AWSMobileAnalyticsSessionIDTimeFormat length]];
     NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:r options:0 error:&err];
     NSArray* matches = [regex matchesInString:[target sessionId] options:0 range:NSMakeRange(0, [target.sessionId length])];
 
     assertThatInteger([matches count], is(equalToInt(1)));
-    
+
     NSLog(@"Session ID: %@", [target sessionId]);
 }
 
 - (void) testSessionId_padsApplicationKey_ifNilorEmpty
 {
     AWSMobileAnalyticsSession* target = [AISessionTests buildMockSessionWithAppKey:nil withUniqId:TEST_UNIQ_ID];
-    
+
     // Generate padded comparison string
-    NSMutableString* r = [NSMutableString stringWithCapacity: [AWSMobileAnalyticsSession SESSION_ID_APP_KEY_LENGTH]];
+    NSMutableString* r = [NSMutableString stringWithCapacity: AWSMobileAnalyticsSessionIDAppKeyLength];
     [r appendFormat:@"%@", @".*"];
-    for (int i = 0; i < [AWSMobileAnalyticsSession SESSION_ID_APP_KEY_LENGTH]; i++)
+    for (int i = 0; i < AWSMobileAnalyticsSessionIDAppKeyLength; i++)
     {
-        [r appendFormat:@"%c", [AWSMobileAnalyticsSession SESSION_ID_PAD_CHAR]];
+        [r appendFormat:@"%c", AWSMobileAnalyticsSessionIDPadChar];
     }
     [r appendFormat:@"%@", @".*"];
-    
+
     // Nil
     NSError* err = nil;
     NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:r options:0 error:&err];
     NSArray* matches = [regex matchesInString:[target sessionId] options:0 range:NSMakeRange(0, [target.sessionId length])];
     assert([matches count] == 1);
-    
+
     // Empty
     target = [AISessionTests buildMockSessionWithAppKey:@"" withUniqId:TEST_UNIQ_ID];
     matches = [regex matchesInString:[target sessionId] options:0 range:NSMakeRange(0, [target.sessionId length])];
@@ -116,22 +116,22 @@
 - (void) testSessionId_padsUniqueId_ifNilorEmpty
 {
     AWSMobileAnalyticsSession* target = [AISessionTests buildMockSessionWithAppKey:TEST_APP_KEY withUniqId:nil];
-    
+
     // Generate padded comparison string
-    NSMutableString* r = [NSMutableString stringWithCapacity: [AWSMobileAnalyticsSession SESSION_ID_APP_KEY_LENGTH]];
+    NSMutableString* r = [NSMutableString stringWithCapacity: AWSMobileAnalyticsSessionIDAppKeyLength];
     [r appendFormat:@"%@", @".*"];
-    for (int i = 0; i < [AWSMobileAnalyticsSession SESSION_ID_APP_KEY_LENGTH]; i++)
+    for (int i = 0; i < AWSMobileAnalyticsSessionIDAppKeyLength; i++)
     {
-        [r appendFormat:@"%c", [AWSMobileAnalyticsSession SESSION_ID_PAD_CHAR]];
+        [r appendFormat:@"%c", AWSMobileAnalyticsSessionIDPadChar];
     }
     [r appendFormat:@"%@", @".*"];
-    
+
     // Nil
     NSError* err = nil;
     NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:r options:0 error:&err];
     NSArray* matches = [regex matchesInString:[target sessionId] options:0 range:NSMakeRange(0, [target.sessionId length])];
     assert([matches count] == 1);
-    
+
     // Empty
     target = [AISessionTests buildMockSessionWithAppKey:TEST_APP_KEY withUniqId:@""];
     matches = [regex matchesInString:[target sessionId] options:0 range:NSMakeRange(0, [target.sessionId length])];

@@ -18,6 +18,6 @@
 
 @protocol AWSMobileAnalyticsEventObserver <NSObject>
 
--(void) notify:(id<AWSMobileAnalyticsInternalEvent>) theEvent;
+-(void) notify:(id<AWSMobileAnalyticsInternalEvent>) event;
 
 @end

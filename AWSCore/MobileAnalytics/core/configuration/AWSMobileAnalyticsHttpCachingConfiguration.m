@@ -339,7 +339,7 @@ NSString * const AWSConfigurationFileStoreFilename = @"configuration";
                                   withApplicationKey:(NSString*)appId
                                         withUniqueId:(NSString*)uniqueId
 {
-    id<AWSMobileAnalyticsRequest> configRequest = [client newRequest];
+    id<AWSMobileAnalyticsRequest> configRequest = [client freshRequest];
     NSString* url = [NSString stringWithFormat:CONFIG_URL_FORMAT, host, appId];
     [configRequest setUrl:[NSURL URLWithString:url]];
     [configRequest setMethod:GET];
