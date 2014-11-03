@@ -628,6 +628,26 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
     }];
 }
 
+-(NSArray *)allRequests
+{
+    NSMutableArray *keys = [NSMutableArray new];
+    [self.cache.diskCache enumerateObjectsWithBlock:^(TMDiskCache *cache, NSString *key, id<NSCoding> object, NSURL *fileURL) {
+        [keys addObject:key];
+    }];
+    
+    NSMutableArray *results = [NSMutableArray new];
+    for (NSString *key in keys) {
+        id cachedObject = [self.cache objectForKey:key];
+        if (![cachedObject isKindOfClass:[AWSRequest class]]) {
+            continue;
+        }
+        
+        [results addObject:cachedObject];
+    }
+    
+    return results;
+}
+
 - (BFTask *)clearCache {
     BFTaskCompletionSource *taskCompletionSource = [BFTaskCompletionSource new];
     [self.cache removeAllObjects:^(TMCache *cache) {

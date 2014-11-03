@@ -104,6 +104,13 @@ typedef void (^AWSS3TransferManagerResumeAllBlock) (AWSRequest *request);
 - (BFTask *)resumeAll:(AWSS3TransferManagerResumeAllBlock)block;
 
 /**
+ *  Get All upload and download requests
+ *
+ *  @return AWSRequest.
+ */
+- (NSArray *)allRequests;
+
+/**
  *  Clears the local cache.
  *
  *  @return BFTask.
