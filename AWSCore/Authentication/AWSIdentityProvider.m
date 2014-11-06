@@ -24,7 +24,6 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
 
 @interface AWSAbstractIdentityProvider()
 @property (nonatomic, strong) NSString *identityPoolId;
-@property (nonatomic, strong) NSString *identityId;
 @property (nonatomic, strong) NSString *token;
 @end
 
@@ -72,7 +71,7 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
     if (logins == nil) {
         return nil;
     }
-    
+
     NSMutableDictionary *mutableLogin = [NSMutableDictionary new];
     for (id key in logins) {
         NSString *updatedKey = key;
@@ -94,11 +93,11 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
         }
         mutableLogin[updatedKey] = logins[key];
     }
-    
+
     if ([mutableLogin count] == 0) {
         return nil;
     }
-    
+
     return mutableLogin;
 }
 
@@ -108,7 +107,7 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
         [userInfo setObject:self.identityId forKey:AWSCognitoNotificationPreviousId];
     }
     [userInfo setObject:newId forKey:AWSCognitoNotificationNewId];
-    
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [[NSNotificationCenter defaultCenter] postNotificationName:AWSCognitoIdentityIdChangedNotification
                                                             object:self
@@ -134,7 +133,7 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
                          accountId:(NSString *)accountId
                     identityPoolId:(NSString *)identityPoolId
                             logins:(NSDictionary *)logins {
-    
+
     if (self = [super init]) {
         _accountId = accountId;
         _executor = [BFExecutor executorWithOperationQueue:[NSOperationQueue new]];
@@ -143,14 +142,14 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
         self.identityPoolId = identityPoolId;
         self.identityId = identityId;
         self.logins = [self updateKeysForLogins:logins];
-        
+
         AWSAnonymousCredentialsProvider *credentialsProvider = [AWSAnonymousCredentialsProvider new];
         AWSServiceConfiguration *configuration = [AWSServiceConfiguration configurationWithRegion:regionType
                                                                               credentialsProvider:credentialsProvider];
-        
+
         _cib = [[AWSCognitoIdentity new] initWithConfiguration:configuration];
     }
-    
+
     return self;
 }
 
@@ -165,7 +164,7 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
                 getIdInput.accountId = self.accountId;
                 getIdInput.identityPoolId = self.identityPoolId;
                 getIdInput.logins = self.logins;
-                
+
                 return [self.cib getId:getIdInput];
             }
             else {
@@ -177,6 +176,9 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
             dispatch_semaphore_signal(self.semaphore);
             if (task.error) {
                 AWSLogError(@"GetId failed. Error is [%@]", task.error);
+                return task;
+            } else if (task.exception) {
+                AWSLogError(@"GetId failed. Exception is [%@]", task.exception);
                 return task;
             } else if (task.result) {
                 AWSCognitoIdentityGetIdResponse *getIdResponse = task.result;
@@ -195,26 +197,25 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
             AWSLogError(@"Result from getIdentityId is %@", task.result);
             return [BFTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
                                                              code:AWSCognitoIdentityProviderErrorIdentityIsNil
-                                                         userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
-                    ];
+                                                         userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]];
         }
-        
+
         AWSCognitoIdentityGetOpenIdTokenInput *getTokenInput = [AWSCognitoIdentityGetOpenIdTokenInput new];
         getTokenInput.identityId = self.identityId;
         getTokenInput.logins = self.logins;
-        
-        
+
+
         return [[self.cib getOpenIdToken:getTokenInput] continueWithBlock:^id(BFTask *task) {
             // When an invalid identityId is cached in the keychain for auth,
             // we will refresh the identityId and try to get OpenID token again.
             if (task.error) {
                 AWSLogError(@"GetOpenIdToken failed. Error is [%@]", task.error);
-            
+
                 // if it's unauth, just fail out
                 if (![self isAuthenticated]) {
                     return task;
                 }
-                
+
                 AWSLogVerbose(@"Resetting identity Id and calling getIdentityId");
                 // if it's auth, reset id and refetch
                 self.identityId = nil;
@@ -228,16 +229,19 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
                                                                      userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
                                 ];
                     }
-                    
+
                     AWSLogVerbose(@"Retrying GetOpenIdToken");
-                    
+
                     // retry get token
                     AWSCognitoIdentityGetOpenIdTokenInput *tokenRetry = [AWSCognitoIdentityGetOpenIdTokenInput new];
                     tokenRetry.identityId = self.identityId;
                     tokenRetry.logins = self.logins;
-                    
+
                     return [self.cib getOpenIdToken:tokenRetry];
                 }];
+            }
+            if (task.exception) {
+                AWSLogError(@"GetOpenIdToken failed. Exception is [%@]", task.exception);
             }
             return task;
         }];
@@ -245,7 +249,7 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
         AWSCognitoIdentityGetOpenIdTokenResponse *getTokenResponse = task.result;
         self.token = getTokenResponse.token;
         NSString *identityIdFromToken = getTokenResponse.identityId;
-        
+
         // This should never happen, but just in case
         if (!identityIdFromToken) {
             AWSLogError(@"identityId from getOpenIdToken is nil");
@@ -254,11 +258,11 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
                                                          userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
                     ];
         }
-        
+
         if (![self.identityId isEqualToString:identityIdFromToken]) {
             self.identityId = identityIdFromToken;
         }
-        
+
         return nil;
     }];
 }

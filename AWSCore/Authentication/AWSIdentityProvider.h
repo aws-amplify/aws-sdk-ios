@@ -44,7 +44,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderErrorType) {
 @protocol AWSCognitoIdentityProvider <AWSIdentityProvider>
 
 @property (nonatomic, strong, readonly) NSString *identityPoolId;
-@property (nonatomic, strong, readonly) NSString *identityId;
+@property (nonatomic, strong) NSString *identityId;
 @property (nonatomic, strong) NSDictionary *logins;
 
 - (BFTask *)getIdentityId;

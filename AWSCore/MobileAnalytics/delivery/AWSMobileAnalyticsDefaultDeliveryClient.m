@@ -126,6 +126,7 @@ NSUInteger const AWSMobileAnalyticsDefaultDeliveryClientMaxOperations = 1000;
     [self enqueueEventForDelivery:event];
 }
 
+/*
 - (BOOL)validateEvent:(id<AWSMobileAnalyticsInternalEvent>)event {
     if (![event attributeForKey:AWSSessionIDAttributeKey]) {
         AWSLogError(@"Event: '%@' Validation Error: %@ is nil", event.eventType, AWSSessionIDAttributeKey);
@@ -139,18 +140,19 @@ NSUInteger const AWSMobileAnalyticsDefaultDeliveryClientMaxOperations = 1000;
 
     return YES;
 }
+*/
 
 - (void)enqueueEventForDelivery:(id<AWSMobileAnalyticsInternalEvent>) event {
     if(self.operationQueue.operationCount >= AWSMobileAnalyticsDefaultDeliveryClientMaxOperations) {
         AWSLogError(@"The event: '%@' is being dropped because too many operations enqueued.", event.eventType);
         return;
     }
-
+/*
     if (![self validateEvent:event]) {
         AWSLogError(@"The event '%@'is being dropped because internal validation failed.", event.eventType);
         return;
     }
-
+*/
     [self.operationQueue addOperationWithBlock:^(void) {
         NSData* serializedEventData = [self.serializer writeObject:event];
         NSString* serializedEvent = [[NSString alloc] initWithData:serializedEventData encoding:NSUTF8StringEncoding];

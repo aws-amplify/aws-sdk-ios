@@ -91,7 +91,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 @property (nonatomic, strong, readonly) NSString *secretKey;
 @property (nonatomic, strong, readonly) NSString *sessionKey;
 @property (nonatomic, strong, readonly) NSDate *expiration;
-@property (nonatomic, strong, readonly) id<AWSCognitoIdentityProvider> identityProvider;
+
+@property (nonatomic, strong) id<AWSCognitoIdentityProvider> identityProvider;
 
 @property (nonatomic, strong, readonly) NSString *identityId;
 @property (nonatomic, strong, readonly) NSString *identityPoolId;
