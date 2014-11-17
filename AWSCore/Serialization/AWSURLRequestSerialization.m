@@ -229,6 +229,7 @@
 
     rules = rules[@"members"] ? rules[@"members"] : @{};
 
+    __block NSError *serializerError;
     __block NSString *rawURI = uriSchema;
     [rules enumerateKeysAndObjectsUsingBlock:^(NSString *memberName, id memberRules, BOOL *stop) {
 
@@ -298,7 +299,7 @@
             //If it is "Body" Type and streaming Type, contructBody
             if ([xmlElementName isEqualToString:@"Body"] && [memberRules[@"streaming"] boolValue]) {
                 if ([value isKindOfClass:[NSURL class]]) {
-                    if ([value checkResourceIsReachableAndReturnError:error]) {
+                    if ([value checkResourceIsReachableAndReturnError:&serializerError]) {
                         request.HTTPBodyStream = [NSInputStream inputStreamWithURL:value];
                     }
 
@@ -311,7 +312,8 @@
         }
     }];
 
-    if (*error) {
+    if (serializerError) {
+        *error = serializerError;
         return NO;
     }
 
