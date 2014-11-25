@@ -152,3 +152,23 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 - (void)clearCredentials;
 
 @end
+
+@interface AWSSTSCredentialsProvider : NSObject <AWSCredentialsProvider>
+
+@property (nonatomic, readonly) NSString *accessKey;
+@property (nonatomic, readonly) NSString *secretKey;
+@property (nonatomic, readonly) NSString *sessionKey;
+@property (nonatomic, readonly) NSDate *expiration;
+
++ (instancetype)credentialsWithAccessKey:(NSString *)accessKey
+                               secretKey:(NSString *)secretKey
+                              sessionKey:(NSString *)sesionKey
+                              expiration:(NSDate *) expiration;
+
+- (instancetype)initWithAccessKey:(NSString *)accessKey
+                        secretKey:(NSString *)secretKey
+                       sessionKey:(NSString *)sesionKey
+                       expiration:(NSDate *) expiration;
+
+@end
+

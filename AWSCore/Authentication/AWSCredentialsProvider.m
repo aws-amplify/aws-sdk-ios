@@ -585,3 +585,39 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 }
 
 @end
+
+@interface AWSSTSCredentialsProvider()
+
+
+
+@property (nonatomic, strong) NSString *accessKey;
+@property (nonatomic, strong) NSString *secretKey;
+@property (nonatomic, strong) NSString *sessionKey;
+@property (nonatomic, strong) NSDate *expiration;
+
+@end
+
+@implementation AWSSTSCredentialsProvider
+
++ (instancetype)credentialsWithAccessKey:(NSString *)accessKey secretKey:(NSString *)secretKey sessionKey:(NSString *)sessionKey expiration:(NSDate *)expiration{
+    AWSSTSCredentialsProvider *credentials = [[AWSSTSCredentialsProvider alloc] initWithAccessKey:accessKey
+                                                                                                    secretKey:secretKey
+                                                                                                    sessionKey:sessionKey
+                                                                                                    expiration:expiration];
+    return credentials;
+}
+
+- (instancetype)initWithAccessKey:(NSString *)accessKey
+                        secretKey:(NSString *)secretKey
+                        sessionKey:(NSString *)sessionKey
+                        expiration:(NSDate *)expiration {
+    if (self = [super init]) {
+        _accessKey = accessKey;
+        _secretKey = secretKey;
+        _sessionKey = sessionKey;
+        _expiration = expiration;
+    }
+    return self;
+}
+
+@end
