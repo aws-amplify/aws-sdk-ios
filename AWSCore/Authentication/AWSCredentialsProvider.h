@@ -171,3 +171,4 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
                        expiration:(NSDate *) expiration;
 
 @end
+
