@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'AWSiOSSDKv2'
-  s.version      = '2.0.12'
+  s.version      = '2.0.13'
   s.summary      = 'Amazon Web Services SDK for iOS.'
 
   s.description  = 'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'
@@ -13,7 +13,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/aws/aws-sdk-ios.git',
                      :tag => s.version}
   s.frameworks   = 'UIKit','Foundation','SystemConfiguration'
-  s.library      = 'sqlite3','z'
 
   s.dependency 'Bolts', '~> 1.1.0'
   s.dependency 'Mantle', '~> 1.4.1'
@@ -22,6 +21,7 @@ Pod::Spec.new do |s|
   s.dependency 'UICKeyChainStore', '~> 1.0.5'
   s.dependency 'Reachability', '~> 3.1.1'
   s.dependency 'GZIP', '~> 1.0.3'
+  s.dependency 'FMDB', '~> 2.4.0'
 
   s.requires_arc = true
 

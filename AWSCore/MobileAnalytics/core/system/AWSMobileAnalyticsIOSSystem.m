@@ -22,16 +22,25 @@
 
 @implementation AWSMobileAnalyticsIOSSystem
 
--(id) initWithIdentifier: (NSString*) theIdentifier
-{
+-(id) initWithIdentifier:(NSString*)theIdentifier {
     NSFileManager *internalFileManager = [NSFileManager defaultManager];
-    return [self initWithIdentifier:theIdentifier withRootPath:[AWSMobileAnalyticsIOSSystem rootFileDirectoryWithFileManager:internalFileManager]];
+    return [self initWithIdentifier:theIdentifier
+                 insightsPrivateKey:nil
+                       withRootPath:[AWSMobileAnalyticsIOSSystem rootFileDirectoryWithFileManager:internalFileManager]];
 }
 
--(id) initWithIdentifier: (NSString*) theIdentifier withRootPath:(NSString*) theRootPath
-{
-    if(self = [super init])
-    {
+-(id) initWithIdentifier:(NSString*)theIdentifier
+      insightsPrivateKey:(NSString *)insightsPrivateKey {
+    NSFileManager *internalFileManager = [NSFileManager defaultManager];
+    return [self initWithIdentifier:theIdentifier
+                 insightsPrivateKey:insightsPrivateKey
+                       withRootPath:[AWSMobileAnalyticsIOSSystem rootFileDirectoryWithFileManager:internalFileManager]];
+}
+
+-(id) initWithIdentifier:(NSString *)theIdentifier
+      insightsPrivateKey:(NSString *)insightsPrivateKey
+            withRootPath:(NSString *)theRootPath {
+    if(self = [super init]) {
         self.connectivity = nil;
         self.fileManager = nil;
         self.preferences = nil;
@@ -69,7 +78,8 @@
             self.fileManager = [[AWSMobileAnalyticsDefaultFileManager alloc] initWithFileManager: internalFileManager
                                                                                     withRootFile: rootDirectory];
 
-            self.preferences = [AWSMobileAnalyticsIOSPreferences preferencesWithFileManager:self.fileManager];
+            self.preferences = [AWSMobileAnalyticsIOSPreferences preferencesWithFileManager:self.fileManager
+                                                                         insightsPrivateKey:insightsPrivateKey];
         }
         else
         {

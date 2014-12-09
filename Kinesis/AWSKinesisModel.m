@@ -18,6 +18,17 @@
 
 NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
+@implementation AWSKinesisAddTagsToStreamInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"streamName" : @"StreamName",
+             @"tags" : @"Tags",
+             };
+}
+
+@end
+
 @implementation AWSKinesisCreateStreamInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -179,6 +190,33 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @end
 
+@implementation AWSKinesisListTagsForStreamInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"exclusiveStartTagKey" : @"ExclusiveStartTagKey",
+             @"limit" : @"Limit",
+             @"streamName" : @"StreamName",
+             };
+}
+
+@end
+
+@implementation AWSKinesisListTagsForStreamOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"hasMoreTags" : @"HasMoreTags",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSKinesisTag class]];
+}
+
+@end
+
 @implementation AWSKinesisMergeShardsInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -216,6 +254,61 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @end
 
+@implementation AWSKinesisPutRecordsInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"records" : @"Records",
+             @"streamName" : @"StreamName",
+             };
+}
+
++ (NSValueTransformer *)recordsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSKinesisPutRecordsRequestEntry class]];
+}
+
+@end
+
+@implementation AWSKinesisPutRecordsOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"failedRecordCount" : @"FailedRecordCount",
+             @"records" : @"Records",
+             };
+}
+
++ (NSValueTransformer *)recordsJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSKinesisPutRecordsResultEntry class]];
+}
+
+@end
+
+@implementation AWSKinesisPutRecordsRequestEntry
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"data" : @"Data",
+             @"explicitHashKey" : @"ExplicitHashKey",
+             @"partitionKey" : @"PartitionKey",
+             };
+}
+
+@end
+
+@implementation AWSKinesisPutRecordsResultEntry
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"errorCode" : @"ErrorCode",
+             @"errorMessage" : @"ErrorMessage",
+             @"sequenceNumber" : @"SequenceNumber",
+             @"shardId" : @"ShardId",
+             };
+}
+
+@end
+
 @implementation AWSKinesisRecord
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -223,6 +316,17 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
              @"data" : @"Data",
              @"partitionKey" : @"PartitionKey",
              @"sequenceNumber" : @"SequenceNumber",
+             };
+}
+
+@end
+
+@implementation AWSKinesisRemoveTagsFromStreamInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"streamName" : @"StreamName",
+             @"tagKeys" : @"TagKeys",
              };
 }
 
@@ -319,6 +423,17 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSKinesisTag
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"key" : @"Key",
+             @"value" : @"Value",
+             };
 }
 
 @end

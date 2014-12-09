@@ -36,25 +36,30 @@
 @implementation AWSMobileAnalyticsDefaultContext
 
 + (id<AWSMobileAnalyticsContext>) contextWithIdentifier:(NSString*) theIdentifier
+                                     insightsPrivateKey:(NSString *)insightsPrivateKey
                                             withSdkInfo:(AWSMobileAnalyticsSDKInfo*)sdkInfo
                               withConfigurationSettings:(NSDictionary*)settings {
     return [AWSMobileAnalyticsDefaultContext contextWithIdentifier:theIdentifier
+                                                insightsPrivateKey:insightsPrivateKey
                                            withClientConfiguration:[AWSMobileAnalyticsConfiguration new]
                                                        withSdkInfo:sdkInfo
                                          withConfigurationSettings:settings];
 }
 
 + (id<AWSMobileAnalyticsContext>) contextWithIdentifier:(NSString*) theIdentifier
+                                     insightsPrivateKey:(NSString *)insightsPrivateKey
                                 withClientConfiguration:(AWSMobileAnalyticsConfiguration *)clientConfiguration
                                             withSdkInfo:(AWSMobileAnalyticsSDKInfo*)sdkInfo
                               withConfigurationSettings:(NSDictionary*)settings {
     return [[AWSMobileAnalyticsDefaultContext alloc] initWithIdentifier:theIdentifier
+                                                     insightsPrivateKey:insightsPrivateKey
                                                 withClientConfiguration:clientConfiguration
                                                             withSdkInfo:sdkInfo
                                               withConfigurationSettings:settings];
 }
 
 - (id<AWSMobileAnalyticsContext>) initWithIdentifier:(NSString*) theIdentifier
+                                  insightsPrivateKey:(NSString *)insightsPrivateKey
                              withClientConfiguration:(AWSMobileAnalyticsConfiguration *)clientConfiguration
                                          withSdkInfo:(AWSMobileAnalyticsSDKInfo*)sdkInfo
                            withConfigurationSettings:(NSDictionary*)settings {
@@ -64,10 +69,11 @@
 
         _sdkInfo = sdkInfo;
 
-        _system = [[AWSMobileAnalyticsIOSSystem alloc] initWithIdentifier:theIdentifier];
+        _system = [[AWSMobileAnalyticsIOSSystem alloc] initWithIdentifier:theIdentifier
+                                                       insightsPrivateKey:insightsPrivateKey];
 
         _uniqueIdService = [AWSMobileAnalyticsPrefsUniqueIdService idService];
-        _uniqueId = [self.uniqueIdService getUniqueIdWithContext:self]; // TODO: this may need to be broken up since self is not fully instantiated yet
+        _uniqueId = [_uniqueIdService getUniqueIdWithContext:self]; // TODO: this may need to be broken up since self is not fully instantiated yet
 
         // now that we have the id, create the client context from the client configuration that
         // was passed in
@@ -80,7 +86,7 @@
                                                                                withAppId:theIdentifier];
 
         _httpClient = [[AWSMobileAnalyticsDefaultHttpClient alloc] init];
-		[_httpClient addInterceptor:[[AWSMobileAnalyticsSDKInfoInterceptor alloc] initWithSDKInfo:_sdkInfo]];
+        [_httpClient addInterceptor:[[AWSMobileAnalyticsSDKInfoInterceptor alloc] initWithSDKInfo:_sdkInfo]];
         [_httpClient addInterceptor:[[AWSMobileAnalyticsInstanceIdInterceptor alloc] initWithInstanceId:_uniqueId]];
         [_httpClient addInterceptor:[AWSMobileAnalyticsClientContextInterceptor contextInterceptorWithClientContext:_clientContext]];
 

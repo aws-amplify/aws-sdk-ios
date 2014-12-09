@@ -47,6 +47,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 @class AWSSimpleDBBatchDeleteAttributesRequest;
 @class AWSSimpleDBBatchPutAttributesRequest;
 @class AWSSimpleDBCreateDomainRequest;
+@class AWSSimpleDBDeletableAttribute;
 @class AWSSimpleDBDeletableItem;
 @class AWSSimpleDBDeleteAttributesRequest;
 @class AWSSimpleDBDeleteDomainRequest;
@@ -130,6 +131,25 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
  * The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'.
  */
 @property (nonatomic, strong) NSString *domainName;
+
+@end
+
+/**
+ * <p></p>
+ * Required parameters: [Name]
+ */
+@interface AWSSimpleDBDeletableAttribute : AWSModel
+
+
+/**
+ * The name of the attribute.
+ */
+@property (nonatomic, strong) NSString *name;
+
+/**
+ * The value of the attribute.
+ */
+@property (nonatomic, strong) NSString *value;
 
 @end
 

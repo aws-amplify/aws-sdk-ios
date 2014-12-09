@@ -68,12 +68,17 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
  * <p>TRUE if the identity pool supports unauthenticated logins.</p>
  */
 @property (nonatomic, strong) NSNumber *allowUnauthenticatedIdentities;
+
+/**
+ * <p>The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the <code>DeveloperProviderName</code>, you can use letters as well as period (<code>.</code>), underscore (<code>_</code>), and dash (<code>-</code>).</p><p>Once you have set a developer provider name, you cannot change it. Please take care in setting this parameter.</p>
+ */
 @property (nonatomic, strong) NSString *developerProviderName;
 
 /**
  * <p>A string that you provide.</p>
  */
 @property (nonatomic, strong) NSString *identityPoolName;
+@property (nonatomic, strong) NSArray *openIdConnectProviderARNs;
 
 /**
  * <p>Optional key:value pairs mapping provider names to provider app IDs.</p>
@@ -128,14 +133,14 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 @property (nonatomic, strong) NSString *identityPoolId;
 
 /**
- * <p>A set of optional name/value pairs that map provider names to provider tokens.</p><p>The available provider names for <code>Logins</code> are as follows: <ul><li>Facebook: <code>graph.facebook.com</code></li><li>Google: <code>accounts.google.com</code></li><li>Amazon: <code>www.amazon.com</code></li></ul></p>
+ * <p>A set of optional name-value pairs that map provider names to provider tokens.</p><p>The available provider names for <code>Logins</code> are as follows: <ul><li>Facebook: <code>graph.facebook.com</code></li><li>Google: <code>accounts.google.com</code></li><li>Amazon: <code>www.amazon.com</code></li></ul></p>
  */
 @property (nonatomic, strong) NSDictionary *logins;
 
 @end
 
 /**
- * Returned in the response to a GetId request.
+ * Returned in response to a GetId request.
  */
 @interface AWSCognitoIdentityGetIdResponse : AWSModel
 
@@ -147,18 +152,49 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 
 @end
 
+/**
+ * <p>Input to the <code>GetOpenIdTokenForDeveloperIdentity</code> action.</p>
+ * Required parameters: [IdentityPoolId, Logins]
+ */
 @interface AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput : AWSRequest
 
+
+/**
+ * <p>A unique identifier in the format REGION:GUID.</p>
+ */
 @property (nonatomic, strong) NSString *identityId;
+
+/**
+ * <p>An identity pool ID in the format REGION:GUID.</p>
+ */
 @property (nonatomic, strong) NSString *identityPoolId;
+
+/**
+ * <p>A set of optional name-value pairs that map provider names to provider tokens. Each name-value pair represents a user from a public provider or developer provider. If the user is from a developer provider, the name-value pair will follow the syntax <code>"developer_provider_name": "developer_user_identifier"</code>. The developer provider is the "domain" by which Cognito will refer to your users; you provided this domain while creating/updating the identity pool. The developer user identifier is an identifier from your backend that uniquely identifies a user. When you create an identity pool, you can specify the supported logins.</p>
+ */
 @property (nonatomic, strong) NSDictionary *logins;
+
+/**
+ * <p>The expiration time of the token, in seconds. You can specify a custom expiration time for the token so that you can cache it. If you don't provide an expiration time, the token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS credentials, which are valid for a maximum of one hour. The maximum token duration you can set is 24 hours. You should take care in setting the expiration time for a token, as there are significant security implications: an attacker could use a leaked token to access your AWS resources for the token's duration.</p>
+ */
 @property (nonatomic, strong) NSNumber *tokenDuration;
 
 @end
 
+/**
+ * <p>Returned in response to a successful <code>GetOpenIdTokenForDeveloperIdentity</code> request.</p>
+ */
 @interface AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse : AWSModel
 
+
+/**
+ * <p>A unique identifier in the format REGION:GUID.</p>
+ */
 @property (nonatomic, strong) NSString *identityId;
+
+/**
+ * <p>An OpenID token.</p>
+ */
 @property (nonatomic, strong) NSString *token;
 
 @end
@@ -176,7 +212,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 @property (nonatomic, strong) NSString *identityId;
 
 /**
- * A set of optional name/value pairs that map provider names to provider tokens.
+ * A set of optional name-value pairs that map provider names to provider tokens.
  */
 @property (nonatomic, strong) NSDictionary *logins;
 
@@ -212,7 +248,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 @property (nonatomic, strong) NSString *identityId;
 
 /**
- * A set of optional name/value pairs that map provider names to provider tokens.
+ * A set of optional name-value pairs that map provider names to provider tokens.
  */
 @property (nonatomic, strong) NSArray *logins;
 
@@ -229,6 +265,10 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
  * TRUE if the identity pool supports unauthenticated logins.
  */
 @property (nonatomic, strong) NSNumber *allowUnauthenticatedIdentities;
+
+/**
+ * <p>The "domain" by which Cognito will refer to your users.</p>
+ */
 @property (nonatomic, strong) NSString *developerProviderName;
 
 /**
@@ -240,6 +280,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
  * <p>A string that you provide.</p>
  */
 @property (nonatomic, strong) NSString *identityPoolName;
+@property (nonatomic, strong) NSArray *openIdConnectProviderARNs;
 
 /**
  * <p>Optional key:value pairs mapping provider names to provider app IDs.</p>
@@ -350,44 +391,130 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 
 @end
 
+/**
+ * <p>Input to the <code>LookupDeveloperIdentityInput</code> action.</p>
+ * Required parameters: [IdentityPoolId]
+ */
 @interface AWSCognitoIdentityLookupDeveloperIdentityInput : AWSRequest
 
+
+/**
+ * <p>A unique ID used by your backend authentication process to identify a user. Typically, a developer identity provider would issue many developer user identifiers, in keeping with the number of users.</p>
+ */
 @property (nonatomic, strong) NSString *developerUserIdentifier;
+
+/**
+ * <p>A unique identifier in the format REGION:GUID.</p>
+ */
 @property (nonatomic, strong) NSString *identityId;
+
+/**
+ * <p>An identity pool ID in the format REGION:GUID.</p>
+ */
 @property (nonatomic, strong) NSString *identityPoolId;
+
+/**
+ * <p>The maximum number of identities to return.</p>
+ */
 @property (nonatomic, strong) NSNumber *maxResults;
+
+/**
+ * <p>A pagination token. The first call you make will have <code>NextToken</code> set to null. After that the service will return <code>NextToken</code> values as needed. For example, let's say you make a request with <code>MaxResults</code> set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.</p>
+ */
 @property (nonatomic, strong) NSString *nextToken;
 
 @end
 
+/**
+ * <p>Returned in response to a successful <code>LookupDeveloperIdentity</code> action.</p>
+ */
 @interface AWSCognitoIdentityLookupDeveloperIdentityResponse : AWSModel
 
+
+/**
+ * <p>This is the list of developer user identifiers associated with an identity ID. Cognito supports the association of multiple developer user identifiers with an identity ID.</p>
+ */
 @property (nonatomic, strong) NSArray *developerUserIdentifierList;
+
+/**
+ * <p>A unique identifier in the format REGION:GUID.</p>
+ */
 @property (nonatomic, strong) NSString *identityId;
+
+/**
+ * <p>A pagination token. The first call you make will have <code>NextToken</code> set to null. After that the service will return <code>NextToken</code> values as needed. For example, let's say you make a request with <code>MaxResults</code> set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.</p>
+ */
 @property (nonatomic, strong) NSString *nextToken;
 
 @end
 
+/**
+ * <p>Input to the <code>MergeDeveloperIdentities</code> action.</p>
+ * Required parameters: [SourceUserIdentifier, DestinationUserIdentifier, DeveloperProviderName, IdentityPoolId]
+ */
 @interface AWSCognitoIdentityMergeDeveloperIdentitiesInput : AWSRequest
 
+
+/**
+ * <p>User identifier for the destination user. The value should be a <code>DeveloperUserIdentifier</code>.</p>
+ */
 @property (nonatomic, strong) NSString *destinationUserIdentifier;
+
+/**
+ * <p>The "domain" by which Cognito will refer to your users. This is a (pseudo) domain name that you provide while creating an identity pool. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the <code>DeveloperProviderName</code>, you can use letters as well as period (.), underscore (_), and dash (-).</p>
+ */
 @property (nonatomic, strong) NSString *developerProviderName;
+
+/**
+ * <p>An identity pool ID in the format REGION:GUID.</p>
+ */
 @property (nonatomic, strong) NSString *identityPoolId;
+
+/**
+ * <p>User identifier for the source user. The value should be a <code>DeveloperUserIdentifier</code>.</p>
+ */
 @property (nonatomic, strong) NSString *sourceUserIdentifier;
 
 @end
 
+/**
+ * <p>Returned in response to a successful <code>MergeDeveloperIdentities</code> action.</p>
+ */
 @interface AWSCognitoIdentityMergeDeveloperIdentitiesResponse : AWSModel
 
+
+/**
+ * <p>A unique identifier in the format REGION:GUID.</p>
+ */
 @property (nonatomic, strong) NSString *identityId;
 
 @end
 
+/**
+ * <p>Input to the <code>UnlinkDeveloperIdentity</code> action.</p>
+ * Required parameters: [IdentityId, IdentityPoolId, DeveloperProviderName, DeveloperUserIdentifier]
+ */
 @interface AWSCognitoIdentityUnlinkDeveloperIdentityInput : AWSRequest
 
+
+/**
+ * <p>The "domain" by which Cognito will refer to your users.</p>
+ */
 @property (nonatomic, strong) NSString *developerProviderName;
+
+/**
+ * A unique ID used by your backend authentication process to identify a user.
+ */
 @property (nonatomic, strong) NSString *developerUserIdentifier;
+
+/**
+ * <p>A unique identifier in the format REGION:GUID.</p>
+ */
 @property (nonatomic, strong) NSString *identityId;
+
+/**
+ * <p>An identity pool ID in the format REGION:GUID.</p>
+ */
 @property (nonatomic, strong) NSString *identityPoolId;
 
 @end
@@ -405,7 +532,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 @property (nonatomic, strong) NSString *identityId;
 
 /**
- * A set of optional name/value pairs that map provider names to provider tokens.
+ * A set of optional name-value pairs that map provider names to provider tokens.
  */
 @property (nonatomic, strong) NSDictionary *logins;
 

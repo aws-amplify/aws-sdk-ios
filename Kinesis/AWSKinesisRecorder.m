@@ -19,16 +19,23 @@
 #import "Bolts.h"
 #import "AWSLogging.h"
 #import "AWSCategory.h"
+#import "FMDB.h"
+
+NSString *const AWSKinesisRecorderErrorDomain = @"com.amazonaws.AWSKinesisRecorderErrorDomain";
 
 NSString *const AWSKinesisRecorderByteThresholdReachedNotification = @"com.amazonaws.AWSKinesisRecorderByteThresholdReachedNotification";
-NSString *const AWSKinesisRecorderCacheName = @"com.amazonaws.AWSKinesisRecorderCacheName.Cache";
+NSString *const AWSKinesisRecorderDatabasePathPrefix = @"com/amazonaws/AWSKinesisRecorder";
 NSUInteger const AWSKinesisRecorderByteLimitDefault = 5 * 1024 * 1024; // 5MB
 NSTimeInterval const AWSKinesisRecorderAgeLimitDefault = 0.0; // Keeps the data indefinitely unless it hits the size limit.
+
+// Legacy constants
+NSString *const AWSKinesisRecorderCacheName = @"com.amazonaws.AWSKinesisRecorderCacheName.Cache";
 
 @interface AWSKinesisRecorder()
 
 @property (nonatomic, strong) AWSKinesis *kinesis;
-@property (nonatomic, strong) TMCache *cache;
+@property (nonatomic, strong) FMDatabaseQueue *databaseQueue;
+@property (nonatomic, strong) NSString *databasePath;
 
 @end
 
@@ -43,6 +50,7 @@ NSTimeInterval const AWSKinesisRecorderAgeLimitDefault = 0.0; // Keeps the data 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _defaultKinesisRecorder = [[AWSKinesisRecorder alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration
+                                                                         identifier:@"Default"
                                                                           cacheName:AWSKinesisRecorderCacheName];
     });
 
@@ -52,133 +60,343 @@ NSTimeInterval const AWSKinesisRecorderAgeLimitDefault = 0.0; // Keeps the data 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration
                            identifier:(NSString *)identifier {
     if (self = [self initWithConfiguration:configuration
+                                identifier:[identifier aws_md5String]
                                  cacheName:[NSString stringWithFormat:@"%@.%@", AWSKinesisRecorderCacheName, identifier]]) {
     }
     return self;
 }
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration
+                           identifier:(NSString *)identifier
                             cacheName:(NSString *)cacheName {
     if (self = [super init]) {
+        NSString *databaseDirectoryPath = [NSTemporaryDirectory() stringByAppendingPathComponent:AWSKinesisRecorderDatabasePathPrefix];
         _kinesis = [[AWSKinesis alloc] initWithConfiguration:configuration];
-        NSString *rootPath = [NSTemporaryDirectory() stringByAppendingPathComponent:AWSKinesisRecorderCacheName];
-        _cache = [[TMCache alloc] initWithName:cacheName
-                                      rootPath:rootPath];
-        AWSLogDebug(@"The cache root path: %@", rootPath);
-        _cache.diskCache.byteLimit = AWSKinesisRecorderByteLimitDefault;
-        _cache.diskCache.ageLimit = AWSKinesisRecorderAgeLimitDefault;
+        _databasePath = [databaseDirectoryPath stringByAppendingPathComponent:identifier];
+        _diskByteLimit = AWSKinesisRecorderByteLimitDefault;
+        _diskAgeLimit = AWSKinesisRecorderAgeLimitDefault;
+
+        // Creates a directory for storing databases if it doesn't exist.
+        BOOL fileExistsAtPath = [[NSFileManager defaultManager] fileExistsAtPath:databaseDirectoryPath];
+        if (!fileExistsAtPath) {
+            NSError *error = nil;
+            BOOL success = [[NSFileManager defaultManager] createDirectoryAtPath:databaseDirectoryPath
+                                                     withIntermediateDirectories:YES
+                                                                      attributes:nil
+                                                                           error:&error];
+            if (!success) {
+                AWSLogError(@"Failed to create a directory for database. [%@]", error);
+            }
+        }
+
+        // Creates a database for the identifier if it doesn't exist.
+        AWSLogDebug(@"Database path: [%@]", _databasePath);
+        _databaseQueue = [FMDatabaseQueue databaseQueueWithPath:_databasePath];
+        [_databaseQueue inDatabase:^(FMDatabase *db) {
+            if (![db executeUpdate:
+                  @"CREATE TABLE IF NOT EXISTS record ("
+                  @"partition_key TEXT NOT NULL,"
+                  @"stream_name TEXT NOT NULL,"
+                  @"data BLOB NOT NULL,"
+                  @"timestamp REAL NOT NULL,"
+                  @"retry_count INTEGER NOT NULL)"]) {
+                AWSLogError(@"SQLite error. [%@]", db.lastError);
+            }
+        }];
+
+        // Legacy code for caching the requests.
+        if (!fileExistsAtPath) {
+            [self importLegacyData:cacheName];
+        }
     }
     return self;
 }
 
+- (void)importLegacyData:(NSString *)cacheName {
+    TMCache *cache = [[TMCache alloc] initWithName:cacheName
+                                          rootPath:[NSTemporaryDirectory() stringByAppendingPathComponent:AWSKinesisRecorderCacheName]];
+    [cache.diskCache enumerateObjectsWithBlock:^(TMDiskCache *cache, NSString *key, id<NSCoding> object, NSURL *fileURL) {
+        [cache objectForKey:key block:^(TMDiskCache *cache, NSString *key, id<NSCoding> object, NSURL *fileURL) {
+            AWSKinesisPutRecordInput *putRecordInput = (AWSKinesisPutRecordInput *)object;
+            [_databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+                BOOL result = [db executeUpdate:
+                               @"INSERT INTO record ("
+                               @"partition_key, stream_name, data, timestamp, retry_count"
+                               @") VALUES ("
+                               @":partition_key, :stream_name, :data, :timestamp, :retry_count"
+                               @")"
+                        withParameterDictionary:@{
+                                                  @"partition_key" : putRecordInput.partitionKey,
+                                                  @"stream_name" : putRecordInput.streamName,
+                                                  @"data" : putRecordInput.data,
+                                                  @"timestamp" : @([[NSDate date] timeIntervalSince1970]),
+                                                  @"retry_count" : @0
+                                                  }
+                               ];
+                if (!result) {
+                    AWSLogError(@"SQLite error. Rolling back... [%@]", db.lastError);
+                }
+            }];
+        }];
+    } completionBlock:^(TMDiskCache *cache) {
+        //
+    }];
+}
+
 - (BFTask *)saveRecord:(NSData *)data
             streamName:(NSString *)streamName {
-    AWSKinesisPutRecordInput *putRecordInput = [AWSKinesisPutRecordInput new];
-    putRecordInput.data = data;
-    putRecordInput.streamName = streamName;
-    putRecordInput.partitionKey = [NSString aws_randomStringWithLength:36];
+    // Returns error if the total size of data and partition key exceeds 50KB.
+    // Partition key limit is 256 bytes.
+    if ([data length] > 50 * 1024 - 256) {
+        return [BFTask taskWithError:[NSError errorWithDomain:AWSKinesisRecorderErrorDomain
+                                                         code:AWSKinesisRecorderErrorDataTooLarge
+                                                     userInfo:nil]];
+    }
 
-    BFTaskCompletionSource *taskCompletionSource = [BFTaskCompletionSource taskCompletionSource];
-    NSTimeInterval timeIntervalSince1970 = [[NSDate date] timeIntervalSince1970];
+    FMDatabaseQueue *databaseQueue = self.databaseQueue;
+    NSTimeInterval diskAgeLimit = self.diskAgeLimit;
+    NSString *databasePath = self.databasePath;
+    NSUInteger notificationByteThreshold = self.notificationByteThreshold;
+    NSUInteger diskByteLimit = self.diskByteLimit;
+    __weak AWSKinesisRecorder *kinesisRecorder = self;
 
-    __block AWSKinesisRecorder *kinesisRecorder = self;
-    [self.cache setObject:putRecordInput
-                   forKey:[NSString stringWithFormat:@"%10.10f.%@", timeIntervalSince1970, [NSString aws_randomStringWithLength:10]]
-                    block:^(TMCache *cache, NSString *key, id object) {
-                        [taskCompletionSource setResult:object];
+    return [[BFTask taskWithResult:nil] continueWithSuccessBlock:^id(BFTask *task) {
+        // Inserts a new record to the database.
+        __block NSError *error = nil;
+        [databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+            BOOL result = [db executeUpdate:
+                           @"INSERT INTO record ("
+                           @"partition_key, stream_name, data, timestamp, retry_count"
+                           @") VALUES ("
+                           @":partition_key, :stream_name, :data, :timestamp, :retry_count"
+                           @")"
+                    withParameterDictionary:@{
+                                              @"partition_key" : [[NSUUID UUID] UUIDString],
+                                              @"stream_name" : streamName,
+                                              @"data" : data,
+                                              @"timestamp" : @([[NSDate date] timeIntervalSince1970]),
+                                              @"retry_count" : @0
+                                              }
+                           ];
 
-                        NSUInteger diskBytesUsed = cache.diskByteCount;
-                        if (diskBytesUsed > kinesisRecorder.notificationByteThreshold) {
-                            [[NSNotificationCenter defaultCenter] postNotificationName:AWSKinesisRecorderByteThresholdReachedNotification
-                                                                                object:kinesisRecorder
-                                                                              userInfo:@{@"diskBytesUsed" : @(diskBytesUsed)}];
-                        }
-                    }];
-    return taskCompletionSource.task;
+            if (result && diskAgeLimit > 0) {
+                // Deletes old records exceeding the threshold.
+                result = [db executeUpdate:
+                          @"DELETE FROM record "
+                          @"WHERE timestamp < :timestamp"
+                   withParameterDictionary:@{
+                                             @"timestamp" : @([[NSDate date] timeIntervalSince1970] - diskAgeLimit)
+                                             }
+                          ];
+            }
+
+            if (!result) {
+                AWSLogError(@"SQLite error. Rolling back... [%@]", db.lastError);
+                error = db.lastError;
+                *rollback = YES;
+                return;
+            }
+        }];
+
+        if (error) {
+            return [BFTask taskWithError:error];
+        }
+
+        NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:databasePath
+                                                                                    error:&error];
+        if (attributes) {
+            unsigned long long fileSize = [attributes fileSize];
+            if (notificationByteThreshold > 0
+                && fileSize > notificationByteThreshold) {
+                // Sends out a notification if it exceeds the disk size threshold.
+                [[NSNotificationCenter defaultCenter] postNotificationName:AWSKinesisRecorderByteThresholdReachedNotification
+                                                                    object:kinesisRecorder
+                                                                  userInfo:@{@"diskBytesUsed" : @(fileSize)}];
+            }
+            if (fileSize > diskByteLimit) {
+                // Deletes 2 oldest records if it exceeds the disk size threshold.
+                [databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+                    BOOL result = [db executeUpdate:
+                                   @"DELETE FROM record "
+                                   @"WHERE rowid IN ( "
+                                   @"SELECT rowid "
+                                   @"FROM record "
+                                   @"ORDER BY rowid ASC "
+                                   @"LIMIT 2 "
+                                   @")"
+                                   ];
+                    if (!result) {
+                        AWSLogError(@"SQLite error. Rolling back... [%@]", db.lastError);
+                        error = db.lastError;
+                        *rollback = YES;
+                        return;
+                    }
+                }];
+
+            }
+        } else if (error) {
+            return [BFTask taskWithError:error];
+        }
+
+        return nil;
+    }];
 }
 
 - (BFTask *)submitAllRecords {
-    BFTaskCompletionSource *taskCompletionSource = [BFTaskCompletionSource taskCompletionSource];
-    NSMutableArray *keys = [NSMutableArray new];
-    [self.cache.diskCache enumerateObjectsWithBlock:^(TMDiskCache *cache, NSString *key, id<NSCoding> object, NSURL *fileURL) {
-        [keys addObject:key];
-    } completionBlock:^(TMDiskCache *cache) {
-        [taskCompletionSource setResult:keys];
-    }];
+    FMDatabaseQueue *databaseQueue = self.databaseQueue;
+    AWSKinesis *kinesis = self.kinesis;
 
-    return [[taskCompletionSource.task continueWithSuccessBlock:^id(BFTask *task) {
-        NSArray *sortedKeys = [keys sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-            double double1 = [[obj1 substringToIndex:[obj1 length] - 11] doubleValue];
-            double double2 = [[obj2 substringToIndex:[obj2 length] - 11] doubleValue];
-            if (double1 < double2) {
-                return NSOrderedAscending;
-            } else if (double1 == double2) {
-                return NSOrderedSame;
-            } else {
-                return NSOrderedDescending;
+    return [[BFTask taskWithResult:nil] continueWithSuccessBlock:^id(BFTask *task) {
+        __block NSError *error = nil;
+        __block BFTask *outputTask = [BFTask taskWithResult:nil];
+
+        [databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+            FMResultSet *rs = [db executeQuery:
+                               @"SELECT stream_name "
+                               @"FROM record "
+                               @"GROUP BY stream_name "];
+            if (!rs) {
+                AWSLogError(@"SQLite error. Rolling back... [%@]", db.lastError);
+                error = db.lastError;
+                *rollback = YES;
+                return;
+            }
+
+            NSMutableArray *streamNames = [NSMutableArray new];
+            while ([rs next]) {
+                [streamNames addObject:[rs stringForColumn:@"stream_name"]];
+            }
+            rs = nil;
+            AWSLogDebug(@"Stream names: [%@]", streamNames);
+
+            for (NSString *streamName in streamNames) {
+                NSMutableArray *records = nil;
+                NSMutableArray *rowIds = nil;
+                NSNumber *startingRowId = @(-1);
+                do {
+                    FMResultSet *rs = [db executeQuery:
+                                       @"SELECT rowid, partition_key, data, retry_count "
+                                       @"FROM record "
+                                       @"WHERE stream_name = :stream_name "
+                                       @"AND rowid > :rowid "
+                                       @"ORDER BY rowid ASC "
+                                       @"LIMIT 100"
+                               withParameterDictionary:@{
+                                                         @"stream_name" : streamName,
+                                                         @"rowid" : startingRowId
+                                                         }];
+                    if (!rs) {
+                        AWSLogError(@"SQLite error. Rolling back... [%@]", db.lastError);
+                        error = db.lastError;
+                        *rollback = YES;
+                        return;
+                    }
+
+                    records = [NSMutableArray new];
+                    rowIds = [NSMutableArray new];
+                    while ([rs next]) {
+                        AWSKinesisPutRecordsRequestEntry *requestEntry = [AWSKinesisPutRecordsRequestEntry new];
+                        requestEntry.partitionKey = [rs stringForColumn:@"partition_key"];
+                        requestEntry.data = [rs dataForColumn:@"data"];
+                        [records addObject:requestEntry];
+
+                        startingRowId = @([rs longLongIntForColumn:@"rowid"]);
+                        [rowIds addObject:@([rs longLongIntForColumn:@"rowid"])];
+                    }
+                    rs = nil;
+
+                    if ([records count] > 0) {
+                        AWSKinesisPutRecordsInput *putRecordsInput = [AWSKinesisPutRecordsInput new];
+                        putRecordsInput.streamName = streamName;
+                        putRecordsInput.records = records;
+                        AWSLogVerbose(@"putRecordsInput: [%@]", putRecordsInput);
+                        outputTask = [outputTask continueWithSuccessBlock:^id(BFTask *task) {
+                            return [[kinesis putRecords:putRecordsInput] continueWithSuccessBlock:^id(BFTask *task) {
+                                if (task.error) {
+                                    AWSLogError(@"Error: [%@]", task.error);
+                                }
+                                if (task.exception) {
+                                    AWSLogError(@"Exception: [%@]", task.exception);
+                                }
+                                if (task.result) {
+                                    [databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+                                        AWSKinesisPutRecordsOutput *putRecordsOutput = task.result;
+                                        for (int i = 0; i < [putRecordsOutput.records count]; i++) {
+                                            AWSKinesisPutRecordsResultEntry *resultEntry = putRecordsOutput.records[i];
+                                            if (resultEntry.errorCode) {
+                                                AWSLogInfo(@"Error Code: [%@] Error Message: [%@]", resultEntry.errorCode, resultEntry.errorMessage);
+                                            }
+                                            // When the error code is ProvisionedThroughputExceededException or InternalFailure,
+                                            // we should retry. So, don't delete the row from the database.
+                                            if (![resultEntry.errorCode isEqualToString:@"ProvisionedThroughputExceededException"]
+                                                && ![resultEntry.errorCode isEqualToString:@"InternalFailure"]) {
+                                                BOOL result = [db executeUpdate:@"DELETE FROM record WHERE rowid = :rowid"
+                                                        withParameterDictionary:@{
+                                                                                  @"rowid" : rowIds[i]
+                                                                                  }];
+                                                if (!result) {
+                                                    AWSLogError(@"SQLite error. [%@]", db.lastError);
+                                                    error = db.lastError;
+                                                }
+                                            }
+                                        }
+                                    }];
+                                }
+                                return nil;
+                            }];
+                        }];
+                    }
+                } while ([records count] == 100);
             }
         }];
-        return [BFTask taskWithResult:sortedKeys];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
-        NSMutableArray *tasks = [NSMutableArray new];
-        for (NSString *key in task.result) {
-            BFTaskCompletionSource *taskCompletionSource = [BFTaskCompletionSource taskCompletionSource];
-            [self.cache objectForKey:key block:^(TMCache *cache, NSString *key, id object) {
-                if ([object isKindOfClass:[AWSKinesisPutRecordInput class]]) {
-                    [[self.kinesis putRecord:object] continueWithBlock:^id(BFTask *task) {
-                        if (task.error) {
-                            if ([task.error.domain isEqualToString:AWSKinesisErrorDomain]) {
-                                switch (task.error.code) {
-                                    case AWSKinesisErrorUnknown:
-                                    case AWSKinesisErrorResourceNotFound:
-                                        [self.cache removeObjectForKey:key block:nil];
-                                        break;
-                                    default:
-                                        break;
-                                }
-                            }
-                        } else {
-                            [self.cache removeObjectForKey:key block:nil];
-                        }
-                        [taskCompletionSource setResult:task];
-                        return nil;
-                    }];
-                } else {
-                    AWSLogError(@"Only AWSKinesisPutRecordInput should be in the queue. [%@]", [object class]);
-                }
-            }];
-            [tasks addObject:taskCompletionSource.task];
+
+        [databaseQueue inDatabase:^(FMDatabase *db) {
+            BOOL result = [db executeUpdate:@"VACUUM"];
+            if (!result) {
+                AWSLogError(@"SQLite error. [%@]", db.lastError);
+                error = db.lastError;
+            }
+        }];
+
+        if (error) {
+            return [BFTask taskWithError:error];
         }
-        return [BFTask taskForCompletionOfAllTasks:tasks];
+
+        return outputTask;
     }];
 }
 
 - (BFTask *)removeAllRecords {
-    BFTaskCompletionSource *taskCompletionSource = [BFTaskCompletionSource taskCompletionSource];
-    [self.cache removeAllObjects:^(TMCache *cache) {
-        [taskCompletionSource setResult:self];
+    FMDatabaseQueue *databaseQueue = self.databaseQueue;
+
+    return [[BFTask taskWithResult:nil] continueWithSuccessBlock:^id(BFTask *task) {
+        __block NSError *error = nil;
+        [databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+            BOOL result = [db executeUpdate:@"DELETE FROM record"];
+            if (!result) {
+                AWSLogError(@"SQLite error. [%@]", db.lastError);
+                error = db.lastError;
+            }
+        }];
+
+        if (error) {
+            return [BFTask taskWithError:error];
+        }
+
+        return nil;
     }];
-    return taskCompletionSource.task;
 }
 
 - (NSUInteger)diskBytesUsed {
-    return self.cache.diskByteCount;
-}
-
-- (NSUInteger)diskByteLimit {
-    return self.cache.diskCache.byteLimit;
-}
-
-- (void)setDiskByteLimit:(NSUInteger)diskCacheByteLimit {
-    self.cache.diskCache.byteLimit = diskCacheByteLimit;
-}
-
-- (NSTimeInterval)diskAgeLimit {
-    return self.cache.diskCache.ageLimit;
-}
-
-- (void)setDiskAgeLimit:(NSTimeInterval)diskCacheAgeLimit {
-    self.cache.diskCache.ageLimit = diskCacheAgeLimit;
+    NSError *error = nil;
+    NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:self.databasePath
+                                                                                error:&error];
+    if (attributes) {
+        return [attributes fileSize];
+    } else {
+        AWSLogError(@"Error [%@]", error);
+        return 0;
+    }
 }
 
 @end

@@ -34,5 +34,6 @@ This software includes third party software subject to the following copyrights:
 - OCHamcrest - Copyright 2014 hamcrest.org - BSD License - 
 - GZIP - Copyright (C) 2012 Charcoal Design - zlib License
 - Reachability - Copyright (c) 2011-2013, Tony Million. All rights reserved. - https://github.com/tonymillion/Reachability/blob/master/LICENCE.txt
+- FMDB - Copyright (c) 2008-2014 Flying Meat Inc. - MIT License
 
 The licenses for these third party components are included in the License file.

@@ -227,6 +227,15 @@ static NSDictionary *errorCodeDictionary = nil;
 
 #pragma mark - Service method
 
+- (BFTask *)addTagsToStream:(AWSKinesisAddTagsToStreamInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Kinesis_20131202"
+                 operationName:@"AddTagsToStream"
+                   outputClass:nil];
+}
+
 - (BFTask *)createStream:(AWSKinesisCreateStreamInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -281,6 +290,15 @@ static NSDictionary *errorCodeDictionary = nil;
                    outputClass:[AWSKinesisListStreamsOutput class]];
 }
 
+- (BFTask *)listTagsForStream:(AWSKinesisListTagsForStreamInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Kinesis_20131202"
+                 operationName:@"ListTagsForStream"
+                   outputClass:[AWSKinesisListTagsForStreamOutput class]];
+}
+
 - (BFTask *)mergeShards:(AWSKinesisMergeShardsInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -297,6 +315,24 @@ static NSDictionary *errorCodeDictionary = nil;
                   targetPrefix:@"Kinesis_20131202"
                  operationName:@"PutRecord"
                    outputClass:[AWSKinesisPutRecordOutput class]];
+}
+
+- (BFTask *)putRecords:(AWSKinesisPutRecordsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Kinesis_20131202"
+                 operationName:@"PutRecords"
+                   outputClass:[AWSKinesisPutRecordsOutput class]];
+}
+
+- (BFTask *)removeTagsFromStream:(AWSKinesisRemoveTagsFromStreamInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Kinesis_20131202"
+                 operationName:@"RemoveTagsFromStream"
+                   outputClass:nil];
 }
 
 - (BFTask *)splitShard:(AWSKinesisSplitShardInput *)request {

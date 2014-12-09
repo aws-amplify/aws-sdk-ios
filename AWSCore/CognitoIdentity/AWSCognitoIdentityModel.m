@@ -25,6 +25,7 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
              @"allowUnauthenticatedIdentities" : @"AllowUnauthenticatedIdentities",
              @"developerProviderName" : @"DeveloperProviderName",
              @"identityPoolName" : @"IdentityPoolName",
+             @"openIdConnectProviderARNs" : @"OpenIdConnectProviderARNs",
              @"supportedLoginProviders" : @"SupportedLoginProviders",
              };
 }
@@ -138,6 +139,7 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
              @"developerProviderName" : @"DeveloperProviderName",
              @"identityPoolId" : @"IdentityPoolId",
              @"identityPoolName" : @"IdentityPoolName",
+             @"openIdConnectProviderARNs" : @"OpenIdConnectProviderARNs",
              @"supportedLoginProviders" : @"SupportedLoginProviders",
              };
 }

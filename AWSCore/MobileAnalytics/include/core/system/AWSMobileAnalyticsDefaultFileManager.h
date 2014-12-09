@@ -47,22 +47,22 @@ typedef NS_ENUM(NSInteger, AWSDefaultFileManagerErrorCodes) {
              withRootFile:(AWSMobileAnalyticsFile *) theRootFile;
 
 -(AWSMobileAnalyticsFile*) createDirectory:(NSString*) theDirectoryPath
-                     error:(NSError **)theError;
+                                     error:(NSError **)theError;
 
 -(AWSMobileAnalyticsFile*) getDirectory:(NSString*) theDirectoryPath
-                  error:(NSError **)theError;
+                                  error:(NSError **)theError;
 
 -(NSArray*) listFilesInDirectoryWithPath:(NSString*) theDirectoryPath
-                                 error:(NSError **)theError;
+                                   error:(NSError **)theError;
 
 -(NSArray*) listFilesInDirectory:(AWSMobileAnalyticsFile*) theFile
-                         error:(NSError **)theError;
+                           error:(NSError **)theError;
 
 -(AWSMobileAnalyticsFile*) createFileWithPath:(NSString*) theFilepath
-                        error:(NSError **)theError;
+                                        error:(NSError **)theError;
 
 -(AWSMobileAnalyticsFile*) createFile:(AWSMobileAnalyticsFile*) theFile
-                error:(NSError **)theError;
+                                error:(NSError **)theError;
 
 -(BOOL) deleteFileWithPath:(NSString*) theFilepath
                      error:(NSError **)theError;
@@ -91,6 +91,12 @@ typedef NS_ENUM(NSInteger, AWSDefaultFileManagerErrorCodes) {
 -(NSDictionary *) readDataFromFile:(AWSMobileAnalyticsFile *) theFile
                         withFormat:(FormatType) theFormatType
                  withDataProcessor:(AWSDataProcessor) theDataProcessor
+                         withError:(NSError **) theError;
+
+-(NSDictionary *) readDataFromFile:(AWSMobileAnalyticsFile *) theFile
+                        withReader:(id) theReader
+                 withDataProcessor:(AWSDataProcessor) theDataProcessor
+                        withFormat:(FormatType) theFormatType
                          withError:(NSError **) theError;
 
 -(BOOL) writeData:(id) theData

@@ -18,6 +18,13 @@
 
 @class BFTask;
 
+FOUNDATION_EXPORT NSString *const AWSKinesisRecorderErrorDomain;
+
+typedef NS_ENUM(NSInteger, AWSKinesisRecorderErrorType) {
+    AWSKinesisRecorderErrorUnknown,
+    AWSKinesisRecorderErrorDataTooLarge,
+};
+
 /**
  *  When a `saveRecord:streamName:` operation causes the disk size to exceed `notificationByteThreshold`, it posts AWSKinesisRecorderByteThresholdReachedNotification.
  */

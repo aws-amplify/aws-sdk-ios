@@ -117,15 +117,16 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
 
 @end
 
-@interface AWSBasicCognitoIdentityProvider()
+@interface AWSAbstractCognitoIdentityProvider()
 @property (nonatomic, strong) NSString *accountId;
+@property (nonatomic, strong) NSString *providerName;
 @property (nonatomic, strong) AWSCognitoIdentity *cib;
 @property (nonatomic, strong) BFExecutor *executor;
 @property (atomic, assign) int32_t count;
 @property (nonatomic, strong) dispatch_semaphore_t semaphore;
 @end
 
-@implementation AWSBasicCognitoIdentityProvider
+@implementation AWSAbstractCognitoIdentityProvider
 @synthesize accountId=_accountId;
 
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
@@ -169,7 +170,7 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
             }
             else {
                 dispatch_semaphore_wait(self.semaphore, dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC));
-                return nil;
+                return [BFTask taskWithResult:nil];
             }
         }] continueWithBlock:^id(BFTask *task) {
             self.count--;
@@ -263,8 +264,25 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
             self.identityId = identityIdFromToken;
         }
 
-        return nil;
+        return [BFTask taskWithResult:nil];
     }];
+}
+
+@end
+
+@implementation AWSBasicCognitoIdentityProvider
+
+- (instancetype)initWithRegionType:(AWSRegionType)regionType
+                        identityId:(NSString *)identityId
+                         accountId:(NSString *)accountId
+                    identityPoolId:(NSString *)identityPoolId
+                            logins:(NSDictionary *)logins {
+    
+    
+    if (self = [super initWithRegionType:regionType identityId:identityId accountId:accountId identityPoolId:identityPoolId logins:logins]) {
+        self.providerName = @"Cognito";
+    }
+    return self;
 }
 
 @end

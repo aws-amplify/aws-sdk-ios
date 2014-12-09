@@ -54,4 +54,28 @@ typedef void(^AWSInitializationCompletionBlock)(AWSMobileAnalytics *);
                           configuration:(AWSMobileAnalyticsConfiguration *)configuration
                         completionBlock:(AWSInitializationCompletionBlock)completionBlock;
 
+/**
+ * Creates an `AWSMobileAnalytics` instance with the specified `appId` using the default `configuration` if the instance does not already exists for the `appId`. If an instance exists for the given `appId`, returns the existing instance. `configuration` and `completionBlock` are ignored if an instance exists for the given `appId`. The strong reference to the instance is maintained by `AWSMobileAnalytics`, and the developer does not need to retain it manually.
+ *
+ * @param appId AppId from Amazon Mobile Analytics Management Console.
+ * @param insightsPrivateKey Private Key from the Amazon Insights SDK. Pass Private Key to migrate from the Insights SDK.
+ * @returns The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.
+ */
++ (instancetype)mobileAnalyticsForAppId:(NSString *)appId
+                     insightsPrivateKey:(NSString *)insightsPrivateKey __attribute__((deprecated));
+
+/**
+ * Creates an `AWSMobileAnalytics` instance with the specified `appId` using provided `configuration` if the instance does not already exists for the `appId`. If an instance exists for the given `appId`, returns the existing instance. `configuration` and `completionBlock` are ignored if an instance exists for the given `appId`. The strong reference to the instance is maintained by `AWSMobileAnalytics`, and the developer does not need to retain it manually.
+ *
+ * @param appId AppId from Amazon Mobile Analytics Management Console.
+ * @param insightsPrivateKey Private Key from the Amazon Insights SDK. Pass Private Key to migrate from the Insights SDK.
+ * @param configuration A configuraiton object. By default, it uses [AWSServiceManager defaultServiceManager].defaultServiceConfiguration to access the service.
+ * @param completionBlock A AWSInitializationCompletionBlock that allows developers to handle custom logic after initialization but before the session begins.
+ * @returns The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.
+ */
++ (instancetype)mobileAnalyticsForAppId:(NSString *)appId
+                     insightsPrivateKey:(NSString *)insightsPrivateKey
+                          configuration:(AWSMobileAnalyticsConfiguration *)configuration
+                        completionBlock:(AWSInitializationCompletionBlock)completionBlock __attribute__((deprecated));
+
 @end

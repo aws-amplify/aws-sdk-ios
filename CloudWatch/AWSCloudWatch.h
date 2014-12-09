@@ -42,7 +42,7 @@
 - (BFTask *)deleteAlarms:(AWSCloudWatchDeleteAlarmsInput *)request;
 
 /**
- * <p> Retrieves history for the specified alarm. Filter alarms by date range or item type. If an alarm name is not specified, Amazon CloudWatch returns histories for all of the owner's alarms. </p>
+ * <p> Retrieves history for the specified alarm. Filter alarms by date range or item type. If an alarm name is not specified, Amazon CloudWatch returns histories for all of the owner's alarms. </p><note> Amazon CloudWatch retains the history of an alarm for two weeks, whether or not you delete the alarm. </note>
  *
  * @param request A container for the necessary parameters to execute the DescribeAlarmHistory service method.
  *
@@ -112,7 +112,7 @@
 - (BFTask *)getMetricStatistics:(AWSCloudWatchGetMetricStatisticsInput *)request;
 
 /**
- * <p> Returns a list of valid metrics stored for the AWS account owner. Returned metrics can be used with <a>GetMetricStatistics</a> to obtain statistical data for a given metric. </p>
+ * <p> Returns a list of valid metrics stored for the AWS account owner. Returned metrics can be used with <a>GetMetricStatistics</a> to obtain statistical data for a given metric. </p><note> Up to 500 results are returned for any one call. To retrieve further results, use returned <code>NextToken</code> values with subsequent <code>ListMetrics</code> operations. </note><note> If you create a metric with the <a>PutMetricData</a> action, allow up to fifteen minutes for the metric to appear in calls to the <code>ListMetrics</code> action. Statistics about the metric, however, are available sooner using <a>GetMetricStatistics</a>. </note>
  *
  * @param request A container for the necessary parameters to execute the ListMetrics service method.
  *
@@ -124,7 +124,7 @@
 - (BFTask *)listMetrics:(AWSCloudWatchListMetricsInput *)request;
 
 /**
- * <p> Creates or updates an alarm and associates it with the specified Amazon CloudWatch metric. Optionally, this operation can associate one or more Amazon Simple Notification Service resources with the alarm. </p><p> When this operation creates an alarm, the alarm state is immediately set to <code>INSUFFICIENT_DATA</code>. The alarm is evaluated and its <code>StateValue</code> is set appropriately. Any actions associated with the <code>StateValue</code> is then executed. </p>
+ * <p> Creates or updates an alarm and associates it with the specified Amazon CloudWatch metric. Optionally, this operation can associate one or more Amazon Simple Notification Service resources with the alarm. </p><p> When this operation creates an alarm, the alarm state is immediately set to <code>INSUFFICIENT_DATA</code>. The alarm is evaluated and its <code>StateValue</code> is set appropriately. Any actions associated with the <code>StateValue</code> is then executed. </p><note> When updating an existing alarm, its <code>StateValue</code> is left unchanged. </note>
  *
  * @param request A container for the necessary parameters to execute the PutMetricAlarm service method.
  *

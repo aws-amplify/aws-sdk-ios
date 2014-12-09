@@ -3428,6 +3428,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return @{
              @"dryRun" : @"DryRun",
              @"filters" : @"Filters",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
              @"volumeIds" : @"VolumeIds",
              };
 }
@@ -3442,6 +3444,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"nextToken" : @"NextToken",
              @"volumes" : @"Volumes",
              };
 }
@@ -4521,6 +4524,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return @{
              @"additionalInfo" : @"AdditionalInfo",
              @"architecture" : @"Architecture",
+             @"groupIds" : @"GroupIds",
              @"groupNames" : @"GroupNames",
              @"instanceInitiatedShutdownBehavior" : @"InstanceInitiatedShutdownBehavior",
              @"instanceType" : @"InstanceType",
@@ -5605,6 +5609,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
              @"attachment" : @"Attachment",
              @"detail" : @"Description",
              @"groups" : @"Groups",
+             @"macAddress" : @"MacAddress",
              @"networkInterfaceId" : @"NetworkInterfaceId",
              @"ownerId" : @"OwnerId",
              @"privateDnsName" : @"PrivateDnsName",

@@ -48,6 +48,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
     AWSKinesisStreamStatusUpdating,
 };
 
+@class AWSKinesisAddTagsToStreamInput;
 @class AWSKinesisCreateStreamInput;
 @class AWSKinesisDeleteStreamInput;
 @class AWSKinesisDescribeStreamInput;
@@ -59,17 +60,44 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @class AWSKinesisHashKeyRange;
 @class AWSKinesisListStreamsInput;
 @class AWSKinesisListStreamsOutput;
+@class AWSKinesisListTagsForStreamInput;
+@class AWSKinesisListTagsForStreamOutput;
 @class AWSKinesisMergeShardsInput;
 @class AWSKinesisPutRecordInput;
 @class AWSKinesisPutRecordOutput;
+@class AWSKinesisPutRecordsInput;
+@class AWSKinesisPutRecordsOutput;
+@class AWSKinesisPutRecordsRequestEntry;
+@class AWSKinesisPutRecordsResultEntry;
 @class AWSKinesisRecord;
+@class AWSKinesisRemoveTagsFromStreamInput;
 @class AWSKinesisSequenceNumberRange;
 @class AWSKinesisShard;
 @class AWSKinesisSplitShardInput;
 @class AWSKinesisStreamDescription;
+@class AWSKinesisTag;
 
 /**
- * <p>Represents the input of a <code>CreateStream</code> operation.</p>
+ * <p>Represents the input for <code>AddTagsToStream</code>.</p>
+ * Required parameters: [StreamName, Tags]
+ */
+@interface AWSKinesisAddTagsToStreamInput : AWSRequest
+
+
+/**
+ * <p>The name of the stream.</p>
+ */
+@property (nonatomic, strong) NSString *streamName;
+
+/**
+ * <p>The set of key-value pairs to use to create the tags.</p>
+ */
+@property (nonatomic, strong) NSDictionary *tags;
+
+@end
+
+/**
+ * <p>Represents the input for <code>CreateStream</code>.</p>
  * Required parameters: [StreamName, ShardCount]
  */
 @interface AWSKinesisCreateStreamInput : AWSRequest
@@ -88,7 +116,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @end
 
 /**
- * <p>Represents the input of a <code>DeleteStream</code> operation.</p>
+ * <p>Represents the input for <code>DeleteStream</code>.</p>
  * Required parameters: [StreamName]
  */
 @interface AWSKinesisDeleteStreamInput : AWSRequest
@@ -102,14 +130,14 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @end
 
 /**
- * <p>Represents the input of a <code>DescribeStream</code> operation.</p>
+ * <p>Represents the input for <code>DescribeStream</code>.</p>
  * Required parameters: [StreamName]
  */
 @interface AWSKinesisDescribeStreamInput : AWSRequest
 
 
 /**
- * <p>The shard ID of the shard to start with for the stream description.</p>
+ * <p>The shard ID of the shard to start with.</p>
  */
 @property (nonatomic, strong) NSString *exclusiveStartShardId;
 
@@ -126,40 +154,40 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @end
 
 /**
- * <p>Represents the output of a <code>DescribeStream</code> operation.</p>
+ * <p>Represents the output for <code>DescribeStream</code>.</p>
  * Required parameters: [StreamDescription]
  */
 @interface AWSKinesisDescribeStreamOutput : AWSModel
 
 
 /**
- * <p>Contains the current status of the stream, the stream ARN, an array of shard objects that comprise the stream, and states whether there are more shards available.</p>
+ * <p>The current status of the stream, the stream ARN, an array of shard objects that comprise the stream, and states whether there are more shards available.</p>
  */
 @property (nonatomic, strong) AWSKinesisStreamDescription *streamDescription;
 
 @end
 
 /**
- * <p>Represents the input of a <code>GetRecords</code> operation.</p>
+ * <p>Represents the input for <code>GetRecords</code>.</p>
  * Required parameters: [ShardIterator]
  */
 @interface AWSKinesisGetRecordsInput : AWSRequest
 
 
 /**
- * <p>The maximum number of records to return, which can be set to a value of up to 10,000.</p>
+ * <p>The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, <code>GetRecords</code> throws <code>InvalidArgumentException</code>.</p>
  */
 @property (nonatomic, strong) NSNumber *limit;
 
 /**
- * <p>The position in the shard from which you want to start sequentially reading data records.</p>
+ * <p>The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.</p>
  */
 @property (nonatomic, strong) NSString *shardIterator;
 
 @end
 
 /**
- * <p>Represents the output of a <code>GetRecords</code> operation.</p>
+ * <p>Represents the output for <code>GetRecords</code>.</p>
  * Required parameters: [Records]
  */
 @interface AWSKinesisGetRecordsOutput : AWSModel
@@ -178,7 +206,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @end
 
 /**
- * <p>Represents the input of a <code>GetShardIterator</code> operation.</p>
+ * <p>Represents the input for <code>GetShardIterator</code>.</p>
  * Required parameters: [StreamName, ShardId, ShardIteratorType]
  */
 @interface AWSKinesisGetShardIteratorInput : AWSRequest
@@ -207,7 +235,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @end
 
 /**
- * <p>Represents the output of a <code>GetShardIterator</code> operation.</p>
+ * <p>Represents the output for <code>GetShardIterator</code>.</p>
  */
 @interface AWSKinesisGetShardIteratorOutput : AWSModel
 
@@ -239,7 +267,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @end
 
 /**
- * <p>Represents the input of a <code>ListStreams</code> operation.</p>
+ * <p>Represents the input for <code>ListStreams</code>.</p>
  */
 @interface AWSKinesisListStreamsInput : AWSRequest
 
@@ -257,7 +285,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @end
 
 /**
- * <p>Represents the output of a <code>ListStreams</code> operation.</p>
+ * <p>Represents the output for <code>ListStreams</code>.</p>
  * Required parameters: [StreamNames, HasMoreStreams]
  */
 @interface AWSKinesisListStreamsOutput : AWSModel
@@ -276,7 +304,50 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @end
 
 /**
- * <p>Represents the input of a <code>MergeShards</code> operation.</p>
+ * <p>Represents the input for <code>ListTagsForStream</code>.</p>
+ * Required parameters: [StreamName]
+ */
+@interface AWSKinesisListTagsForStreamInput : AWSRequest
+
+
+/**
+ * <p>The key to use as the starting point for the list of tags. If this parameter is set, <code>ListTagsForStream</code> gets all tags that occur after <code>ExclusiveStartTagKey</code>. </p>
+ */
+@property (nonatomic, strong) NSString *exclusiveStartTagKey;
+
+/**
+ * <p>The number of tags to return. If this number is less than the total number of tags associated with the stream, <code>HasMoreTags</code> is set to <code>true</code>. To list additional tags, set <code>ExclusiveStartTagKey</code> to the last key in the response.</p>
+ */
+@property (nonatomic, strong) NSNumber *limit;
+
+/**
+ * <p>The name of the stream.</p>
+ */
+@property (nonatomic, strong) NSString *streamName;
+
+@end
+
+/**
+ * <p>Represents the output for <code>ListTagsForStream</code>.</p>
+ * Required parameters: [Tags, HasMoreTags]
+ */
+@interface AWSKinesisListTagsForStreamOutput : AWSModel
+
+
+/**
+ * <p>If set to <code>true</code>, more tags are available. To request additional tags, set <code>ExclusiveStartTagKey</code> to the key of the last tag returned.</p>
+ */
+@property (nonatomic, strong) NSNumber *hasMoreTags;
+
+/**
+ * <p>A list of tags associated with <code>StreamName</code>, starting with the first tag after <code>ExclusiveStartTagKey</code> and up to the specified <code>Limit</code>. </p>
+ */
+@property (nonatomic, strong) NSArray *tags;
+
+@end
+
+/**
+ * <p>Represents the input for <code>MergeShards</code>.</p>
  * Required parameters: [StreamName, ShardToMerge, AdjacentShardToMerge]
  */
 @interface AWSKinesisMergeShardsInput : AWSRequest
@@ -300,14 +371,14 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @end
 
 /**
- * <p>Represents the input of a <code>PutRecord</code> operation.</p>
+ * <p>Represents the input for <code>PutRecord</code>.</p>
  * Required parameters: [StreamName, Data, PartitionKey]
  */
 @interface AWSKinesisPutRecordInput : AWSRequest
 
 
 /**
- * <p>The data blob to put into the record, which is Base64-encoded when the blob is serialized. The maximum size of the data blob (the payload after Base64-decoding) is 50 kilobytes (KB) </p>
+ * <p>The data blob to put into the record, which is Base64-encoded when the blob is serialized. The maximum size of the data blob (the payload before Base64-encoding) is 50 kilobytes (KB) </p>
  */
 @property (nonatomic, strong) NSData *data;
 
@@ -334,7 +405,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @end
 
 /**
- * <p>Represents the output of a <code>PutRecord</code> operation.</p>
+ * <p>Represents the output for <code>PutRecord</code>.</p>
  * Required parameters: [ShardId, SequenceNumber]
  */
 @interface AWSKinesisPutRecordOutput : AWSModel
@@ -352,6 +423,37 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 
 @end
 
+@interface AWSKinesisPutRecordsInput : AWSRequest
+
+@property (nonatomic, strong) NSArray *records;
+@property (nonatomic, strong) NSString *streamName;
+
+@end
+
+@interface AWSKinesisPutRecordsOutput : AWSModel
+
+@property (nonatomic, strong) NSNumber *failedRecordCount;
+@property (nonatomic, strong) NSArray *records;
+
+@end
+
+@interface AWSKinesisPutRecordsRequestEntry : AWSModel
+
+@property (nonatomic, strong) NSData *data;
+@property (nonatomic, strong) NSString *explicitHashKey;
+@property (nonatomic, strong) NSString *partitionKey;
+
+@end
+
+@interface AWSKinesisPutRecordsResultEntry : AWSModel
+
+@property (nonatomic, strong) NSString *errorCode;
+@property (nonatomic, strong) NSString *errorMessage;
+@property (nonatomic, strong) NSString *sequenceNumber;
+@property (nonatomic, strong) NSString *shardId;
+
+@end
+
 /**
  * <p>The unit of data of the Amazon Kinesis stream, which is composed of a sequence number, a partition key, and a data blob.</p>
  * Required parameters: [SequenceNumber, Data, PartitionKey]
@@ -360,7 +462,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 
 
 /**
- * <p>The data blob. The data in the blob is both opaque and immutable to the Amazon Kinesis service, which does not inspect, interpret, or change the data in the blob in any way. The maximum size of the data blob (the payload after Base64-decoding) is 50 kilobytes (KB) </p>
+ * <p>The data blob. The data in the blob is both opaque and immutable to the Amazon Kinesis service, which does not inspect, interpret, or change the data in the blob in any way. The maximum size of the data blob (the payload before Base64-encoding) is 50 kilobytes (KB) </p>
  */
 @property (nonatomic, strong) NSData *data;
 
@@ -373,6 +475,25 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
  * <p>The unique identifier for the record in the Amazon Kinesis stream.</p>
  */
 @property (nonatomic, strong) NSString *sequenceNumber;
+
+@end
+
+/**
+ * <p>Represents the input for <code>RemoveTagsFromStream</code>.</p>
+ * Required parameters: [StreamName, TagKeys]
+ */
+@interface AWSKinesisRemoveTagsFromStreamInput : AWSRequest
+
+
+/**
+ * <p>The name of the stream.</p>
+ */
+@property (nonatomic, strong) NSString *streamName;
+
+/**
+ * <p>A list of tag keys. Each corresponding tag is removed from the stream.</p>
+ */
+@property (nonatomic, strong) NSArray *tagKeys;
 
 @end
 
@@ -430,7 +551,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @end
 
 /**
- * <p>Represents the input of a <code>SplitShard</code> operation.</p>
+ * <p>Represents the input for <code>SplitShard</code>.</p>
  * Required parameters: [StreamName, ShardToSplit, NewStartingHashKey]
  */
 @interface AWSKinesisSplitShardInput : AWSRequest
@@ -450,14 +571,14 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @end
 
 /**
- * <p>Represents the output of a <code>DescribeStream</code> operation.</p>
+ * <p>Represents the output for <code>DescribeStream</code>.</p>
  * Required parameters: [StreamName, StreamARN, StreamStatus, Shards, HasMoreShards]
  */
 @interface AWSKinesisStreamDescription : AWSModel
 
 
 /**
- * <p>If set to <code>true</code> there are more shards in the stream available to describe.</p>
+ * <p>If set to <code>true</code>, more shards in the stream are available to describe.</p>
  */
 @property (nonatomic, strong) NSNumber *hasMoreShards;
 
@@ -477,8 +598,27 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @property (nonatomic, strong) NSString *streamName;
 
 /**
- * <p>The current status of the stream being described.</p><p>The stream status is one of the following states:</p><ul><li>CREATING - The stream is being created. Upon receiving a <a>CreateStream</a> request, Amazon Kinesis immediately returns and sets <code>StreamStatus</code> to CREATING.</li><li>DELETING - The stream is being deleted. After a <a>DeleteStream</a> request, the specified stream is in the DELETING state until Amazon Kinesis completes the deletion.</li><li>ACTIVE - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an ACTIVE stream.</li><li>UPDATING - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the UPDATING state.</li></ul>
+ * <p>The current status of the stream being described.</p><p>The stream status is one of the following states:</p><ul><li><code>CREATING</code> - The stream is being created. Amazon Kinesis immediately returns and sets <code>StreamStatus</code> to <code>CREATING</code>.</li><li><code>DELETING</code> - The stream is being deleted. The specified stream is in the <code>DELETING</code> state until Amazon Kinesis completes the deletion.</li><li><code>ACTIVE</code> - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an <code>ACTIVE</code> stream.</li><li><code>UPDATING</code> - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the <code>UPDATING</code> state.</li></ul>
  */
 @property (nonatomic, assign) AWSKinesisStreamStatus streamStatus;
+
+@end
+
+/**
+ * <p>Metadata assigned to the stream, consisting of a key-value pair.</p>
+ * Required parameters: [Key]
+ */
+@interface AWSKinesisTag : AWSModel
+
+
+/**
+ * <p>A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @</p>
+ */
+@property (nonatomic, strong) NSString *key;
+
+/**
+ * <p>An optional string, typically used to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @</p>
+ */
+@property (nonatomic, strong) NSString *value;
 
 @end

@@ -33,9 +33,10 @@ typedef NS_ENUM(NSInteger, AWSIOSPreferencesErrorCodes) {
 
 @interface AWSMobileAnalyticsIOSPreferences : NSObject<AWSMobileAnalyticsPreferences>
 
-+ (AWSMobileAnalyticsIOSPreferences *) preferencesWithFileManager:(id<AWSMobileAnalyticsFileManager>) theFileManager;
++ (AWSMobileAnalyticsIOSPreferences *)preferencesWithFileManager:(id<AWSMobileAnalyticsFileManager>)theFileManager;
 
-- (id) initWithFileManager:(id<AWSMobileAnalyticsFileManager>) theFileManager;
++ (AWSMobileAnalyticsIOSPreferences *)preferencesWithFileManager:(id<AWSMobileAnalyticsFileManager>)theFileManager
+                                              insightsPrivateKey:(NSString *)insightsPrivateKey;
 
 - (BOOL) boolForKey:(NSString*) theKey withOptValue:(BOOL) defaultValue;
 

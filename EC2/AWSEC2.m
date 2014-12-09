@@ -24,7 +24,7 @@
 #import "AWSURLResponseSerialization.h"
 #import "AWSURLRequestRetryHandler.h"
 
-NSString *const AWSEC2DefinitionFileName = @"ec2-2014-06-15";
+NSString *const AWSEC2DefinitionFileName = @"ec2-2014-09-01";
 
 
 @interface AWSEC2ResponseSerializer : AWSXMLResponseSerializer

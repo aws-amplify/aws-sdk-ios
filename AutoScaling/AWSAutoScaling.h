@@ -54,7 +54,7 @@
 - (BFTask *)completeLifecycleAction:(AWSAutoScalingCompleteLifecycleActionType *)request;
 
 /**
- * <p> Creates a new Auto Scaling group with the specified name and other attributes. When the creation request is completed, the Auto Scaling group is ready to be used in other calls. </p>
+ * <p> Creates a new Auto Scaling group with the specified name and other attributes. When the creation request is completed, the Auto Scaling group is ready to be used in other calls. </p><note> The Auto Scaling group name must be unique within the scope of your AWS account. </note>
  *
  * @param request A container for the necessary parameters to execute the CreateAutoScalingGroup service method.
  *
@@ -76,7 +76,7 @@
 - (BFTask *)createLaunchConfiguration:(AWSAutoScalingCreateLaunchConfigurationType *)request;
 
 /**
- * <p> Creates new tags or updates existing tags for an Auto Scaling group. </p><p>For information on creating tags for your Auto Scaling group, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html">Tag Your Auto Scaling Groups and Amazon EC2 Instances</a>.</p>
+ * <p> Creates new tags or updates existing tags for an Auto Scaling group. </p><note> A tag's definition is composed of a resource ID, resource type, key and value, and the propagate flag. Value and the propagate flag are optional parameters. See the Request Parameters for more information. </note><p>For information on creating tags for your Auto Scaling group, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html">Tag Your Auto Scaling Groups and Amazon EC2 Instances</a>.</p>
  *
  * @param request A container for the necessary parameters to execute the CreateOrUpdateTags service method.
  *
@@ -87,7 +87,7 @@
 - (BFTask *)createOrUpdateTags:(AWSAutoScalingCreateOrUpdateTagsType *)request;
 
 /**
- * <p> Deletes the specified Auto Scaling group if the group has no instances and no scaling activities in progress. </p>
+ * <p> Deletes the specified Auto Scaling group if the group has no instances and no scaling activities in progress. </p><note> To remove all instances before calling <a>DeleteAutoScalingGroup</a>, you can call <a>UpdateAutoScalingGroup</a> to set the minimum and maximum size of the AutoScalingGroup to zero. </note>
  *
  * @param request A container for the necessary parameters to execute the DeleteAutoScalingGroup service method.
  *
@@ -261,7 +261,7 @@
 - (BFTask *)describeLifecycleHooks:(AWSAutoScalingDescribeLifecycleHooksType *)request;
 
 /**
- * <p> Returns a list of metrics and a corresponding list of granularities for each metric. </p>
+ * <p> Returns a list of metrics and a corresponding list of granularities for each metric. </p><note><p>The <code>GroupStandbyInstances</code> metric is not returned by default. You must explicitly request it when calling <a>EnableMetricsCollection</a>.</p></note>
  *
  * @param request A container for the necessary parameters to execute the DescribeMetricCollectionTypes service method.
  *
@@ -461,7 +461,7 @@
 - (BFTask *)putScalingPolicy:(AWSAutoScalingPutScalingPolicyType *)request;
 
 /**
- * <p> Creates or updates a scheduled scaling action for an Auto Scaling group. When updating a scheduled scaling action, if you leave a parameter unspecified, the corresponding value remains unchanged in the affected Auto Scaling group. </p><p>For information on creating or updating a scheduled action for your Auto Scaling group, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html">Scale Based on a Schedule</a>.</p>
+ * <p> Creates or updates a scheduled scaling action for an Auto Scaling group. When updating a scheduled scaling action, if you leave a parameter unspecified, the corresponding value remains unchanged in the affected Auto Scaling group. </p><p>For information on creating or updating a scheduled action for your Auto Scaling group, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html">Scale Based on a Schedule</a>.</p><note><p>Auto Scaling supports the date and time expressed in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only.</p></note>
  *
  * @param request A container for the necessary parameters to execute the PutScheduledUpdateGroupAction service method.
  *
@@ -528,7 +528,7 @@
 - (BFTask *)suspendProcesses:(AWSAutoScalingScalingProcessQuery *)request;
 
 /**
- * <p> Terminates the specified instance. Optionally, the desired group size can be adjusted. </p>
+ * <p> Terminates the specified instance. Optionally, the desired group size can be adjusted. </p><note> This call simply registers a termination request. The termination of the instance cannot happen immediately. </note>
  *
  * @param request A container for the necessary parameters to execute the TerminateInstanceInAutoScalingGroup service method.
  *
@@ -540,7 +540,7 @@
 - (BFTask *)terminateInstanceInAutoScalingGroup:(AWSAutoScalingTerminateInstanceInAutoScalingGroupType *)request;
 
 /**
- * <p> Updates the configuration for the specified <a>AutoScalingGroup</a>. </p><p> The new settings are registered upon the completion of this call. Any launch configuration settings take effect on any triggers after this call returns. Scaling activities that are currently in progress aren't affected. </p>
+ * <p> Updates the configuration for the specified <a>AutoScalingGroup</a>. </p><note><p> To update an Auto Scaling group with a launch configuration that has the <code>InstanceMonitoring</code> flag set to <code>False</code>, you must first ensure that collection of group metrics is disabled. Otherwise, calls to <a>UpdateAutoScalingGroup</a> will fail. If you have previously enabled group metrics collection, you can disable collection of all group metrics by calling <a>DisableMetricsCollection</a>. </p></note><p> The new settings are registered upon the completion of this call. Any launch configuration settings take effect on any triggers after this call returns. Scaling activities that are currently in progress aren't affected. </p><note><ul><li><p>If a new value is specified for <i>MinSize</i> without specifying the value for <i>DesiredCapacity</i>, and if the new <i>MinSize</i> is larger than the current size of the Auto Scaling Group, there will be an implicit call to <a>SetDesiredCapacity</a> to set the group to the new <i>MinSize</i>. </p></li><li><p>If a new value is specified for <i>MaxSize</i> without specifying the value for <i>DesiredCapacity</i>, and the new <i>MaxSize</i> is smaller than the current size of the Auto Scaling Group, there will be an implicit call to <a>SetDesiredCapacity</a> to set the group to the new <i>MaxSize</i>. </p></li><li><p>All other optional parameters are left unchanged if not passed in the request.</p></li></ul></note>
  *
  * @param request A container for the necessary parameters to execute the UpdateAutoScalingGroup service method.
  *

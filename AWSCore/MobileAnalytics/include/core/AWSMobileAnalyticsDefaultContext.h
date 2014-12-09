@@ -26,10 +26,12 @@
 @interface AWSMobileAnalyticsDefaultContext : NSObject<AWSMobileAnalyticsContext>
 
 + (id<AWSMobileAnalyticsContext>)contextWithIdentifier:(NSString*) theCredentials
+                                    insightsPrivateKey:(NSString *)insightsPrivateKey
                                            withSdkInfo:(AWSMobileAnalyticsSDKInfo*)sdkInfo
                              withConfigurationSettings:(NSDictionary*)settings;
 
 + (id<AWSMobileAnalyticsContext>)contextWithIdentifier:(NSString*) theCredentials
+                                    insightsPrivateKey:(NSString *)insightsPrivateKey
                                withClientConfiguration:(AWSMobileAnalyticsConfiguration *)clientConfiguration
                                            withSdkInfo:(AWSMobileAnalyticsSDKInfo*)sdkInfo
                              withConfigurationSettings:(NSDictionary*)settings;

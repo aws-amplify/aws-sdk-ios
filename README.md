@@ -89,6 +89,7 @@ The [sample apps](https://github.com/awslabs/aws-sdk-ios-samples) are standalone
 1. Following the same procedure, add the following frameworks, located in the **third-party** directory, into your project.
 
     * `Bolts.framework` (If your application uses the Facebook SDK, you may not need this framework, as it's already included with the Facebook SDK.)
+    * `FMDB.framework`
     * `GZIP.framework`
     * `Mantle.framework`
     * `Reachability.framework`
@@ -99,7 +100,7 @@ The [sample apps](https://github.com/awslabs/aws-sdk-ios-samples) are standalone
 1. Drag and drop the following JSON files, located in the **service-definitions** directory, into your project.
 
     * `autoscaling-2011-01-01.json`
-    * `cib-2014-06-30.json`
+    * `cognito-identity-2014-06-30.json`
     * `css-2014-06-30.json`
     * `dynamodb-2012-08-10.json`
     * `ec2-2014-06-15.json`
@@ -114,7 +115,7 @@ The [sample apps](https://github.com/awslabs/aws-sdk-ios-samples) are standalone
     * `sqs-2012-11-05.json`
     * `sts-2011-06-15.json`
 
-1. Open a target for your project, select **Build Phases**, expand **Link Binary With Libraries**, click the **+** button, and add `libsqlite3.dylib` and `libz.dylib`.
+1. Open a target for your project, select **Build Phases**, expand **Link Binary With Libraries**, click the **+** button, and add `libsqlite3.dylib`, `libz.dylib`, and `SystemConfiguration.framework`.
 
 ##Update the SDK to a Newer Version
 

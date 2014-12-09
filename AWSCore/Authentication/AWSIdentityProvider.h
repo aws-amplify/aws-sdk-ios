@@ -60,7 +60,18 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderErrorType) {
 
 @end
 
-@interface AWSBasicCognitoIdentityProvider : AWSAbstractIdentityProvider
+@interface AWSAbstractCognitoIdentityProvider : AWSAbstractIdentityProvider
+
+@property (nonatomic, strong, readonly) NSString *providerName;
+
+- (instancetype)initWithRegionType:(AWSRegionType)regionType
+                        identityId:(NSString *)identityId
+                         accountId:(NSString *)accountId
+                    identityPoolId:(NSString *)identityPoolId
+                            logins:(NSDictionary *)logins;
+@end
+
+@interface AWSBasicCognitoIdentityProvider : AWSAbstractCognitoIdentityProvider
 
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
                         identityId:(NSString *)identityId

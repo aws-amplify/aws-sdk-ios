@@ -116,12 +116,12 @@ typedef NS_ENUM(NSInteger, AWSSTSErrorType) {
 
 
 /**
- * <p>The duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set to 3600 seconds. An expiration can also be specified in the SAML authentication response's <code>NotOnOrAfter</code> value. The actual expiration time is whichever value is shorter. </p>
+ * <p>The duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set to 3600 seconds. An expiration can also be specified in the SAML authentication response's <code>NotOnOrAfter</code> value. The actual expiration time is whichever value is shorter. </p><note>The maximum duration for a session is 1 hour, and the minimum duration is 15 minutes, even if values outside this range are specified. </note>
  */
 @property (nonatomic, strong) NSNumber *durationSeconds;
 
 /**
- * <p>An IAM policy in JSON format.</p><p>The policy parameter is optional. If you pass a policy, the temporary security credentials that are returned by the operation have the permissions that are allowed by both the access policy of the role that is being assumed, <i><b>and</b></i> the policy that you pass. This gives you a way to further restrict the permissions for the resulting temporary security credentials. You cannot use the passed policy to grant permissions that are in excess of those allowed by the access policy of the role that is being assumed. For more information, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html">Permissions for AssumeRoleWithSAML</a> in <i>Using Temporary Security Credentials</i>. </p>
+ * <p>An IAM policy in JSON format.</p><p>The policy parameter is optional. If you pass a policy, the temporary security credentials that are returned by the operation have the permissions that are allowed by both the access policy of the role that is being assumed, <i><b>and</b></i> the policy that you pass. This gives you a way to further restrict the permissions for the resulting temporary security credentials. You cannot use the passed policy to grant permissions that are in excess of those allowed by the access policy of the role that is being assumed. For more information, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html">Permissions for AssumeRoleWithSAML</a> in <i>Using Temporary Security Credentials</i>. </p><note>The policy must be 2048 bytes or shorter, and its packed size must be less than 450 bytes.</note>
  */
 @property (nonatomic, strong) NSString *policy;
 
@@ -152,20 +152,40 @@ typedef NS_ENUM(NSInteger, AWSSTSErrorType) {
  * <p>The identifiers for the temporary security credentials that the operation returns. </p>
  */
 @property (nonatomic, strong) AWSSTSAssumedRoleUser *assumedRoleUser;
+
+/**
+ * <p> The value of the <code>Recipient</code> attribute of the <code>SubjectConfirmationData</code> element of the SAML assertion. </p>
+ */
 @property (nonatomic, strong) NSString *audience;
 
 /**
  * <p>AWS credentials for API authentication.</p>
  */
 @property (nonatomic, strong) AWSSTSCredentials *credentials;
+
+/**
+ * <p>The value of the <code>Issuer</code> element of the SAML assertion.</p>
+ */
 @property (nonatomic, strong) NSString *issuer;
+
+/**
+ * <p>A hash value based on the concatenation of the <code>Issuer</code> response value, the AWS account ID, and the friendly name (the last part of the ARN) of the SAML provider in IAM. The combination of <code>NameQualifier</code> and <code>Subject</code> can be used to uniquely identify a federated user. </p><p>The following pseudocode shows how the hash value is calculated:</p><p><code>BASE64 ( SHA1 ( "https://example.com/saml" + "123456789012" + "/MySAMLIdP" ) )</code></p>
+ */
 @property (nonatomic, strong) NSString *nameQualifier;
 
 /**
  * <p>A percentage value that indicates the size of the policy in packed form. The service rejects any policy with a packed size greater than 100 percent, which means the policy exceeded the allowed space. </p>
  */
 @property (nonatomic, strong) NSNumber *packedPolicySize;
+
+/**
+ * <p>The value of the <code>NameID</code> element in the <code>Subject</code> element of the SAML assertion.</p>
+ */
 @property (nonatomic, strong) NSString *subject;
+
+/**
+ * <p> The format of the name ID, as defined by the <code>Format</code> attribute in the <code>NameID</code> element of the SAML assertion. Typical examples of the format are <code>transient</code> or <code>persistent</code>. </p><p> If the format includes the prefix <code>urn:oasis:names:tc:SAML:2.0:nameid-format</code>, that prefix is removed. For example, <code>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</code> is returned as <code>transient</code>. If the format includes any other prefix, the format is returned with no modifications.</p>
+ */
 @property (nonatomic, strong) NSString *subjectType;
 
 @end

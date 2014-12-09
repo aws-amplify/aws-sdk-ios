@@ -95,7 +95,7 @@ static NSString *testStreamName = nil;
     AWSKinesisRecorder *kinesisRecorder = [AWSKinesisRecorder defaultKinesisRecorder];
 
     NSMutableArray *tasks = [NSMutableArray new];
-    for (int32_t i = 0; i < 100; i++) {
+    for (int32_t i = 0; i < 1234; i++) {
         [tasks addObject:[kinesisRecorder saveRecord:[[NSString stringWithFormat:@"TestString-%02d", i] dataUsingEncoding:NSUTF8StringEncoding]
                                           streamName:testStreamName]];
     }
@@ -103,8 +103,10 @@ static NSString *testStreamName = nil;
     NSMutableArray *returnedRecords = [NSMutableArray new];
 
     [[[[[[[BFTask taskForCompletionOfAllTasks:tasks] continueWithSuccessBlock:^id(BFTask *task) {
+        sleep(10);
         return [kinesisRecorder submitAllRecords];
     }] continueWithSuccessBlock:^id(BFTask *task) {
+        sleep(10);
         AWSKinesisDescribeStreamInput *describeStreamInput = [AWSKinesisDescribeStreamInput new];
         describeStreamInput.streamName = testStreamName;
         return [kinesis describeStream:describeStreamInput];
@@ -134,7 +136,7 @@ static NSString *testStreamName = nil;
                 XCTAssertTrue([[[NSString alloc] initWithData:record.data encoding:NSUTF8StringEncoding] hasPrefix:@"TestString-"]);
                 i++;
             }
-            XCTAssertTrue(i == 100, @"Record count: %d", i);
+            XCTAssertTrue(i == 1234, @"Record count: %d", i);
         }
 
         return nil;
