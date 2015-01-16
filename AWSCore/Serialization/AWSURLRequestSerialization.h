@@ -30,10 +30,10 @@
 + (instancetype)serializerWithResource:(NSString *)resource
                             actionName:(NSString *)actionName;
 
-+ (BOOL)constructURIandHeadersAndBody:(NSMutableURLRequest *)request
++ (BOOL)validateURIandHeadersAndBody:(NSMutableURLRequest *)request
                                 rules:(AWSJSONDictionary *)rules parameters:(NSDictionary *)params
-                            uriSchema:(NSString *)uriSchema
-                                error:(NSError *__autoreleasing *)error;
+                           uriSchema:(NSString *)uriSchema;
+
 @end
 
 @interface AWSQueryStringRequestSerializer : NSObject <AWSURLRequestSerializer>
