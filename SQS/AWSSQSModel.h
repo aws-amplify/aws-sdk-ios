@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -94,6 +94,9 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @class AWSSQSSendMessageResult;
 @class AWSSQSSetQueueAttributesRequest;
 
+/**
+ *
+ */
 @interface AWSSQSAddPermissionRequest : AWSRequest
 
 
@@ -134,7 +137,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  * <p>The id of an entry in a batch request.</p>
  */
-@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *identifier;
 
 /**
  * <p>A message explaining why the action failed on this entry.</p>
@@ -148,6 +151,9 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSSQSChangeMessageVisibilityBatchRequest : AWSRequest
 
 
@@ -173,7 +179,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  * <p>An identifier for this particular receipt handle. This is used to communicate the result. Note that the <code>Id</code>s of a batch request need to be unique within the request.</p>
  */
-@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *identifier;
 
 /**
  * <p>A receipt handle.</p>
@@ -216,10 +222,13 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  * <p>Represents a message whose visibility timeout has been changed successfully.</p>
  */
-@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *identifier;
 
 @end
 
+/**
+ *
+ */
 @interface AWSSQSChangeMessageVisibilityRequest : AWSRequest
 
 
@@ -240,6 +249,9 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSSQSCreateQueueRequest : AWSRequest
 
 
@@ -268,6 +280,9 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSSQSDeleteMessageBatchRequest : AWSRequest
 
 
@@ -293,7 +308,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  * <p>An identifier for this particular receipt handle. This is used to communicate the result. Note that the <code>Id</code>s of a batch request need to be unique within the request.</p>
  */
-@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *identifier;
 
 /**
  * <p>A receipt handle.</p>
@@ -331,10 +346,13 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  * <p>Represents a successfully deleted message.</p>
  */
-@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *identifier;
 
 @end
 
+/**
+ *
+ */
 @interface AWSSQSDeleteMessageRequest : AWSRequest
 
 
@@ -350,6 +368,9 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSSQSDeleteQueueRequest : AWSRequest
 
 
@@ -360,6 +381,9 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSSQSGetQueueAttributesRequest : AWSRequest
 
 
@@ -388,6 +412,9 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSSQSGetQueueUrlRequest : AWSRequest
 
 
@@ -416,6 +443,9 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSSQSListDeadLetterSourceQueuesRequest : AWSRequest
 
 
@@ -440,6 +470,9 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSSQSListQueuesRequest : AWSRequest
 
 
@@ -540,6 +573,9 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSSQSReceiveMessageRequest : AWSRequest
 
 
@@ -588,6 +624,9 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSSQSRemovePermissionRequest : AWSRequest
 
 
@@ -603,6 +642,9 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSSQSSendMessageBatchRequest : AWSRequest
 
 
@@ -633,7 +675,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  * <p>An identifier for the message in this batch. This is used to communicate the result. Note that the <code>Id</code>s of a batch request need to be unique within the request.</p>
  */
-@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *identifier;
 
 /**
  * <p>Each message attribute consists of a Name, Type, and Value. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV">Message Attribute Items</a>.</p>
@@ -676,7 +718,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  * <p>An identifier for the message in this batch.</p>
  */
-@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *identifier;
 
 /**
  * <p>An MD5 digest of the non-URL-encoded message attribute string. This can be used to verify that Amazon SQS received the message batch correctly. Amazon SQS first URL decodes the message before creating the MD5 digest. For information about MD5, go to <a href="http://www.faqs.org/rfcs/rfc1321.html">http://www.faqs.org/rfcs/rfc1321.html</a>.</p>
@@ -695,6 +737,9 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSSQSSendMessageRequest : AWSRequest
 
 
@@ -743,6 +788,9 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSSQSSetQueueAttributesRequest : AWSRequest
 
 

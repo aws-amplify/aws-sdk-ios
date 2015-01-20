@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -81,6 +81,9 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 @class AWSSNSTopic;
 @class AWSSNSUnsubscribeInput;
 
+/**
+ *
+ */
 @interface AWSSNSAddPermissionInput : AWSRequest
 
 
@@ -277,6 +280,9 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSSNSDeleteTopicInput : AWSRequest
 
 
@@ -549,6 +555,9 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSSNSListTopicsInput : AWSRequest
 
 
@@ -791,7 +800,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 /**
  * <p>The protocol you want to use. Supported protocols include:</p><ul><li><code>http</code> -- delivery of JSON-encoded message via HTTP POST</li><li><code>https</code> -- delivery of JSON-encoded message via HTTPS POST</li><li><code>email</code> -- delivery of message via SMTP</li><li><code>email-json</code> -- delivery of JSON-encoded message via SMTP</li><li><code>sms</code> -- delivery of message via SMS</li><li><code>sqs</code> -- delivery of JSON-encoded message to an Amazon SQS queue</li><li><code>application</code> -- delivery of JSON-encoded message to an EndpointArn for a mobile app and device.</li></ul>
  */
-@property (nonatomic, strong) NSString *protocol;
+@property (nonatomic, strong) NSString *protocols;
 
 /**
  * <p>The ARN of the topic you want to subscribe to.</p>
@@ -832,7 +841,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 /**
  * <p>The subscription's protocol.</p>
  */
-@property (nonatomic, strong) NSString *protocol;
+@property (nonatomic, strong) NSString *protocols;
 
 /**
  * <p>The subscription's ARN.</p>

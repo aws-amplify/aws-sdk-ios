@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -61,12 +61,28 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"B" : @"B",
+             @"BOOLEAN" : @"BOOL",
              @"BS" : @"BS",
+             @"L" : @"L",
+             @"M" : @"M",
              @"N" : @"N",
+             @"NIL" : @"NULL",
              @"NS" : @"NS",
              @"S" : @"S",
              @"SS" : @"SS",
              };
+}
+
++ (NSValueTransformer *)LJSONTransformer {
+	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
+}
+
++ (NSValueTransformer *)MJSONTransformer {
+	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+	} reverseBlock:^id(id mapMTLDictionary) {
+		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+	}];
 }
 
 @end
@@ -481,8 +497,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"conditionExpression" : @"ConditionExpression",
              @"conditionalOperator" : @"ConditionalOperator",
              @"expected" : @"Expected",
+             @"expressionAttributeNames" : @"ExpressionAttributeNames",
+             @"expressionAttributeValues" : @"ExpressionAttributeValues",
              @"key" : @"Key",
              @"returnConsumedCapacity" : @"ReturnConsumedCapacity",
              @"returnItemCollectionMetrics" : @"ReturnItemCollectionMetrics",
@@ -516,6 +535,14 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 + (NSValueTransformer *)expectedJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBExpectedAttributeValue class]];
+	} reverseBlock:^id(id mapMTLDictionary) {
+		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+	}];
+}
+
++ (NSValueTransformer *)expressionAttributeValuesJSONTransformer {
+	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
 	}];
@@ -815,7 +842,9 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 	return @{
              @"attributesToGet" : @"AttributesToGet",
              @"consistentRead" : @"ConsistentRead",
+             @"expressionAttributeNames" : @"ExpressionAttributeNames",
              @"key" : @"Key",
+             @"projectionExpression" : @"ProjectionExpression",
              @"returnConsumedCapacity" : @"ReturnConsumedCapacity",
              @"tableName" : @"TableName",
              };
@@ -1038,7 +1067,9 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 	return @{
              @"attributesToGet" : @"AttributesToGet",
              @"consistentRead" : @"ConsistentRead",
+             @"expressionAttributeNames" : @"ExpressionAttributeNames",
              @"keys" : @"Keys",
+             @"projectionExpression" : @"ProjectionExpression",
              };
 }
 
@@ -1199,8 +1230,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"conditionExpression" : @"ConditionExpression",
              @"conditionalOperator" : @"ConditionalOperator",
              @"expected" : @"Expected",
+             @"expressionAttributeNames" : @"ExpressionAttributeNames",
+             @"expressionAttributeValues" : @"ExpressionAttributeValues",
              @"item" : @"Item",
              @"returnConsumedCapacity" : @"ReturnConsumedCapacity",
              @"returnItemCollectionMetrics" : @"ReturnItemCollectionMetrics",
@@ -1234,6 +1268,14 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 + (NSValueTransformer *)expectedJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBExpectedAttributeValue class]];
+	} reverseBlock:^id(id mapMTLDictionary) {
+		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+	}];
+}
+
++ (NSValueTransformer *)expressionAttributeValuesJSONTransformer {
+	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
 	}];
@@ -1389,9 +1431,13 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"conditionalOperator" : @"ConditionalOperator",
              @"consistentRead" : @"ConsistentRead",
              @"exclusiveStartKey" : @"ExclusiveStartKey",
+             @"expressionAttributeNames" : @"ExpressionAttributeNames",
+             @"expressionAttributeValues" : @"ExpressionAttributeValues",
+             @"filterExpression" : @"FilterExpression",
              @"indexName" : @"IndexName",
              @"keyConditions" : @"KeyConditions",
              @"limit" : @"Limit",
+             @"projectionExpression" : @"ProjectionExpression",
              @"queryFilter" : @"QueryFilter",
              @"returnConsumedCapacity" : @"ReturnConsumedCapacity",
              @"scanIndexForward" : @"ScanIndexForward",
@@ -1423,6 +1469,14 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)exclusiveStartKeyJSONTransformer {
+	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+	} reverseBlock:^id(id mapMTLDictionary) {
+		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+	}];
+}
+
++ (NSValueTransformer *)expressionAttributeValuesJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
@@ -1548,7 +1602,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"attributesToGet" : @"AttributesToGet",
              @"conditionalOperator" : @"ConditionalOperator",
              @"exclusiveStartKey" : @"ExclusiveStartKey",
+             @"expressionAttributeNames" : @"ExpressionAttributeNames",
+             @"expressionAttributeValues" : @"ExpressionAttributeValues",
+             @"filterExpression" : @"FilterExpression",
              @"limit" : @"Limit",
+             @"projectionExpression" : @"ProjectionExpression",
              @"returnConsumedCapacity" : @"ReturnConsumedCapacity",
              @"scanFilter" : @"ScanFilter",
              @"segment" : @"Segment",
@@ -1581,6 +1639,14 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)exclusiveStartKeyJSONTransformer {
+	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+	} reverseBlock:^id(id mapMTLDictionary) {
+		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+	}];
+}
+
++ (NSValueTransformer *)expressionAttributeValuesJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
@@ -1790,13 +1856,17 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attributeUpdates" : @"AttributeUpdates",
+             @"conditionExpression" : @"ConditionExpression",
              @"conditionalOperator" : @"ConditionalOperator",
              @"expected" : @"Expected",
+             @"expressionAttributeNames" : @"ExpressionAttributeNames",
+             @"expressionAttributeValues" : @"ExpressionAttributeValues",
              @"key" : @"Key",
              @"returnConsumedCapacity" : @"ReturnConsumedCapacity",
              @"returnItemCollectionMetrics" : @"ReturnItemCollectionMetrics",
              @"returnValues" : @"ReturnValues",
              @"tableName" : @"TableName",
+             @"updateExpression" : @"UpdateExpression",
              };
 }
 
@@ -1833,6 +1903,14 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 + (NSValueTransformer *)expectedJSONTransformer {
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBExpectedAttributeValue class]];
+	} reverseBlock:^id(id mapMTLDictionary) {
+		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+	}];
+}
+
++ (NSValueTransformer *)expressionAttributeValuesJSONTransformer {
+	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
 	}];

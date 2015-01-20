@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -20,14 +20,35 @@
 @class BFTask;
 
 /**
- * <fullname>Amazon Cognito</fullname><p>Amazon Cognito is a web service that delivers scoped temporary credentials to mobile devices and other untrusted environments. Amazon Cognito uniquely identifies a device and supplies the user with a consistent identity over the lifetime of an application.</p><p>Using Amazon Cognito, you can enable authentication with one or more third-party identity providers (Facebook, Google, or Login with Amazon), and you can also choose to support unauthenticated access from your app. Cognito delivers a unique identifier for each user and acts as an OpenID token provider trusted by AWS Security Token Service (STS) to access temporary, limited-privilege AWS credentials.</p><p>To provide end-user credentials, first make an unsigned call to <a>GetId</a>. If the end user is authenticated with one of the supported identity providers, set the <code>Logins</code> map with the identity provider token. <code>GetId</code> returns a unique identifier for the user.</p><p>Next, make an unsigned call to <a>GetOpenIdToken</a>, which returns the OpenID token necessary to call STS and retrieve AWS credentials. This call expects the same <code>Logins</code> map as the <code>GetId</code> call, as well as the <code>IdentityID</code> originally returned by <code>GetId</code>. The token returned by <code>GetOpenIdToken</code> can be passed to the STS operation <a href="http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html">AssumeRoleWithWebIdentity</a> to retrieve AWS credentials.</p>
+ * <fullname>Amazon Cognito</fullname><p>Amazon Cognito is a web service that delivers scoped temporary credentials to mobile devices and other untrusted environments. Amazon Cognito uniquely identifies a device and supplies the user with a consistent identity over the lifetime of an application.</p><p>Using Amazon Cognito, you can enable authentication with one or more third-party identity providers (Facebook, Google, or Login with Amazon), and you can also choose to support unauthenticated access from your app. Cognito delivers a unique identifier for each user and acts as an OpenID token provider trusted by AWS Security Token Service (STS) to access temporary, limited-privilege AWS credentials.</p><p>To provide end-user credentials, first make an unsigned call to <a>GetId</a>. If the end user is authenticated with one of the supported identity providers, set the <code>Logins</code> map with the identity provider token. <code>GetId</code> returns a unique identifier for the user.</p><p>Next, make an unsigned call to <a>GetOpenIdToken</a>, which returns the OpenID token necessary to call STS and retrieve AWS credentials. This call expects the same <code>Logins</code> map as the <code>GetId</code> call, as well as the <code>IdentityID</code> originally returned by <code>GetId</code>. The token returned by <code>GetOpenIdToken</code> can be passed to the STS operation <a href="http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html">AssumeRoleWithWebIdentity</a> to retrieve AWS credentials.</p><p>If you want to use Amazon Cognito in an Android or iOS application, you will probably want to make API calls via the AWS Mobile SDK. To learn more, see the <a href="http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/cognito-auth.html">Developer Guide for Android</a> and the <a href="http://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-auth.html">Developer Guide for iOS</a>.</p>
  */
 @interface AWSCognitoIdentity : AWSService
 
+/**
+ *  The service configuration used to instantiate this service client.
+ *
+ *  @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+ */
 @property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration;
 
+/**
+ *  Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with `defaultServiceConfiguration` from `[AWSServiceManager defaultServiceManager]`. The reference to this object is maintained by the SDK, and you do not need to retain it manually.
+ *
+ *  @return The default service client.
+ */
 + (instancetype)defaultCognitoIdentity;
 
+/**
+ *  Instantiates the service client with the given service configuration.
+ *
+ *  @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+ *
+ *  @warning Unlike the singleton method, you are responsible for maintaining a strong reference to this object. If the service client is released before completing a service request, the request may fail with unspecified errors.
+ *
+ *  @param configuration The service configuration object.
+ *
+ *  @return An instance of the service client.
+ */
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration;
 
 /**
@@ -35,7 +56,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateIdentityPool service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityIdentityPool. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domian and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError, AWSCognitoIdentityErrorLimitExceeded.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityIdentityPool`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`, `AWSCognitoIdentityErrorLimitExceeded`.
  *
  * @see AWSCognitoIdentityCreateIdentityPoolInput
  * @see AWSCognitoIdentityIdentityPool
@@ -47,18 +68,30 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteIdentityPool service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domian and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
  *
  * @see AWSCognitoIdentityDeleteIdentityPoolInput
  */
 - (BFTask *)deleteIdentityPool:(AWSCognitoIdentityDeleteIdentityPoolInput *)request;
 
 /**
+ * DescribeIdentity
+ *
+ * @param request A container for the necessary parameters to execute the DescribeIdentity service method.
+ *
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityIdentityDescription`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
+ *
+ * @see AWSCognitoIdentityDescribeIdentityInput
+ * @see AWSCognitoIdentityIdentityDescription
+ */
+- (BFTask *)describeIdentity:(AWSCognitoIdentityDescribeIdentityInput *)request;
+
+/**
  * <p>Gets details about a particular identity pool, including the pool name, ID description, creation date, and current number of users.</p>
  *
  * @param request A container for the necessary parameters to execute the DescribeIdentityPool service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityIdentityPool. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domian and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityIdentityPool`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
  *
  * @see AWSCognitoIdentityDescribeIdentityPoolInput
  * @see AWSCognitoIdentityIdentityPool
@@ -66,11 +99,23 @@
 - (BFTask *)describeIdentityPool:(AWSCognitoIdentityDescribeIdentityPoolInput *)request;
 
 /**
+ * GetCredentialsForIdentity
+ *
+ * @param request A container for the necessary parameters to execute the GetCredentialsForIdentity service method.
+ *
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityGetCredentialsForIdentityResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInvalidIdentityPoolConfiguration`, `AWSCognitoIdentityErrorInternalError`.
+ *
+ * @see AWSCognitoIdentityGetCredentialsForIdentityInput
+ * @see AWSCognitoIdentityGetCredentialsForIdentityResponse
+ */
+- (BFTask *)getCredentialsForIdentity:(AWSCognitoIdentityGetCredentialsForIdentityInput *)request;
+
+/**
  * <p>Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an implicit linked account.</p>
  *
  * @param request A container for the necessary parameters to execute the GetId service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityGetIdResponse. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domian and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError, AWSCognitoIdentityErrorLimitExceeded.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityGetIdResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`, `AWSCognitoIdentityErrorLimitExceeded`.
  *
  * @see AWSCognitoIdentityGetIdInput
  * @see AWSCognitoIdentityGetIdResponse
@@ -78,11 +123,23 @@
 - (BFTask *)getId:(AWSCognitoIdentityGetIdInput *)request;
 
 /**
+ * GetIdentityPoolRoles
+ *
+ * @param request A container for the necessary parameters to execute the GetIdentityPoolRoles service method.
+ *
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityGetIdentityPoolRolesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
+ *
+ * @see AWSCognitoIdentityGetIdentityPoolRolesInput
+ * @see AWSCognitoIdentityGetIdentityPoolRolesResponse
+ */
+- (BFTask *)getIdentityPoolRoles:(AWSCognitoIdentityGetIdentityPoolRolesInput *)request;
+
+/**
  * <p>Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by <a>GetId</a>. You can optionally add additional logins for the identity. Supplying multiple logins creates an implicit link.</p><p>The OpenId token is valid for 15 minutes.</p>
  *
  * @param request A container for the necessary parameters to execute the GetOpenIdToken service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityGetOpenIdTokenResponse. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domian and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityGetOpenIdTokenResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
  *
  * @see AWSCognitoIdentityGetOpenIdTokenInput
  * @see AWSCognitoIdentityGetOpenIdTokenResponse
@@ -94,7 +151,7 @@
  *
  * @param request A container for the necessary parameters to execute the GetOpenIdTokenForDeveloperIdentity service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domian and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError, AWSCognitoIdentityErrorDeveloperUserAlreadyRegistered.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`, `AWSCognitoIdentityErrorDeveloperUserAlreadyRegistered`.
  *
  * @see AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput
  * @see AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse
@@ -106,7 +163,7 @@
  *
  * @param request A container for the necessary parameters to execute the ListIdentities service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityListIdentitiesResponse. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domian and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityListIdentitiesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
  *
  * @see AWSCognitoIdentityListIdentitiesInput
  * @see AWSCognitoIdentityListIdentitiesResponse
@@ -118,7 +175,7 @@
  *
  * @param request A container for the necessary parameters to execute the ListIdentityPools service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityListIdentityPoolsResponse. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domian and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityListIdentityPoolsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
  *
  * @see AWSCognitoIdentityListIdentityPoolsInput
  * @see AWSCognitoIdentityListIdentityPoolsResponse
@@ -130,7 +187,7 @@
  *
  * @param request A container for the necessary parameters to execute the LookupDeveloperIdentity service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityLookupDeveloperIdentityResponse. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domian and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityLookupDeveloperIdentityResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
  *
  * @see AWSCognitoIdentityLookupDeveloperIdentityInput
  * @see AWSCognitoIdentityLookupDeveloperIdentityResponse
@@ -142,7 +199,7 @@
  *
  * @param request A container for the necessary parameters to execute the MergeDeveloperIdentities service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityMergeDeveloperIdentitiesResponse. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domian and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityMergeDeveloperIdentitiesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
  *
  * @see AWSCognitoIdentityMergeDeveloperIdentitiesInput
  * @see AWSCognitoIdentityMergeDeveloperIdentitiesResponse
@@ -150,11 +207,22 @@
 - (BFTask *)mergeDeveloperIdentities:(AWSCognitoIdentityMergeDeveloperIdentitiesInput *)request;
 
 /**
+ * SetIdentityPoolRoles
+ *
+ * @param request A container for the necessary parameters to execute the SetIdentityPoolRoles service method.
+ *
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
+ *
+ * @see AWSCognitoIdentitySetIdentityPoolRolesInput
+ */
+- (BFTask *)setIdentityPoolRoles:(AWSCognitoIdentitySetIdentityPoolRolesInput *)request;
+
+/**
  * <p>Unlinks a <code>DeveloperUserIdentifier</code> from an existing identity. Unlinked developer users will be considered new identities next time they are seen. If, for a given Cognito identity, you remove all federated identities as well as the developer user identifier, the Cognito identity becomes inaccessible.</p>
  *
  * @param request A container for the necessary parameters to execute the UnlinkDeveloperIdentity service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domian and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
  *
  * @see AWSCognitoIdentityUnlinkDeveloperIdentityInput
  */
@@ -165,7 +233,7 @@
  *
  * @param request A container for the necessary parameters to execute the UnlinkIdentity service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domian and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
  *
  * @see AWSCognitoIdentityUnlinkIdentityInput
  */
@@ -176,7 +244,7 @@
  *
  * @param request A container for the necessary parameters to execute the UpdateIdentityPool service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityIdentityPool. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domian and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityIdentityPool`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
  *
  * @see AWSCognitoIdentityIdentityPool
  * @see AWSCognitoIdentityIdentityPool

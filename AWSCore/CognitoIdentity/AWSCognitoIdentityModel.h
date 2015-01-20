@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
     AWSCognitoIdentityErrorMissingAuthenticationToken,
     AWSCognitoIdentityErrorDeveloperUserAlreadyRegistered,
     AWSCognitoIdentityErrorInternalError,
+    AWSCognitoIdentityErrorInvalidIdentityPoolConfiguration,
     AWSCognitoIdentityErrorInvalidParameter,
     AWSCognitoIdentityErrorLimitExceeded,
     AWSCognitoIdentityErrorNotAuthorized,
@@ -35,10 +36,16 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 };
 
 @class AWSCognitoIdentityCreateIdentityPoolInput;
+@class AWSCognitoIdentityCredentials;
 @class AWSCognitoIdentityDeleteIdentityPoolInput;
+@class AWSCognitoIdentityDescribeIdentityInput;
 @class AWSCognitoIdentityDescribeIdentityPoolInput;
+@class AWSCognitoIdentityGetCredentialsForIdentityInput;
+@class AWSCognitoIdentityGetCredentialsForIdentityResponse;
 @class AWSCognitoIdentityGetIdInput;
 @class AWSCognitoIdentityGetIdResponse;
+@class AWSCognitoIdentityGetIdentityPoolRolesInput;
+@class AWSCognitoIdentityGetIdentityPoolRolesResponse;
 @class AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput;
 @class AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse;
 @class AWSCognitoIdentityGetOpenIdTokenInput;
@@ -54,6 +61,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 @class AWSCognitoIdentityLookupDeveloperIdentityResponse;
 @class AWSCognitoIdentityMergeDeveloperIdentitiesInput;
 @class AWSCognitoIdentityMergeDeveloperIdentitiesResponse;
+@class AWSCognitoIdentitySetIdentityPoolRolesInput;
 @class AWSCognitoIdentityUnlinkDeveloperIdentityInput;
 @class AWSCognitoIdentityUnlinkIdentityInput;
 
@@ -78,12 +86,44 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
  * <p>A string that you provide.</p>
  */
 @property (nonatomic, strong) NSString *identityPoolName;
+
+/**
+ * <p>A list of OpendID Connect provider ARNs.</p>
+ */
 @property (nonatomic, strong) NSArray *openIdConnectProviderARNs;
 
 /**
  * <p>Optional key:value pairs mapping provider names to provider app IDs.</p>
  */
 @property (nonatomic, strong) NSDictionary *supportedLoginProviders;
+
+@end
+
+/**
+ *
+ */
+@interface AWSCognitoIdentityCredentials : AWSModel
+
+
+/**
+ * 
+ */
+@property (nonatomic, strong) NSString *accessKeyId;
+
+/**
+ * 
+ */
+@property (nonatomic, strong) NSDate *expiration;
+
+/**
+ * 
+ */
+@property (nonatomic, strong) NSString *secretKey;
+
+/**
+ * 
+ */
+@property (nonatomic, strong) NSString *sessionToken;
 
 @end
 
@@ -102,6 +142,19 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 @end
 
 /**
+ *
+ */
+@interface AWSCognitoIdentityDescribeIdentityInput : AWSRequest
+
+
+/**
+ * 
+ */
+@property (nonatomic, strong) NSString *identityId;
+
+@end
+
+/**
  * Input to the DescribeIdentityPool action.
  * Required parameters: [IdentityPoolId]
  */
@@ -116,8 +169,44 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 @end
 
 /**
+ *
+ */
+@interface AWSCognitoIdentityGetCredentialsForIdentityInput : AWSRequest
+
+
+/**
+ * 
+ */
+@property (nonatomic, strong) NSString *identityId;
+
+/**
+ * 
+ */
+@property (nonatomic, strong) NSDictionary *logins;
+
+@end
+
+/**
+ *
+ */
+@interface AWSCognitoIdentityGetCredentialsForIdentityResponse : AWSModel
+
+
+/**
+ * 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityCredentials *credentials;
+
+/**
+ * 
+ */
+@property (nonatomic, strong) NSString *identityId;
+
+@end
+
+/**
  * Input to the GetId action.
- * Required parameters: [AccountId, IdentityPoolId]
+ * Required parameters: [IdentityPoolId]
  */
 @interface AWSCognitoIdentityGetIdInput : AWSRequest
 
@@ -149,6 +238,37 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
  * A unique identifier in the format REGION:GUID.
  */
 @property (nonatomic, strong) NSString *identityId;
+
+@end
+
+/**
+ *
+ */
+@interface AWSCognitoIdentityGetIdentityPoolRolesInput : AWSRequest
+
+
+/**
+ * 
+ */
+@property (nonatomic, strong) NSString *identityPoolId;
+
+@end
+
+/**
+ *
+ */
+@interface AWSCognitoIdentityGetIdentityPoolRolesResponse : AWSModel
+
+
+/**
+ * 
+ */
+@property (nonatomic, strong) NSString *identityPoolId;
+
+/**
+ * 
+ */
+@property (nonatomic, strong) NSDictionary *roles;
 
 @end
 
@@ -243,9 +363,19 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 
 
 /**
+ * 
+ */
+@property (nonatomic, strong) NSDate *creationDate;
+
+/**
  * A unique identifier in the format REGION:GUID.
  */
 @property (nonatomic, strong) NSString *identityId;
+
+/**
+ * 
+ */
+@property (nonatomic, strong) NSDate *lastModifiedDate;
 
 /**
  * A set of optional name-value pairs that map provider names to provider tokens.
@@ -280,6 +410,10 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
  * <p>A string that you provide.</p>
  */
 @property (nonatomic, strong) NSString *identityPoolName;
+
+/**
+ * <p>A list of OpendID Connect provider ARNs.</p>
+ */
 @property (nonatomic, strong) NSArray *openIdConnectProviderARNs;
 
 /**
@@ -487,6 +621,24 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
  * <p>A unique identifier in the format REGION:GUID.</p>
  */
 @property (nonatomic, strong) NSString *identityId;
+
+@end
+
+/**
+ *
+ */
+@interface AWSCognitoIdentitySetIdentityPoolRolesInput : AWSRequest
+
+
+/**
+ * 
+ */
+@property (nonatomic, strong) NSString *identityPoolId;
+
+/**
+ * 
+ */
+@property (nonatomic, strong) NSDictionary *roles;
 
 @end
 

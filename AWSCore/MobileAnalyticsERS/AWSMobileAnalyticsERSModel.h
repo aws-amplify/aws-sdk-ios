@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -37,11 +37,35 @@ typedef NS_ENUM(NSInteger, AWSMobileAnalyticsERSErrorType) {
  */
 @interface AWSMobileAnalyticsERSEvent : AWSModel
 
+
+/**
+ * 
+ */
 @property (nonatomic, strong) NSDictionary *attributes;
+
+/**
+ * 
+ */
 @property (nonatomic, strong) NSString *eventType;
+
+/**
+ * 
+ */
 @property (nonatomic, strong) NSDictionary *metrics;
+
+/**
+ * 
+ */
 @property (nonatomic, strong) AWSMobileAnalyticsERSSession *session;
+
+/**
+ * 
+ */
 @property (nonatomic, strong) NSString *timestamp;
+
+/**
+ * 
+ */
 @property (nonatomic, strong) NSString *version;
 
 @end
@@ -52,16 +76,43 @@ typedef NS_ENUM(NSInteger, AWSMobileAnalyticsERSErrorType) {
  */
 @interface AWSMobileAnalyticsERSPutEventsInput : AWSRequest
 
+
+/**
+ * 
+ */
 @property (nonatomic, strong) NSString *clientContext;
+
+/**
+ * 
+ */
 @property (nonatomic, strong) NSArray *events;
 
 @end
 
+/**
+ *
+ */
 @interface AWSMobileAnalyticsERSSession : AWSModel
 
+
+/**
+ * 
+ */
 @property (nonatomic, strong) NSNumber *duration;
-@property (nonatomic, strong) NSString *id;
+
+/**
+ * 
+ */
+@property (nonatomic, strong) NSString *identifier;
+
+/**
+ * 
+ */
 @property (nonatomic, strong) NSString *startTimestamp;
+
+/**
+ * 
+ */
 @property (nonatomic, strong) NSString *stopTimestamp;
 
 @end

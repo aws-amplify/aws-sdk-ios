@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -245,23 +245,23 @@ static NSString *table2Name = nil;
     stringValue.S = @"stringValue";
     AWSDynamoDBAttributeValue *stringSetValue = [AWSDynamoDBAttributeValue new];
     stringSetValue.SS = @[@"string1",@"string2",@"string3"];
-    
+
     AWSDynamoDBAttributeValue *numberValue = [AWSDynamoDBAttributeValue new];
     numberValue.N = @"12345";
-    
+
     AWSDynamoDBAttributeValue *numberSetValue = [AWSDynamoDBAttributeValue new];
     numberSetValue.NS = @[@"1",@"2",@"3",@"4",@"5"];
-    
+
     AWSDynamoDBAttributeValue *binaryValue = [AWSDynamoDBAttributeValue new];
     binaryValue.B = [@"base64string" dataUsingEncoding:NSUTF8StringEncoding];
-    
+
     AWSDynamoDBAttributeValue *binarySetValue = [AWSDynamoDBAttributeValue new];
     binarySetValue.BS = @[
                           [@"Base64!@#$% 1" dataUsingEncoding:NSUTF8StringEncoding],
                           [@"base64string" dataUsingEncoding:NSUTF8StringEncoding],
                           [@"Base64!@#$% 3" dataUsingEncoding:NSUTF8StringEncoding]
                           ];
-    
+
     putItemInput.item = @{
                           @"hashKey" : hashValue,
                           @"stringKey" : stringValue,
@@ -295,30 +295,51 @@ static NSString *table2Name = nil;
 
     AWSDynamoDBPutItemInput *putItemInput = [AWSDynamoDBPutItemInput new];
     putItemInput.tableName = table1Name;
-    
+
     AWSDynamoDBAttributeValue *hashValue = [AWSDynamoDBAttributeValue new];
     hashValue.S = myKey;
     AWSDynamoDBAttributeValue *stringValue = [AWSDynamoDBAttributeValue new];
     stringValue.S = @"stringValue";
     AWSDynamoDBAttributeValue *stringSetValue = [AWSDynamoDBAttributeValue new];
     stringSetValue.SS = @[@"string1",@"string2",@"string3"];
-    
+
     AWSDynamoDBAttributeValue *numberValue = [AWSDynamoDBAttributeValue new];
     numberValue.N = @"12345";
-    
+
     AWSDynamoDBAttributeValue *numberSetValue = [AWSDynamoDBAttributeValue new];
     numberSetValue.NS = @[@"1",@"2",@"3",@"4",@"5"];
-    
+
     AWSDynamoDBAttributeValue *binaryValue = [AWSDynamoDBAttributeValue new];
     binaryValue.B = [@"base64string" dataUsingEncoding:NSUTF8StringEncoding];
-    
+
     AWSDynamoDBAttributeValue *binarySetValue = [AWSDynamoDBAttributeValue new];
     binarySetValue.BS = @[
                           [@"Base64!@#$% 1" dataUsingEncoding:NSUTF8StringEncoding],
                           [@"base64string" dataUsingEncoding:NSUTF8StringEncoding],
                           [@"Base64!@#$% 3" dataUsingEncoding:NSUTF8StringEncoding]
                           ];
-    
+
+    AWSDynamoDBAttributeValue *nilValue = [AWSDynamoDBAttributeValue new];
+    nilValue.NIL = @YES;
+
+    AWSDynamoDBAttributeValue *boolValue = [AWSDynamoDBAttributeValue new];
+    boolValue.BOOLEAN = @YES;
+
+    AWSDynamoDBAttributeValue *arrayValue = [AWSDynamoDBAttributeValue new];
+    AWSDynamoDBAttributeValue *arrayValueElement1 = [AWSDynamoDBAttributeValue new];
+    arrayValueElement1.S = @"arrayValueElement1";
+    AWSDynamoDBAttributeValue *arrayValueElement2 = [AWSDynamoDBAttributeValue new];
+    arrayValueElement2.S = @"arrayValueElement2";
+    arrayValue.L = @[arrayValueElement1, arrayValueElement2];
+
+    AWSDynamoDBAttributeValue *dictionaryValue = [AWSDynamoDBAttributeValue new];
+    AWSDynamoDBAttributeValue *dictionaryValueElement1 = [AWSDynamoDBAttributeValue new];
+    dictionaryValueElement1.S = @"dictionaryValueElement1";
+    AWSDynamoDBAttributeValue *dictionaryValueElement2 = [AWSDynamoDBAttributeValue new];
+    dictionaryValueElement2.S = @"dictionaryValueElement2";
+    dictionaryValue.M  = @{@"dictionaryValueElement1" : dictionaryValueElement1,
+                           @"dictionaryValueElement2" : dictionaryValueElement2};
+
     putItemInput.item = @{
                           @"hashKey" : hashValue,
                           @"stringKey" : stringValue,
@@ -327,13 +348,15 @@ static NSString *table2Name = nil;
                           @"numberSetKey" : numberSetValue,
                           @"binaryKey" : binaryValue,
                           @"binarySetKey" : binarySetValue,
+                          @"nilValue" : nilValue,
+                          @"boolValue" : boolValue,
+                          @"arrayValue" : arrayValue,
+                          @"dictionaryValue" : dictionaryValue
                           };
-    
+
     putItemInput.returnValues = AWSDynamoDBReturnValueAllOld;
 
-    [[[[dynamoDB putItem:putItemInput
-        ] continueWithSuccessBlock:^id(BFTask *task) {
-
+    [[[[dynamoDB putItem:putItemInput] continueWithSuccessBlock:^id(BFTask *task) {
         if (task.error) {
             XCTFail(@"The request failed. error: [%@]", task.error);
         }
@@ -353,16 +376,29 @@ static NSString *table2Name = nil;
         } else {
             AWSDynamoDBGetItemOutput *getItemOutput = task.result;
             NSDictionary *items = getItemOutput.item;
-            XCTAssertEqualObjects(hashValue, [items objectForKey:@"hashKey"] );
-            XCTAssertEqualObjects(stringValue,[items objectForKey:@"stringKey"] );
-            XCTAssertEqualObjects(stringSetValue,[items objectForKey:@"stringSetKey"] );
-            XCTAssertEqualObjects(numberValue,[items objectForKey:@"numberKey"] );
+            XCTAssertEqualObjects(hashValue, [items objectForKey:@"hashKey"]);
+            XCTAssertEqualObjects(stringValue,[items objectForKey:@"stringKey"]);
+            XCTAssertEqualObjects(stringSetValue,[items objectForKey:@"stringSetKey"]);
+            XCTAssertEqualObjects(numberValue,[items objectForKey:@"numberKey"]);
             AWSDynamoDBAttributeValue *responseNumberSetValue = [items objectForKey:@"numberSetKey"];
-            XCTAssertEqualObjects([NSSet setWithArray:numberSetValue.NS],[NSSet setWithArray:responseNumberSetValue.NS] );
-            XCTAssertEqualObjects(binaryValue,[items objectForKey:@"binaryKey"] );
+            XCTAssertEqualObjects([NSSet setWithArray:numberSetValue.NS],[NSSet setWithArray:responseNumberSetValue.NS]);
+            XCTAssertEqualObjects(binaryValue,[items objectForKey:@"binaryKey"]);
             AWSDynamoDBAttributeValue *responseBinarySetValue = [items objectForKey:@"binarySetKey"];
-            XCTAssertEqualObjects([NSSet setWithArray:binarySetValue.BS],[NSSet setWithArray:responseBinarySetValue.BS] );
-            
+            XCTAssertEqualObjects([NSSet setWithArray:binarySetValue.BS],[NSSet setWithArray:responseBinarySetValue.BS]);
+            XCTAssertEqualObjects(nilValue, [items objectForKey:@"nilValue"]);
+            XCTAssertEqualObjects(boolValue, [items objectForKey:@"boolValue"]);
+
+            XCTAssertEqualObjects(arrayValue, [items objectForKey:@"arrayValue"]);
+            NSArray *arrayResponse = ((AWSDynamoDBAttributeValue *)[items objectForKey:@"arrayValue"]).L;
+            XCTAssertTrue([arrayResponse count] == 2);
+            XCTAssertEqualObjects(arrayValueElement1, arrayResponse[0]);
+            XCTAssertEqualObjects(arrayValueElement2, arrayResponse[1]);
+
+            XCTAssertEqualObjects(dictionaryValue, [items objectForKey:@"dictionaryValue"]);
+            NSDictionary *dictionaryResponse = ((AWSDynamoDBAttributeValue *)[items objectForKey:@"dictionaryValue"]).M;
+            XCTAssertTrue([dictionaryResponse count] == 2);
+            XCTAssertEqualObjects(dictionaryValueElement1, dictionaryResponse[@"dictionaryValueElement1"]);
+            XCTAssertEqualObjects(dictionaryValueElement2, dictionaryResponse[@"dictionaryValueElement2"]);
         }
 
         return nil;
@@ -804,7 +840,7 @@ static NSString *table2Name = nil;
  return [dynamoDB putItem:putItemInput];
  }];
  }
-
+ 
  [[task continueWithBlock:^id(BFTask *task) {
  if (!task.error
  && !([task.error.domain isEqualToString:AWSDynamoDBErrorDomain]

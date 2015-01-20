@@ -5,7 +5,7 @@
     "serviceAbbreviation":"Amazon EC2",
     "serviceFullName":"Amazon Elastic Compute Cloud",
     "signatureVersion":"v4",
-    "xmlNamespace":"http://ec2.amazonaws.com/doc/2014-09-01",
+    "xmlNamespace":"http://ec2.amazonaws.com/doc/2014-10-01",
     "protocol":"ec2"
   },
   "documentation":"<fullname>Amazon Elastic Compute Cloud</fullname> <p>Amazon Elastic Compute Cloud (Amazon EC2) provides resizable computing capacity in the Amazon Web Services (AWS) cloud. Using Amazon EC2 eliminates your need to invest in hardware up front, so you can develop and deploy applications faster.</p>",
@@ -214,7 +214,7 @@
       },
       "input":{"shape":"CopySnapshotRequest"},
       "output":{"shape":"CopySnapshotResult"},
-      "documentation":"<p>Copies a point-in-time snapshot of an Amazon EBS volume and stores it in Amazon S3. You can copy the snapshot within the same region or from one region to another. You can use the snapshot to create Amazon EBS volumes or Amazon Machine Images (AMIs). The snapshot is copied to the regional endpoint that you send the HTTP request to.</p> <p>Copies of encrypted Amazon EBS snapshots remain encrypted. Copies of unencrypted snapshots remain unencrypted.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html\">Copying an Amazon EBS Snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+      "documentation":"<p>Copies a point-in-time snapshot of an Amazon EBS volume and stores it in Amazon S3. You can copy the snapshot within the same region or from one region to another. You can use the snapshot to create Amazon EBS volumes or Amazon Machine Images (AMIs). The snapshot is copied to the regional endpoint that you send the HTTP request to.</p> <p>Copies of encrypted Amazon EBS snapshots remain encrypted. Copies of unencrypted snapshots remain unencrypted.</p> <note> <p>Copying snapshots that were encrypted with non-default AWS Key Management Service (KMS) master keys is not supported at this time. </p> </note> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html\">Copying an Amazon EBS Snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
     },
     "CreateCustomerGateway":{
       "name":"CreateCustomerGateway",
@@ -1954,18 +1954,22 @@
       "members":{
         "Value":{
           "shape":"Boolean",
+          "documentation":"<p>Valid values are <code>true</code> or <code>false</code>.</p>",
           "locationName":"value"
         }
-      }
+      },
+      "documentation":"<p>The value to use when a resource attribute accepts a Boolean value.</p>"
     },
     "AttributeValue":{
       "type":"structure",
       "members":{
         "Value":{
           "shape":"String",
+          "documentation":"<p>Valid values are case-sensitive and vary by action.</p>",
           "locationName":"value"
         }
-      }
+      },
+      "documentation":"<p>The value to use for a resource attribute.</p>"
     },
     "AuthorizeSecurityGroupEgressRequest":{
       "type":"structure",
@@ -3222,7 +3226,7 @@
         },
         "Size":{
           "shape":"Integer",
-          "documentation":"<p>The size of the volume, in GiBs.</p> <p>Constraints: If the volume type is <code>io1</code>, the minimum size of the volume is 10 GiB.</p> <p>Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.</p>"
+          "documentation":"<p>The size of the volume, in GiBs.</p> <p>Constraints: If the volume type is <code>io1</code>, the minimum size of the volume is 4 GiB.</p> <p>Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.</p>"
         },
         "SnapshotId":{
           "shape":"String",
@@ -3244,6 +3248,10 @@
           "shape":"Boolean",
           "documentation":"<p>Specifies whether the volume should be encrypted.</p>",
           "locationName":"encrypted"
+        },
+        "KmsKeyId":{
+          "shape":"String",
+          "documentation":"<p>The full ARN of the AWS Key Management Service (KMS) master key to use when creating the encrypted volume. This parameter is only required if you want to use a non-default master key; if this parameter is not specified, the default master key is used. The ARN contains the <code>arn:aws:kms</code> namespace, followed by the region of the master key, the AWS account ID of the master key owner, the <code>key</code> namespace, and then the master key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>"
         }
       }
     },
@@ -5764,14 +5772,15 @@
       "members":{
         "Name":{
           "shape":"String",
-          "documentation":"<p>The name of the filter.</p>"
+          "documentation":"<p>The name of the filter. Filter names are case-sensitive.</p>"
         },
         "Values":{
           "shape":"ValueStringList",
-          "documentation":"<p>One or more filter values.</p>",
+          "documentation":"<p>One or more filter values. Filter values are case-sensitive.</p>",
           "locationName":"Value"
         }
-      }
+      },
+      "documentation":"<p>A filter name and value pair that is used to return a more specific list of results. Filters can be used to match a set of resources by various criteria, such as tags, attributes, or IDs.</p>"
     },
     "FilterList":{
       "type":"list",
@@ -10201,6 +10210,11 @@
           "shape":"Boolean",
           "documentation":"<p>Indicates whether the snapshot is encrypted.</p>",
           "locationName":"encrypted"
+        },
+        "KmsKeyId":{
+          "shape":"String",
+          "documentation":"<p>The full ARN of the AWS Key Management Service (KMS) master key that was used to protect the volume encryption key for the parent volume.</p>",
+          "locationName":"kmsKeyId"
         }
       },
       "documentation":"<p>Describes a snapshot.</p>"
@@ -10942,6 +10956,11 @@
           "shape":"Boolean",
           "documentation":"<p>Indicates whether the volume is encrypted.</p>",
           "locationName":"encrypted"
+        },
+        "KmsKeyId":{
+          "shape":"String",
+          "documentation":"<p>The full ARN of the AWS Key Management Service (KMS) master key that was used to protect the volume encryption key for the volume.</p>",
+          "locationName":"kmsKeyId"
         }
       },
       "documentation":"<p>Describes a volume.</p>"

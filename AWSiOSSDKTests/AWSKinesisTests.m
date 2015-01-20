@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -125,7 +125,7 @@ static NSString *testStreamName = nil;
     }
 
     [[[[[[BFTask taskForCompletionOfAllTasks:tasks] continueWithSuccessBlock:^id(BFTask *task) {
-        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:30]];
+        sleep(10);
         AWSKinesisDescribeStreamInput *describeStreamInput = [AWSKinesisDescribeStreamInput new];
         describeStreamInput.streamName = testStreamName;
         return [kinesis describeStream:describeStreamInput];
@@ -143,7 +143,6 @@ static NSString *testStreamName = nil;
         return [kinesis getShardIterator:getShardIteratorInput];
     }] continueWithSuccessBlock:^id(BFTask *task) {
         AWSKinesisGetShardIteratorOutput *getShardIteratorOutput = task.result;
-        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
         return [self getRecords:returnedRecords
                   shardIterator:getShardIteratorOutput.shardIterator
                         counter:0];

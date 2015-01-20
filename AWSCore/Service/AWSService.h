@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -30,12 +30,28 @@
 
 @class AWSServiceConfiguration;
 
+/**
+ *  The service manager class that manages the default service configuration.
+ */
 @interface AWSServiceManager : NSObject
 
+/**
+ *  The default service configuration object.
+ */
 @property (nonatomic, strong, readonly) AWSServiceConfiguration *defaultServiceConfiguration;
 
+/**
+ *  Returns a default singleton object. You should use this singleton method instead of creating an instance of the service manager.
+ *
+ *  @return The default service manager. This is a singleton object.
+ */
 + (instancetype)defaultServiceManager;
 
+/**
+ *  Sets the default service configuration. This method can be called only once, and any subsequent calls are ignored.
+ *
+ *  @param defaultServiceConfiguration The default configuration object.
+ */
 - (void)setDefaultServiceConfiguration:(AWSServiceConfiguration *)defaultServiceConfiguration;
 
 - (AWSService *)serviceForKey:(id)key;
@@ -51,7 +67,7 @@
 @property (nonatomic, assign, readonly) AWSRegionType regionType;
 @property (nonatomic, strong, readonly) id<AWSCredentialsProvider> credentialsProvider;
 @property (nonatomic, strong, readonly) AWSEndpoint *endpoint;
-@property (nonatomic, assign) int32_t maxRetryCount;
+@property (nonatomic, assign) uint32_t maxRetryCount;
 
 + (instancetype)configurationWithRegion:(AWSRegionType)regionType
                     credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider;

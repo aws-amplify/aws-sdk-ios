@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -23,13 +23,44 @@
  */
 typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
     /**
-     *  Unknown SaveBehavior option.
+     *  Unknown SaveBehavior.
      */
     AWSDynamoDBObjectMapperSaveBehaviorUnknown,
+    
     /**
-     *  <p>AWSDynamoDBObjectMapperSaveBehaviorUpdate will not affect unmodeled attributes on a save operation and a nil value for the modeled attribute will remove it from that item in DynamoDB.<p>Because of the limitation of updateItem request, the implementation of AWSDynamoDBObjectMapperSaveBehaviorUpdate will send a putItem request when a key-only object is being saved, and it will send another updateItem request if the given key(s) already exists in the table.<p>By default, the mapper uses AWSDynamoDBObjectMapperSaveBehaviorUpdate.
+     * `AWSDynamoDBObjectMapperSaveBehaviorUpdate` will not affect unmodeled
+     * attributes on a save operation and a nil value for the modeled attribute 
+     * will remove it from that item in DynamoDB. 
+     * By default, the mapper uses `AWSDynamoDBObjectMapperSaveBehaviorUpdate`.
      */
     AWSDynamoDBObjectMapperSaveBehaviorUpdate,
+    
+    /**
+     * `AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes` is similar 
+     * to `AWSDynamoDBObjectMapperSaveBehaviorUpdate`, except that it
+     * ignores any null value attribute(s) and will NOT remove them from
+     * that item in DynamoDB. It also guarantees to send only one single
+     * updateItem request, no matter the object is key-only or not.
+     */
+    AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes,
+    
+    /**
+     * `AWSDynamoDBObjectMapperSaveBehaviorAppendSet` treats scalar attributes
+     * (String, Number, Binary) the same as 
+     * `AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes` does.
+     * However, for set attributes, it will append to the existing attribute 
+     * value, instead of overriding it. Caller needs to make sure that the 
+     * modeled attribute type matches the existing set type, otherwise it would 
+     * result in a service exception.
+     */
+    AWSDynamoDBObjectMapperSaveBehaviorAppendSet,
+    
+    /**
+     * `AWSDynamoDBObjectMapperSaveBehaviorClobber` will clear and replace all
+     * attributes, included unmodeled ones, (delete and recreate) on save. 
+     * Versioned field constraints will also be disregarded.
+     */
+    AWSDynamoDBObjectMapperSaveBehaviorClobber
 };
 
 @class BFTask;
@@ -52,15 +83,9 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
 
 @end
 
-@interface AWSDynamoDBModel : AWSModel
+@interface AWSDynamoDBModel : MTLModel <MTLJSONSerializing>
 
 - (instancetype)initWithItem:(NSDictionary *)item;
-
-- (NSDictionary *)itemForPutItemInput;
-
-- (NSDictionary *)itemForUpdateItemInput;
-
-- (NSDictionary *)key;
 
 @end
 

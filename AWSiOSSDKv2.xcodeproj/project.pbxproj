@@ -10,7 +10,6 @@
 		38627E3F19253F5500EF30EF /* AWSCognitoIdentityServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38627E3E19253F5500EF30EF /* AWSCognitoIdentityServiceTests.m */; };
 		388CA0A21926CA3800AF5A50 /* AWSCognitoCredentialsProviderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 388CA0A11926CA3800AF5A50 /* AWSCognitoCredentialsProviderTests.m */; };
 		38D2089419C2A67D0024D82A /* AWSIdentityProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D2089319C2A67D0024D82A /* AWSIdentityProvider.m */; };
-		391F82AC62D1C2137B7168AE /* libPods-AWSiOSSDKv2Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D28AD288BC8F3B90AA53752 /* libPods-AWSiOSSDKv2Tests.a */; };
 		6F8CA45C05144354BEC9C638 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3A0CE70F1DF4EEE8E04D464 /* libPods.a */; };
 		BD1861BF19A41395003C8E42 /* ec2-input.json in Resources */ = {isa = PBXBuildFile; fileRef = BD1861BD19A41395003C8E42 /* ec2-input.json */; };
 		BD1861C019A41395003C8E42 /* ec2-output.json in Resources */ = {isa = PBXBuildFile; fileRef = BD1861BE19A41395003C8E42 /* ec2-output.json */; };
@@ -174,7 +173,6 @@
 		CE91D2BF18D3C03B000390D2 /* AWSKinesisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE91D2BE18D3C03B000390D2 /* AWSKinesisTests.m */; };
 		CEB2A4A418D782F80007AAF4 /* AWSEC2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A4A318D782F80007AAF4 /* AWSEC2Tests.m */; };
 		CEBA14CD1921AC2F008C596A /* AWSDynamoDBObjectMapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA14CC1921AC2F008C596A /* AWSDynamoDBObjectMapperTests.m */; };
-		CED514051954B83B00D693F7 /* AWSClientContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CED514041954B83B00D693F7 /* AWSClientContext.m */; };
 		CED6C36618EE3EC800A56FB2 /* AWSS3TransferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CED6C36518EE3EC800A56FB2 /* AWSS3TransferManager.m */; };
 		CEDAFE801A32486200AEA770 /* AWSMobileAnalyticsEncryptedBufferedReader.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDAFE7F1A32486200AEA770 /* AWSMobileAnalyticsEncryptedBufferedReader.m */; };
 		CEE68C17193FB11A00259EFF /* AWSKinesisRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE68C16193FB11A00259EFF /* AWSKinesisRecorder.m */; };
@@ -483,7 +481,7 @@
 		CE4AB8D819085CFB00E0600E /* AWSSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSSerialization.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CE5312B21922DFFA005DAFA3 /* AWSDynamoDBObjectMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDynamoDBObjectMapper.h; sourceTree = "<group>"; };
 		CE5312B31922DFFA005DAFA3 /* AWSDynamoDBObjectMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDynamoDBObjectMapper.m; sourceTree = "<group>"; };
-		CE55F33E18DB716B00F8C75F /* AWSCredentialsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AWSCredentialsProvider.h; path = AWSCore/Authentication/AWSCredentialsProvider.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		CE55F33E18DB716B00F8C75F /* AWSCredentialsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AWSCredentialsProvider.h; path = AWSCore/Authentication/AWSCredentialsProvider.h; sourceTree = SOURCE_ROOT; };
 		CE55F33F18DB716B00F8C75F /* AWSCredentialsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AWSCredentialsProvider.m; path = AWSCore/Authentication/AWSCredentialsProvider.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CE55F34018DB716B00F8C75F /* AWSSignature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSSignature.h; path = AWSCore/Authentication/AWSSignature.h; sourceTree = SOURCE_ROOT; };
 		CE55F34118DB716B00F8C75F /* AWSSignature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AWSSignature.m; path = AWSCore/Authentication/AWSSignature.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -526,8 +524,6 @@
 		CE91D2BE18D3C03B000390D2 /* AWSKinesisTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSKinesisTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CEB2A4A318D782F80007AAF4 /* AWSEC2Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSEC2Tests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CEBA14CC1921AC2F008C596A /* AWSDynamoDBObjectMapperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDynamoDBObjectMapperTests.m; sourceTree = "<group>"; };
-		CED514031954B83B00D693F7 /* AWSClientContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSClientContext.h; sourceTree = "<group>"; };
-		CED514041954B83B00D693F7 /* AWSClientContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSClientContext.m; sourceTree = "<group>"; };
 		CED6C36418EE3EC800A56FB2 /* AWSS3TransferManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSS3TransferManager.h; sourceTree = "<group>"; };
 		CED6C36518EE3EC800A56FB2 /* AWSS3TransferManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSS3TransferManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CEDAFE7F1A32486200AEA770 /* AWSMobileAnalyticsEncryptedBufferedReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSMobileAnalyticsEncryptedBufferedReader.m; sourceTree = "<group>"; };
@@ -708,7 +704,6 @@
 				CE7363A41A24070A00917759 /* Security.framework in Frameworks */,
 				CE314853187B577A0068883B /* XCTest.framework in Frameworks */,
 				CE314854187B577A0068883B /* Foundation.framework in Frameworks */,
-				391F82AC62D1C2137B7168AE /* libPods-AWSiOSSDKv2Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1384,8 +1379,6 @@
 			isa = PBXGroup;
 			children = (
 				EAC25F5E195E4A4500675156 /* AWSServiceEnum.h */,
-				CED514031954B83B00D693F7 /* AWSClientContext.h */,
-				CED514041954B83B00D693F7 /* AWSClientContext.m */,
 				CE55F35818DB716B00F8C75F /* AWSService.h */,
 				CE55F35918DB716B00F8C75F /* AWSService.m */,
 			);
@@ -2221,7 +2214,6 @@
 				EA2AF826195E206B007DDDD4 /* AWSMobileAnalyticsIOSConnectivity.m in Sources */,
 				CE372B7518DA874000D2CFD2 /* AWSCloudWatch.m in Sources */,
 				CED6C36618EE3EC800A56FB2 /* AWSS3TransferManager.m in Sources */,
-				CED514051954B83B00D693F7 /* AWSClientContext.m in Sources */,
 				EA2AF832195E206B007DDDD4 /* AWSMobileAnalyticsERSRequestBuilder.m in Sources */,
 				CE372B8818DA874000D2CFD2 /* AWSSQSModel.m in Sources */,
 				EA2AF81D195E206B007DDDD4 /* AWSMobileAnalyticsLogInterceptor.m in Sources */,
@@ -2303,7 +2295,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSiOSSDKAnalyticsTests/usr/lib",
-					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2339,7 +2330,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSiOSSDKAnalyticsTests/usr/lib",
-					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2373,10 +2363,7 @@
 				);
 				INFOPLIST_FILE = "AWSiOSSDKTests/AWSiOSSDKv2Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -2405,10 +2392,7 @@
 				);
 				INFOPLIST_FILE = "AWSiOSSDKTests/AWSiOSSDKv2Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -113,6 +113,15 @@
                                                                            credentialsProvider:self.credentialsProvider];
     configuration.maxRetryCount = self.maxRetryCount;
     return configuration;
+}
+
+- (void)setMaxRetryCount:(uint32_t)maxRetryCount {
+    // the max maxRetryCount is 10. If set to higher than that, it becomes 10.
+    if (maxRetryCount > 10) {
+        _maxRetryCount = 10;
+    } else {
+        _maxRetryCount = maxRetryCount;
+    }
 }
 
 @end
@@ -347,7 +356,6 @@ NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
             } else {
                 _URL = [NSURL URLWithString:@"https://sts.amazonaws.com"];
             }
-
         } else if (_serviceType == AWSServiceSimpleDB && _regionType == AWSRegionUSEast1) {
             _URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://sdb.amazonaws.com", HTTP_Type]];
         } else {

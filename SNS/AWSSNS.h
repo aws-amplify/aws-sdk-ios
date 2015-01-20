@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -24,10 +24,31 @@
  */
 @interface AWSSNS : AWSService
 
+/**
+ *  The service configuration used to instantiate this service client.
+ *
+ *  @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+ */
 @property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration;
 
+/**
+ *  Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with `defaultServiceConfiguration` from `[AWSServiceManager defaultServiceManager]`. The reference to this object is maintained by the SDK, and you do not need to retain it manually.
+ *
+ *  @return The default service client.
+ */
 + (instancetype)defaultSNS;
 
+/**
+ *  Instantiates the service client with the given service configuration.
+ *
+ *  @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+ *
+ *  @warning Unlike the singleton method, you are responsible for maintaining a strong reference to this object. If the service client is released before completing a service request, the request may fail with unspecified errors.
+ *
+ *  @param configuration The service configuration object.
+ *
+ *  @return An instance of the service client.
+ */
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration;
 
 /**
@@ -35,7 +56,7 @@
  *
  * @param request A container for the necessary parameters to execute the AddPermission service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`.
  *
  * @see AWSSNSAddPermissionInput
  */
@@ -46,7 +67,7 @@
  *
  * @param request A container for the necessary parameters to execute the ConfirmSubscription service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSNSConfirmSubscriptionResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorSubscriptionLimitExceeded, AWSSNSErrorInvalidParameter, AWSSNSErrorNotFound, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSNSConfirmSubscriptionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorSubscriptionLimitExceeded`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorNotFound`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`.
  *
  * @see AWSSNSConfirmSubscriptionInput
  * @see AWSSNSConfirmSubscriptionResponse
@@ -58,7 +79,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreatePlatformApplication service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSNSCreatePlatformApplicationResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSNSCreatePlatformApplicationResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`.
  *
  * @see AWSSNSCreatePlatformApplicationInput
  * @see AWSSNSCreatePlatformApplicationResponse
@@ -70,7 +91,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreatePlatformEndpoint service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSNSCreateEndpointResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSNSCreateEndpointResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`.
  *
  * @see AWSSNSCreatePlatformEndpointInput
  * @see AWSSNSCreateEndpointResponse
@@ -82,7 +103,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateTopic service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSNSCreateTopicResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorTopicLimitExceeded, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSNSCreateTopicResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorTopicLimitExceeded`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`.
  *
  * @see AWSSNSCreateTopicInput
  * @see AWSSNSCreateTopicResponse
@@ -94,7 +115,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteEndpoint service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`.
  *
  * @see AWSSNSDeleteEndpointInput
  */
@@ -105,7 +126,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeletePlatformApplication service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`.
  *
  * @see AWSSNSDeletePlatformApplicationInput
  */
@@ -116,7 +137,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteTopic service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`.
  *
  * @see AWSSNSDeleteTopicInput
  */
@@ -127,7 +148,7 @@
  *
  * @param request A container for the necessary parameters to execute the GetEndpointAttributes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSNSGetEndpointAttributesResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSNSGetEndpointAttributesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`.
  *
  * @see AWSSNSGetEndpointAttributesInput
  * @see AWSSNSGetEndpointAttributesResponse
@@ -139,7 +160,7 @@
  *
  * @param request A container for the necessary parameters to execute the GetPlatformApplicationAttributes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSNSGetPlatformApplicationAttributesResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSNSGetPlatformApplicationAttributesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`.
  *
  * @see AWSSNSGetPlatformApplicationAttributesInput
  * @see AWSSNSGetPlatformApplicationAttributesResponse
@@ -151,7 +172,7 @@
  *
  * @param request A container for the necessary parameters to execute the GetSubscriptionAttributes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSNSGetSubscriptionAttributesResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorAuthorizationError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSNSGetSubscriptionAttributesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorAuthorizationError`.
  *
  * @see AWSSNSGetSubscriptionAttributesInput
  * @see AWSSNSGetSubscriptionAttributesResponse
@@ -163,7 +184,7 @@
  *
  * @param request A container for the necessary parameters to execute the GetTopicAttributes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSNSGetTopicAttributesResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorAuthorizationError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSNSGetTopicAttributesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorAuthorizationError`.
  *
  * @see AWSSNSGetTopicAttributesInput
  * @see AWSSNSGetTopicAttributesResponse
@@ -175,7 +196,7 @@
  *
  * @param request A container for the necessary parameters to execute the ListEndpointsByPlatformApplication service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSNSListEndpointsByPlatformApplicationResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSNSListEndpointsByPlatformApplicationResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`.
  *
  * @see AWSSNSListEndpointsByPlatformApplicationInput
  * @see AWSSNSListEndpointsByPlatformApplicationResponse
@@ -187,7 +208,7 @@
  *
  * @param request A container for the necessary parameters to execute the ListPlatformApplications service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSNSListPlatformApplicationsResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSNSListPlatformApplicationsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`.
  *
  * @see AWSSNSListPlatformApplicationsInput
  * @see AWSSNSListPlatformApplicationsResponse
@@ -199,7 +220,7 @@
  *
  * @param request A container for the necessary parameters to execute the ListSubscriptions service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSNSListSubscriptionsResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSNSListSubscriptionsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`.
  *
  * @see AWSSNSListSubscriptionsInput
  * @see AWSSNSListSubscriptionsResponse
@@ -211,7 +232,7 @@
  *
  * @param request A container for the necessary parameters to execute the ListSubscriptionsByTopic service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSNSListSubscriptionsByTopicResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorAuthorizationError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSNSListSubscriptionsByTopicResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorAuthorizationError`.
  *
  * @see AWSSNSListSubscriptionsByTopicInput
  * @see AWSSNSListSubscriptionsByTopicResponse
@@ -223,7 +244,7 @@
  *
  * @param request A container for the necessary parameters to execute the ListTopics service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSNSListTopicsResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSNSListTopicsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`.
  *
  * @see AWSSNSListTopicsInput
  * @see AWSSNSListTopicsResponse
@@ -235,7 +256,7 @@
  *
  * @param request A container for the necessary parameters to execute the Publish service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSNSPublishResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInvalidParameterValue, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorEndpointDisabled, AWSSNSErrorPlatformApplicationDisabled, AWSSNSErrorAuthorizationError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSNSPublishResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInvalidParameterValue`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorEndpointDisabled`, `AWSSNSErrorPlatformApplicationDisabled`, `AWSSNSErrorAuthorizationError`.
  *
  * @see AWSSNSPublishInput
  * @see AWSSNSPublishResponse
@@ -247,7 +268,7 @@
  *
  * @param request A container for the necessary parameters to execute the RemovePermission service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`.
  *
  * @see AWSSNSRemovePermissionInput
  */
@@ -258,7 +279,7 @@
  *
  * @param request A container for the necessary parameters to execute the SetEndpointAttributes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`.
  *
  * @see AWSSNSSetEndpointAttributesInput
  */
@@ -269,7 +290,7 @@
  *
  * @param request A container for the necessary parameters to execute the SetPlatformApplicationAttributes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`.
  *
  * @see AWSSNSSetPlatformApplicationAttributesInput
  */
@@ -280,7 +301,7 @@
  *
  * @param request A container for the necessary parameters to execute the SetSubscriptionAttributes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorAuthorizationError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorAuthorizationError`.
  *
  * @see AWSSNSSetSubscriptionAttributesInput
  */
@@ -291,7 +312,7 @@
  *
  * @param request A container for the necessary parameters to execute the SetTopicAttributes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorAuthorizationError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorAuthorizationError`.
  *
  * @see AWSSNSSetTopicAttributesInput
  */
@@ -302,7 +323,7 @@
  *
  * @param request A container for the necessary parameters to execute the Subscribe service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSNSSubscribeResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorSubscriptionLimitExceeded, AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorAuthorizationError.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSNSSubscribeResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorSubscriptionLimitExceeded`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorAuthorizationError`.
  *
  * @see AWSSNSSubscribeInput
  * @see AWSSNSSubscribeResponse
@@ -314,7 +335,7 @@
  *
  * @param request A container for the necessary parameters to execute the Unsubscribe service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domian and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domian and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`.
  *
  * @see AWSSNSUnsubscribeInput
  */

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -16,6 +16,17 @@
 #import "AWSDynamoDBObjectMapper.h"
 #import "AWSDynamoDB.h"
 #import "Bolts.h"
+
+@interface AWSDynamoDBModel ()
+
+- (NSDictionary *)itemForPutItemInput;
+
+- (NSDictionary *)itemForUpdateItemInput;
+- (NSDictionary *)itemForUpdateItemInput:(AWSDynamoDBObjectMapperSaveBehavior) behavior;
+
+- (NSDictionary *)key;
+
+@end
 
 @interface AWSDynamoDBAttributeValue (AWSDynamoDBObjectMapper)
 
@@ -94,14 +105,14 @@
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
         return nil;
     }
-    
+
     static AWSDynamoDBObjectMapper *_dynamoDBObjectMapper  = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _dynamoDBObjectMapper = [[AWSDynamoDBObjectMapper alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration
                                                              objectMapperConfiguration:[AWSDynamoDBObjectMapperConfiguration new]];
     });
-    
+
     return _dynamoDBObjectMapper;
 }
 
@@ -123,39 +134,28 @@
 - (BFTask *)save:(AWSDynamoDBModel *)model
    configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration {
     switch (configuration.saveBehavior) {
-        case AWSDynamoDBObjectMapperSaveBehaviorUpdate: {
+        case AWSDynamoDBObjectMapperSaveBehaviorClobber: {
+            
             AWSDynamoDBPutItemInput *putItemInput = [AWSDynamoDBPutItemInput new];
             putItemInput.tableName = [[model class] performSelector:@selector(dynamoDBTableName)];
             putItemInput.item = [model itemForPutItemInput];
 
-            NSMutableDictionary *expected = [NSMutableDictionary new];
-            for (id key in [model dictionaryValue]) {
-                if ([key isEqual:[[model class] performSelector:@selector(hashKeyAttribute)]]
-                    || ([[model class] respondsToSelector:@selector(rangeKeyAttribute)]
-                        && [key isEqual:[[model class] performSelector:@selector(rangeKeyAttribute)]])) {
-                    AWSDynamoDBCondition *condition = [AWSDynamoDBCondition new];
-                    condition.comparisonOperator = AWSDynamoDBComparisonOperatorNull;
-
-                    expected[key] = condition;
-                }
-            }
-            putItemInput.expected = expected;
-
-            return [[self.dynamoDB putItem:putItemInput] continueWithBlock:^id(BFTask *task) {
-                if ([task.error.domain isEqualToString:AWSDynamoDBErrorDomain]
-                    && task.error.code == AWSDynamoDBErrorConditionalCheckFailed) {
-                    AWSDynamoDBUpdateItemInput *updateItemInput = [AWSDynamoDBUpdateItemInput new];
-                    updateItemInput.tableName = [[model class] performSelector:@selector(dynamoDBTableName)];
-                    updateItemInput.attributeUpdates = [model itemForUpdateItemInput];
-                    updateItemInput.key = [model key];
-
-                    return [self.dynamoDB updateItem:updateItemInput];
-                }
-
-                return nil;
-            }];
-        }
+            
+            return [self.dynamoDB putItem:putItemInput];
             break;
+        }
+        case AWSDynamoDBObjectMapperSaveBehaviorAppendSet:
+        case AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes:
+        case AWSDynamoDBObjectMapperSaveBehaviorUpdate: {
+            
+            AWSDynamoDBUpdateItemInput *updateItemInput = [AWSDynamoDBUpdateItemInput new];
+            updateItemInput.tableName = [[model class] performSelector:@selector(dynamoDBTableName)];
+            updateItemInput.attributeUpdates = [model itemForUpdateItemInput:configuration.saveBehavior];
+            updateItemInput.key = [model key];
+            
+            return [self.dynamoDB updateItem:updateItemInput];
+            break;
+        }
 
         case AWSDynamoDBObjectMapperSaveBehaviorUnknown:
         default:
@@ -331,6 +331,10 @@
 
 @implementation AWSDynamoDBModel
 
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return nil;
+}
+
 - (instancetype)initWithItem:(NSDictionary *)item {
     if (self = [super init]) {
 
@@ -355,9 +359,13 @@
             item[key] = keyAttributeValue;
         } else if (dictionaryValue[key]) {
             // For other attributes
-            AWSDynamoDBAttributeValue *attributeValue = [AWSDynamoDBAttributeValue new];
-            [attributeValue aws_setAttributeValue:dictionaryValue[key]];
-            item[key] = attributeValue;
+            if (dictionaryValue[key] == [NSNull null]) {
+                //when doing a putItem, we can safely ignore the null-valvued attributes
+            } else {
+                AWSDynamoDBAttributeValue *attributeValue = [AWSDynamoDBAttributeValue new];
+                [attributeValue aws_setAttributeValue:dictionaryValue[key]];
+                item[key] = attributeValue;
+            }
         }
     }
 
@@ -365,6 +373,9 @@
 }
 
 - (NSDictionary *)itemForUpdateItemInput {
+    return [self itemForUpdateItemInput:AWSDynamoDBObjectMapperSaveBehaviorUpdate];
+}
+- (NSDictionary *)itemForUpdateItemInput:(AWSDynamoDBObjectMapperSaveBehavior) behavior {
     NSMutableDictionary *item = [NSMutableDictionary new];
     NSArray *keyArray = [[self key] allKeys];
     NSDictionary *dictionaryValue = [MTLJSONAdapter JSONDictionaryFromModel:self];
@@ -372,13 +383,42 @@
     for (id key in dictionaryValue) {
         if (![keyArray containsObject:key]) {
             // For other attributes
-            AWSDynamoDBAttributeValueUpdate *attributeValueUpdate = [AWSDynamoDBAttributeValueUpdate new];
-            AWSDynamoDBAttributeValue *attributeValue = [AWSDynamoDBAttributeValue new];
-            [attributeValue aws_setAttributeValue:dictionaryValue[key]];
-            attributeValueUpdate.value = attributeValue;
-            attributeValueUpdate.action = AWSDynamoDBAttributeActionPut;
-
-            item[key] = attributeValueUpdate;
+            
+            if (dictionaryValue[key] == [NSNull null]) {
+                //If attribute value is null
+                if (behavior == AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes || behavior == AWSDynamoDBObjectMapperSaveBehaviorAppendSet) {
+                    /*
+                     * If UPDATE_SKIP_NULL_ATTRIBUTES or APPEND_SET is
+                     * configured, we don't delete null value attributes.
+                     */
+                } else {
+                    /* Delete attributes that are set as null in the object. */
+                    AWSDynamoDBAttributeValueUpdate *attributeValueUpdate = [AWSDynamoDBAttributeValueUpdate new];
+                    attributeValueUpdate.action = AWSDynamoDBAttributeActionDelete;
+                    
+                    item[key] = attributeValueUpdate;
+                }
+                
+            } else {
+                //If attribute value is not null
+                AWSDynamoDBAttributeValueUpdate *attributeValueUpdate = [AWSDynamoDBAttributeValueUpdate new];
+                AWSDynamoDBAttributeValue *attributeValue = [AWSDynamoDBAttributeValue new];
+                [attributeValue aws_setAttributeValue:dictionaryValue[key]];
+                attributeValueUpdate.value = attributeValue;
+                if (behavior == AWSDynamoDBObjectMapperSaveBehaviorAppendSet &&
+                    (attributeValue.BS != nil || attributeValue.NS != nil || attributeValue.SS != nil)) {
+                    
+                    /* If it's a set attribute and the mapper is configured with APPEND_SET,
+                     * we do an "ADD" update instead of the default "PUT".
+                     */
+                    attributeValueUpdate.action = AWSDynamoDBAttributeActionAdd;
+                } else {
+                    /* Otherwise, we do the default "PUT" update. */
+                    attributeValueUpdate.action = AWSDynamoDBAttributeActionPut;
+                }
+                
+                item[key] = attributeValueUpdate;
+            }
         }
     }
 
@@ -411,7 +451,7 @@
     if (self = [super init]) {
         _saveBehavior = AWSDynamoDBObjectMapperSaveBehaviorUpdate;
     }
-    
+
     return self;
 }
 
@@ -419,7 +459,7 @@
     AWSDynamoDBObjectMapperConfiguration *configuration = [[[self class] allocWithZone:zone] init];
     configuration.saveBehavior = self.saveBehavior;
     configuration.consistentRead = [self.consistentRead copy];
-
+    
     return configuration;
 }
 

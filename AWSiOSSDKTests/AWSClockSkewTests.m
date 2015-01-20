@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -111,7 +111,7 @@ static char mockDateKey;
     eventOne.timestamp = [[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3];
     
     AWSMobileAnalyticsERSSession *serviceSession = [AWSMobileAnalyticsERSSession new];
-    serviceSession.id = @"SMZSP1G8-21c9ac01-20140604-171714026";
+    serviceSession.identifier = @"SMZSP1G8-21c9ac01-20140604-171714026";
     serviceSession.startTimestamp = [[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3];
     
     eventOne.session = serviceSession;

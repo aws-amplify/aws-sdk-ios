@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -176,9 +176,9 @@ static NSString *testBucketNameGeneral = nil;
     XCTAssertNotNil(s3);
 
     AWSS3Grantee *granteeOne = [AWSS3Grantee new];
-    granteeOne.ID = @"154b2f3550127d0439dfe1e89a03a7a4178048cc05c6fdaeb40796841a5cfcef";
+    granteeOne.identifier = @"154b2f3550127d0439dfe1e89a03a7a4178048cc05c6fdaeb40796841a5cfcef";
     granteeOne.displayName = @"awssandbox";
-    granteeOne.type = AWSS3TypeCanonicalUser;
+    granteeOne.types = AWSS3TypesCanonicalUser;
 
     AWSS3Grant *grantOne = [AWSS3Grant new];
     grantOne.permission = AWSS3PermissionRead;
@@ -188,7 +188,7 @@ static NSString *testBucketNameGeneral = nil;
 
     AWSS3Owner *s3Owner = [AWSS3Owner new];
     s3Owner.displayName = @"aws-dr-mobile-test-ios@amazon.com";
-    s3Owner.ID = @"0d822d37be4e6e24e50d96c88fefa5d3b2e8cd5661a759d6a07596306c41f52d";
+    s3Owner.identifier = @"0d822d37be4e6e24e50d96c88fefa5d3b2e8cd5661a759d6a07596306c41f52d";
 
     AWSS3AccessControlPolicy *accessControlPolicy = [AWSS3AccessControlPolicy new];
     accessControlPolicy.grants = grantsList;

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -24,10 +24,31 @@
  */
 @interface AWSSTS : AWSService
 
+/**
+ *  The service configuration used to instantiate this service client.
+ *
+ *  @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+ */
 @property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration;
 
+/**
+ *  Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with `defaultServiceConfiguration` from `[AWSServiceManager defaultServiceManager]`. The reference to this object is maintained by the SDK, and you do not need to retain it manually.
+ *
+ *  @return The default service client.
+ */
 + (instancetype)defaultSTS;
 
+/**
+ *  Instantiates the service client with the given service configuration.
+ *
+ *  @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+ *
+ *  @warning Unlike the singleton method, you are responsible for maintaining a strong reference to this object. If the service client is released before completing a service request, the request may fail with unspecified errors.
+ *
+ *  @param configuration The service configuration object.
+ *
+ *  @return An instance of the service client.
+ */
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration;
 
 /**
@@ -35,7 +56,7 @@
  *
  * @param request A container for the necessary parameters to execute the AssumeRole service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSTSAssumeRoleResponse. On failed execution, task.error may contain an NSError with AWSSTSErrorDomain domian and the following error code: AWSSTSErrorMalformedPolicyDocument, AWSSTSErrorPackedPolicyTooLarge.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSTSAssumeRoleResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSTSErrorDomain` domian and the following error code: `AWSSTSErrorMalformedPolicyDocument`, `AWSSTSErrorPackedPolicyTooLarge`.
  *
  * @see AWSSTSAssumeRoleRequest
  * @see AWSSTSAssumeRoleResponse
@@ -47,7 +68,7 @@
  *
  * @param request A container for the necessary parameters to execute the AssumeRoleWithSAML service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSTSAssumeRoleWithSAMLResponse. On failed execution, task.error may contain an NSError with AWSSTSErrorDomain domian and the following error code: AWSSTSErrorMalformedPolicyDocument, AWSSTSErrorPackedPolicyTooLarge, AWSSTSErrorIDPRejectedClaim, AWSSTSErrorInvalidIdentityToken, AWSSTSErrorExpiredToken.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSTSAssumeRoleWithSAMLResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSTSErrorDomain` domian and the following error code: `AWSSTSErrorMalformedPolicyDocument`, `AWSSTSErrorPackedPolicyTooLarge`, `AWSSTSErrorIDPRejectedClaim`, `AWSSTSErrorInvalidIdentityToken`, `AWSSTSErrorExpiredToken`.
  *
  * @see AWSSTSAssumeRoleWithSAMLRequest
  * @see AWSSTSAssumeRoleWithSAMLResponse
@@ -59,7 +80,7 @@
  *
  * @param request A container for the necessary parameters to execute the AssumeRoleWithWebIdentity service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSTSAssumeRoleWithWebIdentityResponse. On failed execution, task.error may contain an NSError with AWSSTSErrorDomain domian and the following error code: AWSSTSErrorMalformedPolicyDocument, AWSSTSErrorPackedPolicyTooLarge, AWSSTSErrorIDPRejectedClaim, AWSSTSErrorIDPCommunicationError, AWSSTSErrorInvalidIdentityToken, AWSSTSErrorExpiredToken.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSTSAssumeRoleWithWebIdentityResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSTSErrorDomain` domian and the following error code: `AWSSTSErrorMalformedPolicyDocument`, `AWSSTSErrorPackedPolicyTooLarge`, `AWSSTSErrorIDPRejectedClaim`, `AWSSTSErrorIDPCommunicationError`, `AWSSTSErrorInvalidIdentityToken`, `AWSSTSErrorExpiredToken`.
  *
  * @see AWSSTSAssumeRoleWithWebIdentityRequest
  * @see AWSSTSAssumeRoleWithWebIdentityResponse
@@ -71,7 +92,7 @@
  *
  * @param request A container for the necessary parameters to execute the DecodeAuthorizationMessage service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSTSDecodeAuthorizationMessageResponse. On failed execution, task.error may contain an NSError with AWSSTSErrorDomain domian and the following error code: AWSSTSErrorInvalidAuthorizationMessage.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSTSDecodeAuthorizationMessageResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSTSErrorDomain` domian and the following error code: `AWSSTSErrorInvalidAuthorizationMessage`.
  *
  * @see AWSSTSDecodeAuthorizationMessageRequest
  * @see AWSSTSDecodeAuthorizationMessageResponse
@@ -83,7 +104,7 @@
  *
  * @param request A container for the necessary parameters to execute the GetFederationToken service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSTSGetFederationTokenResponse. On failed execution, task.error may contain an NSError with AWSSTSErrorDomain domian and the following error code: AWSSTSErrorMalformedPolicyDocument, AWSSTSErrorPackedPolicyTooLarge.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSTSGetFederationTokenResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSTSErrorDomain` domian and the following error code: `AWSSTSErrorMalformedPolicyDocument`, `AWSSTSErrorPackedPolicyTooLarge`.
  *
  * @see AWSSTSGetFederationTokenRequest
  * @see AWSSTSGetFederationTokenResponse
@@ -95,7 +116,7 @@
  *
  * @param request A container for the necessary parameters to execute the GetSessionToken service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSTSGetSessionTokenResponse.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSTSGetSessionTokenResponse`.
  *
  * @see AWSSTSGetSessionTokenRequest
  * @see AWSSTSGetSessionTokenResponse

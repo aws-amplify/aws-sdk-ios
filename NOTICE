@@ -1,6 +1,6 @@
 ﻿Version 2 of AWS SDK for iOS 
 
-Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved. 
+Copyright 2015 Amazon.com, Inc. or its affiliates. All Rights Reserved. 
 
 This product includes software developed by Amazon Technologies, Inc (http://www.amazon.com/). 
 
@@ -13,10 +13,9 @@ AMAZON PROPRIETARY COMPONENTS
 *****************************
 
 The following components are distributed under a proprietary license by Amazon Technologies, Inc 
-- Amazon Cognito Sync - Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.(Amazon Software License)
+- Amazon Cognito Sync - Copyright 2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.(Amazon Software License)
 
 See the License for the specific language governing permissions and limitations under the License.
-
 
 **********************
 THIRD PARTY COMPONENTS

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"code" : @"Code",
-             @"id" : @"Id",
+             @"identifier" : @"Id",
              @"message" : @"Message",
              @"senderFault" : @"SenderFault",
              };
@@ -63,7 +63,7 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"id" : @"Id",
+             @"identifier" : @"Id",
              @"receiptHandle" : @"ReceiptHandle",
              @"visibilityTimeout" : @"VisibilityTimeout",
              };
@@ -94,7 +94,7 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"id" : @"Id",
+             @"identifier" : @"Id",
              };
 }
 
@@ -152,7 +152,7 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"id" : @"Id",
+             @"identifier" : @"Id",
              @"receiptHandle" : @"ReceiptHandle",
              };
 }
@@ -182,7 +182,7 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"id" : @"Id",
+             @"identifier" : @"Id",
              };
 }
 
@@ -389,7 +389,7 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"delaySeconds" : @"DelaySeconds",
-             @"id" : @"Id",
+             @"identifier" : @"Id",
              @"messageAttributes" : @"MessageAttributes",
              @"messageBody" : @"MessageBody",
              };
@@ -428,7 +428,7 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"id" : @"Id",
+             @"identifier" : @"Id",
              @"MD5OfMessageAttributes" : @"MD5OfMessageAttributes",
              @"MD5OfMessageBody" : @"MD5OfMessageBody",
              @"messageId" : @"MessageId",

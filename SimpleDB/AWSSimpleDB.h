@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -24,10 +24,31 @@
  */
 @interface AWSSimpleDB : AWSService
 
+/**
+ *  The service configuration used to instantiate this service client.
+ *
+ *  @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+ */
 @property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration;
 
+/**
+ *  Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with `defaultServiceConfiguration` from `[AWSServiceManager defaultServiceManager]`. The reference to this object is maintained by the SDK, and you do not need to retain it manually.
+ *
+ *  @return The default service client.
+ */
 + (instancetype)defaultSimpleDB;
 
+/**
+ *  Instantiates the service client with the given service configuration.
+ *
+ *  @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+ *
+ *  @warning Unlike the singleton method, you are responsible for maintaining a strong reference to this object. If the service client is released before completing a service request, the request may fail with unspecified errors.
+ *
+ *  @param configuration The service configuration object.
+ *
+ *  @return An instance of the service client.
+ */
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration;
 
 /**
@@ -35,7 +56,7 @@
  *
  * @param request A container for the necessary parameters to execute the BatchDeleteAttributes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSSimpleDBBatchDeleteAttributesRequest
  */
@@ -46,7 +67,7 @@
  *
  * @param request A container for the necessary parameters to execute the BatchPutAttributes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSimpleDBErrorDomain domian and the following error code: AWSSimpleDBErrorDuplicateItemName, AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNoSuchDomain, AWSSimpleDBErrorNumberItemAttributesExceeded, AWSSimpleDBErrorNumberDomainAttributesExceeded, AWSSimpleDBErrorNumberDomainBytesExceeded, AWSSimpleDBErrorNumberSubmittedItemsExceeded, AWSSimpleDBErrorNumberSubmittedAttributesExceeded.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domian and the following error code: `AWSSimpleDBErrorDuplicateItemName`, `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNoSuchDomain`, `AWSSimpleDBErrorNumberItemAttributesExceeded`, `AWSSimpleDBErrorNumberDomainAttributesExceeded`, `AWSSimpleDBErrorNumberDomainBytesExceeded`, `AWSSimpleDBErrorNumberSubmittedItemsExceeded`, `AWSSimpleDBErrorNumberSubmittedAttributesExceeded`.
  *
  * @see AWSSimpleDBBatchPutAttributesRequest
  */
@@ -57,7 +78,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateDomain service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSimpleDBErrorDomain domian and the following error code: AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNumberDomainsExceeded.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domian and the following error code: `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNumberDomainsExceeded`.
  *
  * @see AWSSimpleDBCreateDomainRequest
  */
@@ -68,7 +89,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteAttributes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSimpleDBErrorDomain domian and the following error code: AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNoSuchDomain, AWSSimpleDBErrorAttributeDoesNotExist.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domian and the following error code: `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNoSuchDomain`, `AWSSimpleDBErrorAttributeDoesNotExist`.
  *
  * @see AWSSimpleDBDeleteAttributesRequest
  */
@@ -79,7 +100,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteDomain service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSimpleDBErrorDomain domian and the following error code: AWSSimpleDBErrorMissingParameter.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domian and the following error code: `AWSSimpleDBErrorMissingParameter`.
  *
  * @see AWSSimpleDBDeleteDomainRequest
  */
@@ -90,7 +111,7 @@
  *
  * @param request A container for the necessary parameters to execute the DomainMetadata service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSimpleDBDomainMetadataResult. On failed execution, task.error may contain an NSError with AWSSimpleDBErrorDomain domian and the following error code: AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNoSuchDomain.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSimpleDBDomainMetadataResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domian and the following error code: `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNoSuchDomain`.
  *
  * @see AWSSimpleDBDomainMetadataRequest
  * @see AWSSimpleDBDomainMetadataResult
@@ -102,7 +123,7 @@
  *
  * @param request A container for the necessary parameters to execute the GetAttributes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSimpleDBGetAttributesResult. On failed execution, task.error may contain an NSError with AWSSimpleDBErrorDomain domian and the following error code: AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNoSuchDomain.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSimpleDBGetAttributesResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domian and the following error code: `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNoSuchDomain`.
  *
  * @see AWSSimpleDBGetAttributesRequest
  * @see AWSSimpleDBGetAttributesResult
@@ -114,7 +135,7 @@
  *
  * @param request A container for the necessary parameters to execute the ListDomains service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSimpleDBListDomainsResult. On failed execution, task.error may contain an NSError with AWSSimpleDBErrorDomain domian and the following error code: AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorInvalidNextToken.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSimpleDBListDomainsResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domian and the following error code: `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorInvalidNextToken`.
  *
  * @see AWSSimpleDBListDomainsRequest
  * @see AWSSimpleDBListDomainsResult
@@ -126,7 +147,7 @@
  *
  * @param request A container for the necessary parameters to execute the PutAttributes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSimpleDBErrorDomain domian and the following error code: AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNoSuchDomain, AWSSimpleDBErrorNumberDomainAttributesExceeded, AWSSimpleDBErrorNumberDomainBytesExceeded, AWSSimpleDBErrorNumberItemAttributesExceeded, AWSSimpleDBErrorAttributeDoesNotExist.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domian and the following error code: `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNoSuchDomain`, `AWSSimpleDBErrorNumberDomainAttributesExceeded`, `AWSSimpleDBErrorNumberDomainBytesExceeded`, `AWSSimpleDBErrorNumberItemAttributesExceeded`, `AWSSimpleDBErrorAttributeDoesNotExist`.
  *
  * @see AWSSimpleDBPutAttributesRequest
  */
@@ -137,7 +158,7 @@
  *
  * @param request A container for the necessary parameters to execute the Select service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSimpleDBSelectResult. On failed execution, task.error may contain an NSError with AWSSimpleDBErrorDomain domian and the following error code: AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorInvalidNextToken, AWSSimpleDBErrorInvalidNumberPredicates, AWSSimpleDBErrorInvalidNumberValueTests, AWSSimpleDBErrorInvalidQueryExpression, AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNoSuchDomain, AWSSimpleDBErrorRequestTimeout, AWSSimpleDBErrorTooManyRequestedAttributes.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSimpleDBSelectResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domian and the following error code: `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorInvalidNextToken`, `AWSSimpleDBErrorInvalidNumberPredicates`, `AWSSimpleDBErrorInvalidNumberValueTests`, `AWSSimpleDBErrorInvalidQueryExpression`, `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNoSuchDomain`, `AWSSimpleDBErrorRequestTimeout`, `AWSSimpleDBErrorTooManyRequestedAttributes`.
  *
  * @see AWSSimpleDBSelectRequest
  * @see AWSSimpleDBSelectResult

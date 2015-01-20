@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -42,6 +42,10 @@
     AWSEC2 *ec2 = [AWSEC2 defaultEC2];
 
     AWSEC2DescribeInstancesRequest *describeInstancesRequest = [AWSEC2DescribeInstancesRequest new];
+    AWSEC2Filter *platformFilter = [AWSEC2Filter new];
+    platformFilter.name = @"platform";
+    platformFilter.values = @[@"windows"];
+    describeInstancesRequest.filters = @[platformFilter];
     [[[ec2 describeInstances:describeInstancesRequest] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
@@ -51,10 +55,49 @@
             XCTAssertTrue([task.result isKindOfClass:[AWSEC2DescribeInstancesResult class]]);
             AWSEC2DescribeInstancesResult *describeInstancesResult = task.result;
             XCTAssertNotNil(describeInstancesResult.reservations);
+            
+            for (AWSEC2Reservation *reservation in describeInstancesResult.reservations) {
+                for (AWSEC2Instance * instance in reservation.instances) {
+                    if ([instance.instanceId isEqualToString:@"i-dcd2a937"]) {
+                        XCTAssertEqual(AWSEC2PlatformValuesWindows, instance.platform);
+                    }
+                }
+            }         
         }
 
         return nil;
     }] waitUntilFinished];
+}
+
+- (void)testDescribeImages {
+    AWSEC2 *ec2 = [AWSEC2 defaultEC2];
+    
+    AWSEC2DescribeImagesRequest *describeImagesRequest = [AWSEC2DescribeImagesRequest new];
+    describeImagesRequest.imageIds = @[@"ami-c4fe9aac"]; // Microsoft Windows Server 2012 R2 Base Image ID
+    [[[ec2 describeImages:describeImagesRequest] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        if (task.result) {
+            XCTAssertTrue([task.result isKindOfClass:[AWSEC2DescribeImagesResult class]]);
+            AWSEC2DescribeImagesResult *describeImagesResult = task.result;
+            XCTAssertNotNil(describeImagesResult.images);
+            
+            BOOL imageExist = NO;
+            
+            for (AWSEC2Image *image in describeImagesResult.images) {
+                if ([image.imageId isEqualToString:@"ami-c4fe9aac"]) {
+                    imageExist = YES;
+                    XCTAssertEqual(AWSEC2PlatformValuesWindows, image.platform);
+                }
+            }
+            XCTAssertTrue(imageExist);
+        }
+        
+        return nil;
+
+    }] waitUntilFinished ];
 }
 
 - (void)testAttachVolumeFailed {

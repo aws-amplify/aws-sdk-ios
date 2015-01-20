@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -24,10 +24,31 @@
  */
 @interface AWSEC2 : AWSService
 
+/**
+ *  The service configuration used to instantiate this service client.
+ *
+ *  @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+ */
 @property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration;
 
+/**
+ *  Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with `defaultServiceConfiguration` from `[AWSServiceManager defaultServiceManager]`. The reference to this object is maintained by the SDK, and you do not need to retain it manually.
+ *
+ *  @return The default service client.
+ */
 + (instancetype)defaultEC2;
 
+/**
+ *  Instantiates the service client with the given service configuration.
+ *
+ *  @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+ *
+ *  @warning Unlike the singleton method, you are responsible for maintaining a strong reference to this object. If the service client is released before completing a service request, the request may fail with unspecified errors.
+ *
+ *  @param configuration The service configuration object.
+ *
+ *  @return An instance of the service client.
+ */
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration;
 
 /**
@@ -35,7 +56,7 @@
  *
  * @param request A container for the necessary parameters to execute the AcceptVpcPeeringConnection service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2AcceptVpcPeeringConnectionResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2AcceptVpcPeeringConnectionResult`.
  *
  * @see AWSEC2AcceptVpcPeeringConnectionRequest
  * @see AWSEC2AcceptVpcPeeringConnectionResult
@@ -47,7 +68,7 @@
  *
  * @param request A container for the necessary parameters to execute the AllocateAddress service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2AllocateAddressResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2AllocateAddressResult`.
  *
  * @see AWSEC2AllocateAddressRequest
  * @see AWSEC2AllocateAddressResult
@@ -59,7 +80,7 @@
  *
  * @param request A container for the necessary parameters to execute the AssignPrivateIpAddresses service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2AssignPrivateIpAddressesRequest
  */
@@ -70,7 +91,7 @@
  *
  * @param request A container for the necessary parameters to execute the AssociateAddress service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2AssociateAddressResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2AssociateAddressResult`.
  *
  * @see AWSEC2AssociateAddressRequest
  * @see AWSEC2AssociateAddressResult
@@ -82,7 +103,7 @@
  *
  * @param request A container for the necessary parameters to execute the AssociateDhcpOptions service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2AssociateDhcpOptionsRequest
  */
@@ -93,7 +114,7 @@
  *
  * @param request A container for the necessary parameters to execute the AssociateRouteTable service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2AssociateRouteTableResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2AssociateRouteTableResult`.
  *
  * @see AWSEC2AssociateRouteTableRequest
  * @see AWSEC2AssociateRouteTableResult
@@ -105,7 +126,7 @@
  *
  * @param request A container for the necessary parameters to execute the AttachInternetGateway service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2AttachInternetGatewayRequest
  */
@@ -116,7 +137,7 @@
  *
  * @param request A container for the necessary parameters to execute the AttachNetworkInterface service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2AttachNetworkInterfaceResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2AttachNetworkInterfaceResult`.
  *
  * @see AWSEC2AttachNetworkInterfaceRequest
  * @see AWSEC2AttachNetworkInterfaceResult
@@ -128,7 +149,7 @@
  *
  * @param request A container for the necessary parameters to execute the AttachVolume service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2VolumeAttachment.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2VolumeAttachment`.
  *
  * @see AWSEC2AttachVolumeRequest
  * @see AWSEC2VolumeAttachment
@@ -140,7 +161,7 @@
  *
  * @param request A container for the necessary parameters to execute the AttachVpnGateway service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2AttachVpnGatewayResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2AttachVpnGatewayResult`.
  *
  * @see AWSEC2AttachVpnGatewayRequest
  * @see AWSEC2AttachVpnGatewayResult
@@ -152,7 +173,7 @@
  *
  * @param request A container for the necessary parameters to execute the AuthorizeSecurityGroupEgress service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2AuthorizeSecurityGroupEgressRequest
  */
@@ -163,7 +184,7 @@
  *
  * @param request A container for the necessary parameters to execute the AuthorizeSecurityGroupIngress service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2AuthorizeSecurityGroupIngressRequest
  */
@@ -174,7 +195,7 @@
  *
  * @param request A container for the necessary parameters to execute the BundleInstance service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2BundleInstanceResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2BundleInstanceResult`.
  *
  * @see AWSEC2BundleInstanceRequest
  * @see AWSEC2BundleInstanceResult
@@ -186,7 +207,7 @@
  *
  * @param request A container for the necessary parameters to execute the CancelBundleTask service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CancelBundleTaskResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CancelBundleTaskResult`.
  *
  * @see AWSEC2CancelBundleTaskRequest
  * @see AWSEC2CancelBundleTaskResult
@@ -198,7 +219,7 @@
  *
  * @param request A container for the necessary parameters to execute the CancelConversionTask service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2CancelConversionRequest
  */
@@ -209,7 +230,7 @@
  *
  * @param request A container for the necessary parameters to execute the CancelExportTask service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2CancelExportTaskRequest
  */
@@ -220,7 +241,7 @@
  *
  * @param request A container for the necessary parameters to execute the CancelReservedInstancesListing service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CancelReservedInstancesListingResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CancelReservedInstancesListingResult`.
  *
  * @see AWSEC2CancelReservedInstancesListingRequest
  * @see AWSEC2CancelReservedInstancesListingResult
@@ -232,7 +253,7 @@
  *
  * @param request A container for the necessary parameters to execute the CancelSpotInstanceRequests service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CancelSpotInstanceRequestsResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CancelSpotInstanceRequestsResult`.
  *
  * @see AWSEC2CancelSpotInstanceRequestsRequest
  * @see AWSEC2CancelSpotInstanceRequestsResult
@@ -244,7 +265,7 @@
  *
  * @param request A container for the necessary parameters to execute the ConfirmProductInstance service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2ConfirmProductInstanceResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ConfirmProductInstanceResult`.
  *
  * @see AWSEC2ConfirmProductInstanceRequest
  * @see AWSEC2ConfirmProductInstanceResult
@@ -256,7 +277,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateCustomerGateway service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateCustomerGatewayResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateCustomerGatewayResult`.
  *
  * @see AWSEC2CreateCustomerGatewayRequest
  * @see AWSEC2CreateCustomerGatewayResult
@@ -268,7 +289,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateDhcpOptions service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateDhcpOptionsResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateDhcpOptionsResult`.
  *
  * @see AWSEC2CreateDhcpOptionsRequest
  * @see AWSEC2CreateDhcpOptionsResult
@@ -280,7 +301,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateImage service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateImageResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateImageResult`.
  *
  * @see AWSEC2CreateImageRequest
  * @see AWSEC2CreateImageResult
@@ -292,7 +313,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateInstanceExportTask service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateInstanceExportTaskResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateInstanceExportTaskResult`.
  *
  * @see AWSEC2CreateInstanceExportTaskRequest
  * @see AWSEC2CreateInstanceExportTaskResult
@@ -304,7 +325,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateInternetGateway service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateInternetGatewayResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateInternetGatewayResult`.
  *
  * @see AWSEC2CreateInternetGatewayRequest
  * @see AWSEC2CreateInternetGatewayResult
@@ -316,7 +337,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateKeyPair service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2KeyPair.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2KeyPair`.
  *
  * @see AWSEC2CreateKeyPairRequest
  * @see AWSEC2KeyPair
@@ -328,7 +349,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateNetworkAcl service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateNetworkAclResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateNetworkAclResult`.
  *
  * @see AWSEC2CreateNetworkAclRequest
  * @see AWSEC2CreateNetworkAclResult
@@ -340,7 +361,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateNetworkAclEntry service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2CreateNetworkAclEntryRequest
  */
@@ -351,7 +372,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateNetworkInterface service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateNetworkInterfaceResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateNetworkInterfaceResult`.
  *
  * @see AWSEC2CreateNetworkInterfaceRequest
  * @see AWSEC2CreateNetworkInterfaceResult
@@ -363,7 +384,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreatePlacementGroup service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2CreatePlacementGroupRequest
  */
@@ -374,7 +395,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateReservedInstancesListing service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateReservedInstancesListingResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateReservedInstancesListingResult`.
  *
  * @see AWSEC2CreateReservedInstancesListingRequest
  * @see AWSEC2CreateReservedInstancesListingResult
@@ -386,7 +407,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateRoute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2CreateRouteRequest
  */
@@ -397,7 +418,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateRouteTable service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateRouteTableResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateRouteTableResult`.
  *
  * @see AWSEC2CreateRouteTableRequest
  * @see AWSEC2CreateRouteTableResult
@@ -409,7 +430,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateSecurityGroup service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateSecurityGroupResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateSecurityGroupResult`.
  *
  * @see AWSEC2CreateSecurityGroupRequest
  * @see AWSEC2CreateSecurityGroupResult
@@ -421,7 +442,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateSnapshot service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2Snapshot.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2Snapshot`.
  *
  * @see AWSEC2CreateSnapshotRequest
  * @see AWSEC2Snapshot
@@ -433,7 +454,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateSpotDatafeedSubscription service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateSpotDatafeedSubscriptionResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateSpotDatafeedSubscriptionResult`.
  *
  * @see AWSEC2CreateSpotDatafeedSubscriptionRequest
  * @see AWSEC2CreateSpotDatafeedSubscriptionResult
@@ -445,7 +466,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateSubnet service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateSubnetResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateSubnetResult`.
  *
  * @see AWSEC2CreateSubnetRequest
  * @see AWSEC2CreateSubnetResult
@@ -457,7 +478,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateTags service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2CreateTagsRequest
  */
@@ -468,7 +489,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateVolume service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2Volume.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2Volume`.
  *
  * @see AWSEC2CreateVolumeRequest
  * @see AWSEC2Volume
@@ -480,7 +501,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateVpc service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateVpcResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateVpcResult`.
  *
  * @see AWSEC2CreateVpcRequest
  * @see AWSEC2CreateVpcResult
@@ -492,7 +513,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateVpcPeeringConnection service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateVpcPeeringConnectionResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateVpcPeeringConnectionResult`.
  *
  * @see AWSEC2CreateVpcPeeringConnectionRequest
  * @see AWSEC2CreateVpcPeeringConnectionResult
@@ -504,7 +525,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateVpnConnection service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateVpnConnectionResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateVpnConnectionResult`.
  *
  * @see AWSEC2CreateVpnConnectionRequest
  * @see AWSEC2CreateVpnConnectionResult
@@ -516,7 +537,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateVpnConnectionRoute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2CreateVpnConnectionRouteRequest
  */
@@ -527,7 +548,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateVpnGateway service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2CreateVpnGatewayResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateVpnGatewayResult`.
  *
  * @see AWSEC2CreateVpnGatewayRequest
  * @see AWSEC2CreateVpnGatewayResult
@@ -539,7 +560,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteCustomerGateway service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeleteCustomerGatewayRequest
  */
@@ -550,7 +571,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteDhcpOptions service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeleteDhcpOptionsRequest
  */
@@ -561,7 +582,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteInternetGateway service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeleteInternetGatewayRequest
  */
@@ -572,7 +593,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteKeyPair service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeleteKeyPairRequest
  */
@@ -583,7 +604,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteNetworkAcl service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeleteNetworkAclRequest
  */
@@ -594,7 +615,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteNetworkAclEntry service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeleteNetworkAclEntryRequest
  */
@@ -605,7 +626,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteNetworkInterface service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeleteNetworkInterfaceRequest
  */
@@ -616,7 +637,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeletePlacementGroup service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeletePlacementGroupRequest
  */
@@ -627,7 +648,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteRoute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeleteRouteRequest
  */
@@ -638,7 +659,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteRouteTable service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeleteRouteTableRequest
  */
@@ -649,7 +670,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteSecurityGroup service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeleteSecurityGroupRequest
  */
@@ -660,7 +681,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteSnapshot service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeleteSnapshotRequest
  */
@@ -671,7 +692,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteSpotDatafeedSubscription service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeleteSpotDatafeedSubscriptionRequest
  */
@@ -682,7 +703,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteSubnet service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeleteSubnetRequest
  */
@@ -693,7 +714,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteTags service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeleteTagsRequest
  */
@@ -704,7 +725,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteVolume service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeleteVolumeRequest
  */
@@ -715,7 +736,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteVpc service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeleteVpcRequest
  */
@@ -726,7 +747,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteVpcPeeringConnection service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DeleteVpcPeeringConnectionResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteVpcPeeringConnectionResult`.
  *
  * @see AWSEC2DeleteVpcPeeringConnectionRequest
  * @see AWSEC2DeleteVpcPeeringConnectionResult
@@ -738,7 +759,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteVpnConnection service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeleteVpnConnectionRequest
  */
@@ -749,7 +770,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteVpnConnectionRoute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeleteVpnConnectionRouteRequest
  */
@@ -760,7 +781,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteVpnGateway service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeleteVpnGatewayRequest
  */
@@ -771,7 +792,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeregisterImage service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DeregisterImageRequest
  */
@@ -782,7 +803,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeAccountAttributes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeAccountAttributesResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeAccountAttributesResult`.
  *
  * @see AWSEC2DescribeAccountAttributesRequest
  * @see AWSEC2DescribeAccountAttributesResult
@@ -794,7 +815,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeAddresses service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeAddressesResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeAddressesResult`.
  *
  * @see AWSEC2DescribeAddressesRequest
  * @see AWSEC2DescribeAddressesResult
@@ -806,7 +827,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeAvailabilityZones service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeAvailabilityZonesResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeAvailabilityZonesResult`.
  *
  * @see AWSEC2DescribeAvailabilityZonesRequest
  * @see AWSEC2DescribeAvailabilityZonesResult
@@ -818,7 +839,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeBundleTasks service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeBundleTasksResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeBundleTasksResult`.
  *
  * @see AWSEC2DescribeBundleTasksRequest
  * @see AWSEC2DescribeBundleTasksResult
@@ -830,7 +851,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeConversionTasks service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeConversionTasksResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeConversionTasksResult`.
  *
  * @see AWSEC2DescribeConversionTasksRequest
  * @see AWSEC2DescribeConversionTasksResult
@@ -842,7 +863,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeCustomerGateways service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeCustomerGatewaysResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeCustomerGatewaysResult`.
  *
  * @see AWSEC2DescribeCustomerGatewaysRequest
  * @see AWSEC2DescribeCustomerGatewaysResult
@@ -854,7 +875,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeDhcpOptions service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeDhcpOptionsResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeDhcpOptionsResult`.
  *
  * @see AWSEC2DescribeDhcpOptionsRequest
  * @see AWSEC2DescribeDhcpOptionsResult
@@ -866,7 +887,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeExportTasks service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeExportTasksResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeExportTasksResult`.
  *
  * @see AWSEC2DescribeExportTasksRequest
  * @see AWSEC2DescribeExportTasksResult
@@ -878,7 +899,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeImageAttribute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2ImageAttribute.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ImageAttribute`.
  *
  * @see AWSEC2DescribeImageAttributeRequest
  * @see AWSEC2ImageAttribute
@@ -890,7 +911,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeImages service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeImagesResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeImagesResult`.
  *
  * @see AWSEC2DescribeImagesRequest
  * @see AWSEC2DescribeImagesResult
@@ -902,7 +923,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeInstanceAttribute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2InstanceAttribute.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2InstanceAttribute`.
  *
  * @see AWSEC2DescribeInstanceAttributeRequest
  * @see AWSEC2InstanceAttribute
@@ -914,7 +935,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeInstanceStatus service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeInstanceStatusResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeInstanceStatusResult`.
  *
  * @see AWSEC2DescribeInstanceStatusRequest
  * @see AWSEC2DescribeInstanceStatusResult
@@ -926,7 +947,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeInstances service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeInstancesResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeInstancesResult`.
  *
  * @see AWSEC2DescribeInstancesRequest
  * @see AWSEC2DescribeInstancesResult
@@ -938,7 +959,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeInternetGateways service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeInternetGatewaysResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeInternetGatewaysResult`.
  *
  * @see AWSEC2DescribeInternetGatewaysRequest
  * @see AWSEC2DescribeInternetGatewaysResult
@@ -950,7 +971,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeKeyPairs service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeKeyPairsResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeKeyPairsResult`.
  *
  * @see AWSEC2DescribeKeyPairsRequest
  * @see AWSEC2DescribeKeyPairsResult
@@ -962,7 +983,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeNetworkAcls service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeNetworkAclsResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeNetworkAclsResult`.
  *
  * @see AWSEC2DescribeNetworkAclsRequest
  * @see AWSEC2DescribeNetworkAclsResult
@@ -974,7 +995,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeNetworkInterfaceAttribute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeNetworkInterfaceAttributeResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeNetworkInterfaceAttributeResult`.
  *
  * @see AWSEC2DescribeNetworkInterfaceAttributeRequest
  * @see AWSEC2DescribeNetworkInterfaceAttributeResult
@@ -986,7 +1007,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeNetworkInterfaces service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeNetworkInterfacesResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeNetworkInterfacesResult`.
  *
  * @see AWSEC2DescribeNetworkInterfacesRequest
  * @see AWSEC2DescribeNetworkInterfacesResult
@@ -998,7 +1019,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribePlacementGroups service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribePlacementGroupsResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribePlacementGroupsResult`.
  *
  * @see AWSEC2DescribePlacementGroupsRequest
  * @see AWSEC2DescribePlacementGroupsResult
@@ -1010,7 +1031,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeRegions service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeRegionsResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeRegionsResult`.
  *
  * @see AWSEC2DescribeRegionsRequest
  * @see AWSEC2DescribeRegionsResult
@@ -1022,7 +1043,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeReservedInstances service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeReservedInstancesResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeReservedInstancesResult`.
  *
  * @see AWSEC2DescribeReservedInstancesRequest
  * @see AWSEC2DescribeReservedInstancesResult
@@ -1034,7 +1055,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeReservedInstancesListings service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeReservedInstancesListingsResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeReservedInstancesListingsResult`.
  *
  * @see AWSEC2DescribeReservedInstancesListingsRequest
  * @see AWSEC2DescribeReservedInstancesListingsResult
@@ -1046,7 +1067,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeReservedInstancesModifications service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeReservedInstancesModificationsResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeReservedInstancesModificationsResult`.
  *
  * @see AWSEC2DescribeReservedInstancesModificationsRequest
  * @see AWSEC2DescribeReservedInstancesModificationsResult
@@ -1058,7 +1079,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeReservedInstancesOfferings service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeReservedInstancesOfferingsResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeReservedInstancesOfferingsResult`.
  *
  * @see AWSEC2DescribeReservedInstancesOfferingsRequest
  * @see AWSEC2DescribeReservedInstancesOfferingsResult
@@ -1070,7 +1091,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeRouteTables service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeRouteTablesResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeRouteTablesResult`.
  *
  * @see AWSEC2DescribeRouteTablesRequest
  * @see AWSEC2DescribeRouteTablesResult
@@ -1082,7 +1103,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeSecurityGroups service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeSecurityGroupsResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeSecurityGroupsResult`.
  *
  * @see AWSEC2DescribeSecurityGroupsRequest
  * @see AWSEC2DescribeSecurityGroupsResult
@@ -1094,7 +1115,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeSnapshotAttribute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeSnapshotAttributeResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeSnapshotAttributeResult`.
  *
  * @see AWSEC2DescribeSnapshotAttributeRequest
  * @see AWSEC2DescribeSnapshotAttributeResult
@@ -1106,7 +1127,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeSnapshots service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeSnapshotsResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeSnapshotsResult`.
  *
  * @see AWSEC2DescribeSnapshotsRequest
  * @see AWSEC2DescribeSnapshotsResult
@@ -1118,7 +1139,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeSpotDatafeedSubscription service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeSpotDatafeedSubscriptionResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeSpotDatafeedSubscriptionResult`.
  *
  * @see AWSEC2DescribeSpotDatafeedSubscriptionRequest
  * @see AWSEC2DescribeSpotDatafeedSubscriptionResult
@@ -1130,7 +1151,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeSpotInstanceRequests service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeSpotInstanceRequestsResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeSpotInstanceRequestsResult`.
  *
  * @see AWSEC2DescribeSpotInstanceRequestsRequest
  * @see AWSEC2DescribeSpotInstanceRequestsResult
@@ -1142,7 +1163,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeSpotPriceHistory service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeSpotPriceHistoryResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeSpotPriceHistoryResult`.
  *
  * @see AWSEC2DescribeSpotPriceHistoryRequest
  * @see AWSEC2DescribeSpotPriceHistoryResult
@@ -1154,7 +1175,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeSubnets service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeSubnetsResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeSubnetsResult`.
  *
  * @see AWSEC2DescribeSubnetsRequest
  * @see AWSEC2DescribeSubnetsResult
@@ -1166,7 +1187,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeTags service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeTagsResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeTagsResult`.
  *
  * @see AWSEC2DescribeTagsRequest
  * @see AWSEC2DescribeTagsResult
@@ -1178,7 +1199,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeVolumeAttribute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeVolumeAttributeResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeVolumeAttributeResult`.
  *
  * @see AWSEC2DescribeVolumeAttributeRequest
  * @see AWSEC2DescribeVolumeAttributeResult
@@ -1190,7 +1211,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeVolumeStatus service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeVolumeStatusResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeVolumeStatusResult`.
  *
  * @see AWSEC2DescribeVolumeStatusRequest
  * @see AWSEC2DescribeVolumeStatusResult
@@ -1202,7 +1223,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeVolumes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeVolumesResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeVolumesResult`.
  *
  * @see AWSEC2DescribeVolumesRequest
  * @see AWSEC2DescribeVolumesResult
@@ -1214,7 +1235,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeVpcAttribute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeVpcAttributeResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeVpcAttributeResult`.
  *
  * @see AWSEC2DescribeVpcAttributeRequest
  * @see AWSEC2DescribeVpcAttributeResult
@@ -1226,7 +1247,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeVpcPeeringConnections service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeVpcPeeringConnectionsResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeVpcPeeringConnectionsResult`.
  *
  * @see AWSEC2DescribeVpcPeeringConnectionsRequest
  * @see AWSEC2DescribeVpcPeeringConnectionsResult
@@ -1238,7 +1259,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeVpcs service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeVpcsResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeVpcsResult`.
  *
  * @see AWSEC2DescribeVpcsRequest
  * @see AWSEC2DescribeVpcsResult
@@ -1250,7 +1271,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeVpnConnections service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeVpnConnectionsResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeVpnConnectionsResult`.
  *
  * @see AWSEC2DescribeVpnConnectionsRequest
  * @see AWSEC2DescribeVpnConnectionsResult
@@ -1262,7 +1283,7 @@
  *
  * @param request A container for the necessary parameters to execute the DescribeVpnGateways service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2DescribeVpnGatewaysResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeVpnGatewaysResult`.
  *
  * @see AWSEC2DescribeVpnGatewaysRequest
  * @see AWSEC2DescribeVpnGatewaysResult
@@ -1274,7 +1295,7 @@
  *
  * @param request A container for the necessary parameters to execute the DetachInternetGateway service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DetachInternetGatewayRequest
  */
@@ -1285,7 +1306,7 @@
  *
  * @param request A container for the necessary parameters to execute the DetachNetworkInterface service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DetachNetworkInterfaceRequest
  */
@@ -1296,7 +1317,7 @@
  *
  * @param request A container for the necessary parameters to execute the DetachVolume service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2VolumeAttachment.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2VolumeAttachment`.
  *
  * @see AWSEC2DetachVolumeRequest
  * @see AWSEC2VolumeAttachment
@@ -1308,7 +1329,7 @@
  *
  * @param request A container for the necessary parameters to execute the DetachVpnGateway service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DetachVpnGatewayRequest
  */
@@ -1319,7 +1340,7 @@
  *
  * @param request A container for the necessary parameters to execute the DisableVgwRoutePropagation service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DisableVgwRoutePropagationRequest
  */
@@ -1330,7 +1351,7 @@
  *
  * @param request A container for the necessary parameters to execute the DisassociateAddress service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DisassociateAddressRequest
  */
@@ -1341,7 +1362,7 @@
  *
  * @param request A container for the necessary parameters to execute the DisassociateRouteTable service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2DisassociateRouteTableRequest
  */
@@ -1352,7 +1373,7 @@
  *
  * @param request A container for the necessary parameters to execute the EnableVgwRoutePropagation service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2EnableVgwRoutePropagationRequest
  */
@@ -1363,7 +1384,7 @@
  *
  * @param request A container for the necessary parameters to execute the EnableVolumeIO service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2EnableVolumeIORequest
  */
@@ -1374,7 +1395,7 @@
  *
  * @param request A container for the necessary parameters to execute the GetConsoleOutput service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2GetConsoleOutputResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetConsoleOutputResult`.
  *
  * @see AWSEC2GetConsoleOutputRequest
  * @see AWSEC2GetConsoleOutputResult
@@ -1386,7 +1407,7 @@
  *
  * @param request A container for the necessary parameters to execute the GetPasswordData service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2GetPasswordDataResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetPasswordDataResult`.
  *
  * @see AWSEC2GetPasswordDataRequest
  * @see AWSEC2GetPasswordDataResult
@@ -1398,7 +1419,7 @@
  *
  * @param request A container for the necessary parameters to execute the ImportInstance service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2ImportInstanceResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ImportInstanceResult`.
  *
  * @see AWSEC2ImportInstanceRequest
  * @see AWSEC2ImportInstanceResult
@@ -1410,7 +1431,7 @@
  *
  * @param request A container for the necessary parameters to execute the ImportKeyPair service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2ImportKeyPairResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ImportKeyPairResult`.
  *
  * @see AWSEC2ImportKeyPairRequest
  * @see AWSEC2ImportKeyPairResult
@@ -1422,7 +1443,7 @@
  *
  * @param request A container for the necessary parameters to execute the ImportVolume service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2ImportVolumeResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ImportVolumeResult`.
  *
  * @see AWSEC2ImportVolumeRequest
  * @see AWSEC2ImportVolumeResult
@@ -1434,7 +1455,7 @@
  *
  * @param request A container for the necessary parameters to execute the ModifyImageAttribute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2ModifyImageAttributeRequest
  */
@@ -1445,7 +1466,7 @@
  *
  * @param request A container for the necessary parameters to execute the ModifyInstanceAttribute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2ModifyInstanceAttributeRequest
  */
@@ -1456,7 +1477,7 @@
  *
  * @param request A container for the necessary parameters to execute the ModifyNetworkInterfaceAttribute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2ModifyNetworkInterfaceAttributeRequest
  */
@@ -1467,7 +1488,7 @@
  *
  * @param request A container for the necessary parameters to execute the ModifyReservedInstances service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2ModifyReservedInstancesResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyReservedInstancesResult`.
  *
  * @see AWSEC2ModifyReservedInstancesRequest
  * @see AWSEC2ModifyReservedInstancesResult
@@ -1479,7 +1500,7 @@
  *
  * @param request A container for the necessary parameters to execute the ModifySnapshotAttribute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2ModifySnapshotAttributeRequest
  */
@@ -1490,7 +1511,7 @@
  *
  * @param request A container for the necessary parameters to execute the ModifySubnetAttribute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2ModifySubnetAttributeRequest
  */
@@ -1501,7 +1522,7 @@
  *
  * @param request A container for the necessary parameters to execute the ModifyVolumeAttribute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2ModifyVolumeAttributeRequest
  */
@@ -1512,7 +1533,7 @@
  *
  * @param request A container for the necessary parameters to execute the ModifyVpcAttribute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2ModifyVpcAttributeRequest
  */
@@ -1523,7 +1544,7 @@
  *
  * @param request A container for the necessary parameters to execute the MonitorInstances service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2MonitorInstancesResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2MonitorInstancesResult`.
  *
  * @see AWSEC2MonitorInstancesRequest
  * @see AWSEC2MonitorInstancesResult
@@ -1535,7 +1556,7 @@
  *
  * @param request A container for the necessary parameters to execute the PurchaseReservedInstancesOffering service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2PurchaseReservedInstancesOfferingResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2PurchaseReservedInstancesOfferingResult`.
  *
  * @see AWSEC2PurchaseReservedInstancesOfferingRequest
  * @see AWSEC2PurchaseReservedInstancesOfferingResult
@@ -1547,7 +1568,7 @@
  *
  * @param request A container for the necessary parameters to execute the RebootInstances service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2RebootInstancesRequest
  */
@@ -1558,7 +1579,7 @@
  *
  * @param request A container for the necessary parameters to execute the RegisterImage service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2RegisterImageResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2RegisterImageResult`.
  *
  * @see AWSEC2RegisterImageRequest
  * @see AWSEC2RegisterImageResult
@@ -1570,7 +1591,7 @@
  *
  * @param request A container for the necessary parameters to execute the RejectVpcPeeringConnection service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2RejectVpcPeeringConnectionResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2RejectVpcPeeringConnectionResult`.
  *
  * @see AWSEC2RejectVpcPeeringConnectionRequest
  * @see AWSEC2RejectVpcPeeringConnectionResult
@@ -1582,7 +1603,7 @@
  *
  * @param request A container for the necessary parameters to execute the ReleaseAddress service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2ReleaseAddressRequest
  */
@@ -1593,7 +1614,7 @@
  *
  * @param request A container for the necessary parameters to execute the ReplaceNetworkAclAssociation service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2ReplaceNetworkAclAssociationResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ReplaceNetworkAclAssociationResult`.
  *
  * @see AWSEC2ReplaceNetworkAclAssociationRequest
  * @see AWSEC2ReplaceNetworkAclAssociationResult
@@ -1605,7 +1626,7 @@
  *
  * @param request A container for the necessary parameters to execute the ReplaceNetworkAclEntry service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2ReplaceNetworkAclEntryRequest
  */
@@ -1616,7 +1637,7 @@
  *
  * @param request A container for the necessary parameters to execute the ReplaceRoute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2ReplaceRouteRequest
  */
@@ -1627,7 +1648,7 @@
  *
  * @param request A container for the necessary parameters to execute the ReplaceRouteTableAssociation service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2ReplaceRouteTableAssociationResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ReplaceRouteTableAssociationResult`.
  *
  * @see AWSEC2ReplaceRouteTableAssociationRequest
  * @see AWSEC2ReplaceRouteTableAssociationResult
@@ -1639,7 +1660,7 @@
  *
  * @param request A container for the necessary parameters to execute the ReplicateImage service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2ReplicateImageResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ReplicateImageResult`.
  *
  * @see AWSEC2ReplicateImageRequest
  * @see AWSEC2ReplicateImageResult
@@ -1647,11 +1668,11 @@
 - (BFTask *)replicateImage:(AWSEC2ReplicateImageRequest *)request;
 
 /**
- * <p>Copies a point-in-time snapshot of an Amazon EBS volume and stores it in Amazon S3. You can copy the snapshot within the same region or from one region to another. You can use the snapshot to create Amazon EBS volumes or Amazon Machine Images (AMIs). The snapshot is copied to the regional endpoint that you send the HTTP request to.</p><p>Copies of encrypted Amazon EBS snapshots remain encrypted. Copies of unencrypted snapshots remain unencrypted.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copying an Amazon EBS Snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * <p>Copies a point-in-time snapshot of an Amazon EBS volume and stores it in Amazon S3. You can copy the snapshot within the same region or from one region to another. You can use the snapshot to create Amazon EBS volumes or Amazon Machine Images (AMIs). The snapshot is copied to the regional endpoint that you send the HTTP request to.</p><p>Copies of encrypted Amazon EBS snapshots remain encrypted. Copies of unencrypted snapshots remain unencrypted.</p><note><p>Copying snapshots that were encrypted with non-default AWS Key Management Service (KMS) master keys is not supported at this time. </p></note><p>For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copying an Amazon EBS Snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *
  * @param request A container for the necessary parameters to execute the ReplicateSnapshot service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2ReplicateSnapshotResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ReplicateSnapshotResult`.
  *
  * @see AWSEC2ReplicateSnapshotRequest
  * @see AWSEC2ReplicateSnapshotResult
@@ -1663,7 +1684,7 @@
  *
  * @param request A container for the necessary parameters to execute the ReportInstanceStatus service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2ReportInstanceStatusRequest
  */
@@ -1674,7 +1695,7 @@
  *
  * @param request A container for the necessary parameters to execute the RequestSpotInstances service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2RequestSpotInstancesResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2RequestSpotInstancesResult`.
  *
  * @see AWSEC2RequestSpotInstancesRequest
  * @see AWSEC2RequestSpotInstancesResult
@@ -1686,7 +1707,7 @@
  *
  * @param request A container for the necessary parameters to execute the ResetImageAttribute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2ResetImageAttributeRequest
  */
@@ -1697,7 +1718,7 @@
  *
  * @param request A container for the necessary parameters to execute the ResetInstanceAttribute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2ResetInstanceAttributeRequest
  */
@@ -1708,7 +1729,7 @@
  *
  * @param request A container for the necessary parameters to execute the ResetNetworkInterfaceAttribute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2ResetNetworkInterfaceAttributeRequest
  */
@@ -1719,7 +1740,7 @@
  *
  * @param request A container for the necessary parameters to execute the ResetSnapshotAttribute service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2ResetSnapshotAttributeRequest
  */
@@ -1730,7 +1751,7 @@
  *
  * @param request A container for the necessary parameters to execute the RevokeSecurityGroupEgress service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2RevokeSecurityGroupEgressRequest
  */
@@ -1741,7 +1762,7 @@
  *
  * @param request A container for the necessary parameters to execute the RevokeSecurityGroupIngress service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2RevokeSecurityGroupIngressRequest
  */
@@ -1752,7 +1773,7 @@
  *
  * @param request A container for the necessary parameters to execute the RunInstances service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2Reservation.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2Reservation`.
  *
  * @see AWSEC2RunInstancesRequest
  * @see AWSEC2Reservation
@@ -1764,7 +1785,7 @@
  *
  * @param request A container for the necessary parameters to execute the StartInstances service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2StartInstancesResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2StartInstancesResult`.
  *
  * @see AWSEC2StartInstancesRequest
  * @see AWSEC2StartInstancesResult
@@ -1776,7 +1797,7 @@
  *
  * @param request A container for the necessary parameters to execute the StopInstances service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2StopInstancesResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2StopInstancesResult`.
  *
  * @see AWSEC2StopInstancesRequest
  * @see AWSEC2StopInstancesResult
@@ -1788,7 +1809,7 @@
  *
  * @param request A container for the necessary parameters to execute the TerminateInstances service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2TerminateInstancesResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2TerminateInstancesResult`.
  *
  * @see AWSEC2TerminateInstancesRequest
  * @see AWSEC2TerminateInstancesResult
@@ -1800,7 +1821,7 @@
  *
  * @param request A container for the necessary parameters to execute the UnassignPrivateIpAddresses service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSEC2UnassignPrivateIpAddressesRequest
  */
@@ -1811,7 +1832,7 @@
  *
  * @param request A container for the necessary parameters to execute the UnmonitorInstances service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSEC2UnmonitorInstancesResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSEC2UnmonitorInstancesResult`.
  *
  * @see AWSEC2UnmonitorInstancesRequest
  * @see AWSEC2UnmonitorInstancesResult

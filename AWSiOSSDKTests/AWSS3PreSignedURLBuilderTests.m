@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -302,6 +302,152 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
         
     }
     
+}
+
+- (void)testPutObjectWithSpecialCharacters {
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    
+    NSArray *bucketNameArray = @[@"ios-v2-s3-tm-testdata",@"ios-v2-s3.periods"];
+    NSArray *keyNameArray = @[@"a:b/&$@=;:+ ,?.zip",@"\\^`><{}/[]#  %'~|"]; //characters might require special handling and characters to avoid
+    NSString *testContentType = @"application/x-authorware-bin";
+    int32_t count = 0;
+    
+    unsigned char *largeData = malloc(AWSS3PreSignedURLTest256KB) ;
+    memset(largeData, 5, AWSS3PreSignedURLTest256KB);
+    NSData *testObjectData = [[NSData alloc] initWithBytesNoCopy:largeData length:AWSS3PreSignedURLTest256KB];
+    
+    for (NSString *myBucketName in bucketNameArray) {
+        
+        for (NSString *keyName in keyNameArray) {
+            
+            AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
+            getPreSignedURLRequest.bucket = myBucketName;
+            getPreSignedURLRequest.key = keyName;
+            getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodPUT;
+            getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
+            if (count == 0) getPreSignedURLRequest.contentType = testContentType;
+            
+            AWSS3PreSignedURLBuilder *preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
+            
+            [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(BFTask *task) {
+                
+                if (task.error) {
+                    XCTAssertNil(task.error);
+                    return nil;
+                }
+                
+                NSURL *presignedURL = task.result;
+                
+                XCTAssertNotNil(presignedURL);
+                
+                NSLog(@"(PUT)presigned URL (Put)is: %@",presignedURL.absoluteString);
+                
+                NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
+                request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+                [request setHTTPMethod:@"PUT"];
+                if (count == 0) [request setValue:testContentType forHTTPHeaderField:@"Content-Type"];
+                
+                
+                [request setHTTPBody:testObjectData];
+                
+                NSError *returnError = nil;
+                NSHTTPURLResponse *returnResponse = nil;
+                
+                NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
+                
+                XCTAssertNil(returnError, @"response contains error:%@ \n presigned URL is:%@",returnError,presignedURL.absoluteString);
+                
+                if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
+                
+                if ([responseData length] != 0) {
+                    //expected the got 0 size returnData, but got something else.
+                    NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+                    XCTFail(@"Error response received:\n %@",responseString);
+                }
+                
+                return nil;
+            }] waitUntilFinished];
+            
+            //wait a few seconds
+            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+            
+            //validate uploaded Object
+            AWSS3ListObjectsRequest *listObjectReq = [AWSS3ListObjectsRequest new];
+            listObjectReq.bucket = myBucketName;
+            
+            [[[s3 listObjects:listObjectReq] continueWithBlock:^id(BFTask *task) {
+                XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+                XCTAssertTrue([task.result isKindOfClass:[AWSS3ListObjectsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListObjectsOutput class]));
+                AWSS3ListObjectsOutput *listObjectsOutput = task.result;
+                
+                XCTAssertEqualObjects(listObjectsOutput.name, myBucketName);
+                
+                BOOL hasObject = NO;
+                for (AWSS3Object *s3Object in listObjectsOutput.contents) {
+                    if ([s3Object.key isEqualToString:keyName]) {
+                        hasObject = YES;
+                    }
+                }
+                XCTAssertTrue(hasObject,@"can not find the object after putObject has been called");
+                
+                return nil;
+            }] waitUntilFinished];
+            
+            if (YES) {
+                AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
+                getPreSignedURLRequest.bucket = myBucketName;
+                getPreSignedURLRequest.key = keyName;
+                getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodGET;
+                getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
+                
+                AWSS3PreSignedURLBuilder *preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
+                
+                [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(BFTask *task) {
+                    
+                    if (task.error) {
+                        XCTAssertNil(task.error);
+                        return nil;
+                    }
+                    
+                    NSURL *presignedURL = task.result;
+                    
+                    XCTAssertNotNil(presignedURL);
+                    
+                    //NSLog(@"(GET)presigned URL is: %@",presignedURL.absoluteString);
+                    
+                    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
+                    request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+                    
+                    NSError *returnError = nil;
+                    NSHTTPURLResponse *returnResponse = nil;
+                    
+                    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
+                    
+                    XCTAssertNil(returnError, @"response contains error:%@,\n presigned URL is:%@",returnError,presignedURL.absoluteString);
+                    
+                    if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
+                    
+                    XCTAssertEqualObjects(testObjectData, responseData);
+                    
+                    return nil;
+                }] waitUntilFinished];
+            }
+            
+            //delete uploaded Object
+            AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
+            deleteObjectRequest.bucket = myBucketName;
+            deleteObjectRequest.key = keyName;
+            
+            [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+                XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+                XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),[task.result description]);
+                return nil;
+            }] waitUntilFinished];
+            
+            count++;
+            
+        }
+    }
 }
 
 - (void)testGetObject {

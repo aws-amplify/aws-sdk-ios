@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -24,10 +24,31 @@
  */
 @interface AWSSQS : AWSService
 
+/**
+ *  The service configuration used to instantiate this service client.
+ *
+ *  @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+ */
 @property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration;
 
+/**
+ *  Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with `defaultServiceConfiguration` from `[AWSServiceManager defaultServiceManager]`. The reference to this object is maintained by the SDK, and you do not need to retain it manually.
+ *
+ *  @return The default service client.
+ */
 + (instancetype)defaultSQS;
 
+/**
+ *  Instantiates the service client with the given service configuration.
+ *
+ *  @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+ *
+ *  @warning Unlike the singleton method, you are responsible for maintaining a strong reference to this object. If the service client is released before completing a service request, the request may fail with unspecified errors.
+ *
+ *  @param configuration The service configuration object.
+ *
+ *  @return An instance of the service client.
+ */
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration;
 
 /**
@@ -35,7 +56,7 @@
  *
  * @param request A container for the necessary parameters to execute the AddPermission service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSQSErrorDomain domian and the following error code: AWSSQSErrorOverLimit.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorOverLimit`.
  *
  * @see AWSSQSAddPermissionRequest
  */
@@ -46,7 +67,7 @@
  *
  * @param request A container for the necessary parameters to execute the ChangeMessageVisibility service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSQSErrorDomain domian and the following error code: AWSSQSErrorMessageNotInflight, AWSSQSErrorReceiptHandleIsInvalid.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorMessageNotInflight`, `AWSSQSErrorReceiptHandleIsInvalid`.
  *
  * @see AWSSQSChangeMessageVisibilityRequest
  */
@@ -57,7 +78,7 @@
  *
  * @param request A container for the necessary parameters to execute the ChangeMessageVisibilityBatch service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSQSChangeMessageVisibilityBatchResult. On failed execution, task.error may contain an NSError with AWSSQSErrorDomain domian and the following error code: AWSSQSErrorTooManyEntriesInBatchRequest, AWSSQSErrorEmptyBatchRequest, AWSSQSErrorBatchEntryIdsNotDistinct, AWSSQSErrorInvalidBatchEntryId.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSQSChangeMessageVisibilityBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`.
  *
  * @see AWSSQSChangeMessageVisibilityBatchRequest
  * @see AWSSQSChangeMessageVisibilityBatchResult
@@ -69,7 +90,7 @@
  *
  * @param request A container for the necessary parameters to execute the CreateQueue service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSQSCreateQueueResult. On failed execution, task.error may contain an NSError with AWSSQSErrorDomain domian and the following error code: AWSSQSErrorQueueDeletedRecently, AWSSQSErrorQueueNameExists.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSQSCreateQueueResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorQueueDeletedRecently`, `AWSSQSErrorQueueNameExists`.
  *
  * @see AWSSQSCreateQueueRequest
  * @see AWSSQSCreateQueueResult
@@ -81,7 +102,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteMessage service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSQSErrorDomain domian and the following error code: AWSSQSErrorInvalidIdFormat, AWSSQSErrorReceiptHandleIsInvalid.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorInvalidIdFormat`, `AWSSQSErrorReceiptHandleIsInvalid`.
  *
  * @see AWSSQSDeleteMessageRequest
  */
@@ -92,7 +113,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteMessageBatch service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSQSDeleteMessageBatchResult. On failed execution, task.error may contain an NSError with AWSSQSErrorDomain domian and the following error code: AWSSQSErrorTooManyEntriesInBatchRequest, AWSSQSErrorEmptyBatchRequest, AWSSQSErrorBatchEntryIdsNotDistinct, AWSSQSErrorInvalidBatchEntryId.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSQSDeleteMessageBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`.
  *
  * @see AWSSQSDeleteMessageBatchRequest
  * @see AWSSQSDeleteMessageBatchResult
@@ -104,7 +125,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteQueue service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSSQSDeleteQueueRequest
  */
@@ -115,7 +136,7 @@
  *
  * @param request A container for the necessary parameters to execute the GetQueueAttributes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSQSGetQueueAttributesResult. On failed execution, task.error may contain an NSError with AWSSQSErrorDomain domian and the following error code: AWSSQSErrorInvalidAttributeName.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSQSGetQueueAttributesResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorInvalidAttributeName`.
  *
  * @see AWSSQSGetQueueAttributesRequest
  * @see AWSSQSGetQueueAttributesResult
@@ -127,7 +148,7 @@
  *
  * @param request A container for the necessary parameters to execute the GetQueueUrl service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSQSGetQueueUrlResult. On failed execution, task.error may contain an NSError with AWSSQSErrorDomain domian and the following error code: AWSSQSErrorQueueDoesNotExist.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSQSGetQueueUrlResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorQueueDoesNotExist`.
  *
  * @see AWSSQSGetQueueUrlRequest
  * @see AWSSQSGetQueueUrlResult
@@ -139,7 +160,7 @@
  *
  * @param request A container for the necessary parameters to execute the ListDeadLetterSourceQueues service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSQSListDeadLetterSourceQueuesResult. On failed execution, task.error may contain an NSError with AWSSQSErrorDomain domian and the following error code: AWSSQSErrorQueueDoesNotExist.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListDeadLetterSourceQueuesResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorQueueDoesNotExist`.
  *
  * @see AWSSQSListDeadLetterSourceQueuesRequest
  * @see AWSSQSListDeadLetterSourceQueuesResult
@@ -151,7 +172,7 @@
  *
  * @param request A container for the necessary parameters to execute the ListQueues service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSQSListQueuesResult.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListQueuesResult`.
  *
  * @see AWSSQSListQueuesRequest
  * @see AWSSQSListQueuesResult
@@ -163,7 +184,7 @@
  *
  * @param request A container for the necessary parameters to execute the ReceiveMessage service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSQSReceiveMessageResult. On failed execution, task.error may contain an NSError with AWSSQSErrorDomain domian and the following error code: AWSSQSErrorOverLimit.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSQSReceiveMessageResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorOverLimit`.
  *
  * @see AWSSQSReceiveMessageRequest
  * @see AWSSQSReceiveMessageResult
@@ -175,7 +196,7 @@
  *
  * @param request A container for the necessary parameters to execute the RemovePermission service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSSQSRemovePermissionRequest
  */
@@ -186,7 +207,7 @@
  *
  * @param request A container for the necessary parameters to execute the SendMessage service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSQSSendMessageResult. On failed execution, task.error may contain an NSError with AWSSQSErrorDomain domian and the following error code: AWSSQSErrorInvalidMessageContents, AWSSQSErrorUnsupportedOperation.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSQSSendMessageResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorInvalidMessageContents`, `AWSSQSErrorUnsupportedOperation`.
  *
  * @see AWSSQSSendMessageRequest
  * @see AWSSQSSendMessageResult
@@ -198,7 +219,7 @@
  *
  * @param request A container for the necessary parameters to execute the SendMessageBatch service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSQSSendMessageBatchResult. On failed execution, task.error may contain an NSError with AWSSQSErrorDomain domian and the following error code: AWSSQSErrorTooManyEntriesInBatchRequest, AWSSQSErrorEmptyBatchRequest, AWSSQSErrorBatchEntryIdsNotDistinct, AWSSQSErrorBatchRequestTooLong, AWSSQSErrorInvalidBatchEntryId, AWSSQSErrorUnsupportedOperation.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSQSSendMessageBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorBatchRequestTooLong`, `AWSSQSErrorInvalidBatchEntryId`, `AWSSQSErrorUnsupportedOperation`.
  *
  * @see AWSSQSSendMessageBatchRequest
  * @see AWSSQSSendMessageBatchResult
@@ -210,7 +231,7 @@
  *
  * @param request A container for the necessary parameters to execute the SetQueueAttributes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSQSErrorDomain domian and the following error code: AWSSQSErrorInvalidAttributeName.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorInvalidAttributeName`.
  *
  * @see AWSSQSSetQueueAttributesRequest
  */

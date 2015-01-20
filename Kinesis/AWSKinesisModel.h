@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -378,7 +378,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 
 
 /**
- * <p>The data blob to put into the record, which is Base64-encoded when the blob is serialized. The maximum size of the data blob (the payload before Base64-encoding) is 50 kilobytes (KB) </p>
+ * <p>The data blob to put into the record, which is base64-encoded when the blob is serialized. The maximum size of the data blob (the payload before base64-encoding) is 50 kilobytes (KB) </p>
  */
 @property (nonatomic, strong) NSData *data;
 
@@ -423,33 +423,92 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 
 @end
 
+/**
+ * <p>A <code>PutRecords</code> request.</p>
+ * Required parameters: [Records, StreamName]
+ */
 @interface AWSKinesisPutRecordsInput : AWSRequest
 
+
+/**
+ * <p>The records associated with the request.</p>
+ */
 @property (nonatomic, strong) NSArray *records;
+
+/**
+ * <p>The stream name associated with the request.</p>
+ */
 @property (nonatomic, strong) NSString *streamName;
 
 @end
 
+/**
+ * <p><code>PutRecords</code> results.</p>
+ * Required parameters: [Records]
+ */
 @interface AWSKinesisPutRecordsOutput : AWSModel
 
+
+/**
+ * <p>The number of unsuccessfully processed records in a <code>PutRecords</code> request.</p>
+ */
 @property (nonatomic, strong) NSNumber *failedRecordCount;
+
+/**
+ * <p>An array of successfully and unsuccessfully processed record results, correlated with the request by natural ordering. A record that is successfully added to your Amazon Kinesis stream includes <code>SequenceNumber</code> and <code>ShardId</code> in the result. A record that fails to be added to your Amazon Kinesis stream includes <code>ErrorCode</code> and <code>ErrorMessage</code> in the result.</p>
+ */
 @property (nonatomic, strong) NSArray *records;
 
 @end
 
+/**
+ * <p>Represents the output for <code>PutRecords</code>.</p>
+ * Required parameters: [Data, PartitionKey]
+ */
 @interface AWSKinesisPutRecordsRequestEntry : AWSModel
 
+
+/**
+ * <p>The data blob to put into the record, which is base64-encoded when the blob is serialized. The maximum size of the data blob (the payload before base64-encoding) is 50 kilobytes (KB)</p>
+ */
 @property (nonatomic, strong) NSData *data;
+
+/**
+ * <p>The hash value used to determine explicitly the shard that the data record is assigned to by overriding the partition key hash.</p>
+ */
 @property (nonatomic, strong) NSString *explicitHashKey;
+
+/**
+ * <p>Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 bytes. Amazon Kinesis uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.</p>
+ */
 @property (nonatomic, strong) NSString *partitionKey;
 
 @end
 
+/**
+ * <p>Represents the result of an individual record from a <code>PutRecords</code> request. A record that is successfully added to your Amazon Kinesis stream includes SequenceNumber and ShardId in the result. A record that fails to be added to your Amazon Kinesis stream includes ErrorCode and ErrorMessage in the result.</p>
+ */
 @interface AWSKinesisPutRecordsResultEntry : AWSModel
 
+
+/**
+ * <p>The error code for an individual record result. <code>ErrorCodes</code> can be either <code>ProvisionedThroughputExceededException</code> or <code>InternalFailure</code>.</p>
+ */
 @property (nonatomic, strong) NSString *errorCode;
+
+/**
+ * <p>The error message for an individual record result. An <code>ErrorCode</code> value of <code>ProvisionedThroughputExceededException</code> has an error message that includes the account ID, stream name, and shard ID. An <code>ErrorCode</code> value of <code>InternalFailure</code> has the error message <code>"Internal Service Failure"</code>.</p>
+ */
 @property (nonatomic, strong) NSString *errorMessage;
+
+/**
+ * <p>The sequence number for an individual record result.</p>
+ */
 @property (nonatomic, strong) NSString *sequenceNumber;
+
+/**
+ * <p>The shard ID for an individual record result.</p>
+ */
 @property (nonatomic, strong) NSString *shardId;
 
 @end
@@ -462,7 +521,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 
 
 /**
- * <p>The data blob. The data in the blob is both opaque and immutable to the Amazon Kinesis service, which does not inspect, interpret, or change the data in the blob in any way. The maximum size of the data blob (the payload before Base64-encoding) is 50 kilobytes (KB) </p>
+ * <p>The data blob. The data in the blob is both opaque and immutable to the Amazon Kinesis service, which does not inspect, interpret, or change the data in the blob in any way. The maximum size of the data blob (the payload before base64-encoding) is 50 kilobytes (KB) </p>
  */
 @property (nonatomic, strong) NSData *data;
 
@@ -556,6 +615,10 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
  */
 @interface AWSKinesisSplitShardInput : AWSRequest
 
+
+/**
+ * <p>A hash key value for the starting hash key of one of the child shards created by the split. The hash key range for a given shard constitutes a set of ordered contiguous positive integers. The value for <code>NewStartingHashKey</code> must be in the range of hash keys being mapped into the shard. The <code>NewStartingHashKey</code> hash key value and all higher hash key values in hash key range are distributed to one of the child shards. All the lower hash key values in the range are distributed to the other child shard.</p>
+ */
 @property (nonatomic, strong) NSString *latestStartingHashKey;
 
 /**

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -230,6 +230,8 @@
     rules = rules[@"members"] ? rules[@"members"] : @{};
 
     __block NSString *rawURI = uriSchema;
+    __block BOOL isValid = YES;
+    __block NSError *blockErr = nil;
     [rules enumerateKeysAndObjectsUsingBlock:^(NSString *memberName, id memberRules, BOOL *stop) {
 
         NSString *xmlElementName = memberRules[@"locationName"]?memberRules[@"locationName"]:memberName;
@@ -298,8 +300,12 @@
             //If it is "Body" Type and streaming Type, contructBody
             if ([xmlElementName isEqualToString:@"Body"] && [memberRules[@"streaming"] boolValue]) {
                 if ([value isKindOfClass:[NSURL class]]) {
-                    if ([value checkResourceIsReachableAndReturnError:error]) {
+                    if ([value checkResourceIsReachableAndReturnError:&blockErr]) {
                         request.HTTPBodyStream = [NSInputStream inputStreamWithURL:value];
+                    } else {
+                        //URL is not reachable, stop enumeration
+                        isValid = NO;
+                        *stop = YES;
                     }
 
                 } else {
@@ -311,7 +317,13 @@
         }
     }];
 
-    if (*error) {
+    if (!isValid) {
+        if (error) {
+            *error = blockErr;
+            if (*error == nil) {
+                *error = [NSError errorWithDomain:AWSValidationErrorDomain code:AWSValidationUnknownError userInfo:[NSDictionary dictionaryWithObject:@"Unknown error happened while enumerating rules" forKey:NSLocalizedDescriptionKey]];
+            }
+        }
         return NO;
     }
 

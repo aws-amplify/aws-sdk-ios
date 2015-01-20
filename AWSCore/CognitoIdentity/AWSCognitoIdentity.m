@@ -1,5 +1,16 @@
-/**
- * Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+/*
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License").
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the "license" file accompanying this file. This file is distributed
+ * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
  */
 
 #import "AWSCognitoIdentity.h"
@@ -38,6 +49,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"MissingAuthenticationToken" : @(AWSCognitoIdentityErrorMissingAuthenticationToken),
                             @"DeveloperUserAlreadyRegisteredException" : @(AWSCognitoIdentityErrorDeveloperUserAlreadyRegistered),
                             @"InternalErrorException" : @(AWSCognitoIdentityErrorInternalError),
+                            @"InvalidIdentityPoolConfigurationException" : @(AWSCognitoIdentityErrorInvalidIdentityPoolConfiguration),
                             @"InvalidParameterException" : @(AWSCognitoIdentityErrorInvalidParameter),
                             @"LimitExceededException" : @(AWSCognitoIdentityErrorLimitExceeded),
                             @"NotAuthorizedException" : @(AWSCognitoIdentityErrorNotAuthorized),
@@ -46,6 +58,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"TooManyRequestsException" : @(AWSCognitoIdentityErrorTooManyRequests),
                             };
 }
+
 
 + (instancetype)serializerWithOutputClass:(Class)outputClass
                                  resource:(NSString *)resource
@@ -229,7 +242,6 @@ static NSDictionary *errorCodeDictionary = nil;
 }
 
 #pragma mark - Service method
-
 - (BFTask *)createIdentityPool:(AWSCognitoIdentityCreateIdentityPoolInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -248,6 +260,15 @@ static NSDictionary *errorCodeDictionary = nil;
                    outputClass:nil];
 }
 
+- (BFTask *)describeIdentity:(AWSCognitoIdentityDescribeIdentityInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityService"
+                 operationName:@"DescribeIdentity"
+                   outputClass:[AWSCognitoIdentityIdentityDescription class]];
+}
+
 - (BFTask *)describeIdentityPool:(AWSCognitoIdentityDescribeIdentityPoolInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -257,6 +278,15 @@ static NSDictionary *errorCodeDictionary = nil;
                    outputClass:[AWSCognitoIdentityIdentityPool class]];
 }
 
+- (BFTask *)getCredentialsForIdentity:(AWSCognitoIdentityGetCredentialsForIdentityInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityService"
+                 operationName:@"GetCredentialsForIdentity"
+                   outputClass:[AWSCognitoIdentityGetCredentialsForIdentityResponse class]];
+}
+
 - (BFTask *)getId:(AWSCognitoIdentityGetIdInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -264,6 +294,15 @@ static NSDictionary *errorCodeDictionary = nil;
                   targetPrefix:@"AWSCognitoIdentityService"
                  operationName:@"GetId"
                    outputClass:[AWSCognitoIdentityGetIdResponse class]];
+}
+
+- (BFTask *)getIdentityPoolRoles:(AWSCognitoIdentityGetIdentityPoolRolesInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityService"
+                 operationName:@"GetIdentityPoolRoles"
+                   outputClass:[AWSCognitoIdentityGetIdentityPoolRolesResponse class]];
 }
 
 - (BFTask *)getOpenIdToken:(AWSCognitoIdentityGetOpenIdTokenInput *)request {
@@ -318,6 +357,15 @@ static NSDictionary *errorCodeDictionary = nil;
                   targetPrefix:@"AWSCognitoIdentityService"
                  operationName:@"MergeDeveloperIdentities"
                    outputClass:[AWSCognitoIdentityMergeDeveloperIdentitiesResponse class]];
+}
+
+- (BFTask *)setIdentityPoolRoles:(AWSCognitoIdentitySetIdentityPoolRolesInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityService"
+                 operationName:@"SetIdentityPoolRoles"
+                   outputClass:nil];
 }
 
 - (BFTask *)unlinkDeveloperIdentity:(AWSCognitoIdentityUnlinkDeveloperIdentityInput *)request {

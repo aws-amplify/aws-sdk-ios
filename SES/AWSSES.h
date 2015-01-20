@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -24,10 +24,31 @@
  */
 @interface AWSSES : AWSService
 
+/**
+ *  The service configuration used to instantiate this service client.
+ *
+ *  @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+ */
 @property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration;
 
+/**
+ *  Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with `defaultServiceConfiguration` from `[AWSServiceManager defaultServiceManager]`. The reference to this object is maintained by the SDK, and you do not need to retain it manually.
+ *
+ *  @return The default service client.
+ */
 + (instancetype)defaultSES;
 
+/**
+ *  Instantiates the service client with the given service configuration.
+ *
+ *  @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+ *
+ *  @warning Unlike the singleton method, you are responsible for maintaining a strong reference to this object. If the service client is released before completing a service request, the request may fail with unspecified errors.
+ *
+ *  @param configuration The service configuration object.
+ *
+ *  @return An instance of the service client.
+ */
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration;
 
 /**
@@ -35,7 +56,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteIdentity service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSESDeleteIdentityResponse.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSESDeleteIdentityResponse`.
  *
  * @see AWSSESDeleteIdentityRequest
  * @see AWSSESDeleteIdentityResponse
@@ -47,7 +68,7 @@
  *
  * @param request A container for the necessary parameters to execute the DeleteVerifiedEmailAddress service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSSESDeleteVerifiedEmailAddressRequest
  */
@@ -58,7 +79,7 @@
  *
  * @param request A container for the necessary parameters to execute the GetIdentityDkimAttributes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSESGetIdentityDkimAttributesResponse.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSESGetIdentityDkimAttributesResponse`.
  *
  * @see AWSSESGetIdentityDkimAttributesRequest
  * @see AWSSESGetIdentityDkimAttributesResponse
@@ -70,7 +91,7 @@
  *
  * @param request A container for the necessary parameters to execute the GetIdentityNotificationAttributes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSESGetIdentityNotificationAttributesResponse.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSESGetIdentityNotificationAttributesResponse`.
  *
  * @see AWSSESGetIdentityNotificationAttributesRequest
  * @see AWSSESGetIdentityNotificationAttributesResponse
@@ -82,7 +103,7 @@
  *
  * @param request A container for the necessary parameters to execute the GetIdentityVerificationAttributes service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSESGetIdentityVerificationAttributesResponse.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSESGetIdentityVerificationAttributesResponse`.
  *
  * @see AWSSESGetIdentityVerificationAttributesRequest
  * @see AWSSESGetIdentityVerificationAttributesResponse
@@ -94,7 +115,7 @@
  *
  * @param request A container for the necessary parameters to execute the GetSendQuota service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSESGetSendQuotaResponse.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSESGetSendQuotaResponse`.
  *
  * @see AWSRequest
  * @see AWSSESGetSendQuotaResponse
@@ -106,7 +127,7 @@
  *
  * @param request A container for the necessary parameters to execute the GetSendStatistics service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSESGetSendStatisticsResponse.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSESGetSendStatisticsResponse`.
  *
  * @see AWSRequest
  * @see AWSSESGetSendStatisticsResponse
@@ -118,7 +139,7 @@
  *
  * @param request A container for the necessary parameters to execute the ListIdentities service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSESListIdentitiesResponse.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSESListIdentitiesResponse`.
  *
  * @see AWSSESListIdentitiesRequest
  * @see AWSSESListIdentitiesResponse
@@ -130,7 +151,7 @@
  *
  * @param request A container for the necessary parameters to execute the ListVerifiedEmailAddresses service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSESListVerifiedEmailAddressesResponse.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSESListVerifiedEmailAddressesResponse`.
  *
  * @see AWSRequest
  * @see AWSSESListVerifiedEmailAddressesResponse
@@ -142,7 +163,7 @@
  *
  * @param request A container for the necessary parameters to execute the SendEmail service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSESSendEmailResponse. On failed execution, task.error may contain an NSError with AWSSESErrorDomain domian and the following error code: AWSSESErrorMessageRejected.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSESSendEmailResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSESErrorDomain` domian and the following error code: `AWSSESErrorMessageRejected`.
  *
  * @see AWSSESSendEmailRequest
  * @see AWSSESSendEmailResponse
@@ -154,7 +175,7 @@
  *
  * @param request A container for the necessary parameters to execute the SendRawEmail service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSESSendRawEmailResponse. On failed execution, task.error may contain an NSError with AWSSESErrorDomain domian and the following error code: AWSSESErrorMessageRejected.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSESSendRawEmailResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSESErrorDomain` domian and the following error code: `AWSSESErrorMessageRejected`.
  *
  * @see AWSSESSendRawEmailRequest
  * @see AWSSESSendRawEmailResponse
@@ -166,7 +187,7 @@
  *
  * @param request A container for the necessary parameters to execute the SetIdentityDkimEnabled service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSESSetIdentityDkimEnabledResponse.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSESSetIdentityDkimEnabledResponse`.
  *
  * @see AWSSESSetIdentityDkimEnabledRequest
  * @see AWSSESSetIdentityDkimEnabledResponse
@@ -178,7 +199,7 @@
  *
  * @param request A container for the necessary parameters to execute the SetIdentityFeedbackForwardingEnabled service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSESSetIdentityFeedbackForwardingEnabledResponse.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSESSetIdentityFeedbackForwardingEnabledResponse`.
  *
  * @see AWSSESSetIdentityFeedbackForwardingEnabledRequest
  * @see AWSSESSetIdentityFeedbackForwardingEnabledResponse
@@ -190,7 +211,7 @@
  *
  * @param request A container for the necessary parameters to execute the SetIdentityNotificationTopic service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSESSetIdentityNotificationTopicResponse.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSESSetIdentityNotificationTopicResponse`.
  *
  * @see AWSSESSetIdentityNotificationTopicRequest
  * @see AWSSESSetIdentityNotificationTopicResponse
@@ -202,7 +223,7 @@
  *
  * @param request A container for the necessary parameters to execute the VerifyDomainDkim service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSESVerifyDomainDkimResponse.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSESVerifyDomainDkimResponse`.
  *
  * @see AWSSESVerifyDomainDkimRequest
  * @see AWSSESVerifyDomainDkimResponse
@@ -214,7 +235,7 @@
  *
  * @param request A container for the necessary parameters to execute the VerifyDomainIdentity service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSESVerifyDomainIdentityResponse.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSESVerifyDomainIdentityResponse`.
  *
  * @see AWSSESVerifyDomainIdentityRequest
  * @see AWSSESVerifyDomainIdentityResponse
@@ -226,7 +247,7 @@
  *
  * @param request A container for the necessary parameters to execute the VerifyEmailAddress service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will be nil.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will be `nil`.
  *
  * @see AWSSESVerifyEmailAddressRequest
  */
@@ -237,7 +258,7 @@
  *
  * @param request A container for the necessary parameters to execute the VerifyEmailIdentity service method.
  *
- * @return An instance of BFTask. On successful execution, task.result will contain an instance of AWSSESVerifyEmailIdentityResponse.
+ * @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSSESVerifyEmailIdentityResponse`.
  *
  * @see AWSSESVerifyEmailIdentityRequest
  * @see AWSSESVerifyEmailIdentityResponse

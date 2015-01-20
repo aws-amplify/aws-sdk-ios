@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -20,6 +20,8 @@
 NSString *const AWSDynamoDBObjectMapperTestTable = @"DynamoDBOMTest";
 
 static NSString *tableName = nil;
+static NSString *tableName2 = nil;
+static NSString *tableNameKeyOnly = nil;
 
 @interface TestObject : AWSDynamoDBModel <AWSDynamoDBModeling>
 
@@ -46,6 +48,130 @@ static NSString *tableName = nil;
 
 @end
 
+@interface TestObjectFull : TestObject <AWSDynamoDBModeling>
+
+@property (nonatomic, strong) NSArray *stringSetAttribute;
+@property (nonatomic, strong) NSArray *numberSetAttribute;
+
+@end
+
+@implementation TestObjectFull
+
+@end
+
+@interface TestObjectKeyOnly : AWSDynamoDBModel <AWSDynamoDBModeling>
+
+@property (nonatomic, strong) NSString *hashKey;
+@property (nonatomic, strong) NSString *rangeKey;
+
+@end
+
+@implementation TestObjectKeyOnly
+
++ (NSString *)dynamoDBTableName {
+    return tableNameKeyOnly;
+}
+
++ (NSString *)hashKeyAttribute {
+    return @"hashKey";
+}
+
++ (NSString *)rangeKeyAttribute {
+    return @"rangeKey";
+}
+
+@end
+
+@interface TestObject2 : AWSDynamoDBModel <AWSDynamoDBModeling>
+
+@property (nonatomic, strong) NSString *UserId;
+@property (nonatomic, strong) NSString *GameTitle;
+@property (nonatomic, strong) NSNumber *TopScore;
+@property (nonatomic, strong) NSNumber *Wins;
+@property (nonatomic, strong) NSNumber *Losses;
+
+@end
+
+@implementation TestObject2
+
++ (NSString *)dynamoDBTableName {
+    return tableName2;
+}
+
++ (NSString *)hashKeyAttribute {
+    return @"UserId";
+}
+
++ (NSString *)rangeKeyAttribute {
+    return @"GameTitle";
+}
+
+@end
+
+@interface TestObjectGameTitleAndTopScore : TestObject2 <AWSDynamoDBModeling>
+
+@end
+
+@implementation TestObjectGameTitleAndTopScore
+
++ (NSString *)dynamoDBTableName {
+    return tableName2;
+}
+
++ (NSString *)hashKeyAttribute {
+    return @"GameTitle";
+}
+
++ (NSString *)rangeKeyAttribute {
+    return @"TopScore";
+}
+
+@end
+
+@interface TestObjectUserIdAndWins : TestObject2 <AWSDynamoDBModeling>
+
+@end
+
+@implementation TestObjectUserIdAndWins
+
++ (NSString *)dynamoDBTableName {
+    return tableName2;
+}
+
++ (NSString *)hashKeyAttribute {
+    return @"UserId";
+}
+
++ (NSString *)rangeKeyAttribute {
+    return @"Wins";
+}
+
+@end
+
+@interface TestObjectFail : AWSDynamoDBModel <AWSDynamoDBModeling>
+
+@property (nonatomic, strong) NSString *hashKey;
+@property (nonatomic, strong) NSString *rangeKey;
+@property (nonatomic, strong) NSString *stringAttribute;
+@property (nonatomic, strong) NSNumber *numberAttribute;
+
+@end
+
+@implementation TestObjectFail
+
++ (NSString *)dynamoDBTableName {
+    return @"random-table-that-does-not-exist-anvaiurghakerjnv";
+}
+
++ (NSString *)hashKeyAttribute {
+    return @"hashKey";
+}
+
++ (NSString *)rangeKeyAttribute {
+    return @"rangeKey";
+}
+@end
+
 @interface AWSDynamoDBObjectMapperTests : XCTestCase
 
 @end
@@ -60,7 +186,9 @@ static NSString *tableName = nil;
 
     NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];
     tableName = [NSString stringWithFormat:@"%@-%f", AWSDynamoDBObjectMapperTestTable, timeIntervalSinceReferenceDate];
-
+    tableName2 = [NSString stringWithFormat:@"%@-index-%f", AWSDynamoDBObjectMapperTestTable, [NSDate timeIntervalSinceReferenceDate]];
+    tableNameKeyOnly = [NSString stringWithFormat:@"%@-keyonly-%f", AWSDynamoDBObjectMapperTestTable, timeIntervalSinceReferenceDate];
+    
     [self createTable:tableName];
 }
 
@@ -207,20 +335,590 @@ static NSString *tableName = nil;
 
 #pragma mark - Tests
 
-- (void)testItemForPutItemInput {
-    TestObject *testObject = [TestObject new];
-    testObject.hashKey = @"hash-12345";
-    testObject.rangeKey = @"range-12345";
-    testObject.stringAttribute = @"string-attr-12345";
-    testObject.numberAttribute = @12345;
-
-    NSDictionary *item = [testObject itemForPutItemInput];
-    XCTAssertEqualObjects(((AWSDynamoDBAttributeValue *)item[@"hashKey"]).S, @"hash-12345");
-    XCTAssertEqualObjects(((AWSDynamoDBAttributeValue *)item[@"rangeKey"]).S, @"range-12345");
-    XCTAssertEqualObjects(((AWSDynamoDBAttributeValue *)item[@"stringAttribute"]).S, @"string-attr-12345");
-    XCTAssertEqualObjects(((AWSDynamoDBAttributeValue *)item[@"numberAttribute"]).N, @"12345");
+- (void)testIndexQuery {
+    AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
+    //Create a table with both local and global secondary indexes
+    
+    //Add hashKey
+    AWSDynamoDBAttributeDefinition *hashKeyAttributeDefinition = [AWSDynamoDBAttributeDefinition new];
+    hashKeyAttributeDefinition.attributeName = @"UserId";
+    hashKeyAttributeDefinition.attributeType = AWSDynamoDBScalarAttributeTypeS;
+    
+    AWSDynamoDBKeySchemaElement *hashKeySchemaElement = [AWSDynamoDBKeySchemaElement new];
+    hashKeySchemaElement.attributeName = @"UserId";
+    hashKeySchemaElement.keyType = AWSDynamoDBKeyTypeHash;
+    
+    //Add RangeKey
+    AWSDynamoDBAttributeDefinition *rangeKeyAttributeDefinition = [AWSDynamoDBAttributeDefinition new];
+    rangeKeyAttributeDefinition.attributeName = @"GameTitle";
+    rangeKeyAttributeDefinition.attributeType = AWSDynamoDBScalarAttributeTypeS;
+    
+    AWSDynamoDBKeySchemaElement *rangeKeySchemaElement = [AWSDynamoDBKeySchemaElement new];
+    rangeKeySchemaElement.attributeName = @"GameTitle";
+    rangeKeySchemaElement.keyType = AWSDynamoDBKeyTypeRange;
+    
+    //Add non-key attributes
+    AWSDynamoDBAttributeDefinition *topScoreAttrDef = [AWSDynamoDBAttributeDefinition new];
+    topScoreAttrDef.attributeName = @"TopScore";
+    topScoreAttrDef.attributeType = AWSDynamoDBScalarAttributeTypeN;
+    
+    AWSDynamoDBAttributeDefinition *winsAttrDef = [AWSDynamoDBAttributeDefinition new];
+    winsAttrDef.attributeName = @"Wins";
+    winsAttrDef.attributeType = AWSDynamoDBScalarAttributeTypeN;
+    
+    AWSDynamoDBProvisionedThroughput *provisionedThroughput = [AWSDynamoDBProvisionedThroughput new];
+    provisionedThroughput.readCapacityUnits = @5;
+    provisionedThroughput.writeCapacityUnits = @5;
+    
+    
+    //Create Global Secondary Index
+    AWSDynamoDBGlobalSecondaryIndex *gsi = [AWSDynamoDBGlobalSecondaryIndex new];
+    
+    AWSDynamoDBKeySchemaElement *gsiHashKeySchema = [AWSDynamoDBKeySchemaElement new];
+    gsiHashKeySchema.attributeName = @"GameTitle";
+    gsiHashKeySchema.keyType = AWSDynamoDBKeyTypeHash;
+    
+    AWSDynamoDBKeySchemaElement *gsiRangeKeySchema = [AWSDynamoDBKeySchemaElement new];
+    gsiRangeKeySchema.attributeName = @"TopScore";
+    gsiRangeKeySchema.keyType = AWSDynamoDBKeyTypeRange;
+    
+    AWSDynamoDBProjection *gsiProjection = [AWSDynamoDBProjection new];
+    gsiProjection.projectionType = AWSDynamoDBProjectionTypeAll;
+    
+    gsi.keySchema = @[gsiHashKeySchema,gsiRangeKeySchema];
+    gsi.indexName = @"GameTitleIndex";
+    gsi.projection = gsiProjection;
+    gsi.provisionedThroughput = provisionedThroughput;
+    
+    //Create Local Secondary Index
+    AWSDynamoDBLocalSecondaryIndex *lsi = [AWSDynamoDBLocalSecondaryIndex new];
+    
+    AWSDynamoDBKeySchemaElement *lsiRangeKeySchema = [AWSDynamoDBKeySchemaElement new];
+    lsiRangeKeySchema.attributeName = @"Wins";
+    lsiRangeKeySchema.keyType = AWSDynamoDBKeyTypeRange;
+    
+    AWSDynamoDBProjection *lsiProjection = [AWSDynamoDBProjection new];
+    lsiProjection.projectionType = AWSDynamoDBProjectionTypeAll;
+    
+    lsi.keySchema = @[hashKeySchemaElement,lsiRangeKeySchema];
+    lsi.indexName = @"WinsLocalIndex";
+    lsi.projection = lsiProjection;
+    
+    
+    //Create Table Input
+    AWSDynamoDBCreateTableInput *createTableInput = [AWSDynamoDBCreateTableInput new];
+    createTableInput.tableName = tableName2;
+    createTableInput.attributeDefinitions = @[hashKeyAttributeDefinition,
+                                              rangeKeyAttributeDefinition,
+                                              topScoreAttrDef,
+                                              winsAttrDef,
+                                              ];
+    createTableInput.keySchema = @[hashKeySchemaElement, rangeKeySchemaElement];
+    createTableInput.provisionedThroughput = provisionedThroughput;
+    createTableInput.globalSecondaryIndexes = @[gsi];
+    createTableInput.localSecondaryIndexes = @[lsi];
+    
+    AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
+    [[[[dynamoDB createTable:createTableInput] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error to create table: %@",task.error);
+        }
+        return [AWSDynamoDBObjectMapperTests waitForTableToBeActive:tableName2];
+    }] continueWithBlock:^id(BFTask *task) {
+        return nil;
+    }] waitUntilFinished];
+    
+    //Add Entries
+    [[[[BFTask taskWithResult:nil] continueWithBlock:^id(BFTask *task) {
+        NSMutableArray *tasks = [NSMutableArray new];
+        NSArray *gameTitleArray = @[@"Galaxy Invaders",@"Meteor Blasters", @"Starship X", @"Alien Adventure",@"Attack Ships"];
+        for (int32_t i = 0; i < 50; i++) {
+            for (int32_t j = 0 ; j < 2; j++) {
+                TestObject2 *to2 = [TestObject2 new];
+                to2.UserId = [NSString stringWithFormat:@"%d",i];
+                if (i == 21 && j == 0) {
+                    to2.GameTitle = @"Meteor Blasters";
+                    to2.TopScore = @5000;
+                    to2.Wins = @150;
+                    to2.Losses = @45;
+                } else {
+                    to2.GameTitle = j==0?gameTitleArray[arc4random_uniform((u_int32_t)gameTitleArray.count)]:@"Destiny";
+                    to2.TopScore = [NSNumber numberWithInt:arc4random_uniform(3000)];
+                    to2.Wins = [NSNumber numberWithInteger:arc4random_uniform(100)];
+                    to2.Losses = [NSNumber numberWithInteger:arc4random_uniform(100)];
+                }
+                [tasks addObject:[dynamoDBObjectMapper save:to2]];
+            }
+        }
+        
+        return [BFTask taskForCompletionOfAllTasks:tasks];
+    }] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: %@",task.error);
+        }
+        return nil;
+    }] waitUntilFinished];
+    
+    //Query using gsi index table
+    //What is the top score ever recorded for the game Meteor Blasters?
+    AWSDynamoDBQueryExpression *queryExpression = [AWSDynamoDBQueryExpression new];
+    queryExpression.hashKeyValues = @"Meteor Blasters";
+    queryExpression.scanIndexForward = @NO; //sort descending
+    queryExpression.indexName = @"GameTitleIndex"; //using indexTable for query
+    [[[dynamoDBObjectMapper query:[TestObjectGameTitleAndTopScore class] expression:queryExpression] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: %@",task.error);
+        }
+         XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBPaginatedOutput class]]);
+        AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
+        
+        //first object should be the highest score
+        TestObjectGameTitleAndTopScore *firstObj = [paginatedOutput.items firstObject];
+        XCTAssertEqualObjects(firstObj.TopScore, @5000, @"expected higested TopScore doesn't match");
+        XCTAssertEqualObjects(firstObj.UserId, @"21", @"expected userId doesn't match");
+        XCTAssertEqualObjects(firstObj.Wins, @150, @"expected Wins doesn't match");
+        XCTAssertEqualObjects(firstObj.Losses, @45, @"expected Wins doesn't match");
+        
+        return nil;
+    }] waitUntilFinished];
+    
+    //Query using lsi index table
+    //The game  won most for a specified user?
+    AWSDynamoDBQueryExpression *lsiQueryExpression = [AWSDynamoDBQueryExpression new];
+    lsiQueryExpression.hashKeyValues = @"21";
+    lsiQueryExpression.scanIndexForward = @NO;
+    lsiQueryExpression.indexName = @"WinsLocalIndex";
+    [[[dynamoDBObjectMapper query:[TestObjectUserIdAndWins class] expression:lsiQueryExpression] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: %@",task.error);
+        }
+        XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBPaginatedOutput class]]);
+        AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
+        
+        //first object should be the highest score
+        TestObjectUserIdAndWins *firstObj = [paginatedOutput.items firstObject];
+        XCTAssertEqualObjects(firstObj.TopScore, @5000, @"expected higested TopScore doesn't match");
+        XCTAssertEqualObjects(firstObj.UserId, @"21", @"expected userId doesn't match");
+        XCTAssertEqualObjects(firstObj.Wins, @150, @"expected Wins doesn't match");
+        XCTAssertEqualObjects(firstObj.Losses, @45, @"expected Wins doesn't match");
+        
+        
+        return nil;
+    }] waitUntilFinished ];
+    
+    //Delete Table
+    [AWSDynamoDBObjectMapperTests deleteTable:tableName2];
+    
 }
 
+- (void)testSaveBehaviorUpdate {
+    //Update
+    AWSDynamoDBObjectMapperConfiguration *updateMapperConfig = [AWSDynamoDBObjectMapperConfiguration new];
+    updateMapperConfig.saveBehavior = AWSDynamoDBObjectMapperSaveBehaviorUpdate; //which is the default value
+    AWSDynamoDBObjectMapper *updateMapper = [[AWSDynamoDBObjectMapper alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration
+                                                                         objectMapperConfiguration:updateMapperConfig];
+    
+    NSString *hashKeyValue = [NSString stringWithFormat:@"hash-%s",__FUNCTION__];
+    NSString *rangeKeyValue = [NSString stringWithFormat:@"range-%s",__FUNCTION__];
+    NSString *stringAttributeValue = @"stringValue";
+    NSNumber *numberAttributeValue = @1;
+    NSArray *stringSet = @[@"set1",@"set2",@"set3"];
+    NSArray *numberSet = @[@1,@2,@3];
+    
+    TestObjectFull *tobj = [TestObjectFull new];
+    tobj.hashKey = hashKeyValue;
+    tobj.rangeKey = rangeKeyValue;
+    tobj.stringAttribute = stringAttributeValue;
+    tobj.numberAttribute = numberAttributeValue;
+    tobj.stringSetAttribute = stringSet;
+    tobj.numberSetAttribute = numberSet;
+    
+    [[[[updateMapper save:tobj] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        return [updateMapper load:[TestObjectFull class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
+    }] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        XCTAssertEqual([task.result class], [TestObjectFull class]);
+        TestObjectFull *testObject = task.result;
+        XCTAssertEqualObjects(testObject.hashKey, hashKeyValue);
+        XCTAssertEqualObjects(testObject.rangeKey, rangeKeyValue);
+        XCTAssertEqualObjects(testObject.stringAttribute, stringAttributeValue);
+        XCTAssertEqualObjects(testObject.numberAttribute, numberAttributeValue);
+        XCTAssertEqualObjects(testObject.stringSetAttribute, stringSet);
+        XCTAssertEqualObjects([NSSet setWithArray:testObject.numberSetAttribute],[NSSet setWithArray:numberSet]);
+
+        return nil;
+    }] waitUntilFinished ];
+    
+    
+    //change some value to it and make sure it can be updated
+    tobj.stringAttribute = nil;
+    tobj.numberAttribute = nil;
+    tobj.stringSetAttribute = nil;
+    tobj.numberSetAttribute = @[@4,@5,@6];
+    
+    [[[[updateMapper save:tobj] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        return [updateMapper load:[TestObjectFull class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
+    }] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        XCTAssertEqual([task.result class], [TestObjectFull class]);
+        TestObjectFull *testObject = task.result;
+        XCTAssertEqualObjects(testObject.hashKey, hashKeyValue);
+        XCTAssertEqualObjects(testObject.rangeKey, rangeKeyValue);
+        XCTAssertEqualObjects(testObject.stringAttribute, nil);
+        XCTAssertEqualObjects(testObject.numberAttribute, nil);
+        XCTAssertEqualObjects(testObject.stringSetAttribute, nil);
+        XCTAssertEqualObjects([NSSet setWithArray:testObject.numberSetAttribute],[NSSet setWithArray:(@[@4,@5,@6])]);
+        return nil;
+    }] waitUntilFinished ];
+    
+}
+
+- (void)testSaveBehaviorUpdateSkipNullAttribute {
+    //Update
+    AWSDynamoDBObjectMapperConfiguration *updateMapperConfig = [AWSDynamoDBObjectMapperConfiguration new];
+    updateMapperConfig.saveBehavior = AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes; // Update_Skip_Null_Attributes
+    AWSDynamoDBObjectMapper *updateMapper = [[AWSDynamoDBObjectMapper alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration
+                                                                         objectMapperConfiguration:updateMapperConfig];
+    
+    NSString *hashKeyValue = [NSString stringWithFormat:@"hash-%s",__FUNCTION__];
+    NSString *rangeKeyValue = [NSString stringWithFormat:@"range-%s",__FUNCTION__];
+    NSString *stringAttributeValue = @"stringValue";
+    NSNumber *numberAttributeValue = @1;
+    NSArray *stringSet = @[@"set1",@"set2",@"set3"];
+    NSArray *numberSet = @[@1,@2,@3];
+    
+    TestObjectFull *tobj = [TestObjectFull new];
+    tobj.hashKey = hashKeyValue;
+    tobj.rangeKey = rangeKeyValue;
+    tobj.stringAttribute = stringAttributeValue;
+    tobj.numberAttribute = numberAttributeValue;
+    tobj.stringSetAttribute = stringSet;
+    tobj.numberSetAttribute = numberSet;
+    
+    [[[[updateMapper save:tobj] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        return [updateMapper load:[TestObjectFull class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
+    }] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        XCTAssertEqual([task.result class], [TestObjectFull class]);
+        TestObjectFull *testObject = task.result;
+        XCTAssertEqualObjects(testObject.hashKey, hashKeyValue);
+        XCTAssertEqualObjects(testObject.rangeKey, rangeKeyValue);
+        XCTAssertEqualObjects(testObject.stringAttribute, stringAttributeValue);
+        XCTAssertEqualObjects(testObject.numberAttribute, numberAttributeValue);
+        XCTAssertEqualObjects(testObject.stringSetAttribute, stringSet);
+        XCTAssertEqualObjects([NSSet setWithArray:testObject.numberSetAttribute],[NSSet setWithArray:numberSet]);
+        
+        return nil;
+    }] waitUntilFinished ];
+    
+    
+    //change some value to nil and make sure it won't be updated.
+    tobj.stringAttribute = nil;
+    tobj.numberAttribute = nil;
+    tobj.stringSetAttribute = nil;
+    tobj.numberSetAttribute = @[@4,@5,@6];
+    
+    [[[[updateMapper save:tobj] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        return [updateMapper load:[TestObjectFull class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
+    }] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        XCTAssertEqual([task.result class], [TestObjectFull class]);
+        TestObjectFull *testObject = task.result;
+        XCTAssertEqualObjects(testObject.hashKey, hashKeyValue);
+        XCTAssertEqualObjects(testObject.rangeKey, rangeKeyValue);
+        XCTAssertEqualObjects(testObject.stringAttribute, stringAttributeValue);
+        XCTAssertEqualObjects(testObject.numberAttribute, numberAttributeValue);
+        XCTAssertEqualObjects(testObject.stringSetAttribute, stringSet);
+        XCTAssertEqualObjects([NSSet setWithArray:testObject.numberSetAttribute],[NSSet setWithArray:(@[@4,@5,@6])]);
+        return nil;
+    }] waitUntilFinished ];
+    
+}
+
+- (void)testSaveBehaviorAppendSet {
+    //Update
+    AWSDynamoDBObjectMapperConfiguration *updateMapperConfig = [AWSDynamoDBObjectMapperConfiguration new];
+    updateMapperConfig.saveBehavior = AWSDynamoDBObjectMapperSaveBehaviorAppendSet; // Append_Set
+    AWSDynamoDBObjectMapper *updateMapper = [[AWSDynamoDBObjectMapper alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration
+                                                                         objectMapperConfiguration:updateMapperConfig];
+    
+    NSString *hashKeyValue = [NSString stringWithFormat:@"hash-%s",__FUNCTION__];
+    NSString *rangeKeyValue = [NSString stringWithFormat:@"range-%s",__FUNCTION__];
+    NSString *stringAttributeValue = @"stringValue";
+    NSNumber *numberAttributeValue = @1;
+    NSArray *stringSet = @[@"set1",@"set2",@"set3"];
+    NSArray *numberSet = @[@1,@2,@3];
+    
+    TestObjectFull *tobj = [TestObjectFull new];
+    tobj.hashKey = hashKeyValue;
+    tobj.rangeKey = rangeKeyValue;
+    tobj.stringAttribute = stringAttributeValue;
+    tobj.numberAttribute = numberAttributeValue;
+    tobj.stringSetAttribute = stringSet;
+    tobj.numberSetAttribute = numberSet;
+    
+    [[[[updateMapper save:tobj] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        return [updateMapper load:[TestObjectFull class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
+    }] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        XCTAssertEqual([task.result class], [TestObjectFull class]);
+        TestObjectFull *testObject = task.result;
+        XCTAssertEqualObjects(testObject.hashKey, hashKeyValue);
+        XCTAssertEqualObjects(testObject.rangeKey, rangeKeyValue);
+        XCTAssertEqualObjects(testObject.stringAttribute, stringAttributeValue);
+        XCTAssertEqualObjects(testObject.numberAttribute, numberAttributeValue);
+        XCTAssertEqualObjects(testObject.stringSetAttribute, stringSet);
+        XCTAssertEqualObjects([NSSet setWithArray:testObject.numberSetAttribute],[NSSet setWithArray:numberSet]);
+        
+        return nil;
+    }] waitUntilFinished ];
+    
+    
+    //change some stringSet and numberSEt and make sure it has been appended
+
+    tobj.stringSetAttribute = @[@"set4",@"set5",@"set6"];
+    tobj.numberSetAttribute = @[@4,@5,@6];
+    
+    [[[[updateMapper save:tobj] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        return [updateMapper load:[TestObjectFull class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
+    }] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        XCTAssertEqual([task.result class], [TestObjectFull class]);
+        TestObjectFull *testObject = task.result;
+        XCTAssertEqualObjects(testObject.hashKey, hashKeyValue);
+        XCTAssertEqualObjects(testObject.rangeKey, rangeKeyValue);
+        XCTAssertEqualObjects(testObject.stringAttribute, stringAttributeValue);
+        XCTAssertEqualObjects(testObject.numberAttribute, numberAttributeValue);
+        XCTAssertEqualObjects([NSSet setWithArray:testObject.stringSetAttribute],[NSSet setWithArray:(@[@"set1",@"set2",@"set3",@"set4",@"set5",@"set6"])]);
+        XCTAssertEqualObjects([NSSet setWithArray:testObject.numberSetAttribute],[NSSet setWithArray:(@[@1,@2,@3,@4,@5,@6])]);
+        return nil;
+    }] waitUntilFinished ];
+    
+}
+
+- (void)testSaveBehaviorClobber {
+    //Update
+    AWSDynamoDBObjectMapperConfiguration *updateMapperConfig = [AWSDynamoDBObjectMapperConfiguration new];
+    updateMapperConfig.saveBehavior = AWSDynamoDBObjectMapperSaveBehaviorClobber; //Clobber Type
+    AWSDynamoDBObjectMapper *updateMapper = [[AWSDynamoDBObjectMapper alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration
+                                                                         objectMapperConfiguration:updateMapperConfig];
+    
+    NSString *hashKeyValue = [NSString stringWithFormat:@"hash-%s",__FUNCTION__];
+    NSString *rangeKeyValue = [NSString stringWithFormat:@"range-%s",__FUNCTION__];
+    NSString *stringAttributeValue = @"stringValue";
+    NSNumber *numberAttributeValue = @1;
+    NSArray *stringSet = @[@"set1",@"set2",@"set3"];
+    NSArray *numberSet = @[@1,@2,@3];
+    
+    TestObjectFull *tobj = [TestObjectFull new];
+    tobj.hashKey = hashKeyValue;
+    tobj.rangeKey = rangeKeyValue;
+    tobj.stringAttribute = stringAttributeValue;
+    tobj.numberAttribute = numberAttributeValue;
+    tobj.stringSetAttribute = stringSet;
+    tobj.numberSetAttribute = numberSet;
+    
+    [[[[updateMapper save:tobj] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        return [updateMapper load:[TestObjectFull class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
+    }] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        XCTAssertEqual([task.result class], [TestObjectFull class]);
+        TestObjectFull *testObject = task.result;
+        XCTAssertEqualObjects(testObject.hashKey, hashKeyValue);
+        XCTAssertEqualObjects(testObject.rangeKey, rangeKeyValue);
+        XCTAssertEqualObjects(testObject.stringAttribute, stringAttributeValue);
+        XCTAssertEqualObjects(testObject.numberAttribute, numberAttributeValue);
+        XCTAssertEqualObjects(testObject.stringSetAttribute, stringSet);
+        XCTAssertEqualObjects([NSSet setWithArray:testObject.numberSetAttribute],[NSSet setWithArray:numberSet]);
+        
+        return nil;
+    }] waitUntilFinished ];
+    
+    
+    //change some value to it and make sure it can be updated
+    TestObject *replaceTestObject = [TestObject new];
+    replaceTestObject.hashKey = hashKeyValue;
+    replaceTestObject.rangeKey = rangeKeyValue;
+    replaceTestObject.stringAttribute = @"string3";
+    //numberAttributes is modelled and should be replaced to nil
+    //numberSet and stringSet is unmodelled and will be replaced to nil as well.
+    
+    [[[[updateMapper save:replaceTestObject] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        return [updateMapper load:[TestObjectFull class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
+    }] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        XCTAssertEqual([task.result class], [TestObjectFull class]);
+        TestObjectFull *testObject = task.result;
+        XCTAssertEqualObjects(testObject.hashKey, hashKeyValue);
+        XCTAssertEqualObjects(testObject.rangeKey, rangeKeyValue);
+        XCTAssertEqualObjects(testObject.stringAttribute, @"string3");
+        XCTAssertEqualObjects(testObject.numberAttribute, nil);
+        XCTAssertEqualObjects(testObject.stringSetAttribute, nil);
+        XCTAssertEqualObjects(testObject.numberSetAttribute,nil);
+        return nil;
+    }] waitUntilFinished ];
+    
+}
+
+- (void)testSaveForKeyOnlyItem {
+    [AWSDynamoDBObjectMapperTests createTable:tableNameKeyOnly];
+    
+    
+    //Behavior: Update (Default)
+    AWSDynamoDBObjectMapperConfiguration *updateMapperConfig = [AWSDynamoDBObjectMapperConfiguration new];
+    updateMapperConfig.saveBehavior = AWSDynamoDBObjectMapperSaveBehaviorUpdate; //which is the default
+    AWSDynamoDBObjectMapper *updateMapper = [[AWSDynamoDBObjectMapper alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration
+                                                                         objectMapperConfiguration:updateMapperConfig];
+    
+    //save item with Key-Only attributes
+    NSString *hashKeyValue = @"testHashKeyValue";
+    NSString *rangeKeyValue = @"testRangeKeyValue";
+  
+    TestObjectKeyOnly *testObject = [TestObjectKeyOnly new];
+    testObject.hashKey = hashKeyValue;
+    testObject.rangeKey = rangeKeyValue;
+    
+    [[[[updateMapper save:testObject] continueWithBlock:^id(BFTask *task) {
+       
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        return [updateMapper load:[TestObjectKeyOnly class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
+    }] continueWithBlock:^id(BFTask *task) {
+        
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        XCTAssertEqual([task.result class], [TestObjectKeyOnly class]);
+        TestObjectKeyOnly *testObject = task.result;
+        XCTAssertEqualObjects(testObject.hashKey, hashKeyValue);
+        XCTAssertEqualObjects(testObject.rangeKey, rangeKeyValue);
+
+        return nil;
+    }] waitUntilFinished];
+    
+    //Behavior: Clobber
+    AWSDynamoDBObjectMapperConfiguration *clobberMapperConfig = [AWSDynamoDBObjectMapperConfiguration new];
+    clobberMapperConfig.saveBehavior = AWSDynamoDBObjectMapperSaveBehaviorClobber;
+    AWSDynamoDBObjectMapper *clobberMapper = [[AWSDynamoDBObjectMapper alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration
+                                                                         objectMapperConfiguration:clobberMapperConfig];
+    rangeKeyValue = @"testRangeKeyValue2";
+    TestObjectKeyOnly *testObjectClobber = [TestObjectKeyOnly new];
+    testObjectClobber.hashKey = hashKeyValue;
+    testObjectClobber.rangeKey = rangeKeyValue;
+    
+    [[[[clobberMapper save:testObjectClobber] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        return [clobberMapper load:[TestObjectKeyOnly class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
+    }] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        XCTAssertEqual([task.result class], [TestObjectKeyOnly class]);
+        TestObjectKeyOnly *testObject = task.result;
+        XCTAssertEqualObjects(testObject.hashKey, hashKeyValue);
+        XCTAssertEqualObjects(testObject.rangeKey, rangeKeyValue);
+        
+        return nil;
+    }]waitUntilFinished];
+    
+    [AWSDynamoDBObjectMapperTests deleteTable:tableNameKeyOnly];
+    
+}
 - (void)testAll {
     AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
 
@@ -259,8 +957,12 @@ static NSString *tableName = nil;
         NSMutableArray *tasks = [NSMutableArray new];
         AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
         for (TestObject *testObject in paginatedOutput.items) {
-            testObject.numberAttribute = @([testObject.numberAttribute doubleValue] + 1000);
-            [tasks addObject:[dynamoDBObjectMapper save:testObject]];
+            TestObject *updatedTestObject = [TestObject new];
+            updatedTestObject.hashKey = testObject.hashKey;
+            updatedTestObject.rangeKey = testObject.rangeKey;
+            updatedTestObject.numberAttribute = @([testObject.numberAttribute doubleValue] + 1000);
+            updatedTestObject.stringAttribute = nil; //For UPDATE behavior, a null value for the modeled attribute will remove it from that item in DynamoDB.
+            [tasks addObject:[dynamoDBObjectMapper save:updatedTestObject]];
         }
 
         return [BFTask taskForCompletionOfAllTasks:tasks];
@@ -274,8 +976,10 @@ static NSString *tableName = nil;
         AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
 
         NSMutableArray *tasks = [NSMutableArray new];
-        for (id to in paginatedOutput.items) {
-            [tasks addObject:[dynamoDBObjectMapper remove:to]];
+        for (TestObject *testObject in paginatedOutput.items) {
+            XCTAssertTrue([testObject.numberAttribute doubleValue] >= 1000);
+            XCTAssertNil(testObject.stringAttribute); //item should be removed for UPDATE behavior.
+            [tasks addObject:[dynamoDBObjectMapper remove:testObject]];
         }
 
         return [BFTask taskForCompletionOfAllTasks:tasks];
@@ -294,7 +998,31 @@ static NSString *tableName = nil;
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
-        
+
+        if (task.exception) {
+            XCTFail(@"Exception: [%@]", task.exception);
+        }
+
+        return nil;
+    }] waitUntilFinished];
+}
+
+- (void)testError {
+    AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
+
+    TestObjectFail *testObject = [TestObjectFail new];
+    testObject.hashKey = @"hash-key";
+    testObject.rangeKey = @"range";
+    testObject.stringAttribute = @"string-attr";
+    testObject.numberAttribute = @(0);
+    
+    [[[dynamoDBObjectMapper save:testObject] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(task.error.domain, AWSDynamoDBErrorDomain);
+        XCTAssertEqual(task.error.code, AWSDynamoDBErrorResourceNotFound);
+        if (task.result) {
+            XCTFail(@"Expecting an error. Result: [%@]", task.result);
+        }
         return nil;
     }] waitUntilFinished];
 }

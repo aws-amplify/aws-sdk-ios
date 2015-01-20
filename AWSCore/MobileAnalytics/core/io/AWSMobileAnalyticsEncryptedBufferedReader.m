@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -172,7 +172,7 @@
 
             // Decompressing data
             NSData *originalData = [decryptedData gunzippedData];
-            AWSLogVerbose(@"Decompressed data from %lu bytes to %lu bytes successfully", [decryptedData length], [originalData length]);
+            AWSLogVerbose(@"Decompressed data from %lu bytes to %lu bytes successfully", (unsigned long)[decryptedData length], (unsigned long)[originalData length]);
 
             // Getting checksum from deobfuscated data and checking to see it matches
             unsigned char realDigest[CC_SHA1_DIGEST_LENGTH];

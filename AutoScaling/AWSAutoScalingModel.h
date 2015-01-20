@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -187,6 +187,10 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  * <p> Contains the reason the activity was begun. </p>
  */
 @property (nonatomic, strong) NSString *cause;
+
+/**
+ * <p> Contains a friendly, more verbose description of the scaling activity. </p>
+ */
 @property (nonatomic, strong) NSString *detail;
 
 /**
@@ -265,6 +269,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingAttachInstancesQuery : AWSRequest
 
 
@@ -525,6 +532,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingCompleteLifecycleActionType : AWSRequest
 
 
@@ -764,6 +774,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingDeleteLifecycleHookType : AWSRequest
 
 
@@ -881,6 +894,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingDescribeAutoScalingInstancesType : AWSRequest
 
 
@@ -914,6 +930,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingDescribeLifecycleHookTypesAnswer : AWSModel
 
 
@@ -937,6 +956,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingDescribeLifecycleHooksType : AWSRequest
 
 
@@ -989,6 +1011,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingDescribeNotificationConfigurationsType : AWSRequest
 
 
@@ -1009,6 +1034,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingDescribePoliciesType : AWSRequest
 
 
@@ -1062,6 +1090,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingDescribeScheduledActionsType : AWSRequest
 
 
@@ -1146,6 +1177,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingDetachInstancesQuery : AWSRequest
 
 
@@ -1166,6 +1200,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingDisableMetricsCollectionQuery : AWSRequest
 
 
@@ -1214,6 +1251,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingEnableMetricsCollectionQuery : AWSRequest
 
 
@@ -1265,6 +1305,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingEnterStandbyQuery : AWSRequest
 
 
@@ -1285,6 +1328,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingExecutePolicyType : AWSRequest
 
 
@@ -1318,6 +1364,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingExitStandbyQuery : AWSRequest
 
 
@@ -1606,6 +1655,10 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  */
 @interface AWSAutoScalingMetricCollectionType : AWSModel
 
+
+/**
+ * 
+ */
 @property (nonatomic, strong) NSString *metric;
 
 @end
@@ -1712,6 +1765,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingPutLifecycleHookType : AWSRequest
 
 
@@ -1757,6 +1813,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingPutNotificationConfigurationType : AWSRequest
 
 
@@ -1777,6 +1836,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingPutScalingPolicyType : AWSRequest
 
 
@@ -1812,6 +1874,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingPutScheduledUpdateGroupActionType : AWSRequest
 
 
@@ -1870,6 +1935,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingRecordLifecycleActionHeartbeatType : AWSRequest
 
 
@@ -1938,6 +2006,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingScalingProcessQuery : AWSRequest
 
 
@@ -2053,6 +2124,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 @end
 
+/**
+ *
+ */
 @interface AWSAutoScalingSetInstanceHealthQuery : AWSRequest
 
 
