@@ -1,5 +1,16 @@
 # AWSiOSSDKv2 CHANGELOG
 
+## 2.0.15
+
+### Resolved Issues
+
+* **SDK Core**
+   * Fixed a bug in `AWSCognitoCredentialsProvider` where `identityId` was set to pool id when using simplified constructors.
+   * Fixed a bug in `AWSCognitoCredentialsProvider` where credentials were not saved in the keychain when using simplified constructors.
+   * Removed the third party libraries from `AWSiOSSDKv2.framework`.
+
+* **Amazon S3** - Fixed an issue where the SDK does not automatically retry for the `SignatureDoesNotMatch` exception.
+
 ## 2.0.14
 
 ### New features

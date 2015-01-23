@@ -333,7 +333,7 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                                    logins:(NSDictionary *)logins {
     
     AWSCognitoCredentialsProvider *credentials = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:regionType
-                                                                                          identityId:identityPoolId
+                                                                                                identityId:identityId
                                                                                             identityPoolId:identityPoolId
                                                                                                     logins:logins];
     return credentials;
@@ -469,77 +469,67 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     // Grab a reference to our provider in case it changes out from under us
     id<AWSCognitoIdentityProvider> providerRef = self.identityProvider;
     
-    return [[[self getIdentityId] continueWithSuccessBlock:^id(BFTask *task) {
-        // This should never happen, but just in case
-        if (!self.identityId) {
-            AWSLogError(@"In refresh, but identitId is nil.");
-            AWSLogError(@"Result from getIdentityId is %@", task.result);
-            return [BFTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
-                                                             code:AWSCognitoIdentityProviderErrorIdentityIsNil
-                                                         userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]];
-        }
-        
-        AWSCognitoIdentityGetCredentialsForIdentityInput *getCredentialsInput = [AWSCognitoIdentityGetCredentialsForIdentityInput new];
-        getCredentialsInput.identityId = self.identityId;
-        if (token) {
-            getCredentialsInput.logins = @{ @"cognito-identity.amazonaws.com": token };
-        }
-        else {
-            getCredentialsInput.logins = self.logins;
-        }
-        
-        
-        return [[self.cib getCredentialsForIdentity:getCredentialsInput] continueWithBlock:^id(BFTask *task) {
-            // When an invalid identityId is cached in the keychain for auth,
-            // we will refresh the identityId and try to get credentials token again.
-            if (task.error) {
-                AWSLogError(@"GetCredentialsForIdentity failed. Error is [%@]", task.error);
-                
-                // If it's auth or we caught a not found or validation error
-                // we want to reset the identity id, otherwise, just return
-                // the error to our caller
-                if (!(auth || [AWSCognitoCredentialsProvider shouldResetIdentityId:task.error])) {
-                    return task;
+    AWSCognitoIdentityGetCredentialsForIdentityInput *getCredentialsInput = [AWSCognitoIdentityGetCredentialsForIdentityInput new];
+    getCredentialsInput.identityId = self.identityId;
+    if (token) {
+        getCredentialsInput.logins = @{ @"cognito-identity.amazonaws.com": token };
+    }
+    else {
+        getCredentialsInput.logins = self.logins;
+    }
+    
+    
+    return [[[self.cib getCredentialsForIdentity:getCredentialsInput] continueWithBlock:^id(BFTask *task) {
+        // When an invalid identityId is cached in the keychain for auth,
+        // we will refresh the identityId and try to get credentials token again.
+        if (task.error) {
+            AWSLogError(@"GetCredentialsForIdentity failed. Error is [%@]", task.error);
+            
+            // If it's auth or we caught a not found or validation error
+            // we want to reset the identity id, otherwise, just return
+            // the error to our caller
+            if (!(auth || [AWSCognitoCredentialsProvider shouldResetIdentityId:task.error])) {
+                return task;
+            }
+            
+            AWSLogVerbose(@"Resetting identity Id and calling getIdentityId");
+            // if it's auth, reset id and refetch
+            self.identityId = nil;
+            providerRef.identityId = nil;
+            
+            return [[providerRef getIdentityId] continueWithSuccessBlock:^id(BFTask *task) {
+                // This should never happen, but just in case
+                if (!providerRef.identityId) {
+                    AWSLogError(@"In refresh, but identitId is nil.");
+                    AWSLogError(@"Result from getIdentityId is %@", task.result);
+                    return [BFTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
+                                                                     code:AWSCognitoIdentityProviderErrorIdentityIsNil
+                                                                 userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
+                            ];
                 }
+                self.identityId = providerRef.identityId;
                 
-                AWSLogVerbose(@"Resetting identity Id and calling getIdentityId");
-                // if it's auth, reset id and refetch
-                self.identityId = nil;
-                providerRef.identityId = nil;
+                AWSLogVerbose(@"Retrying GetCredentialsForIdentity");
                 
-                return [[providerRef getIdentityId] continueWithSuccessBlock:^id(BFTask *task) {
-                    // This should never happen, but just in case
-                    if (!providerRef.identityId) {
-                        AWSLogError(@"In refresh, but identitId is nil.");
-                        AWSLogError(@"Result from getIdentityId is %@", task.result);
-                        return [BFTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
-                                                                         code:AWSCognitoIdentityProviderErrorIdentityIsNil
-                                                                     userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
-                                ];
-                    }
-                    self.identityId = providerRef.identityId;
-                    
-                    AWSLogVerbose(@"Retrying GetCredentialsForIdentity");
-                    
-                    // retry get credentials
-                    AWSCognitoIdentityGetCredentialsForIdentityInput *getCredentialsRetry = [AWSCognitoIdentityGetCredentialsForIdentityInput new];
-                    getCredentialsRetry.identityId = self.identityId;
-                    getCredentialsRetry.logins = self.logins;
-                    
-                    return [self.cib getCredentialsForIdentity:getCredentialsRetry];
-                }];
-            }
-            if (task.exception) {
-                AWSLogError(@"GetCredentialsForIdentity failed. Exception is [%@]", task.exception);
-            }
-            return task;
-        }];
+                // retry get credentials
+                AWSCognitoIdentityGetCredentialsForIdentityInput *getCredentialsRetry = [AWSCognitoIdentityGetCredentialsForIdentityInput new];
+                getCredentialsRetry.identityId = self.identityId;
+                getCredentialsRetry.logins = self.logins;
+                
+                return [self.cib getCredentialsForIdentity:getCredentialsRetry];
+            }];
+        }
+        if (task.exception) {
+            AWSLogError(@"GetCredentialsForIdentity failed. Exception is [%@]", task.exception);
+        }
+        return task;
     }] continueWithSuccessBlock:^id(BFTask *task) {
         AWSCognitoIdentityGetCredentialsForIdentityResponse *getCredentialsResponse = task.result;
         self.accessKey = getCredentialsResponse.credentials.accessKeyId;
         self.secretKey = getCredentialsResponse.credentials.secretKey;
         self.sessionKey = getCredentialsResponse.credentials.sessionToken;
         self.expiration = getCredentialsResponse.credentials.expiration;
+        [self.keychain synchronize];
         
         NSString *identityIdFromResponse = getCredentialsResponse.identityId;
         

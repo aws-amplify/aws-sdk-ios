@@ -137,6 +137,10 @@ static NSDictionary *errorCodeDictionary = nil;
                 retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
                 break;
 
+            case AWSS3ErrorSignatureDoesNotMatch:
+                retryType = AWSNetworkingRetryTypeShouldRetry;
+                break;
+
             default:
                 break;
         }
