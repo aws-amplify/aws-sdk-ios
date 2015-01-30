@@ -945,7 +945,7 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
             if (parts) {
                 [parts removeLastObject];
                 [parts addObject:memberName];
-                prefix = [[parts componentsJoinedByString:@""] mutableCopy];
+                prefix = [[parts componentsJoinedByString:@"."] mutableCopy];
             }
         }
 
