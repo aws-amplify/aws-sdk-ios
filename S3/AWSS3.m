@@ -119,13 +119,13 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSS3RequestRetryHandler
 
 - (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
-                            response:(NSHTTPURLResponse *)response
-                                data:(NSData *)data
-                               error:(NSError *)error {
+                             response:(NSHTTPURLResponse *)response
+                                 data:(NSData *)data
+                                error:(NSError *)error {
     AWSNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
-                                                response:response
-                                                    data:data
-                                                   error:error];
+                                                 response:response
+                                                     data:data
+                                                    error:error];
     if(retryType == AWSNetworkingRetryTypeShouldNotRetry
        && [error.domain isEqualToString:AWSS3ErrorDomain]
        && currentRetryCount < self.maxRetryCount) {
@@ -186,12 +186,20 @@ static NSDictionary *errorCodeDictionary = nil;
     return _defaultS3;
 }
 
+- (instancetype)init {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:@"`- init` is not a valid initializer. Use `+ defaultS3` or `- initWithConfiguration:` instead."
+                                 userInfo:nil];
+    return nil;
+}
+
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
         _configuration = [configuration copy];
 
-        _configuration.endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
-                                                          service:AWSServiceS3];
+        _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
+                                                              service:AWSServiceS3
+                                                         useUnsafeURL:NO];
 
         AWSSignatureV4Signer *signer = [AWSSignatureV4Signer signerWithCredentialsProvider:_configuration.credentialsProvider
                                                                                   endpoint:_configuration.endpoint];

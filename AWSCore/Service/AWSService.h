@@ -74,18 +74,6 @@
 
 @end
 
-#pragma mark - AWSRegion
-
-@interface AWSRegion : NSObject
-
-@property (nonatomic, readonly) NSSet *availableServices;
-
-+ (instancetype)regionWithType:(AWSRegionType)regionType;
-
-- (BOOL)isServiceAvailable:(AWSServiceType)serviceType;
-
-@end
-
 #pragma mark - AWSEndpoint
 
 @interface AWSEndpoint : NSObject
@@ -98,12 +86,8 @@
 @property (nonatomic, readonly) NSString *hostName;
 @property (nonatomic, readonly) BOOL useUnsafeURL;
 
-+ (instancetype)endpointWithRegion:(AWSRegionType)regionType
-                           service:(AWSServiceType)serviceType;
-+ (instancetype)endpointWithRegion:(AWSRegionType)regionType
-                           service:(AWSServiceType)serviceType
-                      useUnsafeURL:(BOOL)useUnsafeURL;
-
-+ (instancetype)endpointWithURL:(NSURL *)url;
+- (instancetype)initWithRegion:(AWSRegionType)regionType
+                       service:(AWSServiceType)serviceType
+                  useUnsafeURL:(BOOL)useUnsafeURL;
 
 @end

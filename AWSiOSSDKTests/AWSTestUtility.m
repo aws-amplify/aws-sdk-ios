@@ -42,7 +42,7 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
                                                                           error:nil];
         AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKeyBJS"]
                                                                                                           secretKey:credentialsJson[@"secretKeyBJS"]];
-        
+
         AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionCNNorth1
                                                                                credentialsProvider:credentialsProvider];
 
@@ -55,12 +55,12 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
     }
 }
 + (void)setupCognitoCredentialsProvider {
-    
+
 #if AWS_TEST_BJS_INSTEAD
     //since BJS doesn't support Cognito, we are using STS instead
     [self setupSTS];
     [self runServiceWithStsCredential];
-    
+
 #else
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
         NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
@@ -68,6 +68,9 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
         NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                         options:NSJSONReadingMutableContainers
                                                                           error:nil];
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         AWSCognitoCredentialsProvider *credentialsProvider = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
                                                                                                            identityId:nil
                                                                                                             accountId:credentialsJson[@"accountId"]
@@ -75,6 +78,8 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
                                                                                                         unauthRoleArn:credentialsJson[@"unauthRoleArn"]
                                                                                                           authRoleArn:credentialsJson[@"authRoleArn"]
                                                                                                                logins:nil];
+#pragma clang diagnostic pop
+
         AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
                                                                                credentialsProvider:credentialsProvider];
         [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
@@ -83,7 +88,7 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
 }
 
 + (void)setupSTS {
-    
+
     if (![[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilitySTSKey]) {
 #if AWS_TEST_BJS_INSTEAD
         NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials" ofType:@"json"];
@@ -92,7 +97,7 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
                                                                           error:nil];
         AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKeyBJS"]
                                                                                                           secretKey:credentialsJson[@"secretKeyBJS"]];
-        
+
         AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionCNNorth1
                                                                                credentialsProvider:credentialsProvider];
 #else
@@ -118,31 +123,31 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
 
 + (void)runServiceWithStsCredential {
     AWSTestCredentialsProvider *testCredentialProvider = [AWSTestCredentialsProvider new];
-    
+
     AWSSTS *sts = (AWSSTS *)[[AWSServiceManager defaultServiceManager] serviceForKey:AWSTestUtilitySTSKey];
-    
+
     AWSSTSGetSessionTokenRequest *getSessionTokenRequest = [AWSSTSGetSessionTokenRequest new];
     getSessionTokenRequest.durationSeconds = @900;
-    
+
     [[[sts getSessionToken:getSessionTokenRequest] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             //XCTFail(@"Error: [%@]", task.error);
         }
-        
+
         if (task.result) {
             AWSSTSGetSessionTokenResponse *getSessionTokenResponse = task.result;
             //XCTAssertTrue([getSessionTokenResponse.credentials.accessKeyId length] > 0);
             testCredentialProvider.accessKey = getSessionTokenResponse.credentials.accessKeyId;
-            
+
             //XCTAssertTrue([getSessionTokenResponse.credentials.secretAccessKey length] > 0);
             testCredentialProvider.secretKey = getSessionTokenResponse.credentials.secretAccessKey;
-            
+
             //XCTAssertTrue([getSessionTokenResponse.credentials.sessionToken length] > 0);
             testCredentialProvider.sessionKey = getSessionTokenResponse.credentials.sessionToken;
-            
+
             //XCTAssertTrue([getSessionTokenResponse.credentials.expiration isKindOfClass:[NSDate class]]);
         }
-        
+
         return nil;
     }] waitUntilFinished];
 #if AWS_TEST_BJS_INSTEAD

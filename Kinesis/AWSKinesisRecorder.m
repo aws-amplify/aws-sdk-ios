@@ -57,6 +57,13 @@ NSString *const AWSKinesisRecorderCacheName = @"com.amazonaws.AWSKinesisRecorder
     return _defaultKinesisRecorder;
 }
 
+- (instancetype)init {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:@"`- init` is not a valid initializer. Use `+ defaultKinesisRecorder` or `- initWithConfiguration:identifier:` instead."
+                                 userInfo:nil];
+    return nil;
+}
+
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration
                            identifier:(NSString *)identifier {
     if (self = [self initWithConfiguration:configuration

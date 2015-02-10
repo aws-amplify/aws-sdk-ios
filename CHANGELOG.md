@@ -1,9 +1,16 @@
 # AWSiOSSDKv2 CHANGELOG
 
+## 2.0.16
+
+### New Features
+* **Amazon DynamoDB Object Mapper** - Added support for new data types: `BOOL`, `List`, and `Map`. `AWSDynamoDBModel` has been deprecated. Use `AWSDynamoDBObjectModel` instead.
+
+### Resolved Issues
+* **SDK Core** - Fixed a bug in the query string serializer that may cause `BatchPutAttributes` request failure in Amazon SimpleDB.
+
 ## 2.0.15
 
 ### Resolved Issues
-
 * **SDK Core**
    * Fixed a bug in `AWSCognitoCredentialsProvider` where `identityId` was set to pool id when using simplified constructors.
    * Fixed a bug in `AWSCognitoCredentialsProvider` where credentials were not saved in the keychain when using simplified constructors.
@@ -13,7 +20,7 @@
 
 ## 2.0.14
 
-### New features
+### New Features
 * **Enhanced AWSCognitoCredentialsProvider** - Updated `AWSCognitoCredentialsProvider` to support new enhanced authentication flow. Reduced parameters necessary to initialize the provider.
 * **Amazon DynamoDB Object Mapper** - Added three new save behaviors: `AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes`, `AWSDynamoDBObjectMapperSaveBehaviorAppendSet`, and `AWSDynamoDBObjectMapperSaveBehaviorClobber`.
 * **Service definitions** - Updated the service model classes for Amazon Auto Scaling, Amazon Cognito Identity, Amazon DynamoDB, Amazon EC2, Amazon Kinesis, and Amazon S3.
@@ -37,12 +44,12 @@
 
 ## 2.0.13
 
-### New features
+### New Features
 * **Amazon Kinesis Recorder** - Amazon Kinesis PutRecords Rest API puts multiple records into an Amazon Kinesis stream in a single call. Amazon Kinesis Recorder now uses the PutRecords API to automatically batch requests, leading to higher throughput and optimized battery life. No developer change is required to benefit.
 
 ## 2.0.12
 
-### New features
+### New Features
 * **Amazon Cognito Sync** - Amazon Cognito helps you save user data in the cloud and synchronize across all of an end user's devices. You can now choose to use push synchronization to synchronize data as soon as it is changed in the cloud.
 
 ### Resolved Issues
@@ -62,7 +69,7 @@
 
 ## 2.0.9
 
-### New features
+### New Features
 * **EU (Frankfurt) Region support** - The AWS Mobile SDK for iOS now supports EU (Frankfurt) Region.
 
 ### Resolved Issues
@@ -75,7 +82,7 @@
 
 ## 2.0.8
 
-### New features
+### New Features
 * **Amazon Cognito Developer Authenticated Identities** - We are pleased to announce that we are adding support for your own identification management system in addition to existing support for a number of public login providers (Amazon, Facebook, and Google) and unauthenticated guests.
 * **Amazon Mobile Analytics** - Amazon Mobile Analytics now has AWS Console generated application id's, which enables developers to set what an 'app' means to them. For instance this allows developers to have multiple flavors of an app all report into a single console report.
 
@@ -86,7 +93,7 @@
 
 ## 2.0.7
 
-### New features
+### New Features
 * **SDK Core**
     * iOS 8 Support - The AWS Mobile SDK for iOS officially supports iOS 8.
     * Removed the dependency on `-ObjC` linker flag. - When importing frameworks, you no longer need to add -ObjC linker flag.
@@ -129,7 +136,7 @@
 
 ## 2.0.3 - Initial Release
 
-### New features
+### New Features
 * **Amazon Cognito** - is a simple user identity and synchronization service that helps you securely manage and synchronize app data for your users across their mobile devices. With Amazon Cognito, you can save any kind of data, such as app preferences or game state, in the AWS Cloud without writing any backend code or managing any infrastructure.
 * **Amazon Mobile Analytics** - is a service for collecting, visualizing and understanding app usage data at scale. Amazon Mobile Analytics reports are typically updated within 60 minutes from when data are received. Amazon Mobile Analytics is built to scale with the business and can collect and process billions of events from millions of endpoints.
 * **Amazon Kinesis Recorder** - enables you to reliably record data to an Amazon Kinesis data stream from your mobile app. Kinesis Recorder batches requests to handle intermittent network connection and enable you to record events even when the device is offline.

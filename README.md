@@ -139,6 +139,7 @@ When we release a new version of the SDK, you can pick up the changes as describ
     * `AWSiOSSDKv2.framework`
     * `AWSCognitoSync.framework`
     * `Bolts.framework`
+    * `FMDB.framework`
     * `GZIP.framework`
     * `Mantle.framework`
     * `Reachability.framework`

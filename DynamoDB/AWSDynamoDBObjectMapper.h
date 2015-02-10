@@ -26,38 +26,38 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
      *  Unknown SaveBehavior.
      */
     AWSDynamoDBObjectMapperSaveBehaviorUnknown,
-    
+
     /**
      * `AWSDynamoDBObjectMapperSaveBehaviorUpdate` will not affect unmodeled
-     * attributes on a save operation and a nil value for the modeled attribute 
-     * will remove it from that item in DynamoDB. 
+     * attributes on a save operation and a nil value for the modeled attribute
+     * will remove it from that item in DynamoDB.
      * By default, the mapper uses `AWSDynamoDBObjectMapperSaveBehaviorUpdate`.
      */
     AWSDynamoDBObjectMapperSaveBehaviorUpdate,
-    
+
     /**
-     * `AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes` is similar 
+     * `AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes` is similar
      * to `AWSDynamoDBObjectMapperSaveBehaviorUpdate`, except that it
      * ignores any null value attribute(s) and will NOT remove them from
      * that item in DynamoDB. It also guarantees to send only one single
      * updateItem request, no matter the object is key-only or not.
      */
     AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes,
-    
+
     /**
      * `AWSDynamoDBObjectMapperSaveBehaviorAppendSet` treats scalar attributes
-     * (String, Number, Binary) the same as 
+     * (String, Number, Binary) the same as
      * `AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes` does.
-     * However, for set attributes, it will append to the existing attribute 
-     * value, instead of overriding it. Caller needs to make sure that the 
-     * modeled attribute type matches the existing set type, otherwise it would 
+     * However, for set attributes, it will append to the existing attribute
+     * value, instead of overriding it. Caller needs to make sure that the
+     * modeled attribute type matches the existing set type, otherwise it would
      * result in a service exception.
      */
     AWSDynamoDBObjectMapperSaveBehaviorAppendSet,
-    
+
     /**
      * `AWSDynamoDBObjectMapperSaveBehaviorClobber` will clear and replace all
-     * attributes, included unmodeled ones, (delete and recreate) on save. 
+     * attributes, included unmodeled ones, (delete and recreate) on save.
      * Versioned field constraints will also be disregarded.
      */
     AWSDynamoDBObjectMapperSaveBehaviorClobber
@@ -70,34 +70,106 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
 @class AWSDynamoDBQueryExpression;
 @class AWSDynamoDBScanExpression;
 
+/**
+ *  A DynamoDB Modeling protocol. All objects mapped to an Amazon DynamoDB table row need to conform to this protocol.
+ */
 @protocol AWSDynamoDBModeling <NSObject>
 
 @required
+
+/**
+ *  Returns the Amazon DynamoDB table name.
+ *
+ *  @return A table name.
+ */
 + (NSString *)dynamoDBTableName;
+
+/**
+ *  Returns the hash key attribute name.
+ *
+ *  @return A hash key attribute name.
+ */
 + (NSString *)hashKeyAttribute;
 
 @optional
+
+/**
+ *  Returns the range key attribute name.
+ *
+ *  @return A range key attribute name.
+ */
 + (NSString *)rangeKeyAttribute;
+
+/**
+ *  Returns the name of the attribute used for veresion control.
+ *
+ *  @return A version attribute name.
+ */
 + (NSString *)versionAttribute;
+
+/**
+ *  Returns an array of `NSString`s for the names of attributes that need to be ignored.
+ *
+ *  @return An array of attribute names.
+ */
 + (NSArray *)ignoreAttributes;
 
 @end
 
+__attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
+/**
+ *  @warning This class has been deprecated. Use `AWSDynamoDBObjectModel` instead.
+ */
 @interface AWSDynamoDBModel : MTLModel <MTLJSONSerializing>
 
-- (instancetype)initWithItem:(NSDictionary *)item;
+@end
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
+/**
+ *  A base class for all objects mapped to an Amazon DynamoDB table row. They need to inherit from this class.
+ */
+@interface AWSDynamoDBObjectModel : AWSDynamoDBModel <MTLJSONSerializing>
 
 @end
+
+#pragma clang diagnostic pop
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 /**
  *  Object mapper for domain-object interaction with DynamoDB.
  */
 @interface AWSDynamoDBObjectMapper : AWSService
 
+/**
+ *  The service configuration used to instantiate this service client.
+ *
+ *  @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+ */
 @property (nonatomic, strong, readonly) AWSDynamoDBObjectMapperConfiguration *configuration;
 
+/**
+ *  Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with `defaultServiceConfiguration` from `[AWSServiceManager defaultServiceManager]`. The reference to this object is maintained by the SDK, and you do not need to retain it manually.
+ *
+ *  @return The default service client.
+ */
 + (instancetype)defaultDynamoDBObjectMapper;
 
+/**
+ *  Instantiates the service client with the given service configuration.
+ *
+ *  @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+ *
+ *  @warning Unlike the singleton method, you are responsible for maintaining a strong reference to this object. If the service client is released before completing a service request, the request may fail with unspecified errors.
+ *
+ *  @param configuration The service configuration object.
+ *  @param objectMapperConfiguration The DynamoDB Object Mapper configuration object.
+ *
+ *  @return An instance of the service client.
+ */
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration
             objectMapperConfiguration:(AWSDynamoDBObjectMapperConfiguration *)objectMapperConfiguration;
 
@@ -218,6 +290,8 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
    configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration;
 
 @end
+
+#pragma clang diagnostic pop
 
 /**
  *  Immutable configuration object for service call behavior. An instance of this configuration is supplied to every DynamoDBMapper at construction. New instances can be given to the mapper object on individual save, load, and remove operations to override the defaults.

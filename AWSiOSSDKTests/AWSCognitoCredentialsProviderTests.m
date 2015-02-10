@@ -154,9 +154,9 @@ AWSCognitoIdentity *staticCib;
                                                                                         identityPoolId:_identityPoolIdAuth];
     [provider clearKeychain];
     provider = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
-                                                          identityPoolId:_identityPoolIdUnauth];
+                                                         identityPoolId:_identityPoolIdUnauth];
     [provider clearKeychain];
-    
+
     [super tearDown];
 }
 
@@ -194,6 +194,8 @@ AWSCognitoIdentity *staticCib;
 }
 
 - (void)testProviderWithInvalidId {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     AWSCognitoCredentialsProvider *provider = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
                                                                                             identityId:@"invalidid"
                                                                                              accountId:AWSCognitoCredentialsProviderTestsAccountID
@@ -201,28 +203,32 @@ AWSCognitoIdentity *staticCib;
                                                                                          unauthRoleArn:AWSCognitoCredentialsProviderTestsUnauthRoleArn
                                                                                            authRoleArn:AWSCognitoCredentialsProviderTestsAuthRoleArn
                                                                                                 logins:nil];
+#pragma clang diagnostic pop
+
     [provider clearKeychain];
     [[[[provider refresh] continueWithSuccessBlock:^id(BFTask *task) {
         XCTAssertNotNil(provider.identityId, @"Unable to get identityId");
         XCTAssertNotNil(provider.accessKey, @"Unable to get accessKey");
-        
+
         provider.logins = @{@(AWSCognitoLoginProviderKeyFacebook) : _facebookToken};
         return [provider refresh];
     }] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
-        
+
         XCTAssertNotNil(provider.accessKey);
         XCTAssertNotNil(provider.secretKey);
         XCTAssertNotNil(provider.sessionKey);
         XCTAssertNotNil(provider.expiration);
-        
+
         return nil;
     }] waitUntilFinished];
 }
 
 - (void)testProviderWithMissingId {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     AWSCognitoCredentialsProvider *provider = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
                                                                                             identityId:@"us-east-1:1234-5678"
                                                                                              accountId:AWSCognitoCredentialsProviderTestsAccountID
@@ -230,23 +236,25 @@ AWSCognitoIdentity *staticCib;
                                                                                          unauthRoleArn:AWSCognitoCredentialsProviderTestsUnauthRoleArn
                                                                                            authRoleArn:AWSCognitoCredentialsProviderTestsAuthRoleArn
                                                                                                 logins:nil];
+#pragma clang diagnostic pop
+
     [provider clearKeychain];
     [[[[provider refresh] continueWithSuccessBlock:^id(BFTask *task) {
         XCTAssertNotNil(provider.identityId, @"Unable to get identityId");
         XCTAssertNotNil(provider.accessKey, @"Unable to get accessKey");
-        
+
         provider.logins = @{@(AWSCognitoLoginProviderKeyFacebook) : _facebookToken};
         return [provider refresh];
     }] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
-        
+
         XCTAssertNotNil(provider.accessKey);
         XCTAssertNotNil(provider.secretKey);
         XCTAssertNotNil(provider.sessionKey);
         XCTAssertNotNil(provider.expiration);
-        
+
         return nil;
     }] waitUntilFinished];
 }
@@ -257,7 +265,7 @@ AWSCognitoIdentity *staticCib;
                                                                                          identityPoolId:_identityPoolIdAuth
                                                                                           unauthRoleArn:AWSCognitoCredentialsProviderTestsUnauthRoleArn
                                                                                             authRoleArn:AWSCognitoCredentialsProviderTestsAuthRoleArn];
-    
+
     provider1.logins = @{@(AWSCognitoLoginProviderKeyFacebook) : _facebookToken};
 
     __block AWSCognitoCredentialsProvider *provider2 = nil;
@@ -290,7 +298,7 @@ AWSCognitoIdentity *staticCib;
         XCTAssertNil(task.error);
         return nil;
     }] waitUntilFinished];
-    
+
     // sleep a second to let notifications fire
     [NSThread sleepForTimeInterval:1];
     XCTAssertTrue(_identityChanged, @"Delegate wasn't called");
@@ -302,9 +310,9 @@ AWSCognitoIdentity *staticCib;
                                                                                          identityPoolId:_identityPoolIdAuth
                                                                                           unauthRoleArn:AWSCognitoCredentialsProviderTestsUnauthRoleArn
                                                                                             authRoleArn:AWSCognitoCredentialsProviderTestsAuthRoleArn];
-    
+
     provider1.logins = @{@(AWSCognitoLoginProviderKeyFacebook) : _facebookToken};
-    
+
     __block AWSCognitoCredentialsProvider *provider2 = nil;
 
     [[[[provider1 refresh] continueWithSuccessBlock:^id(BFTask *task) {
@@ -345,9 +353,9 @@ AWSCognitoIdentity *staticCib;
                                                                                         identityPoolId:_identityPoolIdUnauth
                                                                                          unauthRoleArn:AWSCognitoCredentialsProviderTestsUnauthRoleArn
                                                                                            authRoleArn:AWSCognitoCredentialsProviderTestsAuthRoleArn];
-    
+
     provider.logins = @{@(AWSCognitoLoginProviderKeyFacebook) : _facebookToken};
-    
+
     [[[[provider getIdentityId] continueWithSuccessBlock:^id(BFTask *task) {
         XCTAssertNil(provider.identityId, @"Shouldn't be able to get id");
 
@@ -366,7 +374,7 @@ AWSCognitoIdentity *staticCib;
 
     AWSCognitoCredentialsProvider *provider = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
                                                                                         identityPoolId:_identityPoolIdAuth];
-    
+
     [[[[provider refresh] continueWithSuccessBlock:^id(BFTask *task) {
         XCTAssertNotNil(provider.identityId, @"Unable to get identityId");
         XCTAssertNotNil(provider.accessKey, @"Unable to get accessKey");
@@ -390,82 +398,82 @@ AWSCognitoIdentity *staticCib;
 
 - (void)testEnhancedProviderWithInvalidId {
     AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1 identityId:@"invalidid" identityPoolId:_identityPoolIdAuth logins:nil];
-    
-    
+
+
     [[[[provider refresh] continueWithSuccessBlock:^id(BFTask *task) {
         XCTAssertNotNil(provider.identityId, @"Unable to get identityId");
         XCTAssertNotNil(provider.accessKey, @"Unable to get accessKey");
-        
+
         provider.logins = @{@(AWSCognitoLoginProviderKeyFacebook) : _facebookToken};
         return [provider refresh];
     }] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
-        
+
         XCTAssertNotNil(provider.accessKey);
         XCTAssertNotNil(provider.secretKey);
         XCTAssertNotNil(provider.sessionKey);
         XCTAssertNotNil(provider.expiration);
-        
+
         return nil;
     }] waitUntilFinished];
-    
+
 }
 
 - (void)testEnhancedProviderWithMissingId {
-    
+
     AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc]
                                                initWithRegionType:AWSRegionUSEast1 identityId:@"us-east-1:1234-5678" identityPoolId:_identityPoolIdAuth logins:nil];
-    
-    
+
+
     [[[[provider refresh] continueWithSuccessBlock:^id(BFTask *task) {
         XCTAssertNotNil(provider.identityId, @"Unable to get identityId");
         XCTAssertNotNil(provider.accessKey, @"Unable to get accessKey");
-        
+
         provider.logins = @{@(AWSCognitoLoginProviderKeyFacebook) : _facebookToken};
         return [provider refresh];
     }] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
-        
+
         XCTAssertNotNil(provider.accessKey);
         XCTAssertNotNil(provider.secretKey);
         XCTAssertNotNil(provider.sessionKey);
         XCTAssertNotNil(provider.expiration);
-        
+
         return nil;
     }] waitUntilFinished];
-    
+
 }
 
 - (void)testEnhancedProviderNotification {
     AWSCognitoCredentialsProvider *provider1 = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
                                                                                          identityPoolId:_identityPoolIdAuth];
-    
+
     provider1.logins = @{@(AWSCognitoLoginProviderKeyFacebook) : _facebookToken};
-    
+
     __block AWSCognitoCredentialsProvider *provider2 = nil;
     __block NSString *provider1IdentityId = nil;
-    
+
     [[[[[provider1 getIdentityId] continueWithSuccessBlock:^id(BFTask *task) {
         XCTAssertNotNil(provider1.identityId, @"Unable to get identityId");
         provider1IdentityId = provider1.identityId;
-        
+
         [provider1 clearKeychain];
         provider2 = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
                                                               identityPoolId:_identityPoolIdAuth];
         return [provider2 getIdentityId];
     }] continueWithSuccessBlock:^id(BFTask *task) {
         XCTAssertNotEqualObjects(provider1IdentityId, provider2.identityId);
-        
+
         _identityChanged = NO;
-        
+
         provider2.logins = @{@(AWSCognitoLoginProviderKeyFacebook) : _facebookToken};
         return [[provider2 refresh] continueWithBlock:^id(BFTask *task) {
             XCTAssertNil(task.error);
-            
+
             XCTAssertEqualObjects(provider1IdentityId, provider2.identityId);
             return nil;
         }];
@@ -473,7 +481,7 @@ AWSCognitoIdentity *staticCib;
         XCTAssertNil(task.error);
         return nil;
     }] waitUntilFinished];
-    
+
     // sleep a second to let notifications fire
     [NSThread sleepForTimeInterval:1];
     XCTAssertTrue(_identityChanged, @"Delegate wasn't called");
@@ -482,34 +490,34 @@ AWSCognitoIdentity *staticCib;
 - (void)testEnhancedProviderKeychain {
     AWSCognitoCredentialsProvider *provider1 = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
                                                                                          identityPoolId:_identityPoolIdAuth];
-    
+
     provider1.logins = @{@(AWSCognitoLoginProviderKeyFacebook) : _facebookToken};
-    
+
     __block AWSCognitoCredentialsProvider *provider2 = nil;
-    
+
     [[[[provider1 refresh] continueWithSuccessBlock:^id(BFTask *task) {
         XCTAssertNil(task.error);
         XCTAssertNotNil(provider1.identityId, @"Unable to get identityId");
-        
+
         provider2 = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
                                                               identityPoolId:_identityPoolIdAuth];
         return [provider2 getIdentityId];
     }] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error);
         XCTAssertEqualObjects(provider1.identityId, provider2.identityId);
-        
+
         XCTAssertNotNil(provider2.accessKey);
         XCTAssertNotNil(provider2.secretKey);
         XCTAssertNotNil(provider2.sessionKey);
         XCTAssertNotNil(provider2.expiration);
-        
+
         return [provider2 refresh];
     }] waitUntilFinished];
-    
+
     provider2.logins = @{
                          @(AWSCognitoLoginProviderKeyFacebook) : _facebookToken
                          };
-    
+
     XCTAssertNil(provider2.accessKey);
     XCTAssertNil(provider2.secretKey);
     XCTAssertNil(provider2.sessionKey);
@@ -519,18 +527,18 @@ AWSCognitoIdentity *staticCib;
 - (void)testEnhancedProviderFailure {
     AWSCognitoCredentialsProvider *provider = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
                                                                                         identityPoolId:_identityPoolIdUnauth];
-    
+
     provider.logins = @{@(AWSCognitoLoginProviderKeyFacebook) : _facebookToken};
-    
+
     [[[[provider getIdentityId] continueWithSuccessBlock:^id(BFTask *task) {
         XCTAssertNil(provider.identityId, @"Shouldn't be able to get id");
-        
+
         return [provider refresh];
     }] continueWithBlock:^id(BFTask *task) {
         XCTAssertNotNil(task.error, @"Should report an error");
         XCTAssertNil(provider.identityId, @"Shouldn't be able to get id");
         XCTAssertNil(provider.accessKey, @"Shouldn't be able to get credentials");
-        
+
         return nil;
     }] waitUntilFinished];
 }

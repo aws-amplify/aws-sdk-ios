@@ -139,7 +139,6 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                 self.secretKey = wifResponse.credentials.secretAccessKey;
                 self.sessionKey = wifResponse.credentials.sessionToken;
                 self.expiration = wifResponse.credentials.expiration;
-                [self.keychain synchronize];
             }
         } else {
             // reset the values for the credentials
@@ -148,7 +147,6 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                 self.secretKey = nil;
                 self.sessionKey = nil;
                 self.expiration = nil;
-                [self.keychain synchronize];
             }
         }
 
@@ -320,7 +318,7 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 
 + (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
                            identityPoolId:(NSString *)identityPoolId {
-    
+
     return [AWSCognitoCredentialsProvider credentialsWithRegionType:regionType
                                                          identityId:nil
                                                      identityPoolId:identityPoolId
@@ -331,13 +329,13 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                                identityId:(NSString *)identityId
                            identityPoolId:(NSString *)identityPoolId
                                    logins:(NSDictionary *)logins {
-    
+
     AWSCognitoCredentialsProvider *credentials = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:regionType
                                                                                                 identityId:identityId
                                                                                             identityPoolId:identityPoolId
                                                                                                     logins:logins];
     return credentials;
-    
+
 }
 
 
@@ -345,21 +343,21 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                         identityId:(NSString *)identityId
                     identityPoolId:(NSString *)identityPoolId
                             logins:(NSDictionary *)logins {
-    
+
     AWSEnhancedCognitoIdentityProvider *identityProvider = [[AWSEnhancedCognitoIdentityProvider alloc]
-                                                         initWithRegionType:regionType
-                                                         identityId:identityId
-                                                         identityPoolId:identityPoolId
-                                                         logins:logins];
-    
-    
+                                                            initWithRegionType:regionType
+                                                            identityId:identityId
+                                                            identityPoolId:identityPoolId
+                                                            logins:logins];
+
+
     AWSCognitoCredentialsProvider *credentials = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:regionType
                                                                                           identityProvider:identityProvider
                                                                                              unauthRoleArn:nil
                                                                                                authRoleArn:nil];
-    
+
     credentials.useEnhancedFlow = YES;
-    
+
     return credentials;
 }
 
@@ -407,7 +405,6 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         // If the identity provider has an identity id, use it
         if (identityProvider.identityId) {
             _keychain[AWSCredentialsProviderKeychainIdentityId] = identityProvider.identityId;
-            [_keychain synchronize];
         }
         // Otherwise push whatever is in the keychain down to the identity provider
         else {
@@ -418,9 +415,9 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         AWSServiceConfiguration *configuration = [AWSServiceConfiguration configurationWithRegion:regionType
                                                                               credentialsProvider:credentialsProvider];
 
-        _sts = [[AWSSTS new] initWithConfiguration:configuration];
+        _sts = [[AWSSTS alloc] initWithConfiguration:configuration];
         _cib = [[AWSCognitoIdentity new] initWithConfiguration:configuration];
-        
+
         // Use the new flow if we explictly created an ehancedProvider
         // or if the roles are both nil (developer authenticated identities flow)
         _useEnhancedFlow = [identityProvider isKindOfClass:[AWSEnhancedCognitoIdentityProvider class]] || ((unauthRoleArn == nil) && (authRoleArn == nil));
@@ -434,14 +431,14 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     if (auth) {
         roleArn = self.authRoleArn;
     }
-    
+
     if (roleArn == nil) {
         return [BFTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderErrorDomain
                                                          code:AWSCognitoCredentialsProviderInvalidConfiguration
                                                      userInfo:@{NSLocalizedDescriptionKey: @"Required role ARN is nil"}]
                 ];
     }
-    
+
     AWSSTSAssumeRoleWithWebIdentityRequest *webIdentityRequest = [AWSSTSAssumeRoleWithWebIdentityRequest new];
     webIdentityRequest.roleArn = roleArn;
     webIdentityRequest.webIdentityToken = token;
@@ -454,13 +451,12 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                 self.secretKey = webIdentityResponse.credentials.secretAccessKey;
                 self.sessionKey = webIdentityResponse.credentials.sessionToken;
                 self.expiration = webIdentityResponse.credentials.expiration;
-                [self.keychain synchronize];
             }
         } else {
             // reset the values for the credentials
             [self clearCredentials];
         }
-        
+
         return task;
     }];
 }
@@ -468,7 +464,7 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 - (BFTask *)getCredentialsWithCognito:(NSString *)token authenticated:(BOOL)auth {
     // Grab a reference to our provider in case it changes out from under us
     id<AWSCognitoIdentityProvider> providerRef = self.identityProvider;
-    
+
     AWSCognitoIdentityGetCredentialsForIdentityInput *getCredentialsInput = [AWSCognitoIdentityGetCredentialsForIdentityInput new];
     getCredentialsInput.identityId = self.identityId;
     if (token) {
@@ -477,26 +473,26 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     else {
         getCredentialsInput.logins = self.logins;
     }
-    
-    
+
+
     return [[[self.cib getCredentialsForIdentity:getCredentialsInput] continueWithBlock:^id(BFTask *task) {
         // When an invalid identityId is cached in the keychain for auth,
         // we will refresh the identityId and try to get credentials token again.
         if (task.error) {
             AWSLogError(@"GetCredentialsForIdentity failed. Error is [%@]", task.error);
-            
+
             // If it's auth or we caught a not found or validation error
             // we want to reset the identity id, otherwise, just return
             // the error to our caller
             if (!(auth || [AWSCognitoCredentialsProvider shouldResetIdentityId:task.error])) {
                 return task;
             }
-            
+
             AWSLogVerbose(@"Resetting identity Id and calling getIdentityId");
             // if it's auth, reset id and refetch
             self.identityId = nil;
             providerRef.identityId = nil;
-            
+
             return [[providerRef getIdentityId] continueWithSuccessBlock:^id(BFTask *task) {
                 // This should never happen, but just in case
                 if (!providerRef.identityId) {
@@ -508,14 +504,14 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                             ];
                 }
                 self.identityId = providerRef.identityId;
-                
+
                 AWSLogVerbose(@"Retrying GetCredentialsForIdentity");
-                
+
                 // retry get credentials
                 AWSCognitoIdentityGetCredentialsForIdentityInput *getCredentialsRetry = [AWSCognitoIdentityGetCredentialsForIdentityInput new];
                 getCredentialsRetry.identityId = self.identityId;
                 getCredentialsRetry.logins = self.logins;
-                
+
                 return [self.cib getCredentialsForIdentity:getCredentialsRetry];
             }];
         }
@@ -529,10 +525,9 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         self.secretKey = getCredentialsResponse.credentials.secretKey;
         self.sessionKey = getCredentialsResponse.credentials.sessionToken;
         self.expiration = getCredentialsResponse.credentials.expiration;
-        [self.keychain synchronize];
-        
+
         NSString *identityIdFromResponse = getCredentialsResponse.identityId;
-        
+
         // This should never happen, but just in case
         if (!identityIdFromResponse) {
             AWSLogError(@"identityId from getCredentialsForIdentity is nil");
@@ -541,12 +536,12 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                                                          userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
                     ];
         }
-        
+
         if (![self.identityId isEqualToString:identityIdFromResponse]) {
             self.identityId = identityIdFromResponse;
             providerRef.identityId = identityIdFromResponse;
         }
-        
+
         return [BFTask taskWithResult:self.identityId];
     }];
 }
@@ -569,8 +564,7 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                 }
 
                 self.identityId = providerRef.identityId;
-                [self.keychain synchronize];
-                
+
                 if (self.useEnhancedFlow) {
                     return [self getCredentialsWithCognito:providerRef.token authenticated:[providerRef isAuthenticated]];
                 }
@@ -612,7 +606,6 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                     ];
         }
         self.identityId = providerRef.identityId;
-        [self.keychain synchronize];
         return task;
     }];
 }
@@ -631,7 +624,6 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         self.secretKey = nil;
         self.sessionKey = nil;
         self.expiration = nil;
-        [self.keychain synchronize];
     }
 }
 

@@ -14,7 +14,7 @@ if [ -e "Scripts/objc-fix.patch" ]; then
 fi
 
 if [ -x "Scripts/SdkPackage.sh" ]; then
-	Scripts/SdkPackage.sh
+    Scripts/SdkPackage.sh || { echo "Scripts/SdkPackage.sh failed."; git checkout .; exit 1; }
 fi
 
 if [ -x "Scripts/PodFramework.sh" ]; then
@@ -25,6 +25,7 @@ if [ -x "Scripts/PodFramework.sh" ]; then
 	Scripts/PodFramework.sh UICKeyChainStore
 	Scripts/PodFramework.sh Reachability
 	Scripts/PodFramework.sh GZIP
+	Scripts/PodFramework.sh FMDB
 fi
 
 git checkout .

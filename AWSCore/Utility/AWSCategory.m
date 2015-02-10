@@ -242,16 +242,6 @@ static NSTimeInterval _clockskew = 0.0;
 
 @implementation NSString (AWS)
 
-+ (NSString *)aws_randomStringWithLength:(NSUInteger)length {
-    NSMutableString *randomString = [NSMutableString new];
-    for (int32_t i = 0; i < length; i++) {
-        @autoreleasepool {
-            [randomString appendString:[NSString stringWithFormat:@"%c", arc4random_uniform(26) + 'a']];
-        }
-    }
-    return randomString;
-}
-
 - (BOOL)aws_isBase64Data {
     if ([self length] % 4 == 0) {
         static NSCharacterSet *invertedBase64CharacterSet = nil;

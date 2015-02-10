@@ -32,7 +32,6 @@ typedef NS_ENUM(NSInteger, AWSRegionType) {
 
 typedef NS_ENUM(NSInteger, AWSServiceType) {
     AWSServiceUnknown,
-    AWSServiceAppStream,
     AWSServiceAutoScaling,
     AWSServiceCloudWatch,
     AWSServiceCognitoIdentityBroker,

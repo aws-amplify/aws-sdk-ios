@@ -49,224 +49,232 @@ NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURL
     return _defaultS3PreSignedURLBuilder;
 }
 
+- (instancetype)init {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:@"`- init` is not a valid initializer. Use `+ defaultS3PreSignedURLBuilder` or `- initWithConfiguration:` instead."
+                                 userInfo:nil];
+    return nil;
+}
+
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
         _configuration = configuration;
-        _configuration.endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
-                                                          service:AWSServiceS3];
+        _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
+                                                              service:AWSServiceS3
+                                                         useUnsafeURL:NO];
     }
 
     return self;
 }
 
 - (BFTask *)getPreSignedURL:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest {
-    
+
     return [[BFTask taskWithResult:nil] continueWithBlock:^id(BFTask *task) {
-    
-    //retrive parameters from request;
-    NSString *bucketName = getPreSignedURLRequest.bucket;
-    NSString *keyName = getPreSignedURLRequest.key;
-    AWSHTTPMethod httpMethod = getPreSignedURLRequest.HTTPMethod;
 
-    AWSServiceConfiguration *configuration = self.configuration;
-    id<AWSCredentialsProvider>credentialProvider = configuration.credentialsProvider;
-    AWSEndpoint *endpoint = self.configuration.endpoint;
+        //retrive parameters from request;
+        NSString *bucketName = getPreSignedURLRequest.bucket;
+        NSString *keyName = getPreSignedURLRequest.key;
+        AWSHTTPMethod httpMethod = getPreSignedURLRequest.HTTPMethod;
 
-    NSDate *expires = getPreSignedURLRequest.expires;
-    NSString *versionId = getPreSignedURLRequest.versionId;
+        AWSServiceConfiguration *configuration = self.configuration;
+        id<AWSCredentialsProvider>credentialProvider = configuration.credentialsProvider;
+        AWSEndpoint *endpoint = self.configuration.endpoint;
 
-    //validate endpoint
-    if (!endpoint) {
-        return [BFTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
-                                                         code:AWSS3PresignedURLErrorEndpointIsNil
-                                                     userInfo:@{NSLocalizedDescriptionKey: @"endpoint in configuration can not be nil"}]
-                ];
-    } else if (endpoint.serviceType != AWSServiceS3) {
-        return [BFTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
-                                                         code:AWSS3PresignedURLErrorInvalidServiceType
-                                                     userInfo:@{NSLocalizedDescriptionKey: @"Invalid serviceType: serviceType in endpoint must be AWSServiceS3"}]
-                ];
-    }
+        NSDate *expires = getPreSignedURLRequest.expires;
+        NSString *versionId = getPreSignedURLRequest.versionId;
 
-    //validate credentialProvider
-    if (!credentialProvider) {
-        return [BFTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
-                                                         code:AWSS3PreSignedURLErrorCredentialProviderIsNil
-                                                     userInfo:@{NSLocalizedDescriptionKey: @"credentialProvider in configuration can not be nil"}]
-                ];
-    }
-        
-    //validate expiration date if using temporary token and refresh it if condition met
-    if ([credentialProvider respondsToSelector:@selector(expiration)]) {
-        if ([credentialProvider respondsToSelector:@selector(refresh)]) {
-            if ([credentialProvider.expiration timeIntervalSinceNow] < getPreSignedURLRequest.minimumCredentialsExpirationInterval) {
-                //need to refresh temp credential
-                [[credentialProvider refresh] waitUntilFinished];
+        //validate endpoint
+        if (!endpoint) {
+            return [BFTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
+                                                             code:AWSS3PresignedURLErrorEndpointIsNil
+                                                         userInfo:@{NSLocalizedDescriptionKey: @"endpoint in configuration can not be nil"}]
+                    ];
+        } else if (endpoint.serviceType != AWSServiceS3) {
+            return [BFTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
+                                                             code:AWSS3PresignedURLErrorInvalidServiceType
+                                                         userInfo:@{NSLocalizedDescriptionKey: @"Invalid serviceType: serviceType in endpoint must be AWSServiceS3"}]
+                    ];
+        }
+
+        //validate credentialProvider
+        if (!credentialProvider) {
+            return [BFTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
+                                                             code:AWSS3PreSignedURLErrorCredentialProviderIsNil
+                                                         userInfo:@{NSLocalizedDescriptionKey: @"credentialProvider in configuration can not be nil"}]
+                    ];
+        }
+
+        //validate expiration date if using temporary token and refresh it if condition met
+        if ([credentialProvider respondsToSelector:@selector(expiration)]) {
+            if ([credentialProvider respondsToSelector:@selector(refresh)]) {
+                if ([credentialProvider.expiration timeIntervalSinceNow] < getPreSignedURLRequest.minimumCredentialsExpirationInterval) {
+                    //need to refresh temp credential
+                    [[credentialProvider refresh] waitUntilFinished];
+                }
             }
         }
-    }
 
-    //validate accessKey
-    if ([credentialProvider respondsToSelector:@selector(accessKey)] && [credentialProvider.accessKey length] > 0) {
-        //continue to process.
-    } else {
-        return [BFTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
-                                                         code:AWSS3PresignedURLErrorAccessKeyIsNil
-                                                     userInfo:@{NSLocalizedDescriptionKey: @"accessKey in credentialProvider can not be nil"}]
-                ];
-    }
-
-    //validate secretKey
-    if ([credentialProvider respondsToSelector:@selector(secretKey)] && [credentialProvider.secretKey length] > 0) {
-        //continue to process.
-    } else {
-        return [BFTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
-                                                         code:AWSS3PresignedURLErrorSecretKeyIsNil
-                                                     userInfo:@{NSLocalizedDescriptionKey: @"secretKey in credentialProvider can not be nil"}]
-                ];
-        
-    }
-
-    //validate bucketName
-    if (!bucketName || [bucketName length] < 1) {
-        return [BFTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
-                                                         code:AWSS3PresignedURLErrorBucketNameIsNil
-                                                     userInfo:@{NSLocalizedDescriptionKey: @"S3 bucket can not be nil or empty"}]
-                ];
-    }
-
-    //validate keyName
-    if (!keyName || [keyName length] < 1) {
-        return [BFTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
-                                                         code:AWSS3PresignedURLErrorKeyNameIsNil
-                                                     userInfo:@{NSLocalizedDescriptionKey: @"S3 key can not be nil or empty"}]
-                ];
-    }
-
-    //validate expires Date
-    if (!expires) {
-        return [BFTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
-                                                         code:AWSS3PresignedURLErrorInvalidExpiresDate
-                                                     userInfo:@{NSLocalizedDescriptionKey: @"expires can not be nil"}]
-                ];
-    }else if ([expires timeIntervalSinceNow] < 0.0) {
-        return [BFTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
-                                                         code:AWSS3PresignedURLErrorInvalidExpiresDate
-                                                     userInfo:@{NSLocalizedDescriptionKey: @"expires can not be in past"}]
-                ];
-    }
-
-    //validate httpMethod
-    switch (httpMethod) {
-        case AWSHTTPMethodGET:
-        case AWSHTTPMethodPUT:
-        case AWSHTTPMethodHEAD:
-        case AWSHTTPMethodDELETE:
-            break;
-        default:
+        //validate accessKey
+        if ([credentialProvider respondsToSelector:@selector(accessKey)] && [credentialProvider.accessKey length] > 0) {
+            //continue to process.
+        } else {
             return [BFTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
-                                                             code:AWSS3PresignedURLErrorUnsupportedHTTPVerbs
-                                                         userInfo:@{NSLocalizedDescriptionKey: @"unsupported HTTP Method, currently only support AWSHTTPMethodGET, AWSHTTPMethodPUT, AWSHTTPMethodHEAD, AWSHTTPMethodDELETE"}]
+                                                             code:AWSS3PresignedURLErrorAccessKeyIsNil
+                                                         userInfo:@{NSLocalizedDescriptionKey: @"accessKey in credentialProvider can not be nil"}]
                     ];
-            break;
-    }
+        }
 
-    
-    //generate baseURL String (use virtualHostStyle if possible)
-    NSString *keyPath = nil;
-    if (bucketName == nil || [self aws_isVirtualHostedStyleCompliant:bucketName]) {
-        keyPath = (keyName == nil ? @"" : [NSString stringWithFormat:@"%@", [keyName aws_stringWithURLEncodingPath]]);
-    } else {
-        keyPath = (keyName == nil ? [NSString stringWithFormat:@"%@", bucketName] : [NSString stringWithFormat:@"%@/%@", bucketName, [keyName aws_stringWithURLEncodingPath]]);
-    }
+        //validate secretKey
+        if ([credentialProvider respondsToSelector:@selector(secretKey)] && [credentialProvider.secretKey length] > 0) {
+            //continue to process.
+        } else {
+            return [BFTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
+                                                             code:AWSS3PresignedURLErrorSecretKeyIsNil
+                                                         userInfo:@{NSLocalizedDescriptionKey: @"secretKey in credentialProvider can not be nil"}]
+                    ];
 
-    //generate correct hostName (use virtualHostStyle if possible)
-    NSString *host = nil;
-    if (bucketName && [self aws_isVirtualHostedStyleCompliant:bucketName]) {
-        host = [NSString stringWithFormat:@"%@.%@", bucketName, endpoint.hostName];
-    } else {
-        host = endpoint.hostName;
-    }
+        }
 
-    //generate queryString
-    NSMutableString *queryString = [NSMutableString stringWithCapacity:512];
+        //validate bucketName
+        if (!bucketName || [bucketName length] < 1) {
+            return [BFTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
+                                                             code:AWSS3PresignedURLErrorBucketNameIsNil
+                                                         userInfo:@{NSLocalizedDescriptionKey: @"S3 bucket can not be nil or empty"}]
+                    ];
+        }
 
-    //security Token
-    if ([credentialProvider respondsToSelector:@selector(sessionKey)] && [credentialProvider.sessionKey length] > 0) {
-        [queryString appendFormat:@"%@=%@&", @"x-amz-security-token", [credentialProvider.sessionKey aws_stringWithURLEncoding]];
-    }
+        //validate keyName
+        if (!keyName || [keyName length] < 1) {
+            return [BFTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
+                                                             code:AWSS3PresignedURLErrorKeyNameIsNil
+                                                         userInfo:@{NSLocalizedDescriptionKey: @"S3 key can not be nil or empty"}]
+                    ];
+        }
 
-    [queryString appendFormat:@"%@=%@", @"AWSAccessKeyId", [credentialProvider.accessKey aws_stringWithURLEncoding]];
+        //validate expires Date
+        if (!expires) {
+            return [BFTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
+                                                             code:AWSS3PresignedURLErrorInvalidExpiresDate
+                                                         userInfo:@{NSLocalizedDescriptionKey: @"expires can not be nil"}]
+                    ];
+        }else if ([expires timeIntervalSinceNow] < 0.0) {
+            return [BFTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
+                                                             code:AWSS3PresignedURLErrorInvalidExpiresDate
+                                                         userInfo:@{NSLocalizedDescriptionKey: @"expires can not be in past"}]
+                    ];
+        }
 
-    // Add expire time
-    int32_t expireTimestamp = (int32_t)[expires timeIntervalSince1970];
-    [queryString appendFormat:@"&%@=%d", @"Expires", expireTimestamp];
+        //validate httpMethod
+        switch (httpMethod) {
+            case AWSHTTPMethodGET:
+            case AWSHTTPMethodPUT:
+            case AWSHTTPMethodHEAD:
+            case AWSHTTPMethodDELETE:
+                break;
+            default:
+                return [BFTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
+                                                                 code:AWSS3PresignedURLErrorUnsupportedHTTPVerbs
+                                                             userInfo:@{NSLocalizedDescriptionKey: @"unsupported HTTP Method, currently only support AWSHTTPMethodGET, AWSHTTPMethodPUT, AWSHTTPMethodHEAD, AWSHTTPMethodDELETE"}]
+                        ];
+                break;
+        }
 
-    // Version
-    if (versionId) {
-        [queryString appendFormat:@"&%@=%@", @"versionId", [versionId aws_stringWithURLEncoding]];
-    }
 
-    // =============  generate the signature string ===================
+        //generate baseURL String (use virtualHostStyle if possible)
+        NSString *keyPath = nil;
+        if (bucketName == nil || [self aws_isVirtualHostedStyleCompliant:bucketName]) {
+            keyPath = (keyName == nil ? @"" : [NSString stringWithFormat:@"%@", [keyName aws_stringWithURLEncodingPath]]);
+        } else {
+            keyPath = (keyName == nil ? [NSString stringWithFormat:@"%@", bucketName] : [NSString stringWithFormat:@"%@/%@", bucketName, [keyName aws_stringWithURLEncodingPath]]);
+        }
 
-    /* String to Sign Format:
-     *
-     * HTTP-VERB + "\n" +
-     * Content-MD5 + "\n" + (Optional)
-     * Content-Type + "\n" + (Optional)
-     * Expires + "\n" +
-     * CanonicalizedAmzHeaders +
-     * CanonicalizedResource;
-     */
+        //generate correct hostName (use virtualHostStyle if possible)
+        NSString *host = nil;
+        if (bucketName && [self aws_isVirtualHostedStyleCompliant:bucketName]) {
+            host = [NSString stringWithFormat:@"%@.%@", bucketName, endpoint.hostName];
+        } else {
+            host = endpoint.hostName;
+        }
 
-    //Content-Type or Content-MD5 are optional for PUT requests and meaningless for GET requests), substitute the empty string ("") for that position.
-    NSString *contentMd5 = @"";
-    NSString *contentType = @"";
-    if (httpMethod == AWSHTTPMethodPUT && getPreSignedURLRequest.contentType) {
-        contentType = getPreSignedURLRequest.contentType;
-    }
-    
-    NSMutableString *canonicalizedAmzHeaders = [NSMutableString stringWithFormat:@""];
-    if ([credentialProvider respondsToSelector:@selector(sessionKey)] && [credentialProvider.sessionKey length] > 0) {
-        [canonicalizedAmzHeaders appendFormat:@"%@:%@\n",@"x-amz-security-token",credentialProvider.sessionKey];
-    }
-    NSString *canonicalizedResource = @"";
-    if (nil == keyName || [keyName length] < 1) {
-        if (nil == bucketName || [bucketName length] < 1) {
-            canonicalizedResource = @"/";
+        //generate queryString
+        NSMutableString *queryString = [NSMutableString stringWithCapacity:512];
+
+        //security Token
+        if ([credentialProvider respondsToSelector:@selector(sessionKey)] && [credentialProvider.sessionKey length] > 0) {
+            [queryString appendFormat:@"%@=%@&", @"x-amz-security-token", [credentialProvider.sessionKey aws_stringWithURLEncoding]];
+        }
+
+        [queryString appendFormat:@"%@=%@", @"AWSAccessKeyId", [credentialProvider.accessKey aws_stringWithURLEncoding]];
+
+        // Add expire time
+        int32_t expireTimestamp = (int32_t)[expires timeIntervalSince1970];
+        [queryString appendFormat:@"&%@=%d", @"Expires", expireTimestamp];
+
+        // Version
+        if (versionId) {
+            [queryString appendFormat:@"&%@=%@", @"versionId", [versionId aws_stringWithURLEncoding]];
+        }
+
+        // =============  generate the signature string ===================
+
+        /* String to Sign Format:
+         *
+         * HTTP-VERB + "\n" +
+         * Content-MD5 + "\n" + (Optional)
+         * Content-Type + "\n" + (Optional)
+         * Expires + "\n" +
+         * CanonicalizedAmzHeaders +
+         * CanonicalizedResource;
+         */
+
+        //Content-Type or Content-MD5 are optional for PUT requests and meaningless for GET requests), substitute the empty string ("") for that position.
+        NSString *contentMd5 = @"";
+        NSString *contentType = @"";
+        if (httpMethod == AWSHTTPMethodPUT && getPreSignedURLRequest.contentType) {
+            contentType = getPreSignedURLRequest.contentType;
+        }
+
+        NSMutableString *canonicalizedAmzHeaders = [NSMutableString stringWithFormat:@""];
+        if ([credentialProvider respondsToSelector:@selector(sessionKey)] && [credentialProvider.sessionKey length] > 0) {
+            [canonicalizedAmzHeaders appendFormat:@"%@:%@\n",@"x-amz-security-token",credentialProvider.sessionKey];
+        }
+        NSString *canonicalizedResource = @"";
+        if (nil == keyName || [keyName length] < 1) {
+            if (nil == bucketName || [bucketName length] < 1) {
+                canonicalizedResource = @"/";
+            }
+            else {
+                if ( [self aws_isVirtualHostedStyleCompliant:bucketName]) {
+                    canonicalizedResource = [NSString stringWithFormat:@"/%@/", bucketName];
+                }else {
+                    canonicalizedResource = [NSString stringWithFormat:@"/%@", bucketName];
+                }
+            }
         }
         else {
-            if ( [self aws_isVirtualHostedStyleCompliant:bucketName]) {
-                canonicalizedResource = [NSString stringWithFormat:@"/%@/", bucketName];
-            }else {
-                canonicalizedResource = [NSString stringWithFormat:@"/%@", bucketName];
-            }
+            canonicalizedResource = [NSString stringWithFormat:@"/%@/%@", bucketName, [keyName aws_stringWithURLEncodingPath]];
         }
-    }
-    else {
-        canonicalizedResource = [NSString stringWithFormat:@"/%@/%@", bucketName, [keyName aws_stringWithURLEncodingPath]];
-    }
 
-    NSString *stringToSign = [NSString stringWithFormat:@"%@\n%@\n%@\n%d\n%@%@",
-                              [NSString aws_stringWithHTTPMethod:httpMethod],
-                              contentMd5,
-                              contentType,
-                              expireTimestamp,
-                              canonicalizedAmzHeaders,
-                              canonicalizedResource];
+        NSString *stringToSign = [NSString stringWithFormat:@"%@\n%@\n%@\n%d\n%@%@",
+                                  [NSString aws_stringWithHTTPMethod:httpMethod],
+                                  contentMd5,
+                                  contentType,
+                                  expireTimestamp,
+                                  canonicalizedAmzHeaders,
+                                  canonicalizedResource];
 
-    /* Signature Format:
-     * URL-Encode( Base64( HMAC-SHA1( YourSecretAccessKeyID, UTF-8-Encoding-Of( StringToSign ) ) ) );
-     */
-    NSString *signature = [[AWSSignatureSignerUtility HMACSign:[stringToSign dataUsingEncoding:NSUTF8StringEncoding]
-                                                       withKey:credentialProvider.secretKey
-                                                usingAlgorithm:kCCHmacAlgSHA1] aws_stringWithURLEncoding];
-    [queryString appendFormat:@"&%@=%@",@"Signature",signature];
-
-    // =============  generate the signature string (END)===================
-
-    NSURL *result = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/%@?%@", endpoint.useUnsafeURL?@"http":@"https", host, keyPath, queryString]];
-
+        /* Signature Format:
+         * URL-Encode( Base64( HMAC-SHA1( YourSecretAccessKeyID, UTF-8-Encoding-Of( StringToSign ) ) ) );
+         */
+        NSString *signature = [[AWSSignatureSignerUtility HMACSign:[stringToSign dataUsingEncoding:NSUTF8StringEncoding]
+                                                           withKey:credentialProvider.secretKey
+                                                    usingAlgorithm:kCCHmacAlgSHA1] aws_stringWithURLEncoding];
+        [queryString appendFormat:@"&%@=%@",@"Signature",signature];
+        
+        // =============  generate the signature string (END)===================
+        
+        NSURL *result = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/%@?%@", endpoint.useUnsafeURL?@"http":@"https", host, keyPath, queryString]];
+        
         return [BFTask taskWithResult:result];
         
     }];

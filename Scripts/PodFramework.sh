@@ -47,6 +47,9 @@ elif [ "$1" = "Bolts" ]
 then
     cp -a Pods/${NAME}/${NAME}/Common/*.h $FRAMEWORK_DIR/Headers/
     cp -a Pods/${NAME}/${NAME}/iOS/*.h $FRAMEWORK_DIR/Headers/
+elif [ "$1" = "FMDB" ]
+then
+    cp -a Pods/${NAME}/src/fmdb/*.h $FRAMEWORK_DIR/Headers/
 else
     cp -a Pods/${NAME}/${NAME}/*.h $FRAMEWORK_DIR/Headers/
 fi

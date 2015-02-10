@@ -117,13 +117,13 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSDynamoDBRequestRetryHandler
 
 - (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
-                            response:(NSHTTPURLResponse *)response
-                                data:(NSData *)data
-                               error:(NSError *)error {
+                             response:(NSHTTPURLResponse *)response
+                                 data:(NSData *)data
+                                error:(NSError *)error {
     AWSNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
-                                                response:response
-                                                    data:data
-                                                   error:error];
+                                                 response:response
+                                                     data:data
+                                                    error:error];
     if(retryType == AWSNetworkingRetryTypeShouldNotRetry
        && [error.domain isEqualToString:AWSDynamoDBErrorDomain]
        && currentRetryCount < self.maxRetryCount) {
@@ -185,12 +185,20 @@ static NSDictionary *errorCodeDictionary = nil;
     return _defaultDynamoDB;
 }
 
+- (instancetype)init {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:@"`- init` is not a valid initializer. Use `+ defaultDynamoDB` or `- initWithConfiguration:` instead."
+                                 userInfo:nil];
+    return nil;
+}
+
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
         _configuration = [configuration copy];
 
-        _configuration.endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
-                                                          service:AWSServiceDynamoDB];
+        _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
+                                                              service:AWSServiceDynamoDB
+                                                         useUnsafeURL:NO];
 
         AWSSignatureV4Signer *signer = [AWSSignatureV4Signer signerWithCredentialsProvider:_configuration.credentialsProvider
                                                                                   endpoint:_configuration.endpoint];
@@ -231,7 +239,7 @@ static NSDictionary *errorCodeDictionary = nil;
     networkingRequest.HTTPMethod = HTTPMethod;
     networkingRequest.responseSerializer = [AWSDynamoDBResponseSerializer serializerWithOutputClass:outputClass resource:AWSDynamoDBDefinitionFileName actionName:operationName];
     networkingRequest.requestSerializer = [AWSJSONRequestSerializer serializerWithResource:AWSDynamoDBDefinitionFileName actionName:operationName];
-    
+
     return [self.networking sendRequest:networkingRequest];
 }
 

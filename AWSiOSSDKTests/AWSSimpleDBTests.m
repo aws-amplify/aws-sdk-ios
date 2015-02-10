@@ -112,6 +112,65 @@ static NSString *_testDomainName = nil;
     }] waitUntilFinished];
 }
 
+- (void)testBatchPutAttributes {
+    AWSSimpleDB *sdb = [AWSSimpleDB defaultSimpleDB];
+    
+    NSString *myItemName = [NSString stringWithFormat:@"itemNameFirst%@",NSStringFromSelector(_cmd)];
+    NSString *myItemName2 = [NSString stringWithFormat:@"itemNameSecond%@",NSStringFromSelector(_cmd)];
+    NSString *myItemName3 = [NSString stringWithFormat:@"itemNameThird%@",NSStringFromSelector(_cmd)];
+    
+    AWSSimpleDBReplaceableAttribute *attribute1 = [AWSSimpleDBReplaceableAttribute new];
+    attribute1.name = @"Color";
+    attribute1.value = @"Blue";
+    attribute1.replace = @YES;
+    
+    AWSSimpleDBReplaceableAttribute *attribute2 = [AWSSimpleDBReplaceableAttribute new];
+    attribute2.name = @"Size";
+    attribute2.value = @"9";
+    
+    AWSSimpleDBReplaceableAttribute *attribute3 = [AWSSimpleDBReplaceableAttribute new];
+    attribute3.name = @"Width";
+    attribute3.value = @"D";
+    
+    AWSSimpleDBReplaceableAttribute *attribute4 = [AWSSimpleDBReplaceableAttribute new];
+    attribute4.name = @"Gender";
+    attribute4.value = @"Men";
+    
+    AWSSimpleDBReplaceableAttribute *attribute5 = [AWSSimpleDBReplaceableAttribute new];
+    attribute5.name = @"Condition";
+    attribute5.value = @"New";
+    
+    AWSSimpleDBReplaceableAttribute *attribute6 = [AWSSimpleDBReplaceableAttribute new];
+    attribute6.name = @"Location";
+    attribute6.value = @"US";
+    
+    
+    AWSSimpleDBReplaceableItem *firstItem = [AWSSimpleDBReplaceableItem new];
+    firstItem.name = myItemName;
+    firstItem.attributes = @[attribute1,attribute2];
+    
+    AWSSimpleDBReplaceableItem *secondItem = [AWSSimpleDBReplaceableItem new];
+    secondItem.name = myItemName2;
+    secondItem.attributes = @[attribute3,attribute4];
+    
+    AWSSimpleDBReplaceableItem *thirdItem = [AWSSimpleDBReplaceableItem new];
+    thirdItem.name = myItemName3;
+    thirdItem.attributes = @[attribute5,attribute6];
+    
+    //Create PutAttributesRequest
+    AWSSimpleDBBatchPutAttributesRequest *batchPutAttributesRequest = [AWSSimpleDBBatchPutAttributesRequest new];
+    batchPutAttributesRequest.domainName = _testDomainName;
+    batchPutAttributesRequest.items = @[firstItem,secondItem,thirdItem];
+    
+    [[[sdb batchPutAttributes:batchPutAttributesRequest] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        return nil;
+
+    }] waitUntilFinished ];
+}
 - (void)testSelectWithLike {
     AWSSimpleDB *sdb = [AWSSimpleDB defaultSimpleDB];
     NSString *myItemName = [NSString stringWithFormat:@"itemName%@",NSStringFromSelector(_cmd)];

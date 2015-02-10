@@ -14,6 +14,7 @@
 		BD1861BF19A41395003C8E42 /* ec2-input.json in Resources */ = {isa = PBXBuildFile; fileRef = BD1861BD19A41395003C8E42 /* ec2-input.json */; };
 		BD1861C019A41395003C8E42 /* ec2-output.json in Resources */ = {isa = PBXBuildFile; fileRef = BD1861BE19A41395003C8E42 /* ec2-output.json */; };
 		BD19ED05188F15EB001F5B98 /* AWSS3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD19ED04188F15EB001F5B98 /* AWSS3Tests.m */; };
+		BD311F101A7C6405004DF422 /* AWSDynamoDBObjectMapperSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD311F0F1A7C6405004DF422 /* AWSDynamoDBObjectMapperSwiftTests.swift */; };
 		BD9CC214193CFF0700780456 /* AWSMobileAnalyticsERSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9CC213193CFF0700780456 /* AWSMobileAnalyticsERSTests.m */; };
 		BDBA90BA18EE43B6004EE131 /* AWSValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55F35218DB716B00F8C75F /* AWSValidation.m */; };
 		BDBA90BB18EE43BA004EE131 /* AWSURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55F35018DB716B00F8C75F /* AWSURLResponseSerialization.m */; };
@@ -249,11 +250,12 @@
 		38D2089219C2A67D0024D82A /* AWSIdentityProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSIdentityProvider.h; sourceTree = "<group>"; };
 		38D2089319C2A67D0024D82A /* AWSIdentityProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSIdentityProvider.m; sourceTree = "<group>"; };
 		3B6225C6B341BA24555E8612 /* Pods-AWSiOSSDKv2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSiOSSDKv2Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSiOSSDKv2Tests/Pods-AWSiOSSDKv2Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		3D28AD288BC8F3B90AA53752 /* libPods-AWSiOSSDKv2Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSiOSSDKv2Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BB7B6F0A612F57F5B9ADF91 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BD1861BD19A41395003C8E42 /* ec2-input.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ec2-input.json"; sourceTree = "<group>"; };
 		BD1861BE19A41395003C8E42 /* ec2-output.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ec2-output.json"; sourceTree = "<group>"; };
 		BD19ED04188F15EB001F5B98 /* AWSS3Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSS3Tests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		BD311F0E1A7C6404004DF422 /* AWSiOSSDKv2Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSiOSSDKv2Tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		BD311F0F1A7C6405004DF422 /* AWSDynamoDBObjectMapperSwiftTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSDynamoDBObjectMapperSwiftTests.swift; sourceTree = "<group>"; };
 		BD9CC213193CFF0700780456 /* AWSMobileAnalyticsERSTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSMobileAnalyticsERSTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BDC8315E1919725000A01D20 /* AWSS3TransferManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSS3TransferManagerTests.m; sourceTree = "<group>"; };
 		BDD11DEE193FA13600AF60E1 /* AWSiOSSDKv2AnalyticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSiOSSDKv2AnalyticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -378,8 +380,6 @@
 		CE0986101922A7470006EA67 /* AWSSTSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSSTSModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CE0986121922A7470006EA67 /* sts-2011-06-15.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "sts-2011-06-15.json"; sourceTree = "<group>"; };
 		CE0986131922A7470006EA67 /* STS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STS.h; sourceTree = "<group>"; };
-		CE0A06501A2402D40003B69B /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
-		CE0A06521A2404000003B69B /* libPods-UICKeyChainStore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-UICKeyChainStore.a"; path = "Pods/build/Debug-iphoneos/libPods-UICKeyChainStore.a"; sourceTree = "<group>"; };
 		CE0A06541A24044B0003B69B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CE0D85D618D37EC000D41F8A /* AWSSQSTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSSQSTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CE0D85D818D385DA00D41F8A /* AWSSNSTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSSNSTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -505,8 +505,6 @@
 		CE5D83D91857AA3100907C25 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE5D83DD1857AA3100907C25 /* AWSiOSSDKv2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSiOSSDKv2-Prefix.pch"; sourceTree = "<group>"; };
 		CE5D83E71857AA3100907C25 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		CE7363AA1A2407D700917759 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
-		CE7363AD1A240B1F00917759 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		CE7635B219BFA034005FD5D0 /* AWSCognitoIdentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCognitoIdentity.h; sourceTree = "<group>"; };
 		CE7635B319BFA034005FD5D0 /* AWSCognitoIdentity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoIdentity.m; sourceTree = "<group>"; };
 		CE7635B419BFA034005FD5D0 /* AWSCognitoIdentityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCognitoIdentityModel.h; sourceTree = "<group>"; };
@@ -1023,6 +1021,7 @@
 				38627E3E19253F5500EF30EF /* AWSCognitoIdentityServiceTests.m */,
 				CE314865187B57F50068883B /* AWSCoreTests.m */,
 				CEBA14CC1921AC2F008C596A /* AWSDynamoDBObjectMapperTests.m */,
+				BD311F0F1A7C6405004DF422 /* AWSDynamoDBObjectMapperSwiftTests.swift */,
 				CE314864187B57F50068883B /* AWSDynamoDBTests.m */,
 				CEB2A4A318D782F80007AAF4 /* AWSEC2Tests.m */,
 				CE8FEAA218D3B18600EC90A6 /* AWSElasticLoadBalancingTests.m */,
@@ -1040,6 +1039,7 @@
 				CE160B2219774365001ABF94 /* AWSTestUtility.h */,
 				CE160B2019774315001ABF94 /* AWSTestUtility.m */,
 				CE314857187B577A0068883B /* Supporting Files */,
+				BD311F0E1A7C6404004DF422 /* AWSiOSSDKv2Tests-Bridging-Header.h */,
 			);
 			path = AWSiOSSDKTests;
 			sourceTree = "<group>";
@@ -1433,11 +1433,7 @@
 		CE5D83D81857AA3100907C25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE7363AD1A240B1F00917759 /* libPods.a */,
-				CE7363AA1A2407D700917759 /* libPods.a */,
 				CE0A06541A24044B0003B69B /* Security.framework */,
-				CE0A06521A2404000003B69B /* libPods-UICKeyChainStore.a */,
-				CE0A06501A2402D40003B69B /* libPods.a */,
 				CE5D83D91857AA3100907C25 /* Foundation.framework */,
 				BDD11E10193FA41F00AF60E1 /* libOCMock.a */,
 				F3A0CE70F1DF4EEE8E04D464 /* libPods.a */,
@@ -1448,7 +1444,6 @@
 				BDD11E31193FA70C00AF60E1 /* SystemConfiguration.framework */,
 				CE31486C187B59220068883B /* UIKit.framework */,
 				CE5D83E71857AA3100907C25 /* XCTest.framework */,
-				3D28AD288BC8F3B90AA53752 /* libPods-AWSiOSSDKv2Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2134,6 +2129,7 @@
 				CE0D85D918D385DA00D41F8A /* AWSSNSTests.m in Sources */,
 				CE3F4D3919BFCE5A000C1A6C /* AWSS3PreSignedURLBuilderTests.m in Sources */,
 				CE0D85D718D37EC000D41F8A /* AWSSQSTests.m in Sources */,
+				BD311F101A7C6405004DF422 /* AWSDynamoDBObjectMapperSwiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2301,6 +2297,22 @@
 					"-framework",
 					XCTest,
 					"-ObjC",
+					"-l\"Pods-Bolts\"",
+					"-l\"Pods-FMDB\"",
+					"-l\"Pods-GZIP\"",
+					"-l\"Pods-Mantle\"",
+					"-l\"Pods-Reachability\"",
+					"-l\"Pods-TMCache\"",
+					"-l\"Pods-UICKeyChainStore\"",
+					"-l\"Pods-XMLDictionary\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-weak_framework",
+					"\"UIKit\"",
 				);
 				PRODUCT_NAME = AWSiOSSDKv2AnalyticsTests;
 				WRAPPER_EXTENSION = xctest;
@@ -2336,6 +2348,22 @@
 					"-framework",
 					XCTest,
 					"-ObjC",
+					"-l\"Pods-Bolts\"",
+					"-l\"Pods-FMDB\"",
+					"-l\"Pods-GZIP\"",
+					"-l\"Pods-Mantle\"",
+					"-l\"Pods-Reachability\"",
+					"-l\"Pods-TMCache\"",
+					"-l\"Pods-UICKeyChainStore\"",
+					"-l\"Pods-XMLDictionary\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-weak_framework",
+					"\"UIKit\"",
 				);
 				PRODUCT_NAME = AWSiOSSDKv2AnalyticsTests;
 				WRAPPER_EXTENSION = xctest;
@@ -2345,6 +2373,7 @@
 		CE314862187B577A0068883B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2363,14 +2392,33 @@
 				);
 				INFOPLIST_FILE = "AWSiOSSDKTests/AWSiOSSDKv2Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
 					XCTest,
 					"-ObjC",
+					"-l\"Pods-Bolts\"",
+					"-l\"Pods-FMDB\"",
+					"-l\"Pods-GZIP\"",
+					"-l\"Pods-Mantle\"",
+					"-l\"Pods-Reachability\"",
+					"-l\"Pods-TMCache\"",
+					"-l\"Pods-UICKeyChainStore\"",
+					"-l\"Pods-XMLDictionary\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-weak_framework",
+					"\"UIKit\"",
 				);
 				PRODUCT_NAME = AWSiOSSDKv2Tests;
+				SWIFT_OBJC_BRIDGING_HEADER = "AWSiOSSDKTests/AWSiOSSDKv2Tests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -2378,6 +2426,7 @@
 		CE314863187B577A0068883B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2392,14 +2441,32 @@
 				);
 				INFOPLIST_FILE = "AWSiOSSDKTests/AWSiOSSDKv2Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
 					XCTest,
 					"-ObjC",
+					"-l\"Pods-Bolts\"",
+					"-l\"Pods-FMDB\"",
+					"-l\"Pods-GZIP\"",
+					"-l\"Pods-Mantle\"",
+					"-l\"Pods-Reachability\"",
+					"-l\"Pods-TMCache\"",
+					"-l\"Pods-UICKeyChainStore\"",
+					"-l\"Pods-XMLDictionary\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-weak_framework",
+					"\"UIKit\"",
 				);
 				PRODUCT_NAME = AWSiOSSDKv2Tests;
+				SWIFT_OBJC_BRIDGING_HEADER = "AWSiOSSDKTests/AWSiOSSDKv2Tests-Bridging-Header.h";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -2484,25 +2551,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AWSiOSSDKv2-Prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-l\"Pods-Bolts\"",
-					"-l\"Pods-FMDB\"",
-					"-l\"Pods-GZIP\"",
-					"-l\"Pods-Mantle\"",
-					"-l\"Pods-Reachability\"",
-					"-l\"Pods-TMCache\"",
-					"-l\"Pods-UICKeyChainStore\"",
-					"-l\"Pods-XMLDictionary\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-weak_framework",
-					"\"UIKit\"",
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSiOSSDKv2;
 				SKIP_INSTALL = YES;
 			};
@@ -2516,25 +2565,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AWSiOSSDKv2-Prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-l\"Pods-Bolts\"",
-					"-l\"Pods-FMDB\"",
-					"-l\"Pods-GZIP\"",
-					"-l\"Pods-Mantle\"",
-					"-l\"Pods-Reachability\"",
-					"-l\"Pods-TMCache\"",
-					"-l\"Pods-UICKeyChainStore\"",
-					"-l\"Pods-XMLDictionary\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-weak_framework",
-					"\"UIKit\"",
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSiOSSDKv2;
 				SKIP_INSTALL = YES;
 			};
