@@ -238,7 +238,7 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 @property (nonatomic, strong) UICKeyChainStore *keychain;
 @property (nonatomic, strong) BFExecutor *refreshExecutor;
 @property (atomic, assign) int32_t count;
-@property (nonatomic, strong) dispatch_semaphore_t semaphore;
+@property (nonatomic) dispatch_semaphore_t semaphore;
 @property (nonatomic, strong) NSString *identityId;
 @property (nonatomic, strong) NSString *accessKey;
 @property (nonatomic, strong) NSString *secretKey;
