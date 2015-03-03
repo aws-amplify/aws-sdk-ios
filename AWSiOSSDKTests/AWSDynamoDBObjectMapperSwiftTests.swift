@@ -13,7 +13,6 @@
 * permissions and limitations under the License.
 */
 
-import UIKit
 import XCTest
 
 let tableName:String = "dynamoDBOMTestSwift";
