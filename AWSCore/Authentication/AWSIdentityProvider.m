@@ -124,7 +124,7 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
 @property (nonatomic, strong) AWSCognitoIdentity *cib;
 @property (nonatomic, strong) BFExecutor *executor;
 @property (atomic, assign) int32_t count;
-@property (nonatomic, strong) dispatch_semaphore_t semaphore;
+@property (nonatomic) dispatch_semaphore_t semaphore;
 @end
 
 @implementation AWSAbstractCognitoIdentityProvider

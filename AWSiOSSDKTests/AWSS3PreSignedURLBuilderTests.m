@@ -13,7 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "S3.h"
 #import "XMLDictionary.h"
