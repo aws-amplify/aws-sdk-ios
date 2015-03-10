@@ -41,7 +41,6 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
 
 - (void)setUp {
     [super setUp];
-    [AWSLogger defaultLogger].logLevel = AWSLogLevelError;
     // Put setup code here. This method is called before the invocation of each test method in the class.
     [AWSTestUtility setupCognitoCredentialsProvider];
 }
@@ -340,7 +339,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
                 
                 XCTAssertNotNil(presignedURL);
                 
-                NSLog(@"(PUT)presigned URL (Put)is: %@",presignedURL.absoluteString);
+                //NSLog(@"(PUT)presigned URL (Put)is: %@",presignedURL.absoluteString);
                 
                 NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
                 request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;

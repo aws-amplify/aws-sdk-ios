@@ -142,6 +142,17 @@ static NSTimeInterval _clockskew = 0.0;
 
 @end
 
+@implementation NSNumber (AWS)
+
++ (NSNumber *)aws_numberFromString:(NSString *)string {
+    NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
+    numberFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+
+    return [numberFormatter numberFromString:string];
+}
+
+@end
+
 @implementation NSObject (AWS)
 
 - (NSDictionary *)aws_properties {

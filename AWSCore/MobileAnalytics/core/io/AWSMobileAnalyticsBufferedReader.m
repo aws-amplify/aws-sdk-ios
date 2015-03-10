@@ -53,7 +53,7 @@ NSString * const AWSBufferedReaderErrorDomain = @"com.amazon.insights-framework.
         self.inputStream = stream;
         self.bufferLength = bufferLength;
         self.readFromStream = [[NSMutableString alloc] initWithCapacity:bufferLength];
-        self.streamBuffer = [NSMutableData dataWithLength:bufferLength];
+        self.streamBuffer = [NSMutableData new];
         self.lockObject = [[NSObject alloc] init];
     }
     return self;
@@ -82,14 +82,45 @@ NSString * const AWSBufferedReaderErrorDomain = @"com.amazon.insights-framework.
             NSRange newlineOccurence = [self.readFromStream rangeOfCharacterFromSet:[NSCharacterSet newlineCharacterSet]];
             while (newlineOccurence.location == NSNotFound && [self.inputStream hasBytesAvailable])
             {
-                uint8_t* dataBuffer = (uint8_t*)[self.streamBuffer mutableBytes];
+                uint8_t dataBuffer[self.bufferLength];
                 NSInteger readAmount = [self.inputStream read:dataBuffer maxLength:self.bufferLength];
                 
                 if(readAmount > 0)
                 {
-                    NSString* readString = [[NSString alloc] initWithBytes:dataBuffer
-                                                                    length:readAmount
-                                                                  encoding:NSUTF8StringEncoding];
+                    [self.streamBuffer setLength:0];
+                    [self.streamBuffer appendBytes:(const void *)dataBuffer length:readAmount];
+                    
+                    /* if readString is nil, we probably are reading a multibytes characters
+                     (e.g. Euro Sign "U+20AC" is 3 bytes char, "U+10348" is a 4 bytes char) and encounter a partial character. We need to continue
+                     read byte by byte to a max of 4 bytes until the whole character has been read from inputStream
+                     */
+                    NSString* readString = nil;
+                    NSInteger count = 1;
+                    while ((readString = [[NSString alloc] initWithData:self.streamBuffer encoding:NSUTF8StringEncoding]) == nil) {
+                        uint8_t aByteBuff[1];
+                        NSInteger len = [self.inputStream read:aByteBuff maxLength:1];
+                        if (len > 0) {
+                            [self.streamBuffer appendBytes:(const void *)aByteBuff length:len];
+                        } else {
+                            //break if it is end of stream or any error occured.
+                            break;
+                        }
+                        
+                        //according to RFC3629, no UTF8 encoded character has a length larger than 4 bytes.
+                        if (count < 4) {
+                            count++;
+                        } else {
+                            break;
+                        }
+                    }
+                    
+                    if (readString == nil) {
+                        error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AWSBufferedReaderErrorDomain
+                                                              withDescription:@"unable to parse string, make sure it is a valid UTF8 string"
+                                                                withErrorCode:AWSBufferedReaderErrorCode_UnableToParseString];
+                        break;
+                    }
+
                     
                     // append the new chunck of data to what we've read and re-evaluate the loop
                     [self.readFromStream appendString:readString];

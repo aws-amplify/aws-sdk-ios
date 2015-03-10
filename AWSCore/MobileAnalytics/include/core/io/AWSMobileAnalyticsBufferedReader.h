@@ -18,7 +18,8 @@
 FOUNDATION_EXPORT NSString * const AWSBufferedReaderErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSBufferedReaderErrorCodes) {
-    AWSBufferedReaderErrorCode_IOStreamClosed = 0
+    AWSBufferedReaderErrorCode_IOStreamClosed = 0,
+    AWSBufferedReaderErrorCode_UnableToParseString = 1,
 };
 
 @interface AWSMobileAnalyticsBufferedReader : NSObject

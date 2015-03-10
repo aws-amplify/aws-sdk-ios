@@ -1,5 +1,11 @@
 # AWSiOSSDKv2 CHANGELOG
 
+## 2.0.17
+
+### Resolved Issues
+* **Amazon DynamoDB Object Mapper** - Fixed a number format issue relating to the device locale setting.
+* **Amazon Mobile Analytics** - Fixed an issue in AWSMobileAnalyticsBufferedReader that generated application errors if the underlying inputStream contained multi-byte characters.
+
 ## 2.0.16
 
 ### New Features

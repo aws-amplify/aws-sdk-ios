@@ -53,6 +53,12 @@ FOUNDATION_EXPORT NSString *const AWSDateShortDateFormat1;
 
 @end
 
+@interface NSNumber (AWS)
+
++ (NSNumber *)aws_numberFromString:(NSString *)string;
+
+@end
+
 @interface NSObject (AWS)
 
 - (NSDictionary *)aws_properties;

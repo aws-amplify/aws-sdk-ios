@@ -77,6 +77,11 @@
     XCTAssertEqualWithAccuracy(testTimeAmz, expectedTime, 10, "Failed to create a proper date from string usingAWSDateAmzDateFormat");
 }
 
+- (void)testNumberFormatt {
+    XCTAssertEqualObjects([NSNumber aws_numberFromString:@"12345.67"], @12345.67);
+    XCTAssertNil([NSNumber aws_numberFromString:@"12345,67"]);
+}
+
 - (void)testUrlEncode {
     NSString *inputOne = @"test %";
     NSString *inputTwo = [NSString stringWithFormat:@"test %%"];

@@ -17,6 +17,8 @@
 #import "AWSDynamoDB.h"
 #import "Bolts.h"
 #import "AWSLogging.h"
+#import "AWSSynchronizedMutableDictionary.h"
+#import "AWSCategory.h"
 
 typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperVersion) {
     AWSDynamoDBObjectMapperVersionUnknown,
@@ -123,21 +125,15 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperVersion) {
         } else if (self.S) {
             return self.S;
         } else if (self.N) {
-            NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
-            numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
-            return [numberFormatter numberFromString:self.N];
+            return [NSNumber aws_numberFromString:self.N];
         } else if (self.B) {
             return self.B;
         } else if (self.SS) {
             return [NSSet setWithArray:self.SS];
         } else if (self.NS) {
-            NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
-            numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
-
             NSMutableSet *mutableSet = [NSMutableSet new];
-
             [self.NS enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                [mutableSet addObject:[numberFormatter numberFromString:obj]];
+                [mutableSet addObject:[NSNumber aws_numberFromString:obj]];
             }];
 
             return mutableSet;
@@ -164,21 +160,15 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperVersion) {
         if (self.S) {
             return self.S;
         } else if (self.N) {
-            NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
-            numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
-            return [numberFormatter numberFromString:self.N];
+            return [NSNumber aws_numberFromString:self.N];
         } else if (self.B) {
             return self.B;
         } else if (self.SS) {
             return self.SS;
         } else if (self.NS) {
-            NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
-            numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
-
             NSMutableArray *mutableArray = [NSMutableArray new];
-
             [self.NS enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                [mutableArray addObject:[numberFormatter numberFromString:obj]];
+                [mutableArray addObject:[NSNumber aws_numberFromString:obj]];
             }];
 
             return mutableArray;

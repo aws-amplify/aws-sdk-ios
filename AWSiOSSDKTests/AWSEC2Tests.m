@@ -73,7 +73,7 @@
     AWSEC2 *ec2 = [AWSEC2 defaultEC2];
     
     AWSEC2DescribeImagesRequest *describeImagesRequest = [AWSEC2DescribeImagesRequest new];
-    describeImagesRequest.imageIds = @[@"ami-c4fe9aac"]; // Microsoft Windows Server 2012 R2 Base Image ID
+    describeImagesRequest.imageIds = @[@"ami-b27830da"]; // Microsoft Windows Server 2012 R2 Base Image ID
     [[[ec2 describeImages:describeImagesRequest] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
@@ -87,7 +87,7 @@
             BOOL imageExist = NO;
             
             for (AWSEC2Image *image in describeImagesResult.images) {
-                if ([image.imageId isEqualToString:@"ami-c4fe9aac"]) {
+                if ([image.imageId isEqualToString:@"ami-b27830da"]) {
                     imageExist = YES;
                     XCTAssertEqual(AWSEC2PlatformValuesWindows, image.platform);
                 }

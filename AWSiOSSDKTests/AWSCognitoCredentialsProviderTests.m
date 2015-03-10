@@ -115,7 +115,6 @@ AWSCognitoIdentity *staticCib;
 #pragma mark - Set up/Tear down
 
 + (void)setUp {
-    [AWSLogger defaultLogger].logLevel = AWSLogLevelVerbose;
     [super setUp];
     [AWSTestUtility setupCognitoCredentialsProvider];
 
