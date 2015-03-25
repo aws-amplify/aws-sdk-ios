@@ -1,0 +1,529 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		072232851844CD7B46F0289E /* libPods-SQS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8009951EB86459D016308D6A /* libPods-SQS.a */; };
+		BD0000321AB8C4ED004496EF /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = BD0000311AB8C4ED004496EF /* credentials.json */; };
+		BD00004C1AB8E12D004496EF /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00004B1AB8E12D004496EF /* AWSTestUtility.m */; };
+		BD00FF391AB8B69F004496EF /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD00FF381AB8B69F004496EF /* libAWSCore.a */; };
+		BD00FF531AB8B83D004496EF /* sqs-2012-11-05.json in Resources */ = {isa = PBXBuildFile; fileRef = BDB5DF0E1AB3786A002DD224 /* sqs-2012-11-05.json */; };
+		BD00FF571AB8B875004496EF /* cognito-identity-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF541AB8B875004496EF /* cognito-identity-2014-06-30.json */; };
+		BD00FF581AB8B875004496EF /* mobileanalytics-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF551AB8B875004496EF /* mobileanalytics-2014-06-30.json */; };
+		BD00FF591AB8B875004496EF /* sts-2011-06-15.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF561AB8B875004496EF /* sts-2011-06-15.json */; };
+		BD00FFD81AB8C3FE004496EF /* AWSGeneralSQSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFD61AB8C3FE004496EF /* AWSGeneralSQSTests.m */; };
+		BD00FFD91AB8C3FE004496EF /* AWSSQSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFD71AB8C3FE004496EF /* AWSSQSTests.m */; };
+		BD9D97671AC1EEF100CEEE08 /* AWSSQSService.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEE7DE781AC1E23F0095C4B7 /* AWSSQSService.h */; };
+		BDB5DEFA1AB37849002DD224 /* libAWSSQS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB5DEEE1AB37849002DD224 /* libAWSSQS.a */; };
+		BDB5DF0F1AB3786A002DD224 /* AWSSQS.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB5DF091AB3786A002DD224 /* AWSSQS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BDB5DF101AB3786A002DD224 /* AWSSQSService.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB5DF0A1AB3786A002DD224 /* AWSSQSService.m */; };
+		BDB5DF111AB3786A002DD224 /* AWSSQSModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB5DF0B1AB3786A002DD224 /* AWSSQSModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BDB5DF121AB3786A002DD224 /* AWSSQSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB5DF0C1AB3786A002DD224 /* AWSSQSModel.m */; };
+		BDC91C3C1ABBA07300F74D49 /* AWSSQS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDB5DF091AB3786A002DD224 /* AWSSQS.h */; };
+		BDC91C3D1ABBA07300F74D49 /* AWSSQSModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDB5DF0B1AB3786A002DD224 /* AWSSQSModel.h */; };
+		CEE7DE791AC1E23F0095C4B7 /* AWSSQSService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE781AC1E23F0095C4B7 /* AWSSQSService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BDB5DEFB1AB37849002DD224 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDB5DEE61AB37849002DD224 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDB5DEED1AB37849002DD224;
+			remoteInfo = SQS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BDB5DEEC1AB37849002DD224 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				BD9D97671AC1EEF100CEEE08 /* AWSSQSService.h in CopyFiles */,
+				BDC91C3C1ABBA07300F74D49 /* AWSSQS.h in CopyFiles */,
+				BDC91C3D1ABBA07300F74D49 /* AWSSQSModel.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		164DAD621252F5DDCF6143CE /* Pods-SQS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SQS/Pods-SQS.release.xcconfig"; sourceTree = "<group>"; };
+		8009951EB86459D016308D6A /* libPods-SQS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SQS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8228376132DEC91D2B6DE23B /* Pods-SQS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SQS/Pods-SQS.debug.xcconfig"; sourceTree = "<group>"; };
+		BD0000311AB8C4ED004496EF /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
+		BD00004A1AB8E12D004496EF /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSTestUtility.h; path = AWSCoreTests/AWSTestUtility.h; sourceTree = SOURCE_ROOT; };
+		BD00004B1AB8E12D004496EF /* AWSTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSTestUtility.m; path = AWSCoreTests/AWSTestUtility.m; sourceTree = SOURCE_ROOT; };
+		BD00FF381AB8B69F004496EF /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
+		BD00FF541AB8B875004496EF /* cognito-identity-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "cognito-identity-2014-06-30.json"; path = "AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"; sourceTree = "<group>"; };
+		BD00FF551AB8B875004496EF /* mobileanalytics-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "mobileanalytics-2014-06-30.json"; path = "AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"; sourceTree = "<group>"; };
+		BD00FF561AB8B875004496EF /* sts-2011-06-15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "sts-2011-06-15.json"; path = "AWSCore/STS/Resources/sts-2011-06-15.json"; sourceTree = "<group>"; };
+		BD00FFD61AB8C3FE004496EF /* AWSGeneralSQSTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralSQSTests.m; sourceTree = "<group>"; };
+		BD00FFD71AB8C3FE004496EF /* AWSSQSTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSQSTests.m; sourceTree = "<group>"; };
+		BDB5DEEE1AB37849002DD224 /* libAWSSQS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSSQS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDB5DEF91AB37849002DD224 /* AWSSQSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSSQSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDB5DEFF1AB37849002DD224 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDB5DF091AB3786A002DD224 /* AWSSQS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSQS.h; sourceTree = "<group>"; };
+		BDB5DF0A1AB3786A002DD224 /* AWSSQSService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSQSService.m; sourceTree = "<group>"; };
+		BDB5DF0B1AB3786A002DD224 /* AWSSQSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSQSModel.h; sourceTree = "<group>"; };
+		BDB5DF0C1AB3786A002DD224 /* AWSSQSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSQSModel.m; sourceTree = "<group>"; };
+		BDB5DF0E1AB3786A002DD224 /* sqs-2012-11-05.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "sqs-2012-11-05.json"; sourceTree = "<group>"; };
+		CEE7DE781AC1E23F0095C4B7 /* AWSSQSService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSQSService.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BDB5DEEB1AB37849002DD224 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDB5DEF61AB37849002DD224 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD00FF391AB8B69F004496EF /* libAWSCore.a in Frameworks */,
+				BDB5DEFA1AB37849002DD224 /* libAWSSQS.a in Frameworks */,
+				072232851844CD7B46F0289E /* libPods-SQS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		23BCF832AD7C4A401E0C9D94 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8228376132DEC91D2B6DE23B /* Pods-SQS.debug.xcconfig */,
+				164DAD621252F5DDCF6143CE /* Pods-SQS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9CB08B3BEE06127D4F608086 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8009951EB86459D016308D6A /* libPods-SQS.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BD00FFBC1AB8BB71004496EF /* Other Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BD00FF541AB8B875004496EF /* cognito-identity-2014-06-30.json */,
+				BD00FF551AB8B875004496EF /* mobileanalytics-2014-06-30.json */,
+				BD00FF561AB8B875004496EF /* sts-2011-06-15.json */,
+			);
+			name = "Other Resources";
+			sourceTree = "<group>";
+		};
+		BDB5DEE51AB37849002DD224 = {
+			isa = PBXGroup;
+			children = (
+				BD00FF381AB8B69F004496EF /* libAWSCore.a */,
+				BD00FFBC1AB8BB71004496EF /* Other Resources */,
+				BDB5DEF01AB37849002DD224 /* SQS */,
+				BDB5DEFD1AB37849002DD224 /* SQSTests */,
+				BDB5DEEF1AB37849002DD224 /* Products */,
+				23BCF832AD7C4A401E0C9D94 /* Pods */,
+				9CB08B3BEE06127D4F608086 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BDB5DEEF1AB37849002DD224 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDB5DEEE1AB37849002DD224 /* libAWSSQS.a */,
+				BDB5DEF91AB37849002DD224 /* AWSSQSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BDB5DEF01AB37849002DD224 /* SQS */ = {
+			isa = PBXGroup;
+			children = (
+				BDB5DF091AB3786A002DD224 /* AWSSQS.h */,
+				BDB5DF0B1AB3786A002DD224 /* AWSSQSModel.h */,
+				BDB5DF0C1AB3786A002DD224 /* AWSSQSModel.m */,
+				CEE7DE781AC1E23F0095C4B7 /* AWSSQSService.h */,
+				BDB5DF0A1AB3786A002DD224 /* AWSSQSService.m */,
+				BDB5DF0D1AB3786A002DD224 /* Resources */,
+			);
+			path = SQS;
+			sourceTree = "<group>";
+		};
+		BDB5DEFD1AB37849002DD224 /* SQSTests */ = {
+			isa = PBXGroup;
+			children = (
+				BD00FFD61AB8C3FE004496EF /* AWSGeneralSQSTests.m */,
+				BD00FFD71AB8C3FE004496EF /* AWSSQSTests.m */,
+				BDB5DEFE1AB37849002DD224 /* Supporting Files */,
+			);
+			path = SQSTests;
+			sourceTree = "<group>";
+		};
+		BDB5DEFE1AB37849002DD224 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BD0000311AB8C4ED004496EF /* credentials.json */,
+				BD00004A1AB8E12D004496EF /* AWSTestUtility.h */,
+				BD00004B1AB8E12D004496EF /* AWSTestUtility.m */,
+				BDB5DEFF1AB37849002DD224 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BDB5DF0D1AB3786A002DD224 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BDB5DF0E1AB3786A002DD224 /* sqs-2012-11-05.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BDB5DF081AB37863002DD224 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEE7DE791AC1E23F0095C4B7 /* AWSSQSService.h in Headers */,
+				BDB5DF0F1AB3786A002DD224 /* AWSSQS.h in Headers */,
+				BDB5DF111AB3786A002DD224 /* AWSSQSModel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		BDB5DEED1AB37849002DD224 /* AWSSQS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDB5DF021AB37849002DD224 /* Build configuration list for PBXNativeTarget "AWSSQS" */;
+			buildPhases = (
+				BDB5DEEA1AB37849002DD224 /* Sources */,
+				BDB5DEEB1AB37849002DD224 /* Frameworks */,
+				BDB5DEEC1AB37849002DD224 /* CopyFiles */,
+				BDB5DF081AB37863002DD224 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AWSSQS;
+			productName = SQS;
+			productReference = BDB5DEEE1AB37849002DD224 /* libAWSSQS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		BDB5DEF81AB37849002DD224 /* AWSSQSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDB5DF051AB37849002DD224 /* Build configuration list for PBXNativeTarget "AWSSQSTests" */;
+			buildPhases = (
+				595AE9549F36FE30E7B40FF7 /* Check Pods Manifest.lock */,
+				BDB5DEF51AB37849002DD224 /* Sources */,
+				BDB5DEF61AB37849002DD224 /* Frameworks */,
+				BDB5DEF71AB37849002DD224 /* Resources */,
+				17DDB64A8A5279BD2F5307FB /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDB5DEFC1AB37849002DD224 /* PBXTargetDependency */,
+			);
+			name = AWSSQSTests;
+			productName = SQSTests;
+			productReference = BDB5DEF91AB37849002DD224 /* AWSSQSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDB5DEE61AB37849002DD224 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Amazon Web Services";
+				TargetAttributes = {
+					BDB5DEED1AB37849002DD224 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					BDB5DEF81AB37849002DD224 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
+			};
+			buildConfigurationList = BDB5DEE91AB37849002DD224 /* Build configuration list for PBXProject "AWSSQS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BDB5DEE51AB37849002DD224;
+			productRefGroup = BDB5DEEF1AB37849002DD224 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDB5DEED1AB37849002DD224 /* AWSSQS */,
+				BDB5DEF81AB37849002DD224 /* AWSSQSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDB5DEF71AB37849002DD224 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD00FF571AB8B875004496EF /* cognito-identity-2014-06-30.json in Resources */,
+				BD00FF581AB8B875004496EF /* mobileanalytics-2014-06-30.json in Resources */,
+				BD00FF591AB8B875004496EF /* sts-2011-06-15.json in Resources */,
+				BD0000321AB8C4ED004496EF /* credentials.json in Resources */,
+				BD00FF531AB8B83D004496EF /* sqs-2012-11-05.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		17DDB64A8A5279BD2F5307FB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SQS/Pods-SQS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		595AE9549F36FE30E7B40FF7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDB5DEEA1AB37849002DD224 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDB5DF101AB3786A002DD224 /* AWSSQSService.m in Sources */,
+				BDB5DF121AB3786A002DD224 /* AWSSQSModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDB5DEF51AB37849002DD224 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD00FFD81AB8C3FE004496EF /* AWSGeneralSQSTests.m in Sources */,
+				BD00004C1AB8E12D004496EF /* AWSTestUtility.m in Sources */,
+				BD00FFD91AB8C3FE004496EF /* AWSSQSTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BDB5DEFC1AB37849002DD224 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDB5DEED1AB37849002DD224 /* AWSSQS */;
+			targetProxy = BDB5DEFB1AB37849002DD224 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BDB5DF001AB37849002DD224 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/**";
+			};
+			name = Debug;
+		};
+		BDB5DF011AB37849002DD224 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/**";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDB5DF031AB37849002DD224 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SRCROOT}/Pods/Headers/**",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = AWSSQS;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BDB5DF041AB37849002DD224 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SRCROOT}/Pods/Headers/**",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = AWSSQS;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		BDB5DF061AB37849002DD224 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8228376132DEC91D2B6DE23B /* Pods-SQS.debug.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SQSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = AWSSQSTests;
+			};
+			name = Debug;
+		};
+		BDB5DF071AB37849002DD224 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 164DAD621252F5DDCF6143CE /* Pods-SQS.release.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SQSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = AWSSQSTests;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BDB5DEE91AB37849002DD224 /* Build configuration list for PBXProject "AWSSQS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDB5DF001AB37849002DD224 /* Debug */,
+				BDB5DF011AB37849002DD224 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDB5DF021AB37849002DD224 /* Build configuration list for PBXNativeTarget "AWSSQS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDB5DF031AB37849002DD224 /* Debug */,
+				BDB5DF041AB37849002DD224 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDB5DF051AB37849002DD224 /* Build configuration list for PBXNativeTarget "AWSSQSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDB5DF061AB37849002DD224 /* Debug */,
+				BDB5DF071AB37849002DD224 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BDB5DEE61AB37849002DD224 /* Project object */;
+}

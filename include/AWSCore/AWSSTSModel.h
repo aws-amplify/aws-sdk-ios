@@ -1,0 +1,1 @@
+../../AWSCore/STS/AWSSTSModel.h

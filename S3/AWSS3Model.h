@@ -1,21 +1,21 @@
-/*
- * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+/**
+ Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License").
+ You may not use this file except in compliance with the License.
+ A copy of the License is located at
+
+ http://aws.amazon.com/apache2.0
+
+ or in the "license" file accompanying this file. This file is distributed
+ on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ express or implied. See the License for the specific language governing
+ permissions and limitations under the License.
  */
 
 #import <Foundation/Foundation.h>
-#import "AWSNetworking.h"
-#import "AWSModel.h"
+#import <AWSCore/AWSNetworking.h>
+#import <AWSCore/AWSModel.h>
 
 FOUNDATION_EXPORT NSString *const AWSS3ErrorDomain;
 
@@ -302,3700 +302,3700 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 @class AWSS3WebsiteConfiguration;
 
 /**
- *
+ 
  */
 @interface AWSS3AbortMultipartUploadRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *uploadId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3AccessControlPolicy : AWSModel
 
 
 /**
- * A list of grants.
+ A list of grants.
  */
 @property (nonatomic, strong) NSArray *grants;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3Owner *owner;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3Bucket : AWSModel
 
 
 /**
- * Date the bucket was created.
+ Date the bucket was created.
  */
 @property (nonatomic, strong) NSDate *creationDate;
 
 /**
- * The name of the bucket.
+ The name of the bucket.
  */
 @property (nonatomic, strong) NSString *name;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3BucketLoggingStatus : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3LoggingEnabled *loggingEnabled;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3CORSConfiguration : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *CORSRules;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3CORSRule : AWSModel
 
 
 /**
- * Specifies which headers are allowed in a pre-flight OPTIONS request.
+ Specifies which headers are allowed in a pre-flight OPTIONS request.
  */
 @property (nonatomic, strong) NSArray *allowedHeaders;
 
 /**
- * Identifies HTTP methods that the domain/origin specified in the rule is allowed to execute.
+ Identifies HTTP methods that the domain/origin specified in the rule is allowed to execute.
  */
 @property (nonatomic, strong) NSArray *allowedMethods;
 
 /**
- * One or more origins you want customers to be able to access the bucket from.
+ One or more origins you want customers to be able to access the bucket from.
  */
 @property (nonatomic, strong) NSArray *allowedOrigins;
 
 /**
- * One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).
+ One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).
  */
 @property (nonatomic, strong) NSArray *exposeHeaders;
 
 /**
- * The time in seconds that your browser is to cache the preflight response for the specified resource.
+ The time in seconds that your browser is to cache the preflight response for the specified resource.
  */
 @property (nonatomic, strong) NSNumber *maxAgeSeconds;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3CloudFunctionConfiguration : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *cloudFunction;
 
 /**
- * 
+ 
  */
 @property (nonatomic, assign) AWSS3Event event;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *events;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *identifier;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *invocationRole;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3CommonPrefix : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *prefix;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3CompleteMultipartUploadOutput : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * Entity tag of the object.
+ Entity tag of the object.
  */
 @property (nonatomic, strong) NSString *ETag;
 
 /**
- * If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
+ If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
  */
 @property (nonatomic, strong) NSString *expiration;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *location;
 
 /**
- * If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
+ If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
  */
 @property (nonatomic, strong) NSString *SSEKMSKeyId;
 
 /**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
 /**
- * Version of the object.
+ Version of the object.
  */
 @property (nonatomic, strong) NSString *versionId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3CompleteMultipartUploadRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3CompletedMultipartUpload *multipartUpload;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *uploadId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3CompletedMultipartUpload : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *parts;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3CompletedPart : AWSModel
 
 
 /**
- * Entity tag returned when the part was uploaded.
+ Entity tag returned when the part was uploaded.
  */
 @property (nonatomic, strong) NSString *ETag;
 
 /**
- * Part number that identifies the part.
+ Part number that identifies the part.
  */
 @property (nonatomic, strong) NSNumber *partNumber;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3Condition : AWSModel
 
 
 /**
- * The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element Condition is specified and sibling KeyPrefixEquals is not specified. If both are specified, then both must be true for the redirect to be applied.
+ The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element Condition is specified and sibling KeyPrefixEquals is not specified. If both are specified, then both must be true for the redirect to be applied.
  */
 @property (nonatomic, strong) NSString *httpErrorCodeReturnedEquals;
 
 /**
- * The object key name prefix when the redirect is applied. For example, to redirect requests for ExamplePage.html, the key prefix will be ExamplePage.html. To redirect request for all pages with the prefix docs/, the key prefix will be /docs, which identifies all objects in the docs/ folder. Required when the parent element Condition is specified and sibling HttpErrorCodeReturnedEquals is not specified. If both conditions are specified, both must be true for the redirect to be applied.
+ The object key name prefix when the redirect is applied. For example, to redirect requests for ExamplePage.html, the key prefix will be ExamplePage.html. To redirect request for all pages with the prefix docs/, the key prefix will be /docs, which identifies all objects in the docs/ folder. Required when the parent element Condition is specified and sibling HttpErrorCodeReturnedEquals is not specified. If both conditions are specified, both must be true for the redirect to be applied.
  */
 @property (nonatomic, strong) NSString *keyPrefixEquals;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3CreateBucketConfiguration : AWSModel
 
 
 /**
- * Specifies the region where the bucket will be created.
+ Specifies the region where the bucket will be created.
  */
 @property (nonatomic, assign) AWSS3BucketLocationConstraint locationConstraint;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3CreateBucketOutput : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *location;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3CreateBucketRequest : AWSRequest
 
 
 /**
- * The canned ACL to apply to the bucket.
+ The canned ACL to apply to the bucket.
  */
 @property (nonatomic, assign) AWSS3BucketCannedACL ACL;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3CreateBucketConfiguration *createBucketConfiguration;
 
 /**
- * Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
+ Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
  */
 @property (nonatomic, strong) NSString *grantFullControl;
 
 /**
- * Allows grantee to list the objects in the bucket.
+ Allows grantee to list the objects in the bucket.
  */
 @property (nonatomic, strong) NSString *grantRead;
 
 /**
- * Allows grantee to read the bucket ACL.
+ Allows grantee to read the bucket ACL.
  */
 @property (nonatomic, strong) NSString *grantReadACP;
 
 /**
- * Allows grantee to create, overwrite, and delete any object in the bucket.
+ Allows grantee to create, overwrite, and delete any object in the bucket.
  */
 @property (nonatomic, strong) NSString *grantWrite;
 
 /**
- * Allows grantee to write the ACL for the applicable bucket.
+ Allows grantee to write the ACL for the applicable bucket.
  */
 @property (nonatomic, strong) NSString *grantWriteACP;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3CreateMultipartUploadOutput : AWSModel
 
 
 /**
- * Name of the bucket to which the multipart upload was initiated.
+ Name of the bucket to which the multipart upload was initiated.
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * Object key for which the multipart upload was initiated.
+ Object key for which the multipart upload was initiated.
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+ If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
 /**
- * If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
+ If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
  */
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
+ If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
  */
 @property (nonatomic, strong) NSString *SSEKMSKeyId;
 
 /**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
 /**
- * ID for the initiated multipart upload.
+ ID for the initiated multipart upload.
  */
 @property (nonatomic, strong) NSString *uploadId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3CreateMultipartUploadRequest : AWSRequest
 
 
 /**
- * The canned ACL to apply to the object.
+ The canned ACL to apply to the object.
  */
 @property (nonatomic, assign) AWSS3ObjectCannedACL ACL;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * Specifies caching behavior along the request/reply chain.
+ Specifies caching behavior along the request/reply chain.
  */
 @property (nonatomic, strong) NSString *cacheControl;
 
 /**
- * Specifies presentational information for the object.
+ Specifies presentational information for the object.
  */
 @property (nonatomic, strong) NSString *contentDisposition;
 
 /**
- * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+ Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
  */
 @property (nonatomic, strong) NSString *contentEncoding;
 
 /**
- * The language the content is in.
+ The language the content is in.
  */
 @property (nonatomic, strong) NSString *contentLanguage;
 
 /**
- * A standard MIME type describing the format of the object data.
+ A standard MIME type describing the format of the object data.
  */
 @property (nonatomic, strong) NSString *contentType;
 
 /**
- * The date and time at which the object is no longer cacheable.
+ The date and time at which the object is no longer cacheable.
  */
 @property (nonatomic, strong) NSDate *expires;
 
 /**
- * Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
+ Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
  */
 @property (nonatomic, strong) NSString *grantFullControl;
 
 /**
- * Allows grantee to read the object data and its metadata.
+ Allows grantee to read the object data and its metadata.
  */
 @property (nonatomic, strong) NSString *grantRead;
 
 /**
- * Allows grantee to read the object ACL.
+ Allows grantee to read the object ACL.
  */
 @property (nonatomic, strong) NSString *grantReadACP;
 
 /**
- * Allows grantee to write the ACL for the applicable object.
+ Allows grantee to write the ACL for the applicable object.
  */
 @property (nonatomic, strong) NSString *grantWriteACP;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * A map of metadata to store with the object in S3.
+ A map of metadata to store with the object in S3.
  */
 @property (nonatomic, strong) NSDictionary *metadata;
 
 /**
- * Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
+ Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
 /**
- * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
+ Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
  */
 @property (nonatomic, strong) NSString *SSECustomerKey;
 
 /**
- * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
+ Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version
+ Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version
  */
 @property (nonatomic, strong) NSString *SSEKMSKeyId;
 
 /**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
 /**
- * The type of storage to use for the object. Defaults to 'STANDARD'.
+ The type of storage to use for the object. Defaults to 'STANDARD'.
  */
 @property (nonatomic, assign) AWSS3StorageClass storageClass;
 
 /**
- * If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
+ If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
  */
 @property (nonatomic, strong) NSString *websiteRedirectLocation;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3DeleteBucketCorsRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3DeleteBucketLifecycleRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3DeleteBucketPolicyRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3DeleteBucketRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3DeleteBucketTaggingRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3DeleteBucketWebsiteRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3DeleteMarkerEntry : AWSModel
 
 
 /**
- * Specifies whether the object is (true) or is not (false) the latest version of an object.
+ Specifies whether the object is (true) or is not (false) the latest version of an object.
  */
 @property (nonatomic, strong) NSNumber *isLatest;
 
 /**
- * The object key.
+ The object key.
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * Date and time the object was last modified.
+ Date and time the object was last modified.
  */
 @property (nonatomic, strong) NSDate *lastModified;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3Owner *owner;
 
 /**
- * Version ID of an object.
+ Version ID of an object.
  */
 @property (nonatomic, strong) NSString *versionId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3DeleteObjectOutput : AWSModel
 
 
 /**
- * Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker.
+ Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker.
  */
 @property (nonatomic, strong) NSNumber *deleteMarker;
 
 /**
- * Returns the version ID of the delete marker created as a result of the DELETE operation.
+ Returns the version ID of the delete marker created as a result of the DELETE operation.
  */
 @property (nonatomic, strong) NSString *versionId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3DeleteObjectRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+ The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
  */
 @property (nonatomic, strong) NSString *MFA;
 
 /**
- * VersionId used to reference a specific version of the object.
+ VersionId used to reference a specific version of the object.
  */
 @property (nonatomic, strong) NSString *versionId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3DeleteObjectsOutput : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *deleted;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *errors;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3DeleteObjectsRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+ The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
  */
 @property (nonatomic, strong) NSString *MFA;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3Remove *remove;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3DeletedObject : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSNumber *deleteMarker;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *deleteMarkerVersionId;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *versionId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3Error : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *code;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *message;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *versionId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3ErrorDocument : AWSModel
 
 
 /**
- * The object key name to use when a 4XX class error occurs.
+ The object key name to use when a 4XX class error occurs.
  */
 @property (nonatomic, strong) NSString *key;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketAclOutput : AWSModel
 
 
 /**
- * A list of grants.
+ A list of grants.
  */
 @property (nonatomic, strong) NSArray *grants;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3Owner *owner;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketAclRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketCorsOutput : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *CORSRules;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketCorsRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketLifecycleOutput : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *rules;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketLifecycleRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketLocationOutput : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, assign) AWSS3BucketLocationConstraint locationConstraint;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketLocationRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketLoggingOutput : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3LoggingEnabled *loggingEnabled;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketLoggingRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketNotificationOutput : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3CloudFunctionConfiguration *cloudFunctionConfiguration;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3QueueConfiguration *queueConfiguration;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3TopicConfiguration *topicConfiguration;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketNotificationRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketPolicyOutput : AWSModel
 
 
 /**
- * The bucket policy as a JSON document.
+ The bucket policy as a JSON document.
  */
 @property (nonatomic, strong) NSString *policy;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketPolicyRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketRequestPaymentOutput : AWSModel
 
 
 /**
- * Specifies who pays for the download and request fees.
+ Specifies who pays for the download and request fees.
  */
 @property (nonatomic, assign) AWSS3Payer payer;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketRequestPaymentRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketTaggingOutput : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *tagSet;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketTaggingRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketVersioningOutput : AWSModel
 
 
 /**
- * Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.
+ Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.
  */
 @property (nonatomic, assign) AWSS3MFADeleteStatus MFADelete;
 
 /**
- * The versioning state of the bucket.
+ The versioning state of the bucket.
  */
 @property (nonatomic, assign) AWSS3BucketVersioningStatus status;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketVersioningRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketWebsiteOutput : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3ErrorDocument *errorDocument;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3IndexDocument *indexDocument;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3RedirectAllRequestsTo *redirectAllRequestsTo;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *routingRules;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetBucketWebsiteRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetObjectAclOutput : AWSModel
 
 
 /**
- * A list of grants.
+ A list of grants.
  */
 @property (nonatomic, strong) NSArray *grants;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3Owner *owner;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetObjectAclRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * VersionId used to reference a specific version of the object.
+ VersionId used to reference a specific version of the object.
  */
 @property (nonatomic, strong) NSString *versionId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetObjectOutput : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *acceptRanges;
 
 /**
- * Object data.
+ Object data.
  */
 @property (nonatomic, strong) id body;
 
 /**
- * Specifies caching behavior along the request/reply chain.
+ Specifies caching behavior along the request/reply chain.
  */
 @property (nonatomic, strong) NSString *cacheControl;
 
 /**
- * Specifies presentational information for the object.
+ Specifies presentational information for the object.
  */
 @property (nonatomic, strong) NSString *contentDisposition;
 
 /**
- * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+ Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
  */
 @property (nonatomic, strong) NSString *contentEncoding;
 
 /**
- * The language the content is in.
+ The language the content is in.
  */
 @property (nonatomic, strong) NSString *contentLanguage;
 
 /**
- * Size of the body in bytes.
+ Size of the body in bytes.
  */
 @property (nonatomic, strong) NSNumber *contentLength;
 
 /**
- * A standard MIME type describing the format of the object data.
+ A standard MIME type describing the format of the object data.
  */
 @property (nonatomic, strong) NSString *contentType;
 
 /**
- * Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
+ Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
  */
 @property (nonatomic, strong) NSNumber *deleteMarker;
 
 /**
- * An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL
+ An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL
  */
 @property (nonatomic, strong) NSString *ETag;
 
 /**
- * If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
+ If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
  */
 @property (nonatomic, strong) NSString *expiration;
 
 /**
- * The date and time at which the object is no longer cacheable.
+ The date and time at which the object is no longer cacheable.
  */
 @property (nonatomic, strong) NSDate *expires;
 
 /**
- * Last modified date of the object
+ Last modified date of the object
  */
 @property (nonatomic, strong) NSDate *lastModified;
 
 /**
- * A map of metadata to store with the object in S3.
+ A map of metadata to store with the object in S3.
  */
 @property (nonatomic, strong) NSDictionary *metadata;
 
 /**
- * This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
+ This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
  */
 @property (nonatomic, strong) NSNumber *missingMeta;
 
 /**
- * Provides information about object restoration operation and expiration time of the restored object copy.
+ Provides information about object restoration operation and expiration time of the restored object copy.
  */
 @property (nonatomic, strong) NSString *restore;
 
 /**
- * If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+ If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
 /**
- * If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
+ If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
  */
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
+ If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
  */
 @property (nonatomic, strong) NSString *SSEKMSKeyId;
 
 /**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
 /**
- * Version of the object.
+ Version of the object.
  */
 @property (nonatomic, strong) NSString *versionId;
 
 /**
- * If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
+ If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
  */
 @property (nonatomic, strong) NSString *websiteRedirectLocation;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetObjectRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
+ Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
  */
 @property (nonatomic, strong) NSString *ifMatch;
 
 /**
- * Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
+ Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
  */
 @property (nonatomic, strong) NSDate *ifModifiedSince;
 
 /**
- * Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
+ Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
  */
 @property (nonatomic, strong) NSString *ifNoneMatch;
 
 /**
- * Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
+ Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
  */
 @property (nonatomic, strong) NSDate *ifUnmodifiedSince;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
+ Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
  */
 @property (nonatomic, strong) NSString *range;
 
 /**
- * Sets the Cache-Control header of the response.
+ Sets the Cache-Control header of the response.
  */
 @property (nonatomic, strong) NSString *responseCacheControl;
 
 /**
- * Sets the Content-Disposition header of the response
+ Sets the Content-Disposition header of the response
  */
 @property (nonatomic, strong) NSString *responseContentDisposition;
 
 /**
- * Sets the Content-Encoding header of the response.
+ Sets the Content-Encoding header of the response.
  */
 @property (nonatomic, strong) NSString *responseContentEncoding;
 
 /**
- * Sets the Content-Language header of the response.
+ Sets the Content-Language header of the response.
  */
 @property (nonatomic, strong) NSString *responseContentLanguage;
 
 /**
- * Sets the Content-Type header of the response.
+ Sets the Content-Type header of the response.
  */
 @property (nonatomic, strong) NSString *responseContentType;
 
 /**
- * Sets the Expires header of the response.
+ Sets the Expires header of the response.
  */
 @property (nonatomic, strong) NSDate *responseExpires;
 
 /**
- * Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
+ Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
 /**
- * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
+ Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
  */
 @property (nonatomic, strong) NSString *SSECustomerKey;
 
 /**
- * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
+ Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * VersionId used to reference a specific version of the object.
+ VersionId used to reference a specific version of the object.
  */
 @property (nonatomic, strong) NSString *versionId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetObjectTorrentOutput : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) id body;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3GetObjectTorrentRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *key;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3Grant : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3Grantee *grantee;
 
 /**
- * Specifies the permission given to the grantee.
+ Specifies the permission given to the grantee.
  */
 @property (nonatomic, assign) AWSS3Permission permission;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3Grantee : AWSModel
 
 
 /**
- * Screen name of the grantee.
+ Screen name of the grantee.
  */
 @property (nonatomic, strong) NSString *displayName;
 
 /**
- * Email address of the grantee.
+ Email address of the grantee.
  */
 @property (nonatomic, strong) NSString *emailAddress;
 
 /**
- * The canonical user ID of the grantee.
+ The canonical user ID of the grantee.
  */
 @property (nonatomic, strong) NSString *identifier;
 
 /**
- * Type of grantee
+ Type of grantee
  */
 @property (nonatomic, assign) AWSS3Types types;
 
 /**
- * URI of the grantee group.
+ URI of the grantee group.
  */
 @property (nonatomic, strong) NSString *URI;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3HeadBucketRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3HeadObjectOutput : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *acceptRanges;
 
 /**
- * Specifies caching behavior along the request/reply chain.
+ Specifies caching behavior along the request/reply chain.
  */
 @property (nonatomic, strong) NSString *cacheControl;
 
 /**
- * Specifies presentational information for the object.
+ Specifies presentational information for the object.
  */
 @property (nonatomic, strong) NSString *contentDisposition;
 
 /**
- * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+ Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
  */
 @property (nonatomic, strong) NSString *contentEncoding;
 
 /**
- * The language the content is in.
+ The language the content is in.
  */
 @property (nonatomic, strong) NSString *contentLanguage;
 
 /**
- * Size of the body in bytes.
+ Size of the body in bytes.
  */
 @property (nonatomic, strong) NSNumber *contentLength;
 
 /**
- * A standard MIME type describing the format of the object data.
+ A standard MIME type describing the format of the object data.
  */
 @property (nonatomic, strong) NSString *contentType;
 
 /**
- * Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
+ Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
  */
 @property (nonatomic, strong) NSNumber *deleteMarker;
 
 /**
- * An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL
+ An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL
  */
 @property (nonatomic, strong) NSString *ETag;
 
 /**
- * If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
+ If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
  */
 @property (nonatomic, strong) NSString *expiration;
 
 /**
- * The date and time at which the object is no longer cacheable.
+ The date and time at which the object is no longer cacheable.
  */
 @property (nonatomic, strong) NSDate *expires;
 
 /**
- * Last modified date of the object
+ Last modified date of the object
  */
 @property (nonatomic, strong) NSDate *lastModified;
 
 /**
- * A map of metadata to store with the object in S3.
+ A map of metadata to store with the object in S3.
  */
 @property (nonatomic, strong) NSDictionary *metadata;
 
 /**
- * This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
+ This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
  */
 @property (nonatomic, strong) NSNumber *missingMeta;
 
 /**
- * Provides information about object restoration operation and expiration time of the restored object copy.
+ Provides information about object restoration operation and expiration time of the restored object copy.
  */
 @property (nonatomic, strong) NSString *restore;
 
 /**
- * If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+ If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
 /**
- * If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
+ If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
  */
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
+ If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
  */
 @property (nonatomic, strong) NSString *SSEKMSKeyId;
 
 /**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
 /**
- * Version of the object.
+ Version of the object.
  */
 @property (nonatomic, strong) NSString *versionId;
 
 /**
- * If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
+ If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
  */
 @property (nonatomic, strong) NSString *websiteRedirectLocation;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3HeadObjectRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
+ Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
  */
 @property (nonatomic, strong) NSString *ifMatch;
 
 /**
- * Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
+ Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
  */
 @property (nonatomic, strong) NSDate *ifModifiedSince;
 
 /**
- * Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
+ Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
  */
 @property (nonatomic, strong) NSString *ifNoneMatch;
 
 /**
- * Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
+ Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
  */
 @property (nonatomic, strong) NSDate *ifUnmodifiedSince;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
+ Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
  */
 @property (nonatomic, strong) NSString *range;
 
 /**
- * Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
+ Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
 /**
- * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
+ Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
  */
 @property (nonatomic, strong) NSString *SSECustomerKey;
 
 /**
- * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
+ Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * VersionId used to reference a specific version of the object.
+ VersionId used to reference a specific version of the object.
  */
 @property (nonatomic, strong) NSString *versionId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3IndexDocument : AWSModel
 
 
 /**
- * A suffix that is appended to a request that is for a directory on the website endpoint (e.g. if the suffix is index.html and you make a request to samplebucket/images/ the data that is returned will be for the object with the key name images/index.html) The suffix must not be empty and must not include a slash character.
+ A suffix that is appended to a request that is for a directory on the website endpoint (e.g. if the suffix is index.html and you make a request to samplebucket/images/ the data that is returned will be for the object with the key name images/index.html) The suffix must not be empty and must not include a slash character.
  */
 @property (nonatomic, strong) NSString *suffix;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3Initiator : AWSModel
 
 
 /**
- * Name of the Principal.
+ Name of the Principal.
  */
 @property (nonatomic, strong) NSString *displayName;
 
 /**
- * If the principal is an AWS account, it provides the Canonical User ID. If the principal is an IAM User, it provides a user ARN value.
+ If the principal is an AWS account, it provides the Canonical User ID. If the principal is an IAM User, it provides a user ARN value.
  */
 @property (nonatomic, strong) NSString *identifier;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3LifecycleConfiguration : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *rules;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3LifecycleExpiration : AWSModel
 
 
 /**
- * Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
+ Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
  */
 @property (nonatomic, strong) NSDate *date;
 
 /**
- * Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
+ Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
  */
 @property (nonatomic, strong) NSNumber *days;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3ListBucketsOutput : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *buckets;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3Owner *owner;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3ListMultipartUploadsOutput : AWSModel
 
 
 /**
- * Name of the bucket to which the multipart upload was initiated.
+ Name of the bucket to which the multipart upload was initiated.
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *commonPrefixes;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *delimiter;
 
 /**
- * Encoding type used by Amazon S3 to encode object keys in the response.
+ Encoding type used by Amazon S3 to encode object keys in the response.
  */
 @property (nonatomic, assign) AWSS3EncodingType encodingType;
 
 /**
- * Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.
+ Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.
  */
 @property (nonatomic, strong) NSNumber *isTruncated;
 
 /**
- * The key at or after which the listing began.
+ The key at or after which the listing began.
  */
 @property (nonatomic, strong) NSString *keyMarker;
 
 /**
- * Maximum number of multipart uploads that could have been included in the response.
+ Maximum number of multipart uploads that could have been included in the response.
  */
 @property (nonatomic, strong) NSNumber *maxUploads;
 
 /**
- * When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.
+ When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.
  */
 @property (nonatomic, strong) NSString *nextKeyMarker;
 
 /**
- * When a list is truncated, this element specifies the value that should be used for the upload-id-marker request parameter in a subsequent request.
+ When a list is truncated, this element specifies the value that should be used for the upload-id-marker request parameter in a subsequent request.
  */
 @property (nonatomic, strong) NSString *nextUploadIdMarker;
 
 /**
- * When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.
+ When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.
  */
 @property (nonatomic, strong) NSString *prefix;
 
 /**
- * Upload ID after which listing began.
+ Upload ID after which listing began.
  */
 @property (nonatomic, strong) NSString *uploadIdMarker;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *uploads;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3ListMultipartUploadsRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * Character you use to group keys.
+ Character you use to group keys.
  */
 @property (nonatomic, strong) NSString *delimiter;
 
 /**
- * Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
+ Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
  */
 @property (nonatomic, assign) AWSS3EncodingType encodingType;
 
 /**
- * Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.
+ Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.
  */
 @property (nonatomic, strong) NSString *keyMarker;
 
 /**
- * Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.
+ Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.
  */
 @property (nonatomic, strong) NSNumber *maxUploads;
 
 /**
- * Lists in-progress uploads only for those keys that begin with the specified prefix.
+ Lists in-progress uploads only for those keys that begin with the specified prefix.
  */
 @property (nonatomic, strong) NSString *prefix;
 
 /**
- * Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.
+ Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.
  */
 @property (nonatomic, strong) NSString *uploadIdMarker;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3ListObjectVersionsOutput : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *commonPrefixes;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *deleteMarkers;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *delimiter;
 
 /**
- * Encoding type used by Amazon S3 to encode object keys in the response.
+ Encoding type used by Amazon S3 to encode object keys in the response.
  */
 @property (nonatomic, assign) AWSS3EncodingType encodingType;
 
 /**
- * A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request using the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in another request to return the rest of the results.
+ A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request using the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in another request to return the rest of the results.
  */
 @property (nonatomic, strong) NSNumber *isTruncated;
 
 /**
- * Marks the last Key returned in a truncated response.
+ Marks the last Key returned in a truncated response.
  */
 @property (nonatomic, strong) NSString *keyMarker;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSNumber *maxKeys;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *name;
 
 /**
- * Use this value for the key marker request parameter in a subsequent request.
+ Use this value for the key marker request parameter in a subsequent request.
  */
 @property (nonatomic, strong) NSString *nextKeyMarker;
 
 /**
- * Use this value for the next version id marker parameter in a subsequent request.
+ Use this value for the next version id marker parameter in a subsequent request.
  */
 @property (nonatomic, strong) NSString *nextVersionIdMarker;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *prefix;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *versionIdMarker;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *versions;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3ListObjectVersionsRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * A delimiter is a character you use to group keys.
+ A delimiter is a character you use to group keys.
  */
 @property (nonatomic, strong) NSString *delimiter;
 
 /**
- * Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
+ Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
  */
 @property (nonatomic, assign) AWSS3EncodingType encodingType;
 
 /**
- * Specifies the key to start with when listing objects in a bucket.
+ Specifies the key to start with when listing objects in a bucket.
  */
 @property (nonatomic, strong) NSString *keyMarker;
 
 /**
- * Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
+ Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
  */
 @property (nonatomic, strong) NSNumber *maxKeys;
 
 /**
- * Limits the response to keys that begin with the specified prefix.
+ Limits the response to keys that begin with the specified prefix.
  */
 @property (nonatomic, strong) NSString *prefix;
 
 /**
- * Specifies the object version you want to start listing from.
+ Specifies the object version you want to start listing from.
  */
 @property (nonatomic, strong) NSString *versionIdMarker;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3ListObjectsOutput : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *commonPrefixes;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *contents;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *delimiter;
 
 /**
- * Encoding type used by Amazon S3 to encode object keys in the response.
+ Encoding type used by Amazon S3 to encode object keys in the response.
  */
 @property (nonatomic, assign) AWSS3EncodingType encodingType;
 
 /**
- * A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria.
+ A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria.
  */
 @property (nonatomic, strong) NSNumber *isTruncated;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *marker;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSNumber *maxKeys;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *name;
 
 /**
- * When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMaker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys.
+ When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMaker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys.
  */
 @property (nonatomic, strong) NSString *nextMarker;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *prefix;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3ListObjectsRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * A delimiter is a character you use to group keys.
+ A delimiter is a character you use to group keys.
  */
 @property (nonatomic, strong) NSString *delimiter;
 
 /**
- * Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
+ Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
  */
 @property (nonatomic, assign) AWSS3EncodingType encodingType;
 
 /**
- * Specifies the key to start with when listing objects in a bucket.
+ Specifies the key to start with when listing objects in a bucket.
  */
 @property (nonatomic, strong) NSString *marker;
 
 /**
- * Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
+ Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
  */
 @property (nonatomic, strong) NSNumber *maxKeys;
 
 /**
- * Limits the response to keys that begin with the specified prefix.
+ Limits the response to keys that begin with the specified prefix.
  */
 @property (nonatomic, strong) NSString *prefix;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3ListPartsOutput : AWSModel
 
 
 /**
- * Name of the bucket to which the multipart upload was initiated.
+ Name of the bucket to which the multipart upload was initiated.
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * Identifies who initiated the multipart upload.
+ Identifies who initiated the multipart upload.
  */
 @property (nonatomic, strong) AWSS3Initiator *initiator;
 
 /**
- * Indicates whether the returned list of parts is truncated.
+ Indicates whether the returned list of parts is truncated.
  */
 @property (nonatomic, strong) NSNumber *isTruncated;
 
 /**
- * Object key for which the multipart upload was initiated.
+ Object key for which the multipart upload was initiated.
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * Maximum number of parts that were allowed in the response.
+ Maximum number of parts that were allowed in the response.
  */
 @property (nonatomic, strong) NSNumber *maxParts;
 
 /**
- * When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.
+ When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.
  */
 @property (nonatomic, strong) NSNumber *nextPartNumberMarker;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3Owner *owner;
 
 /**
- * Part number after which listing begins.
+ Part number after which listing begins.
  */
 @property (nonatomic, strong) NSNumber *partNumberMarker;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *parts;
 
 /**
- * The class of storage used to store the object.
+ The class of storage used to store the object.
  */
 @property (nonatomic, assign) AWSS3StorageClass storageClass;
 
 /**
- * Upload ID identifying the multipart upload whose parts are being listed.
+ Upload ID identifying the multipart upload whose parts are being listed.
  */
 @property (nonatomic, strong) NSString *uploadId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3ListPartsRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * Sets the maximum number of parts to return.
+ Sets the maximum number of parts to return.
  */
 @property (nonatomic, strong) NSNumber *maxParts;
 
 /**
- * Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.
+ Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.
  */
 @property (nonatomic, strong) NSNumber *partNumberMarker;
 
 /**
- * Upload ID identifying the multipart upload whose parts are being listed.
+ Upload ID identifying the multipart upload whose parts are being listed.
  */
 @property (nonatomic, strong) NSString *uploadId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3LoggingEnabled : AWSModel
 
 
 /**
- * Specifies the bucket where you want Amazon S3 to store server access logs. You can have your logs delivered to any bucket that you own, including the same bucket that is being logged. You can also configure multiple buckets to deliver their logs to the same target bucket. In this case you should choose a different TargetPrefix for each source bucket so that the delivered log files can be distinguished by key.
+ Specifies the bucket where you want Amazon S3 to store server access logs. You can have your logs delivered to any bucket that you own, including the same bucket that is being logged. You can also configure multiple buckets to deliver their logs to the same target bucket. In this case you should choose a different TargetPrefix for each source bucket so that the delivered log files can be distinguished by key.
  */
 @property (nonatomic, strong) NSString *targetBucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *targetGrants;
 
 /**
- * This element lets you specify a prefix for the keys that the log files will be stored under.
+ This element lets you specify a prefix for the keys that the log files will be stored under.
  */
 @property (nonatomic, strong) NSString *targetPrefix;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3MultipartUpload : AWSModel
 
 
 /**
- * Date and time at which the multipart upload was initiated.
+ Date and time at which the multipart upload was initiated.
  */
 @property (nonatomic, strong) NSDate *initiated;
 
 /**
- * Identifies who initiated the multipart upload.
+ Identifies who initiated the multipart upload.
  */
 @property (nonatomic, strong) AWSS3Initiator *initiator;
 
 /**
- * Key of the object for which the multipart upload was initiated.
+ Key of the object for which the multipart upload was initiated.
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3Owner *owner;
 
 /**
- * The class of storage used to store the object.
+ The class of storage used to store the object.
  */
 @property (nonatomic, assign) AWSS3StorageClass storageClass;
 
 /**
- * Upload ID that identifies the multipart upload.
+ Upload ID that identifies the multipart upload.
  */
 @property (nonatomic, strong) NSString *uploadId;
 
 @end
 
 /**
- * Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
+ Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
  */
 @interface AWSS3NoncurrentVersionExpiration : AWSModel
 
 
 /**
- * Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href="/AmazonS3/latest/dev/s3-access-control.html">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.
+ Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href="/AmazonS3/latest/dev/s3-access-control.html">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.
  */
 @property (nonatomic, strong) NSNumber *noncurrentDays;
 
 @end
 
 /**
- * Container for the transition rule that describes when noncurrent objects transition to the GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the GLACIER storage class at a specific period in the object's lifetime.
+ Container for the transition rule that describes when noncurrent objects transition to the GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the GLACIER storage class at a specific period in the object's lifetime.
  */
 @interface AWSS3NoncurrentVersionTransition : AWSModel
 
 
 /**
- * Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href="/AmazonS3/latest/dev/s3-access-control.html">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.
+ Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href="/AmazonS3/latest/dev/s3-access-control.html">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.
  */
 @property (nonatomic, strong) NSNumber *noncurrentDays;
 
 /**
- * The class of storage used to store the object.
+ The class of storage used to store the object.
  */
 @property (nonatomic, assign) AWSS3TransitionStorageClass storageClass;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3NotificationConfiguration : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3CloudFunctionConfiguration *cloudFunctionConfiguration;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3QueueConfiguration *queueConfiguration;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3TopicConfiguration *topicConfiguration;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3Object : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *ETag;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSDate *lastModified;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3Owner *owner;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSNumber *size;
 
 /**
- * The class of storage used to store the object.
+ The class of storage used to store the object.
  */
 @property (nonatomic, assign) AWSS3ObjectStorageClass storageClass;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3ObjectIdentifier : AWSModel
 
 
 /**
- * Key name of the object to delete.
+ Key name of the object to delete.
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * VersionId for the specific version of the object to delete.
+ VersionId for the specific version of the object to delete.
  */
 @property (nonatomic, strong) NSString *versionId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3ObjectVersion : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *ETag;
 
 /**
- * Specifies whether the object is (true) or is not (false) the latest version of an object.
+ Specifies whether the object is (true) or is not (false) the latest version of an object.
  */
 @property (nonatomic, strong) NSNumber *isLatest;
 
 /**
- * The object key.
+ The object key.
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * Date and time the object was last modified.
+ Date and time the object was last modified.
  */
 @property (nonatomic, strong) NSDate *lastModified;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3Owner *owner;
 
 /**
- * Size in bytes of the object.
+ Size in bytes of the object.
  */
 @property (nonatomic, strong) NSNumber *size;
 
 /**
- * The class of storage used to store the object.
+ The class of storage used to store the object.
  */
 @property (nonatomic, assign) AWSS3ObjectVersionStorageClass storageClass;
 
 /**
- * Version ID of an object.
+ Version ID of an object.
  */
 @property (nonatomic, strong) NSString *versionId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3Owner : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *displayName;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *identifier;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3Part : AWSModel
 
 
 /**
- * Entity tag returned when the part was uploaded.
+ Entity tag returned when the part was uploaded.
  */
 @property (nonatomic, strong) NSString *ETag;
 
 /**
- * Date and time at which the part was uploaded.
+ Date and time at which the part was uploaded.
  */
 @property (nonatomic, strong) NSDate *lastModified;
 
 /**
- * Part number identifying the part.
+ Part number identifying the part.
  */
 @property (nonatomic, strong) NSNumber *partNumber;
 
 /**
- * Size of the uploaded part data.
+ Size of the uploaded part data.
  */
 @property (nonatomic, strong) NSNumber *size;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3PutBucketAclRequest : AWSRequest
 
 
 /**
- * The canned ACL to apply to the bucket.
+ The canned ACL to apply to the bucket.
  */
 @property (nonatomic, assign) AWSS3BucketCannedACL ACL;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3AccessControlPolicy *accessControlPolicy;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *contentMD5;
 
 /**
- * Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
+ Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
  */
 @property (nonatomic, strong) NSString *grantFullControl;
 
 /**
- * Allows grantee to list the objects in the bucket.
+ Allows grantee to list the objects in the bucket.
  */
 @property (nonatomic, strong) NSString *grantRead;
 
 /**
- * Allows grantee to read the bucket ACL.
+ Allows grantee to read the bucket ACL.
  */
 @property (nonatomic, strong) NSString *grantReadACP;
 
 /**
- * Allows grantee to create, overwrite, and delete any object in the bucket.
+ Allows grantee to create, overwrite, and delete any object in the bucket.
  */
 @property (nonatomic, strong) NSString *grantWrite;
 
 /**
- * Allows grantee to write the ACL for the applicable bucket.
+ Allows grantee to write the ACL for the applicable bucket.
  */
 @property (nonatomic, strong) NSString *grantWriteACP;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3PutBucketCorsRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3CORSConfiguration *CORSConfiguration;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *contentMD5;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3PutBucketLifecycleRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *contentMD5;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3LifecycleConfiguration *lifecycleConfiguration;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3PutBucketLoggingRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3BucketLoggingStatus *bucketLoggingStatus;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *contentMD5;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3PutBucketNotificationRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *contentMD5;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3NotificationConfiguration *notificationConfiguration;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3PutBucketPolicyRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *contentMD5;
 
 /**
- * The bucket policy as a JSON document.
+ The bucket policy as a JSON document.
  */
 @property (nonatomic, strong) NSString *policy;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3PutBucketRequestPaymentRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *contentMD5;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3RequestPaymentConfiguration *requestPaymentConfiguration;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3PutBucketTaggingRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *contentMD5;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3Tagging *tagging;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3PutBucketVersioningRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *contentMD5;
 
 /**
- * The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+ The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
  */
 @property (nonatomic, strong) NSString *MFA;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3VersioningConfiguration *versioningConfiguration;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3PutBucketWebsiteRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *contentMD5;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3WebsiteConfiguration *websiteConfiguration;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3PutObjectAclRequest : AWSRequest
 
 
 /**
- * The canned ACL to apply to the object.
+ The canned ACL to apply to the object.
  */
 @property (nonatomic, assign) AWSS3ObjectCannedACL ACL;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3AccessControlPolicy *accessControlPolicy;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *contentMD5;
 
 /**
- * Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
+ Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
  */
 @property (nonatomic, strong) NSString *grantFullControl;
 
 /**
- * Allows grantee to list the objects in the bucket.
+ Allows grantee to list the objects in the bucket.
  */
 @property (nonatomic, strong) NSString *grantRead;
 
 /**
- * Allows grantee to read the bucket ACL.
+ Allows grantee to read the bucket ACL.
  */
 @property (nonatomic, strong) NSString *grantReadACP;
 
 /**
- * Allows grantee to create, overwrite, and delete any object in the bucket.
+ Allows grantee to create, overwrite, and delete any object in the bucket.
  */
 @property (nonatomic, strong) NSString *grantWrite;
 
 /**
- * Allows grantee to write the ACL for the applicable bucket.
+ Allows grantee to write the ACL for the applicable bucket.
  */
 @property (nonatomic, strong) NSString *grantWriteACP;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *key;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3PutObjectOutput : AWSModel
 
 
 /**
- * Entity tag for the uploaded object.
+ Entity tag for the uploaded object.
  */
 @property (nonatomic, strong) NSString *ETag;
 
 /**
- * If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
+ If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
  */
 @property (nonatomic, strong) NSString *expiration;
 
 /**
- * If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+ If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
 /**
- * If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
+ If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
  */
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
+ If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
  */
 @property (nonatomic, strong) NSString *SSEKMSKeyId;
 
 /**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
 /**
- * Version of the object.
+ Version of the object.
  */
 @property (nonatomic, strong) NSString *versionId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3PutObjectRequest : AWSRequest
 
 
 /**
- * The canned ACL to apply to the object.
+ The canned ACL to apply to the object.
  */
 @property (nonatomic, assign) AWSS3ObjectCannedACL ACL;
 
 /**
- * Object data.
+ Object data.
  */
 @property (nonatomic, strong) id body;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * Specifies caching behavior along the request/reply chain.
+ Specifies caching behavior along the request/reply chain.
  */
 @property (nonatomic, strong) NSString *cacheControl;
 
 /**
- * Specifies presentational information for the object.
+ Specifies presentational information for the object.
  */
 @property (nonatomic, strong) NSString *contentDisposition;
 
 /**
- * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+ Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
  */
 @property (nonatomic, strong) NSString *contentEncoding;
 
 /**
- * The language the content is in.
+ The language the content is in.
  */
 @property (nonatomic, strong) NSString *contentLanguage;
 
 /**
- * Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
+ Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
  */
 @property (nonatomic, strong) NSNumber *contentLength;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *contentMD5;
 
 /**
- * A standard MIME type describing the format of the object data.
+ A standard MIME type describing the format of the object data.
  */
 @property (nonatomic, strong) NSString *contentType;
 
 /**
- * The date and time at which the object is no longer cacheable.
+ The date and time at which the object is no longer cacheable.
  */
 @property (nonatomic, strong) NSDate *expires;
 
 /**
- * Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
+ Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
  */
 @property (nonatomic, strong) NSString *grantFullControl;
 
 /**
- * Allows grantee to read the object data and its metadata.
+ Allows grantee to read the object data and its metadata.
  */
 @property (nonatomic, strong) NSString *grantRead;
 
 /**
- * Allows grantee to read the object ACL.
+ Allows grantee to read the object ACL.
  */
 @property (nonatomic, strong) NSString *grantReadACP;
 
 /**
- * Allows grantee to write the ACL for the applicable object.
+ Allows grantee to write the ACL for the applicable object.
  */
 @property (nonatomic, strong) NSString *grantWriteACP;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * A map of metadata to store with the object in S3.
+ A map of metadata to store with the object in S3.
  */
 @property (nonatomic, strong) NSDictionary *metadata;
 
 /**
- * Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
+ Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
 /**
- * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
+ Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
  */
 @property (nonatomic, strong) NSString *SSECustomerKey;
 
 /**
- * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
+ Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version
+ Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version
  */
 @property (nonatomic, strong) NSString *SSEKMSKeyId;
 
 /**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
 /**
- * The type of storage to use for the object. Defaults to 'STANDARD'.
+ The type of storage to use for the object. Defaults to 'STANDARD'.
  */
 @property (nonatomic, assign) AWSS3StorageClass storageClass;
 
 /**
- * If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
+ If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
  */
 @property (nonatomic, strong) NSString *websiteRedirectLocation;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3QueueConfiguration : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, assign) AWSS3Event event;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *events;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *identifier;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *queue;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3Redirect : AWSModel
 
 
 /**
- * The host name to use in the redirect request.
+ The host name to use in the redirect request.
  */
 @property (nonatomic, strong) NSString *hostName;
 
 /**
- * The HTTP redirect code to use on the response. Not required if one of the siblings is present.
+ The HTTP redirect code to use on the response. Not required if one of the siblings is present.
  */
 @property (nonatomic, strong) NSString *httpRedirectCode;
 
 /**
- * Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.
+ Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.
  */
 @property (nonatomic, assign) AWSS3Protocols protocols;
 
 /**
- * The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix docs/ (objects in the docs/ folder) to documents/, you can set a condition block with KeyPrefixEquals set to docs/ and in the Redirect set ReplaceKeyPrefixWith to /documents. Not required if one of the siblings is present. Can be present only if ReplaceKeyWith is not provided.
+ The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix docs/ (objects in the docs/ folder) to documents/, you can set a condition block with KeyPrefixEquals set to docs/ and in the Redirect set ReplaceKeyPrefixWith to /documents. Not required if one of the siblings is present. Can be present only if ReplaceKeyWith is not provided.
  */
 @property (nonatomic, strong) NSString *replaceKeyPrefixWith;
 
 /**
- * The specific object key to use in the redirect request. For example, redirect request to error.html. Not required if one of the sibling is present. Can be present only if ReplaceKeyPrefixWith is not provided.
+ The specific object key to use in the redirect request. For example, redirect request to error.html. Not required if one of the sibling is present. Can be present only if ReplaceKeyPrefixWith is not provided.
  */
 @property (nonatomic, strong) NSString *replaceKeyWith;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3RedirectAllRequestsTo : AWSModel
 
 
 /**
- * Name of the host where requests will be redirected.
+ Name of the host where requests will be redirected.
  */
 @property (nonatomic, strong) NSString *hostName;
 
 /**
- * Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.
+ Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.
  */
 @property (nonatomic, assign) AWSS3Protocols protocols;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3Remove : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *objects;
 
 /**
- * Element to enable quiet mode for the request. When you add this element, you must set its value to true.
+ Element to enable quiet mode for the request. When you add this element, you must set its value to true.
  */
 @property (nonatomic, strong) NSNumber *quiet;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3ReplicateObjectOutput : AWSModel
 
 
 /**
- * If the object expiration is configured, the response includes this header.
+ If the object expiration is configured, the response includes this header.
  */
 @property (nonatomic, strong) NSString *expiration;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3ReplicateObjectResult *replicateObjectResult;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *replicateSourceVersionId;
 
 /**
- * If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+ If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
 /**
- * If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
+ If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
  */
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
+ If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
  */
 @property (nonatomic, strong) NSString *SSEKMSKeyId;
 
 /**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3ReplicateObjectRequest : AWSRequest
 
 
 /**
- * The canned ACL to apply to the object.
+ The canned ACL to apply to the object.
  */
 @property (nonatomic, assign) AWSS3ObjectCannedACL ACL;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * Specifies caching behavior along the request/reply chain.
+ Specifies caching behavior along the request/reply chain.
  */
 @property (nonatomic, strong) NSString *cacheControl;
 
 /**
- * Specifies presentational information for the object.
+ Specifies presentational information for the object.
  */
 @property (nonatomic, strong) NSString *contentDisposition;
 
 /**
- * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+ Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
  */
 @property (nonatomic, strong) NSString *contentEncoding;
 
 /**
- * The language the content is in.
+ The language the content is in.
  */
 @property (nonatomic, strong) NSString *contentLanguage;
 
 /**
- * A standard MIME type describing the format of the object data.
+ A standard MIME type describing the format of the object data.
  */
 @property (nonatomic, strong) NSString *contentType;
 
 /**
- * The date and time at which the object is no longer cacheable.
+ The date and time at which the object is no longer cacheable.
  */
 @property (nonatomic, strong) NSDate *expires;
 
 /**
- * Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
+ Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
  */
 @property (nonatomic, strong) NSString *grantFullControl;
 
 /**
- * Allows grantee to read the object data and its metadata.
+ Allows grantee to read the object data and its metadata.
  */
 @property (nonatomic, strong) NSString *grantRead;
 
 /**
- * Allows grantee to read the object ACL.
+ Allows grantee to read the object ACL.
  */
 @property (nonatomic, strong) NSString *grantReadACP;
 
 /**
- * Allows grantee to write the ACL for the applicable object.
+ Allows grantee to write the ACL for the applicable object.
  */
 @property (nonatomic, strong) NSString *grantWriteACP;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * A map of metadata to store with the object in S3.
+ A map of metadata to store with the object in S3.
  */
 @property (nonatomic, strong) NSDictionary *metadata;
 
 /**
- * Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.
+ Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.
  */
 @property (nonatomic, assign) AWSS3MetadataDirective metadataDirective;
 
 /**
- * The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.
+ The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.
  */
 @property (nonatomic, strong) NSString *replicateSource;
 
 /**
- * Copies the object if its entity tag (ETag) matches the specified tag.
+ Copies the object if its entity tag (ETag) matches the specified tag.
  */
 @property (nonatomic, strong) NSString *replicateSourceIfMatch;
 
 /**
- * Copies the object if it has been modified since the specified time.
+ Copies the object if it has been modified since the specified time.
  */
 @property (nonatomic, strong) NSDate *replicateSourceIfModifiedSince;
 
 /**
- * Copies the object if its entity tag (ETag) is different than the specified ETag.
+ Copies the object if its entity tag (ETag) is different than the specified ETag.
  */
 @property (nonatomic, strong) NSString *replicateSourceIfNoneMatch;
 
 /**
- * Copies the object if it hasn't been modified since the specified time.
+ Copies the object if it hasn't been modified since the specified time.
  */
 @property (nonatomic, strong) NSDate *replicateSourceIfUnmodifiedSince;
 
 /**
- * Specifies the algorithm to use when decrypting the source object (e.g., AES256).
+ Specifies the algorithm to use when decrypting the source object (e.g., AES256).
  */
 @property (nonatomic, strong) NSString *replicateSourceSSECustomerAlgorithm;
 
 /**
- * Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+ Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
  */
 @property (nonatomic, strong) NSString *replicateSourceSSECustomerKey;
 
 /**
- * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
+ Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
 @property (nonatomic, strong) NSString *replicateSourceSSECustomerKeyMD5;
 
 /**
- * Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
+ Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
 /**
- * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
+ Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
  */
 @property (nonatomic, strong) NSString *SSECustomerKey;
 
 /**
- * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
+ Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version
+ Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version
  */
 @property (nonatomic, strong) NSString *SSEKMSKeyId;
 
 /**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
 /**
- * The type of storage to use for the object. Defaults to 'STANDARD'.
+ The type of storage to use for the object. Defaults to 'STANDARD'.
  */
 @property (nonatomic, assign) AWSS3StorageClass storageClass;
 
 /**
- * If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
+ If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
  */
 @property (nonatomic, strong) NSString *websiteRedirectLocation;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3ReplicateObjectResult : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *ETag;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSDate *lastModified;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3ReplicatePartResult : AWSModel
 
 
 /**
- * Entity tag of the object.
+ Entity tag of the object.
  */
 @property (nonatomic, strong) NSString *ETag;
 
 /**
- * Date and time at which the object was uploaded.
+ Date and time at which the object was uploaded.
  */
 @property (nonatomic, strong) NSDate *lastModified;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3RequestPaymentConfiguration : AWSModel
 
 
 /**
- * Specifies who pays for the download and request fees.
+ Specifies who pays for the download and request fees.
  */
 @property (nonatomic, assign) AWSS3Payer payer;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3RestoreObjectRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3RestoreRequest *restoreRequest;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *versionId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3RestoreRequest : AWSModel
 
 
 /**
- * Lifetime of the active copy in days
+ Lifetime of the active copy in days
  */
 @property (nonatomic, strong) NSNumber *days;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3RoutingRule : AWSModel
 
 
 /**
- * A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the /docs folder, redirect to the /documents folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
+ A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the /docs folder, redirect to the /documents folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
  */
 @property (nonatomic, strong) AWSS3Condition *condition;
 
 /**
- * Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can can specify a different error code to return.
+ Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can can specify a different error code to return.
  */
 @property (nonatomic, strong) AWSS3Redirect *redirect;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3Rule : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3LifecycleExpiration *expiration;
 
 /**
- * Unique identifier for the rule. The value cannot be longer than 255 characters.
+ Unique identifier for the rule. The value cannot be longer than 255 characters.
  */
 @property (nonatomic, strong) NSString *identifier;
 
 /**
- * Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
+ Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
  */
 @property (nonatomic, strong) AWSS3NoncurrentVersionExpiration *noncurrentVersionExpiration;
 
 /**
- * Container for the transition rule that describes when noncurrent objects transition to the GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the GLACIER storage class at a specific period in the object's lifetime.
+ Container for the transition rule that describes when noncurrent objects transition to the GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the GLACIER storage class at a specific period in the object's lifetime.
  */
 @property (nonatomic, strong) AWSS3NoncurrentVersionTransition *noncurrentVersionTransition;
 
 /**
- * Prefix identifying one or more objects to which the rule applies.
+ Prefix identifying one or more objects to which the rule applies.
  */
 @property (nonatomic, strong) NSString *prefix;
 
 /**
- * If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
+ If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
  */
 @property (nonatomic, assign) AWSS3ExpirationStatus status;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3Transition *transition;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3Tag : AWSModel
 
 
 /**
- * Name of the tag.
+ Name of the tag.
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * Value of the tag.
+ Value of the tag.
  */
 @property (nonatomic, strong) NSString *value;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3Tagging : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *tagSet;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3TargetGrant : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3Grantee *grantee;
 
 /**
- * Logging permissions assigned to the Grantee for the bucket.
+ Logging permissions assigned to the Grantee for the bucket.
  */
 @property (nonatomic, assign) AWSS3BucketLogsPermission permission;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3TopicConfiguration : AWSModel
 
 
 /**
- * Bucket event for which to send notifications.
+ Bucket event for which to send notifications.
  */
 @property (nonatomic, assign) AWSS3Event event;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *events;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *identifier;
 
 /**
- * Amazon SNS topic to which Amazon S3 will publish a message to report the specified events for the bucket.
+ Amazon SNS topic to which Amazon S3 will publish a message to report the specified events for the bucket.
  */
 @property (nonatomic, strong) NSString *topic;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3Transition : AWSModel
 
 
 /**
- * Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
+ Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
  */
 @property (nonatomic, strong) NSDate *date;
 
 /**
- * Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
+ Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
  */
 @property (nonatomic, strong) NSNumber *days;
 
 /**
- * The class of storage used to store the object.
+ The class of storage used to store the object.
  */
 @property (nonatomic, assign) AWSS3TransitionStorageClass storageClass;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3UploadPartCopyOutput : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3ReplicatePartResult *replicatePartResult;
 
 /**
- * The version of the source object that was copied, if you have enabled versioning on the source bucket.
+ The version of the source object that was copied, if you have enabled versioning on the source bucket.
  */
 @property (nonatomic, strong) NSString *replicateSourceVersionId;
 
 /**
- * If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+ If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
 /**
- * If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
+ If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
  */
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
+ If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
  */
 @property (nonatomic, strong) NSString *SSEKMSKeyId;
 
 /**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3UploadPartCopyRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * Part number of part being copied.
+ Part number of part being copied.
  */
 @property (nonatomic, strong) NSNumber *partNumber;
 
 /**
- * The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.
+ The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.
  */
 @property (nonatomic, strong) NSString *replicateSource;
 
 /**
- * Copies the object if its entity tag (ETag) matches the specified tag.
+ Copies the object if its entity tag (ETag) matches the specified tag.
  */
 @property (nonatomic, strong) NSString *replicateSourceIfMatch;
 
 /**
- * Copies the object if it has been modified since the specified time.
+ Copies the object if it has been modified since the specified time.
  */
 @property (nonatomic, strong) NSDate *replicateSourceIfModifiedSince;
 
 /**
- * Copies the object if its entity tag (ETag) is different than the specified ETag.
+ Copies the object if its entity tag (ETag) is different than the specified ETag.
  */
 @property (nonatomic, strong) NSString *replicateSourceIfNoneMatch;
 
 /**
- * Copies the object if it hasn't been modified since the specified time.
+ Copies the object if it hasn't been modified since the specified time.
  */
 @property (nonatomic, strong) NSDate *replicateSourceIfUnmodifiedSince;
 
 /**
- * The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 GB.
+ The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 GB.
  */
 @property (nonatomic, strong) NSString *replicateSourceRange;
 
 /**
- * Specifies the algorithm to use when decrypting the source object (e.g., AES256).
+ Specifies the algorithm to use when decrypting the source object (e.g., AES256).
  */
 @property (nonatomic, strong) NSString *replicateSourceSSECustomerAlgorithm;
 
 /**
- * Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+ Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
  */
 @property (nonatomic, strong) NSString *replicateSourceSSECustomerKey;
 
 /**
- * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
+ Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
 @property (nonatomic, strong) NSString *replicateSourceSSECustomerKeyMD5;
 
 /**
- * Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
+ Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
 /**
- * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.
+ Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.
  */
 @property (nonatomic, strong) NSString *SSECustomerKey;
 
 /**
- * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
+ Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * Upload ID identifying the multipart upload whose part is being copied.
+ Upload ID identifying the multipart upload whose part is being copied.
  */
 @property (nonatomic, strong) NSString *uploadId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3UploadPartOutput : AWSModel
 
 
 /**
- * Entity tag for the uploaded object.
+ Entity tag for the uploaded object.
  */
 @property (nonatomic, strong) NSString *ETag;
 
 /**
- * If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+ If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
 /**
- * If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
+ If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
  */
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
+ If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
  */
 @property (nonatomic, strong) NSString *SSEKMSKeyId;
 
 /**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3UploadPartRequest : AWSRequest
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) id body;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *bucket;
 
 /**
- * Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
+ Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
  */
 @property (nonatomic, strong) NSNumber *contentLength;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *contentMD5;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSString *key;
 
 /**
- * Part number of part being uploaded.
+ Part number of part being uploaded.
  */
 @property (nonatomic, strong) NSNumber *partNumber;
 
 /**
- * Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
+ Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
 /**
- * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.
+ Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.
  */
 @property (nonatomic, strong) NSString *SSECustomerKey;
 
 /**
- * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
+ Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * Upload ID identifying the multipart upload whose part is being uploaded.
+ Upload ID identifying the multipart upload whose part is being uploaded.
  */
 @property (nonatomic, strong) NSString *uploadId;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3VersioningConfiguration : AWSModel
 
 
 /**
- * Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.
+ Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.
  */
 @property (nonatomic, assign) AWSS3MFADelete MFADelete;
 
 /**
- * The versioning state of the bucket.
+ The versioning state of the bucket.
  */
 @property (nonatomic, assign) AWSS3BucketVersioningStatus status;
 
 @end
 
 /**
- *
+ 
  */
 @interface AWSS3WebsiteConfiguration : AWSModel
 
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3ErrorDocument *errorDocument;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3IndexDocument *indexDocument;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) AWSS3RedirectAllRequestsTo *redirectAllRequestsTo;
 
 /**
- * 
+ 
  */
 @property (nonatomic, strong) NSArray *routingRules;
 

@@ -1,10 +1,25 @@
 # AWSiOSSDKv2 CHANGELOG
 
+## 2.1.0
+
+### Misc Changes
+* **SDK Core**
+    * Added `- initWithRegionType:identityPoolId:` to `AWSCognitoCredentialsProvider`. See `AWSCredentialsProvider.h` for further details.
+    * Deprecated all `+ credentialsWith*` factory methods in `AWSCognitoCredentialsProvider`.
+    * Added `+ registerSERVICEWithConfiguration:forKey:`, `+ SERVICEForKey:`, and `+ removeSERVICEForKey:` to each service client. See the service client headers for further details.
+    * Deprecated `- initWithConfiguration:` in all service clients.
+    * Deprecated `- serviceForKey:`, `- setService:forKey:`, and `- removeServiceForKey:` in `AWSServiceManager`.
+    * Split the framework into per service frameworks.
+    * Updated the SDK structure to support CocoaPods 0.36.0 with the `use_framework!` option.
+
+### Resolved Issues
+* **Amazon S3 Transfer Manager** - Fixed a bug where resume does not work as intended if the app restarts. 
+
 ## 2.0.17
 
 ### Resolved Issues
 * **Amazon DynamoDB Object Mapper** - Fixed a number format issue relating to the device locale setting.
-* **Amazon Mobile Analytics** - Fixed an issue in AWSMobileAnalyticsBufferedReader that generated application errors if the underlying inputStream contained multi-byte characters.
+* **Amazon Mobile Analytics** - Fixed an issue in `AWSMobileAnalyticsBufferedReader` that generated application errors if the underlying inputStream contained multi-byte characters.
 
 ## 2.0.16
 

@@ -1,0 +1,1 @@
+../../AWSCore/MobileAnalytics/AWSMobileAnalytics.h

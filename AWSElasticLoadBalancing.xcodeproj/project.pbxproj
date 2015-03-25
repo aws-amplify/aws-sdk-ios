@@ -1,0 +1,529 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		992096CD9DAE02F52C8B156D /* libPods-ElasticLoadBalancing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6BE6D595CF8A1E471E0675A /* libPods-ElasticLoadBalancing.a */; };
+		BD00003E1AB8C554004496EF /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00003D1AB8C554004496EF /* credentials.json */; };
+		BD00005E1AB8E1EA004496EF /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00005D1AB8E1EA004496EF /* AWSTestUtility.m */; };
+		BD00FF451AB8B6E2004496EF /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD00FF441AB8B6E2004496EF /* libAWSCore.a */; };
+		BD00FF7D1AB8B97D004496EF /* elasticloadbalancing-2012-06-01.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF559AA1AB3761C0067F4F1 /* elasticloadbalancing-2012-06-01.json */; };
+		BD00FF811AB8B98E004496EF /* cognito-identity-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF7E1AB8B98E004496EF /* cognito-identity-2014-06-30.json */; };
+		BD00FF821AB8B98E004496EF /* mobileanalytics-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF7F1AB8B98E004496EF /* mobileanalytics-2014-06-30.json */; };
+		BD00FF831AB8B98E004496EF /* sts-2011-06-15.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF801AB8B98E004496EF /* sts-2011-06-15.json */; };
+		BD00FFF61AB8C448004496EF /* AWSGeneralElasticLoadBalancingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFF41AB8C448004496EF /* AWSGeneralElasticLoadBalancingTests.m */; };
+		BD00FFF71AB8C448004496EF /* AWSElasticLoadBalancingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFF51AB8C448004496EF /* AWSElasticLoadBalancingTests.m */; };
+		BD9D97611AC1EEA300CEEE08 /* AWSElasticLoadBalancingService.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEE7DE6E1AC1E19D0095C4B7 /* AWSElasticLoadBalancingService.h */; };
+		BDC91C511ABBA0D100F74D49 /* AWSElasticLoadBalancing.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDF559A51AB3761C0067F4F1 /* AWSElasticLoadBalancing.h */; };
+		BDC91C521ABBA0D100F74D49 /* AWSElasticLoadBalancingModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDF559A71AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.h */; };
+		BDF559951AB375EC0067F4F1 /* libAWSElasticLoadBalancing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDF559891AB375EC0067F4F1 /* libAWSElasticLoadBalancing.a */; };
+		BDF559AB1AB3761C0067F4F1 /* AWSElasticLoadBalancing.h in Headers */ = {isa = PBXBuildFile; fileRef = BDF559A51AB3761C0067F4F1 /* AWSElasticLoadBalancing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BDF559AC1AB3761C0067F4F1 /* AWSElasticLoadBalancingService.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF559A61AB3761C0067F4F1 /* AWSElasticLoadBalancingService.m */; };
+		BDF559AD1AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BDF559A71AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BDF559AE1AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF559A81AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.m */; };
+		CEE7DE6F1AC1E19D0095C4B7 /* AWSElasticLoadBalancingService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE6E1AC1E19D0095C4B7 /* AWSElasticLoadBalancingService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BDF559961AB375EC0067F4F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDF559811AB375EC0067F4F1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDF559881AB375EC0067F4F1;
+			remoteInfo = ElasticLoadBalancing;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BDF559871AB375EC0067F4F1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				BD9D97611AC1EEA300CEEE08 /* AWSElasticLoadBalancingService.h in CopyFiles */,
+				BDC91C511ABBA0D100F74D49 /* AWSElasticLoadBalancing.h in CopyFiles */,
+				BDC91C521ABBA0D100F74D49 /* AWSElasticLoadBalancingModel.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6DE527C2E718ED2EA1C03086 /* Pods-ElasticLoadBalancing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElasticLoadBalancing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElasticLoadBalancing/Pods-ElasticLoadBalancing.debug.xcconfig"; sourceTree = "<group>"; };
+		BD00003D1AB8C554004496EF /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
+		BD00005C1AB8E1EA004496EF /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSTestUtility.h; path = AWSCoreTests/AWSTestUtility.h; sourceTree = SOURCE_ROOT; };
+		BD00005D1AB8E1EA004496EF /* AWSTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSTestUtility.m; path = AWSCoreTests/AWSTestUtility.m; sourceTree = SOURCE_ROOT; };
+		BD00FF441AB8B6E2004496EF /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
+		BD00FF7E1AB8B98E004496EF /* cognito-identity-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "cognito-identity-2014-06-30.json"; path = "AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"; sourceTree = "<group>"; };
+		BD00FF7F1AB8B98E004496EF /* mobileanalytics-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "mobileanalytics-2014-06-30.json"; path = "AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"; sourceTree = "<group>"; };
+		BD00FF801AB8B98E004496EF /* sts-2011-06-15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "sts-2011-06-15.json"; path = "AWSCore/STS/Resources/sts-2011-06-15.json"; sourceTree = "<group>"; };
+		BD00FFF41AB8C448004496EF /* AWSGeneralElasticLoadBalancingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralElasticLoadBalancingTests.m; sourceTree = "<group>"; };
+		BD00FFF51AB8C448004496EF /* AWSElasticLoadBalancingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSElasticLoadBalancingTests.m; sourceTree = "<group>"; };
+		BDF559891AB375EC0067F4F1 /* libAWSElasticLoadBalancing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSElasticLoadBalancing.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDF559941AB375EC0067F4F1 /* AWSElasticLoadBalancingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSElasticLoadBalancingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDF5599A1AB375EC0067F4F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDF559A51AB3761C0067F4F1 /* AWSElasticLoadBalancing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSElasticLoadBalancing.h; sourceTree = "<group>"; };
+		BDF559A61AB3761C0067F4F1 /* AWSElasticLoadBalancingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSElasticLoadBalancingService.m; sourceTree = "<group>"; };
+		BDF559A71AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSElasticLoadBalancingModel.h; sourceTree = "<group>"; };
+		BDF559A81AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSElasticLoadBalancingModel.m; sourceTree = "<group>"; };
+		BDF559AA1AB3761C0067F4F1 /* elasticloadbalancing-2012-06-01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "elasticloadbalancing-2012-06-01.json"; sourceTree = "<group>"; };
+		C1DD31887A09ECC9E6910747 /* Pods-ElasticLoadBalancing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElasticLoadBalancing.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElasticLoadBalancing/Pods-ElasticLoadBalancing.release.xcconfig"; sourceTree = "<group>"; };
+		CEE7DE6E1AC1E19D0095C4B7 /* AWSElasticLoadBalancingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSElasticLoadBalancingService.h; sourceTree = "<group>"; };
+		F6BE6D595CF8A1E471E0675A /* libPods-ElasticLoadBalancing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ElasticLoadBalancing.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BDF559861AB375EC0067F4F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF559911AB375EC0067F4F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD00FF451AB8B6E2004496EF /* libAWSCore.a in Frameworks */,
+				BDF559951AB375EC0067F4F1 /* libAWSElasticLoadBalancing.a in Frameworks */,
+				992096CD9DAE02F52C8B156D /* libPods-ElasticLoadBalancing.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		412CEC016EC21D18D1D11C56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F6BE6D595CF8A1E471E0675A /* libPods-ElasticLoadBalancing.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4EF3408BFEAC16E73120B5DF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6DE527C2E718ED2EA1C03086 /* Pods-ElasticLoadBalancing.debug.xcconfig */,
+				C1DD31887A09ECC9E6910747 /* Pods-ElasticLoadBalancing.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BD00FFB61AB8BB09004496EF /* Other Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BD00FF7E1AB8B98E004496EF /* cognito-identity-2014-06-30.json */,
+				BD00FF7F1AB8B98E004496EF /* mobileanalytics-2014-06-30.json */,
+				BD00FF801AB8B98E004496EF /* sts-2011-06-15.json */,
+			);
+			name = "Other Resources";
+			sourceTree = "<group>";
+		};
+		BDF559801AB375EC0067F4F1 = {
+			isa = PBXGroup;
+			children = (
+				BD00FF441AB8B6E2004496EF /* libAWSCore.a */,
+				BD00FFB61AB8BB09004496EF /* Other Resources */,
+				BDF5598B1AB375EC0067F4F1 /* ElasticLoadBalancing */,
+				BDF559981AB375EC0067F4F1 /* ElasticLoadBalancingTests */,
+				BDF5598A1AB375EC0067F4F1 /* Products */,
+				4EF3408BFEAC16E73120B5DF /* Pods */,
+				412CEC016EC21D18D1D11C56 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BDF5598A1AB375EC0067F4F1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDF559891AB375EC0067F4F1 /* libAWSElasticLoadBalancing.a */,
+				BDF559941AB375EC0067F4F1 /* AWSElasticLoadBalancingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BDF5598B1AB375EC0067F4F1 /* ElasticLoadBalancing */ = {
+			isa = PBXGroup;
+			children = (
+				BDF559A51AB3761C0067F4F1 /* AWSElasticLoadBalancing.h */,
+				BDF559A71AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.h */,
+				BDF559A81AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.m */,
+				CEE7DE6E1AC1E19D0095C4B7 /* AWSElasticLoadBalancingService.h */,
+				BDF559A61AB3761C0067F4F1 /* AWSElasticLoadBalancingService.m */,
+				BDF559A91AB3761C0067F4F1 /* Resources */,
+			);
+			path = ElasticLoadBalancing;
+			sourceTree = "<group>";
+		};
+		BDF559981AB375EC0067F4F1 /* ElasticLoadBalancingTests */ = {
+			isa = PBXGroup;
+			children = (
+				BD00FFF41AB8C448004496EF /* AWSGeneralElasticLoadBalancingTests.m */,
+				BD00FFF51AB8C448004496EF /* AWSElasticLoadBalancingTests.m */,
+				BDF559991AB375EC0067F4F1 /* Supporting Files */,
+			);
+			path = ElasticLoadBalancingTests;
+			sourceTree = "<group>";
+		};
+		BDF559991AB375EC0067F4F1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BD00003D1AB8C554004496EF /* credentials.json */,
+				BD00005C1AB8E1EA004496EF /* AWSTestUtility.h */,
+				BD00005D1AB8E1EA004496EF /* AWSTestUtility.m */,
+				BDF5599A1AB375EC0067F4F1 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BDF559A91AB3761C0067F4F1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BDF559AA1AB3761C0067F4F1 /* elasticloadbalancing-2012-06-01.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BDF559A31AB3760F0067F4F1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDF559AB1AB3761C0067F4F1 /* AWSElasticLoadBalancing.h in Headers */,
+				CEE7DE6F1AC1E19D0095C4B7 /* AWSElasticLoadBalancingService.h in Headers */,
+				BDF559AD1AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		BDF559881AB375EC0067F4F1 /* AWSElasticLoadBalancing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDF5599D1AB375EC0067F4F1 /* Build configuration list for PBXNativeTarget "AWSElasticLoadBalancing" */;
+			buildPhases = (
+				BDF559851AB375EC0067F4F1 /* Sources */,
+				BDF559861AB375EC0067F4F1 /* Frameworks */,
+				BDF559871AB375EC0067F4F1 /* CopyFiles */,
+				BDF559A31AB3760F0067F4F1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AWSElasticLoadBalancing;
+			productName = ElasticLoadBalancing;
+			productReference = BDF559891AB375EC0067F4F1 /* libAWSElasticLoadBalancing.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		BDF559931AB375EC0067F4F1 /* AWSElasticLoadBalancingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDF559A01AB375EC0067F4F1 /* Build configuration list for PBXNativeTarget "AWSElasticLoadBalancingTests" */;
+			buildPhases = (
+				95EC7DFD31074189A6656D01 /* Check Pods Manifest.lock */,
+				BDF559901AB375EC0067F4F1 /* Sources */,
+				BDF559911AB375EC0067F4F1 /* Frameworks */,
+				BDF559921AB375EC0067F4F1 /* Resources */,
+				6C36500E709D9A148E5BA4F4 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDF559971AB375EC0067F4F1 /* PBXTargetDependency */,
+			);
+			name = AWSElasticLoadBalancingTests;
+			productName = ElasticLoadBalancingTests;
+			productReference = BDF559941AB375EC0067F4F1 /* AWSElasticLoadBalancingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDF559811AB375EC0067F4F1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Amazon Web Services";
+				TargetAttributes = {
+					BDF559881AB375EC0067F4F1 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					BDF559931AB375EC0067F4F1 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
+			};
+			buildConfigurationList = BDF559841AB375EC0067F4F1 /* Build configuration list for PBXProject "AWSElasticLoadBalancing" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BDF559801AB375EC0067F4F1;
+			productRefGroup = BDF5598A1AB375EC0067F4F1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDF559881AB375EC0067F4F1 /* AWSElasticLoadBalancing */,
+				BDF559931AB375EC0067F4F1 /* AWSElasticLoadBalancingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDF559921AB375EC0067F4F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD00FF811AB8B98E004496EF /* cognito-identity-2014-06-30.json in Resources */,
+				BD00FF821AB8B98E004496EF /* mobileanalytics-2014-06-30.json in Resources */,
+				BD00FF831AB8B98E004496EF /* sts-2011-06-15.json in Resources */,
+				BD00003E1AB8C554004496EF /* credentials.json in Resources */,
+				BD00FF7D1AB8B97D004496EF /* elasticloadbalancing-2012-06-01.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6C36500E709D9A148E5BA4F4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElasticLoadBalancing/Pods-ElasticLoadBalancing-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95EC7DFD31074189A6656D01 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDF559851AB375EC0067F4F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDF559AC1AB3761C0067F4F1 /* AWSElasticLoadBalancingService.m in Sources */,
+				BDF559AE1AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF559901AB375EC0067F4F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD00FFF61AB8C448004496EF /* AWSGeneralElasticLoadBalancingTests.m in Sources */,
+				BD00005E1AB8E1EA004496EF /* AWSTestUtility.m in Sources */,
+				BD00FFF71AB8C448004496EF /* AWSElasticLoadBalancingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BDF559971AB375EC0067F4F1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDF559881AB375EC0067F4F1 /* AWSElasticLoadBalancing */;
+			targetProxy = BDF559961AB375EC0067F4F1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BDF5599B1AB375EC0067F4F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/**";
+			};
+			name = Debug;
+		};
+		BDF5599C1AB375EC0067F4F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/**";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDF5599E1AB375EC0067F4F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SRCROOT}/Pods/Headers/**",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = AWSElasticLoadBalancing;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BDF5599F1AB375EC0067F4F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SRCROOT}/Pods/Headers/**",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = AWSElasticLoadBalancing;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		BDF559A11AB375EC0067F4F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DE527C2E718ED2EA1C03086 /* Pods-ElasticLoadBalancing.debug.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ElasticLoadBalancingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = AWSElasticLoadBalancingTests;
+			};
+			name = Debug;
+		};
+		BDF559A21AB375EC0067F4F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1DD31887A09ECC9E6910747 /* Pods-ElasticLoadBalancing.release.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ElasticLoadBalancingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = AWSElasticLoadBalancingTests;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BDF559841AB375EC0067F4F1 /* Build configuration list for PBXProject "AWSElasticLoadBalancing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDF5599B1AB375EC0067F4F1 /* Debug */,
+				BDF5599C1AB375EC0067F4F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDF5599D1AB375EC0067F4F1 /* Build configuration list for PBXNativeTarget "AWSElasticLoadBalancing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDF5599E1AB375EC0067F4F1 /* Debug */,
+				BDF5599F1AB375EC0067F4F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDF559A01AB375EC0067F4F1 /* Build configuration list for PBXNativeTarget "AWSElasticLoadBalancingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDF559A11AB375EC0067F4F1 /* Debug */,
+				BDF559A21AB375EC0067F4F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BDF559811AB375EC0067F4F1 /* Project object */;
+}

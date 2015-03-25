@@ -1,25 +1,26 @@
-/*
- * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+/**
+ Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License").
+ You may not use this file except in compliance with the License.
+ A copy of the License is located at
+
+ http://aws.amazon.com/apache2.0
+
+ or in the "license" file accompanying this file. This file is distributed
+ on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ express or implied. See the License for the specific language governing
+ permissions and limitations under the License.
  */
 
 #import "AWSKinesisRecorder.h"
 #import "AWSKinesis.h"
-#import "TMCache.h"
-#import "Bolts.h"
+#import <TMCache/TMCache.h>
+#import <Bolts/Bolts.h>
 #import "AWSLogging.h"
 #import "AWSCategory.h"
 #import "FMDB.h"
+#import "AWSSynchronizedMutableDictionary.h"
 
 NSString *const AWSKinesisRecorderErrorDomain = @"com.amazonaws.AWSKinesisRecorderErrorDomain";
 
@@ -41,6 +42,8 @@ NSString *const AWSKinesisRecorderCacheName = @"com.amazonaws.AWSKinesisRecorder
 
 @implementation AWSKinesisRecorder
 
+static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
 + (instancetype)defaultKinesisRecorder {
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
         return nil;
@@ -57,9 +60,30 @@ NSString *const AWSKinesisRecorderCacheName = @"com.amazonaws.AWSKinesisRecorder
     return _defaultKinesisRecorder;
 }
 
++ (void)registerKinesisRecorderWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _serviceClients = [AWSSynchronizedMutableDictionary new];
+    });
+
+    AWSKinesisRecorder *kinesisRecorder = [[AWSKinesisRecorder alloc] initWithConfiguration:configuration
+                                                                                 identifier:[key aws_md5String]
+                                                                                  cacheName:[NSString stringWithFormat:@"%@.%@", AWSKinesisRecorderCacheName, key]];
+    [_serviceClients setObject:kinesisRecorder
+                        forKey:key];
+}
+
++ (instancetype)KinesisRecorderForKey:(NSString *)key {
+    return [_serviceClients objectForKey:key];
+}
+
++ (void)removeKinesisRecorderForKey:(NSString *)key {
+    [_serviceClients removeObjectForKey:key];
+}
+
 - (instancetype)init {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:@"`- init` is not a valid initializer. Use `+ defaultKinesisRecorder` or `- initWithConfiguration:identifier:` instead."
+                                   reason:@"`- init` is not a valid initializer. Use `+ defaultKinesisRecorder` or `+ KinesisRecorderForKey:` instead."
                                  userInfo:nil];
     return nil;
 }
@@ -78,7 +102,12 @@ NSString *const AWSKinesisRecorderCacheName = @"com.amazonaws.AWSKinesisRecorder
                             cacheName:(NSString *)cacheName {
     if (self = [super init]) {
         NSString *databaseDirectoryPath = [NSTemporaryDirectory() stringByAppendingPathComponent:AWSKinesisRecorderDatabasePathPrefix];
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         _kinesis = [[AWSKinesis alloc] initWithConfiguration:configuration];
+#pragma clang diagnostic pop
+
         _databasePath = [databaseDirectoryPath stringByAppendingPathComponent:identifier];
         _diskByteLimit = AWSKinesisRecorderByteLimitDefault;
         _diskAgeLimit = AWSKinesisRecorderAgeLimitDefault;

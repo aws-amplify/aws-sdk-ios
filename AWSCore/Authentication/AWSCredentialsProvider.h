@@ -1,16 +1,16 @@
-/*
- * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+/**
+ Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License").
+ You may not use this file except in compliance with the License.
+ A copy of the License is located at
+
+ http://aws.amazon.com/apache2.0
+
+ or in the "license" file accompanying this file. This file is distributed
+ on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ express or implied. See the License for the specific language governing
+ permissions and limitations under the License.
  */
 
 #import <Foundation/Foundation.h>
@@ -57,8 +57,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 /**
  *  Refresh the token associated with this provider.
  *
- *  *Note* This method is automatically called by the AWS Mobile SDK for iOS,
- *  and you do not need to call this method in general.
+ *  *Note* This method is automatically called by the AWS Mobile SDK for iOS, and you do not need to call this method in general.
  *
  *  @return BFTask.
  */
@@ -68,7 +67,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 
 /**
  *  @warning This credentials provider is intended only for testing purposes.
- *  We strongly discourage embedding AWS credentials in your production apps because they can be easily extracted and abused.
+ *  We strongly discourage embedding AWS credentials in your production apps because they can be easily extracted and abused. Consider using `AWSCognitoCredentialsProvider`.
  */
 @interface AWSStaticCredentialsProvider : NSObject <AWSCredentialsProvider>
 
@@ -82,12 +81,15 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
  */
 @property (nonatomic, readonly) NSString *secretKey;
 
-+ (instancetype)credentialsWithAccessKey:(NSString *)accessKey
-                               secretKey:(NSString *)secretKey;
-+ (instancetype)credentialsWithCredentialsFilename:(NSString *)credentialsFilename;
-
 - (instancetype)initWithAccessKey:(NSString *)accessKey
                         secretKey:(NSString *)secretKey;
+
+- (instancetype)initWithCredentialsFilename:(NSString *)credentialsFilename;
+
++ (instancetype)credentialsWithAccessKey:(NSString *)accessKey
+                               secretKey:(NSString *)secretKey __attribute__ ((deprecated("Use '- initWithAccessKey:secretKey:' instead.")));
+
++ (instancetype)credentialsWithCredentialsFilename:(NSString *)credentialsFilename __attribute__ ((deprecated("Use '- initWithCredentialsFilename:' instead.")));
 
 @end
 
@@ -95,6 +97,9 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 
 @end
 
+/**
+ *  A credentials provider that uses AWS STS web identity federation.
+ */
 @interface AWSWebIdentityCredentialsProvider : NSObject <AWSCredentialsProvider>
 
 @property (nonatomic, strong, readonly) NSString *accessKey;
@@ -108,12 +113,6 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 
 @property (nonatomic, strong) NSString *providerId;
 
-+ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
-                               providerId:(NSString *)providerId
-                                  roleArn:(NSString *)roleArn
-                          roleSessionName:(NSString *)roleSessionName
-                         webIdentityToken:(NSString *)webIdentityToken;
-
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
                         providerId:(NSString *)providerId
                            roleArn:(NSString *)roleArn
@@ -122,15 +121,20 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 
 - (BFTask *)refresh;
 
-@end
++ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
+                               providerId:(NSString *)providerId
+                                  roleArn:(NSString *)roleArn
+                          roleSessionName:(NSString *)roleSessionName
+                         webIdentityToken:(NSString *)webIdentityToken __attribute__ ((deprecated("Use '- initWithRegionType:providerId:roleArn:roleSessionName:webIdentityToken:' instead.")));
 
+@end
 
 /**
  *  An AWSCredentialsProvider that uses Amazon Cognito to fetch temporary credentials tied to an identity.
- *  
+ *
  *  To learn more about Amazon Cognito, please visit <a href="https://aws.amazon.com/cognito">https://aws.amazon.com/cognito</a>.
- * 
- *  There are 3 different flows supported by this credentials provider, see factory and init methods for 
+ *
+ *  There are 3 different flows supported by this credentials provider, see factory and init methods for
  *  choosing the right one for your use case:
  *
  *  1. Enhanced flow: Uses Cognito for all operations and only requires an identity pool id to initialize.
@@ -161,7 +165,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 @property (nonatomic, strong, readonly) NSDate *expiration;
 
 /**
- *  The identityProvider which is responsible for establishing the identity id and 
+ *  The identityProvider which is responsible for establishing the identity id and
  *  (optionally) the open id token for use in the Amazon Cognito authflow.
  */
 @property (nonatomic, strong) id<AWSCognitoIdentityProvider> identityProvider;
@@ -186,81 +190,19 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 @property (nonatomic, strong) NSDictionary *logins;
 
 /**
- *  Factory method for credentials provider with enhanced authentication flow. This is the recommended
- *  constructor for first time Amazon Cognito developers. Will create an instance of AWSEnhancedCognitoIdentityProvider.
+ *  Initializer for credentials provider with enhanced authentication flow. This is the recommended
+ *  constructor for first time Amazon Cognito developers. Will create an instance of `AWSEnhancedCognitoIdentityProvider`.
  *
  *  @param regionType The region in which your identity pool exists.
  *  @param identityPoolId The identity pool id for this provider. Value is used to communicate with
  *          Amazon Cognito as well as namespace values stored in the keychain.
  */
-+ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
-                           identityPoolId:(NSString *)identityPoolId;
-
-/**
- *  Factory method for credentials provider with pre-created AWSCognitoIdentityProvider. Use this
- *  method when using developer authenticated identities.
- *
- *  @param regionType The region in which your identity pool exists.
- *  @param identityProvider Implementation of AWSCognitoIdentityProvider which is responsible for
- *          acquirind identity id and (optionally) OpenId Connect token.
- *  @param unauthRoleArn The role ARN to use when getting credentials for unauthenticated identities.
- *          Provider will check the <code>isAuthenticated</code> property of the identity provider to
- *          determine which role to use. Can be nil if unauthenticated identities are not supported or
- *          if using enhanced authentication flow.
- *  @param authRoleArn The role ARN to use when getting credentials for authenticated identities.
- *          Provider will check the <code>isAuthenticated</code> property of the identity provider to
- *          determine which role to use. Can be nil if authenticated identities are not supported or
- *          if using enhanced authentication flow.
- */
-+ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
-                         identityProvider:(id<AWSCognitoIdentityProvider>)identityProvider
-                            unauthRoleArn:(NSString *)unauthRoleArn
-                              authRoleArn:(NSString *)authRoleArn;
-
-/**
- *  Factory method for credentials provider with basic auth flow. Only use this method if you still
- *  need to set your IAM roles client side. This method will create an instance of AWSBasicCognitoIdentityProvider.
- *  
- *  @param regionType The region in which your identity pool exists.
- *  @param identityId The identity id to initialize this provider. If nil, the provider will attempt 
- *          to read from the keychain
- *  @param accountId The AWS account id for the owner of the identity pool. Can be nil as this value
- *          is no longer required
- *  @param identityPoolId The identity pool id for this provider. Value is used to communicate with 
- *          Amazon Cognito as well as namespace values stored in the keychain.
- *  @param unauthRoleArn The role ARN to use when getting credentials for unauthenticated identities.
- *          Provider will check the <code>isAuthenticated</code> property of the identity provider to
- *          determine which role to use. Can be nil if unauthenticated identities are not supported.
- *  @param authRoleArn The role ARN to use when getting credentials for authenticated identities.
- *          Provider will check the <code>isAuthenticated</code> property of the identity provider to
- *          determine which role to use. Can be nil if authenticated identities are not supported.
- */
-
-+ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
-                                accountId:(NSString *)accountId
-                           identityPoolId:(NSString *)identityPoolId
-                            unauthRoleArn:(NSString *)unauthRoleArn
-                              authRoleArn:(NSString *)authRoleArn;
-
-+ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
-                               identityId:(NSString *)identityId
-                                accountId:(NSString *)accountId
-                           identityPoolId:(NSString *)identityPoolId
-                            unauthRoleArn:(NSString *)unauthRoleArn
-                              authRoleArn:(NSString *)authRoleArn
-                                   logins:(NSDictionary *)logins __deprecated;
-
-
-+ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
-                                accountId:(NSString *)accountId
-                           identityPoolId:(NSString *)identityPoolId
-                            unauthRoleArn:(NSString *)unauthRoleArn
-                              authRoleArn:(NSString *)authRoleArn
-                                   logins:(NSDictionary *)logins __deprecated;
+- (instancetype)initWithRegionType:(AWSRegionType)regionType
+                    identityPoolId:(NSString *)identityPoolId;
 
 /**
  *  Initializer for credentials provider with enhanced authentication flow. This is the recommended
- *  method for first time Amazon Cognito developers. Will create an instance of AWSEnhancedCognitoIdentityProvider.
+ *  method for first time Amazon Cognito developers. Will create an instance of `AWSEnhancedCognitoIdentityProvider`.
  *
  *  @param regionType The region in which your identity pool exists.
  *  @param identityId The identity id to initialize this provider. If nil, the provider will attempt
@@ -275,29 +217,29 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
                             logins:(NSDictionary *)logins;
 
 /**
- *  Initializer for credentials provider with pre-created AWSCognitoIdentityProvider. Use this
+ *  Initializer for credentials provider with pre-created `AWSCognitoIdentityProvider`. Use this
  *  method when using developer authenticated identities.
  *
  *  @param regionType The region in which your identity pool exists.
  *  @param identityProvider Implementation of AWSCognitoIdentityProvider which is responsible for
  *          acquirind identity id and (optionally) OpenId Connect token.
  *  @param unauthRoleArn The role ARN to use when getting credentials for unauthenticated identities.
- *          Provider will check the <code>isAuthenticated</code> property of the identity provider to
+ *          Provider will check the `isAuthenticated` property of the identity provider to
  *          determine which role to use. Can be nil if unauthenticated identities are not supported or
  *          if using enhanced authentication flow.
  *  @param unauthRoleArn The role ARN to use when getting credentials for authenticated identities.
- *          Provider will check the <code>isAuthenticated</code> property of the identity provider to
+ *          Provider will check the `isAuthenticated` property of the identity provider to
  *          determine which role to use. Can be nil if authenticated identities are not supported or
  *          if using enhanced authentication flow.
  */
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
-                 identityProvider:(id<AWSCognitoIdentityProvider>) identityProvider
+                  identityProvider:(id<AWSCognitoIdentityProvider>)identityProvider
                      unauthRoleArn:(NSString *)unauthRoleArn
                        authRoleArn:(NSString *)authRoleArn;
 
 /**
  *  Initializer for credentials provider with basic auth flow. Only use this method if you still
- *  need to set your IAM roles client side. This method will create an instance of AWSBasicCognitoIdentityProvider.
+ *  need to set your IAM roles client side. This method will create an instance of `AWSBasicCognitoIdentityProvider`.
  *
  *  @param regionType The region in which your identity pool exists.
  *  @param identityId The identity id to initialize this provider. If nil, the provider will attempt
@@ -307,10 +249,10 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
  *  @param identityPoolId The identity pool id for this provider. Value is used to communicate with
  *          Amazon Cognito as well as namespace values stored in the keychain.
  *  @param unauthRoleArn The role ARN to use when getting credentials for unauthenticated identities.
- *          Provider will check the <code>isAuthenticated</code> property of the identity provider to
+ *          Provider will check the `isAuthenticated` property of the identity provider to
  *          determine which role to use. Can be nil if unauthenticated identities are not supported.
  *  @param unauthRoleArn The role ARN to use when getting credentials for authenticated identities.
- *          Provider will check the <code>isAuthenticated</code> property of the identity provider to
+ *          Provider will check the `isAuthenticated` property of the identity provider to
  *          determine which role to use. Can be nil if authenticated identities are not supported.
  *  @param logins The map of logins to link to this identity. Can be nil if identity is unauthenticated.
  */
@@ -322,9 +264,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
                        authRoleArn:(NSString *)authRoleArn
                             logins:(NSDictionary *)logins;
 
-
 /**
- *  Refreshes the locally stored credentials. The SDK automatically calls this method when necessary, 
+ *  Refreshes the locally stored credentials. The SDK automatically calls this method when necessary,
  *  and you do not need to call this method manually.
  *
  *  @return BFTask
@@ -355,5 +296,34 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
  *  Internal method used to determine if the identityId should be reset on a provider
  */
 + (BOOL)shouldResetIdentityId:(NSError *)error;
+
++ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
+                           identityPoolId:(NSString *)identityPoolId __attribute__ ((deprecated("Use '- initWithRegionType:identityPoolId:' instead.")));
+
++ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
+                         identityProvider:(id<AWSCognitoIdentityProvider>)identityProvider
+                            unauthRoleArn:(NSString *)unauthRoleArn
+                              authRoleArn:(NSString *)authRoleArn __attribute__ ((deprecated("Use '- initWithRegionType:identityProvider:unauthRoleArn:authRoleArn:' instead.")));
+
++ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
+                                accountId:(NSString *)accountId
+                           identityPoolId:(NSString *)identityPoolId
+                            unauthRoleArn:(NSString *)unauthRoleArn
+                              authRoleArn:(NSString *)authRoleArn __attribute__ ((deprecated("Use '- initWithRegionType:accountId:identityPoolId:unauthRoleArn:authRoleArn:' instead.")));
+
++ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
+                                accountId:(NSString *)accountId
+                           identityPoolId:(NSString *)identityPoolId
+                            unauthRoleArn:(NSString *)unauthRoleArn
+                              authRoleArn:(NSString *)authRoleArn
+                                   logins:(NSDictionary *)logins __attribute__ ((deprecated("Use '- initWithRegionType:identityId:accountId:identityPoolId:unauthRoleArn:authRoleArn:logins:' instead. You can pass 'nil' to 'identityId'.")));
+
++ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
+                               identityId:(NSString *)identityId
+                                accountId:(NSString *)accountId
+                           identityPoolId:(NSString *)identityPoolId
+                            unauthRoleArn:(NSString *)unauthRoleArn
+                              authRoleArn:(NSString *)authRoleArn
+                                   logins:(NSDictionary *)logins __attribute__ ((deprecated("Use '- initWithRegionType:identityId:accountId:identityPoolId:unauthRoleArn:authRoleArn:logins:' instead.")));
 
 @end

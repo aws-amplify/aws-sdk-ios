@@ -1,22 +1,22 @@
-/*
- * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+/**
+ Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License").
+ You may not use this file except in compliance with the License.
+ A copy of the License is located at
+
+ http://aws.amazon.com/apache2.0
+
+ or in the "license" file accompanying this file. This file is distributed
+ on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ express or implied. See the License for the specific language governing
+ permissions and limitations under the License.
  */
 
 #import "AWSCore.h"
 
 #import "AIDeliveryIntegrationTests.h"
-#import "GZIP.h"
+#import <GZIP/GZIP.h>
 #import "AWSCategory.h"
 #import "AWSMobileAnalyticsERS.h"
 
@@ -53,9 +53,9 @@
 + (void)setUp
 {
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
-        AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionUSEast1
-                                                                               credentialsProvider:credentialsProvider];
+        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithCredentialsFilename:@"credentials"];
+        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                             credentialsProvider:credentialsProvider];
         [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
     }
 }
@@ -70,8 +70,8 @@
     AWSMobileAnalyticsDefaultFileManager* fileManager = [[_context system] fileManager];
     NSString *filename = [AWSEventsDirectoryName stringByAppendingPathComponent:AWSEventsFilename];
     AWSMobileAnalyticsFile* file = [[AWSMobileAnalyticsFile alloc] initWithFileMananager:[NSFileManager defaultManager]
-                                              withParent:fileManager.rootFile
-                                           withChildPath:filename];
+                                                                              withParent:fileManager.rootFile
+                                                                           withChildPath:filename];
     return [file exists];
 }
 
@@ -80,8 +80,8 @@
     AWSMobileAnalyticsDefaultFileManager* fileManager = [[_context system] fileManager];
     NSString *filename = [AWSEventsDirectoryName stringByAppendingPathComponent:AWSEventsFilename];
     AWSMobileAnalyticsFile* file = [[AWSMobileAnalyticsFile alloc] initWithFileMananager:[NSFileManager defaultManager]
-                                              withParent:fileManager.rootFile
-                                           withChildPath:filename];
+                                                                              withParent:fileManager.rootFile
+                                                                           withChildPath:filename];
     [file deleteFile];
 }
 
@@ -94,62 +94,62 @@
 }
 
 /* US4408 - Invalid lines in events file (e.g. corrupted files) should be discarded and potentially ignored.
-- (void)test_submitEvents_eventsFileCorrupted_eventsNotSubmitted
-{
-    [self buildTestContext];
-    
-    id<AWSMobileAnalyticsOptions> options = [AWSMobileAnalytics optionsWithAllowEventCollection:YES
-                                                                 withAllowWANDelivery:NO];
-    id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [AWSMobileAnalyticsDefaultDeliveryClient deliveryClientWithContext:_context
-                                                                             withWanDelivery:[options allowWANDelivery]];
-    
-    BlockingInterceptor* interceptor = [[BlockingInterceptor alloc] init];
-    [interceptor setExpectedRequestURL:[NSURL URLWithString:[BASE_URL stringByAppendingFormat:@"%@/events", APP_KEY]]];
-    [[_context httpClient] addInterceptor:interceptor];
-    
-    [self deleteEventsFile];
-    [self corruptEventsFile];
-    assertThatBool([self existsEventsFile], is(equalToBool(YES)));
-    
-    [deliveryClient attemptDelivery];
-    
-    [interceptor waitForResponse:3];
-    assertThat([interceptor exception], is(nilValue()));
-    assertThatBool([interceptor successfulSend], is(equalToBool(NO)));
-    assertThatBool([interceptor receivedResponse], is(equalToBool(NO)));
-}
+ - (void)test_submitEvents_eventsFileCorrupted_eventsNotSubmitted
+ {
+ [self buildTestContext];
+
+ id<AWSMobileAnalyticsOptions> options = [AWSMobileAnalytics optionsWithAllowEventCollection:YES
+ withAllowWANDelivery:NO];
+ id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [AWSMobileAnalyticsDefaultDeliveryClient deliveryClientWithContext:_context
+ withWanDelivery:[options allowWANDelivery]];
+
+ BlockingInterceptor* interceptor = [[BlockingInterceptor alloc] init];
+ [interceptor setExpectedRequestURL:[NSURL URLWithString:[BASE_URL stringByAppendingFormat:@"%@/events", APP_KEY]]];
+ [[_context httpClient] addInterceptor:interceptor];
+
+ [self deleteEventsFile];
+ [self corruptEventsFile];
+ assertThatBool([self existsEventsFile], is(equalToBool(YES)));
+
+ [deliveryClient attemptDelivery];
+
+ [interceptor waitForResponse:3];
+ assertThat([interceptor exception], is(nilValue()));
+ assertThatBool([interceptor successfulSend], is(equalToBool(NO)));
+ assertThatBool([interceptor receivedResponse], is(equalToBool(NO)));
+ }
  */
 
 - (void)test_submitEvents_eventsFileMissing_eventsNotSubmitted
 {
     [self buildTestContext];
-    
+
     id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [AWSMobileAnalyticsDefaultDeliveryClient deliveryClientWithContext:_context
-                                                                             withWanDelivery:NO];
+                                                                                                             withWanDelivery:NO];
     id<AWSMobileAnalyticsEventClient> eventClient = [[AWSMobileAnalyticsDefaultEventClient alloc] initWithContext:_context
-                                                              withDeliveryClient:deliveryClient
-                                                           allowsEventCollection:YES];
-    
+                                                                                               withDeliveryClient:deliveryClient
+                                                                                            allowsEventCollection:YES];
+
     [eventClient addGlobalAttribute:@"test-seesion-id-value" forKey:AWSSessionIDAttributeKey];
     [eventClient addGlobalAttribute:@"test-start-timstamp-value" forKey:AWSSessionStartTimeAttributeKey];
-    
+
     BlockingInterceptor* interceptor = [[BlockingInterceptor alloc] init];
     [interceptor setExpectedRequestURL:[NSURL URLWithString:[BASE_URL stringByAppendingFormat:@"%@/events", APP_KEY]]];
     [[_context httpClient] addInterceptor:interceptor];
-    
+
     [self deleteEventsFile];
     assertThatBool([self existsEventsFile], is(equalToBool(NO)));
     id<AWSMobileAnalyticsEvent> event = [eventClient createEventWithEventType:@"my_event"];
     [eventClient recordEvent:event];
-    
+
     [NSThread sleepForTimeInterval:.5];
     assertThatBool([self existsEventsFile], is(equalToBool(YES)));
-    
+
     [self deleteEventsFile];
     assertThatBool([self existsEventsFile], is(equalToBool(NO)));
-    
+
     [deliveryClient attemptDelivery];
-    
+
     [interceptor waitForResponse:3];
     assertThat([interceptor exception], is(nilValue()));
     assertThatBool([interceptor successfulSend], is(equalToBool(NO)));
@@ -159,34 +159,34 @@
 - (void)test_submitEvents_WANNotAllowed_eventsNotSubmittedButKept
 {
     [self buildTestContext];
-    
+
     id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [AWSMobileAnalyticsDefaultDeliveryClient deliveryClientWithContext:_context
-                                                                     withWanDelivery:NO];
+                                                                                                             withWanDelivery:NO];
     id<AWSMobileAnalyticsEventClient> eventClient = [[AWSMobileAnalyticsDefaultEventClient alloc] initWithContext:_context
-                                                              withDeliveryClient:deliveryClient
-                                                           allowsEventCollection:YES];
-    
+                                                                                               withDeliveryClient:deliveryClient
+                                                                                            allowsEventCollection:YES];
+
     [eventClient addGlobalAttribute:@"test-seesion-id-value" forKey:AWSSessionIDAttributeKey];
     [eventClient addGlobalAttribute:@"test-start-timstamp-value" forKey:AWSSessionStartTimeAttributeKey];
-    
+
     BlockingInterceptor* interceptor = [[BlockingInterceptor alloc] init];
     [interceptor setExpectedRequestURL:[NSURL URLWithString:[BASE_URL stringByAppendingFormat:@"%@/events", APP_KEY]]];
     [[_context httpClient] addInterceptor:interceptor];
-    
+
     TestInsightsContext *context = _context;
     [context setConnected:YES];
     [context setHasWifi:NO];
     [context setHasWAN:YES];
-    
+
     id<AWSMobileAnalyticsEvent> event = [eventClient createEventWithEventType:@"my_event"];
     [eventClient recordEvent:event];
     [deliveryClient attemptDelivery];
-    
+
     [interceptor waitForResponse:3];
     assertThat([interceptor exception], is(nilValue()));
     assertThatBool([interceptor successfulSend], is(equalToBool(NO)));
     assertThatBool([interceptor receivedResponse], is(equalToBool(NO)));
-    
+
     NSArray *recordedEvents = [deliveryClient batchedEvents];
     BOOL containsMyEvent = NO;
     for (NSString *event in recordedEvents)
@@ -197,39 +197,39 @@
             break;
         }
     }
-    
+
     assertThatBool(containsMyEvent, is(equalToBool(YES)));
 }
 
 - (void)test_submitEvents_noConnectivity_eventsNotSubmittedButKept
 {
     [self buildTestContext];
-    
+
     id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [AWSMobileAnalyticsDefaultDeliveryClient deliveryClientWithContext:_context
-                                                                             withWanDelivery:YES];
+                                                                                                             withWanDelivery:YES];
     id<AWSMobileAnalyticsEventClient> eventClient = [[AWSMobileAnalyticsDefaultEventClient alloc] initWithContext:_context
-                                                              withDeliveryClient:deliveryClient
-                                                           allowsEventCollection:YES];
-    
+                                                                                               withDeliveryClient:deliveryClient
+                                                                                            allowsEventCollection:YES];
+
     [eventClient addGlobalAttribute:@"test-seesion-id-value" forKey:AWSSessionIDAttributeKey];
     [eventClient addGlobalAttribute:@"test-start-timstamp-value" forKey:AWSSessionStartTimeAttributeKey];
-    
+
     BlockingInterceptor* interceptor = [[BlockingInterceptor alloc] init];
     [interceptor setExpectedRequestURL:[NSURL URLWithString:[BASE_URL stringByAppendingFormat:@"%@/events", APP_KEY]]];
     [[_context httpClient] addInterceptor:interceptor];
-    
+
     TestInsightsContext *context = _context;
     [context setConnected:NO];
-    
+
     id<AWSMobileAnalyticsEvent> event = [eventClient createEventWithEventType:@"my_event"];
     [eventClient recordEvent:event];
     [deliveryClient attemptDelivery];
-    
+
     [interceptor waitForResponse:3];
     assertThat([interceptor exception], is(nilValue()));
     assertThatBool([interceptor successfulSend], is(equalToBool(NO)));
     assertThatBool([interceptor receivedResponse], is(equalToBool(NO)));
-    
+
     NSArray *recordedEvents = [deliveryClient batchedEvents];
     BOOL containsMyEvent = NO;
     for (NSString *event in recordedEvents)
@@ -240,37 +240,37 @@
             break;
         }
     }
-    
+
     assertThatBool(containsMyEvent, is(equalToBool(YES)));
 }
 
 - (void)test_submitEvents_internalServerError_eventsKept
 {
     [self buildTestContext];
-    
+
     id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [AWSMobileAnalyticsDefaultDeliveryClient deliveryClientWithContext:_context
-                                                                             withWanDelivery:NO];
+                                                                                                             withWanDelivery:NO];
     id<AWSMobileAnalyticsEventClient> eventClient = [[AWSMobileAnalyticsDefaultEventClient alloc] initWithContext:_context
-                                                              withDeliveryClient:deliveryClient
-                                                           allowsEventCollection:YES];
-    
+                                                                                               withDeliveryClient:deliveryClient
+                                                                                            allowsEventCollection:YES];
+
     [eventClient addGlobalAttribute:@"test-seesion-id-value" forKey:AWSSessionIDAttributeKey];
     [eventClient addGlobalAttribute:@"test-start-timstamp-value" forKey:AWSSessionStartTimeAttributeKey];
-    
+
     BlockingInterceptor* interceptor = [[BlockingInterceptor alloc] init];
     [interceptor setExpectedRequestURL:[NSURL URLWithString:[BASE_URL stringByAppendingFormat:@"%@/events", APP_KEY]]];
     [interceptor setOverrideResponseCode:500];
     [[_context httpClient] addInterceptor:interceptor];
-    
+
     id<AWSMobileAnalyticsEvent> event = [eventClient createEventWithEventType:@"my_event"];
     [eventClient recordEvent:event];
     [deliveryClient attemptDelivery];
-    
+
     [interceptor waitForResponse:3];
     assertThat([interceptor exception], is(nilValue()));
     assertThatBool([interceptor successfulSend], is(equalToBool(YES)));
     assertThatBool([interceptor receivedResponse], is(equalToBool(YES)));
-    
+
     NSArray *recordedEvents = [deliveryClient batchedEvents];
     BOOL containsMyEvent = NO;
     for (NSString *event in recordedEvents)
@@ -281,41 +281,41 @@
             break;
         }
     }
-    
+
     assertThatBool(containsMyEvent, is(equalToBool(YES)));
 }
 
 - (void)test_submitEvents_hostNotReachable_eventsKept
 {
-    
+
     self->_context = [TestInsightsContext contextWithCredentials:APP_KEY
                                                      withSdkInfo:[AWSMobileAnalyticsSDKInfo sdkInfoFromBrazil]
                                        withConfigurationSettings:[NSDictionary dictionaryWithObject:@"https://beeflab-sdk.amazon.com/1.0"
                                                                                              forKey:@"eventRecorderEndpoint"]];
-    
+
     id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [AWSMobileAnalyticsDefaultDeliveryClient deliveryClientWithContext:_context
-                                                                             withWanDelivery:NO];
+                                                                                                             withWanDelivery:NO];
     id<AWSMobileAnalyticsEventClient> eventClient = [[AWSMobileAnalyticsDefaultEventClient alloc] initWithContext:_context
-                                                              withDeliveryClient:deliveryClient
-                                                           allowsEventCollection:YES];
-    
+                                                                                               withDeliveryClient:deliveryClient
+                                                                                            allowsEventCollection:YES];
+
     [eventClient addGlobalAttribute:@"test-seesion-id-value" forKey:AWSSessionIDAttributeKey];
     [eventClient addGlobalAttribute:@"test-start-timstamp-value" forKey:AWSSessionStartTimeAttributeKey];
-    
+
     BlockingInterceptor* interceptor = [[BlockingInterceptor alloc] init];
     [interceptor setExpectedRequestURL:[NSURL URLWithString:[BASE_URL stringByAppendingFormat:@"%@/events", APP_KEY]]];
     [interceptor setExpectedResponseCode:-1000];
     [[_context httpClient] addInterceptor:interceptor];
-    
+
     id<AWSMobileAnalyticsEvent> event = [eventClient createEventWithEventType:@"my_event"];
     [eventClient recordEvent:event];
     [deliveryClient attemptDelivery];
-    
+
     [interceptor waitForResponse:3];
     assertThat([interceptor exception], is(nilValue()));
     assertThatBool([interceptor successfulSend], is(equalToBool(YES)));
     assertThatBool([interceptor receivedResponse], is(equalToBool(YES)));
-    
+
     NSArray *recordedEvents = [deliveryClient batchedEvents];
     BOOL containsMyEvent = NO;
     for (NSString *event in recordedEvents)
@@ -326,39 +326,39 @@
             break;
         }
     }
-    
+
     assertThatBool(containsMyEvent, is(equalToBool(YES)));
 }
 
 - (void)test_submitEvents_forbiddenResponse_eventsDeleted
 {
     [self buildTestContext];
-    
+
     id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [AWSMobileAnalyticsDefaultDeliveryClient deliveryClientWithContext:_context
-                                                                             withWanDelivery:NO];
+                                                                                                             withWanDelivery:NO];
     id<AWSMobileAnalyticsEventClient> eventClient = [[AWSMobileAnalyticsDefaultEventClient alloc] initWithContext:_context
-                                                              withDeliveryClient:deliveryClient
-                                                           allowsEventCollection:YES];
-    
+                                                                                               withDeliveryClient:deliveryClient
+                                                                                            allowsEventCollection:YES];
+
     [eventClient addGlobalAttribute:@"test-seesion-id-value" forKey:AWSSessionIDAttributeKey];
     [eventClient addGlobalAttribute:@"test-start-timstamp-value" forKey:AWSSessionStartTimeAttributeKey];
-    
+
     BlockingInterceptor* interceptor = [[BlockingInterceptor alloc] init];
     [interceptor setExpectedRequestURL:[NSURL URLWithString:[BASE_URL stringByAppendingFormat:@"%@/events", APP_KEY]]];
     [interceptor setOverrideResponseCode:403];
     [[_context httpClient] addInterceptor:interceptor];
-    
+
     id<AWSMobileAnalyticsEvent> event = [eventClient createEventWithEventType:@"my_event"];
     [eventClient recordEvent:event];
     [deliveryClient attemptDelivery];
-    
+
     [interceptor waitForResponse:3];
     assertThat([interceptor exception], is(nilValue()));
     assertThatBool([interceptor successfulSend], is(equalToBool(YES)));
     assertThatBool([interceptor receivedResponse], is(equalToBool(YES)));
-    
+
     [NSThread sleepForTimeInterval:.5];
-    
+
     NSArray *recordedEvents = [deliveryClient batchedEvents];
     BOOL containsMyEvent = NO;
     for (NSString *event in recordedEvents)
@@ -369,50 +369,46 @@
             break;
         }
     }
-    
+
     assertThatBool(containsMyEvent, is(equalToBool(NO)));
 }
 
 - (void)test_submitEvents_successfulDelivery_eventsDeleted
 {
     [self buildTestContext];
-    
+
     AWSMobileAnalyticsDefaultDeliveryClient* deliveryClient = [AWSMobileAnalyticsDefaultDeliveryClient deliveryClientWithContext:_context
-                                                                             withWanDelivery:NO];
+                                                                                                                 withWanDelivery:NO];
     id<AWSMobileAnalyticsEventClient> eventClient = [[AWSMobileAnalyticsDefaultEventClient alloc] initWithContext:_context
-                                                              withDeliveryClient:deliveryClient
-                                                           allowsEventCollection:YES];
-    
+                                                                                               withDeliveryClient:deliveryClient
+                                                                                            allowsEventCollection:YES];
+
     DeliveryBlockingInterceptor* interceptor = [[DeliveryBlockingInterceptor alloc] init];
     [interceptor setExpectedRequestURL:[NSURL URLWithString:[BASE_URL stringByAppendingFormat:@"%@/events", APP_KEY]]];
     [interceptor setExpectedResponseCode:202];
     [[_context httpClient] addInterceptor:interceptor];
-    
+
     id<AWSMobileAnalyticsEvent> event = [eventClient createEventWithEventType:@"my_event"];
-    
+
     //add fake session.id
     [event addAttribute:@"ccesskey-11111111-20140606-231017274" forKey:AWSSessionIDAttributeKey];
     //add startTimeStamp
     [event addAttribute:[[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3] forKey:AWSSessionStartTimeAttributeKey];
     //set eventRecorderService object
     id<AWSMobileAnalyticsHttpClient>httpClient = [deliveryClient valueForKey:@"httpClient"];
-    AWSMobileAnalyticsERS *ers = [[AWSMobileAnalyticsERS alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].
-                                           defaultServiceConfiguration];
-    
-    httpClient.ers = ers;
-    
-    
+    httpClient.ers = [AWSMobileAnalyticsERS defaultMobileAnalyticsERS];
+
     [eventClient recordEvent:event];
     [deliveryClient attemptDelivery];
-    
+
     [interceptor waitForResponse:3];
     assertThat([interceptor exception], is(nilValue()));
     assertThatBool([interceptor successfulSend], is(equalToBool(YES)));
     assertThatBool([interceptor receivedResponse], is(equalToBool(YES)));
     [self verifyRequest:interceptor.theRequest];
-    
+
     [NSThread sleepForTimeInterval:.5];
-    
+
     NSArray *recordedEvents = [deliveryClient batchedEvents];
     BOOL containsMyEvent = NO;
     for (NSString *event in recordedEvents)
@@ -423,7 +419,7 @@
             break;
         }
     }
-    
+
     assertThatBool(containsMyEvent, is(equalToBool(NO)));
 }
 
@@ -468,7 +464,7 @@
     //assertThatBool([[theRequest headers] objectForKey:@"x-amzn-content-sha256"] != nil, is(equalToBool(YES)));
     //assertThatBool([[theRequest headers] objectForKey:@"X-Amz-Date"] != nil, is(equalToBool(YES)));
     //assertThatBool([[theRequest headers] objectForKey:@"Authorization"] != nil, is(equalToBool(YES)));
-    
+
     NSArray *events = [DeliveryBlockingInterceptor decompressData:[theRequest postBody]];
     BOOL containsMyEvent = NO;
     for (NSDictionary *event in events) {
@@ -481,7 +477,7 @@
             assertThat([event objectForKey:@"sdk_name"], is(nilValue()));
             assertThat([event objectForKey:@"platform"], is(nilValue()));
             assertThat([event objectForKey:@"locale"], is(nilValue()));
-            
+
             NSDictionary *attributes = [event objectForKey:@"attributes"];
             //assertThatBool([attributes objectForKey:@"_treatment_ids"] != nil, is(equalToBool(YES)));
             assertThatBool([[attributes objectForKey:@"ver"] isEqualToString:@"v2.0"], is(equalToBool(YES)));

@@ -1,5 +1,5 @@
 #!/bin/sh
-
+set -e
 # version
 FRAMEWORK_VERSION=A
 
@@ -39,7 +39,7 @@ lipo -create "build/Debug-iphonesimulator/libPods-${NAME}.a" "build/Release-ipho
 # copy header file
 if [ "$1" = "UICKeyChainStore" ]
 then
-    cp -a Pods/${NAME}/Lib/*.h $FRAMEWORK_DIR/Headers/
+    cp -a Pods/${NAME}/Lib/${NAME}/*.h $FRAMEWORK_DIR/Headers/
 elif [ "$1" = "Reachability" ]
 then
     cp -a Pods/${NAME}/*.h $FRAMEWORK_DIR/Headers/

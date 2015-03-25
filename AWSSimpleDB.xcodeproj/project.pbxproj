@@ -1,0 +1,529 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B582146675729F3E95CE9A35 /* libPods-SimpleDB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5932F93697AF27B103C8AA8 /* libPods-SimpleDB.a */; };
+		BD0000361AB8C509004496EF /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = BD0000351AB8C509004496EF /* credentials.json */; };
+		BD0000521AB8E16D004496EF /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0000511AB8E16D004496EF /* AWSTestUtility.m */; };
+		BD00FF3D1AB8B6C4004496EF /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD00FF3C1AB8B6C4004496EF /* libAWSCore.a */; };
+		BD00FF611AB8B893004496EF /* sdb-2009-04-15.json in Resources */ = {isa = PBXBuildFile; fileRef = BDB5DEB11AB377D1002DD224 /* sdb-2009-04-15.json */; };
+		BD00FF651AB8B8A2004496EF /* cognito-identity-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF621AB8B8A2004496EF /* cognito-identity-2014-06-30.json */; };
+		BD00FF661AB8B8A2004496EF /* mobileanalytics-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF631AB8B8A2004496EF /* mobileanalytics-2014-06-30.json */; };
+		BD00FF671AB8B8A2004496EF /* sts-2011-06-15.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF641AB8B8A2004496EF /* sts-2011-06-15.json */; };
+		BD00FFE01AB8C417004496EF /* AWSGeneralSimpleDBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFDE1AB8C417004496EF /* AWSGeneralSimpleDBTests.m */; };
+		BD00FFE11AB8C417004496EF /* AWSSimpleDBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFDF1AB8C417004496EF /* AWSSimpleDBTests.m */; };
+		BD9D97651AC1EEDB00CEEE08 /* AWSSimpleDBService.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEE7DE5E1AC1DEEA0095C4B7 /* AWSSimpleDBService.h */; };
+		BDB5DE9C1AB377AF002DD224 /* libAWSSimpleDB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB5DE901AB377AF002DD224 /* libAWSSimpleDB.a */; };
+		BDB5DEB21AB377D1002DD224 /* AWSSimpleDB.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB5DEAC1AB377D1002DD224 /* AWSSimpleDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BDB5DEB31AB377D1002DD224 /* AWSSimpleDBService.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB5DEAD1AB377D1002DD224 /* AWSSimpleDBService.m */; };
+		BDB5DEB41AB377D1002DD224 /* AWSSimpleDBModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB5DEAE1AB377D1002DD224 /* AWSSimpleDBModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BDB5DEB51AB377D1002DD224 /* AWSSimpleDBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB5DEAF1AB377D1002DD224 /* AWSSimpleDBModel.m */; };
+		BDC91C421ABBA09100F74D49 /* AWSSimpleDB.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDB5DEAC1AB377D1002DD224 /* AWSSimpleDB.h */; };
+		BDC91C431ABBA09100F74D49 /* AWSSimpleDBModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDB5DEAE1AB377D1002DD224 /* AWSSimpleDBModel.h */; };
+		CEE7DE5F1AC1DEEA0095C4B7 /* AWSSimpleDBService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE5E1AC1DEEA0095C4B7 /* AWSSimpleDBService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BDB5DE9D1AB377AF002DD224 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDB5DE881AB377AF002DD224 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDB5DE8F1AB377AF002DD224;
+			remoteInfo = SimpleDB;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BDB5DE8E1AB377AF002DD224 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				BD9D97651AC1EEDB00CEEE08 /* AWSSimpleDBService.h in CopyFiles */,
+				BDC91C421ABBA09100F74D49 /* AWSSimpleDB.h in CopyFiles */,
+				BDC91C431ABBA09100F74D49 /* AWSSimpleDBModel.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8FBFD15564C4EFBB6B06DC58 /* Pods-SimpleDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleDB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleDB/Pods-SimpleDB.debug.xcconfig"; sourceTree = "<group>"; };
+		BD0000351AB8C509004496EF /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
+		BD0000501AB8E16D004496EF /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSTestUtility.h; path = AWSCoreTests/AWSTestUtility.h; sourceTree = SOURCE_ROOT; };
+		BD0000511AB8E16D004496EF /* AWSTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSTestUtility.m; path = AWSCoreTests/AWSTestUtility.m; sourceTree = SOURCE_ROOT; };
+		BD00FF3C1AB8B6C4004496EF /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
+		BD00FF621AB8B8A2004496EF /* cognito-identity-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "cognito-identity-2014-06-30.json"; path = "AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"; sourceTree = "<group>"; };
+		BD00FF631AB8B8A2004496EF /* mobileanalytics-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "mobileanalytics-2014-06-30.json"; path = "AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"; sourceTree = "<group>"; };
+		BD00FF641AB8B8A2004496EF /* sts-2011-06-15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "sts-2011-06-15.json"; path = "AWSCore/STS/Resources/sts-2011-06-15.json"; sourceTree = "<group>"; };
+		BD00FFDE1AB8C417004496EF /* AWSGeneralSimpleDBTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralSimpleDBTests.m; sourceTree = "<group>"; };
+		BD00FFDF1AB8C417004496EF /* AWSSimpleDBTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSimpleDBTests.m; sourceTree = "<group>"; };
+		BDB5DE901AB377AF002DD224 /* libAWSSimpleDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSSimpleDB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDB5DE9B1AB377AF002DD224 /* AWSSimpleDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSSimpleDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDB5DEA11AB377AF002DD224 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDB5DEAC1AB377D1002DD224 /* AWSSimpleDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSimpleDB.h; sourceTree = "<group>"; };
+		BDB5DEAD1AB377D1002DD224 /* AWSSimpleDBService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSimpleDBService.m; sourceTree = "<group>"; };
+		BDB5DEAE1AB377D1002DD224 /* AWSSimpleDBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSimpleDBModel.h; sourceTree = "<group>"; };
+		BDB5DEAF1AB377D1002DD224 /* AWSSimpleDBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSimpleDBModel.m; sourceTree = "<group>"; };
+		BDB5DEB11AB377D1002DD224 /* sdb-2009-04-15.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "sdb-2009-04-15.json"; sourceTree = "<group>"; };
+		CEE7DE5E1AC1DEEA0095C4B7 /* AWSSimpleDBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSimpleDBService.h; sourceTree = "<group>"; };
+		E5EC1E5CFE88D82C635094AA /* Pods-SimpleDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleDB.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleDB/Pods-SimpleDB.release.xcconfig"; sourceTree = "<group>"; };
+		F5932F93697AF27B103C8AA8 /* libPods-SimpleDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SimpleDB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BDB5DE8D1AB377AF002DD224 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDB5DE981AB377AF002DD224 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD00FF3D1AB8B6C4004496EF /* libAWSCore.a in Frameworks */,
+				BDB5DE9C1AB377AF002DD224 /* libAWSSimpleDB.a in Frameworks */,
+				B582146675729F3E95CE9A35 /* libPods-SimpleDB.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BD00FFBA1AB8BB59004496EF /* Other Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BD00FF621AB8B8A2004496EF /* cognito-identity-2014-06-30.json */,
+				BD00FF631AB8B8A2004496EF /* mobileanalytics-2014-06-30.json */,
+				BD00FF641AB8B8A2004496EF /* sts-2011-06-15.json */,
+			);
+			name = "Other Resources";
+			sourceTree = "<group>";
+		};
+		BDB5DE871AB377AF002DD224 = {
+			isa = PBXGroup;
+			children = (
+				BD00FF3C1AB8B6C4004496EF /* libAWSCore.a */,
+				BD00FFBA1AB8BB59004496EF /* Other Resources */,
+				BDB5DE921AB377AF002DD224 /* SimpleDB */,
+				BDB5DE9F1AB377AF002DD224 /* SimpleDBTests */,
+				BDB5DE911AB377AF002DD224 /* Products */,
+				C311D4E5DA280D0A5916D74B /* Pods */,
+				CC221F0612D8271C7295C9FB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BDB5DE911AB377AF002DD224 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDB5DE901AB377AF002DD224 /* libAWSSimpleDB.a */,
+				BDB5DE9B1AB377AF002DD224 /* AWSSimpleDBTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BDB5DE921AB377AF002DD224 /* SimpleDB */ = {
+			isa = PBXGroup;
+			children = (
+				BDB5DEAC1AB377D1002DD224 /* AWSSimpleDB.h */,
+				BDB5DEAE1AB377D1002DD224 /* AWSSimpleDBModel.h */,
+				BDB5DEAF1AB377D1002DD224 /* AWSSimpleDBModel.m */,
+				CEE7DE5E1AC1DEEA0095C4B7 /* AWSSimpleDBService.h */,
+				BDB5DEAD1AB377D1002DD224 /* AWSSimpleDBService.m */,
+				BDB5DEB01AB377D1002DD224 /* Resources */,
+			);
+			path = SimpleDB;
+			sourceTree = "<group>";
+		};
+		BDB5DE9F1AB377AF002DD224 /* SimpleDBTests */ = {
+			isa = PBXGroup;
+			children = (
+				BD00FFDE1AB8C417004496EF /* AWSGeneralSimpleDBTests.m */,
+				BD00FFDF1AB8C417004496EF /* AWSSimpleDBTests.m */,
+				BDB5DEA01AB377AF002DD224 /* Supporting Files */,
+			);
+			path = SimpleDBTests;
+			sourceTree = "<group>";
+		};
+		BDB5DEA01AB377AF002DD224 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BD0000351AB8C509004496EF /* credentials.json */,
+				BD0000501AB8E16D004496EF /* AWSTestUtility.h */,
+				BD0000511AB8E16D004496EF /* AWSTestUtility.m */,
+				BDB5DEA11AB377AF002DD224 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BDB5DEB01AB377D1002DD224 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BDB5DEB11AB377D1002DD224 /* sdb-2009-04-15.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C311D4E5DA280D0A5916D74B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8FBFD15564C4EFBB6B06DC58 /* Pods-SimpleDB.debug.xcconfig */,
+				E5EC1E5CFE88D82C635094AA /* Pods-SimpleDB.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CC221F0612D8271C7295C9FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5932F93697AF27B103C8AA8 /* libPods-SimpleDB.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BDB5DEAA1AB377C9002DD224 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDB5DEB21AB377D1002DD224 /* AWSSimpleDB.h in Headers */,
+				CEE7DE5F1AC1DEEA0095C4B7 /* AWSSimpleDBService.h in Headers */,
+				BDB5DEB41AB377D1002DD224 /* AWSSimpleDBModel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		BDB5DE8F1AB377AF002DD224 /* AWSSimpleDB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDB5DEA41AB377AF002DD224 /* Build configuration list for PBXNativeTarget "AWSSimpleDB" */;
+			buildPhases = (
+				BDB5DE8C1AB377AF002DD224 /* Sources */,
+				BDB5DE8D1AB377AF002DD224 /* Frameworks */,
+				BDB5DE8E1AB377AF002DD224 /* CopyFiles */,
+				BDB5DEAA1AB377C9002DD224 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AWSSimpleDB;
+			productName = SimpleDB;
+			productReference = BDB5DE901AB377AF002DD224 /* libAWSSimpleDB.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		BDB5DE9A1AB377AF002DD224 /* AWSSimpleDBTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDB5DEA71AB377AF002DD224 /* Build configuration list for PBXNativeTarget "AWSSimpleDBTests" */;
+			buildPhases = (
+				2796E0208B81BFC1A532AA16 /* Check Pods Manifest.lock */,
+				BDB5DE971AB377AF002DD224 /* Sources */,
+				BDB5DE981AB377AF002DD224 /* Frameworks */,
+				BDB5DE991AB377AF002DD224 /* Resources */,
+				92C6AB4A890E6B79225FDFFD /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDB5DE9E1AB377AF002DD224 /* PBXTargetDependency */,
+			);
+			name = AWSSimpleDBTests;
+			productName = SimpleDBTests;
+			productReference = BDB5DE9B1AB377AF002DD224 /* AWSSimpleDBTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDB5DE881AB377AF002DD224 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Amazon Web Services";
+				TargetAttributes = {
+					BDB5DE8F1AB377AF002DD224 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					BDB5DE9A1AB377AF002DD224 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
+			};
+			buildConfigurationList = BDB5DE8B1AB377AF002DD224 /* Build configuration list for PBXProject "AWSSimpleDB" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BDB5DE871AB377AF002DD224;
+			productRefGroup = BDB5DE911AB377AF002DD224 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDB5DE8F1AB377AF002DD224 /* AWSSimpleDB */,
+				BDB5DE9A1AB377AF002DD224 /* AWSSimpleDBTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDB5DE991AB377AF002DD224 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD00FF651AB8B8A2004496EF /* cognito-identity-2014-06-30.json in Resources */,
+				BD00FF661AB8B8A2004496EF /* mobileanalytics-2014-06-30.json in Resources */,
+				BD00FF671AB8B8A2004496EF /* sts-2011-06-15.json in Resources */,
+				BD0000361AB8C509004496EF /* credentials.json in Resources */,
+				BD00FF611AB8B893004496EF /* sdb-2009-04-15.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2796E0208B81BFC1A532AA16 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		92C6AB4A890E6B79225FDFFD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleDB/Pods-SimpleDB-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDB5DE8C1AB377AF002DD224 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDB5DEB31AB377D1002DD224 /* AWSSimpleDBService.m in Sources */,
+				BDB5DEB51AB377D1002DD224 /* AWSSimpleDBModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDB5DE971AB377AF002DD224 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD00FFE01AB8C417004496EF /* AWSGeneralSimpleDBTests.m in Sources */,
+				BD0000521AB8E16D004496EF /* AWSTestUtility.m in Sources */,
+				BD00FFE11AB8C417004496EF /* AWSSimpleDBTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BDB5DE9E1AB377AF002DD224 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDB5DE8F1AB377AF002DD224 /* AWSSimpleDB */;
+			targetProxy = BDB5DE9D1AB377AF002DD224 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BDB5DEA21AB377AF002DD224 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/**";
+			};
+			name = Debug;
+		};
+		BDB5DEA31AB377AF002DD224 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/**";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDB5DEA51AB377AF002DD224 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SRCROOT}/Pods/Headers/**",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = AWSSimpleDB;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BDB5DEA61AB377AF002DD224 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SRCROOT}/Pods/Headers/**",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = AWSSimpleDB;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		BDB5DEA81AB377AF002DD224 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FBFD15564C4EFBB6B06DC58 /* Pods-SimpleDB.debug.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SimpleDBTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = AWSSimpleDBTests;
+			};
+			name = Debug;
+		};
+		BDB5DEA91AB377AF002DD224 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5EC1E5CFE88D82C635094AA /* Pods-SimpleDB.release.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SimpleDBTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = AWSSimpleDBTests;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BDB5DE8B1AB377AF002DD224 /* Build configuration list for PBXProject "AWSSimpleDB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDB5DEA21AB377AF002DD224 /* Debug */,
+				BDB5DEA31AB377AF002DD224 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDB5DEA41AB377AF002DD224 /* Build configuration list for PBXNativeTarget "AWSSimpleDB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDB5DEA51AB377AF002DD224 /* Debug */,
+				BDB5DEA61AB377AF002DD224 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDB5DEA71AB377AF002DD224 /* Build configuration list for PBXNativeTarget "AWSSimpleDBTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDB5DEA81AB377AF002DD224 /* Debug */,
+				BDB5DEA91AB377AF002DD224 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BDB5DE881AB377AF002DD224 /* Project object */;
+}

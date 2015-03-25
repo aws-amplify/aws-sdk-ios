@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'AWSiOSSDKv2'
-  s.version      = '2.0.17'
+  s.version      = '2.1.0'
   s.summary      = 'Amazon Web Services SDK for iOS.'
 
   s.description  = 'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'
@@ -12,87 +12,53 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.source       = { :git => 'https://github.com/aws/aws-sdk-ios.git',
                      :tag => s.version}
-  s.frameworks   = 'UIKit','Foundation','SystemConfiguration'
-
-  s.dependency 'Bolts', '~> 1.1.0'
-  s.dependency 'Mantle', '~> 1.4'
-  s.dependency 'TMCache', '~> 1.2.1'
-  s.dependency 'XMLDictionary', '~> 1.4.0'
-  s.dependency 'UICKeyChainStore', '< 3.0'
-  s.dependency 'Reachability', '~> 3.1'
-  s.dependency 'GZIP', '~> 1.0.3'
-  s.dependency 'FMDB', '~> 2.4'
-
   s.requires_arc = true
 
   s.subspec 'AWSCore' do |aws|
-    aws.source_files = 'AWSCore/*.{h,m}', 'AWSCore/**/*.{h,m}'
-    aws.resources = ['AWSCore/**/Resources/*.json']
+    aws.dependency 'AWSCore', '2.1.0'
   end
 
   s.subspec 'AutoScaling' do |autoscaling|
-  	autoscaling.dependency 'AWSiOSSDKv2/AWSCore'
-    autoscaling.source_files = 'AutoScaling/*.{h,m}'
-    autoscaling.resources = ['AutoScaling/Resources/*.json']
+  	autoscaling.dependency 'AWSAutoScaling', '2.1.0'
   end
 
   s.subspec 'CloudWatch' do |cloudwatch|
-  	cloudwatch.dependency 'AWSiOSSDKv2/AWSCore'
-    cloudwatch.source_files = 'CloudWatch/*.{h,m}'
-    cloudwatch.resources = ['CloudWatch/Resources/*.json']
+  	cloudwatch.dependency 'AWSCloudWatch', '2.1.0'
   end
 
   s.subspec 'DynamoDB' do |ddb|
-  	ddb.dependency 'AWSiOSSDKv2/AWSCore'
-    ddb.source_files = 'DynamoDB/*.{h,m}'
-    ddb.resources = ['DynamoDB/Resources/*.json']
+  	ddb.dependency 'AWSDynamoDB', '2.1.0'
   end
 
   s.subspec 'EC2' do |ec2|
-  	ec2.dependency 'AWSiOSSDKv2/AWSCore'
-    ec2.source_files = 'EC2/*.{h,m}'
-    ec2.resources = ['EC2/Resources/*.json']
+  	ec2.dependency 'AWSEC2', '2.1.0'
   end
 
   s.subspec 'ElasticLoadBalancing' do |elasticloadbalancing|
-  	elasticloadbalancing.dependency 'AWSiOSSDKv2/AWSCore'
-    elasticloadbalancing.source_files = 'ElasticLoadBalancing/*.{h,m}'
-    elasticloadbalancing.resources = ['ElasticLoadBalancing/Resources/*.json']
+  	elasticloadbalancing.dependency 'AWSElasticLoadBalancing', '2.1.0'
   end
 
   s.subspec 'Kinesis' do |kinesis|
-  	kinesis.dependency 'AWSiOSSDKv2/AWSCore'
-    kinesis.source_files = 'Kinesis/*.{h,m}'
-    kinesis.resources = ['Kinesis/Resources/*.json']
+  	kinesis.dependency 'AWSKinesis', '2.1.0'
   end
 
   s.subspec 'S3' do |s3|
-  	s3.dependency 'AWSiOSSDKv2/AWSCore'
-    s3.source_files = 'S3/*.{h,m}'
-    s3.resources = ['S3/Resources/*.json']
+  	s3.dependency 'AWSS3', '2.1.0'
   end
 
   s.subspec 'SES' do |ses|
-  	ses.dependency 'AWSiOSSDKv2/AWSCore'
-    ses.source_files = 'SES/*.{h,m}'
-    ses.resources = ['SES/Resources/*.json']
+  	ses.dependency 'AWSSES', '2.1.0'
   end
 
   s.subspec 'SimpleDB' do |simpledb|
-  	simpledb.dependency 'AWSiOSSDKv2/AWSCore'
-    simpledb.source_files = 'SimpleDB/*.{h,m}'
-    simpledb.resources = ['SimpleDB/Resources/*.json']
+  	simpledb.dependency 'AWSSimpleDB', '2.1.0'
   end
 
   s.subspec 'SNS' do |sns|
-  	sns.dependency 'AWSiOSSDKv2/AWSCore'
-    sns.source_files = 'SNS/*.{h,m}'
-    sns.resources = ['SNS/Resources/*.json']
+  	sns.dependency 'AWSSNS', '2.1.0'
   end
 
   s.subspec 'SQS' do |sqs|
-  	sqs.dependency 'AWSiOSSDKv2/AWSCore'
-    sqs.source_files = 'SQS/*.{h,m}'
-    sqs.resources = ['SQS/Resources/*.json']
+  	sqs.dependency 'AWSSQS', '2.1.0'
   end
 end

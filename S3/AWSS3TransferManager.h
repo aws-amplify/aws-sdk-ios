@@ -1,19 +1,19 @@
-/*
- * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+/**
+ Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License").
+ You may not use this file except in compliance with the License.
+ A copy of the License is located at
+
+ http://aws.amazon.com/apache2.0
+
+ or in the "license" file accompanying this file. This file is distributed
+ on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ express or implied. See the License for the specific language governing
+ permissions and limitations under the License.
  */
 
-#import "AWSService.h"
+#import <AWSCore/AWSService.h>
 #import "AWSS3Model.h"
 
 FOUNDATION_EXPORT NSString *const AWSS3TransferManagerErrorDomain;
@@ -45,68 +45,187 @@ typedef void (^AWSS3TransferManagerResumeAllBlock) (AWSRequest *request);
 @class AWSS3TransferManagerDownloadOutput;
 
 /**
- *   High level utility for managing transfers to Amazon S3. S3TransferManager provides a simple API for uploading and downloading content to Amazon S3, and makes extensive use of Amazon S3 multipart uploads to achieve enhanced throughput, performance and reliability.
+ High level utility for managing transfers to Amazon S3. S3TransferManager provides a simple API for uploading and downloading content to Amazon S3, and makes extensive use of Amazon S3 multipart uploads to achieve enhanced throughput, performance and reliability.
  */
 @interface AWSS3TransferManager : AWSService
 
+/**
+ Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with `defaultServiceConfiguration` from `[AWSServiceManager defaultServiceManager]`. The reference to this object is maintained by the SDK, and you do not need to retain it manually.
+
+ For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
+
+ *Swift*
+
+     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+         let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+         let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+         AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
+
+         return true
+     }
+
+ *Objective-C*
+
+     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+          AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                          identityPoolId:@"YourIdentityPoolId"];
+          AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                               credentialsProvider:credentialsProvider];
+          [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+
+          return YES;
+      }
+
+ Then call the following to get the default service client:
+
+ *Swift*
+
+     let S3TransferManager = AWSS3TransferManager.defaultS3TransferManager()
+
+ *Objective-C*
+
+     AWSS3TransferManager *S3TransferManager = [AWSS3TransferManager defaultS3TransferManager];
+
+ @return The default service client.
+ */
 + (instancetype)defaultS3TransferManager;
 
 /**
- *  Returns an instance of this service client using `configuration` and `identifier`.
- *
- *  @param configuration An object to configure the internal `AWSS3`. At least `regionType` and `credentialsProvider` need to be set.
- *  @param identifier    An unique identifier for AWSS3TransferManager to create a disk cache. Multiple instances with the same identifier are allowed and can safely access the same data on disk.
- *
- *  @return An instance of this service client.
+ Creates a service client with the given service configuration and registers it for the key.
+
+ For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
+
+ *Swift*
+
+     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+         let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+         let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+         AWSS3TransferManager.registerS3TransferManagerWithConfiguration(configuration, forKey: "USWest2S3TransferManager")
+
+         return true
+     }
+
+ *Objective-C*
+
+     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+         AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                         identityPoolId:@"YourIdentityPoolId"];
+         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                              credentialsProvider:credentialsProvider];
+
+         [AWSS3TransferManager registerS3TransferManagerWithConfiguration:configuration forKey:@"USWest2S3TransferManager"];
+
+         return YES;
+     }
+
+ Then call the following to get the service client:
+
+ *Swift*
+
+     let S3TransferManager = AWSS3TransferManager(forKey: "USWest2S3TransferManager")
+
+ *Objective-C*
+
+     AWSS3TransferManager *S3TransferManager = [AWSS3TransferManager S3TransferManagerForKey:@"USWest2S3TransferManager"];
+
+ @warning After calling this method, do not modify the configuration object. It may cause unspecified behaviors.
+
+ @param configuration A service configuration object.
+ @param key           A string to identify the service client.
  */
-- (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration
-                           identifier:(NSString *)identifier;
++ (void)registerS3TransferManagerWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key;
 
 /**
- *  Schedules a new transfer to upload data to Amazon S3.
- *
- *  @param uploadRequest The upload request.
- *
- *  @return BFTask.
+ Retrieves the service client associated with the key. You need to call `+ registerS3TransferManagerWithConfiguration:forKey:` before invoking this method. If `+ registerS3TransferManagerWithConfiguration:forKey:` has not been called in advance or the key does not exist, this method returns `nil`.
+
+ For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
+
+     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+         AWSCognitoCredentialsProvider *credentialsProvider = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1 identityPoolId:@"YourIdentityPoolId"];
+         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2 credentialsProvider:credentialsProvider];
+
+         [AWSS3TransferManager registerS3TransferManagerWithConfiguration:configuration forKey:@"USWest2S3TransferManager"];
+
+         return YES;
+     }
+
+ Then call the following to get the service client:
+
+     AWSS3TransferManager *S3TransferManager = [AWSS3TransferManager S3ForKey:@"USWest2S3TransferManager"];
+
+ @param key A string to identify the service client.
+
+ @return An instance of the service client.
+ */
++ (instancetype)S3TransferManagerForKey:(NSString *)key;
+
+/**
+ Removes the service client associated with the key and release it.
+
+ @warning Before calling this method, make sure no method is running on this client.
+
+ @param key A string to identify the service client.
+ */
++ (void)removeS3TransferManagerForKey:(NSString *)key;
+
+/**
+ Returns an instance of this service client using `configuration` and `identifier`.
+
+ @warning This method has been deprecated. Use `+ registerS3TransferManagerWithConfiguration:forKey:` and `+ S3TransferManagerForKey:` instead.
+
+ @param configuration An object to configure the internal `AWSS3`. At least `regionType` and `credentialsProvider` need to be set.
+ @param identifier    An unique identifier for AWSS3TransferManager to create a disk cache. Multiple instances with the same identifier are allowed and can safely access the same data on disk.
+
+ @return An instance of this service client.
+ */
+- (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration
+                           identifier:(NSString *)identifier  __attribute__ ((deprecated("Use '+ registerS3TransferManagerWithConfiguration:forKey:' and '+ S3TransferManagerForKey:' instead.")));
+
+/**
+ Schedules a new transfer to upload data to Amazon S3.
+
+ @param uploadRequest The upload request.
+
+ @return BFTask.
  */
 - (BFTask *)upload:(AWSS3TransferManagerUploadRequest *)uploadRequest;
 
 /**
- *  Schedules a new transfer to download data from Amazon S3 and save it to the specified file.
- *
- *  @param downloadRequest The download request.
- *
- *  @return BFTask.
+ Schedules a new transfer to download data from Amazon S3 and save it to the specified file.
+
+ @param downloadRequest The download request.
+
+ @return BFTask.
  */
 - (BFTask *)download:(AWSS3TransferManagerDownloadRequest *)downloadRequest;
 
 /**
- *  Cancels all of the upload and download requests.
- *
- *  @return BFTask.
+ Cancels all of the upload and download requests.
+
+ @return BFTask.
  */
 - (BFTask *)cancelAll;
 
 /**
- *  Pauses all of the upload and download requests.
- *
- *  @return BFTask.
+ Pauses all of the upload and download requests.
+
+ @return BFTask.
  */
 - (BFTask *)pauseAll;
 
 /**
- *  Resumes all of the upload and download requests.
- *
- *  @param block The block to optionally re-set the progress blocks to the requests.
- *
- *  @return BFTask.
+ Resumes all of the upload and download requests.
+
+ @param block The block to optionally re-set the progress blocks to the requests.
+
+ @return BFTask.
  */
 - (BFTask *)resumeAll:(AWSS3TransferManagerResumeAllBlock)block;
 
 /**
- *  Clears the local cache.
- *
- *  @return BFTask.
+ Clears the local cache.
+
+ @return BFTask.
  */
 - (BFTask *)clearCache;
 

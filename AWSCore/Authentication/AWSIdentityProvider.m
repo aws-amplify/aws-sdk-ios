@@ -1,21 +1,21 @@
-/*
- * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+/**
+ Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License").
+ You may not use this file except in compliance with the License.
+ A copy of the License is located at
+
+ http://aws.amazon.com/apache2.0
+
+ or in the "license" file accompanying this file. This file is distributed
+ on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ express or implied. See the License for the specific language governing
+ permissions and limitations under the License.
  */
 
 #import "AWSCore.h"
 #import "AWSIdentityProvider.h"
-#import "Bolts.h"
+#import <Bolts/Bolts.h>
 
 NSString *const AWSCognitoIdentityIdChangedNotification = @"com.amazonaws.services.cognitoidentity.AWSCognitoIdentityIdChangedNotification";
 NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.service.cognitoidentity.AWSCognitoIdentityProvider";
@@ -119,16 +119,19 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
 @end
 
 @interface AWSAbstractCognitoIdentityProvider()
+
 @property (nonatomic, strong) NSString *accountId;
 @property (nonatomic, strong) NSString *providerName;
 @property (nonatomic, strong) AWSCognitoIdentity *cib;
 @property (nonatomic, strong) BFExecutor *executor;
 @property (atomic, assign) int32_t count;
 @property (nonatomic, strong) dispatch_semaphore_t semaphore;
+
 @end
 
 @implementation AWSAbstractCognitoIdentityProvider
-@synthesize accountId=_accountId;
+
+@synthesize accountId = _accountId;
 
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
                         identityId:(NSString *)identityId
@@ -146,10 +149,12 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
         self.logins = [self updateKeysForLogins:logins];
 
         AWSAnonymousCredentialsProvider *credentialsProvider = [AWSAnonymousCredentialsProvider new];
-        AWSServiceConfiguration *configuration = [AWSServiceConfiguration configurationWithRegion:regionType
-                                                                              credentialsProvider:credentialsProvider];
-
-        _cib = [[AWSCognitoIdentity new] initWithConfiguration:configuration];
+        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:regionType
+                                                                             credentialsProvider:credentialsProvider];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        _cib = [[AWSCognitoIdentity alloc] initWithConfiguration:configuration];
+#pragma clang diagnostic pop
     }
 
     return self;
@@ -280,8 +285,8 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
                          accountId:(NSString *)accountId
                     identityPoolId:(NSString *)identityPoolId
                             logins:(NSDictionary *)logins {
-    
-    
+
+
     if (self = [super initWithRegionType:regionType identityId:identityId accountId:accountId identityPoolId:identityPoolId logins:logins]) {
         self.providerName = @"Cognito";
     }
@@ -296,8 +301,8 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
                         identityId:(NSString *)identityId
                     identityPoolId:(NSString *)identityPoolId
                             logins:(NSDictionary *)logins {
-    
-    
+
+
     if (self = [super initWithRegionType:regionType identityId:identityId accountId:nil identityPoolId:identityPoolId logins:logins]) {
         self.providerName = @"Cognito";
     }

@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.0.17"
+VERSION="2.1.0"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -39,6 +39,7 @@ else
     cp -r SQS ./docs_tmp/SQS
 
     rm -rf ./docs_tmp/AWSCore/XMLWriter
+    rm -rf ./docs_tmp/AWSCore/MobileAnalytics/Internal
     rm -rf ./docs_tmp/AWSCore/MobileAnalytics/core
     rm -rf ./docs_tmp/AWSCore/MobileAnalytics/delivery
     rm -rf ./docs_tmp/AWSCore/MobileAnalytics/event

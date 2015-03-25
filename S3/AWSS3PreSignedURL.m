@@ -1,23 +1,25 @@
-/*
- * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+/**
+ Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License").
+ You may not use this file except in compliance with the License.
+ A copy of the License is located at
+
+ http://aws.amazon.com/apache2.0
+
+ or in the "license" file accompanying this file. This file is distributed
+ on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ express or implied. See the License for the specific language governing
+ permissions and limitations under the License.
  */
 
 #import "AWSS3PreSignedURL.h"
 #import "AWSCategory.h"
 #import "AWSSignature.h"
 #import "AWSLogging.h"
-#import "Bolts.h"
+#import <Bolts/Bolts.h>
+#import "AWSSynchronizedMutableDictionary.h"
+#import <CommonCrypto/CommonCrypto.h>
 
 NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURLErrorDomain";
 
@@ -35,6 +37,8 @@ NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURL
 
 @implementation AWSS3PreSignedURLBuilder
 
+static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
 + (instancetype)defaultS3PreSignedURLBuilder {
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
         return nil;
@@ -43,15 +47,38 @@ NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURL
     static AWSS3PreSignedURLBuilder *_defaultS3PreSignedURLBuilder = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         _defaultS3PreSignedURLBuilder = [[AWSS3PreSignedURLBuilder alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration];
+#pragma clang diagnostic pop
     });
 
     return _defaultS3PreSignedURLBuilder;
 }
 
++ (void)registerS3PreSignedURLBuilderWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _serviceClients = [AWSSynchronizedMutableDictionary new];
+    });
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    [_serviceClients setObject:[[AWSS3PreSignedURLBuilder alloc] initWithConfiguration:configuration]
+                        forKey:key];
+#pragma clang diagnostic pop
+}
+
++ (instancetype)S3PreSignedURLBuilderForKey:(NSString *)key {
+    return [_serviceClients objectForKey:key];
+}
+
++ (void)removeS3PreSignedURLBuilderForKey:(NSString *)key {
+    [_serviceClients removeObjectForKey:key];
+}
+
 - (instancetype)init {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:@"`- init` is not a valid initializer. Use `+ defaultS3PreSignedURLBuilder` or `- initWithConfiguration:` instead."
+                                   reason:@"`- init` is not a valid initializer. Use `+ defaultS3PreSignedURLBuilder` or `+ S3PreSignedURLBuilderForKey:` instead."
                                  userInfo:nil];
     return nil;
 }

@@ -1,21 +1,21 @@
-/*
- * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+/**
+ Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License").
+ You may not use this file except in compliance with the License.
+ A copy of the License is located at
+
+ http://aws.amazon.com/apache2.0
+
+ or in the "license" file accompanying this file. This file is distributed
+ on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ express or implied. See the License for the specific language governing
+ permissions and limitations under the License.
  */
 
 #import "AWSDynamoDBObjectMapper.h"
 #import "AWSDynamoDB.h"
-#import "Bolts.h"
+#import <Bolts/Bolts.h>
 #import "AWSLogging.h"
 #import "AWSSynchronizedMutableDictionary.h"
 #import "AWSCategory.h"
@@ -194,6 +194,8 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperVersion) {
 
 @implementation AWSDynamoDBObjectMapper
 
+static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
 + (instancetype)defaultDynamoDBObjectMapper {
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
         return nil;
@@ -202,16 +204,43 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperVersion) {
     static AWSDynamoDBObjectMapper *_dynamoDBObjectMapper  = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         _dynamoDBObjectMapper = [[AWSDynamoDBObjectMapper alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration
                                                              objectMapperConfiguration:[AWSDynamoDBObjectMapperConfiguration new]];
+#pragma clang diagnostic pop
     });
 
     return _dynamoDBObjectMapper;
 }
 
++ (void)registerDynamoDBObjectMapperWithConfiguration:(AWSServiceConfiguration *)configuration
+                            objectMapperConfiguration:(AWSDynamoDBObjectMapperConfiguration *)objectMapperConfiguration
+                                               forKey:(NSString *)key {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _serviceClients = [AWSSynchronizedMutableDictionary new];
+    });
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    AWSDynamoDBObjectMapper *objectMapper = [[AWSDynamoDBObjectMapper alloc] initWithConfiguration:configuration
+                                                                         objectMapperConfiguration:objectMapperConfiguration];
+    [_serviceClients setObject:objectMapper
+                        forKey:key];
+#pragma clang diagnostic pop
+}
+
++ (instancetype)DynamoDBObjectMapperForKey:(NSString *)key {
+    return [_serviceClients objectForKey:key];
+}
+
++ (void)removeDynamoDBObjectMapperForKey:(NSString *)key {
+    [_serviceClients removeObjectForKey:key];
+}
+
 - (instancetype)init {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:@"`- init` is not a valid initializer. Use `+ defaultDynamoDBObjectMapper` or `- initWithConfiguration:objectMapperConfiguration:` instead."
+                                   reason:@"`- init` is not a valid initializer. Use `+ defaultDynamoDBObjectMapper` or `+ DynamoDBObjectMapperForKey:` instead."
                                  userInfo:nil];
     return nil;
 }
@@ -219,7 +248,10 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperVersion) {
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration
             objectMapperConfiguration:(AWSDynamoDBObjectMapperConfiguration *)objectMapperConfiguration {
     if (self = [super init]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         _dynamoDB = [[AWSDynamoDB alloc] initWithConfiguration:configuration];
+#pragma clang diagnostic pop
         _configuration = [objectMapperConfiguration copy];
     }
 
@@ -592,7 +624,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperVersion) {
     if (self = [super init]) {
         _saveBehavior = AWSDynamoDBObjectMapperSaveBehaviorUpdate;
     }
-    
+
     return self;
 }
 

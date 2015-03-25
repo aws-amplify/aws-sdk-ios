@@ -1,16 +1,16 @@
-/*
- * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+/**
+ Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License").
+ You may not use this file except in compliance with the License.
+ A copy of the License is located at
+
+ http://aws.amazon.com/apache2.0
+
+ or in the "license" file accompanying this file. This file is distributed
+ on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ express or implied. See the License for the specific language governing
+ permissions and limitations under the License.
  */
 
 #import "AWSURLResponseSerialization.h"
@@ -46,35 +46,31 @@ static NSDictionary *errorCodeDictionary = nil;
                             };
 }
 
-- (instancetype)initWithOutputClass:(Class)outputClass {
+- (instancetype)initWithResource:(NSString *)resource
+                      actionName:(NSString *)actionName
+                     outputClass:(Class)outputClass
+                  classForBundle:(Class)classForBundle {
     if (self = [super init]) {
+        NSError *error = nil;
+        NSString *filePath = [[NSBundle bundleForClass:classForBundle] pathForResource:resource ofType:@"json"];
+        if (filePath == nil) {
+            AWSLogError(@"can not find %@.json file in the project",resource);
+        } else {
+            _serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                     options:kNilOptions
+                                                                       error:&error];
+        }
+        if (error) {
+            AWSLogError(@"Error: [%@]", error);
+        }
+
+        _actionName = actionName;
+
         _outputClass = outputClass;
     }
 
     return self;
 }
-
-+ (instancetype)serializerWithResource:(NSString *)resource actionName:(NSString *)actionName {
-    AWSJSONResponseSerializer *serializer = [self new];
-    
-    NSError *error = nil;
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:resource ofType:@"json"];
-    if (filePath == nil) {
-        AWSLogError(@"can not find %@.json file in the project",resource);
-    } else {
-        serializer.serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                           options:kNilOptions
-                                                                             error:&error];
-    }
-    if (error) {
-        AWSLogError(@"Error: [%@]", error);
-    }
-    
-    serializer.actionName = actionName;
-    
-    return serializer;
-}
-
 
 - (id)responseObjectForResponse:(NSHTTPURLResponse *)response
                 originalRequest:(NSURLRequest *)originalRequest
@@ -87,7 +83,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
     if ([data isKindOfClass:[NSData class]]) {
         AWSLogVerbose(@"Response body: [%@]", [[NSString alloc] initWithData:data
-                                                                   encoding:NSUTF8StringEncoding]);
+                                                                    encoding:NSUTF8StringEncoding]);
     }
 
     NSString *responseContentTypeStr = [[response allHeaderFields] objectForKey:@"Content-Type"];
@@ -165,25 +161,30 @@ static NSDictionary *errorCodeDictionary = nil;
                             };
 }
 
-+ (instancetype)serializerWithResource:(NSString *)resource actionName:(NSString *)actionName {
-    AWSXMLResponseSerializer *serializer = [self new];
+- (instancetype)initWithResource:(NSString *)resource
+                      actionName:(NSString *)actionName
+                     outputClass:(Class)outputClass
+                  classForBundle:(Class)classForBundle {
+    if (self = [super init]) {
+        NSError *error = nil;
+        NSString *filePath = [[NSBundle bundleForClass:classForBundle] pathForResource:resource ofType:@"json"];
+        if (filePath == nil) {
+            AWSLogError(@"can not find %@.json file in the project",resource);
+        } else {
+            _serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                     options:kNilOptions
+                                                                       error:&error];
+        }
+        if (error) {
+            AWSLogError(@"Error: [%@]", error);
+        }
 
-    NSError *error = nil;
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:resource ofType:@"json"];
-    if (filePath == nil) {
-        AWSLogError(@"can not find %@.json file in the project",resource);
-    } else {
-        serializer.serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                           options:kNilOptions
-                                                                             error:&error];
+        _actionName = actionName;
+
+        _outputClass = outputClass;
     }
-    if (error) {
-        AWSLogError(@"Error: [%@]", error);
-    }
 
-    serializer.actionName = actionName;
-
-    return serializer;
+    return self;
 }
 
 - (BOOL)validateResponse:(NSHTTPURLResponse *)response
@@ -225,7 +226,7 @@ static NSDictionary *errorCodeDictionary = nil;
                 }
             }
         }
-        
+
         //if the location may contain multiple headers if it is a map type
         if ([memberRules isKindOfClass:[NSDictionary class]] && [memberRules[@"location"] isEqualToString:@"headers"] && [memberRules[@"type"] isEqualToString:@"map"] ) {
             NSString *locationName = memberRules[@"locationName"]?memberRules[@"locationName"]:memberName;
@@ -240,7 +241,7 @@ static NSDictionary *errorCodeDictionary = nil;
                     }
                 }
                 if ([mapDic count] > 0 && memberName) {
-                 bodyDictionary[memberName] = mapDic;
+                    bodyDictionary[memberName] = mapDic;
                 }
             }
         }
@@ -260,7 +261,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
     if ([data isKindOfClass:[NSData class]]) {
         AWSLogVerbose(@"Response body: [%@]", [[NSString alloc] initWithData:data
-                                                                   encoding:NSUTF8StringEncoding]);
+                                                                    encoding:NSUTF8StringEncoding]);
     }
 
     NSString *responseContentTypeStr = [[response allHeaderFields] objectForKey:@"Content-Type"];
@@ -286,11 +287,11 @@ static NSDictionary *errorCodeDictionary = nil;
     NSDictionary *shapeRules = [self.serviceDefinitionJSON objectForKey:@"shapes"];
     AWSJSONDictionary *outputRules = [[AWSJSONDictionary alloc] initWithDictionary:[anActionRules objectForKey:@"output"] JSONDefinitionRule:shapeRules];
 
-    
+
     NSMutableDictionary *resultDic = [NSMutableDictionary new];
 
     if (response.statusCode >= 200 && response.statusCode < 300 ) {
-        // status is good, we can keep NSURL as data 
+        // status is good, we can keep NSURL as data
     } else {
         //if status error indicates error, need to convert NSURL to NSData for error processing
         if ([data isKindOfClass:[NSURL class]]) {

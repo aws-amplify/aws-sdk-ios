@@ -1,16 +1,16 @@
-/*
- * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+/**
+ Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License").
+ You may not use this file except in compliance with the License.
+ A copy of the License is located at
+
+ http://aws.amazon.com/apache2.0
+
+ or in the "license" file accompanying this file. This file is distributed
+ on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ express or implied. See the License for the specific language governing
+ permissions and limitations under the License.
  */
 
 #import "AWSURLRequestSerialization.h"
@@ -20,8 +20,8 @@
 #import "AWSSerialization.h"
 #import "AWSCategory.h"
 #import "AWSLogging.h"
-#import "GZIP.h"
-#import "Bolts.h"
+#import <GZIP/GZIP.h>
+#import <Bolts/Bolts.h>
 
 @interface AWSJSONRequestSerializer()
 
@@ -32,27 +32,28 @@
 
 @implementation AWSJSONRequestSerializer
 
-+ (instancetype)serializerWithResource:(NSString *)resource
-                            actionName:(NSString *)actionName {
-    AWSJSONRequestSerializer *serializer = [self new];
-    NSError *error = nil;
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:resource ofType:@"json"];
-    if (filePath == nil) {
-        AWSLogError(@"can not find %@.json file in the project",resource);
-    } else {
-        serializer.serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                           options:kNilOptions
-                                                                             error:&error];
-    }
-    if (error) {
-        AWSLogError(@"Error: [%@]", error);
+- (instancetype)initWithResource:(NSString *)resource
+                      actionName:(NSString *)actionName
+                  classForBundle:(Class)classForBundle {
+    if (self = [super init]) {
+        NSError *error = nil;
+        NSString *filePath = [[NSBundle bundleForClass:classForBundle] pathForResource:resource ofType:@"json"];
+        if (filePath == nil) {
+            AWSLogError(@"can not find %@.json file in the project",resource);
+        } else {
+            _serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                     options:kNilOptions
+                                                                       error:&error];
+        }
+        if (error) {
+            AWSLogError(@"Error: [%@]", error);
+        }
+
+        _actionName = actionName;
     }
 
-    serializer.actionName = actionName;
-
-    return serializer;
+    return self;
 }
-
 
 - (BFTask *)serializeRequest:(NSMutableURLRequest *)request
                      headers:(NSDictionary *)headers
@@ -136,25 +137,27 @@
 
 @implementation AWSXMLRequestSerializer
 
-+ (instancetype)serializerWithResource:(NSString *)resource actionName:(NSString *)actionName {
+- (instancetype)initWithResource:(NSString *)resource
+                      actionName:(NSString *)actionName
+                  classForBundle:(Class)classForBundle {
+    if (self = [super init]) {
+        NSError *error = nil;
+        NSString *filePath = [[NSBundle bundleForClass:classForBundle] pathForResource:resource ofType:@"json"];
+        if (filePath == nil) {
+            AWSLogError(@"can not find %@.json file in the project",resource);
+        } else {
+            _serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                     options:kNilOptions
+                                                                       error:&error];
+        }
+        if (error) {
+            AWSLogError(@"Error: [%@]", error);
+        }
 
-    AWSXMLRequestSerializer *serializer = [self new];
-    NSError *error = nil;
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:resource ofType:@"json"];
-    if (filePath == nil) {
-        AWSLogError(@"can not find %@.json file in the project",resource);
-    } else {
-        serializer.serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                           options:kNilOptions
-                                                                             error:&error];
+        _actionName = actionName;
     }
-    if (error) {
-        AWSLogError(@"Error: [%@]", error);
-    }
 
-    serializer.actionName = actionName;
-
-    return serializer;
+    return self;
 }
 
 /* need to overwrite this method to do serialization for self.parameter */
@@ -396,28 +399,30 @@
 
 @implementation AWSQueryStringRequestSerializer
 
-+ (instancetype)serializerWithResource:(NSString *)resource
-                            actionName:(NSString *)actionName {
+- (instancetype)initWithResource:(NSString *)resource
+                      actionName:(NSString *)actionName
+                  classForBundle:(Class)classForBundle {
+    if (self = [super init]) {
+        NSError *error = nil;
+        NSString *filePath = [[NSBundle bundleForClass:classForBundle] pathForResource:resource ofType:@"json"];
+        if (filePath == nil) {
+            AWSLogError(@"can not find %@.json file in the project",resource);
+        } else {
+            _serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                     options:kNilOptions
+                                                                       error:&error];
+        }
+        if (error) {
+            AWSLogError(@"Error: [%@]", error);
+        }
 
-    AWSQueryStringRequestSerializer *serializer = [self new];
-    NSError *error = nil;
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:resource ofType:@"json"];
-    if (filePath == nil) {
-        AWSLogError(@"can not find %@.json file in the project",resource);
-    } else {
-        serializer.serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                           options:kNilOptions
-                                                                             error:&error];
+        _actionName = actionName;
     }
-    if (error) {
-        AWSLogError(@"Error: [%@]", error);
-    }
 
-    serializer.actionName = actionName;
-
-    return serializer;
+    return self;
 
 }
+
 - (void)processParameters:(NSDictionary *)parameters queryString:(NSMutableString *)queryString {
     for (NSString *key in parameters) {
         id obj = parameters[key];

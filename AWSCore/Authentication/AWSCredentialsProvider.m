@@ -1,23 +1,23 @@
-/*
- * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+/**
+ Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License").
+ You may not use this file except in compliance with the License.
+ A copy of the License is located at
+
+ http://aws.amazon.com/apache2.0
+
+ or in the "license" file accompanying this file. This file is distributed
+ on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ express or implied. See the License for the specific language governing
+ permissions and limitations under the License.
  */
 
 #import "AWSCredentialsProvider.h"
-#import "STS.h"
-#import "UICKeyChainStore.h"
+#import "AWSSTS.h"
+#import <UICKeyChainStore/UICKeyChainStore.h>
 #import "AWSLogging.h"
-#import "Bolts.h"
+#import <Bolts/Bolts.h>
 
 NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCognitoCredentialsProviderErrorDomain";
 
@@ -43,12 +43,7 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 }
 
 + (instancetype)credentialsWithCredentialsFilename:(NSString *)credentialsFilename {
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:credentialsFilename ofType:@"json"];
-    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:nil];
-    AWSStaticCredentialsProvider *credentials = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
-                                                                                              secretKey:credentialsJson[@"secretKey"]];
+    AWSStaticCredentialsProvider *credentials = [[AWSStaticCredentialsProvider alloc] initWithCredentialsFilename:credentialsFilename];
     return credentials;
 }
 
@@ -57,6 +52,18 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     if (self = [super init]) {
         _accessKey = accessKey;
         _secretKey = secretKey;
+    }
+    return self;
+}
+
+- (instancetype)initWithCredentialsFilename:(NSString *)credentialsFilename {
+    if (self = [super init]) {
+        NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:credentialsFilename ofType:@"json"];
+        NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                        options:NSJSONReadingMutableContainers
+                                                                          error:nil];
+        _accessKey = credentialsJson[@"accessKey"];
+        _secretKey = credentialsJson[@"secretKey"];
     }
     return self;
 }
@@ -114,10 +121,12 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         _webIdentityToken = webIdentityToken;
 
         AWSAnonymousCredentialsProvider *credentialsProvider = [AWSAnonymousCredentialsProvider new];
-        AWSServiceConfiguration *configuration = [AWSServiceConfiguration configurationWithRegion:regionType
-                                                                              credentialsProvider:credentialsProvider];
-
-        _sts = [[AWSSTS new] initWithConfiguration:configuration];
+        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:regionType
+                                                                             credentialsProvider:credentialsProvider];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        _sts = [[AWSSTS alloc] initWithConfiguration:configuration];
+#pragma clang diagnostic pop
     }
 
     return self;
@@ -256,111 +265,56 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 @synthesize sessionKey=_sessionKey;
 @synthesize expiration=_expiration;
 
-+ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
-                                accountId:(NSString *)accountId
-                           identityPoolId:(NSString *)identityPoolId
-                            unauthRoleArn:(NSString *)unauthRoleArn
-                              authRoleArn:(NSString *)authRoleArn {
-    AWSCognitoCredentialsProvider *credentials = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:regionType
-                                                                                                identityId:nil
-                                                                                                 accountId:accountId
-                                                                                            identityPoolId:identityPoolId
-                                                                                             unauthRoleArn:unauthRoleArn
-                                                                                               authRoleArn:authRoleArn
-                                                                                                    logins:nil];
-    return credentials;
+- (instancetype)initWithRegionType:(AWSRegionType)regionType
+                    identityPoolId:(NSString *)identityPoolId {
+    if (self = [super init]) {
+        AWSEnhancedCognitoIdentityProvider *identityProvider = [[AWSEnhancedCognitoIdentityProvider alloc] initWithRegionType:regionType
+                                                                                                                   identityId:nil
+                                                                                                               identityPoolId:identityPoolId
+                                                                                                                       logins:nil];
+        [self setUpWithRegionType:regionType
+                 identityProvider:identityProvider
+                    unauthRoleArn:nil
+                      authRoleArn:nil
+                  useEnhancedFlow:YES];
+    }
+
+    return self;
 }
-
-+ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
-                                accountId:(NSString *)accountId
-                           identityPoolId:(NSString *)identityPoolId
-                            unauthRoleArn:(NSString *)unauthRoleArn
-                              authRoleArn:(NSString *)authRoleArn
-                                   logins:(NSDictionary *)logins {
-    AWSCognitoCredentialsProvider *credentials = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:regionType
-                                                                                                identityId:nil
-                                                                                                 accountId:accountId
-                                                                                            identityPoolId:identityPoolId
-                                                                                             unauthRoleArn:unauthRoleArn
-                                                                                               authRoleArn:authRoleArn
-                                                                                                    logins:logins];
-    return credentials;
-}
-
-+ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
-                               identityId:(NSString *)identityId
-                                accountId:(NSString *)accountId
-                           identityPoolId:(NSString *)identityPoolId
-                            unauthRoleArn:(NSString *)unauthRoleArn
-                              authRoleArn:(NSString *)authRoleArn
-                                   logins:(NSDictionary *)logins {
-    AWSCognitoCredentialsProvider *credentials = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:regionType
-                                                                                                identityId:identityId
-                                                                                                 accountId:accountId
-                                                                                            identityPoolId:identityPoolId
-                                                                                             unauthRoleArn:unauthRoleArn
-                                                                                               authRoleArn:authRoleArn
-                                                                                                    logins:logins];
-    return credentials;
-}
-
-+ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
-                         identityProvider:(id<AWSCognitoIdentityProvider>)identityProvider
-                            unauthRoleArn:(NSString *)unauthRoleArn
-                              authRoleArn:(NSString *)authRoleArn {
-
-    AWSCognitoCredentialsProvider *credentials = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:regionType
-                                                                                          identityProvider:identityProvider
-                                                                                             unauthRoleArn:unauthRoleArn
-                                                                                               authRoleArn:authRoleArn];
-    return credentials;
-}
-
-+ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
-                           identityPoolId:(NSString *)identityPoolId {
-
-    return [AWSCognitoCredentialsProvider credentialsWithRegionType:regionType
-                                                         identityId:nil
-                                                     identityPoolId:identityPoolId
-                                                             logins:nil];
-}
-
-+ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
-                               identityId:(NSString *)identityId
-                           identityPoolId:(NSString *)identityPoolId
-                                   logins:(NSDictionary *)logins {
-
-    AWSCognitoCredentialsProvider *credentials = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:regionType
-                                                                                                identityId:identityId
-                                                                                            identityPoolId:identityPoolId
-                                                                                                    logins:logins];
-    return credentials;
-
-}
-
 
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
                         identityId:(NSString *)identityId
                     identityPoolId:(NSString *)identityPoolId
                             logins:(NSDictionary *)logins {
+    if (self = [super init]) {
+        AWSEnhancedCognitoIdentityProvider *identityProvider = [[AWSEnhancedCognitoIdentityProvider alloc] initWithRegionType:regionType
+                                                                                                                   identityId:identityId
+                                                                                                               identityPoolId:identityPoolId
+                                                                                                                       logins:logins];
+        [self setUpWithRegionType:regionType
+                 identityProvider:identityProvider
+                    unauthRoleArn:nil
+                      authRoleArn:nil
+                  useEnhancedFlow:YES];
+    }
 
-    AWSEnhancedCognitoIdentityProvider *identityProvider = [[AWSEnhancedCognitoIdentityProvider alloc]
-                                                            initWithRegionType:regionType
-                                                            identityId:identityId
-                                                            identityPoolId:identityPoolId
-                                                            logins:logins];
-
-
-    AWSCognitoCredentialsProvider *credentials = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:regionType
-                                                                                          identityProvider:identityProvider
-                                                                                             unauthRoleArn:nil
-                                                                                               authRoleArn:nil];
-
-    credentials.useEnhancedFlow = YES;
-
-    return credentials;
+    return self;
 }
 
+- (instancetype)initWithRegionType:(AWSRegionType)regionType
+                  identityProvider:(id<AWSCognitoIdentityProvider>)identityProvider
+                     unauthRoleArn:(NSString *)unauthRoleArn
+                       authRoleArn:(NSString *)authRoleArn {
+    if (self = [super init]) {
+        [self setUpWithRegionType:regionType
+                 identityProvider:identityProvider
+                    unauthRoleArn:unauthRoleArn
+                      authRoleArn:authRoleArn
+                  useEnhancedFlow:NO];
+    }
+
+    return self;
+}
 
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
                         identityId:(NSString *)identityId
@@ -369,61 +323,60 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                      unauthRoleArn:(NSString *)unauthRoleArn
                        authRoleArn:(NSString *)authRoleArn
                             logins:(NSDictionary *)logins {
-
-    AWSBasicCognitoIdentityProvider *identityProvider = [[AWSBasicCognitoIdentityProvider alloc]
-                                                         initWithRegionType:regionType
-                                                         identityId:identityId
-                                                         accountId:accountId
-                                                         identityPoolId:identityPoolId
-                                                         logins:logins];
-
-
-    AWSCognitoCredentialsProvider *credentials = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:regionType
-                                                                                          identityProvider:identityProvider
-                                                                                             unauthRoleArn:unauthRoleArn
-                                                                                               authRoleArn:authRoleArn];
-
-    return credentials;
-}
-
-- (instancetype)initWithRegionType:(AWSRegionType)regionType
-                  identityProvider:(id<AWSCognitoIdentityProvider>) identityProvider
-                     unauthRoleArn:(NSString *)unauthRoleArn
-                       authRoleArn:(NSString *)authRoleArn {
     if (self = [super init]) {
-        _refreshExecutor = [BFExecutor executorWithOperationQueue:[NSOperationQueue new]];
-        _count = 0;
-        _semaphore = dispatch_semaphore_create(0);
-
-        _unAuthRoleArn = unauthRoleArn;
-        _authRoleArn = authRoleArn;
-        _identityProvider = identityProvider;
-
-        // initialize keychain - name spaced by app bundle and identity pool id
-        _keychain = [UICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@.%@", [NSBundle mainBundle].bundleIdentifier, [AWSCognitoCredentialsProvider class], identityProvider.identityPoolId]];
-
-        // If the identity provider has an identity id, use it
-        if (identityProvider.identityId) {
-            _keychain[AWSCredentialsProviderKeychainIdentityId] = identityProvider.identityId;
-        }
-        // Otherwise push whatever is in the keychain down to the identity provider
-        else {
-            identityProvider.identityId = _keychain[AWSCredentialsProviderKeychainIdentityId];
-        }
-
-        AWSAnonymousCredentialsProvider *credentialsProvider = [AWSAnonymousCredentialsProvider new];
-        AWSServiceConfiguration *configuration = [AWSServiceConfiguration configurationWithRegion:regionType
-                                                                              credentialsProvider:credentialsProvider];
-
-        _sts = [[AWSSTS alloc] initWithConfiguration:configuration];
-        _cib = [[AWSCognitoIdentity new] initWithConfiguration:configuration];
-
-        // Use the new flow if we explictly created an ehancedProvider
-        // or if the roles are both nil (developer authenticated identities flow)
-        _useEnhancedFlow = [identityProvider isKindOfClass:[AWSEnhancedCognitoIdentityProvider class]] || ((unauthRoleArn == nil) && (authRoleArn == nil));
+        AWSBasicCognitoIdentityProvider *identityProvider = [[AWSBasicCognitoIdentityProvider alloc] initWithRegionType:regionType identityId:identityId
+                                                                                                              accountId:accountId
+                                                                                                         identityPoolId:identityPoolId
+                                                                                                                 logins:logins];
+        [self setUpWithRegionType:regionType
+                 identityProvider:identityProvider
+                    unauthRoleArn:unauthRoleArn
+                      authRoleArn:authRoleArn
+                  useEnhancedFlow:NO];
     }
 
     return self;
+}
+
+- (void)setUpWithRegionType:(AWSRegionType)regionType
+           identityProvider:(id<AWSCognitoIdentityProvider>)identityProvider
+              unauthRoleArn:(NSString *)unauthRoleArn
+                authRoleArn:(NSString *)authRoleArn
+            useEnhancedFlow:(BOOL)useEnhancedFlow {
+    _refreshExecutor = [BFExecutor executorWithOperationQueue:[NSOperationQueue new]];
+    _count = 0;
+    _semaphore = dispatch_semaphore_create(0);
+
+    _identityProvider = identityProvider;
+    _unAuthRoleArn = unauthRoleArn;
+    _authRoleArn = authRoleArn;
+    _useEnhancedFlow = useEnhancedFlow;
+
+    // initialize keychain - name spaced by app bundle and identity pool id
+    _keychain = [UICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@.%@", [NSBundle mainBundle].bundleIdentifier, [AWSCognitoCredentialsProvider class], identityProvider.identityPoolId]];
+
+    // If the identity provider has an identity id, use it
+    if (identityProvider.identityId) {
+        _keychain[AWSCredentialsProviderKeychainIdentityId] = identityProvider.identityId;
+    }
+    // Otherwise push whatever is in the keychain down to the identity provider
+    else {
+        identityProvider.identityId = _keychain[AWSCredentialsProviderKeychainIdentityId];
+    }
+
+    AWSAnonymousCredentialsProvider *credentialsProvider = [AWSAnonymousCredentialsProvider new];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:regionType
+                                                                         credentialsProvider:credentialsProvider];
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    _sts = [[AWSSTS alloc] initWithConfiguration:configuration];
+    _cib = [[AWSCognitoIdentity alloc] initWithConfiguration:configuration];
+#pragma clang diagnostic pop
+
+    // Use the new flow if we explictly created an ehancedProvider
+    // or if the roles are both nil (developer authenticated identities flow)
+    _useEnhancedFlow = [identityProvider isKindOfClass:[AWSEnhancedCognitoIdentityProvider class]] || ((unauthRoleArn == nil) && (authRoleArn == nil));
 }
 
 - (BFTask *)getCredentialsWithSTS:(NSString *)token authenticated:(BOOL)auth {
@@ -742,6 +695,86 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         }
     }
     return NO;
+}
+
+#pragma mark - Deprecated constructors
+
++ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
+                           identityPoolId:(NSString *)identityPoolId {
+    AWSCognitoCredentialsProvider *credentials = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:regionType
+                                                                                            identityPoolId:identityPoolId];
+    return credentials;
+}
+
++ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
+                                accountId:(NSString *)accountId
+                           identityPoolId:(NSString *)identityPoolId
+                            unauthRoleArn:(NSString *)unauthRoleArn
+                              authRoleArn:(NSString *)authRoleArn {
+    AWSCognitoCredentialsProvider *credentials = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:regionType
+                                                                                                identityId:nil
+                                                                                                 accountId:accountId
+                                                                                            identityPoolId:identityPoolId
+                                                                                             unauthRoleArn:unauthRoleArn
+                                                                                               authRoleArn:authRoleArn
+                                                                                                    logins:nil];
+    return credentials;
+}
+
++ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
+                                accountId:(NSString *)accountId
+                           identityPoolId:(NSString *)identityPoolId
+                            unauthRoleArn:(NSString *)unauthRoleArn
+                              authRoleArn:(NSString *)authRoleArn
+                                   logins:(NSDictionary *)logins {
+    AWSCognitoCredentialsProvider *credentials = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:regionType
+                                                                                                identityId:nil
+                                                                                                 accountId:accountId
+                                                                                            identityPoolId:identityPoolId
+                                                                                             unauthRoleArn:unauthRoleArn
+                                                                                               authRoleArn:authRoleArn
+                                                                                                    logins:logins];
+    return credentials;
+}
+
++ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
+                               identityId:(NSString *)identityId
+                                accountId:(NSString *)accountId
+                           identityPoolId:(NSString *)identityPoolId
+                            unauthRoleArn:(NSString *)unauthRoleArn
+                              authRoleArn:(NSString *)authRoleArn
+                                   logins:(NSDictionary *)logins {
+    AWSCognitoCredentialsProvider *credentials = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:regionType
+                                                                                                identityId:identityId
+                                                                                                 accountId:accountId
+                                                                                            identityPoolId:identityPoolId
+                                                                                             unauthRoleArn:unauthRoleArn
+                                                                                               authRoleArn:authRoleArn
+                                                                                                    logins:logins];
+    return credentials;
+}
+
++ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
+                         identityProvider:(id<AWSCognitoIdentityProvider>)identityProvider
+                            unauthRoleArn:(NSString *)unauthRoleArn
+                              authRoleArn:(NSString *)authRoleArn {
+    AWSCognitoCredentialsProvider *credentials = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:regionType
+                                                                                          identityProvider:identityProvider
+                                                                                             unauthRoleArn:unauthRoleArn
+                                                                                               authRoleArn:authRoleArn];
+    return credentials;
+}
+
++ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
+                               identityId:(NSString *)identityId
+                           identityPoolId:(NSString *)identityPoolId
+                                   logins:(NSDictionary *)logins {
+    AWSCognitoCredentialsProvider *credentials = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:regionType
+                                                                                                identityId:identityId
+                                                                                            identityPoolId:identityPoolId
+                                                                                                    logins:logins];
+    return credentials;
+    
 }
 
 @end
