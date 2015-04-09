@@ -7,6 +7,7 @@
 
 ##Highlights
 
+* **AWS Lambda** - AWS Lambda is now included in the AWS Mobile SDK, making it easy to build mobile applications that use Lambda functions as their app backend. You can now create AWS Lambda functions that respond to events from your application in real time (synchronously) as well as asynchronously, making it easy for any application or web service to use Lambda to create back-end functionality. When invoked through the mobile SDK, the Lambda function automatically has access to data about the device, app, and end user identity, making it easy to create rich, personalized responses to in-app activity. To learn more about SDK support for Lambda, visit the [AWS Mobile SDK](http://aws.amazon.com/mobile/sdk/) page. To learn more about the new capabilities from Lambda, visit the [What's new](http://aws.amazon.com/lambda/whatsnew/) page for AWS Lambda.
 * **Amazon Cognito** – A simple user identity and synchronization service that helps you securely manage and synchronize app data for your users across their mobile devices. With Amazon Cognito, you can save any kind of data, such as app preferences or game state, in the AWS cloud without writing any backend code or managing any infrastructure.
 * **Amazon Mobile Analytics** – A service for collecting, visualizing, and understanding app usage data at scale. Amazon Mobile Analytics reports are typically updated within 60 minutes of data being received. Amazon Mobile Analytics is built to scale with the business and can collect and process billions of events from millions of endpoints.
 * **Amazon Kinesis Recorder** – Enables you to reliably record data to an Amazon Kinesis data stream from your mobile app. Kinesis Recorder batches requests to handle intermittent network connections, and it enables you to record events even when the device is offline.
@@ -16,6 +17,7 @@
 * **BFTask support** - With native BFTask support in the AWS SDK for iOS, you can chain async requests instead of nesting them. This makes the logic cleaner while keeping the code more readable.
 * **Conforming Objective-C recommendations** - The AWS SDK for iOS conforms to Objective-C best practices. The SDK returns NSErrors instead of throwing exceptions. iOS developers will now feel at home when using the AWS Mobile SDK.
 * **Official CocoaPods support** - Including the AWS SDK for iOS in your project is now easier than ever. You just need to add `pod 'AWS<#ServiceName#>'` to your Podfile.
+* **Amazon Machine Learning** - Amazon Machine Learning is a service that makes it easy for developers of all skill levels to use machine learning technology. This release adds Amazon Machine Learning support into AWS Mobile SDK for iOS. You can use the mobile SDK to retrieve Amazon ML model metadata, including the real-time endpoint URL, and to request real-time predictions from Amazon ML. To learn more about Amazon ML, visit [http://aws.amazon.com/machine-learning](http://aws.amazon.com/machine-learning).
 
 ##Setting Up
 
@@ -50,6 +52,8 @@ The [sample apps](https://github.com/awslabs/aws-sdk-ios-samples) are standalone
         pod 'AWSEC2'
         pod 'AWSElasticLoadBalancing'
         pod 'AWSKinesis'
+        pod 'AWSLambda'
+        pod 'AWSMachineLearning'
         pod 'AWSS3'
         pod 'AWSSES'
         pod 'AWSSimpleDB'
@@ -105,6 +109,8 @@ The [sample apps](https://github.com/awslabs/aws-sdk-ios-samples) are standalone
     * `AWSEC2.framework`
     * `AWSElasticLoadBalancing.framework`
     * `AWSKinesis.framework`
+    * `AWSLambda.framework`
+    * `AWSMachineLearning.framework`
     * `AWSS3.framework`
     * `AWSSES.framework`
     * `AWSSimpleDB.framework`
@@ -135,6 +141,8 @@ The [sample apps](https://github.com/awslabs/aws-sdk-ios-samples) are standalone
     * `elasticloadbalancing-2012-06-01.json`
     * `email-2010-12-01.json`
     * `kinesis-2013-12-02.json`
+    * `lambda-2015-03-31.json`
+    * `machinelearning-2014-12-12.json`
     * `mobileanalytics-2014-06-30.json`
     * `monitoring-2010-08-01.json`
     * `s3-2006-03-01.json`
@@ -170,6 +178,8 @@ When we release a new version of the SDK, you can pick up the changes as describ
     * `AWSEC2.framework`
     * `AWSElasticLoadBalancing.framework`
     * `AWSKinesis.framework`
+    * `AWSLambda.framework`
+    * `AWSMachineLearning.framework`
     * `AWSS3.framework`
     * `AWSSES.framework`
     * `AWSSimpleDB.framework`
@@ -195,6 +205,8 @@ When we release a new version of the SDK, you can pick up the changes as describ
     * `elasticloadbalancing-2012-06-01.json`
     * `email-2010-12-01.json`
     * `kinesis-2013-12-02.json`
+    * `lambda-2015-03-31.json`
+    * `machinelearning-2014-12-12.json`
     * `mobileanalytics-2014-06-30.json`
     * `monitoring-2010-08-01.json`
     * `s3-2006-03-01.json`
