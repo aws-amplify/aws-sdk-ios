@@ -20,8 +20,9 @@
 #import "AWSMobileAnalyticsSDKInfo.h"
 #import "AWSMobileAnalyticsSystem.h"
 
+@class AWSClientContext;
+
 @protocol AZCredentialProvider;
-@protocol AWSMobileAnalyticsClientContext;
 
 @protocol AWSMobileAnalyticsContext <NSObject>
 
@@ -30,7 +31,7 @@
 @property (nonatomic, retain, readonly) NSString* identifier;
 
 @required
-@property (nonatomic, retain, readonly) id<AWSMobileAnalyticsClientContext> clientContext;
+@property (nonatomic, retain, readonly) AWSClientContext *clientContext;
 
 @required
 @property (nonatomic, retain, readonly) id<AWSMobileAnalyticsConfiguring> configuration;

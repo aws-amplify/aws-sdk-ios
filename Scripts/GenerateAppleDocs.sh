@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.1.0"
+VERSION="2.1.1"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -25,18 +25,20 @@ else
     mkdir -p docs
     mkdir -p docs_tmp
 
-    cp -r AutoScaling ./docs_tmp/AutoScaling
+    cp -r AWSAutoScaling ./docs_tmp/AWSAutoScaling
     cp -r AWSCore ./docs_tmp/AWSCore
-    cp -r CloudWatch ./docs_tmp/CloudWatch
-    cp -r DynamoDB ./docs_tmp/DynamoDB
-    cp -r EC2 ./docs_tmp/EC2
-    cp -r ElasticLoadBalancing ./docs_tmp/ElasticLoadBalancing
-    cp -r Kinesis ./docs_tmp/Kinesis
-    cp -r S3 ./docs_tmp/S3
-    cp -r SES ./docs_tmp/SES
-    cp -r SimpleDB ./docs_tmp/SimpleDB
-    cp -r SNS ./docs_tmp/SNS
-    cp -r SQS ./docs_tmp/SQS
+    cp -r AWSCloudWatch ./docs_tmp/AWSCloudWatch
+    cp -r AWSDynamoDB ./docs_tmp/AWSDynamoDB
+    cp -r AWSEC2 ./docs_tmp/AWSEC2
+    cp -r AWSElasticLoadBalancing ./docs_tmp/AWSElasticLoadBalancing
+    cp -r AWSKinesis ./docs_tmp/AWSKinesis
+    cp -r AWSLambda ./docs_tmp/AWSLambda
+    cp -r AWSMachineLearning ./docs_tmp/AWSMachineLearning
+    cp -r AWSS3 ./docs_tmp/AWSS3
+    cp -r AWSSES ./docs_tmp/AWSSES
+    cp -r AWSSimpleDB ./docs_tmp/AWSSimpleDB
+    cp -r AWSSNS ./docs_tmp/AWSSNS
+    cp -r AWSSQS ./docs_tmp/AWSSQS
 
     rm -rf ./docs_tmp/AWSCore/XMLWriter
     rm -rf ./docs_tmp/AWSCore/MobileAnalytics/Internal

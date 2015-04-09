@@ -31,6 +31,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @property (nonatomic, strong) NSDictionary *serviceDefinitionJSON;
 @property (nonatomic, strong) NSString *actionName;
+@property (nonatomic, assign) Class outputClass;
 
 @end
 
@@ -102,9 +103,6 @@ static NSDictionary *errorCodeDictionary = nil;
         }
     }
 
-    if (!data) {
-        return nil;
-    }
     if (![self validateResponse:response
                     fromRequest:currentRequest
                            data:data
@@ -114,18 +112,21 @@ static NSDictionary *errorCodeDictionary = nil;
 
     id result = nil;
 
-    if (data) {
-        //parse JSON data
-        result = [AWSJSONParser dictionaryForJsonData:data actionName:self.actionName serviceDefinitionRule:self.serviceDefinitionJSON error:error];
+    //parse JSON data
+    result = [AWSJSONParser dictionaryForJsonData:data actionName:self.actionName serviceDefinitionRule:self.serviceDefinitionJSON error:error];
 
-        //Parse AWSGeneralError
-        if ([result isKindOfClass:[NSDictionary class]]) {
-            if ([errorCodeDictionary objectForKey:[[[result objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]]) {
-                if (error) {
-                    *error = [NSError errorWithDomain:AWSGeneralErrorDomain
-                                                 code:[[errorCodeDictionary objectForKey:[[[result objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]] integerValue]
-                                             userInfo:result];
-                }
+    //Parse AWSGeneralError
+    if ([result isKindOfClass:[NSDictionary class]]) {
+        NSDictionary *anActionRules = [[self.serviceDefinitionJSON objectForKey:@"operations"] objectForKey:_actionName];
+        NSDictionary *shapeRules = [self.serviceDefinitionJSON objectForKey:@"shapes"];
+        AWSJSONDictionary *outputRules = [[AWSJSONDictionary alloc] initWithDictionary:[anActionRules objectForKey:@"output"] JSONDefinitionRule:shapeRules];
+        result = [AWSXMLResponseSerializer parseResponse:response rules:outputRules bodyDictionary:[result mutableCopy] error:error];
+
+        if ([errorCodeDictionary objectForKey:[[[result objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]]) {
+            if (error) {
+                *error = [NSError errorWithDomain:AWSGeneralErrorDomain
+                                             code:[[errorCodeDictionary objectForKey:[[[result objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]] integerValue]
+                                         userInfo:result];
             }
         }
     }
@@ -195,10 +196,12 @@ static NSDictionary *errorCodeDictionary = nil;
     return YES;
 }
 
-- (NSMutableDictionary *)parseResponseHeader:(NSDictionary *)responseHeaders
-                                       rules:(AWSJSONDictionary *)rules
-                              bodyDictionary:(NSMutableDictionary *)bodyDictionary
-                                       error:(NSError *__autoreleasing *)error {
++ (NSMutableDictionary *)parseResponse:(NSHTTPURLResponse *)response
+                                 rules:(AWSJSONDictionary *)rules
+                        bodyDictionary:(NSMutableDictionary *)bodyDictionary
+                                 error:(NSError *__autoreleasing *)error {
+    NSDictionary *responseHeaders = [response allHeaderFields];
+    
     //If no rule just return
     if (rules == (id)[NSNull null] ||  [rules count] == 0) {
         return bodyDictionary;
@@ -229,13 +232,13 @@ static NSDictionary *errorCodeDictionary = nil;
 
         //if the location may contain multiple headers if it is a map type
         if ([memberRules isKindOfClass:[NSDictionary class]] && [memberRules[@"location"] isEqualToString:@"headers"] && [memberRules[@"type"] isEqualToString:@"map"] ) {
-            NSString *locationName = memberRules[@"locationName"]?memberRules[@"locationName"]:memberName;
+            NSString *locationName = memberRules[@"locationName"]?memberRules[@"locationName"]:@""; //if no locationName specified, match all headers.
             if (locationName) {
-                NSPredicate *metaDatapredicate = [NSPredicate predicateWithFormat:@"SELF like %@",[locationName stringByAppendingString:@"*"]];
+                NSPredicate *metaDatapredicate = [NSPredicate predicateWithFormat:@"SELF like[c] %@",[locationName stringByAppendingString:@"*"]]; //[c] means case insensitive
                 NSArray *matchedArray = [[responseHeaders allKeys] filteredArrayUsingPredicate:metaDatapredicate];
                 NSMutableDictionary *mapDic = [NSMutableDictionary new];
                 for (NSString *fullHeaderName in matchedArray) {
-                    NSString *extractedHeaderName = [fullHeaderName stringByReplacingOccurrencesOfString:locationName withString:@""];
+                    NSString *extractedHeaderName = [fullHeaderName stringByReplacingOccurrencesOfString:locationName withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [fullHeaderName length])];
                     if (extractedHeaderName) {
                         mapDic[extractedHeaderName] = responseHeaders[fullHeaderName];
                     }
@@ -243,6 +246,17 @@ static NSDictionary *errorCodeDictionary = nil;
                 if ([mapDic count] > 0 && memberName) {
                     bodyDictionary[memberName] = mapDic;
                 }
+            }
+        }
+        
+        //may also need to pass the response statusCode if the memberRule ask for it
+        if ([memberRules isKindOfClass:[NSDictionary class]] && [memberRules[@"location"] isEqualToString:@"statusCode"]) {
+            NSString *rulesType = memberRules[@"type"];
+            NSNumber *statusCode = @(response.statusCode);
+            if ([rulesType isEqualToString:@"integer"] || [rulesType isEqualToString:@"long"] || [rulesType isEqualToString:@"float"] || [rulesType isEqualToString:@"double"]) {
+                bodyDictionary[memberName] = statusCode;
+            } else if ([rulesType isEqualToString:@"string"]) {
+                bodyDictionary[memberName] = [statusCode stringValue];
             }
         }
     }];
@@ -308,7 +322,7 @@ static NSDictionary *errorCodeDictionary = nil;
     }
 
     //parse response header
-    resultDic = [self parseResponseHeader:[response allHeaderFields] rules:outputRules bodyDictionary:resultDic error:error];
+    resultDic = [AWSXMLResponseSerializer parseResponse:response rules:outputRules bodyDictionary:resultDic error:error];
 
     //Parse AWSGeneralError
     NSDictionary *errorInfo = resultDic[@"Error"];

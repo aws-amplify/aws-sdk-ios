@@ -77,7 +77,11 @@
     
     [[[ers putEvents:putEventInput] continueWithBlock:^id(BFTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
-
+        XCTAssertTrue([task.result isKindOfClass:[NSDictionary class]], @"The response object is not a class of [%@]", NSStringFromClass([NSDictionary class]));
+        XCTAssertEqualObjects(task.result[@"responseStatusCode"], @202);
+        XCTAssertNotNil(task.result[@"responseDataSize"]);
+        XCTAssertNotNil(task.result[@"responseHeaders"]);
+        
         return nil;
         
     }] waitUntilFinished ];

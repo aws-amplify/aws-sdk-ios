@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C1B5D2F3B3FB4748755CF69 /* libPods-SNS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F314521E9C5A266D6BE27A70 /* libPods-SNS.a */; };
+		AC0307FBF4153BC1EB5E023B /* libPods-AWSSNS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4C8DA618813B12A2AD647E /* libPods-AWSSNS.a */; };
 		BD0000341AB8C4FD004496EF /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = BD0000331AB8C4FD004496EF /* credentials.json */; };
 		BD00004F1AB8E15B004496EF /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00004E1AB8E15B004496EF /* AWSTestUtility.m */; };
 		BD00FF3B1AB8B6B6004496EF /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD00FF3A1AB8B6B6004496EF /* libAWSCore.a */; };
@@ -55,14 +55,16 @@
 
 /* Begin PBXFileReference section */
 		29726C1B8A23DD717EA7E406 /* Pods-SNS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SNS/Pods-SNS.debug.xcconfig"; sourceTree = "<group>"; };
+		36630348B896F5C040E99D9C /* Pods-AWSSNS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSSNS.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSSNS/Pods-AWSSNS.release.xcconfig"; sourceTree = "<group>"; };
 		43E1E8B18B6CDD178952AF25 /* Pods-SNS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SNS/Pods-SNS.release.xcconfig"; sourceTree = "<group>"; };
+		5B06DD78D46B292D4F674CE2 /* Pods-AWSSNS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSSNS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSSNS/Pods-AWSSNS.debug.xcconfig"; sourceTree = "<group>"; };
 		BD0000331AB8C4FD004496EF /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
 		BD00004D1AB8E15B004496EF /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSTestUtility.h; path = AWSCoreTests/AWSTestUtility.h; sourceTree = SOURCE_ROOT; };
 		BD00004E1AB8E15B004496EF /* AWSTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSTestUtility.m; path = AWSCoreTests/AWSTestUtility.m; sourceTree = SOURCE_ROOT; };
 		BD00FF3A1AB8B6B6004496EF /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
-		BD00FF5B1AB8B88B004496EF /* cognito-identity-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "cognito-identity-2014-06-30.json"; path = "AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"; sourceTree = "<group>"; };
-		BD00FF5C1AB8B88B004496EF /* mobileanalytics-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "mobileanalytics-2014-06-30.json"; path = "AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"; sourceTree = "<group>"; };
-		BD00FF5D1AB8B88B004496EF /* sts-2011-06-15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "sts-2011-06-15.json"; path = "AWSCore/STS/Resources/sts-2011-06-15.json"; sourceTree = "<group>"; };
+		BD00FF5B1AB8B88B004496EF /* cognito-identity-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "cognito-identity-2014-06-30.json"; path = "../AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"; sourceTree = "<group>"; };
+		BD00FF5C1AB8B88B004496EF /* mobileanalytics-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "mobileanalytics-2014-06-30.json"; path = "../AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"; sourceTree = "<group>"; };
+		BD00FF5D1AB8B88B004496EF /* sts-2011-06-15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "sts-2011-06-15.json"; path = "../AWSCore/STS/Resources/sts-2011-06-15.json"; sourceTree = "<group>"; };
 		BD00FFDA1AB8C407004496EF /* AWSGeneralSNSTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralSNSTests.m; sourceTree = "<group>"; };
 		BD00FFDB1AB8C407004496EF /* AWSSNSTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSNSTests.m; sourceTree = "<group>"; };
 		BDB5DEBF1AB377FA002DD224 /* libAWSSNS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSSNS.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +76,7 @@
 		BDB5DEDE1AB3781F002DD224 /* AWSSNSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSNSModel.m; sourceTree = "<group>"; };
 		BDB5DEE01AB3781F002DD224 /* sns-2010-03-31.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "sns-2010-03-31.json"; sourceTree = "<group>"; };
 		CEE7DE761AC1E2270095C4B7 /* AWSSNSService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSNSService.h; sourceTree = "<group>"; };
-		F314521E9C5A266D6BE27A70 /* libPods-SNS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SNS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF4C8DA618813B12A2AD647E /* libPods-AWSSNS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSSNS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +93,7 @@
 			files = (
 				BD00FF3B1AB8B6B6004496EF /* libAWSCore.a in Frameworks */,
 				BDB5DECB1AB377FA002DD224 /* libAWSSNS.a in Frameworks */,
-				6C1B5D2F3B3FB4748755CF69 /* libPods-SNS.a in Frameworks */,
+				AC0307FBF4153BC1EB5E023B /* libPods-AWSSNS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +103,8 @@
 		64A8D5459E21A3F4F06E6A97 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F314521E9C5A266D6BE27A70 /* libPods-SNS.a */,
+				BD00FF3A1AB8B6B6004496EF /* libAWSCore.a */,
+				FF4C8DA618813B12A2AD647E /* libPods-AWSSNS.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -111,27 +114,17 @@
 			children = (
 				29726C1B8A23DD717EA7E406 /* Pods-SNS.debug.xcconfig */,
 				43E1E8B18B6CDD178952AF25 /* Pods-SNS.release.xcconfig */,
+				5B06DD78D46B292D4F674CE2 /* Pods-AWSSNS.debug.xcconfig */,
+				36630348B896F5C040E99D9C /* Pods-AWSSNS.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		BD00FFBB1AB8BB65004496EF /* Other Resources */ = {
-			isa = PBXGroup;
-			children = (
-				BD00FF5B1AB8B88B004496EF /* cognito-identity-2014-06-30.json */,
-				BD00FF5C1AB8B88B004496EF /* mobileanalytics-2014-06-30.json */,
-				BD00FF5D1AB8B88B004496EF /* sts-2011-06-15.json */,
-			);
-			name = "Other Resources";
 			sourceTree = "<group>";
 		};
 		BDB5DEB61AB377FA002DD224 = {
 			isa = PBXGroup;
 			children = (
-				BD00FF3A1AB8B6B6004496EF /* libAWSCore.a */,
-				BD00FFBB1AB8BB65004496EF /* Other Resources */,
-				BDB5DEC11AB377FA002DD224 /* SNS */,
-				BDB5DECE1AB377FA002DD224 /* SNSTests */,
+				BDB5DEC11AB377FA002DD224 /* AWSSNS */,
+				BDB5DECE1AB377FA002DD224 /* AWSSNSTests */,
 				BDB5DEC01AB377FA002DD224 /* Products */,
 				A6F36E20562C00E7C13A0FCC /* Pods */,
 				64A8D5459E21A3F4F06E6A97 /* Frameworks */,
@@ -147,7 +140,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BDB5DEC11AB377FA002DD224 /* SNS */ = {
+		BDB5DEC11AB377FA002DD224 /* AWSSNS */ = {
 			isa = PBXGroup;
 			children = (
 				BDB5DEDB1AB3781F002DD224 /* AWSSNS.h */,
@@ -157,22 +150,25 @@
 				BDB5DEDC1AB3781F002DD224 /* AWSSNSService.m */,
 				BDB5DEDF1AB3781F002DD224 /* Resources */,
 			);
-			path = SNS;
+			path = AWSSNS;
 			sourceTree = "<group>";
 		};
-		BDB5DECE1AB377FA002DD224 /* SNSTests */ = {
+		BDB5DECE1AB377FA002DD224 /* AWSSNSTests */ = {
 			isa = PBXGroup;
 			children = (
 				BD00FFDA1AB8C407004496EF /* AWSGeneralSNSTests.m */,
 				BD00FFDB1AB8C407004496EF /* AWSSNSTests.m */,
 				BDB5DECF1AB377FA002DD224 /* Supporting Files */,
 			);
-			path = SNSTests;
+			path = AWSSNSTests;
 			sourceTree = "<group>";
 		};
 		BDB5DECF1AB377FA002DD224 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BD00FF5B1AB8B88B004496EF /* cognito-identity-2014-06-30.json */,
+				BD00FF5C1AB8B88B004496EF /* mobileanalytics-2014-06-30.json */,
+				BD00FF5D1AB8B88B004496EF /* sts-2011-06-15.json */,
 				BD0000331AB8C4FD004496EF /* credentials.json */,
 				BD00004D1AB8E15B004496EF /* AWSTestUtility.h */,
 				BD00004E1AB8E15B004496EF /* AWSTestUtility.m */,
@@ -213,6 +209,7 @@
 				BDB5DEBC1AB377FA002DD224 /* Frameworks */,
 				BDB5DEBD1AB377FA002DD224 /* CopyFiles */,
 				BDB5DED91AB37815002DD224 /* Headers */,
+				CE700D1D1AD36664008A227B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -321,8 +318,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SNS/Pods-SNS-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWSSNS/Pods-AWSSNS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		CE700D1D1AD36664008A227B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -e \"XcodeCoverage/exportenv.sh\" ]; then\nXcodeCoverage/exportenv.sh\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -463,17 +473,19 @@
 		};
 		BDB5DED71AB377FA002DD224 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29726C1B8A23DD717EA7E406 /* Pods-SNS.debug.xcconfig */;
+			baseConfigurationReference = 5B06DD78D46B292D4F674CE2 /* Pods-AWSSNS.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SNSTests/Info.plist;
+				INFOPLIST_FILE = AWSSNSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = AWSSNSTests;
 			};
@@ -481,13 +493,15 @@
 		};
 		BDB5DED81AB377FA002DD224 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 43E1E8B18B6CDD178952AF25 /* Pods-SNS.release.xcconfig */;
+			baseConfigurationReference = 36630348B896F5C040E99D9C /* Pods-AWSSNS.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SNSTests/Info.plist;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				INFOPLIST_FILE = AWSSNSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = AWSSNSTests;
 			};

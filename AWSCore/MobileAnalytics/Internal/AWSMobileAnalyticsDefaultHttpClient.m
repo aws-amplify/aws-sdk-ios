@@ -13,15 +13,18 @@
  permissions and limitations under the License.
  */
 
-#import <Bolts/Bolts.h>
+
 #import "AWSMobileAnalyticsDefaultHttpClient.h"
+
+#import <Bolts/Bolts.h>
+#import <GZIP/GZIP.h>
 #import "AWSCore.h"
 #import "AWSMobileAnalyticsInstanceIdInterceptor.h"
 #import "AWSMobileAnalyticsClientContextInterceptor.h"
-#import <GZIP/GZIP.h>
 #import "AWSMobileAnalyticsDefaultSessionClient.h"
 #import "AWSLogging.h"
 #import "AWSMobileAnalyticsERS.h"
+#import "AWSClientContext.h"
 
 @interface AWSMobileAnalyticsDefaultHttpClient()
 
@@ -87,8 +90,8 @@
 
     AWSMobileAnalyticsERSPutEventsInput *putEventInput = [AWSMobileAnalyticsERSPutEventsInput new];
 
-    //the client-Context-id in the header  should be moved to Client-Context
-    NSString *clientContextString = [[theRequest headers] objectForKey:AWSMobileAnalyticsClientContextHeader];
+    //The client-Context-id in the header. Should be moved to ClientContext.
+    NSString *clientContextString = [[theRequest headers] objectForKey:AWSClientContextHeader];
     NSMutableDictionary *clientContextDic = [[NSJSONSerialization JSONObjectWithData: [clientContextString dataUsingEncoding:NSUTF8StringEncoding]
                                                                              options:kNilOptions
                                                                                error:NULL] mutableCopy];

@@ -53,6 +53,14 @@ FOUNDATION_EXPORT NSString *const AWSDateShortDateFormat1;
 
 @end
 
+@interface NSJSONSerialization (AWS)
+
++ (NSData *)aws_dataWithJSONObject:(id)obj
+                           options:(NSJSONWritingOptions)opt
+                             error:(NSError **)error;
+
+@end
+
 @interface NSNumber (AWS)
 
 + (NSNumber *)aws_numberFromString:(NSString *)string;
@@ -74,6 +82,7 @@ FOUNDATION_EXPORT NSString *const AWSDateShortDateFormat1;
 - (BOOL)aws_isBase64Data;
 - (NSString *)aws_stringWithURLEncoding;
 - (NSString *)aws_stringWithURLEncodingPath;
+- (NSString *)aws_stringWithURLEncodingPathWithoutPriorDecoding;
 - (NSString *)aws_md5String;
 
 @end

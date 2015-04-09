@@ -21,7 +21,7 @@
 #import "AWSURLSessionManager.h"
 
 NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDomain";
-NSString *const AWSiOSSDKVersion = @"2.1.0";
+NSString *const AWSiOSSDKVersion = @"2.1.1";
 
 #pragma mark - AWSHTTPMethod
 
@@ -139,42 +139,42 @@ NSString *const AWSiOSSDKVersion = @"2.1.0";
 
 - (BFTask *)GET:(NSString *)URLString parameters:(NSDictionary *)parameters {
     AWSNetworkingRequest *request = [AWSNetworkingRequest requestForDataTask:AWSHTTPMethodGET
-                                                                 URLString:URLString];
+                                                                   URLString:URLString];
     request.parameters = parameters;
     return [self sendRequest:request];
 }
 
 - (BFTask *)HEAD:(NSString *)URLString parameters:(NSDictionary *)parameters {
     AWSNetworkingRequest *request = [AWSNetworkingRequest requestForDataTask:AWSHTTPMethodHEAD
-                                                                 URLString:URLString];
+                                                                   URLString:URLString];
     request.parameters = parameters;
     return [self sendRequest:request];
 }
 
 - (BFTask *)POST:(NSString *)URLString parameters:(NSDictionary *)parameters {
     AWSNetworkingRequest *request = [AWSNetworkingRequest requestForDataTask:AWSHTTPMethodPOST
-                                                                 URLString:URLString];
+                                                                   URLString:URLString];
     request.parameters = parameters;
     return [self sendRequest:request];
 }
 
 - (BFTask *)PUT:(NSString *)URLString parameters:(NSDictionary *)parameters {
     AWSNetworkingRequest *request = [AWSNetworkingRequest requestForDataTask:AWSHTTPMethodPUT
-                                                                 URLString:URLString];
+                                                                   URLString:URLString];
     request.parameters = parameters;
     return [self sendRequest:request];
 }
 
 - (BFTask *)PATCH:(NSString *)URLString parameters:(NSDictionary *)parameters {
     AWSNetworkingRequest *request = [AWSNetworkingRequest requestForDataTask:AWSHTTPMethodPATCH
-                                                                 URLString:URLString];
+                                                                   URLString:URLString];
     request.parameters = parameters;
     return [self sendRequest:request];
 }
 
 - (BFTask *)DELETE:(NSString *)URLString parameters:(NSDictionary *)parameters {
     AWSNetworkingRequest *request = [AWSNetworkingRequest requestForDataTask:AWSHTTPMethodDELETE
-                                                                 URLString:URLString];
+                                                                   URLString:URLString];
     request.parameters = parameters;
     return [self sendRequest:request];
 }
@@ -225,6 +225,16 @@ NSString *const AWSiOSSDKVersion = @"2.1.0";
 }
 
 - (NSURL *)URL {
+    // You can overwrite the URL by providing a full URL in URLString.
+    NSURL *fullURL = [NSURL URLWithString:self.URLString];
+    if ([fullURL.scheme isEqualToString:@"http"]
+        || [fullURL.scheme isEqualToString:@"https"]) {
+        NSMutableDictionary *headers = [self.headers mutableCopy];
+        headers[@"Host"] = [fullURL host];
+        self.headers = headers;
+        return fullURL;
+    }
+
     if (!self.URLString) {
         return self.baseURL;
     }
@@ -445,7 +455,7 @@ NSString *const AWSiOSSDKVersion = @"2.1.0";
 
     NSString *userAgent = [self userAgent];
     [request setValue:userAgent forHTTPHeaderField:@"User-Agent"];
-
+    
     return [BFTask taskWithResult:nil];
 }
 

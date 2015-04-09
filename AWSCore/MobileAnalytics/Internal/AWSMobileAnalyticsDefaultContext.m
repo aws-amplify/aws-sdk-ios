@@ -22,9 +22,7 @@
 #import "AWSMobileAnalyticsJSONSerializer.h"
 #import "AWSMobileAnalyticsDefaultDeliveryClient.h"
 #import "AWSMobileAnalyticsIOSLifeCycleManager.h"
-#import "AWSMobileAnalyticsIOSClientContext.h"
-#import "AWSMobileAnalyticsConfiguration.h"
-#import "AWSMobileAnalyticsIOSClientContext.h"
+#import "AWSClientContext.h"
 #import "AWSMobileAnalyticsConfiguration.h"
 
 @interface AWSMobileAnalyticsDefaultContext()
@@ -78,12 +76,14 @@
         // now that we have the id, create the client context from the client configuration that
         // was passed in
         AWSMobileAnalyticsEnvironment *environment = clientConfiguration.environment;
-        _clientContext = [AWSMobileAnalyticsIOSClientContext clientContextWithAppVersion:environment.appVersion
-                                                                            withAppBuild:environment.appBuild
-                                                                      withAppPackageName:environment.appPackageName
-                                                                             withAppName:environment.appName
-                                                                    withCustomAttributes:clientConfiguration.attributes
-                                                                               withAppId:theIdentifier];
+        _clientContext = [AWSClientContext new];
+        _clientContext.appVersion = environment.appVersion;
+        _clientContext.appBuild = environment.appBuild;
+        _clientContext.appPackageName = environment.appPackageName;
+        _clientContext.appName = environment.appName;
+        _clientContext.customAttributes = clientConfiguration.attributes;
+
+        [_clientContext setDetails:@{@"app_id" : theIdentifier} forService:@"mobile_analytics"];
 
         _httpClient = [[AWSMobileAnalyticsDefaultHttpClient alloc] init];
         [_httpClient addInterceptor:[[AWSMobileAnalyticsSDKInfoInterceptor alloc] initWithSDKInfo:_sdkInfo]];

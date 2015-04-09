@@ -1,5 +1,16 @@
 # AWSiOSSDKv2 CHANGELOG
 
+## 2.1.1
+
+### New Features
+* **AWS Lambda** - Added support for AWS Lambda.
+* **Amazon Machine Learning** - Added support for Amazon Machine Learning.
+
+### Resolved Issues
+* **Amazon S3** - Fixed two memory issues:
+    * When the request object is retained, `request.internalRequest` is not properly released after the operation completes.
+    * The memory is not property released until all tasks finish when an app continuously downloads many files.
+
 ## 2.1.0
 
 ### Misc Changes

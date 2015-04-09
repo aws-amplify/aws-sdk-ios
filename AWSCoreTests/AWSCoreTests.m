@@ -19,6 +19,12 @@
 #import "AWSURLRequestSerialization.h"
 #import <XMLDictionary/XMLDictionary.h>
 
+@interface AWSJSONResponseSerializer()
+
+@property (nonatomic, assign) Class outputClass;
+
+@end
+
 @interface AWSCoreTests : XCTestCase
 
 @end
@@ -145,9 +151,12 @@
 
 - (void)testXMLSerializer {
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"rest-xml-input" ofType:@"json"];
+    
+    NSError *error = nil;
     NSMutableArray *xmlTestPackages = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                       options:NSJSONReadingMutableContainers
-                                                                        error:nil];
+                                                                        error:&error];
+    XCTAssertNil(error);
     
     for (int i=0; i<[xmlTestPackages count]; i++) {
 
@@ -242,9 +251,12 @@
 
 - (void)testXmlDeserializer {
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"rest-xml-output" ofType:@"json"];
+    NSError *error = nil;
     NSMutableArray *jsonTestPackages = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                        options:NSJSONReadingMutableContainers
-                                                                         error:nil];
+                                                                         error:&error];
+    XCTAssertNil(error);
+    
 
     for (int i=0; i<[jsonTestPackages count]; i++) {
         NSMutableDictionary *aTestPak = [jsonTestPackages objectAtIndex:i];
@@ -309,9 +321,11 @@
 
 - (void)testQueryStringSerializer {
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"query-input" ofType:@"json"];
+    NSError *error = nil;
     NSMutableArray *queryTestPackages = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                         options:NSJSONReadingMutableContainers
-                                                                          error:nil];
+                                                                          error:&error];
+    XCTAssertNil(error);
     
     for (int i=0; i<[queryTestPackages count]; i++) {
         NSMutableDictionary *aTestPak = [queryTestPackages objectAtIndex:i];
@@ -383,9 +397,12 @@
 
 - (void)testQueryStringDeserializer {
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"query-output" ofType:@"json"];
+    
+    NSError *error = nil;
     NSMutableArray *queryTestPackages = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                        options:NSJSONReadingMutableContainers
-                                                                         error:nil];
+                                                                         error:&error];
+    XCTAssertNil(error);
     
     for (int i=0; i<[queryTestPackages count]; i++) {
         NSMutableDictionary *aTestPak = [queryTestPackages objectAtIndex:i];
@@ -448,9 +465,11 @@
 
 - (void)testJsonSerializer {
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"json-input" ofType:@"json"];
+    NSError *error = nil;
     NSMutableArray *jsonTestPackages = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                         options:NSJSONReadingMutableContainers
-                                                                          error:nil];
+                                                                          error:&error];
+    XCTAssertNil(error);
     
     for (int i=0; i<[jsonTestPackages count]; i++) {
         NSMutableDictionary *aTestPak = [jsonTestPackages objectAtIndex:i];
@@ -540,10 +559,11 @@
 
 - (void)testJsonDeserializer {
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"json-output" ofType:@"json"];
+    NSError *error = nil;
     NSMutableArray *jsonTestPackages = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                        options:NSJSONReadingMutableContainers
-                                                                         error:nil];
-    
+                                                                         error:&error];
+    XCTAssertNil(error);
     for (int i=0; i<[jsonTestPackages count]; i++) {
         NSMutableDictionary *aTestPak = [jsonTestPackages objectAtIndex:i];
         NSArray *testCases = [aTestPak objectForKey:@"cases"];
@@ -599,11 +619,200 @@
     }
 }
 
+- (void)testRestJsonSerializer {
+    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"rest-json-input" ofType:@"json"];
+    NSError *error = nil;
+    NSMutableArray *jsonTestPackages = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                       options:NSJSONReadingMutableContainers
+                                                                         error:&error];
+    XCTAssertNil(error);
+    
+    for (int i=0; i<[jsonTestPackages count]; i++) {
+        NSMutableDictionary *aTestPak = [jsonTestPackages objectAtIndex:i];
+        NSArray *testCases = [aTestPak objectForKey:@"cases"];
+        for(int j=0; j<[testCases count]; j++) {
+            NSDictionary *aTest = [testCases objectAtIndex:j];
+            
+            //create mockRequest
+            NSMutableURLRequest *mockRequest = [NSMutableURLRequest new];
+            mockRequest.URL = [NSURL URLWithString:@""];
+            //[mockRequest setHTTPMethod:aTest[@"given"][@"http"][@"method"]];
+            [mockRequest setHTTPMethod:@"POST"]; //serailizer will remove body if it is a GET request.
+            
+            //create user input parameters
+            NSDictionary *testParameters = aTest[@"params"];
+            
+            
+            //construct serviceDefinition dictionary
+            if (aTestPak[@"operations"] == nil) {
+                aTestPak[@"operations"] = [NSMutableDictionary new];
+            }
+            if (aTestPak[@"operations"][@"OperationName"]) {
+                [aTestPak[@"operations"] removeObjectForKey:@"OperationName"];
+            }
+            aTestPak[@"operations"][@"OperationName"] = aTest[@"given"];
+            
+            //create mock ServiceDefinitionJSON
+            NSDictionary *mockServiceDefinitionJSON = aTestPak;
+            
+            
+            // ------------ Perform Serialization ---------------------
+            // --------------------------------------------------------
+            
+            AWSJSONRequestSerializer *testJsonSerializer = [AWSJSONRequestSerializer new];
+            [testJsonSerializer setValue:mockServiceDefinitionJSON forKey:@"serviceDefinitionJSON"];
+            [testJsonSerializer setValue:@"OperationName" forKey:@"actionName"];
+            
+            NSString *amzTarget = [NSString stringWithFormat:@"%@.%@",aTestPak[@"metadata"][@"targetPrefix"],@"OperationName"];
+            NSString *contentType = [NSString stringWithFormat:@"application/x-amz-json-%@",[aTestPak[@"metadata"][@"jsonVersion"] stringValue]];
+            NSDictionary *headers = @{@"X-Amz-Target": amzTarget,
+                                      @"Content-Type": contentType};
+            
+            BFTask *resultTask = [testJsonSerializer serializeRequest:mockRequest
+                                                              headers:headers
+                                                           parameters:testParameters];
+            if (resultTask.error) {
+                XCTFail(@"(TestPak %d TestCase %d) Serialization Error:%@",i,j,resultTask.error);
+                return;
+            }
+            
+            // ------------Validate Result------------------------------
+            
+            //validate result
+            NSDictionary *resultDic = aTest[@"serialized"];
+            
+            //validate HTTP URL
+            XCTAssertEqualObjects(resultDic[@"uri"], [mockRequest.URL absoluteString], @"(TestPak %d TestCase %d) wrong HTTP URI, expect:%@, but got:%@",i,j,resultDic[@"uri"],[mockRequest.URL absoluteString]);
+            
+            //validate HTTP Body
+            
+            //try stream first, then body
+            NSString* resultBodyStr = nil;
+            NSDictionary *resultBodyDic =nil;
+            if (mockRequest.HTTPBodyStream) {
+                [mockRequest.HTTPBodyStream open];
+                NSInteger BUFFER_LEN = 32000;
+        
+                uint8_t buffer[BUFFER_LEN];
+                long len = [mockRequest.HTTPBodyStream read:buffer maxLength:BUFFER_LEN];
+                if (len > 0) {
+                    NSData *httpStreamData = [NSData dataWithBytes:buffer length:len];
+                    
+                    resultBodyStr = [[NSString alloc] initWithData:httpStreamData encoding:NSUTF8StringEncoding];
+                    resultBodyDic = [NSJSONSerialization JSONObjectWithData:httpStreamData options:0 error:nil];
+                }
+            } else {
+                if (mockRequest.HTTPBody) {
+                    resultBodyStr = [[NSString alloc] initWithData:mockRequest.HTTPBody encoding:NSUTF8StringEncoding];
+                    resultBodyDic = [NSJSONSerialization JSONObjectWithData:mockRequest.HTTPBody options:0 error:nil];
+                } else {
+                    resultBodyStr = @"{}";
+                    resultBodyDic = nil;
+                }
+            }
+            
+            NSString* expectedBodyStr = resultDic[@"body"];
+            if ([expectedBodyStr length] == 0) {
+                expectedBodyStr = @"{}";
+            }
+            NSDictionary *expectedBodyDic = [NSJSONSerialization JSONObjectWithData:[expectedBodyStr dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+            
+            if ([expectedBodyDic count] == 0) {
+                XCTAssertEqualObjects(expectedBodyStr,resultBodyStr , @"(TestPak %d TestCase %d) wrong HTTP Body, expect:\n%@, but got:\n%@",i,j,expectedBodyStr, resultBodyStr);
+            } else {
+                XCTAssertEqualObjects(expectedBodyDic,resultBodyDic , @"(TestPak %d TestCase %d) wrong HTTP Body, expect:\n%@, but got:\n%@",i,j,expectedBodyDic, resultBodyDic);
+            }
+            
+            //validate HTTP Headers
+            for (NSString *ekey in resultDic[@"headers"]) {
+                NSString *evalue = resultDic[@"headers"][ekey];
+                
+                if ([[[mockRequest allHTTPHeaderFields] allKeys] containsObject:ekey] == NO) {
+                    XCTFail(@"(TestPak %d TestCase %d) no %@ in the headers!",i,j,ekey);
+                } else {
+                    XCTAssertEqualObjects(evalue, [[mockRequest allHTTPHeaderFields] objectForKey:ekey], @"(TestPak %d TestCase %d) wrong value in header. expect key pair %@:%@, but got: %@:%@",i,j,ekey,evalue,ekey,[[mockRequest allHTTPHeaderFields] objectForKey:ekey]);
+                }
+            }
+        }
+        
+    }
+}
+
+
+
+- (void)testRestJsonDeserializer {
+    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"rest-json-output" ofType:@"json"];
+    NSError *error = nil;
+    NSMutableArray *jsonTestPackages = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                       options:NSJSONReadingMutableContainers
+                                                                         error:&error];
+    
+    XCTAssertNil(error);
+    
+    for (int i=0; i<[jsonTestPackages count]; i++) {
+        NSMutableDictionary *aTestPak = [jsonTestPackages objectAtIndex:i];
+        NSArray *testCases = [aTestPak objectForKey:@"cases"];
+        for(int j=0; j<[testCases count]; j++) {
+            NSDictionary *aTest = [testCases objectAtIndex:j];
+            
+            //create mockResponse
+            NSDictionary *responseHeaders = aTest[@"response"][@"headers"];
+            NSInteger statusCode = [aTest[@"response"][@"status_code"] integerValue];
+            NSHTTPURLResponse *mockResponse = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:@"/"] statusCode:statusCode HTTPVersion:@"HTTP/1.1" headerFields:responseHeaders];
+            
+            //construct serviceDefinition dictionary
+            if (aTestPak[@"operations"] == nil) {
+                aTestPak[@"operations"] = [NSMutableDictionary new];
+            }
+            if (aTestPak[@"operations"][@"OperationName"]) {
+                [aTestPak[@"operations"] removeObjectForKey:@"OperationName"];
+            }
+            aTestPak[@"operations"][@"OperationName"] = aTest[@"given"];
+            
+            //create mock ServiceDefinitionJSON
+            NSDictionary *mockServiceDefinitionJSON = aTestPak;
+            
+            
+            // ------------ Perform Serialization ---------------------
+            // --------------------------------------------------------
+            
+            AWSJSONResponseSerializer *testJsonResponseSerializer = [AWSJSONResponseSerializer new];
+            [testJsonResponseSerializer setValue:mockServiceDefinitionJSON forKey:@"serviceDefinitionJSON"];
+            [testJsonResponseSerializer setValue:@"OperationName" forKey:@"actionName"];
+            testJsonResponseSerializer.outputClass = nil;
+            
+            
+            NSString *responseBodyStr = aTest[@"response"][@"body"];
+            NSData *responseBodyData = [responseBodyStr dataUsingEncoding:NSUTF8StringEncoding];
+            NSError *parseError = nil;
+            id responseResult = [[testJsonResponseSerializer responseObjectForResponse:mockResponse originalRequest:nil currentRequest:nil data:responseBodyData error:&parseError] mutableCopy];
+            if (parseError) {
+                XCTFail(@"(TestPak %d TestCase %d) Serialization Error:%@",i,j,parseError);
+                return;
+            }
+            
+            // ------------Validate Result------------------------------
+            
+            //validate result
+            NSDictionary *expectedResult = aTest[@"result"];
+            [self replaceNSData2NSString:responseResult];
+            
+            XCTAssertEqualObjects(expectedResult,responseResult , @"(TestPak %d TestCase %d) wrong HTTP Body, expect:\n%@, but got:\n%@",i,j,expectedResult, responseResult);
+            
+        }
+        
+    }
+}
+
+
 - (void)testEC2Serializer {
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"ec2-input" ofType:@"json"];
+    
+    NSError *error = nil;
     NSMutableArray *ec2TestPackage = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                         options:NSJSONReadingMutableContainers
-                                                                          error:nil];
+                                                                          error:&error];
+    XCTAssertNil(error);
     
     for (int i=0; i<[ec2TestPackage count]; i++) {
         NSMutableDictionary *aTestPak = [ec2TestPackage objectAtIndex:i];
@@ -675,9 +884,12 @@
 
 - (void)testEC2Deserializer {
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"ec2-output" ofType:@"json"];
+    
+    NSError *error = nil;
     NSMutableArray *ec2TestPackge = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                     options:NSJSONReadingMutableContainers
-                                                                      error:nil];
+                                                                      error:&error];
+    XCTAssertNil(error);
     
     for (int i=0; i<[ec2TestPackge count]; i++) {
         NSMutableDictionary *aTestPak = [ec2TestPackge objectAtIndex:i];

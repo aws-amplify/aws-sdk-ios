@@ -20,6 +20,7 @@
 #import "AWSMobileAnalyticsLogInterceptor.h"
 #import "AWSMobileAnalyticsClientContextInterceptor.h"
 #import "AWSMobileAnalyticsInstanceIdInterceptor.h"
+#import "AWSClientContext.h"
 
 @class AWSMobileAnalyticsConfiguration;
 
@@ -39,7 +40,7 @@
 
 @property (nonatomic, retain, readonly) NSString* identifier;
 
-@property (nonatomic, retain, readonly) id<AWSMobileAnalyticsClientContext> clientContext;
+@property (nonatomic, retain, readonly) AWSClientContext *clientContext;
 
 @property (nonatomic, retain, readonly) id<AWSMobileAnalyticsConfiguring> configuration;
 

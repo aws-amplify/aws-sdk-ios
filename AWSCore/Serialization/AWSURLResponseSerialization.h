@@ -16,6 +16,7 @@
 #import <Foundation/Foundation.h>
 
 #import "AWSNetworking.h"
+#import "AWSSerialization.h"
 
 FOUNDATION_EXPORT NSString *const AWSGeneralErrorDomain;
 
@@ -30,7 +31,9 @@ typedef NS_ENUM(NSInteger, AWSGeneralErrorType) {
 
 @interface AWSJSONResponseSerializer : NSObject <AWSHTTPURLResponseSerializer>
 
-@property (nonatomic, assign) Class outputClass;
+@property (nonatomic, strong, readonly) NSDictionary *serviceDefinitionJSON;
+@property (nonatomic, strong, readonly) NSString *actionName;
+@property (nonatomic, assign, readonly) Class outputClass;
 
 - (instancetype)initWithResource:(NSString *)resource
                       actionName:(NSString *)actionName
@@ -48,6 +51,10 @@ typedef NS_ENUM(NSInteger, AWSGeneralErrorType) {
                      outputClass:(Class)outputClass
                   classForBundle:(Class)classForBundle;
 
++ (NSMutableDictionary *)parseResponse:(NSHTTPURLResponse *)response
+                                 rules:(AWSJSONDictionary *)rules
+                        bodyDictionary:(NSMutableDictionary *)bodyDictionary
+                                 error:(NSError *__autoreleasing *)error;
 @end
 
 

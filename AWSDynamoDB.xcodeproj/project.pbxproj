@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B62F70D9A282351EC31B80E3 /* libPods-DynamoDB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C8448C414C50AB84232B58 /* libPods-DynamoDB.a */; };
+		99E76F9141D9EA631BBD21D7 /* libPods-AWSDynamoDB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDFD2473B32B034328A614B9 /* libPods-AWSDynamoDB.a */; };
 		BD0000001AB8C461004496EF /* AWSGeneralDynamoDBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFFC1AB8C461004496EF /* AWSGeneralDynamoDBTests.m */; };
 		BD0000011AB8C461004496EF /* AWSDynamoDBObjectMapperSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFFD1AB8C461004496EF /* AWSDynamoDBObjectMapperSwiftTests.swift */; };
 		BD0000021AB8C461004496EF /* AWSDynamoDBObjectMapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFFE1AB8C461004496EF /* AWSDynamoDBObjectMapperTests.m */; };
@@ -15,7 +15,6 @@
 		BD0000421AB8C56E004496EF /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = BD0000411AB8C56E004496EF /* credentials.json */; };
 		BD0000641AB8E20C004496EF /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0000631AB8E20C004496EF /* AWSTestUtility.m */; };
 		BD00FF491AB8B6F8004496EF /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD00FF481AB8B6F8004496EF /* libAWSCore.a */; };
-		BD00FF8B1AB8B9B8004496EF /* dynamodb-2012-08-10.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF5594A1AB375270067F4F1 /* dynamodb-2012-08-10.json */; };
 		BD00FF8F1AB8B9C7004496EF /* cognito-identity-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF8C1AB8B9C7004496EF /* cognito-identity-2014-06-30.json */; };
 		BD00FF901AB8B9C7004496EF /* mobileanalytics-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF8D1AB8B9C7004496EF /* mobileanalytics-2014-06-30.json */; };
 		BD00FF911AB8B9C7004496EF /* sts-2011-06-15.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF8E1AB8B9C7004496EF /* sts-2011-06-15.json */; };
@@ -31,6 +30,7 @@
 		BDF5594F1AB375270067F4F1 /* AWSDynamoDBObjectMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = BDF559471AB375260067F4F1 /* AWSDynamoDBObjectMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDF559501AB375270067F4F1 /* AWSDynamoDBObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF559481AB375260067F4F1 /* AWSDynamoDBObjectMapper.m */; };
 		CEE7DE6B1AC1E1500095C4B7 /* AWSDynamoDBService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE6A1AC1E1500095C4B7 /* AWSDynamoDBService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEF83EE01AD3526A00620E1C /* dynamodb-2012-08-10.json in Resources */ = {isa = PBXBuildFile; fileRef = CEF83EDF1AD3526A00620E1C /* dynamodb-2012-08-10.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,31 +60,33 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		36C8448C414C50AB84232B58 /* libPods-DynamoDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DynamoDB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F85B3DCB7942BDFD5AC15D6 /* Pods-AWSDynamoDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSDynamoDB.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSDynamoDB/Pods-AWSDynamoDB.release.xcconfig"; sourceTree = "<group>"; };
 		BD0000411AB8C56E004496EF /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
 		BD0000621AB8E20C004496EF /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSTestUtility.h; path = AWSCoreTests/AWSTestUtility.h; sourceTree = SOURCE_ROOT; };
 		BD0000631AB8E20C004496EF /* AWSTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSTestUtility.m; path = AWSCoreTests/AWSTestUtility.m; sourceTree = SOURCE_ROOT; };
 		BD00FF481AB8B6F8004496EF /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
-		BD00FF8C1AB8B9C7004496EF /* cognito-identity-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "cognito-identity-2014-06-30.json"; path = "AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"; sourceTree = "<group>"; };
-		BD00FF8D1AB8B9C7004496EF /* mobileanalytics-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "mobileanalytics-2014-06-30.json"; path = "AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"; sourceTree = "<group>"; };
-		BD00FF8E1AB8B9C7004496EF /* sts-2011-06-15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "sts-2011-06-15.json"; path = "AWSCore/STS/Resources/sts-2011-06-15.json"; sourceTree = "<group>"; };
-		BD00FFFC1AB8C461004496EF /* AWSGeneralDynamoDBTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralDynamoDBTests.m; sourceTree = "<group>"; };
-		BD00FFFD1AB8C461004496EF /* AWSDynamoDBObjectMapperSwiftTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSDynamoDBObjectMapperSwiftTests.swift; sourceTree = "<group>"; };
-		BD00FFFE1AB8C461004496EF /* AWSDynamoDBObjectMapperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDynamoDBObjectMapperTests.m; sourceTree = "<group>"; };
-		BD00FFFF1AB8C461004496EF /* AWSDynamoDBTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDynamoDBTests.m; sourceTree = "<group>"; };
+		BD00FF8C1AB8B9C7004496EF /* cognito-identity-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "cognito-identity-2014-06-30.json"; path = "../AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"; sourceTree = "<group>"; };
+		BD00FF8D1AB8B9C7004496EF /* mobileanalytics-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "mobileanalytics-2014-06-30.json"; path = "../AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"; sourceTree = "<group>"; };
+		BD00FF8E1AB8B9C7004496EF /* sts-2011-06-15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "sts-2011-06-15.json"; path = "../AWSCore/STS/Resources/sts-2011-06-15.json"; sourceTree = "<group>"; };
+		BD00FFFC1AB8C461004496EF /* AWSGeneralDynamoDBTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSGeneralDynamoDBTests.m; path = ../AWSDynamoDBTests/AWSGeneralDynamoDBTests.m; sourceTree = "<group>"; };
+		BD00FFFD1AB8C461004496EF /* AWSDynamoDBObjectMapperSwiftTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AWSDynamoDBObjectMapperSwiftTests.swift; path = ../AWSDynamoDBTests/AWSDynamoDBObjectMapperSwiftTests.swift; sourceTree = "<group>"; };
+		BD00FFFE1AB8C461004496EF /* AWSDynamoDBObjectMapperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSDynamoDBObjectMapperTests.m; path = ../AWSDynamoDBTests/AWSDynamoDBObjectMapperTests.m; sourceTree = "<group>"; };
+		BD00FFFF1AB8C461004496EF /* AWSDynamoDBTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSDynamoDBTests.m; path = ../AWSDynamoDBTests/AWSDynamoDBTests.m; sourceTree = "<group>"; };
 		BDB6EC2E1AB915B9004C4D80 /* AWSiOSSDKv2Tests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AWSiOSSDKv2Tests-Bridging-Header.h"; path = "AWSCoreTests/AWSiOSSDKv2Tests-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		BDF559271AB374F00067F4F1 /* libAWSDynamoDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSDynamoDB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF559321AB374F00067F4F1 /* AWSDynamoDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSDynamoDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDF559381AB374F00067F4F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BDF559431AB375260067F4F1 /* AWSDynamoDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDynamoDB.h; sourceTree = "<group>"; };
-		BDF559441AB375260067F4F1 /* AWSDynamoDBService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDynamoDBService.m; sourceTree = "<group>"; };
-		BDF559451AB375260067F4F1 /* AWSDynamoDBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDynamoDBModel.h; sourceTree = "<group>"; };
-		BDF559461AB375260067F4F1 /* AWSDynamoDBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDynamoDBModel.m; sourceTree = "<group>"; };
-		BDF559471AB375260067F4F1 /* AWSDynamoDBObjectMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDynamoDBObjectMapper.h; sourceTree = "<group>"; };
-		BDF559481AB375260067F4F1 /* AWSDynamoDBObjectMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDynamoDBObjectMapper.m; sourceTree = "<group>"; };
-		BDF5594A1AB375270067F4F1 /* dynamodb-2012-08-10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "dynamodb-2012-08-10.json"; sourceTree = "<group>"; };
-		CEE7DE6A1AC1E1500095C4B7 /* AWSDynamoDBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDynamoDBService.h; sourceTree = "<group>"; };
+		BDF559381AB374F00067F4F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../AWSDynamoDBTests/Info.plist; sourceTree = "<group>"; };
+		BDF559431AB375260067F4F1 /* AWSDynamoDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSDynamoDB.h; path = ../AWSDynamoDB/AWSDynamoDB.h; sourceTree = "<group>"; };
+		BDF559441AB375260067F4F1 /* AWSDynamoDBService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSDynamoDBService.m; path = ../AWSDynamoDB/AWSDynamoDBService.m; sourceTree = "<group>"; };
+		BDF559451AB375260067F4F1 /* AWSDynamoDBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSDynamoDBModel.h; path = ../AWSDynamoDB/AWSDynamoDBModel.h; sourceTree = "<group>"; };
+		BDF559461AB375260067F4F1 /* AWSDynamoDBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSDynamoDBModel.m; path = ../AWSDynamoDB/AWSDynamoDBModel.m; sourceTree = "<group>"; };
+		BDF559471AB375260067F4F1 /* AWSDynamoDBObjectMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSDynamoDBObjectMapper.h; path = ../AWSDynamoDB/AWSDynamoDBObjectMapper.h; sourceTree = "<group>"; };
+		BDF559481AB375260067F4F1 /* AWSDynamoDBObjectMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSDynamoDBObjectMapper.m; path = ../AWSDynamoDB/AWSDynamoDBObjectMapper.m; sourceTree = "<group>"; };
+		CEE7DE6A1AC1E1500095C4B7 /* AWSDynamoDBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSDynamoDBService.h; path = ../AWSDynamoDB/AWSDynamoDBService.h; sourceTree = "<group>"; };
+		CEF83EDF1AD3526A00620E1C /* dynamodb-2012-08-10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "dynamodb-2012-08-10.json"; path = "../../AWSDynamoDB/Resources/dynamodb-2012-08-10.json"; sourceTree = "<group>"; };
 		D96ED63DAD05B0FE2A3C53A9 /* Pods-DynamoDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamoDB.release.xcconfig"; path = "Pods/Target Support Files/Pods-DynamoDB/Pods-DynamoDB.release.xcconfig"; sourceTree = "<group>"; };
+		DDFD2473B32B034328A614B9 /* libPods-AWSDynamoDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSDynamoDB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBAF4E5A29F812E8DB81C584 /* Pods-AWSDynamoDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSDynamoDB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSDynamoDB/Pods-AWSDynamoDB.debug.xcconfig"; sourceTree = "<group>"; };
 		F60A4B3B382EADA2DB4EEE5C /* Pods-DynamoDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamoDB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DynamoDB/Pods-DynamoDB.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,7 +104,7 @@
 			files = (
 				BD00FF491AB8B6F8004496EF /* libAWSCore.a in Frameworks */,
 				BDF559331AB374F00067F4F1 /* libAWSDynamoDB.a in Frameworks */,
-				B62F70D9A282351EC31B80E3 /* libPods-DynamoDB.a in Frameworks */,
+				99E76F9141D9EA631BBD21D7 /* libPods-AWSDynamoDB.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,28 +114,17 @@
 		A5F6D5DAB609D2CE34387FFD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				36C8448C414C50AB84232B58 /* libPods-DynamoDB.a */,
+				BD00FF481AB8B6F8004496EF /* libAWSCore.a */,
+				DDFD2473B32B034328A614B9 /* libPods-AWSDynamoDB.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BD00FFB41AB8BAEC004496EF /* Other Resources */ = {
-			isa = PBXGroup;
-			children = (
-				BD00FF8C1AB8B9C7004496EF /* cognito-identity-2014-06-30.json */,
-				BD00FF8D1AB8B9C7004496EF /* mobileanalytics-2014-06-30.json */,
-				BD00FF8E1AB8B9C7004496EF /* sts-2011-06-15.json */,
-			);
-			name = "Other Resources";
 			sourceTree = "<group>";
 		};
 		BDF5591E1AB374F00067F4F1 = {
 			isa = PBXGroup;
 			children = (
-				BD00FF481AB8B6F8004496EF /* libAWSCore.a */,
-				BD00FFB41AB8BAEC004496EF /* Other Resources */,
-				BDF559291AB374F00067F4F1 /* DynamoDB */,
-				BDF559361AB374F00067F4F1 /* DynamoDBTests */,
+				BDF559291AB374F00067F4F1 /* AWSDynamoDB */,
+				BDF559361AB374F00067F4F1 /* AWSDynamoDBTests */,
 				BDF559281AB374F00067F4F1 /* Products */,
 				FB0C9163F76D9A9E125E73BA /* Pods */,
 				A5F6D5DAB609D2CE34387FFD /* Frameworks */,
@@ -149,7 +140,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BDF559291AB374F00067F4F1 /* DynamoDB */ = {
+		BDF559291AB374F00067F4F1 /* AWSDynamoDB */ = {
 			isa = PBXGroup;
 			children = (
 				BDF559431AB375260067F4F1 /* AWSDynamoDB.h */,
@@ -161,10 +152,10 @@
 				BDF559441AB375260067F4F1 /* AWSDynamoDBService.m */,
 				BDF559491AB375270067F4F1 /* Resources */,
 			);
-			path = DynamoDB;
+			path = AWSDynamoDB;
 			sourceTree = "<group>";
 		};
-		BDF559361AB374F00067F4F1 /* DynamoDBTests */ = {
+		BDF559361AB374F00067F4F1 /* AWSDynamoDBTests */ = {
 			isa = PBXGroup;
 			children = (
 				BD00FFFC1AB8C461004496EF /* AWSGeneralDynamoDBTests.m */,
@@ -173,12 +164,15 @@
 				BD00FFFF1AB8C461004496EF /* AWSDynamoDBTests.m */,
 				BDF559371AB374F00067F4F1 /* Supporting Files */,
 			);
-			path = DynamoDBTests;
+			path = AWSDynamoDBTests;
 			sourceTree = "<group>";
 		};
 		BDF559371AB374F00067F4F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BD00FF8C1AB8B9C7004496EF /* cognito-identity-2014-06-30.json */,
+				BD00FF8D1AB8B9C7004496EF /* mobileanalytics-2014-06-30.json */,
+				BD00FF8E1AB8B9C7004496EF /* sts-2011-06-15.json */,
 				BDB6EC2E1AB915B9004C4D80 /* AWSiOSSDKv2Tests-Bridging-Header.h */,
 				BD0000411AB8C56E004496EF /* credentials.json */,
 				BD0000621AB8E20C004496EF /* AWSTestUtility.h */,
@@ -191,7 +185,7 @@
 		BDF559491AB375270067F4F1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BDF5594A1AB375270067F4F1 /* dynamodb-2012-08-10.json */,
+				CEF83EDF1AD3526A00620E1C /* dynamodb-2012-08-10.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -201,6 +195,8 @@
 			children = (
 				F60A4B3B382EADA2DB4EEE5C /* Pods-DynamoDB.debug.xcconfig */,
 				D96ED63DAD05B0FE2A3C53A9 /* Pods-DynamoDB.release.xcconfig */,
+				EBAF4E5A29F812E8DB81C584 /* Pods-AWSDynamoDB.debug.xcconfig */,
+				9F85B3DCB7942BDFD5AC15D6 /* Pods-AWSDynamoDB.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -230,6 +226,7 @@
 				BDF559241AB374F00067F4F1 /* Frameworks */,
 				BDF559251AB374F00067F4F1 /* CopyFiles */,
 				BDF559411AB375180067F4F1 /* Headers */,
+				CE700D141AD36614008A227B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -301,10 +298,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD00FF8F1AB8B9C7004496EF /* cognito-identity-2014-06-30.json in Resources */,
+				CEF83EE01AD3526A00620E1C /* dynamodb-2012-08-10.json in Resources */,
 				BD00FF901AB8B9C7004496EF /* mobileanalytics-2014-06-30.json in Resources */,
 				BD00FF911AB8B9C7004496EF /* sts-2011-06-15.json in Resources */,
 				BD0000421AB8C56E004496EF /* credentials.json in Resources */,
-				BD00FF8B1AB8B9B8004496EF /* dynamodb-2012-08-10.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,8 +335,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DynamoDB/Pods-DynamoDB-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWSDynamoDB/Pods-AWSDynamoDB-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		CE700D141AD36614008A227B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -e \"XcodeCoverage/exportenv.sh\" ]; then\nXcodeCoverage/exportenv.sh\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -483,17 +493,19 @@
 		};
 		BDF5593F1AB374F00067F4F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F60A4B3B382EADA2DB4EEE5C /* Pods-DynamoDB.debug.xcconfig */;
+			baseConfigurationReference = EBAF4E5A29F812E8DB81C584 /* Pods-AWSDynamoDB.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = DynamoDBTests/Info.plist;
+				INFOPLIST_FILE = AWSDynamoDBTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = AWSDynamoDBTests;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AWSCoreTests/AWSiOSSDKv2Tests-Bridging-Header.h";
@@ -502,13 +514,15 @@
 		};
 		BDF559401AB374F00067F4F1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D96ED63DAD05B0FE2A3C53A9 /* Pods-DynamoDB.release.xcconfig */;
+			baseConfigurationReference = 9F85B3DCB7942BDFD5AC15D6 /* Pods-AWSDynamoDB.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = DynamoDBTests/Info.plist;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				INFOPLIST_FILE = AWSDynamoDBTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = AWSDynamoDBTests;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AWSCoreTests/AWSiOSSDKv2Tests-Bridging-Header.h";

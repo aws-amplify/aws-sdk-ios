@@ -25,7 +25,7 @@
 #import "AWSMobileAnalyticsRequestTimingInterceptor.h"
 #import "AWSMobileAnalyticsDefaultDeliveryClient.h"
 #import "AWSMobileAnalyticsConfiguration.h"
-#import "AWSMobileAnalyticsIOSClientContext.h"
+#import "AWSClientContext.h"
 #import "AWSLogging.h"
 #import "AWSMobileAnalyticsERS.h"
 #import "AWSSynchronizedMutableDictionary.h"

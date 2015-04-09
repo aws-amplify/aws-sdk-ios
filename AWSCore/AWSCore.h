@@ -23,6 +23,7 @@
 #import "AWSURLResponseSerialization.h"
 #import "AWSCategory.h"
 #import "AWSLogging.h"
+#import "AWSClientContext.h"
 
 #import "AWSSTS.h"
 #import "AWSCognitoIdentity.h"

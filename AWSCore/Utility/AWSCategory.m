@@ -142,6 +142,35 @@ static NSTimeInterval _clockskew = 0.0;
 
 @end
 
+@implementation NSJSONSerialization (AWS)
+
++ (NSData *)aws_dataWithJSONObject:(id)obj
+                           options:(NSJSONWritingOptions)opt
+                             error:(NSError **)error {
+    if (!obj) {
+        return nil;
+    }
+    if ([NSJSONSerialization isValidJSONObject:obj]) {
+        return [NSJSONSerialization dataWithJSONObject:obj
+                                               options:opt
+                                                 error:error];
+    } else {
+        NSData *JSONData = [NSJSONSerialization dataWithJSONObject:@[obj]
+                                                           options:opt
+                                                             error:error];
+        NSString *JSONString = [[NSString alloc] initWithData:JSONData
+                                                     encoding:NSUTF8StringEncoding];
+        if ([JSONString length] > 2) {
+            JSONString = [JSONString substringWithRange:NSMakeRange(1, [JSONString length] - 2)];
+            return [JSONString dataUsingEncoding:NSUTF8StringEncoding];
+        } else {
+            return nil;
+        }
+    }
+}
+
+@end
+
 @implementation NSNumber (AWS)
 
 + (NSNumber *)aws_numberFromString:(NSString *)string {
@@ -276,6 +305,14 @@ static NSTimeInterval _clockskew = 0.0;
 - (NSString *)aws_stringWithURLEncodingPath {
     return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                                                                  (__bridge CFStringRef)[self aws_decodeURLEncoding],
+                                                                                 NULL,
+                                                                                 (CFStringRef)@"!*'\();:@&=+$,?%#[] ",
+                                                                                 kCFStringEncodingUTF8));
+}
+
+- (NSString *)aws_stringWithURLEncodingPathWithoutPriorDecoding {
+    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                                 (__bridge CFStringRef)self,
                                                                                  NULL,
                                                                                  (CFStringRef)@"!*'\();:@&=+$,?%#[] ",
                                                                                  kCFStringEncodingUTF8));

@@ -146,6 +146,8 @@ NSString *const AWSServiceNameDynamoDB = @"dynamodb";
 NSString *const AWSServiceNameEC2 = @"ec2";
 NSString *const AWSServiceNameElasticLoadBalancing = @"elasticloadbalancing";
 NSString *const AWSServiceNameKinesis = @"kinesis";
+NSString *const AWSServiceNameLambda = @"lambda";
+NSString *const AWSServiceNameMachineLearning = @"machinelearning";
 NSString *const AWSServiceNameS3 = @"s3";
 NSString *const AWSServiceNameSES = @"email";
 NSString *const AWSServiceNameSimpleDB = @"sdb";
@@ -203,6 +205,7 @@ NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
                 break;
             case AWSRegionCNNorth1:
                 _regionName = AWSRegionNameCNNorth1;
+                break;
             default:
                 break;
         }
@@ -232,6 +235,15 @@ NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
             case AWSServiceKinesis:
                 _serviceName = AWSServiceNameKinesis;
                 break;
+            case AWSServiceLambda:
+                _serviceName = AWSServiceNameLambda;
+                break;
+            case AWSServiceMachineLearning:
+                _serviceName = AWSServiceNameMachineLearning;
+                break;
+            case AWSServiceMobileAnalytics:
+                _serviceName = AWSServiceNameMobileAnalytics;
+                break;
             case AWSServiceS3:
                 _serviceName = AWSServiceNameS3;
                 break;
@@ -250,8 +262,6 @@ NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
             case AWSServiceSTS:
                 _serviceName = AWSServiceNameSTS;
                 break;
-            case AWSServiceMobileAnalytics:
-                _serviceName = AWSServiceNameMobileAnalytics;
             default:
                 break;
         }

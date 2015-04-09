@@ -223,44 +223,47 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
              targetPrefix:(NSString *)targetPrefix
             operationName:(NSString *)operationName
               outputClass:(Class)outputClass {
-    if (!request) {
-        request = [AWSRequest new];
-    }
-
-    AWSNetworkingRequest *networkingRequest = request.internalRequest;
-    if (request) {
-        networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
-    } else {
-        networkingRequest.parameters = @{};
-    }
-
-    NSMutableDictionary *parameters = [NSMutableDictionary new];
-    __block NSString *blockSafeURLString = [URLString copy];
-    [networkingRequest.parameters enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        NSString *stringToFind = [NSString stringWithFormat:@"{%@}", key];
-        if ([blockSafeURLString rangeOfString:stringToFind].location == NSNotFound) {
-            [parameters setObject:obj forKey:key];
-        } else {
-            blockSafeURLString = [blockSafeURLString stringByReplacingOccurrencesOfString:stringToFind
-                                                                               withString:obj];
+    
+    @autoreleasepool {
+        if (!request) {
+            request = [AWSRequest new];
         }
-    }];
-    networkingRequest.parameters = parameters;
-
-    NSMutableDictionary *headers = [NSMutableDictionary new];
-    headers[@"X-Amz-Target"] = [NSString stringWithFormat:@"%@.%@", targetPrefix, operationName];
-
-    networkingRequest.headers = headers;
-    networkingRequest.URLString = blockSafeURLString;
-    networkingRequest.HTTPMethod = HTTPMethod;
-    networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithResource:AWSCIBDefinitionFileName
-                                                                                  actionName:operationName
-                                                                              classForBundle:[self class]];
-    networkingRequest.responseSerializer = [[AWSCognitoIdentityResponseSerializer alloc] initWithResource:AWSCIBDefinitionFileName
-                                                                                               actionName:operationName
-                                                                                              outputClass:outputClass
-                                                                                           classForBundle:[self class]];
-    return [self.networking sendRequest:networkingRequest];
+        
+        AWSNetworkingRequest *networkingRequest = request.internalRequest;
+        if (request) {
+            networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
+        } else {
+            networkingRequest.parameters = @{};
+        }
+        
+        NSMutableDictionary *parameters = [NSMutableDictionary new];
+        __block NSString *blockSafeURLString = [URLString copy];
+        [networkingRequest.parameters enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            NSString *stringToFind = [NSString stringWithFormat:@"{%@}", key];
+            if ([blockSafeURLString rangeOfString:stringToFind].location == NSNotFound) {
+                [parameters setObject:obj forKey:key];
+            } else {
+                blockSafeURLString = [blockSafeURLString stringByReplacingOccurrencesOfString:stringToFind
+                                                                                   withString:obj];
+            }
+        }];
+        networkingRequest.parameters = parameters;
+        
+        NSMutableDictionary *headers = [NSMutableDictionary new];
+        headers[@"X-Amz-Target"] = [NSString stringWithFormat:@"%@.%@", targetPrefix, operationName];
+        
+        networkingRequest.headers = headers;
+        networkingRequest.URLString = blockSafeURLString;
+        networkingRequest.HTTPMethod = HTTPMethod;
+        networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithResource:AWSCIBDefinitionFileName
+                                                                                      actionName:operationName
+                                                                                  classForBundle:[self class]];
+        networkingRequest.responseSerializer = [[AWSCognitoIdentityResponseSerializer alloc] initWithResource:AWSCIBDefinitionFileName
+                                                                                                   actionName:operationName
+                                                                                                  outputClass:outputClass
+                                                                                               classForBundle:[self class]];
+        return [self.networking sendRequest:networkingRequest];
+    }
 }
 
 #pragma mark - Service method

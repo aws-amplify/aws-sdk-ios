@@ -285,7 +285,8 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
 
     NSString *dateStamp = [xAmzDate aws_stringValue:AWSDateShortDateFormat1];
 
-    NSString *path = [request.URL.path aws_stringWithURLEncodingPath];
+    NSString *cfPath = (NSString*)CFBridgingRelease(CFURLCopyPath((CFURLRef)request.URL)) ;
+    NSString *path = [cfPath aws_stringWithURLEncodingPathWithoutPriorDecoding];
     if (path.length == 0) {
         path = [NSString stringWithFormat:@"/"];
     }

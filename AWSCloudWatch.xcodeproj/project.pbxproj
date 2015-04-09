@@ -7,12 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BD0000061AB8C46D004496EF /* AWSGeneralCloudWatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0000041AB8C46D004496EF /* AWSGeneralCloudWatchTests.m */; };
-		BD0000071AB8C46D004496EF /* AWSCloudWatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0000051AB8C46D004496EF /* AWSCloudWatchTests.m */; };
 		BD0000441AB8C57A004496EF /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = BD0000431AB8C57A004496EF /* credentials.json */; };
 		BD0000671AB8E21B004496EF /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0000661AB8E21B004496EF /* AWSTestUtility.m */; };
 		BD00FF4B1AB8B700004496EF /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD00FF4A1AB8B700004496EF /* libAWSCore.a */; };
-		BD00FF921AB8B9E9004496EF /* monitoring-2010-08-01.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF559191AB3747F0067F4F1 /* monitoring-2010-08-01.json */; };
 		BD00FF961AB8B9F8004496EF /* cognito-identity-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF931AB8B9F8004496EF /* cognito-identity-2014-06-30.json */; };
 		BD00FF971AB8B9F8004496EF /* mobileanalytics-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF941AB8B9F8004496EF /* mobileanalytics-2014-06-30.json */; };
 		BD00FF981AB8B9F8004496EF /* sts-2011-06-15.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF951AB8B9F8004496EF /* sts-2011-06-15.json */; };
@@ -25,7 +22,10 @@
 		BDF5591C1AB3747F0067F4F1 /* AWSCloudWatchModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BDF559161AB3747F0067F4F1 /* AWSCloudWatchModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDF5591D1AB3747F0067F4F1 /* AWSCloudWatchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF559171AB3747F0067F4F1 /* AWSCloudWatchModel.m */; };
 		CEE7DE691AC1E1330095C4B7 /* AWSCloudWatchService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE681AC1E1330095C4B7 /* AWSCloudWatchService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E98FFEA5B60B4233F1109B7F /* libPods-CloudWatch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF1766DF30EBDB9F89CE53B8 /* libPods-CloudWatch.a */; };
+		CEF83ED81AD351E900620E1C /* monitoring-2010-08-01.json in Resources */ = {isa = PBXBuildFile; fileRef = CEF83ED71AD351E900620E1C /* monitoring-2010-08-01.json */; };
+		CEF83EDC1AD3521A00620E1C /* AWSCloudWatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF83ED91AD3521A00620E1C /* AWSCloudWatchTests.m */; };
+		CEF83EDD1AD3521A00620E1C /* AWSGeneralCloudWatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF83EDA1AD3521A00620E1C /* AWSGeneralCloudWatchTests.m */; };
+		DCC08987AB84826E72C9E80A /* libPods-AWSCloudWatch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A2D62682440E97BC5FE56B /* libPods-AWSCloudWatch.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,26 +54,28 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AF1766DF30EBDB9F89CE53B8 /* libPods-CloudWatch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CloudWatch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD0000041AB8C46D004496EF /* AWSGeneralCloudWatchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralCloudWatchTests.m; sourceTree = "<group>"; };
-		BD0000051AB8C46D004496EF /* AWSCloudWatchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCloudWatchTests.m; sourceTree = "<group>"; };
+		12547097B9F79B38370F990A /* Pods-AWSCloudWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSCloudWatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSCloudWatch/Pods-AWSCloudWatch.debug.xcconfig"; sourceTree = "<group>"; };
+		86A2D62682440E97BC5FE56B /* libPods-AWSCloudWatch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSCloudWatch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0000431AB8C57A004496EF /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
 		BD0000651AB8E21B004496EF /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSTestUtility.h; path = AWSCoreTests/AWSTestUtility.h; sourceTree = SOURCE_ROOT; };
 		BD0000661AB8E21B004496EF /* AWSTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSTestUtility.m; path = AWSCoreTests/AWSTestUtility.m; sourceTree = SOURCE_ROOT; };
 		BD00FF4A1AB8B700004496EF /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
-		BD00FF931AB8B9F8004496EF /* cognito-identity-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "cognito-identity-2014-06-30.json"; path = "AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"; sourceTree = "<group>"; };
-		BD00FF941AB8B9F8004496EF /* mobileanalytics-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "mobileanalytics-2014-06-30.json"; path = "AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"; sourceTree = "<group>"; };
-		BD00FF951AB8B9F8004496EF /* sts-2011-06-15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "sts-2011-06-15.json"; path = "AWSCore/STS/Resources/sts-2011-06-15.json"; sourceTree = "<group>"; };
+		BD00FF931AB8B9F8004496EF /* cognito-identity-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "cognito-identity-2014-06-30.json"; path = "../AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"; sourceTree = "<group>"; };
+		BD00FF941AB8B9F8004496EF /* mobileanalytics-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "mobileanalytics-2014-06-30.json"; path = "../AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"; sourceTree = "<group>"; };
+		BD00FF951AB8B9F8004496EF /* sts-2011-06-15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "sts-2011-06-15.json"; path = "../AWSCore/STS/Resources/sts-2011-06-15.json"; sourceTree = "<group>"; };
 		BDF558F81AB374250067F4F1 /* libAWSCloudWatch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSCloudWatch.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF559031AB374250067F4F1 /* AWSCloudWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSCloudWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDF559091AB374250067F4F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BDF559141AB3747F0067F4F1 /* AWSCloudWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCloudWatch.h; sourceTree = "<group>"; };
-		BDF559151AB3747F0067F4F1 /* AWSCloudWatchService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCloudWatchService.m; sourceTree = "<group>"; };
-		BDF559161AB3747F0067F4F1 /* AWSCloudWatchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCloudWatchModel.h; sourceTree = "<group>"; };
-		BDF559171AB3747F0067F4F1 /* AWSCloudWatchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCloudWatchModel.m; sourceTree = "<group>"; };
-		BDF559191AB3747F0067F4F1 /* monitoring-2010-08-01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "monitoring-2010-08-01.json"; sourceTree = "<group>"; };
+		BDF559141AB3747F0067F4F1 /* AWSCloudWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSCloudWatch.h; path = ../AWSCloudWatch/AWSCloudWatch.h; sourceTree = "<group>"; };
+		BDF559151AB3747F0067F4F1 /* AWSCloudWatchService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSCloudWatchService.m; path = ../AWSCloudWatch/AWSCloudWatchService.m; sourceTree = "<group>"; };
+		BDF559161AB3747F0067F4F1 /* AWSCloudWatchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSCloudWatchModel.h; path = ../AWSCloudWatch/AWSCloudWatchModel.h; sourceTree = "<group>"; };
+		BDF559171AB3747F0067F4F1 /* AWSCloudWatchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSCloudWatchModel.m; path = ../AWSCloudWatch/AWSCloudWatchModel.m; sourceTree = "<group>"; };
 		C59C1FAFC8834FF806A5AC6C /* Pods-CloudWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudWatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-CloudWatch/Pods-CloudWatch.release.xcconfig"; sourceTree = "<group>"; };
-		CEE7DE681AC1E1330095C4B7 /* AWSCloudWatchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCloudWatchService.h; sourceTree = "<group>"; };
+		CEE7DE681AC1E1330095C4B7 /* AWSCloudWatchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSCloudWatchService.h; path = ../AWSCloudWatch/AWSCloudWatchService.h; sourceTree = "<group>"; };
+		CEF83ED71AD351E900620E1C /* monitoring-2010-08-01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "monitoring-2010-08-01.json"; path = "../../AWSCloudWatch/Resources/monitoring-2010-08-01.json"; sourceTree = "<group>"; };
+		CEF83ED91AD3521A00620E1C /* AWSCloudWatchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSCloudWatchTests.m; path = ../AWSCloudWatchTests/AWSCloudWatchTests.m; sourceTree = "<group>"; };
+		CEF83EDA1AD3521A00620E1C /* AWSGeneralCloudWatchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSGeneralCloudWatchTests.m; path = ../AWSCloudWatchTests/AWSGeneralCloudWatchTests.m; sourceTree = "<group>"; };
+		CEF83EDB1AD3521A00620E1C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDE2D6D6AC17259133A42839 /* Pods-AWSCloudWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSCloudWatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSCloudWatch/Pods-AWSCloudWatch.release.xcconfig"; sourceTree = "<group>"; };
 		E29B50A66CC52E1928A68B66 /* Pods-CloudWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudWatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CloudWatch/Pods-CloudWatch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,7 +93,7 @@
 			files = (
 				BD00FF4B1AB8B700004496EF /* libAWSCore.a in Frameworks */,
 				BDF559041AB374250067F4F1 /* libAWSCloudWatch.a in Frameworks */,
-				E98FFEA5B60B4233F1109B7F /* libPods-CloudWatch.a in Frameworks */,
+				DCC08987AB84826E72C9E80A /* libPods-AWSCloudWatch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +103,8 @@
 		2953C160B39FCEC4E052451B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AF1766DF30EBDB9F89CE53B8 /* libPods-CloudWatch.a */,
+				BD00FF4A1AB8B700004496EF /* libAWSCore.a */,
+				86A2D62682440E97BC5FE56B /* libPods-AWSCloudWatch.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -111,27 +114,17 @@
 			children = (
 				E29B50A66CC52E1928A68B66 /* Pods-CloudWatch.debug.xcconfig */,
 				C59C1FAFC8834FF806A5AC6C /* Pods-CloudWatch.release.xcconfig */,
+				12547097B9F79B38370F990A /* Pods-AWSCloudWatch.debug.xcconfig */,
+				DDE2D6D6AC17259133A42839 /* Pods-AWSCloudWatch.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		BD00FFB31AB8BAC2004496EF /* Other Resources */ = {
-			isa = PBXGroup;
-			children = (
-				BD00FF931AB8B9F8004496EF /* cognito-identity-2014-06-30.json */,
-				BD00FF941AB8B9F8004496EF /* mobileanalytics-2014-06-30.json */,
-				BD00FF951AB8B9F8004496EF /* sts-2011-06-15.json */,
-			);
-			name = "Other Resources";
 			sourceTree = "<group>";
 		};
 		BDF558EF1AB374250067F4F1 = {
 			isa = PBXGroup;
 			children = (
-				BD00FF4A1AB8B700004496EF /* libAWSCore.a */,
-				BD00FFB31AB8BAC2004496EF /* Other Resources */,
-				BDF558FA1AB374250067F4F1 /* CloudWatch */,
-				BDF559071AB374250067F4F1 /* CloudWatchTests */,
+				BDF558FA1AB374250067F4F1 /* AWSCloudWatch */,
+				BDF559071AB374250067F4F1 /* AWSCloudWatchTests */,
 				BDF558F91AB374250067F4F1 /* Products */,
 				A797C571EB41EF4D6BB1A9B2 /* Pods */,
 				2953C160B39FCEC4E052451B /* Frameworks */,
@@ -147,7 +140,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BDF558FA1AB374250067F4F1 /* CloudWatch */ = {
+		BDF558FA1AB374250067F4F1 /* AWSCloudWatch */ = {
 			isa = PBXGroup;
 			children = (
 				BDF559141AB3747F0067F4F1 /* AWSCloudWatch.h */,
@@ -157,26 +150,29 @@
 				BDF559151AB3747F0067F4F1 /* AWSCloudWatchService.m */,
 				BDF559181AB3747F0067F4F1 /* Resources */,
 			);
-			path = CloudWatch;
+			path = AWSCloudWatch;
 			sourceTree = "<group>";
 		};
-		BDF559071AB374250067F4F1 /* CloudWatchTests */ = {
+		BDF559071AB374250067F4F1 /* AWSCloudWatchTests */ = {
 			isa = PBXGroup;
 			children = (
-				BD0000041AB8C46D004496EF /* AWSGeneralCloudWatchTests.m */,
-				BD0000051AB8C46D004496EF /* AWSCloudWatchTests.m */,
+				CEF83ED91AD3521A00620E1C /* AWSCloudWatchTests.m */,
+				CEF83EDA1AD3521A00620E1C /* AWSGeneralCloudWatchTests.m */,
 				BDF559081AB374250067F4F1 /* Supporting Files */,
 			);
-			path = CloudWatchTests;
+			path = AWSCloudWatchTests;
 			sourceTree = "<group>";
 		};
 		BDF559081AB374250067F4F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BD00FF931AB8B9F8004496EF /* cognito-identity-2014-06-30.json */,
+				BD00FF941AB8B9F8004496EF /* mobileanalytics-2014-06-30.json */,
+				BD00FF951AB8B9F8004496EF /* sts-2011-06-15.json */,
 				BD0000431AB8C57A004496EF /* credentials.json */,
+				CEF83EDB1AD3521A00620E1C /* Info.plist */,
 				BD0000651AB8E21B004496EF /* AWSTestUtility.h */,
 				BD0000661AB8E21B004496EF /* AWSTestUtility.m */,
-				BDF559091AB374250067F4F1 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -184,7 +180,7 @@
 		BDF559181AB3747F0067F4F1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BDF559191AB3747F0067F4F1 /* monitoring-2010-08-01.json */,
+				CEF83ED71AD351E900620E1C /* monitoring-2010-08-01.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -213,6 +209,7 @@
 				BDF558F51AB374250067F4F1 /* Frameworks */,
 				BDF558F61AB374250067F4F1 /* CopyFiles */,
 				BDF559121AB374690067F4F1 /* Headers */,
+				CE700D131AD36607008A227B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -286,8 +283,8 @@
 				BD00FF961AB8B9F8004496EF /* cognito-identity-2014-06-30.json in Resources */,
 				BD00FF971AB8B9F8004496EF /* mobileanalytics-2014-06-30.json in Resources */,
 				BD00FF981AB8B9F8004496EF /* sts-2011-06-15.json in Resources */,
+				CEF83ED81AD351E900620E1C /* monitoring-2010-08-01.json in Resources */,
 				BD0000441AB8C57A004496EF /* credentials.json in Resources */,
-				BD00FF921AB8B9E9004496EF /* monitoring-2010-08-01.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,8 +303,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CloudWatch/Pods-CloudWatch-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWSCloudWatch/Pods-AWSCloudWatch-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		CE700D131AD36607008A227B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -e \"XcodeCoverage/exportenv.sh\" ]; then\nXcodeCoverage/exportenv.sh\nfi";
 		};
 		DBC648979B2589BE74BE71F6 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -340,9 +350,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD0000061AB8C46D004496EF /* AWSGeneralCloudWatchTests.m in Sources */,
 				BD0000671AB8E21B004496EF /* AWSTestUtility.m in Sources */,
-				BD0000071AB8C46D004496EF /* AWSCloudWatchTests.m in Sources */,
+				CEF83EDD1AD3521A00620E1C /* AWSGeneralCloudWatchTests.m in Sources */,
+				CEF83EDC1AD3521A00620E1C /* AWSCloudWatchTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,17 +473,19 @@
 		};
 		BDF559101AB374250067F4F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E29B50A66CC52E1928A68B66 /* Pods-CloudWatch.debug.xcconfig */;
+			baseConfigurationReference = 12547097B9F79B38370F990A /* Pods-AWSCloudWatch.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = CloudWatchTests/Info.plist;
+				INFOPLIST_FILE = AWSCloudWatchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = AWSCloudWatchTests;
 			};
@@ -481,13 +493,15 @@
 		};
 		BDF559111AB374250067F4F1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C59C1FAFC8834FF806A5AC6C /* Pods-CloudWatch.release.xcconfig */;
+			baseConfigurationReference = DDE2D6D6AC17259133A42839 /* Pods-AWSCloudWatch.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = CloudWatchTests/Info.plist;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				INFOPLIST_FILE = AWSCloudWatchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = AWSCloudWatchTests;
 			};

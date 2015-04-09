@@ -231,25 +231,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
              targetPrefix:(NSString *)targetPrefix
             operationName:(NSString *)operationName
               outputClass:(Class)outputClass {
-    if (!request) {
-        request = [AWSRequest new];
+    
+    @autoreleasepool {
+        if (!request) {
+            request = [AWSRequest new];
+        }
+        
+        AWSNetworkingRequest *networkingRequest = request.internalRequest;
+        if (request) {
+            networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
+        } else {
+            networkingRequest.parameters = @{};
+        }
+        networkingRequest.HTTPMethod = HTTPMethod;
+        networkingRequest.requestSerializer = [[AWSQueryStringRequestSerializer alloc] initWithResource:AWSSTSDefinitionFileName
+                                                                                             actionName:operationName
+                                                                                         classForBundle:[self class]];
+        networkingRequest.responseSerializer = [[AWSSTSResponseSerializer alloc] initWithResource:AWSSTSDefinitionFileName
+                                                                                       actionName:operationName
+                                                                                      outputClass:outputClass
+                                                                                   classForBundle:[self class]];
+        return [self.networking sendRequest:networkingRequest];
     }
-
-    AWSNetworkingRequest *networkingRequest = request.internalRequest;
-    if (request) {
-        networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
-    } else {
-        networkingRequest.parameters = @{};
-    }
-    networkingRequest.HTTPMethod = HTTPMethod;
-    networkingRequest.requestSerializer = [[AWSQueryStringRequestSerializer alloc] initWithResource:AWSSTSDefinitionFileName
-                                                                                         actionName:operationName
-                                                                                     classForBundle:[self class]];
-    networkingRequest.responseSerializer = [[AWSSTSResponseSerializer alloc] initWithResource:AWSSTSDefinitionFileName
-                                                                                   actionName:operationName
-                                                                                  outputClass:outputClass
-                                                                               classForBundle:[self class]];
-    return [self.networking sendRequest:networkingRequest];
 }
 
 #pragma mark - Service method

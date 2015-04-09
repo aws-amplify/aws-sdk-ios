@@ -40,13 +40,15 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
     AWSServiceEC2,
     AWSServiceElasticLoadBalancing,
     AWSServiceKinesis,
+    AWSServiceLambda,
+    AWSServiceMachineLearning,
+    AWSServiceMobileAnalytics,
     AWSServiceS3,
     AWSServiceSES,
     AWSServiceSimpleDB,
     AWSServiceSNS,
     AWSServiceSQS,
     AWSServiceSTS,
-    AWSServiceMobileAnalytics,
 };
 
 #endif

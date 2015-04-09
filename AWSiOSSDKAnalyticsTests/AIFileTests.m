@@ -42,7 +42,6 @@
     assertThatBool(testFile.isFile, is(equalToBool(NO)));
 }
 
-
 -(void)testFileCreationAndDeletion
 {
     AWSMobileAnalyticsFile* testFile = [[AWSMobileAnalyticsFile alloc] initWithFileMananager:[NSFileManager defaultManager]

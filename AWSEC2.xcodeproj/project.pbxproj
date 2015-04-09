@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		74B24F05C069DB9B861CAC9E /* libPods-EC2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B164DD31E059D9F683E3263C /* libPods-EC2.a */; };
+		0B055507F96D30CFBD38D600 /* libPods-AWSEC2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1652315196F8BFB7080141B4 /* libPods-AWSEC2.a */; };
 		BD0000401AB8C560004496EF /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00003F1AB8C560004496EF /* credentials.json */; };
 		BD0000611AB8E1FD004496EF /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0000601AB8E1FD004496EF /* AWSTestUtility.m */; };
 		BD00FF471AB8B6F0004496EF /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD00FF461AB8B6F0004496EF /* libAWSCore.a */; };
@@ -54,27 +54,29 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1652315196F8BFB7080141B4 /* libPods-AWSEC2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSEC2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3852FF5D1CC566D407B2E59F /* Pods-EC2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EC2.release.xcconfig"; path = "Pods/Target Support Files/Pods-EC2/Pods-EC2.release.xcconfig"; sourceTree = "<group>"; };
 		4653448790B8088DD55EFC71 /* Pods-EC2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EC2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EC2/Pods-EC2.debug.xcconfig"; sourceTree = "<group>"; };
-		B164DD31E059D9F683E3263C /* libPods-EC2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EC2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD00003F1AB8C560004496EF /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
 		BD00005F1AB8E1FD004496EF /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSTestUtility.h; path = AWSCoreTests/AWSTestUtility.h; sourceTree = SOURCE_ROOT; };
 		BD0000601AB8E1FD004496EF /* AWSTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSTestUtility.m; path = AWSCoreTests/AWSTestUtility.m; sourceTree = SOURCE_ROOT; };
 		BD00FF461AB8B6F0004496EF /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
-		BD00FF851AB8B9AB004496EF /* cognito-identity-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "cognito-identity-2014-06-30.json"; path = "AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"; sourceTree = "<group>"; };
-		BD00FF861AB8B9AB004496EF /* mobileanalytics-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "mobileanalytics-2014-06-30.json"; path = "AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"; sourceTree = "<group>"; };
-		BD00FF871AB8B9AB004496EF /* sts-2011-06-15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "sts-2011-06-15.json"; path = "AWSCore/STS/Resources/sts-2011-06-15.json"; sourceTree = "<group>"; };
-		BD00FFF81AB8C456004496EF /* AWSGeneralEC2Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralEC2Tests.m; sourceTree = "<group>"; };
-		BD00FFF91AB8C456004496EF /* AWSEC2Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSEC2Tests.m; sourceTree = "<group>"; };
+		BD00FF851AB8B9AB004496EF /* cognito-identity-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "cognito-identity-2014-06-30.json"; path = "../AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"; sourceTree = "<group>"; };
+		BD00FF861AB8B9AB004496EF /* mobileanalytics-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "mobileanalytics-2014-06-30.json"; path = "../AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"; sourceTree = "<group>"; };
+		BD00FF871AB8B9AB004496EF /* sts-2011-06-15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "sts-2011-06-15.json"; path = "../AWSCore/STS/Resources/sts-2011-06-15.json"; sourceTree = "<group>"; };
+		BD00FFF81AB8C456004496EF /* AWSGeneralEC2Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSGeneralEC2Tests.m; path = ../AWSEC2Tests/AWSGeneralEC2Tests.m; sourceTree = "<group>"; };
+		BD00FFF91AB8C456004496EF /* AWSEC2Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSEC2Tests.m; path = ../AWSEC2Tests/AWSEC2Tests.m; sourceTree = "<group>"; };
 		BDF5595A1AB375800067F4F1 /* libAWSEC2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSEC2.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF559651AB375800067F4F1 /* AWSEC2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSEC2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDF5596B1AB375800067F4F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BDF559761AB375AE0067F4F1 /* AWSEC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSEC2.h; sourceTree = "<group>"; };
-		BDF559771AB375AE0067F4F1 /* AWSEC2Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSEC2Service.m; sourceTree = "<group>"; };
-		BDF559781AB375AE0067F4F1 /* AWSEC2Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSEC2Model.h; sourceTree = "<group>"; };
-		BDF559791AB375AE0067F4F1 /* AWSEC2Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSEC2Model.m; sourceTree = "<group>"; };
-		BDF5597B1AB375AE0067F4F1 /* ec2-2014-09-01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ec2-2014-09-01.json"; sourceTree = "<group>"; };
-		CEE7DE6C1AC1E1780095C4B7 /* AWSEC2Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSEC2Service.h; sourceTree = "<group>"; };
+		BDF5596B1AB375800067F4F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../AWSEC2Tests/Info.plist; sourceTree = "<group>"; };
+		BDF559761AB375AE0067F4F1 /* AWSEC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSEC2.h; path = ../AWSEC2/AWSEC2.h; sourceTree = "<group>"; };
+		BDF559771AB375AE0067F4F1 /* AWSEC2Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSEC2Service.m; path = ../AWSEC2/AWSEC2Service.m; sourceTree = "<group>"; };
+		BDF559781AB375AE0067F4F1 /* AWSEC2Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSEC2Model.h; path = ../AWSEC2/AWSEC2Model.h; sourceTree = "<group>"; };
+		BDF559791AB375AE0067F4F1 /* AWSEC2Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSEC2Model.m; path = ../AWSEC2/AWSEC2Model.m; sourceTree = "<group>"; };
+		BDF5597B1AB375AE0067F4F1 /* ec2-2014-09-01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "ec2-2014-09-01.json"; path = "../../AWSEC2/Resources/ec2-2014-09-01.json"; sourceTree = "<group>"; };
+		C77BF0C233DD79AB8C40D0C2 /* Pods-AWSEC2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSEC2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSEC2/Pods-AWSEC2.debug.xcconfig"; sourceTree = "<group>"; };
+		CEE7DE6C1AC1E1780095C4B7 /* AWSEC2Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSEC2Service.h; path = ../AWSEC2/AWSEC2Service.h; sourceTree = "<group>"; };
+		DC7D62494B298408B770C894 /* Pods-AWSEC2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSEC2.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSEC2/Pods-AWSEC2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +93,7 @@
 			files = (
 				BD00FF471AB8B6F0004496EF /* libAWSCore.a in Frameworks */,
 				BDF559661AB375800067F4F1 /* libAWSEC2.a in Frameworks */,
-				74B24F05C069DB9B861CAC9E /* libPods-EC2.a in Frameworks */,
+				0B055507F96D30CFBD38D600 /* libPods-AWSEC2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,28 +103,17 @@
 		44F883773B67388A29D3A410 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B164DD31E059D9F683E3263C /* libPods-EC2.a */,
+				BD00FF461AB8B6F0004496EF /* libAWSCore.a */,
+				1652315196F8BFB7080141B4 /* libPods-AWSEC2.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BD00FFB51AB8BAFC004496EF /* Other Resources */ = {
-			isa = PBXGroup;
-			children = (
-				BD00FF851AB8B9AB004496EF /* cognito-identity-2014-06-30.json */,
-				BD00FF861AB8B9AB004496EF /* mobileanalytics-2014-06-30.json */,
-				BD00FF871AB8B9AB004496EF /* sts-2011-06-15.json */,
-			);
-			name = "Other Resources";
 			sourceTree = "<group>";
 		};
 		BDF559511AB375800067F4F1 = {
 			isa = PBXGroup;
 			children = (
-				BD00FF461AB8B6F0004496EF /* libAWSCore.a */,
-				BD00FFB51AB8BAFC004496EF /* Other Resources */,
-				BDF5595C1AB375800067F4F1 /* EC2 */,
-				BDF559691AB375800067F4F1 /* EC2Tests */,
+				BDF5595C1AB375800067F4F1 /* AWSEC2 */,
+				BDF559691AB375800067F4F1 /* AWSEC2Tests */,
 				BDF5595B1AB375800067F4F1 /* Products */,
 				CB7989A3CE5779C4C4D6F37E /* Pods */,
 				44F883773B67388A29D3A410 /* Frameworks */,
@@ -138,7 +129,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BDF5595C1AB375800067F4F1 /* EC2 */ = {
+		BDF5595C1AB375800067F4F1 /* AWSEC2 */ = {
 			isa = PBXGroup;
 			children = (
 				BDF559761AB375AE0067F4F1 /* AWSEC2.h */,
@@ -148,22 +139,25 @@
 				BDF559771AB375AE0067F4F1 /* AWSEC2Service.m */,
 				BDF5597A1AB375AE0067F4F1 /* Resources */,
 			);
-			path = EC2;
+			path = AWSEC2;
 			sourceTree = "<group>";
 		};
-		BDF559691AB375800067F4F1 /* EC2Tests */ = {
+		BDF559691AB375800067F4F1 /* AWSEC2Tests */ = {
 			isa = PBXGroup;
 			children = (
 				BD00FFF81AB8C456004496EF /* AWSGeneralEC2Tests.m */,
 				BD00FFF91AB8C456004496EF /* AWSEC2Tests.m */,
 				BDF5596A1AB375800067F4F1 /* Supporting Files */,
 			);
-			path = EC2Tests;
+			path = AWSEC2Tests;
 			sourceTree = "<group>";
 		};
 		BDF5596A1AB375800067F4F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BD00FF851AB8B9AB004496EF /* cognito-identity-2014-06-30.json */,
+				BD00FF861AB8B9AB004496EF /* mobileanalytics-2014-06-30.json */,
+				BD00FF871AB8B9AB004496EF /* sts-2011-06-15.json */,
 				BD00003F1AB8C560004496EF /* credentials.json */,
 				BD00005F1AB8E1FD004496EF /* AWSTestUtility.h */,
 				BD0000601AB8E1FD004496EF /* AWSTestUtility.m */,
@@ -185,6 +179,8 @@
 			children = (
 				4653448790B8088DD55EFC71 /* Pods-EC2.debug.xcconfig */,
 				3852FF5D1CC566D407B2E59F /* Pods-EC2.release.xcconfig */,
+				C77BF0C233DD79AB8C40D0C2 /* Pods-AWSEC2.debug.xcconfig */,
+				DC7D62494B298408B770C894 /* Pods-AWSEC2.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -213,6 +209,7 @@
 				BDF559571AB375800067F4F1 /* Frameworks */,
 				BDF559581AB375800067F4F1 /* CopyFiles */,
 				BDF559741AB375A20067F4F1 /* Headers */,
+				CE700D151AD3661E008A227B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -321,8 +318,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EC2/Pods-EC2-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWSEC2/Pods-AWSEC2-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		CE700D151AD3661E008A227B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -e \"XcodeCoverage/exportenv.sh\" ]; then\nXcodeCoverage/exportenv.sh\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -463,17 +473,19 @@
 		};
 		BDF559721AB375800067F4F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4653448790B8088DD55EFC71 /* Pods-EC2.debug.xcconfig */;
+			baseConfigurationReference = C77BF0C233DD79AB8C40D0C2 /* Pods-AWSEC2.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = EC2Tests/Info.plist;
+				INFOPLIST_FILE = AWSEC2Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = AWSEC2Tests;
 			};
@@ -481,13 +493,15 @@
 		};
 		BDF559731AB375800067F4F1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3852FF5D1CC566D407B2E59F /* Pods-EC2.release.xcconfig */;
+			baseConfigurationReference = DC7D62494B298408B770C894 /* Pods-AWSEC2.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = EC2Tests/Info.plist;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				INFOPLIST_FILE = AWSEC2Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = AWSEC2Tests;
 			};

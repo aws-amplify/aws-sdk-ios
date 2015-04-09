@@ -1286,15 +1286,20 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
     }
 
     if ([NSJSONSerialization isValidJSONObject:serializedJsonObject] == NO) {
-        [self failWithCode:AWSJSONBuilderInvalidParameter description:[NSString stringWithFormat:@"serialized object is not a valid json Object: %@",serializedJsonObject] error:error];
-        return nil;
+        if ([serializedJsonObject isKindOfClass:[NSData class]]) {
+            return serializedJsonObject;
+        } else {
+            [self failWithCode:AWSJSONBuilderInvalidParameter description:[NSString stringWithFormat:@"serialized object is neither a valid json Object nor NSData object: %@",serializedJsonObject] error:error];
+            return nil;
+        }
+
+    } else {
+        NSData *bodyData = [NSJSONSerialization dataWithJSONObject:serializedJsonObject
+                                                           options:0
+                                                             error:error];
+        return bodyData;
     }
 
-    NSData *bodyData = [NSJSONSerialization dataWithJSONObject:serializedJsonObject
-                                                       options:0
-                                                         error:error];
-
-    return bodyData;
 
 }
 
@@ -1324,7 +1329,7 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
 
     AWSJSONDictionary *rules = [[AWSJSONDictionary alloc] initWithDictionary:actionRule JSONDefinitionRule:definitionRules];
 
-    NSDictionary *resultParams = [self serializeMember:rules value:params error:error];
+    id resultParams = [self serializeMember:rules value:params isPayloadType:NO error:error];
 
     return resultParams;
 
@@ -1339,9 +1344,15 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
         id value = values[key];
 
         AWSJSONDictionary *memberShape = structureRules[@"members"][key];
+
+        if (memberShape[@"location"]) {
+            //It should be another location rather than body, will be process at different place
+            continue;
+        }
+
         if (memberShape && value) {
             NSString *name = memberShape[@"locationName"]?memberShape[@"locationName"]:key;
-            data[name] = [self serializeMember:memberShape value:value error:error];
+            data[name] = [self serializeMember:memberShape value:value isPayloadType:NO error:error];
         }
 
     }
@@ -1354,7 +1365,7 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
 
     for (id value in values) {
 
-        [dataArray addObject:[self serializeMember:listRules[@"member"] value:value error:error]];
+        [dataArray addObject:[self serializeMember:listRules[@"member"] value:value isPayloadType:NO error:error]];
 
     }
 
@@ -1367,14 +1378,23 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
 
     for (NSString *key in values) {
         id value = values[key];
-        data[key] = [self serializeMember:mapRules[@"value"] value:value error:error];
+        data[key] = [self serializeMember:mapRules[@"value"] value:value isPayloadType:NO error:error];
     }
 
     return data;
-
 }
 
-+ (id)serializeMember:(NSDictionary *)shape value:(id)value error:(NSError *__autoreleasing *)error {
++ (id)serializeMember:(NSDictionary *)shape value:(id)value isPayloadType:(BOOL)isPayloadType error:(NSError *__autoreleasing *)error {
+    NSString *payloadMemberName = shape[@"payload"];
+    if (payloadMemberName) {
+        id payload = value[payloadMemberName];
+        if (payload) {
+            AWSJSONDictionary *structureMembersRule = shape[@"members"]?shape[@"members"]:@{};
+            AWSJSONDictionary *payloadMemberRules = structureMembersRule[payloadMemberName];
+
+            return [self serializeMember:payloadMemberRules value:payload isPayloadType:YES error:error];
+        }
+    }
 
     NSString *rulesType = shape[@"type"];
     if ([rulesType isEqualToString:@"structure"]) {
@@ -1442,8 +1462,13 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
             value = [value dataUsingEncoding:NSUTF8StringEncoding];
         }
         if ([value isKindOfClass:[NSData class]]) {
-            NSString *base64encodedStr = [value base64EncodedStringWithOptions:0];
-            return base64encodedStr?base64encodedStr:@"";
+            if (isPayloadType) {
+                //Do not base64 encoding if it is payload type
+                return value;
+            } else {
+                NSString *base64encodedStr = [value base64EncodedStringWithOptions:0];
+                return base64encodedStr?base64encodedStr:@"";
+            }
         } else {
             [self failWithCode:AWSJSONBuilderInvalidParameter description:@"'blob' value should be a NSData type." error:error];
             return @"";
@@ -1473,15 +1498,17 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
                              actionName:(NSString *)actionName
                   serviceDefinitionRule:(NSDictionary *)serviceDefinitionRule
                                   error:(NSError *__autoreleasing *)error {
-
     if (!data) {
         return [NSMutableDictionary new];
     }
 
-    NSDictionary *resultDic =  [NSJSONSerialization JSONObjectWithData:data
-                                                               options:0
+    // Amazon Lambda may return non-array/non-dictionary top level objects.
+    // They are valid JSON texts according to RFC 7159 and ECMA 404.
+    // (RFC 4627 was replaced with RFC 7159 in March 2014.)
+    // You need to pass NSJSONReadingAllowFragments here, otherwise, they may fail.
+    id result =  [NSJSONSerialization JSONObjectWithData:data
+                                                               options:NSJSONReadingAllowFragments
                                                                  error:error];
-
 
     NSDictionary *actionRule = [[[serviceDefinitionRule objectForKey:@"operations"] objectForKey:actionName] objectForKey:@"output"];
     if (actionRule == (id)[NSNull null]) {
@@ -1494,19 +1521,39 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
     }
     if ([definitionRules count] == 0) {
         AWSLogError(@"JSON definition File is empty or can not be found, will return un-serialized dictionary");
-        return resultDic;
+        return result;
     }
 
     //if the response is error message, just return
-    if ([resultDic objectForKey:@"__type"] || [resultDic aws_objectForCaseInsensitiveKey:@"message"]) {
-        return resultDic;
+    if ([result isKindOfClass:[NSDictionary class]] &&
+        ([result objectForKey:@"__type"] || [result aws_objectForCaseInsensitiveKey:@"message"])) {
+        return result;
     }
 
     AWSJSONDictionary *rules = [[AWSJSONDictionary alloc] initWithDictionary:actionRule JSONDefinitionRule:definitionRules];
 
-    NSDictionary *serializedDic = [self serializeMember:rules value:resultDic target:nil error:error];
+    //check if has payload tag.
+    NSString *isPayloadData = rules[@"payload"];
 
-    return serializedDic;
+    NSMutableDictionary *parsedData = [NSMutableDictionary new];
+
+    if (isPayloadData) {
+        //check if it is streaming type
+        if (rules[@"members"][isPayloadData][@"streaming"]) {
+            parsedData[isPayloadData] = data;
+            if (error) *error = nil;
+            return parsedData;
+        }
+
+        rules = rules[isPayloadData][@"members"];
+        parsedData[isPayloadData] = [self serializeMember:rules value:result target:nil error:error];
+
+    } else {
+        parsedData = [self serializeMember:rules value:result target:nil error:error];
+    }
+
+
+    return parsedData;
 }
 
 + (NSString *)findMemberName:(NSString*)locationName structureRules:(NSDictionary *)structureRules {
@@ -1644,13 +1691,9 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
             [self failWithCode:AWSJSONParserInvalidParameter description:@"blob value should be NSString type." error:error];
             return [NSData new];
         }
-        
     } else {
-        
         return value;
-        
     }
-    
 }
 
 @end

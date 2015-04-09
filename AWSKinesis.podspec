@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'AWSKinesis'
-  s.version      = '2.1.0'
+  s.version      = '2.1.1'
   s.summary      = 'Amazon Web Services SDK for iOS.'
 
   s.description  = 'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'
@@ -13,12 +13,12 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/aws/aws-sdk-ios.git',
                      :tag => s.version}
   s.requires_arc = true
-  s.dependency 'AWSCore', '2.1.0'
+  s.dependency 'AWSCore', '2.1.1'
   s.dependency 'Bolts', '~> 1.1.0'
   s.dependency 'Mantle', '~> 1.4'
   s.dependency 'TMCache', '~> 1.2.1'
   s.dependency 'FMDB', '~> 2.4'
 
-  s.source_files = 'Kinesis/*.{h,m}'
-  s.resources = ['Kinesis/Resources/*.json']
+  s.source_files = 'AWSKinesis/*.{h,m}'
+  s.resources = ['AWSKinesis/Resources/*.json']
 end
