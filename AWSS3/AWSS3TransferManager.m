@@ -700,6 +700,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 @end
 
 @implementation AWSS3TransferManagerUploadRequest
+@dynamic body;
 
 - (instancetype)init {
     if (self = [super init]) {
