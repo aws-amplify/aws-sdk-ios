@@ -191,11 +191,16 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         if ([value isEqualToString:@"AES256"]) {
             return @(AWSS3ServerSideEncryptionAES256);
         }
+        if ([value isEqualToString:@"aws:kms"]) {
+            return @(AWSS3ServerSideEncryptionKMS);
+        }
         return @(AWSS3ServerSideEncryptionUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSS3ServerSideEncryptionAES256:
                 return @"AES256";
+            case AWSS3ServerSideEncryptionKMS:
+                return @"aws:kms";
             case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
@@ -417,11 +422,16 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         if ([value isEqualToString:@"AES256"]) {
             return @(AWSS3ServerSideEncryptionAES256);
         }
+        if ([value isEqualToString:@"aws:kms"]) {
+            return @(AWSS3ServerSideEncryptionKMS);
+        }
         return @(AWSS3ServerSideEncryptionUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSS3ServerSideEncryptionAES256:
                 return @"AES256";
+            case AWSS3ServerSideEncryptionKMS:
+                return @"aws:kms";
             case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
@@ -514,11 +524,16 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         if ([value isEqualToString:@"AES256"]) {
             return @(AWSS3ServerSideEncryptionAES256);
         }
+        if ([value isEqualToString:@"aws:kms"]) {
+            return @(AWSS3ServerSideEncryptionKMS);
+        }
         return @(AWSS3ServerSideEncryptionUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSS3ServerSideEncryptionAES256:
                 return @"AES256";
+            case AWSS3ServerSideEncryptionKMS:
+                return @"aws:kms";
             case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
@@ -1224,11 +1239,16 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         if ([value isEqualToString:@"AES256"]) {
             return @(AWSS3ServerSideEncryptionAES256);
         }
+        if ([value isEqualToString:@"aws:kms"]) {
+            return @(AWSS3ServerSideEncryptionKMS);
+        }
         return @(AWSS3ServerSideEncryptionUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSS3ServerSideEncryptionAES256:
                 return @"AES256";
+            case AWSS3ServerSideEncryptionKMS:
+                return @"aws:kms";
             case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
@@ -1461,11 +1481,16 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         if ([value isEqualToString:@"AES256"]) {
             return @(AWSS3ServerSideEncryptionAES256);
         }
+        if ([value isEqualToString:@"aws:kms"]) {
+            return @(AWSS3ServerSideEncryptionKMS);
+        }
         return @(AWSS3ServerSideEncryptionUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSS3ServerSideEncryptionAES256:
                 return @"AES256";
+            case AWSS3ServerSideEncryptionKMS:
+                return @"aws:kms";
             case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
@@ -2444,11 +2469,16 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         if ([value isEqualToString:@"AES256"]) {
             return @(AWSS3ServerSideEncryptionAES256);
         }
+        if ([value isEqualToString:@"aws:kms"]) {
+            return @(AWSS3ServerSideEncryptionKMS);
+        }
         return @(AWSS3ServerSideEncryptionUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSS3ServerSideEncryptionAES256:
                 return @"AES256";
+            case AWSS3ServerSideEncryptionKMS:
+                return @"aws:kms";
             case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
@@ -2544,11 +2574,16 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         if ([value isEqualToString:@"AES256"]) {
             return @(AWSS3ServerSideEncryptionAES256);
         }
+        if ([value isEqualToString:@"aws:kms"]) {
+            return @(AWSS3ServerSideEncryptionKMS);
+        }
         return @(AWSS3ServerSideEncryptionUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSS3ServerSideEncryptionAES256:
                 return @"AES256";
+            case AWSS3ServerSideEncryptionKMS:
+                return @"aws:kms";
             case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
@@ -2737,11 +2772,16 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         if ([value isEqualToString:@"AES256"]) {
             return @(AWSS3ServerSideEncryptionAES256);
         }
+        if ([value isEqualToString:@"aws:kms"]) {
+            return @(AWSS3ServerSideEncryptionKMS);
+        }
         return @(AWSS3ServerSideEncryptionUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSS3ServerSideEncryptionAES256:
                 return @"AES256";
+            case AWSS3ServerSideEncryptionKMS:
+                return @"aws:kms";
             case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
@@ -2881,11 +2921,16 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         if ([value isEqualToString:@"AES256"]) {
             return @(AWSS3ServerSideEncryptionAES256);
         }
+        if ([value isEqualToString:@"aws:kms"]) {
+            return @(AWSS3ServerSideEncryptionKMS);
+        }
         return @(AWSS3ServerSideEncryptionUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSS3ServerSideEncryptionAES256:
                 return @"AES256";
+            case AWSS3ServerSideEncryptionKMS:
+                return @"aws:kms";
             case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
@@ -3263,11 +3308,16 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         if ([value isEqualToString:@"AES256"]) {
             return @(AWSS3ServerSideEncryptionAES256);
         }
+        if ([value isEqualToString:@"aws:kms"]) {
+            return @(AWSS3ServerSideEncryptionKMS);
+        }
         return @(AWSS3ServerSideEncryptionUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSS3ServerSideEncryptionAES256:
                 return @"AES256";
+            case AWSS3ServerSideEncryptionKMS:
+                return @"aws:kms";
             case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
@@ -3335,11 +3385,16 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         if ([value isEqualToString:@"AES256"]) {
             return @(AWSS3ServerSideEncryptionAES256);
         }
+        if ([value isEqualToString:@"aws:kms"]) {
+            return @(AWSS3ServerSideEncryptionKMS);
+        }
         return @(AWSS3ServerSideEncryptionUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSS3ServerSideEncryptionAES256:
                 return @"AES256";
+            case AWSS3ServerSideEncryptionKMS:
+                return @"aws:kms";
             case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;

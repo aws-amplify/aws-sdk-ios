@@ -155,6 +155,7 @@ typedef NS_ENUM(NSInteger, AWSS3Protocols) {
 typedef NS_ENUM(NSInteger, AWSS3ServerSideEncryption) {
     AWSS3ServerSideEncryptionUnknown,
     AWSS3ServerSideEncryptionAES256,
+    AWSS3ServerSideEncryptionKMS,
 };
 
 typedef NS_ENUM(NSInteger, AWSS3StorageClass) {
