@@ -292,7 +292,7 @@ When we release a new version of the SDK, you can pick up the changes as describ
 
 1. Make a call to the AWS services.
 
-		AWSS3TransferManager *transferManager = [AWSS3Transfermanager defaultS3TransferManager];
+		AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
 		AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
 	    uploadRequest.bucket = yourBucket;
 	    uploadRequest.key = yourKey;
