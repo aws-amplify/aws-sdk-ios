@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -48,6 +48,35 @@ static NSString *_verifiedEmailAddress = nil;
     // Put teardown code here; it will be run once, after the last test case.
     [super tearDown];
 }
+
+#if !AWS_TEST_BJS_INSTEAD
+- (void)testClockSkewSES {
+    [AWSTestUtility setupSwizzling];
+
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    [AWSTestUtility setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
+
+    AWSSES *ses = [AWSSES defaultSES];
+    XCTAssertNotNil(ses);
+
+    [[[ses getSendQuota:nil] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+
+        if (task.result) {
+            XCTAssertTrue([task.result isKindOfClass:[AWSSESGetSendQuotaResponse class]]);
+            AWSSESGetSendQuotaResponse *getSendQuotaResponse = task.result;
+            XCTAssertTrue(getSendQuotaResponse.max24HourSend > 0);
+            XCTAssertTrue(getSendQuotaResponse.maxSendRate > 0);
+        }
+
+        return nil;
+    }] waitUntilFinished];
+
+    [AWSTestUtility revertSwizzling];
+}
+#endif
 
 - (void)testGetSendQuota {
     AWSSES *ses = [AWSSES defaultSES];

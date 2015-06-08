@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -23,6 +23,8 @@ FOUNDATION_EXPORT NSString *const AWSDateShortDateFormat1;
 
 @interface NSDate (AWS)
 
++ (NSDate *)aws_clockSkewFixedDate;
+
 + (NSDate *)aws_dateFromString:(NSString *)string;
 + (NSDate *)aws_dateFromString:(NSString *)string format:(NSString *)dateFormat;
 - (NSString *)aws_stringValue:(NSString *)dateFormat;
@@ -41,8 +43,6 @@ FOUNDATION_EXPORT NSString *const AWSDateShortDateFormat1;
  * @return the skew (in seconds) currently set for this device.  Positive clock skew implies the device is fast, negative implies the device is slow.
  */
 + (NSTimeInterval)aws_getRuntimeClockSkew;
-
-+ (NSDate *)aws_getDateFromMessageBody:(NSString *)messageBody;
 
 @end
 
@@ -70,25 +70,28 @@ FOUNDATION_EXPORT NSString *const AWSDateShortDateFormat1;
 @interface NSObject (AWS)
 
 - (NSDictionary *)aws_properties;
-
 - (void)aws_copyPropertiesFromObject:(NSObject *)object;
-- (BOOL)aws_isDNSBucketName:(NSString *)theBucketName;
-- (BOOL)aws_isVirtualHostedStyleCompliant:(NSString *)theBucketName;
 
 @end
 
 @interface NSString (AWS)
 
++ (NSString *)aws_base64md5FromData:(NSData *)data;
 - (BOOL)aws_isBase64Data;
 - (NSString *)aws_stringWithURLEncoding;
 - (NSString *)aws_stringWithURLEncodingPath;
 - (NSString *)aws_stringWithURLEncodingPathWithoutPriorDecoding;
 - (NSString *)aws_md5String;
+- (NSString *)aws_md5StringLittleEndian;
+- (BOOL)aws_isVirtualHostedStyleCompliant;
 
 @end
 
-@interface NSURL (AWS)
+@interface NSFileManager (AWS)
 
-- (NSURL *)aws_URLByAppendingQuery:(NSDictionary *)query;
+- (BOOL)aws_atomicallyCopyItemAtURL:(NSURL *)sourceURL
+                              toURL:(NSURL *)destinationURL
+                     backupItemName:(NSString *)backupItemName
+                              error:(NSError **)outError;
 
 @end

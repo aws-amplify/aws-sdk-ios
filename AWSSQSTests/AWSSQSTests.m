@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -38,6 +38,33 @@
 {
     // Put teardown code here; it will be run once, after the last test case.
     [super tearDown];
+}
+
+-(void)testClockSkewSQS {
+    [AWSTestUtility setupSwizzling];
+
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    [AWSTestUtility setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
+
+    AWSSQS *sqs = [AWSSQS defaultSQS];
+    XCTAssertNotNil(sqs);
+
+    AWSSQSListQueuesRequest *listQueuesRequest = [AWSSQSListQueuesRequest new];
+    [[[sqs listQueues:listQueuesRequest] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+
+        if (task.result) {
+            AWSSQSListQueuesResult *listQueuesResult = task.result;
+            AWSLogDebug(@"[%@]", listQueuesResult);
+            XCTAssertNotNil(listQueuesResult.queueUrls);
+        }
+
+        return nil;
+    }] waitUntilFinished];
+
+    [AWSTestUtility revertSwizzling];
 }
 
 - (void)testListQueuesRequest {

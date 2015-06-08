@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -88,6 +88,162 @@ static NSString *testStreamName = nil;
     deleteStreamInput.streamName = testStreamName;
 
     return [kinesis deleteStream:deleteStreamInput];
+}
+
+- (void)testConstructors {
+    @try {
+        AWSKinesisRecorder *kinesisRecorder = [AWSKinesisRecorder new];
+        XCTFail(@"Expected an exception to be thrown. %@", kinesisRecorder);
+    }
+    @catch (NSException *exception) {
+        XCTAssertEqualObjects(exception.name, NSInternalInconsistencyException);
+    }
+
+    XCTAssertNil([AWSKinesisRecorder KinesisRecorderForKey:@"AWSKinesisRecorderTests.testConstructors"]);
+    AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                                credentialsProvider:nil];
+    [AWSKinesisRecorder registerKinesisRecorderWithConfiguration:serviceConfiguration
+                                                          forKey:@"AWSKinesisRecorderTests.testConstructors"];
+    AWSKinesisRecorder *kinesisRecorder = [AWSKinesisRecorder KinesisRecorderForKey:@"AWSKinesisRecorderTests.testConstructors"];
+    XCTAssertNotNil(kinesisRecorder);
+    XCTAssertEqual([kinesisRecorder class], [AWSKinesisRecorder class]);
+    [AWSKinesisRecorder removeKinesisRecorderForKey:@"AWSKinesisRecorderTests.testConstructors"];
+    XCTAssertNil([AWSKinesisRecorder KinesisRecorderForKey:@"AWSKinesisRecorderTests.testConstructors"]);
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    kinesisRecorder = [[AWSKinesisRecorder alloc] initWithConfiguration:serviceConfiguration
+                                                             identifier:@"Some random string"];
+#pragma clang diagnostic pop
+
+    XCTAssertNotNil(kinesisRecorder);
+    XCTAssertEqual([kinesisRecorder class], [AWSKinesisRecorder class]);
+}
+
+- (void)testSaveLargeData {
+    NSMutableString *mutableString = [NSMutableString new];
+    for (int i = 0; i < 5100; i++) {
+        [mutableString appendString:@"0123456789"];
+    }
+    NSData *data = [mutableString dataUsingEncoding:NSUTF8StringEncoding];
+    XCTAssertGreaterThan([data length], 50 * 1024 - 256);
+    AWSKinesisRecorder *kinesisRecorder = [AWSKinesisRecorder defaultKinesisRecorder];
+    [[[kinesisRecorder saveRecord:data
+                     streamName:@"testSaveLargeData"] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.result);
+        XCTAssertNil(task.exception);
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(task.error.domain, AWSKinesisRecorderErrorDomain);
+        XCTAssertEqual(task.error.code, AWSKinesisRecorderErrorDataTooLarge);
+        return [kinesisRecorder removeAllRecords];
+    }] waitUntilFinished];
+}
+
+- (void)testRemoveAllRecords {
+    NSMutableString *mutableString = [NSMutableString new];
+    for (int i = 0; i < 5000; i++) {
+        [mutableString appendString:@"0123456789"];
+    }
+    NSData *data = [mutableString dataUsingEncoding:NSUTF8StringEncoding];
+    XCTAssertLessThan([data length], 50 * 1024 - 256);
+    AWSKinesisRecorder *kinesisRecorder = [AWSKinesisRecorder defaultKinesisRecorder];
+
+    BFTask *task = [BFTask taskWithResult:nil];
+    for (int i = 0; i < 10; i++) {
+        task = [task continueWithBlock:^id(BFTask *task) {
+            return [kinesisRecorder saveRecord:data
+                                    streamName:@"testRemoveAllRecords"];
+        }];
+    }
+
+    [[[task continueWithBlock:^id(BFTask *task) {
+        XCTAssertGreaterThan(kinesisRecorder.diskBytesUsed, 500000);
+        return [kinesisRecorder removeAllRecords];
+    }] continueWithBlock:^id(BFTask *task) {
+        XCTAssertLessThan(kinesisRecorder.diskBytesUsed, 13000);
+        return nil;
+    }] waitUntilFinished];
+}
+
+- (void)testDiskByteLimit {
+    __block BOOL byteThresholdReached = NO;
+    [[NSNotificationCenter defaultCenter] addObserverForName:AWSKinesisRecorderByteThresholdReachedNotification
+                                                      object:nil
+                                                       queue:nil
+                                                  usingBlock:^(NSNotification *note) {
+                                                      byteThresholdReached = YES;
+                                                      NSNumber *diskByteUsed = note.userInfo[AWSKinesisRecorderByteThresholdReachedNotificationDiskBytesUsedKey];
+                                                      XCTAssertGreaterThan([diskByteUsed integerValue], 500 * 1024);
+                                                      XCTAssertLessThan([diskByteUsed integerValue], 1.2 * 1024 * 1024);
+                                                  }];
+    NSMutableString *mutableString = [NSMutableString new];
+    for (int i = 0; i < 5000; i++) {
+        [mutableString appendString:@"0123456789"];
+    }
+    NSData *data = [mutableString dataUsingEncoding:NSUTF8StringEncoding];
+    XCTAssertLessThan([data length], 50 * 1024 - 256);
+
+    AWSKinesisRecorder *kinesisRecorder = [AWSKinesisRecorder defaultKinesisRecorder];
+    kinesisRecorder.diskByteLimit = 1 * 1024 * 1024; // 1MB
+    kinesisRecorder.notificationByteThreshold = 500 * 1024; // 500KB
+
+    BFTask *task = [BFTask taskWithResult:nil];
+    for (int i = 0; i < 200; i++) { // About 10 MB data
+        task = [task continueWithBlock:^id(BFTask *task) {
+            return [kinesisRecorder saveRecord:data
+                                    streamName:[NSString stringWithFormat:@"%d", i]];
+        }];
+    }
+
+    [[[task continueWithBlock:^id(BFTask *task) {
+        XCTAssertLessThan(kinesisRecorder.diskBytesUsed, 1.2 * 1024 * 1024); // Less than 1.2MB
+        return [kinesisRecorder removeAllRecords];
+    }] continueWithBlock:^id(BFTask *task) {
+        XCTAssertLessThan(kinesisRecorder.diskBytesUsed, 13000);
+        return nil;
+    }] waitUntilFinished];
+
+    XCTAssertTrue(byteThresholdReached);
+
+    kinesisRecorder.diskByteLimit = 5 * 1024 * 1024;
+    kinesisRecorder.notificationByteThreshold = 0;
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:AWSKinesisRecorderByteThresholdReachedNotification
+                                                  object:nil];
+}
+
+- (void)testDiskAgeLimit {
+    NSMutableString *mutableString = [NSMutableString new];
+    for (int i = 0; i < 5000; i++) {
+        [mutableString appendString:@"0123456789"];
+    }
+    NSData *data = [mutableString dataUsingEncoding:NSUTF8StringEncoding];
+    XCTAssertLessThan([data length], 50 * 1024 - 256);
+
+    AWSKinesisRecorder *kinesisRecorder = [AWSKinesisRecorder defaultKinesisRecorder];
+    kinesisRecorder.diskAgeLimit = 1;
+
+    BFTask *task = [BFTask taskWithResult:nil];
+    for (int i = 0; i < 10; i++) { // About 500KB data
+        task = [task continueWithBlock:^id(BFTask *task) {
+            if (i == 9) {
+                sleep(1);
+            }
+            return [kinesisRecorder saveRecord:data
+                                    streamName:[NSString stringWithFormat:@"%d", i]];
+        }];
+    }
+
+    [[[task continueWithBlock:^id(BFTask *task) {
+        XCTAssertLessThan(kinesisRecorder.diskBytesUsed, 62000);
+        return [kinesisRecorder removeAllRecords];
+    }] continueWithBlock:^id(BFTask *task) {
+        XCTAssertLessThan(kinesisRecorder.diskBytesUsed, 13000);
+        return nil;
+    }] waitUntilFinished];
+
+    kinesisRecorder.diskAgeLimit = 0.0;
 }
 
 - (void)testAll {

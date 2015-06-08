@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -42,6 +42,171 @@
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
+}
+
+
+
+- (void)test_clientID_persistence {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];
+    NSString *testAppId = [NSString stringWithFormat:@"appId-%@-%lld", NSStringFromSelector(_cmd), (int64_t)timeIntervalSinceReferenceDate];
+    
+    NSURL* possibleCachesURL = [[fileManager URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask] objectAtIndex:0];
+    XCTAssertNotNil(possibleCachesURL);
+    NSString *mobileAnalyticsCachesPath = [[possibleCachesURL path] stringByAppendingPathComponent:@"mobile-analytics"];
+    NSString *appIDCachesPath = [mobileAnalyticsCachesPath stringByAppendingPathComponent:testAppId];
+    NSString *prefCachesPath = [appIDCachesPath stringByAppendingPathComponent:@"preferences"];
+    NSString *eventsFileCachesPath = [[appIDCachesPath stringByAppendingPathComponent:@"events"] stringByAppendingPathComponent:@"eventsFile"];
+    
+    NSURL* possibleAppSupportURL = [[fileManager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] objectAtIndex:0];
+    XCTAssertNotNil(possibleAppSupportURL);
+    NSString *mobileAnalyticsAppSupportPath = [[possibleAppSupportURL path] stringByAppendingPathComponent:@"com.amazonaws.MobileAnalytics"];
+    NSString *appIDAppSupportPath = [mobileAnalyticsAppSupportPath stringByAppendingPathComponent:testAppId];
+    NSString *prefAppSupportPath = [appIDAppSupportPath stringByAppendingPathComponent:@"preferences"];
+    NSString *eventsFileAppSupportPath = [[appIDAppSupportPath stringByAppendingPathComponent:@"events"] stringByAppendingPathComponent:@"eventsFile"];
+    
+    
+    
+    //clean up testing folders
+    //Remove "mobile-analytics" under NSCachesDirectory if exists
+    [[NSFileManager defaultManager] removeItemAtPath:mobileAnalyticsCachesPath error:nil];
+    //Remove "com.amazonaws.MobileAnalytics" under NSApplicationSupportDirectory if exists
+    [[NSFileManager defaultManager] removeItemAtPath:mobileAnalyticsAppSupportPath error:nil];
+    
+
+    //Brand new installation of an App integrated with this RC should put both event cache and client id pref in the “NSApplicationSupportDirectory”, NOT “NSCachesDirectory”.
+    XCTAssertNotNil([AWSMobileAnalytics mobileAnalyticsForAppId:testAppId]);
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
+    
+    XCTAssertTrue([fileManager fileExistsAtPath:appIDAppSupportPath]);
+    XCTAssertTrue([fileManager fileExistsAtPath:prefAppSupportPath]);
+    XCTAssertTrue([fileManager fileExistsAtPath:eventsFileAppSupportPath]);
+    
+    XCTAssertFalse([fileManager fileExistsAtPath:appIDCachesPath]);
+    XCTAssertFalse([fileManager fileExistsAtPath:prefCachesPath]);
+    XCTAssertFalse([fileManager fileExistsAtPath:eventsFileCachesPath]);
+    
+    
+    /* Before upgrade, initialize with the old SDK, verify the event cache and client id both exist under “NSCachesDirectory” and 
+     * mark the contents down for future comparison and make sure there are NOT any left-over “NSApplicationSupportDirectory" from 
+     * previous tests to cause false positives.
+     */
+    
+    //Mock Init with old SDK
+    NSError *error = nil;
+    XCTAssertTrue([fileManager createDirectoryAtPath:mobileAnalyticsCachesPath withIntermediateDirectories:YES attributes:nil error:&error]);
+    XCTAssertNil(error);
+    bool result = [fileManager replaceItemAtURL:[NSURL fileURLWithPath:appIDCachesPath]
+                                  withItemAtURL:[NSURL fileURLWithPath:appIDAppSupportPath]
+                                 backupItemName:nil
+                                        options:NSFileManagerItemReplacementUsingNewMetadataOnly
+                               resultingItemURL:nil
+                                          error:&error];
+    if ( NO == result) {
+        XCTFail(@" replaceItem failed: %@",error);
+    }
+    XCTAssertFalse([fileManager fileExistsAtPath:appIDAppSupportPath]);
+    XCTAssertFalse([fileManager fileExistsAtPath:prefAppSupportPath]);
+    XCTAssertFalse([fileManager fileExistsAtPath:eventsFileAppSupportPath]);
+    
+    XCTAssertTrue([fileManager fileExistsAtPath:appIDCachesPath]);
+    XCTAssertTrue([fileManager fileExistsAtPath:prefCachesPath]);
+    XCTAssertTrue([fileManager fileExistsAtPath:eventsFileCachesPath]);
+    
+    NSData *preferencesData = [NSData dataWithContentsOfFile:prefCachesPath];
+    XCTAssertNotNil(preferencesData);
+    NSData *eventsFileData = [NSData dataWithContentsOfFile:eventsFileCachesPath];
+    XCTAssertNotNil(eventsFileData);
+    
+    /* After upgrade, initialize with the RC, verify the event cache only exists under “NSApplicationSupportDirectory” but 
+     * NOT under “NSCachesDirectory” while client id exists under both “NSApplicationSupportDirectory” and “NSCachesDirectory”.
+     */
+    [[AWSMobileAnalytics class] performSelector:@selector(removeCachedInstances)];
+    XCTAssertNotNil([AWSMobileAnalytics mobileAnalyticsForAppId:testAppId]);
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
+    
+    XCTAssertTrue([fileManager fileExistsAtPath:appIDAppSupportPath]);
+    XCTAssertTrue([fileManager fileExistsAtPath:prefAppSupportPath]);
+    XCTAssertTrue([fileManager fileExistsAtPath:eventsFileAppSupportPath]);
+    
+    XCTAssertTrue([fileManager fileExistsAtPath:appIDCachesPath]);
+    XCTAssertTrue([fileManager fileExistsAtPath:prefCachesPath]);
+    XCTAssertFalse([fileManager fileExistsAtPath:eventsFileCachesPath]);
+    
+    // Verify the the contents you saved in step 1 matches with the contents you read out from “NSApplicationSupportDirectory”.
+    XCTAssertEqualObjects(preferencesData, [NSData dataWithContentsOfFile:prefAppSupportPath]);
+    
+    /* Delete the client id from “NSApplicationSupportDirectory” but keep the event cache there (simulating the migration failed half way but some event cache was still moved), the RC should copy the client id over again from the “NSCachesDirectory”.
+     */
+    error = nil;
+    XCTAssertTrue([fileManager removeItemAtPath:prefAppSupportPath error:&error]);
+    XCTAssertNil(error);
+    XCTAssertFalse([fileManager fileExistsAtPath:prefAppSupportPath]);
+    
+    [[AWSMobileAnalytics class] performSelector:@selector(removeCachedInstances)];
+    XCTAssertNotNil([AWSMobileAnalytics mobileAnalyticsForAppId:testAppId]);
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
+    XCTAssertEqualObjects(preferencesData, [NSData dataWithContentsOfFile:prefAppSupportPath]);
+    
+    /* Modify the client id saved in “NSCachesDirectory” to some bogus id, make sure the RC won’t read from there first. In other words, any request sent should be with the id saved in “NSApplicationSupportDirectory” NOT in “NSCachesDirectory” 
+     */
+    error = nil;
+    NSMutableDictionary *prefDic = [NSJSONSerialization JSONObjectWithData:preferencesData
+                                                                   options:NSJSONReadingMutableContainers error:&error];
+    XCTAssertNil(error);
+    NSString *correctClientID = prefDic[@"UniqueId"];
+    XCTAssertNotNil(correctClientID);
+    NSString *bogusClientID = @"bogus-id";
+    
+    prefDic[@"UniqueId"] = bogusClientID;
+    error = nil;
+    NSData *bogusPreferencesData = [NSJSONSerialization dataWithJSONObject:prefDic options:kNilOptions error:&error];
+    XCTAssertNotNil(bogusPreferencesData);
+    XCTAssertNil(error);
+    
+    XCTAssertTrue([bogusPreferencesData writeToFile:prefCachesPath atomically:YES]);
+    [[AWSMobileAnalytics class] performSelector:@selector(removeCachedInstances)];
+    AWSMobileAnalytics* analyticsObj = [AWSMobileAnalytics mobileAnalyticsForAppId:testAppId];
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
+    XCTAssertNotNil(analyticsObj);
+    NSString *analyticsUniqueId = [[analyticsObj valueForKey:@"mobileAnalyticsContext"] valueForKey:@"uniqueId"];
+    XCTAssertNotNil(analyticsUniqueId);
+    XCTAssertEqualObjects(correctClientID, analyticsUniqueId);
+    
+    /* Upgrade on top of the app integrated with this RC (pretending we have RC2 goes out), make sure event cache and client id (including its contents) under “NSApplicationSupportDirectory” are persisted and client id under “NSCachesDirectory” is also persisted.
+     */
+    [[AWSMobileAnalytics class] performSelector:@selector(removeCachedInstances)];
+    [AWSMobileAnalytics mobileAnalyticsForAppId:testAppId];
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
+    XCTAssertEqualObjects(preferencesData, [NSData dataWithContentsOfFile:prefAppSupportPath]);
+    XCTAssertEqualObjects(bogusPreferencesData, [NSData dataWithContentsOfFile:prefCachesPath]);
+    
+    /* If user uninstalls the app integrated with this RC and reinstall either the old app integrated with old SDK and the app integrated with this RC again, a new client id will be created under “NSCachesDirectory”and “NSApplicationSupportDirectory” respectively.
+     */
+    
+    error = nil;
+    XCTAssert([[NSFileManager defaultManager] removeItemAtPath:mobileAnalyticsCachesPath error:&error]);
+    XCTAssertNil(error);
+    error = nil;
+    XCTAssert([[NSFileManager defaultManager] removeItemAtPath:mobileAnalyticsAppSupportPath error:&error]);
+    
+    [[AWSMobileAnalytics class] performSelector:@selector(removeCachedInstances)];
+    AWSMobileAnalytics* analyticsObj2 = [AWSMobileAnalytics mobileAnalyticsForAppId:testAppId];
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
+    XCTAssertNotNil(analyticsObj2);
+    NSString *analyticsUniqueId2 = [[analyticsObj2 valueForKey:@"mobileAnalyticsContext"] valueForKey:@"uniqueId"];
+    XCTAssertNotNil(analyticsUniqueId2);
+    XCTAssertNotEqualObjects(correctClientID, analyticsUniqueId2);
+    
+    //clean up
+    [[NSFileManager defaultManager] removeItemAtPath:mobileAnalyticsCachesPath error:nil];
+    [[NSFileManager defaultManager] removeItemAtPath:mobileAnalyticsAppSupportPath error:nil];
+    
+#pragma clang diagnostic pop
 }
 
 - (void)test_createMobileAnalyticsInstance {

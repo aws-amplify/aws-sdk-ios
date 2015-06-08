@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -174,6 +174,32 @@ static NSString *table2Name = nil;
 }
 
 #pragma mark - Tests
+
+- (void)testClockSkewDynamoDB {
+    [AWSTestUtility setupSwizzling];
+
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    [AWSTestUtility setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
+
+    AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
+    XCTAssertNotNil(dynamoDB);
+
+    AWSDynamoDBListTablesInput *listTablesInput = [AWSDynamoDBListTablesInput new];
+
+    [[[dynamoDB listTables:listTablesInput
+       ] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"The request failed. error: [%@]", task.error);
+        } else {
+            AWSDynamoDBListTablesOutput *listTableOutput = task.result;
+            XCTAssertNotNil(listTableOutput, @"AWSDynamoDBListTablesOutput should not be nil");
+        }
+
+        return nil;
+    }] waitUntilFinished];
+
+    [AWSTestUtility revertSwizzling];
+}
 
 - (void)testDescribeTable {
     AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];

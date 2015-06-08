@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -48,6 +48,8 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
 
 @interface AWSS3TransferManagerDownloadRequest ()
 
+@property (nonatomic, strong) NSURL *temporaryFileURL;
+@property (nonatomic, strong) NSURL *originalFileURL;
 @property (nonatomic, assign) AWSS3TransferManagerRequestState state;
 @property (nonatomic, strong) NSString *cacheIdentifier;
 
@@ -490,14 +492,21 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             }
 
             downloadRequest.downloadingFileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:generatedfileName]];
-        } else {
-            //if file already existed, remove it to avoid received data has been appended to exist file.
-            [[NSFileManager defaultManager] removeItemAtURL:downloadRequest.downloadingFileURL error:nil];
         }
+        
+        //create a tempFileURL
+        NSString *tempFileName = [[downloadRequest.downloadingFileURL lastPathComponent] stringByAppendingString:cacheKey];
+        NSURL *tempFileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:tempFileName]];
+        
+        //save current downloadFileURL
+        downloadRequest.originalFileURL = downloadRequest.downloadingFileURL;
 
+        
+        //save the tempFileURL
+        downloadRequest.temporaryFileURL = tempFileURL;
     } else {
         //if the is a paused task, set the range
-        NSURL *tempFileURL = downloadRequest.downloadingFileURL;
+        NSURL *tempFileURL = downloadRequest.temporaryFileURL;
         if (tempFileURL) {
             if ([[NSFileManager defaultManager] fileExistsAtPath:tempFileURL.path] == NO) {
                 AWSLogError(@"tempfile is not exist, unable to resume");
@@ -539,6 +548,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     AWSS3GetObjectRequest *getObjectRequest = [AWSS3GetObjectRequest new];
     [getObjectRequest aws_copyPropertiesFromObject:downloadRequest];
 
+    //set the downloadURL to use this tempURL instead.
+    getObjectRequest.downloadingFileURL = downloadRequest.temporaryFileURL;
+    
     __weak AWSS3TransferManager *weakSelf = self;
 
     BFTask *downloadTask = [[[weakSelf.s3 getObject:getObjectRequest] continueWithBlock:^id(BFTask *task) {
@@ -547,16 +559,42 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         if (downloadRequest.state != AWSS3TransferManagerRequestStatePaused) {
             [weakSelf.cache removeObjectForKey:cacheKey];
         }
-
+        
+        NSURL *tempFileURL = downloadRequest.temporaryFileURL;
+        NSURL *originalFileURL = downloadRequest.originalFileURL;
+        
         if (task.error) {
-
+            //download got error, check if tempFile has been created.
+            if ([[NSFileManager defaultManager] fileExistsAtPath:tempFileURL.path]) {
+                AWSLogDebug(@"tempFile has not been created yet.");
+            }
+            
             return [BFTask taskWithError:task.error];
         }
-
+        
+        //If task complete without error, move the completed file to originalFileURL
+        if (tempFileURL && originalFileURL) {
+            NSError *error = nil;
+            //delete the orginalFileURL if it already exists
+            if ([[NSFileManager defaultManager] fileExistsAtPath:originalFileURL.path]) {
+                [[NSFileManager defaultManager] removeItemAtPath:originalFileURL.path error:nil];
+            }
+            [[NSFileManager defaultManager] moveItemAtURL:tempFileURL
+                                                    toURL:originalFileURL
+                                                    error:&error];
+            if (error) {
+                //got error when try to move completed file.
+                return [BFTask taskWithError:error];
+            }
+        }
+        
         AWSS3TransferManagerDownloadOutput *downloadOutput = [AWSS3TransferManagerDownloadOutput new];
         if (task.result) {
             AWSS3GetObjectOutput *getObjectOutput = task.result;
-
+            
+            //set the body to originalFileURL
+            getObjectOutput.body = downloadRequest.originalFileURL;
+            
             [downloadOutput aws_copyPropertiesFromObject:getObjectOutput];
         }
         
@@ -700,6 +738,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 @end
 
 @implementation AWSS3TransferManagerUploadRequest
+@dynamic body;
 
 - (instancetype)init {
     if (self = [super init]) {

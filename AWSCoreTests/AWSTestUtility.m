@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -15,6 +15,8 @@
 
 #import "AWSTestUtility.h"
 #import "AWSCore.h"
+
+@import ObjectiveC.runtime;
 
 NSString *const AWSTestUtilitySTSKey = @"test-sts";
 NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
@@ -159,6 +161,40 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
     [[AWSServiceManager defaultServiceManager] setDefaultServiceConfiguration:configuration];
     
     
+}
+
+Method _originalDateMethod;
+Method _mockDateMethod;
+static char mockDateKey;
+
+// Mock Method, replaces [NSDate date]
+- (NSDate *)mockDateSwizzle {
+    return objc_getAssociatedObject([NSDate class], &mockDateKey);
+}
+
+// Convenience method so tests can set want they want [NSDate date] to return
++ (void)setMockDate:(NSDate *)aMockDate {
+    objc_setAssociatedObject([NSDate class], &mockDateKey, aMockDate, OBJC_ASSOCIATION_RETAIN);
+}
+
++ (void)setupSwizzling {
+    // Start by having the mock return the test startup date
+    [self setMockDate:[NSDate date]];
+
+    // Save these as instance variables so test teardown can swap the implementation back
+    _originalDateMethod = class_getClassMethod([NSDate class], @selector(date));
+    _mockDateMethod = class_getInstanceMethod([self class], @selector(mockDateSwizzle));
+    method_exchangeImplementations(_originalDateMethod, _mockDateMethod);
+
+    //make sure current runTimeClockSkew is 0
+    [NSDate aws_setRuntimeClockSkew:0];
+}
+
++ (void)revertSwizzling {
+    // Revert the swizzle
+    method_exchangeImplementations(_mockDateMethod, _originalDateMethod);
+    //reset RunTimeClockSkew
+    [NSDate aws_setRuntimeClockSkew:0];
 }
 
 @end

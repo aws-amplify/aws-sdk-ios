@@ -1,5 +1,14 @@
 # AWSiOSSDKv2 CHANGELOG
 
+## 2.1.2
+
+### Resolved Issues
+* **SDK Core** - Fixed an issue where the SDK does not return any response under certain situations.
+* **Amazon Mobile Analytics** - Resolved an issue where `client_id` may be inadvertently changed.
+* **Amazon S3**
+    * Resolved an issue where the SDK cannot remove multiple objects.
+    * Addressed an issue where concurrently downloading the same object to the same `filePath` may corrupt the data.
+
 ## 2.1.1
 
 ### New Features

@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -37,7 +37,7 @@
 - (void)testPredict {
     AWSMachineLearning *MachineLearning = [AWSMachineLearning defaultMachineLearning];
 
-    NSString *MLModelId = @"ml-tNMFTElCtzH";
+    NSString *MLModelId = @"ml-UJdLGgO6l44";
 
     AWSMachineLearningGetMLModelInput *getMLModelInput = [AWSMachineLearningGetMLModelInput new];
     getMLModelInput.MLModelId = MLModelId;

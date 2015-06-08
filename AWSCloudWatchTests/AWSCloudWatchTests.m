@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -38,6 +38,33 @@
     [super tearDown];
 }
 
+//CloudWatch Test
+- (void)testClockSkewCW {
+    [AWSTestUtility setupSwizzling];
+
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    [AWSTestUtility setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
+
+    AWSCloudWatch *cloudWatch = [AWSCloudWatch defaultCloudWatch];
+    XCTAssertNotNil(cloudWatch);
+
+    [[[cloudWatch listMetrics:nil] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+
+        if (task.result) {
+            XCTAssertTrue([task.result isKindOfClass:[AWSCloudWatchListMetricsOutput class]]);
+            AWSCloudWatchListMetricsOutput *listMetricsOutput = task.result;
+            XCTAssertNotNil(listMetricsOutput.metrics);
+        }
+
+        return nil;
+    }] waitUntilFinished];
+
+    [AWSTestUtility revertSwizzling];
+}
+
 - (void)testListMetrics {
     AWSCloudWatch *cloudWatch = [AWSCloudWatch defaultCloudWatch];
 
@@ -52,6 +79,24 @@
             XCTAssertNotNil(listMetricsOutput.metrics);
         }
 
+        return nil;
+    }] waitUntilFinished];
+}
+
+- (void)testDescribeAlarmHistory {
+    AWSCloudWatch *cloudWatch = [AWSCloudWatch defaultCloudWatch];
+    
+    AWSCloudWatchDescribeAlarmHistoryInput *input = [AWSCloudWatchDescribeAlarmHistoryInput new];
+    input.endDate = [NSDate date];
+    
+    [[[cloudWatch describeAlarmHistory:input] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error);
+        
+        AWSCloudWatchDescribeAlarmHistoryOutput *output = task.result;
+        XCTAssertTrue([output isKindOfClass:[AWSCloudWatchDescribeAlarmHistoryOutput class]]);
+        NSArray *items = output.alarmHistoryItems;
+        XCTAssertTrue(items.count > 0);
+        
         return nil;
     }] waitUntilFinished];
 }

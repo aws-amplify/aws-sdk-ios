@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -19,6 +19,10 @@
 #import "AWSMobileAnalyticsIOSSystem.h"
 #import "AWSMobileAnalyticsIOSLifeCycleManager.h"
 #import "AWSLogging.h"
+#import "AWSCategory.h"
+#import "AWSMobileAnalyticsIOSPreferences.h"
+
+static NSString* const UNIQUE_ID_KEY = @"UniqueId";
 
 @implementation AWSMobileAnalyticsIOSSystem
 
@@ -68,6 +72,18 @@
                 AWSLogError( @"Failed to create data directory for path %@", absolutePath);
             }
         }
+        
+        //-----------------------Start Migration ----------------------------------------
+        NSString *cachesClientId = nil;
+        BOOL migration_result = [self migrateMobileAnalyticsDataWithIdentifier:theIdentifier
+                                                            insightsPrivateKey:insightsPrivateKey
+                                                                  absolutePath:absolutePath
+                                                                  withRootFile:rootDirectory
+                                                             cachesClientIDRef:&cachesClientId];
+        if ( NO == migration_result) {
+            AWSLogError(@"AMA Migration Failed");
+        }
+        //----------------------End Migration --------------------------------------------
 
         if([rootDirectory exists])
         {
@@ -80,6 +96,11 @@
 
             self.preferences = [AWSMobileAnalyticsIOSPreferences preferencesWithFileManager:self.fileManager
                                                                          insightsPrivateKey:insightsPrivateKey];
+            
+            //Part of Migration, set the clientID read from Caches Directory
+            if (cachesClientId) {
+                [self.preferences putString:cachesClientId forKey:UNIQUE_ID_KEY];
+            }
         }
         else
         {
@@ -89,10 +110,114 @@
     }
     return self;
 }
+- (BOOL)migrateMobileAnalyticsDataWithIdentifier:(NSString *)theIdentifier
+                              insightsPrivateKey:(NSString *)insightsPrivateKey
+                                    absolutePath:(NSString *)absolutePath
+                                    withRootFile:(AWSMobileAnalyticsFile *)rootDirectory
+                               cachesClientIDRef:(NSString **)cachesClientIDRef {
+    
+    NSFileManager *internalFileManager = [NSFileManager defaultManager];
+    
+    // Check if client_id can be retrieved from ApplicationSupport/com.amazonaws.MobileAnalytics/AppId/preferences
+    AWSMobileAnalyticsDefaultFileManager *appSupportDirAMAFileManager = [[AWSMobileAnalyticsDefaultFileManager alloc] initWithFileManager: internalFileManager
+                                                                                                                             withRootFile: rootDirectory];
+    AWSMobileAnalyticsIOSPreferences *pref = [AWSMobileAnalyticsIOSPreferences preferencesWithFileManager:appSupportDirAMAFileManager
+                                                                                       insightsPrivateKey:insightsPrivateKey];
+    
+    if ([[pref stringForKey:UNIQUE_ID_KEY withOptValue:nil] length] == 0) {
+        
+        NSURL *cachesDirectoryURL = [[internalFileManager URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask] firstObject];
+        NSString *cachesRootPath = [cachesDirectoryURL path];
+        
+        
+        // Check if Caches/mobile-analytics/AppId directory exists.
+        NSString *cachesDirAbsolutePath = [[cachesRootPath stringByAppendingPathComponent:@"mobile-analytics"] stringByAppendingPathComponent:theIdentifier];
+        if ([internalFileManager fileExistsAtPath: cachesDirAbsolutePath]) {
+            return [self performMigrateMobileAnalyticsDataWithInsightsPrivateKey:insightsPrivateKey
+                                                                    absolutePath:absolutePath
+                                                               cachesClientIDRef:cachesClientIDRef
+                                                     cachesDirectoryAbsolutePath:cachesDirAbsolutePath];
+        }
+        
+    }
+    return YES;
+}
+
+- (BOOL)performMigrateMobileAnalyticsDataWithInsightsPrivateKey:(NSString *)insightsPrivateKey
+                                                   absolutePath:(NSString *)absolutePath
+                                              cachesClientIDRef:(NSString **)cachesClientIDRef
+                                    cachesDirectoryAbsolutePath:(NSString *)cachesDirAbsolutePath{
+    
+    NSFileManager *internalFileManager = [NSFileManager defaultManager];
+    // Copy AWSPreferencesFilename file from Caches/mobile-analytics/AppId/preferences to ApplicationSupport/com.amazonaws.MobileAnalytics/AppId/preferences
+    NSError *prefError = nil;
+    NSString *cachesPrefPath = [cachesDirAbsolutePath stringByAppendingPathComponent:AWSPreferencesFilename];
+    NSString *appSupportPrefPath = [absolutePath stringByAppendingPathComponent:AWSPreferencesFilename];
+    BOOL prefCopySucceeded = [internalFileManager aws_atomicallyCopyItemAtURL:[NSURL fileURLWithPath:cachesPrefPath]
+                                                                        toURL:[NSURL fileURLWithPath:appSupportPrefPath]
+                                                               backupItemName:@"com.amazonaws.MobileAnalytics.backUpItem"
+                                                                        error:&prefError];
+    if ( NO == prefCopySucceeded) {
+        AWSLogError(@"[Migration] Failed to copy preferences file. error:%@",prefError);
+        
+        if ( NO == [self readClientIDFromCachesDirectoryWithInsightsPrivateKey:insightsPrivateKey
+                                                             cachesClientIDRef:cachesClientIDRef
+                                                   cachesDirectoryAbsolutePath:cachesDirAbsolutePath]) {
+            return NO;
+        }
+        
+        
+    }
+    
+    NSString *cachesEventsPath = [cachesDirAbsolutePath stringByAppendingPathComponent:@"events"];
+    NSString *appSupportEventsPath = [absolutePath stringByAppendingPathComponent:@"events"];
+    NSError *eventsError = nil;
+    BOOL eventsCopySucceeded = [internalFileManager aws_atomicallyCopyItemAtURL:[NSURL fileURLWithPath:cachesEventsPath]
+                                                                          toURL:[NSURL fileURLWithPath:appSupportEventsPath]
+                                                                 backupItemName:@"com.amazonaws.MobileAnalytics.backUpItem"
+                                                                          error:&eventsError];
+    if (eventsCopySucceeded) {
+        //remove events in caches directory
+        NSError *removeError = nil;
+        if ( NO == [internalFileManager removeItemAtPath:cachesEventsPath error:&removeError]) {
+            AWSLogWarn(@"[Migration] Failed to remove cachesEventsPath. error:%@", removeError);
+        }
+        
+    } else {
+        AWSLogWarn(@"[Migration] Failed to copy Events directory. error:%@",eventsError);
+    }
+    
+    return YES;
+}
+
+-(BOOL)readClientIDFromCachesDirectoryWithInsightsPrivateKey:(NSString *)insightsPrivateKey
+                                           cachesClientIDRef:(NSString **)cachesClientIDRef
+                                 cachesDirectoryAbsolutePath:(NSString *)cachesDirAbsolutePath {
+    
+    NSFileManager *internalFileManager = [NSFileManager defaultManager];
+    
+    // read the client_id from Caches/mobile-analytics/AppId/preferences,
+    AWSMobileAnalyticsFile *cachesRootDirectory = [[AWSMobileAnalyticsFile alloc] initWithFileMananager: internalFileManager
+                                                                                       withAbsolutePath: cachesDirAbsolutePath];
+    
+    AWSMobileAnalyticsDefaultFileManager *cachesDirAMAFileManager = [[AWSMobileAnalyticsDefaultFileManager alloc] initWithFileManager: internalFileManager
+                                                                                                                         withRootFile: cachesRootDirectory];
+    AWSMobileAnalyticsIOSPreferences *pref = [AWSMobileAnalyticsIOSPreferences preferencesWithFileManager:cachesDirAMAFileManager
+                                                                                       insightsPrivateKey:insightsPrivateKey];
+    
+    NSString *clientID = [pref stringForKey:UNIQUE_ID_KEY withOptValue:nil];
+    // If successfully read, cachesClientID will be write to self.preferences later.
+    if (clientID && cachesClientIDRef) {
+        *cachesClientIDRef = clientID;
+        return YES;
+    } else {
+        return NO;
+    }
+}
 
 + (NSString *) rootFileDirectoryWithFileManager:(NSFileManager *) theFileManager
 {
-    NSArray* possibleURLs = [theFileManager URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
+    NSArray* possibleURLs = [theFileManager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask];
     NSURL *url = [possibleURLs objectAtIndex:0];
     return [url path];
 }

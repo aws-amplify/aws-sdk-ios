@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -88,18 +88,34 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
 @implementation AWSURLSessionManager
 
 - (instancetype)init {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:@"`- init` is not a valid initializer. Use `- initWithConfiguration` instead."
+                                 userInfo:nil];
+    return nil;
+}
+
+- (instancetype)initWithConfiguration:(AWSNetworkingConfiguration *)configuration {
     if (self = [super init]) {
+        _configuration = configuration;
+
         NSOperationQueue *operationQueue = [NSOperationQueue new];
         operationQueue.maxConcurrentOperationCount = NSOperationQueueDefaultMaxConcurrentOperationCount;
-        
+
         NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
         sessionConfiguration.URLCache = nil;
+        if (configuration.timeoutIntervalForRequest > 0) {
+            sessionConfiguration.timeoutIntervalForRequest = configuration.timeoutIntervalForRequest;
+        }
+        if (configuration.timeoutIntervalForResource > 0) {
+            sessionConfiguration.timeoutIntervalForResource = configuration.timeoutIntervalForResource;
+        }
+
         _session = [NSURLSession sessionWithConfiguration:sessionConfiguration
                                                  delegate:self
                                             delegateQueue:operationQueue];
         _sessionManagerDelegates = [AWSSynchronizedMutableDictionary new];
     }
-    
+
     return self;
 }
 
@@ -118,35 +134,13 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
     [self taskWithDelegate:delegate];
 }
 
-- (void)downloadTaskWithRequest:(AWSNetworkingRequest *)request
-              completionHandler:(AWSNetworkingCompletionHandlerBlock)completionHandler {
-    [request assignProperties:self.configuration];
-    
-    AWSURLSessionManagerDelegate *delegate = [AWSURLSessionManagerDelegate new];
-    delegate.dataTaskCompletionHandler = completionHandler;
-    delegate.request = request;
-    delegate.taskType = AWSURLSessionTaskTypeDownload;
-    delegate.downloadingFileURL = request.downloadingFileURL;
-    delegate.shouldWriteDirectly = request.shouldWriteDirectly;
-}
-
-- (void)uploadTaskWithRequest:(AWSNetworkingRequest *)request
-            completionHandler:(AWSNetworkingCompletionHandlerBlock)completionHandler {
-    [request assignProperties:self.configuration];
-    
-    AWSURLSessionManagerDelegate *delegate = [AWSURLSessionManagerDelegate new];
-    delegate.dataTaskCompletionHandler = completionHandler;
-    delegate.request = request;
-    delegate.taskType = AWSURLSessionTaskTypeUpload;
-    delegate.uploadingFileURL = request.uploadingFileURL;
-}
-
 - (void)taskWithDelegate:(AWSURLSessionManagerDelegate *)delegate {
     if (delegate.downloadingFileURL) delegate.shouldWriteToFile = YES;
     delegate.responseData = nil;
     delegate.responseObject = nil;
     delegate.error = nil;
     NSMutableURLRequest *mutableRequest = [NSMutableURLRequest requestWithURL:delegate.request.URL];
+    mutableRequest.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
     
     [[[[[[BFTask taskWithResult:nil] continueWithBlock:^id(BFTask *task) {
         id signer = [delegate.request.requestInterceptors lastObject];
@@ -234,15 +228,6 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
                 delegate.request.task = [self.session dataTaskWithRequest:mutableRequest];
                 break;
                 
-            case AWSURLSessionTaskTypeDownload:
-                delegate.request.task = [self.session downloadTaskWithRequest:mutableRequest];
-                break;
-                
-            case AWSURLSessionTaskTypeUpload:
-                delegate.request.task = [self.session uploadTaskWithRequest:mutableRequest
-                                                                   fromFile:delegate.uploadingFileURL];
-                break;
-                
             default:
                 break;
         }
@@ -253,6 +238,9 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
             [delegate.request.task resume];
         } else {
             AWSLogError(@"Invalid AWSURLSessionTaskType.");
+            return [BFTask taskWithError:[NSError errorWithDomain:AWSNetworkingErrorDomain
+                                                             code:AWSNetworkingErrorUnknown
+                                                         userInfo:@{NSLocalizedDescriptionKey: @"Invalid AWSURLSessionTaskType."}]];
         }
         
         return nil;
@@ -358,26 +346,16 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
                     if ([sessionTask.response isKindOfClass:[NSHTTPURLResponse class]]) {
                         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)sessionTask.response;
                         NSString *dateStr = [[httpResponse allHeaderFields] objectForKey:@"Date"];
-                        NSDate *serverTime = nil;
                         if ([dateStr length] > 0) {
-                            serverTime = [NSDate aws_dateFromString:dateStr];
-                        } else {
-                            //If response header does not have 'Date' field, try to extract timeInfo from messageBody.
-                            // currently only been used for SQS.
-                            if ([delegate.responseObject isKindOfClass:[NSDictionary class]]) {
-                                NSString *messageBody = [delegate.responseObject[@"Error"] aws_objectForCaseInsensitiveKey:@"Message"];
-                                if (messageBody) {
-                                    serverTime = [NSDate aws_getDateFromMessageBody:messageBody];
-                                }
-                            }
-                        }
-                        
-                        if (serverTime) {
+                            NSDate *serverTime = [NSDate aws_dateFromString:dateStr];
                             NSDate *deviceTime = [NSDate date];
                             NSTimeInterval skewTime = [deviceTime timeIntervalSinceDate:serverTime];
                             [NSDate aws_setRuntimeClockSkew:skewTime];
+                        } else {
+                            // The response header does not have the 'Date' field.
+                            // This should not happen.
+                            AWSLogError(@"Date header does not exist. Not able to fix the clock skew.");
                         }
-                        
                     }
                 }
                     
@@ -548,11 +526,6 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
     completionHandler(NSURLSessionResponseAllow);
 }
 
-- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask {
-    AWSURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(downloadTask.taskIdentifier)];
-    delegate.request.task = downloadTask;
-}
-
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
     AWSURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(dataTask.taskIdentifier)];
     
@@ -586,35 +559,4 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
     }
     
 }
-
-//- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask willCacheResponse:(NSCachedURLResponse *)proposedResponse completionHandler:(void (^)(NSCachedURLResponse *cachedResponse))completionHandler {
-//    completionHandler(NULL);
-//}
-
-#pragma mark - NSURLSessionDownloadDelegate
-
-- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location {
-    AWSURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(downloadTask.taskIdentifier)];
-    if (!delegate.error) {
-        NSError *error = nil;
-        [[NSFileManager defaultManager] moveItemAtURL:location
-                                                toURL:delegate.downloadingFileURL
-                                                error:&error];
-        if (error) {
-            delegate.error = error;
-        }
-    }
-}
-
-- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didResumeAtOffset:(int64_t)fileOffset expectedTotalBytes:(int64_t)expectedTotalBytes {
-}
-
-- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
-    AWSURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(downloadTask.taskIdentifier)];
-    AWSNetworkingDownloadProgressBlock downloadProgress = delegate.request.downloadProgress;
-    if (downloadProgress) {
-        downloadProgress(bytesWritten, totalBytesWritten, totalBytesExpectedToWrite);
-    }
-}
-
 @end

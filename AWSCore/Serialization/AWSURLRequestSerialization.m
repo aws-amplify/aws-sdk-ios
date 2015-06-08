@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -37,10 +37,15 @@
                       actionName:(NSString *)actionName
                   classForBundle:(Class)classForBundle {
     if (self = [super init]) {
+        if (resource.length == 0) {
+            AWSLogError(@"resource name can not be nil or empty.");
+            return nil;
+        }
         NSError *error = nil;
         NSString *filePath = [[NSBundle bundleForClass:classForBundle] pathForResource:resource ofType:@"json"];
         if (filePath == nil) {
             AWSLogError(@"can not find %@.json file in the project",resource);
+            return nil;
         } else {
             _serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                      options:kNilOptions
@@ -48,6 +53,7 @@
         }
         if (error) {
             AWSLogError(@"Error: [%@]", error);
+            return nil;
         }
 
         _actionName = actionName;
@@ -141,10 +147,15 @@
                       actionName:(NSString *)actionName
                   classForBundle:(Class)classForBundle {
     if (self = [super init]) {
+        if (resource.length == 0) {
+            AWSLogError(@"resource name can not be nil or empty.");
+            return nil;
+        }
         NSError *error = nil;
         NSString *filePath = [[NSBundle bundleForClass:classForBundle] pathForResource:resource ofType:@"json"];
         if (filePath == nil) {
             AWSLogError(@"can not find %@.json file in the project",resource);
+            return nil;
         } else {
             _serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                      options:kNilOptions
@@ -152,6 +163,7 @@
         }
         if (error) {
             AWSLogError(@"Error: [%@]", error);
+            return nil;
         }
 
         _actionName = actionName;
@@ -426,10 +438,15 @@
                       actionName:(NSString *)actionName
                   classForBundle:(Class)classForBundle {
     if (self = [super init]) {
+        if (resource.length == 0) {
+            AWSLogError(@"resource name can not be nil or empty.");
+            return nil;
+        }
         NSError *error = nil;
         NSString *filePath = [[NSBundle bundleForClass:classForBundle] pathForResource:resource ofType:@"json"];
         if (filePath == nil) {
             AWSLogError(@"can not find %@.json file in the project",resource);
+            return nil;
         } else {
             _serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                      options:kNilOptions
@@ -437,6 +454,7 @@
         }
         if (error) {
             AWSLogError(@"Error: [%@]", error);
+            return nil;
         }
 
         _actionName = actionName;
@@ -467,10 +485,6 @@
                 [queryString appendString:[key aws_stringWithURLEncoding]];
                 [queryString appendString:@"="];
                 [queryString appendString:[[obj stringValue] aws_stringWithURLEncoding]];
-            } else if ([obj isKindOfClass:[NSDate class]]) {
-                [queryString appendString:[key aws_stringWithURLEncoding]];
-                [queryString appendString:@"="];
-                [queryString appendString:[[obj aws_stringValue:self.dateFormat] aws_stringWithURLEncoding]];
             } else {
                 AWSLogError(@"key[%@] is invalid.", key);
                 [queryString appendString:[key aws_stringWithURLEncoding]];

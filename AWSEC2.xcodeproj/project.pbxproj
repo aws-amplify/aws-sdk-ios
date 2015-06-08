@@ -55,8 +55,6 @@
 
 /* Begin PBXFileReference section */
 		1652315196F8BFB7080141B4 /* libPods-AWSEC2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSEC2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3852FF5D1CC566D407B2E59F /* Pods-EC2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EC2.release.xcconfig"; path = "Pods/Target Support Files/Pods-EC2/Pods-EC2.release.xcconfig"; sourceTree = "<group>"; };
-		4653448790B8088DD55EFC71 /* Pods-EC2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EC2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EC2/Pods-EC2.debug.xcconfig"; sourceTree = "<group>"; };
 		BD00003F1AB8C560004496EF /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
 		BD00005F1AB8E1FD004496EF /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSTestUtility.h; path = AWSCoreTests/AWSTestUtility.h; sourceTree = SOURCE_ROOT; };
 		BD0000601AB8E1FD004496EF /* AWSTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSTestUtility.m; path = AWSCoreTests/AWSTestUtility.m; sourceTree = SOURCE_ROOT; };
@@ -177,8 +175,6 @@
 		CB7989A3CE5779C4C4D6F37E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4653448790B8088DD55EFC71 /* Pods-EC2.debug.xcconfig */,
-				3852FF5D1CC566D407B2E59F /* Pods-EC2.release.xcconfig */,
 				C77BF0C233DD79AB8C40D0C2 /* Pods-AWSEC2.debug.xcconfig */,
 				DC7D62494B298408B770C894 /* Pods-AWSEC2.release.xcconfig */,
 			);
@@ -209,7 +205,6 @@
 				BDF559571AB375800067F4F1 /* Frameworks */,
 				BDF559581AB375800067F4F1 /* CopyFiles */,
 				BDF559741AB375A20067F4F1 /* Headers */,
-				CE700D151AD3661E008A227B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -320,19 +315,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWSEC2/Pods-AWSEC2-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		CE700D151AD3661E008A227B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -e \"XcodeCoverage/exportenv.sh\" ]; then\nXcodeCoverage/exportenv.sh\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 

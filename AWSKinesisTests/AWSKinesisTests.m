@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -89,6 +89,35 @@ static NSString *testStreamName = nil;
 
     return [kinesis deleteStream:deleteStreamInput];
 }
+
+#if !AWS_TEST_BJS_INSTEAD
+- (void)testClockSkewKinesis {
+    [AWSTestUtility setupSwizzling];
+
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    [AWSTestUtility setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
+
+    AWSKinesis *kinesis = [AWSKinesis defaultKinesis];
+    XCTAssertNotNil(kinesis);
+
+    AWSKinesisListStreamsInput *listStreamsInput = [AWSKinesisListStreamsInput new];
+    [[[kinesis listStreams:listStreamsInput] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+
+        if (task.result) {
+            XCTAssertTrue([task.result isKindOfClass:[AWSKinesisListStreamsOutput class]]);
+            AWSKinesisListStreamsOutput *listStreamsOutput = task.result;
+            XCTAssertNotNil(listStreamsOutput.streamNames);
+        }
+
+        return nil;
+    }] waitUntilFinished];
+
+    [AWSTestUtility revertSwizzling];
+}
+#endif
 
 - (void)testListStreams {
     AWSKinesis *kinesis = [AWSKinesis defaultKinesis];

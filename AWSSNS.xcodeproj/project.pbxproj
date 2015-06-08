@@ -54,9 +54,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		29726C1B8A23DD717EA7E406 /* Pods-SNS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SNS/Pods-SNS.debug.xcconfig"; sourceTree = "<group>"; };
 		36630348B896F5C040E99D9C /* Pods-AWSSNS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSSNS.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSSNS/Pods-AWSSNS.release.xcconfig"; sourceTree = "<group>"; };
-		43E1E8B18B6CDD178952AF25 /* Pods-SNS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SNS/Pods-SNS.release.xcconfig"; sourceTree = "<group>"; };
 		5B06DD78D46B292D4F674CE2 /* Pods-AWSSNS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSSNS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSSNS/Pods-AWSSNS.debug.xcconfig"; sourceTree = "<group>"; };
 		BD0000331AB8C4FD004496EF /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
 		BD00004D1AB8E15B004496EF /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSTestUtility.h; path = AWSCoreTests/AWSTestUtility.h; sourceTree = SOURCE_ROOT; };
@@ -112,8 +110,6 @@
 		A6F36E20562C00E7C13A0FCC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				29726C1B8A23DD717EA7E406 /* Pods-SNS.debug.xcconfig */,
-				43E1E8B18B6CDD178952AF25 /* Pods-SNS.release.xcconfig */,
 				5B06DD78D46B292D4F674CE2 /* Pods-AWSSNS.debug.xcconfig */,
 				36630348B896F5C040E99D9C /* Pods-AWSSNS.release.xcconfig */,
 			);
@@ -209,7 +205,6 @@
 				BDB5DEBC1AB377FA002DD224 /* Frameworks */,
 				BDB5DEBD1AB377FA002DD224 /* CopyFiles */,
 				BDB5DED91AB37815002DD224 /* Headers */,
-				CE700D1D1AD36664008A227B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -320,19 +315,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWSSNS/Pods-AWSSNS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		CE700D1D1AD36664008A227B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -e \"XcodeCoverage/exportenv.sh\" ]; then\nXcodeCoverage/exportenv.sh\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 

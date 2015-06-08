@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -220,7 +220,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                    @"Content-Type" : @"application/x-amz-json-1.0",
                                    @"Accept-Encoding" : @""};
 
-        _networking = [AWSNetworking networking:_configuration];
+        _networking = [[AWSNetworking alloc] initWithConfiguration:_configuration];
     }
 
     return self;

@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -46,7 +46,6 @@
                   classForBundle:(Class)classForBundle;
 
 @property (nonatomic, strong) NSDictionary *additionalParameters;
-@property (nonatomic, strong) NSString *dateFormat;
 
 @end
 

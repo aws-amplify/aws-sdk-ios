@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -209,7 +209,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         //generate baseURL String (use virtualHostStyle if possible)
         NSString *keyPath = nil;
-        if (bucketName == nil || [self aws_isVirtualHostedStyleCompliant:bucketName]) {
+        if (bucketName == nil || [bucketName aws_isVirtualHostedStyleCompliant]) {
             keyPath = (keyName == nil ? @"" : [NSString stringWithFormat:@"%@", [keyName aws_stringWithURLEncodingPath]]);
         } else {
             keyPath = (keyName == nil ? [NSString stringWithFormat:@"%@", bucketName] : [NSString stringWithFormat:@"%@/%@", bucketName, [keyName aws_stringWithURLEncodingPath]]);
@@ -217,7 +217,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         //generate correct hostName (use virtualHostStyle if possible)
         NSString *host = nil;
-        if (bucketName && [self aws_isVirtualHostedStyleCompliant:bucketName]) {
+        if (bucketName && [bucketName aws_isVirtualHostedStyleCompliant]) {
             host = [NSString stringWithFormat:@"%@.%@", bucketName, endpoint.hostName];
         } else {
             host = endpoint.hostName;
@@ -271,9 +271,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                 canonicalizedResource = @"/";
             }
             else {
-                if ( [self aws_isVirtualHostedStyleCompliant:bucketName]) {
+                if ([bucketName aws_isVirtualHostedStyleCompliant]) {
                     canonicalizedResource = [NSString stringWithFormat:@"/%@/", bucketName];
-                }else {
+                } else {
                     canonicalizedResource = [NSString stringWithFormat:@"/%@", bucketName];
                 }
             }
@@ -297,11 +297,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                            withKey:credentialProvider.secretKey
                                                     usingAlgorithm:kCCHmacAlgSHA1] aws_stringWithURLEncoding];
         [queryString appendFormat:@"&%@=%@",@"Signature",signature];
-        
+
         // =============  generate the signature string (END)===================
-        
+
         NSURL *result = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/%@?%@", endpoint.useUnsafeURL?@"http":@"https", host, keyPath, queryString]];
-        
+
         return [BFTask taskWithResult:result];
         
     }];

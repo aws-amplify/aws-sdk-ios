@@ -56,7 +56,6 @@
 /* Begin PBXFileReference section */
 		502E5942549583CE9AAF0159 /* libPods-AWSSimpleDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSSimpleDB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6B2A9829343DEDBC2D3747 /* Pods-AWSSimpleDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSSimpleDB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSSimpleDB/Pods-AWSSimpleDB.debug.xcconfig"; sourceTree = "<group>"; };
-		8FBFD15564C4EFBB6B06DC58 /* Pods-SimpleDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleDB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleDB/Pods-SimpleDB.debug.xcconfig"; sourceTree = "<group>"; };
 		A8AC682963E8485349CE6DFF /* Pods-AWSSimpleDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSSimpleDB.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSSimpleDB/Pods-AWSSimpleDB.release.xcconfig"; sourceTree = "<group>"; };
 		BD0000351AB8C509004496EF /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
 		BD0000501AB8E16D004496EF /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSTestUtility.h; path = AWSCoreTests/AWSTestUtility.h; sourceTree = SOURCE_ROOT; };
@@ -76,7 +75,6 @@
 		BDB5DEAF1AB377D1002DD224 /* AWSSimpleDBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSimpleDBModel.m; sourceTree = "<group>"; };
 		BDB5DEB11AB377D1002DD224 /* sdb-2009-04-15.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "sdb-2009-04-15.json"; sourceTree = "<group>"; };
 		CEE7DE5E1AC1DEEA0095C4B7 /* AWSSimpleDBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSimpleDBService.h; sourceTree = "<group>"; };
-		E5EC1E5CFE88D82C635094AA /* Pods-SimpleDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleDB.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleDB/Pods-SimpleDB.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,8 +166,6 @@
 		C311D4E5DA280D0A5916D74B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8FBFD15564C4EFBB6B06DC58 /* Pods-SimpleDB.debug.xcconfig */,
-				E5EC1E5CFE88D82C635094AA /* Pods-SimpleDB.release.xcconfig */,
 				5A6B2A9829343DEDBC2D3747 /* Pods-AWSSimpleDB.debug.xcconfig */,
 				A8AC682963E8485349CE6DFF /* Pods-AWSSimpleDB.release.xcconfig */,
 			);
@@ -209,7 +205,6 @@
 				BDB5DE8D1AB377AF002DD224 /* Frameworks */,
 				BDB5DE8E1AB377AF002DD224 /* CopyFiles */,
 				BDB5DEAA1AB377C9002DD224 /* Headers */,
-				CE700D1C1AD3665B008A227B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -320,19 +315,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWSSimpleDB/Pods-AWSSimpleDB-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		CE700D1C1AD3665B008A227B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -e \"XcodeCoverage/exportenv.sh\" ]; then\nXcodeCoverage/exportenv.sh\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 

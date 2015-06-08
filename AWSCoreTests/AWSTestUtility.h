@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -24,5 +24,10 @@ FOUNDATION_EXPORT NSString *const AWSTestUtilityCognitoIdentityServiceKey;
 + (void)setupCognitoCredentialsProvider;
 + (void)setupSTS;
 + (void)setupCognitoIdentityService;
+
+- (NSDate *)mockDateSwizzle;
++ (void)setMockDate:(NSDate *)aMockDate;
++ (void)setupSwizzling;
++ (void)revertSwizzling;
 
 @end

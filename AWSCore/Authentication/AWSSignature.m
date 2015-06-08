@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -101,6 +101,8 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
 
         default:
             digestLength = -1;
+            AWSLogError(@"Unable to sign: unsupported Algorithm.");
+            return nil;
             break;
     }
 
@@ -117,7 +119,6 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
 
 @interface AWSSignatureV4Signer()
 
-@property (nonatomic, strong) id<AWSCredentialsProvider> credentialsProvider;
 @property (nonatomic, strong) AWSEndpoint *endpoint;
 
 @end
@@ -182,7 +183,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
     //        [request.urlRequest setURL:request.url];
     //    }
 
-    NSDate *date = [NSDate date];
+    NSDate *date = [NSDate aws_clockSkewFixedDate];
     NSString *dateStamp = [date aws_stringValue:AWSDateShortDateFormat1];
     //NSString *dateTime  = [date aws_stringValue:AWSDateAmzDateFormat];
 
@@ -229,6 +230,18 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
     //[request.urlRequest setValue:dateTime forHTTPHeaderField:@"X-Amz-Date"];
     [urlRequest setValue:contentSha256 forHTTPHeaderField:@"x-amz-content-sha256"];
 
+    //Set Content-MD5 header field if required by server.
+    if (([ urlRequest.HTTPMethod isEqualToString:@"PUT"] && ([[[urlRequest URL] query] hasPrefix:@"tagging"] ||
+                                                             [[[urlRequest URL] query] hasPrefix:@"lifecycle"] ||
+                                                             [[[urlRequest URL] query] hasPrefix:@"cors"]))
+        || ([urlRequest.HTTPMethod isEqualToString:@"POST"] && [[[urlRequest URL] query] hasPrefix:@"delete"])
+        ) {
+        if (![urlRequest valueForHTTPHeaderField:@"Content-MD5"]) {
+            [urlRequest setValue:[NSString aws_base64md5FromData:urlRequest.HTTPBody] forHTTPHeaderField:@"Content-MD5"];
+        }
+        
+    }
+    
     NSMutableDictionary *headers = [[urlRequest allHTTPHeaderFields] mutableCopy];
 
     NSString *canonicalRequest = [self getCanonicalizedRequest:httpMethod
@@ -489,7 +502,6 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
 
 @interface AWSSignatureV2Signer()
 
-@property (nonatomic, strong) id<AWSCredentialsProvider> credentialsProvider;
 @property (nonatomic, strong) AWSEndpoint *endpoint;
 
 @end
@@ -526,7 +538,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
         [parameters setObject:@"HmacSHA256" forKey:@"SignatureMethod"];
         [parameters setObject:@"2" forKey:@"SignatureVersion"];
         [parameters setObject:self.credentialsProvider.accessKey forKey:@"AWSAccessKeyId"];
-        [parameters setObject:[[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3]
+        [parameters setObject:[[NSDate aws_clockSkewFixedDate] aws_stringValue:AWSDateISO8601DateFormat3]
                        forKey:@"Timestamp"];
         //Added SecurityToken field in QueryString for SigV2 if STS has been used.
         if ([self.credentialsProvider respondsToSelector:@selector(sessionKey)]) {
@@ -595,7 +607,7 @@ NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427ae41e464
                     headerSignature:(NSString *)headerSignature {
     if (self = [super init]) {
         _stream = stream;
-        _delegate = self;
+        _stream.delegate = self;
         _date = [date copy];
         _scope = [scope copy];
         _kSigning = [kSigning copy];
@@ -721,7 +733,7 @@ NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427ae41e464
 
 - (void)setDelegate:(id)delegate {
     if (delegate == nil) {
-        _delegate = self;
+        _delegate = nil;
     } else {
         _delegate = delegate;
     }

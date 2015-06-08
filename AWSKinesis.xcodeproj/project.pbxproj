@@ -59,7 +59,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		81C4E97B8D43893470E1CCC0 /* Pods-Kinesis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kinesis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kinesis/Pods-Kinesis.debug.xcconfig"; sourceTree = "<group>"; };
 		95B2CCFC84B571337F663D6B /* Pods-AWSKinesis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSKinesis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSKinesis/Pods-AWSKinesis.debug.xcconfig"; sourceTree = "<group>"; };
 		BD00003B1AB8C533004496EF /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
 		BD0000591AB8E19E004496EF /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSTestUtility.h; path = AWSCoreTests/AWSTestUtility.h; sourceTree = SOURCE_ROOT; };
@@ -83,7 +82,6 @@
 		BDF559DC1AB376A50067F4F1 /* kinesis-2013-12-02.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "kinesis-2013-12-02.json"; sourceTree = "<group>"; };
 		CEE7DE701AC1E1AF0095C4B7 /* AWSKinesisService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSKinesisService.h; sourceTree = "<group>"; };
 		DBA83CD943CFA60EB1C5FEE6 /* libPods-AWSKinesis.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSKinesis.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF8587384A166236195B0431 /* Pods-Kinesis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kinesis.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kinesis/Pods-Kinesis.release.xcconfig"; sourceTree = "<group>"; };
 		ED71922BE28C5B428EAC7898 /* Pods-AWSKinesis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSKinesis.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSKinesis/Pods-AWSKinesis.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,7 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				BDF559BB1AB376720067F4F1 /* AWSKinesis */,
-				BDF559C81AB376720067F4F1 /* KinesisTests */,
+				BDF559C81AB376720067F4F1 /* AWSKinesisTests */,
 				BDF559BA1AB376720067F4F1 /* Products */,
 				D34ABF3BE6D22A110003BCB2 /* Pods */,
 				D34BD40ED7327D8616BDFE58 /* Frameworks */,
@@ -143,7 +141,7 @@
 			path = AWSKinesis;
 			sourceTree = "<group>";
 		};
-		BDF559C81AB376720067F4F1 /* KinesisTests */ = {
+		BDF559C81AB376720067F4F1 /* AWSKinesisTests */ = {
 			isa = PBXGroup;
 			children = (
 				BD00FFEE1AB8C437004496EF /* AWSGeneralKinesisTests.m */,
@@ -151,7 +149,6 @@
 				BD00FFF01AB8C437004496EF /* AWSKinesisTests.m */,
 				BDF559C91AB376720067F4F1 /* Supporting Files */,
 			);
-			name = KinesisTests;
 			path = AWSKinesisTests;
 			sourceTree = "<group>";
 		};
@@ -180,8 +177,6 @@
 		D34ABF3BE6D22A110003BCB2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				81C4E97B8D43893470E1CCC0 /* Pods-Kinesis.debug.xcconfig */,
-				DF8587384A166236195B0431 /* Pods-Kinesis.release.xcconfig */,
 				95B2CCFC84B571337F663D6B /* Pods-AWSKinesis.debug.xcconfig */,
 				ED71922BE28C5B428EAC7898 /* Pods-AWSKinesis.release.xcconfig */,
 			);
@@ -222,7 +217,6 @@
 				BDF559B61AB376720067F4F1 /* Frameworks */,
 				BDF559B71AB376720067F4F1 /* CopyFiles */,
 				BDF559D31AB3769A0067F4F1 /* Headers */,
-				CE700D171AD36630008A227B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -318,19 +312,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWSKinesis/Pods-AWSKinesis-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		CE700D171AD36630008A227B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -e \"XcodeCoverage/exportenv.sh\" ]; then\nXcodeCoverage/exportenv.sh\nfi";
 		};
 		F44FB5C747049625FE9B682B /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

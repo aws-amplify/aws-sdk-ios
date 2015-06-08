@@ -75,8 +75,6 @@
 		BDB5DE821AB37772002DD224 /* email-2010-12-01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "email-2010-12-01.json"; sourceTree = "<group>"; };
 		CEE7DE741AC1E2030095C4B7 /* AWSSESService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSESService.h; sourceTree = "<group>"; };
 		D24B87675A7E5A3174579807 /* Pods-AWSSES.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSSES.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSSES/Pods-AWSSES.release.xcconfig"; sourceTree = "<group>"; };
-		DB8F9B238A6CFDF1F9F187BB /* Pods-SES.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SES.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SES/Pods-SES.debug.xcconfig"; sourceTree = "<group>"; };
-		F131CA20333DB009D6DE894D /* Pods-SES.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SES.release.xcconfig"; path = "Pods/Target Support Files/Pods-SES/Pods-SES.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +110,6 @@
 		5C080D10B9CEEDF1A8E1DF2A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DB8F9B238A6CFDF1F9F187BB /* Pods-SES.debug.xcconfig */,
-				F131CA20333DB009D6DE894D /* Pods-SES.release.xcconfig */,
 				06CF55A5092BD16BD7172AC1 /* Pods-AWSSES.debug.xcconfig */,
 				D24B87675A7E5A3174579807 /* Pods-AWSSES.release.xcconfig */,
 			);
@@ -210,7 +206,6 @@
 				BDB5DE5E1AB37745002DD224 /* Frameworks */,
 				BDB5DE5F1AB37745002DD224 /* CopyFiles */,
 				BDB5DE7B1AB37768002DD224 /* Headers */,
-				CE700D1B1AD36654008A227B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -321,19 +316,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
-		};
-		CE700D1B1AD36654008A227B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -e \"XcodeCoverage/exportenv.sh\" ]; then\nXcodeCoverage/exportenv.sh\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 

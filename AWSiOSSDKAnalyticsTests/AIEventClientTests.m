@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -279,7 +279,8 @@ static id mockDelivery = nil;
     assertThatBool([[[interceptor lastEvent] eventType] isEqualToString:@"TEST_EVENT"], is(equalToBool(YES)));
 
     UTCTimeMillis eventTime = [[interceptor lastEvent] eventTimestamp];
-    assertThatBool(llabs(now-eventTime) < 50, is(equalToBool(YES)));
+    long long diff = now-eventTime;
+    assertThatBool(llabs(diff) < 50, is(equalToBool(YES)));
 
     assertThatInteger([[[interceptor lastEvent] allAttributes] count], is(equalToInt(2)));
     assertThatBool([[[interceptor lastEvent] attributeForKey:@"attr"] isEqualToString:@"attr1"], is(equalToBool(YES)));

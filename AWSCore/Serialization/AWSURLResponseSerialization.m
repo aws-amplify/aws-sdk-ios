@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -52,10 +52,15 @@ static NSDictionary *errorCodeDictionary = nil;
                      outputClass:(Class)outputClass
                   classForBundle:(Class)classForBundle {
     if (self = [super init]) {
+        if (resource.length == 0) {
+            AWSLogError(@"resource name can not be nil or empty.");
+            return nil;
+        }
         NSError *error = nil;
         NSString *filePath = [[NSBundle bundleForClass:classForBundle] pathForResource:resource ofType:@"json"];
         if (filePath == nil) {
             AWSLogError(@"can not find %@.json file in the project",resource);
+            return nil;
         } else {
             _serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                      options:kNilOptions
@@ -63,6 +68,7 @@ static NSDictionary *errorCodeDictionary = nil;
         }
         if (error) {
             AWSLogError(@"Error: [%@]", error);
+            return nil;
         }
 
         _actionName = actionName;
@@ -167,10 +173,15 @@ static NSDictionary *errorCodeDictionary = nil;
                      outputClass:(Class)outputClass
                   classForBundle:(Class)classForBundle {
     if (self = [super init]) {
+        if (resource.length == 0) {
+            AWSLogError(@"resource name can not be nil or empty.");
+            return nil;
+        }
         NSError *error = nil;
         NSString *filePath = [[NSBundle bundleForClass:classForBundle] pathForResource:resource ofType:@"json"];
         if (filePath == nil) {
             AWSLogError(@"can not find %@.json file in the project",resource);
+            return nil;
         } else {
             _serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                      options:kNilOptions
@@ -178,6 +189,7 @@ static NSDictionary *errorCodeDictionary = nil;
         }
         if (error) {
             AWSLogError(@"Error: [%@]", error);
+            return nil;
         }
 
         _actionName = actionName;
@@ -250,7 +262,7 @@ static NSDictionary *errorCodeDictionary = nil;
         }
         
         //may also need to pass the response statusCode if the memberRule ask for it
-        if ([memberRules isKindOfClass:[NSDictionary class]] && [memberRules[@"location"] isEqualToString:@"statusCode"]) {
+        if (memberName && [memberRules isKindOfClass:[NSDictionary class]] && [memberRules[@"location"] isEqualToString:@"statusCode"]) {
             NSString *rulesType = memberRules[@"type"];
             NSNumber *statusCode = @(response.statusCode);
             if ([rulesType isEqualToString:@"integer"] || [rulesType isEqualToString:@"long"] || [rulesType isEqualToString:@"float"] || [rulesType isEqualToString:@"double"]) {

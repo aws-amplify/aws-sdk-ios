@@ -69,14 +69,12 @@
 		BDF559151AB3747F0067F4F1 /* AWSCloudWatchService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSCloudWatchService.m; path = ../AWSCloudWatch/AWSCloudWatchService.m; sourceTree = "<group>"; };
 		BDF559161AB3747F0067F4F1 /* AWSCloudWatchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSCloudWatchModel.h; path = ../AWSCloudWatch/AWSCloudWatchModel.h; sourceTree = "<group>"; };
 		BDF559171AB3747F0067F4F1 /* AWSCloudWatchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSCloudWatchModel.m; path = ../AWSCloudWatch/AWSCloudWatchModel.m; sourceTree = "<group>"; };
-		C59C1FAFC8834FF806A5AC6C /* Pods-CloudWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudWatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-CloudWatch/Pods-CloudWatch.release.xcconfig"; sourceTree = "<group>"; };
 		CEE7DE681AC1E1330095C4B7 /* AWSCloudWatchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSCloudWatchService.h; path = ../AWSCloudWatch/AWSCloudWatchService.h; sourceTree = "<group>"; };
 		CEF83ED71AD351E900620E1C /* monitoring-2010-08-01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "monitoring-2010-08-01.json"; path = "../../AWSCloudWatch/Resources/monitoring-2010-08-01.json"; sourceTree = "<group>"; };
 		CEF83ED91AD3521A00620E1C /* AWSCloudWatchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSCloudWatchTests.m; path = ../AWSCloudWatchTests/AWSCloudWatchTests.m; sourceTree = "<group>"; };
 		CEF83EDA1AD3521A00620E1C /* AWSGeneralCloudWatchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSGeneralCloudWatchTests.m; path = ../AWSCloudWatchTests/AWSGeneralCloudWatchTests.m; sourceTree = "<group>"; };
 		CEF83EDB1AD3521A00620E1C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDE2D6D6AC17259133A42839 /* Pods-AWSCloudWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSCloudWatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSCloudWatch/Pods-AWSCloudWatch.release.xcconfig"; sourceTree = "<group>"; };
-		E29B50A66CC52E1928A68B66 /* Pods-CloudWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudWatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CloudWatch/Pods-CloudWatch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +110,6 @@
 		A797C571EB41EF4D6BB1A9B2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E29B50A66CC52E1928A68B66 /* Pods-CloudWatch.debug.xcconfig */,
-				C59C1FAFC8834FF806A5AC6C /* Pods-CloudWatch.release.xcconfig */,
 				12547097B9F79B38370F990A /* Pods-AWSCloudWatch.debug.xcconfig */,
 				DDE2D6D6AC17259133A42839 /* Pods-AWSCloudWatch.release.xcconfig */,
 			);
@@ -209,7 +205,6 @@
 				BDF558F51AB374250067F4F1 /* Frameworks */,
 				BDF558F61AB374250067F4F1 /* CopyFiles */,
 				BDF559121AB374690067F4F1 /* Headers */,
-				CE700D131AD36607008A227B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -305,19 +300,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWSCloudWatch/Pods-AWSCloudWatch-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		CE700D131AD36607008A227B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -e \"XcodeCoverage/exportenv.sh\" ]; then\nXcodeCoverage/exportenv.sh\nfi";
 		};
 		DBC648979B2589BE74BE71F6 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

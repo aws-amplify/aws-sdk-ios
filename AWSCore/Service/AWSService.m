@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -17,6 +17,7 @@
 
 #import "AWSSynchronizedMutableDictionary.h"
 #import "AWSURLResponseSerialization.h"
+#import "AWSLogging.h"
 
 #pragma mark - AWSService
 
@@ -76,6 +77,8 @@
 
 @interface AWSServiceConfiguration()
 
+@property (nonatomic, assign) AWSRegionType regionType;
+@property (nonatomic, strong) id<AWSCredentialsProvider> credentialsProvider;
 @property (nonatomic, strong) AWSEndpoint *endpoint;
 
 @end
@@ -86,7 +89,6 @@
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                    reason:@"`- init` is not a valid initializer. Use `+ configurationWithRegion:credentialsProvider:` instead."
                                  userInfo:nil];
-    return nil;
 }
 
 - (instancetype)initWithRegion:(AWSRegionType)regionType
@@ -94,7 +96,6 @@
     if (self = [super init]) {
         _regionType = regionType;
         _credentialsProvider = credentialsProvider;
-        _maxRetryCount = 3;
     }
 
     return self;
@@ -108,19 +109,14 @@
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-    AWSServiceConfiguration *configuration = [[[self class] allocWithZone:zone] initWithRegion:self.regionType
-                                                                           credentialsProvider:self.credentialsProvider];
+    AWSServiceConfiguration *configuration = [super copyWithZone:zone];
+    configuration.regionType = self.regionType;
+    configuration.credentialsProvider = self.credentialsProvider;
     configuration.maxRetryCount = self.maxRetryCount;
-    return configuration;
-}
+    configuration.timeoutIntervalForRequest = self.timeoutIntervalForRequest;
+    configuration.timeoutIntervalForResource = self.timeoutIntervalForResource;
 
-- (void)setMaxRetryCount:(uint32_t)maxRetryCount {
-    // the max maxRetryCount is 10. If set to higher than that, it becomes 10.
-    if (maxRetryCount > 10) {
-        _maxRetryCount = 10;
-    } else {
-        _maxRetryCount = maxRetryCount;
-    }
+    return configuration;
 }
 
 @end
@@ -148,6 +144,7 @@ NSString *const AWSServiceNameElasticLoadBalancing = @"elasticloadbalancing";
 NSString *const AWSServiceNameKinesis = @"kinesis";
 NSString *const AWSServiceNameLambda = @"lambda";
 NSString *const AWSServiceNameMachineLearning = @"machinelearning";
+NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
 NSString *const AWSServiceNameS3 = @"s3";
 NSString *const AWSServiceNameSES = @"email";
 NSString *const AWSServiceNameSimpleDB = @"sdb";
@@ -155,17 +152,12 @@ NSString *const AWSServiceNameSNS = @"sns";
 NSString *const AWSServiceNameSQS = @"sqs";
 NSString *const AWSServiceNameSTS = @"sts";
 
-NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
-
 @implementation AWSEndpoint
 
 - (instancetype)init {
-    if (self = [super init]) {
-        _regionType = AWSRegionUnknown;
-        _serviceType = AWSServiceUnknown;
-    }
-
-    return self;
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:@"`- init` is not a valid initializer. Use `- initWithRegion:service:useUnsafeURL:` instead."
+                                 userInfo:nil];
 }
 
 - (instancetype)initWithRegion:(AWSRegionType)regionType
@@ -174,6 +166,7 @@ NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
     if (self = [super init]) {
         _regionType = regionType;
         _serviceType = serviceType;
+        _useUnsafeURL = useUnsafeURL;
 
         switch (_regionType) {
             case AWSRegionUSEast1:
@@ -207,6 +200,7 @@ NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
                 _regionName = AWSRegionNameCNNorth1;
                 break;
             default:
+                AWSLogError(@"Invalid region type.");
                 break;
         }
 
@@ -263,6 +257,7 @@ NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
                 _serviceName = AWSServiceNameSTS;
                 break;
             default:
+                AWSLogError(@"Invalid service type.");
                 break;
         }
 

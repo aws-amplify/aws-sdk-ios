@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -106,6 +106,25 @@ static NSString *testBucketNameGeneral = nil;
         if ([bucket.name isEqualToString:bucketName]) return YES;
     }
     return NO;
+}
+
+- (void)testClockSkewS3 {
+    [AWSTestUtility setupSwizzling];
+
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    [AWSTestUtility setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
+
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    XCTAssertNotNil(s3);
+
+    [[[s3 listBuckets:nil] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3ListBucketsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListBucketsOutput class]));
+
+        return nil;
+    }] waitUntilFinished];
+
+    [AWSTestUtility revertSwizzling];
 }
 
 - (void)testListBucket {
@@ -522,6 +541,158 @@ static NSString *testBucketNameGeneral = nil;
     }] waitUntilFinished];
 }
 
+- (void)testPutBucketTagging {
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    XCTAssertNotNil(s3);
+    
+    AWSS3Tag *aTag = [AWSS3Tag new];
+    aTag.key = @"tagKey";
+    aTag.value = @"tagValue";
+    
+    AWSS3Tag *aTagTwo = [AWSS3Tag new];
+    aTagTwo.key = @"tagKey2";
+    aTagTwo.value = @"tagKeyValue2";
+    
+    AWSS3Tagging *tagging = [AWSS3Tagging new];
+    tagging.tagSet = @[aTag,aTagTwo];
+    
+    AWSS3PutBucketTaggingRequest *putBucketTaggingReq = [AWSS3PutBucketTaggingRequest new];
+    putBucketTaggingReq.bucket = testBucketNameGeneral;
+    putBucketTaggingReq.tagging = tagging;
+    
+    [[[s3 putBucketTagging:putBucketTaggingReq] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error);
+        return nil;
+    }] waitUntilFinished];
+    
+}
+- (void)testPutBucketLifeCycle {
+    
+    // ----------Test PutBucketLifeCycle-----------------
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    XCTAssertNotNil(s3);
+    
+    AWSS3LifecycleExpiration *expire = [AWSS3LifecycleExpiration new];
+    expire.days = @10;
+    
+    
+    AWSS3Rule *myRule = [AWSS3Rule new];
+    myRule.prefix = @"key-prefix";
+    myRule.status = AWSS3ExpirationStatusEnabled;
+    myRule.expiration = expire;
+    
+    AWSS3LifecycleConfiguration *cycleConf = [AWSS3LifecycleConfiguration new];
+    cycleConf.rules = @[myRule];
+    
+    AWSS3PutBucketLifecycleRequest *putBucketLifeCycleReq = [AWSS3PutBucketLifecycleRequest new];
+    putBucketLifeCycleReq.bucket = testBucketNameGeneral;
+    putBucketLifeCycleReq.lifecycleConfiguration =    cycleConf;
+    
+    [[[s3 putBucketLifecycle:putBucketLifeCycleReq] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error);
+        
+        return nil;
+    }] waitUntilFinished ];
+    
+}
+- (void)testPutBucketCor {
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    XCTAssertNotNil(s3);
+    
+    
+    //-------------Test PutBucketCorsReq-----------------
+    NSMutableArray *corsRules = [NSMutableArray new];
+    
+    AWSS3CORSRule *rule = [AWSS3CORSRule new];
+    rule.allowedMethods = @[@"PUT",@"POST",@"DELETE"];
+    rule.allowedOrigins = @[@"*"];
+    [corsRules addObject:rule];
+    
+    AWSS3CORSRule *rule2 = [AWSS3CORSRule new];
+    rule2.allowedOrigins = @[@"*"];
+    rule2.allowedMethods = @[@"GET"];
+    rule2.allowedHeaders = @[@"*"];
+    [corsRules addObject:rule2];
+    
+    AWSS3CORSConfiguration *cors = [AWSS3CORSConfiguration new];;
+    cors.CORSRules = corsRules;
+    
+    AWSS3PutBucketCorsRequest *putBucketCorsReq = [AWSS3PutBucketCorsRequest new];
+    putBucketCorsReq.bucket =  testBucketNameGeneral;
+    putBucketCorsReq.CORSConfiguration = cors;
+    
+    [[[s3 putBucketCors:putBucketCorsReq] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error);
+        
+        AWSS3DeleteBucketRequest *deleteBucketReq = [AWSS3DeleteBucketRequest new];
+        deleteBucketReq.bucket = testBucketNameGeneral ;
+        
+        return nil;
+        
+    }] waitUntilFinished];
+
+    
+}
+
+- (void)testDeleteMultipleObjects {
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    XCTAssertNotNil(s3);
+    
+    unsigned char *largeData = malloc(AWSS3Test256KB) ;
+    memset(largeData, 5, AWSS3Test256KB);
+    NSData *testObjectData = [[NSData alloc] initWithBytesNoCopy:largeData length:AWSS3Test256KB];
+
+    
+    for (int i=0;i<5;i++) {
+        NSString *keyName = [NSString stringWithFormat:@"key%d",i];
+        AWSS3PutObjectRequest *putObjectRequest = [AWSS3PutObjectRequest new];
+        putObjectRequest.bucket = testBucketNameGeneral;
+        putObjectRequest.key = keyName;
+        putObjectRequest.body = testObjectData;
+        putObjectRequest.contentLength = [NSNumber numberWithUnsignedInteger:[testObjectData length]];
+        
+        [[[s3 putObject:putObjectRequest] continueWithBlock:^id(BFTask *task) {
+            XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+            return nil;
+        }] waitUntilFinished];
+    }
+    
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+    
+    NSMutableArray *objectsArray = [NSMutableArray new];
+    for (int i=0;i<5;i++) {
+        NSString *keyName = [NSString stringWithFormat:@"key%d",i];
+        AWSS3ObjectIdentifier *obj = [AWSS3ObjectIdentifier new];
+        obj.key = keyName;
+        [objectsArray addObject:obj];
+    }
+    
+    AWSS3Remove *s3Remove = [AWSS3Remove new];
+    s3Remove.objects = objectsArray;
+    
+    AWSS3DeleteObjectsRequest *multipleObjectsDeleteReq = [AWSS3DeleteObjectsRequest new];
+    multipleObjectsDeleteReq.bucket = testBucketNameGeneral;
+    multipleObjectsDeleteReq.remove = s3Remove;
+    
+    [[[s3 deleteObjects:multipleObjectsDeleteReq ] continueWithBlock:^id(BFTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        AWSS3DeleteObjectsOutput *output = task.result;
+        XCTAssertEqual([AWSS3DeleteObjectsOutput class], [output class]);
+        
+        NSMutableSet *deletedSet = [NSMutableSet new];
+        
+        NSMutableSet *expectedSet = [NSMutableSet new];
+        for (int i=0;i<5;i++) {
+            [expectedSet addObject:[NSString stringWithFormat:@"key%d",i]];
+            AWSS3DeletedObject *deletedObj = output.deleted[i];
+            [deletedSet addObject:deletedObj.key];
+        }
+        XCTAssertEqualObjects(expectedSet, deletedSet);
+
+        return nil;
+    }] waitUntilFinished];
+    
+}
 - (void)testPutGetAndDeleteObject256KBWithProgressFeedbackAndGreedyKey {
     NSString *keyName = @"testfolder/ios-test-put-and-delete-256KB";
     AWSS3 *s3 = [AWSS3 defaultS3];

@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -309,7 +309,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
                                 accountId:(NSString *)accountId
                            identityPoolId:(NSString *)identityPoolId
                             unauthRoleArn:(NSString *)unauthRoleArn
-                              authRoleArn:(NSString *)authRoleArn __attribute__ ((deprecated("Use '- initWithRegionType:accountId:identityPoolId:unauthRoleArn:authRoleArn:' instead.")));
+                              authRoleArn:(NSString *)authRoleArn __attribute__ ((deprecated("Use '- initWithRegionType:identityId:accountId:identityPoolId:unauthRoleArn:authRoleArn:logins:' instead. You can pass 'nil' to 'identityId' and 'logings'.")));
 
 + (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
                                 accountId:(NSString *)accountId

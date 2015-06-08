@@ -56,7 +56,6 @@
 /* Begin PBXFileReference section */
 		1558F3BC5E9EBE610AB64769 /* Pods-AWSElasticLoadBalancing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSElasticLoadBalancing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSElasticLoadBalancing/Pods-AWSElasticLoadBalancing.debug.xcconfig"; sourceTree = "<group>"; };
 		25B63F98149D98A84CEDCF46 /* libPods-AWSElasticLoadBalancing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSElasticLoadBalancing.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6DE527C2E718ED2EA1C03086 /* Pods-ElasticLoadBalancing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElasticLoadBalancing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElasticLoadBalancing/Pods-ElasticLoadBalancing.debug.xcconfig"; sourceTree = "<group>"; };
 		BBFBBE8FE992747E1198A3EE /* Pods-AWSElasticLoadBalancing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSElasticLoadBalancing.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSElasticLoadBalancing/Pods-AWSElasticLoadBalancing.release.xcconfig"; sourceTree = "<group>"; };
 		BD00003D1AB8C554004496EF /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
 		BD00005C1AB8E1EA004496EF /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSTestUtility.h; path = AWSCoreTests/AWSTestUtility.h; sourceTree = SOURCE_ROOT; };
@@ -72,7 +71,6 @@
 		BDF559A71AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSElasticLoadBalancingModel.h; sourceTree = "<group>"; };
 		BDF559A81AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSElasticLoadBalancingModel.m; sourceTree = "<group>"; };
 		BDF559AA1AB3761C0067F4F1 /* elasticloadbalancing-2012-06-01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "elasticloadbalancing-2012-06-01.json"; sourceTree = "<group>"; };
-		C1DD31887A09ECC9E6910747 /* Pods-ElasticLoadBalancing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElasticLoadBalancing.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElasticLoadBalancing/Pods-ElasticLoadBalancing.release.xcconfig"; sourceTree = "<group>"; };
 		CEE7DE6E1AC1E19D0095C4B7 /* AWSElasticLoadBalancingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSElasticLoadBalancingService.h; sourceTree = "<group>"; };
 		CEE82FA51AD3582F0090F3CE /* cognito-identity-2014-06-30.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "cognito-identity-2014-06-30.json"; path = "AWSEC2Tests/../AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"; sourceTree = SOURCE_ROOT; };
 		CEE82FA61AD3582F0090F3CE /* mobileanalytics-2014-06-30.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "mobileanalytics-2014-06-30.json"; path = "AWSEC2Tests/../AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"; sourceTree = SOURCE_ROOT; };
@@ -112,8 +110,6 @@
 		4EF3408BFEAC16E73120B5DF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6DE527C2E718ED2EA1C03086 /* Pods-ElasticLoadBalancing.debug.xcconfig */,
-				C1DD31887A09ECC9E6910747 /* Pods-ElasticLoadBalancing.release.xcconfig */,
 				1558F3BC5E9EBE610AB64769 /* Pods-AWSElasticLoadBalancing.debug.xcconfig */,
 				BBFBBE8FE992747E1198A3EE /* Pods-AWSElasticLoadBalancing.release.xcconfig */,
 			);
@@ -209,7 +205,6 @@
 				BDF559861AB375EC0067F4F1 /* Frameworks */,
 				BDF559871AB375EC0067F4F1 /* CopyFiles */,
 				BDF559A31AB3760F0067F4F1 /* Headers */,
-				CE700D161AD36627008A227B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -320,19 +315,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
-		};
-		CE700D161AD36627008A227B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -e \"XcodeCoverage/exportenv.sh\" ]; then\nXcodeCoverage/exportenv.sh\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 

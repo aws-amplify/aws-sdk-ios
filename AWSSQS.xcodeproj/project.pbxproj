@@ -17,6 +17,7 @@
 		BD00FF591AB8B875004496EF /* sts-2011-06-15.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF561AB8B875004496EF /* sts-2011-06-15.json */; };
 		BD00FFD81AB8C3FE004496EF /* AWSGeneralSQSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFD61AB8C3FE004496EF /* AWSGeneralSQSTests.m */; };
 		BD00FFD91AB8C3FE004496EF /* AWSSQSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFD71AB8C3FE004496EF /* AWSSQSTests.m */; };
+		BD3464871ADDB5D3000C5A95 /* AWSSQSClockSkewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3464861ADDB5D3000C5A95 /* AWSSQSClockSkewTests.m */; };
 		BD9D97671AC1EEF100CEEE08 /* AWSSQSService.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEE7DE781AC1E23F0095C4B7 /* AWSSQSService.h */; };
 		BDB5DEFA1AB37849002DD224 /* libAWSSQS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB5DEEE1AB37849002DD224 /* libAWSSQS.a */; };
 		BDB5DF0F1AB3786A002DD224 /* AWSSQS.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB5DF091AB3786A002DD224 /* AWSSQS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -55,8 +56,6 @@
 
 /* Begin PBXFileReference section */
 		0CD74F455438DDE2B529A9CC /* Pods-AWSSQS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSSQS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSSQS/Pods-AWSSQS.debug.xcconfig"; sourceTree = "<group>"; };
-		164DAD621252F5DDCF6143CE /* Pods-SQS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SQS/Pods-SQS.release.xcconfig"; sourceTree = "<group>"; };
-		8228376132DEC91D2B6DE23B /* Pods-SQS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SQS/Pods-SQS.debug.xcconfig"; sourceTree = "<group>"; };
 		90908289F45B06F1190D9910 /* libPods-AWSSQS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSSQS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0000311AB8C4ED004496EF /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
 		BD00004A1AB8E12D004496EF /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSTestUtility.h; path = AWSCoreTests/AWSTestUtility.h; sourceTree = SOURCE_ROOT; };
@@ -67,6 +66,7 @@
 		BD00FF561AB8B875004496EF /* sts-2011-06-15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "sts-2011-06-15.json"; path = "../AWSCore/STS/Resources/sts-2011-06-15.json"; sourceTree = "<group>"; };
 		BD00FFD61AB8C3FE004496EF /* AWSGeneralSQSTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralSQSTests.m; sourceTree = "<group>"; };
 		BD00FFD71AB8C3FE004496EF /* AWSSQSTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSQSTests.m; sourceTree = "<group>"; };
+		BD3464861ADDB5D3000C5A95 /* AWSSQSClockSkewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSQSClockSkewTests.m; sourceTree = "<group>"; };
 		BDB5DEEE1AB37849002DD224 /* libAWSSQS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSSQS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB5DEF91AB37849002DD224 /* AWSSQSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSSQSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB5DEFF1AB37849002DD224 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,8 +103,6 @@
 		23BCF832AD7C4A401E0C9D94 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8228376132DEC91D2B6DE23B /* Pods-SQS.debug.xcconfig */,
-				164DAD621252F5DDCF6143CE /* Pods-SQS.release.xcconfig */,
 				0CD74F455438DDE2B529A9CC /* Pods-AWSSQS.debug.xcconfig */,
 				E7F5F3B82C3DB2A587FC187A /* Pods-AWSSQS.release.xcconfig */,
 			);
@@ -157,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				BD00FFD61AB8C3FE004496EF /* AWSGeneralSQSTests.m */,
+				BD3464861ADDB5D3000C5A95 /* AWSSQSClockSkewTests.m */,
 				BD00FFD71AB8C3FE004496EF /* AWSSQSTests.m */,
 				BDB5DEFE1AB37849002DD224 /* Supporting Files */,
 			);
@@ -209,7 +208,6 @@
 				BDB5DEEB1AB37849002DD224 /* Frameworks */,
 				BDB5DEEC1AB37849002DD224 /* CopyFiles */,
 				BDB5DF081AB37863002DD224 /* Headers */,
-				CE700D1E1AD3666B008A227B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -321,19 +319,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		CE700D1E1AD3666B008A227B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -e \"XcodeCoverage/exportenv.sh\" ]; then\nXcodeCoverage/exportenv.sh\nfi";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -350,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD3464871ADDB5D3000C5A95 /* AWSSQSClockSkewTests.m in Sources */,
 				BD00FFD81AB8C3FE004496EF /* AWSGeneralSQSTests.m in Sources */,
 				BD00004C1AB8E12D004496EF /* AWSTestUtility.m in Sources */,
 				BD00FFD91AB8C3FE004496EF /* AWSSQSTests.m in Sources */,

@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -54,6 +54,34 @@ static NSString *_testDomainName = nil;
 
     [super tearDown];
 }
+
+#if !AWS_TEST_BJS_INSTEAD
+- (void)testClockSkewSimpleDB {
+    [AWSTestUtility setupSwizzling];
+
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    [AWSTestUtility setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
+
+    AWSSimpleDB *sdb = [AWSSimpleDB defaultSimpleDB];
+    XCTAssertNotNil(sdb);
+
+    AWSSimpleDBListDomainsRequest *listDomainsRequest = [AWSSimpleDBListDomainsRequest new];
+    [[[sdb listDomains:listDomainsRequest] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+
+        if (task.result) {
+            AWSSimpleDBListDomainsResult *listDomainsResult = task.result;
+            XCTAssertNotNil(listDomainsResult, @"listDomainsResult should not be nil.");
+        }
+
+        return nil;
+    }] waitUntilFinished];
+
+    [AWSTestUtility revertSwizzling];
+}
+#endif
 
 - (void)testListDomains {
     AWSSimpleDB *sdb = [AWSSimpleDB defaultSimpleDB];

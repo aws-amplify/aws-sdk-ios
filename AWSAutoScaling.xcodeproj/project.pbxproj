@@ -54,11 +54,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		00013F32235761F46692B77A /* Pods-AutoScaling.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoScaling.release.xcconfig"; path = "Pods/Target Support Files/Pods-AutoScaling/Pods-AutoScaling.release.xcconfig"; sourceTree = "<group>"; };
 		1DA626D8A5FE1C2560C78C72 /* Pods-AWSAutoScaling.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSAutoScaling.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSAutoScaling/Pods-AWSAutoScaling.release.xcconfig"; sourceTree = "<group>"; };
 		2177028105C432CA525715AC /* libPods-AWSAutoScaling.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSAutoScaling.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AFFABC8223BFC112AFCFB4E /* Pods-AWSAutoScaling.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSAutoScaling.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSAutoScaling/Pods-AWSAutoScaling.debug.xcconfig"; sourceTree = "<group>"; };
-		79E9484D437D744373824AB9 /* Pods-AutoScaling.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoScaling.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AutoScaling/Pods-AutoScaling.debug.xcconfig"; sourceTree = "<group>"; };
 		BD00002F1AB8C4D2004496EF /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
 		BD0000471AB8E119004496EF /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSTestUtility.h; path = AWSCoreTests/AWSTestUtility.h; sourceTree = SOURCE_ROOT; };
 		BD0000481AB8E119004496EF /* AWSTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSTestUtility.m; path = AWSCoreTests/AWSTestUtility.m; sourceTree = SOURCE_ROOT; };
@@ -168,8 +166,6 @@
 		EBF92C517A7A1B79B7969CD1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				79E9484D437D744373824AB9 /* Pods-AutoScaling.debug.xcconfig */,
-				00013F32235761F46692B77A /* Pods-AutoScaling.release.xcconfig */,
 				3AFFABC8223BFC112AFCFB4E /* Pods-AWSAutoScaling.debug.xcconfig */,
 				1DA626D8A5FE1C2560C78C72 /* Pods-AWSAutoScaling.release.xcconfig */,
 			);
@@ -209,7 +205,6 @@
 				BDB5DF191AB37A79002DD224 /* Frameworks */,
 				BDB5DF1A1AB37A79002DD224 /* CopyFiles */,
 				BDB5DF361AB37AA2002DD224 /* Headers */,
-				CE700D121AD365F4008A227B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -305,19 +300,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWSAutoScaling/Pods-AWSAutoScaling-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		CE700D121AD365F4008A227B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -e \"XcodeCoverage/exportenv.sh\" ]; then\nXcodeCoverage/exportenv.sh\nfi";
 		};
 		F4AE4BE2A5CB7D34DDDF57EF /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

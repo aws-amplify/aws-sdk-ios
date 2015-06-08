@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -36,6 +36,33 @@
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
+}
+
+- (void)testClockSkewEC2 {
+    [AWSTestUtility setupSwizzling];
+
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    [AWSTestUtility setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
+
+    AWSEC2 *ec2 = [AWSEC2 defaultEC2];
+    XCTAssertNotNil(ec2);
+
+    AWSEC2DescribeInstancesRequest *describeInstancesRequest = [AWSEC2DescribeInstancesRequest new];
+    [[[ec2 describeInstances:describeInstancesRequest] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+
+        if (task.result) {
+            XCTAssertTrue([task.result isKindOfClass:[AWSEC2DescribeInstancesResult class]]);
+            AWSEC2DescribeInstancesResult *describeInstancesResult = task.result;
+            XCTAssertNotNil(describeInstancesResult.reservations);
+        }
+
+        return nil;
+    }] waitUntilFinished];
+
+    [AWSTestUtility revertSwizzling];
 }
 
 - (void)testDescribeInstances {

@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -36,6 +36,32 @@
 - (void)tearDown {
     // Put teardown code here; it will be run once, after the last test case.
     [super tearDown];
+}
+
+- (void)testClockSkewAS {
+    [AWSTestUtility setupSwizzling];
+
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    [AWSTestUtility setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
+
+    AWSAutoScaling *autoScaling = [AWSAutoScaling defaultAutoScaling];
+    XCTAssertNotNil(autoScaling);
+
+    [[[autoScaling describeAccountLimits:nil] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+
+        if (task.result) {
+            XCTAssertTrue([task.result isKindOfClass:[AWSAutoScalingDescribeAccountLimitsAnswer class]]);
+            AWSAutoScalingDescribeAccountLimitsAnswer *describeAccountLimitsAnswer = task.result;
+            XCTAssertNotNil(describeAccountLimitsAnswer.maxNumberOfAutoScalingGroups);
+        }
+
+        return nil;
+    }] waitUntilFinished];
+
+    [AWSTestUtility revertSwizzling];
 }
 
 - (void)testDescribeAccountLimits {

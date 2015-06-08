@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -16,17 +16,13 @@
 #import <Foundation/Foundation.h>
 #import "AWSNetworking.h"
 
-@interface AWSURLSessionManager : NSObject <NSURLSessionDelegate, NSURLSessionDataDelegate, NSURLSessionDownloadDelegate>
+@interface AWSURLSessionManager : NSObject <NSURLSessionDelegate, NSURLSessionDataDelegate>
 
 @property (nonatomic, strong) AWSNetworkingConfiguration *configuration;
 
+- (instancetype)initWithConfiguration:(AWSNetworkingConfiguration *)configuration;
+
 - (void)dataTaskWithRequest:(AWSNetworkingRequest *)request
           completionHandler:(AWSNetworkingCompletionHandlerBlock)completionHandler;
-
-- (void)downloadTaskWithRequest:(AWSNetworkingRequest *)request
-              completionHandler:(AWSNetworkingCompletionHandlerBlock)completionHandler;
-
-- (void)uploadTaskWithRequest:(AWSNetworkingRequest *)request
-            completionHandler:(AWSNetworkingCompletionHandlerBlock)completionHandler;
 
 @end

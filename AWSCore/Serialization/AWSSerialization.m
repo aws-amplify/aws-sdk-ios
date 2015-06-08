@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -863,7 +863,7 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
     NSString *urlEncodedActionName = [actionName aws_stringWithURLEncoding];
     if (!urlEncodedActionName) {
         AWSLogError(@"actionName is nil!");
-        [self failWithCode:AWSQueryParamBuilderInternalError description:@"actionName is nil" error:error];
+        [self failWithCode:AWSQueryParamBuilderUndefinedActionRule description:@"actionName is nil" error:error];
         return nil;
     }
 
@@ -1087,7 +1087,7 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
     NSString *urlEncodedActionName = [actionName aws_stringWithURLEncoding];
     if (!urlEncodedActionName) {
         AWSLogError(@"actionName is nil!");
-        [self failWithCode:AWSEC2ParamBuilderInternalError description:@"actionName is nil" error:error];
+        [self failWithCode:AWSEC2ParamBuilderUndefinedActionRule description:@"actionName is nil" error:error];
         return nil;
     }
 

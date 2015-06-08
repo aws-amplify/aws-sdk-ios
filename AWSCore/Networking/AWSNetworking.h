@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -60,26 +60,9 @@ typedef NS_ENUM(NSInteger, AWSHTTPMethod) {
 
 @interface AWSNetworking : NSObject
 
-+ (instancetype)standardNetworking;
-+ (instancetype)networking:(AWSNetworkingConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(AWSNetworkingConfiguration *)configuration;
 
 - (BFTask *)sendRequest:(AWSNetworkingRequest *)request;
-
-- (BFTask *)sendDownloadRequest:(AWSNetworkingRequest *)request;
-
-- (BFTask *)sendUploadRequest:(AWSNetworkingRequest *)request;
-
-- (BFTask *)GET:(NSString *)URLString parameters:(NSDictionary *)parameters;
-
-- (BFTask *)HEAD:(NSString *)URLString parameters:(NSDictionary *)parameters;
-
-- (BFTask *)POST:(NSString *)URLString parameters:(NSDictionary *)parameters;
-
-- (BFTask *)PUT:(NSString *)URLString parameters:(NSDictionary *)parameters;
-
-- (BFTask *)PATCH:(NSString *)URLString parameters:(NSDictionary *)parameters;
-
-- (BFTask *)DELETE:(NSString *)URLString parameters:(NSDictionary *)parameters;
 
 @end
 
@@ -146,11 +129,6 @@ typedef NS_ENUM(NSInteger, AWSHTTPMethod) {
 
 @end
 
-#pragma mark - AWSURLRequestSerializer
-
-@interface AWSURLRequestSerializer : NSObject <AWSURLRequestSerializer>
-
-@end
 
 #pragma mark - AWSNetworkingConfiguration
 
@@ -168,7 +146,20 @@ typedef NS_ENUM(NSInteger, AWSHTTPMethod) {
 @property (nonatomic, strong) NSArray *responseInterceptors; // Array of AWSNetworkingResponseInterceptor.
 @property (nonatomic, strong) id<AWSURLRequestRetryHandler> retryHandler;
 
-+ (instancetype)defaultConfiguration;
+/**
+ The maximum number of retries for failed requests. The value needs to be between 0 and 10 inclusive. If set to higher than 10, it becomes 10.
+ */
+@property (nonatomic, assign) uint32_t maxRetryCount;
+
+/**
+ The timeout interval to use when waiting for additional data.
+ */
+@property (nonatomic, assign) NSTimeInterval timeoutIntervalForRequest;
+
+/**
+ The maximum amount of time that a resource request should be allowed to take.
+ */
+@property (nonatomic, assign) NSTimeInterval timeoutIntervalForResource;
 
 @end
 
@@ -186,15 +177,6 @@ typedef NS_ENUM(NSInteger, AWSHTTPMethod) {
 
 @property (readonly, nonatomic, strong) NSURLSessionTask *task;
 @property (readonly, nonatomic, assign, getter = isCancelled) BOOL cancelled;
-
-+ (instancetype)requestForDataTask:(AWSHTTPMethod)HTTPMethod
-                         URLString:(NSString *)URLString;
-+ (instancetype)requestForDownloadTask:(AWSHTTPMethod)HTTPMethod
-                             URLString:(NSString *)URLString
-                    downloadingFileURL:(NSURL *)downloadingFileURL;
-+ (instancetype)requestForUploadTask:(AWSHTTPMethod)HTTPMethod
-                           URLString:(NSString *)URLString
-                    uploadingFileURL:(NSURL *)uploadingFileURL;
 
 - (void)assignProperties:(AWSNetworkingConfiguration *)configuration;
 - (void)cancel;

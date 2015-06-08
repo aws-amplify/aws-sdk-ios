@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -20,9 +20,6 @@
 - (id)objectForKey:(id)aKey;
 - (void)removeObjectForKey:(id)aKey;
 - (void)setObject:(id)anObject forKey:(id <NSCopying>)aKey;
-
-- (void)conditionallySetObject:(id)anObject forKey:(id <NSCopying>)aKey;
-
 - (NSArray *)allKeys;
 
 @end

@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -36,6 +36,33 @@
 - (void)tearDown {
     // Put teardown code here; it will be run once, after the last test case.
     [super tearDown];
+}
+
+- (void)testClockSkewSNS {
+    [AWSTestUtility setupSwizzling];
+
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    [AWSTestUtility setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
+
+    AWSSNS *sns = [AWSSNS defaultSNS];
+    XCTAssertNotNil(sns);
+
+    AWSSNSListTopicsInput *listTopicsInput = [AWSSNSListTopicsInput new];
+    [[[sns listTopics:listTopicsInput] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+
+        if (task.result) {
+            XCTAssertTrue([task.result isKindOfClass:[AWSSNSListTopicsResponse class]]);
+            AWSSNSListTopicsResponse *listTopicsResponse = task.result;
+            XCTAssertTrue([listTopicsResponse.topics isKindOfClass:[NSArray class]]);
+        }
+
+        return nil;
+    }] waitUntilFinished];
+
+    [AWSTestUtility revertSwizzling];
 }
 
 - (void)testListTopics {

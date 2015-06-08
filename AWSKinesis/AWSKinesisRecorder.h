@@ -26,9 +26,15 @@ typedef NS_ENUM(NSInteger, AWSKinesisRecorderErrorType) {
 };
 
 /**
- When a `saveRecord:streamName:` operation causes the disk size to exceed `notificationByteThreshold`, it posts AWSKinesisRecorderByteThresholdReachedNotification.
+ When a `saveRecord:streamName:` operation causes the disk size to exceed `notificationByteThreshold`, it posts `AWSKinesisRecorderByteThresholdReachedNotification`.
  */
 FOUNDATION_EXPORT NSString *const AWSKinesisRecorderByteThresholdReachedNotification;
+
+/**
+ You can retrieve the disk bytes used from the `notification.userInfo` dictionary with this key.
+ */
+FOUNDATION_EXPORT NSString *const AWSKinesisRecorderByteThresholdReachedNotificationDiskBytesUsedKey;
+
 
 /**
   The AWSKinesisRecorder is a high level client meant for storing put record requests on the user's device. This allows developers to retain requests when the device is offline. It can also increase performance and battery efficiency since the Wi-Fi or cell network does not need to be woken up as frequently.

@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -162,6 +162,32 @@ BOOL _identityChanged;
 }
 
 #pragma mark - Tests
+
+- (void)testWICProvider {
+    
+    AWSWebIdentityCredentialsProvider *provider = [[AWSWebIdentityCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     providerId:@"graph.facebook.com"
+                                                                                                        roleArn:@"arn:aws:iam::335750469596:role/WICProviderTestRole"
+                                                                                                roleSessionName:@"iOSTest-WICProvider"
+                                                                                               webIdentityToken:_facebookToken];
+    
+    [[[provider refresh] continueWithBlock:^id(BFTask *task) {
+        
+        XCTAssertNil(task.error);
+
+        XCTAssertNotNil(provider.accessKey);
+        XCTAssertNotNil(provider.secretKey);
+        XCTAssertNotNil(provider.sessionKey);
+        XCTAssertNotNil(provider.expiration);
+        
+        XCTAssertNotNil(provider.webIdentityToken);
+        XCTAssertNotNil(provider.roleArn);
+        XCTAssertNotNil(provider.roleSessionName);
+        
+        XCTAssertNotNil(provider.providerId);
+        return nil;
+    }] waitUntilFinished ];
+}
 
 - (void)testProvider {
     AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1

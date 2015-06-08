@@ -84,10 +84,8 @@
 		BDF559481AB375260067F4F1 /* AWSDynamoDBObjectMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSDynamoDBObjectMapper.m; path = ../AWSDynamoDB/AWSDynamoDBObjectMapper.m; sourceTree = "<group>"; };
 		CEE7DE6A1AC1E1500095C4B7 /* AWSDynamoDBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSDynamoDBService.h; path = ../AWSDynamoDB/AWSDynamoDBService.h; sourceTree = "<group>"; };
 		CEF83EDF1AD3526A00620E1C /* dynamodb-2012-08-10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "dynamodb-2012-08-10.json"; path = "../../AWSDynamoDB/Resources/dynamodb-2012-08-10.json"; sourceTree = "<group>"; };
-		D96ED63DAD05B0FE2A3C53A9 /* Pods-DynamoDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamoDB.release.xcconfig"; path = "Pods/Target Support Files/Pods-DynamoDB/Pods-DynamoDB.release.xcconfig"; sourceTree = "<group>"; };
 		DDFD2473B32B034328A614B9 /* libPods-AWSDynamoDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSDynamoDB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBAF4E5A29F812E8DB81C584 /* Pods-AWSDynamoDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSDynamoDB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSDynamoDB/Pods-AWSDynamoDB.debug.xcconfig"; sourceTree = "<group>"; };
-		F60A4B3B382EADA2DB4EEE5C /* Pods-DynamoDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamoDB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DynamoDB/Pods-DynamoDB.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,8 +191,6 @@
 		FB0C9163F76D9A9E125E73BA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F60A4B3B382EADA2DB4EEE5C /* Pods-DynamoDB.debug.xcconfig */,
-				D96ED63DAD05B0FE2A3C53A9 /* Pods-DynamoDB.release.xcconfig */,
 				EBAF4E5A29F812E8DB81C584 /* Pods-AWSDynamoDB.debug.xcconfig */,
 				9F85B3DCB7942BDFD5AC15D6 /* Pods-AWSDynamoDB.release.xcconfig */,
 			);
@@ -226,7 +222,6 @@
 				BDF559241AB374F00067F4F1 /* Frameworks */,
 				BDF559251AB374F00067F4F1 /* CopyFiles */,
 				BDF559411AB375180067F4F1 /* Headers */,
-				CE700D141AD36614008A227B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -337,19 +332,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWSDynamoDB/Pods-AWSDynamoDB-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		CE700D141AD36614008A227B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -e \"XcodeCoverage/exportenv.sh\" ]; then\nXcodeCoverage/exportenv.sh\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 

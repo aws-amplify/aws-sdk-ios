@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -19,7 +19,7 @@
 #import "AWSMobileAnalyticsDefaultFileManager.h"
 #import "AWSMobileAnalyticsIOSPreferences.h"
 
-static NSString *const AWSMobileAnalyticsRoot = @"mobile-analytics";
+static NSString *const AWSMobileAnalyticsRoot = @"com.amazonaws.MobileAnalytics";
 
 @interface AWSMobileAnalyticsIOSSystem : NSObject<AWSMobileAnalyticsSystem>
 

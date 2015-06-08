@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,8 +31,6 @@ NSString *const AWSClientContextKeychainService = @"com.amazonaws.AWSClientConte
 NSString *const AWSClientContextKeychainInstallationIdKey = @"com.amazonaws.AWSClientContextKeychainInstallationIdKey";
 
 @interface AWSClientContext()
-
-@property (nonatomic, strong) NSDictionary *serviceDetails;
 
 @end
 

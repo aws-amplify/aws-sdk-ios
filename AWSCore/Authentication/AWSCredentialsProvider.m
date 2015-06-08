@@ -1,4 +1,4 @@
-/**
+/*
  Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
@@ -26,13 +26,6 @@ NSString *const AWSCredentialsProviderKeychainSecretAccessKey = @"secretKey";
 NSString *const AWSCredentialsProviderKeychainSessionToken = @"sessionKey";
 NSString *const AWSCredentialsProviderKeychainExpiration = @"expiration";
 NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
-
-@interface AWSStaticCredentialsProvider()
-
-@property (nonatomic, strong) NSString *accessKey;
-@property (nonatomic, strong) NSString *secretKey;
-
-@end
 
 @implementation AWSStaticCredentialsProvider
 
@@ -763,18 +756,6 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                                                                                              unauthRoleArn:unauthRoleArn
                                                                                                authRoleArn:authRoleArn];
     return credentials;
-}
-
-+ (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
-                               identityId:(NSString *)identityId
-                           identityPoolId:(NSString *)identityPoolId
-                                   logins:(NSDictionary *)logins {
-    AWSCognitoCredentialsProvider *credentials = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:regionType
-                                                                                                identityId:identityId
-                                                                                            identityPoolId:identityPoolId
-                                                                                                    logins:logins];
-    return credentials;
-    
 }
 
 @end
