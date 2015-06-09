@@ -402,6 +402,9 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
        expression:(AWSDynamoDBQueryExpression *)expression
     configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration;
 
+- (BFTask *)query:(Class)resultClass
+       expression:(AWSDynamoDBQueryExpression *)expression
+withSecondaryIndexHashKey:(NSString *)hashKeyAttribute;
 /**
  Scans through an Amazon DynamoDB table and returns the matching results as an AWSDynamoDBPaginatedOutput of instantiated objects, using the default configuration.
 

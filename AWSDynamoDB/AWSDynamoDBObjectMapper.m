@@ -386,12 +386,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
        expression:(AWSDynamoDBQueryExpression *)expression {
     return [self query:resultClass
             expression:expression
-         configuration:self.configuration];
+         configuration:self.configuration
+      hashKeyAttribute:nil];
+}
+
+
+- (BFTask *)query:(Class)resultClass
+       expression:(AWSDynamoDBQueryExpression *)expression
+withSecondaryIndexHashKey:(NSString *)hashKeyAttribute {
+    return [self query:resultClass
+            expression:expression
+         configuration:self.configuration
+      hashKeyAttribute:hashKeyAttribute];
 }
 
 - (BFTask *)query:(Class)resultClass
        expression:(AWSDynamoDBQueryExpression *)expression
-    configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration {
+    configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration
+ hashKeyAttribute:(NSString *)hashKeyAttribute {
     AWSDynamoDBQueryInput *queryInput = [AWSDynamoDBQueryInput new];
     queryInput.tableName = [resultClass performSelector:@selector(dynamoDBTableName)];
     queryInput.consistentRead = configuration.consistentRead;
@@ -408,7 +420,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     hashCondition.attributeValueList = @[hashAttributeValue];
     hashCondition.comparisonOperator = AWSDynamoDBComparisonOperatorEQ;
 
-    NSString *hashKeyAttribute = [resultClass performSelector:@selector(hashKeyAttribute)];
+    if (!hashKeyAttribute) {
+        hashKeyAttribute = [resultClass performSelector:@selector(hashKeyAttribute)];
+    }
+
     NSMutableDictionary *keyConditions = [NSMutableDictionary dictionaryWithObject:hashCondition
                                                                             forKey:hashKeyAttribute];
     [keyConditions addEntriesFromDictionary:expression.rangeKeyConditions];
