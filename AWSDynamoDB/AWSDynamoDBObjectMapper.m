@@ -524,6 +524,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }
     NSDictionary *dictionaryValue = [MTLJSONAdapter JSONDictionaryFromModel:self];
 
+    if ([[self class] respondsToSelector:@selector(ignoreAttributes)]) {
+        NSArray* ignoreAttributes = [[self class] performSelector:@selector(ignoreAttributes)];
+        dictionaryValue = [dictionaryValue mtl_dictionaryByRemovingEntriesWithKeys:[NSSet setWithArray:ignoreAttributes]];
+    }
+    
     for (id key in dictionaryValue) {
         if ([keyArray containsObject:key]) {
             // For key attributes
@@ -552,6 +557,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     NSArray *keyArray = [[self key] allKeys];
     NSDictionary *dictionaryValue = [MTLJSONAdapter JSONDictionaryFromModel:self];
 
+    if ([[self class] respondsToSelector:@selector(ignoreAttributes)]) {
+        NSArray* ignoreAttributes = [[self class] performSelector:@selector(ignoreAttributes)];
+        dictionaryValue = [dictionaryValue mtl_dictionaryByRemovingEntriesWithKeys:[NSSet setWithArray:ignoreAttributes]];
+    }
+    
     for (id key in dictionaryValue) {
         if (![keyArray containsObject:key]) {
             // For other attributes
@@ -605,6 +615,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }
     NSDictionary *dictionaryValue = [MTLJSONAdapter JSONDictionaryFromModel:self];
 
+     if ([[self class] respondsToSelector:@selector(ignoreAttributes)]) {
+        NSArray* ignoreAttributes = [[self class] performSelector:@selector(ignoreAttributes)];
+        dictionaryValue = [dictionaryValue mtl_dictionaryByRemovingEntriesWithKeys:[NSSet setWithArray:ignoreAttributes]];
+    }
+    
     for (id key in keyArray) {
         // For key attributes
         AWSDynamoDBAttributeValue *keyAttributeValue = [AWSDynamoDBAttributeValue new];
