@@ -55,7 +55,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] attachInstances:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] attachInstances:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -70,7 +70,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] completeLifecycleAction:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] completeLifecycleAction:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -85,7 +85,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] createAutoScalingGroup:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] createAutoScalingGroup:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -100,7 +100,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] createLaunchConfiguration:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] createLaunchConfiguration:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -115,7 +115,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] createOrUpdateTags:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] createOrUpdateTags:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -130,7 +130,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] deleteAutoScalingGroup:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] deleteAutoScalingGroup:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -145,7 +145,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] deleteLaunchConfiguration:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] deleteLaunchConfiguration:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -160,7 +160,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] deleteLifecycleHook:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] deleteLifecycleHook:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -175,7 +175,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] deleteNotificationConfiguration:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] deleteNotificationConfiguration:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -190,7 +190,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] deletePolicy:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] deletePolicy:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -205,7 +205,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] deleteScheduledAction:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] deleteScheduledAction:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -220,7 +220,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] deleteTags:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] deleteTags:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -235,7 +235,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeAccountLimits:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeAccountLimits:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -250,7 +250,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeAdjustmentTypes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeAdjustmentTypes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -265,7 +265,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeAutoScalingGroups:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeAutoScalingGroups:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -280,7 +280,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeAutoScalingInstances:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeAutoScalingInstances:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -295,7 +295,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeAutoScalingNotificationTypes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeAutoScalingNotificationTypes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -310,7 +310,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeLaunchConfigurations:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeLaunchConfigurations:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -325,7 +325,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeLifecycleHookTypes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeLifecycleHookTypes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -340,7 +340,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeLifecycleHooks:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeLifecycleHooks:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -355,7 +355,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeMetricCollectionTypes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeMetricCollectionTypes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -370,7 +370,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeNotificationConfigurations:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeNotificationConfigurations:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -385,7 +385,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] describePolicies:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] describePolicies:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -400,7 +400,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeScalingActivities:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeScalingActivities:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -415,7 +415,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeScalingProcessTypes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeScalingProcessTypes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -430,7 +430,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeScheduledActions:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeScheduledActions:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -445,7 +445,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeTags:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeTags:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -460,7 +460,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeTerminationPolicyTypes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeTerminationPolicyTypes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -475,7 +475,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] detachInstances:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] detachInstances:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -490,7 +490,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] disableMetricsCollection:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] disableMetricsCollection:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -505,7 +505,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] enableMetricsCollection:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] enableMetricsCollection:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -520,7 +520,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] enterStandby:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] enterStandby:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -535,7 +535,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] executePolicy:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] executePolicy:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -550,7 +550,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] exitStandby:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] exitStandby:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -565,7 +565,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] putLifecycleHook:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] putLifecycleHook:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -580,7 +580,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] putNotificationConfiguration:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] putNotificationConfiguration:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -595,7 +595,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] putScalingPolicy:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] putScalingPolicy:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -610,7 +610,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] putScheduledUpdateGroupAction:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] putScheduledUpdateGroupAction:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -625,7 +625,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] recordLifecycleActionHeartbeat:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] recordLifecycleActionHeartbeat:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -640,7 +640,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] resumeProcesses:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] resumeProcesses:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -655,7 +655,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] setDesiredCapacity:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] setDesiredCapacity:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -670,7 +670,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] setInstanceHealth:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] setInstanceHealth:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -685,7 +685,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] suspendProcesses:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] suspendProcesses:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -700,7 +700,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] terminateInstanceInAutoScalingGroup:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] terminateInstanceInAutoScalingGroup:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -715,7 +715,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
-    [[[[AWSAutoScaling AutoScalingForKey:key] updateAutoScalingGroup:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSAutoScaling AutoScalingForKey:key] updateAutoScalingGroup:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);

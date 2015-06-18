@@ -1,5 +1,19 @@
 # AWSiOSSDKv2 CHANGELOG
 
+## 2.2.0
+
+### New Features
+* **Service model updates** - The service models are updated for Amazon Cognito Identity, Amazon Cognito Sync, Amazon DynamoDB, Amazon EC2, and AWS Lambda.
+
+### Resolved Issues
+* **AWS Lambda** - Fixed an issue where the SDK does not properly serialize the response object when it contains `message` as a key.
+
+### Misc Changes
+* **SDK Core**
+    * All third-party libraries are prefixed with `AWS` to avoid any conflicts with different versions of the third-party libraries. Please update all use of `BFTask` to `AWSTask`.
+    * Removed the AWS service JSON files and imported them as source files to simplify the initial SDK installation.
+* **Amazon Mobile Analytics** - Amazon Mobile Analytics is now provided as an independent service, and not a part of the AWS Core anymore. To use Amazon Mobile Analytics, please import `AWSMobileAnalytics.framework` or add `pod 'AWSMobileAnalytics'` to your `Podfile`. You need to update `#import <AWSCore/AWSCore.h>` to `#import <AWSMobileAnalytics/AWSMobileAnalytics.h>`.
+
 ## 2.1.2
 
 ### Resolved Issues

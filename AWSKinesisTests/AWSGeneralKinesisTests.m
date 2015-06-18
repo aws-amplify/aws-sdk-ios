@@ -55,7 +55,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSKinesis registerKinesisWithConfiguration:configuration forKey:key];
 
-    [[[[AWSKinesis KinesisForKey:key] addTagsToStream:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSKinesis KinesisForKey:key] addTagsToStream:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -70,7 +70,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSKinesis registerKinesisWithConfiguration:configuration forKey:key];
 
-    [[[[AWSKinesis KinesisForKey:key] createStream:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSKinesis KinesisForKey:key] createStream:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -85,7 +85,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSKinesis registerKinesisWithConfiguration:configuration forKey:key];
 
-    [[[[AWSKinesis KinesisForKey:key] deleteStream:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSKinesis KinesisForKey:key] deleteStream:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -100,7 +100,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSKinesis registerKinesisWithConfiguration:configuration forKey:key];
 
-    [[[[AWSKinesis KinesisForKey:key] describeStream:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSKinesis KinesisForKey:key] describeStream:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -115,7 +115,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSKinesis registerKinesisWithConfiguration:configuration forKey:key];
 
-    [[[[AWSKinesis KinesisForKey:key] getRecords:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSKinesis KinesisForKey:key] getRecords:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -130,7 +130,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSKinesis registerKinesisWithConfiguration:configuration forKey:key];
 
-    [[[[AWSKinesis KinesisForKey:key] getShardIterator:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSKinesis KinesisForKey:key] getShardIterator:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -145,7 +145,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSKinesis registerKinesisWithConfiguration:configuration forKey:key];
 
-    [[[[AWSKinesis KinesisForKey:key] listStreams:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSKinesis KinesisForKey:key] listStreams:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -160,7 +160,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSKinesis registerKinesisWithConfiguration:configuration forKey:key];
 
-    [[[[AWSKinesis KinesisForKey:key] listTagsForStream:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSKinesis KinesisForKey:key] listTagsForStream:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -175,7 +175,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSKinesis registerKinesisWithConfiguration:configuration forKey:key];
 
-    [[[[AWSKinesis KinesisForKey:key] mergeShards:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSKinesis KinesisForKey:key] mergeShards:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -190,7 +190,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSKinesis registerKinesisWithConfiguration:configuration forKey:key];
 
-    [[[[AWSKinesis KinesisForKey:key] putRecord:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSKinesis KinesisForKey:key] putRecord:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -205,7 +205,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSKinesis registerKinesisWithConfiguration:configuration forKey:key];
 
-    [[[[AWSKinesis KinesisForKey:key] putRecords:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSKinesis KinesisForKey:key] putRecords:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -220,7 +220,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSKinesis registerKinesisWithConfiguration:configuration forKey:key];
 
-    [[[[AWSKinesis KinesisForKey:key] removeTagsFromStream:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSKinesis KinesisForKey:key] removeTagsFromStream:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -235,7 +235,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSKinesis registerKinesisWithConfiguration:configuration forKey:key];
 
-    [[[[AWSKinesis KinesisForKey:key] splitShard:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSKinesis KinesisForKey:key] splitShard:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);

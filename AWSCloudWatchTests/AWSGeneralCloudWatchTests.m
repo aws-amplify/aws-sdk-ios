@@ -55,7 +55,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCloudWatch registerCloudWatchWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCloudWatch CloudWatchForKey:key] deleteAlarms:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCloudWatch CloudWatchForKey:key] deleteAlarms:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -70,7 +70,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCloudWatch registerCloudWatchWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCloudWatch CloudWatchForKey:key] describeAlarmHistory:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCloudWatch CloudWatchForKey:key] describeAlarmHistory:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -85,7 +85,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCloudWatch registerCloudWatchWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCloudWatch CloudWatchForKey:key] describeAlarms:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCloudWatch CloudWatchForKey:key] describeAlarms:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -100,7 +100,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCloudWatch registerCloudWatchWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCloudWatch CloudWatchForKey:key] describeAlarmsForMetric:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCloudWatch CloudWatchForKey:key] describeAlarmsForMetric:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -115,7 +115,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCloudWatch registerCloudWatchWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCloudWatch CloudWatchForKey:key] disableAlarmActions:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCloudWatch CloudWatchForKey:key] disableAlarmActions:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -130,7 +130,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCloudWatch registerCloudWatchWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCloudWatch CloudWatchForKey:key] enableAlarmActions:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCloudWatch CloudWatchForKey:key] enableAlarmActions:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -145,7 +145,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCloudWatch registerCloudWatchWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCloudWatch CloudWatchForKey:key] getMetricStatistics:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCloudWatch CloudWatchForKey:key] getMetricStatistics:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -160,7 +160,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCloudWatch registerCloudWatchWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCloudWatch CloudWatchForKey:key] listMetrics:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCloudWatch CloudWatchForKey:key] listMetrics:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -175,7 +175,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCloudWatch registerCloudWatchWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCloudWatch CloudWatchForKey:key] putMetricAlarm:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCloudWatch CloudWatchForKey:key] putMetricAlarm:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -190,7 +190,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCloudWatch registerCloudWatchWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCloudWatch CloudWatchForKey:key] putMetricData:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCloudWatch CloudWatchForKey:key] putMetricData:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -205,7 +205,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCloudWatch registerCloudWatchWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCloudWatch CloudWatchForKey:key] setAlarmState:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCloudWatch CloudWatchForKey:key] setAlarmState:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);

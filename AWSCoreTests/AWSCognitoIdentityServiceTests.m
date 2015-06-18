@@ -46,7 +46,7 @@
 
     AWSCognitoIdentityListIdentityPoolsInput *listPools = [AWSCognitoIdentityListIdentityPoolsInput new];
     listPools.maxResults = [NSNumber numberWithInt:10];
-    [[[cib listIdentityPools:listPools] continueWithBlock:^id(BFTask *task) {
+    [[[cib listIdentityPools:listPools] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -66,7 +66,7 @@
     createPool.identityPoolName = @"CIBiOSTestCreateDeleteIdentityPool";
     createPool.allowUnauthenticatedIdentities = @YES;
 
-    [[[[cib createIdentityPool:createPool] continueWithBlock:^id(BFTask *task) {
+    [[[[cib createIdentityPool:createPool] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -80,7 +80,7 @@
         AWSCognitoIdentityDeleteIdentityPoolInput *deletePool = [AWSCognitoIdentityDeleteIdentityPoolInput new];
         deletePool.identityPoolId = identityPool.identityPoolId;
         return [cib deleteIdentityPool:deletePool];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -94,7 +94,7 @@
     AWSCognitoIdentityDeleteIdentityPoolInput *deletePool = [AWSCognitoIdentityDeleteIdentityPoolInput new];
     deletePool.identityPoolId = @"us-east-1:aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"; //Non-existent PoolId
 
-    [[[cib deleteIdentityPool:deletePool] continueWithBlock:^id(BFTask *task) {
+    [[[cib deleteIdentityPool:deletePool] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error, @"expect error but got nil");
         XCTAssertEqual(AWSCognitoIdentityErrorResourceNotFound, task.error.code, @"expected AWSCognitoIdentityErrorResourceNotFound but got:%ld",(long)task.error.code);
         return nil;
@@ -109,7 +109,7 @@
     updatePoolInput.identityPoolId = @"us-east-1:aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"; //Non-existent PoolId
     updatePoolInput.identityPoolName = @"a new pool name";
 
-    [[[cib updateIdentityPool:updatePoolInput] continueWithBlock:^id(BFTask *task) {
+    [[[cib updateIdentityPool:updatePoolInput] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error, @"expect error but got nil");
 
         XCTAssertEqual(AWSCognitoIdentityErrorResourceNotFound, task.error.code, @"expected AWSCognitoIdentityErrorResourceNotFound but got:%ld",(long)task.error.code);
@@ -130,7 +130,7 @@
 
     __block NSString *identityPoolId = nil;
 
-    [[[[[cib createIdentityPool:createPool] continueWithBlock:^id(BFTask *task) {
+    [[[[[cib createIdentityPool:createPool] continueWithBlock:^id(AWSTask *task) {
         AWSCognitoIdentityIdentityPool *identityPool = task.result;
 
         AWSCognitoIdentityGetIdInput *getId = [AWSCognitoIdentityGetIdInput new];
@@ -139,7 +139,7 @@
         getId.identityPoolId = identityPool.identityPoolId;
 
         return [cib getId:getId];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -155,7 +155,7 @@
 
         return [cib getOpenIdToken:getToken];
 
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -174,7 +174,7 @@
     }] waitUntilFinished];
 
 
-    [[[sts assumeRoleWithWebIdentity:wifRequest] continueWithBlock:^id(BFTask *task) {
+    [[[sts assumeRoleWithWebIdentity:wifRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }

@@ -59,7 +59,7 @@ static NSString *_verifiedEmailAddress = nil;
     AWSSES *ses = [AWSSES defaultSES];
     XCTAssertNotNil(ses);
 
-    [[[ses getSendQuota:nil] continueWithBlock:^id(BFTask *task) {
+    [[[ses getSendQuota:nil] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -81,7 +81,7 @@ static NSString *_verifiedEmailAddress = nil;
 - (void)testGetSendQuota {
     AWSSES *ses = [AWSSES defaultSES];
 
-    [[[ses getSendQuota:nil] continueWithBlock:^id(BFTask *task) {
+    [[[ses getSendQuota:nil] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -126,7 +126,7 @@ static NSString *_verifiedEmailAddress = nil;
     message.body = body;
     sendEmailRequest.message = message;
 
-    [[[ses sendEmail:sendEmailRequest] continueWithBlock:^id(BFTask *task) {
+    [[[ses sendEmail:sendEmailRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -140,7 +140,7 @@ static NSString *_verifiedEmailAddress = nil;
     AWSSESVerifyEmailIdentityRequest *identityRequest = [AWSSESVerifyEmailIdentityRequest new];
     identityRequest.emailAddress = @""; //email address is empty
 
-    [[[ses verifyEmailIdentity:identityRequest] continueWithBlock:^id(BFTask *task) {
+    [[[ses verifyEmailIdentity:identityRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error, @"expected EmailAddressNotValid Error but got nil");
         return nil;
     }] waitUntilFinished];

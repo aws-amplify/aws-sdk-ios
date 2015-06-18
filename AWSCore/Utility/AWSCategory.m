@@ -18,12 +18,33 @@
 #import <CommonCrypto/CommonCryptor.h>
 #import <CommonCrypto/CommonDigest.h>
 #import "AWSLogging.h"
+#import "AWSGZIP.h"
+#import "AWSMantle.h"
 
 NSString *const AWSDateRFC822DateFormat1 = @"EEE, dd MMM yyyy HH:mm:ss z";
 NSString *const AWSDateISO8601DateFormat1 = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
 NSString *const AWSDateISO8601DateFormat2 = @"yyyyMMdd'T'HHmmss'Z'";
 NSString *const AWSDateISO8601DateFormat3 = @"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
 NSString *const AWSDateShortDateFormat1 = @"yyyyMMdd";
+
+@interface AWSCategory : NSObject
+
++ (void)loadCategories;
+
+@end
+
+@implementation AWSCategory
+
++ (void)loadCategories {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        awsgzip_loadGZIP();
+        awsmtl_loadMTLPredefinedTransformerAdditions();
+        awsmtl_loadMTLNSCoding();
+    });
+}
+
+@end
 
 @implementation NSDate (AWS)
 

@@ -84,13 +84,11 @@
     configuration.baseURL = [NSURL URLWithString:@"baseURL"];
     configuration.URLString = @"URLString";
     configuration.HTTPMethod = AWSHTTPMethodPATCH;
-    configuration.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithResource:@""
-                                                                              actionName:@"operationName"
-                                                                          classForBundle:[self class]];
-    configuration.responseSerializer = [[AWSJSONResponseSerializer alloc] initWithResource:@""
+    configuration.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithJSONDefinition:nil
+                                                                                    actionName:@"operationName"];
+    configuration.responseSerializer = [[AWSJSONResponseSerializer alloc] initWithJSONDefinition:nil
                                                                                 actionName:@"operationName"
-                                                                               outputClass:nil
-                                                                            classForBundle:[self class]];
+                                                                               outputClass:nil];
     
     
     AWSServiceConfiguration *configurationClone = [configuration copy];

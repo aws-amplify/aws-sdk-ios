@@ -24,6 +24,7 @@
 #import "AWSURLResponseSerialization.h"
 #import "AWSURLRequestRetryHandler.h"
 #import "AWSSynchronizedMutableDictionary.h"
+#import "AWSMachineLearningResources.h"
 
 NSString *const AWSMachineLearningDefinitionFileName = @"machinelearning-2014-12-12";
 
@@ -79,9 +80,9 @@ static NSDictionary *errorCodeDictionary = nil;
         }
 
         if (self.outputClass) {
-            responseObject = [MTLJSONAdapter modelOfClass:self.outputClass
-                                       fromJSONDictionary:responseObject
-                                                    error:error];
+            responseObject = [AWSMTLJSONAdapter modelOfClass:self.outputClass
+                                          fromJSONDictionary:responseObject
+                                                       error:error];
         }
     }
 
@@ -216,7 +217,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return self;
 }
 
-- (BFTask *)invokeRequest:(AWSRequest *)request
+- (AWSTask *)invokeRequest:(AWSRequest *)request
                HTTPMethod:(AWSHTTPMethod)HTTPMethod
                 URLString:(NSString *) URLString
              targetPrefix:(NSString *)targetPrefix
@@ -230,7 +231,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         
         AWSNetworkingRequest *networkingRequest = request.internalRequest;
         if (request) {
-            networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
+            networkingRequest.parameters = [[AWSMTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
         } else {
             networkingRequest.parameters = @{};
         }
@@ -239,13 +240,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         headers[@"X-Amz-Target"] = [NSString stringWithFormat:@"%@.%@", targetPrefix, operationName];
         networkingRequest.headers = headers;
         networkingRequest.HTTPMethod = HTTPMethod;
-        networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithResource:AWSMachineLearningDefinitionFileName
-                                                                                      actionName:operationName
-                                                                                  classForBundle:[self class]];
-        networkingRequest.responseSerializer = [[AWSMachineLearningResponseSerializer alloc] initWithResource:AWSMachineLearningDefinitionFileName
-                                                                                                   actionName:operationName
-                                                                                                  outputClass:outputClass
-                                                                                               classForBundle:[self class]];
+        networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithJSONDefinition:[[AWSMachineLearningResources sharedInstance] JSONObject]
+                                                                                            actionName:operationName];
+        networkingRequest.responseSerializer = [[AWSMachineLearningResponseSerializer alloc] initWithJSONDefinition:[[AWSMachineLearningResources sharedInstance] JSONObject]
+                                                                                                         actionName:operationName
+                                                                                                        outputClass:outputClass];
         networkingRequest.URLString = URLString;
         return [self.networking sendRequest:networkingRequest];
     }
@@ -253,7 +252,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 #pragma mark - Service method
 
-- (BFTask *)getMLModel:(AWSMachineLearningGetMLModelInput *)request {
+- (AWSTask *)getMLModel:(AWSMachineLearningGetMLModelInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -262,7 +261,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSMachineLearningGetMLModelOutput class]];
 }
 
-- (BFTask *)predict:(AWSMachineLearningPredictInput *)request {
+- (AWSTask *)predict:(AWSMachineLearningPredictInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:request.predictEndpoint

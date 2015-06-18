@@ -47,7 +47,7 @@
     AWSAutoScaling *autoScaling = [AWSAutoScaling defaultAutoScaling];
     XCTAssertNotNil(autoScaling);
 
-    [[[autoScaling describeAccountLimits:nil] continueWithBlock:^id(BFTask *task) {
+    [[[autoScaling describeAccountLimits:nil] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -67,7 +67,7 @@
 - (void)testDescribeAccountLimits {
     AWSAutoScaling *autoScaling = [AWSAutoScaling defaultAutoScaling];
 
-    [[[autoScaling describeAccountLimits:nil] continueWithBlock:^id(BFTask *task) {
+    [[[autoScaling describeAccountLimits:nil] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -87,7 +87,7 @@
     AWSAutoScalingAttachInstancesQuery *attacheInstancesQuery = [AWSAutoScalingAttachInstancesQuery new];
     attacheInstancesQuery.autoScalingGroupName = @"invalidGroupName"; //invalid group name
     
-    [[[autoScaling attachInstances:attacheInstancesQuery] continueWithBlock:^id(BFTask *task) {
+    [[[autoScaling attachInstances:attacheInstancesQuery] continueWithBlock:^id(AWSTask *task) {
         if (task.error == nil) {
             XCTFail(@"Expect Error but got nil");
         }

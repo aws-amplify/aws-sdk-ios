@@ -234,6 +234,11 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeC3_2xlarge,
     AWSEC2InstanceTypeC3_4xlarge,
     AWSEC2InstanceTypeC3_8xlarge,
+    AWSEC2InstanceTypeC4_large,
+    AWSEC2InstanceTypeC4_xlarge,
+    AWSEC2InstanceTypeC4_2xlarge,
+    AWSEC2InstanceTypeC4_4xlarge,
+    AWSEC2InstanceTypeC4_8xlarge,
     AWSEC2InstanceTypeCC1_4xlarge,
     AWSEC2InstanceTypeCC2_8xlarge,
     AWSEC2InstanceTypeG2_2xlarge,
@@ -289,6 +294,9 @@ typedef NS_ENUM(NSInteger, AWSEC2OfferingTypeValues) {
     AWSEC2OfferingTypeValuesHeavyUtilization,
     AWSEC2OfferingTypeValuesMediumUtilization,
     AWSEC2OfferingTypeValuesLightUtilization,
+    AWSEC2OfferingTypeValuesNoUpfront,
+    AWSEC2OfferingTypeValuesPartialUpfront,
+    AWSEC2OfferingTypeValuesAllUpfront,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2PermissionGroup) {
@@ -565,6 +573,8 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @class AWSEC2AssociateDhcpOptionsRequest;
 @class AWSEC2AssociateRouteTableRequest;
 @class AWSEC2AssociateRouteTableResult;
+@class AWSEC2AttachClassicLinkVpcRequest;
+@class AWSEC2AttachClassicLinkVpcResult;
 @class AWSEC2AttachInternetGatewayRequest;
 @class AWSEC2AttachNetworkInterfaceRequest;
 @class AWSEC2AttachNetworkInterfaceResult;
@@ -592,6 +602,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @class AWSEC2CancelSpotInstanceRequestsRequest;
 @class AWSEC2CancelSpotInstanceRequestsResult;
 @class AWSEC2CancelledSpotInstanceRequest;
+@class AWSEC2ClassicLinkInstance;
 @class AWSEC2ConfirmProductInstanceRequest;
 @class AWSEC2ConfirmProductInstanceResult;
 @class AWSEC2ConversionTask;
@@ -669,6 +680,8 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @class AWSEC2DescribeAvailabilityZonesResult;
 @class AWSEC2DescribeBundleTasksRequest;
 @class AWSEC2DescribeBundleTasksResult;
+@class AWSEC2DescribeClassicLinkInstancesRequest;
+@class AWSEC2DescribeClassicLinkInstancesResult;
 @class AWSEC2DescribeConversionTasksRequest;
 @class AWSEC2DescribeConversionTasksResult;
 @class AWSEC2DescribeCustomerGatewaysRequest;
@@ -733,6 +746,8 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @class AWSEC2DescribeVolumesResult;
 @class AWSEC2DescribeVpcAttributeRequest;
 @class AWSEC2DescribeVpcAttributeResult;
+@class AWSEC2DescribeVpcClassicLinkRequest;
+@class AWSEC2DescribeVpcClassicLinkResult;
 @class AWSEC2DescribeVpcPeeringConnectionsRequest;
 @class AWSEC2DescribeVpcPeeringConnectionsResult;
 @class AWSEC2DescribeVpcsRequest;
@@ -741,6 +756,8 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @class AWSEC2DescribeVpnConnectionsResult;
 @class AWSEC2DescribeVpnGatewaysRequest;
 @class AWSEC2DescribeVpnGatewaysResult;
+@class AWSEC2DetachClassicLinkVpcRequest;
+@class AWSEC2DetachClassicLinkVpcResult;
 @class AWSEC2DetachInternetGatewayRequest;
 @class AWSEC2DetachNetworkInterfaceRequest;
 @class AWSEC2DetachVolumeRequest;
@@ -748,6 +765,8 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @class AWSEC2DhcpConfiguration;
 @class AWSEC2DhcpOptions;
 @class AWSEC2DisableVgwRoutePropagationRequest;
+@class AWSEC2DisableVpcClassicLinkRequest;
+@class AWSEC2DisableVpcClassicLinkResult;
 @class AWSEC2DisassociateAddressRequest;
 @class AWSEC2DisassociateRouteTableRequest;
 @class AWSEC2DiskImage;
@@ -759,6 +778,8 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @class AWSEC2EbsInstanceBlockDeviceSpecification;
 @class AWSEC2EnableVgwRoutePropagationRequest;
 @class AWSEC2EnableVolumeIORequest;
+@class AWSEC2EnableVpcClassicLinkRequest;
+@class AWSEC2EnableVpcClassicLinkResult;
 @class AWSEC2ExportTask;
 @class AWSEC2ExportToS3Task;
 @class AWSEC2ExportToS3TaskSpecification;
@@ -907,6 +928,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @class AWSEC2UnassignPrivateIpAddressesRequest;
 @class AWSEC2UnmonitorInstancesRequest;
 @class AWSEC2UnmonitorInstancesResult;
+@class AWSEC2UserData;
 @class AWSEC2UserIdGroupPair;
 @class AWSEC2VgwTelemetry;
 @class AWSEC2Volume;
@@ -919,6 +941,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @class AWSEC2VolumeStatusItem;
 @class AWSEC2Vpc;
 @class AWSEC2VpcAttachment;
+@class AWSEC2VpcClassicLink;
 @class AWSEC2VpcPeeringConnection;
 @class AWSEC2VpcPeeringConnectionStateReason;
 @class AWSEC2VpcPeeringConnectionVpcInfo;
@@ -1219,6 +1242,47 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  <p>The route table association ID (needed to disassociate the route table).</p>
  */
 @property (nonatomic, strong) NSString *associationId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AttachClassicLinkVpcRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray *groups;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString *instanceId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString *vpcId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AttachClassicLinkVpcResult : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber *returned;
 
 @end
 
@@ -1816,6 +1880,34 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 /**
  
  */
+@interface AWSEC2ClassicLinkInstance : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray *groups;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString *instanceId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray *tags;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString *vpcId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2ConfirmProductInstanceRequest : AWSRequest
 
 
@@ -2217,7 +2309,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSArray *privateIpAddresses;
 
 /**
- <p>The number of secondary private IP addresses to assign to a network interface. When you specify a number of secondary IP addresses, Amazon EC2 selects these IP addresses within the subnet range. You can't specify this option and specify more than one private IP address using <code>privateIpAddresses</code>.</p><p>The number of IP addresses you can assign to a network interface varies by instance type. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">Private IP Addresses Per ENI Per Instance Type</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>The number of secondary private IP addresses to assign to a network interface. When you specify a number of secondary IP addresses, Amazon EC2 selects these IP addresses within the subnet range. You can't specify this option and specify more than one private IP address using <code>privateIpAddresses</code>.</p><p>The number of IP addresses you can assign to a network interface varies by instance type. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">Private IP Addresses Per ENI Per Instance Type</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux</i>.</p>
  */
 @property (nonatomic, strong) NSNumber *secondaryPrivateIpAddressCount;
 
@@ -2271,7 +2363,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 
 /**
- <p>Unique, case-sensitive identifier you provide to ensure idempotency of your listings. This helps avoid duplicate listings. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Unique, case-sensitive identifier you provide to ensure idempotency of your listings. This helps avoid duplicate listings. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux</i>.</p>
  */
 @property (nonatomic, strong) NSString *clientToken;
 
@@ -3418,6 +3510,57 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 /**
  
  */
+@interface AWSEC2DescribeClassicLinkInstancesRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray *filters;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray *instanceIds;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber *maxResults;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString *nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeClassicLinkInstancesResult : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray *instances;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString *nextToken;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DescribeConversionTasksRequest : AWSRequest
 
 
@@ -4129,7 +4272,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, assign) AWSEC2Tenancy instanceTenancy;
 
 /**
- <p>The instance type on which the Reserved Instance can be used. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>The instance type on which the Reserved Instance can be used. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux</i>.</p>
  */
 @property (nonatomic, assign) AWSEC2InstanceType instanceType;
 
@@ -4374,6 +4517,16 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSArray *filters;
 
 /**
+ 
+ */
+@property (nonatomic, strong) NSNumber *maxResults;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString *nextToken;
+
+/**
  <p>Returns the snapshots owned by the specified owner. Multiple owners can be specified.</p>
  */
 @property (nonatomic, strong) NSArray *ownerIds;
@@ -4395,6 +4548,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  */
 @interface AWSEC2DescribeSnapshotsResult : AWSModel
 
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString *nextToken;
 
 /**
  
@@ -4441,7 +4599,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSNumber *dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>availability-zone-group</code> - The Availability Zone group.</p></li><li><p><code>create-time</code> - The time stamp when the Spot Instance request was created.</p></li><li><p><code>fault-code</code> - The fault code related to the request.</p></li><li><p><code>fault-message</code> - The fault message related to the request.</p></li><li><p><code>instance-id</code> - The ID of the instance that fulfilled the request.</p></li><li><p><code>launch-group</code> - The Spot Instance launch group.</p></li><li><p><code>launch.block-device-mapping.delete-on-termination</code> - Indicates whether the Amazon EBS volume is deleted on instance termination.</p></li><li><p><code>launch.block-device-mapping.device-name</code> - The device name for the Amazon EBS volume (for example, <code>/dev/sdh</code>).</p></li><li><p><code>launch.block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS volume.</p></li><li><p><code>launch.block-device-mapping.volume-size</code> - The size of the Amazon EBS volume, in GiB.</p></li><li><p><code>launch.block-device-mapping.volume-type</code> - The type of the Amazon EBS volume (<code>gp2</code> | <code>standard</code> | <code>io1</code>).</p></li><li><p><code>launch.group-id</code> - The security group for the instance.</p></li><li><p><code>launch.image-id</code> - The ID of the AMI.</p></li><li><p><code>launch.instance-type</code> - The type of instance (for example, <code>m1.small</code>).</p></li><li><p><code>launch.kernel-id</code> - The kernel ID.</p></li><li><p><code>launch.key-name</code> - The name of the key pair the instance launched with.</p></li><li><p><code>launch.monitoring-enabled</code> - Whether monitoring is enabled for the Spot Instance.</p></li><li><p><code>launch.ramdisk-id</code> - The RAM disk ID.</p></li><li><p><code>network-interface.network-interface-id</code> - The ID of the network interface.</p></li><li><p><code>network-interface.device-index</code> - The index of the device for the network interface attachment on the instance.</p></li><li><p><code>network-interface.subnet-id</code> - The ID of the subnet for the instance.</p></li><li><p><code>network-interface.description</code> - A description of the network interface.</p></li><li><p><code>network-interface.private-ip-address</code> - The primary private IP address of the network interface.</p></li><li><p><code>network-interface.delete-on-termination</code> - Indicates whether the network interface is deleted when the instance is terminated.</p></li><li><p><code>network-interface.group-id</code> - The ID of the security group associated with the network interface.</p></li><li><p><code>network-interface.group-name</code> - The name of the security group associated with the network interface.</p></li><li><p><code>network-interface.addresses.primary</code> - Indicates whether the IP address is the primary private IP address.</p></li><li><p><code>product-description</code> - The product description associated with the instance (<code>Linux/UNIX</code> | <code>Windows</code>).</p></li><li><p><code>spot-instance-request-id</code> - The Spot Instance request ID.</p></li><li><p><code>spot-price</code> - The maximum hourly price for any Spot Instance launched to fulfill the request.</p></li><li><p><code>state</code> - The state of the Spot Instance request (<code>open</code> | <code>active</code> | <code>closed</code> | <code>cancelled</code> | <code>failed</code>). Spot bid status information can help you track your Amazon EC2 Spot Instance requests. For information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-bid-status.html">Tracking Spot Requests with Bid Status Codes</a> in the Amazon Elastic Compute Cloud User Guide.</p></li><li><p><code>status-code</code> - The short code describing the most recent evaluation of your Spot Instance request.</p></li><li><p><code>status-message</code> - The message explaining the status of the Spot Instance request.</p></li><li><p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p></li><li><p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p></li><li><p><code>type</code> - The type of Spot Instance request (<code>one-time</code> | <code>persistent</code>).</p></li><li><p><code>launched-availability-zone</code> - The Availability Zone in which the bid is launched.</p></li><li><p><code>valid-from</code> - The start date of the request.</p></li><li><p><code>valid-until</code> - The end date of the request.</p></li></ul>
+ <p>One or more filters.</p><ul><li><p><code>availability-zone-group</code> - The Availability Zone group.</p></li><li><p><code>create-time</code> - The time stamp when the Spot Instance request was created.</p></li><li><p><code>fault-code</code> - The fault code related to the request.</p></li><li><p><code>fault-message</code> - The fault message related to the request.</p></li><li><p><code>instance-id</code> - The ID of the instance that fulfilled the request.</p></li><li><p><code>launch-group</code> - The Spot Instance launch group.</p></li><li><p><code>launch.block-device-mapping.delete-on-termination</code> - Indicates whether the Amazon EBS volume is deleted on instance termination.</p></li><li><p><code>launch.block-device-mapping.device-name</code> - The device name for the Amazon EBS volume (for example, <code>/dev/sdh</code>).</p></li><li><p><code>launch.block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS volume.</p></li><li><p><code>launch.block-device-mapping.volume-size</code> - The size of the Amazon EBS volume, in GiB.</p></li><li><p><code>launch.block-device-mapping.volume-type</code> - The type of the Amazon EBS volume (<code>gp2</code> | <code>standard</code> | <code>io1</code>).</p></li><li><p><code>launch.group-id</code> - The security group for the instance.</p></li><li><p><code>launch.image-id</code> - The ID of the AMI.</p></li><li><p><code>launch.instance-type</code> - The type of instance (for example, <code>m1.small</code>).</p></li><li><p><code>launch.kernel-id</code> - The kernel ID.</p></li><li><p><code>launch.key-name</code> - The name of the key pair the instance launched with.</p></li><li><p><code>launch.monitoring-enabled</code> - Whether monitoring is enabled for the Spot Instance.</p></li><li><p><code>launch.ramdisk-id</code> - The RAM disk ID.</p></li><li><p><code>network-interface.network-interface-id</code> - The ID of the network interface.</p></li><li><p><code>network-interface.device-index</code> - The index of the device for the network interface attachment on the instance.</p></li><li><p><code>network-interface.subnet-id</code> - The ID of the subnet for the instance.</p></li><li><p><code>network-interface.description</code> - A description of the network interface.</p></li><li><p><code>network-interface.private-ip-address</code> - The primary private IP address of the network interface.</p></li><li><p><code>network-interface.delete-on-termination</code> - Indicates whether the network interface is deleted when the instance is terminated.</p></li><li><p><code>network-interface.group-id</code> - The ID of the security group associated with the network interface.</p></li><li><p><code>network-interface.group-name</code> - The name of the security group associated with the network interface.</p></li><li><p><code>network-interface.addresses.primary</code> - Indicates whether the IP address is the primary private IP address.</p></li><li><p><code>product-description</code> - The product description associated with the instance (<code>Linux/UNIX</code> | <code>Windows</code>).</p></li><li><p><code>spot-instance-request-id</code> - The Spot Instance request ID.</p></li><li><p><code>spot-price</code> - The maximum hourly price for any Spot Instance launched to fulfill the request.</p></li><li><p><code>state</code> - The state of the Spot Instance request (<code>open</code> | <code>active</code> | <code>closed</code> | <code>cancelled</code> | <code>failed</code>). Spot bid status information can help you track your Amazon EC2 Spot Instance requests. For information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-bid-status.html">Tracking Spot Requests with Bid Status Codes</a> in the Amazon Elastic Compute Cloud User Guide for Linux.</p></li><li><p><code>status-code</code> - The short code describing the most recent evaluation of your Spot Instance request.</p></li><li><p><code>status-message</code> - The message explaining the status of the Spot Instance request.</p></li><li><p><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</p></li><li><p><code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the <code>tag-key</code> filter.</p></li><li><p><code>type</code> - The type of Spot Instance request (<code>one-time</code> | <code>persistent</code>).</p></li><li><p><code>launched-availability-zone</code> - The Availability Zone in which the bid is launched.</p></li><li><p><code>valid-from</code> - The start date of the request.</p></li><li><p><code>valid-until</code> - The end date of the request.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray *filters;
 
@@ -4815,6 +4973,42 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 /**
  
  */
+@interface AWSEC2DescribeVpcClassicLinkRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray *filters;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray *vpcIds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeVpcClassicLinkResult : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray *vpcs;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DescribeVpcPeeringConnectionsRequest : AWSRequest
 
 
@@ -4953,6 +5147,42 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  <p>Information about one or more virtual private gateways.</p>
  */
 @property (nonatomic, strong) NSArray *vpnGateways;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DetachClassicLinkVpcRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString *instanceId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString *vpcId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DetachClassicLinkVpcResult : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber *returned;
 
 @end
 
@@ -5120,6 +5350,37 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 /**
  
  */
+@interface AWSEC2DisableVpcClassicLinkRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString *vpcId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DisableVpcClassicLinkResult : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber *returned;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DisassociateAddressRequest : AWSRequest
 
 
@@ -5267,7 +5528,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSNumber *encrypted;
 
 /**
- <p>The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS (SSD) volumes, this represents the number of IOPS that are provisioned for the volume. For General Purpose (SSD) volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information on General Purpose (SSD) baseline performance, I/O credits, and bursting, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Constraint: Range is 100 to 4000 for Provisioned IOPS (SSD) volumes and 3 to 3072 for General Purpose (SSD) volumes.</p><p>Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in requests to create <code>standard</code> or <code>gp2</code> volumes.</p>
+ <p>The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS (SSD) volumes, this represents the number of IOPS that are provisioned for the volume. For General Purpose (SSD) volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information on General Purpose (SSD) baseline performance, I/O credits, and bursting, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux</i>.</p><p>Constraint: Range is 100 to 4000 for Provisioned IOPS (SSD) volumes and 3 to 3072 for General Purpose (SSD) volumes.</p><p>Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in requests to create <code>standard</code> or <code>gp2</code> volumes.</p>
  */
 @property (nonatomic, strong) NSNumber *iops;
 
@@ -5367,6 +5628,37 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  <p>The ID of the volume.</p>
  */
 @property (nonatomic, strong) NSString *volumeId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2EnableVpcClassicLinkRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber *dryRun;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString *vpcId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2EnableVpcClassicLinkResult : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber *returned;
 
 @end
 
@@ -5653,6 +5945,11 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSArray *blockDeviceMappings;
 
 /**
+ 
+ */
+@property (nonatomic, strong) NSString *creationDate;
+
+/**
  <p>The description of the AMI that was provided during image creation.</p>
  */
 @property (nonatomic, strong) NSString *detail;
@@ -5834,7 +6131,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, assign) AWSEC2ShutdownBehavior instanceInitiatedShutdownBehavior;
 
 /**
- <p>The instance type. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>The instance type. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux</i>.</p>
  */
 @property (nonatomic, assign) AWSEC2InstanceType instanceType;
 
@@ -5861,7 +6158,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 /**
  <p>User data to be made available to the instance.</p>
  */
-@property (nonatomic, strong) NSString *userData;
+@property (nonatomic, strong) AWSEC2UserData *userData;
 
 @end
 
@@ -7178,7 +7475,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, assign) AWSEC2InstanceAttributeName attribute;
 
 /**
- <p>Modifies the <code>DeleteOnTermination</code> attribute for volumes that are currently attached. The volume must be owned by the caller. If no value is specified for <code>DeleteOnTermination</code>, the default is <code>true</code> and the volume is deleted when the instance is terminated.</p><p>To add instance store volumes to an Amazon EBS-backed instance, you must add them when you launch the instance. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Updating the Block Device Mapping when Launching an Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Modifies the <code>DeleteOnTermination</code> attribute for volumes that are currently attached. The volume must be owned by the caller. If no value is specified for <code>DeleteOnTermination</code>, the default is <code>true</code> and the volume is deleted when the instance is terminated.</p><p>To add instance store volumes to an Amazon EBS-backed instance, you must add them when you launch the instance. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Updating the Block Device Mapping when Launching an Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux</i>.</p>
  */
 @property (nonatomic, strong) NSArray *blockDeviceMappings;
 
@@ -8381,7 +8678,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 
 /**
- <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux</i>.</p>
  */
 @property (nonatomic, strong) NSString *clientToken;
 
@@ -9403,7 +9700,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSArray *blockDeviceMappings;
 
 /**
- <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Constraints: Maximum 64 ASCII characters</p>
+ <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux</i>.</p><p>Constraints: Maximum 64 ASCII characters</p>
  */
 @property (nonatomic, strong) NSString *clientToken;
 
@@ -9438,12 +9735,12 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, assign) AWSEC2ShutdownBehavior instanceInitiatedShutdownBehavior;
 
 /**
- <p>The instance type. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Default: <code>m1.small</code></p>
+ <p>The instance type. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux</i>.</p><p>Default: <code>m1.small</code></p>
  */
 @property (nonatomic, assign) AWSEC2InstanceType instanceType;
 
 /**
- <p>The ID of the kernel.</p><important><p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html"> PV-GRUB</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></important>
+ <p>The ID of the kernel.</p><important><p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html"> PV-GRUB</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux</i>.</p></important>
  */
 @property (nonatomic, strong) NSString *kernelId;
 
@@ -9483,7 +9780,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *privateIpAddress;
 
 /**
- <p>The ID of the RAM disk.</p><important><p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html"> PV-GRUB</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></important>
+ <p>The ID of the RAM disk.</p><important><p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html"> PV-GRUB</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux</i>.</p></important>
  */
 @property (nonatomic, strong) NSString *ramdiskId;
 
@@ -9748,7 +10045,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSString *spotPrice;
 
 /**
- <p>The state of the Spot Instance request. Spot bid status information can help you track your Spot Instance requests. For information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-bid-status.html">Tracking Spot Requests with Bid Status Codes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>The state of the Spot Instance request. Spot bid status information can help you track your Spot Instance requests. For information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-bid-status.html">Tracking Spot Requests with Bid Status Codes</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux</i>.</p>
  */
 @property (nonatomic, assign) AWSEC2SpotInstanceState state;
 
@@ -10154,6 +10451,19 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @end
 
 /**
+ 
+ */
+@interface AWSEC2UserData : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString *data;
+
+@end
+
+/**
  <p>Describes a security group and AWS account ID pair for EC2-Classic.</p>
  */
 @interface AWSEC2UserIdGroupPair : AWSModel
@@ -10236,7 +10546,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @property (nonatomic, strong) NSNumber *encrypted;
 
 /**
- <p>The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS (SSD) volumes, this represents the number of IOPS that are provisioned for the volume. For General Purpose (SSD) volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information on General Purpose (SSD) baseline performance, I/O credits, and bursting, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Constraint: Range is 100 to 4000 for Provisioned IOPS (SSD) volumes and 3 to 3072 for General Purpose (SSD) volumes.</p><p>Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in requests to create <code>standard</code> or <code>gp2</code> volumes.</p>
+ <p>The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS (SSD) volumes, this represents the number of IOPS that are provisioned for the volume. For General Purpose (SSD) volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information on General Purpose (SSD) baseline performance, I/O credits, and bursting, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux</i>.</p><p>Constraint: Range is 100 to 4000 for Provisioned IOPS (SSD) volumes and 3 to 3072 for General Purpose (SSD) volumes.</p><p>Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in requests to create <code>standard</code> or <code>gp2</code> volumes.</p>
  */
 @property (nonatomic, strong) NSNumber *iops;
 
@@ -10515,6 +10825,29 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 
 /**
  <p>The ID of the VPC.</p>
+ */
+@property (nonatomic, strong) NSString *vpcId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2VpcClassicLink : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber *classicLinkEnabled;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray *tags;
+
+/**
+ 
  */
 @property (nonatomic, strong) NSString *vpcId;
 

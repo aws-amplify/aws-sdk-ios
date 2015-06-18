@@ -63,7 +63,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
     AWSDynamoDBObjectMapperSaveBehaviorClobber
 };
 
-@class BFTask;
+@class AWSTask;
 @class AWSServiceConfiguration;
 @class AWSDynamoDB;
 @class AWSDynamoDBObjectMapperConfiguration;
@@ -120,7 +120,7 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
 /**
  @warning This class has been deprecated. Use `AWSDynamoDBObjectModel` instead.
  */
-@interface AWSDynamoDBModel : MTLModel <MTLJSONSerializing>
+@interface AWSDynamoDBModel : AWSMTLModel <AWSMTLJSONSerializing>
 
 @end
 
@@ -130,7 +130,7 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
 /**
  A base class for all objects mapped to an Amazon DynamoDB table row. They need to inherit from this class.
  */
-@interface AWSDynamoDBObjectModel : AWSDynamoDBModel <MTLJSONSerializing>
+@interface AWSDynamoDBObjectModel : AWSDynamoDBModel <AWSMTLJSONSerializing>
 
 @end
 
@@ -315,9 +315,9 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
 
  @param model A model to save.
 
- @return BFTask.
+ @return AWSTask.
  */
-- (BFTask *)save:(AWSDynamoDBModel *)model;
+- (AWSTask *)save:(AWSDynamoDBModel *)model;
 
 /**
  Saves the object given into DynamoDB, using the specified configuration.
@@ -325,9 +325,9 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
  @param model         A model to save.
  @param configuration A configuration.
 
- @return BFTask.
+ @return AWSTask.
  */
-- (BFTask *)save:(AWSDynamoDBModel *)model
+- (AWSTask *)save:(AWSDynamoDBModel *)model
    configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration;
 
 /**
@@ -335,9 +335,9 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
 
  @param model A model to delete.
 
- @return BFTask.
+ @return AWSTask.
  */
-- (BFTask *)remove:(AWSDynamoDBModel *)model;
+- (AWSTask *)remove:(AWSDynamoDBModel *)model;
 
 /**
  Deletes the given object from its DynamoDB table using the specified configuration.
@@ -345,9 +345,9 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
  @param model         A model to delete.
  @param configuration A configuration.
 
- @return BFTask.
+ @return AWSTask.
  */
-- (BFTask *)remove:(AWSDynamoDBModel *)model
+- (AWSTask *)remove:(AWSDynamoDBModel *)model
      configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration;
 
 /**
@@ -357,9 +357,9 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
  @param hashKey     A hash key value.
  @param rangeKey    A range key value.
 
- @return BFTask.
+ @return AWSTask.
  */
-- (BFTask *)load:(Class)resultClass
+- (AWSTask *)load:(Class)resultClass
          hashKey:(id)hashKey
         rangeKey:(id)rangeKey;
 
@@ -371,9 +371,9 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
  @param rangeKey      A range key value.
  @param configuration A configuration.
 
- @return BFTask.
+ @return AWSTask.
  */
-- (BFTask *)load:(Class)resultClass
+- (AWSTask *)load:(Class)resultClass
          hashKey:(id)hashKey
         rangeKey:(id)rangeKey
    configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration;
@@ -384,9 +384,9 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
  @param resultClass The class of the result object.
  @param expression  An expression object.
 
- @return BFTask.
+ @return AWSTask.
  */
-- (BFTask *)query:(Class)resultClass
+- (AWSTask *)query:(Class)resultClass
        expression:(AWSDynamoDBQueryExpression *)expression;
 
 /**
@@ -396,9 +396,9 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
  @param expression    An expression object.
  @param configuration A configuration.
 
- @return BFTask.
+ @return AWSTask.
  */
-- (BFTask *)query:(Class)resultClass
+- (AWSTask *)query:(Class)resultClass
        expression:(AWSDynamoDBQueryExpression *)expression
     configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration;
 
@@ -408,9 +408,9 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
  @param resultClass The class of the result object.
  @param expression  An expression object.
 
- @return BFTask.
+ @return AWSTask.
  */
-- (BFTask *)scan:(Class)resultClass
+- (AWSTask *)scan:(Class)resultClass
       expression:(AWSDynamoDBScanExpression *)expression;
 
 /**
@@ -420,9 +420,9 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
  @param expression    An expression object.
  @param configuration A configuration.
 
- @return BFTask.
+ @return AWSTask.
  */
-- (BFTask *)scan:(Class)resultClass
+- (AWSTask *)scan:(Class)resultClass
       expression:(AWSDynamoDBScanExpression *)expression
    configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration;
 

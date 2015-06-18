@@ -32,7 +32,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderErrorType) {
     AWSCognitoIdentityProviderErrorIdentityIsNil,
 };
 
-@class BFTask;
+@class AWSTask;
 
 /**
  * AWSIdentityProvider provides an interface for acquiring an identity token from a provider.
@@ -47,7 +47,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderErrorType) {
 /**
  * Refresh the token associated with this provider.
  */
-- (BFTask *)refresh;
+- (AWSTask *)refresh;
 
 @end
 
@@ -77,11 +77,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderErrorType) {
 
 /**
  * Get/retrieve the identity id for this provider. If an identity id is already set on this
- * provider, no remote call is made and the identity will be returned as a result of the BFTask 
+ * provider, no remote call is made and the identity will be returned as a result of the AWSTask 
  * (the identityId is also available as a property). 
  * If no identityId is set on this provider, one will be retrieved from the service.
  */
-- (BFTask *)getIdentityId;
+- (AWSTask *)getIdentityId;
 
 /**
  * Is this provider considered 'authenticated'. By default, only returns YES if logins is set.

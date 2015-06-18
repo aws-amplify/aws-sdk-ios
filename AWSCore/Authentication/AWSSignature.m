@@ -20,7 +20,7 @@
 #import "AWSService.h"
 #import "AWSCredentialsProvider.h"
 #import "AWSLogging.h"
-#import <Bolts/Bolts.h>
+#import "AWSBolts.h"
 
 NSString *const AWSSigV4Marker = @"AWS4";
 NSString *const AWSSigV4Algorithm = @"AWS4-HMAC-SHA256";
@@ -142,8 +142,8 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
     return self;
 }
 
-- (BFTask *)interceptRequest:(NSMutableURLRequest *)request {
-    return [[BFTask taskWithResult:nil] continueWithSuccessBlock:^id(BFTask *task) {
+- (AWSTask *)interceptRequest:(NSMutableURLRequest *)request {
+    return [[AWSTask taskWithResult:nil] continueWithSuccessBlock:^id(AWSTask *task) {
         // clear authorization header if set
         [request setValue:nil forHTTPHeaderField:@"Authorization"];
 
@@ -525,8 +525,8 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
     return self;
 }
 
-- (BFTask *)interceptRequest:(NSMutableURLRequest *)request {
-    return [[BFTask taskWithResult:nil] continueWithSuccessBlock:^id(BFTask *task) {
+- (AWSTask *)interceptRequest:(NSMutableURLRequest *)request {
+    return [[AWSTask taskWithResult:nil] continueWithSuccessBlock:^id(AWSTask *task) {
         NSString *HTTPBodyString = [[NSString alloc] initWithData:request.HTTPBody
                                                          encoding:NSUTF8StringEncoding];
         NSMutableDictionary *parameters = [NSMutableDictionary new];

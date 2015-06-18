@@ -55,7 +55,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSDynamoDB DynamoDBForKey:key] batchGetItem:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSDynamoDB DynamoDBForKey:key] batchGetItem:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -70,7 +70,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSDynamoDB DynamoDBForKey:key] batchWriteItem:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSDynamoDB DynamoDBForKey:key] batchWriteItem:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -85,7 +85,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSDynamoDB DynamoDBForKey:key] createTable:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSDynamoDB DynamoDBForKey:key] createTable:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -100,7 +100,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSDynamoDB DynamoDBForKey:key] deleteItem:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSDynamoDB DynamoDBForKey:key] deleteItem:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -115,7 +115,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSDynamoDB DynamoDBForKey:key] deleteTable:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSDynamoDB DynamoDBForKey:key] deleteTable:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -130,7 +130,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSDynamoDB DynamoDBForKey:key] describeTable:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSDynamoDB DynamoDBForKey:key] describeTable:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -145,7 +145,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSDynamoDB DynamoDBForKey:key] getItem:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSDynamoDB DynamoDBForKey:key] getItem:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -160,7 +160,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSDynamoDB DynamoDBForKey:key] listTables:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSDynamoDB DynamoDBForKey:key] listTables:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -175,7 +175,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSDynamoDB DynamoDBForKey:key] putItem:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSDynamoDB DynamoDBForKey:key] putItem:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -190,7 +190,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSDynamoDB DynamoDBForKey:key] query:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSDynamoDB DynamoDBForKey:key] query:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -205,7 +205,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSDynamoDB DynamoDBForKey:key] scan:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSDynamoDB DynamoDBForKey:key] scan:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -220,7 +220,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSDynamoDB DynamoDBForKey:key] updateItem:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSDynamoDB DynamoDBForKey:key] updateItem:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -235,7 +235,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSDynamoDB DynamoDBForKey:key] updateTable:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSDynamoDB DynamoDBForKey:key] updateTable:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);

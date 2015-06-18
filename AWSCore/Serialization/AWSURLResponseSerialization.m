@@ -47,30 +47,16 @@ static NSDictionary *errorCodeDictionary = nil;
                             };
 }
 
-- (instancetype)initWithResource:(NSString *)resource
-                      actionName:(NSString *)actionName
-                     outputClass:(Class)outputClass
-                  classForBundle:(Class)classForBundle {
+- (instancetype)initWithJSONDefinition:(NSDictionary *)JSONDefinition
+                            actionName:(NSString *)actionName
+                           outputClass:(Class)outputClass {
     if (self = [super init]) {
-        if (resource.length == 0) {
-            AWSLogError(@"resource name can not be nil or empty.");
+        
+        _serviceDefinitionJSON = JSONDefinition;
+        if (_serviceDefinitionJSON == nil) {
+            AWSLogError(@"serviceDefinitionJSON of is nil.");
             return nil;
         }
-        NSError *error = nil;
-        NSString *filePath = [[NSBundle bundleForClass:classForBundle] pathForResource:resource ofType:@"json"];
-        if (filePath == nil) {
-            AWSLogError(@"can not find %@.json file in the project",resource);
-            return nil;
-        } else {
-            _serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                     options:kNilOptions
-                                                                       error:&error];
-        }
-        if (error) {
-            AWSLogError(@"Error: [%@]", error);
-            return nil;
-        }
-
         _actionName = actionName;
 
         _outputClass = outputClass;
@@ -119,7 +105,7 @@ static NSDictionary *errorCodeDictionary = nil;
     id result = nil;
 
     //parse JSON data
-    result = [AWSJSONParser dictionaryForJsonData:data actionName:self.actionName serviceDefinitionRule:self.serviceDefinitionJSON error:error];
+    result = [AWSJSONParser dictionaryForJsonData:data response:response actionName:self.actionName serviceDefinitionRule:self.serviceDefinitionJSON error:error];
 
     //Parse AWSGeneralError
     if ([result isKindOfClass:[NSDictionary class]]) {
@@ -168,30 +154,16 @@ static NSDictionary *errorCodeDictionary = nil;
                             };
 }
 
-- (instancetype)initWithResource:(NSString *)resource
-                      actionName:(NSString *)actionName
-                     outputClass:(Class)outputClass
-                  classForBundle:(Class)classForBundle {
+- (instancetype)initWithJSONDefinition:(NSDictionary *)JSONDefinition
+                            actionName:(NSString *)actionName
+                           outputClass:(Class)outputClass {
     if (self = [super init]) {
-        if (resource.length == 0) {
-            AWSLogError(@"resource name can not be nil or empty.");
+        
+        _serviceDefinitionJSON = JSONDefinition;
+        if (_serviceDefinitionJSON == nil) {
+            AWSLogError(@"serviceDefinitionJSON of is nil.");
             return nil;
         }
-        NSError *error = nil;
-        NSString *filePath = [[NSBundle bundleForClass:classForBundle] pathForResource:resource ofType:@"json"];
-        if (filePath == nil) {
-            AWSLogError(@"can not find %@.json file in the project",resource);
-            return nil;
-        } else {
-            _serviceDefinitionJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                     options:kNilOptions
-                                                                       error:&error];
-        }
-        if (error) {
-            AWSLogError(@"Error: [%@]", error);
-            return nil;
-        }
-
         _actionName = actionName;
 
         _outputClass = outputClass;

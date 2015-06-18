@@ -42,7 +42,7 @@
     AWSMachineLearningGetMLModelInput *getMLModelInput = [AWSMachineLearningGetMLModelInput new];
     getMLModelInput.MLModelId = MLModelId;
     
-    [[[[MachineLearning getMLModel:getMLModelInput] continueWithSuccessBlock:^id(BFTask *task) {
+    [[[[MachineLearning getMLModel:getMLModelInput] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSMachineLearningGetMLModelOutput *getMLModelOutput = task.result;
 
         AWSMachineLearningPredictInput *predictInput = [AWSMachineLearningPredictInput new];
@@ -51,7 +51,7 @@
         predictInput.record = @{};
 
         return [MachineLearning predict:predictInput];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         XCTAssertEqual([task.result class], [AWSMachineLearningPredictOutput class]);
         XCTAssertNil(task.error);
         XCTAssertNil(task.exception);

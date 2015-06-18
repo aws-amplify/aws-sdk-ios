@@ -15,14 +15,14 @@
 
 #import "AWSNetworking.h"
 #import <UIKit/UIKit.h>
-#import <Bolts/Bolts.h>
+#import "AWSBolts.h"
 #import "AWSCategory.h"
 #import "AWSModel.h"
 #import "AWSURLSessionManager.h"
 #import "AWSService.h"
 
 NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDomain";
-NSString *const AWSiOSSDKVersion = @"2.1.2";
+NSString *const AWSiOSSDKVersion = @"2.2.0";
 
 #pragma mark - AWSHTTPMethod
 
@@ -93,8 +93,8 @@ NSString *const AWSiOSSDKVersion = @"2.1.2";
     return self;
 }
 
-- (BFTask *)sendRequest:(AWSNetworkingRequest *)request {
-    BFTaskCompletionSource *taskCompletionSource = [BFTaskCompletionSource taskCompletionSource];
+- (AWSTask *)sendRequest:(AWSNetworkingRequest *)request {
+    AWSTaskCompletionSource *taskCompletionSource = [AWSTaskCompletionSource taskCompletionSource];
     [self.networkManager dataTaskWithRequest:request
                            completionHandler:^(id responseObject, NSError *error) {
                                if (!error) {
@@ -286,14 +286,14 @@ NSString *const AWSiOSSDKVersion = @"2.1.2";
     return [self.internalRequest isCancelled];
 }
 
-- (BFTask *)cancel {
+- (AWSTask *)cancel {
     [self.internalRequest cancel];
-    return [BFTask taskWithResult:nil];
+    return [AWSTask taskWithResult:nil];
 }
 
-- (BFTask *)pause {
+- (AWSTask *)pause {
     [self.internalRequest pause];
-    return [BFTask taskWithResult:nil];
+    return [AWSTask taskWithResult:nil];
 }
 
 - (NSDictionary *)dictionaryValue {
@@ -330,14 +330,14 @@ NSString *const AWSiOSSDKVersion = @"2.1.2";
     return _userAgent;
 }
 
-- (BFTask *)interceptRequest:(NSMutableURLRequest *)request {
+- (AWSTask *)interceptRequest:(NSMutableURLRequest *)request {
     [request setValue:[[NSDate aws_clockSkewFixedDate] aws_stringValue:AWSDateISO8601DateFormat2]
    forHTTPHeaderField:@"X-Amz-Date"];
 
     NSString *userAgent = [self userAgent];
     [request setValue:userAgent forHTTPHeaderField:@"User-Agent"];
     
-    return [BFTask taskWithResult:nil];
+    return [AWSTask taskWithResult:nil];
 }
 
 @end

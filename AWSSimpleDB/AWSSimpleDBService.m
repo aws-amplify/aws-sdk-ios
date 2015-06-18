@@ -24,6 +24,7 @@
 #import "AWSURLResponseSerialization.h"
 #import "AWSURLRequestRetryHandler.h"
 #import "AWSSynchronizedMutableDictionary.h"
+#import "AWSSimpleDBResources.h"
 
 NSString *const AWSSimpleDBDefinitionFileName = @"sdb-2009-04-15";
 
@@ -94,9 +95,9 @@ static NSDictionary *errorCodeDictionary = nil;
         }
 
         if (self.outputClass) {
-            responseObject = [MTLJSONAdapter modelOfClass:self.outputClass
-                                       fromJSONDictionary:responseObject
-                                                    error:error];
+            responseObject = [AWSMTLJSONAdapter modelOfClass:self.outputClass
+                                          fromJSONDictionary:responseObject
+                                                       error:error];
         }
     }
 
@@ -228,7 +229,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return self;
 }
 
-- (BFTask *)invokeRequest:(AWSRequest *)request
+- (AWSTask *)invokeRequest:(AWSRequest *)request
                HTTPMethod:(AWSHTTPMethod)HTTPMethod
                 URLString:(NSString *) URLString
              targetPrefix:(NSString *)targetPrefix
@@ -242,25 +243,23 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         
         AWSNetworkingRequest *networkingRequest = request.internalRequest;
         if (request) {
-            networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
+            networkingRequest.parameters = [[AWSMTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
         } else {
             networkingRequest.parameters = @{};
         }
         networkingRequest.HTTPMethod = HTTPMethod;
-        networkingRequest.requestSerializer = [[AWSQueryStringRequestSerializer alloc] initWithResource:AWSSimpleDBDefinitionFileName
-                                                                                             actionName:operationName
-                                                                                         classForBundle:[self class]];
-        networkingRequest.responseSerializer = [[AWSSimpleDBResponseSerializer alloc] initWithResource:AWSSimpleDBDefinitionFileName
-                                                                                            actionName:operationName
-                                                                                           outputClass:outputClass
-                                                                                        classForBundle:[self class]];
+        networkingRequest.requestSerializer = [[AWSQueryStringRequestSerializer alloc] initWithJSONDefinition:[[AWSSimpleDBResources sharedInstance] JSONObject]
+                                                                                                   actionName:operationName];
+        networkingRequest.responseSerializer = [[AWSSimpleDBResponseSerializer alloc] initWithJSONDefinition:[[AWSSimpleDBResources sharedInstance] JSONObject]
+                                                                                                  actionName:operationName
+                                                                                                 outputClass:outputClass];
         return [self.networking sendRequest:networkingRequest];
     }
 }
 
 #pragma mark - Service method
 
-- (BFTask *)batchDeleteAttributes:(AWSSimpleDBBatchDeleteAttributesRequest *)request {
+- (AWSTask *)batchDeleteAttributes:(AWSSimpleDBBatchDeleteAttributesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -269,7 +268,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)batchPutAttributes:(AWSSimpleDBBatchPutAttributesRequest *)request {
+- (AWSTask *)batchPutAttributes:(AWSSimpleDBBatchPutAttributesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -278,7 +277,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)createDomain:(AWSSimpleDBCreateDomainRequest *)request {
+- (AWSTask *)createDomain:(AWSSimpleDBCreateDomainRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -287,7 +286,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteAttributes:(AWSSimpleDBDeleteAttributesRequest *)request {
+- (AWSTask *)deleteAttributes:(AWSSimpleDBDeleteAttributesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -296,7 +295,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteDomain:(AWSSimpleDBDeleteDomainRequest *)request {
+- (AWSTask *)deleteDomain:(AWSSimpleDBDeleteDomainRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -305,7 +304,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)domainMetadata:(AWSSimpleDBDomainMetadataRequest *)request {
+- (AWSTask *)domainMetadata:(AWSSimpleDBDomainMetadataRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -314,7 +313,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSimpleDBDomainMetadataResult class]];
 }
 
-- (BFTask *)getAttributes:(AWSSimpleDBGetAttributesRequest *)request {
+- (AWSTask *)getAttributes:(AWSSimpleDBGetAttributesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -323,7 +322,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSimpleDBGetAttributesResult class]];
 }
 
-- (BFTask *)listDomains:(AWSSimpleDBListDomainsRequest *)request {
+- (AWSTask *)listDomains:(AWSSimpleDBListDomainsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -332,7 +331,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSimpleDBListDomainsResult class]];
 }
 
-- (BFTask *)putAttributes:(AWSSimpleDBPutAttributesRequest *)request {
+- (AWSTask *)putAttributes:(AWSSimpleDBPutAttributesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -341,7 +340,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)select:(AWSSimpleDBSelectRequest *)request {
+- (AWSTask *)select:(AWSSimpleDBSelectRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""

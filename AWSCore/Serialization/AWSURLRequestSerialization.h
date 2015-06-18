@@ -20,17 +20,15 @@
 
 @interface AWSJSONRequestSerializer : NSObject <AWSURLRequestSerializer>
 
-- (instancetype)initWithResource:(NSString *)resource
-                      actionName:(NSString *)actionName
-                  classForBundle:(Class)classForBundle;
+- (instancetype)initWithJSONDefinition:(NSDictionary *)JSONDefinition
+                            actionName:(NSString *)actionName;
 
 @end
 
 @interface AWSXMLRequestSerializer : NSObject <AWSURLRequestSerializer>
 
-- (instancetype)initWithResource:(NSString *)resource
-                      actionName:(NSString *)actionName
-                  classForBundle:(Class)classForBundle;
+- (instancetype)initWithJSONDefinition:(NSDictionary *)JSONDefinition
+                      actionName:(NSString *)actionName;
 
 + (BOOL)constructURIandHeadersAndBody:(NSMutableURLRequest *)request
                                 rules:(AWSJSONDictionary *)rules
@@ -41,9 +39,8 @@
 
 @interface AWSQueryStringRequestSerializer : NSObject <AWSURLRequestSerializer>
 
-- (instancetype)initWithResource:(NSString *)resource
-                      actionName:(NSString *)actionName
-                  classForBundle:(Class)classForBundle;
+- (instancetype)initWithJSONDefinition:(NSDictionary *)JSONDefinition
+                            actionName:(NSString *)actionName;
 
 @property (nonatomic, strong) NSDictionary *additionalParameters;
 

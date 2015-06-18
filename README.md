@@ -12,9 +12,9 @@
 * **Amazon Mobile Analytics** – A service for collecting, visualizing, and understanding app usage data at scale. Amazon Mobile Analytics reports are typically updated within 60 minutes of data being received. Amazon Mobile Analytics is built to scale with the business and can collect and process billions of events from millions of endpoints.
 * **Amazon Kinesis Recorder** – Enables you to reliably record data to an Amazon Kinesis data stream from your mobile app. Kinesis Recorder batches requests to handle intermittent network connections, and it enables you to record events even when the device is offline.
 * **Amazon DynamoDB Object Mapper** - We have made it easier to use DynamoDB from the AWS SDK for iOS by providing the DynamoDB Object Mapper for iOS. The DynamoDB Object Mapper makes it easy to set up connections to a DynamoDB database and supports high-level operations like creating, getting, querying, updating, and deleting records.
-* **Amazon S3 Transfer Manager** - We have rebuilt the S3TransferManager to utilize BFTask in the AWS SDK for iOS. It has a clean interface, and all of the operations are now asynchronous.
+* **Amazon S3 Transfer Manager** - We have rebuilt the S3TransferManager to utilize AWSTask in the AWS SDK for iOS. It has a clean interface, and all of the operations are now asynchronous.
 * **ARC support** - The AWS SDK for iOS is now ARC enabled from the ground up to improve overall memory management.
-* **BFTask support** - With native BFTask support in the AWS SDK for iOS, you can chain async requests instead of nesting them. This makes the logic cleaner while keeping the code more readable.
+* **AWSTask support** - With native AWSTask support in the AWS SDK for iOS, you can chain async requests instead of nesting them. This makes the logic cleaner while keeping the code more readable.
 * **Conforming Objective-C recommendations** - The AWS SDK for iOS conforms to Objective-C best practices. The SDK returns NSErrors instead of throwing exceptions. iOS developers will now feel at home when using the AWS Mobile SDK.
 * **Official CocoaPods support** - Including the AWS SDK for iOS in your project is now easier than ever. You just need to add `pod 'AWS<#ServiceName#>'` to your Podfile.
 * **Amazon Machine Learning** - Amazon Machine Learning is a service that makes it easy for developers of all skill levels to use machine learning technology. This release adds Amazon Machine Learning support into AWS Mobile SDK for iOS. You can use the mobile SDK to retrieve Amazon ML model metadata, including the real-time endpoint URL, and to request real-time predictions from Amazon ML. To learn more about Amazon ML, visit [http://aws.amazon.com/machine-learning](http://aws.amazon.com/machine-learning).
@@ -54,6 +54,7 @@ The [sample apps](https://github.com/awslabs/aws-sdk-ios-samples) are standalone
         pod 'AWSKinesis'
         pod 'AWSLambda'
         pod 'AWSMachineLearning'
+        pod 'AWSMobileAnalytics'
         pod 'AWSS3'
         pod 'AWSSES'
         pod 'AWSSimpleDB'
@@ -111,45 +112,13 @@ The [sample apps](https://github.com/awslabs/aws-sdk-ios-samples) are standalone
     * `AWSKinesis.framework`
     * `AWSLambda.framework`
     * `AWSMachineLearning.framework`
+    * `AWSMobileAnalytics.framework`
     * `AWSS3.framework`
     * `AWSSES.framework`
     * `AWSSimpleDB.framework`
     * `AWSSNS.framework`
     * `AWSSQS.framework`
     * `extras/AWSCognito.framework` - for [Amazon Cognito Sync](http://aws.amazon.com/cognito/)
-
-1. Click **Add**.
-
-1. Following the same procedure, add the following frameworks, located in the **third-party** directory, into your project.
-
-    * `Bolts.framework` (If your application uses the Facebook SDK, you may not need this framework, as it's already included with the Facebook SDK.)
-    * `FMDB.framework`
-    * `GZIP.framework`
-    * `Mantle.framework`
-    * `Reachability.framework`
-    * `TMCache.framework`
-    * `UICKeyChainStore.framework`
-    * `XMLDictionary.framework`
-
-1. Drag and drop the following JSON files, located in the **service-definitions** directory, into your project.
-
-    * `autoscaling-2011-01-01.json`
-    * `cognito-identity-2014-06-30.json`
-    * `cognito-sync-2014-06-30.json`
-    * `dynamodb-2012-08-10.json`
-    * `ec2-2014-06-15.json`
-    * `elasticloadbalancing-2012-06-01.json`
-    * `email-2010-12-01.json`
-    * `kinesis-2013-12-02.json`
-    * `lambda-2015-03-31.json`
-    * `machinelearning-2014-12-12.json`
-    * `mobileanalytics-2014-06-30.json`
-    * `monitoring-2010-08-01.json`
-    * `s3-2006-03-01.json`
-    * `sdb-2009-04-15.json`
-    * `sns-2010-03-31.json`
-    * `sqs-2012-11-05.json`
-    * `sts-2011-06-15.json`
 
 1. Open a target for your project, select **Build Phases**, expand **Link Binary With Libraries**, click the **+** button, and add `libsqlite3.dylib`, `libz.dylib`, and `SystemConfiguration.framework`.
 
@@ -180,40 +149,13 @@ When we release a new version of the SDK, you can pick up the changes as describ
     * `AWSKinesis.framework`
     * `AWSLambda.framework`
     * `AWSMachineLearning.framework`
+    * `AWSMobileAnalytics.framework`
     * `AWSS3.framework`
     * `AWSSES.framework`
     * `AWSSimpleDB.framework`
     * `AWSSNS.framework`
     * `AWSSQS.framework`
     * `AWSCognito.framework`
-    * `Bolts.framework`
-    * `FMDB.framework`
-    * `GZIP.framework`
-    * `Mantle.framework`
-    * `Reachability.framework`
-    * `TMCache.framework`
-    * `UICKeyChainStore.framework`
-    * `XMLDictionary.framework`
-
-1. Also, delete the JSON files:
-
-    * `autoscaling-2011-01-01.json`
-    * `cognito-identity-2014-06-30.json`
-    * `cognito-sync-2014-06-30.json`
-    * `dynamodb-2012-08-10.json`
-    * `ec2-2014-06-15.json`
-    * `elasticloadbalancing-2012-06-01.json`
-    * `email-2010-12-01.json`
-    * `kinesis-2013-12-02.json`
-    * `lambda-2015-03-31.json`
-    * `machinelearning-2014-12-12.json`
-    * `mobileanalytics-2014-06-30.json`
-    * `monitoring-2010-08-01.json`
-    * `s3-2006-03-01.json`
-    * `sdb-2009-04-15.json`
-    * `sns-2010-03-31.json`
-    * `sqs-2012-11-05.json`
-    * `sts-2011-06-15.json`
 
 1. Follow the installation process above to include the new version of the SDK.
 
@@ -255,7 +197,7 @@ When we release a new version of the SDK, you can pick up the changes as describ
 
         let dynamoDB = AWSDynamoDB.defaultDynamoDB()
         let listTableInput = AWSDynamoDBListTablesInput()
-        dynamoDB.listTables(listTableInput).continueWithBlock{ (task: BFTask!) -> AnyObject! in
+        dynamoDB.listTables(listTableInput).continueWithBlock{ (task: AWSTask!) -> AnyObject! in
             let listTablesOutput = task.result as AWSDynamoDBListTablesOutput
 
             for tableName : AnyObject in listTablesOutput.tableNames {
@@ -299,16 +241,16 @@ When we release a new version of the SDK, you can pick up the changes as describ
 	    uploadRequest.body = yourDataURL;
 	    uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
 	
-	    [[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+	    [[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
 	    	// Do something with the response
 	        return nil;
 	    }];
 
     **Note**: Most of the service client classes have a singleton method to get a default client. The naming convention is `+ defaultSERVICENAME` (e.g. `+ defaultS3TransferManager` in the above code snippet). This singleton method creates a service client with `defaultServiceConfiguration`, which you set up in step 5, and maintains a strong reference to the client.
 
-##BFTask
+##AWSTask
 
-With native BFTask support in the SDK for iOS, you can chain async requests instead of nesting them. It makes the logic cleaner, while keeping the code more readable. Read this [blog post](http://mobile.awsblog.com/post/Tx2B17V9NSVLP3I/The-AWS-Mobile-SDK-for-iOS-How-to-use-BFTask) to learn how to use BFTask.
+With native AWSTask support in the SDK for iOS, you can chain async requests instead of nesting them. It makes the logic cleaner, while keeping the code more readable. Read this [blog post](http://mobile.awsblog.com/post/Tx2B17V9NSVLP3I/The-AWS-Mobile-SDK-for-iOS-How-to-use-BFTask) to learn how to use AWSTask.
 
 ##Logging
 

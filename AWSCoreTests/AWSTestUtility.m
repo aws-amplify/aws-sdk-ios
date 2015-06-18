@@ -129,7 +129,7 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
     AWSSTSGetSessionTokenRequest *getSessionTokenRequest = [AWSSTSGetSessionTokenRequest new];
     getSessionTokenRequest.durationSeconds = @900;
 
-    [[[sts getSessionToken:getSessionTokenRequest] continueWithBlock:^id(BFTask *task) {
+    [[[sts getSessionToken:getSessionTokenRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             //XCTFail(@"Error: [%@]", task.error);
         }

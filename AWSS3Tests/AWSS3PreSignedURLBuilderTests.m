@@ -16,7 +16,7 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "AWSS3.h"
-#import <XMLDictionary/XMLDictionary.h>
+#import "AWSXMLDictionary.h"
 #import "AWSTestUtility.h"
 
 NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
@@ -67,7 +67,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
     getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodGET;
     getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
 
-    [[[customPreSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(BFTask *task) {
+    [[[customPreSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
 
         NSURL *presignedURL = task.result;
 
@@ -107,7 +107,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
         getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodPUT;
         getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
 
-        [[[[AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder] getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(BFTask *task) {
+        [[[[AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder] getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
 
             if (task.error) {
                 XCTAssertNil(task.error);
@@ -159,7 +159,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
         getPreSignedURLRequest2.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
 
 
-        [[[[AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder] getPreSignedURL:getPreSignedURLRequest2] continueWithBlock:^id(BFTask *task) {
+        [[[[AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder] getPreSignedURL:getPreSignedURLRequest2] continueWithBlock:^id(AWSTask *task) {
 
             if (task.error) {
                 XCTAssertNil(task.error);
@@ -203,7 +203,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
         getPreSignedURLRequest3.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
 
 
-        [[[[AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder] getPreSignedURL:getPreSignedURLRequest3] continueWithBlock:^id(BFTask *task) {
+        [[[[AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder] getPreSignedURL:getPreSignedURLRequest3] continueWithBlock:^id(AWSTask *task) {
 
             if (task.error) {
                 XCTAssertNil(task.error);
@@ -241,7 +241,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
         getPreSignedURLRequest4.HTTPMethod = AWSHTTPMethodDELETE;
         getPreSignedURLRequest4.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
 
-        [[[[AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder] getPreSignedURL:getPreSignedURLRequest4] continueWithBlock:^id(BFTask *task) {
+        [[[[AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder] getPreSignedURL:getPreSignedURLRequest4] continueWithBlock:^id(AWSTask *task) {
 
             if (task.error) {
                 XCTAssertNil(task.error);
@@ -286,7 +286,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
         getObjectRequest.bucket = myBucketName;
         getObjectRequest.key = keyName;
 
-        [[[s3 getObject:getObjectRequest] continueWithBlock:^id(BFTask *task) {
+        [[[s3 getObject:getObjectRequest] continueWithBlock:^id(AWSTask *task) {
             XCTAssertNotNil(task.error);
             XCTAssertEqual(AWSS3ErrorNoSuchKey, task.error.code, @"expected AWSS3ErrorNoSuchKey Error but got:%ld",(long)task.error.code);
             return nil;
@@ -297,7 +297,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
         AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
         deleteObjectRequest.bucket = myBucketName;
         deleteObjectRequest.key = keyName;
-        [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+        [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
             return nil;
         }] waitUntilFinished];
 
@@ -330,7 +330,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
 
             AWSS3PreSignedURLBuilder *preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
 
-            [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(BFTask *task) {
+            [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
 
                 if (task.error) {
                     XCTAssertNil(task.error);
@@ -376,7 +376,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
             AWSS3ListObjectsRequest *listObjectReq = [AWSS3ListObjectsRequest new];
             listObjectReq.bucket = myBucketName;
 
-            [[[s3 listObjects:listObjectReq] continueWithBlock:^id(BFTask *task) {
+            [[[s3 listObjects:listObjectReq] continueWithBlock:^id(AWSTask *task) {
                 XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
                 XCTAssertTrue([task.result isKindOfClass:[AWSS3ListObjectsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListObjectsOutput class]));
                 AWSS3ListObjectsOutput *listObjectsOutput = task.result;
@@ -403,7 +403,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
 
                 AWSS3PreSignedURLBuilder *preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
 
-                [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(BFTask *task) {
+                [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
 
                     if (task.error) {
                         XCTAssertNil(task.error);
@@ -439,7 +439,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
             deleteObjectRequest.bucket = myBucketName;
             deleteObjectRequest.key = keyName;
 
-            [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+            [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
                 XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
                 XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),[task.result description]);
                 return nil;
@@ -465,7 +465,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
 
         AWSS3PreSignedURLBuilder *preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
 
-        [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(BFTask *task) {
+        [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
 
             if (task.error) {
                 XCTAssertNil(task.error);
@@ -517,7 +517,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
 
         AWSS3PreSignedURLBuilder *preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
 
-        [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(BFTask *task) {
+        [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
 
             if (task.error) {
                 XCTAssertNil(task.error);
@@ -566,7 +566,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
         AWSS3ListObjectsRequest *listObjectReq = [AWSS3ListObjectsRequest new];
         listObjectReq.bucket = myBucketName;
 
-        [[[s3 listObjects:listObjectReq] continueWithBlock:^id(BFTask *task) {
+        [[[s3 listObjects:listObjectReq] continueWithBlock:^id(AWSTask *task) {
             XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
             XCTAssertTrue([task.result isKindOfClass:[AWSS3ListObjectsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListObjectsOutput class]));
             AWSS3ListObjectsOutput *listObjectsOutput = task.result;
@@ -590,7 +590,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
         deleteObjectRequest.bucket = myBucketName;
         deleteObjectRequest.key = keyName;
 
-        [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+        [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
             XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
             XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),[task.result description]);
             return nil;
@@ -614,7 +614,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
 
         AWSS3PreSignedURLBuilder *preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
 
-        [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(BFTask *task) {
+        [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
 
             if (task.error) {
                 XCTAssertNil(task.error);
@@ -675,7 +675,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
         putObjectRequest.body = testObjectData;
         putObjectRequest.contentLength = [NSNumber numberWithUnsignedInteger:[testObjectData length]];
 
-        [[[s3 putObject:putObjectRequest] continueWithBlock:^id(BFTask *task) {
+        [[[s3 putObject:putObjectRequest] continueWithBlock:^id(AWSTask *task) {
             XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
             XCTAssertTrue([task.result isKindOfClass:[AWSS3PutObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3PutObjectOutput class]),[task.result description]);
             AWSS3PutObjectOutput *putObjectOutput = task.result;
@@ -697,7 +697,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
         getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
 
         AWSS3PreSignedURLBuilder *preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
-        [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(BFTask *task) {
+        [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
 
             if (task.error) {
                 XCTAssertNil(task.error);
@@ -740,7 +740,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
         getObjectRequest.bucket = myBucketName;
         getObjectRequest.key = keyName;
 
-        [[[s3 getObject:getObjectRequest] continueWithBlock:^id(BFTask *task) {
+        [[[s3 getObject:getObjectRequest] continueWithBlock:^id(AWSTask *task) {
             XCTAssertNotNil(task.error);
             XCTAssertEqual(AWSS3ErrorNoSuchKey, task.error.code, @"expected AWSS3ErrorNoSuchKey Error but got:%ld",(long)task.error.code);
             return nil;
@@ -751,7 +751,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
         AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
         deleteObjectRequest.bucket = myBucketName;
         deleteObjectRequest.key = keyName;
-        [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+        [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
             return nil;
         }] waitUntilFinished];
 
@@ -770,13 +770,13 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
 
 
     AWSS3PreSignedURLBuilder *preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
-    BFTask *resultOne = [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest];
+    AWSTask *resultOne = [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest];
     XCTAssertNil(resultOne.result);
 
 
     //create a date in the past
     getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:-100];
-    BFTask *resultTwo = [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest];
+    AWSTask *resultTwo = [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest];
     XCTAssertNil(resultTwo.result);
 
     //create a date will expire soon.
@@ -806,7 +806,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
 
     if (returnResponse.statusCode == 403) {
         if (responseData) {
-            NSDictionary *responseDic = [[XMLDictionaryParser sharedInstance] dictionaryWithData:responseData];
+            NSDictionary *responseDic = [[AWSXMLDictionaryParser sharedInstance] dictionaryWithData:responseData];
             XCTAssertEqualObjects(@"AccessDenied", responseDic[@"Code"], @"expect AccessDenied error but got:%@",responseDic[@"Code"]);
         } else {
             XCTAssertNotNil(responseData);
@@ -828,14 +828,14 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
     getPreSignedURLRequestOne.key = @"anyKey";
     getPreSignedURLRequestOne.HTTPMethod = AWSHTTPMethodGET;
     getPreSignedURLRequestOne.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
-    BFTask *resultOne = [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequestOne];
+    AWSTask *resultOne = [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequestOne];
     XCTAssertEqual(AWSS3PresignedURLErrorBucketNameIsNil, resultOne.error.code);
 
     AWSS3GetPreSignedURLRequest *getPreSignedURLRequestTwo = [AWSS3GetPreSignedURLRequest new];
     getPreSignedURLRequestTwo.bucket = @"somebucket";
     getPreSignedURLRequestTwo.HTTPMethod = AWSHTTPMethodGET;
     getPreSignedURLRequestTwo.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
-    BFTask *resultTwo = [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequestTwo];
+    AWSTask *resultTwo = [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequestTwo];
     XCTAssertEqual(AWSS3PresignedURLErrorKeyNameIsNil, resultTwo.error.code);
 
     AWSS3GetPreSignedURLRequest *getPreSignedURLRequestThree = [AWSS3GetPreSignedURLRequest new];
@@ -843,7 +843,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
     getPreSignedURLRequestThree.key = @"somekey";
     getPreSignedURLRequestThree.HTTPMethod = AWSHTTPMethodPOST;
     getPreSignedURLRequestThree.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
-    BFTask *resultThree = [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequestThree];
+    AWSTask *resultThree = [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequestThree];
     XCTAssertEqual(AWSS3PresignedURLErrorUnsupportedHTTPVerbs, resultThree.error.code);
 
     [AWSS3PreSignedURLBuilder registerS3PreSignedURLBuilderWithConfiguration:nil
@@ -855,7 +855,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
     getPreSignedURLRequestFour.key = @"somekey";
     getPreSignedURLRequestFour.HTTPMethod = AWSHTTPMethodGET;
     getPreSignedURLRequestFour.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
-    BFTask *resultFour = [customPreSignedURLBuilder getPreSignedURL:getPreSignedURLRequestFour];
+    AWSTask *resultFour = [customPreSignedURLBuilder getPreSignedURL:getPreSignedURLRequestFour];
     XCTAssertEqual(AWSS3PresignedURLErrorEndpointIsNil, resultFour.error.code);
 
     AWSS3TestCredentialsProvider *testCredentialProvider = [AWSS3TestCredentialsProvider new];
@@ -872,7 +872,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
     getPreSignedURLRequestFive.key = @"somekey";
     getPreSignedURLRequestFive.HTTPMethod = AWSHTTPMethodGET;
     getPreSignedURLRequestFive.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
-    BFTask *resultFive = [customPreSignedURLBuilderTwo getPreSignedURL:getPreSignedURLRequestFive];
+    AWSTask *resultFive = [customPreSignedURLBuilderTwo getPreSignedURL:getPreSignedURLRequestFive];
     
     XCTAssertEqual(AWSS3PresignedURLErrorSecretKeyIsNil, resultFive.error.code);
     
@@ -890,7 +890,7 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
     getPreSignedURLRequestSix.HTTPMethod = AWSHTTPMethodGET;
     getPreSignedURLRequestSix.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
     
-    BFTask *resultSix = [customPreSignedURLBuilderThree getPreSignedURL:getPreSignedURLRequestSix];
+    AWSTask *resultSix = [customPreSignedURLBuilderThree getPreSignedURL:getPreSignedURLRequestSix];
     
     XCTAssertEqual(AWSS3PresignedURLErrorAccessKeyIsNil, resultSix.error.code);
     

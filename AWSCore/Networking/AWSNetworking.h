@@ -32,7 +32,7 @@ typedef NS_ENUM(NSInteger, AWSNetworkingRetryType) {
 
 @class AWSNetworkingConfiguration;
 @class AWSNetworkingRequest;
-@class BFTask;
+@class AWSTask;
 
 typedef void (^AWSNetworkingUploadProgressBlock) (int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend);
 typedef void (^AWSNetworkingDownloadProgressBlock) (int64_t bytesWritten, int64_t totalBytesWritten, int64_t totalBytesExpectedToWrite);
@@ -62,7 +62,7 @@ typedef NS_ENUM(NSInteger, AWSHTTPMethod) {
 
 - (instancetype)initWithConfiguration:(AWSNetworkingConfiguration *)configuration;
 
-- (BFTask *)sendRequest:(AWSNetworkingRequest *)request;
+- (AWSTask *)sendRequest:(AWSNetworkingRequest *)request;
 
 @end
 
@@ -71,8 +71,8 @@ typedef NS_ENUM(NSInteger, AWSHTTPMethod) {
 @protocol AWSURLRequestSerializer <NSObject>
 
 @required
-- (BFTask *)validateRequest:(NSURLRequest *)request;
-- (BFTask *)serializeRequest:(NSMutableURLRequest *)request
+- (AWSTask *)validateRequest:(NSURLRequest *)request;
+- (AWSTask *)serializeRequest:(NSMutableURLRequest *)request
                      headers:(NSDictionary *)headers
                   parameters:(NSDictionary *)parameters;
 
@@ -81,14 +81,14 @@ typedef NS_ENUM(NSInteger, AWSHTTPMethod) {
 @protocol AWSNetworkingRequestInterceptor <NSObject>
 
 @required
-- (BFTask *)interceptRequest:(NSMutableURLRequest *)request;
+- (AWSTask *)interceptRequest:(NSMutableURLRequest *)request;
 
 @end
 
 @protocol AWSNetworkingHTTPResponseInterceptor <NSObject>
 
 @required
-- (BFTask *)interceptResponse:(NSHTTPURLResponse *)response
+- (AWSTask *)interceptResponse:(NSHTTPURLResponse *)response
                          data:(id)data
               originalRequest:(NSURLRequest *)originalRequest
                currentRequest:(NSURLRequest *)currentRequest;
@@ -191,8 +191,8 @@ typedef NS_ENUM(NSInteger, AWSHTTPMethod) {
 @property (nonatomic, assign, readonly, getter = isCancelled) BOOL cancelled;
 @property (nonatomic, strong) NSURL *downloadingFileURL;
 
-- (BFTask *)cancel;
-- (BFTask *)pause;
+- (AWSTask *)cancel;
+- (AWSTask *)pause;
 
 @end
 

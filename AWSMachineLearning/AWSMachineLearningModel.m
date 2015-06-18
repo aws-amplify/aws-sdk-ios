@@ -55,7 +55,7 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 }
 
 + (NSValueTransformer *)createdAtJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
@@ -63,11 +63,11 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 }
 
 + (NSValueTransformer *)endpointInfoJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSMachineLearningRealtimeEndpointInfo class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSMachineLearningRealtimeEndpointInfo class]];
 }
 
 + (NSValueTransformer *)lastUpdatedAtJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
@@ -75,7 +75,7 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 }
 
 + (NSValueTransformer *)MLModelTypeJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"REGRESSION"]) {
             return @(AWSMachineLearningMLModelTypeRegression);
         }
@@ -102,7 +102,7 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 }
 
 + (NSValueTransformer *)scoreThresholdLastUpdatedAtJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
@@ -110,7 +110,7 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 }
 
 + (NSValueTransformer *)statusJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"PENDING"]) {
             return @(AWSMachineLearningEntityStatusPending);
         }
@@ -169,7 +169,7 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 }
 
 + (NSValueTransformer *)predictionJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSMachineLearningPrediction class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSMachineLearningPrediction class]];
 }
 
 @end
@@ -199,7 +199,7 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 }
 
 + (NSValueTransformer *)createdAtJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
@@ -207,7 +207,7 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 }
 
 + (NSValueTransformer *)endpointStatusJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"NONE"]) {
             return @(AWSMachineLearningRealtimeEndpointStatusNone);
         }

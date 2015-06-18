@@ -41,7 +41,7 @@
     AWSLambdaGetFunctionRequest *getFunctionsRequest = [AWSLambdaGetFunctionRequest new];
     getFunctionsRequest.functionName = @"non-exist-function";
 
-    [[[lambda getFunction:getFunctionsRequest] continueWithBlock:^id(BFTask *task) {
+    [[[lambda getFunction:getFunctionsRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.result);
 
@@ -55,7 +55,7 @@
     AWSLambdaGetFunctionRequest *getFunctionsRequest = [AWSLambdaGetFunctionRequest new];
     getFunctionsRequest.functionName = @"helloWorldExample";
 
-    [[[lambda getFunction:getFunctionsRequest] continueWithBlock:^id(BFTask *task) {
+    [[[lambda getFunction:getFunctionsRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -77,7 +77,7 @@
     AWSLambdaGetFunctionRequest *getFunctionsRequest = [AWSLambdaGetFunctionRequest new];
     getFunctionsRequest.functionName = @"invalid:function:name"; //function name can not contains ':' char
 
-    [[[lambda getFunction:getFunctionsRequest] continueWithBlock:^id(BFTask *task) {
+    [[[lambda getFunction:getFunctionsRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.result);
 
@@ -91,7 +91,7 @@
 - (void)testListFunctions {
     AWSLambda *lambda = [AWSLambda defaultLambda];
     AWSLambdaListFunctionsRequest *listFunctionsRequest = [AWSLambdaListFunctionsRequest new];
-    [[[lambda listFunctions:listFunctionsRequest] continueWithBlock:^id(BFTask *task) {
+    [[[lambda listFunctions:listFunctionsRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -121,7 +121,7 @@
                                                                   error:nil];
     invocationRequest.clientContext = [[AWSClientContext new] base64EncodedJSONString];
 
-    [[[lambda invoke:invocationRequest] continueWithBlock:^id(BFTask *task) {
+    [[[lambda invoke:invocationRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNotNil(task.result);
@@ -131,6 +131,30 @@
         XCTAssertEqualObjects(result[@"key1"], @"value1");
         XCTAssertEqualObjects(result[@"key2"], @"value2");
         XCTAssertEqualObjects(result[@"key3"], @"value3");
+        return nil;
+    }] waitUntilFinished];
+}
+
+- (void)testInvoke2 {
+    AWSLambda *lambda = [AWSLambda defaultLambda];
+    AWSLambdaInvocationRequest *invocationRequest = [AWSLambdaInvocationRequest new];
+    invocationRequest.functionName = @"lambdaDebugging";
+    invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
+    NSDictionary *parameters = @{@"firstName" : NSStringFromSelector(_cmd)};
+    invocationRequest.payload = [NSJSONSerialization dataWithJSONObject:parameters
+                                                                options:kNilOptions
+                                                                  error:nil];
+    invocationRequest.clientContext = [[AWSClientContext new] base64EncodedJSONString];
+    
+    [[[lambda invoke:invocationRequest] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        XCTAssertNil(task.exception);
+        XCTAssertNotNil(task.result);
+        AWSLambdaInvocationResponse *invocationResponse = task.result;
+        XCTAssertTrue([invocationResponse.payload isKindOfClass:[NSDictionary class]]);
+        NSDictionary *result = invocationResponse.payload;
+        NSString *expectedString = [NSString stringWithFormat:@"Hello %@",NSStringFromSelector(_cmd)];
+        XCTAssertEqualObjects(expectedString,result[@"message"]);
         return nil;
     }] waitUntilFinished];
 }

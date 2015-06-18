@@ -187,335 +187,335 @@
  
  @param request A container for the necessary parameters to execute the AddTags service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingAddTagsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorTooManyTags`, `AWSElasticLoadBalancingErrorDuplicateTagKeys`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingAddTagsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorTooManyTags`, `AWSElasticLoadBalancingErrorDuplicateTagKeys`.
  
  @see AWSElasticLoadBalancingAddTagsInput
  @see AWSElasticLoadBalancingAddTagsOutput
  */
-- (BFTask *)addTags:(AWSElasticLoadBalancingAddTagsInput *)request;
+- (AWSTask *)addTags:(AWSElasticLoadBalancingAddTagsInput *)request;
 
 /**
  ApplySecurityGroupsToLoadBalancer
  
  @param request A container for the necessary parameters to execute the ApplySecurityGroupsToLoadBalancer service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorInvalidSecurityGroup`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorInvalidSecurityGroup`.
  
  @see AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerInput
  @see AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerOutput
  */
-- (BFTask *)applySecurityGroupsToLoadBalancer:(AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerInput *)request;
+- (AWSTask *)applySecurityGroupsToLoadBalancer:(AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerInput *)request;
 
 /**
  AttachLoadBalancerToSubnets
  
  @param request A container for the necessary parameters to execute the AttachLoadBalancerToSubnets service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingAttachLoadBalancerToSubnetsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorSubnetNotFound`, `AWSElasticLoadBalancingErrorInvalidSubnet`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingAttachLoadBalancerToSubnetsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorSubnetNotFound`, `AWSElasticLoadBalancingErrorInvalidSubnet`.
  
  @see AWSElasticLoadBalancingAttachLoadBalancerToSubnetsInput
  @see AWSElasticLoadBalancingAttachLoadBalancerToSubnetsOutput
  */
-- (BFTask *)attachLoadBalancerToSubnets:(AWSElasticLoadBalancingAttachLoadBalancerToSubnetsInput *)request;
+- (AWSTask *)attachLoadBalancerToSubnets:(AWSElasticLoadBalancingAttachLoadBalancerToSubnetsInput *)request;
 
 /**
  ConfigureHealthCheck
  
  @param request A container for the necessary parameters to execute the ConfigureHealthCheck service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingConfigureHealthCheckOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingConfigureHealthCheckOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`.
  
  @see AWSElasticLoadBalancingConfigureHealthCheckInput
  @see AWSElasticLoadBalancingConfigureHealthCheckOutput
  */
-- (BFTask *)configureHealthCheck:(AWSElasticLoadBalancingConfigureHealthCheckInput *)request;
+- (AWSTask *)configureHealthCheck:(AWSElasticLoadBalancingConfigureHealthCheckInput *)request;
 
 /**
  CreateAppCookieStickinessPolicy
  
  @param request A container for the necessary parameters to execute the CreateAppCookieStickinessPolicy service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateAppCookieStickinessPolicyOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorDuplicatePolicyName`, `AWSElasticLoadBalancingErrorTooManyPolicies`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateAppCookieStickinessPolicyOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorDuplicatePolicyName`, `AWSElasticLoadBalancingErrorTooManyPolicies`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
  
  @see AWSElasticLoadBalancingCreateAppCookieStickinessPolicyInput
  @see AWSElasticLoadBalancingCreateAppCookieStickinessPolicyOutput
  */
-- (BFTask *)createAppCookieStickinessPolicy:(AWSElasticLoadBalancingCreateAppCookieStickinessPolicyInput *)request;
+- (AWSTask *)createAppCookieStickinessPolicy:(AWSElasticLoadBalancingCreateAppCookieStickinessPolicyInput *)request;
 
 /**
  CreateLBCookieStickinessPolicy
  
  @param request A container for the necessary parameters to execute the CreateLBCookieStickinessPolicy service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateLBCookieStickinessPolicyOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorDuplicatePolicyName`, `AWSElasticLoadBalancingErrorTooManyPolicies`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateLBCookieStickinessPolicyOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorDuplicatePolicyName`, `AWSElasticLoadBalancingErrorTooManyPolicies`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
  
  @see AWSElasticLoadBalancingCreateLBCookieStickinessPolicyInput
  @see AWSElasticLoadBalancingCreateLBCookieStickinessPolicyOutput
  */
-- (BFTask *)createLBCookieStickinessPolicy:(AWSElasticLoadBalancingCreateLBCookieStickinessPolicyInput *)request;
+- (AWSTask *)createLBCookieStickinessPolicy:(AWSElasticLoadBalancingCreateLBCookieStickinessPolicyInput *)request;
 
 /**
  CreateLoadBalancer
  
  @param request A container for the necessary parameters to execute the CreateLoadBalancer service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateAccessPointOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorDuplicateAccessPointName`, `AWSElasticLoadBalancingErrorTooManyAccessPoints`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorSubnetNotFound`, `AWSElasticLoadBalancingErrorInvalidSubnet`, `AWSElasticLoadBalancingErrorInvalidSecurityGroup`, `AWSElasticLoadBalancingErrorInvalidScheme`, `AWSElasticLoadBalancingErrorTooManyTags`, `AWSElasticLoadBalancingErrorDuplicateTagKeys`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateAccessPointOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorDuplicateAccessPointName`, `AWSElasticLoadBalancingErrorTooManyAccessPoints`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorSubnetNotFound`, `AWSElasticLoadBalancingErrorInvalidSubnet`, `AWSElasticLoadBalancingErrorInvalidSecurityGroup`, `AWSElasticLoadBalancingErrorInvalidScheme`, `AWSElasticLoadBalancingErrorTooManyTags`, `AWSElasticLoadBalancingErrorDuplicateTagKeys`.
  
  @see AWSElasticLoadBalancingCreateAccessPointInput
  @see AWSElasticLoadBalancingCreateAccessPointOutput
  */
-- (BFTask *)createLoadBalancer:(AWSElasticLoadBalancingCreateAccessPointInput *)request;
+- (AWSTask *)createLoadBalancer:(AWSElasticLoadBalancingCreateAccessPointInput *)request;
 
 /**
  CreateLoadBalancerListeners
  
  @param request A container for the necessary parameters to execute the CreateLoadBalancerListeners service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateLoadBalancerListenerOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorDuplicateListener`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateLoadBalancerListenerOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorDuplicateListener`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
  
  @see AWSElasticLoadBalancingCreateLoadBalancerListenerInput
  @see AWSElasticLoadBalancingCreateLoadBalancerListenerOutput
  */
-- (BFTask *)createLoadBalancerListeners:(AWSElasticLoadBalancingCreateLoadBalancerListenerInput *)request;
+- (AWSTask *)createLoadBalancerListeners:(AWSElasticLoadBalancingCreateLoadBalancerListenerInput *)request;
 
 /**
  CreateLoadBalancerPolicy
  
  @param request A container for the necessary parameters to execute the CreateLoadBalancerPolicy service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateLoadBalancerPolicyOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorPolicyTypeNotFound`, `AWSElasticLoadBalancingErrorDuplicatePolicyName`, `AWSElasticLoadBalancingErrorTooManyPolicies`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateLoadBalancerPolicyOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorPolicyTypeNotFound`, `AWSElasticLoadBalancingErrorDuplicatePolicyName`, `AWSElasticLoadBalancingErrorTooManyPolicies`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
  
  @see AWSElasticLoadBalancingCreateLoadBalancerPolicyInput
  @see AWSElasticLoadBalancingCreateLoadBalancerPolicyOutput
  */
-- (BFTask *)createLoadBalancerPolicy:(AWSElasticLoadBalancingCreateLoadBalancerPolicyInput *)request;
+- (AWSTask *)createLoadBalancerPolicy:(AWSElasticLoadBalancingCreateLoadBalancerPolicyInput *)request;
 
 /**
  DeleteLoadBalancer
  
  @param request A container for the necessary parameters to execute the DeleteLoadBalancer service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDeleteAccessPointOutput`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDeleteAccessPointOutput`.
  
  @see AWSElasticLoadBalancingDeleteAccessPointInput
  @see AWSElasticLoadBalancingDeleteAccessPointOutput
  */
-- (BFTask *)deleteLoadBalancer:(AWSElasticLoadBalancingDeleteAccessPointInput *)request;
+- (AWSTask *)deleteLoadBalancer:(AWSElasticLoadBalancingDeleteAccessPointInput *)request;
 
 /**
  DeleteLoadBalancerListeners
  
  @param request A container for the necessary parameters to execute the DeleteLoadBalancerListeners service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDeleteLoadBalancerListenerOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDeleteLoadBalancerListenerOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`.
  
  @see AWSElasticLoadBalancingDeleteLoadBalancerListenerInput
  @see AWSElasticLoadBalancingDeleteLoadBalancerListenerOutput
  */
-- (BFTask *)deleteLoadBalancerListeners:(AWSElasticLoadBalancingDeleteLoadBalancerListenerInput *)request;
+- (AWSTask *)deleteLoadBalancerListeners:(AWSElasticLoadBalancingDeleteLoadBalancerListenerInput *)request;
 
 /**
  DeleteLoadBalancerPolicy
  
  @param request A container for the necessary parameters to execute the DeleteLoadBalancerPolicy service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDeleteLoadBalancerPolicyOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDeleteLoadBalancerPolicyOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
  
  @see AWSElasticLoadBalancingDeleteLoadBalancerPolicyInput
  @see AWSElasticLoadBalancingDeleteLoadBalancerPolicyOutput
  */
-- (BFTask *)deleteLoadBalancerPolicy:(AWSElasticLoadBalancingDeleteLoadBalancerPolicyInput *)request;
+- (AWSTask *)deleteLoadBalancerPolicy:(AWSElasticLoadBalancingDeleteLoadBalancerPolicyInput *)request;
 
 /**
  DeregisterInstancesFromLoadBalancer
  
  @param request A container for the necessary parameters to execute the DeregisterInstancesFromLoadBalancer service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDeregisterEndPointsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorInvalidEndPoint`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDeregisterEndPointsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorInvalidEndPoint`.
  
  @see AWSElasticLoadBalancingDeregisterEndPointsInput
  @see AWSElasticLoadBalancingDeregisterEndPointsOutput
  */
-- (BFTask *)deregisterInstancesFromLoadBalancer:(AWSElasticLoadBalancingDeregisterEndPointsInput *)request;
+- (AWSTask *)deregisterInstancesFromLoadBalancer:(AWSElasticLoadBalancingDeregisterEndPointsInput *)request;
 
 /**
  DescribeInstanceHealth
  
  @param request A container for the necessary parameters to execute the DescribeInstanceHealth service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDescribeEndPointStateOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorInvalidEndPoint`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDescribeEndPointStateOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorInvalidEndPoint`.
  
  @see AWSElasticLoadBalancingDescribeEndPointStateInput
  @see AWSElasticLoadBalancingDescribeEndPointStateOutput
  */
-- (BFTask *)describeInstanceHealth:(AWSElasticLoadBalancingDescribeEndPointStateInput *)request;
+- (AWSTask *)describeInstanceHealth:(AWSElasticLoadBalancingDescribeEndPointStateInput *)request;
 
 /**
  DescribeLoadBalancerAttributes
  
  @param request A container for the necessary parameters to execute the DescribeLoadBalancerAttributes service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDescribeLoadBalancerAttributesOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorLoadBalancerAttributeNotFound`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDescribeLoadBalancerAttributesOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorLoadBalancerAttributeNotFound`.
  
  @see AWSElasticLoadBalancingDescribeLoadBalancerAttributesInput
  @see AWSElasticLoadBalancingDescribeLoadBalancerAttributesOutput
  */
-- (BFTask *)describeLoadBalancerAttributes:(AWSElasticLoadBalancingDescribeLoadBalancerAttributesInput *)request;
+- (AWSTask *)describeLoadBalancerAttributes:(AWSElasticLoadBalancingDescribeLoadBalancerAttributesInput *)request;
 
 /**
  DescribeLoadBalancerPolicies
  
  @param request A container for the necessary parameters to execute the DescribeLoadBalancerPolicies service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDescribeLoadBalancerPoliciesOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorPolicyNotFound`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDescribeLoadBalancerPoliciesOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorPolicyNotFound`.
  
  @see AWSElasticLoadBalancingDescribeLoadBalancerPoliciesInput
  @see AWSElasticLoadBalancingDescribeLoadBalancerPoliciesOutput
  */
-- (BFTask *)describeLoadBalancerPolicies:(AWSElasticLoadBalancingDescribeLoadBalancerPoliciesInput *)request;
+- (AWSTask *)describeLoadBalancerPolicies:(AWSElasticLoadBalancingDescribeLoadBalancerPoliciesInput *)request;
 
 /**
  DescribeLoadBalancerPolicyTypes
  
  @param request A container for the necessary parameters to execute the DescribeLoadBalancerPolicyTypes service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorPolicyTypeNotFound`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorPolicyTypeNotFound`.
  
  @see AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesInput
  @see AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput
  */
-- (BFTask *)describeLoadBalancerPolicyTypes:(AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesInput *)request;
+- (AWSTask *)describeLoadBalancerPolicyTypes:(AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesInput *)request;
 
 /**
  DescribeLoadBalancers
  
  @param request A container for the necessary parameters to execute the DescribeLoadBalancers service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDescribeAccessPointsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDescribeAccessPointsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`.
  
  @see AWSElasticLoadBalancingDescribeAccessPointsInput
  @see AWSElasticLoadBalancingDescribeAccessPointsOutput
  */
-- (BFTask *)describeLoadBalancers:(AWSElasticLoadBalancingDescribeAccessPointsInput *)request;
+- (AWSTask *)describeLoadBalancers:(AWSElasticLoadBalancingDescribeAccessPointsInput *)request;
 
 /**
  DescribeTags
  
  @param request A container for the necessary parameters to execute the DescribeTags service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDescribeTagsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDescribeTagsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`.
  
  @see AWSElasticLoadBalancingDescribeTagsInput
  @see AWSElasticLoadBalancingDescribeTagsOutput
  */
-- (BFTask *)describeTags:(AWSElasticLoadBalancingDescribeTagsInput *)request;
+- (AWSTask *)describeTags:(AWSElasticLoadBalancingDescribeTagsInput *)request;
 
 /**
  DetachLoadBalancerFromSubnets
  
  @param request A container for the necessary parameters to execute the DetachLoadBalancerFromSubnets service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
  
  @see AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsInput
  @see AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsOutput
  */
-- (BFTask *)detachLoadBalancerFromSubnets:(AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsInput *)request;
+- (AWSTask *)detachLoadBalancerFromSubnets:(AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsInput *)request;
 
 /**
  DisableAvailabilityZonesForLoadBalancer
  
  @param request A container for the necessary parameters to execute the DisableAvailabilityZonesForLoadBalancer service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingRemoveAvailabilityZonesOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingRemoveAvailabilityZonesOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
  
  @see AWSElasticLoadBalancingRemoveAvailabilityZonesInput
  @see AWSElasticLoadBalancingRemoveAvailabilityZonesOutput
  */
-- (BFTask *)disableAvailabilityZonesForLoadBalancer:(AWSElasticLoadBalancingRemoveAvailabilityZonesInput *)request;
+- (AWSTask *)disableAvailabilityZonesForLoadBalancer:(AWSElasticLoadBalancingRemoveAvailabilityZonesInput *)request;
 
 /**
  EnableAvailabilityZonesForLoadBalancer
  
  @param request A container for the necessary parameters to execute the EnableAvailabilityZonesForLoadBalancer service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingAddAvailabilityZonesOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingAddAvailabilityZonesOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`.
  
  @see AWSElasticLoadBalancingAddAvailabilityZonesInput
  @see AWSElasticLoadBalancingAddAvailabilityZonesOutput
  */
-- (BFTask *)enableAvailabilityZonesForLoadBalancer:(AWSElasticLoadBalancingAddAvailabilityZonesInput *)request;
+- (AWSTask *)enableAvailabilityZonesForLoadBalancer:(AWSElasticLoadBalancingAddAvailabilityZonesInput *)request;
 
 /**
  ModifyLoadBalancerAttributes
  
  @param request A container for the necessary parameters to execute the ModifyLoadBalancerAttributes service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorLoadBalancerAttributeNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorLoadBalancerAttributeNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
  
  @see AWSElasticLoadBalancingModifyLoadBalancerAttributesInput
  @see AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput
  */
-- (BFTask *)modifyLoadBalancerAttributes:(AWSElasticLoadBalancingModifyLoadBalancerAttributesInput *)request;
+- (AWSTask *)modifyLoadBalancerAttributes:(AWSElasticLoadBalancingModifyLoadBalancerAttributesInput *)request;
 
 /**
  RegisterInstancesWithLoadBalancer
  
  @param request A container for the necessary parameters to execute the RegisterInstancesWithLoadBalancer service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingRegisterEndPointsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorInvalidEndPoint`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingRegisterEndPointsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorInvalidEndPoint`.
  
  @see AWSElasticLoadBalancingRegisterEndPointsInput
  @see AWSElasticLoadBalancingRegisterEndPointsOutput
  */
-- (BFTask *)registerInstancesWithLoadBalancer:(AWSElasticLoadBalancingRegisterEndPointsInput *)request;
+- (AWSTask *)registerInstancesWithLoadBalancer:(AWSElasticLoadBalancingRegisterEndPointsInput *)request;
 
 /**
  RemoveTags
  
  @param request A container for the necessary parameters to execute the RemoveTags service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingRemoveTagsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingRemoveTagsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`.
  
  @see AWSElasticLoadBalancingRemoveTagsInput
  @see AWSElasticLoadBalancingRemoveTagsOutput
  */
-- (BFTask *)removeTags:(AWSElasticLoadBalancingRemoveTagsInput *)request;
+- (AWSTask *)removeTags:(AWSElasticLoadBalancingRemoveTagsInput *)request;
 
 /**
  SetLoadBalancerListenerSSLCertificate
  
  @param request A container for the necessary parameters to execute the SetLoadBalancerListenerSSLCertificate service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
  
  @see AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateInput
  @see AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateOutput
  */
-- (BFTask *)setLoadBalancerListenerSSLCertificate:(AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateInput *)request;
+- (AWSTask *)setLoadBalancerListenerSSLCertificate:(AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateInput *)request;
 
 /**
  SetLoadBalancerPoliciesForBackendServer
  
  @param request A container for the necessary parameters to execute the SetLoadBalancerPoliciesForBackendServer service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorPolicyNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorPolicyNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
  
  @see AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerInput
  @see AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerOutput
  */
-- (BFTask *)setLoadBalancerPoliciesForBackendServer:(AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerInput *)request;
+- (AWSTask *)setLoadBalancerPoliciesForBackendServer:(AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerInput *)request;
 
 /**
  SetLoadBalancerPoliciesOfListener
  
  @param request A container for the necessary parameters to execute the SetLoadBalancerPoliciesOfListener service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorPolicyNotFound`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domian and the following error code: `AWSElasticLoadBalancingErrorAccessPointNotFound`, `AWSElasticLoadBalancingErrorPolicyNotFound`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
  
  @see AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerInput
  @see AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerOutput
  */
-- (BFTask *)setLoadBalancerPoliciesOfListener:(AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerInput *)request;
+- (AWSTask *)setLoadBalancerPoliciesOfListener:(AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerInput *)request;
 
 @end

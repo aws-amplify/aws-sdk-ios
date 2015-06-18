@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01E10EC3877CF05DB65077DD /* libPods-AWSElasticLoadBalancing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B63F98149D98A84CEDCF46 /* libPods-AWSElasticLoadBalancing.a */; };
 		BD00003E1AB8C554004496EF /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00003D1AB8C554004496EF /* credentials.json */; };
 		BD00005E1AB8E1EA004496EF /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00005D1AB8E1EA004496EF /* AWSTestUtility.m */; };
 		BD00FF451AB8B6E2004496EF /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD00FF441AB8B6E2004496EF /* libAWSCore.a */; };
-		BD00FF7D1AB8B97D004496EF /* elasticloadbalancing-2012-06-01.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF559AA1AB3761C0067F4F1 /* elasticloadbalancing-2012-06-01.json */; };
 		BD00FFF61AB8C448004496EF /* AWSGeneralElasticLoadBalancingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFF41AB8C448004496EF /* AWSGeneralElasticLoadBalancingTests.m */; };
 		BD00FFF71AB8C448004496EF /* AWSElasticLoadBalancingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFF51AB8C448004496EF /* AWSElasticLoadBalancingTests.m */; };
 		BD9D97611AC1EEA300CEEE08 /* AWSElasticLoadBalancingService.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEE7DE6E1AC1E19D0095C4B7 /* AWSElasticLoadBalancingService.h */; };
+		BDB73D771B1D3EEB00717559 /* AWSElasticLoadBalancingResources.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB73D751B1D3EEB00717559 /* AWSElasticLoadBalancingResources.h */; };
+		BDB73D781B1D3EEB00717559 /* AWSElasticLoadBalancingResources.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB73D761B1D3EEB00717559 /* AWSElasticLoadBalancingResources.m */; };
 		BDC91C511ABBA0D100F74D49 /* AWSElasticLoadBalancing.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDF559A51AB3761C0067F4F1 /* AWSElasticLoadBalancing.h */; };
 		BDC91C521ABBA0D100F74D49 /* AWSElasticLoadBalancingModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDF559A71AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.h */; };
 		BDF559951AB375EC0067F4F1 /* libAWSElasticLoadBalancing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDF559891AB375EC0067F4F1 /* libAWSElasticLoadBalancing.a */; };
@@ -22,10 +22,8 @@
 		BDF559AC1AB3761C0067F4F1 /* AWSElasticLoadBalancingService.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF559A61AB3761C0067F4F1 /* AWSElasticLoadBalancingService.m */; };
 		BDF559AD1AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BDF559A71AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDF559AE1AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF559A81AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.m */; };
+		CEE532601B03D397002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE5325F1B03D397002CED62 /* libz.dylib */; };
 		CEE7DE6F1AC1E19D0095C4B7 /* AWSElasticLoadBalancingService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE6E1AC1E19D0095C4B7 /* AWSElasticLoadBalancingService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE82FA81AD3582F0090F3CE /* cognito-identity-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = CEE82FA51AD3582F0090F3CE /* cognito-identity-2014-06-30.json */; };
-		CEE82FA91AD3582F0090F3CE /* mobileanalytics-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = CEE82FA61AD3582F0090F3CE /* mobileanalytics-2014-06-30.json */; };
-		CEE82FAA1AD3582F0090F3CE /* sts-2011-06-15.json in Resources */ = {isa = PBXBuildFile; fileRef = CEE82FA71AD3582F0090F3CE /* sts-2011-06-15.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +61,8 @@
 		BD00FF441AB8B6E2004496EF /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
 		BD00FFF41AB8C448004496EF /* AWSGeneralElasticLoadBalancingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralElasticLoadBalancingTests.m; sourceTree = "<group>"; };
 		BD00FFF51AB8C448004496EF /* AWSElasticLoadBalancingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSElasticLoadBalancingTests.m; sourceTree = "<group>"; };
+		BDB73D751B1D3EEB00717559 /* AWSElasticLoadBalancingResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSElasticLoadBalancingResources.h; sourceTree = "<group>"; };
+		BDB73D761B1D3EEB00717559 /* AWSElasticLoadBalancingResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSElasticLoadBalancingResources.m; sourceTree = "<group>"; };
 		BDF559891AB375EC0067F4F1 /* libAWSElasticLoadBalancing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSElasticLoadBalancing.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF559941AB375EC0067F4F1 /* AWSElasticLoadBalancingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSElasticLoadBalancingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF5599A1AB375EC0067F4F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,11 +70,8 @@
 		BDF559A61AB3761C0067F4F1 /* AWSElasticLoadBalancingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSElasticLoadBalancingService.m; sourceTree = "<group>"; };
 		BDF559A71AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSElasticLoadBalancingModel.h; sourceTree = "<group>"; };
 		BDF559A81AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSElasticLoadBalancingModel.m; sourceTree = "<group>"; };
-		BDF559AA1AB3761C0067F4F1 /* elasticloadbalancing-2012-06-01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "elasticloadbalancing-2012-06-01.json"; sourceTree = "<group>"; };
+		CEE5325F1B03D397002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CEE7DE6E1AC1E19D0095C4B7 /* AWSElasticLoadBalancingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSElasticLoadBalancingService.h; sourceTree = "<group>"; };
-		CEE82FA51AD3582F0090F3CE /* cognito-identity-2014-06-30.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "cognito-identity-2014-06-30.json"; path = "AWSEC2Tests/../AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"; sourceTree = SOURCE_ROOT; };
-		CEE82FA61AD3582F0090F3CE /* mobileanalytics-2014-06-30.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "mobileanalytics-2014-06-30.json"; path = "AWSEC2Tests/../AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"; sourceTree = SOURCE_ROOT; };
-		CEE82FA71AD3582F0090F3CE /* sts-2011-06-15.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "sts-2011-06-15.json"; path = "AWSEC2Tests/../AWSCore/STS/Resources/sts-2011-06-15.json"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,9 +86,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE532601B03D397002CED62 /* libz.dylib in Frameworks */,
 				BD00FF451AB8B6E2004496EF /* libAWSCore.a in Frameworks */,
 				BDF559951AB375EC0067F4F1 /* libAWSElasticLoadBalancing.a in Frameworks */,
-				01E10EC3877CF05DB65077DD /* libPods-AWSElasticLoadBalancing.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +98,7 @@
 		412CEC016EC21D18D1D11C56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEE5325F1B03D397002CED62 /* libz.dylib */,
 				BD00FF441AB8B6E2004496EF /* libAWSCore.a */,
 				25B63F98149D98A84CEDCF46 /* libPods-AWSElasticLoadBalancing.a */,
 			);
@@ -144,7 +142,8 @@
 				BDF559A81AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.m */,
 				CEE7DE6E1AC1E19D0095C4B7 /* AWSElasticLoadBalancingService.h */,
 				BDF559A61AB3761C0067F4F1 /* AWSElasticLoadBalancingService.m */,
-				BDF559A91AB3761C0067F4F1 /* Resources */,
+				BDB73D751B1D3EEB00717559 /* AWSElasticLoadBalancingResources.h */,
+				BDB73D761B1D3EEB00717559 /* AWSElasticLoadBalancingResources.m */,
 			);
 			path = AWSElasticLoadBalancing;
 			sourceTree = "<group>";
@@ -162,23 +161,12 @@
 		BDF559991AB375EC0067F4F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CEE82FA51AD3582F0090F3CE /* cognito-identity-2014-06-30.json */,
-				CEE82FA61AD3582F0090F3CE /* mobileanalytics-2014-06-30.json */,
-				CEE82FA71AD3582F0090F3CE /* sts-2011-06-15.json */,
 				BD00003D1AB8C554004496EF /* credentials.json */,
 				BD00005C1AB8E1EA004496EF /* AWSTestUtility.h */,
 				BD00005D1AB8E1EA004496EF /* AWSTestUtility.m */,
 				BDF5599A1AB375EC0067F4F1 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		BDF559A91AB3761C0067F4F1 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				BDF559AA1AB3761C0067F4F1 /* elasticloadbalancing-2012-06-01.json */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +178,7 @@
 			files = (
 				BDF559AB1AB3761C0067F4F1 /* AWSElasticLoadBalancing.h in Headers */,
 				CEE7DE6F1AC1E19D0095C4B7 /* AWSElasticLoadBalancingService.h in Headers */,
+				BDB73D771B1D3EEB00717559 /* AWSElasticLoadBalancingResources.h in Headers */,
 				BDF559AD1AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,11 +208,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDF559A01AB375EC0067F4F1 /* Build configuration list for PBXNativeTarget "AWSElasticLoadBalancingTests" */;
 			buildPhases = (
-				95EC7DFD31074189A6656D01 /* Check Pods Manifest.lock */,
 				BDF559901AB375EC0067F4F1 /* Sources */,
 				BDF559911AB375EC0067F4F1 /* Frameworks */,
 				BDF559921AB375EC0067F4F1 /* Resources */,
-				6C36500E709D9A148E5BA4F4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -275,48 +262,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE82FAA1AD3582F0090F3CE /* sts-2011-06-15.json in Resources */,
 				BD00003E1AB8C554004496EF /* credentials.json in Resources */,
-				CEE82FA81AD3582F0090F3CE /* cognito-identity-2014-06-30.json in Resources */,
-				CEE82FA91AD3582F0090F3CE /* mobileanalytics-2014-06-30.json in Resources */,
-				BD00FF7D1AB8B97D004496EF /* elasticloadbalancing-2012-06-01.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		6C36500E709D9A148E5BA4F4 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWSElasticLoadBalancing/Pods-AWSElasticLoadBalancing-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		95EC7DFD31074189A6656D01 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BDF559851AB375EC0067F4F1 /* Sources */ = {
@@ -324,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDF559AC1AB3761C0067F4F1 /* AWSElasticLoadBalancingService.m in Sources */,
+				BDB73D781B1D3EEB00717559 /* AWSElasticLoadBalancingResources.m in Sources */,
 				BDF559AE1AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,7 +384,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSElasticLoadBalancing;
 				SKIP_INSTALL = YES;
 			};
@@ -447,7 +398,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSElasticLoadBalancing;
 				SKIP_INSTALL = YES;
 			};
@@ -455,7 +406,6 @@
 		};
 		BDF559A11AB375EC0067F4F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1558F3BC5E9EBE610AB64769 /* Pods-AWSElasticLoadBalancing.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -475,7 +425,6 @@
 		};
 		BDF559A21AB375EC0067F4F1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BBFBBE8FE992747E1198A3EE /* Pods-AWSElasticLoadBalancing.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

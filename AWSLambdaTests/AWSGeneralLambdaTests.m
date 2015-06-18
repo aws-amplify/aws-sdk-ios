@@ -55,7 +55,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
 
-    [[[[AWSLambda LambdaForKey:key] addPermission:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSLambda LambdaForKey:key] addPermission:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -70,7 +70,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
 
-    [[[[AWSLambda LambdaForKey:key] createEventSourceMapping:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSLambda LambdaForKey:key] createEventSourceMapping:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -85,7 +85,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
 
-    [[[[AWSLambda LambdaForKey:key] createFunction:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSLambda LambdaForKey:key] createFunction:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -100,7 +100,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
 
-    [[[[AWSLambda LambdaForKey:key] deleteEventSourceMapping:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSLambda LambdaForKey:key] deleteEventSourceMapping:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -115,7 +115,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
 
-    [[[[AWSLambda LambdaForKey:key] deleteFunction:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSLambda LambdaForKey:key] deleteFunction:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -130,7 +130,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
 
-    [[[[AWSLambda LambdaForKey:key] getEventSourceMapping:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSLambda LambdaForKey:key] getEventSourceMapping:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -145,7 +145,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
 
-    [[[[AWSLambda LambdaForKey:key] getFunction:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSLambda LambdaForKey:key] getFunction:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -160,7 +160,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
 
-    [[[[AWSLambda LambdaForKey:key] getFunctionConfiguration:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSLambda LambdaForKey:key] getFunctionConfiguration:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -175,7 +175,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
 
-    [[[[AWSLambda LambdaForKey:key] getPolicy:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSLambda LambdaForKey:key] getPolicy:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -190,7 +190,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
 
-    [[[[AWSLambda LambdaForKey:key] invoke:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSLambda LambdaForKey:key] invoke:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -205,7 +205,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
 
-    [[[[AWSLambda LambdaForKey:key] invokeAsync:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSLambda LambdaForKey:key] invokeAsync:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -220,7 +220,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
 
-    [[[[AWSLambda LambdaForKey:key] listEventSourceMappings:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSLambda LambdaForKey:key] listEventSourceMappings:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -235,7 +235,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
 
-    [[[[AWSLambda LambdaForKey:key] listFunctions:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSLambda LambdaForKey:key] listFunctions:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -250,7 +250,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
 
-    [[[[AWSLambda LambdaForKey:key] removePermission:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSLambda LambdaForKey:key] removePermission:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -265,7 +265,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
 
-    [[[[AWSLambda LambdaForKey:key] updateEventSourceMapping:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSLambda LambdaForKey:key] updateEventSourceMapping:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -280,7 +280,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
 
-    [[[[AWSLambda LambdaForKey:key] updateFunctionCode:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSLambda LambdaForKey:key] updateFunctionCode:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -295,7 +295,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
 
-    [[[[AWSLambda LambdaForKey:key] updateFunctionConfiguration:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSLambda LambdaForKey:key] updateFunctionConfiguration:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);

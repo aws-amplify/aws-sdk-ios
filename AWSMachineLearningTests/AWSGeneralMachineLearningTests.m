@@ -55,7 +55,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSMachineLearning registerMachineLearningWithConfiguration:configuration forKey:key];
 
-    [[[[AWSMachineLearning MachineLearningForKey:key] getMLModel:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSMachineLearning MachineLearningForKey:key] getMLModel:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -70,7 +70,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSMachineLearning registerMachineLearningWithConfiguration:configuration forKey:key];
 
-    [[[[AWSMachineLearning MachineLearningForKey:key] predict:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSMachineLearning MachineLearningForKey:key] predict:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);

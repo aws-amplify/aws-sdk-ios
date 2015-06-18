@@ -90,7 +90,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return self;
 }
 
-- (BFTask *)invoke:(AWSLambdaInvokerInvocationRequest *)request {
+- (AWSTask *)invoke:(AWSLambdaInvokerInvocationRequest *)request {
     AWSLambdaInvocationRequest *invocationRequest = [AWSLambdaInvocationRequest new];
     [invocationRequest aws_copyPropertiesFromObject:request];
 
@@ -103,11 +103,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                                         options:kNilOptions
                                                                           error:&error];
         if (!invocationRequest.payload) {
-            return [BFTask taskWithError:error];
+            return [AWSTask taskWithError:error];
         }
     }
 
-    return [[self.lambda invoke:invocationRequest] continueWithSuccessBlock:^id(BFTask *task) {
+    return [[self.lambda invoke:invocationRequest] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSLambdaInvocationResponse *invocationResponse = task.result;
         if (invocationResponse.functionError) {
             NSMutableDictionary *userInfo = nil;
@@ -122,25 +122,25 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             NSError *error = [NSError errorWithDomain:AWSLambdaInvokerErrorDomain
                                                  code:AWSLambdaInvokerErrorTypeFunctionError
                                              userInfo:userInfo];
-            return [BFTask taskWithError:error];
+            return [AWSTask taskWithError:error];
         }
 
         AWSLambdaInvokerInvocationResponse *response = [AWSLambdaInvokerInvocationResponse new];
         [response aws_copyPropertiesFromObject:invocationResponse];
-        return [BFTask taskWithResult:response];
+        return [AWSTask taskWithResult:response];
     }];
 }
 
-- (BFTask *)invokeFunction:(NSString *)functionName
+- (AWSTask *)invokeFunction:(NSString *)functionName
                 JSONObject:(id)JSONObject {
     AWSLambdaInvokerInvocationRequest *invocationRequest = [AWSLambdaInvokerInvocationRequest new];
     invocationRequest.functionName = functionName;
     invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
     invocationRequest.payload = JSONObject;
 
-    return [[self invoke:invocationRequest] continueWithSuccessBlock:^id(BFTask *task) {
+    return [[self invoke:invocationRequest] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSLambdaInvokerInvocationResponse *invocationResponse = task.result;
-        return [BFTask taskWithResult:invocationResponse.payload];
+        return [AWSTask taskWithResult:invocationResponse.payload];
     }];
 }
 

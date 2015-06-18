@@ -66,7 +66,7 @@ static NSString *_testDomainName = nil;
     XCTAssertNotNil(sdb);
 
     AWSSimpleDBListDomainsRequest *listDomainsRequest = [AWSSimpleDBListDomainsRequest new];
-    [[[sdb listDomains:listDomainsRequest] continueWithBlock:^id(BFTask *task) {
+    [[[sdb listDomains:listDomainsRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -87,7 +87,7 @@ static NSString *_testDomainName = nil;
     AWSSimpleDB *sdb = [AWSSimpleDB defaultSimpleDB];
 
     AWSSimpleDBListDomainsRequest *listDomainsRequest = [AWSSimpleDBListDomainsRequest new];
-    [[[sdb listDomains:listDomainsRequest] continueWithBlock:^id(BFTask *task) {
+    [[[sdb listDomains:listDomainsRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -107,7 +107,7 @@ static NSString *_testDomainName = nil;
 
     AWSSimpleDBSelectRequest *selectRequest = [AWSSimpleDBSelectRequest new];
     selectRequest.selectExpression = [NSString stringWithFormat:@"select * from `%@`", _testDomainName];
-    [[[sdb select:selectRequest] continueWithBlock:^id(BFTask *task) {
+    [[[sdb select:selectRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -126,7 +126,7 @@ static NSString *_testDomainName = nil;
 
     AWSSimpleDBSelectRequest *selectRequest = [AWSSimpleDBSelectRequest new];
     selectRequest.selectExpression = [NSString stringWithFormat:@"select * from `%@` where fakeAttribute = 'フェイクアトリビュート'", _testDomainName];
-    [[[sdb select:selectRequest] continueWithBlock:^id(BFTask *task) {
+    [[[sdb select:selectRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -190,7 +190,7 @@ static NSString *_testDomainName = nil;
     batchPutAttributesRequest.domainName = _testDomainName;
     batchPutAttributesRequest.items = @[firstItem,secondItem,thirdItem];
     
-    [[[sdb batchPutAttributes:batchPutAttributesRequest] continueWithBlock:^id(BFTask *task) {
+    [[[sdb batchPutAttributes:batchPutAttributesRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -218,7 +218,7 @@ static NSString *_testDomainName = nil;
 
     putAttributesRequest.attributes = @[attribute1,attribute2];
 
-    [[[[sdb putAttributes:putAttributesRequest] continueWithBlock:^id(BFTask *task) {
+    [[[[sdb putAttributes:putAttributesRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -228,7 +228,7 @@ static NSString *_testDomainName = nil;
 
         sleep(2);
         return [sdb select:selectRequest];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -273,7 +273,7 @@ static NSString *_testDomainName = nil;
 
     putAttributesRequest.attributes = @[attribute1,attribute2];
 
-    [[[[sdb putAttributes:putAttributesRequest] continueWithBlock:^id(BFTask *task) {
+    [[[[sdb putAttributes:putAttributesRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -283,7 +283,7 @@ static NSString *_testDomainName = nil;
 
         sleep(2);
         return [sdb select:selectRequest];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -320,13 +320,13 @@ static NSString *_testDomainName = nil;
     AWSSimpleDBDomainMetadataRequest *metaDataRequest = [AWSSimpleDBDomainMetadataRequest new];
     metaDataRequest.domainName = @""; //domainName is empty
 
-    [[[sdb domainMetadata:metaDataRequest] continueWithBlock:^id(BFTask *task) {
+    [[[sdb domainMetadata:metaDataRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error, @"expected InvalidDomainName error but got nil");
         return nil;
     }]waitUntilFinished];
 }
 
-+ (BFTask *)createTestDomain {
++ (AWSTask *)createTestDomain {
     AWSSimpleDB *sdb = [AWSSimpleDB defaultSimpleDB];
 
     AWSSimpleDBCreateDomainRequest *createDomainRequest = [AWSSimpleDBCreateDomainRequest new];
@@ -334,7 +334,7 @@ static NSString *_testDomainName = nil;
     return [sdb createDomain:createDomainRequest];
 }
 
-+ (BFTask *)deleteTestDomain {
++ (AWSTask *)deleteTestDomain {
     AWSSimpleDB *sdb = [AWSSimpleDB defaultSimpleDB];
 
     AWSSimpleDBDeleteDomainRequest *deleteDomainRequest = [AWSSimpleDBDeleteDomainRequest new];

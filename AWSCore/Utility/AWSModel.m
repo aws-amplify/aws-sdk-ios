@@ -45,7 +45,7 @@
         if ([arrayElementType isEqualToString:@"map"]) {
             [mutableDictionary setObject:[AWSModelUtility mapMTLArrayFromJSONArray:JSONArrayDictionary[key] withModelClass:modelClass] forKey:key];
         } else if  ([arrayElementType isEqualToString:@"structure"]) {
-            NSValueTransformer *valueFransformer =  [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[modelClass class]];
+            NSValueTransformer *valueFransformer =  [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[modelClass class]];
             [mutableDictionary setObject:[valueFransformer transformedValue:JSONArrayDictionary[key]] forKey:key];
         }
     }
@@ -58,7 +58,7 @@
         if ([arrayElementType isEqualToString:@"map"]) {
             [mutableDictionary setObject:[AWSModelUtility JSONArrayFromMapMTLArray:mapMTLDictionary[key]] forKey:key];
         } else if ([arrayElementType isEqualToString:@"structure"]) {
-            NSValueTransformer *valueFransformer = [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSModel class]];
+            NSValueTransformer *valueFransformer = [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSModel class]];
             [mutableDictionary setObject:[valueFransformer reverseTransformedValue:mapMTLDictionary[key]] forKey:key];
         }
     }
@@ -90,7 +90,7 @@
 
     NSMutableDictionary *mutableDictionary = [NSMutableDictionary new];
     for (NSString *key in [JSONDictionary allKeys]) {
-        [mutableDictionary setObject:[MTLJSONAdapter modelOfClass:modelClass fromJSONDictionary:JSONDictionary[key] error:nil] forKey:key];
+        [mutableDictionary setObject:[AWSMTLJSONAdapter modelOfClass:modelClass fromJSONDictionary:JSONDictionary[key] error:nil] forKey:key];
     }
     return mutableDictionary;
 }
@@ -100,7 +100,7 @@
 
     NSMutableDictionary *mutableDictionary = [NSMutableDictionary new];
     for (NSString *key in [mapMTLDictionary allKeys]) {
-        [mutableDictionary setObject:[MTLJSONAdapter JSONDictionaryFromModel:[mapMTLDictionary objectForKey:key]]
+        [mutableDictionary setObject:[AWSMTLJSONAdapter JSONDictionaryFromModel:[mapMTLDictionary objectForKey:key]]
                               forKey:key];
     }
     return mutableDictionary;

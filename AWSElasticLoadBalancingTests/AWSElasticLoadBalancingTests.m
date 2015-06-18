@@ -47,7 +47,7 @@
     XCTAssertNotNil(elb);
 
     AWSElasticLoadBalancingDescribeAccessPointsInput *describeAccessPointsInput = [AWSElasticLoadBalancingDescribeAccessPointsInput new];
-    [[[elb describeLoadBalancers:describeAccessPointsInput] continueWithBlock:^id(BFTask *task) {
+    [[[elb describeLoadBalancers:describeAccessPointsInput] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -68,7 +68,7 @@
     AWSElasticLoadBalancing *elb = [AWSElasticLoadBalancing defaultElasticLoadBalancing];
 
     AWSElasticLoadBalancingDescribeAccessPointsInput *describeAccessPointsInput = [AWSElasticLoadBalancingDescribeAccessPointsInput new];
-    [[[elb describeLoadBalancers:describeAccessPointsInput] continueWithBlock:^id(BFTask *task) {
+    [[[elb describeLoadBalancers:describeAccessPointsInput] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -89,7 +89,7 @@
     AWSElasticLoadBalancingConfigureHealthCheckInput *healthCheckInput = [AWSElasticLoadBalancingConfigureHealthCheckInput new];
     healthCheckInput.loadBalancerName = @""; //loadBalancerName is empty
     
-    [[[elb configureHealthCheck:healthCheckInput] continueWithBlock:^id(BFTask *task) {
+    [[[elb configureHealthCheck:healthCheckInput] continueWithBlock:^id(AWSTask *task) {
         
         XCTAssertNotNil(task.error, @"expected Validation Error, but got nil");
         return nil;

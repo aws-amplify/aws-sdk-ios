@@ -10,14 +10,12 @@
 		BD00003C1AB8C533004496EF /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00003B1AB8C533004496EF /* credentials.json */; };
 		BD00005B1AB8E19E004496EF /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00005A1AB8E19E004496EF /* AWSTestUtility.m */; };
 		BD00FF431AB8B6DA004496EF /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD00FF421AB8B6DA004496EF /* libAWSCore.a */; };
-		BD00FF761AB8B92E004496EF /* kinesis-2013-12-02.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF559DC1AB376A50067F4F1 /* kinesis-2013-12-02.json */; };
-		BD00FF7A1AB8B949004496EF /* cognito-identity-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF771AB8B949004496EF /* cognito-identity-2014-06-30.json */; };
-		BD00FF7B1AB8B949004496EF /* mobileanalytics-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF781AB8B949004496EF /* mobileanalytics-2014-06-30.json */; };
-		BD00FF7C1AB8B949004496EF /* sts-2011-06-15.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF791AB8B949004496EF /* sts-2011-06-15.json */; };
 		BD00FFF11AB8C437004496EF /* AWSGeneralKinesisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFEE1AB8C437004496EF /* AWSGeneralKinesisTests.m */; };
 		BD00FFF21AB8C437004496EF /* AWSKinesisRecorderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFEF1AB8C437004496EF /* AWSKinesisRecorderTests.m */; };
 		BD00FFF31AB8C437004496EF /* AWSKinesisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFF01AB8C437004496EF /* AWSKinesisTests.m */; };
 		BD9D97621AC1EEAE00CEEE08 /* AWSKinesisService.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEE7DE701AC1E1AF0095C4B7 /* AWSKinesisService.h */; };
+		BDB73D7B1B1D3EFC00717559 /* AWSKinesisResources.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB73D791B1D3EFC00717559 /* AWSKinesisResources.h */; };
+		BDB73D7C1B1D3EFC00717559 /* AWSKinesisResources.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB73D7A1B1D3EFC00717559 /* AWSKinesisResources.m */; };
 		BDC91C4D1ABBA0C600F74D49 /* AWSKinesis.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDF559D51AB376A50067F4F1 /* AWSKinesis.h */; };
 		BDC91C4E1ABBA0C600F74D49 /* AWSKinesisModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDF559D71AB376A50067F4F1 /* AWSKinesisModel.h */; };
 		BDC91C4F1ABBA0C600F74D49 /* AWSKinesisRecorder.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDF559D91AB376A50067F4F1 /* AWSKinesisRecorder.h */; };
@@ -28,8 +26,9 @@
 		BDF559E01AB376A50067F4F1 /* AWSKinesisModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF559D81AB376A50067F4F1 /* AWSKinesisModel.m */; };
 		BDF559E11AB376A50067F4F1 /* AWSKinesisRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = BDF559D91AB376A50067F4F1 /* AWSKinesisRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDF559E21AB376A50067F4F1 /* AWSKinesisRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF559DA1AB376A50067F4F1 /* AWSKinesisRecorder.m */; };
+		CE14DF8D1B02DEBC00EF6D09 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE14DF8C1B02DEBC00EF6D09 /* libsqlite3.dylib */; };
+		CEE532661B03D3B2002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532651B03D3B2002CED62 /* libz.dylib */; };
 		CEE7DE711AC1E1AF0095C4B7 /* AWSKinesisService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE701AC1E1AF0095C4B7 /* AWSKinesisService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EBEA15B2C65DB56A686E0B9E /* libPods-AWSKinesis.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA83CD943CFA60EB1C5FEE6 /* libPods-AWSKinesis.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,12 +63,11 @@
 		BD0000591AB8E19E004496EF /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSTestUtility.h; path = AWSCoreTests/AWSTestUtility.h; sourceTree = SOURCE_ROOT; };
 		BD00005A1AB8E19E004496EF /* AWSTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSTestUtility.m; path = AWSCoreTests/AWSTestUtility.m; sourceTree = SOURCE_ROOT; };
 		BD00FF421AB8B6DA004496EF /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
-		BD00FF771AB8B949004496EF /* cognito-identity-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "cognito-identity-2014-06-30.json"; path = "../AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"; sourceTree = "<group>"; };
-		BD00FF781AB8B949004496EF /* mobileanalytics-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "mobileanalytics-2014-06-30.json"; path = "../AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"; sourceTree = "<group>"; };
-		BD00FF791AB8B949004496EF /* sts-2011-06-15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "sts-2011-06-15.json"; path = "../AWSCore/STS/Resources/sts-2011-06-15.json"; sourceTree = "<group>"; };
 		BD00FFEE1AB8C437004496EF /* AWSGeneralKinesisTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSGeneralKinesisTests.m; path = ../AWSKinesisTests/AWSGeneralKinesisTests.m; sourceTree = "<group>"; };
 		BD00FFEF1AB8C437004496EF /* AWSKinesisRecorderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSKinesisRecorderTests.m; path = ../AWSKinesisTests/AWSKinesisRecorderTests.m; sourceTree = "<group>"; };
 		BD00FFF01AB8C437004496EF /* AWSKinesisTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSKinesisTests.m; path = ../AWSKinesisTests/AWSKinesisTests.m; sourceTree = "<group>"; };
+		BDB73D791B1D3EFC00717559 /* AWSKinesisResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSKinesisResources.h; sourceTree = "<group>"; };
+		BDB73D7A1B1D3EFC00717559 /* AWSKinesisResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisResources.m; sourceTree = "<group>"; };
 		BDF559B91AB376720067F4F1 /* libAWSKinesis.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSKinesis.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF559C41AB376720067F4F1 /* AWSKinesisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSKinesisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF559CA1AB376720067F4F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../AWSKinesisTests/Info.plist; sourceTree = "<group>"; };
@@ -77,9 +75,10 @@
 		BDF559D61AB376A50067F4F1 /* AWSKinesisService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisService.m; sourceTree = "<group>"; };
 		BDF559D71AB376A50067F4F1 /* AWSKinesisModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSKinesisModel.h; sourceTree = "<group>"; };
 		BDF559D81AB376A50067F4F1 /* AWSKinesisModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisModel.m; sourceTree = "<group>"; };
-		BDF559D91AB376A50067F4F1 /* AWSKinesisRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSKinesisRecorder.h; sourceTree = "<group>"; };
+		BDF559D91AB376A50067F4F1 /* AWSKinesisRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AWSKinesisRecorder.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		BDF559DA1AB376A50067F4F1 /* AWSKinesisRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisRecorder.m; sourceTree = "<group>"; };
-		BDF559DC1AB376A50067F4F1 /* kinesis-2013-12-02.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "kinesis-2013-12-02.json"; sourceTree = "<group>"; };
+		CE14DF8C1B02DEBC00EF6D09 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		CEE532651B03D3B2002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CEE7DE701AC1E1AF0095C4B7 /* AWSKinesisService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSKinesisService.h; sourceTree = "<group>"; };
 		DBA83CD943CFA60EB1C5FEE6 /* libPods-AWSKinesis.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSKinesis.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED71922BE28C5B428EAC7898 /* Pods-AWSKinesis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSKinesis.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSKinesis/Pods-AWSKinesis.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,9 +96,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE532661B03D3B2002CED62 /* libz.dylib in Frameworks */,
+				CE14DF8D1B02DEBC00EF6D09 /* libsqlite3.dylib in Frameworks */,
 				BD00FF431AB8B6DA004496EF /* libAWSCore.a in Frameworks */,
 				BDF559C51AB376720067F4F1 /* libAWSKinesis.a in Frameworks */,
-				EBEA15B2C65DB56A686E0B9E /* libPods-AWSKinesis.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +136,8 @@
 				BDF559DA1AB376A50067F4F1 /* AWSKinesisRecorder.m */,
 				CEE7DE701AC1E1AF0095C4B7 /* AWSKinesisService.h */,
 				BDF559D61AB376A50067F4F1 /* AWSKinesisService.m */,
-				BDF559DB1AB376A50067F4F1 /* Resources */,
+				BDB73D791B1D3EFC00717559 /* AWSKinesisResources.h */,
+				BDB73D7A1B1D3EFC00717559 /* AWSKinesisResources.m */,
 			);
 			path = AWSKinesis;
 			sourceTree = "<group>";
@@ -155,23 +156,12 @@
 		BDF559C91AB376720067F4F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BD00FF771AB8B949004496EF /* cognito-identity-2014-06-30.json */,
-				BD00FF781AB8B949004496EF /* mobileanalytics-2014-06-30.json */,
-				BD00FF791AB8B949004496EF /* sts-2011-06-15.json */,
 				BD00003B1AB8C533004496EF /* credentials.json */,
 				BD0000591AB8E19E004496EF /* AWSTestUtility.h */,
 				BD00005A1AB8E19E004496EF /* AWSTestUtility.m */,
 				BDF559CA1AB376720067F4F1 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		BDF559DB1AB376A50067F4F1 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				BDF559DC1AB376A50067F4F1 /* kinesis-2013-12-02.json */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		D34ABF3BE6D22A110003BCB2 /* Pods */ = {
@@ -186,6 +176,8 @@
 		D34BD40ED7327D8616BDFE58 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEE532651B03D3B2002CED62 /* libz.dylib */,
+				CE14DF8C1B02DEBC00EF6D09 /* libsqlite3.dylib */,
 				BD00FF421AB8B6DA004496EF /* libAWSCore.a */,
 				DBA83CD943CFA60EB1C5FEE6 /* libPods-AWSKinesis.a */,
 			);
@@ -203,6 +195,7 @@
 				BDF559DF1AB376A50067F4F1 /* AWSKinesisModel.h in Headers */,
 				BDF559DD1AB376A50067F4F1 /* AWSKinesis.h in Headers */,
 				CEE7DE711AC1E1AF0095C4B7 /* AWSKinesisService.h in Headers */,
+				BDB73D7B1B1D3EFC00717559 /* AWSKinesisResources.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,11 +224,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDF559D01AB376720067F4F1 /* Build configuration list for PBXNativeTarget "AWSKinesisTests" */;
 			buildPhases = (
-				F44FB5C747049625FE9B682B /* Check Pods Manifest.lock */,
 				BDF559C01AB376720067F4F1 /* Sources */,
 				BDF559C11AB376720067F4F1 /* Frameworks */,
 				BDF559C21AB376720067F4F1 /* Resources */,
-				412AD45DDE6C5EB02C76C8C8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -287,54 +278,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD00FF7A1AB8B949004496EF /* cognito-identity-2014-06-30.json in Resources */,
-				BD00FF7B1AB8B949004496EF /* mobileanalytics-2014-06-30.json in Resources */,
-				BD00FF7C1AB8B949004496EF /* sts-2011-06-15.json in Resources */,
 				BD00003C1AB8C533004496EF /* credentials.json in Resources */,
-				BD00FF761AB8B92E004496EF /* kinesis-2013-12-02.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		412AD45DDE6C5EB02C76C8C8 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWSKinesis/Pods-AWSKinesis-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F44FB5C747049625FE9B682B /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BDF559B51AB376720067F4F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDB73D7C1B1D3EFC00717559 /* AWSKinesisResources.m in Sources */,
 				BDF559E21AB376A50067F4F1 /* AWSKinesisRecorder.m in Sources */,
 				BDF559E01AB376A50067F4F1 /* AWSKinesisModel.m in Sources */,
 				BDF559DE1AB376A50067F4F1 /* AWSKinesisService.m in Sources */,
@@ -447,7 +402,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSKinesis;
 				SKIP_INSTALL = YES;
 			};
@@ -461,7 +416,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSKinesis;
 				SKIP_INSTALL = YES;
 			};
@@ -469,7 +424,6 @@
 		};
 		BDF559D11AB376720067F4F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95B2CCFC84B571337F663D6B /* Pods-AWSKinesis.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -489,7 +443,6 @@
 		};
 		BDF559D21AB376720067F4F1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED71922BE28C5B428EAC7898 /* Pods-AWSKinesis.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

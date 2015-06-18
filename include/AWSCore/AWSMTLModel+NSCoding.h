@@ -1,0 +1,1 @@
+../../AWSCore/Mantle/AWSMTLModel+NSCoding.h

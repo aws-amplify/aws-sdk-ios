@@ -48,7 +48,7 @@
     XCTAssertNotNil(sns);
 
     AWSSNSListTopicsInput *listTopicsInput = [AWSSNSListTopicsInput new];
-    [[[sns listTopics:listTopicsInput] continueWithBlock:^id(BFTask *task) {
+    [[[sns listTopics:listTopicsInput] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -69,7 +69,7 @@
     AWSSNS *sns = [AWSSNS defaultSNS];
 
     AWSSNSListTopicsInput *listTopicsInput = [AWSSNSListTopicsInput new];
-    [[[sns listTopics:listTopicsInput] continueWithBlock:^id(BFTask *task) {
+    [[[sns listTopics:listTopicsInput] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -90,7 +90,7 @@
     AWSSNSGetEndpointAttributesInput *input = [AWSSNSGetEndpointAttributesInput new];
     input.endpointArn = @""; //endPointARN is empty
     
-    [[[sns getEndpointAttributes:input] continueWithBlock:^id(BFTask *task) {
+    [[[sns getEndpointAttributes:input] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error, @"expected MissingParameters Error but got nil");
         return nil;
     }] waitUntilFinished];
@@ -115,7 +115,7 @@
 //        createEndpointInput.token = @"0123456789";
 //        createEndpointInput.attributes  = @{@"Enabled":@"true"};
 //        
-//        [[[sns createPlatformEndpoint:createEndpointInput] continueWithBlock:^id(BFTask *task) {
+//        [[[sns createPlatformEndpoint:createEndpointInput] continueWithBlock:^id(AWSTask *task) {
 //            if (task.error) {
 //                XCTFail(@"Error: [%@]", task.error);
 //            }

@@ -133,7 +133,7 @@ static NSURL *tempSmallURL = nil;
     uploadRequest.key = keyName;
     uploadRequest.body = testDataURL;
     
-    [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+    [[[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
         return nil;
@@ -154,7 +154,7 @@ static NSURL *tempSmallURL = nil;
         downloadRequest.key = keyName;
         downloadRequest.downloadingFileURL = downloadURL;
         
-        [tasks addObject:[[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+        [tasks addObject:[[transferManager download:downloadRequest] continueWithBlock:^id(AWSTask *task) {
             XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
             XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerDownloadOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3TransferManagerDownloadOutput class]),NSStringFromClass([task.result class]));
             AWSS3TransferManagerDownloadOutput *output = task.result;
@@ -172,9 +172,9 @@ static NSURL *tempSmallURL = nil;
         
     }
     
-    [[[BFTask taskForCompletionOfAllTasks:tasks] continueWithBlock:^id(BFTask *task) {
+    [[[AWSTask taskForCompletionOfAllTasks:tasks] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
-            return [BFTask taskWithError:task.error];
+            return [AWSTask taskWithError:task.error];
         }
         return nil;
     }] waitUntilFinished];
@@ -189,7 +189,7 @@ static NSURL *tempSmallURL = nil;
     deleteObjectRequest.bucket = testBucketNameGeneral;
     deleteObjectRequest.key = keyName;
     
-    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),NSStringFromClass([task.result class]));
         return nil;
@@ -217,7 +217,7 @@ static NSURL *tempSmallURL = nil;
     uploadRequest.key = keyName;
     uploadRequest.body = tempSmallURL;
     
-    [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+    [[[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
         return nil;
@@ -234,7 +234,7 @@ static NSURL *tempSmallURL = nil;
         downloadRequest.bucket = testBucketNameGeneral;
         downloadRequest.key = keyName;
         
-        [tasks addObject:[[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+        [tasks addObject:[[transferManager download:downloadRequest] continueWithBlock:^id(AWSTask *task) {
             XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
             XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerDownloadOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3TransferManagerDownloadOutput class]),NSStringFromClass([task.result class]));
             AWSS3TransferManagerDownloadOutput *output = task.result;
@@ -251,9 +251,9 @@ static NSURL *tempSmallURL = nil;
         
     }
     
-    [[[BFTask taskForCompletionOfAllTasks:tasks] continueWithBlock:^id(BFTask *task) {
+    [[[AWSTask taskForCompletionOfAllTasks:tasks] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
-            return [BFTask taskWithError:task.error];
+            return [AWSTask taskWithError:task.error];
         }
         return nil;
     }] waitUntilFinished];
@@ -265,7 +265,7 @@ static NSURL *tempSmallURL = nil;
     deleteObjectRequest.bucket = testBucketNameGeneral;
     deleteObjectRequest.key = keyName;
     
-    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),NSStringFromClass([task.result class]));
         return nil;
@@ -306,7 +306,7 @@ static NSURL *tempSmallURL = nil;
     uploadRequest.key = keyName;
     uploadRequest.body = testDataURL;
     
-    [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+    [[[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
         return nil;
@@ -326,7 +326,7 @@ static NSURL *tempSmallURL = nil;
     //KVO - AddObserver
     [downloadRequest addObserver:self forKeyPath:@"downloadingFileURL" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
     
-    [[[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+    [[[transferManager download:downloadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerDownloadOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3TransferManagerDownloadOutput class]),NSStringFromClass([task.result class]));
         AWSS3TransferManagerDownloadOutput *output = task.result;
@@ -349,7 +349,7 @@ static NSURL *tempSmallURL = nil;
     deleteObjectRequest.bucket = testBucketNameGeneral;
     deleteObjectRequest.key = keyName;
     
-    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),NSStringFromClass([task.result class]));
         return nil;
@@ -385,7 +385,7 @@ static NSURL *tempSmallURL = nil;
     uploadRequest1.body = testDataURL;
 
 
-    BFTask *uploadTask1 = [[transferManager upload:uploadRequest1] continueWithBlock:^id(BFTask *task) {
+    AWSTask *uploadTask1 = [[transferManager upload:uploadRequest1] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
         XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
@@ -400,7 +400,7 @@ static NSURL *tempSmallURL = nil;
     uploadRequest2.body = testDataURL;
 
 
-    BFTask *uploadTask2 = [[transferManager upload:uploadRequest2] continueWithBlock:^id(BFTask *task) {
+    AWSTask *uploadTask2 = [[transferManager upload:uploadRequest2] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
         XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
@@ -417,7 +417,7 @@ static NSURL *tempSmallURL = nil;
 
     NSString *downloadFileName = [NSString stringWithFormat:@"%@-downloaded-%@-%d",NSStringFromSelector(_cmd),testBucketNameGeneral,1];
     downloadRequest1.downloadingFileURL = [NSURL fileURLWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:downloadFileName]];
-    BFTask *downloadTask1 = [[transferManager download:downloadRequest1] continueWithBlock:^id(BFTask *task) {
+    AWSTask *downloadTask1 = [[transferManager download:downloadRequest1] continueWithBlock:^id(AWSTask *task) {
         //Should return Cancelled Task Error
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
@@ -432,7 +432,7 @@ static NSURL *tempSmallURL = nil;
 
     NSString *downloadFileName2 = [NSString stringWithFormat:@"%@-downloaded-%@-%d",NSStringFromSelector(_cmd),testBucketNameGeneral,2];
     downloadRequest2.downloadingFileURL = [NSURL fileURLWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:downloadFileName2]];
-    BFTask *downloadTask2 = [[transferManager download:downloadRequest2] continueWithBlock:^id(BFTask *task) {
+    AWSTask *downloadTask2 = [[transferManager download:downloadRequest2] continueWithBlock:^id(AWSTask *task) {
         //Should return Cancelled Task Error
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
@@ -443,7 +443,7 @@ static NSURL *tempSmallURL = nil;
 
     //Wait a few second and then pause all tasks
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:2]];
-    [[transferManager pauseAll] continueWithBlock:^id(BFTask *task) {
+    [[transferManager pauseAll] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error); //should not return error if successfully paused.
         return nil;
     }];
@@ -492,7 +492,7 @@ static NSURL *tempSmallURL = nil;
         }
 
 
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
         NSArray *results = task.result;
         XCTAssertEqual(4, [results count]);
@@ -523,7 +523,7 @@ static NSURL *tempSmallURL = nil;
     AWSS3ListObjectsRequest *listObjectReq = [AWSS3ListObjectsRequest new];
     listObjectReq.bucket = testBucketNameGeneral;
 
-    [[[s3 listObjects:listObjectReq] continueWithBlock:^id(BFTask *task) {
+    [[[s3 listObjects:listObjectReq] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3ListObjectsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListObjectsOutput class]));
         AWSS3ListObjectsOutput *listObjectsOutput = task.result;
@@ -551,7 +551,7 @@ static NSURL *tempSmallURL = nil;
     deleteObjectRequest.bucket = testBucketNameGeneral;
     deleteObjectRequest.key = keyName1;
 
-    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
         return nil;
     }] waitUntilFinished];
 
@@ -559,7 +559,7 @@ static NSURL *tempSmallURL = nil;
     deleteObjectRequest2.bucket = testBucketNameGeneral;
     deleteObjectRequest2.key = keyName2;
 
-    [[[s3 deleteObject:deleteObjectRequest2] continueWithBlock:^id(BFTask *task) {
+    [[[s3 deleteObject:deleteObjectRequest2] continueWithBlock:^id(AWSTask *task) {
         return nil;
     }] waitUntilFinished];
 
@@ -589,7 +589,7 @@ static NSURL *tempSmallURL = nil;
     uploadRequest1.body = testDataURL;
 
 
-    BFTask *uploadTask1 = [[transferManager upload:uploadRequest1] continueWithBlock:^id(BFTask *task) {
+    AWSTask *uploadTask1 = [[transferManager upload:uploadRequest1] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
         XCTAssertEqual(AWSS3TransferManagerErrorCancelled, task.error.code);
@@ -604,7 +604,7 @@ static NSURL *tempSmallURL = nil;
     uploadRequest2.body = testDataURL;
 
 
-    BFTask *uploadTask2 = [[transferManager upload:uploadRequest2] continueWithBlock:^id(BFTask *task) {
+    AWSTask *uploadTask2 = [[transferManager upload:uploadRequest2] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
         XCTAssertEqual(AWSS3TransferManagerErrorCancelled, task.error.code);
@@ -621,7 +621,7 @@ static NSURL *tempSmallURL = nil;
 
     NSString *downloadFileName = [NSString stringWithFormat:@"%@-downloaded-%@-%d",NSStringFromSelector(_cmd),testBucketNameGeneral,1];
     downloadRequest1.downloadingFileURL = [NSURL fileURLWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:downloadFileName]];
-    BFTask *downloadTask1 = [[transferManager download:downloadRequest1] continueWithBlock:^id(BFTask *task) {
+    AWSTask *downloadTask1 = [[transferManager download:downloadRequest1] continueWithBlock:^id(AWSTask *task) {
         //Should return Cancelled Task Error
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
@@ -636,7 +636,7 @@ static NSURL *tempSmallURL = nil;
 
     NSString *downloadFileName2 = [NSString stringWithFormat:@"%@-downloaded-%@-%d",NSStringFromSelector(_cmd),testBucketNameGeneral,2];
     downloadRequest2.downloadingFileURL = [NSURL fileURLWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:downloadFileName2]];
-    BFTask *downloadTask2 = [[transferManager download:downloadRequest2] continueWithBlock:^id(BFTask *task) {
+    AWSTask *downloadTask2 = [[transferManager download:downloadRequest2] continueWithBlock:^id(AWSTask *task) {
         //Should return Cancelled Task Error
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
@@ -686,7 +686,7 @@ static NSURL *tempSmallURL = nil;
     uploadRequest.body = testDataURL;
 
 
-    [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+    [[[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
         return nil;
@@ -698,7 +698,7 @@ static NSURL *tempSmallURL = nil;
     AWSS3ListObjectsRequest *listObjectReq = [AWSS3ListObjectsRequest new];
     listObjectReq.bucket = testBucketNameGeneral;
 
-    [[[s3 listObjects:listObjectReq] continueWithBlock:^id(BFTask *task) {
+    [[[s3 listObjects:listObjectReq] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3ListObjectsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListObjectsOutput class]));
         AWSS3ListObjectsOutput *listObjectsOutput = task.result;
@@ -726,7 +726,7 @@ static NSURL *tempSmallURL = nil;
 
     XCTAssertEqual(downloadRequest.state, AWSS3TransferManagerRequestStateNotStarted);
     
-    [[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+    [[transferManager download:downloadRequest] continueWithBlock:^id(AWSTask *task) {
         //Should return Cancelled Task Error
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
@@ -755,7 +755,7 @@ static NSURL *tempSmallURL = nil;
     deleteObjectRequest.bucket = testBucketNameGeneral;
     deleteObjectRequest.key = keyName;
 
-    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),NSStringFromClass([task.result class]));
         return nil;
@@ -789,7 +789,7 @@ static NSURL *tempSmallURL = nil;
 
     XCTAssertEqual(uploadRequest.state, AWSS3TransferManagerRequestStateNotStarted);
     
-    [[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+    [[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
         XCTAssertEqual(AWSS3TransferManagerErrorCancelled, task.error.code);
@@ -830,7 +830,7 @@ static NSURL *tempSmallURL = nil;
 
         XCTAssertEqual(uploadRequest.state, AWSS3TransferManagerRequestStateNotStarted);
 
-        BFTask *uploadRequestLarge = [[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+        AWSTask *uploadRequestLarge = [[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
             XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
             XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
             XCTAssertEqual(AWSS3TransferManagerErrorCancelled, task.error.code);
@@ -859,7 +859,7 @@ static NSURL *tempSmallURL = nil;
         listPartsReq.bucket = testBucketNameGeneral;
         listPartsReq.key = keyNameSecond;
         listPartsReq.uploadId = [uploadRequest valueForKey:@"uploadId"];
-        [[[s3 listParts:listPartsReq] continueWithBlock:^id(BFTask *task) {
+        [[[s3 listParts:listPartsReq] continueWithBlock:^id(AWSTask *task) {
             XCTAssertTrue(task.error, @"Expected 'NoSuchUpload' error, but got nil");
             XCTAssertEqual(AWSS3ErrorNoSuchUpload, task.error.code);
 
@@ -897,7 +897,7 @@ static NSURL *tempSmallURL = nil;
     uploadRequest.body = testDataURL;
 
 
-    [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+    [[[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
         return nil;
@@ -914,7 +914,7 @@ static NSURL *tempSmallURL = nil;
         downloadRequest.key = keyName;
 
 
-        [[[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+        [[[transferManager download:downloadRequest] continueWithBlock:^id(AWSTask *task) {
             XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
             XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerDownloadOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3TransferManagerDownloadOutput class]),NSStringFromClass([task.result class]));
             AWSS3TransferManagerDownloadOutput *output = task.result;
@@ -935,7 +935,7 @@ static NSURL *tempSmallURL = nil;
     deleteObjectRequest.bucket = testBucketNameGeneral;
     deleteObjectRequest.key = keyName;
 
-    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),NSStringFromClass([task.result class]));
         return nil;
@@ -985,7 +985,7 @@ static NSURL *tempSmallURL = nil;
         totalExpectedUploadBytes = totalBytesExpectedToSend;
     };
 
-    [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+    [[[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
         return nil;
@@ -1006,7 +1006,7 @@ static NSURL *tempSmallURL = nil;
     downloadRequest.downloadingFileURL = [NSURL fileURLWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:downloadFileName]];
     
     //Create a situation that there is a file has already existed on that downloadingFileURL Path
-    NSString *getObjectFilePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"s3-2006-03-01" ofType:@"json"];
+    NSString *getObjectFilePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials" ofType:@"json"];
     [[NSFileManager defaultManager] copyItemAtPath:getObjectFilePath toPath:downloadRequest.downloadingFileURL.path error:nil];
 
     __block int64_t accumulatedDownloadBytes = 0;
@@ -1019,7 +1019,7 @@ static NSURL *tempSmallURL = nil;
         //NSLog(@"keyName:%@ bytesWritten: %lld, totalBytesWritten: %lld, totalBytesExpectedtoWrite: %lld",NSStringFromSelector(_cmd), bytesWritten,totalBytesWritten,totalBytesExpectedToWrite);
     };
 
-    [[[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+    [[[transferManager download:downloadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerDownloadOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3TransferManagerDownloadOutput class]),NSStringFromClass([task.result class]));
         AWSS3TransferManagerDownloadOutput *output = task.result;
@@ -1043,7 +1043,7 @@ static NSURL *tempSmallURL = nil;
     deleteObjectRequest.bucket = testBucketNameGeneral;
     deleteObjectRequest.key = keyName;
 
-    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),NSStringFromClass([task.result class]));
         return nil;
@@ -1078,7 +1078,7 @@ static NSURL *tempSmallURL = nil;
     uploadRequest.body = testDataURL;
 
 
-    [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+    [[[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
         return nil;
@@ -1104,7 +1104,7 @@ static NSURL *tempSmallURL = nil;
         //NSLog(@"keyName:%@ bytesWritten: %lld, totalBytesWritten: %lld, totalBytesExpectedtoWrite: %lld",NSStringFromSelector(_cmd), bytesWritten,totalBytesWritten,totalBytesExpectedToWrite);
     };
 
-    [[[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+    [[[transferManager download:downloadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerDownloadOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3TransferManagerDownloadOutput class]),NSStringFromClass([task.result class]));
         AWSS3TransferManagerDownloadOutput *output = task.result;
@@ -1128,7 +1128,7 @@ static NSURL *tempSmallURL = nil;
     deleteObjectRequest.bucket = testBucketNameGeneral;
     deleteObjectRequest.key = keyName;
 
-    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),NSStringFromClass([task.result class]));
         return nil;
@@ -1165,7 +1165,7 @@ static NSURL *tempSmallURL = nil;
     uploadRequest.body = testDataURL;
 
 
-    [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+    [[[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
         return nil;
@@ -1193,7 +1193,7 @@ static NSURL *tempSmallURL = nil;
     
     XCTAssertEqual(downloadRequest.state, AWSS3TransferManagerRequestStateNotStarted);
 
-    BFTask *pausedTaskOne = [[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+    AWSTask *pausedTaskOne = [[transferManager download:downloadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertNil(task.result, @"task result should be nil since it has already been cancelled");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
@@ -1205,7 +1205,7 @@ static NSURL *tempSmallURL = nil;
     
     //wait a few seconds and then pause it.
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:2]];
-    [[[downloadRequest pause] continueWithBlock:^id(BFTask *task) {
+    [[[downloadRequest pause] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error); //should not return error if successfully paused.
         return nil;
     }] waitUntilFinished];
@@ -1219,7 +1219,7 @@ static NSURL *tempSmallURL = nil;
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
 
     //resume it
-    BFTask *pausedTaskTwo = [[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+    AWSTask *pausedTaskTwo = [[transferManager download:downloadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertNil(task.result, @"task result should be nil since it has already been cancelled");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
@@ -1231,7 +1231,7 @@ static NSURL *tempSmallURL = nil;
 
     //wait and pause again
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
-    [[[downloadRequest pause] continueWithBlock:^id(BFTask *task) {
+    [[[downloadRequest pause] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error); //should not return error if successfully paused.
         return nil;
     }] waitUntilFinished];
@@ -1244,7 +1244,7 @@ static NSURL *tempSmallURL = nil;
     //resume the task
     AWSLogDebug(@"(S3 Transfer Manager) Download Task has been resumed.");
     AWSLogDebug(@"(S3 Transfer Manager) Download Task has been resumed.");
-    [[[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+    [[[transferManager download:downloadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerDownloadOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3TransferManagerDownloadOutput class]),NSStringFromClass([task.result class]));
         AWSS3TransferManagerDownloadOutput *output = task.result;
@@ -1270,7 +1270,7 @@ static NSURL *tempSmallURL = nil;
     deleteObjectRequest.bucket = testBucketNameGeneral;
     deleteObjectRequest.key = keyName;
 
-    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),NSStringFromClass([task.result class]));
         return nil;
@@ -1301,7 +1301,7 @@ static NSURL *tempSmallURL = nil;
     uploadRequest.key = keyName;
     uploadRequest.body = (id)[NSData data];  //invalid type of body, should be instance of NSURL class.
 
-    [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+    [[[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'InvalidParameters' Error, but got nil");
         XCTAssertNil(task.result, @"task result should be nil since it returns errors");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
@@ -1322,7 +1322,7 @@ static NSURL *tempSmallURL = nil;
     downloadRequest.downloadingFileURL = [NSURL fileURLWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:downloadFileName]];
 
 
-    [[[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+    [[[transferManager download:downloadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'MIssingParameters' Error, but got nil");
         XCTAssertNil(task.result, @"task result should be nil since it returns errors");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
@@ -1358,7 +1358,7 @@ static NSURL *tempSmallURL = nil;
     uploadRequest.body = testDataURL;
 
 
-    [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+    [[[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
         return nil;
@@ -1374,7 +1374,7 @@ static NSURL *tempSmallURL = nil;
     NSString *downloadFileName = [NSString stringWithFormat:@"%@-downloaded-%@",NSStringFromSelector(_cmd),testBucketNameGeneral];
     downloadRequest.downloadingFileURL = [NSURL fileURLWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:downloadFileName]];
 
-    BFTask *pausedTaskOne = [[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+    AWSTask *pausedTaskOne = [[transferManager download:downloadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertNil(task.result, @"task result should be nil since it has already been cancelled");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
@@ -1384,7 +1384,7 @@ static NSURL *tempSmallURL = nil;
 
     //wait a few seconds and then pause it.
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:2]];
-    [[[downloadRequest pause] continueWithBlock:^id(BFTask *task) {
+    [[[downloadRequest pause] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error); //should not return error if successfully paused.
         return nil;
     }] waitUntilFinished];
@@ -1395,7 +1395,7 @@ static NSURL *tempSmallURL = nil;
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
 
     //resume it
-    BFTask *pausedTaskTwo = [[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+    AWSTask *pausedTaskTwo = [[transferManager download:downloadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerDownloadOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3TransferManagerDownloadOutput class]),NSStringFromClass([task.result class]));
         AWSS3TransferManagerDownloadOutput *output = task.result;
@@ -1413,7 +1413,7 @@ static NSURL *tempSmallURL = nil;
 
     //try to pause finished task
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
-    [[[downloadRequest pause] continueWithBlock:^id(BFTask *task) {
+    [[[downloadRequest pause] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'AWSS3TransferManagerErrorCompleted' Error, but got nil");
         XCTAssertEqualObjects(@"com.amazonaws.AWSS3TransferManagerErrorDomain", task.error.domain, @"expected AWSS3TransferManagerErrorDomian error, but got:%@",task.error.domain);
         XCTAssertEqual(AWSS3TransferManagerErrorCompleted, task.error.code, @"expected got  'AWSS3TransferManagerErrorCompleted' error code, but got:%ld",(long)task.error.code);
@@ -1423,7 +1423,7 @@ static NSURL *tempSmallURL = nil;
 
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
     //try to resume the finished task
-    [[[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+    [[[transferManager download:downloadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'AWSS3TransferManagerErrorCompleted' Error, but got nil");
         XCTAssertEqualObjects(@"com.amazonaws.AWSS3TransferManagerErrorDomain", task.error.domain, @"expected AWSS3TransferManagerErrorDomian error, but got:%@",task.error.domain);
         XCTAssertEqual(AWSS3TransferManagerErrorCompleted, task.error.code, @"expected got  'AWSS3TransferManagerErrorCompleted' error code, but got:%ld",(long)task.error.code);
@@ -1437,7 +1437,7 @@ static NSURL *tempSmallURL = nil;
     deleteObjectRequest.bucket = testBucketNameGeneral;
     deleteObjectRequest.key = keyName;
 
-    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),NSStringFromClass([task.result class]));
         return nil;
@@ -1487,7 +1487,7 @@ static NSURL *tempSmallURL = nil;
 
     XCTAssertEqual(uploadRequest.state, AWSS3TransferManagerRequestStateNotStarted);
 
-    BFTask *uploadTaskSmall = [[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+    AWSTask *uploadTaskSmall = [[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
         XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
@@ -1498,7 +1498,7 @@ static NSURL *tempSmallURL = nil;
 
     //wait a few moment and pause the task
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.3]];
-    [[[uploadRequest pause] continueWithBlock:^id(BFTask *task) {
+    [[[uploadRequest pause] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error); //should not return error if successfully paused.
         return nil;
     }] waitUntilFinished];
@@ -1508,7 +1508,7 @@ static NSURL *tempSmallURL = nil;
     [uploadTaskSmall waitUntilFinished];
 
     //resume the upload
-    [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+    [[[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
         return nil;
@@ -1526,7 +1526,7 @@ static NSURL *tempSmallURL = nil;
     AWSS3ListObjectsRequest *listObjectReq = [AWSS3ListObjectsRequest new];
     listObjectReq.bucket = testBucketNameGeneral;
 
-    [[[s3 listObjects:listObjectReq] continueWithBlock:^id(BFTask *task) {
+    [[[s3 listObjects:listObjectReq] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3ListObjectsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListObjectsOutput class]));
         AWSS3ListObjectsOutput *listObjectsOutput = task.result;
@@ -1552,7 +1552,7 @@ static NSURL *tempSmallURL = nil;
     deleteObjectRequest.bucket = testBucketNameGeneral;
     deleteObjectRequest.key = keyName;
 
-    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),NSStringFromClass([task.result class]));
         return nil;
@@ -1601,7 +1601,7 @@ static NSURL *tempSmallURL = nil;
     
     XCTAssertEqual(uploadRequest.state, AWSS3TransferManagerRequestStateNotStarted);
 
-    [[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+    [[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
         XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
@@ -1614,7 +1614,7 @@ static NSURL *tempSmallURL = nil;
     XCTAssertEqual(uploadRequest.state, AWSS3TransferManagerRequestStateRunning);
 
     //random pause and resume task until it finished
-    BFTask *currentTask = nil;
+    AWSTask *currentTask = nil;
     __block BOOL isFinished = NO;
     for (int32_t i=0; i<10; i++) {
         if (isFinished) break;
@@ -1624,7 +1624,7 @@ static NSURL *tempSmallURL = nil;
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:randNum]];
         AWSLogDebug(@"-------- Pausing the Task --------");
         if (isFinished) break;
-        [[[uploadRequest pause] continueWithBlock:^id(BFTask *task) {
+        [[[uploadRequest pause] continueWithBlock:^id(AWSTask *task) {
             XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error); //should not return error if successfully paused.
             return nil;
         }] waitUntilFinished];
@@ -1635,7 +1635,7 @@ static NSURL *tempSmallURL = nil;
         AWSLogDebug(@"-------- Resume the Task --------");
         //resume the upload
         if (isFinished) break;
-        currentTask = [[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+        currentTask = [[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
             if (task.error) {
                 //if contains error, should be PauseError
                 XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
@@ -1669,7 +1669,7 @@ static NSURL *tempSmallURL = nil;
     AWSS3ListObjectsRequest *listObjectReq = [AWSS3ListObjectsRequest new];
     listObjectReq.bucket = testBucketNameGeneral;
 
-    [[[s3 listObjects:listObjectReq] continueWithBlock:^id(BFTask *task) {
+    [[[s3 listObjects:listObjectReq] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3ListObjectsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListObjectsOutput class]));
         AWSS3ListObjectsOutput *listObjectsOutput = task.result;
@@ -1695,7 +1695,7 @@ static NSURL *tempSmallURL = nil;
     deleteObjectRequest.bucket = testBucketNameGeneral;
     deleteObjectRequest.key = keyName;
 
-    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),NSStringFromClass([task.result class]));
         return nil;
@@ -1742,7 +1742,7 @@ static NSURL *tempSmallURL = nil;
 
     XCTAssertEqual(uploadRequest.state, AWSS3TransferManagerRequestStateNotStarted);
     
-    [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+    [[[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
         return nil;
@@ -1759,7 +1759,7 @@ static NSURL *tempSmallURL = nil;
     AWSS3ListObjectsRequest *listObjectReq = [AWSS3ListObjectsRequest new];
     listObjectReq.bucket = testBucketNameGeneral;
 
-    [[[s3 listObjects:listObjectReq] continueWithBlock:^id(BFTask *task) {
+    [[[s3 listObjects:listObjectReq] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3ListObjectsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListObjectsOutput class]));
         AWSS3ListObjectsOutput *listObjectsOutput = task.result;
@@ -1785,7 +1785,7 @@ static NSURL *tempSmallURL = nil;
     deleteObjectRequest.bucket = testBucketNameGeneral;
     deleteObjectRequest.key = keyName;
 
-    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),NSStringFromClass([task.result class]));
         return nil;
@@ -1833,7 +1833,7 @@ static NSURL *tempSmallURL = nil;
     
     XCTAssertEqual(uploadRequest.state, AWSS3TransferManagerRequestStateNotStarted);
 
-    [[[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+    [[[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
         return nil;
@@ -1851,7 +1851,7 @@ static NSURL *tempSmallURL = nil;
     AWSS3ListObjectsRequest *listObjectReq = [AWSS3ListObjectsRequest new];
     listObjectReq.bucket = testBucketNameGeneral;
 
-    [[[s3 listObjects:listObjectReq] continueWithBlock:^id(BFTask *task) {
+    [[[s3 listObjects:listObjectReq] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3ListObjectsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListObjectsOutput class]));
         AWSS3ListObjectsOutput *listObjectsOutput = task.result;
@@ -1877,7 +1877,7 @@ static NSURL *tempSmallURL = nil;
     deleteObjectRequest.bucket = testBucketNameGeneral;
     deleteObjectRequest.key = keyName;
 
-    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(BFTask *task) {
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),NSStringFromClass([task.result class]));
         return nil;
@@ -1918,7 +1918,7 @@ static NSURL *tempSmallURL = nil;
 #endif
 
     __block BOOL success = NO;
-    [[[s3 createBucket:createBucketReq] continueWithBlock:^id(BFTask *task) {
+    [[[s3 createBucket:createBucketReq] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             success = NO;
         } else {
@@ -1939,7 +1939,7 @@ static NSURL *tempSmallURL = nil;
     deleteBucketReq.bucket = bucketName;
 
     __block BOOL success = NO;
-    [[[s3 deleteBucket:deleteBucketReq] continueWithBlock:^id(BFTask *task) {
+    [[[s3 deleteBucket:deleteBucketReq] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             success = NO;
         } else {

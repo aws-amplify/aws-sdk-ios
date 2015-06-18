@@ -7,19 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0FD9230F15426C0DAA9BDD21 /* libPods-AWSLambda.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B0DD4512530E61F3A5F0F9D /* libPods-AWSLambda.a */; };
+		BDB73D7F1B1D3F1400717559 /* AWSLambdaResources.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB73D7D1B1D3F1400717559 /* AWSLambdaResources.h */; };
+		BDB73D801B1D3F1400717559 /* AWSLambdaResources.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB73D7E1B1D3F1400717559 /* AWSLambdaResources.m */; };
 		CE5502C81AD361AC00AE9F4A /* AWSLambdaInvoker.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE6397261AC4A7F300459E23 /* AWSLambdaInvoker.h */; };
 		CE6397131AC48EF300459E23 /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6397121AC48EF300459E23 /* libAWSCore.a */; };
 		CE6397151AC494C100459E23 /* AWSGeneralLambdaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6397141AC494C100459E23 /* AWSGeneralLambdaTests.m */; };
-		CE6397171AC4953D00459E23 /* cognito-identity-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6397161AC4953D00459E23 /* cognito-identity-2014-06-30.json */; };
-		CE6397191AC4955000459E23 /* mobileanalytics-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6397181AC4955000459E23 /* mobileanalytics-2014-06-30.json */; };
-		CE63971B1AC4956000459E23 /* sts-2011-06-15.json in Resources */ = {isa = PBXBuildFile; fileRef = CE63971A1AC4956000459E23 /* sts-2011-06-15.json */; };
 		CE63971D1AC4957D00459E23 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CE63971C1AC4957D00459E23 /* credentials.json */; };
 		CE63971F1AC495CD00459E23 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE63971E1AC495CD00459E23 /* AWSTestUtility.m */; };
 		CE6397251AC4A4CC00459E23 /* AWSLambdaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6397241AC4A4CC00459E23 /* AWSLambdaTests.m */; };
 		CE6397281AC4A7F300459E23 /* AWSLambdaInvoker.h in Headers */ = {isa = PBXBuildFile; fileRef = CE6397261AC4A7F300459E23 /* AWSLambdaInvoker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE6397291AC4A7F300459E23 /* AWSLambdaInvoker.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6397271AC4A7F300459E23 /* AWSLambdaInvoker.m */; };
-		CE63972B1AC4CD2700459E23 /* lambda-2015-03-31.json in Resources */ = {isa = PBXBuildFile; fileRef = CE63972A1AC4CD1C00459E23 /* lambda-2015-03-31.json */; };
 		CED822211AC4895F0017E687 /* libAWSLambda.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CED822151AC4895F0017E687 /* libAWSLambda.a */; };
 		CED8223C1AC48A3D0017E687 /* AWSLambdaService.m in Sources */ = {isa = PBXBuildFile; fileRef = CED822351AC48A3D0017E687 /* AWSLambdaService.m */; };
 		CED8223D1AC48A3D0017E687 /* AWSLambdaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CED822371AC48A3D0017E687 /* AWSLambdaModel.m */; };
@@ -30,6 +27,7 @@
 		CED822441AC48AE40017E687 /* AWSLambdaModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CED822361AC48A3D0017E687 /* AWSLambdaModel.h */; };
 		CED822451AC48AE40017E687 /* AWSLambdaService.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CED822381AC48A3D0017E687 /* AWSLambdaService.h */; };
 		CEDE75F01ACA1D9E002A0D94 /* AWSLambdaInvokerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDE75EF1ACA1D9E002A0D94 /* AWSLambdaInvokerTests.m */; };
+		CEE532641B03D3A8002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532631B03D3A8002CED62 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,17 +59,15 @@
 /* Begin PBXFileReference section */
 		0B0DD4512530E61F3A5F0F9D /* libPods-AWSLambda.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSLambda.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		177BE039058FBD96196C8D2B /* Pods-AWSLambda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSLambda.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSLambda/Pods-AWSLambda.release.xcconfig"; sourceTree = "<group>"; };
+		BDB73D7D1B1D3F1400717559 /* AWSLambdaResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLambdaResources.h; sourceTree = "<group>"; };
+		BDB73D7E1B1D3F1400717559 /* AWSLambdaResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLambdaResources.m; sourceTree = "<group>"; };
 		CE6397121AC48EF300459E23 /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
 		CE6397141AC494C100459E23 /* AWSGeneralLambdaTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralLambdaTests.m; sourceTree = "<group>"; };
-		CE6397161AC4953D00459E23 /* cognito-identity-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "cognito-identity-2014-06-30.json"; path = "../AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"; sourceTree = "<group>"; };
-		CE6397181AC4955000459E23 /* mobileanalytics-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "mobileanalytics-2014-06-30.json"; path = "../AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"; sourceTree = "<group>"; };
-		CE63971A1AC4956000459E23 /* sts-2011-06-15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "sts-2011-06-15.json"; path = "../AWSCore/STS/Resources/sts-2011-06-15.json"; sourceTree = "<group>"; };
 		CE63971C1AC4957D00459E23 /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
 		CE63971E1AC495CD00459E23 /* AWSTestUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AWSTestUtility.m; path = ../AWSCoreTests/AWSTestUtility.m; sourceTree = "<group>"; };
 		CE6397241AC4A4CC00459E23 /* AWSLambdaTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLambdaTests.m; sourceTree = "<group>"; };
-		CE6397261AC4A7F300459E23 /* AWSLambdaInvoker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLambdaInvoker.h; sourceTree = "<group>"; };
+		CE6397261AC4A7F300459E23 /* AWSLambdaInvoker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AWSLambdaInvoker.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		CE6397271AC4A7F300459E23 /* AWSLambdaInvoker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLambdaInvoker.m; sourceTree = "<group>"; };
-		CE63972A1AC4CD1C00459E23 /* lambda-2015-03-31.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lambda-2015-03-31.json"; sourceTree = "<group>"; };
 		CED822151AC4895F0017E687 /* libAWSLambda.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSLambda.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED822201AC4895F0017E687 /* AWSLambdaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSLambdaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED822261AC4895F0017E687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,6 +77,7 @@
 		CED822371AC48A3D0017E687 /* AWSLambdaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLambdaModel.m; sourceTree = "<group>"; };
 		CED822381AC48A3D0017E687 /* AWSLambdaService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLambdaService.h; sourceTree = "<group>"; };
 		CEDE75EF1ACA1D9E002A0D94 /* AWSLambdaInvokerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLambdaInvokerTests.m; sourceTree = "<group>"; };
+		CEE532631B03D3A8002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F85E905FF100126C225C0066 /* Pods-AWSLambda.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSLambda.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSLambda/Pods-AWSLambda.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,9 +93,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE532641B03D3A8002CED62 /* libz.dylib in Frameworks */,
 				CE6397131AC48EF300459E23 /* libAWSCore.a in Frameworks */,
 				CED822211AC4895F0017E687 /* libAWSLambda.a in Frameworks */,
-				0FD9230F15426C0DAA9BDD21 /* libPods-AWSLambda.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +105,7 @@
 		3EAFA3A380A2651599D9FC74 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEE532631B03D3A8002CED62 /* libz.dylib */,
 				CE6397121AC48EF300459E23 /* libAWSCore.a */,
 				0B0DD4512530E61F3A5F0F9D /* libPods-AWSLambda.a */,
 			);
@@ -153,7 +151,8 @@
 				CED822371AC48A3D0017E687 /* AWSLambdaModel.m */,
 				CED822381AC48A3D0017E687 /* AWSLambdaService.h */,
 				CED822351AC48A3D0017E687 /* AWSLambdaService.m */,
-				CED8223A1AC48A3D0017E687 /* Resources */,
+				BDB73D7D1B1D3F1400717559 /* AWSLambdaResources.h */,
+				BDB73D7E1B1D3F1400717559 /* AWSLambdaResources.m */,
 			);
 			path = AWSLambda;
 			sourceTree = "<group>";
@@ -174,20 +173,9 @@
 			isa = PBXGroup;
 			children = (
 				CE63971C1AC4957D00459E23 /* credentials.json */,
-				CE63971A1AC4956000459E23 /* sts-2011-06-15.json */,
-				CE6397181AC4955000459E23 /* mobileanalytics-2014-06-30.json */,
-				CE6397161AC4953D00459E23 /* cognito-identity-2014-06-30.json */,
 				CED822261AC4895F0017E687 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CED8223A1AC48A3D0017E687 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				CE63972A1AC4CD1C00459E23 /* lambda-2015-03-31.json */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +187,7 @@
 			files = (
 				CED822401AC48AD60017E687 /* AWSLambda.h in Headers */,
 				CED822411AC48AD60017E687 /* AWSLambdaModel.h in Headers */,
+				BDB73D7F1B1D3F1400717559 /* AWSLambdaResources.h in Headers */,
 				CE6397281AC4A7F300459E23 /* AWSLambdaInvoker.h in Headers */,
 				CED822421AC48AD60017E687 /* AWSLambdaService.h in Headers */,
 			);
@@ -229,11 +218,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CED8222C1AC4895F0017E687 /* Build configuration list for PBXNativeTarget "AWSLambdaTests" */;
 			buildPhases = (
-				9A650953CD549327A2447704 /* Check Pods Manifest.lock */,
 				CED8221C1AC4895F0017E687 /* Sources */,
 				CED8221D1AC4895F0017E687 /* Frameworks */,
 				CED8221E1AC4895F0017E687 /* Resources */,
-				50AAD6949CF2687EDA83DD22 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -285,48 +272,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE63972B1AC4CD2700459E23 /* lambda-2015-03-31.json in Resources */,
-				CE63971B1AC4956000459E23 /* sts-2011-06-15.json in Resources */,
-				CE6397191AC4955000459E23 /* mobileanalytics-2014-06-30.json in Resources */,
-				CE6397171AC4953D00459E23 /* cognito-identity-2014-06-30.json in Resources */,
 				CE63971D1AC4957D00459E23 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		50AAD6949CF2687EDA83DD22 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWSLambda/Pods-AWSLambda-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9A650953CD549327A2447704 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CED822111AC4895F0017E687 /* Sources */ = {
@@ -335,6 +285,7 @@
 			files = (
 				CE6397291AC4A7F300459E23 /* AWSLambdaInvoker.m in Sources */,
 				CED8223D1AC48A3D0017E687 /* AWSLambdaModel.m in Sources */,
+				BDB73D801B1D3F1400717559 /* AWSLambdaResources.m in Sources */,
 				CED8223C1AC48A3D0017E687 /* AWSLambdaService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,7 +396,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -459,7 +410,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -467,7 +418,6 @@
 		};
 		CED8222D1AC4895F0017E687 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F85E905FF100126C225C0066 /* Pods-AWSLambda.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -487,7 +437,6 @@
 		};
 		CED8222E1AC4895F0017E687 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 177BE039058FBD96196C8D2B /* Pods-AWSLambda.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

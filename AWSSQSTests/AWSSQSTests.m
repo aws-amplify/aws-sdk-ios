@@ -50,7 +50,7 @@
     XCTAssertNotNil(sqs);
 
     AWSSQSListQueuesRequest *listQueuesRequest = [AWSSQSListQueuesRequest new];
-    [[[sqs listQueues:listQueuesRequest] continueWithBlock:^id(BFTask *task) {
+    [[[sqs listQueues:listQueuesRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -71,7 +71,7 @@
     AWSSQS *sqs = [AWSSQS defaultSQS];
 
     AWSSQSListQueuesRequest *listQueuesRequest = [AWSSQSListQueuesRequest new];
-    [[[sqs listQueues:listQueuesRequest] continueWithBlock:^id(BFTask *task) {
+    [[[sqs listQueues:listQueuesRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -92,7 +92,7 @@
     AWSSQSGetQueueAttributesRequest *attributesRequest = [AWSSQSGetQueueAttributesRequest new];
     attributesRequest.queueUrl = @""; //queueURL is empty
     
-    [[[sqs getQueueAttributes:attributesRequest] continueWithBlock:^id(BFTask *task) {
+    [[[sqs getQueueAttributes:attributesRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error, @"expected WrongQueueURL Error but got nil");
         return nil;
     }] waitUntilFinished];

@@ -24,6 +24,7 @@
 #import "AWSURLResponseSerialization.h"
 #import "AWSURLRequestRetryHandler.h"
 #import "AWSSynchronizedMutableDictionary.h"
+#import "AWSS3Resources.h"
 
 NSString *const AWSS3APIVersion = @"s3-2006-03-01";
 
@@ -89,9 +90,9 @@ static NSDictionary *errorCodeDictionary = nil;
         }
 
         if (self.outputClass) {
-            responseObject = [MTLJSONAdapter modelOfClass:self.outputClass
-                                       fromJSONDictionary:responseObject
-                                                    error:error];
+            responseObject = [AWSMTLJSONAdapter modelOfClass:self.outputClass
+                                          fromJSONDictionary:responseObject
+                                                       error:error];
         }
     }
 
@@ -242,7 +243,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [NSString stringWithFormat:@"%@/%@%@", self.configuration.endpoint.URL, keyPath, resQuery];
 }
 
-- (BFTask *)invokeRequest:(AWSRequest *)request
+- (AWSTask *)invokeRequest:(AWSRequest *)request
                HTTPMethod:(AWSHTTPMethod)HTTPMethod
                 URLString:(NSString *) URLString
              targetPrefix:(NSString *)targetPrefix
@@ -256,21 +257,19 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         
         AWSNetworkingRequest *networkingRequest = request.internalRequest;
         if (request) {
-            networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
+            networkingRequest.parameters = [[AWSMTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
         } else {
             networkingRequest.parameters = @{};
         }
         networkingRequest.shouldWriteDirectly = [[request valueForKey:@"shouldWriteDirectly"] boolValue];
         networkingRequest.downloadingFileURL = request.downloadingFileURL;
         networkingRequest.HTTPMethod = HTTPMethod;
-        networkingRequest.requestSerializer = [[AWSXMLRequestSerializer alloc] initWithResource:AWSS3APIVersion
-                                                                                     actionName:operationName
-                                                                                 classForBundle:[self class]];
-        networkingRequest.responseSerializer = [[AWSS3ResponseSerializer alloc] initWithResource:AWSS3APIVersion
-                                                                                      actionName:operationName
-                                                                                     outputClass:outputClass
-                                                                                  classForBundle:[self class]];
-        return [[self.networking sendRequest:networkingRequest] continueWithBlock:^id(BFTask *task) {
+        networkingRequest.requestSerializer = [[AWSXMLRequestSerializer alloc] initWithJSONDefinition:[[AWSS3Resources sharedInstance] JSONObject]
+                                                                                           actionName:operationName];
+        networkingRequest.responseSerializer = [[AWSS3ResponseSerializer alloc] initWithJSONDefinition:[[AWSS3Resources sharedInstance] JSONObject]
+                                                                                            actionName:operationName
+                                                                                           outputClass:outputClass];
+        return [[self.networking sendRequest:networkingRequest] continueWithBlock:^id(AWSTask *task) {
             request.internalRequest = nil;
             return task;
         }];
@@ -279,7 +278,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 #pragma mark - Service method
 
-- (BFTask *)abortMultipartUpload:(AWSS3AbortMultipartUploadRequest *)request {
+- (AWSTask *)abortMultipartUpload:(AWSS3AbortMultipartUploadRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/{Bucket}/{Key+}"
@@ -288,7 +287,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)completeMultipartUpload:(AWSS3CompleteMultipartUploadRequest *)request {
+- (AWSTask *)completeMultipartUpload:(AWSS3CompleteMultipartUploadRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/{Bucket}/{Key+}"
@@ -297,7 +296,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3CompleteMultipartUploadOutput class]];
 }
 
-- (BFTask *)createBucket:(AWSS3CreateBucketRequest *)request {
+- (AWSTask *)createBucket:(AWSS3CreateBucketRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}"
@@ -306,7 +305,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3CreateBucketOutput class]];
 }
 
-- (BFTask *)createMultipartUpload:(AWSS3CreateMultipartUploadRequest *)request {
+- (AWSTask *)createMultipartUpload:(AWSS3CreateMultipartUploadRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/{Bucket}/{Key+}?uploads"
@@ -315,7 +314,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3CreateMultipartUploadOutput class]];
 }
 
-- (BFTask *)deleteBucket:(AWSS3DeleteBucketRequest *)request {
+- (AWSTask *)deleteBucket:(AWSS3DeleteBucketRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/{Bucket}"
@@ -324,7 +323,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteBucketCors:(AWSS3DeleteBucketCorsRequest *)request {
+- (AWSTask *)deleteBucketCors:(AWSS3DeleteBucketCorsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/{Bucket}?cors"
@@ -333,7 +332,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteBucketLifecycle:(AWSS3DeleteBucketLifecycleRequest *)request {
+- (AWSTask *)deleteBucketLifecycle:(AWSS3DeleteBucketLifecycleRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/{Bucket}?lifecycle"
@@ -342,7 +341,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteBucketPolicy:(AWSS3DeleteBucketPolicyRequest *)request {
+- (AWSTask *)deleteBucketPolicy:(AWSS3DeleteBucketPolicyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/{Bucket}?policy"
@@ -351,7 +350,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteBucketTagging:(AWSS3DeleteBucketTaggingRequest *)request {
+- (AWSTask *)deleteBucketTagging:(AWSS3DeleteBucketTaggingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/{Bucket}?tagging"
@@ -360,7 +359,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteBucketWebsite:(AWSS3DeleteBucketWebsiteRequest *)request {
+- (AWSTask *)deleteBucketWebsite:(AWSS3DeleteBucketWebsiteRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/{Bucket}?website"
@@ -369,7 +368,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteObject:(AWSS3DeleteObjectRequest *)request {
+- (AWSTask *)deleteObject:(AWSS3DeleteObjectRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/{Bucket}/{Key+}"
@@ -378,7 +377,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3DeleteObjectOutput class]];
 }
 
-- (BFTask *)deleteObjects:(AWSS3DeleteObjectsRequest *)request {
+- (AWSTask *)deleteObjects:(AWSS3DeleteObjectsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/{Bucket}?delete"
@@ -387,7 +386,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3DeleteObjectsOutput class]];
 }
 
-- (BFTask *)getBucketAcl:(AWSS3GetBucketAclRequest *)request {
+- (AWSTask *)getBucketAcl:(AWSS3GetBucketAclRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?acl"
@@ -396,7 +395,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketAclOutput class]];
 }
 
-- (BFTask *)getBucketCors:(AWSS3GetBucketCorsRequest *)request {
+- (AWSTask *)getBucketCors:(AWSS3GetBucketCorsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?cors"
@@ -405,7 +404,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketCorsOutput class]];
 }
 
-- (BFTask *)getBucketLifecycle:(AWSS3GetBucketLifecycleRequest *)request {
+- (AWSTask *)getBucketLifecycle:(AWSS3GetBucketLifecycleRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?lifecycle"
@@ -414,7 +413,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketLifecycleOutput class]];
 }
 
-- (BFTask *)getBucketLocation:(AWSS3GetBucketLocationRequest *)request {
+- (AWSTask *)getBucketLocation:(AWSS3GetBucketLocationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?location"
@@ -423,7 +422,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketLocationOutput class]];
 }
 
-- (BFTask *)getBucketLogging:(AWSS3GetBucketLoggingRequest *)request {
+- (AWSTask *)getBucketLogging:(AWSS3GetBucketLoggingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?logging"
@@ -432,7 +431,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketLoggingOutput class]];
 }
 
-- (BFTask *)getBucketNotification:(AWSS3GetBucketNotificationRequest *)request {
+- (AWSTask *)getBucketNotification:(AWSS3GetBucketNotificationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?notification"
@@ -441,7 +440,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketNotificationOutput class]];
 }
 
-- (BFTask *)getBucketPolicy:(AWSS3GetBucketPolicyRequest *)request {
+- (AWSTask *)getBucketPolicy:(AWSS3GetBucketPolicyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?policy"
@@ -450,7 +449,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketPolicyOutput class]];
 }
 
-- (BFTask *)getBucketRequestPayment:(AWSS3GetBucketRequestPaymentRequest *)request {
+- (AWSTask *)getBucketRequestPayment:(AWSS3GetBucketRequestPaymentRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?requestPayment"
@@ -459,7 +458,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketRequestPaymentOutput class]];
 }
 
-- (BFTask *)getBucketTagging:(AWSS3GetBucketTaggingRequest *)request {
+- (AWSTask *)getBucketTagging:(AWSS3GetBucketTaggingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?tagging"
@@ -468,7 +467,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketTaggingOutput class]];
 }
 
-- (BFTask *)getBucketVersioning:(AWSS3GetBucketVersioningRequest *)request {
+- (AWSTask *)getBucketVersioning:(AWSS3GetBucketVersioningRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?versioning"
@@ -477,7 +476,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketVersioningOutput class]];
 }
 
-- (BFTask *)getBucketWebsite:(AWSS3GetBucketWebsiteRequest *)request {
+- (AWSTask *)getBucketWebsite:(AWSS3GetBucketWebsiteRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?website"
@@ -486,7 +485,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketWebsiteOutput class]];
 }
 
-- (BFTask *)getObject:(AWSS3GetObjectRequest *)request {
+- (AWSTask *)getObject:(AWSS3GetObjectRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}/{Key+}"
@@ -495,7 +494,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetObjectOutput class]];
 }
 
-- (BFTask *)getObjectAcl:(AWSS3GetObjectAclRequest *)request {
+- (AWSTask *)getObjectAcl:(AWSS3GetObjectAclRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}/{Key+}?acl"
@@ -504,7 +503,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetObjectAclOutput class]];
 }
 
-- (BFTask *)getObjectTorrent:(AWSS3GetObjectTorrentRequest *)request {
+- (AWSTask *)getObjectTorrent:(AWSS3GetObjectTorrentRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}/{Key+}?torrent"
@@ -513,7 +512,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetObjectTorrentOutput class]];
 }
 
-- (BFTask *)headBucket:(AWSS3HeadBucketRequest *)request {
+- (AWSTask *)headBucket:(AWSS3HeadBucketRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodHEAD
                      URLString:@"/{Bucket}"
@@ -522,7 +521,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)headObject:(AWSS3HeadObjectRequest *)request {
+- (AWSTask *)headObject:(AWSS3HeadObjectRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodHEAD
                      URLString:@"/{Bucket}/{Key+}"
@@ -531,7 +530,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3HeadObjectOutput class]];
 }
 
-- (BFTask *)listBuckets:(AWSRequest *)request {
+- (AWSTask *)listBuckets:(AWSRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@""
@@ -540,7 +539,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3ListBucketsOutput class]];
 }
 
-- (BFTask *)listMultipartUploads:(AWSS3ListMultipartUploadsRequest *)request {
+- (AWSTask *)listMultipartUploads:(AWSS3ListMultipartUploadsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?uploads"
@@ -549,7 +548,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3ListMultipartUploadsOutput class]];
 }
 
-- (BFTask *)listObjectVersions:(AWSS3ListObjectVersionsRequest *)request {
+- (AWSTask *)listObjectVersions:(AWSS3ListObjectVersionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?versions"
@@ -558,7 +557,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3ListObjectVersionsOutput class]];
 }
 
-- (BFTask *)listObjects:(AWSS3ListObjectsRequest *)request {
+- (AWSTask *)listObjects:(AWSS3ListObjectsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}"
@@ -567,7 +566,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3ListObjectsOutput class]];
 }
 
-- (BFTask *)listParts:(AWSS3ListPartsRequest *)request {
+- (AWSTask *)listParts:(AWSS3ListPartsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}/{Key+}"
@@ -576,7 +575,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3ListPartsOutput class]];
 }
 
-- (BFTask *)putBucketAcl:(AWSS3PutBucketAclRequest *)request {
+- (AWSTask *)putBucketAcl:(AWSS3PutBucketAclRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?acl"
@@ -585,7 +584,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)putBucketCors:(AWSS3PutBucketCorsRequest *)request {
+- (AWSTask *)putBucketCors:(AWSS3PutBucketCorsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?cors"
@@ -594,7 +593,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)putBucketLifecycle:(AWSS3PutBucketLifecycleRequest *)request {
+- (AWSTask *)putBucketLifecycle:(AWSS3PutBucketLifecycleRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?lifecycle"
@@ -603,7 +602,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)putBucketLogging:(AWSS3PutBucketLoggingRequest *)request {
+- (AWSTask *)putBucketLogging:(AWSS3PutBucketLoggingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?logging"
@@ -612,7 +611,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)putBucketNotification:(AWSS3PutBucketNotificationRequest *)request {
+- (AWSTask *)putBucketNotification:(AWSS3PutBucketNotificationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?notification"
@@ -621,7 +620,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)putBucketPolicy:(AWSS3PutBucketPolicyRequest *)request {
+- (AWSTask *)putBucketPolicy:(AWSS3PutBucketPolicyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?policy"
@@ -630,7 +629,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)putBucketRequestPayment:(AWSS3PutBucketRequestPaymentRequest *)request {
+- (AWSTask *)putBucketRequestPayment:(AWSS3PutBucketRequestPaymentRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?requestPayment"
@@ -639,7 +638,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)putBucketTagging:(AWSS3PutBucketTaggingRequest *)request {
+- (AWSTask *)putBucketTagging:(AWSS3PutBucketTaggingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?tagging"
@@ -648,7 +647,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)putBucketVersioning:(AWSS3PutBucketVersioningRequest *)request {
+- (AWSTask *)putBucketVersioning:(AWSS3PutBucketVersioningRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?versioning"
@@ -657,7 +656,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)putBucketWebsite:(AWSS3PutBucketWebsiteRequest *)request {
+- (AWSTask *)putBucketWebsite:(AWSS3PutBucketWebsiteRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}?website"
@@ -666,7 +665,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)putObject:(AWSS3PutObjectRequest *)request {
+- (AWSTask *)putObject:(AWSS3PutObjectRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}/{Key+}"
@@ -675,7 +674,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3PutObjectOutput class]];
 }
 
-- (BFTask *)putObjectAcl:(AWSS3PutObjectAclRequest *)request {
+- (AWSTask *)putObjectAcl:(AWSS3PutObjectAclRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}/{Key+}?acl"
@@ -684,7 +683,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)replicateObject:(AWSS3ReplicateObjectRequest *)request {
+- (AWSTask *)replicateObject:(AWSS3ReplicateObjectRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}/{Key+}"
@@ -693,7 +692,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3ReplicateObjectOutput class]];
 }
 
-- (BFTask *)restoreObject:(AWSS3RestoreObjectRequest *)request {
+- (AWSTask *)restoreObject:(AWSS3RestoreObjectRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/{Bucket}/{Key+}?restore"
@@ -702,7 +701,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)uploadPart:(AWSS3UploadPartRequest *)request {
+- (AWSTask *)uploadPart:(AWSS3UploadPartRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}/{Key+}"
@@ -711,7 +710,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3UploadPartOutput class]];
 }
 
-- (BFTask *)uploadPartCopy:(AWSS3UploadPartCopyRequest *)request {
+- (AWSTask *)uploadPartCopy:(AWSS3UploadPartCopyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}/{Key+}"

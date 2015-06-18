@@ -45,7 +45,7 @@
                                   @"key3" : @"value3",
                                   @"isError" : @NO};
 
-    [[[lambdaInvoker invoke:invocationRequest] continueWithBlock:^id(BFTask *task) {
+    [[[lambdaInvoker invoke:invocationRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNotNil(task.result);
@@ -73,7 +73,7 @@
                                   @"isError" : @YES,
                                   @"errorName" : @"ErrorCode123"};
 
-    [[[lambdaInvoker invoke:invocationRequest] continueWithBlock:^id(BFTask *task) {
+    [[[lambdaInvoker invoke:invocationRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -91,7 +91,7 @@
                          JSONObject:@{@"key1" : @"value1",
                                       @"key2" : @"value2",
                                       @"key3" : @"value3",
-                                      @"isError" : @NO}] continueWithBlock:^id(BFTask *task) {
+                                      @"isError" : @NO}] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNotNil(task.result);
@@ -104,6 +104,23 @@
     }] waitUntilFinished];
 }
 
+- (void)testInvokeFunction2 {
+    AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
+    
+    NSDictionary *jsonObject = @{@"firstName" : NSStringFromSelector(_cmd)};
+    [[[lambdaInvoker invokeFunction:@"lambdaDebugging" JSONObject:jsonObject] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        XCTAssertNil(task.exception);
+        XCTAssertNotNil(task.result);
+        XCTAssertTrue([task.result isKindOfClass:[NSDictionary class]]);
+        NSDictionary *result = task.result;
+        NSString *expectedString = [NSString stringWithFormat:@"Hello %@",NSStringFromSelector(_cmd)];
+        XCTAssertEqualObjects(expectedString,result[@"message"]);
+        return nil;
+    }] waitUntilFinished];
+     
+}
+     
 - (void)testInvokeFunctionError {
     AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
     [[[lambdaInvoker invokeFunction:@"helloWorldExample"
@@ -111,7 +128,7 @@
                                       @"key2" : @"value2",
                                       @"key3" : @"value3",
                                       @"isError" : @YES,
-                                      @"errorName" : @"ErrorCode123",}] continueWithBlock:^id(BFTask *task) {
+                                      @"errorName" : @"ErrorCode123",}] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);

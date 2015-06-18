@@ -1,0 +1,1 @@
+../../AWSCore/XMLDictionary/AWSXMLDictionary.h

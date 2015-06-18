@@ -48,7 +48,7 @@
     AWSCloudWatch *cloudWatch = [AWSCloudWatch defaultCloudWatch];
     XCTAssertNotNil(cloudWatch);
 
-    [[[cloudWatch listMetrics:nil] continueWithBlock:^id(BFTask *task) {
+    [[[cloudWatch listMetrics:nil] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -68,7 +68,7 @@
 - (void)testListMetrics {
     AWSCloudWatch *cloudWatch = [AWSCloudWatch defaultCloudWatch];
 
-    [[[cloudWatch listMetrics:nil] continueWithBlock:^id(BFTask *task) {
+    [[[cloudWatch listMetrics:nil] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -89,7 +89,7 @@
     AWSCloudWatchDescribeAlarmHistoryInput *input = [AWSCloudWatchDescribeAlarmHistoryInput new];
     input.endDate = [NSDate date];
     
-    [[[cloudWatch describeAlarmHistory:input] continueWithBlock:^id(BFTask *task) {
+    [[[cloudWatch describeAlarmHistory:input] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
         
         AWSCloudWatchDescribeAlarmHistoryOutput *output = task.result;
@@ -107,7 +107,7 @@
     AWSCloudWatchGetMetricStatisticsInput *statisticsInput = [AWSCloudWatchGetMetricStatisticsInput new];
     statisticsInput.namespace = @""; //namespace is empty
     
-    [[[cloudWatch getMetricStatistics:statisticsInput] continueWithBlock:^id(BFTask *task) {
+    [[[cloudWatch getMetricStatistics:statisticsInput] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error, @"Expected MissingParameter error not found.");
         return nil;
     }] waitUntilFinished];

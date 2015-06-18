@@ -24,6 +24,7 @@
 #import "AWSURLResponseSerialization.h"
 #import "AWSURLRequestRetryHandler.h"
 #import "AWSSynchronizedMutableDictionary.h"
+#import "AWSLambdaResources.h"
 
 NSString *const AWSLambdaDefinitionFileName = @"lambda-2015-03-31";
 
@@ -41,6 +42,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"IncompleteSignature" : @(AWSLambdaErrorIncompleteSignature),
                             @"InvalidClientTokenId" : @(AWSLambdaErrorInvalidClientTokenId),
                             @"MissingAuthenticationToken" : @(AWSLambdaErrorMissingAuthenticationToken),
+                            @"CodeStorageExceededException" : @(AWSLambdaErrorCodeStorageExceeded),
                             @"InvalidParameterValueException" : @(AWSLambdaErrorInvalidParameterValue),
                             @"InvalidRequestContentException" : @(AWSLambdaErrorInvalidRequestContent),
                             @"PolicyLengthExceededException" : @(AWSLambdaErrorPolicyLengthExceeded),
@@ -123,9 +125,9 @@ static NSDictionary *errorCodeDictionary = nil;
 
 
         if (self.outputClass) {
-            responseObject = [MTLJSONAdapter modelOfClass:self.outputClass
-                                       fromJSONDictionary:responseObject
-                                                    error:error];
+            responseObject = [AWSMTLJSONAdapter modelOfClass:self.outputClass
+                                          fromJSONDictionary:responseObject
+                                                       error:error];
         }
     }
 
@@ -267,7 +269,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return self;
 }
 
-- (BFTask *)invokeRequest:(AWSRequest *)request
+- (AWSTask *)invokeRequest:(AWSRequest *)request
                HTTPMethod:(AWSHTTPMethod)HTTPMethod
                 URLString:(NSString *) URLString
              targetPrefix:(NSString *)targetPrefix
@@ -281,7 +283,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         
         AWSNetworkingRequest *networkingRequest = request.internalRequest;
         if (request) {
-            networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
+            networkingRequest.parameters = [[AWSMTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
         } else {
             networkingRequest.parameters = @{};
         }
@@ -289,13 +291,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         
         networkingRequest.headers = headers;
         networkingRequest.HTTPMethod = HTTPMethod;
-        networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithResource:AWSLambdaDefinitionFileName
-                                                                                      actionName:operationName
-                                                                                  classForBundle:[self class]];
-        networkingRequest.responseSerializer = [[AWSLambdaResponseSerializer alloc] initWithResource:AWSLambdaDefinitionFileName
-                                                                                          actionName:operationName
-                                                                                         outputClass:outputClass
-                                                                                      classForBundle:[self class]];
+        networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithJSONDefinition:[[AWSLambdaResources sharedInstance] JSONObject]
+                                                                                            actionName:operationName];
+        networkingRequest.responseSerializer = [[AWSLambdaResponseSerializer alloc] initWithJSONDefinition:[[AWSLambdaResources sharedInstance] JSONObject]
+                                                                                                actionName:operationName
+                                                                                               outputClass:outputClass];
         return [self.networking sendRequest:networkingRequest];
     }
 }
@@ -303,7 +303,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 #pragma mark - Service method
 
 
-- (BFTask *)addPermission:(AWSLambdaAddPermissionRequest *)request {
+- (AWSTask *)addPermission:(AWSLambdaAddPermissionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/2015-03-31/functions/{FunctionName}/versions/HEAD/policy"
@@ -312,7 +312,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaAddPermissionResponse class]];
 }
 
-- (BFTask *)createEventSourceMapping:(AWSLambdaCreateEventSourceMappingRequest *)request {
+- (AWSTask *)createEventSourceMapping:(AWSLambdaCreateEventSourceMappingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/2015-03-31/event-source-mappings/"
@@ -321,7 +321,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaEventSourceMappingConfiguration class]];
 }
 
-- (BFTask *)createFunction:(AWSLambdaCreateFunctionRequest *)request {
+- (AWSTask *)createFunction:(AWSLambdaCreateFunctionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/2015-03-31/functions"
@@ -330,7 +330,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaFunctionConfiguration class]];
 }
 
-- (BFTask *)deleteEventSourceMapping:(AWSLambdaDeleteEventSourceMappingRequest *)request {
+- (AWSTask *)deleteEventSourceMapping:(AWSLambdaDeleteEventSourceMappingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/2015-03-31/event-source-mappings/{UUID}"
@@ -339,7 +339,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaEventSourceMappingConfiguration class]];
 }
 
-- (BFTask *)deleteFunction:(AWSLambdaDeleteFunctionRequest *)request {
+- (AWSTask *)deleteFunction:(AWSLambdaDeleteFunctionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/2015-03-31/functions/{FunctionName}"
@@ -348,7 +348,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)getEventSourceMapping:(AWSLambdaGetEventSourceMappingRequest *)request {
+- (AWSTask *)getEventSourceMapping:(AWSLambdaGetEventSourceMappingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/2015-03-31/event-source-mappings/{UUID}"
@@ -357,7 +357,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaEventSourceMappingConfiguration class]];
 }
 
-- (BFTask *)getFunction:(AWSLambdaGetFunctionRequest *)request {
+- (AWSTask *)getFunction:(AWSLambdaGetFunctionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/2015-03-31/functions/{FunctionName}/versions/HEAD"
@@ -366,7 +366,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaGetFunctionResponse class]];
 }
 
-- (BFTask *)getFunctionConfiguration:(AWSLambdaGetFunctionConfigurationRequest *)request {
+- (AWSTask *)getFunctionConfiguration:(AWSLambdaGetFunctionConfigurationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/2015-03-31/functions/{FunctionName}/versions/HEAD/configuration"
@@ -375,7 +375,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaFunctionConfiguration class]];
 }
 
-- (BFTask *)getPolicy:(AWSLambdaGetPolicyRequest *)request {
+- (AWSTask *)getPolicy:(AWSLambdaGetPolicyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/2015-03-31/functions/{FunctionName}/versions/HEAD/policy"
@@ -384,7 +384,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaGetPolicyResponse class]];
 }
 
-- (BFTask *)invoke:(AWSLambdaInvocationRequest *)request {
+- (AWSTask *)invoke:(AWSLambdaInvocationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/2015-03-31/functions/{FunctionName}/invocations"
@@ -393,7 +393,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaInvocationResponse class]];
 }
 
-- (BFTask *)invokeAsync:(AWSLambdaInvokeAsyncRequest *)request {
+- (AWSTask *)invokeAsync:(AWSLambdaInvokeAsyncRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/2014-11-13/functions/{FunctionName}/invoke-async/"
@@ -402,7 +402,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaInvokeAsyncResponse class]];
 }
 
-- (BFTask *)listEventSourceMappings:(AWSLambdaListEventSourceMappingsRequest *)request {
+- (AWSTask *)listEventSourceMappings:(AWSLambdaListEventSourceMappingsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/2015-03-31/event-source-mappings/"
@@ -411,7 +411,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaListEventSourceMappingsResponse class]];
 }
 
-- (BFTask *)listFunctions:(AWSLambdaListFunctionsRequest *)request {
+- (AWSTask *)listFunctions:(AWSLambdaListFunctionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/2015-03-31/functions/"
@@ -420,7 +420,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaListFunctionsResponse class]];
 }
 
-- (BFTask *)removePermission:(AWSLambdaRemovePermissionRequest *)request {
+- (AWSTask *)removePermission:(AWSLambdaRemovePermissionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/2015-03-31/functions/{FunctionName}/versions/HEAD/policy/{StatementId}"
@@ -429,7 +429,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)updateEventSourceMapping:(AWSLambdaUpdateEventSourceMappingRequest *)request {
+- (AWSTask *)updateEventSourceMapping:(AWSLambdaUpdateEventSourceMappingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/2015-03-31/event-source-mappings/{UUID}"
@@ -438,7 +438,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaEventSourceMappingConfiguration class]];
 }
 
-- (BFTask *)updateFunctionCode:(AWSLambdaUpdateFunctionCodeRequest *)request {
+- (AWSTask *)updateFunctionCode:(AWSLambdaUpdateFunctionCodeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/2015-03-31/functions/{FunctionName}/versions/HEAD/code"
@@ -447,7 +447,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaFunctionConfiguration class]];
 }
 
-- (BFTask *)updateFunctionConfiguration:(AWSLambdaUpdateFunctionConfigurationRequest *)request {
+- (AWSTask *)updateFunctionConfiguration:(AWSLambdaUpdateFunctionConfigurationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/2015-03-31/functions/{FunctionName}/versions/HEAD/configuration"

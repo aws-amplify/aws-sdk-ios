@@ -260,7 +260,7 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 }
 
 + (NSValueTransformer *)endpointsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSSNSEndpoint class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSNSEndpoint class]];
 }
 
 @end
@@ -285,7 +285,7 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 }
 
 + (NSValueTransformer *)platformApplicationsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSSNSPlatformApplication class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSNSPlatformApplication class]];
 }
 
 @end
@@ -311,7 +311,7 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 }
 
 + (NSValueTransformer *)subscriptionsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSSNSSubscription class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSNSSubscription class]];
 }
 
 @end
@@ -336,7 +336,7 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 }
 
 + (NSValueTransformer *)subscriptionsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSSNSSubscription class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSNSSubscription class]];
 }
 
 @end
@@ -361,7 +361,7 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 }
 
 + (NSValueTransformer *)topicsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSSNSTopic class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSNSTopic class]];
 }
 
 @end
@@ -403,7 +403,7 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 }
 
 + (NSValueTransformer *)messageAttributesJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSNSMessageAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];

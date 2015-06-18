@@ -29,6 +29,9 @@
       location = "group:AWSMachineLearning.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:AWSMobileAnalytics.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:AWSS3.xcodeproj">
    </FileRef>
    <FileRef
@@ -42,8 +45,5 @@
    </FileRef>
    <FileRef
       location = "group:AWSSQS.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

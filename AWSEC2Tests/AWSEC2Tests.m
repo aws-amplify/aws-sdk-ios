@@ -48,7 +48,7 @@
     XCTAssertNotNil(ec2);
 
     AWSEC2DescribeInstancesRequest *describeInstancesRequest = [AWSEC2DescribeInstancesRequest new];
-    [[[ec2 describeInstances:describeInstancesRequest] continueWithBlock:^id(BFTask *task) {
+    [[[ec2 describeInstances:describeInstancesRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -73,7 +73,7 @@
     platformFilter.name = @"platform";
     platformFilter.values = @[@"windows"];
     describeInstancesRequest.filters = @[platformFilter];
-    [[[ec2 describeInstances:describeInstancesRequest] continueWithBlock:^id(BFTask *task) {
+    [[[ec2 describeInstances:describeInstancesRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -101,7 +101,7 @@
     
     AWSEC2DescribeImagesRequest *describeImagesRequest = [AWSEC2DescribeImagesRequest new];
     describeImagesRequest.imageIds = @[@"ami-ca94f1a3"]; // .NET Beanstalk Cfn Container v1.0.0.0 on Windows 2008 Image ID
-    [[[ec2 describeImages:describeImagesRequest] continueWithBlock:^id(BFTask *task) {
+    [[[ec2 describeImages:describeImagesRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -133,7 +133,7 @@
     AWSEC2AttachVolumeRequest *volumeRequest = [AWSEC2AttachVolumeRequest new];
     volumeRequest.volumeId = @"invalidVolumeId"; //VolumeId is empty
     
-    [[[ec2 attachVolume:volumeRequest] continueWithBlock:^id(BFTask *task) {
+    [[[ec2 attachVolume:volumeRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error, @"expected InvalidParameterValue error but got nil");
         return nil;
     }] waitUntilFinished];

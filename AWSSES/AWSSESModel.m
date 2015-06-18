@@ -28,11 +28,11 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 }
 
 + (NSValueTransformer *)htmlJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSSESContent class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESContent class]];
 }
 
 + (NSValueTransformer *)textJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSSESContent class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESContent class]];
 }
 
 @end
@@ -103,7 +103,7 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 }
 
 + (NSValueTransformer *)dkimAttributesJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSESIdentityDkimAttributes class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -131,7 +131,7 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 }
 
 + (NSValueTransformer *)notificationAttributesJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSESIdentityNotificationAttributes class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -159,7 +159,7 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 }
 
 + (NSValueTransformer *)verificationAttributesJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSESIdentityVerificationAttributes class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -189,7 +189,7 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 }
 
 + (NSValueTransformer *)sendDataPointsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSSESSendDataPoint class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESSendDataPoint class]];
 }
 
 @end
@@ -205,7 +205,7 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 }
 
 + (NSValueTransformer *)dkimVerificationStatusJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"Pending"]) {
             return @(AWSSESVerificationStatusPending);
         }
@@ -266,7 +266,7 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 }
 
 + (NSValueTransformer *)verificationStatusJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"Pending"]) {
             return @(AWSSESVerificationStatusPending);
         }
@@ -315,7 +315,7 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 }
 
 + (NSValueTransformer *)identityTypeJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"EmailAddress"]) {
             return @(AWSSESIdentityTypeEmailAddress);
         }
@@ -369,11 +369,11 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 }
 
 + (NSValueTransformer *)bodyJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSSESBody class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESBody class]];
 }
 
 + (NSValueTransformer *)subjectJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSSESContent class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESContent class]];
 }
 
 @end
@@ -401,7 +401,7 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 }
 
 + (NSValueTransformer *)timestampJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
         return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
         return [date aws_stringValue:AWSDateISO8601DateFormat1];
@@ -423,11 +423,11 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 }
 
 + (NSValueTransformer *)destinationJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSSESDestination class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESDestination class]];
 }
 
 + (NSValueTransformer *)messageJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSSESMessage class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESMessage class]];
 }
 
 @end
@@ -453,7 +453,7 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 }
 
 + (NSValueTransformer *)rawMessageJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSSESRawMessage class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESRawMessage class]];
 }
 
 @end
@@ -509,7 +509,7 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 }
 
 + (NSValueTransformer *)notificationTypeJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"Bounce"]) {
             return @(AWSSESNotificationTypeBounce);
         }

@@ -16,7 +16,6 @@
 #import <XCTest/XCTest.h>
 #import "AWSCore.h"
 #import "AWSTestUtility.h"
-#import "AWSMobileAnalyticsERS.h"
 
 @interface AWSClockSkewTests : XCTestCase
 
@@ -48,6 +47,7 @@ static NSString *AWSClockSkewTestsSTSKey = @"AWSClockSkewTestsSTSKey";
 }
 
 // ERS Test
+/*
 #if !AWS_TEST_BJS_INSTEAD
 -(void)testClockSkewERS {
     XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
@@ -91,7 +91,7 @@ static NSString *AWSClockSkewTestsSTSKey = @"AWSClockSkewTestsSTSKey";
 
     putEventInput.clientContext = clientContextJsonString;
 
-    [[[ers putEvents:putEventInput] continueWithBlock:^id(BFTask *task) {
+    [[[ers putEvents:putEventInput] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
 
         return nil;
@@ -101,7 +101,7 @@ static NSString *AWSClockSkewTestsSTSKey = @"AWSClockSkewTestsSTSKey";
 
 }
 #endif
-
+*/
 //STS Test
 -(void)testClockSkewSTS
 {
@@ -114,7 +114,7 @@ static NSString *AWSClockSkewTestsSTSKey = @"AWSClockSkewTestsSTSKey";
     AWSSTSGetSessionTokenRequest *getSessionTokenRequest = [AWSSTSGetSessionTokenRequest new];
     getSessionTokenRequest.durationSeconds = @900;
 
-    [[[sts getSessionToken:getSessionTokenRequest] continueWithBlock:^id(BFTask *task) {
+    [[[sts getSessionToken:getSessionTokenRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -143,7 +143,7 @@ static NSString *AWSClockSkewTestsSTSKey = @"AWSClockSkewTestsSTSKey";
 
     AWSCognitoIdentityListIdentityPoolsInput *listPools = [AWSCognitoIdentityListIdentityPoolsInput new];
     listPools.maxResults = @10;
-    [[[cib listIdentityPools:listPools] continueWithBlock:^id(BFTask *task) {
+    [[[cib listIdentityPools:listPools] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }

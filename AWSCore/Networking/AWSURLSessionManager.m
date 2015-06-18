@@ -19,7 +19,7 @@
 #import "AWSLogging.h"
 #import "AWSCategory.h"
 #import "AWSSignature.h"
-#import <Bolts/Bolts.h>
+#import "AWSBolts.h"
 
 #pragma mark - AWSURLSessionManagerDelegate
 
@@ -142,7 +142,7 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
     NSMutableURLRequest *mutableRequest = [NSMutableURLRequest requestWithURL:delegate.request.URL];
     mutableRequest.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
     
-    [[[[[[BFTask taskWithResult:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[[[AWSTask taskWithResult:nil] continueWithBlock:^id(AWSTask *task) {
         id signer = [delegate.request.requestInterceptors lastObject];
         if (signer) {
 #pragma clang diagnostic push
@@ -181,7 +181,7 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
         }
         
         return nil;
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSNetworkingRequest *request = delegate.request;
         if (request.isCancelled) {
             if (delegate.dataTaskCompletionHandler) {
@@ -196,7 +196,7 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
         mutableRequest.HTTPMethod = [NSString aws_stringWithHTTPMethod:delegate.request.HTTPMethod];
         
         if ([request.requestSerializer respondsToSelector:@selector(serializeRequest:headers:parameters:)]) {
-            BFTask *resultTask = [request.requestSerializer serializeRequest:mutableRequest
+            AWSTask *resultTask = [request.requestSerializer serializeRequest:mutableRequest
                                                                      headers:request.headers
                                                                   parameters:request.parameters];
             //if serialization has error, abort task.
@@ -205,24 +205,24 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
             }
         }
         
-        BFTask *sequencialTask = [BFTask taskWithResult:nil];
+        AWSTask *sequencialTask = [AWSTask taskWithResult:nil];
         for(id<AWSNetworkingRequestInterceptor>interceptor in request.requestInterceptors) {
             if ([interceptor respondsToSelector:@selector(interceptRequest:)]) {
-                sequencialTask = [sequencialTask continueWithSuccessBlock:^id(BFTask *task) {
+                sequencialTask = [sequencialTask continueWithSuccessBlock:^id(AWSTask *task) {
                     return [interceptor interceptRequest:mutableRequest];
                 }];
             }
         }
         
         return task;
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSNetworkingRequest *request = delegate.request;
         if ([request.requestSerializer respondsToSelector:@selector(validateRequest:)]) {
             return [request.requestSerializer validateRequest:mutableRequest];
         } else {
-            return [BFTask taskWithResult:nil];
+            return [AWSTask taskWithResult:nil];
         }
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         switch (delegate.taskType) {
             case AWSURLSessionTaskTypeData:
                 delegate.request.task = [self.session dataTaskWithRequest:mutableRequest];
@@ -238,13 +238,13 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
             [delegate.request.task resume];
         } else {
             AWSLogError(@"Invalid AWSURLSessionTaskType.");
-            return [BFTask taskWithError:[NSError errorWithDomain:AWSNetworkingErrorDomain
+            return [AWSTask taskWithError:[NSError errorWithDomain:AWSNetworkingErrorDomain
                                                              code:AWSNetworkingErrorUnknown
                                                          userInfo:@{NSLocalizedDescriptionKey: @"Invalid AWSURLSessionTaskType."}]];
         }
         
         return nil;
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             if (delegate.dataTaskCompletionHandler) {
                 AWSNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
@@ -258,7 +258,7 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
 #pragma mark - NSURLSessionTaskDelegate
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)sessionTask didCompleteWithError:(NSError *)error {
-    [[[BFTask taskWithResult:nil] continueWithSuccessBlock:^id(BFTask *task) {
+    [[[AWSTask taskWithResult:nil] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(sessionTask.taskIdentifier)];
         
         if (delegate.responseFilehandle) {
@@ -409,7 +409,7 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
             }
         }
         return nil;
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         [self.sessionManagerDelegates removeObjectForKey:@(sessionTask.taskIdentifier)];
         return nil;
     }];

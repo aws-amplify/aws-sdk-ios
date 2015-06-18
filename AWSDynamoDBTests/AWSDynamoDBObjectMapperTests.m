@@ -287,12 +287,12 @@ static NSString *tableNameKeyOnly = nil;
 
 #pragma mark - Utilities
 
-+ (BFTask *)waitForTableToBeActive:(NSString *)tableName {
++ (AWSTask *)waitForTableToBeActive:(NSString *)tableName {
     AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
 
-    BFTask *task = [BFTask taskWithResult:nil];
+    AWSTask *task = [AWSTask taskWithResult:nil];
     for(int32_t i = 0; i < 16; i++) {
-        task = [task continueWithSuccessBlock:^id(BFTask *task) {
+        task = [task continueWithSuccessBlock:^id(AWSTask *task) {
             if (task.result) {
                 AWSDynamoDBDescribeTableOutput *describeTableOutput = task.result;
                 AWSDynamoDBTableStatus tableStatus = describeTableOutput.table.tableStatus;
@@ -312,12 +312,12 @@ static NSString *tableNameKeyOnly = nil;
     return task;
 }
 
-+ (BFTask *)waitForTableToBeDeleted:(NSString *)tableName {
++ (AWSTask *)waitForTableToBeDeleted:(NSString *)tableName {
     AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
 
-    BFTask *task = [BFTask taskWithResult:nil];
+    AWSTask *task = [AWSTask taskWithResult:nil];
     for(int32_t i = 0; i < 16; i ++) {
-        task = [task continueWithSuccessBlock:^id(BFTask *task) {
+        task = [task continueWithSuccessBlock:^id(AWSTask *task) {
             sleep(15);
 
             AWSDynamoDBDescribeTableInput *describeTableInput = [AWSDynamoDBDescribeTableInput new];
@@ -337,7 +337,7 @@ static NSString *tableNameKeyOnly = nil;
     describeTableInput.tableName = tableName;
 
     [[[[[dynamoDB describeTable:describeTableInput
-         ] continueWithBlock:^id(BFTask *task) {
+         ] continueWithBlock:^id(AWSTask *task) {
         if ([task.error.domain isEqualToString:AWSDynamoDBErrorDomain]
             && task.error.code == AWSDynamoDBErrorResourceNotFound) {
             AWSDynamoDBAttributeDefinition *hashKeyAttributeDefinition = [AWSDynamoDBAttributeDefinition new];
@@ -370,9 +370,9 @@ static NSString *tableNameKeyOnly = nil;
         }
 
         return nil;
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         return [self waitForTableToBeActive:tableName];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             succeeded = NO;
         } else {
@@ -393,9 +393,9 @@ static NSString *tableNameKeyOnly = nil;
     deleteTableInput.tableName = tableName;
 
     [[[[dynamoDB deleteTable:deleteTableInput
-        ] continueWithSuccessBlock:^id(BFTask *task) {
+        ] continueWithSuccessBlock:^id(AWSTask *task) {
         return [self waitForTableToBeDeleted:tableName];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error
             && (![task.error.domain isEqualToString:AWSDynamoDBErrorDomain]
                 || task.error.code != AWSDynamoDBErrorResourceNotFound)) {
@@ -469,9 +469,9 @@ static NSString *tableNameKeyOnly = nil;
         }
     }
 
-    [[[[[[[[[[BFTask taskForCompletionOfAllTasks:tasks] continueWithSuccessBlock:^id(BFTask *task) {
+    [[[[[[[[[[AWSTask taskForCompletionOfAllTasks:tasks] continueWithSuccessBlock:^id(AWSTask *task) {
         return [dynamoDBObjectMapper load:[TestObjectV2 class] hashKey:@"hash-key-01" rangeKey:@"range-05"];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         XCTAssertEqual([task.result class], [TestObjectV2 class]);
         TestObjectV2 *testObject = task.result;
         XCTAssertEqualObjects(testObject.hashKey, @"hash-key-01");
@@ -489,7 +489,7 @@ static NSString *tableNameKeyOnly = nil;
         AWSDynamoDBScanExpression *expression = [AWSDynamoDBScanExpression new];
         return [dynamoDBObjectMapper scan:[TestObjectV2 class]
                                expression:expression];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         NSMutableArray *tasks = [NSMutableArray new];
         AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
         for (TestObjectV2 *testObject in paginatedOutput.items) {
@@ -507,13 +507,13 @@ static NSString *tableNameKeyOnly = nil;
             [tasks addObject:[dynamoDBObjectMapper save:updatedTestObject]];
         }
 
-        return [BFTask taskForCompletionOfAllTasks:tasks];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+        return [AWSTask taskForCompletionOfAllTasks:tasks];
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSDynamoDBQueryExpression *queryExpression = [AWSDynamoDBQueryExpression new];
         queryExpression.hashKeyValues = @"hash-key-02";
         return [dynamoDBObjectMapper query:[TestObjectV2 class]
                                 expression:queryExpression];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBPaginatedOutput class]]);
         AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
 
@@ -529,19 +529,19 @@ static NSString *tableNameKeyOnly = nil;
             [tasks addObject:[dynamoDBObjectMapper remove:testObject]];
         }
 
-        return [BFTask taskForCompletionOfAllTasks:tasks];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+        return [AWSTask taskForCompletionOfAllTasks:tasks];
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSDynamoDBQueryExpression *queryExpression = [AWSDynamoDBQueryExpression new];
         queryExpression.hashKeyValues = @"hash-key-02";
         return [dynamoDBObjectMapper query:[TestObjectV2 class]
                                 expression:queryExpression];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBPaginatedOutput class]]);
         AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
         XCTAssertEqual([paginatedOutput.items count], 0);
 
         return nil;
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -670,17 +670,17 @@ static NSString *tableNameKeyOnly = nil;
     createTableInput.localSecondaryIndexes = @[lsi];
 
     AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
-    [[[[dynamoDB createTable:createTableInput] continueWithBlock:^id(BFTask *task) {
+    [[[[dynamoDB createTable:createTableInput] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error to create table: %@",task.error);
         }
         return [AWSDynamoDBObjectMapperTests waitForTableToBeActive:tableName2];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         return nil;
     }] waitUntilFinished];
 
     //Add Entries
-    [[[[BFTask taskWithResult:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSTask taskWithResult:nil] continueWithBlock:^id(AWSTask *task) {
         NSMutableArray *tasks = [NSMutableArray new];
         NSArray *gameTitleArray = @[@"Galaxy Invaders",@"Meteor Blasters", @"Starship X", @"Alien Adventure",@"Attack Ships"];
         for (int32_t i = 0; i < 50; i++) {
@@ -704,8 +704,8 @@ static NSString *tableNameKeyOnly = nil;
             }
         }
 
-        return [BFTask taskForCompletionOfAllTasks:tasks];
-    }] continueWithBlock:^id(BFTask *task) {
+        return [AWSTask taskForCompletionOfAllTasks:tasks];
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: %@",task.error);
         }
@@ -718,7 +718,7 @@ static NSString *tableNameKeyOnly = nil;
     queryExpression.hashKeyValues = @"Meteor Blasters";
     queryExpression.scanIndexForward = @NO; //sort descending
     queryExpression.indexName = @"GameTitleIndex"; //using indexTable for query
-    [[[dynamoDBObjectMapper query:[TestObjectGameTitleAndTopScore class] expression:queryExpression] continueWithBlock:^id(BFTask *task) {
+    [[[dynamoDBObjectMapper query:[TestObjectGameTitleAndTopScore class] expression:queryExpression] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: %@",task.error);
         }
@@ -743,7 +743,7 @@ static NSString *tableNameKeyOnly = nil;
     lsiQueryExpression.hashKeyValues = @"21";
     lsiQueryExpression.scanIndexForward = @NO;
     lsiQueryExpression.indexName = @"WinsLocalIndex";
-    [[[dynamoDBObjectMapper query:[TestObjectUserIdAndWins class] expression:lsiQueryExpression] continueWithBlock:^id(BFTask *task) {
+    [[[dynamoDBObjectMapper query:[TestObjectUserIdAndWins class] expression:lsiQueryExpression] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: %@",task.error);
         }
@@ -814,13 +814,13 @@ static NSString *tableNameKeyOnly = nil;
     objv2.mapElement = mapElement;
 
 
-    [[[[updateMapper save:objv2] continueWithBlock:^id(BFTask *task) {
+    [[[[updateMapper save:objv2] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
 
         return [updateMapper load:[TestObjectV2 class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -854,13 +854,13 @@ static NSString *tableNameKeyOnly = nil;
 
     //numberSetAttribute, listElement ,bool2Element are unmodelled and should not be updated.
 
-    [[[[updateMapper save:objv2Small] continueWithBlock:^id(BFTask *task) {
+    [[[[updateMapper save:objv2Small] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
 
         return [updateMapper load:[TestObjectV2 class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -907,13 +907,13 @@ static NSString *tableNameKeyOnly = nil;
     tobj.stringSetAttribute = stringSet;
     tobj.numberSetAttribute = numberSet;
 
-    [[[[updateMapper save:tobj] continueWithBlock:^id(BFTask *task) {
+    [[[[updateMapper save:tobj] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
 
         return [updateMapper load:[TestObjectFull class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -943,13 +943,13 @@ static NSString *tableNameKeyOnly = nil;
     subsetObj.numberAttribute = nil;
     //subsetObject doesn't have stringSetAttribute and numberSetAttribute, unmodeled attribute should not be updated.
 
-    [[[[updateMapper save:subsetObj] continueWithBlock:^id(BFTask *task) {
+    [[[[updateMapper save:subsetObj] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
 
         return [updateMapper load:[TestObjectFull class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -1012,13 +1012,13 @@ static NSString *tableNameKeyOnly = nil;
     objv2.mapElement = mapElement;
 
 
-    [[[[updateMapper save:objv2] continueWithBlock:^id(BFTask *task) {
+    [[[[updateMapper save:objv2] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
 
         return [updateMapper load:[TestObjectV2 class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -1050,13 +1050,13 @@ static NSString *tableNameKeyOnly = nil;
     objv2.listElement = nil;
     objv2.mapElement = nil;
 
-    [[[[updateMapper save:objv2] continueWithBlock:^id(BFTask *task) {
+    [[[[updateMapper save:objv2] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
 
         return [updateMapper load:[TestObjectV2 class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -1104,13 +1104,13 @@ static NSString *tableNameKeyOnly = nil;
     tobj.stringSetAttribute = stringSet;
     tobj.numberSetAttribute = numberSet;
 
-    [[[[updateMapper save:tobj] continueWithBlock:^id(BFTask *task) {
+    [[[[updateMapper save:tobj] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
 
         return [updateMapper load:[TestObjectFull class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -1138,13 +1138,13 @@ static NSString *tableNameKeyOnly = nil;
     tobj.stringSetAttribute = nil;
     tobj.numberSetAttribute = @[@4,@5,@6];
 
-    [[[[updateMapper save:tobj] continueWithBlock:^id(BFTask *task) {
+    [[[[updateMapper save:tobj] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
 
         return [updateMapper load:[TestObjectFull class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -1207,13 +1207,13 @@ static NSString *tableNameKeyOnly = nil;
     objv2.mapElement = mapElement;
 
 
-    [[[[updateMapper save:objv2] continueWithBlock:^id(BFTask *task) {
+    [[[[updateMapper save:objv2] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
 
         return [updateMapper load:[TestObjectV2 class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -1246,13 +1246,13 @@ static NSString *tableNameKeyOnly = nil;
     newObjv2.numberSetAttribute = [NSSet setWithObjects:@4,@5,@6, nil];
 
 
-    [[[[updateMapper save:newObjv2] continueWithBlock:^id(BFTask *task) {
+    [[[[updateMapper save:newObjv2] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
 
         return [updateMapper load:[TestObjectV2 class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -1301,13 +1301,13 @@ static NSString *tableNameKeyOnly = nil;
     tobj.stringSetAttribute = stringSet;
     tobj.numberSetAttribute = numberSet;
 
-    [[[[updateMapper save:tobj] continueWithBlock:^id(BFTask *task) {
+    [[[[updateMapper save:tobj] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
 
         return [updateMapper load:[TestObjectFull class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -1334,13 +1334,13 @@ static NSString *tableNameKeyOnly = nil;
     tobj.stringSetAttribute = @[@"set4",@"set5",@"set6"];
     tobj.numberSetAttribute = @[@4,@5,@6];
 
-    [[[[updateMapper save:tobj] continueWithBlock:^id(BFTask *task) {
+    [[[[updateMapper save:tobj] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
 
         return [updateMapper load:[TestObjectFull class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -1409,13 +1409,13 @@ static NSString *tableNameKeyOnly = nil;
     objv2.mapElement = mapElement;
 
 
-    [[[[updateMapper save:objv2] continueWithBlock:^id(BFTask *task) {
+    [[[[updateMapper save:objv2] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
 
         return [updateMapper load:[TestObjectV2 class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -1452,13 +1452,13 @@ static NSString *tableNameKeyOnly = nil;
     newObjv2.listElement = updatedListElement;
     newObjv2.mapElement = updatedMapElement;
 
-    [[[[updateMapper save:newObjv2] continueWithBlock:^id(BFTask *task) {
+    [[[[updateMapper save:newObjv2] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
 
         return [updateMapper load:[TestObjectV2 class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -1508,13 +1508,13 @@ static NSString *tableNameKeyOnly = nil;
     tobj.stringSetAttribute = stringSet;
     tobj.numberSetAttribute = numberSet;
 
-    [[[[updateMapper save:tobj] continueWithBlock:^id(BFTask *task) {
+    [[[[updateMapper save:tobj] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
 
         return [updateMapper load:[TestObjectFull class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -1544,13 +1544,13 @@ static NSString *tableNameKeyOnly = nil;
     //numberAttributes is modelled and should be replaced to nil
     //numberSet and stringSet is unmodelled and will be replaced to nil as well.
 
-    [[[[updateMapper save:replaceTestObject] continueWithBlock:^id(BFTask *task) {
+    [[[[updateMapper save:replaceTestObject] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
 
         return [updateMapper load:[TestObjectFull class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -1591,14 +1591,14 @@ static NSString *tableNameKeyOnly = nil;
     testObject.hashKey = hashKeyValue;
     testObject.rangeKey = rangeKeyValue;
 
-    [[[[updateMapper save:testObject] continueWithBlock:^id(BFTask *task) {
+    [[[[updateMapper save:testObject] continueWithBlock:^id(AWSTask *task) {
 
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
 
         return [updateMapper load:[TestObjectKeyOnly class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
 
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
@@ -1625,13 +1625,13 @@ static NSString *tableNameKeyOnly = nil;
     testObjectClobber.hashKey = hashKeyValue;
     testObjectClobber.rangeKey = rangeKeyValue;
 
-    [[[[clobberMapper save:testObjectClobber] continueWithBlock:^id(BFTask *task) {
+    [[[[clobberMapper save:testObjectClobber] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
 
         return [clobberMapper load:[TestObjectKeyOnly class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -1650,7 +1650,7 @@ static NSString *tableNameKeyOnly = nil;
 - (void)testAll {
     AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
 
-    [[[[[[[[[[[BFTask taskWithResult:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[[[[[[[[AWSTask taskWithResult:nil] continueWithBlock:^id(AWSTask *task) {
         NSMutableArray *tasks = [NSMutableArray new];
 
         for (int32_t j = 0; j < 5; j++) {
@@ -1665,12 +1665,12 @@ static NSString *tableNameKeyOnly = nil;
             }
         }
 
-        return [BFTask taskForCompletionOfAllTasks:tasks];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+        return [AWSTask taskForCompletionOfAllTasks:tasks];
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         return [dynamoDBObjectMapper load:[TestObject class]
                                   hashKey:@"hash-key-01"
                                  rangeKey:@"range-05"];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         XCTAssertEqual([task.result class], [TestObject class]);
         TestObject *testObject = task.result;
         XCTAssertEqualObjects(testObject.hashKey, @"hash-key-01");
@@ -1681,7 +1681,7 @@ static NSString *tableNameKeyOnly = nil;
         AWSDynamoDBScanExpression *expression = [AWSDynamoDBScanExpression new];
         return [dynamoDBObjectMapper scan:[TestObject class]
                                expression:expression];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         NSMutableArray *tasks = [NSMutableArray new];
         AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
         for (TestObject *testObject in paginatedOutput.items) {
@@ -1693,13 +1693,13 @@ static NSString *tableNameKeyOnly = nil;
             [tasks addObject:[dynamoDBObjectMapper save:updatedTestObject]];
         }
 
-        return [BFTask taskForCompletionOfAllTasks:tasks];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+        return [AWSTask taskForCompletionOfAllTasks:tasks];
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSDynamoDBQueryExpression *queryExpression = [AWSDynamoDBQueryExpression new];
         queryExpression.hashKeyValues = @"hash-key-02";
         return [dynamoDBObjectMapper query:[TestObject class]
                                 expression:queryExpression];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBPaginatedOutput class]]);
         AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
 
@@ -1710,19 +1710,19 @@ static NSString *tableNameKeyOnly = nil;
             [tasks addObject:[dynamoDBObjectMapper remove:testObject]];
         }
 
-        return [BFTask taskForCompletionOfAllTasks:tasks];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+        return [AWSTask taskForCompletionOfAllTasks:tasks];
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSDynamoDBQueryExpression *queryExpression = [AWSDynamoDBQueryExpression new];
         queryExpression.hashKeyValues = @"invalid-key";
         return [dynamoDBObjectMapper query:[TestObject class]
                                 expression:queryExpression];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBPaginatedOutput class]]);
         AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
         XCTAssertEqual([paginatedOutput.items count], 0);
         
         return nil;
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -1744,7 +1744,7 @@ static NSString *tableNameKeyOnly = nil;
     testObject.stringAttribute = @"string-attr";
     testObject.numberAttribute = @(0);
     
-    [[[dynamoDBObjectMapper save:testObject] continueWithBlock:^id(BFTask *task) {
+    [[[dynamoDBObjectMapper save:testObject] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(task.error.domain, AWSDynamoDBErrorDomain);
         XCTAssertEqual(task.error.code, AWSDynamoDBErrorResourceNotFound);

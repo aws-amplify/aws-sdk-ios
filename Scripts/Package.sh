@@ -20,11 +20,6 @@ fi
 
 set -u
 
-if [ -e "Scripts/objc-fix.patch" ]; then
-	echo "Applying a patch"
-	patch -p1 < Scripts/objc-fix.patch
-fi
-
 if [ -x "Scripts/SdkPackage.sh" ]; then
 
     Scripts/SdkPackage.sh AWSCore
@@ -36,42 +31,13 @@ if [ -x "Scripts/SdkPackage.sh" ]; then
     Scripts/SdkPackage.sh AWSKinesis
     Scripts/SdkPackage.sh AWSLambda
     Scripts/SdkPackage.sh AWSMachineLearning
+    Scripts/SdkPackage.sh AWSMobileAnalytics
     Scripts/SdkPackage.sh AWSS3
     Scripts/SdkPackage.sh AWSSES
     Scripts/SdkPackage.sh AWSSimpleDB
     Scripts/SdkPackage.sh AWSSNS
     Scripts/SdkPackage.sh AWSSQS
 
-fi
-
-if [ -x "Scripts/PodFramework.sh" ]; then
-
-	xcodebuild ARCHS="armv7 armv7s arm64 i386 x86_64" \
-	ONLY_ACTIVE_ARCH=NO \
-	-configuration Debug \
-	-project "Pods/Pods.xcodeproj" \
-	-target "Pods" \
-	-sdk iphonesimulator \
-	SYMROOT=$(PWD)/build \
-	clean build
-
-	xcodebuild ARCHS="armv7 armv7s arm64 i386 x86_64" \
-	ONLY_ACTIVE_ARCH=NO \
-	-configuration Release \
-	-project "Pods/Pods.xcodeproj" \
-	-target "Pods" \
-	-sdk iphoneos \
-	SYMROOT=$(PWD)/build \
-	clean build
-
-	Scripts/PodFramework.sh Bolts
-	Scripts/PodFramework.sh Mantle
-	Scripts/PodFramework.sh TMCache
-	Scripts/PodFramework.sh XMLDictionary
-	Scripts/PodFramework.sh UICKeyChainStore
-	Scripts/PodFramework.sh Reachability
-	Scripts/PodFramework.sh GZIP
-	Scripts/PodFramework.sh FMDB
 fi
 
 git checkout .

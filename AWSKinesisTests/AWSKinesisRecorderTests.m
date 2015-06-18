@@ -52,25 +52,25 @@ static NSString *testStreamName = nil;
     [super tearDown];
 }
 
-+ (BFTask *)createTestStream {
++ (AWSTask *)createTestStream {
     AWSKinesis *kinesis = [AWSKinesis defaultKinesis];
 
     AWSKinesisCreateStreamInput *createStreamInput = [AWSKinesisCreateStreamInput new];
     createStreamInput.streamName = testStreamName;
     createStreamInput.shardCount = @1;
 
-    return [[kinesis createStream:createStreamInput] continueWithSuccessBlock:^id(BFTask *task) {
+    return [[kinesis createStream:createStreamInput] continueWithSuccessBlock:^id(AWSTask *task) {
         return [self waitForStreamToBeReady];
     }];
 }
 
-+ (BFTask *)waitForStreamToBeReady {
++ (AWSTask *)waitForStreamToBeReady {
     AWSKinesis *kinesis = [AWSKinesis defaultKinesis];
 
     AWSKinesisDescribeStreamInput *describeStreamInput = [AWSKinesisDescribeStreamInput new];
     describeStreamInput.streamName = testStreamName;
 
-    return [[kinesis describeStream:describeStreamInput] continueWithSuccessBlock:^id(BFTask *task) {
+    return [[kinesis describeStream:describeStreamInput] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSKinesisDescribeStreamOutput *describeStreamOutput = task.result;
         if (describeStreamOutput.streamDescription.streamStatus != AWSKinesisStreamStatusActive) {
             sleep(10);
@@ -81,7 +81,7 @@ static NSString *testStreamName = nil;
     }];
 }
 
-+ (BFTask *)deleteTestStream {
++ (AWSTask *)deleteTestStream {
     AWSKinesis *kinesis = [AWSKinesis defaultKinesis];
 
     AWSKinesisDeleteStreamInput *deleteStreamInput = [AWSKinesisDeleteStreamInput new];
@@ -129,7 +129,7 @@ static NSString *testStreamName = nil;
     XCTAssertGreaterThan([data length], 50 * 1024 - 256);
     AWSKinesisRecorder *kinesisRecorder = [AWSKinesisRecorder defaultKinesisRecorder];
     [[[kinesisRecorder saveRecord:data
-                     streamName:@"testSaveLargeData"] continueWithBlock:^id(BFTask *task) {
+                     streamName:@"testSaveLargeData"] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.result);
         XCTAssertNil(task.exception);
         XCTAssertNotNil(task.error);
@@ -148,18 +148,18 @@ static NSString *testStreamName = nil;
     XCTAssertLessThan([data length], 50 * 1024 - 256);
     AWSKinesisRecorder *kinesisRecorder = [AWSKinesisRecorder defaultKinesisRecorder];
 
-    BFTask *task = [BFTask taskWithResult:nil];
+    AWSTask *task = [AWSTask taskWithResult:nil];
     for (int i = 0; i < 10; i++) {
-        task = [task continueWithBlock:^id(BFTask *task) {
+        task = [task continueWithBlock:^id(AWSTask *task) {
             return [kinesisRecorder saveRecord:data
                                     streamName:@"testRemoveAllRecords"];
         }];
     }
 
-    [[[task continueWithBlock:^id(BFTask *task) {
+    [[[task continueWithBlock:^id(AWSTask *task) {
         XCTAssertGreaterThan(kinesisRecorder.diskBytesUsed, 500000);
         return [kinesisRecorder removeAllRecords];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         XCTAssertLessThan(kinesisRecorder.diskBytesUsed, 13000);
         return nil;
     }] waitUntilFinished];
@@ -187,18 +187,18 @@ static NSString *testStreamName = nil;
     kinesisRecorder.diskByteLimit = 1 * 1024 * 1024; // 1MB
     kinesisRecorder.notificationByteThreshold = 500 * 1024; // 500KB
 
-    BFTask *task = [BFTask taskWithResult:nil];
+    AWSTask *task = [AWSTask taskWithResult:nil];
     for (int i = 0; i < 200; i++) { // About 10 MB data
-        task = [task continueWithBlock:^id(BFTask *task) {
+        task = [task continueWithBlock:^id(AWSTask *task) {
             return [kinesisRecorder saveRecord:data
                                     streamName:[NSString stringWithFormat:@"%d", i]];
         }];
     }
 
-    [[[task continueWithBlock:^id(BFTask *task) {
+    [[[task continueWithBlock:^id(AWSTask *task) {
         XCTAssertLessThan(kinesisRecorder.diskBytesUsed, 1.2 * 1024 * 1024); // Less than 1.2MB
         return [kinesisRecorder removeAllRecords];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         XCTAssertLessThan(kinesisRecorder.diskBytesUsed, 13000);
         return nil;
     }] waitUntilFinished];
@@ -224,9 +224,9 @@ static NSString *testStreamName = nil;
     AWSKinesisRecorder *kinesisRecorder = [AWSKinesisRecorder defaultKinesisRecorder];
     kinesisRecorder.diskAgeLimit = 1;
 
-    BFTask *task = [BFTask taskWithResult:nil];
+    AWSTask *task = [AWSTask taskWithResult:nil];
     for (int i = 0; i < 10; i++) { // About 500KB data
-        task = [task continueWithBlock:^id(BFTask *task) {
+        task = [task continueWithBlock:^id(AWSTask *task) {
             if (i == 9) {
                 sleep(1);
             }
@@ -235,10 +235,10 @@ static NSString *testStreamName = nil;
         }];
     }
 
-    [[[task continueWithBlock:^id(BFTask *task) {
+    [[[task continueWithBlock:^id(AWSTask *task) {
         XCTAssertLessThan(kinesisRecorder.diskBytesUsed, 62000);
         return [kinesisRecorder removeAllRecords];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         XCTAssertLessThan(kinesisRecorder.diskBytesUsed, 13000);
         return nil;
     }] waitUntilFinished];
@@ -258,15 +258,15 @@ static NSString *testStreamName = nil;
 
     NSMutableArray *returnedRecords = [NSMutableArray new];
 
-    [[[[[[[BFTask taskForCompletionOfAllTasks:tasks] continueWithSuccessBlock:^id(BFTask *task) {
+    [[[[[[[AWSTask taskForCompletionOfAllTasks:tasks] continueWithSuccessBlock:^id(AWSTask *task) {
         sleep(10);
         return [kinesisRecorder submitAllRecords];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         sleep(10);
         AWSKinesisDescribeStreamInput *describeStreamInput = [AWSKinesisDescribeStreamInput new];
         describeStreamInput.streamName = testStreamName;
         return [kinesis describeStream:describeStreamInput];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSKinesisDescribeStreamOutput *describeStreamOutput = task.result;
         XCTAssertTrue(1 == [describeStreamOutput.streamDescription.shards count]);
         AWSKinesisShard *shard = describeStreamOutput.streamDescription.shards[0];
@@ -278,12 +278,12 @@ static NSString *testStreamName = nil;
         getShardIteratorInput.startingSequenceNumber = shard.sequenceNumberRange.startingSequenceNumber;
 
         return [kinesis getShardIterator:getShardIteratorInput];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSKinesisGetShardIteratorOutput *getShardIteratorOutput = task.result;
         return [self getRecords:returnedRecords
                   shardIterator:getShardIteratorOutput.shardIterator
                         counter:0];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         } else {
@@ -299,11 +299,11 @@ static NSString *testStreamName = nil;
     }] waitUntilFinished];
 }
 
-- (BFTask *)getRecords:(NSMutableArray *)returnedRecords shardIterator:(NSString *)shardIterator counter:(int32_t)counter {
+- (AWSTask *)getRecords:(NSMutableArray *)returnedRecords shardIterator:(NSString *)shardIterator counter:(int32_t)counter {
     AWSKinesis *kinesis = [AWSKinesis defaultKinesis];
     AWSKinesisGetRecordsInput *getRecordsInput = [AWSKinesisGetRecordsInput new];
     getRecordsInput.shardIterator = shardIterator;
-    return [[kinesis getRecords:getRecordsInput] continueWithSuccessBlock:^id(BFTask *task) {
+    return [[kinesis getRecords:getRecordsInput] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSKinesisGetRecordsOutput *getRecordsOutput = task.result;
         [returnedRecords addObjectsFromArray:getRecordsOutput.records];
 

@@ -38,7 +38,7 @@ typedef NS_ENUM(NSInteger, AWSS3TransferManagerRequestState) {
 typedef void (^AWSS3TransferManagerResumeAllBlock) (AWSRequest *request);
 
 @class AWSS3;
-@class BFTask;
+@class AWSTask;
 @class AWSS3TransferManagerUploadRequest;
 @class AWSS3TransferManagerUploadOutput;
 @class AWSS3TransferManagerDownloadRequest;
@@ -186,48 +186,48 @@ typedef void (^AWSS3TransferManagerResumeAllBlock) (AWSRequest *request);
 
  @param uploadRequest The upload request.
 
- @return BFTask.
+ @return AWSTask.
  */
-- (BFTask *)upload:(AWSS3TransferManagerUploadRequest *)uploadRequest;
+- (AWSTask *)upload:(AWSS3TransferManagerUploadRequest *)uploadRequest;
 
 /**
  Schedules a new transfer to download data from Amazon S3 and save it to the specified file.
 
  @param downloadRequest The download request.
 
- @return BFTask.
+ @return AWSTask.
  */
-- (BFTask *)download:(AWSS3TransferManagerDownloadRequest *)downloadRequest;
+- (AWSTask *)download:(AWSS3TransferManagerDownloadRequest *)downloadRequest;
 
 /**
  Cancels all of the upload and download requests.
 
- @return BFTask.
+ @return AWSTask.
  */
-- (BFTask *)cancelAll;
+- (AWSTask *)cancelAll;
 
 /**
  Pauses all of the upload and download requests.
 
- @return BFTask.
+ @return AWSTask.
  */
-- (BFTask *)pauseAll;
+- (AWSTask *)pauseAll;
 
 /**
  Resumes all of the upload and download requests.
 
  @param block The block to optionally re-set the progress blocks to the requests.
 
- @return BFTask.
+ @return AWSTask.
  */
-- (BFTask *)resumeAll:(AWSS3TransferManagerResumeAllBlock)block;
+- (AWSTask *)resumeAll:(AWSS3TransferManagerResumeAllBlock)block;
 
 /**
  Clears the local cache.
 
- @return BFTask.
+ @return AWSTask.
  */
-- (BFTask *)clearCache;
+- (AWSTask *)clearCache;
 
 @end
 

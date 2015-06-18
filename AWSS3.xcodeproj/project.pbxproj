@@ -7,19 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8AC7B1256D49BCACC02D6748 /* libPods-AWSS3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE59F7C5A92F7A54CF4B4BB /* libPods-AWSS3.a */; };
 		BD00003A1AB8C526004496EF /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = BD0000391AB8C526004496EF /* credentials.json */; };
 		BD0000581AB8E18E004496EF /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0000571AB8E18E004496EF /* AWSTestUtility.m */; };
 		BD00FF411AB8B6D2004496EF /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD00FF401AB8B6D2004496EF /* libAWSCore.a */; };
-		BD00FF6F1AB8B8C1004496EF /* s3-2006-03-01.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF55A111AB377010067F4F1 /* s3-2006-03-01.json */; };
-		BD00FF731AB8B8D7004496EF /* cognito-identity-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF701AB8B8D7004496EF /* cognito-identity-2014-06-30.json */; };
-		BD00FF741AB8B8D7004496EF /* mobileanalytics-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF711AB8B8D7004496EF /* mobileanalytics-2014-06-30.json */; };
-		BD00FF751AB8B8D7004496EF /* sts-2011-06-15.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF721AB8B8D7004496EF /* sts-2011-06-15.json */; };
 		BD00FFEA1AB8C42D004496EF /* AWSGeneralS3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFE61AB8C42D004496EF /* AWSGeneralS3Tests.m */; };
 		BD00FFEB1AB8C42D004496EF /* AWSS3PreSignedURLBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFE71AB8C42D004496EF /* AWSS3PreSignedURLBuilderTests.m */; };
 		BD00FFEC1AB8C42D004496EF /* AWSS3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFE81AB8C42D004496EF /* AWSS3Tests.m */; };
 		BD00FFED1AB8C42D004496EF /* AWSS3TransferManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFE91AB8C42D004496EF /* AWSS3TransferManagerTests.m */; };
 		BD9D97631AC1EEC000CEEE08 /* AWSS3Service.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEE7DE721AC1E1DA0095C4B7 /* AWSS3Service.h */; };
+		BDB73D871B1D3F4900717559 /* AWSS3Resources.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB73D851B1D3F4900717559 /* AWSS3Resources.h */; };
+		BDB73D881B1D3F4900717559 /* AWSS3Resources.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB73D861B1D3F4900717559 /* AWSS3Resources.m */; };
 		BDC91C481ABBA0B500F74D49 /* AWSS3PreSignedURL.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDF55A081AB377010067F4F1 /* AWSS3PreSignedURL.h */; };
 		BDC91C491ABBA0B500F74D49 /* AWSS3TransferManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDF55A0A1AB377010067F4F1 /* AWSS3TransferManager.h */; };
 		BDC91C4A1ABBA0B500F74D49 /* AWSS3.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDF55A0C1AB377010067F4F1 /* AWSS3.h */; };
@@ -33,6 +30,7 @@
 		BDF55A171AB377010067F4F1 /* AWSS3Service.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF55A0D1AB377010067F4F1 /* AWSS3Service.m */; };
 		BDF55A181AB377010067F4F1 /* AWSS3Model.h in Headers */ = {isa = PBXBuildFile; fileRef = BDF55A0E1AB377010067F4F1 /* AWSS3Model.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDF55A191AB377010067F4F1 /* AWSS3Model.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF55A0F1AB377010067F4F1 /* AWSS3Model.m */; };
+		CEE5326E1B03D3CB002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE5326D1B03D3CB002CED62 /* libz.dylib */; };
 		CEE7DE731AC1E1DA0095C4B7 /* AWSS3Service.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE721AC1E1DA0095C4B7 /* AWSS3Service.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -70,26 +68,25 @@
 		BD0000561AB8E18E004496EF /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSTestUtility.h; path = AWSCoreTests/AWSTestUtility.h; sourceTree = SOURCE_ROOT; };
 		BD0000571AB8E18E004496EF /* AWSTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSTestUtility.m; path = AWSCoreTests/AWSTestUtility.m; sourceTree = SOURCE_ROOT; };
 		BD00FF401AB8B6D2004496EF /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
-		BD00FF701AB8B8D7004496EF /* cognito-identity-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "cognito-identity-2014-06-30.json"; path = "../AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"; sourceTree = "<group>"; };
-		BD00FF711AB8B8D7004496EF /* mobileanalytics-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "mobileanalytics-2014-06-30.json"; path = "../AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"; sourceTree = "<group>"; };
-		BD00FF721AB8B8D7004496EF /* sts-2011-06-15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "sts-2011-06-15.json"; path = "../AWSCore/STS/Resources/sts-2011-06-15.json"; sourceTree = "<group>"; };
 		BD00FFE61AB8C42D004496EF /* AWSGeneralS3Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralS3Tests.m; sourceTree = "<group>"; };
 		BD00FFE71AB8C42D004496EF /* AWSS3PreSignedURLBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSS3PreSignedURLBuilderTests.m; sourceTree = "<group>"; };
 		BD00FFE81AB8C42D004496EF /* AWSS3Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSS3Tests.m; sourceTree = "<group>"; };
 		BD00FFE91AB8C42D004496EF /* AWSS3TransferManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSS3TransferManagerTests.m; sourceTree = "<group>"; };
+		BDB73D851B1D3F4900717559 /* AWSS3Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSS3Resources.h; sourceTree = "<group>"; };
+		BDB73D861B1D3F4900717559 /* AWSS3Resources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSS3Resources.m; sourceTree = "<group>"; };
 		BDF559EC1AB376DC0067F4F1 /* libAWSS3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSS3.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF559F71AB376DC0067F4F1 /* AWSS3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSS3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF559FD1AB376DC0067F4F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDF55A081AB377010067F4F1 /* AWSS3PreSignedURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSS3PreSignedURL.h; sourceTree = "<group>"; };
 		BDF55A091AB377010067F4F1 /* AWSS3PreSignedURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSS3PreSignedURL.m; sourceTree = "<group>"; };
-		BDF55A0A1AB377010067F4F1 /* AWSS3TransferManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSS3TransferManager.h; sourceTree = "<group>"; };
+		BDF55A0A1AB377010067F4F1 /* AWSS3TransferManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AWSS3TransferManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		BDF55A0B1AB377010067F4F1 /* AWSS3TransferManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSS3TransferManager.m; sourceTree = "<group>"; };
 		BDF55A0C1AB377010067F4F1 /* AWSS3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSS3.h; sourceTree = "<group>"; };
 		BDF55A0D1AB377010067F4F1 /* AWSS3Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSS3Service.m; sourceTree = "<group>"; };
 		BDF55A0E1AB377010067F4F1 /* AWSS3Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSS3Model.h; sourceTree = "<group>"; };
 		BDF55A0F1AB377010067F4F1 /* AWSS3Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSS3Model.m; sourceTree = "<group>"; };
-		BDF55A111AB377010067F4F1 /* s3-2006-03-01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "s3-2006-03-01.json"; sourceTree = "<group>"; };
 		CBE59F7C5A92F7A54CF4B4BB /* libPods-AWSS3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSS3.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEE5326D1B03D3CB002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CEE7DE721AC1E1DA0095C4B7 /* AWSS3Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSS3Service.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,9 +102,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE5326E1B03D3CB002CED62 /* libz.dylib in Frameworks */,
 				BD00FF411AB8B6D2004496EF /* libAWSCore.a in Frameworks */,
 				BDF559F81AB376DC0067F4F1 /* libAWSS3.a in Frameworks */,
-				8AC7B1256D49BCACC02D6748 /* libPods-AWSS3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +123,7 @@
 		7D7D82B43AAE1FAA16A74BC2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEE5326D1B03D3CB002CED62 /* libz.dylib */,
 				BD00FF401AB8B6D2004496EF /* libAWSCore.a */,
 				CBE59F7C5A92F7A54CF4B4BB /* libPods-AWSS3.a */,
 			);
@@ -162,9 +160,10 @@
 				BDF55A091AB377010067F4F1 /* AWSS3PreSignedURL.m */,
 				CEE7DE721AC1E1DA0095C4B7 /* AWSS3Service.h */,
 				BDF55A0D1AB377010067F4F1 /* AWSS3Service.m */,
+				BDB73D851B1D3F4900717559 /* AWSS3Resources.h */,
+				BDB73D861B1D3F4900717559 /* AWSS3Resources.m */,
 				BDF55A0A1AB377010067F4F1 /* AWSS3TransferManager.h */,
 				BDF55A0B1AB377010067F4F1 /* AWSS3TransferManager.m */,
-				BDF55A101AB377010067F4F1 /* Resources */,
 			);
 			path = AWSS3;
 			sourceTree = "<group>";
@@ -184,23 +183,12 @@
 		BDF559FC1AB376DC0067F4F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BD00FF701AB8B8D7004496EF /* cognito-identity-2014-06-30.json */,
-				BD00FF711AB8B8D7004496EF /* mobileanalytics-2014-06-30.json */,
-				BD00FF721AB8B8D7004496EF /* sts-2011-06-15.json */,
 				BD0000391AB8C526004496EF /* credentials.json */,
 				BD0000561AB8E18E004496EF /* AWSTestUtility.h */,
 				BD0000571AB8E18E004496EF /* AWSTestUtility.m */,
 				BDF559FD1AB376DC0067F4F1 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		BDF55A101AB377010067F4F1 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				BDF55A111AB377010067F4F1 /* s3-2006-03-01.json */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +200,7 @@
 			files = (
 				BDF55A181AB377010067F4F1 /* AWSS3Model.h in Headers */,
 				BDF55A121AB377010067F4F1 /* AWSS3PreSignedURL.h in Headers */,
+				BDB73D871B1D3F4900717559 /* AWSS3Resources.h in Headers */,
 				BDF55A141AB377010067F4F1 /* AWSS3TransferManager.h in Headers */,
 				CEE7DE731AC1E1DA0095C4B7 /* AWSS3Service.h in Headers */,
 				BDF55A161AB377010067F4F1 /* AWSS3.h in Headers */,
@@ -243,11 +232,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDF55A031AB376DC0067F4F1 /* Build configuration list for PBXNativeTarget "AWSS3Tests" */;
 			buildPhases = (
-				1380F3BF02715988C9028A39 /* Check Pods Manifest.lock */,
 				BDF559F31AB376DC0067F4F1 /* Sources */,
 				BDF559F41AB376DC0067F4F1 /* Frameworks */,
 				BDF559F51AB376DC0067F4F1 /* Resources */,
-				06AA34E7445F1F238DE850C0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -299,48 +286,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD00FF731AB8B8D7004496EF /* cognito-identity-2014-06-30.json in Resources */,
-				BD00FF741AB8B8D7004496EF /* mobileanalytics-2014-06-30.json in Resources */,
-				BD00FF751AB8B8D7004496EF /* sts-2011-06-15.json in Resources */,
 				BD00003A1AB8C526004496EF /* credentials.json in Resources */,
-				BD00FF6F1AB8B8C1004496EF /* s3-2006-03-01.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		06AA34E7445F1F238DE850C0 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWSS3/Pods-AWSS3-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1380F3BF02715988C9028A39 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BDF559E81AB376DC0067F4F1 /* Sources */ = {
@@ -348,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDF55A171AB377010067F4F1 /* AWSS3Service.m in Sources */,
+				BDB73D881B1D3F4900717559 /* AWSS3Resources.m in Sources */,
 				BDF55A191AB377010067F4F1 /* AWSS3Model.m in Sources */,
 				BDF55A151AB377010067F4F1 /* AWSS3TransferManager.m in Sources */,
 				BDF55A131AB377010067F4F1 /* AWSS3PreSignedURL.m in Sources */,
@@ -459,9 +410,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"${SRCROOT}/Pods/Headers/**",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSS3;
 				SKIP_INSTALL = YES;
 			};
@@ -473,9 +423,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"${SRCROOT}/Pods/Headers/**",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSS3;
 				SKIP_INSTALL = YES;
 			};
@@ -483,7 +432,6 @@
 		};
 		BDF55A041AB376DC0067F4F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28721197CE495F3AD391E73E /* Pods-AWSS3.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -503,7 +451,6 @@
 		};
 		BDF55A051AB376DC0067F4F1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 54CC6BB27F49823B5667DBD3 /* Pods-AWSS3.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

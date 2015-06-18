@@ -55,7 +55,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] createIdentityPool:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] createIdentityPool:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -70,7 +70,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] deleteIdentityPool:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] deleteIdentityPool:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -85,7 +85,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] describeIdentity:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] describeIdentity:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -100,7 +100,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] describeIdentityPool:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] describeIdentityPool:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -115,7 +115,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getCredentialsForIdentity:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getCredentialsForIdentity:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -130,7 +130,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getId:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getId:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -145,7 +145,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getIdentityPoolRoles:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getIdentityPoolRoles:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -160,7 +160,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getOpenIdToken:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getOpenIdToken:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -175,7 +175,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getOpenIdTokenForDeveloperIdentity:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getOpenIdTokenForDeveloperIdentity:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -190,7 +190,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] listIdentities:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] listIdentities:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -205,7 +205,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] listIdentityPools:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] listIdentityPools:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -220,7 +220,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] lookupDeveloperIdentity:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] lookupDeveloperIdentity:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -235,7 +235,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] mergeDeveloperIdentities:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] mergeDeveloperIdentities:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -250,7 +250,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] setIdentityPoolRoles:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] setIdentityPoolRoles:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -265,7 +265,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] unlinkDeveloperIdentity:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] unlinkDeveloperIdentity:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -280,7 +280,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] unlinkIdentity:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] unlinkIdentity:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -295,7 +295,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] updateIdentityPool:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] updateIdentityPool:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);

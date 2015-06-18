@@ -28,7 +28,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)attributeTypeJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"S"]) {
             return @(AWSDynamoDBScalarAttributeTypeS);
         }
@@ -74,11 +74,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)LJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
 }
 
 + (NSValueTransformer *)MJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -97,7 +97,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)actionJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"ADD"]) {
             return @(AWSDynamoDBAttributeActionAdd);
         }
@@ -124,7 +124,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)valueJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
 }
 
 @end
@@ -139,7 +139,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)requestItemsJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBKeysAndAttributes class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -147,7 +147,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)returnConsumedCapacityJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"INDEXES"]) {
             return @(AWSDynamoDBReturnConsumedCapacityIndexes);
         }
@@ -186,11 +186,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)consumedCapacityJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
 }
 
 + (NSValueTransformer *)responsesJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONArrayDictionary:JSONDictionary arrayElementType:@"map" withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONArrayDictionaryFromMapMTLDictionary:mapMTLDictionary arrayElementType:@"map"];
@@ -198,7 +198,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)unprocessedKeysJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBKeysAndAttributes class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -218,7 +218,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)requestItemsJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONArrayDictionary:JSONDictionary arrayElementType:@"structure" withModelClass:[AWSDynamoDBWriteRequest class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONArrayDictionaryFromMapMTLDictionary:mapMTLDictionary arrayElementType:@"structure"];
@@ -226,7 +226,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)returnConsumedCapacityJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"INDEXES"]) {
             return @(AWSDynamoDBReturnConsumedCapacityIndexes);
         }
@@ -253,7 +253,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)returnItemCollectionMetricsJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"SIZE"]) {
             return @(AWSDynamoDBReturnItemCollectionMetricsSize);
         }
@@ -287,11 +287,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)consumedCapacityJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
 }
 
 + (NSValueTransformer *)itemCollectionMetricsJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONArrayDictionary:JSONDictionary arrayElementType:@"structure" withModelClass:[AWSDynamoDBItemCollectionMetrics class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONArrayDictionaryFromMapMTLDictionary:mapMTLDictionary arrayElementType:@"structure"];
@@ -299,7 +299,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)unprocessedItemsJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONArrayDictionary:JSONDictionary arrayElementType:@"structure" withModelClass:[AWSDynamoDBWriteRequest class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONArrayDictionaryFromMapMTLDictionary:mapMTLDictionary arrayElementType:@"structure"];
@@ -328,11 +328,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)attributeValueListJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
 }
 
 + (NSValueTransformer *)comparisonOperatorJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"EQ"]) {
             return @(AWSDynamoDBComparisonOperatorEQ);
         }
@@ -423,7 +423,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)globalSecondaryIndexesJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBCapacity class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -431,7 +431,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)localSecondaryIndexesJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBCapacity class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -439,7 +439,32 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)tableJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBCapacity class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBCapacity class]];
+}
+
+@end
+
+@implementation AWSDynamoDBCreateGlobalSecondaryIndexAction
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"indexName" : @"IndexName",
+             @"keySchema" : @"KeySchema",
+             @"projection" : @"Projection",
+             @"provisionedThroughput" : @"ProvisionedThroughput",
+             };
+}
+
++ (NSValueTransformer *)keySchemaJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+}
+
++ (NSValueTransformer *)projectionJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
+}
+
++ (NSValueTransformer *)provisionedThroughputJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
 }
 
 @end
@@ -453,28 +478,33 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"keySchema" : @"KeySchema",
              @"localSecondaryIndexes" : @"LocalSecondaryIndexes",
              @"provisionedThroughput" : @"ProvisionedThroughput",
+             @"streamSpecification" : @"StreamSpecification",
              @"tableName" : @"TableName",
              };
 }
 
 + (NSValueTransformer *)attributeDefinitionsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeDefinition class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeDefinition class]];
 }
 
 + (NSValueTransformer *)globalSecondaryIndexesJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBGlobalSecondaryIndex class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBGlobalSecondaryIndex class]];
 }
 
 + (NSValueTransformer *)keySchemaJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
 }
 
 + (NSValueTransformer *)localSecondaryIndexesJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBLocalSecondaryIndex class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBLocalSecondaryIndex class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
+}
+
++ (NSValueTransformer *)streamSpecificationJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBStreamSpecification class]];
 }
 
 @end
@@ -488,7 +518,17 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)tableDescriptionJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBDeleteGlobalSecondaryIndexAction
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"indexName" : @"IndexName",
+             };
 }
 
 @end
@@ -511,7 +551,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)conditionalOperatorJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"AND"]) {
             return @(AWSDynamoDBConditionalOperatorAnd);
         }
@@ -533,7 +573,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)expectedJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBExpectedAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -541,7 +581,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)expressionAttributeValuesJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -549,7 +589,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keyJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -557,7 +597,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)returnConsumedCapacityJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"INDEXES"]) {
             return @(AWSDynamoDBReturnConsumedCapacityIndexes);
         }
@@ -584,7 +624,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)returnItemCollectionMetricsJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"SIZE"]) {
             return @(AWSDynamoDBReturnItemCollectionMetricsSize);
         }
@@ -606,7 +646,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)returnValuesJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"NONE"]) {
             return @(AWSDynamoDBReturnValueNone);
         }
@@ -655,7 +695,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)attributesJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -663,11 +703,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)consumedCapacityJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
 }
 
 + (NSValueTransformer *)itemCollectionMetricsJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBItemCollectionMetrics class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBItemCollectionMetrics class]];
 }
 
 @end
@@ -681,7 +721,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keyJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -709,7 +749,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)tableDescriptionJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
 }
 
 @end
@@ -733,7 +773,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)tableJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
 }
 
 @end
@@ -750,11 +790,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)attributeValueListJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
 }
 
 + (NSValueTransformer *)comparisonOperatorJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"EQ"]) {
             return @(AWSDynamoDBComparisonOperatorEQ);
         }
@@ -831,7 +871,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)valueJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
 }
 
 @end
@@ -851,7 +891,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keyJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -859,7 +899,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)returnConsumedCapacityJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"INDEXES"]) {
             return @(AWSDynamoDBReturnConsumedCapacityIndexes);
         }
@@ -897,11 +937,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)consumedCapacityJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
 }
 
 + (NSValueTransformer *)itemJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -922,15 +962,15 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keySchemaJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
 }
 
 + (NSValueTransformer *)projectionJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
 }
 
 @end
@@ -939,6 +979,8 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"backfilling" : @"Backfilling",
+             @"indexArn" : @"IndexArn",
              @"indexName" : @"IndexName",
              @"indexSizeBytes" : @"IndexSizeBytes",
              @"indexStatus" : @"IndexStatus",
@@ -950,7 +992,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)indexStatusJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"CREATING"]) {
             return @(AWSDynamoDBIndexStatusCreating);
         }
@@ -982,15 +1024,15 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keySchemaJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
 }
 
 + (NSValueTransformer *)projectionJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughputDescription class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughputDescription class]];
 }
 
 @end
@@ -999,12 +1041,22 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"create" : @"Create",
+             @"remove" : @"Delete",
              @"update" : @"Update",
              };
 }
 
++ (NSValueTransformer *)createJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBCreateGlobalSecondaryIndexAction class]];
+}
+
++ (NSValueTransformer *)removeJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBDeleteGlobalSecondaryIndexAction class]];
+}
+
 + (NSValueTransformer *)updateJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBUpdateGlobalSecondaryIndexAction class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBUpdateGlobalSecondaryIndexAction class]];
 }
 
 @end
@@ -1019,7 +1071,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)itemCollectionKeyJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -1038,7 +1090,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keyTypeJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"HASH"]) {
             return @(AWSDynamoDBKeyTypeHash);
         }
@@ -1074,7 +1126,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keysJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONArray) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONArray) {
 		return [AWSModelUtility mapMTLArrayFromJSONArray:JSONArray withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLArray) {
 		return [AWSModelUtility JSONArrayFromMapMTLArray:mapMTLArray];
@@ -1116,11 +1168,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keySchemaJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
 }
 
 + (NSValueTransformer *)projectionJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
 }
 
 @end
@@ -1129,6 +1181,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"indexArn" : @"IndexArn",
              @"indexName" : @"IndexName",
              @"indexSizeBytes" : @"IndexSizeBytes",
              @"itemCount" : @"ItemCount",
@@ -1138,11 +1191,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keySchemaJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
 }
 
 + (NSValueTransformer *)projectionJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
 }
 
 @end
@@ -1157,7 +1210,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)projectionTypeJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"ALL"]) {
             return @(AWSDynamoDBProjectionTypeAll);
         }
@@ -1209,7 +1262,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)lastDecreaseDateTimeJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
@@ -1217,7 +1270,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)lastIncreaseDateTimeJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
@@ -1244,7 +1297,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)conditionalOperatorJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"AND"]) {
             return @(AWSDynamoDBConditionalOperatorAnd);
         }
@@ -1266,7 +1319,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)expectedJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBExpectedAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -1274,7 +1327,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)expressionAttributeValuesJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -1282,7 +1335,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)itemJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -1290,7 +1343,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)returnConsumedCapacityJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"INDEXES"]) {
             return @(AWSDynamoDBReturnConsumedCapacityIndexes);
         }
@@ -1317,7 +1370,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)returnItemCollectionMetricsJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"SIZE"]) {
             return @(AWSDynamoDBReturnItemCollectionMetricsSize);
         }
@@ -1339,7 +1392,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)returnValuesJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"NONE"]) {
             return @(AWSDynamoDBReturnValueNone);
         }
@@ -1388,7 +1441,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)attributesJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -1396,11 +1449,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)consumedCapacityJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
 }
 
 + (NSValueTransformer *)itemCollectionMetricsJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBItemCollectionMetrics class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBItemCollectionMetrics class]];
 }
 
 @end
@@ -1414,7 +1467,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)itemJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -1435,6 +1488,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"expressionAttributeValues" : @"ExpressionAttributeValues",
              @"filterExpression" : @"FilterExpression",
              @"indexName" : @"IndexName",
+             @"keyConditionExpression" : @"KeyConditionExpression",
              @"keyConditions" : @"KeyConditions",
              @"limit" : @"Limit",
              @"projectionExpression" : @"ProjectionExpression",
@@ -1447,7 +1501,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)conditionalOperatorJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"AND"]) {
             return @(AWSDynamoDBConditionalOperatorAnd);
         }
@@ -1469,7 +1523,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)exclusiveStartKeyJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -1477,7 +1531,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)expressionAttributeValuesJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -1485,7 +1539,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keyConditionsJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBCondition class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -1493,7 +1547,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)queryFilterJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBCondition class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -1501,7 +1555,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)returnConsumedCapacityJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"INDEXES"]) {
             return @(AWSDynamoDBReturnConsumedCapacityIndexes);
         }
@@ -1528,7 +1582,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)selectJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"ALL_ATTRIBUTES"]) {
             return @(AWSDynamoDBSelectAllAttributes);
         }
@@ -1574,11 +1628,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)consumedCapacityJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
 }
 
 + (NSValueTransformer *)itemsJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONArray) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONArray) {
 		return [AWSModelUtility mapMTLArrayFromJSONArray:JSONArray withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLArray) {
 		return [AWSModelUtility JSONArrayFromMapMTLArray:mapMTLArray];
@@ -1586,7 +1640,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)lastEvaluatedKeyJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -1601,10 +1655,12 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 	return @{
              @"attributesToGet" : @"AttributesToGet",
              @"conditionalOperator" : @"ConditionalOperator",
+             @"consistentRead" : @"ConsistentRead",
              @"exclusiveStartKey" : @"ExclusiveStartKey",
              @"expressionAttributeNames" : @"ExpressionAttributeNames",
              @"expressionAttributeValues" : @"ExpressionAttributeValues",
              @"filterExpression" : @"FilterExpression",
+             @"indexName" : @"IndexName",
              @"limit" : @"Limit",
              @"projectionExpression" : @"ProjectionExpression",
              @"returnConsumedCapacity" : @"ReturnConsumedCapacity",
@@ -1617,7 +1673,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)conditionalOperatorJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"AND"]) {
             return @(AWSDynamoDBConditionalOperatorAnd);
         }
@@ -1639,7 +1695,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)exclusiveStartKeyJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -1647,7 +1703,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)expressionAttributeValuesJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -1655,7 +1711,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)returnConsumedCapacityJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"INDEXES"]) {
             return @(AWSDynamoDBReturnConsumedCapacityIndexes);
         }
@@ -1682,7 +1738,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)scanFilterJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBCondition class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -1690,7 +1746,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)selectJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"ALL_ATTRIBUTES"]) {
             return @(AWSDynamoDBSelectAllAttributes);
         }
@@ -1736,11 +1792,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)consumedCapacityJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
 }
 
 + (NSValueTransformer *)itemsJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONArray) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONArray) {
 		return [AWSModelUtility mapMTLArrayFromJSONArray:JSONArray withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLArray) {
 		return [AWSModelUtility JSONArrayFromMapMTLArray:mapMTLArray];
@@ -1748,11 +1804,54 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)lastEvaluatedKeyJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
 	}];
+}
+
+@end
+
+@implementation AWSDynamoDBStreamSpecification
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"streamEnabled" : @"StreamEnabled",
+             @"streamViewType" : @"StreamViewType",
+             };
+}
+
++ (NSValueTransformer *)streamViewTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"NEW_IMAGE"]) {
+            return @(AWSDynamoDBStreamViewTypeNewImage);
+        }
+        if ([value isEqualToString:@"OLD_IMAGE"]) {
+            return @(AWSDynamoDBStreamViewTypeOldImage);
+        }
+        if ([value isEqualToString:@"NEW_AND_OLD_IMAGES"]) {
+            return @(AWSDynamoDBStreamViewTypeNewAndOldImages);
+        }
+        if ([value isEqualToString:@"KEYS_ONLY"]) {
+            return @(AWSDynamoDBStreamViewTypeKeysOnly);
+        }
+        return @(AWSDynamoDBStreamViewTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBStreamViewTypeNewImage:
+                return @"NEW_IMAGE";
+            case AWSDynamoDBStreamViewTypeOldImage:
+                return @"OLD_IMAGE";
+            case AWSDynamoDBStreamViewTypeNewAndOldImages:
+                return @"NEW_AND_OLD_IMAGES";
+            case AWSDynamoDBStreamViewTypeKeysOnly:
+                return @"KEYS_ONLY";
+            case AWSDynamoDBStreamViewTypeUnknown:
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -1766,8 +1865,12 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"globalSecondaryIndexes" : @"GlobalSecondaryIndexes",
              @"itemCount" : @"ItemCount",
              @"keySchema" : @"KeySchema",
+             @"latestStreamArn" : @"LatestStreamArn",
+             @"latestStreamLabel" : @"LatestStreamLabel",
              @"localSecondaryIndexes" : @"LocalSecondaryIndexes",
              @"provisionedThroughput" : @"ProvisionedThroughput",
+             @"streamSpecification" : @"StreamSpecification",
+             @"tableArn" : @"TableArn",
              @"tableName" : @"TableName",
              @"tableSizeBytes" : @"TableSizeBytes",
              @"tableStatus" : @"TableStatus",
@@ -1775,11 +1878,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)attributeDefinitionsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeDefinition class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeDefinition class]];
 }
 
 + (NSValueTransformer *)creationDateTimeJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
@@ -1787,23 +1890,27 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)globalSecondaryIndexesJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBGlobalSecondaryIndexDescription class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBGlobalSecondaryIndexDescription class]];
 }
 
 + (NSValueTransformer *)keySchemaJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
 }
 
 + (NSValueTransformer *)localSecondaryIndexesJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBLocalSecondaryIndexDescription class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBLocalSecondaryIndexDescription class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughputDescription class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughputDescription class]];
+}
+
++ (NSValueTransformer *)streamSpecificationJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBStreamSpecification class]];
 }
 
 + (NSValueTransformer *)tableStatusJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"CREATING"]) {
             return @(AWSDynamoDBTableStatusCreating);
         }
@@ -1846,7 +1953,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
 }
 
 @end
@@ -1871,7 +1978,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)attributeUpdatesJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValueUpdate class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -1879,7 +1986,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)conditionalOperatorJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"AND"]) {
             return @(AWSDynamoDBConditionalOperatorAnd);
         }
@@ -1901,7 +2008,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)expectedJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBExpectedAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -1909,7 +2016,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)expressionAttributeValuesJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -1917,7 +2024,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keyJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -1925,7 +2032,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)returnConsumedCapacityJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"INDEXES"]) {
             return @(AWSDynamoDBReturnConsumedCapacityIndexes);
         }
@@ -1952,7 +2059,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)returnItemCollectionMetricsJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"SIZE"]) {
             return @(AWSDynamoDBReturnItemCollectionMetricsSize);
         }
@@ -1974,7 +2081,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)returnValuesJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"NONE"]) {
             return @(AWSDynamoDBReturnValueNone);
         }
@@ -2023,7 +2130,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)attributesJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
 		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
 	} reverseBlock:^id(id mapMTLDictionary) {
 		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
@@ -2031,11 +2138,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)consumedCapacityJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
 }
 
 + (NSValueTransformer *)itemCollectionMetricsJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBItemCollectionMetrics class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBItemCollectionMetrics class]];
 }
 
 @end
@@ -2044,18 +2151,28 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"attributeDefinitions" : @"AttributeDefinitions",
              @"globalSecondaryIndexUpdates" : @"GlobalSecondaryIndexUpdates",
              @"provisionedThroughput" : @"ProvisionedThroughput",
+             @"streamSpecification" : @"StreamSpecification",
              @"tableName" : @"TableName",
              };
 }
 
++ (NSValueTransformer *)attributeDefinitionsJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeDefinition class]];
+}
+
 + (NSValueTransformer *)globalSecondaryIndexUpdatesJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBGlobalSecondaryIndexUpdate class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBGlobalSecondaryIndexUpdate class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
+}
+
++ (NSValueTransformer *)streamSpecificationJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBStreamSpecification class]];
 }
 
 @end
@@ -2069,7 +2186,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)tableDescriptionJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
 }
 
 @end
@@ -2084,11 +2201,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)deleteRequestJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBDeleteRequest class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBDeleteRequest class]];
 }
 
 + (NSValueTransformer *)putRequestJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBPutRequest class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBPutRequest class]];
 }
 
 @end

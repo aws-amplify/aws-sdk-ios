@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		99E76F9141D9EA631BBD21D7 /* libPods-AWSDynamoDB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDFD2473B32B034328A614B9 /* libPods-AWSDynamoDB.a */; };
 		BD0000001AB8C461004496EF /* AWSGeneralDynamoDBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFFC1AB8C461004496EF /* AWSGeneralDynamoDBTests.m */; };
 		BD0000011AB8C461004496EF /* AWSDynamoDBObjectMapperSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFFD1AB8C461004496EF /* AWSDynamoDBObjectMapperSwiftTests.swift */; };
 		BD0000021AB8C461004496EF /* AWSDynamoDBObjectMapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFFE1AB8C461004496EF /* AWSDynamoDBObjectMapperTests.m */; };
@@ -15,10 +14,9 @@
 		BD0000421AB8C56E004496EF /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = BD0000411AB8C56E004496EF /* credentials.json */; };
 		BD0000641AB8E20C004496EF /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0000631AB8E20C004496EF /* AWSTestUtility.m */; };
 		BD00FF491AB8B6F8004496EF /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD00FF481AB8B6F8004496EF /* libAWSCore.a */; };
-		BD00FF8F1AB8B9C7004496EF /* cognito-identity-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF8C1AB8B9C7004496EF /* cognito-identity-2014-06-30.json */; };
-		BD00FF901AB8B9C7004496EF /* mobileanalytics-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF8D1AB8B9C7004496EF /* mobileanalytics-2014-06-30.json */; };
-		BD00FF911AB8B9C7004496EF /* sts-2011-06-15.json in Resources */ = {isa = PBXBuildFile; fileRef = BD00FF8E1AB8B9C7004496EF /* sts-2011-06-15.json */; };
 		BD9D975F1AC1EE7900CEEE08 /* AWSDynamoDBService.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEE7DE6A1AC1E1500095C4B7 /* AWSDynamoDBService.h */; };
+		BDB73D6F1B1D3E9B00717559 /* AWSDynamoDBResources.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB73D6D1B1D3E9B00717559 /* AWSDynamoDBResources.h */; };
+		BDB73D701B1D3E9B00717559 /* AWSDynamoDBResources.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB73D6E1B1D3E9B00717559 /* AWSDynamoDBResources.m */; };
 		BDC91C571ABBA0E900F74D49 /* AWSDynamoDB.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDF559431AB375260067F4F1 /* AWSDynamoDB.h */; };
 		BDC91C581ABBA0E900F74D49 /* AWSDynamoDBModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDF559451AB375260067F4F1 /* AWSDynamoDBModel.h */; };
 		BDC91C591ABBA0E900F74D49 /* AWSDynamoDBObjectMapper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDF559471AB375260067F4F1 /* AWSDynamoDBObjectMapper.h */; };
@@ -29,8 +27,8 @@
 		BDF5594E1AB375270067F4F1 /* AWSDynamoDBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF559461AB375260067F4F1 /* AWSDynamoDBModel.m */; };
 		BDF5594F1AB375270067F4F1 /* AWSDynamoDBObjectMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = BDF559471AB375260067F4F1 /* AWSDynamoDBObjectMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDF559501AB375270067F4F1 /* AWSDynamoDBObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF559481AB375260067F4F1 /* AWSDynamoDBObjectMapper.m */; };
+		CEE5325A1B03D374002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532591B03D374002CED62 /* libz.dylib */; };
 		CEE7DE6B1AC1E1500095C4B7 /* AWSDynamoDBService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE6A1AC1E1500095C4B7 /* AWSDynamoDBService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEF83EE01AD3526A00620E1C /* dynamodb-2012-08-10.json in Resources */ = {isa = PBXBuildFile; fileRef = CEF83EDF1AD3526A00620E1C /* dynamodb-2012-08-10.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,14 +63,13 @@
 		BD0000621AB8E20C004496EF /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSTestUtility.h; path = AWSCoreTests/AWSTestUtility.h; sourceTree = SOURCE_ROOT; };
 		BD0000631AB8E20C004496EF /* AWSTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSTestUtility.m; path = AWSCoreTests/AWSTestUtility.m; sourceTree = SOURCE_ROOT; };
 		BD00FF481AB8B6F8004496EF /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
-		BD00FF8C1AB8B9C7004496EF /* cognito-identity-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "cognito-identity-2014-06-30.json"; path = "../AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"; sourceTree = "<group>"; };
-		BD00FF8D1AB8B9C7004496EF /* mobileanalytics-2014-06-30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "mobileanalytics-2014-06-30.json"; path = "../AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"; sourceTree = "<group>"; };
-		BD00FF8E1AB8B9C7004496EF /* sts-2011-06-15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "sts-2011-06-15.json"; path = "../AWSCore/STS/Resources/sts-2011-06-15.json"; sourceTree = "<group>"; };
 		BD00FFFC1AB8C461004496EF /* AWSGeneralDynamoDBTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSGeneralDynamoDBTests.m; path = ../AWSDynamoDBTests/AWSGeneralDynamoDBTests.m; sourceTree = "<group>"; };
-		BD00FFFD1AB8C461004496EF /* AWSDynamoDBObjectMapperSwiftTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AWSDynamoDBObjectMapperSwiftTests.swift; path = ../AWSDynamoDBTests/AWSDynamoDBObjectMapperSwiftTests.swift; sourceTree = "<group>"; };
+		BD00FFFD1AB8C461004496EF /* AWSDynamoDBObjectMapperSwiftTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = AWSDynamoDBObjectMapperSwiftTests.swift; path = ../AWSDynamoDBTests/AWSDynamoDBObjectMapperSwiftTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BD00FFFE1AB8C461004496EF /* AWSDynamoDBObjectMapperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSDynamoDBObjectMapperTests.m; path = ../AWSDynamoDBTests/AWSDynamoDBObjectMapperTests.m; sourceTree = "<group>"; };
 		BD00FFFF1AB8C461004496EF /* AWSDynamoDBTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSDynamoDBTests.m; path = ../AWSDynamoDBTests/AWSDynamoDBTests.m; sourceTree = "<group>"; };
 		BDB6EC2E1AB915B9004C4D80 /* AWSiOSSDKv2Tests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AWSiOSSDKv2Tests-Bridging-Header.h"; path = "AWSCoreTests/AWSiOSSDKv2Tests-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		BDB73D6D1B1D3E9B00717559 /* AWSDynamoDBResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDynamoDBResources.h; sourceTree = "<group>"; };
+		BDB73D6E1B1D3E9B00717559 /* AWSDynamoDBResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDynamoDBResources.m; sourceTree = "<group>"; };
 		BDF559271AB374F00067F4F1 /* libAWSDynamoDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSDynamoDB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF559321AB374F00067F4F1 /* AWSDynamoDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSDynamoDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF559381AB374F00067F4F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../AWSDynamoDBTests/Info.plist; sourceTree = "<group>"; };
@@ -80,10 +77,10 @@
 		BDF559441AB375260067F4F1 /* AWSDynamoDBService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSDynamoDBService.m; path = ../AWSDynamoDB/AWSDynamoDBService.m; sourceTree = "<group>"; };
 		BDF559451AB375260067F4F1 /* AWSDynamoDBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSDynamoDBModel.h; path = ../AWSDynamoDB/AWSDynamoDBModel.h; sourceTree = "<group>"; };
 		BDF559461AB375260067F4F1 /* AWSDynamoDBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSDynamoDBModel.m; path = ../AWSDynamoDB/AWSDynamoDBModel.m; sourceTree = "<group>"; };
-		BDF559471AB375260067F4F1 /* AWSDynamoDBObjectMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSDynamoDBObjectMapper.h; path = ../AWSDynamoDB/AWSDynamoDBObjectMapper.h; sourceTree = "<group>"; };
+		BDF559471AB375260067F4F1 /* AWSDynamoDBObjectMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AWSDynamoDBObjectMapper.h; path = ../AWSDynamoDB/AWSDynamoDBObjectMapper.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		BDF559481AB375260067F4F1 /* AWSDynamoDBObjectMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSDynamoDBObjectMapper.m; path = ../AWSDynamoDB/AWSDynamoDBObjectMapper.m; sourceTree = "<group>"; };
+		CEE532591B03D374002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CEE7DE6A1AC1E1500095C4B7 /* AWSDynamoDBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSDynamoDBService.h; path = ../AWSDynamoDB/AWSDynamoDBService.h; sourceTree = "<group>"; };
-		CEF83EDF1AD3526A00620E1C /* dynamodb-2012-08-10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "dynamodb-2012-08-10.json"; path = "../../AWSDynamoDB/Resources/dynamodb-2012-08-10.json"; sourceTree = "<group>"; };
 		DDFD2473B32B034328A614B9 /* libPods-AWSDynamoDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSDynamoDB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBAF4E5A29F812E8DB81C584 /* Pods-AWSDynamoDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSDynamoDB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSDynamoDB/Pods-AWSDynamoDB.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,9 +97,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE5325A1B03D374002CED62 /* libz.dylib in Frameworks */,
 				BD00FF491AB8B6F8004496EF /* libAWSCore.a in Frameworks */,
 				BDF559331AB374F00067F4F1 /* libAWSDynamoDB.a in Frameworks */,
-				99E76F9141D9EA631BBD21D7 /* libPods-AWSDynamoDB.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +109,7 @@
 		A5F6D5DAB609D2CE34387FFD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEE532591B03D374002CED62 /* libz.dylib */,
 				BD00FF481AB8B6F8004496EF /* libAWSCore.a */,
 				DDFD2473B32B034328A614B9 /* libPods-AWSDynamoDB.a */,
 			);
@@ -148,7 +146,8 @@
 				BDF559481AB375260067F4F1 /* AWSDynamoDBObjectMapper.m */,
 				CEE7DE6A1AC1E1500095C4B7 /* AWSDynamoDBService.h */,
 				BDF559441AB375260067F4F1 /* AWSDynamoDBService.m */,
-				BDF559491AB375270067F4F1 /* Resources */,
+				BDB73D6D1B1D3E9B00717559 /* AWSDynamoDBResources.h */,
+				BDB73D6E1B1D3E9B00717559 /* AWSDynamoDBResources.m */,
 			);
 			path = AWSDynamoDB;
 			sourceTree = "<group>";
@@ -168,9 +167,6 @@
 		BDF559371AB374F00067F4F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BD00FF8C1AB8B9C7004496EF /* cognito-identity-2014-06-30.json */,
-				BD00FF8D1AB8B9C7004496EF /* mobileanalytics-2014-06-30.json */,
-				BD00FF8E1AB8B9C7004496EF /* sts-2011-06-15.json */,
 				BDB6EC2E1AB915B9004C4D80 /* AWSiOSSDKv2Tests-Bridging-Header.h */,
 				BD0000411AB8C56E004496EF /* credentials.json */,
 				BD0000621AB8E20C004496EF /* AWSTestUtility.h */,
@@ -178,14 +174,6 @@
 				BDF559381AB374F00067F4F1 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		BDF559491AB375270067F4F1 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				CEF83EDF1AD3526A00620E1C /* dynamodb-2012-08-10.json */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		FB0C9163F76D9A9E125E73BA /* Pods */ = {
@@ -204,6 +192,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDB73D6F1B1D3E9B00717559 /* AWSDynamoDBResources.h in Headers */,
 				CEE7DE6B1AC1E1500095C4B7 /* AWSDynamoDBService.h in Headers */,
 				BDF5594F1AB375270067F4F1 /* AWSDynamoDBObjectMapper.h in Headers */,
 				BDF5594B1AB375270067F4F1 /* AWSDynamoDB.h in Headers */,
@@ -236,11 +225,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDF5593E1AB374F00067F4F1 /* Build configuration list for PBXNativeTarget "AWSDynamoDBTests" */;
 			buildPhases = (
-				16905012CE4B45BAEE85C434 /* Check Pods Manifest.lock */,
 				BDF5592E1AB374F00067F4F1 /* Sources */,
 				BDF5592F1AB374F00067F4F1 /* Frameworks */,
 				BDF559301AB374F00067F4F1 /* Resources */,
-				86E58B312BE3AE92CEF42F45 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -292,48 +279,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD00FF8F1AB8B9C7004496EF /* cognito-identity-2014-06-30.json in Resources */,
-				CEF83EE01AD3526A00620E1C /* dynamodb-2012-08-10.json in Resources */,
-				BD00FF901AB8B9C7004496EF /* mobileanalytics-2014-06-30.json in Resources */,
-				BD00FF911AB8B9C7004496EF /* sts-2011-06-15.json in Resources */,
 				BD0000421AB8C56E004496EF /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		16905012CE4B45BAEE85C434 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		86E58B312BE3AE92CEF42F45 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWSDynamoDB/Pods-AWSDynamoDB-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BDF559231AB374F00067F4F1 /* Sources */ = {
@@ -341,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDF5594C1AB375270067F4F1 /* AWSDynamoDBService.m in Sources */,
+				BDB73D701B1D3E9B00717559 /* AWSDynamoDBResources.m in Sources */,
 				BDF559501AB375270067F4F1 /* AWSDynamoDBObjectMapper.m in Sources */,
 				BDF5594E1AB375270067F4F1 /* AWSDynamoDBModel.m in Sources */,
 			);
@@ -453,7 +404,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSDynamoDB;
 				SKIP_INSTALL = YES;
 			};
@@ -467,7 +418,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSDynamoDB;
 				SKIP_INSTALL = YES;
 			};
@@ -475,7 +426,6 @@
 		};
 		BDF5593F1AB374F00067F4F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EBAF4E5A29F812E8DB81C584 /* Pods-AWSDynamoDB.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -496,7 +446,6 @@
 		};
 		BDF559401AB374F00067F4F1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F85B3DCB7942BDFD5AC15D6 /* Pods-AWSDynamoDB.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

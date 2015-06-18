@@ -24,6 +24,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaErrorType) {
     AWSLambdaErrorIncompleteSignature,
     AWSLambdaErrorInvalidClientTokenId,
     AWSLambdaErrorMissingAuthenticationToken,
+    AWSLambdaErrorCodeStorageExceeded,
     AWSLambdaErrorInvalidParameterValue,
     AWSLambdaErrorInvalidRequestContent,
     AWSLambdaErrorPolicyLengthExceeded,
@@ -57,8 +58,6 @@ typedef NS_ENUM(NSInteger, AWSLambdaLogType) {
 typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimeUnknown,
     AWSLambdaRuntimeNodejs,
-    AWSLambdaRuntimeJvm,
-    AWSLambdaRuntimePython,
 };
 
 @class AWSLambdaAddPermissionRequest;
@@ -158,7 +157,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 @property (nonatomic, strong) NSNumber *enabled;
 
 /**
- <p>The Amazon Resource Name (ARN) of the Amazon Kinesis stream that is the event source. Any record added to this stream could cause AWS Lambda to invoke your Lambda function, it depends on the <code>BatchSize</code>. AWS Lambda POSTs the Amazon Kinesis event, containing records, to your Lambda function as JSON.</p>
+ <p>The Amazon Resource Name (ARN) of the Amazon Kinesis or the Amazon DynamoDB stream that is the event source. Any record added to this stream could cause AWS Lambda to invoke your Lambda function, it depends on the <code>BatchSize</code>. AWS Lambda POSTs the Amazon Kinesis event, containing records, to your Lambda function as JSON.</p>
  */
 @property (nonatomic, strong) NSString *eventSourceArn;
 
@@ -181,7 +180,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 
 
 /**
- <p>A structure that includes ZipFile. </p>
+ <p>The code for the Lambda function. </p>
  */
 @property (nonatomic, strong) AWSLambdaFunctionCode *code;
 
@@ -303,7 +302,22 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 
 
 /**
- <p>A base64-encoded .zip file containing your packaged source code. For more information about creating a .zip file, go to <a href="http://http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html">Execution Permissions</a> in the <i>AWS Lambda Developer Guide</i>. </p>
+ <p>Amazon S3 bucket name where the .zip file containing your deployment package is stored. This bucket must reside in the same AWS region where you are creating the Lambda function. </p>
+ */
+@property (nonatomic, strong) NSString *s3Bucket;
+
+/**
+ <p>The Amazon S3 object (the deployment package) key name you want to upload. </p>
+ */
+@property (nonatomic, strong) NSString *s3Key;
+
+/**
+ <p>The Amazon S3 object (the deployment package) version you want to upload.</p>
+ */
+@property (nonatomic, strong) NSString *s3ObjectVersion;
+
+/**
+ <p>A base64-encoded .zip file containing your deployment package. For more information about creating a .zip file, go to <a href="http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html">Execution Permissions</a> in the <i>AWS Lambda Developer Guide</i>. </p>
  */
 @property (nonatomic, strong) NSData *zipFile;
 
@@ -536,25 +550,25 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 
 
 /**
- 
+ <p>The Lambda function name.</p>
  */
 @property (nonatomic, strong) NSString *functionName;
 
 /**
- 
+ <p>JSON that you want to provide to your Lambda function as input.</p>
  */
 @property (nonatomic, strong) NSData *invokeArgs;
 
 @end
 
 /**
- 
+ <p>Upon success, it returns empty response. Otherwise, throws an exception.</p>
  */
 @interface AWSLambdaInvokeAsyncResponse : AWSModel
 
 
 /**
- 
+ <p>It will be 202 upon success.</p>
  */
 @property (nonatomic, strong) NSNumber *status;
 
@@ -595,7 +609,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 
 
 /**
- <p>An arrary of <code>EventSourceMappingConfiguration</code> objects.</p>
+ <p>An array of <code>EventSourceMappingConfiguration</code> objects.</p>
  */
 @property (nonatomic, strong) NSArray *eventSourceMappings;
 
@@ -698,6 +712,21 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
  <p>The existing Lambda function name whose code you want to replace.</p><p> You can specify an unqualified function name (for example, "Thumbnail") or you can specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail"). AWS Lambda also allows you to specify only the account ID qualifier (for example, "account-id:Thumbnail"). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length. </p>
  */
 @property (nonatomic, strong) NSString *functionName;
+
+/**
+ <p>Amazon S3 bucket name where the .zip file containing your deployment package is stored. This bucket must reside in the same AWS region where you are creating the Lambda function.</p>
+ */
+@property (nonatomic, strong) NSString *s3Bucket;
+
+/**
+ <p>The Amazon S3 object (the deployment package) key name you want to upload. </p>
+ */
+@property (nonatomic, strong) NSString *s3Key;
+
+/**
+ <p>The Amazon S3 object (the deployment package) version you want to upload.</p>
+ */
+@property (nonatomic, strong) NSString *s3ObjectVersion;
 
 /**
  <p>Based64-encoded .zip file containing your packaged source code.</p>

@@ -15,7 +15,7 @@
 
 #import "AWSCore.h"
 #import "AWSIdentityProvider.h"
-#import <Bolts/Bolts.h>
+#import "AWSBolts.h"
 
 NSString *const AWSCognitoIdentityIdChangedNotification = @"com.amazonaws.services.cognitoidentity.AWSCognitoIdentityIdChangedNotification";
 NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.service.cognitoidentity.AWSCognitoIdentityProvider";
@@ -35,13 +35,13 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
 @synthesize identityPoolId=_identityPoolId;
 
 // stub class that should be overriden
-- (BFTask *)getIdentityId {
-    return [BFTask taskWithResult:self.identityId];
+- (AWSTask *)getIdentityId {
+    return [AWSTask taskWithResult:self.identityId];
 }
 
 // stub class that should be overriden
-- (BFTask *)refresh {
-    return [BFTask taskWithResult:nil];
+- (AWSTask *)refresh {
+    return [AWSTask taskWithResult:nil];
 }
 
 - (void)clear {
@@ -123,7 +123,7 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
 @property (nonatomic, strong) NSString *accountId;
 @property (nonatomic, strong) NSString *providerName;
 @property (nonatomic, strong) AWSCognitoIdentity *cib;
-@property (nonatomic, strong) BFExecutor *executor;
+@property (nonatomic, strong) AWSExecutor *executor;
 @property (atomic, assign) int32_t count;
 @property (nonatomic, strong) dispatch_semaphore_t semaphore;
 
@@ -141,7 +141,7 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
 
     if (self = [super init]) {
         _accountId = accountId;
-        _executor = [BFExecutor executorWithOperationQueue:[NSOperationQueue new]];
+        _executor = [AWSExecutor executorWithOperationQueue:[NSOperationQueue new]];
         _count = 0;
         _semaphore = dispatch_semaphore_create(0);
         self.identityPoolId = identityPoolId;
@@ -160,11 +160,11 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
     return self;
 }
 
-- (BFTask *)getIdentityId {
+- (AWSTask *)getIdentityId {
     if (self.identityId) {
-        return [BFTask taskWithResult:self.identityId];
+        return [AWSTask taskWithResult:self.identityId];
     } else {
-        return [[[BFTask taskWithResult:nil] continueWithExecutor:self.executor withBlock:^id(BFTask *task) {
+        return [[[AWSTask taskWithResult:nil] continueWithExecutor:self.executor withBlock:^id(AWSTask *task) {
             self.count++;
             if (self.count <= 1) {
                 AWSCognitoIdentityGetIdInput *getIdInput = [AWSCognitoIdentityGetIdInput new];
@@ -176,9 +176,9 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
             }
             else {
                 dispatch_semaphore_wait(self.semaphore, dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC));
-                return [BFTask taskWithResult:nil];
+                return [AWSTask taskWithResult:nil];
             }
-        }] continueWithBlock:^id(BFTask *task) {
+        }] continueWithBlock:^id(AWSTask *task) {
             self.count--;
             dispatch_semaphore_signal(self.semaphore);
             if (task.error) {
@@ -191,18 +191,18 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
                 AWSCognitoIdentityGetIdResponse *getIdResponse = task.result;
                 self.identityId = getIdResponse.identityId;
             }
-            return [BFTask taskWithResult:self.identityId];
+            return [AWSTask taskWithResult:self.identityId];
         }];
     }
 }
 
-- (BFTask *)refresh {
-    return [[[self getIdentityId] continueWithSuccessBlock:^id(BFTask *task) {
+- (AWSTask *)refresh {
+    return [[[self getIdentityId] continueWithSuccessBlock:^id(AWSTask *task) {
         // This should never happen, but just in case
         if (!self.identityId) {
             AWSLogError(@"In refresh, but identitId is nil.");
             AWSLogError(@"Result from getIdentityId is %@", task.result);
-            return [BFTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
+            return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
                                                              code:AWSCognitoIdentityProviderErrorIdentityIsNil
                                                          userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]];
         }
@@ -212,7 +212,7 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
         getTokenInput.logins = self.logins;
 
 
-        return [[self.cib getOpenIdToken:getTokenInput] continueWithBlock:^id(BFTask *task) {
+        return [[self.cib getOpenIdToken:getTokenInput] continueWithBlock:^id(AWSTask *task) {
             // When an invalid identityId is cached in the keychain for auth,
             // we will refresh the identityId and try to get OpenID token again.
             if (task.error) {
@@ -228,12 +228,12 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
                 AWSLogVerbose(@"Resetting identity Id and calling getIdentityId");
                 // if it's auth, reset id and refetch
                 self.identityId = nil;
-                return [[self getIdentityId] continueWithSuccessBlock:^id(BFTask *task) {
+                return [[self getIdentityId] continueWithSuccessBlock:^id(AWSTask *task) {
                     // This should never happen, but just in case
                     if (!self.identityId) {
                         AWSLogError(@"In refresh, but identitId is nil.");
                         AWSLogError(@"Result from getIdentityId is %@", task.result);
-                        return [BFTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
+                        return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
                                                                          code:AWSCognitoIdentityProviderErrorIdentityIsNil
                                                                      userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
                                 ];
@@ -254,7 +254,7 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
             }
             return task;
         }];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSCognitoIdentityGetOpenIdTokenResponse *getTokenResponse = task.result;
         self.token = getTokenResponse.token;
         NSString *identityIdFromToken = getTokenResponse.identityId;
@@ -262,7 +262,7 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
         // This should never happen, but just in case
         if (!identityIdFromToken) {
             AWSLogError(@"identityId from getOpenIdToken is nil");
-            return [BFTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
+            return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
                                                              code:AWSCognitoIdentityProviderErrorIdentityIsNil
                                                          userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
                     ];
@@ -272,7 +272,7 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
             self.identityId = identityIdFromToken;
         }
 
-        return [BFTask taskWithResult:nil];
+        return [AWSTask taskWithResult:nil];
     }];
 }
 
@@ -310,7 +310,7 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
 }
 
 // In the new flow, this provider only handles identity id
-- (BFTask *)refresh {
+- (AWSTask *)refresh {
     return [self getIdentityId];
 }
 

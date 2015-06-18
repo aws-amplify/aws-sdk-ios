@@ -24,6 +24,7 @@
 #import "AWSURLResponseSerialization.h"
 #import "AWSURLRequestRetryHandler.h"
 #import "AWSSynchronizedMutableDictionary.h"
+#import "AWSEC2Resources.h"
 
 NSString *const AWSEC2DefinitionFileName = @"ec2-2014-09-01";
 
@@ -76,9 +77,9 @@ static NSDictionary *errorCodeDictionary = nil;
         }
 
         if (self.outputClass) {
-            responseObject = [MTLJSONAdapter modelOfClass:self.outputClass
-                                       fromJSONDictionary:responseObject
-                                                    error:error];
+            responseObject = [AWSMTLJSONAdapter modelOfClass:self.outputClass
+                                          fromJSONDictionary:responseObject
+                                                       error:error];
         }
     }
 
@@ -208,7 +209,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return self;
 }
 
-- (BFTask *)invokeRequest:(AWSRequest *)request
+- (AWSTask *)invokeRequest:(AWSRequest *)request
                HTTPMethod:(AWSHTTPMethod)HTTPMethod
                 URLString:(NSString *) URLString
              targetPrefix:(NSString *)targetPrefix
@@ -222,25 +223,23 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         
         AWSNetworkingRequest *networkingRequest = request.internalRequest;
         if (request) {
-            networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
+            networkingRequest.parameters = [[AWSMTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
         } else {
             networkingRequest.parameters = @{};
         }
         networkingRequest.HTTPMethod = HTTPMethod;
-        networkingRequest.requestSerializer = [[AWSEC2RequestSerializer alloc] initWithResource:AWSEC2DefinitionFileName
-                                                                                     actionName:operationName
-                                                                                 classForBundle:[self class]];
-        networkingRequest.responseSerializer = [[AWSEC2ResponseSerializer alloc] initWithResource:AWSEC2DefinitionFileName
+        networkingRequest.requestSerializer = [[AWSEC2RequestSerializer alloc] initWithJSONDefinition:[[AWSEC2Resources sharedInstance] JSONObject]
+                                                                                           actionName:operationName];
+        networkingRequest.responseSerializer = [[AWSEC2ResponseSerializer alloc] initWithJSONDefinition:[[AWSEC2Resources sharedInstance] JSONObject]
                                                                                        actionName:operationName
-                                                                                      outputClass:outputClass
-                                                                                   classForBundle:[self class]];
+                                                                                      outputClass:outputClass];
         return [self.networking sendRequest:networkingRequest];
     }
 }
 
 #pragma mark - Service method
 
-- (BFTask *)acceptVpcPeeringConnection:(AWSEC2AcceptVpcPeeringConnectionRequest *)request {
+- (AWSTask *)acceptVpcPeeringConnection:(AWSEC2AcceptVpcPeeringConnectionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -249,7 +248,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2AcceptVpcPeeringConnectionResult class]];
 }
 
-- (BFTask *)allocateAddress:(AWSEC2AllocateAddressRequest *)request {
+- (AWSTask *)allocateAddress:(AWSEC2AllocateAddressRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -258,7 +257,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2AllocateAddressResult class]];
 }
 
-- (BFTask *)assignPrivateIpAddresses:(AWSEC2AssignPrivateIpAddressesRequest *)request {
+- (AWSTask *)assignPrivateIpAddresses:(AWSEC2AssignPrivateIpAddressesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -267,7 +266,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)associateAddress:(AWSEC2AssociateAddressRequest *)request {
+- (AWSTask *)associateAddress:(AWSEC2AssociateAddressRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -276,7 +275,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2AssociateAddressResult class]];
 }
 
-- (BFTask *)associateDhcpOptions:(AWSEC2AssociateDhcpOptionsRequest *)request {
+- (AWSTask *)associateDhcpOptions:(AWSEC2AssociateDhcpOptionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -285,7 +284,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)associateRouteTable:(AWSEC2AssociateRouteTableRequest *)request {
+- (AWSTask *)associateRouteTable:(AWSEC2AssociateRouteTableRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -294,7 +293,16 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2AssociateRouteTableResult class]];
 }
 
-- (BFTask *)attachInternetGateway:(AWSEC2AttachInternetGatewayRequest *)request {
+- (AWSTask *)attachClassicLinkVpc:(AWSEC2AttachClassicLinkVpcRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"AttachClassicLinkVpc"
+                   outputClass:[AWSEC2AttachClassicLinkVpcResult class]];
+}
+
+- (AWSTask *)attachInternetGateway:(AWSEC2AttachInternetGatewayRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -303,7 +311,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)attachNetworkInterface:(AWSEC2AttachNetworkInterfaceRequest *)request {
+- (AWSTask *)attachNetworkInterface:(AWSEC2AttachNetworkInterfaceRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -312,7 +320,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2AttachNetworkInterfaceResult class]];
 }
 
-- (BFTask *)attachVolume:(AWSEC2AttachVolumeRequest *)request {
+- (AWSTask *)attachVolume:(AWSEC2AttachVolumeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -321,7 +329,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2VolumeAttachment class]];
 }
 
-- (BFTask *)attachVpnGateway:(AWSEC2AttachVpnGatewayRequest *)request {
+- (AWSTask *)attachVpnGateway:(AWSEC2AttachVpnGatewayRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -330,7 +338,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2AttachVpnGatewayResult class]];
 }
 
-- (BFTask *)authorizeSecurityGroupEgress:(AWSEC2AuthorizeSecurityGroupEgressRequest *)request {
+- (AWSTask *)authorizeSecurityGroupEgress:(AWSEC2AuthorizeSecurityGroupEgressRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -339,7 +347,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)authorizeSecurityGroupIngress:(AWSEC2AuthorizeSecurityGroupIngressRequest *)request {
+- (AWSTask *)authorizeSecurityGroupIngress:(AWSEC2AuthorizeSecurityGroupIngressRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -348,7 +356,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)bundleInstance:(AWSEC2BundleInstanceRequest *)request {
+- (AWSTask *)bundleInstance:(AWSEC2BundleInstanceRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -357,7 +365,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2BundleInstanceResult class]];
 }
 
-- (BFTask *)cancelBundleTask:(AWSEC2CancelBundleTaskRequest *)request {
+- (AWSTask *)cancelBundleTask:(AWSEC2CancelBundleTaskRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -366,7 +374,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2CancelBundleTaskResult class]];
 }
 
-- (BFTask *)cancelConversionTask:(AWSEC2CancelConversionRequest *)request {
+- (AWSTask *)cancelConversionTask:(AWSEC2CancelConversionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -375,7 +383,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)cancelExportTask:(AWSEC2CancelExportTaskRequest *)request {
+- (AWSTask *)cancelExportTask:(AWSEC2CancelExportTaskRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -384,7 +392,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)cancelReservedInstancesListing:(AWSEC2CancelReservedInstancesListingRequest *)request {
+- (AWSTask *)cancelReservedInstancesListing:(AWSEC2CancelReservedInstancesListingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -393,7 +401,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2CancelReservedInstancesListingResult class]];
 }
 
-- (BFTask *)cancelSpotInstanceRequests:(AWSEC2CancelSpotInstanceRequestsRequest *)request {
+- (AWSTask *)cancelSpotInstanceRequests:(AWSEC2CancelSpotInstanceRequestsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -402,7 +410,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2CancelSpotInstanceRequestsResult class]];
 }
 
-- (BFTask *)confirmProductInstance:(AWSEC2ConfirmProductInstanceRequest *)request {
+- (AWSTask *)confirmProductInstance:(AWSEC2ConfirmProductInstanceRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -411,7 +419,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2ConfirmProductInstanceResult class]];
 }
 
-- (BFTask *)createCustomerGateway:(AWSEC2CreateCustomerGatewayRequest *)request {
+- (AWSTask *)createCustomerGateway:(AWSEC2CreateCustomerGatewayRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -420,7 +428,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2CreateCustomerGatewayResult class]];
 }
 
-- (BFTask *)createDhcpOptions:(AWSEC2CreateDhcpOptionsRequest *)request {
+- (AWSTask *)createDhcpOptions:(AWSEC2CreateDhcpOptionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -429,7 +437,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2CreateDhcpOptionsResult class]];
 }
 
-- (BFTask *)createImage:(AWSEC2CreateImageRequest *)request {
+- (AWSTask *)createImage:(AWSEC2CreateImageRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -438,7 +446,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2CreateImageResult class]];
 }
 
-- (BFTask *)createInstanceExportTask:(AWSEC2CreateInstanceExportTaskRequest *)request {
+- (AWSTask *)createInstanceExportTask:(AWSEC2CreateInstanceExportTaskRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -447,7 +455,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2CreateInstanceExportTaskResult class]];
 }
 
-- (BFTask *)createInternetGateway:(AWSEC2CreateInternetGatewayRequest *)request {
+- (AWSTask *)createInternetGateway:(AWSEC2CreateInternetGatewayRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -456,7 +464,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2CreateInternetGatewayResult class]];
 }
 
-- (BFTask *)createKeyPair:(AWSEC2CreateKeyPairRequest *)request {
+- (AWSTask *)createKeyPair:(AWSEC2CreateKeyPairRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -465,7 +473,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2KeyPair class]];
 }
 
-- (BFTask *)createNetworkAcl:(AWSEC2CreateNetworkAclRequest *)request {
+- (AWSTask *)createNetworkAcl:(AWSEC2CreateNetworkAclRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -474,7 +482,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2CreateNetworkAclResult class]];
 }
 
-- (BFTask *)createNetworkAclEntry:(AWSEC2CreateNetworkAclEntryRequest *)request {
+- (AWSTask *)createNetworkAclEntry:(AWSEC2CreateNetworkAclEntryRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -483,7 +491,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)createNetworkInterface:(AWSEC2CreateNetworkInterfaceRequest *)request {
+- (AWSTask *)createNetworkInterface:(AWSEC2CreateNetworkInterfaceRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -492,7 +500,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2CreateNetworkInterfaceResult class]];
 }
 
-- (BFTask *)createPlacementGroup:(AWSEC2CreatePlacementGroupRequest *)request {
+- (AWSTask *)createPlacementGroup:(AWSEC2CreatePlacementGroupRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -501,7 +509,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)createReservedInstancesListing:(AWSEC2CreateReservedInstancesListingRequest *)request {
+- (AWSTask *)createReservedInstancesListing:(AWSEC2CreateReservedInstancesListingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -510,7 +518,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2CreateReservedInstancesListingResult class]];
 }
 
-- (BFTask *)createRoute:(AWSEC2CreateRouteRequest *)request {
+- (AWSTask *)createRoute:(AWSEC2CreateRouteRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -519,7 +527,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)createRouteTable:(AWSEC2CreateRouteTableRequest *)request {
+- (AWSTask *)createRouteTable:(AWSEC2CreateRouteTableRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -528,7 +536,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2CreateRouteTableResult class]];
 }
 
-- (BFTask *)createSecurityGroup:(AWSEC2CreateSecurityGroupRequest *)request {
+- (AWSTask *)createSecurityGroup:(AWSEC2CreateSecurityGroupRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -537,7 +545,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2CreateSecurityGroupResult class]];
 }
 
-- (BFTask *)createSnapshot:(AWSEC2CreateSnapshotRequest *)request {
+- (AWSTask *)createSnapshot:(AWSEC2CreateSnapshotRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -546,7 +554,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2Snapshot class]];
 }
 
-- (BFTask *)createSpotDatafeedSubscription:(AWSEC2CreateSpotDatafeedSubscriptionRequest *)request {
+- (AWSTask *)createSpotDatafeedSubscription:(AWSEC2CreateSpotDatafeedSubscriptionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -555,7 +563,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2CreateSpotDatafeedSubscriptionResult class]];
 }
 
-- (BFTask *)createSubnet:(AWSEC2CreateSubnetRequest *)request {
+- (AWSTask *)createSubnet:(AWSEC2CreateSubnetRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -564,7 +572,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2CreateSubnetResult class]];
 }
 
-- (BFTask *)createTags:(AWSEC2CreateTagsRequest *)request {
+- (AWSTask *)createTags:(AWSEC2CreateTagsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -573,7 +581,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)createVolume:(AWSEC2CreateVolumeRequest *)request {
+- (AWSTask *)createVolume:(AWSEC2CreateVolumeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -582,7 +590,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2Volume class]];
 }
 
-- (BFTask *)createVpc:(AWSEC2CreateVpcRequest *)request {
+- (AWSTask *)createVpc:(AWSEC2CreateVpcRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -591,7 +599,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2CreateVpcResult class]];
 }
 
-- (BFTask *)createVpcPeeringConnection:(AWSEC2CreateVpcPeeringConnectionRequest *)request {
+- (AWSTask *)createVpcPeeringConnection:(AWSEC2CreateVpcPeeringConnectionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -600,7 +608,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2CreateVpcPeeringConnectionResult class]];
 }
 
-- (BFTask *)createVpnConnection:(AWSEC2CreateVpnConnectionRequest *)request {
+- (AWSTask *)createVpnConnection:(AWSEC2CreateVpnConnectionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -609,7 +617,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2CreateVpnConnectionResult class]];
 }
 
-- (BFTask *)createVpnConnectionRoute:(AWSEC2CreateVpnConnectionRouteRequest *)request {
+- (AWSTask *)createVpnConnectionRoute:(AWSEC2CreateVpnConnectionRouteRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -618,7 +626,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)createVpnGateway:(AWSEC2CreateVpnGatewayRequest *)request {
+- (AWSTask *)createVpnGateway:(AWSEC2CreateVpnGatewayRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -627,7 +635,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2CreateVpnGatewayResult class]];
 }
 
-- (BFTask *)deleteCustomerGateway:(AWSEC2DeleteCustomerGatewayRequest *)request {
+- (AWSTask *)deleteCustomerGateway:(AWSEC2DeleteCustomerGatewayRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -636,7 +644,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteDhcpOptions:(AWSEC2DeleteDhcpOptionsRequest *)request {
+- (AWSTask *)deleteDhcpOptions:(AWSEC2DeleteDhcpOptionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -645,7 +653,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteInternetGateway:(AWSEC2DeleteInternetGatewayRequest *)request {
+- (AWSTask *)deleteInternetGateway:(AWSEC2DeleteInternetGatewayRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -654,7 +662,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteKeyPair:(AWSEC2DeleteKeyPairRequest *)request {
+- (AWSTask *)deleteKeyPair:(AWSEC2DeleteKeyPairRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -663,7 +671,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteNetworkAcl:(AWSEC2DeleteNetworkAclRequest *)request {
+- (AWSTask *)deleteNetworkAcl:(AWSEC2DeleteNetworkAclRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -672,7 +680,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteNetworkAclEntry:(AWSEC2DeleteNetworkAclEntryRequest *)request {
+- (AWSTask *)deleteNetworkAclEntry:(AWSEC2DeleteNetworkAclEntryRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -681,7 +689,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteNetworkInterface:(AWSEC2DeleteNetworkInterfaceRequest *)request {
+- (AWSTask *)deleteNetworkInterface:(AWSEC2DeleteNetworkInterfaceRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -690,7 +698,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deletePlacementGroup:(AWSEC2DeletePlacementGroupRequest *)request {
+- (AWSTask *)deletePlacementGroup:(AWSEC2DeletePlacementGroupRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -699,7 +707,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteRoute:(AWSEC2DeleteRouteRequest *)request {
+- (AWSTask *)deleteRoute:(AWSEC2DeleteRouteRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -708,7 +716,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteRouteTable:(AWSEC2DeleteRouteTableRequest *)request {
+- (AWSTask *)deleteRouteTable:(AWSEC2DeleteRouteTableRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -717,7 +725,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteSecurityGroup:(AWSEC2DeleteSecurityGroupRequest *)request {
+- (AWSTask *)deleteSecurityGroup:(AWSEC2DeleteSecurityGroupRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -726,7 +734,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteSnapshot:(AWSEC2DeleteSnapshotRequest *)request {
+- (AWSTask *)deleteSnapshot:(AWSEC2DeleteSnapshotRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -735,7 +743,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteSpotDatafeedSubscription:(AWSEC2DeleteSpotDatafeedSubscriptionRequest *)request {
+- (AWSTask *)deleteSpotDatafeedSubscription:(AWSEC2DeleteSpotDatafeedSubscriptionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -744,7 +752,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteSubnet:(AWSEC2DeleteSubnetRequest *)request {
+- (AWSTask *)deleteSubnet:(AWSEC2DeleteSubnetRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -753,7 +761,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteTags:(AWSEC2DeleteTagsRequest *)request {
+- (AWSTask *)deleteTags:(AWSEC2DeleteTagsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -762,7 +770,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteVolume:(AWSEC2DeleteVolumeRequest *)request {
+- (AWSTask *)deleteVolume:(AWSEC2DeleteVolumeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -771,7 +779,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteVpc:(AWSEC2DeleteVpcRequest *)request {
+- (AWSTask *)deleteVpc:(AWSEC2DeleteVpcRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -780,7 +788,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteVpcPeeringConnection:(AWSEC2DeleteVpcPeeringConnectionRequest *)request {
+- (AWSTask *)deleteVpcPeeringConnection:(AWSEC2DeleteVpcPeeringConnectionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -789,7 +797,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DeleteVpcPeeringConnectionResult class]];
 }
 
-- (BFTask *)deleteVpnConnection:(AWSEC2DeleteVpnConnectionRequest *)request {
+- (AWSTask *)deleteVpnConnection:(AWSEC2DeleteVpnConnectionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -798,7 +806,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteVpnConnectionRoute:(AWSEC2DeleteVpnConnectionRouteRequest *)request {
+- (AWSTask *)deleteVpnConnectionRoute:(AWSEC2DeleteVpnConnectionRouteRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -807,7 +815,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteVpnGateway:(AWSEC2DeleteVpnGatewayRequest *)request {
+- (AWSTask *)deleteVpnGateway:(AWSEC2DeleteVpnGatewayRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -816,7 +824,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deregisterImage:(AWSEC2DeregisterImageRequest *)request {
+- (AWSTask *)deregisterImage:(AWSEC2DeregisterImageRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -825,7 +833,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)describeAccountAttributes:(AWSEC2DescribeAccountAttributesRequest *)request {
+- (AWSTask *)describeAccountAttributes:(AWSEC2DescribeAccountAttributesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -834,7 +842,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeAccountAttributesResult class]];
 }
 
-- (BFTask *)describeAddresses:(AWSEC2DescribeAddressesRequest *)request {
+- (AWSTask *)describeAddresses:(AWSEC2DescribeAddressesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -843,7 +851,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeAddressesResult class]];
 }
 
-- (BFTask *)describeAvailabilityZones:(AWSEC2DescribeAvailabilityZonesRequest *)request {
+- (AWSTask *)describeAvailabilityZones:(AWSEC2DescribeAvailabilityZonesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -852,7 +860,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeAvailabilityZonesResult class]];
 }
 
-- (BFTask *)describeBundleTasks:(AWSEC2DescribeBundleTasksRequest *)request {
+- (AWSTask *)describeBundleTasks:(AWSEC2DescribeBundleTasksRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -861,7 +869,16 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeBundleTasksResult class]];
 }
 
-- (BFTask *)describeConversionTasks:(AWSEC2DescribeConversionTasksRequest *)request {
+- (AWSTask *)describeClassicLinkInstances:(AWSEC2DescribeClassicLinkInstancesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeClassicLinkInstances"
+                   outputClass:[AWSEC2DescribeClassicLinkInstancesResult class]];
+}
+
+- (AWSTask *)describeConversionTasks:(AWSEC2DescribeConversionTasksRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -870,7 +887,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeConversionTasksResult class]];
 }
 
-- (BFTask *)describeCustomerGateways:(AWSEC2DescribeCustomerGatewaysRequest *)request {
+- (AWSTask *)describeCustomerGateways:(AWSEC2DescribeCustomerGatewaysRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -879,7 +896,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeCustomerGatewaysResult class]];
 }
 
-- (BFTask *)describeDhcpOptions:(AWSEC2DescribeDhcpOptionsRequest *)request {
+- (AWSTask *)describeDhcpOptions:(AWSEC2DescribeDhcpOptionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -888,7 +905,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeDhcpOptionsResult class]];
 }
 
-- (BFTask *)describeExportTasks:(AWSEC2DescribeExportTasksRequest *)request {
+- (AWSTask *)describeExportTasks:(AWSEC2DescribeExportTasksRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -897,7 +914,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeExportTasksResult class]];
 }
 
-- (BFTask *)describeImageAttribute:(AWSEC2DescribeImageAttributeRequest *)request {
+- (AWSTask *)describeImageAttribute:(AWSEC2DescribeImageAttributeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -906,7 +923,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2ImageAttribute class]];
 }
 
-- (BFTask *)describeImages:(AWSEC2DescribeImagesRequest *)request {
+- (AWSTask *)describeImages:(AWSEC2DescribeImagesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -915,7 +932,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeImagesResult class]];
 }
 
-- (BFTask *)describeInstanceAttribute:(AWSEC2DescribeInstanceAttributeRequest *)request {
+- (AWSTask *)describeInstanceAttribute:(AWSEC2DescribeInstanceAttributeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -924,7 +941,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2InstanceAttribute class]];
 }
 
-- (BFTask *)describeInstanceStatus:(AWSEC2DescribeInstanceStatusRequest *)request {
+- (AWSTask *)describeInstanceStatus:(AWSEC2DescribeInstanceStatusRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -933,7 +950,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeInstanceStatusResult class]];
 }
 
-- (BFTask *)describeInstances:(AWSEC2DescribeInstancesRequest *)request {
+- (AWSTask *)describeInstances:(AWSEC2DescribeInstancesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -942,7 +959,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeInstancesResult class]];
 }
 
-- (BFTask *)describeInternetGateways:(AWSEC2DescribeInternetGatewaysRequest *)request {
+- (AWSTask *)describeInternetGateways:(AWSEC2DescribeInternetGatewaysRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -951,7 +968,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeInternetGatewaysResult class]];
 }
 
-- (BFTask *)describeKeyPairs:(AWSEC2DescribeKeyPairsRequest *)request {
+- (AWSTask *)describeKeyPairs:(AWSEC2DescribeKeyPairsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -960,7 +977,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeKeyPairsResult class]];
 }
 
-- (BFTask *)describeNetworkAcls:(AWSEC2DescribeNetworkAclsRequest *)request {
+- (AWSTask *)describeNetworkAcls:(AWSEC2DescribeNetworkAclsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -969,7 +986,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeNetworkAclsResult class]];
 }
 
-- (BFTask *)describeNetworkInterfaceAttribute:(AWSEC2DescribeNetworkInterfaceAttributeRequest *)request {
+- (AWSTask *)describeNetworkInterfaceAttribute:(AWSEC2DescribeNetworkInterfaceAttributeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -978,7 +995,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeNetworkInterfaceAttributeResult class]];
 }
 
-- (BFTask *)describeNetworkInterfaces:(AWSEC2DescribeNetworkInterfacesRequest *)request {
+- (AWSTask *)describeNetworkInterfaces:(AWSEC2DescribeNetworkInterfacesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -987,7 +1004,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeNetworkInterfacesResult class]];
 }
 
-- (BFTask *)describePlacementGroups:(AWSEC2DescribePlacementGroupsRequest *)request {
+- (AWSTask *)describePlacementGroups:(AWSEC2DescribePlacementGroupsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -996,7 +1013,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribePlacementGroupsResult class]];
 }
 
-- (BFTask *)describeRegions:(AWSEC2DescribeRegionsRequest *)request {
+- (AWSTask *)describeRegions:(AWSEC2DescribeRegionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1005,7 +1022,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeRegionsResult class]];
 }
 
-- (BFTask *)describeReservedInstances:(AWSEC2DescribeReservedInstancesRequest *)request {
+- (AWSTask *)describeReservedInstances:(AWSEC2DescribeReservedInstancesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1014,7 +1031,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeReservedInstancesResult class]];
 }
 
-- (BFTask *)describeReservedInstancesListings:(AWSEC2DescribeReservedInstancesListingsRequest *)request {
+- (AWSTask *)describeReservedInstancesListings:(AWSEC2DescribeReservedInstancesListingsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1023,7 +1040,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeReservedInstancesListingsResult class]];
 }
 
-- (BFTask *)describeReservedInstancesModifications:(AWSEC2DescribeReservedInstancesModificationsRequest *)request {
+- (AWSTask *)describeReservedInstancesModifications:(AWSEC2DescribeReservedInstancesModificationsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1032,7 +1049,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeReservedInstancesModificationsResult class]];
 }
 
-- (BFTask *)describeReservedInstancesOfferings:(AWSEC2DescribeReservedInstancesOfferingsRequest *)request {
+- (AWSTask *)describeReservedInstancesOfferings:(AWSEC2DescribeReservedInstancesOfferingsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1041,7 +1058,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeReservedInstancesOfferingsResult class]];
 }
 
-- (BFTask *)describeRouteTables:(AWSEC2DescribeRouteTablesRequest *)request {
+- (AWSTask *)describeRouteTables:(AWSEC2DescribeRouteTablesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1050,7 +1067,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeRouteTablesResult class]];
 }
 
-- (BFTask *)describeSecurityGroups:(AWSEC2DescribeSecurityGroupsRequest *)request {
+- (AWSTask *)describeSecurityGroups:(AWSEC2DescribeSecurityGroupsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1059,7 +1076,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeSecurityGroupsResult class]];
 }
 
-- (BFTask *)describeSnapshotAttribute:(AWSEC2DescribeSnapshotAttributeRequest *)request {
+- (AWSTask *)describeSnapshotAttribute:(AWSEC2DescribeSnapshotAttributeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1068,7 +1085,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeSnapshotAttributeResult class]];
 }
 
-- (BFTask *)describeSnapshots:(AWSEC2DescribeSnapshotsRequest *)request {
+- (AWSTask *)describeSnapshots:(AWSEC2DescribeSnapshotsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1077,7 +1094,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeSnapshotsResult class]];
 }
 
-- (BFTask *)describeSpotDatafeedSubscription:(AWSEC2DescribeSpotDatafeedSubscriptionRequest *)request {
+- (AWSTask *)describeSpotDatafeedSubscription:(AWSEC2DescribeSpotDatafeedSubscriptionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1086,7 +1103,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeSpotDatafeedSubscriptionResult class]];
 }
 
-- (BFTask *)describeSpotInstanceRequests:(AWSEC2DescribeSpotInstanceRequestsRequest *)request {
+- (AWSTask *)describeSpotInstanceRequests:(AWSEC2DescribeSpotInstanceRequestsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1095,7 +1112,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeSpotInstanceRequestsResult class]];
 }
 
-- (BFTask *)describeSpotPriceHistory:(AWSEC2DescribeSpotPriceHistoryRequest *)request {
+- (AWSTask *)describeSpotPriceHistory:(AWSEC2DescribeSpotPriceHistoryRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1104,7 +1121,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeSpotPriceHistoryResult class]];
 }
 
-- (BFTask *)describeSubnets:(AWSEC2DescribeSubnetsRequest *)request {
+- (AWSTask *)describeSubnets:(AWSEC2DescribeSubnetsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1113,7 +1130,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeSubnetsResult class]];
 }
 
-- (BFTask *)describeTags:(AWSEC2DescribeTagsRequest *)request {
+- (AWSTask *)describeTags:(AWSEC2DescribeTagsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1122,7 +1139,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeTagsResult class]];
 }
 
-- (BFTask *)describeVolumeAttribute:(AWSEC2DescribeVolumeAttributeRequest *)request {
+- (AWSTask *)describeVolumeAttribute:(AWSEC2DescribeVolumeAttributeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1131,7 +1148,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeVolumeAttributeResult class]];
 }
 
-- (BFTask *)describeVolumeStatus:(AWSEC2DescribeVolumeStatusRequest *)request {
+- (AWSTask *)describeVolumeStatus:(AWSEC2DescribeVolumeStatusRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1140,7 +1157,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeVolumeStatusResult class]];
 }
 
-- (BFTask *)describeVolumes:(AWSEC2DescribeVolumesRequest *)request {
+- (AWSTask *)describeVolumes:(AWSEC2DescribeVolumesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1149,7 +1166,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeVolumesResult class]];
 }
 
-- (BFTask *)describeVpcAttribute:(AWSEC2DescribeVpcAttributeRequest *)request {
+- (AWSTask *)describeVpcAttribute:(AWSEC2DescribeVpcAttributeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1158,7 +1175,16 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeVpcAttributeResult class]];
 }
 
-- (BFTask *)describeVpcPeeringConnections:(AWSEC2DescribeVpcPeeringConnectionsRequest *)request {
+- (AWSTask *)describeVpcClassicLink:(AWSEC2DescribeVpcClassicLinkRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeVpcClassicLink"
+                   outputClass:[AWSEC2DescribeVpcClassicLinkResult class]];
+}
+
+- (AWSTask *)describeVpcPeeringConnections:(AWSEC2DescribeVpcPeeringConnectionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1167,7 +1193,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeVpcPeeringConnectionsResult class]];
 }
 
-- (BFTask *)describeVpcs:(AWSEC2DescribeVpcsRequest *)request {
+- (AWSTask *)describeVpcs:(AWSEC2DescribeVpcsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1176,7 +1202,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeVpcsResult class]];
 }
 
-- (BFTask *)describeVpnConnections:(AWSEC2DescribeVpnConnectionsRequest *)request {
+- (AWSTask *)describeVpnConnections:(AWSEC2DescribeVpnConnectionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1185,7 +1211,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeVpnConnectionsResult class]];
 }
 
-- (BFTask *)describeVpnGateways:(AWSEC2DescribeVpnGatewaysRequest *)request {
+- (AWSTask *)describeVpnGateways:(AWSEC2DescribeVpnGatewaysRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1194,7 +1220,16 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2DescribeVpnGatewaysResult class]];
 }
 
-- (BFTask *)detachInternetGateway:(AWSEC2DetachInternetGatewayRequest *)request {
+- (AWSTask *)detachClassicLinkVpc:(AWSEC2DetachClassicLinkVpcRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DetachClassicLinkVpc"
+                   outputClass:[AWSEC2DetachClassicLinkVpcResult class]];
+}
+
+- (AWSTask *)detachInternetGateway:(AWSEC2DetachInternetGatewayRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1203,7 +1238,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)detachNetworkInterface:(AWSEC2DetachNetworkInterfaceRequest *)request {
+- (AWSTask *)detachNetworkInterface:(AWSEC2DetachNetworkInterfaceRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1212,7 +1247,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)detachVolume:(AWSEC2DetachVolumeRequest *)request {
+- (AWSTask *)detachVolume:(AWSEC2DetachVolumeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1221,7 +1256,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2VolumeAttachment class]];
 }
 
-- (BFTask *)detachVpnGateway:(AWSEC2DetachVpnGatewayRequest *)request {
+- (AWSTask *)detachVpnGateway:(AWSEC2DetachVpnGatewayRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1230,7 +1265,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)disableVgwRoutePropagation:(AWSEC2DisableVgwRoutePropagationRequest *)request {
+- (AWSTask *)disableVgwRoutePropagation:(AWSEC2DisableVgwRoutePropagationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1239,7 +1274,16 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)disassociateAddress:(AWSEC2DisassociateAddressRequest *)request {
+- (AWSTask *)disableVpcClassicLink:(AWSEC2DisableVpcClassicLinkRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DisableVpcClassicLink"
+                   outputClass:[AWSEC2DisableVpcClassicLinkResult class]];
+}
+
+- (AWSTask *)disassociateAddress:(AWSEC2DisassociateAddressRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1248,7 +1292,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)disassociateRouteTable:(AWSEC2DisassociateRouteTableRequest *)request {
+- (AWSTask *)disassociateRouteTable:(AWSEC2DisassociateRouteTableRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1257,7 +1301,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)enableVgwRoutePropagation:(AWSEC2EnableVgwRoutePropagationRequest *)request {
+- (AWSTask *)enableVgwRoutePropagation:(AWSEC2EnableVgwRoutePropagationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1266,7 +1310,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)enableVolumeIO:(AWSEC2EnableVolumeIORequest *)request {
+- (AWSTask *)enableVolumeIO:(AWSEC2EnableVolumeIORequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1275,7 +1319,16 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)getConsoleOutput:(AWSEC2GetConsoleOutputRequest *)request {
+- (AWSTask *)enableVpcClassicLink:(AWSEC2EnableVpcClassicLinkRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"EnableVpcClassicLink"
+                   outputClass:[AWSEC2EnableVpcClassicLinkResult class]];
+}
+
+- (AWSTask *)getConsoleOutput:(AWSEC2GetConsoleOutputRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1284,7 +1337,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2GetConsoleOutputResult class]];
 }
 
-- (BFTask *)getPasswordData:(AWSEC2GetPasswordDataRequest *)request {
+- (AWSTask *)getPasswordData:(AWSEC2GetPasswordDataRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1293,7 +1346,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2GetPasswordDataResult class]];
 }
 
-- (BFTask *)importInstance:(AWSEC2ImportInstanceRequest *)request {
+- (AWSTask *)importInstance:(AWSEC2ImportInstanceRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1302,7 +1355,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2ImportInstanceResult class]];
 }
 
-- (BFTask *)importKeyPair:(AWSEC2ImportKeyPairRequest *)request {
+- (AWSTask *)importKeyPair:(AWSEC2ImportKeyPairRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1311,7 +1364,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2ImportKeyPairResult class]];
 }
 
-- (BFTask *)importVolume:(AWSEC2ImportVolumeRequest *)request {
+- (AWSTask *)importVolume:(AWSEC2ImportVolumeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1320,7 +1373,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2ImportVolumeResult class]];
 }
 
-- (BFTask *)modifyImageAttribute:(AWSEC2ModifyImageAttributeRequest *)request {
+- (AWSTask *)modifyImageAttribute:(AWSEC2ModifyImageAttributeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1329,7 +1382,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)modifyInstanceAttribute:(AWSEC2ModifyInstanceAttributeRequest *)request {
+- (AWSTask *)modifyInstanceAttribute:(AWSEC2ModifyInstanceAttributeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1338,7 +1391,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)modifyNetworkInterfaceAttribute:(AWSEC2ModifyNetworkInterfaceAttributeRequest *)request {
+- (AWSTask *)modifyNetworkInterfaceAttribute:(AWSEC2ModifyNetworkInterfaceAttributeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1347,7 +1400,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)modifyReservedInstances:(AWSEC2ModifyReservedInstancesRequest *)request {
+- (AWSTask *)modifyReservedInstances:(AWSEC2ModifyReservedInstancesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1356,7 +1409,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2ModifyReservedInstancesResult class]];
 }
 
-- (BFTask *)modifySnapshotAttribute:(AWSEC2ModifySnapshotAttributeRequest *)request {
+- (AWSTask *)modifySnapshotAttribute:(AWSEC2ModifySnapshotAttributeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1365,7 +1418,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)modifySubnetAttribute:(AWSEC2ModifySubnetAttributeRequest *)request {
+- (AWSTask *)modifySubnetAttribute:(AWSEC2ModifySubnetAttributeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1374,7 +1427,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)modifyVolumeAttribute:(AWSEC2ModifyVolumeAttributeRequest *)request {
+- (AWSTask *)modifyVolumeAttribute:(AWSEC2ModifyVolumeAttributeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1383,7 +1436,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)modifyVpcAttribute:(AWSEC2ModifyVpcAttributeRequest *)request {
+- (AWSTask *)modifyVpcAttribute:(AWSEC2ModifyVpcAttributeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1392,7 +1445,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)monitorInstances:(AWSEC2MonitorInstancesRequest *)request {
+- (AWSTask *)monitorInstances:(AWSEC2MonitorInstancesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1401,7 +1454,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2MonitorInstancesResult class]];
 }
 
-- (BFTask *)purchaseReservedInstancesOffering:(AWSEC2PurchaseReservedInstancesOfferingRequest *)request {
+- (AWSTask *)purchaseReservedInstancesOffering:(AWSEC2PurchaseReservedInstancesOfferingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1410,7 +1463,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2PurchaseReservedInstancesOfferingResult class]];
 }
 
-- (BFTask *)rebootInstances:(AWSEC2RebootInstancesRequest *)request {
+- (AWSTask *)rebootInstances:(AWSEC2RebootInstancesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1419,7 +1472,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)registerImage:(AWSEC2RegisterImageRequest *)request {
+- (AWSTask *)registerImage:(AWSEC2RegisterImageRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1428,7 +1481,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2RegisterImageResult class]];
 }
 
-- (BFTask *)rejectVpcPeeringConnection:(AWSEC2RejectVpcPeeringConnectionRequest *)request {
+- (AWSTask *)rejectVpcPeeringConnection:(AWSEC2RejectVpcPeeringConnectionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1437,7 +1490,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2RejectVpcPeeringConnectionResult class]];
 }
 
-- (BFTask *)releaseAddress:(AWSEC2ReleaseAddressRequest *)request {
+- (AWSTask *)releaseAddress:(AWSEC2ReleaseAddressRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1446,7 +1499,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)replaceNetworkAclAssociation:(AWSEC2ReplaceNetworkAclAssociationRequest *)request {
+- (AWSTask *)replaceNetworkAclAssociation:(AWSEC2ReplaceNetworkAclAssociationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1455,7 +1508,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2ReplaceNetworkAclAssociationResult class]];
 }
 
-- (BFTask *)replaceNetworkAclEntry:(AWSEC2ReplaceNetworkAclEntryRequest *)request {
+- (AWSTask *)replaceNetworkAclEntry:(AWSEC2ReplaceNetworkAclEntryRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1464,7 +1517,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)replaceRoute:(AWSEC2ReplaceRouteRequest *)request {
+- (AWSTask *)replaceRoute:(AWSEC2ReplaceRouteRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1473,7 +1526,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)replaceRouteTableAssociation:(AWSEC2ReplaceRouteTableAssociationRequest *)request {
+- (AWSTask *)replaceRouteTableAssociation:(AWSEC2ReplaceRouteTableAssociationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1482,7 +1535,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2ReplaceRouteTableAssociationResult class]];
 }
 
-- (BFTask *)replicateImage:(AWSEC2ReplicateImageRequest *)request {
+- (AWSTask *)replicateImage:(AWSEC2ReplicateImageRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1491,7 +1544,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2ReplicateImageResult class]];
 }
 
-- (BFTask *)replicateSnapshot:(AWSEC2ReplicateSnapshotRequest *)request {
+- (AWSTask *)replicateSnapshot:(AWSEC2ReplicateSnapshotRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1500,7 +1553,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2ReplicateSnapshotResult class]];
 }
 
-- (BFTask *)reportInstanceStatus:(AWSEC2ReportInstanceStatusRequest *)request {
+- (AWSTask *)reportInstanceStatus:(AWSEC2ReportInstanceStatusRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1509,7 +1562,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)requestSpotInstances:(AWSEC2RequestSpotInstancesRequest *)request {
+- (AWSTask *)requestSpotInstances:(AWSEC2RequestSpotInstancesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1518,7 +1571,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2RequestSpotInstancesResult class]];
 }
 
-- (BFTask *)resetImageAttribute:(AWSEC2ResetImageAttributeRequest *)request {
+- (AWSTask *)resetImageAttribute:(AWSEC2ResetImageAttributeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1527,7 +1580,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)resetInstanceAttribute:(AWSEC2ResetInstanceAttributeRequest *)request {
+- (AWSTask *)resetInstanceAttribute:(AWSEC2ResetInstanceAttributeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1536,7 +1589,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)resetNetworkInterfaceAttribute:(AWSEC2ResetNetworkInterfaceAttributeRequest *)request {
+- (AWSTask *)resetNetworkInterfaceAttribute:(AWSEC2ResetNetworkInterfaceAttributeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1545,7 +1598,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)resetSnapshotAttribute:(AWSEC2ResetSnapshotAttributeRequest *)request {
+- (AWSTask *)resetSnapshotAttribute:(AWSEC2ResetSnapshotAttributeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1554,7 +1607,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)revokeSecurityGroupEgress:(AWSEC2RevokeSecurityGroupEgressRequest *)request {
+- (AWSTask *)revokeSecurityGroupEgress:(AWSEC2RevokeSecurityGroupEgressRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1563,7 +1616,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)revokeSecurityGroupIngress:(AWSEC2RevokeSecurityGroupIngressRequest *)request {
+- (AWSTask *)revokeSecurityGroupIngress:(AWSEC2RevokeSecurityGroupIngressRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1572,7 +1625,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)runInstances:(AWSEC2RunInstancesRequest *)request {
+- (AWSTask *)runInstances:(AWSEC2RunInstancesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1581,7 +1634,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2Reservation class]];
 }
 
-- (BFTask *)startInstances:(AWSEC2StartInstancesRequest *)request {
+- (AWSTask *)startInstances:(AWSEC2StartInstancesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1590,7 +1643,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2StartInstancesResult class]];
 }
 
-- (BFTask *)stopInstances:(AWSEC2StopInstancesRequest *)request {
+- (AWSTask *)stopInstances:(AWSEC2StopInstancesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1599,7 +1652,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2StopInstancesResult class]];
 }
 
-- (BFTask *)terminateInstances:(AWSEC2TerminateInstancesRequest *)request {
+- (AWSTask *)terminateInstances:(AWSEC2TerminateInstancesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1608,7 +1661,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSEC2TerminateInstancesResult class]];
 }
 
-- (BFTask *)unassignPrivateIpAddresses:(AWSEC2UnassignPrivateIpAddressesRequest *)request {
+- (AWSTask *)unassignPrivateIpAddresses:(AWSEC2UnassignPrivateIpAddressesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -1617,7 +1670,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)unmonitorInstances:(AWSEC2UnmonitorInstancesRequest *)request {
+- (AWSTask *)unmonitorInstances:(AWSEC2UnmonitorInstancesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""

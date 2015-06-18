@@ -58,12 +58,12 @@ static NSString *table2Name = nil;
 
 #pragma mark - Utilities
 
-+ (BFTask *)waitForTableToBeActive:(NSString *)tableName {
++ (AWSTask *)waitForTableToBeActive:(NSString *)tableName {
     AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
 
-    BFTask *task = [BFTask taskWithResult:nil];
+    AWSTask *task = [AWSTask taskWithResult:nil];
     for(int32_t i = 0; i < 16; i++) {
-        task = [task continueWithSuccessBlock:^id(BFTask *task) {
+        task = [task continueWithSuccessBlock:^id(AWSTask *task) {
             if (task.result) {
                 AWSDynamoDBDescribeTableOutput *describeTableOutput = task.result;
                 AWSDynamoDBTableStatus tableStatus = describeTableOutput.table.tableStatus;
@@ -83,12 +83,12 @@ static NSString *table2Name = nil;
     return task;
 }
 
-+ (BFTask *)waitForTableToBeDeleted:(NSString *)tableName {
++ (AWSTask *)waitForTableToBeDeleted:(NSString *)tableName {
     AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
 
-    BFTask *task = [BFTask taskWithResult:nil];
+    AWSTask *task = [AWSTask taskWithResult:nil];
     for(int32_t i = 0; i < 16; i ++) {
-        task = [task continueWithSuccessBlock:^id(BFTask *task) {
+        task = [task continueWithSuccessBlock:^id(AWSTask *task) {
             sleep(15);
 
             AWSDynamoDBDescribeTableInput *describeTableInput = [AWSDynamoDBDescribeTableInput new];
@@ -108,7 +108,7 @@ static NSString *table2Name = nil;
     describeTableInput.tableName = tableName;
 
     [[[[[dynamoDB describeTable:describeTableInput
-         ] continueWithBlock:^id(BFTask *task) {
+         ] continueWithBlock:^id(AWSTask *task) {
         if ([task.error.domain isEqualToString:AWSDynamoDBErrorDomain]
             && task.error.code == AWSDynamoDBErrorResourceNotFound) {
             AWSDynamoDBAttributeDefinition *attributeDefinition = [AWSDynamoDBAttributeDefinition new];
@@ -133,9 +133,9 @@ static NSString *table2Name = nil;
         }
 
         return nil;
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         return [self waitForTableToBeActive:tableName];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             succeeded = NO;
         } else {
@@ -156,9 +156,9 @@ static NSString *table2Name = nil;
     deleteTableInput.tableName = tableName;
 
     [[[[dynamoDB deleteTable:deleteTableInput
-        ] continueWithSuccessBlock:^id(BFTask *task) {
+        ] continueWithSuccessBlock:^id(AWSTask *task) {
         return [self waitForTableToBeDeleted:tableName];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error
             && (![task.error.domain isEqualToString:AWSDynamoDBErrorDomain]
                 || task.error.code != AWSDynamoDBErrorResourceNotFound)) {
@@ -187,7 +187,7 @@ static NSString *table2Name = nil;
     AWSDynamoDBListTablesInput *listTablesInput = [AWSDynamoDBListTablesInput new];
 
     [[[dynamoDB listTables:listTablesInput
-       ] continueWithBlock:^id(BFTask *task) {
+       ] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"The request failed. error: [%@]", task.error);
         } else {
@@ -208,7 +208,7 @@ static NSString *table2Name = nil;
     describeTableInput.tableName = table1Name;
 
     [[[dynamoDB describeTable:describeTableInput
-       ] continueWithBlock:^id(BFTask *task) {
+       ] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"The request failed. error: [%@]", task.error);
         } else {
@@ -227,7 +227,7 @@ static NSString *table2Name = nil;
     AWSDynamoDBDescribeTableInput *describeTableInput = [AWSDynamoDBDescribeTableInput new];
     describeTableInput.tableName = table1Name;
 
-    BFTask *task = [[dynamoDB describeTable:describeTableInput] continueWithBlock:^id(BFTask *task) {
+    AWSTask *task = [[dynamoDB describeTable:describeTableInput] continueWithBlock:^id(AWSTask *task) {
         if (!([task.error.domain isEqualToString:NSURLErrorDomain]
               && task.error.code == NSURLErrorCancelled)) {
             XCTFail(@"Failed to cancel a request. task: [%@]", task);
@@ -247,7 +247,7 @@ static NSString *table2Name = nil;
     AWSDynamoDBListTablesInput *listTablesInput = [AWSDynamoDBListTablesInput new];
 
     [[[dynamoDB listTables:listTablesInput
-       ] continueWithBlock:^id(BFTask *task) {
+       ] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"The request failed. error: [%@]", task.error);
         } else {
@@ -300,7 +300,7 @@ static NSString *table2Name = nil;
 
     putItemInput.returnValues = AWSDynamoDBReturnValueAllOld;
 
-    [[[dynamoDB putItem:putItemInput] continueWithBlock:^id(BFTask *task) {
+    [[[dynamoDB putItem:putItemInput] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"The request failed. error: [%@]", task.error);
         } else {
@@ -382,7 +382,7 @@ static NSString *table2Name = nil;
 
     putItemInput.returnValues = AWSDynamoDBReturnValueAllOld;
 
-    [[[[dynamoDB putItem:putItemInput] continueWithSuccessBlock:^id(BFTask *task) {
+    [[[[dynamoDB putItem:putItemInput] continueWithSuccessBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"The request failed. error: [%@]", task.error);
         }
@@ -396,7 +396,7 @@ static NSString *table2Name = nil;
         getItemInput.key = @{@"hashKey": hashValue};
 
         return [dynamoDB getItem:getItemInput];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"The request failed. error: [%@]", task.error);
         } else {
@@ -446,7 +446,7 @@ static NSString *table2Name = nil;
     deleteItemInput.returnItemCollectionMetrics = AWSDynamoDBReturnItemCollectionMetricsSize;
 
     [[[dynamoDB deleteItem:deleteItemInput
-       ] continueWithBlock:^id(BFTask *task) {
+       ] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"The request failed. error: [%@]", task.error);
         } else {
@@ -476,7 +476,7 @@ static NSString *table2Name = nil;
                           };
 
     [[[[dynamoDB putItem:putItemInput
-        ] continueWithSuccessBlock:^id(BFTask *task) {
+        ] continueWithSuccessBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBPutItemOutput class]], @"The response object is not a class of [%@]", NSStringFromClass([AWSDynamoDBPutItemOutput class]));
 
@@ -490,7 +490,7 @@ static NSString *table2Name = nil;
         queryInput.keyConditions = @{@"hashKey": conditon};
 
         return [dynamoDB query:queryInput];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBQueryOutput class]], @"The response object is not a class of [%@]", NSStringFromClass([AWSDynamoDBQueryOutput class]));
 
@@ -532,11 +532,11 @@ static NSString *table2Name = nil;
                           };
 
     [[[[dynamoDB putItem:putItemInput
-        ] continueWithSuccessBlock:^id(BFTask *task) {
+        ] continueWithSuccessBlock:^id(AWSTask *task) {
         XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBPutItemOutput class]], @"The response object is not a class of [%@]", NSStringFromClass([AWSDynamoDBPutItemOutput class]));
 
         return [dynamoDB scan:scanInput];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Scan operation failed. error: [%@]", task.error);
         } else {
@@ -583,7 +583,7 @@ static NSString *table2Name = nil;
                           };
 
     [[[[dynamoDB putItem:putItemInput
-        ] continueWithSuccessBlock:^id(BFTask *task) {
+        ] continueWithSuccessBlock:^id(AWSTask *task) {
 
         XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBPutItemOutput class]], @"The response object is not a class of [%@]", NSStringFromClass([AWSDynamoDBPutItemOutput class]));
 
@@ -599,7 +599,7 @@ static NSString *table2Name = nil;
         updateInput.returnValues = AWSDynamoDBReturnValueUpdatedNew;
 
         return [dynamoDB updateItem:updateInput];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"The request failed. error: [%@]", task.error);
         } else {
@@ -631,16 +631,16 @@ static NSString *table2Name = nil;
 
 
     [[[[[dynamoDB updateTable:updateTableInput
-         ] continueWithSuccessBlock:^id(BFTask *task) {
+         ] continueWithSuccessBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
         return [[self class] waitForTableToBeActive:table2Name];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
         AWSDynamoDBDescribeTableInput *describeTableInput = [AWSDynamoDBDescribeTableInput new];
         describeTableInput.tableName = table2Name;
 
         return [dynamoDB describeTable:describeTableInput];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"The request failed. error: [%@]", task.error);
         } else {
@@ -678,7 +678,7 @@ static NSString *table2Name = nil;
                           };
 
     [[[[[dynamoDB putItem:putItemInput
-         ] continueWithSuccessBlock:^id(BFTask *task) {
+         ] continueWithSuccessBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBPutItemOutput class]], @"The response object is not a class of [%@]", NSStringFromClass([AWSDynamoDBPutItemOutput class]));
 
@@ -694,7 +694,7 @@ static NSString *table2Name = nil;
                                @"otherKey" : otherValue2
                                };
         return [dynamoDB putItem:putItemInput2];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBPutItemOutput class]], @"The response object is not a class of [%@]", NSStringFromClass([AWSDynamoDBPutItemOutput class]));
 
@@ -707,7 +707,7 @@ static NSString *table2Name = nil;
 
 
         return [dynamoDB batchGetItem:batchGetItemInput];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"The request failed. error: [%@]", task.error);
         } else {
@@ -770,7 +770,7 @@ static NSString *table2Name = nil;
     batchWriteItemInput.requestItems = @{table1Name: @[writeRequest,writeRequest2]};
 
     [[[dynamoDB batchWriteItem:batchWriteItemInput
-       ] continueWithBlock:^id(BFTask *task) {
+       ] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"The request failed. error: [%@]", task.error);
         } else {
@@ -807,18 +807,18 @@ static NSString *table2Name = nil;
 
 
     [[[[[[dynamoDB createTable:createTableInput
-          ] continueWithSuccessBlock:^id(BFTask *task) {
+          ] continueWithSuccessBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
         AWSDynamoDBCreateTableOutput *createTableOutput = task.result;
         AWSDynamoDBTableDescription *tableDescription = createTableOutput.tableDescription;
         XCTAssertEqualObjects(tableDescription.tableName,table2Name);
         return [[self class] waitForTableToBeActive:table2Name];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
         AWSDynamoDBDeleteTableInput *deleteTableInput = [AWSDynamoDBDeleteTableInput new];
         deleteTableInput.tableName = table2Name;
         return [dynamoDB deleteTable: deleteTableInput];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
         AWSDynamoDBDeleteTableOutput *deleteTableOutput = task.result;
         AWSDynamoDBTableDescription *tableDescription = deleteTableOutput.tableDescription;
@@ -826,7 +826,7 @@ static NSString *table2Name = nil;
         XCTAssertEqual(tableDescription.tableStatus, AWSDynamoDBTableStatusDeleting);
 
         return [[self class] waitForTableToBeDeleted:table2Name];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error
             && (![task.error.domain isEqualToString:AWSDynamoDBErrorDomain]
                 || task.error.code != AWSDynamoDBErrorResourceNotFound)) {
@@ -848,10 +848,10 @@ static NSString *table2Name = nil;
  [mutableString appendString:@"0123456789"];
  }
 
- BFTask *task = [BFTask taskWithResult:nil];
+ AWSTask *task = [AWSTask taskWithResult:nil];
 
  for (int32_t i = 0; i < 200; i++) {
- task = [task continueWithSuccessBlock:^id(BFTask *task) {
+ task = [task continueWithSuccessBlock:^id(AWSTask *task) {
  //Put item
  AWSDynamoDBPutItemInput *putItemInput = [AWSDynamoDBPutItemInput new];
  putItemInput.tableName = table2Name;
@@ -867,7 +867,7 @@ static NSString *table2Name = nil;
  }];
  }
  
- [[task continueWithBlock:^id(BFTask *task) {
+ [[task continueWithBlock:^id(AWSTask *task) {
  if (!task.error
  && !([task.error.domain isEqualToString:AWSDynamoDBErrorDomain]
  || task.error.code == AWSDynamoDBErrorProvisionedThroughputExceeded)) {

@@ -55,7 +55,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] addPermission:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] addPermission:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -70,7 +70,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] confirmSubscription:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] confirmSubscription:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -85,7 +85,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] createPlatformApplication:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] createPlatformApplication:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -100,7 +100,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] createPlatformEndpoint:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] createPlatformEndpoint:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -115,7 +115,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] createTopic:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] createTopic:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -130,7 +130,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] deleteEndpoint:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] deleteEndpoint:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -145,7 +145,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] deletePlatformApplication:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] deletePlatformApplication:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -160,7 +160,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] deleteTopic:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] deleteTopic:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -175,7 +175,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] getEndpointAttributes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] getEndpointAttributes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -190,7 +190,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] getPlatformApplicationAttributes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] getPlatformApplicationAttributes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -205,7 +205,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] getSubscriptionAttributes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] getSubscriptionAttributes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -220,7 +220,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] getTopicAttributes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] getTopicAttributes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -235,7 +235,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] listEndpointsByPlatformApplication:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] listEndpointsByPlatformApplication:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -250,7 +250,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] listPlatformApplications:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] listPlatformApplications:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -265,7 +265,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] listSubscriptions:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] listSubscriptions:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -280,7 +280,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] listSubscriptionsByTopic:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] listSubscriptionsByTopic:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -295,7 +295,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] listTopics:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] listTopics:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -310,7 +310,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] publish:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] publish:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -325,7 +325,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] removePermission:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] removePermission:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -340,7 +340,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] setEndpointAttributes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] setEndpointAttributes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -355,7 +355,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] setPlatformApplicationAttributes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] setPlatformApplicationAttributes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -370,7 +370,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] setSubscriptionAttributes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] setSubscriptionAttributes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -385,7 +385,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] setTopicAttributes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] setTopicAttributes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -400,7 +400,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] subscribe:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] subscribe:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -415,7 +415,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSNS SNSForKey:key] unsubscribe:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSNS SNSForKey:key] unsubscribe:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);

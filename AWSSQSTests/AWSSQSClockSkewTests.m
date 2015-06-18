@@ -87,7 +87,7 @@ static NSString *AWSClockSkewTestsSTSKey = @"AWSClockSkewTestsSTSKey";
     XCTAssertNotNil(sqs);
 
     AWSSQSListQueuesRequest *listQueuesRequest = [AWSSQSListQueuesRequest new];
-    [[[sqs listQueues:listQueuesRequest] continueWithBlock:^id(BFTask *task) {
+    [[[sqs listQueues:listQueuesRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }

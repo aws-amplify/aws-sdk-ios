@@ -24,7 +24,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
     AWSCognitoCredentialsProviderInvalidConfiguration,
 };
 
-@class BFTask;
+@class AWSTask;
 
 /**
  *  The AWS credentials provider protocol used to provide credentials
@@ -59,9 +59,9 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
  *
  *  *Note* This method is automatically called by the AWS Mobile SDK for iOS, and you do not need to call this method in general.
  *
- *  @return BFTask.
+ *  @return AWSTask.
  */
-- (BFTask *)refresh;
+- (AWSTask *)refresh;
 
 @end
 
@@ -119,7 +119,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
                    roleSessionName:(NSString *)roleSessionName
                   webIdentityToken:(NSString *)webIdentityToken;
 
-- (BFTask *)refresh;
+- (AWSTask *)refresh;
 
 + (instancetype)credentialsWithRegionType:(AWSRegionType)regionType
                                providerId:(NSString *)providerId
@@ -268,19 +268,19 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
  *  Refreshes the locally stored credentials. The SDK automatically calls this method when necessary,
  *  and you do not need to call this method manually.
  *
- *  @return BFTask
+ *  @return AWSTask
  */
-- (BFTask *)refresh;
+- (AWSTask *)refresh;
 
 /**
  *  Get/retrieve the identity id for this provider. If an identity id is already set on this
- *  provider, no remote call is made and the identity will be returned as a result of the BFTask
+ *  provider, no remote call is made and the identity will be returned as a result of the AWSTask
  *  (the identityId is also available as a property).
  *  If no identityId is set on this provider, one will be retrieved from the service.
  *
- *  @return BFTask
+ *  @return AWSTask
  */
-- (BFTask *)getIdentityId;
+- (AWSTask *)getIdentityId;
 
 /**
  *  Clear ALL saved values for this provider (identityId, credentials, logins)

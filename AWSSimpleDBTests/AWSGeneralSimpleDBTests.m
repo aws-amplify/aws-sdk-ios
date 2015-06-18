@@ -55,7 +55,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSimpleDB SimpleDBForKey:key] batchDeleteAttributes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSimpleDB SimpleDBForKey:key] batchDeleteAttributes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -70,7 +70,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSimpleDB SimpleDBForKey:key] batchPutAttributes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSimpleDB SimpleDBForKey:key] batchPutAttributes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -85,7 +85,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSimpleDB SimpleDBForKey:key] createDomain:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSimpleDB SimpleDBForKey:key] createDomain:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -100,7 +100,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSimpleDB SimpleDBForKey:key] deleteAttributes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSimpleDB SimpleDBForKey:key] deleteAttributes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -115,7 +115,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSimpleDB SimpleDBForKey:key] deleteDomain:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSimpleDB SimpleDBForKey:key] deleteDomain:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -130,7 +130,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSimpleDB SimpleDBForKey:key] domainMetadata:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSimpleDB SimpleDBForKey:key] domainMetadata:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -145,7 +145,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSimpleDB SimpleDBForKey:key] getAttributes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSimpleDB SimpleDBForKey:key] getAttributes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -160,7 +160,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSimpleDB SimpleDBForKey:key] listDomains:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSimpleDB SimpleDBForKey:key] listDomains:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -175,7 +175,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSimpleDB SimpleDBForKey:key] putAttributes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSimpleDB SimpleDBForKey:key] putAttributes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -190,7 +190,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSimpleDB SimpleDBForKey:key] select:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSimpleDB SimpleDBForKey:key] select:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);

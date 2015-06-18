@@ -24,6 +24,7 @@
 #import "AWSURLResponseSerialization.h"
 #import "AWSURLRequestRetryHandler.h"
 #import "AWSSynchronizedMutableDictionary.h"
+#import "AWSDynamoDBResources.h"
 
 NSString *const AWSDynamoDBDefinitionFileName = @"dynamodb-2012-08-10";
 
@@ -83,9 +84,9 @@ static NSDictionary *errorCodeDictionary = nil;
         }
 
         if (self.outputClass) {
-            responseObject = [MTLJSONAdapter modelOfClass:self.outputClass
-                                       fromJSONDictionary:responseObject
-                                                    error:error];
+            responseObject = [AWSMTLJSONAdapter modelOfClass:self.outputClass
+                                          fromJSONDictionary:responseObject
+                                                       error:error];
         }
     }
 
@@ -226,7 +227,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return self;
 }
 
-- (BFTask *)invokeRequest:(AWSRequest *)request
+- (AWSTask *)invokeRequest:(AWSRequest *)request
                HTTPMethod:(AWSHTTPMethod)HTTPMethod
                 URLString:(NSString *) URLString
              targetPrefix:(NSString *)targetPrefix
@@ -240,7 +241,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         
         AWSNetworkingRequest *networkingRequest = request.internalRequest;
         if (request) {
-            networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
+            networkingRequest.parameters = [[AWSMTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
         } else {
             networkingRequest.parameters = @{};
         }
@@ -248,20 +249,18 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         headers[@"X-Amz-Target"] = [NSString stringWithFormat:@"%@.%@", targetPrefix, operationName];
         networkingRequest.headers = headers;
         networkingRequest.HTTPMethod = HTTPMethod;
-        networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithResource:AWSDynamoDBDefinitionFileName
-                                                                                      actionName:operationName
-                                                                                  classForBundle:[self class]];
-        networkingRequest.responseSerializer = [[AWSDynamoDBResponseSerializer alloc] initWithResource:AWSDynamoDBDefinitionFileName
-                                                                                            actionName:operationName
-                                                                                           outputClass:outputClass
-                                                                                        classForBundle:[self class]];
+        networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithJSONDefinition:[[AWSDynamoDBResources sharedInstance] JSONObject]
+                                                                                            actionName:operationName];
+        networkingRequest.responseSerializer = [[AWSDynamoDBResponseSerializer alloc] initWithJSONDefinition:[[AWSDynamoDBResources sharedInstance] JSONObject]
+                                                                                                  actionName:operationName
+                                                                                                 outputClass:outputClass];
         return [self.networking sendRequest:networkingRequest];
     }
 }
 
 #pragma mark - Service method
 
-- (BFTask *)batchGetItem:(AWSDynamoDBBatchGetItemInput *)request {
+- (AWSTask *)batchGetItem:(AWSDynamoDBBatchGetItemInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -270,7 +269,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSDynamoDBBatchGetItemOutput class]];
 }
 
-- (BFTask *)batchWriteItem:(AWSDynamoDBBatchWriteItemInput *)request {
+- (AWSTask *)batchWriteItem:(AWSDynamoDBBatchWriteItemInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -279,7 +278,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSDynamoDBBatchWriteItemOutput class]];
 }
 
-- (BFTask *)createTable:(AWSDynamoDBCreateTableInput *)request {
+- (AWSTask *)createTable:(AWSDynamoDBCreateTableInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -288,7 +287,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSDynamoDBCreateTableOutput class]];
 }
 
-- (BFTask *)deleteItem:(AWSDynamoDBDeleteItemInput *)request {
+- (AWSTask *)deleteItem:(AWSDynamoDBDeleteItemInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -297,7 +296,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSDynamoDBDeleteItemOutput class]];
 }
 
-- (BFTask *)deleteTable:(AWSDynamoDBDeleteTableInput *)request {
+- (AWSTask *)deleteTable:(AWSDynamoDBDeleteTableInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -306,7 +305,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSDynamoDBDeleteTableOutput class]];
 }
 
-- (BFTask *)describeTable:(AWSDynamoDBDescribeTableInput *)request {
+- (AWSTask *)describeTable:(AWSDynamoDBDescribeTableInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -315,7 +314,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSDynamoDBDescribeTableOutput class]];
 }
 
-- (BFTask *)getItem:(AWSDynamoDBGetItemInput *)request {
+- (AWSTask *)getItem:(AWSDynamoDBGetItemInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -324,7 +323,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSDynamoDBGetItemOutput class]];
 }
 
-- (BFTask *)listTables:(AWSDynamoDBListTablesInput *)request {
+- (AWSTask *)listTables:(AWSDynamoDBListTablesInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -333,7 +332,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSDynamoDBListTablesOutput class]];
 }
 
-- (BFTask *)putItem:(AWSDynamoDBPutItemInput *)request {
+- (AWSTask *)putItem:(AWSDynamoDBPutItemInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -342,7 +341,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSDynamoDBPutItemOutput class]];
 }
 
-- (BFTask *)query:(AWSDynamoDBQueryInput *)request {
+- (AWSTask *)query:(AWSDynamoDBQueryInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -351,7 +350,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSDynamoDBQueryOutput class]];
 }
 
-- (BFTask *)scan:(AWSDynamoDBScanInput *)request {
+- (AWSTask *)scan:(AWSDynamoDBScanInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -360,7 +359,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSDynamoDBScanOutput class]];
 }
 
-- (BFTask *)updateItem:(AWSDynamoDBUpdateItemInput *)request {
+- (AWSTask *)updateItem:(AWSDynamoDBUpdateItemInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -369,7 +368,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSDynamoDBUpdateItemOutput class]];
 }
 
-- (BFTask *)updateTable:(AWSDynamoDBUpdateTableInput *)request {
+- (AWSTask *)updateTable:(AWSDynamoDBUpdateTableInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""

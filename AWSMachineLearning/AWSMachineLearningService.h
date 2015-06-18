@@ -172,23 +172,23 @@
  
  @param request A container for the necessary parameters to execute the GetMLModel service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSMachineLearningGetMLModelOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSMachineLearningErrorDomain` domian and the following error code: `AWSMachineLearningErrorInvalidInput`, `AWSMachineLearningErrorResourceNotFound`, `AWSMachineLearningErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSMachineLearningGetMLModelOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSMachineLearningErrorDomain` domian and the following error code: `AWSMachineLearningErrorInvalidInput`, `AWSMachineLearningErrorResourceNotFound`, `AWSMachineLearningErrorInternalServer`.
  
  @see AWSMachineLearningGetMLModelInput
  @see AWSMachineLearningGetMLModelOutput
  */
-- (BFTask *)getMLModel:(AWSMachineLearningGetMLModelInput *)request;
+- (AWSTask *)getMLModel:(AWSMachineLearningGetMLModelInput *)request;
 
 /**
  <p>Generates a prediction for the observation using the specified <code>MLModel</code>.</p><note><title>Note</title><p>Not all response parameters will be populated because this is dependent on the type of requested model.</p></note>
  
  @param request A container for the necessary parameters to execute the Predict service method.
  
- @return An instance of `BFTask`. On successful execution, `task.result` will contain an instance of `AWSMachineLearningPredictOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSMachineLearningErrorDomain` domian and the following error code: `AWSMachineLearningErrorInvalidInput`, `AWSMachineLearningErrorResourceNotFound`, `AWSMachineLearningErrorLimitExceeded`, `AWSMachineLearningErrorInternalServer`, `AWSMachineLearningErrorPredictorNotMounted`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSMachineLearningPredictOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSMachineLearningErrorDomain` domian and the following error code: `AWSMachineLearningErrorInvalidInput`, `AWSMachineLearningErrorResourceNotFound`, `AWSMachineLearningErrorLimitExceeded`, `AWSMachineLearningErrorInternalServer`, `AWSMachineLearningErrorPredictorNotMounted`.
  
  @see AWSMachineLearningPredictInput
  @see AWSMachineLearningPredictOutput
  */
-- (BFTask *)predict:(AWSMachineLearningPredictInput *)request;
+- (AWSTask *)predict:(AWSMachineLearningPredictInput *)request;
 
 @end

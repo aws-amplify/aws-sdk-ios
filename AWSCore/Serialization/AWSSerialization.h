@@ -159,6 +159,7 @@ typedef NS_ENUM(NSInteger, AWSJSONParserErrorType) {
 @interface AWSJSONParser : NSObject
 
 + (NSDictionary *)dictionaryForJsonData:(NSData *)data
+                               response:(NSHTTPURLResponse *)response
                              actionName:(NSString *)actionName
                   serviceDefinitionRule:(NSDictionary *)serviceDefinitionRule
                                   error:(NSError *__autoreleasing *)error;

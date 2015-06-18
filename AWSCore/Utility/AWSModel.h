@@ -13,9 +13,9 @@
  permissions and limitations under the License.
  */
 
-#import <Mantle/Mantle.h>
+#import "AWSMantle.h"
 
-@interface AWSModel : MTLModel <MTLJSONSerializing>
+@interface AWSModel : AWSMTLModel <AWSMTLJSONSerializing>
 
 @end
 

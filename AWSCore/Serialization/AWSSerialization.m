@@ -17,7 +17,7 @@
 #import "AWSXMLWriter.h"
 #import "AWSCategory.h"
 #import "AWSLogging.h"
-#import <XMLDictionary/XMLDictionary.h>
+#import "AWSXMLDictionary.h"
 
 NSString *const AWSXMLBuilderErrorDomain = @"com.amazonaws.AWSXMLBuilderErrorDomain";
 NSString *const AWSXMLParserErrorDomain = @"com.amazonaws.AWSXMLParserErrorDomain";
@@ -361,7 +361,7 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
 
 @interface AWSXMLParser ()
 
-@property (nonatomic, strong) XMLDictionaryParser *xmlDictionaryParser;
+@property (nonatomic, strong) AWSXMLDictionaryParser *xmlDictionaryParser;
 
 @end
 
@@ -378,12 +378,12 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
 
 - (instancetype)init {
     if (self = [super init]) {
-        _xmlDictionaryParser = [XMLDictionaryParser new];
+        _xmlDictionaryParser = [AWSXMLDictionaryParser new];
         _xmlDictionaryParser.trimWhiteSpace = NO;
-        _xmlDictionaryParser.attributesMode = XMLDictionaryAttributesModeDiscard; //discard all xml attributes. e.g. xmlns
+        _xmlDictionaryParser.attributesMode = AWSXMLDictionaryAttributesModeDiscard; //discard all xml attributes. e.g. xmlns
         _xmlDictionaryParser.stripEmptyNodes = NO;
         _xmlDictionaryParser.wrapRootNode = YES; //wrapRootNode for easy process
-        _xmlDictionaryParser.nodeNameMode = XMLDictionaryNodeNameModeNever; //do not need rootName anymore since rootNode is wrapped.
+        _xmlDictionaryParser.nodeNameMode = AWSXMLDictionaryNodeNameModeNever; //do not need rootName anymore since rootNode is wrapped.
     }
 
     return self;
@@ -1495,6 +1495,7 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
 }
 
 + (NSDictionary *)dictionaryForJsonData:(NSData *)data
+                               response:(NSHTTPURLResponse *)response
                              actionName:(NSString *)actionName
                   serviceDefinitionRule:(NSDictionary *)serviceDefinitionRule
                                   error:(NSError *__autoreleasing *)error {
@@ -1525,8 +1526,7 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
     }
 
     //if the response is error message, just return
-    if ([result isKindOfClass:[NSDictionary class]] &&
-        ([result objectForKey:@"__type"] || [result aws_objectForCaseInsensitiveKey:@"message"])) {
+    if (response.statusCode/100 != 2) {
         return result;
     }
 

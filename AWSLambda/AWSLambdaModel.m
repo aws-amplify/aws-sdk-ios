@@ -56,7 +56,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)startingPositionJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"TRIM_HORIZON"]) {
             return @(AWSLambdaEventSourcePositionTrimHorizon);
         }
@@ -95,29 +95,19 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)codeJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaFunctionCode class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaFunctionCode class]];
 }
 
 + (NSValueTransformer *)runtimeJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"nodejs"]) {
             return @(AWSLambdaRuntimeNodejs);
-        }
-        if ([value isEqualToString:@"jvm"]) {
-            return @(AWSLambdaRuntimeJvm);
-        }
-        if ([value isEqualToString:@"python"]) {
-            return @(AWSLambdaRuntimePython);
         }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSLambdaRuntimeNodejs:
                 return @"nodejs";
-            case AWSLambdaRuntimeJvm:
-                return @"jvm";
-            case AWSLambdaRuntimePython:
-                return @"python";
             case AWSLambdaRuntimeUnknown:
             default:
                 return nil;
@@ -163,7 +153,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)lastModifiedJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
         return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
         return [date aws_stringValue:AWSDateISO8601DateFormat1];
@@ -176,6 +166,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"s3Bucket" : @"S3Bucket",
+             @"s3Key" : @"S3Key",
+             @"s3ObjectVersion" : @"S3ObjectVersion",
              @"zipFile" : @"ZipFile",
              };
 }
@@ -211,25 +204,15 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)runtimeJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"nodejs"]) {
             return @(AWSLambdaRuntimeNodejs);
-        }
-        if ([value isEqualToString:@"jvm"]) {
-            return @(AWSLambdaRuntimeJvm);
-        }
-        if ([value isEqualToString:@"python"]) {
-            return @(AWSLambdaRuntimePython);
         }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSLambdaRuntimeNodejs:
                 return @"nodejs";
-            case AWSLambdaRuntimeJvm:
-                return @"jvm";
-            case AWSLambdaRuntimePython:
-                return @"python";
             case AWSLambdaRuntimeUnknown:
             default:
                 return nil;
@@ -279,11 +262,11 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)codeJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaFunctionCodeLocation class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaFunctionCodeLocation class]];
 }
 
 + (NSValueTransformer *)configurationJSONTransformer {
-	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaFunctionConfiguration class]];
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaFunctionConfiguration class]];
 }
 
 @end
@@ -321,7 +304,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)invocationTypeJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"Event"]) {
             return @(AWSLambdaInvocationTypeEvent);
         }
@@ -348,7 +331,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)logTypeJSONTransformer {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"None"]) {
             return @(AWSLambdaLogTypeNone);
         }
@@ -428,7 +411,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)eventSourceMappingsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSLambdaEventSourceMappingConfiguration class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaEventSourceMappingConfiguration class]];
 }
 
 @end
@@ -454,7 +437,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)functionsJSONTransformer {
-	return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[AWSLambdaFunctionConfiguration class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaFunctionConfiguration class]];
 }
 
 @end
@@ -488,6 +471,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"functionName" : @"FunctionName",
+             @"s3Bucket" : @"S3Bucket",
+             @"s3Key" : @"S3Key",
+             @"s3ObjectVersion" : @"S3ObjectVersion",
              @"zipFile" : @"ZipFile",
              };
 }

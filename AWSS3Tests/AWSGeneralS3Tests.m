@@ -55,7 +55,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] abortMultipartUpload:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] abortMultipartUpload:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -70,7 +70,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] completeMultipartUpload:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] completeMultipartUpload:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -85,7 +85,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] createBucket:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] createBucket:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -100,7 +100,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] createMultipartUpload:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] createMultipartUpload:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -115,7 +115,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] deleteBucket:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] deleteBucket:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -130,7 +130,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] deleteBucketCors:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] deleteBucketCors:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -145,7 +145,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] deleteBucketLifecycle:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] deleteBucketLifecycle:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -160,7 +160,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] deleteBucketPolicy:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] deleteBucketPolicy:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -175,7 +175,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] deleteBucketTagging:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] deleteBucketTagging:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -190,7 +190,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] deleteBucketWebsite:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] deleteBucketWebsite:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -205,7 +205,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] deleteObject:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] deleteObject:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -220,7 +220,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] deleteObjects:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] deleteObjects:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -235,7 +235,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] getBucketAcl:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] getBucketAcl:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -250,7 +250,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] getBucketCors:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] getBucketCors:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -265,7 +265,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] getBucketLifecycle:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] getBucketLifecycle:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -280,7 +280,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] getBucketLocation:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] getBucketLocation:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -295,7 +295,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] getBucketLogging:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] getBucketLogging:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -310,7 +310,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] getBucketNotification:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] getBucketNotification:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -325,7 +325,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] getBucketPolicy:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] getBucketPolicy:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -340,7 +340,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] getBucketRequestPayment:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] getBucketRequestPayment:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -355,7 +355,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] getBucketTagging:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] getBucketTagging:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -370,7 +370,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] getBucketVersioning:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] getBucketVersioning:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -385,7 +385,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] getBucketWebsite:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] getBucketWebsite:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -400,7 +400,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] getObject:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] getObject:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -415,7 +415,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] getObjectAcl:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] getObjectAcl:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -430,7 +430,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] getObjectTorrent:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] getObjectTorrent:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -445,7 +445,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] headBucket:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] headBucket:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -460,7 +460,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] headObject:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] headObject:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -475,7 +475,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] listBuckets:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] listBuckets:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -490,7 +490,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] listMultipartUploads:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] listMultipartUploads:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -505,7 +505,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] listObjectVersions:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] listObjectVersions:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -520,7 +520,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] listObjects:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] listObjects:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -535,7 +535,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] listParts:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] listParts:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -550,7 +550,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] putBucketAcl:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] putBucketAcl:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -565,7 +565,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] putBucketCors:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] putBucketCors:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -580,7 +580,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] putBucketLifecycle:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] putBucketLifecycle:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -595,7 +595,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] putBucketLogging:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] putBucketLogging:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -610,7 +610,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] putBucketNotification:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] putBucketNotification:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -625,7 +625,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] putBucketPolicy:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] putBucketPolicy:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -640,7 +640,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] putBucketRequestPayment:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] putBucketRequestPayment:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -655,7 +655,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] putBucketTagging:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] putBucketTagging:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -670,7 +670,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] putBucketVersioning:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] putBucketVersioning:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -685,7 +685,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] putBucketWebsite:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] putBucketWebsite:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -700,7 +700,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] putObject:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] putObject:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -715,7 +715,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] putObjectAcl:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] putObjectAcl:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -730,7 +730,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] replicateObject:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] replicateObject:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -745,7 +745,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] restoreObject:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] restoreObject:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -760,7 +760,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] uploadPart:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] uploadPart:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -775,7 +775,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSS3 registerS3WithConfiguration:configuration forKey:key];
 
-    [[[[AWSS3 S3ForKey:key] uploadPartCopy:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSS3 S3ForKey:key] uploadPartCopy:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);

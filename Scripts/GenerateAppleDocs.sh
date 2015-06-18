@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.1.1"
+VERSION="2.2.0"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -22,6 +22,7 @@ else
         cleanup
     fi
 
+    rm -rf docs_tmp
     mkdir -p docs
     mkdir -p docs_tmp
 
@@ -34,24 +35,24 @@ else
     cp -r AWSKinesis ./docs_tmp/AWSKinesis
     cp -r AWSLambda ./docs_tmp/AWSLambda
     cp -r AWSMachineLearning ./docs_tmp/AWSMachineLearning
+    cp -r AWSMobileAnalytics ./docs_tmp/AWSMobileAnalytics
     cp -r AWSS3 ./docs_tmp/AWSS3
     cp -r AWSSES ./docs_tmp/AWSSES
     cp -r AWSSimpleDB ./docs_tmp/AWSSimpleDB
     cp -r AWSSNS ./docs_tmp/AWSSNS
     cp -r AWSSQS ./docs_tmp/AWSSQS
 
+    rm -rf ./docs_tmp/AWSCore/Bolts
+    rm -rf ./docs_tmp/AWSCore/FMDB
+    rm -rf ./docs_tmp/AWSCore/GZIP
+    rm -rf ./docs_tmp/AWSCore/Mantle
+    rm -rf ./docs_tmp/AWSCore/Reachability
+    rm -rf ./docs_tmp/AWSCore/TMCache
+    rm -rf ./docs_tmp/AWSCore/UICKeyChainStore
+    rm -rf ./docs_tmp/AWSCore/XMLDictionary
     rm -rf ./docs_tmp/AWSCore/XMLWriter
-    rm -rf ./docs_tmp/AWSCore/MobileAnalytics/Internal
-    rm -rf ./docs_tmp/AWSCore/MobileAnalytics/core
-    rm -rf ./docs_tmp/AWSCore/MobileAnalytics/delivery
-    rm -rf ./docs_tmp/AWSCore/MobileAnalytics/event
-    rm -rf ./docs_tmp/AWSCore/MobileAnalytics/monetization
-    rm -rf ./docs_tmp/AWSCore/MobileAnalytics/session
-    rm -rf ./docs_tmp/AWSCore/MobileAnalytics/AZCommon/ClientContext
-    rm -rf ./docs_tmp/AWSCore/MobileAnalytics/include/core
-    rm -rf ./docs_tmp/AWSCore/MobileAnalytics/include/delivery
-    rm -rf ./docs_tmp/AWSCore/MobileAnalytics/include/event
-    rm -rf ./docs_tmp/AWSCore/MobileAnalytics/include/session
+    rm -rf ./docs_tmp/AWSMobileAnalytics/Internal
+
 
     if [ -d ../AWSiOSSDKCognitoSync ]
     then 
@@ -63,7 +64,22 @@ else
     cd docs_tmp
 
     # generate documenation
-    /usr/local/bin/appledoc --verbose 0 --output ../docs --exit-threshold 2 --no-repeat-first-par --explicit-crossref --docset-install-path ../docs --docset-bundle-filename com.amazon.aws.ios.docset --company-id aws.amazon.com --project-name "AWS SDK for iOS v${VERSION}" --project-version "${VERSION}" --project-company "Amazon Web Services, Inc." --create-html --finalize-docset --keep-intermediate-files --index-desc ../aws-sdk-for-ios.markdown ./
+    /usr/local/bin/appledoc --verbose 0 \
+                            --output ../docs \
+                            --exit-threshold 2 \
+                            --no-repeat-first-par \
+                            --explicit-crossref \
+                            --docset-install-path ../docs \
+                            --docset-bundle-filename com.amazon.aws.ios.docset \
+                            --company-id aws.amazon.com \
+                            --project-name "AWS SDK for iOS v${VERSION}" \
+                            --project-version "${VERSION}" \
+                            --project-company "Amazon Web Services, Inc." \
+                            --create-html \
+                            --finalize-docset \
+                            --keep-intermediate-files \
+                            --index-desc ../aws-sdk-for-ios.markdown \
+                            ./
     
     # get command execution result
     result=$?

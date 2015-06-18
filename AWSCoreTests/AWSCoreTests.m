@@ -17,7 +17,7 @@
 #import "AWSCore.h"
 #import "AWSSerialization.h"
 #import "AWSURLRequestSerialization.h"
-#import <XMLDictionary/XMLDictionary.h>
+#import "AWSXMLDictionary.h"
 
 @interface AWSJSONResponseSerializer()
 
@@ -122,7 +122,7 @@
     
     [[[[jsonSerializer serializeRequest:testRequest
                                 headers:testHeaders
-                             parameters:testParams] continueWithSuccessBlock:^id(BFTask *task) {
+                             parameters:testParams] continueWithSuccessBlock:^id(AWSTask *task) {
         //Assert headers are properly set
         NSDictionary *serialziedHeaders = [testRequest allHTTPHeaderFields];
         XCTAssertEqualObjects(testHeaders, serialziedHeaders, "JSONSerializer failed to properly attach headers");
@@ -141,7 +141,7 @@
         XCTAssertEqualObjects(testParams, jsonDictionary, "Parameters could not be correctly parsed into JSON and re-interpreted");
         
         return nil;
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail("Error encountered while serializing request to JSON %@", task.error);
         }
@@ -191,7 +191,7 @@
             [testXmlRequestSerializer setValue:@"given" forKey:@"actionName"];
             
             
-            BFTask *resultTask = [testXmlRequestSerializer serializeRequest:mockRequest
+            AWSTask *resultTask = [testXmlRequestSerializer serializeRequest:mockRequest
                                                                     headers:@{}
                                                                  parameters:testParameters];
             if (resultTask.error) {
@@ -216,11 +216,11 @@
             NSString* resultBodyStr = [[NSString alloc] initWithData:mockRequest.HTTPBody encoding:NSUTF8StringEncoding];
             NSString* expectedBodyStr = resultDic[@"body"];
             
-            XMLDictionaryParser *xmlParser = [XMLDictionaryParser new];
+            AWSXMLDictionaryParser *xmlParser = [AWSXMLDictionaryParser new];
             xmlParser.trimWhiteSpace = YES;
             xmlParser.stripEmptyNodes = NO;
             xmlParser.wrapRootNode = YES; //wrapRootNode for easy process
-            xmlParser.nodeNameMode = XMLDictionaryNodeNameModeNever; //do not need rootName anymore since rootNode is wrapped.
+            xmlParser.nodeNameMode = AWSXMLDictionaryNodeNameModeNever; //do not need rootName anymore since rootNode is wrapped.
             
             NSDictionary *resultBodyDic = [xmlParser dictionaryWithString:resultBodyStr];
             NSDictionary *expectedBodyDic = [xmlParser dictionaryWithString:expectedBodyStr];
@@ -362,7 +362,7 @@
             [testQueryStringSerializer setValue:@"OperationName" forKey:@"actionName"];
             
             
-            BFTask *resultTask = [testQueryStringSerializer serializeRequest:mockRequest
+            AWSTask *resultTask = [testQueryStringSerializer serializeRequest:mockRequest
                                                                      headers:@{}
                                                                   parameters:testParameters];
             if (resultTask.error) {
@@ -511,7 +511,7 @@
             NSDictionary *headers = @{@"X-Amz-Target": amzTarget,
                                       @"Content-Type": contentType};
             
-            BFTask *resultTask = [testJsonSerializer serializeRequest:mockRequest
+            AWSTask *resultTask = [testJsonSerializer serializeRequest:mockRequest
                                                               headers:headers
                                                            parameters:testParameters];
             if (resultTask.error) {
@@ -668,7 +668,7 @@
             NSDictionary *headers = @{@"X-Amz-Target": amzTarget,
                                       @"Content-Type": contentType};
             
-            BFTask *resultTask = [testJsonSerializer serializeRequest:mockRequest
+            AWSTask *resultTask = [testJsonSerializer serializeRequest:mockRequest
                                                               headers:headers
                                                            parameters:testParameters];
             if (resultTask.error) {
@@ -849,7 +849,7 @@
             [testEC2Serializer setValue:@"OperationName" forKey:@"actionName"];
             
             
-            BFTask *resultTask = [testEC2Serializer serializeRequest:mockRequest
+            AWSTask *resultTask = [testEC2Serializer serializeRequest:mockRequest
                                                                      headers:@{}
                                                                   parameters:testParameters];
             if (resultTask.error) {

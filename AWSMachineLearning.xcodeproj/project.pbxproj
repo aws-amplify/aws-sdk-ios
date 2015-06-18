@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B099EC24F22F4D0B7EB189D9 /* libPods-AWSMachineLearning.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36818999D668F95B30403A91 /* libPods-AWSMachineLearning.a */; };
+		BDB73D831B1D3F3000717559 /* AWSMachineLearningResources.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB73D811B1D3F3000717559 /* AWSMachineLearningResources.h */; };
+		BDB73D841B1D3F3000717559 /* AWSMachineLearningResources.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB73D821B1D3F3000717559 /* AWSMachineLearningResources.m */; };
 		CE7123611ACF7A0B00D96A87 /* libAWSMachineLearning.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7123551ACF7A0B00D96A87 /* libAWSMachineLearning.a */; };
-		CE92002F1ACF7AF700637171 /* machinelearning-2014-12-12.json in Resources */ = {isa = PBXBuildFile; fileRef = CE92002E1ACF7AF700637171 /* machinelearning-2014-12-12.json */; };
 		CE9200381ACF7BE700637171 /* AWSGeneralMachineLearningTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9200361ACF7BE700637171 /* AWSGeneralMachineLearningTests.m */; };
 		CE9200391ACF7BE700637171 /* AWSMachineLearningTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9200371ACF7BE700637171 /* AWSMachineLearningTests.m */; };
 		CE9200401ACF7CC500637171 /* AWSMachineLearning.h in Headers */ = {isa = PBXBuildFile; fileRef = CE92003A1ACF7CC500637171 /* AWSMachineLearning.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,9 +23,7 @@
 		CE92004B1ACF7F3700637171 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE92004A1ACF7F3700637171 /* AWSTestUtility.m */; };
 		CE92004D1ACF7FBB00637171 /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE92004C1ACF7FBB00637171 /* libAWSCore.a */; };
 		CE92004F1ACF7FFE00637171 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CE92004E1ACF7FFE00637171 /* credentials.json */; };
-		CE9200511ACF800B00637171 /* mobileanalytics-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = CE9200501ACF800B00637171 /* mobileanalytics-2014-06-30.json */; };
-		CE9200531ACF801A00637171 /* sts-2011-06-15.json in Resources */ = {isa = PBXBuildFile; fileRef = CE9200521ACF801A00637171 /* sts-2011-06-15.json */; };
-		CE9200551ACF802600637171 /* cognito-identity-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = CE9200541ACF802600637171 /* cognito-identity-2014-06-30.json */; };
+		CEE5325C1B03D386002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE5325B1B03D386002CED62 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,10 +55,11 @@
 		11873971354373936B380D88 /* Pods-AWSMachineLearning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSMachineLearning.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSMachineLearning/Pods-AWSMachineLearning.debug.xcconfig"; sourceTree = "<group>"; };
 		36818999D668F95B30403A91 /* libPods-AWSMachineLearning.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSMachineLearning.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		983A09C75DB47041C7FC62B3 /* Pods-AWSMachineLearning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSMachineLearning.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSMachineLearning/Pods-AWSMachineLearning.release.xcconfig"; sourceTree = "<group>"; };
+		BDB73D811B1D3F3000717559 /* AWSMachineLearningResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSMachineLearningResources.h; sourceTree = "<group>"; };
+		BDB73D821B1D3F3000717559 /* AWSMachineLearningResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSMachineLearningResources.m; sourceTree = "<group>"; };
 		CE7123551ACF7A0B00D96A87 /* libAWSMachineLearning.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSMachineLearning.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7123601ACF7A0B00D96A87 /* AWSMachineLearningTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSMachineLearningTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7123661ACF7A0B00D96A87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE92002E1ACF7AF700637171 /* machinelearning-2014-12-12.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "machinelearning-2014-12-12.json"; sourceTree = "<group>"; };
 		CE9200361ACF7BE700637171 /* AWSGeneralMachineLearningTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralMachineLearningTests.m; sourceTree = "<group>"; };
 		CE9200371ACF7BE700637171 /* AWSMachineLearningTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSMachineLearningTests.m; sourceTree = "<group>"; };
 		CE92003A1ACF7CC500637171 /* AWSMachineLearning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSMachineLearning.h; sourceTree = "<group>"; };
@@ -71,9 +70,7 @@
 		CE92004A1ACF7F3700637171 /* AWSTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSTestUtility.m; path = AWSCoreTests/AWSTestUtility.m; sourceTree = SOURCE_ROOT; };
 		CE92004C1ACF7FBB00637171 /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
 		CE92004E1ACF7FFE00637171 /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
-		CE9200501ACF800B00637171 /* mobileanalytics-2014-06-30.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "mobileanalytics-2014-06-30.json"; path = "AWSCore/MobileAnalyticsERS/Resources/mobileanalytics-2014-06-30.json"; sourceTree = SOURCE_ROOT; };
-		CE9200521ACF801A00637171 /* sts-2011-06-15.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "sts-2011-06-15.json"; path = "AWSCore/STS/Resources/sts-2011-06-15.json"; sourceTree = SOURCE_ROOT; };
-		CE9200541ACF802600637171 /* cognito-identity-2014-06-30.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "cognito-identity-2014-06-30.json"; path = "AWSCore/CognitoIdentity/Resources/cognito-identity-2014-06-30.json"; sourceTree = SOURCE_ROOT; };
+		CEE5325B1B03D386002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,9 +85,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE5325C1B03D386002CED62 /* libz.dylib in Frameworks */,
 				CE92004D1ACF7FBB00637171 /* libAWSCore.a in Frameworks */,
 				CE7123611ACF7A0B00D96A87 /* libAWSMachineLearning.a in Frameworks */,
-				B099EC24F22F4D0B7EB189D9 /* libPods-AWSMachineLearning.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +97,7 @@
 		13BA91A9ED2214407949A932 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEE5325B1B03D386002CED62 /* libz.dylib */,
 				CE92004C1ACF7FBB00637171 /* libAWSCore.a */,
 				36818999D668F95B30403A91 /* libPods-AWSMachineLearning.a */,
 			);
@@ -143,7 +141,8 @@
 				CE92003D1ACF7CC500637171 /* AWSMachineLearningModel.m */,
 				CE92003E1ACF7CC500637171 /* AWSMachineLearningService.h */,
 				CE92003B1ACF7CC500637171 /* AWSMachineLearningService.m */,
-				CE92002D1ACF7AF700637171 /* Resources */,
+				BDB73D811B1D3F3000717559 /* AWSMachineLearningResources.h */,
+				BDB73D821B1D3F3000717559 /* AWSMachineLearningResources.m */,
 			);
 			path = AWSMachineLearning;
 			sourceTree = "<group>";
@@ -162,21 +161,10 @@
 		CE7123651ACF7A0B00D96A87 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CE9200541ACF802600637171 /* cognito-identity-2014-06-30.json */,
 				CE92004E1ACF7FFE00637171 /* credentials.json */,
 				CE7123661ACF7A0B00D96A87 /* Info.plist */,
-				CE9200501ACF800B00637171 /* mobileanalytics-2014-06-30.json */,
-				CE9200521ACF801A00637171 /* sts-2011-06-15.json */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CE92002D1ACF7AF700637171 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				CE92002E1ACF7AF700637171 /* machinelearning-2014-12-12.json */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +176,7 @@
 			files = (
 				CE9200441ACF7CC500637171 /* AWSMachineLearningService.h in Headers */,
 				CE9200421ACF7CC500637171 /* AWSMachineLearningModel.h in Headers */,
+				BDB73D831B1D3F3000717559 /* AWSMachineLearningResources.h in Headers */,
 				CE9200401ACF7CC500637171 /* AWSMachineLearning.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,11 +206,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE71236C1ACF7A0B00D96A87 /* Build configuration list for PBXNativeTarget "AWSMachineLearningTests" */;
 			buildPhases = (
-				888BB6E6D66AA48E52FA869C /* Check Pods Manifest.lock */,
 				CE71235C1ACF7A0B00D96A87 /* Sources */,
 				CE71235D1ACF7A0B00D96A87 /* Frameworks */,
 				CE71235E1ACF7A0B00D96A87 /* Resources */,
-				114008AD07984D82B8DB3E5B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -273,48 +260,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE9200531ACF801A00637171 /* sts-2011-06-15.json in Resources */,
-				CE9200551ACF802600637171 /* cognito-identity-2014-06-30.json in Resources */,
 				CE92004F1ACF7FFE00637171 /* credentials.json in Resources */,
-				CE92002F1ACF7AF700637171 /* machinelearning-2014-12-12.json in Resources */,
-				CE9200511ACF800B00637171 /* mobileanalytics-2014-06-30.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		114008AD07984D82B8DB3E5B /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWSMachineLearning/Pods-AWSMachineLearning-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		888BB6E6D66AA48E52FA869C /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CE7123511ACF7A0B00D96A87 /* Sources */ = {
@@ -322,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9200411ACF7CC500637171 /* AWSMachineLearningService.m in Sources */,
+				BDB73D841B1D3F3000717559 /* AWSMachineLearningResources.m in Sources */,
 				CE9200431ACF7CC500637171 /* AWSMachineLearningModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,9 +380,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"${SRCROOT}/Pods/Headers/**",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -443,9 +393,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"${SRCROOT}/Pods/Headers/**",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -453,7 +402,6 @@
 		};
 		CE71236D1ACF7A0B00D96A87 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 11873971354373936B380D88 /* Pods-AWSMachineLearning.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -473,7 +421,6 @@
 		};
 		CE71236E1ACF7A0B00D96A87 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 983A09C75DB47041C7FC62B3 /* Pods-AWSMachineLearning.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

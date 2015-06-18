@@ -15,9 +15,9 @@
 
 #import "AWSCredentialsProvider.h"
 #import "AWSSTS.h"
-#import <UICKeyChainStore/UICKeyChainStore.h>
+#import "AWSUICKeyChainStore.h"
 #import "AWSLogging.h"
-#import <Bolts/Bolts.h>
+#import "AWSBolts.h"
 
 NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCognitoCredentialsProviderErrorDomain";
 
@@ -74,7 +74,7 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 @interface AWSWebIdentityCredentialsProvider()
 
 @property (nonatomic, strong) AWSSTS *sts;
-@property (nonatomic, strong) UICKeyChainStore *keychain;
+@property (nonatomic, strong) AWSUICKeyChainStore *keychain;
 @property (nonatomic, strong) NSString *accessKey;
 @property (nonatomic, strong) NSString *secretKey;
 @property (nonatomic, strong) NSString *sessionKey;
@@ -107,7 +107,7 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                    roleSessionName:(NSString *)roleSessionName
                   webIdentityToken:(NSString *)webIdentityToken {
     if (self = [super init]) {
-        _keychain = [UICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@.%@", providerId, webIdentityToken, roleArn]];
+        _keychain = [AWSUICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@.%@", providerId, webIdentityToken, roleArn]];
         _providerId = providerId;
         _roleArn = roleArn;
         _roleSessionName = roleSessionName;
@@ -125,7 +125,7 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     return self;
 }
 
-- (BFTask *)refresh {
+- (AWSTask *)refresh {
     // request new credentials
     AWSSTSAssumeRoleWithWebIdentityRequest *webIdentityRequest = [AWSSTSAssumeRoleWithWebIdentityRequest new];
     webIdentityRequest.providerId = self.providerId;
@@ -133,7 +133,7 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     webIdentityRequest.roleSessionName = self.roleSessionName;
     webIdentityRequest.webIdentityToken = self.webIdentityToken;
 
-    return [[self.sts assumeRoleWithWebIdentity:webIdentityRequest] continueWithBlock:^id(BFTask *task) {
+    return [[self.sts assumeRoleWithWebIdentity:webIdentityRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.result) {
             AWSSTSAssumeRoleWithWebIdentityResponse *wifResponse = task.result;
             @synchronized(self) {
@@ -237,8 +237,8 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 @property (nonatomic, strong) NSString *unAuthRoleArn;
 @property (nonatomic, strong) AWSSTS *sts;
 @property (nonatomic, strong) AWSCognitoIdentity *cib;
-@property (nonatomic, strong) UICKeyChainStore *keychain;
-@property (nonatomic, strong) BFExecutor *refreshExecutor;
+@property (nonatomic, strong) AWSUICKeyChainStore *keychain;
+@property (nonatomic, strong) AWSExecutor *refreshExecutor;
 @property (atomic, assign) int32_t count;
 @property (nonatomic, strong) dispatch_semaphore_t semaphore;
 @property (nonatomic, strong) NSString *identityId;
@@ -336,7 +336,7 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
               unauthRoleArn:(NSString *)unauthRoleArn
                 authRoleArn:(NSString *)authRoleArn
             useEnhancedFlow:(BOOL)useEnhancedFlow {
-    _refreshExecutor = [BFExecutor executorWithOperationQueue:[NSOperationQueue new]];
+    _refreshExecutor = [AWSExecutor executorWithOperationQueue:[NSOperationQueue new]];
     _count = 0;
     _semaphore = dispatch_semaphore_create(0);
 
@@ -346,7 +346,7 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     _useEnhancedFlow = useEnhancedFlow;
 
     // initialize keychain - name spaced by app bundle and identity pool id
-    _keychain = [UICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@.%@", [NSBundle mainBundle].bundleIdentifier, [AWSCognitoCredentialsProvider class], identityProvider.identityPoolId]];
+    _keychain = [AWSUICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@.%@", [NSBundle mainBundle].bundleIdentifier, [AWSCognitoCredentialsProvider class], identityProvider.identityPoolId]];
 
     // If the identity provider has an identity id, use it
     if (identityProvider.identityId) {
@@ -372,14 +372,14 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     _useEnhancedFlow = [identityProvider isKindOfClass:[AWSEnhancedCognitoIdentityProvider class]] || ((unauthRoleArn == nil) && (authRoleArn == nil));
 }
 
-- (BFTask *)getCredentialsWithSTS:(NSString *)token authenticated:(BOOL)auth {
+- (AWSTask *)getCredentialsWithSTS:(NSString *)token authenticated:(BOOL)auth {
     NSString *roleArn = self.unAuthRoleArn;
     if (auth) {
         roleArn = self.authRoleArn;
     }
 
     if (roleArn == nil) {
-        return [BFTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderErrorDomain
+        return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderErrorDomain
                                                          code:AWSCognitoCredentialsProviderInvalidConfiguration
                                                      userInfo:@{NSLocalizedDescriptionKey: @"Required role ARN is nil"}]
                 ];
@@ -389,7 +389,7 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     webIdentityRequest.roleArn = roleArn;
     webIdentityRequest.webIdentityToken = token;
     webIdentityRequest.roleSessionName = @"iOS-Provider";
-    return [[self.sts assumeRoleWithWebIdentity:webIdentityRequest] continueWithBlock:^id(BFTask *task) {
+    return [[self.sts assumeRoleWithWebIdentity:webIdentityRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.result) {
             AWSSTSAssumeRoleWithWebIdentityResponse *webIdentityResponse = task.result;
             @synchronized(self) {
@@ -407,7 +407,7 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     }];
 }
 
-- (BFTask *)getCredentialsWithCognito:(NSString *)token authenticated:(BOOL)auth {
+- (AWSTask *)getCredentialsWithCognito:(NSString *)token authenticated:(BOOL)auth {
     // Grab a reference to our provider in case it changes out from under us
     id<AWSCognitoIdentityProvider> providerRef = self.identityProvider;
 
@@ -421,7 +421,7 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     }
 
 
-    return [[[self.cib getCredentialsForIdentity:getCredentialsInput] continueWithBlock:^id(BFTask *task) {
+    return [[[self.cib getCredentialsForIdentity:getCredentialsInput] continueWithBlock:^id(AWSTask *task) {
         // When an invalid identityId is cached in the keychain for auth,
         // we will refresh the identityId and try to get credentials token again.
         if (task.error) {
@@ -439,12 +439,12 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
             self.identityId = nil;
             providerRef.identityId = nil;
 
-            return [[providerRef getIdentityId] continueWithSuccessBlock:^id(BFTask *task) {
+            return [[providerRef getIdentityId] continueWithSuccessBlock:^id(AWSTask *task) {
                 // This should never happen, but just in case
                 if (!providerRef.identityId) {
                     AWSLogError(@"In refresh, but identitId is nil.");
                     AWSLogError(@"Result from getIdentityId is %@", task.result);
-                    return [BFTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
+                    return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
                                                                      code:AWSCognitoIdentityProviderErrorIdentityIsNil
                                                                  userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
                             ];
@@ -465,7 +465,7 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
             AWSLogError(@"GetCredentialsForIdentity failed. Exception is [%@]", task.exception);
         }
         return task;
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSCognitoIdentityGetCredentialsForIdentityResponse *getCredentialsResponse = task.result;
         self.accessKey = getCredentialsResponse.credentials.accessKeyId;
         self.secretKey = getCredentialsResponse.credentials.secretKey;
@@ -477,7 +477,7 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         // This should never happen, but just in case
         if (!identityIdFromResponse) {
             AWSLogError(@"identityId from getCredentialsForIdentity is nil");
-            return [BFTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
+            return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
                                                              code:AWSCognitoIdentityProviderErrorIdentityIsNil
                                                          userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
                     ];
@@ -488,22 +488,22 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
             providerRef.identityId = identityIdFromResponse;
         }
 
-        return [BFTask taskWithResult:self.identityId];
+        return [AWSTask taskWithResult:self.identityId];
     }];
 }
 
-- (BFTask *)refresh {
+- (AWSTask *)refresh {
     // Grab a reference to our provider in case it changes out from under us
     id<AWSCognitoIdentityProvider> providerRef = self.identityProvider;
 
-    return [[[BFTask taskWithResult:nil] continueWithExecutor:self.refreshExecutor withSuccessBlock:^id(BFTask *task) {
+    return [[[AWSTask taskWithResult:nil] continueWithExecutor:self.refreshExecutor withSuccessBlock:^id(AWSTask *task) {
         self.count++;
         if (self.count <= 1) {
-            return [[providerRef refresh] continueWithSuccessBlock:^id(BFTask *task) {
+            return [[providerRef refresh] continueWithSuccessBlock:^id(AWSTask *task) {
                 // This should never happen, but just in case
                 if (!providerRef.identityId) {
                     AWSLogError(@"In refresh, but identityId is nil.");
-                    return [BFTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderErrorDomain
+                    return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderErrorDomain
                                                                      code:AWSCognitoCredentialsProviderIdentityIdIsNil
                                                                  userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
                             ];
@@ -520,9 +520,9 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
             }];
         } else {
             dispatch_semaphore_wait(self.semaphore, dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC));
-            return [BFTask taskWithResult:nil];
+            return [AWSTask taskWithResult:nil];
         }
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             AWSLogError(@"Unable to refresh. Error is [%@]", task.error);
         }
@@ -537,16 +537,16 @@ NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     }];
 }
 
-- (BFTask *)getIdentityId {
+- (AWSTask *)getIdentityId {
     // Grab a reference to our provider in case it changes out from under us
     id<AWSCognitoIdentityProvider> providerRef = self.identityProvider;
 
-    return [[providerRef getIdentityId] continueWithSuccessBlock:^id(BFTask *task) {
+    return [[providerRef getIdentityId] continueWithSuccessBlock:^id(AWSTask *task) {
         // This should never happen, but just in case
         if (!providerRef.identityId) {
             AWSLogError(@"In refresh, but identityId is nil.");
             AWSLogError(@"Result from getIdentityId is %@", task.result);
-            return [BFTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderErrorDomain
+            return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderErrorDomain
                                                              code:AWSCognitoCredentialsProviderIdentityIdIsNil
                                                          userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
                     ];

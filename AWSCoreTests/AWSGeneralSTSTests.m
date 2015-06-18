@@ -55,7 +55,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSTS registerSTSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSTS STSForKey:key] assumeRole:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSTS STSForKey:key] assumeRole:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -70,7 +70,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSTS registerSTSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSTS STSForKey:key] assumeRoleWithSAML:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSTS STSForKey:key] assumeRoleWithSAML:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -85,7 +85,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSTS registerSTSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSTS STSForKey:key] assumeRoleWithWebIdentity:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSTS STSForKey:key] assumeRoleWithWebIdentity:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -100,7 +100,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSTS registerSTSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSTS STSForKey:key] decodeAuthorizationMessage:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSTS STSForKey:key] decodeAuthorizationMessage:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -115,7 +115,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSTS registerSTSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSTS STSForKey:key] getFederationToken:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSTS STSForKey:key] getFederationToken:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -130,7 +130,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSTS registerSTSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSTS STSForKey:key] getSessionToken:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSTS STSForKey:key] getSessionToken:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);

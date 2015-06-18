@@ -52,25 +52,25 @@ static NSString *testStreamName = nil;
     [super tearDown];
 }
 
-+ (BFTask *)createTestStream {
++ (AWSTask *)createTestStream {
     AWSKinesis *kinesis = [AWSKinesis defaultKinesis];
 
     AWSKinesisCreateStreamInput *createStreamInput = [AWSKinesisCreateStreamInput new];
     createStreamInput.streamName = testStreamName;
     createStreamInput.shardCount = @1;
 
-    return [[kinesis createStream:createStreamInput] continueWithSuccessBlock:^id(BFTask *task) {
+    return [[kinesis createStream:createStreamInput] continueWithSuccessBlock:^id(AWSTask *task) {
         return [self waitForStreamToBeReady];
     }];
 }
 
-+ (BFTask *)waitForStreamToBeReady {
++ (AWSTask *)waitForStreamToBeReady {
     AWSKinesis *kinesis = [AWSKinesis defaultKinesis];
 
     AWSKinesisDescribeStreamInput *describeStreamInput = [AWSKinesisDescribeStreamInput new];
     describeStreamInput.streamName = testStreamName;
 
-    return [[kinesis describeStream:describeStreamInput] continueWithSuccessBlock:^id(BFTask *task) {
+    return [[kinesis describeStream:describeStreamInput] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSKinesisDescribeStreamOutput *describeStreamOutput = task.result;
         if (describeStreamOutput.streamDescription.streamStatus != AWSKinesisStreamStatusActive) {
             sleep(10);
@@ -81,7 +81,7 @@ static NSString *testStreamName = nil;
     }];
 }
 
-+ (BFTask *)deleteTestStream {
++ (AWSTask *)deleteTestStream {
     AWSKinesis *kinesis = [AWSKinesis defaultKinesis];
 
     AWSKinesisDeleteStreamInput *deleteStreamInput = [AWSKinesisDeleteStreamInput new];
@@ -101,7 +101,7 @@ static NSString *testStreamName = nil;
     XCTAssertNotNil(kinesis);
 
     AWSKinesisListStreamsInput *listStreamsInput = [AWSKinesisListStreamsInput new];
-    [[[kinesis listStreams:listStreamsInput] continueWithBlock:^id(BFTask *task) {
+    [[[kinesis listStreams:listStreamsInput] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -123,7 +123,7 @@ static NSString *testStreamName = nil;
     AWSKinesis *kinesis = [AWSKinesis defaultKinesis];
 
     AWSKinesisListStreamsInput *listStreamsInput = [AWSKinesisListStreamsInput new];
-    [[[kinesis listStreams:listStreamsInput] continueWithBlock:^id(BFTask *task) {
+    [[[kinesis listStreams:listStreamsInput] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -153,12 +153,12 @@ static NSString *testStreamName = nil;
         [tasks addObject:[kinesis putRecord:putRecordInput]];
     }
 
-    [[[[[[BFTask taskForCompletionOfAllTasks:tasks] continueWithSuccessBlock:^id(BFTask *task) {
+    [[[[[[AWSTask taskForCompletionOfAllTasks:tasks] continueWithSuccessBlock:^id(AWSTask *task) {
         sleep(10);
         AWSKinesisDescribeStreamInput *describeStreamInput = [AWSKinesisDescribeStreamInput new];
         describeStreamInput.streamName = testStreamName;
         return [kinesis describeStream:describeStreamInput];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSKinesisDescribeStreamOutput *describeStreamOutput = task.result;
         XCTAssertTrue(1 == [describeStreamOutput.streamDescription.shards count]);
         AWSKinesisShard *shard = describeStreamOutput.streamDescription.shards[0];
@@ -170,12 +170,12 @@ static NSString *testStreamName = nil;
         getShardIteratorInput.startingSequenceNumber = shard.sequenceNumberRange.startingSequenceNumber;
 
         return [kinesis getShardIterator:getShardIteratorInput];
-    }] continueWithSuccessBlock:^id(BFTask *task) {
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSKinesisGetShardIteratorOutput *getShardIteratorOutput = task.result;
         return [self getRecords:returnedRecords
                   shardIterator:getShardIteratorOutput.shardIterator
                         counter:0];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         } else {
@@ -197,7 +197,7 @@ static NSString *testStreamName = nil;
     AWSKinesisDescribeStreamInput *describeStreamInput = [AWSKinesisDescribeStreamInput new];
     describeStreamInput.streamName = @"invalidStreamName"; //streamName is empty
 
-    [[[kinesis describeStream:describeStreamInput] continueWithBlock:^id(BFTask *task) {
+    [[[kinesis describeStream:describeStreamInput] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error, @"expected error but got nil");
         XCTAssertEqual(AWSKinesisErrorResourceNotFound, task.error.code, @"expected AWSKinesisErrorResourceNotFound(6) but got %ld",(long)task.error.code);
         return nil;
@@ -206,11 +206,11 @@ static NSString *testStreamName = nil;
 
 }
 
-- (BFTask *)getRecords:(NSMutableArray *)returnedRecords shardIterator:(NSString *)shardIterator counter:(int32_t)counter {
+- (AWSTask *)getRecords:(NSMutableArray *)returnedRecords shardIterator:(NSString *)shardIterator counter:(int32_t)counter {
     AWSKinesis *kinesis = [AWSKinesis defaultKinesis];
     AWSKinesisGetRecordsInput *getRecordsInput = [AWSKinesisGetRecordsInput new];
     getRecordsInput.shardIterator = shardIterator;
-    return [[kinesis getRecords:getRecordsInput] continueWithSuccessBlock:^id(BFTask *task) {
+    return [[kinesis getRecords:getRecordsInput] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSKinesisGetRecordsOutput *getRecordsOutput = task.result;
         [returnedRecords addObjectsFromArray:getRecordsOutput.records];
 

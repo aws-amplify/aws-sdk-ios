@@ -87,7 +87,7 @@ class AWSDynamoDBObjectMapperSwiftTests: XCTestCase {
             XCTAssertFalse(result2, "\(myNum) should be a boolClass")
         }
     }
-/*
+
     func testSaveBehaviorUpdateV2() {
         let updateMapper = AWSDynamoDBObjectMapper.defaultDynamoDBObjectMapper()
         let hashKeyValue = "hash-v2-swift-\(__FUNCTION__)"
@@ -118,7 +118,7 @@ class AWSDynamoDBObjectMapperSwiftTests: XCTestCase {
         objv2.listElement = listElement
         objv2.mapElement = mapElement
 
-        updateMapper.save(objv2).continueWithBlock { (task:BFTask!) -> AnyObject! in
+        updateMapper.save(objv2).continueWithBlock { (task:AWSTask!) -> AnyObject! in
             if (task.error != nil) {
                 XCTFail("Error: \(task.error)")
             }
@@ -126,5 +126,5 @@ class AWSDynamoDBObjectMapperSwiftTests: XCTestCase {
             return nil
             }.waitUntilFinished()
     }
-*/
+
 }

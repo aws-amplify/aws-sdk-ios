@@ -24,6 +24,7 @@
 #import "AWSURLResponseSerialization.h"
 #import "AWSURLRequestRetryHandler.h"
 #import "AWSSynchronizedMutableDictionary.h"
+#import "AWSSESResources.h"
 
 NSString *const AWSSESDefinitionFileName = @"email-2010-12-01";
 
@@ -77,9 +78,9 @@ static NSDictionary *errorCodeDictionary = nil;
         }
 
         if (self.outputClass) {
-            responseObject = [MTLJSONAdapter modelOfClass:self.outputClass
-                                       fromJSONDictionary:responseObject
-                                                    error:error];
+            responseObject = [AWSMTLJSONAdapter modelOfClass:self.outputClass
+                                          fromJSONDictionary:responseObject
+                                                       error:error];
         }
     }
 
@@ -221,7 +222,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return self;
 }
 
-- (BFTask *)invokeRequest:(AWSRequest *)request
+- (AWSTask *)invokeRequest:(AWSRequest *)request
                HTTPMethod:(AWSHTTPMethod)HTTPMethod
                 URLString:(NSString *) URLString
              targetPrefix:(NSString *)targetPrefix
@@ -235,25 +236,23 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         
         AWSNetworkingRequest *networkingRequest = request.internalRequest;
         if (request) {
-            networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
+            networkingRequest.parameters = [[AWSMTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
         } else {
             networkingRequest.parameters = @{};
         }
         networkingRequest.HTTPMethod = HTTPMethod;
-        networkingRequest.requestSerializer = [[AWSQueryStringRequestSerializer alloc] initWithResource:AWSSESDefinitionFileName
+        networkingRequest.requestSerializer = [[AWSQueryStringRequestSerializer alloc] initWithJSONDefinition:[[AWSSESResources sharedInstance] JSONObject]
+                                                                                                   actionName:operationName];
+        networkingRequest.responseSerializer = [[AWSSESResponseSerializer alloc] initWithJSONDefinition:[[AWSSESResources sharedInstance] JSONObject]
                                                                                              actionName:operationName
-                                                                                         classForBundle:[self class]];
-        networkingRequest.responseSerializer = [[AWSSESResponseSerializer alloc] initWithResource:AWSSESDefinitionFileName
-                                                                                       actionName:operationName
-                                                                                      outputClass:outputClass
-                                                                                   classForBundle:[self class]];
+                                                                                            outputClass:outputClass];
         return [self.networking sendRequest:networkingRequest];
     }
 }
 
 #pragma mark - Service method
 
-- (BFTask *)deleteIdentity:(AWSSESDeleteIdentityRequest *)request {
+- (AWSTask *)deleteIdentity:(AWSSESDeleteIdentityRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -262,7 +261,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESDeleteIdentityResponse class]];
 }
 
-- (BFTask *)deleteVerifiedEmailAddress:(AWSSESDeleteVerifiedEmailAddressRequest *)request {
+- (AWSTask *)deleteVerifiedEmailAddress:(AWSSESDeleteVerifiedEmailAddressRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -271,7 +270,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)getIdentityDkimAttributes:(AWSSESGetIdentityDkimAttributesRequest *)request {
+- (AWSTask *)getIdentityDkimAttributes:(AWSSESGetIdentityDkimAttributesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -280,7 +279,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESGetIdentityDkimAttributesResponse class]];
 }
 
-- (BFTask *)getIdentityNotificationAttributes:(AWSSESGetIdentityNotificationAttributesRequest *)request {
+- (AWSTask *)getIdentityNotificationAttributes:(AWSSESGetIdentityNotificationAttributesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -289,7 +288,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESGetIdentityNotificationAttributesResponse class]];
 }
 
-- (BFTask *)getIdentityVerificationAttributes:(AWSSESGetIdentityVerificationAttributesRequest *)request {
+- (AWSTask *)getIdentityVerificationAttributes:(AWSSESGetIdentityVerificationAttributesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -298,7 +297,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESGetIdentityVerificationAttributesResponse class]];
 }
 
-- (BFTask *)getSendQuota:(AWSRequest *)request {
+- (AWSTask *)getSendQuota:(AWSRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -307,7 +306,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESGetSendQuotaResponse class]];
 }
 
-- (BFTask *)getSendStatistics:(AWSRequest *)request {
+- (AWSTask *)getSendStatistics:(AWSRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -316,7 +315,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESGetSendStatisticsResponse class]];
 }
 
-- (BFTask *)listIdentities:(AWSSESListIdentitiesRequest *)request {
+- (AWSTask *)listIdentities:(AWSSESListIdentitiesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -325,7 +324,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESListIdentitiesResponse class]];
 }
 
-- (BFTask *)listVerifiedEmailAddresses:(AWSRequest *)request {
+- (AWSTask *)listVerifiedEmailAddresses:(AWSRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -334,7 +333,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESListVerifiedEmailAddressesResponse class]];
 }
 
-- (BFTask *)sendEmail:(AWSSESSendEmailRequest *)request {
+- (AWSTask *)sendEmail:(AWSSESSendEmailRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -343,7 +342,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESSendEmailResponse class]];
 }
 
-- (BFTask *)sendRawEmail:(AWSSESSendRawEmailRequest *)request {
+- (AWSTask *)sendRawEmail:(AWSSESSendRawEmailRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -352,7 +351,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESSendRawEmailResponse class]];
 }
 
-- (BFTask *)setIdentityDkimEnabled:(AWSSESSetIdentityDkimEnabledRequest *)request {
+- (AWSTask *)setIdentityDkimEnabled:(AWSSESSetIdentityDkimEnabledRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -361,7 +360,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESSetIdentityDkimEnabledResponse class]];
 }
 
-- (BFTask *)setIdentityFeedbackForwardingEnabled:(AWSSESSetIdentityFeedbackForwardingEnabledRequest *)request {
+- (AWSTask *)setIdentityFeedbackForwardingEnabled:(AWSSESSetIdentityFeedbackForwardingEnabledRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -370,7 +369,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESSetIdentityFeedbackForwardingEnabledResponse class]];
 }
 
-- (BFTask *)setIdentityNotificationTopic:(AWSSESSetIdentityNotificationTopicRequest *)request {
+- (AWSTask *)setIdentityNotificationTopic:(AWSSESSetIdentityNotificationTopicRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -379,7 +378,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESSetIdentityNotificationTopicResponse class]];
 }
 
-- (BFTask *)verifyDomainDkim:(AWSSESVerifyDomainDkimRequest *)request {
+- (AWSTask *)verifyDomainDkim:(AWSSESVerifyDomainDkimRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -388,7 +387,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESVerifyDomainDkimResponse class]];
 }
 
-- (BFTask *)verifyDomainIdentity:(AWSSESVerifyDomainIdentityRequest *)request {
+- (AWSTask *)verifyDomainIdentity:(AWSSESVerifyDomainIdentityRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -397,7 +396,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESVerifyDomainIdentityResponse class]];
 }
 
-- (BFTask *)verifyEmailAddress:(AWSSESVerifyEmailAddressRequest *)request {
+- (AWSTask *)verifyEmailAddress:(AWSSESVerifyEmailAddressRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -406,7 +405,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)verifyEmailIdentity:(AWSSESVerifyEmailIdentityRequest *)request {
+- (AWSTask *)verifyEmailIdentity:(AWSSESVerifyEmailIdentityRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""

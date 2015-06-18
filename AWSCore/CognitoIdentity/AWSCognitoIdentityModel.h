@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
     AWSCognitoIdentityErrorInvalidClientTokenId,
     AWSCognitoIdentityErrorMissingAuthenticationToken,
     AWSCognitoIdentityErrorDeveloperUserAlreadyRegistered,
+    AWSCognitoIdentityErrorExternalService,
     AWSCognitoIdentityErrorInternalError,
     AWSCognitoIdentityErrorInvalidIdentityPoolConfiguration,
     AWSCognitoIdentityErrorInvalidParameter,
@@ -100,28 +101,28 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 @end
 
 /**
- 
+ <p>Credentials for the the provided identity ID.</p>
  */
 @interface AWSCognitoIdentityCredentials : AWSModel
 
 
 /**
- 
+ <p>The Access Key portion of the credentials.</p>
  */
 @property (nonatomic, strong) NSString *accessKeyId;
 
 /**
- 
+ <p>The date at which these credentials will expire.</p>
  */
 @property (nonatomic, strong) NSDate *expiration;
 
 /**
- 
+ <p>The Secret Access Key portion of the credentials</p>
  */
 @property (nonatomic, strong) NSString *secretKey;
 
 /**
- 
+ <p>The Session Token portion of the credentials</p>
  */
 @property (nonatomic, strong) NSString *sessionToken;
 
@@ -142,13 +143,14 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 @end
 
 /**
- 
+ <p>Input to the <code>DescribeIdentity</code> action.</p>
+ Required parameters: [IdentityId]
  */
 @interface AWSCognitoIdentityDescribeIdentityInput : AWSRequest
 
 
 /**
- 
+ <p>A unique identifier in the format REGION:GUID.</p>
  */
 @property (nonatomic, strong) NSString *identityId;
 
@@ -169,36 +171,37 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 @end
 
 /**
- 
+ <p>Input to the <code>GetCredentialsForIdentity</code> action.</p>
+ Required parameters: [IdentityId]
  */
 @interface AWSCognitoIdentityGetCredentialsForIdentityInput : AWSRequest
 
 
 /**
- 
+ <p>A unique identifier in the format REGION:GUID.</p>
  */
 @property (nonatomic, strong) NSString *identityId;
 
 /**
- 
+ <p>A set of optional name-value pairs that map provider names to provider tokens.</p>
  */
 @property (nonatomic, strong) NSDictionary *logins;
 
 @end
 
 /**
- 
+ <p>Returned in response to a successful <code>GetCredentialsForIdentity</code> operation.</p>
  */
 @interface AWSCognitoIdentityGetCredentialsForIdentityResponse : AWSModel
 
 
 /**
- 
+ <p>Credentials for the the provided identity ID.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityCredentials *credentials;
 
 /**
- 
+ <p>A unique identifier in the format REGION:GUID.</p>
  */
 @property (nonatomic, strong) NSString *identityId;
 
@@ -222,7 +225,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 @property (nonatomic, strong) NSString *identityPoolId;
 
 /**
- <p>A set of optional name-value pairs that map provider names to provider tokens.</p><p>The available provider names for <code>Logins</code> are as follows: <ul><li>Facebook: <code>graph.facebook.com</code></li><li>Google: <code>accounts.google.com</code></li><li>Amazon: <code>www.amazon.com</code></li></ul></p>
+ <p>A set of optional name-value pairs that map provider names to provider tokens.</p><p>The available provider names for <code>Logins</code> are as follows: <ul><li>Facebook: <code>graph.facebook.com</code></li><li>Google: <code>accounts.google.com</code></li><li>Amazon: <code>www.amazon.com</code></li><li>Twitter: <code>www.twitter.com</code></li><li>Digits: <code>www.digits.com</code></li></ul></p>
  */
 @property (nonatomic, strong) NSDictionary *logins;
 
@@ -242,31 +245,32 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 @end
 
 /**
- 
+ <p>Input to the <code>GetIdentityPoolRoles</code> action.</p>
+ Required parameters: [IdentityPoolId]
  */
 @interface AWSCognitoIdentityGetIdentityPoolRolesInput : AWSRequest
 
 
 /**
- 
+ <p>An identity pool ID in the format REGION:GUID.</p>
  */
 @property (nonatomic, strong) NSString *identityPoolId;
 
 @end
 
 /**
- 
+ <p>Returned in response to a successful <code>GetIdentityPoolRoles</code> operation.</p>
  */
 @interface AWSCognitoIdentityGetIdentityPoolRolesResponse : AWSModel
 
 
 /**
- 
+ <p>An identity pool ID in the format REGION:GUID.</p>
  */
 @property (nonatomic, strong) NSString *identityPoolId;
 
 /**
- 
+ <p>The map of roles associated with this pool. Currently only authenticated and unauthenticated roles are supported.</p>
  */
 @property (nonatomic, strong) NSDictionary *roles;
 
@@ -332,7 +336,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 @property (nonatomic, strong) NSString *identityId;
 
 /**
- A set of optional name-value pairs that map provider names to provider tokens.
+ A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com or any other OpenId Connect provider, always include the id_token.
  */
 @property (nonatomic, strong) NSDictionary *logins;
 
@@ -363,7 +367,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 
 
 /**
- 
+ <p>Date on which the identity was created.</p>
  */
 @property (nonatomic, strong) NSDate *creationDate;
 
@@ -373,7 +377,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 @property (nonatomic, strong) NSString *identityId;
 
 /**
- 
+ <p>Date on which the identity was last modified.</p>
  */
 @property (nonatomic, strong) NSDate *lastModifiedDate;
 
@@ -625,18 +629,19 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 @end
 
 /**
- 
+ <p>Input to the <code>SetIdentityPoolRoles</code> action.</p>
+ Required parameters: [IdentityPoolId, Roles]
  */
 @interface AWSCognitoIdentitySetIdentityPoolRolesInput : AWSRequest
 
 
 /**
- 
+ <p>An identity pool ID in the format REGION:GUID.</p>
  */
 @property (nonatomic, strong) NSString *identityPoolId;
 
 /**
- 
+ <p>The map of roles associated with this pool. Currently only authenticated and unauthenticated roles are supported.</p>
  */
 @property (nonatomic, strong) NSDictionary *roles;
 

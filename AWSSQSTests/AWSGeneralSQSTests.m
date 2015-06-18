@@ -55,7 +55,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSQS SQSForKey:key] addPermission:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSQS SQSForKey:key] addPermission:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -70,7 +70,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSQS SQSForKey:key] changeMessageVisibility:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSQS SQSForKey:key] changeMessageVisibility:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -85,7 +85,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSQS SQSForKey:key] changeMessageVisibilityBatch:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSQS SQSForKey:key] changeMessageVisibilityBatch:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -100,7 +100,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSQS SQSForKey:key] createQueue:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSQS SQSForKey:key] createQueue:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -115,7 +115,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSQS SQSForKey:key] deleteMessage:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSQS SQSForKey:key] deleteMessage:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -130,7 +130,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSQS SQSForKey:key] deleteMessageBatch:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSQS SQSForKey:key] deleteMessageBatch:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -145,7 +145,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSQS SQSForKey:key] deleteQueue:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSQS SQSForKey:key] deleteQueue:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -160,7 +160,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSQS SQSForKey:key] getQueueAttributes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSQS SQSForKey:key] getQueueAttributes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -175,7 +175,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSQS SQSForKey:key] getQueueUrl:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSQS SQSForKey:key] getQueueUrl:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -190,7 +190,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSQS SQSForKey:key] listDeadLetterSourceQueues:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSQS SQSForKey:key] listDeadLetterSourceQueues:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -205,7 +205,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSQS SQSForKey:key] listQueues:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSQS SQSForKey:key] listQueues:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -220,7 +220,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSQS SQSForKey:key] receiveMessage:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSQS SQSForKey:key] receiveMessage:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -235,7 +235,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSQS SQSForKey:key] removePermission:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSQS SQSForKey:key] removePermission:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -250,7 +250,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSQS SQSForKey:key] sendMessage:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSQS SQSForKey:key] sendMessage:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -265,7 +265,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSQS SQSForKey:key] sendMessageBatch:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSQS SQSForKey:key] sendMessageBatch:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -280,7 +280,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSQS SQSForKey:key] setQueueAttributes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSQS SQSForKey:key] setQueueAttributes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);

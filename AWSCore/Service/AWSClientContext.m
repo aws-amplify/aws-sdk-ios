@@ -17,7 +17,7 @@
 #import <UIKit/UIKit.h>
 #import <sys/types.h>
 #import <sys/sysctl.h>
-#import <UICKeyChainStore/UICKeyChainStore.h>
+#import "AWSUICKeyChainStore.h"
 #import "AWSLogging.h"
 
 // Public constants
@@ -40,7 +40,7 @@ NSString *const AWSClientContextKeychainInstallationIdKey = @"com.amazonaws.AWSC
 
 - (instancetype)init {
     if (self = [super init]) {
-        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:AWSClientContextKeychainService];
+        AWSUICKeyChainStore *keychain = [AWSUICKeyChainStore keyChainStoreWithService:AWSClientContextKeychainService];
         _installationId = [keychain stringForKey:AWSClientContextKeychainInstallationIdKey];
         if (!_installationId) {
             static dispatch_once_t onceToken;

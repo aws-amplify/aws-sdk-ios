@@ -55,7 +55,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSES SESForKey:key] deleteIdentity:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSES SESForKey:key] deleteIdentity:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -70,7 +70,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSES SESForKey:key] deleteVerifiedEmailAddress:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSES SESForKey:key] deleteVerifiedEmailAddress:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -85,7 +85,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSES SESForKey:key] getIdentityDkimAttributes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSES SESForKey:key] getIdentityDkimAttributes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -100,7 +100,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSES SESForKey:key] getIdentityNotificationAttributes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSES SESForKey:key] getIdentityNotificationAttributes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -115,7 +115,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSES SESForKey:key] getIdentityVerificationAttributes:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSES SESForKey:key] getIdentityVerificationAttributes:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -130,7 +130,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSES SESForKey:key] getSendQuota:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSES SESForKey:key] getSendQuota:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -145,7 +145,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSES SESForKey:key] getSendStatistics:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSES SESForKey:key] getSendStatistics:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -160,7 +160,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSES SESForKey:key] listIdentities:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSES SESForKey:key] listIdentities:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -175,7 +175,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSES SESForKey:key] listVerifiedEmailAddresses:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSES SESForKey:key] listVerifiedEmailAddresses:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -190,7 +190,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSES SESForKey:key] sendEmail:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSES SESForKey:key] sendEmail:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -205,7 +205,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSES SESForKey:key] sendRawEmail:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSES SESForKey:key] sendRawEmail:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -220,7 +220,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSES SESForKey:key] setIdentityDkimEnabled:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSES SESForKey:key] setIdentityDkimEnabled:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -235,7 +235,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSES SESForKey:key] setIdentityFeedbackForwardingEnabled:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSES SESForKey:key] setIdentityFeedbackForwardingEnabled:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -250,7 +250,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSES SESForKey:key] setIdentityNotificationTopic:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSES SESForKey:key] setIdentityNotificationTopic:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -265,7 +265,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSES SESForKey:key] verifyDomainDkim:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSES SESForKey:key] verifyDomainDkim:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -280,7 +280,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSES SESForKey:key] verifyDomainIdentity:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSES SESForKey:key] verifyDomainIdentity:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -295,7 +295,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSES SESForKey:key] verifyEmailAddress:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSES SESForKey:key] verifyEmailAddress:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
@@ -310,7 +310,7 @@
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
-    [[[[AWSSES SESForKey:key] verifyEmailIdentity:nil] continueWithBlock:^id(BFTask *task) {
+    [[[[AWSSES SESForKey:key] verifyEmailIdentity:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertNil(task.exception);
         XCTAssertNil(task.result);

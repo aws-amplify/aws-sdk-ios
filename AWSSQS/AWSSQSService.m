@@ -24,6 +24,7 @@
 #import "AWSURLResponseSerialization.h"
 #import "AWSURLRequestRetryHandler.h"
 #import "AWSSynchronizedMutableDictionary.h"
+#import "AWSSQSResources.h"
 
 NSString *const AWSSQSDefinitionFileName = @"sqs-2012-11-05";
 
@@ -92,9 +93,9 @@ static NSDictionary *errorCodeDictionary = nil;
         }
 
         if (self.outputClass) {
-            responseObject = [MTLJSONAdapter modelOfClass:self.outputClass
-                                       fromJSONDictionary:responseObject
-                                                    error:error];
+            responseObject = [AWSMTLJSONAdapter modelOfClass:self.outputClass
+                                          fromJSONDictionary:responseObject
+                                                       error:error];
         }
     }
 
@@ -236,7 +237,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return self;
 }
 
-- (BFTask *)invokeRequest:(AWSRequest *)request
+- (AWSTask *)invokeRequest:(AWSRequest *)request
                HTTPMethod:(AWSHTTPMethod)HTTPMethod
                 URLString:(NSString *) URLString
              targetPrefix:(NSString *)targetPrefix
@@ -250,25 +251,23 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         
         AWSNetworkingRequest *networkingRequest = request.internalRequest;
         if (request) {
-            networkingRequest.parameters = [[MTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
+            networkingRequest.parameters = [[AWSMTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
         } else {
             networkingRequest.parameters = @{};
         }
         networkingRequest.HTTPMethod = HTTPMethod;
-        networkingRequest.requestSerializer = [[AWSQueryStringRequestSerializer alloc] initWithResource:AWSSQSDefinitionFileName
+        networkingRequest.requestSerializer = [[AWSQueryStringRequestSerializer alloc] initWithJSONDefinition:[[AWSSQSResources sharedInstance] JSONObject]
+                                                                                                   actionName:operationName];
+        networkingRequest.responseSerializer = [[AWSSQSResponseSerializer alloc] initWithJSONDefinition:[[AWSSQSResources sharedInstance] JSONObject]
                                                                                              actionName:operationName
-                                                                                         classForBundle:[self class]];
-        networkingRequest.responseSerializer = [[AWSSQSResponseSerializer alloc] initWithResource:AWSSQSDefinitionFileName
-                                                                                       actionName:operationName
-                                                                                      outputClass:outputClass
-                                                                                   classForBundle:[self class]];
+                                                                                            outputClass:outputClass];
         return [self.networking sendRequest:networkingRequest];
     }
 }
 
 #pragma mark - Service method
 
-- (BFTask *)addPermission:(AWSSQSAddPermissionRequest *)request {
+- (AWSTask *)addPermission:(AWSSQSAddPermissionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -277,7 +276,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)changeMessageVisibility:(AWSSQSChangeMessageVisibilityRequest *)request {
+- (AWSTask *)changeMessageVisibility:(AWSSQSChangeMessageVisibilityRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -286,7 +285,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)changeMessageVisibilityBatch:(AWSSQSChangeMessageVisibilityBatchRequest *)request {
+- (AWSTask *)changeMessageVisibilityBatch:(AWSSQSChangeMessageVisibilityBatchRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -295,7 +294,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSQSChangeMessageVisibilityBatchResult class]];
 }
 
-- (BFTask *)createQueue:(AWSSQSCreateQueueRequest *)request {
+- (AWSTask *)createQueue:(AWSSQSCreateQueueRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -304,7 +303,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSQSCreateQueueResult class]];
 }
 
-- (BFTask *)deleteMessage:(AWSSQSDeleteMessageRequest *)request {
+- (AWSTask *)deleteMessage:(AWSSQSDeleteMessageRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -313,7 +312,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)deleteMessageBatch:(AWSSQSDeleteMessageBatchRequest *)request {
+- (AWSTask *)deleteMessageBatch:(AWSSQSDeleteMessageBatchRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -322,7 +321,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSQSDeleteMessageBatchResult class]];
 }
 
-- (BFTask *)deleteQueue:(AWSSQSDeleteQueueRequest *)request {
+- (AWSTask *)deleteQueue:(AWSSQSDeleteQueueRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -331,7 +330,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)getQueueAttributes:(AWSSQSGetQueueAttributesRequest *)request {
+- (AWSTask *)getQueueAttributes:(AWSSQSGetQueueAttributesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -340,7 +339,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSQSGetQueueAttributesResult class]];
 }
 
-- (BFTask *)getQueueUrl:(AWSSQSGetQueueUrlRequest *)request {
+- (AWSTask *)getQueueUrl:(AWSSQSGetQueueUrlRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -349,7 +348,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSQSGetQueueUrlResult class]];
 }
 
-- (BFTask *)listDeadLetterSourceQueues:(AWSSQSListDeadLetterSourceQueuesRequest *)request {
+- (AWSTask *)listDeadLetterSourceQueues:(AWSSQSListDeadLetterSourceQueuesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -358,7 +357,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSQSListDeadLetterSourceQueuesResult class]];
 }
 
-- (BFTask *)listQueues:(AWSSQSListQueuesRequest *)request {
+- (AWSTask *)listQueues:(AWSSQSListQueuesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -367,7 +366,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSQSListQueuesResult class]];
 }
 
-- (BFTask *)receiveMessage:(AWSSQSReceiveMessageRequest *)request {
+- (AWSTask *)receiveMessage:(AWSSQSReceiveMessageRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -376,7 +375,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSQSReceiveMessageResult class]];
 }
 
-- (BFTask *)removePermission:(AWSSQSRemovePermissionRequest *)request {
+- (AWSTask *)removePermission:(AWSSQSRemovePermissionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -385,7 +384,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (BFTask *)sendMessage:(AWSSQSSendMessageRequest *)request {
+- (AWSTask *)sendMessage:(AWSSQSSendMessageRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -394,7 +393,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSQSSendMessageResult class]];
 }
 
-- (BFTask *)sendMessageBatch:(AWSSQSSendMessageBatchRequest *)request {
+- (AWSTask *)sendMessageBatch:(AWSSQSSendMessageBatchRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -403,7 +402,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSQSSendMessageBatchResult class]];
 }
 
-- (BFTask *)setQueueAttributes:(AWSSQSSetQueueAttributesRequest *)request {
+- (AWSTask *)setQueueAttributes:(AWSSQSSetQueueAttributesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
