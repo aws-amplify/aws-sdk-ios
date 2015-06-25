@@ -227,7 +227,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
  *          Provider will check the `isAuthenticated` property of the identity provider to
  *          determine which role to use. Can be nil if unauthenticated identities are not supported or
  *          if using enhanced authentication flow.
- *  @param unauthRoleArn The role ARN to use when getting credentials for authenticated identities.
+ *  @param authRoleArn The role ARN to use when getting credentials for authenticated identities.
  *          Provider will check the `isAuthenticated` property of the identity provider to
  *          determine which role to use. Can be nil if authenticated identities are not supported or
  *          if using enhanced authentication flow.
@@ -251,7 +251,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
  *  @param unauthRoleArn The role ARN to use when getting credentials for unauthenticated identities.
  *          Provider will check the `isAuthenticated` property of the identity provider to
  *          determine which role to use. Can be nil if unauthenticated identities are not supported.
- *  @param unauthRoleArn The role ARN to use when getting credentials for authenticated identities.
+ *  @param authRoleArn The role ARN to use when getting credentials for authenticated identities.
  *          Provider will check the `isAuthenticated` property of the identity provider to
  *          determine which role to use. Can be nil if authenticated identities are not supported.
  *  @param logins The map of logins to link to this identity. Can be nil if identity is unauthenticated.
