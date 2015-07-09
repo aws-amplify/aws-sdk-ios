@@ -22,7 +22,7 @@
 #import "AWSService.h"
 
 NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDomain";
-NSString *const AWSiOSSDKVersion = @"2.2.0";
+NSString *const AWSiOSSDKVersion = @"2.2.1";
 
 #pragma mark - AWSHTTPMethod
 

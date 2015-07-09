@@ -13,7 +13,7 @@ function exitOnFailureCode() {
 # clean 
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
-	rm -rf build
+	rm -rf builtFramework
 	echo "Cleaning Completed"
 	exit 0
 fi

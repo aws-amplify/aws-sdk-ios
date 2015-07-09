@@ -15,6 +15,7 @@
 
 #if !AWS_TEST_BJS_INSTEAD
 
+#import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "AWSCore.h"
 #import "AWSTestUtility.h"

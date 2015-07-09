@@ -26,7 +26,7 @@
 
 - (void)setUp {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    [AWSTestUtility setupFakeCognitoCredentialsProvider];
 }
 
 - (void)tearDown {

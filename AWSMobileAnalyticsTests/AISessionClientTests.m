@@ -474,7 +474,7 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
 
     TestEventObserver2* newInterceptor = [[TestEventObserver2 alloc] initObserver];
     [AWSMobileAnalytics removeCachedInstances];
-    insights = [AWSMobileAnalytics mobileAnalyticsForAppId:[NSStringFromSelector(_cmd) stringByAppendingString:@"-2"]
+    [AWSMobileAnalytics mobileAnalyticsForAppId:[NSStringFromSelector(_cmd) stringByAppendingString:@"-2"]
                                              configuration:[AWSMobileAnalyticsConfiguration new]
                                            completionBlock:^(AWSMobileAnalytics *newInsights) {
                                                id<AWSMobileAnalyticsInternalEventClient> newEc = (id<AWSMobileAnalyticsInternalEventClient>) [newInsights eventClient];

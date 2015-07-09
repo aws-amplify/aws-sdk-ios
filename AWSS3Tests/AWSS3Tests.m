@@ -541,6 +541,26 @@ static NSString *testBucketNameGeneral = nil;
     }] waitUntilFinished];
 }
 
+/* TODO: this test gets stuck. Researching.
+- (void)testPutBucketVersioning {
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    XCTAssertNotNil(s3);
+
+    AWSS3VersioningConfiguration *conf = [AWSS3VersioningConfiguration new];
+    conf.status = AWSS3BucketVersioningStatusEnabled;
+    
+    AWSS3PutBucketVersioningRequest *versionRequest =  [AWSS3PutBucketVersioningRequest new];
+    versionRequest.bucket = testBucketNameGeneral;
+    versionRequest.versioningConfiguration = conf;
+    NSLog(@"Config %@",versionRequest);
+    
+    [[[s3 putBucketVersioning:versionRequest] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        return nil;
+    }] waitUntilFinished];
+}
+*/
+
 - (void)testPutBucketTagging {
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);

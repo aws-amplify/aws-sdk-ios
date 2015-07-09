@@ -13,6 +13,7 @@
  permissions and limitations under the License.
  */
 
+#import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "AWSEC2.h"
 #import "AWSTestUtility.h"

@@ -1,5 +1,6 @@
 # OS generated files #
 ######################
+.COMPONENT_CACHED
 .DS_Store
 .DS_Store?
 ._*
@@ -25,6 +26,7 @@ xcuserdata
 # Built assets #
 ######################
 build
+builtFramework
 AWS*.framework
 
 # Stuff that can't be committed #

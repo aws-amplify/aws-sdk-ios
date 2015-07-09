@@ -91,4 +91,8 @@
                        service:(AWSServiceType)serviceType
                   useUnsafeURL:(BOOL)useUnsafeURL;
 
+- (instancetype)initWithRegion:(AWSRegionType)regionType
+                       service:(AWSServiceType)serviceType
+                           URL:(NSURL *)URL;
+
 @end

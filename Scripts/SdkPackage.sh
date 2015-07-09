@@ -30,7 +30,7 @@ FRAMEWORK_VERSION=A
 # Where we'll put the build framework.
 # The script presumes we're in the project root
 # directory. Xcode builds in "build" by default
-FRAMEWORK_BUILD_PATH="build/framework"
+FRAMEWORK_BUILD_PATH="builtFramework/framework"
 
 
 # Clean any existing framework that might be there
@@ -48,7 +48,7 @@ xcodebuild ARCHS="armv7 armv7s arm64 i386 x86_64" \
     -project "${project_name}.xcodeproj" \
     -target "${project_name}" \
     -sdk iphonesimulator \
-    SYMROOT=$(PWD)/build \
+    SYMROOT=$(PWD)/builtFramework \
     clean build
 
 exitOnFailureCode $?
@@ -59,7 +59,7 @@ xcodebuild ARCHS="armv7 armv7s arm64 i386 x86_64" \
     -project "${project_name}.xcodeproj" \
     -target "${project_name}" \
     -sdk iphoneos \
-    SYMROOT=$(PWD)/build \
+    SYMROOT=$(PWD)/builtFramework \
     clean build
 
 exitOnFailureCode $?
@@ -96,8 +96,8 @@ ln -s Versions/Current/$FRAMEWORK_NAME $FRAMEWORK_DIR/$FRAMEWORK_NAME
 # framework with no .a extension.
 echo "Framework: Creating library..."
 lipo -create \
-    "build/Debug-iphonesimulator/lib${project_name}.a" \
-    "build/Release-iphoneos/lib${project_name}.a" \
+    "builtFramework/Debug-iphonesimulator/lib${project_name}.a" \
+    "builtFramework/Release-iphoneos/lib${project_name}.a" \
     -o "$FRAMEWORK_DIR/Versions/Current/$FRAMEWORK_NAME"
 
 exitOnFailureCode $?
@@ -106,11 +106,11 @@ exitOnFailureCode $?
 # header files and service definition json files
 echo "Framework: Copying public headers into current version..."
 #those headers are declared in xcode's building phase: Headers
-cp -a build/Release-iphoneos/include/${project_name}/*.h $FRAMEWORK_DIR/Headers/
+cp -a builtFramework/Release-iphoneos/include/${project_name}/*.h $FRAMEWORK_DIR/Headers/
 exitOnFailureCode $?
 
 # copy service definition json files
 echo "Copying service definition files into current build directory..."
-mkdir -p 'build/service-definitions'
-find . -name "*.json" -not -path "./*Tests/*" -not -path './build/*' -exec cp {} 'build/service-definitions/' \;
+mkdir -p 'builtFramework/service-definitions'
+find . -name "*.json" -not -path "./*Tests/*" -not -path './builtFramework/*' -exec cp {} 'builtFramework/service-definitions/' \;
 exitOnFailureCode $?

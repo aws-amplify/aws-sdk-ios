@@ -10,7 +10,6 @@
 		BD0000341AB8C4FD004496EF /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = BD0000331AB8C4FD004496EF /* credentials.json */; };
 		BD00004F1AB8E15B004496EF /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00004E1AB8E15B004496EF /* AWSTestUtility.m */; };
 		BD00FF3B1AB8B6B6004496EF /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD00FF3A1AB8B6B6004496EF /* libAWSCore.a */; };
-		BD00FFDC1AB8C407004496EF /* AWSGeneralSNSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFDA1AB8C407004496EF /* AWSGeneralSNSTests.m */; };
 		BD00FFDD1AB8C407004496EF /* AWSSNSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFDB1AB8C407004496EF /* AWSSNSTests.m */; };
 		BD9D97661AC1EEE500CEEE08 /* AWSSNSService.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEE7DE761AC1E2270095C4B7 /* AWSSNSService.h */; };
 		BDB5DECB1AB377FA002DD224 /* libAWSSNS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB5DEBF1AB377FA002DD224 /* libAWSSNS.a */; };
@@ -22,12 +21,25 @@
 		BDB73D941B1D3F8D00717559 /* AWSSNSResources.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB73D921B1D3F8D00717559 /* AWSSNSResources.m */; };
 		BDC91C3F1ABBA08300F74D49 /* AWSSNS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDB5DEDB1AB3781F002DD224 /* AWSSNS.h */; };
 		BDC91C401ABBA08300F74D49 /* AWSSNSModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDB5DEDD1AB3781F002DD224 /* AWSSNSModel.h */; };
+		BDD876B81B4B5361009268C7 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD876B71B4B5361009268C7 /* libOCMock.a */; };
+		BDF1264A1B45C34100DFBFEC /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00004E1AB8E15B004496EF /* AWSTestUtility.m */; };
+		BDF1264B1B45C34100DFBFEC /* AWSGeneralSNSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFDA1AB8C407004496EF /* AWSGeneralSNSTests.m */; };
+		BDF1264D1B45C34100DFBFEC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE5325D1B03D38F002CED62 /* libz.dylib */; };
+		BDF1264E1B45C34100DFBFEC /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD00FF3A1AB8B6B6004496EF /* libAWSCore.a */; };
+		BDF1264F1B45C34100DFBFEC /* libAWSSNS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB5DEBF1AB377FA002DD224 /* libAWSSNS.a */; };
 		CEE5325E1B03D38F002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE5325D1B03D38F002CED62 /* libz.dylib */; };
 		CEE7DE771AC1E2270095C4B7 /* AWSSNSService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE761AC1E2270095C4B7 /* AWSSNSService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		BDB5DECC1AB377FA002DD224 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDB5DEB71AB377FA002DD224 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDB5DEBE1AB377FA002DD224;
+			remoteInfo = SNS;
+		};
+		BDF126471B45C34100DFBFEC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BDB5DEB71AB377FA002DD224 /* Project object */;
 			proxyType = 1;
@@ -52,8 +64,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		36630348B896F5C040E99D9C /* Pods-AWSSNS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSSNS.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSSNS/Pods-AWSSNS.release.xcconfig"; sourceTree = "<group>"; };
-		5B06DD78D46B292D4F674CE2 /* Pods-AWSSNS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSSNS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSSNS/Pods-AWSSNS.debug.xcconfig"; sourceTree = "<group>"; };
 		BD0000331AB8C4FD004496EF /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
 		BD00004D1AB8E15B004496EF /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSTestUtility.h; path = AWSCoreTests/AWSTestUtility.h; sourceTree = SOURCE_ROOT; };
 		BD00004E1AB8E15B004496EF /* AWSTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSTestUtility.m; path = AWSCoreTests/AWSTestUtility.m; sourceTree = SOURCE_ROOT; };
@@ -69,9 +79,10 @@
 		BDB5DEDE1AB3781F002DD224 /* AWSSNSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSNSModel.m; sourceTree = "<group>"; };
 		BDB73D911B1D3F8D00717559 /* AWSSNSResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSNSResources.h; sourceTree = "<group>"; };
 		BDB73D921B1D3F8D00717559 /* AWSSNSResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSNSResources.m; sourceTree = "<group>"; };
+		BDD876B71B4B5361009268C7 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = AWSCoreTests/OCMock/libOCMock.a; sourceTree = "<group>"; };
+		BDF126551B45C34100DFBFEC /* AWSSNSUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSSNSUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE5325D1B03D38F002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CEE7DE761AC1E2270095C4B7 /* AWSSNSService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSNSService.h; sourceTree = "<group>"; };
-		FF4C8DA618813B12A2AD647E /* libPods-AWSSNS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSSNS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,26 +103,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BDF1264C1B45C34100DFBFEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDD876B81B4B5361009268C7 /* libOCMock.a in Frameworks */,
+				BDF1264D1B45C34100DFBFEC /* libz.dylib in Frameworks */,
+				BDF1264E1B45C34100DFBFEC /* libAWSCore.a in Frameworks */,
+				BDF1264F1B45C34100DFBFEC /* libAWSSNS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		64A8D5459E21A3F4F06E6A97 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BDD876B71B4B5361009268C7 /* libOCMock.a */,
 				CEE5325D1B03D38F002CED62 /* libz.dylib */,
 				BD00FF3A1AB8B6B6004496EF /* libAWSCore.a */,
-				FF4C8DA618813B12A2AD647E /* libPods-AWSSNS.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A6F36E20562C00E7C13A0FCC /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5B06DD78D46B292D4F674CE2 /* Pods-AWSSNS.debug.xcconfig */,
-				36630348B896F5C040E99D9C /* Pods-AWSSNS.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		BDB5DEB61AB377FA002DD224 = {
@@ -120,7 +133,6 @@
 				BDB5DEC11AB377FA002DD224 /* AWSSNS */,
 				BDB5DECE1AB377FA002DD224 /* AWSSNSTests */,
 				BDB5DEC01AB377FA002DD224 /* Products */,
-				A6F36E20562C00E7C13A0FCC /* Pods */,
 				64A8D5459E21A3F4F06E6A97 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -130,6 +142,7 @@
 			children = (
 				BDB5DEBF1AB377FA002DD224 /* libAWSSNS.a */,
 				BDB5DECA1AB377FA002DD224 /* AWSSNSTests.xctest */,
+				BDF126551B45C34100DFBFEC /* AWSSNSUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -222,6 +235,24 @@
 			productReference = BDB5DECA1AB377FA002DD224 /* AWSSNSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		BDF126451B45C34100DFBFEC /* AWSSNSUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDF126521B45C34100DFBFEC /* Build configuration list for PBXNativeTarget "AWSSNSUnitTests" */;
+			buildPhases = (
+				BDF126481B45C34100DFBFEC /* Sources */,
+				BDF1264C1B45C34100DFBFEC /* Frameworks */,
+				BDF126501B45C34100DFBFEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDF126461B45C34100DFBFEC /* PBXTargetDependency */,
+			);
+			name = AWSSNSUnitTests;
+			productName = SNSTests;
+			productReference = BDF126551B45C34100DFBFEC /* AWSSNSUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -253,6 +284,7 @@
 			targets = (
 				BDB5DEBE1AB377FA002DD224 /* AWSSNS */,
 				BDB5DEC91AB377FA002DD224 /* AWSSNSTests */,
+				BDF126451B45C34100DFBFEC /* AWSSNSUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -263,6 +295,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD0000341AB8C4FD004496EF /* credentials.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF126501B45C34100DFBFEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +324,15 @@
 			files = (
 				BD00FFDD1AB8C407004496EF /* AWSSNSTests.m in Sources */,
 				BD00004F1AB8E15B004496EF /* AWSTestUtility.m in Sources */,
-				BD00FFDC1AB8C407004496EF /* AWSGeneralSNSTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF126481B45C34100DFBFEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDF1264A1B45C34100DFBFEC /* AWSTestUtility.m in Sources */,
+				BDF1264B1B45C34100DFBFEC /* AWSGeneralSNSTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +344,11 @@
 			target = BDB5DEBE1AB377FA002DD224 /* AWSSNS */;
 			targetProxy = BDB5DECC1AB377FA002DD224 /* PBXContainerItemProxy */;
 		};
+		BDF126461B45C34100DFBFEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDB5DEBE1AB377FA002DD224 /* AWSSNS */;
+			targetProxy = BDF126471B45C34100DFBFEC /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -304,6 +356,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -345,6 +401,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -419,6 +479,7 @@
 				);
 				INFOPLIST_FILE = AWSSNSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(SYMROOT)";
 				PRODUCT_NAME = AWSSNSTests;
 			};
 			name = Debug;
@@ -434,7 +495,66 @@
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = AWSSNSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(SYMROOT)";
 				PRODUCT_NAME = AWSSNSTests;
+			};
+			name = Release;
+		};
+		BDF126531B45C34100DFBFEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AWSSNSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SYMROOT)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-force_load",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
+				);
+				PRODUCT_NAME = AWSSNSUnitTests;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
+			};
+			name = Debug;
+		};
+		BDF126541B45C34100DFBFEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				INFOPLIST_FILE = AWSSNSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SYMROOT)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-force_load",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
+				);
+				PRODUCT_NAME = AWSSNSUnitTests;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
 			};
 			name = Release;
 		};
@@ -464,6 +584,15 @@
 			buildConfigurations = (
 				BDB5DED71AB377FA002DD224 /* Debug */,
 				BDB5DED81AB377FA002DD224 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDF126521B45C34100DFBFEC /* Build configuration list for PBXNativeTarget "AWSSNSUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDF126531B45C34100DFBFEC /* Debug */,
+				BDF126541B45C34100DFBFEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -9,8 +9,13 @@
 /* Begin PBXBuildFile section */
 		BDB73D831B1D3F3000717559 /* AWSMachineLearningResources.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB73D811B1D3F3000717559 /* AWSMachineLearningResources.h */; };
 		BDB73D841B1D3F3000717559 /* AWSMachineLearningResources.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB73D821B1D3F3000717559 /* AWSMachineLearningResources.m */; };
+		BDD876AE1B4B5302009268C7 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD876AD1B4B5302009268C7 /* libOCMock.a */; };
+		BDF125EB1B45C24500DFBFEC /* AWSGeneralMachineLearningTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9200361ACF7BE700637171 /* AWSGeneralMachineLearningTests.m */; };
+		BDF125EF1B45C24500DFBFEC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE5325B1B03D386002CED62 /* libz.dylib */; };
+		BDF125F01B45C24500DFBFEC /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE92004C1ACF7FBB00637171 /* libAWSCore.a */; };
+		BDF125F11B45C24500DFBFEC /* libAWSMachineLearning.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7123551ACF7A0B00D96A87 /* libAWSMachineLearning.a */; };
+		BDF126921B45C87C00DFBFEC /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE92004A1ACF7F3700637171 /* AWSTestUtility.m */; };
 		CE7123611ACF7A0B00D96A87 /* libAWSMachineLearning.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7123551ACF7A0B00D96A87 /* libAWSMachineLearning.a */; };
-		CE9200381ACF7BE700637171 /* AWSGeneralMachineLearningTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9200361ACF7BE700637171 /* AWSGeneralMachineLearningTests.m */; };
 		CE9200391ACF7BE700637171 /* AWSMachineLearningTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9200371ACF7BE700637171 /* AWSMachineLearningTests.m */; };
 		CE9200401ACF7CC500637171 /* AWSMachineLearning.h in Headers */ = {isa = PBXBuildFile; fileRef = CE92003A1ACF7CC500637171 /* AWSMachineLearning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE9200411ACF7CC500637171 /* AWSMachineLearningService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE92003B1ACF7CC500637171 /* AWSMachineLearningService.m */; };
@@ -27,6 +32,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BDF125E91B45C24500DFBFEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE71234D1ACF7A0B00D96A87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE7123541ACF7A0B00D96A87;
+			remoteInfo = AWSMachineLearning;
+		};
 		CE7123621ACF7A0B00D96A87 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE71234D1ACF7A0B00D96A87 /* Project object */;
@@ -52,11 +64,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		11873971354373936B380D88 /* Pods-AWSMachineLearning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSMachineLearning.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSMachineLearning/Pods-AWSMachineLearning.debug.xcconfig"; sourceTree = "<group>"; };
-		36818999D668F95B30403A91 /* libPods-AWSMachineLearning.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSMachineLearning.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		983A09C75DB47041C7FC62B3 /* Pods-AWSMachineLearning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSMachineLearning.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSMachineLearning/Pods-AWSMachineLearning.release.xcconfig"; sourceTree = "<group>"; };
 		BDB73D811B1D3F3000717559 /* AWSMachineLearningResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSMachineLearningResources.h; sourceTree = "<group>"; };
 		BDB73D821B1D3F3000717559 /* AWSMachineLearningResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSMachineLearningResources.m; sourceTree = "<group>"; };
+		BDD876AD1B4B5302009268C7 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = AWSCoreTests/OCMock/libOCMock.a; sourceTree = "<group>"; };
+		BDF125F71B45C24500DFBFEC /* AWSMachineLearningUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSMachineLearningUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7123551ACF7A0B00D96A87 /* libAWSMachineLearning.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSMachineLearning.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7123601ACF7A0B00D96A87 /* AWSMachineLearningTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSMachineLearningTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7123661ACF7A0B00D96A87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,6 +85,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BDF125EE1B45C24500DFBFEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDD876AE1B4B5302009268C7 /* libOCMock.a in Frameworks */,
+				BDF125EF1B45C24500DFBFEC /* libz.dylib in Frameworks */,
+				BDF125F01B45C24500DFBFEC /* libAWSCore.a in Frameworks */,
+				BDF125F11B45C24500DFBFEC /* libAWSMachineLearning.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE7123521ACF7A0B00D96A87 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -97,20 +119,11 @@
 		13BA91A9ED2214407949A932 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BDD876AD1B4B5302009268C7 /* libOCMock.a */,
 				CEE5325B1B03D386002CED62 /* libz.dylib */,
 				CE92004C1ACF7FBB00637171 /* libAWSCore.a */,
-				36818999D668F95B30403A91 /* libPods-AWSMachineLearning.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B25AA71BE8549EECD8B6BF6D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				11873971354373936B380D88 /* Pods-AWSMachineLearning.debug.xcconfig */,
-				983A09C75DB47041C7FC62B3 /* Pods-AWSMachineLearning.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		CE71234C1ACF7A0B00D96A87 = {
@@ -119,7 +132,6 @@
 				CE7123571ACF7A0B00D96A87 /* AWSMachineLearning */,
 				CE7123641ACF7A0B00D96A87 /* AWSMachineLearningTests */,
 				CE7123561ACF7A0B00D96A87 /* Products */,
-				B25AA71BE8549EECD8B6BF6D /* Pods */,
 				13BA91A9ED2214407949A932 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -129,6 +141,7 @@
 			children = (
 				CE7123551ACF7A0B00D96A87 /* libAWSMachineLearning.a */,
 				CE7123601ACF7A0B00D96A87 /* AWSMachineLearningTests.xctest */,
+				BDF125F71B45C24500DFBFEC /* AWSMachineLearningUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,6 +197,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		BDF125E71B45C24500DFBFEC /* AWSMachineLearningUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDF125F41B45C24500DFBFEC /* Build configuration list for PBXNativeTarget "AWSMachineLearningUnitTests" */;
+			buildPhases = (
+				BDF125EA1B45C24500DFBFEC /* Sources */,
+				BDF125EE1B45C24500DFBFEC /* Frameworks */,
+				BDF125F21B45C24500DFBFEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDF125E81B45C24500DFBFEC /* PBXTargetDependency */,
+			);
+			name = AWSMachineLearningUnitTests;
+			productName = AWSMachineLearningTests;
+			productReference = BDF125F71B45C24500DFBFEC /* AWSMachineLearningUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		CE7123541ACF7A0B00D96A87 /* AWSMachineLearning */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE7123691ACF7A0B00D96A87 /* Build configuration list for PBXNativeTarget "AWSMachineLearning" */;
@@ -251,11 +282,19 @@
 			targets = (
 				CE7123541ACF7A0B00D96A87 /* AWSMachineLearning */,
 				CE71235F1ACF7A0B00D96A87 /* AWSMachineLearningTests */,
+				BDF125E71B45C24500DFBFEC /* AWSMachineLearningUnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BDF125F21B45C24500DFBFEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE71235E1ACF7A0B00D96A87 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -267,6 +306,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BDF125EA1B45C24500DFBFEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDF126921B45C87C00DFBFEC /* AWSTestUtility.m in Sources */,
+				BDF125EB1B45C24500DFBFEC /* AWSGeneralMachineLearningTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE7123511ACF7A0B00D96A87 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -281,7 +329,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE9200381ACF7BE700637171 /* AWSGeneralMachineLearningTests.m in Sources */,
 				CE92004B1ACF7F3700637171 /* AWSTestUtility.m in Sources */,
 				CE9200391ACF7BE700637171 /* AWSMachineLearningTests.m in Sources */,
 			);
@@ -290,6 +337,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BDF125E81B45C24500DFBFEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE7123541ACF7A0B00D96A87 /* AWSMachineLearning */;
+			targetProxy = BDF125E91B45C24500DFBFEC /* PBXContainerItemProxy */;
+		};
 		CE7123631ACF7A0B00D96A87 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CE7123541ACF7A0B00D96A87 /* AWSMachineLearning */;
@@ -298,10 +350,72 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		BDF125F51B45C24500DFBFEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AWSMachineLearningTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SYMROOT)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-force_load",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
+				);
+				PRODUCT_NAME = AWSMachineLearningUnitTests;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
+			};
+			name = Debug;
+		};
+		BDF125F61B45C24500DFBFEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				INFOPLIST_FILE = AWSMachineLearningTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SYMROOT)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-force_load",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
+				);
+				PRODUCT_NAME = AWSMachineLearningUnitTests;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
+			};
+			name = Release;
+		};
 		CE7123671ACF7A0B00D96A87 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -343,6 +457,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -415,6 +533,7 @@
 				);
 				INFOPLIST_FILE = AWSMachineLearningTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(SYMROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -430,6 +549,7 @@
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = AWSMachineLearningTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(SYMROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -437,6 +557,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BDF125F41B45C24500DFBFEC /* Build configuration list for PBXNativeTarget "AWSMachineLearningUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDF125F51B45C24500DFBFEC /* Debug */,
+				BDF125F61B45C24500DFBFEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CE7123501ACF7A0B00D96A87 /* Build configuration list for PBXProject "AWSMachineLearning" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

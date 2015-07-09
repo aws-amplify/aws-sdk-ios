@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.2.0"
+VERSION="2.2.1"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -26,6 +26,7 @@ else
     mkdir -p docs
     mkdir -p docs_tmp
 
+    cp -r AWSAPIGateway ./docs_tmp/AWSAPIGateway
     cp -r AWSAutoScaling ./docs_tmp/AWSAutoScaling
     cp -r AWSCore ./docs_tmp/AWSCore
     cp -r AWSCloudWatch ./docs_tmp/AWSCloudWatch
@@ -54,17 +55,17 @@ else
     rm -rf ./docs_tmp/AWSMobileAnalytics/Internal
 
 
-    if [ -d ../AWSiOSSDKCognitoSync ]
+    if [ -d ./AWSiOSSDKCognitoSync ]
     then 
-    	cp -r ../AWSiOSSDKCognitoSync/Cognito ./docs_tmp/Cognito
+    	cp -r ./AWSiOSSDKCognitoSync/Cognito ./docs_tmp/Cognito
         rm -rf ./docs_tmp/Cognito/Internal
-    	cp -r ../AWSiOSSDKCognitoSync/CognitoSync ./docs_tmp/CognitoSync
+    	cp -r ./AWSiOSSDKCognitoSync/CognitoSync ./docs_tmp/CognitoSync
     fi
 
     cd docs_tmp
 
     # generate documenation
-    /usr/local/bin/appledoc --verbose 0 \
+    appledoc --verbose 0 \
                             --output ../docs \
                             --exit-threshold 2 \
                             --no-repeat-first-par \
@@ -102,10 +103,10 @@ else
     #git push origin mainline
 
     rm -rf Documentation
-    mkdir Documentation
-    mv docs/html Documentation
-    mv docs/com.amazon.aws.ios.docset Documentation
-    mv docs/aws-sdk-ios-docs.zip Documentation
+    mkdir "$BUILT_PRODUCTS_DIR"/Documentation
+    mv docs/html "$BUILT_PRODUCTS_DIR"/Documentation
+    mv docs/com.amazon.aws.ios.docset "$BUILT_PRODUCTS_DIR"/Documentation
+    mv docs/aws-sdk-ios-docs.zip "$BUILT_PRODUCTS_DIR"/Documentation
     rm -rf docs
     rm -rf docs_tmp
 

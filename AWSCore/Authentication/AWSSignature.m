@@ -88,7 +88,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
     // Both SHA1 and SHA256 will fit in here
     unsigned char digestRaw[CC_SHA256_DIGEST_LENGTH];
 
-    NSInteger           digestLength;
+    NSInteger digestLength = -1;
 
     switch (algorithm) {
         case kCCHmacAlgSHA1:
@@ -100,7 +100,6 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
             break;
 
         default:
-            digestLength = -1;
             AWSLogError(@"Unable to sign: unsupported Algorithm.");
             return nil;
             break;
@@ -143,6 +142,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
 }
 
 - (AWSTask *)interceptRequest:(NSMutableURLRequest *)request {
+    [request addValue:request.URL.host forHTTPHeaderField:@"Host"];
     return [[AWSTask taskWithResult:nil] continueWithSuccessBlock:^id(AWSTask *task) {
         // clear authorization header if set
         [request setValue:nil forHTTPHeaderField:@"Authorization"];

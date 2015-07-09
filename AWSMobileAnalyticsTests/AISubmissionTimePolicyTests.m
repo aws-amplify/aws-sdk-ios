@@ -16,7 +16,7 @@
 #import "AISubmissionTimePolicyTests.h"
 #import "AIInsightsContextBuilder.h"
 #import "AWSMobileAnalyticsSubmissionTimePolicy.h"
-#import "OCMock.h"
+#import <OCMock/OCMock.h>
 
 static id mockContext = nil;
 static id mockPreferences = nil;

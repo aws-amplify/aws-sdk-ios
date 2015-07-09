@@ -256,9 +256,8 @@ static id mockEventClient;
     assertThat(monetizationEvent, is(nilValue())); //nil transaction id
 }
 
--(void) test_appleMonetizationEvent_manyLocaleCurrencyConversions
-{
-    AWSMobileAnalyticsAppleMonetizationEventBuilder* appleBuilder = [AWSMobileAnalyticsAppleMonetizationEventBuilder builderWithEventClient:mockEventClient];
+-(void) test_appleMonetizationEvent_manyLocaleCurrencyConversions {
+    AWSMobileAnalyticsAppleMonetizationEventBuilder* appleBuilder = nil;
     
     NSInteger quantity = 1;
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];

@@ -141,7 +141,7 @@ static NSString *testStreamName = nil;
 - (void)testAll {
     AWSKinesis *kinesis = [AWSKinesis defaultKinesis];
 
-    NSMutableArray *tasks = [NSMutableArray new];
+    AWSTask *task = [AWSTask taskWithResult:nil];
     NSMutableArray *returnedRecords = [NSMutableArray new];
 
     for (int32_t i = 0; i < 100; i++) {
@@ -150,11 +150,12 @@ static NSString *testStreamName = nil;
         putRecordInput.data = [[NSString stringWithFormat:@"TestString-%02d", i] dataUsingEncoding:NSUTF8StringEncoding];
         putRecordInput.partitionKey = @"test-partition-key";
 
-        [tasks addObject:[kinesis putRecord:putRecordInput]];
+        task = [task continueWithSuccessBlock:^id(AWSTask *task) {
+            return [kinesis putRecord:putRecordInput];
+        }];
     }
 
-    [[[[[[AWSTask taskForCompletionOfAllTasks:tasks] continueWithSuccessBlock:^id(AWSTask *task) {
-        sleep(10);
+    [[[[[task continueWithSuccessBlock:^id(AWSTask *task) {
         AWSKinesisDescribeStreamInput *describeStreamInput = [AWSKinesisDescribeStreamInput new];
         describeStreamInput.streamName = testStreamName;
         return [kinesis describeStream:describeStreamInput];
@@ -168,7 +169,6 @@ static NSString *testStreamName = nil;
         getShardIteratorInput.shardId = shard.shardId;
         getShardIteratorInput.shardIteratorType = AWSKinesisShardIteratorTypeAtSequenceNumber;
         getShardIteratorInput.startingSequenceNumber = shard.sequenceNumberRange.startingSequenceNumber;
-
         return [kinesis getShardIterator:getShardIteratorInput];
     }] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSKinesisGetShardIteratorOutput *getShardIteratorOutput = task.result;

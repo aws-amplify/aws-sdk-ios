@@ -18,7 +18,7 @@
 #import <objc/runtime.h>
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #import <XCTest/XCTest.h>
-#import "OCMock.h"
+#import <OCMock/OCMock.h>
 
 @interface NSString (RegExpExtensions)
 - (BOOL)doesMatchRegStringExp:(NSString *)string;

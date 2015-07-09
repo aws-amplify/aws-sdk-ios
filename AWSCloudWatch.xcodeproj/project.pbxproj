@@ -15,6 +15,12 @@
 		BDB73D6C1B1D3E8400717559 /* AWSCloudWatchResources.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB73D6A1B1D3E8400717559 /* AWSCloudWatchResources.m */; };
 		BDC91C5B1ABBA0F400F74D49 /* AWSCloudWatch.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDF559141AB3747F0067F4F1 /* AWSCloudWatch.h */; };
 		BDC91C5C1ABBA0F400F74D49 /* AWSCloudWatchModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDF559161AB3747F0067F4F1 /* AWSCloudWatchModel.h */; };
+		BDD876A21B4B5247009268C7 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD876A11B4B5247009268C7 /* libOCMock.a */; };
+		BDF125761B45BFE500DFBFEC /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0000661AB8E21B004496EF /* AWSTestUtility.m */; };
+		BDF125771B45BFE500DFBFEC /* AWSGeneralCloudWatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF83EDA1AD3521A00620E1C /* AWSGeneralCloudWatchTests.m */; };
+		BDF1257A1B45BFE500DFBFEC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532571B03D332002CED62 /* libz.dylib */; };
+		BDF1257B1B45BFE500DFBFEC /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD00FF4A1AB8B700004496EF /* libAWSCore.a */; };
+		BDF1257C1B45BFE500DFBFEC /* libAWSCloudWatch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDF558F81AB374250067F4F1 /* libAWSCloudWatch.a */; };
 		BDF559041AB374250067F4F1 /* libAWSCloudWatch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDF558F81AB374250067F4F1 /* libAWSCloudWatch.a */; };
 		BDF5591A1AB3747F0067F4F1 /* AWSCloudWatch.h in Headers */ = {isa = PBXBuildFile; fileRef = BDF559141AB3747F0067F4F1 /* AWSCloudWatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDF5591B1AB3747F0067F4F1 /* AWSCloudWatchService.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF559151AB3747F0067F4F1 /* AWSCloudWatchService.m */; };
@@ -23,10 +29,16 @@
 		CEE532581B03D332002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532571B03D332002CED62 /* libz.dylib */; };
 		CEE7DE691AC1E1330095C4B7 /* AWSCloudWatchService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE681AC1E1330095C4B7 /* AWSCloudWatchService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEF83EDC1AD3521A00620E1C /* AWSCloudWatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF83ED91AD3521A00620E1C /* AWSCloudWatchTests.m */; };
-		CEF83EDD1AD3521A00620E1C /* AWSGeneralCloudWatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF83EDA1AD3521A00620E1C /* AWSGeneralCloudWatchTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BDF125741B45BFE500DFBFEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDF558F01AB374250067F4F1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDF558F71AB374250067F4F1;
+			remoteInfo = CloudWatch;
+		};
 		BDF559051AB374250067F4F1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BDF558F01AB374250067F4F1 /* Project object */;
@@ -52,14 +64,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		12547097B9F79B38370F990A /* Pods-AWSCloudWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSCloudWatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSCloudWatch/Pods-AWSCloudWatch.debug.xcconfig"; sourceTree = "<group>"; };
-		86A2D62682440E97BC5FE56B /* libPods-AWSCloudWatch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSCloudWatch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0000431AB8C57A004496EF /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
 		BD0000651AB8E21B004496EF /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSTestUtility.h; path = AWSCoreTests/AWSTestUtility.h; sourceTree = SOURCE_ROOT; };
 		BD0000661AB8E21B004496EF /* AWSTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSTestUtility.m; path = AWSCoreTests/AWSTestUtility.m; sourceTree = SOURCE_ROOT; };
 		BD00FF4A1AB8B700004496EF /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
 		BDB73D691B1D3E8400717559 /* AWSCloudWatchResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCloudWatchResources.h; sourceTree = "<group>"; };
 		BDB73D6A1B1D3E8400717559 /* AWSCloudWatchResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCloudWatchResources.m; sourceTree = "<group>"; };
+		BDD876A11B4B5247009268C7 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = AWSCoreTests/OCMock/libOCMock.a; sourceTree = "<group>"; };
+		BDF125821B45BFE500DFBFEC /* AWSCloudWatchUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSCloudWatchUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF558F81AB374250067F4F1 /* libAWSCloudWatch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSCloudWatch.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF559031AB374250067F4F1 /* AWSCloudWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSCloudWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF559141AB3747F0067F4F1 /* AWSCloudWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSCloudWatch.h; path = ../AWSCloudWatch/AWSCloudWatch.h; sourceTree = "<group>"; };
@@ -71,10 +83,20 @@
 		CEF83ED91AD3521A00620E1C /* AWSCloudWatchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSCloudWatchTests.m; path = ../AWSCloudWatchTests/AWSCloudWatchTests.m; sourceTree = "<group>"; };
 		CEF83EDA1AD3521A00620E1C /* AWSGeneralCloudWatchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSGeneralCloudWatchTests.m; path = ../AWSCloudWatchTests/AWSGeneralCloudWatchTests.m; sourceTree = "<group>"; };
 		CEF83EDB1AD3521A00620E1C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DDE2D6D6AC17259133A42839 /* Pods-AWSCloudWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSCloudWatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSCloudWatch/Pods-AWSCloudWatch.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BDF125791B45BFE500DFBFEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDD876A21B4B5247009268C7 /* libOCMock.a in Frameworks */,
+				BDF1257A1B45BFE500DFBFEC /* libz.dylib in Frameworks */,
+				BDF1257B1B45BFE500DFBFEC /* libAWSCore.a in Frameworks */,
+				BDF1257C1B45BFE500DFBFEC /* libAWSCloudWatch.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BDF558F51AB374250067F4F1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -98,20 +120,11 @@
 		2953C160B39FCEC4E052451B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BDD876A11B4B5247009268C7 /* libOCMock.a */,
 				CEE532571B03D332002CED62 /* libz.dylib */,
 				BD00FF4A1AB8B700004496EF /* libAWSCore.a */,
-				86A2D62682440E97BC5FE56B /* libPods-AWSCloudWatch.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A797C571EB41EF4D6BB1A9B2 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				12547097B9F79B38370F990A /* Pods-AWSCloudWatch.debug.xcconfig */,
-				DDE2D6D6AC17259133A42839 /* Pods-AWSCloudWatch.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		BDF558EF1AB374250067F4F1 = {
@@ -120,7 +133,6 @@
 				BDF558FA1AB374250067F4F1 /* AWSCloudWatch */,
 				BDF559071AB374250067F4F1 /* AWSCloudWatchTests */,
 				BDF558F91AB374250067F4F1 /* Products */,
-				A797C571EB41EF4D6BB1A9B2 /* Pods */,
 				2953C160B39FCEC4E052451B /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -130,6 +142,7 @@
 			children = (
 				BDF558F81AB374250067F4F1 /* libAWSCloudWatch.a */,
 				BDF559031AB374250067F4F1 /* AWSCloudWatchTests.xctest */,
+				BDF125821B45BFE500DFBFEC /* AWSCloudWatchUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,6 +199,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		BDF125721B45BFE500DFBFEC /* AWSCloudWatchUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDF1257F1B45BFE500DFBFEC /* Build configuration list for PBXNativeTarget "AWSCloudWatchUnitTests" */;
+			buildPhases = (
+				BDF125751B45BFE500DFBFEC /* Sources */,
+				BDF125791B45BFE500DFBFEC /* Frameworks */,
+				BDF1257D1B45BFE500DFBFEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDF125731B45BFE500DFBFEC /* PBXTargetDependency */,
+			);
+			name = AWSCloudWatchUnitTests;
+			productName = CloudWatchTests;
+			productReference = BDF125821B45BFE500DFBFEC /* AWSCloudWatchUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		BDF558F71AB374250067F4F1 /* AWSCloudWatch */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDF5590C1AB374250067F4F1 /* Build configuration list for PBXNativeTarget "AWSCloudWatch" */;
@@ -253,11 +284,19 @@
 			targets = (
 				BDF558F71AB374250067F4F1 /* AWSCloudWatch */,
 				BDF559021AB374250067F4F1 /* AWSCloudWatchTests */,
+				BDF125721B45BFE500DFBFEC /* AWSCloudWatchUnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BDF1257D1B45BFE500DFBFEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BDF559011AB374250067F4F1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -269,6 +308,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BDF125751B45BFE500DFBFEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDF125761B45BFE500DFBFEC /* AWSTestUtility.m in Sources */,
+				BDF125771B45BFE500DFBFEC /* AWSGeneralCloudWatchTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BDF558F41AB374250067F4F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -284,7 +332,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD0000671AB8E21B004496EF /* AWSTestUtility.m in Sources */,
-				CEF83EDD1AD3521A00620E1C /* AWSGeneralCloudWatchTests.m in Sources */,
 				CEF83EDC1AD3521A00620E1C /* AWSCloudWatchTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +339,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BDF125731B45BFE500DFBFEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDF558F71AB374250067F4F1 /* AWSCloudWatch */;
+			targetProxy = BDF125741B45BFE500DFBFEC /* PBXContainerItemProxy */;
+		};
 		BDF559061AB374250067F4F1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BDF558F71AB374250067F4F1 /* AWSCloudWatch */;
@@ -300,10 +352,72 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		BDF125801B45BFE500DFBFEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AWSCloudWatchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SYMROOT)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-force_load",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
+				);
+				PRODUCT_NAME = AWSCloudWatchUnitTests;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
+			};
+			name = Debug;
+		};
+		BDF125811B45BFE500DFBFEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				INFOPLIST_FILE = AWSCloudWatchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SYMROOT)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-force_load",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
+				);
+				PRODUCT_NAME = AWSCloudWatchUnitTests;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
+			};
+			name = Release;
+		};
 		BDF5590A1AB374250067F4F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -345,6 +459,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -419,6 +537,7 @@
 				);
 				INFOPLIST_FILE = AWSCloudWatchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(SYMROOT)";
 				PRODUCT_NAME = AWSCloudWatchTests;
 			};
 			name = Debug;
@@ -434,6 +553,7 @@
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = AWSCloudWatchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(SYMROOT)";
 				PRODUCT_NAME = AWSCloudWatchTests;
 			};
 			name = Release;
@@ -441,6 +561,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BDF1257F1B45BFE500DFBFEC /* Build configuration list for PBXNativeTarget "AWSCloudWatchUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDF125801B45BFE500DFBFEC /* Debug */,
+				BDF125811B45BFE500DFBFEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BDF558F31AB374250067F4F1 /* Build configuration list for PBXProject "AWSCloudWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

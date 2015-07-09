@@ -7,15 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD4C9AEA1B4C697400267270 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD876AF1B4B5316009268C7 /* libOCMock.a */; };
+		BD4C9AEB1B4C69DB00267270 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E0C901B03F2B400DE3906 /* SystemConfiguration.framework */; };
 		BDB73D631B1D3E3300717559 /* AWSMobileAnalyticsERSResources.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB73D611B1D3E3300717559 /* AWSMobileAnalyticsERSResources.h */; };
 		BDB73D641B1D3E3300717559 /* AWSMobileAnalyticsERSResources.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB73D621B1D3E3300717559 /* AWSMobileAnalyticsERSResources.m */; };
+		BDD876B01B4B5316009268C7 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD876AF1B4B5316009268C7 /* libOCMock.a */; };
+		BDF125FE1B45C27900DFBFEC /* AWSGeneralMobileAnalyticsERSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE533BE1B03E4FB002CED62 /* AWSGeneralMobileAnalyticsERSTests.m */; };
+		BDF125FF1B45C27900DFBFEC /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5341B1B03E5C0002CED62 /* AWSTestUtility.m */; };
+		BDF126021B45C27900DFBFEC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E0C901B03F2B400DE3906 /* SystemConfiguration.framework */; };
+		BDF126031B45C27900DFBFEC /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E0C8E1B03F2A300DE3906 /* libAWSCore.a */; };
+		BDF126041B45C27900DFBFEC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E0C681B03EBDB00DE3906 /* libz.dylib */; };
+		BDF126051B45C27900DFBFEC /* libAWSMobileAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532781B03DE7F002CED62 /* libAWSMobileAnalytics.a */; };
 		CE2E0C671B03EB9100DE3906 /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E0C661B03EB9100DE3906 /* libAWSCore.a */; };
 		CE2E0C691B03EBDB00DE3906 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E0C681B03EBDB00DE3906 /* libz.dylib */; };
 		CE2E0C6B1B03EBE600DE3906 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E0C6A1B03EBE600DE3906 /* libsqlite3.dylib */; };
 		CE2E0C6D1B03EC6D00DE3906 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CE2E0C6C1B03EC6D00DE3906 /* credentials.json */; };
 		CE2E0C7D1B03EFD300DE3906 /* libAWSMobileAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532781B03DE7F002CED62 /* libAWSMobileAnalytics.a */; };
 		CE2E0C831B03F07C00DE3906 /* AWSAnalyticsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE533BD1B03E4FB002CED62 /* AWSAnalyticsTests.m */; };
-		CE2E0C841B03F08000DE3906 /* AWSGeneralMobileAnalyticsERSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE533BE1B03E4FB002CED62 /* AWSGeneralMobileAnalyticsERSTests.m */; };
 		CE2E0C851B03F08000DE3906 /* AWSMobileAnalyticsERSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE533C11B03E4FB002CED62 /* AWSMobileAnalyticsERSTests.m */; };
 		CE2E0C881B03F0F900DE3906 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CE2E0C6C1B03EC6D00DE3906 /* credentials.json */; };
 		CE2E0C891B03F0F900DE3906 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5341B1B03E5C0002CED62 /* AWSTestUtility.m */; };
@@ -221,10 +229,16 @@
 		CEE534181B03E4FB002CED62 /* TestEventObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE533D51B03E4FB002CED62 /* TestEventObserver.m */; };
 		CEE534191B03E4FB002CED62 /* TestInsightsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE533D71B03E4FB002CED62 /* TestInsightsContext.m */; };
 		CEE5341C1B03E5C0002CED62 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5341B1B03E5C0002CED62 /* AWSTestUtility.m */; };
-		CEE534281B03E612002CED62 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE534271B03E612002CED62 /* libOCMock.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BDF125FB1B45C27900DFBFEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEE532701B03DE7F002CED62 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEE532771B03DE7F002CED62;
+			remoteInfo = AWSMobileAnalytics;
+		};
 		CE2E0C7E1B03EFD300DE3906 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CEE532701B03DE7F002CED62 /* Project object */;
@@ -265,6 +279,8 @@
 /* Begin PBXFileReference section */
 		BDB73D611B1D3E3300717559 /* AWSMobileAnalyticsERSResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsERSResources.h; path = AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSResources.h; sourceTree = SOURCE_ROOT; };
 		BDB73D621B1D3E3300717559 /* AWSMobileAnalyticsERSResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSMobileAnalyticsERSResources.m; path = AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSResources.m; sourceTree = SOURCE_ROOT; };
+		BDD876AF1B4B5316009268C7 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = AWSCoreTests/OCMock/libOCMock.a; sourceTree = "<group>"; };
+		BDF1260B1B45C27900DFBFEC /* AWSMobileAnalyticsUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSMobileAnalyticsUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2E0C661B03EB9100DE3906 /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "../build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
 		CE2E0C681B03EBDB00DE3906 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CE2E0C6A1B03EBE600DE3906 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -520,16 +536,21 @@
 		CEE533D61B03E4FB002CED62 /* TestInsightsContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestInsightsContext.h; sourceTree = "<group>"; };
 		CEE533D71B03E4FB002CED62 /* TestInsightsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestInsightsContext.m; sourceTree = "<group>"; };
 		CEE5341B1B03E5C0002CED62 /* AWSTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSTestUtility.m; path = AWSCoreTests/AWSTestUtility.m; sourceTree = SOURCE_ROOT; };
-		CEE534201B03E612002CED62 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
-		CEE534211B03E612002CED62 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
-		CEE534221B03E612002CED62 /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
-		CEE534231B03E612002CED62 /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
-		CEE534241B03E612002CED62 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
-		CEE534251B03E612002CED62 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
-		CEE534271B03E612002CED62 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BDF126011B45C27900DFBFEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDD876B01B4B5316009268C7 /* libOCMock.a in Frameworks */,
+				BDF126021B45C27900DFBFEC /* SystemConfiguration.framework in Frameworks */,
+				BDF126031B45C27900DFBFEC /* libAWSCore.a in Frameworks */,
+				BDF126041B45C27900DFBFEC /* libz.dylib in Frameworks */,
+				BDF126051B45C27900DFBFEC /* libAWSMobileAnalytics.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE2E0C741B03EFD300DE3906 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -552,10 +573,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD4C9AEB1B4C69DB00267270 /* SystemConfiguration.framework in Frameworks */,
+				BD4C9AEA1B4C697400267270 /* libOCMock.a in Frameworks */,
 				CE2E0C6B1B03EBE600DE3906 /* libsqlite3.dylib in Frameworks */,
 				CE2E0C691B03EBDB00DE3906 /* libz.dylib in Frameworks */,
 				CE2E0C671B03EB9100DE3906 /* libAWSCore.a in Frameworks */,
-				CEE534281B03E612002CED62 /* libOCMock.a in Frameworks */,
 				CEE532841B03DE7F002CED62 /* libAWSMobileAnalytics.a in Frameworks */,
 				CEE534131B03E4FB002CED62 /* OCHamcrestIOS.framework in Frameworks */,
 			);
@@ -590,6 +612,7 @@
 		CEE5326F1B03DE7F002CED62 = {
 			isa = PBXGroup;
 			children = (
+				BDD876AF1B4B5316009268C7 /* libOCMock.a */,
 				CEE5327A1B03DE7F002CED62 /* AWSMobileAnalytics */,
 				CE2E0C781B03EFD300DE3906 /* AWSMobileAnalyticsTests */,
 				CEE532871B03DE7F002CED62 /* AWSMobileAnalyticsLegacyTests */,
@@ -603,6 +626,7 @@
 				CEE532781B03DE7F002CED62 /* libAWSMobileAnalytics.a */,
 				CEE532831B03DE7F002CED62 /* AWSMobileAnalyticsLegacyTests.xctest */,
 				CE2E0C771B03EFD300DE3906 /* AWSMobileAnalyticsTests.xctest */,
+				BDF1260B1B45C27900DFBFEC /* AWSMobileAnalyticsUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -735,7 +759,6 @@
 				CEE533D51B03E4FB002CED62 /* TestEventObserver.m */,
 				CEE533D61B03E4FB002CED62 /* TestInsightsContext.h */,
 				CEE533D71B03E4FB002CED62 /* TestInsightsContext.m */,
-				CEE5341D1B03E612002CED62 /* usr */,
 				CEE532881B03DE7F002CED62 /* Supporting Files */,
 			);
 			name = AWSMobileAnalyticsLegacyTests;
@@ -902,44 +925,6 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
-		CEE5341D1B03E612002CED62 /* usr */ = {
-			isa = PBXGroup;
-			children = (
-				CEE5341E1B03E612002CED62 /* include */,
-				CEE534261B03E612002CED62 /* lib */,
-			);
-			path = usr;
-			sourceTree = "<group>";
-		};
-		CEE5341E1B03E612002CED62 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				CEE5341F1B03E612002CED62 /* OCMock */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		CEE5341F1B03E612002CED62 /* OCMock */ = {
-			isa = PBXGroup;
-			children = (
-				CEE534201B03E612002CED62 /* NSNotificationCenter+OCMAdditions.h */,
-				CEE534211B03E612002CED62 /* OCMArg.h */,
-				CEE534221B03E612002CED62 /* OCMConstraint.h */,
-				CEE534231B03E612002CED62 /* OCMock.h */,
-				CEE534241B03E612002CED62 /* OCMockObject.h */,
-				CEE534251B03E612002CED62 /* OCMockRecorder.h */,
-			);
-			path = OCMock;
-			sourceTree = "<group>";
-		};
-		CEE534261B03E612002CED62 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				CEE534271B03E612002CED62 /* libOCMock.a */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1038,6 +1023,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		BDF125F91B45C27900DFBFEC /* AWSMobileAnalyticsUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDF126081B45C27900DFBFEC /* Build configuration list for PBXNativeTarget "AWSMobileAnalyticsUnitTests" */;
+			buildPhases = (
+				BDF125FC1B45C27900DFBFEC /* Sources */,
+				BDF126011B45C27900DFBFEC /* Frameworks */,
+				BDF126061B45C27900DFBFEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDF125FA1B45C27900DFBFEC /* PBXTargetDependency */,
+			);
+			name = AWSMobileAnalyticsUnitTests;
+			productName = AWSMobileAnalyticsTests;
+			productReference = BDF1260B1B45C27900DFBFEC /* AWSMobileAnalyticsUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		CE2E0C761B03EFD300DE3906 /* AWSMobileAnalyticsTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE2E0C801B03EFD300DE3906 /* Build configuration list for PBXNativeTarget "AWSMobileAnalyticsTests" */;
@@ -1127,11 +1130,19 @@
 				CEE532771B03DE7F002CED62 /* AWSMobileAnalytics */,
 				CE2E0C761B03EFD300DE3906 /* AWSMobileAnalyticsTests */,
 				CEE532821B03DE7F002CED62 /* AWSMobileAnalyticsLegacyTests */,
+				BDF125F91B45C27900DFBFEC /* AWSMobileAnalyticsUnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BDF126061B45C27900DFBFEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE2E0C751B03EFD300DE3906 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1151,12 +1162,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BDF125FC1B45C27900DFBFEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDF125FE1B45C27900DFBFEC /* AWSGeneralMobileAnalyticsERSTests.m in Sources */,
+				BDF125FF1B45C27900DFBFEC /* AWSTestUtility.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE2E0C731B03EFD300DE3906 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CE2E0C851B03F08000DE3906 /* AWSMobileAnalyticsERSTests.m in Sources */,
-				CE2E0C841B03F08000DE3906 /* AWSGeneralMobileAnalyticsERSTests.m in Sources */,
 				CE2E0C891B03F0F900DE3906 /* AWSTestUtility.m in Sources */,
 				CE2E0C831B03F07C00DE3906 /* AWSAnalyticsTests.m in Sources */,
 			);
@@ -1284,6 +1303,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BDF125FA1B45C27900DFBFEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEE532771B03DE7F002CED62 /* AWSMobileAnalytics */;
+			targetProxy = BDF125FB1B45C27900DFBFEC /* PBXContainerItemProxy */;
+		};
 		CE2E0C7F1B03EFD300DE3906 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CEE532771B03DE7F002CED62 /* AWSMobileAnalytics */;
@@ -1297,6 +1321,64 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		BDF126091B45C27900DFBFEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AWSMobileAnalyticsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYMROOT)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-force_load",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
+				);
+				PRODUCT_NAME = AWSMobileAnalyticsUnitTests;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
+			};
+			name = Debug;
+		};
+		BDF1260A1B45C27900DFBFEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AWSMobileAnalyticsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYMROOT)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-force_load",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
+				);
+				PRODUCT_NAME = AWSMobileAnalyticsUnitTests;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
+			};
+			name = Release;
+		};
 		CE2E0C811B03EFD300DE3906 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1311,7 +1393,10 @@
 				);
 				INFOPLIST_FILE = AWSMobileAnalyticsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYMROOT)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1326,7 +1411,10 @@
 				);
 				INFOPLIST_FILE = AWSMobileAnalyticsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYMROOT)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1335,6 +1423,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1378,6 +1470,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1446,13 +1542,16 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/AWSMobileAnalyticsTests/usr/lib",
+					"$(SYMROOT)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-ObjC",
+					"-force_load",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
 			};
 			name = Debug;
 		};
@@ -1469,19 +1568,31 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/AWSMobileAnalyticsTests/usr/lib",
+					"$(SYMROOT)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-ObjC",
+					"-force_load",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BDF126081B45C27900DFBFEC /* Build configuration list for PBXNativeTarget "AWSMobileAnalyticsUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDF126091B45C27900DFBFEC /* Debug */,
+				BDF1260A1B45C27900DFBFEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CE2E0C801B03EFD300DE3906 /* Build configuration list for PBXNativeTarget "AWSMobileAnalyticsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

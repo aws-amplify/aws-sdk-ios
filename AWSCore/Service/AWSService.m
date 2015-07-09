@@ -134,6 +134,7 @@ NSString *const AWSRegionNameAPSoutheast2 = @"ap-southeast-2";
 NSString *const AWSRegionNameSAEast1 = @"sa-east-1";
 NSString *const AWSRegionNameCNNorth1 = @"cn-north-1";
 
+NSString *const AWSServiceNameAPIGateway = @"execute-api";
 NSString *const AWSServiceNameAutoScaling = @"autoscaling";
 NSString *const AWSServiceNameCloudWatch = @"monitoring";
 NSString *const AWSServiceNameCognitoIdentityBroker = @"cognito-identity";
@@ -167,141 +168,157 @@ NSString *const AWSServiceNameSTS = @"sts";
         _regionType = regionType;
         _serviceType = serviceType;
         _useUnsafeURL = useUnsafeURL;
-
-        switch (_regionType) {
-            case AWSRegionUSEast1:
-                _regionName = AWSRegionNameUSEast1;
-                break;
-            case AWSRegionUSWest2:
-                _regionName = AWSRegionNameUSWest2;
-                break;
-            case AWSRegionUSWest1:
-                _regionName = AWSRegionNameUSWest1;
-                break;
-            case AWSRegionEUWest1:
-                _regionName = AWSRegionNameEUWest1;
-                break;
-            case AWSRegionEUCentral1:
-                _regionName = AWSRegionNameEUCentral1;
-                break;
-            case AWSRegionAPSoutheast1:
-                _regionName = AWSRegionNameAPSoutheast1;
-                break;
-            case AWSRegionAPSoutheast2:
-                _regionName = AWSRegionNameAPSoutheast2;
-                break;
-            case AWSRegionAPNortheast1:
-                _regionName = AWSRegionNameAPNortheast1;
-                break;
-            case AWSRegionSAEast1:
-                _regionName = AWSRegionNameSAEast1;
-                break;
-            case AWSRegionCNNorth1:
-                _regionName = AWSRegionNameCNNorth1;
-                break;
-            default:
-                AWSLogError(@"Invalid region type.");
-                break;
+        _regionName = [self regionNameFromType:regionType];
+        if (!_regionName) {
+            AWSLogError(@"Invalid region type.");
         }
-
-        switch (_serviceType) {
-            case AWSServiceAutoScaling:
-                _serviceName = AWSServiceNameAutoScaling;
-                break;
-            case AWSServiceCloudWatch:
-                _serviceName = AWSServiceNameCloudWatch;
-                break;
-            case AWSServiceCognitoIdentityBroker:
-                _serviceName = AWSServiceNameCognitoIdentityBroker;
-                break;
-            case AWSServiceCognitoService:
-                _serviceName = AWSServiceNameCognitoService;
-                break;
-            case AWSServiceDynamoDB:
-                _serviceName = AWSServiceNameDynamoDB;
-                break;
-            case AWSServiceEC2:
-                _serviceName = AWSServiceNameEC2;
-                break;
-            case AWSServiceElasticLoadBalancing:
-                _serviceName = AWSServiceNameElasticLoadBalancing;
-                break;
-            case AWSServiceKinesis:
-                _serviceName = AWSServiceNameKinesis;
-                break;
-            case AWSServiceLambda:
-                _serviceName = AWSServiceNameLambda;
-                break;
-            case AWSServiceMachineLearning:
-                _serviceName = AWSServiceNameMachineLearning;
-                break;
-            case AWSServiceMobileAnalytics:
-                _serviceName = AWSServiceNameMobileAnalytics;
-                break;
-            case AWSServiceS3:
-                _serviceName = AWSServiceNameS3;
-                break;
-            case AWSServiceSES:
-                _serviceName = AWSServiceNameSES;
-                break;
-            case AWSServiceSimpleDB:
-                _serviceName = AWSServiceNameSimpleDB;
-                break;
-            case AWSServiceSNS:
-                _serviceName = AWSServiceNameSNS;
-                break;
-            case AWSServiceSQS:
-                _serviceName = AWSServiceNameSQS;
-                break;
-            case AWSServiceSTS:
-                _serviceName = AWSServiceNameSTS;
-                break;
-            default:
-                AWSLogError(@"Invalid service type.");
-                break;
+        _serviceName = [self serviceNameFromType:serviceType];
+        if (!_serviceName) {
+            AWSLogError(@"Invalid service type.");
         }
-
-        NSString *separator = @".";
-        if (_serviceType == AWSServiceS3
-            && (_regionType == AWSRegionUSEast1
-                || _regionType == AWSRegionUSWest1
-                || _regionType == AWSRegionUSWest2
-                || _regionType == AWSRegionEUWest1
-                || _regionType == AWSRegionAPSoutheast1
-                || _regionType == AWSRegionAPNortheast1
-                || _regionType == AWSRegionAPSoutheast2
-                || _regionType == AWSRegionSAEast1)) {
-                separator = @"-";
-            }
-
-        NSString *HTTP_Type = @"https";
-        if (_useUnsafeURL) {
-            HTTP_Type = @"http";
-        }
-
-        if (_serviceType == AWSServiceS3 && _regionType == AWSRegionUSEast1) {
-            _URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://s3.amazonaws.com", HTTP_Type]];
-        } else if (_serviceType == AWSServiceSTS) {
-            if (_regionType == AWSRegionCNNorth1) {
-                _URL = [NSURL URLWithString:@"https://sts.cn-north-1.amazonaws.com"];
-            } else {
-                _URL = [NSURL URLWithString:@"https://sts.amazonaws.com"];
-            }
-        } else if (_serviceType == AWSServiceSimpleDB && _regionType == AWSRegionUSEast1) {
-            _URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://sdb.amazonaws.com", HTTP_Type]];
-        } else {
-            _URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@%@%@.amazonaws.com", HTTP_Type, _serviceName, separator, _regionName]];
-        }
-
-        //need to add ".cn" at end of URL if it is in China Region
-        if ([_regionName hasPrefix:@"cn"]) {
-            NSString *urlString = [_URL absoluteString];
-            _URL = [NSURL URLWithString:[urlString stringByAppendingString:@".cn"]];
-        }
+        _URL = [self URLWithRegion:_regionType
+                        regionName:_regionName
+                           service:_serviceType
+                       serviceName:_serviceName
+                      useUnsafeURL:useUnsafeURL];
         _hostName = [_URL host];
     }
 
     return self;
+}
+
+- (instancetype)initWithRegion:(AWSRegionType)regionType
+                       service:(AWSServiceType)serviceType
+                           URL:(NSURL *)URL {
+    if (self = [super init]) {
+        _regionType = regionType;
+        _serviceType = serviceType;
+        _useUnsafeURL = NO;
+        _regionName = [self regionNameFromType:regionType];
+        _serviceName = [self serviceNameFromType:serviceType];
+        _URL = URL;
+        _hostName = [_URL host];
+    }
+
+    return self;
+}
+
+- (NSString *)regionNameFromType:(AWSRegionType)regionType {
+    switch (regionType) {
+        case AWSRegionUSEast1:
+            return AWSRegionNameUSEast1;
+        case AWSRegionUSWest2:
+            return AWSRegionNameUSWest2;
+        case AWSRegionUSWest1:
+            return AWSRegionNameUSWest1;
+        case AWSRegionEUWest1:
+            return AWSRegionNameEUWest1;
+        case AWSRegionEUCentral1:
+            return AWSRegionNameEUCentral1;
+        case AWSRegionAPSoutheast1:
+            return AWSRegionNameAPSoutheast1;
+        case AWSRegionAPSoutheast2:
+            return AWSRegionNameAPSoutheast2;
+        case AWSRegionAPNortheast1:
+            return AWSRegionNameAPNortheast1;
+        case AWSRegionSAEast1:
+            return AWSRegionNameSAEast1;
+        case AWSRegionCNNorth1:
+            return AWSRegionNameCNNorth1;
+        default:
+            return nil;
+    }
+}
+
+- (NSString *)serviceNameFromType:(AWSServiceType)serviceType {
+    switch (serviceType) {
+        case AWSServiceAPIGateway:
+            return AWSServiceNameAPIGateway;
+        case AWSServiceAutoScaling:
+            return AWSServiceNameAutoScaling;
+        case AWSServiceCloudWatch:
+            return AWSServiceNameCloudWatch;
+        case AWSServiceCognitoIdentityBroker:
+            return AWSServiceNameCognitoIdentityBroker;
+        case AWSServiceCognitoService:
+            return AWSServiceNameCognitoService;
+        case AWSServiceDynamoDB:
+            return AWSServiceNameDynamoDB;
+        case AWSServiceEC2:
+            return AWSServiceNameEC2;
+        case AWSServiceElasticLoadBalancing:
+            return AWSServiceNameElasticLoadBalancing;
+        case AWSServiceKinesis:
+            return AWSServiceNameKinesis;
+        case AWSServiceLambda:
+            return AWSServiceNameLambda;
+        case AWSServiceMachineLearning:
+            return AWSServiceNameMachineLearning;
+        case AWSServiceMobileAnalytics:
+            return AWSServiceNameMobileAnalytics;
+        case AWSServiceS3:
+            return AWSServiceNameS3;
+        case AWSServiceSES:
+            return AWSServiceNameSES;
+        case AWSServiceSimpleDB:
+            return AWSServiceNameSimpleDB;
+        case AWSServiceSNS:
+            return AWSServiceNameSNS;
+        case AWSServiceSQS:
+            return AWSServiceNameSQS;
+        case AWSServiceSTS:
+            return AWSServiceNameSTS;
+        default:
+            return nil;
+    }
+}
+
+- (NSURL *)URLWithRegion:(AWSRegionType)regionType
+              regionName:(NSString *)regionName
+                 service:(AWSServiceType)serviceType
+             serviceName:(NSString *)serviceName
+            useUnsafeURL:(BOOL)useUnsafeURL {
+    NSURL *URL = nil;
+
+    NSString *separator = @".";
+    if (serviceType == AWSServiceS3
+        && (regionType == AWSRegionUSEast1
+            || regionType == AWSRegionUSWest1
+            || regionType == AWSRegionUSWest2
+            || regionType == AWSRegionEUWest1
+            || regionType == AWSRegionAPSoutheast1
+            || regionType == AWSRegionAPNortheast1
+            || regionType == AWSRegionAPSoutheast2
+            || regionType == AWSRegionSAEast1)) {
+            separator = @"-";
+        }
+
+    NSString *HTTPType = @"https";
+    if (useUnsafeURL) {
+        HTTPType = @"http";
+    }
+
+    if (serviceType == AWSServiceS3 && regionType == AWSRegionUSEast1) {
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://s3.amazonaws.com", HTTPType]];
+    } else if (serviceType == AWSServiceSTS) {
+        if (regionType == AWSRegionCNNorth1) {
+            URL = [NSURL URLWithString:@"https://sts.cn-north-1.amazonaws.com"];
+        } else {
+            URL = [NSURL URLWithString:@"https://sts.amazonaws.com"];
+        }
+    } else if (serviceType == AWSServiceSimpleDB && regionType == AWSRegionUSEast1) {
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://sdb.amazonaws.com", HTTPType]];
+    } else {
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@%@%@.amazonaws.com", HTTPType, serviceName, separator, regionName]];
+    }
+
+    //need to add ".cn" at end of URL if it is in China Region
+    if ([regionName hasPrefix:@"cn"]) {
+        NSString *urlString = [URL absoluteString];
+        URL = [NSURL URLWithString:[urlString stringByAppendingString:@".cn"]];
+    }
+    
+    return URL;
 }
 
 @end

@@ -9,9 +9,14 @@
 /* Begin PBXBuildFile section */
 		BDB73D7F1B1D3F1400717559 /* AWSLambdaResources.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB73D7D1B1D3F1400717559 /* AWSLambdaResources.h */; };
 		BDB73D801B1D3F1400717559 /* AWSLambdaResources.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB73D7E1B1D3F1400717559 /* AWSLambdaResources.m */; };
+		BDD876AC1B4B52F0009268C7 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD876AB1B4B52F0009268C7 /* libOCMock.a */; };
+		BDF125D91B45C22300DFBFEC /* AWSGeneralLambdaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6397141AC494C100459E23 /* AWSGeneralLambdaTests.m */; };
+		BDF125DD1B45C22300DFBFEC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532631B03D3A8002CED62 /* libz.dylib */; };
+		BDF125DE1B45C22300DFBFEC /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6397121AC48EF300459E23 /* libAWSCore.a */; };
+		BDF125DF1B45C22300DFBFEC /* libAWSLambda.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CED822151AC4895F0017E687 /* libAWSLambda.a */; };
+		BDF126931B45C98400DFBFEC /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE63971E1AC495CD00459E23 /* AWSTestUtility.m */; };
 		CE5502C81AD361AC00AE9F4A /* AWSLambdaInvoker.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE6397261AC4A7F300459E23 /* AWSLambdaInvoker.h */; };
 		CE6397131AC48EF300459E23 /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6397121AC48EF300459E23 /* libAWSCore.a */; };
-		CE6397151AC494C100459E23 /* AWSGeneralLambdaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6397141AC494C100459E23 /* AWSGeneralLambdaTests.m */; };
 		CE63971D1AC4957D00459E23 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CE63971C1AC4957D00459E23 /* credentials.json */; };
 		CE63971F1AC495CD00459E23 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE63971E1AC495CD00459E23 /* AWSTestUtility.m */; };
 		CE6397251AC4A4CC00459E23 /* AWSLambdaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6397241AC4A4CC00459E23 /* AWSLambdaTests.m */; };
@@ -31,6 +36,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BDF125D61B45C22300DFBFEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CED8220D1AC4895F0017E687 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CED822141AC4895F0017E687;
+			remoteInfo = AWSLambda;
+		};
 		CED822221AC4895F0017E687 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CED8220D1AC4895F0017E687 /* Project object */;
@@ -57,10 +69,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0B0DD4512530E61F3A5F0F9D /* libPods-AWSLambda.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSLambda.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		177BE039058FBD96196C8D2B /* Pods-AWSLambda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSLambda.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSLambda/Pods-AWSLambda.release.xcconfig"; sourceTree = "<group>"; };
 		BDB73D7D1B1D3F1400717559 /* AWSLambdaResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLambdaResources.h; sourceTree = "<group>"; };
 		BDB73D7E1B1D3F1400717559 /* AWSLambdaResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLambdaResources.m; sourceTree = "<group>"; };
+		BDD876AB1B4B52F0009268C7 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = AWSCoreTests/OCMock/libOCMock.a; sourceTree = "<group>"; };
+		BDF125E51B45C22300DFBFEC /* AWSLambdaUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSLambdaUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6397121AC48EF300459E23 /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
 		CE6397141AC494C100459E23 /* AWSGeneralLambdaTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralLambdaTests.m; sourceTree = "<group>"; };
 		CE63971C1AC4957D00459E23 /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
@@ -78,10 +90,20 @@
 		CED822381AC48A3D0017E687 /* AWSLambdaService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLambdaService.h; sourceTree = "<group>"; };
 		CEDE75EF1ACA1D9E002A0D94 /* AWSLambdaInvokerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLambdaInvokerTests.m; sourceTree = "<group>"; };
 		CEE532631B03D3A8002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		F85E905FF100126C225C0066 /* Pods-AWSLambda.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSLambda.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSLambda/Pods-AWSLambda.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BDF125DC1B45C22300DFBFEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDD876AC1B4B52F0009268C7 /* libOCMock.a in Frameworks */,
+				BDF125DD1B45C22300DFBFEC /* libz.dylib in Frameworks */,
+				BDF125DE1B45C22300DFBFEC /* libAWSCore.a in Frameworks */,
+				BDF125DF1B45C22300DFBFEC /* libAWSLambda.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CED822121AC4895F0017E687 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -105,20 +127,11 @@
 		3EAFA3A380A2651599D9FC74 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BDD876AB1B4B52F0009268C7 /* libOCMock.a */,
 				CEE532631B03D3A8002CED62 /* libz.dylib */,
 				CE6397121AC48EF300459E23 /* libAWSCore.a */,
-				0B0DD4512530E61F3A5F0F9D /* libPods-AWSLambda.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		7B5CA8D6936C9696BA07283C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F85E905FF100126C225C0066 /* Pods-AWSLambda.debug.xcconfig */,
-				177BE039058FBD96196C8D2B /* Pods-AWSLambda.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		CED8220C1AC4895F0017E687 = {
@@ -127,7 +140,6 @@
 				CED822171AC4895F0017E687 /* AWSLambda */,
 				CED822241AC4895F0017E687 /* AWSLambdaTests */,
 				3EAFA3A380A2651599D9FC74 /* Frameworks */,
-				7B5CA8D6936C9696BA07283C /* Pods */,
 				CED822161AC4895F0017E687 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -137,6 +149,7 @@
 			children = (
 				CED822151AC4895F0017E687 /* libAWSLambda.a */,
 				CED822201AC4895F0017E687 /* AWSLambdaTests.xctest */,
+				BDF125E51B45C22300DFBFEC /* AWSLambdaUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -196,6 +209,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		BDF125D41B45C22300DFBFEC /* AWSLambdaUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDF125E21B45C22300DFBFEC /* Build configuration list for PBXNativeTarget "AWSLambdaUnitTests" */;
+			buildPhases = (
+				BDF125D71B45C22300DFBFEC /* Sources */,
+				BDF125DC1B45C22300DFBFEC /* Frameworks */,
+				BDF125E01B45C22300DFBFEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDF125D51B45C22300DFBFEC /* PBXTargetDependency */,
+			);
+			name = AWSLambdaUnitTests;
+			productName = AWSLambdaTests;
+			productReference = BDF125E51B45C22300DFBFEC /* AWSLambdaUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		CED822141AC4895F0017E687 /* AWSLambda */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CED822291AC4895F0017E687 /* Build configuration list for PBXNativeTarget "AWSLambda" */;
@@ -263,11 +294,19 @@
 			targets = (
 				CED822141AC4895F0017E687 /* AWSLambda */,
 				CED8221F1AC4895F0017E687 /* AWSLambdaTests */,
+				BDF125D41B45C22300DFBFEC /* AWSLambdaUnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BDF125E01B45C22300DFBFEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CED8221E1AC4895F0017E687 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -279,6 +318,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BDF125D71B45C22300DFBFEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDF126931B45C98400DFBFEC /* AWSTestUtility.m in Sources */,
+				BDF125D91B45C22300DFBFEC /* AWSGeneralLambdaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CED822111AC4895F0017E687 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -295,7 +343,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE63971F1AC495CD00459E23 /* AWSTestUtility.m in Sources */,
-				CE6397151AC494C100459E23 /* AWSGeneralLambdaTests.m in Sources */,
 				CE6397251AC4A4CC00459E23 /* AWSLambdaTests.m in Sources */,
 				CEDE75F01ACA1D9E002A0D94 /* AWSLambdaInvokerTests.m in Sources */,
 			);
@@ -304,6 +351,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BDF125D51B45C22300DFBFEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CED822141AC4895F0017E687 /* AWSLambda */;
+			targetProxy = BDF125D61B45C22300DFBFEC /* PBXContainerItemProxy */;
+		};
 		CED822231AC4895F0017E687 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CED822141AC4895F0017E687 /* AWSLambda */;
@@ -312,10 +364,72 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		BDF125E31B45C22300DFBFEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AWSLambdaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SYMROOT)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-force_load",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
+				);
+				PRODUCT_NAME = AWSLambdaUnitTests;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
+			};
+			name = Debug;
+		};
+		BDF125E41B45C22300DFBFEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				INFOPLIST_FILE = AWSLambdaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SYMROOT)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-force_load",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
+				);
+				PRODUCT_NAME = AWSLambdaUnitTests;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
+			};
+			name = Release;
+		};
 		CED822271AC4895F0017E687 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -357,6 +471,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -431,6 +549,7 @@
 				);
 				INFOPLIST_FILE = AWSLambdaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(SYMROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -446,6 +565,7 @@
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = AWSLambdaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(SYMROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -453,6 +573,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BDF125E21B45C22300DFBFEC /* Build configuration list for PBXNativeTarget "AWSLambdaUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDF125E31B45C22300DFBFEC /* Debug */,
+				BDF125E41B45C22300DFBFEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CED822101AC4895F0017E687 /* Build configuration list for PBXProject "AWSLambda" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

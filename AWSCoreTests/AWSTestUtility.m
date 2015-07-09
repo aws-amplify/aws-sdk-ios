@@ -57,6 +57,17 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
     }
 }
 
++ (void)setupFakeCognitoCredentialsProvider {
+
+    AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1 identityPoolId:@"fakeIdentityPoolId"];
+
+    
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                         credentialsProvider:credentialsProvider];
+    [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+
+}
+
 + (void)setupCognitoCredentialsProvider {
 #if AWS_TEST_BJS_INSTEAD
     //since BJS doesn't support Cognito, we are using STS instead

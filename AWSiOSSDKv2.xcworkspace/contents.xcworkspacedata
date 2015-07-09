@@ -5,6 +5,9 @@
       location = "group:AWSCore.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:AWSAPIGateway.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:AWSAutoScaling.xcodeproj">
    </FileRef>
    <FileRef
