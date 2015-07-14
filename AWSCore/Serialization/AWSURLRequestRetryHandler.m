@@ -33,11 +33,17 @@
 }
 
 - (BOOL)isClockSkewError:(NSError *)error {
-    if (error.code == AWSGeneralErrorRequestTimeTooSkewed
-        || error.code == AWSGeneralErrorInvalidSignatureException
-        || error.code == AWSGeneralErrorRequestExpired
-        || error.code == AWSGeneralErrorAuthFailure) {
-        return YES;
+    if ([error.domain isEqualToString:AWSGeneralErrorDomain]) {
+        switch (error.code) {
+            case AWSGeneralErrorRequestTimeTooSkewed:
+            case AWSGeneralErrorInvalidSignatureException:
+            case AWSGeneralErrorRequestExpired:
+            case AWSGeneralErrorAuthFailure:
+            case AWSGeneralErrorSignatureDoesNotMatch:
+                return YES;
+            default:
+                break;
+        }
     }
 
     return NO;

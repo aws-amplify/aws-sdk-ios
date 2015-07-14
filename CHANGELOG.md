@@ -1,5 +1,25 @@
 # AWSiOSSDKv2 CHANGELOG
 
+## 2.2.2
+
+### New Features
+* **Amazon Mobile Analytics** - Updated the Amazon Mobile Analytics client APIs so that the developer needs to write fewer lines of code to initialize it.
+
+### Resolved Issues
+* **Amazon S3**
+    * Fixed the issue in `S3TransferManager` that local downloaded files may be accidentally removed when the server returns 304 response.
+    * Fixed the issue where the Amazon S3 client does not retry for the `SignatureDoesNotMatch` error.
+    * Fixed the issue where `putBucketVersioning` does not return any response under certain situations.
+
+## 2.2.1
+
+### New Features
+* **Amazon API Gateway** - Added a runtime library for the generated SDK of Amazon API Gateway. Amazon API Gateway makes it easy for AWS customers to publish, maintain, monitor, and secure application programming interfaces (APIs) at any scale.
+
+### Resolved Issues
+* **SDK Core** - Updated the CocoaPods podspec. Now the SDK is compatible with the `use_frameworks!` option.
+
+
 ## 2.2.0
 
 ### New Features

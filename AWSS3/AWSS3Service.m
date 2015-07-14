@@ -116,25 +116,37 @@ static NSDictionary *errorCodeDictionary = nil;
                                                      data:data
                                                     error:error];
     if(retryType == AWSNetworkingRetryTypeShouldNotRetry
-       && [error.domain isEqualToString:AWSS3ErrorDomain]
        && currentRetryCount < self.maxRetryCount) {
-        switch (error.code) {
-            case AWSS3ErrorExpiredToken:
-            case AWSS3ErrorInvalidAccessKeyId:
-            case AWSS3ErrorInvalidToken:
-            case AWSS3ErrorTokenRefreshRequired:
-                retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
-                break;
-
-            case AWSS3ErrorSignatureDoesNotMatch:
-                retryType = AWSNetworkingRetryTypeShouldRetry;
-                break;
-
-            default:
-                break;
+        if ([error.domain isEqualToString:AWSS3ErrorDomain]) {
+            switch (error.code) {
+                case AWSS3ErrorExpiredToken:
+                case AWSS3ErrorInvalidAccessKeyId:
+                case AWSS3ErrorInvalidToken:
+                case AWSS3ErrorTokenRefreshRequired:
+                    retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
+                    break;
+                    
+                case AWSS3ErrorSignatureDoesNotMatch:
+                    retryType = AWSNetworkingRetryTypeShouldRetry;
+                    break;
+                    
+                default:
+                    break;
+            }
+        } else if ([error.domain isEqualToString:AWSGeneralErrorDomain]) {
+            switch (error.code) {
+                case AWSGeneralErrorSignatureDoesNotMatch:
+                    //may happened right after generating AWS temporary credentials due to the massively distributed nature of Amazon S3, just retry the request
+                    retryType = AWSNetworkingRetryTypeShouldRetry;
+                    break;
+                    
+                default:
+                    break;
+            }
         }
+        
     }
-
+    
     return retryType;
 }
 

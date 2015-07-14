@@ -90,6 +90,31 @@
     XCTAssertNil(data);
 }
 
+- (void)testCategoryNSDictionaryRemoveNullValues {
+    NSDictionary *testDictionary = @{
+                                     @"key1":@"value1",
+                                     @"key2":[NSNull null],
+                                     @"key3":@{
+                                             @"subkey1":@"subkeyvalue1",
+                                             @"subkey2":[NSNull null]
+                                             },
+                                     @"key4":@{
+                                             @"onlyKey":[NSNull null]
+                                             }
+                                     };
+    NSDictionary *expectedResultDic = @{
+                                        @"key1":@"value1",
+                                        @"key3":@{
+                                                @"subkey1":@"subkeyvalue1",
+                                                },
+                                        @"key4":@{
+                                                }
+                                        };
+    NSDictionary *resultDic = [testDictionary aws_removeNullValues];
+    XCTAssertEqualObjects(expectedResultDic, resultDic);
+    
+    
+}
 - (void)testLogger {
     XCTAssertEqualObjects([[AWSLogger defaultLogger] logLevelLabel:AWSLogLevelUnknown], @"?");
     XCTAssertEqualObjects([[AWSLogger defaultLogger] logLevelLabel:AWSLogLevelNone], @"?");

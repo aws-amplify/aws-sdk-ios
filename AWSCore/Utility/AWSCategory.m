@@ -104,14 +104,25 @@ static NSTimeInterval _clockskew = 0.0;
 @implementation NSDictionary (AWS)
 
 - (NSDictionary *)aws_removeNullValues {
-    NSMutableDictionary *mutableDictionary = [NSMutableDictionary new];
-    [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        if (obj != [NSNull null]) {
-            [mutableDictionary setObject:obj forKey:key];
-        }
-    }];
+    return [self aws_recursivelyRemoveNullEntries:self];
+}
 
-    return mutableDictionary;
+- (NSDictionary *)aws_recursivelyRemoveNullEntries:(NSDictionary *)inputDictionary {
+    
+    NSMutableDictionary *resultMutableDictionary = [NSMutableDictionary new];
+    
+    for (NSString *key in inputDictionary) {
+        id value = inputDictionary[key];
+        if ([value isEqual:[NSNull null]]) {
+            continue;
+        }
+        if([value isKindOfClass:[NSDictionary class]]) {
+            [resultMutableDictionary setObject:[self aws_recursivelyRemoveNullEntries:value] forKey:key];
+        } else {
+            [resultMutableDictionary setObject:value forKey:key];
+        }
+    }
+    return resultMutableDictionary;
 }
 
 -(id) aws_objectForCaseInsensitiveKey:(id)aKey {
