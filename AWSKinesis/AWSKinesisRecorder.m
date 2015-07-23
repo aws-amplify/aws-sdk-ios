@@ -318,7 +318,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                         putRecordsInput.records = records;
                         AWSLogVerbose(@"putRecordsInput: [%@]", putRecordsInput);
                         outputTask = [outputTask continueWithSuccessBlock:^id(AWSTask *task) {
-                            return [[kinesis putRecords:putRecordsInput] continueWithSuccessBlock:^id(AWSTask *task) {
+                            return [[kinesis putRecords:putRecordsInput] continueWithBlock:^id(AWSTask *task) {
                                 if (task.error) {
                                     AWSLogError(@"Error: [%@]", task.error);
                                 }
