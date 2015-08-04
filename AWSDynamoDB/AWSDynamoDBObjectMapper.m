@@ -459,6 +459,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     scanInput.limit = expression.limit;
     scanInput.exclusiveStartKey = expression.exclusiveStartKey;
     scanInput.scanFilter = expression.scanFilter;
+    scanInput.indexName = expression.indexName;
 
     return [[self.dynamoDB scan:scanInput] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSDynamoDBScanOutput *scanOutput = task.result;

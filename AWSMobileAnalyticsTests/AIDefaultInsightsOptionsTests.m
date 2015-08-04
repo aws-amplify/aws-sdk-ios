@@ -14,8 +14,14 @@
  */
 
 #import "AIDefaultInsightsOptionsTests.h"
+#import "AWSMockFileManager.h"
 
 @implementation AIDefaultInsightsOptionsTests
+
+- (void)setUp
+{
+     
+}
 
 - (void)test_DefaultIsightsOptions_AllowWANDelivery
 {

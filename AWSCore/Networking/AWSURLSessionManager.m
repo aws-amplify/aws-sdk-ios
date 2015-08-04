@@ -98,8 +98,6 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
     if (self = [super init]) {
         _configuration = configuration;
 
-        NSOperationQueue *operationQueue = [NSOperationQueue new];
-        operationQueue.maxConcurrentOperationCount = NSOperationQueueDefaultMaxConcurrentOperationCount;
 
         NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
         sessionConfiguration.URLCache = nil;
@@ -112,7 +110,7 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
 
         _session = [NSURLSession sessionWithConfiguration:sessionConfiguration
                                                  delegate:self
-                                            delegateQueue:operationQueue];
+                                            delegateQueue:nil];
         _sessionManagerDelegates = [AWSSynchronizedMutableDictionary new];
     }
 

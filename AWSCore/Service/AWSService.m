@@ -133,6 +133,7 @@ NSString *const AWSRegionNameAPNortheast1 = @"ap-northeast-1";
 NSString *const AWSRegionNameAPSoutheast2 = @"ap-southeast-2";
 NSString *const AWSRegionNameSAEast1 = @"sa-east-1";
 NSString *const AWSRegionNameCNNorth1 = @"cn-north-1";
+NSString *const AWSRegionNameUSGovWest1 = @"us-gov-west-1";
 
 NSString *const AWSServiceNameAPIGateway = @"execute-api";
 NSString *const AWSServiceNameAutoScaling = @"autoscaling";
@@ -225,6 +226,8 @@ NSString *const AWSServiceNameSTS = @"sts";
             return AWSRegionNameSAEast1;
         case AWSRegionCNNorth1:
             return AWSRegionNameCNNorth1;
+        case AWSRegionUSGovWest1:
+            return AWSRegionNameUSGovWest1;
         default:
             return nil;
     }
@@ -289,7 +292,8 @@ NSString *const AWSServiceNameSTS = @"sts";
             || regionType == AWSRegionAPSoutheast1
             || regionType == AWSRegionAPNortheast1
             || regionType == AWSRegionAPSoutheast2
-            || regionType == AWSRegionSAEast1)) {
+            || regionType == AWSRegionSAEast1
+            || regionType == AWSRegionUSGovWest1)) {
             separator = @"-";
         }
 

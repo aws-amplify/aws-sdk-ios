@@ -24,6 +24,9 @@
 #import "AWSMobileAnalyticsIOSLifeCycleManager.h"
 #import "AWSClientContext.h"
 #import "AWSMobileAnalyticsConfiguration.h"
+#import "AWSMobileAnalyticsERS.h"
+
+static NSString *AWSMobileAnalyticsDefaulyContextERSKey = @"com.amazonaws.MobileAnalytics.ersKey";
 
 @interface AWSMobileAnalyticsDefaultContext()
 
@@ -91,6 +94,9 @@
         [_httpClient addInterceptor:[AWSMobileAnalyticsClientContextInterceptor contextInterceptorWithClientContext:_clientContext]];
 
         [_httpClient addInterceptor:[[AWSMobileAnalyticsLogInterceptor alloc] init]];
+        
+        [AWSMobileAnalyticsERS registerMobileAnalyticsERSWithConfiguration:clientConfiguration.serviceConfiguration forKey:AWSMobileAnalyticsDefaulyContextERSKey];
+        _httpClient.ers = [AWSMobileAnalyticsERS MobileAnalyticsERSForKey:AWSMobileAnalyticsDefaulyContextERSKey];
 
         NSOperationQueue* queue = [[NSOperationQueue alloc] init];
         [queue setMaxConcurrentOperationCount:1];

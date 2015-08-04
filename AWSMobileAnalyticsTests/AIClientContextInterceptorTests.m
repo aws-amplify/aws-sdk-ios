@@ -15,8 +15,14 @@
 
 #import "AIClientContextInterceptorTests.h"
 #import "AWSClientContext.h"
+#import "AWSMockFileManager.h"
 
 @implementation AIClientContextInterceptorTests
+
+- (void)setUp
+{
+     
+}
 
 - (void)test_clientContextAddedAsHeader {
     AWSClientContext *clientContext = [AWSClientContext new];

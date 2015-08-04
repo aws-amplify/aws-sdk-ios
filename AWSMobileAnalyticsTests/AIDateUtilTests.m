@@ -15,6 +15,7 @@
 
 #import "AIDateUtilTests.h"
 #import "AWSMobileAnalyticsDateUtils.h"
+#import "AWSMockFileManager.h"
 
 static UTCTimeMillis TIME_STAMP = 1370111901909l; // Sat, 01 Jun 2013 18:38:21 GMT
 static NSString* ISO_DATE_TIME_STAMP = @"2013-06-01T18:38:21.909Z";
@@ -22,6 +23,11 @@ static NSString* ISO_8061_DATE_STAMP = @"20130601";
 static NSString* ISO_8061_DATE_TIME = @"20130601T183821Z";
 
 @implementation AIDateUtilTests
+
+- (void)setUp
+{
+     
+}
 
 -(void)test_isoDateTimeWithTimestamp
 {

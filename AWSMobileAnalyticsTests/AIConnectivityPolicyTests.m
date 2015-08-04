@@ -17,6 +17,7 @@
 #import "AIInsightsContextBuilder.h"
 #import "AWSMobileAnalyticsContext.h"
 #import "AWSMobileAnalyticsConnectivityPolicy.h"
+#import "AWSMockFileManager.h"
 
 static id mockConfiguration = nil;
 static id mockConnectivity = nil;
@@ -27,6 +28,8 @@ static id mockContext = nil;
 
 -(void)setUp
 {
+     
+    
     mockConfiguration = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsConfiguring)];
     [[[mockConfiguration stub] andReturnValue:@YES] boolForKey:@"allowWANEventDelivery" withOptValue:YES];
     

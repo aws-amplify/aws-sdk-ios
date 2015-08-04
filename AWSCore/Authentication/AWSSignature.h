@@ -16,6 +16,9 @@
 #import <Foundation/Foundation.h>
 #import "AWSNetworking.h"
 
+FOUNDATION_EXPORT NSString *const AWSSignatureV4Algorithm;
+FOUNDATION_EXPORT NSString *const AWSSignatureV4Terminator;
+
 @class AWSEndpoint;
 
 @protocol AWSCredentialsProvider;
@@ -39,6 +42,19 @@
 
 - (instancetype)initWithCredentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider
                                    endpoint:(AWSEndpoint *)endpoint;
+
++ (NSString *)getCanonicalizedRequest:(NSString *)method
+                                 path:(NSString *)path
+                                query:(NSString *)query
+                              headers:(NSDictionary *)headers
+                        contentSha256:(NSString *)contentSha256;
+
++ (NSData *)getV4DerivedKey:(NSString *)secret
+                       date:(NSString *)dateStamp
+                     region:(NSString *)regionName
+                    service:(NSString *)serviceName;
+
++ (NSString *)getSignedHeadersString:(NSDictionary *)headers;
 
 @end
 

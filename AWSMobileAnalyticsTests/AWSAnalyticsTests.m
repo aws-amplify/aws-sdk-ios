@@ -20,8 +20,10 @@
 #import "AWSMobileAnalytics.h"
 #import "AWSTestUtility.h"
 
-#import "AWSMobileAnalyticsDeliveryClient.h"
-#import "AWSMobileAnalyticsConfigurationKeys.h"
+FOUNDATION_EXPORT double    const AWSValueForceSubmissionWaitTime;
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
 
 @interface AWSAnalyticsTests : XCTestCase
 
@@ -345,8 +347,8 @@
 
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
 
-    id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [insights valueForKey:@"deliveryClient"];
-    NSArray *batchedEvents = [deliveryClient batchedEvents];
+    id deliveryClient = [insights valueForKey:@"deliveryClient"];
+    NSArray *batchedEvents = [deliveryClient performSelector:@selector(batchedEvents) withObject:nil];
     //batchedEvents should be empty if all events has been sent successfully.
     XCTAssertEqual(0, [batchedEvents count], @"batchedEvents is not empty,events delivery may have failed!, batchedEvent:\n%@",batchedEvents);
 }
@@ -382,8 +384,8 @@
 
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
 
-    id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [insightsNewConstructor valueForKey:@"deliveryClient"];
-    NSArray *batchedEvents = [deliveryClient batchedEvents];
+    id deliveryClient = [insightsNewConstructor valueForKey:@"deliveryClient"];
+    NSArray *batchedEvents = [deliveryClient performSelector:@selector(batchedEvents) withObject:nil];
     //batchedEvents should be empty if all events has been sent successfully.
     XCTAssertEqual(0, [batchedEvents count], @"batchedEvents is not empty,events delivery may have failed!, batchedEvent:\n%@",batchedEvents);
 
@@ -395,7 +397,7 @@
     //submit the event
     [eventClientOldConstructor submitEvents];
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
-    XCTAssertNotEqual(0, [[[insightsOldConstructor valueForKey:@"deliveryClient"] batchedEvents] count], @"batchedEvents should not be empty");
+    XCTAssertNotEqual(0, [[[insightsOldConstructor valueForKey:@"deliveryClient"] performSelector:@selector(batchedEvents) withObject:nil] count], @"batchedEvents should not be empty");
 
     //will for waitTime expired.
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:AWSValueForceSubmissionWaitTime+5]];
@@ -403,7 +405,7 @@
     //submit it again, should be successful this time
     [eventClientOldConstructor submitEvents];
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
-    XCTAssertEqual(0, [[[insightsOldConstructor valueForKey:@"deliveryClient"] batchedEvents] count], @"batchedEvents is not empty,events delivery may have failed! , batchedEvent:\n%@",batchedEvents);
+    XCTAssertEqual(0, [[[insightsOldConstructor valueForKey:@"deliveryClient"] performSelector:@selector(batchedEvents) withObject:nil] count], @"batchedEvents is not empty,events delivery may have failed! , batchedEvent:\n%@",batchedEvents);
 }
 
 - (void)test_createAndSubmitEvent{
@@ -433,8 +435,8 @@
 
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
 
-    id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [insights valueForKey:@"deliveryClient"];
-    NSArray *batchedEvents = [deliveryClient batchedEvents];
+    id deliveryClient = [insights valueForKey:@"deliveryClient"];
+    NSArray *batchedEvents = [deliveryClient performSelector:@selector(batchedEvents) withObject:nil];
     //batchedEvents should be empty if all events has been sent successfully.
     XCTAssertEqual(0, [batchedEvents count], @"batchedEvents is not empty,events delivery may have failed!, batchedEvent:\n%@",batchedEvents);
 
@@ -446,7 +448,7 @@
     //submit the event
     [eventClient submitEvents];
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
-    XCTAssertNotEqual(0, [[[insights valueForKey:@"deliveryClient"] batchedEvents] count], @"batchedEvents should not be empty");
+    XCTAssertNotEqual(0, [[[insights valueForKey:@"deliveryClient"] performSelector:@selector(batchedEvents) withObject:nil] count], @"batchedEvents should not be empty");
 
     //will for waitTime expired.
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:AWSValueForceSubmissionWaitTime+5]];
@@ -454,7 +456,7 @@
     //submit it again, should be successful this time
     [eventClient submitEvents];
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
-    XCTAssertEqual(0, [[[insights valueForKey:@"deliveryClient"] batchedEvents] count], @"batchedEvents is not empty,events delivery may have failed! , batchedEvent:\n%@",batchedEvents);
+    XCTAssertEqual(0, [[[insights valueForKey:@"deliveryClient"] performSelector:@selector(batchedEvents) withObject:nil] count], @"batchedEvents is not empty,events delivery may have failed! , batchedEvent:\n%@",batchedEvents);
 }
 
 - (void)test_createAndSubmitMultipleEventsWithGlobalAttributes{
@@ -491,7 +493,7 @@
 
     //validate if global attributes are there
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
-    NSArray *batchedEvents = [[insights valueForKey:@"deliveryClient"] batchedEvents];
+    NSArray *batchedEvents = [[insights valueForKey:@"deliveryClient"] performSelector:@selector(batchedEvents) withObject:nil];
     for (NSString *jsonStr in batchedEvents) {
         NSDictionary *aEventDic = [NSJSONSerialization JSONObjectWithData:[jsonStr dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
         if (![aEventDic[@"event_type"] isEqualToString:@"_session.start"] &&
@@ -514,7 +516,7 @@
     //manually submit those events
     [eventClient submitEvents];
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
-    XCTAssertEqual(0, [[[insights valueForKey:@"deliveryClient"] batchedEvents] count], @"batchedEvents is not empty,events delivery may have failed!");
+    XCTAssertEqual(0, [[[insights valueForKey:@"deliveryClient"] performSelector:@selector(batchedEvents) withObject:nil] count], @"batchedEvents is not empty,events delivery may have failed!");
 }
 
 - (void)test_createAndSubmitMonetizationEvent {
@@ -552,8 +554,8 @@
 
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
 
-    id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [insights valueForKey:@"deliveryClient"];
-    NSArray *batchedEvents = [deliveryClient batchedEvents];
+    id deliveryClient = [insights valueForKey:@"deliveryClient"];
+    NSArray *batchedEvents = [deliveryClient performSelector:@selector(batchedEvents) withObject:nil];
     //batchedEvents should be empty if all events has been sent successfully.
     XCTAssertEqual(0, [batchedEvents count], @"batchedEvents is not empty,events delivery may have failed!");
 
@@ -597,8 +599,8 @@
     [eventClient submitEvents];
 
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
-    id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [insights valueForKey:@"deliveryClient"];
-    NSArray *batchedEvents = [deliveryClient batchedEvents];
+    id deliveryClient = [insights valueForKey:@"deliveryClient"];
+    NSArray *batchedEvents = [deliveryClient performSelector:@selector(batchedEvents) withObject:nil];
     //batchedEvents should be empty if all events has been sent successfully.
     XCTAssertEqual(0, [batchedEvents count], @"batchedEvents is not empty,events delivery may have failed!");
 
@@ -637,8 +639,8 @@
     [eventClient submitEvents];
 
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
-    id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [insights valueForKey:@"deliveryClient"];
-    NSArray *batchedEvents = [deliveryClient batchedEvents];
+    id deliveryClient = [insights valueForKey:@"deliveryClient"];
+    NSArray *batchedEvents = [deliveryClient performSelector:@selector(batchedEvents) withObject:nil];
     //batchedEvents should be empty if all events has been sent successfully.
     XCTAssertEqual(0, [batchedEvents count], @"batchedEvents is not empty,events delivery may have failed!");
 }
@@ -657,12 +659,12 @@
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
 
     for (AWSMobileAnalytics *insights in insightsObjectsArray) {
-        id<AWSMobileAnalyticsDeliveryClient> deliveryClient = [insights valueForKey:@"deliveryClient"];
-        NSArray *batchedEvents = [deliveryClient batchedEvents];
+        id deliveryClient = [insights valueForKey:@"deliveryClient"];
+        NSArray *batchedEvents = [deliveryClient performSelector:@selector(batchedEvents) withObject:nil];
         //batchedEvents should be empty if all events has been sent successfully.
         XCTAssertEqual(0, [batchedEvents count], @"batchedEvents is not empty,events delivery may have failed!");
     }
 }
 @end
-
+#pragma clang diagnostic pop
 #endif

@@ -26,14 +26,7 @@
 #import "AWSMobileAnalyticsConfiguration.h"
 #import "AWSClientContext.h"
 #import "AWSLogging.h"
-#import "AWSMobileAnalyticsERS.h"
 #import "AWSSynchronizedMutableDictionary.h"
-
-@interface AWSMobileAnalyticsERS()
-
-- (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration;
-
-@end
 
 @interface AWSMobileAnalytics()
 
@@ -168,7 +161,6 @@ static AWSSynchronizedMutableDictionary *_mobileAnalyticsForAppNamespace = nil;
                                                                               withSdkInfo:[AWSMobileAnalyticsSDKInfo sdkInfoFromBrazil]
                                                                 withConfigurationSettings:settings];
 
-        _mobileAnalyticsContext.httpClient.ers = [[AWSMobileAnalyticsERS alloc] initWithConfiguration:configuration.serviceConfiguration];
 
         _deliveryClient = [AWSMobileAnalyticsDefaultDeliveryClient deliveryClientWithContext:_mobileAnalyticsContext
                                                                              withWanDelivery:options.allowWANDelivery];

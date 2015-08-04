@@ -14,8 +14,14 @@
  */
 
 #import "AISDKInfoInterceptorTests.h"
+#import "AWSMockFileManager.h"
 
 @implementation AISDKInfoInterceptorTests
+
+- (void)setUp
+{
+     
+}
 
 - (void) testSDKInfoWithBrazil
 {

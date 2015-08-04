@@ -17,12 +17,18 @@
 #import "AWSMobileAnalyticsSession.h"
 
 #import "AWSMobileAnalyticsContext.h"
+#import "AWSMockFileManager.h"
 
 #define TEST_APP_KEY @"ThisTestStringIsAnApplicationKey"
 #define TEST_UNIQ_ID @"ThisTestStringIsAUniqueID"
 
 
 @implementation AISessionTests
+
+- (void)setUp
+{
+     
+}
 
 + (AWSMobileAnalyticsSession *) buildMockSessionWithAppKey: (NSString*) appKey
                                                 withUniqId: (NSString*) uniqId

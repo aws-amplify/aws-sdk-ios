@@ -15,8 +15,14 @@
 
 #import "AICountDownLatchTests.h"
 #import "AWSMobileAnalyticsCountDownLatch.h"
+#import "AWSMockFileManager.h"
 
 @implementation AICountDownLatchTests
+
+- (void)setUp
+{
+     
+}
 
 -(void)testCountDown
 {

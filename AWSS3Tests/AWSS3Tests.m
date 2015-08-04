@@ -108,6 +108,35 @@ static NSString *testBucketNameGeneral = nil;
     return NO;
 }
 
+-(void)testCreateEmptyFolder {
+    
+    
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    
+    AWSS3PutObjectRequest *putObjectRequest = [AWSS3PutObjectRequest new];
+    
+    putObjectRequest.key = @"test/";
+    putObjectRequest.bucket = testBucketNameGeneral;
+    putObjectRequest.body = nil;
+    
+    [[[s3 putObject:putObjectRequest] continueWithBlock:^id(AWSTask *task)
+     {
+         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+         return nil;
+     }] waitUntilFinished];
+    
+    AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
+    deleteObjectRequest.bucket = testBucketNameGeneral;
+    deleteObjectRequest.key = @"test/";
+    
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),[task.result description]);
+        return nil;
+    }] waitUntilFinished];
+    
+    
+}
 - (void)testClockSkewS3 {
     [AWSTestUtility setupSwizzling];
 

@@ -18,4 +18,7 @@
 
 @interface AISessionIntegrationTests : AIIntegrationTestBase
 
+@property (nonatomic, strong) id mockedERS;
+@property (nonatomic, strong) id mockedFileManager;
+
 @end

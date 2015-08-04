@@ -1,9 +1,26 @@
 # AWSiOSSDKv2 CHANGELOG
 
+## 2.2.3
+
+### New Features
+* **SDK Core**
+    * Added AWS GovCloud (US) Region support.
+* **Amazon S3**
+    * Updated `AWSS3PreSignedURLBuilder` to use AWS Signature Version 4 for generating the pre-signed URLs.
+    * Updated `AWSS3PreSignedURLBuilder` to accept additional request parameters to be included in pre-signed URLs.
+* **Amazon DynamoDB Object Mapper**
+	* Added Support for Secondary Index Scan.
+	
+### Resolved Issues
+* **Amazon S3**
+    * Fixed an issue where an empty directory cannot be created.
+
 ## 2.2.2
 
 ### New Features
-* **Amazon Mobile Analytics** - Updated the Amazon Mobile Analytics client APIs so that the developer needs to write fewer lines of code to initialize it.
+* **Amazon Mobile Analytics**
+	*  Updated the Amazon Mobile Analytics client APIs so that the developer needs to write fewer lines of code to initialize it.
+	*  Defaulted the SDK to send events over WAN.
 
 ### Resolved Issues
 * **Amazon S3**

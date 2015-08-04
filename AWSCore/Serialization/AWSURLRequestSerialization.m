@@ -181,7 +181,7 @@
         }
         AWSLogVerbose(@"Request body: [%@]", [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding]);
 
-        //contruct addtional headers
+        //contruct additional headers
         if (!error) {
             if (headers) {
                 //generate HTTP header here
@@ -481,7 +481,7 @@
     }
     AWSLogVerbose(@"Request body: [%@]", [[NSString alloc] initWithData:request.HTTPBody
                                                                encoding:NSUTF8StringEncoding]);
-    //contruct addtional headers
+    //contruct additional headers
     if (headers) {
         //generate HTTP header here
         for (NSString *key in headers.allKeys) {
@@ -533,7 +533,7 @@
     }
     AWSLogVerbose(@"Request body: [%@]", [[NSString alloc] initWithData:request.HTTPBody
                                                                encoding:NSUTF8StringEncoding]);
-    //contruct addtional headers
+    //contruct additional headers
     if (headers) {
         //generate HTTP header here
         for (NSString *key in headers.allKeys) {

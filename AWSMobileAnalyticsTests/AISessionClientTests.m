@@ -24,6 +24,8 @@
 #import "AWSMobileAnalyticsEvent.h"
 #import "TestEventObserver.h"
 #import "AWSCategory.h"
+#import "AWSMobileAnalyticsERS.h"
+#import "AWSMockFileManager.h"
 
 #define TEST_APP_KEY @"SessionClientTestApplicationKey"
 #define TEST_UNIQ_ID @"SessionClientTestUniqueID"
@@ -47,11 +49,15 @@ static id<AWSMobileAnalyticsInternalEvent> mockResumeEvent = nil;
 {
     // Put setup code here. This method is called before the invocation of each test method in the class.
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithCredentialsFilename:@"credentials"];
+        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:@"someAccessKey" secretKey:@"someSecretKey"];
         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
                                                                              credentialsProvider:credentialsProvider];
         [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
     }
+    
+    
+    
+    
 }
 
 - (void)tearDown

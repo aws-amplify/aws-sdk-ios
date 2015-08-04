@@ -17,6 +17,7 @@
 #import "AWSMobileAnalyticsMonetizationEventBuilder.h"
 #import "AWSMobileAnalyticsAppleMonetizationEventBuilder.h"
 #import "AWSMobileAnalyticsVirtualMonetizationEventBuilder.h"
+#import "AWSMockFileManager.h"
 
 @interface AITestEvent : NSObject<AWSMobileAnalyticsEvent>
 
@@ -119,6 +120,8 @@ static id mockEventClient;
 @implementation AIMonetizationEventBuilderTests
 
 -(void)setUp{
+     
+    
     id<AWSMobileAnalyticsEvent> testEvent = [[AITestEvent alloc] initWithName:@"_monetization.purchase"];
     mockEventClient = [OCMockObject mockForProtocol:@protocol(AWSMobileAnalyticsEventClient)];
     

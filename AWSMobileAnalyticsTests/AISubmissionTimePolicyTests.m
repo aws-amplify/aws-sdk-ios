@@ -17,6 +17,7 @@
 #import "AIInsightsContextBuilder.h"
 #import "AWSMobileAnalyticsSubmissionTimePolicy.h"
 #import <OCMock/OCMock.h>
+#import "AWSMockFileManager.h"
 
 static id mockContext = nil;
 static id mockPreferences = nil;
@@ -27,6 +28,8 @@ static id mockPreferences = nil;
 
 -(void)setUp
 {
+     
+    
     mockPreferences = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsPreferences)];
     
     AIInsightsContextBuilder* builder = [AIInsightsContextBuilder builder];

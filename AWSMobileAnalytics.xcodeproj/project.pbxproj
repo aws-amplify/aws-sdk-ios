@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD39B0D11B6AF6FF004296BE /* AWSMockFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD39B0D01B6AF6FF004296BE /* AWSMockFileManager.m */; };
 		BD4C9AEA1B4C697400267270 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD876AF1B4B5316009268C7 /* libOCMock.a */; };
 		BD4C9AEB1B4C69DB00267270 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E0C901B03F2B400DE3906 /* SystemConfiguration.framework */; };
 		BDB73D631B1D3E3300717559 /* AWSMobileAnalyticsERSResources.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB73D611B1D3E3300717559 /* AWSMobileAnalyticsERSResources.h */; };
@@ -21,7 +22,6 @@
 		CE2E0C671B03EB9100DE3906 /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E0C661B03EB9100DE3906 /* libAWSCore.a */; };
 		CE2E0C691B03EBDB00DE3906 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E0C681B03EBDB00DE3906 /* libz.dylib */; };
 		CE2E0C6B1B03EBE600DE3906 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E0C6A1B03EBE600DE3906 /* libsqlite3.dylib */; };
-		CE2E0C6D1B03EC6D00DE3906 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CE2E0C6C1B03EC6D00DE3906 /* credentials.json */; };
 		CE2E0C7D1B03EFD300DE3906 /* libAWSMobileAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532781B03DE7F002CED62 /* libAWSMobileAnalytics.a */; };
 		CE2E0C831B03F07C00DE3906 /* AWSAnalyticsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE533BD1B03E4FB002CED62 /* AWSAnalyticsTests.m */; };
 		CE2E0C851B03F08000DE3906 /* AWSMobileAnalyticsERSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE533C11B03E4FB002CED62 /* AWSMobileAnalyticsERSTests.m */; };
@@ -277,6 +277,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BD39B0CF1B6AF6FF004296BE /* AWSMockFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSMockFileManager.h; sourceTree = "<group>"; };
+		BD39B0D01B6AF6FF004296BE /* AWSMockFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSMockFileManager.m; sourceTree = "<group>"; };
 		BDB73D611B1D3E3300717559 /* AWSMobileAnalyticsERSResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsERSResources.h; path = AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSResources.h; sourceTree = SOURCE_ROOT; };
 		BDB73D621B1D3E3300717559 /* AWSMobileAnalyticsERSResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSMobileAnalyticsERSResources.m; path = AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSResources.m; sourceTree = SOURCE_ROOT; };
 		BDD876AF1B4B5316009268C7 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = AWSCoreTests/OCMock/libOCMock.a; sourceTree = "<group>"; };
@@ -586,6 +588,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD39B0CE1B6AF6C7004296BE /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BD39B0CF1B6AF6FF004296BE /* AWSMockFileManager.h */,
+				BD39B0D01B6AF6FF004296BE /* AWSMockFileManager.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		CE2E0C781B03EFD300DE3906 /* AWSMobileAnalyticsTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -657,6 +668,7 @@
 		CEE532871B03DE7F002CED62 /* AWSMobileAnalyticsLegacyTests */ = {
 			isa = PBXGroup;
 			children = (
+				BD39B0CE1B6AF6C7004296BE /* Helper */,
 				CEE5336A1B03E4FB002CED62 /* AIActiveSessionStateTests.h */,
 				CEE5336B1B03E4FB002CED62 /* AIActiveSessionStateTests.m */,
 				CEE5336C1B03E4FB002CED62 /* AIAmazonInsightsTests.h */,
@@ -1155,7 +1167,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE2E0C6D1B03EC6D00DE3906 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1253,6 +1264,7 @@
 				CEE534071B03E4FB002CED62 /* AIStringUtilsTests.m in Sources */,
 				CEE533FF1B03E4FB002CED62 /* AIMonetizationEventBuilderTests.m in Sources */,
 				CEE534191B03E4FB002CED62 /* TestInsightsContext.m in Sources */,
+				BD39B0D11B6AF6FF004296BE /* AWSMockFileManager.m in Sources */,
 				CEE533E51B03E4FB002CED62 /* AIBufferedReaderTests.m in Sources */,
 				CEE533E41B03E4FB002CED62 /* AIAmazonInsightsTests.m in Sources */,
 				CEE533FA1B03E4FB002CED62 /* AIInsightsContextBuilder.m in Sources */,

@@ -15,6 +15,7 @@
 
 #import "AISessionStoreTests.h"
 #import "AWSMobileAnalyticsSessionStore.h"
+#import "AWSMockFileManager.h"
 
 static AWSMobileAnalyticsSessionStore* target = nil;
 static id mockFileManager = nil;
@@ -25,6 +26,8 @@ static id mockFile = nil;
 
 -(void)setUp
 {
+     
+    
     mockFile = [OCMockObject niceMockForClass:[AWSMobileAnalyticsFile class]];
     
     mockFileManager = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsFileManager)];

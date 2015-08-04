@@ -17,6 +17,7 @@
 #import "AWSMobileAnalyticsBufferedReader.h"
 #import "AWSMobileAnalyticsWriter.h"
 #import "AWSMobileAnalyticsErrorUtils.h"
+#import "AWSMockFileManager.h"
 
 //static AIEncryptedWriter* writer = nil;
 //static AIEncryptedBufferedReader* reader = nil;
@@ -26,7 +27,7 @@
 
 -(void)setUp
 {
-    
+     
 }
 
 -(void)test_readLine_encryptedStringsCanBeDecrypted

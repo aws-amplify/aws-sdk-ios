@@ -16,6 +16,7 @@
 #import "AIIOSPreferencesTests.h"
 #import "AWSMobileAnalyticsDefaultFileManager.h"
 #import "AWSMobileAnalyticsIOSSystem.h"
+#import "AWSMockFileManager.h"
 
 NSString *const AIAppKey = @"appKey";
 NSString *const AIPrivateKey = @"0123456789abcdef0123456789abcdef";
@@ -37,6 +38,8 @@ NSString *const AIPrivateKey = @"0123456789abcdef0123456789abcdef";
 
 -(void)setUp
 {
+     
+    
     [self cleanInsightsDir];
     
     AWSMobileAnalyticsIOSSystem *system = [[AWSMobileAnalyticsIOSSystem alloc] initWithIdentifier:AIAppKey];

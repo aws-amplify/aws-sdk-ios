@@ -23,8 +23,8 @@
 #import "AWSBolts.h"
 
 NSString *const AWSSigV4Marker = @"AWS4";
-NSString *const AWSSigV4Algorithm = @"AWS4-HMAC-SHA256";
-NSString *const AWSSigV4Terminator = @"aws4_request";
+NSString *const AWSSignatureV4Algorithm = @"AWS4-HMAC-SHA256";
+NSString *const AWSSignatureV4Terminator = @"aws4_request";
 
 @implementation AWSSignatureSignerUtility
 
@@ -187,19 +187,20 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
     NSString *dateStamp = [date aws_stringValue:AWSDateShortDateFormat1];
     //NSString *dateTime  = [date aws_stringValue:AWSDateAmzDateFormat];
 
-    NSString *scope = [NSString stringWithFormat:@"%@/%@/%@/%@", dateStamp, self.endpoint.regionName, self.endpoint.serviceName, AWSSigV4Terminator];
+    NSString *scope = [NSString stringWithFormat:@"%@/%@/%@/%@", dateStamp, self.endpoint.regionName, self.endpoint.serviceName, AWSSignatureV4Terminator];
     NSString *signingCredentials = [NSString stringWithFormat:@"%@/%@", self.credentialsProvider.accessKey, scope];
 
     // compute canonical request
     NSString *httpMethod = urlRequest.HTTPMethod;
     // URL.path returns unescaped path
-    NSString *path = urlRequest.URL.path;
+    // For S3,  url-encoded URI need to be decoded before generate  CanonicalURI, otherwise, signature doesn't match occurs. (I.e. CanonicalURI for "/ios-v2-test-445901470/name%3A" will still be  "/ios-v2-test-445901470/name%3A".  "%3A" -> ":" -> "%3A")
+    NSString *cfPath = (NSString*)CFBridgingRelease(CFURLCopyPath((CFURLRef)urlRequest.URL)) ;
+    NSString *path = [cfPath aws_stringWithURLEncodingPath];
+    
     if (path.length == 0) {
         path = [NSString stringWithFormat:@"/"];
-    } else {
-        // SigV4 signs escaped path string
-        path = [[path aws_stringWithURLEncoding] stringByReplacingOccurrencesOfString:@"\%2F" withString:@"/"];
     }
+    
     NSString *query = urlRequest.URL.query;
     if (query == nil) {
         query = [NSString stringWithFormat:@""];
@@ -244,24 +245,24 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
     
     NSMutableDictionary *headers = [[urlRequest allHTTPHeaderFields] mutableCopy];
 
-    NSString *canonicalRequest = [self getCanonicalizedRequest:httpMethod
-                                                          path:path
-                                                         query:query
-                                                       headers:headers
-                                                 contentSha256:contentSha256];
+    NSString *canonicalRequest = [AWSSignatureV4Signer getCanonicalizedRequest:httpMethod
+                                                                          path:path
+                                                                         query:query
+                                                                       headers:headers
+                                                                 contentSha256:contentSha256];
     AWSLogDebug(@"Canonical request: [%@]", canonicalRequest);
 
     NSString *stringToSign = [NSString stringWithFormat:@"%@\n%@\n%@\n%@",
-                              AWSSigV4Algorithm,
+                              AWSSignatureV4Algorithm,
                               [urlRequest valueForHTTPHeaderField:@"X-Amz-Date"],
                               scope,
                               [AWSSignatureSignerUtility hexEncode:[AWSSignatureSignerUtility hashString:canonicalRequest]]];
     AWSLogDebug(@"AWS4 String to Sign: [%@]", stringToSign);
 
-    NSData *kSigning  = [self getV4DerivedKey:self.credentialsProvider.secretKey
-                                         date:dateStamp
-                                       region:self.endpoint.regionName
-                                      service:self.endpoint.serviceName];
+    NSData *kSigning  = [AWSSignatureV4Signer getV4DerivedKey:self.credentialsProvider.secretKey
+                                                         date:dateStamp
+                                                       region:self.endpoint.regionName
+                                                      service:self.endpoint.serviceName];
 
     NSData *signature = [AWSSignatureSignerUtility sha256HMacWithData:[stringToSign dataUsingEncoding:NSUTF8StringEncoding]
                                                               withKey:kSigning];
@@ -269,9 +270,9 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
                                                                                            encoding:NSASCIIStringEncoding]];
 
     NSString *authorization = [NSString stringWithFormat:@"%@ Credential=%@, SignedHeaders=%@, Signature=%@",
-                               AWSSigV4Algorithm,
+                               AWSSignatureV4Algorithm,
                                signingCredentials,
-                               [self getSignedHeadersString:headers],
+                               [AWSSignatureV4Signer getSignedHeadersString:headers],
                                signatureString];
 
     if (nil != stream) {
@@ -299,6 +300,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
     NSString *dateStamp = [xAmzDate aws_stringValue:AWSDateShortDateFormat1];
 
     NSString *cfPath = (NSString*)CFBridgingRelease(CFURLCopyPath((CFURLRef)request.URL)) ;
+    //For  AWS Services (except S3) , url-encoded URL will be used to generate CanonicalURL directly. (i.e. the encoded URL will be encoded again, e.g. "%3A" -> "%253A"
     NSString *path = [cfPath aws_stringWithURLEncodingPathWithoutPriorDecoding];
     if (path.length == 0) {
         path = [NSString stringWithFormat:@"/"];
@@ -310,11 +312,11 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
 
     NSString *contentSha256 = [AWSSignatureSignerUtility hexEncode:[[NSString alloc] initWithData:[AWSSignatureSignerUtility hash:request.HTTPBody] encoding:NSASCIIStringEncoding]];
 
-    NSString *canonicalRequest = [self getCanonicalizedRequest:request.HTTPMethod
-                                                          path:path
-                                                         query:query
-                                                       headers:request.allHTTPHeaderFields
-                                                 contentSha256:contentSha256];
+    NSString *canonicalRequest = [AWSSignatureV4Signer getCanonicalizedRequest:request.HTTPMethod
+                                                                          path:path
+                                                                         query:query
+                                                                       headers:request.allHTTPHeaderFields
+                                                                 contentSha256:contentSha256];
 
     AWSLogDebug(@"AWS4 Canonical Request: [%@]", canonicalRequest);
     AWSLogDebug(@"payload %@",[[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding]);
@@ -323,31 +325,31 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
                        dateStamp,
                        self.endpoint.regionName,
                        self.endpoint.serviceName,
-                       AWSSigV4Terminator];
+                       AWSSignatureV4Terminator];
     NSString *signingCredentials = [NSString stringWithFormat:@"%@/%@",
                                     self.credentialsProvider.accessKey,
                                     scope];
     NSString *stringToSign = [NSString stringWithFormat:@"%@\n%@\n%@\n%@",
-                              AWSSigV4Algorithm,
+                              AWSSignatureV4Algorithm,
                               [request valueForHTTPHeaderField:@"X-Amz-Date"],
                               scope,
                               [AWSSignatureSignerUtility hexEncode:[AWSSignatureSignerUtility hashString:canonicalRequest]]];
 
     AWSLogDebug(@"AWS4 String to Sign: [%@]", stringToSign);
 
-    NSData *kSigning  = [self getV4DerivedKey:self.credentialsProvider.secretKey
-                                         date:dateStamp
-                                       region:self.endpoint.regionName
-                                      service:self.endpoint.serviceName];
+    NSData *kSigning  = [AWSSignatureV4Signer getV4DerivedKey:self.credentialsProvider.secretKey
+                                                         date:dateStamp
+                                                       region:self.endpoint.regionName
+                                                      service:self.endpoint.serviceName];
     NSData *signature = [AWSSignatureSignerUtility sha256HMacWithData:[stringToSign dataUsingEncoding:NSUTF8StringEncoding]
                                                               withKey:kSigning];
 
     NSString *credentialsAuthorizationHeader = [NSString stringWithFormat:@"Credential=%@", signingCredentials];
-    NSString *signedHeadersAuthorizationHeader = [NSString stringWithFormat:@"SignedHeaders=%@", [self getSignedHeadersString:request.allHTTPHeaderFields]];
+    NSString *signedHeadersAuthorizationHeader = [NSString stringWithFormat:@"SignedHeaders=%@", [AWSSignatureV4Signer getSignedHeadersString:request.allHTTPHeaderFields]];
     NSString *signatureAuthorizationHeader = [NSString stringWithFormat:@"Signature=%@", [AWSSignatureSignerUtility hexEncode:[[NSString alloc] initWithData:signature encoding:NSASCIIStringEncoding]]];
 
     NSString *authorization = [NSString stringWithFormat:@"%@ %@, %@, %@",
-                               AWSSigV4Algorithm,
+                               AWSSignatureV4Algorithm,
                                credentialsAuthorizationHeader,
                                signedHeadersAuthorizationHeader,
                                signatureAuthorizationHeader];
@@ -356,20 +358,20 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
 }
 
 
-- (NSString *)getCanonicalizedRequest:(NSString *)method path:(NSString *)path query:(NSString *)query headers:(NSDictionary *)headers contentSha256:(NSString *)contentSha256 {
++ (NSString *)getCanonicalizedRequest:(NSString *)method path:(NSString *)path query:(NSString *)query headers:(NSDictionary *)headers contentSha256:(NSString *)contentSha256 {
     NSMutableString *canonicalRequest = [NSMutableString new];
     [canonicalRequest appendString:method];
     [canonicalRequest appendString:@"\n"];
     [canonicalRequest appendString:path]; // Canonicalized resource path
     [canonicalRequest appendString:@"\n"];
 
-    [canonicalRequest appendString:[self getCanonicalizedQueryString:query]]; // Canonicalized Query String
+    [canonicalRequest appendString:[AWSSignatureV4Signer getCanonicalizedQueryString:query]]; // Canonicalized Query String
     [canonicalRequest appendString:@"\n"];
 
-    [canonicalRequest appendString:[self getCanonicalizedHeaderString:headers]];
+    [canonicalRequest appendString:[AWSSignatureV4Signer getCanonicalizedHeaderString:headers]];
     [canonicalRequest appendString:@"\n"];
 
-    [canonicalRequest appendString:[self getSignedHeadersString:headers]];
+    [canonicalRequest appendString:[AWSSignatureV4Signer getSignedHeadersString:headers]];
     [canonicalRequest appendString:@"\n"];
 
     [canonicalRequest appendString:[NSString stringWithFormat:@"%@", contentSha256]];
@@ -377,7 +379,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
     return canonicalRequest;
 }
 
-- (NSString *)getCanonicalizedQueryString:(NSString *)query {
++ (NSString *)getCanonicalizedQueryString:(NSString *)query {
     NSMutableDictionary *queryDictionary = [NSMutableDictionary new];
     [[query componentsSeparatedByString:@"&"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSArray *components = [obj componentsSeparatedByString:@"="];
@@ -388,7 +390,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
 
     NSMutableArray *sortedQuery = [[NSMutableArray alloc] initWithArray:[queryDictionary allKeys]];
 
-    [sortedQuery sortUsingSelector:@selector(caseInsensitiveCompare:)];
+    [sortedQuery sortUsingSelector:@selector(compare:)];
 
     NSMutableString *sortedQueryString = [NSMutableString new];
     for (NSString *key in sortedQuery) {
@@ -403,7 +405,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
     return sortedQueryString;
 }
 
-- (NSString *)getCanonicalizedHeaderString:(NSDictionary *)headers {
++ (NSString *)getCanonicalizedHeaderString:(NSDictionary *)headers {
     NSMutableArray *sortedHeaders = [[NSMutableArray alloc] initWithArray:[headers allKeys]];
 
     [sortedHeaders sortUsingSelector:@selector(caseInsensitiveCompare:)];
@@ -425,7 +427,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
     return [nonWhitespace componentsJoinedByString:@" "];
 }
 
-- (NSString *)getSignedHeadersString:(NSDictionary *)headers {
++ (NSString *)getSignedHeadersString:(NSDictionary *)headers {
     NSMutableArray *sortedHeaders = [[NSMutableArray alloc] initWithArray:[headers allKeys]];
 
     [sortedHeaders sortUsingSelector:@selector(caseInsensitiveCompare:)];
@@ -441,7 +443,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
     return headerString;
 }
 
-- (NSData *)getV4DerivedKey:(NSString *)secret date:(NSString *)dateStamp region:(NSString *)regionName service:(NSString *)serviceName {
++ (NSData *)getV4DerivedKey:(NSString *)secret date:(NSString *)dateStamp region:(NSString *)regionName service:(NSString *)serviceName {
     // AWS4 uses a series of derived keys, formed by hashing different pieces of data
     NSString *kSecret = [NSString stringWithFormat:@"%@%@", AWSSigV4Marker, secret];
     NSData *kDate = [AWSSignatureSignerUtility sha256HMacWithData:[dateStamp dataUsingEncoding:NSUTF8StringEncoding]
@@ -450,7 +452,7 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
                                                             withKey:kDate];
     NSData *kService = [AWSSignatureSignerUtility sha256HMacWithData:[serviceName dataUsingEncoding:NSUTF8StringEncoding]
                                                              withKey:kRegion];
-    NSData *kSigning = [AWSSignatureSignerUtility sha256HMacWithData:[AWSSigV4Terminator dataUsingEncoding:NSUTF8StringEncoding]
+    NSData *kSigning = [AWSSignatureSignerUtility sha256HMacWithData:[AWSSignatureV4Terminator dataUsingEncoding:NSUTF8StringEncoding]
                                                              withKey:kService];
 
     //TODO: cache this derived key?

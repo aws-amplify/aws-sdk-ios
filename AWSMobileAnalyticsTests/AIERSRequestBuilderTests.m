@@ -14,6 +14,7 @@
  */
 
 #import "AIERSRequestBuilderTests.h"
+#import "AWSMockFileManager.h"
 
 static NSString *const SDK_NAME = @"AppIntelligenceSDK";
 static NSString *const SDK_VERSION = @"test";
@@ -25,6 +26,8 @@ static NSString *const UNIQUE_ID = @"abc123";
 
 -(void) setUp
 {
+     
+    
     self->_configuration = [AITestConfiguration configurationWithDictionary:[NSDictionary dictionary]];
        
     self->_target = [AWSMobileAnalyticsERSRequestBuilder builderWithConfiguration:self->_configuration

@@ -15,6 +15,7 @@
 
 #import "AmazonInsightsSDKTests.h"
 #import <objc/objc-class.h>
+#import "AWSMockFileManager.h"
 #define methodSwizzle(class, original, swizzle) (method_exchangeImplementations(\
 class_getInstanceMethod(class, original), class_getInstanceMethod(class, swizzle)))
 
@@ -69,6 +70,7 @@ withClassSelectorToSwizzle:(SEL)selectorToSwizzle
 
 - (void) setUp
 {
+     
     [super setUp];
     
 }

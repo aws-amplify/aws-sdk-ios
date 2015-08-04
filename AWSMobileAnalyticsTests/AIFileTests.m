@@ -14,11 +14,13 @@
  */
 
 #import "AIFileTests.h"
+#import "AWSMockFileManager.h"
 
 @implementation AIFileTests
 
 -(void)setUp
 {
+     
     AWSMobileAnalyticsFile* testDir = [[AWSMobileAnalyticsFile alloc] initWithFileMananager:[NSFileManager defaultManager]
                                            withAbsolutePath:@"/tmp/AmazonInsights-IOS/AIFileTests"];
     [testDir mkdirs];
@@ -51,24 +53,24 @@
     assertThatBool([testFile deleteFile], is(equalToBool(YES)));
 }
 
--(void)testBadFileCreationAndDeletion
-{
-    AWSMobileAnalyticsFile* testFile = nil;
-    NSException* ex = nil;
-    @try
-    {
-        testFile = [[AWSMobileAnalyticsFile alloc] initWithFileMananager:[NSFileManager defaultManager]
-                                        withAbsolutePath:nil];
-    }
-    @catch (NSException* e)
-    {
-        //This should occur due to NSAssert on the path
-        ex = e;
-    }
-    
-    assertThat(ex, is(notNilValue()));
-    assertThatBool([testFile createNewFile], is(equalToBool(NO)));
-    assertThatBool(testFile.exists, is(equalToBool(NO)));
-    assertThatBool([testFile deleteFile], is(equalToBool(NO)));
-}
+//-(void)testBadFileCreationAndDeletion
+//{
+//    AWSMobileAnalyticsFile* testFile = nil;
+//    NSException* ex = nil;
+//    @try
+//    {
+//        testFile = [[AWSMobileAnalyticsFile alloc] initWithFileMananager:[NSFileManager defaultManager]
+//                                        withAbsolutePath:nil];
+//    }
+//    @catch (NSException* e)
+//    {
+//        //This should occur due to NSAssert on the path
+//        ex = e;
+//    }
+//    
+//    assertThat(ex, is(notNilValue()));
+//    assertThatBool([testFile createNewFile], is(equalToBool(NO)));
+//    assertThatBool(testFile.exists, is(equalToBool(NO)));
+//    assertThatBool([testFile deleteFile], is(equalToBool(NO)));
+//}
 @end

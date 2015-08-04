@@ -16,8 +16,14 @@
 #import "AIBufferedReaderTests.h"
 #import "AWSMobileAnalyticsBufferedReader.h"
 #import "AWSMobileAnalyticsErrorUtils.h"
+#import "AWSMockFileManager.h"
 
 @implementation AIBufferedReaderTests
+
+- (void)setUp
+{
+     
+}
 
 -(void)readFromReader:(AWSMobileAnalyticsBufferedReader*)reader
  andVerifySuccessWith:(BOOL)expectedSuccess

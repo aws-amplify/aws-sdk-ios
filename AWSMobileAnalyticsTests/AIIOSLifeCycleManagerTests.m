@@ -14,6 +14,7 @@
  */
 
 #import "AIIOSLifeCycleManagerTests.h"
+#import "AWSMockFileManager.h"
 
 @interface AWSMobileAnalyticsIOSLifeCycleManager()
 -(void)applicationDidEnterBackground:(NSNotification*)notification;
@@ -21,6 +22,11 @@
 @end
 
 @implementation AIIOSLifeCycleManagerTests
+
+- (void)setUp
+{
+     
+}
 
 -(void)simulateBackground:(AWSMobileAnalyticsIOSLifeCycleManager*)manager
 {

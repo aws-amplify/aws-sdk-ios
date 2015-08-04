@@ -15,9 +15,14 @@
 
 #import "AIDelayedBlockTests.h"
 #import "AWSMobileAnalyticsDelayedBlock.h"
+#import "AWSMockFileManager.h"
 
 @implementation AIDelayedBlockTests
 
+- (void)setUp
+{
+     
+}
 
 -(void)testCancelBlockBeforeExpiry
 {

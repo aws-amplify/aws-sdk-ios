@@ -1,31 +1,12 @@
 #Version 2 of the AWS SDK for iOS
 
-[![Version](http://cocoapod-badges.herokuapp.com/v/AWSiOSSDKv2/badge.png)](http://cocoadocs.org/docsets/AWSiOSSDKv2)
-[![Platform](http://cocoapod-badges.herokuapp.com/p/AWSiOSSDKv2/badge.png)](http://cocoadocs.org/docsets/AWSiOSSDKv2)
-
-**Version 2 of the AWS Mobile SDK for iOS has reached General Availability (GA) and is no longer in Developer Preview. Version 1 is deprecated as of September 29, 2014, and will continue to be available until December 31, 2014, in our [aws-sdk-ios-v1](https://github.com/aws/aws-sdk-ios-v1) repository. If you are building new apps, we recommend you use Version 2.**
-
-##Highlights
-
-* **AWS Lambda** - AWS Lambda is now included in the AWS Mobile SDK, making it easy to build mobile applications that use Lambda functions as their app backend. You can now create AWS Lambda functions that respond to events from your application in real time (synchronously) as well as asynchronously, making it easy for any application or web service to use Lambda to create back-end functionality. When invoked through the mobile SDK, the Lambda function automatically has access to data about the device, app, and end user identity, making it easy to create rich, personalized responses to in-app activity. To learn more about SDK support for Lambda, visit the [AWS Mobile SDK](http://aws.amazon.com/mobile/sdk/) page. To learn more about the new capabilities from Lambda, visit the [What's new](http://aws.amazon.com/lambda/whatsnew/) page for AWS Lambda.
-* **Amazon Cognito** – A simple user identity and synchronization service that helps you securely manage and synchronize app data for your users across their mobile devices. With Amazon Cognito, you can save any kind of data, such as app preferences or game state, in the AWS cloud without writing any backend code or managing any infrastructure.
-* **Amazon Mobile Analytics** – A service for collecting, visualizing, and understanding app usage data at scale. Amazon Mobile Analytics reports are typically updated within 60 minutes of data being received. Amazon Mobile Analytics is built to scale with the business and can collect and process billions of events from millions of endpoints.
-* **Amazon Kinesis Recorder** – Enables you to reliably record data to an Amazon Kinesis data stream from your mobile app. Kinesis Recorder batches requests to handle intermittent network connections, and it enables you to record events even when the device is offline.
-* **Amazon DynamoDB Object Mapper** - We have made it easier to use DynamoDB from the AWS SDK for iOS by providing the DynamoDB Object Mapper for iOS. The DynamoDB Object Mapper makes it easy to set up connections to a DynamoDB database and supports high-level operations like creating, getting, querying, updating, and deleting records.
-* **Amazon S3 Transfer Manager** - We have rebuilt the S3TransferManager to utilize AWSTask in the AWS SDK for iOS. It has a clean interface, and all of the operations are now asynchronous.
-* **ARC support** - The AWS SDK for iOS is now ARC enabled from the ground up to improve overall memory management.
-* **AWSTask support** - With native AWSTask support in the AWS SDK for iOS, you can chain async requests instead of nesting them. This makes the logic cleaner while keeping the code more readable.
-* **Conforming Objective-C recommendations** - The AWS SDK for iOS conforms to Objective-C best practices. The SDK returns NSErrors instead of throwing exceptions. iOS developers will now feel at home when using the AWS Mobile SDK.
-* **Official CocoaPods support** - Including the AWS SDK for iOS in your project is now easier than ever. You just need to add `pod 'AWS<#ServiceName#>'` to your Podfile.
-* **Amazon Machine Learning** - Amazon Machine Learning is a service that makes it easy for developers of all skill levels to use machine learning technology. This release adds Amazon Machine Learning support into AWS Mobile SDK for iOS. You can use the mobile SDK to retrieve Amazon ML model metadata, including the real-time endpoint URL, and to request real-time predictions from Amazon ML. To learn more about Amazon ML, visit [http://aws.amazon.com/machine-learning](http://aws.amazon.com/machine-learning).
-
 ##Setting Up
 
 To get started with the AWS SDK for iOS, you can set up the SDK and start building a new project, or you can integrate the SDK in an existing project. You can also run the samples to get a sense of how the SDK works.
 
 The AWS Mobile SDK for iOS supports the following versions of software:
 
-* Xcode 5 and later
+* Xcode 6 and later
 * iOS 7 and later
 
 You can check out the [SDK source code](https://github.com/aws/aws-sdk-ios).
@@ -178,11 +159,6 @@ When we release a new version of the SDK, you can pick up the changes as describ
 
     ![image](readme-images/objc-bridging-header-02.png?raw=true)
 
-
-1. Import the AWSCore header in the application delegate.
-
-        #import <AWSCore/AWSCore.h>
-
 1. Create a default service configuration by adding the following code snippet in the `application:didFinishLaunchingWithOptions:` application delegate method.
 
         let credentialsProvider = AWSCognitoCredentialsProvider(
@@ -304,7 +280,7 @@ This sample demonstrates how to insert / update / delete / query items using Dyn
 * [Amazon DynamoDB](http://aws.amazon.com/dynamodb/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
 
-###S3 Transfer Manager Sample ([Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3TransferManager-Sample/Objective-C/))
+###S3 Transfer Manager Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3TransferManager-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3TransferManager-Sample/Objective-C/))
 
 This sample demonstrates how to upload / download multiple files simultaneously using S3 Transfer Manager. It also shows how to pause, resume, and cancel file upload / download.
 

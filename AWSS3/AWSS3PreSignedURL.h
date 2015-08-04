@@ -15,6 +15,16 @@
 
 #import <AWSCore/AWSService.h>
 
+
+static NSString *const AWSS3PresignedURLVersionID = @"versionId";
+static NSString *const AWSS3PresignedURLTorrent = @"torrent";
+
+static NSString *const AWSS3PresignedURLServerSideEncryption = @"x-amz-server-side-encryption";
+static NSString *const AWSS3PresignedURLServerSideEncryptionCustomerAlgorithm = @"x-amz-server-side-encryption-customer-algorithm";
+static NSString *const AWSS3PresignedURLServerSideEncryptionCustomerKey = @"x-amz-server-side-encryption-customer-key";
+static NSString *const AWSS3PresignedURLServerSdieEncryptionCustomerKeyMD5 = @"x-amz-server-side-encryption-customer-key-MD5";
+
+
 FOUNDATION_EXPORT NSString *const AWSS3PresignedURLErrorDomain;
 typedef NS_ENUM(NSInteger, AWSS3PresignedURLErrorType) {
     AWSS3PresignedURLErrorUnknown,
@@ -27,6 +37,8 @@ typedef NS_ENUM(NSInteger, AWSS3PresignedURLErrorType) {
     AWSS3PresignedURLErrorEndpointIsNil,
     AWSS3PresignedURLErrorInvalidServiceType,
     AWSS3PreSignedURLErrorCredentialProviderIsNil,
+    AWSS3PreSignedURLErrorInternalError,
+    AWSS3PresignedURLErrorInvalidRequestParameters
 };
 
 @class AWSS3GetPreSignedURLRequest;
@@ -221,18 +233,41 @@ typedef NS_ENUM(NSInteger, AWSS3PresignedURLErrorType) {
 @property (nonatomic, strong) NSDate *expires;
 
 /**
- (Optional) AWSS3GetPreSignedURLRequest will automatically refresh temporary credential if expiration duration in less than minimumCredentialsExpirationInterval. Only applied for credential provider using temporary token (e.g. CognitoIdentityProvider). Default value is 3000 seconds.
+ AWSS3GetPreSignedURLRequest will automatically refresh temporary credential if expiration duration in less than minimumCredentialsExpirationInterval. Only applied for credential provider using temporary token (e.g. CognitoIdentityProvider). Default value is 3000 seconds.
  */
 @property (nonatomic, assign) NSTimeInterval minimumCredentialsExpirationInterval;
 
 /**
- (Optional) VersionId used in the pre signed URL. Default is nil.
- */
-@property (nonatomic, strong) NSString *versionId;
-
-/**
- (Optional) A standard MIME type describing the format of the object data. only apply when AWSHTTPMethod property is AWSHTTPMethodPUT.
+ Expected content-type of the request. If set, the content-type will be included in the signature and future requests must include the same content-type header value to access the presigned URL. This parameter is ignored unless AWSHTTPMethod is equal to AWSHTTPMethodPUT. Default is nil.
  */
 @property (nonatomic, strong) NSString *contentType;
+
+/**
+ Expected content-md5 header of the request. If set, this header value will be included when calculating the signature and future requests must include the same content-md5 header value to access the presigned URL. This parameter is ignored unless HTTPMethod is equal to AWSHTTPMethodPUT. Default is nil.
+ */
+@property (nonatomic, strong) NSString *contentMD5;
+
+/**
+ VersionId used in the pre signed URL. Default is nil.
+ 
+ @warning This method has been deprecated. Use `additionalParameters` to set versionId instead. If both has been set, this property will be overwritten by the value in `additionalParameters`.
+ 
+ @see additionalParameters
+ */
+@property (nonatomic, strong) NSString *versionId __attribute__ ((deprecated("Use 'additionalParameters' instead to set versionId.")));
+
+/**
+ This NSDictionary can contains additional request parameters to be included in the pre-signed URL. Adding additional request parameters enables more advanced pre-signed URLs, such as accessing Amazon S3's torrent resource for an object, or for specifying a version ID when accessing an object. Default is emtpy.
+ */
+@property (nonatomic, readonly, strong) NSDictionary *requestParameters;
+
+/**
+ Set an additional request parameter to be included in the pre-signed URL. Adding additional request parameters enables more advanced pre-signed URLs, such as accessing Amazon S3's torrent resource for an object, or for specifying a version ID when accessing an object.
+ 
+ @param value The value of the request parameter being added. Set to nil if parameter doesn't contains value.
+ @param requestParameter The name of the request parameter, as it appears in the URL's query string (e.g. AWSS3PresignedURLVersionID).
+
+ */
+- (void)setValue:(NSString *)value forRequestParameter:(NSString *)requestParameter;
 
 @end

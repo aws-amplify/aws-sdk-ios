@@ -14,6 +14,7 @@
  */
 
 #import "AIFileEventStoreTests.h"
+#import "AWSMockFileManager.h"
 
 static NSString *const APP_KEY = @"app_key";
 static NSString *const PRIVATE_KEY = @"private_key";
@@ -31,6 +32,7 @@ static NSString *const SDK_VERSION = @"2.0.dev-build";
 
 -(void) setUp
 {
+     
     [self tearDown];
     self.system = [[AWSMobileAnalyticsIOSSystem alloc] initWithIdentifier:APP_KEY];
 }

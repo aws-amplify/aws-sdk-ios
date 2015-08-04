@@ -15,6 +15,9 @@
 
 #import "AISessionIntegrationTests.h"
 #import "AWSCategory.h"
+#import "AWSMobileAnalyticsERS.h"
+#import "AWSMockFileManager.h"
+
 AWSMobileAnalyticsDefaultSessionClient* target = nil;
 id<AWSMobileAnalyticsInternalEventClient> eventClient = nil;
 TestEventObserver2* interceptor = nil;
@@ -32,6 +35,16 @@ TestEventObserver2* interceptor = nil;
 @implementation AISessionIntegrationTests
 
 - (void)setUp {
+    
+    // Put setup code here. This method is called before the invocation of each test method in the class.
+    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
+        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:@"someAccessKey" secretKey:@"someSecretKey"];
+        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                             credentialsProvider:credentialsProvider];
+        [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+    }
+    
+    
     AWSMobileAnalytics* insights = [AWSMobileAnalytics mobileAnalyticsForAppId:APP_KEY
                                                                  configuration:[AWSMobileAnalyticsConfiguration new]
                                                                completionBlock:^(AWSMobileAnalytics *instance) {

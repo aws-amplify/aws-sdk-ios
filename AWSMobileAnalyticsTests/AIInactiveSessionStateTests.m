@@ -16,6 +16,7 @@
 #import "AIInactiveSessionStateTests.h"
 #import "AWSMobileAnalyticsInactiveSessionState.h"
 #import "AWSMobileAnalyticsDefaultSessionClient+SessionState.h"
+#import "AWSMockFileManager.h"
 
 static id mockSessionClient = nil;
 static id mockEventClient = nil;
@@ -25,6 +26,8 @@ static AWSMobileAnalyticsInactiveSessionState* target = nil;
 
 -(void)setUp
 {
+     
+    
     mockEventClient = [OCMockObject mockForProtocol:@protocol(AWSMobileAnalyticsInternalEventClient)];
     
     mockSessionClient = [OCMockObject mockForClass:[AWSMobileAnalyticsDefaultSessionClient class]];

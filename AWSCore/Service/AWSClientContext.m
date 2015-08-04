@@ -50,6 +50,9 @@ NSString *const AWSClientContextKeychainInstallationIdKey = @"com.amazonaws.AWSC
             });
             _installationId = [keychain stringForKey:AWSClientContextKeychainInstallationIdKey];
         }
+        if (_installationId == nil) {
+            AWSLogError(@"Failed to generate installation_id");
+        }
 
         NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
         NSString *appBuild = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
@@ -80,7 +83,7 @@ NSString *const AWSClientContextKeychainInstallationIdKey = @"com.amazonaws.AWSC
 }
 
 - (NSDictionary *)dictionaryRepresentation {
-    NSDictionary *clientDetails = @{@"installation_id": self.installationId,
+    NSDictionary *clientDetails = @{@"installation_id": self.installationId?self.installationId:@"UNKNOWN_INSTALLATION_ID",
                                     @"app_package_name": self.appPackageName,
                                     @"app_version_name": self.appBuild,
                                     @"app_version_code": self.appVersion,

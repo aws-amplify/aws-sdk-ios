@@ -14,8 +14,14 @@
  */
 
 #import "AIDefaultRequestTests.h"
+#import "AWSMockFileManager.h"
 
 @implementation AIDefaultRequestTests
+
+- (void)setUp
+{
+     
+}
 
 - (void)test_requestToString
 {

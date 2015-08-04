@@ -17,6 +17,7 @@
 #import "AWSMobileAnalyticsPrefsUniqueIdService.h"
 #import "AWSMobileAnalyticsUniqueIdGenerator.h"
 #import "AIInsightsContextBuilder.h"
+#import "AWSMockFileManager.h"
 
 static AWSMobileAnalyticsPrefsUniqueIdService* instance = nil;
 static id mockGenerator = nil;
@@ -26,6 +27,8 @@ static id mockGenerator = nil;
 
 -(void)setUp
 {
+     
+    
     mockGenerator = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsUniqueIdGenerator)];
     instance = [AWSMobileAnalyticsPrefsUniqueIdService idServiceWithGenerator:mockGenerator];
 }

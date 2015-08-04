@@ -21,6 +21,7 @@
 #import "AWSMobileAnalyticsDefaultRequest.h"
 #import "AWSMobileAnalyticsDefaultResponse.h"
 #import "AITestHttpClient.h"
+#import "AWSMockFileManager.h"
 
 static id mockContext = nil;
 static id mockPreferences = nil;
@@ -57,6 +58,8 @@ static AITestHttpClient* mockHttpClient = nil;
 }
 -(void)setUp
 {
+     
+    
     mockFileManager = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsFileManager)];
     mockPreferences = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsPreferences)];
     mockConnectivity = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsConnectivity)];

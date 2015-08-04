@@ -15,8 +15,14 @@
 
 #import "AIStringUtilsTests.h"
 #import "AWSMobileAnalyticsStringUtils.h"
+#import "AWSMockFileManager.h"
 
 @implementation AIStringUtilsTests
+
+- (void)setUp
+{
+     
+}
 
 - (void) testTrimString
 {

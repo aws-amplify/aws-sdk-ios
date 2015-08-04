@@ -16,6 +16,7 @@
 #import "AIDefaultEventTests.h"
 #import "AIInsightsContextBuilder.h"
 #import "AWSMobileAnalyticsSerializerFactory.h"
+#import "AWSMockFileManager.h"
 
 @interface AIDefaultEventTests()
 
@@ -28,6 +29,8 @@
 
 -(void)setUp
 {
+     
+    
     AIInsightsContextBuilder* builder = [AIInsightsContextBuilder builder];
     [builder withAppKey:@"appKey"];
     [builder withSdkName:@"AmazonInsights" andSDKVersion:@"2.0"];

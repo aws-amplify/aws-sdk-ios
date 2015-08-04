@@ -15,6 +15,7 @@
 
 #import "AIConfigurationIntegrationTests.h"
 #import "AWSMobileAnalyticsHttpCachingConfiguration.h"
+#import "AWSMockFileManager.h"
 
 @implementation AIConfigurationIntegrationTests
 
@@ -26,12 +27,16 @@ static NSString* CONFIG_SYNC_INTERVAL = @"syncInterval";
 
 - (void)setUp
 {
-    // Put setup code here; it will be run once, before the first test case.
+     
 }
 
 - (void)tearDown
 {
     // Put teardown code here; it will be run once, after the last test case.
+}
+
+-(void)test_ConfigurationdummyTest {
+    XCTAssert(YES, @"Pass");
 }
 
 //- (void)verify_correctRequestSent_andDataSavedToDisk

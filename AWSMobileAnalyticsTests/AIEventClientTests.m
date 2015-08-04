@@ -20,6 +20,7 @@
 #import "AWSMobileAnalyticsDefaultEvent.h"
 #import "AWSMobileAnalyticsDefaultEventClient.h"
 #import "AIInsightsContextBuilder.h"
+#import "AWSMockFileManager.h"
 
 @interface AWSMobileAnalyticsDefaultEventClient(Testing)
 
@@ -35,6 +36,8 @@ static id mockDelivery = nil;
 
 -(void)setUp
 {
+     
+    
     mockConfiguration = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsConfiguring)];
     [[[mockConfiguration stub] andReturn:@"ver"] stringForKey:@"versionKey" withOptValue:@"ver"];
     [[[mockConfiguration stub] andReturnValue:@YES] boolForKey:@"isAnalyticsEnabled" withOptValue:YES];

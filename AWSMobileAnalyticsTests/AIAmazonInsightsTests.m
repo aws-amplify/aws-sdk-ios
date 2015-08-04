@@ -14,8 +14,15 @@
  */
 
 #import "AIAmazonInsightsTests.h"
+#import "AWSMockFileManager.h"
 
 NSString * credentials = nil;
+
+@interface AIAmazonInsightsTests ()
+
+@property (strong) id mockedFileManager;
+
+@end
 
 @implementation AIAmazonInsightsTests
 
@@ -23,11 +30,15 @@ NSString * credentials = nil;
 {
     // Put setup code here. This method is called before the invocation of each test method in the class.
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithCredentialsFilename:@"credentials"];
+        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:@"someAccessKey" secretKey:@"someSecretKey"];
         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
                                                                              credentialsProvider:credentialsProvider];
         [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
     }
+     
+}
+
+- (void)tearDown {
 }
 
 - (void)test_createInstanceUsingOnlyCredentials_allPropertiesNotNil

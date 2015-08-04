@@ -17,6 +17,7 @@
 
 #import "AWSMobileAnalyticsDeliveryPolicyFactory.h"
 #import "AWSMobileAnalyticsERSRequestBuilder.h"
+#import "AWSMockFileManager.h"
 
 static NSString *const APP_KEY = @"app_key";
 static NSString *const PRIVATE_KEY = @"private_key";
@@ -42,6 +43,8 @@ static id mockIterator = nil;
 
 - (void)setUp
 {
+     
+    
     mockHttpClient = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsHttpClient)];
     mockConfiguration = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsConfiguring)];
     mockLifeCycleManager = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsLifeCycleManager)];

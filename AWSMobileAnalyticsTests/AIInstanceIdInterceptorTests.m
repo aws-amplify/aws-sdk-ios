@@ -14,9 +14,14 @@
  */
 
 #import "AIInstanceIdInterceptorTests.h"
+#import "AWSMockFileManager.h"
 
 @implementation AIInstanceIdInterceptorTests
 
+- (void)setUp
+{
+     
+}
 //Currently identified as 'x-amzn-Context-Id' in header
 - (void)test_instanceIdInHeader
 {

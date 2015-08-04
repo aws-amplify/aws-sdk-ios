@@ -15,6 +15,7 @@
 
 #import "AIEventContraintDecoratorTests.h"
 #import "AWSMobileAnalyticsEventConstraintDecorator.h"
+#import "AWSMockFileManager.h"
 
 @implementation AIEventContraintDecoratorTests
 
@@ -23,6 +24,7 @@ static id decoratedEvent = nil;
 
 - (void)setUp
 {
+     
     mockEvent = [OCMockObject mockForProtocol:@protocol(AWSMobileAnalyticsEvent)];
     decoratedEvent = [AWSMobileAnalyticsEventConstraintDecorator decoratorWithEvent:mockEvent];
 }

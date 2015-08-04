@@ -586,7 +586,7 @@ static NSString *tableNameKeyOnly = nil;
 
 }
 
-- (void)testIndexQuery {
+- (void)testIndexQueryAndScan {
     AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
     //Create a table with both local and global secondary indexes
 
@@ -762,6 +762,64 @@ static NSString *tableNameKeyOnly = nil;
         return nil;
     }] waitUntilFinished ];
 
+    //Scan using gsi index table
+    AWSDynamoDBScanExpression *gsiScanExpression = [AWSDynamoDBScanExpression new];
+    gsiScanExpression.indexName = @"GameTitleIndex"; //using indexTable for scan
+    
+    AWSDynamoDBCondition *condition = [AWSDynamoDBCondition new];
+    AWSDynamoDBAttributeValue *attributeValue = [AWSDynamoDBAttributeValue new];
+    attributeValue.S = @"Attack Ships";
+    condition.attributeValueList = @[attributeValue];
+    condition.comparisonOperator = AWSDynamoDBComparisonOperatorEQ;
+    
+    gsiScanExpression.scanFilter = @{@"GameTitle":condition};
+    
+    
+    [[[dynamoDBObjectMapper scan:[TestObjectGameTitleAndTopScore class] expression:gsiScanExpression] continueWithBlock:^id(AWSTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: %@",task.error);
+        }
+        
+        XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBPaginatedOutput class]]);
+        AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
+        
+        NSArray *items = paginatedOutput.items;
+        XCTAssertTrue([items count] > 0);
+        
+        for (TestObjectGameTitleAndTopScore *item in items) {
+            XCTAssertEqualObjects(@"Attack Ships",item.GameTitle);
+        }
+        
+        return nil;
+
+        
+    }] waitUntilFinished];
+    
+    //Scan using lsi index table
+    AWSDynamoDBScanExpression *lsiScanExpression = [AWSDynamoDBScanExpression new];
+    lsiScanExpression.indexName = @"WinsLocalIndex";
+    
+    lsiScanExpression.scanFilter = @{@"GameTitle":condition};
+    
+    [[[dynamoDBObjectMapper scan:[TestObjectUserIdAndWins class] expression:lsiScanExpression] continueWithBlock:^id(AWSTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: %@",task.error);
+        }
+        XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBPaginatedOutput class]]);
+        AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
+
+        NSArray *items = paginatedOutput.items;
+        XCTAssertTrue([items count] > 0);
+        
+        for (TestObjectGameTitleAndTopScore *item in items) {
+            XCTAssertEqualObjects(@"Attack Ships",item.GameTitle);
+        }
+        
+        return nil;
+        
+    }] waitUntilFinished ];
+    
+    
     //Delete Table
     [AWSDynamoDBObjectMapperTests deleteTable:tableName2];
 

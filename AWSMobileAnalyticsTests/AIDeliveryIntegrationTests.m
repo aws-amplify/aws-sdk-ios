@@ -19,6 +19,7 @@
 #import "AWSGZIP.h"
 #import "AWSCategory.h"
 #import "AWSMobileAnalyticsERS.h"
+#import "AWSMockFileManager.h"
 
 @interface DeliveryBlockingInterceptor : BlockingInterceptor
 
@@ -53,11 +54,12 @@
 + (void)setUp
 {
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithCredentialsFilename:@"credentials"];
+        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:@"someAccessKey" secretKey:@"someSecretKey"];
         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
                                                                              credentialsProvider:credentialsProvider];
         [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
     }
+     
 }
 - (void)setUp
 {

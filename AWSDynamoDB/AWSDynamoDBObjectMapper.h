@@ -504,6 +504,11 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
  */
 @property (nonatomic, strong) NSNumber *limit;
 
+/**
+ The index name.
+ */
+@property (nonatomic, strong) NSString *indexName;
+
 @end
 
 /**

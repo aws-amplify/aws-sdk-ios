@@ -18,4 +18,7 @@
 
 @interface AISessionClientTests : XCTestCase
 
+@property (nonatomic, strong) id mockedERS;
+@property (nonatomic, strong) id mockedFileManager;
+
 @end
