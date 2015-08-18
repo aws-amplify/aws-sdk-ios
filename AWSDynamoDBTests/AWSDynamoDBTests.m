@@ -72,7 +72,7 @@ static NSString *table2Name = nil;
                 }
             }
 
-            sleep(15);
+            sleep(5);
 
             AWSDynamoDBDescribeTableInput *describeTableInput = [AWSDynamoDBDescribeTableInput new];
             describeTableInput.tableName = tableName;
@@ -89,7 +89,7 @@ static NSString *table2Name = nil;
     AWSTask *task = [AWSTask taskWithResult:nil];
     for(int32_t i = 0; i < 16; i ++) {
         task = [task continueWithSuccessBlock:^id(AWSTask *task) {
-            sleep(15);
+            sleep(5);
 
             AWSDynamoDBDescribeTableInput *describeTableInput = [AWSDynamoDBDescribeTableInput new];
             describeTableInput.tableName = tableName;

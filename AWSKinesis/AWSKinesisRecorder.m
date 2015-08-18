@@ -147,13 +147,13 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (AWSTask *)saveRecord:(NSData *)data
-            streamName:(NSString *)streamName {
+             streamName:(NSString *)streamName {
     // Returns error if the total size of data and partition key exceeds 50KB.
     // Partition key limit is 256 bytes.
     if ([data length] > 50 * 1024 - 256) {
         return [AWSTask taskWithError:[NSError errorWithDomain:AWSKinesisRecorderErrorDomain
-                                                         code:AWSKinesisRecorderErrorDataTooLarge
-                                                     userInfo:nil]];
+                                                          code:AWSKinesisRecorderErrorDataTooLarge
+                                                      userInfo:nil]];
     }
 
     AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;

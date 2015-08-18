@@ -622,7 +622,9 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     [getPreSignedURLRequest setValue:@"AES256" forRequestParameter:@"x-amz-server-side-encryption"];
     
     AWSS3PreSignedURLBuilder *preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
-    NSURL *presignedURL =  [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest].result;
+    AWSTask *task = [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest];
+    [task waitUntilFinished];
+    NSURL *presignedURL =  task.result;
     XCTAssertNotNil(presignedURL);
     
     
@@ -1217,7 +1219,9 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
     //create a date will expire soon.
     getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3]; //will expired in 3 seconds.
-    NSURL *presignedURL =  [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest].result;
+    AWSTask *task =  [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest];
+    [task waitUntilFinished];
+    NSURL *presignedURL =  task.result;
     XCTAssertNotNil(presignedURL);
 
 

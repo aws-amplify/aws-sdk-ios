@@ -221,10 +221,10 @@ FOUNDATION_EXPORT NSString *const AWSKinesisRecorderByteThresholdReachedNotifica
  @param data       The data to send to Amazon Kinesis.
  @param streamName The stream name for Amazon Kinesis.
 
- @return AWSTask- task.result contains an instance of AWSKinesisPutRecordInput persisted.
+ @return AWSTask - task.result is always nil.
  */
 - (AWSTask *)saveRecord:(NSData *)data
-            streamName:(NSString *)streamName;
+             streamName:(NSString *)streamName;
 
 /**
  Submits all locally saved requests to Amazon Kinesis. Requests that are successfully sent will be deleted from the device. Requests that fail due to the device being offline will stop the submission process and be kept. Requests that fail due to other reasons (such as the request being invalid) will be deleted.
@@ -236,7 +236,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisRecorderByteThresholdReachedNotifica
 /**
  Removes all requests saved to disk.
 
- @return AWSTask- task.result is always nil.
+ @return AWSTask - task.result is always nil.
  */
 - (AWSTask *)removeAllRecords;
 

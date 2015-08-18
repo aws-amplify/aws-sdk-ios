@@ -85,7 +85,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
-        _configuration = configuration;
+        _configuration = [configuration copy];
         _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
                                                               service:AWSServiceS3
                                                          useUnsafeURL:NO];
@@ -226,19 +226,21 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 - (AWSTask *)getPreSignedURL:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest {
 
-    return [[AWSTask taskWithResult:nil] continueWithBlock:^id(AWSTask *task) {
+    //retrive parameters from request;
+    NSString *bucketName = getPreSignedURLRequest.bucket;
+    NSString *keyName = getPreSignedURLRequest.key;
+    AWSHTTPMethod httpMethod = getPreSignedURLRequest.HTTPMethod;
+    AWSServiceConfiguration *configuration = self.configuration;
+    id<AWSCredentialsProvider>credentialsProvider = configuration.credentialsProvider;
+    AWSEndpoint *endpoint = self.configuration.endpoint;
+    
+    NSDate *expires = getPreSignedURLRequest.expires;
+    
+    NSString *contentType = getPreSignedURLRequest.contentType;
+    NSString *contentMD5 = getPreSignedURLRequest.contentMD5;
+    
+    return [[[AWSTask taskWithResult:nil] continueWithBlock:^id(AWSTask *task) {
 
-        //retrive parameters from request;
-        NSString *bucketName = getPreSignedURLRequest.bucket;
-        NSString *keyName = getPreSignedURLRequest.key;
-        AWSHTTPMethod httpMethod = getPreSignedURLRequest.HTTPMethod;
-
-        AWSServiceConfiguration *configuration = self.configuration;
-        id<AWSCredentialsProvider>credentialsProvider = configuration.credentialsProvider;
-        AWSEndpoint *endpoint = self.configuration.endpoint;
-
-        NSDate *expires = getPreSignedURLRequest.expires;
-        
         //validate additionalParams
         for (id key in getPreSignedURLRequest.requestParameters) {
             id value = getPreSignedURLRequest.requestParameters[key];
@@ -249,11 +251,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                         ];
             }
         }
-        
-        
-        NSString *contentType = getPreSignedURLRequest.contentType;
-        NSString *contentMD5 = getPreSignedURLRequest.contentMD5;
-        
 
         //validate endpoint
         if (!endpoint) {
@@ -274,16 +271,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                              code:AWSS3PreSignedURLErrorCredentialProviderIsNil
                                                          userInfo:@{NSLocalizedDescriptionKey: @"credentialsProvider in configuration can not be nil"}]
                     ];
-        }
-
-        //validate expiration date if using temporary token and refresh it if condition met
-        if ([credentialsProvider respondsToSelector:@selector(expiration)]) {
-            if ([credentialsProvider respondsToSelector:@selector(refresh)]) {
-                if ([credentialsProvider.expiration timeIntervalSinceNow] < getPreSignedURLRequest.minimumCredentialsExpirationInterval) {
-                    //need to refresh temp credential
-                    [[credentialsProvider refresh] waitUntilFinished];
-                }
-            }
         }
 
         //validate accessKey
@@ -351,7 +338,22 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                 break;
         }
 
+        AWSTask *validationTask = [AWSTask taskWithResult:nil];
+        
+        //validate expiration date if using temporary token and refresh it if condition met
+        if ([credentialsProvider respondsToSelector:@selector(expiration)]) {
+            if ([credentialsProvider respondsToSelector:@selector(refresh)]) {
+                if ([credentialsProvider.expiration timeIntervalSinceNow] < getPreSignedURLRequest.minimumCredentialsExpirationInterval) {
+                    //need to refresh temp credential
+                    validationTask = [credentialsProvider refresh];
+                }
+            }
+        }
 
+        return validationTask;
+        
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
+        
         //generate baseURL String (use virtualHostStyle if possible)
         NSString *keyPath = nil;
         if (bucketName == nil || [bucketName aws_isVirtualHostedStyleCompliant]) {
@@ -359,7 +361,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         } else {
             keyPath = (keyName == nil ? [NSString stringWithFormat:@"%@", bucketName] : [NSString stringWithFormat:@"%@/%@", bucketName, [keyName aws_stringWithURLEncodingPath]]);
         }
-
+        
         //generate correct hostName (use virtualHostStyle if possible)
         NSString *host = nil;
         if (bucketName && [bucketName aws_isVirtualHostedStyleCompliant]) {
@@ -367,8 +369,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         } else {
             host = endpoint.hostName;
         }
-
-    
+        
+        
         int32_t expireDuration = [expires timeIntervalSinceNow];
         if (expireDuration > 604800) {
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
@@ -383,24 +385,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                                                     httpMethod:httpMethod
                                                                                    contentType:contentType
                                                                                 expireDuration:expireDuration
-                                                                          requestParameters:getPreSignedURLRequest.requestParameters
+                                                                             requestParameters:getPreSignedURLRequest.requestParameters
                                                                                       endpoint:endpoint
                                                                                        keyPath:keyPath
                                                                                           host:host
                                                                                     contentMD5:contentMD5];
         
-
+        
         if (generatedQueryString == nil) {
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
                                                               code:AWSS3PreSignedURLErrorInternalError
                                                           userInfo:@{NSLocalizedDescriptionKey: @"failed to generate queryString."}]];
         }
-
+        
         NSString *urlString = [NSString stringWithFormat:@"%@://%@/%@?%@", endpoint.useUnsafeURL?@"http":@"https", host, keyPath, generatedQueryString];
         NSURL *result = [NSURL URLWithString:urlString];
-
-        return [AWSTask taskWithResult:result];
         
+        return [AWSTask taskWithResult:result];
+
     }];
 }
 

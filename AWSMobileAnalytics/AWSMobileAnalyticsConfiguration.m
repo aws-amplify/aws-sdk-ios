@@ -47,7 +47,7 @@ static NSString* const UNKNOWN = @"Unknown";
         _transmitOnWAN = YES;
         _enableEvents = YES;
         _identificationStrategy = AWSAppIdentificationStrategyPrivate;
-        _serviceConfiguration = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
+        _serviceConfiguration = [[AWSServiceManager defaultServiceManager].defaultServiceConfiguration copy];
     }
     return self;
 }

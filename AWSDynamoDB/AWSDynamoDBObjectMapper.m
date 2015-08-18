@@ -408,7 +408,12 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     hashCondition.attributeValueList = @[hashAttributeValue];
     hashCondition.comparisonOperator = AWSDynamoDBComparisonOperatorEQ;
 
-    NSString *hashKeyAttribute = [resultClass performSelector:@selector(hashKeyAttribute)];
+    NSString *hashKeyAttribute = expression.hashKeyAttribute;
+    if (hashKeyAttribute == nil) {
+        //if it is nil, use table's hashKeyAttribute
+        hashKeyAttribute = [resultClass performSelector:@selector(hashKeyAttribute)];
+    }
+    
     NSMutableDictionary *keyConditions = [NSMutableDictionary dictionaryWithObject:hashCondition
                                                                             forKey:hashKeyAttribute];
     [keyConditions addEntriesFromDictionary:expression.rangeKeyConditions];
@@ -517,13 +522,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return nil;
 }
 
+- (NSDictionary *)removeIgnoredAttributesFromJSONDictionary:(NSDictionary *)JSONDictionary {
+    
+    if ([[self class ] respondsToSelector:@selector(ignoreAttributes)] == NO) {
+        return JSONDictionary;
+    }
+    
+    NSArray *ignoredAttrArray = [[self class] performSelector:@selector(ignoreAttributes)];
+    NSMutableDictionary *resultDictionary = [JSONDictionary mutableCopy];
+    [resultDictionary removeObjectsForKeys:ignoredAttrArray];
+    return resultDictionary;
+}
+
 - (NSDictionary *)itemForPutItemInputWithVersion:(AWSDynamoDBObjectMapperVersion) mapperVersion {
     NSMutableDictionary *item = [NSMutableDictionary new];
     NSMutableArray *keyArray = [NSMutableArray arrayWithObject:[[self class] performSelector:@selector(hashKeyAttribute)]];
-    if ([self respondsToSelector:@selector(rangeKeyAttribute)]) {
+    if ([[self class] respondsToSelector:@selector(rangeKeyAttribute)]) {
         [keyArray addObject:[[self class] performSelector:@selector(rangeKeyAttribute)]];
     }
     NSDictionary *dictionaryValue = [AWSMTLJSONAdapter JSONDictionaryFromModel:self];
+    dictionaryValue = [self removeIgnoredAttributesFromJSONDictionary:dictionaryValue];
 
     for (id key in dictionaryValue) {
         if ([keyArray containsObject:key]) {
@@ -552,6 +570,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     NSMutableDictionary *item = [NSMutableDictionary new];
     NSArray *keyArray = [[self key] allKeys];
     NSDictionary *dictionaryValue = [AWSMTLJSONAdapter JSONDictionaryFromModel:self];
+    dictionaryValue = [self removeIgnoredAttributesFromJSONDictionary:dictionaryValue];
 
     for (id key in dictionaryValue) {
         if (![keyArray containsObject:key]) {

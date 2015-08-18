@@ -16,16 +16,17 @@
 #import "AWSAPIGatewayClient.h"
 #import <AWSCore/AWSCore.h>
 
+NSString *const AWSAPIGatewayErrorDomain = @"com.amazonaws.AWSAPIGatewayErrorDomain";
+
+NSString *const AWSAPIGatewayErrorHTTPBodyKey = @"HTTPBody";
+NSString *const AWSAPIGatewayErrorHTTPHeaderFieldsKey = @"HTTPHeaderFields";
+
 NSString *const AWSAPIGatewayAPIKeyHeader = @"x-api-key";
 
 @interface AWSAPIGatewayClient()
 
 // Networking
 @property (nonatomic, strong) NSURLSession *session;
-
-// For responses
-@property (nonatomic, strong) NSDictionary *HTTPHeaderFields;
-@property (nonatomic, assign) NSInteger HTTPStatusCode;
 
 @end
 
@@ -124,63 +125,95 @@ NSString *const AWSAPIGatewayAPIKeyHeader = @"x-api-key";
     return [task continueWithSuccessBlock:^id(AWSTask *task) {
         AWSTaskCompletionSource *completionSource = [AWSTaskCompletionSource new];
 
+        void (^completionHandler)(NSData *data, NSURLResponse *response, NSError *error) = ^(NSData *data, NSURLResponse *response, NSError *error) {
+            // Networking errors
+            if (error) {
+                [completionSource setError:error];
+                return;
+            }
+
+            // Serializes the HTTP body
+            id JSONObject = nil;
+            if (data && [data length] > 0) {
+                JSONObject = [NSJSONSerialization JSONObjectWithData:data
+                                                             options:NSJSONReadingAllowFragments
+                                                               error:&error];
+                if (!JSONObject) {
+                    NSString *bodyString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                    if ([bodyString length] > 0) {
+                        AWSLogError(@"The body is not in JSON format. Body: %@\nError: %@", bodyString, error);
+                    }
+                    [completionSource setError:error];
+                    return;
+                }
+            }
+
+            // Handles developer defined errors
+            NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)response;
+
+            NSDictionary *HTTPHeaderFields = HTTPResponse.allHeaderFields;
+            NSInteger HTTPStatusCode = HTTPResponse.statusCode;
+            if (HTTPStatusCode/100 == 4 || HTTPStatusCode/100 == 5) {
+                NSMutableDictionary *userInfo = [NSMutableDictionary new];
+                if (JSONObject) {
+                    userInfo[AWSAPIGatewayErrorHTTPBodyKey] = JSONObject;
+                }
+                if (HTTPHeaderFields) {
+                    userInfo[AWSAPIGatewayErrorHTTPHeaderFieldsKey] = HTTPHeaderFields;
+                }
+
+                if (HTTPStatusCode/100 == 4) {
+                    NSError *clientError = [NSError errorWithDomain:AWSAPIGatewayErrorDomain
+                                                               code:AWSAPIGatewayErrorTypeClient
+                                                           userInfo:userInfo];
+                    [completionSource setError:clientError];
+                }
+                if (HTTPStatusCode/100 == 5) {
+                    NSError *clientError = [NSError errorWithDomain:AWSAPIGatewayErrorDomain
+                                                               code:AWSAPIGatewayErrorTypeService
+                                                           userInfo:userInfo];
+                    [completionSource setError:clientError];
+                }
+                return;
+            }
+
+            // Maps a serialized JSON object to an Objective-C object
+            if (JSONObject) {
+                if (responseClass
+                    && responseClass != [NSDictionary class]) {
+                    if ([JSONObject isKindOfClass:[NSDictionary class]]) {
+                        NSError *responseSerializationError = nil;
+                        JSONObject = [AWSMTLJSONAdapter modelOfClass:responseClass
+                                                  fromJSONDictionary:JSONObject
+                                                               error:&responseSerializationError];
+                        if (!JSONObject) {
+                            AWSLogError(@"Failed to serialize the body JSON. %@", responseSerializationError);
+                        }
+                    }
+                    if ([JSONObject isKindOfClass:[NSArray class]]) {
+                        NSError *responseSerializationError = nil;
+                        NSMutableArray *models = [NSMutableArray new];
+                        for (id object in JSONObject) {
+                            id model = [AWSMTLJSONAdapter modelOfClass:responseClass
+                                                    fromJSONDictionary:object
+                                                                 error:&responseSerializationError];
+                            [models addObject:model];
+                            if (!JSONObject) {
+                                AWSLogError(@"Failed to serialize the body JSON. %@", responseSerializationError);
+                            }
+                        }
+                        JSONObject = models;
+                    }
+                }
+                [completionSource setResult:JSONObject];
+            } else {
+                [completionSource setResult:nil];
+            }
+        };
         NSURLSessionDataTask *sessionTask = [self.session dataTaskWithRequest:request
-                                                            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                                if (error) {
-                                                                    [completionSource setError:error];
-                                                                    return;
-                                                                }
-                                                                if (response) {
-                                                                    NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)response;
-                                                                    self.HTTPHeaderFields = HTTPResponse.allHeaderFields;
-                                                                    self.HTTPStatusCode = HTTPResponse.statusCode;
-                                                                }
-                                                                if (data && [data length] > 0) {
-                                                                    id response = [NSJSONSerialization JSONObjectWithData:data
-                                                                                                                  options:NSJSONReadingAllowFragments
-                                                                                                                    error:&error];
-                                                                    if (!response) {
-                                                                        NSString *bodyString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                                        if ([bodyString length] > 0) {
-                                                                            AWSLogError(@"The body is not in JSON format. Body: %@\nError: %@", bodyString, error);
-                                                                            [completionSource setError:error];
-                                                                            return;
-                                                                        }
-                                                                    }
-                                                                    // Serializes the response object
-                                                                    if (responseClass
-                                                                        && responseClass != [NSDictionary class]) {
-                                                                        if ([response isKindOfClass:[NSDictionary class]]) {
-                                                                            NSError *responseSerializationError = nil;
-                                                                            response = [AWSMTLJSONAdapter modelOfClass:responseClass
-                                                                                                    fromJSONDictionary:response
-                                                                                                                 error:&responseSerializationError];
-                                                                            if (!response) {
-                                                                                AWSLogError(@"Failed to serialize the body JSON. %@", responseSerializationError);
-                                                                            }
-                                                                        }
-                                                                        if ([response isKindOfClass:[NSArray class]]) {
-                                                                            NSError *responseSerializationError = nil;
-                                                                            NSMutableArray *models = [NSMutableArray new];
-                                                                            for (id object in response) {
-                                                                                id model = [AWSMTLJSONAdapter modelOfClass:responseClass
-                                                                                                        fromJSONDictionary:object
-                                                                                                                     error:&responseSerializationError];
-                                                                                [models addObject:model];
-                                                                                if (!response) {
-                                                                                    AWSLogError(@"Failed to serialize the body JSON. %@", responseSerializationError);
-                                                                                }
-                                                                            }
-                                                                            response = models;
-                                                                        }
-                                                                    }
-                                                                    [completionSource setResult:response];
-                                                                } else {
-                                                                    [completionSource setResult:nil];
-                                                                }
-                                                            }];
+                                                            completionHandler:completionHandler];
         [sessionTask resume];
-        
+
         return completionSource.task;
     }];
 }
@@ -195,8 +228,8 @@ NSString *const AWSAPIGatewayAPIKeyHeader = @"x-api-key";
         for (NSUInteger i = 1; i < [URLPathComponents count] - 1; i++) {
             [mutableURLString replaceOccurrencesOfString:[NSString stringWithFormat:@"{%@}", URLPathComponents[i]]
                                               withString:[self encodeQueryStringValue:[URLPathComponentsDictionary valueForKey:URLPathComponents[i]]]
-                                          options:NSLiteralSearch
-                                            range:NSMakeRange(0, [mutableURLString length])];
+                                                 options:NSLiteralSearch
+                                                   range:NSMakeRange(0, [mutableURLString length])];
         }
     }
 
@@ -255,7 +288,7 @@ NSString *const AWSAPIGatewayAPIKeyHeader = @"x-api-key";
         }
         return mutableString;
     }
-
+    
     AWSLogError(@"value[%@] is invalid.", value);
     return [[value description] aws_stringWithURLEncoding];
 }

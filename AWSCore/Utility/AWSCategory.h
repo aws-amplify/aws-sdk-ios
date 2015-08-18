@@ -77,6 +77,7 @@ FOUNDATION_EXPORT NSString *const AWSDateShortDateFormat1;
 @interface NSString (AWS)
 
 + (NSString *)aws_base64md5FromData:(NSData *)data;
++ (NSString *)aws_baseUserAgent;
 - (BOOL)aws_isBase64Data;
 - (NSString *)aws_stringWithURLEncoding;
 - (NSString *)aws_stringWithURLEncodingPath;

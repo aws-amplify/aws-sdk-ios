@@ -39,6 +39,6 @@ typedef NS_ENUM(NSInteger, AWSAppIdentificationStrategy) {
 @property (nonatomic, assign) BOOL transmitOnWAN;
 @property (nonatomic, assign) BOOL enableEvents;
 @property (nonatomic, assign) AWSAppIdentificationStrategy identificationStrategy;
-@property (nonatomic, strong) AWSServiceConfiguration *serviceConfiguration;
+@property (nonatomic, copy) AWSServiceConfiguration *serviceConfiguration;
 
 @end

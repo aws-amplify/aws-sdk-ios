@@ -15,6 +15,17 @@
 
 #import <Foundation/Foundation.h>
 
+FOUNDATION_EXPORT NSString *const AWSAPIGatewayErrorDomain;
+
+FOUNDATION_EXPORT NSString *const AWSAPIGatewayErrorHTTPBodyKey;
+FOUNDATION_EXPORT NSString *const AWSAPIGatewayErrorHTTPHeaderFieldsKey;
+
+typedef NS_ENUM(NSInteger, AWSAPIGatewayErrorType) {
+    AWSAPIGatewayErrorTypeUnknown,
+    AWSAPIGatewayErrorTypeClient,
+    AWSAPIGatewayErrorTypeService,
+};
+
 @class AWSServiceConfiguration;
 
 @interface AWSAPIGatewayClient : NSObject

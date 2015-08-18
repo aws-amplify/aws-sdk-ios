@@ -18,3 +18,4 @@
 #import "AWSS3Service.h"
 #import "AWSS3TransferManager.h"
 #import "AWSS3PreSignedURL.h"
+#import "AWSS3TransferUtility.h"

@@ -241,7 +241,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
-        _configuration = configuration;
+        _configuration = [configuration copy];
 
         _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
                                                               service:AWSServiceMobileAnalytics

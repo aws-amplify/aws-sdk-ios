@@ -1,5 +1,19 @@
 # AWSiOSSDKv2 CHANGELOG
 
+## 2.2.4
+
+### New Features
+* **Amazon S3 Transfer Utility**
+    * Added support for Amazon S3 Transfer Utility to simplify the data transfer between your iOS app and Amazon S3 in the background.
+* **Amazon DynamoDB Object Mapper**
+    * Added support for `ignoreAttributes` of the `AWSDynamoDBModeling` protocol. 
+
+### Resolved Issues
+* **Amazon API Gateway**
+    * Resolved a bug where an error object may not be serialized correctly.
+* **Amazon Mobile Analytics**
+    * Fixed an issue where the Amazon Mobile Analytics client overwrites the default configuration object and prevents other service clients from functioning properly.
+
 ## 2.2.3
 
 ### New Features
@@ -9,7 +23,7 @@
     * Updated `AWSS3PreSignedURLBuilder` to use AWS Signature Version 4 for generating the pre-signed URLs.
     * Updated `AWSS3PreSignedURLBuilder` to accept additional request parameters to be included in pre-signed URLs.
 * **Amazon DynamoDB Object Mapper**
-	* Added Support for Secondary Index Scan.
+	* Added support for Secondary Index Scan.
 	
 ### Resolved Issues
 * **Amazon S3**

@@ -17,9 +17,12 @@
 #import <objc/runtime.h>
 #import <CommonCrypto/CommonCryptor.h>
 #import <CommonCrypto/CommonDigest.h>
+#import <UIKit/UIKit.h>
 #import "AWSLogging.h"
 #import "AWSGZIP.h"
 #import "AWSMantle.h"
+
+NSString *const AWSiOSSDKVersion = @"2.2.4";
 
 NSString *const AWSDateRFC822DateFormat1 = @"EEE, dd MMM yyyy HH:mm:ss z";
 NSString *const AWSDateISO8601DateFormat1 = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
@@ -245,6 +248,19 @@ static NSTimeInterval _clockskew = 0.0;
     
     NSData *md5 = [[NSData alloc] initWithBytes:result length:CC_MD5_DIGEST_LENGTH];
     return [md5 base64EncodedStringWithOptions:kNilOptions];
+}
+
++ (NSString *)aws_baseUserAgent {
+    static NSString *_userAgent = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSString *systemName = [[[UIDevice currentDevice] systemName] stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+        NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
+        NSString *localeIdentifier = [[NSLocale currentLocale] localeIdentifier];
+        _userAgent = [NSString stringWithFormat:@"aws-sdk-iOS/%@ %@/%@ %@", AWSiOSSDKVersion, systemName, systemVersion, localeIdentifier];
+    });
+
+    return _userAgent;
 }
 
 - (BOOL)aws_isBase64Data {

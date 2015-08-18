@@ -100,6 +100,10 @@ static NSString *tableNameKeyOnly = nil;
 @property (nonatomic, strong) NSString *stringAttribute;
 @property (nonatomic, strong) NSNumber *numberAttribute;
 
+//properties that should be ignored by ignoreAttributes
+@property (nonatomic, strong) NSString *customStringOne;
+@property (nonatomic, strong) NSString *customStringTwo;
+
 @end
 
 #pragma clang diagnostic pop
@@ -116,6 +120,10 @@ static NSString *tableNameKeyOnly = nil;
 
 + (NSString *)rangeKeyAttribute {
     return @"rangeKey";
+}
+
++ (NSArray *)ignoreAttributes {
+    return @[@"customStringOne",@"customStringTwo"];
 }
 
 @end
@@ -301,7 +309,7 @@ static NSString *tableNameKeyOnly = nil;
                 }
             }
 
-            sleep(15);
+            sleep(5);
 
             AWSDynamoDBDescribeTableInput *describeTableInput = [AWSDynamoDBDescribeTableInput new];
             describeTableInput.tableName = tableName;
@@ -318,7 +326,7 @@ static NSString *tableNameKeyOnly = nil;
     AWSTask *task = [AWSTask taskWithResult:nil];
     for(int32_t i = 0; i < 16; i ++) {
         task = [task continueWithSuccessBlock:^id(AWSTask *task) {
-            sleep(15);
+            sleep(5);
 
             AWSDynamoDBDescribeTableInput *describeTableInput = [AWSDynamoDBDescribeTableInput new];
             describeTableInput.tableName = tableName;
@@ -555,6 +563,61 @@ static NSString *tableNameKeyOnly = nil;
 
 }
 
+-(void)testIgnoredAttributes {
+    
+    for (int i=1;i<=4;i++) {
+        
+        //Save using default behavior
+        AWSDynamoDBObjectMapperConfiguration *updateMapperConfig = [AWSDynamoDBObjectMapperConfiguration new];
+        updateMapperConfig.saveBehavior = i; // i is from 1 to 4 which represent 4 different save behaviors
+        [AWSDynamoDBObjectMapper registerDynamoDBObjectMapperWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration
+                                                     objectMapperConfiguration:updateMapperConfig
+                                                                        forKey:@"testIgnoredAttributes"];
+        AWSDynamoDBObjectMapper *updateMapper = [AWSDynamoDBObjectMapper DynamoDBObjectMapperForKey:@"testIgnoredAttributes"];
+        
+        NSString *hashKeyValue = [NSString stringWithFormat:@"ignoretest-hash-%s",__FUNCTION__];
+        NSString *rangeKeyValue = [NSString stringWithFormat:@"ignoretest-range-%s-%d",__FUNCTION__,i];
+        NSString *stringAttributeValue = @"stringValue";
+        NSNumber *numberAttributeValue = @1;
+        
+        TestObject *mapperObject= [TestObject new];
+        mapperObject.hashKey = hashKeyValue;
+        mapperObject.rangeKey = rangeKeyValue;
+        mapperObject.stringAttribute = stringAttributeValue;
+        mapperObject.numberAttribute = numberAttributeValue;
+        //set properties that should be ignored by all method
+        mapperObject.customStringOne = @"shouldNotAppeared1";
+        mapperObject.customStringTwo = @"shouldNotAppeared2";
+        
+        
+        [[[[updateMapper save:mapperObject] continueWithBlock:^id(AWSTask *task) {
+            if (task.error) {
+                XCTFail(@"Error: [%@]", task.error);
+            }
+            
+            return [updateMapper load:[TestObject class] hashKey:hashKeyValue rangeKey:rangeKeyValue];
+        }] continueWithBlock:^id(AWSTask *task) {
+            
+            if (task.error) {
+                XCTFail(@"Error: [%@]", task.error);
+            }
+            
+            XCTAssertEqual([task.result class], [TestObject class]);
+            TestObject *testObject = task.result;
+            XCTAssertEqualObjects(testObject.hashKey, hashKeyValue);
+            XCTAssertEqualObjects(testObject.rangeKey, rangeKeyValue);
+            XCTAssertEqualObjects(testObject.stringAttribute, stringAttributeValue);
+            XCTAssertEqualObjects(testObject.numberAttribute, numberAttributeValue);
+            XCTAssertNil(testObject.customStringOne);
+            XCTAssertNil(testObject.customStringTwo);
+            
+            return nil;
+        }] waitUntilFinished ];
+ 
+    }
+    
+    
+}
 - (void)testBooleanNSNumber {
     NSArray *boolNumberArray = @[@YES,@NO,[NSNumber numberWithBool:YES],[NSNumber numberWithBool:NO]];
     NSArray *nonBoolNumberArray = @[@10,
@@ -584,6 +647,268 @@ static NSString *tableNameKeyOnly = nil;
         XCTAssertFalse([myNum isKindOfClass:boolClass],@"%@ should not be a boolClass.",myNum);
     }
 
+}
+
+- (void)testUpdatedIndexQueryAndScan {
+    AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
+    //Create a table with both local and global secondary indexes
+    
+    //Add hashKey
+    AWSDynamoDBAttributeDefinition *hashKeyAttributeDefinition = [AWSDynamoDBAttributeDefinition new];
+    hashKeyAttributeDefinition.attributeName = @"UserId";
+    hashKeyAttributeDefinition.attributeType = AWSDynamoDBScalarAttributeTypeS;
+    
+    AWSDynamoDBKeySchemaElement *hashKeySchemaElement = [AWSDynamoDBKeySchemaElement new];
+    hashKeySchemaElement.attributeName = @"UserId";
+    hashKeySchemaElement.keyType = AWSDynamoDBKeyTypeHash;
+    
+    //Add RangeKey
+    AWSDynamoDBAttributeDefinition *rangeKeyAttributeDefinition = [AWSDynamoDBAttributeDefinition new];
+    rangeKeyAttributeDefinition.attributeName = @"GameTitle";
+    rangeKeyAttributeDefinition.attributeType = AWSDynamoDBScalarAttributeTypeS;
+    
+    AWSDynamoDBKeySchemaElement *rangeKeySchemaElement = [AWSDynamoDBKeySchemaElement new];
+    rangeKeySchemaElement.attributeName = @"GameTitle";
+    rangeKeySchemaElement.keyType = AWSDynamoDBKeyTypeRange;
+    
+    //Add non-key attributes
+    AWSDynamoDBAttributeDefinition *topScoreAttrDef = [AWSDynamoDBAttributeDefinition new];
+    topScoreAttrDef.attributeName = @"TopScore";
+    topScoreAttrDef.attributeType = AWSDynamoDBScalarAttributeTypeN;
+    
+    AWSDynamoDBAttributeDefinition *winsAttrDef = [AWSDynamoDBAttributeDefinition new];
+    winsAttrDef.attributeName = @"Wins";
+    winsAttrDef.attributeType = AWSDynamoDBScalarAttributeTypeN;
+    
+    AWSDynamoDBProvisionedThroughput *provisionedThroughput = [AWSDynamoDBProvisionedThroughput new];
+    provisionedThroughput.readCapacityUnits = @50;
+    provisionedThroughput.writeCapacityUnits = @50;
+    
+    
+    //Create Global Secondary Index
+    AWSDynamoDBGlobalSecondaryIndex *gsi = [AWSDynamoDBGlobalSecondaryIndex new];
+    
+    AWSDynamoDBKeySchemaElement *gsiHashKeySchema = [AWSDynamoDBKeySchemaElement new];
+    gsiHashKeySchema.attributeName = @"GameTitle";
+    gsiHashKeySchema.keyType = AWSDynamoDBKeyTypeHash;
+    
+    AWSDynamoDBKeySchemaElement *gsiRangeKeySchema = [AWSDynamoDBKeySchemaElement new];
+    gsiRangeKeySchema.attributeName = @"TopScore";
+    gsiRangeKeySchema.keyType = AWSDynamoDBKeyTypeRange;
+    
+    AWSDynamoDBProjection *gsiProjection = [AWSDynamoDBProjection new];
+    gsiProjection.projectionType = AWSDynamoDBProjectionTypeAll;
+    
+    gsi.keySchema = @[gsiHashKeySchema,gsiRangeKeySchema];
+    gsi.indexName = @"GameTitleIndex";
+    gsi.projection = gsiProjection;
+    gsi.provisionedThroughput = provisionedThroughput;
+    
+    //Create Local Secondary Index
+    AWSDynamoDBLocalSecondaryIndex *lsi = [AWSDynamoDBLocalSecondaryIndex new];
+    
+    AWSDynamoDBKeySchemaElement *lsiRangeKeySchema = [AWSDynamoDBKeySchemaElement new];
+    lsiRangeKeySchema.attributeName = @"Wins";
+    lsiRangeKeySchema.keyType = AWSDynamoDBKeyTypeRange;
+    
+    AWSDynamoDBProjection *lsiProjection = [AWSDynamoDBProjection new];
+    lsiProjection.projectionType = AWSDynamoDBProjectionTypeAll;
+    
+    lsi.keySchema = @[hashKeySchemaElement,lsiRangeKeySchema];
+    lsi.indexName = @"WinsLocalIndex";
+    lsi.projection = lsiProjection;
+    
+    
+    //Create Table Input
+    AWSDynamoDBCreateTableInput *createTableInput = [AWSDynamoDBCreateTableInput new];
+    createTableInput.tableName = tableName2;
+    createTableInput.attributeDefinitions = @[hashKeyAttributeDefinition,
+                                              rangeKeyAttributeDefinition,
+                                              topScoreAttrDef,
+                                              winsAttrDef,
+                                              ];
+    createTableInput.keySchema = @[hashKeySchemaElement, rangeKeySchemaElement];
+    createTableInput.provisionedThroughput = provisionedThroughput;
+    createTableInput.globalSecondaryIndexes = @[gsi];
+    createTableInput.localSecondaryIndexes = @[lsi];
+    
+    AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
+    [[[[dynamoDB createTable:createTableInput] continueWithBlock:^id(AWSTask *task) {
+        if (task.error) {
+            XCTFail(@"Error to create table: %@",task.error);
+        }
+        return [AWSDynamoDBObjectMapperTests waitForTableToBeActive:tableName2];
+    }] continueWithBlock:^id(AWSTask *task) {
+        return nil;
+    }] waitUntilFinished];
+    
+    //Add Entries
+    [[[[AWSTask taskWithResult:nil] continueWithBlock:^id(AWSTask *task) {
+        NSMutableArray *tasks = [NSMutableArray new];
+        NSArray *gameTitleArray = @[@"Galaxy Invaders",@"Meteor Blasters", @"Starship X", @"Alien Adventure",@"Attack Ships"];
+        for (int32_t i = 0; i < 50; i++) {
+            for (int32_t j = 0 ; j < 2; j++) {
+                TestObject2 *to2 = [TestObject2 new];
+                to2.UserId = [NSString stringWithFormat:@"%d",i];
+                if (i == 21 && j == 0) {
+                    to2.GameTitle = @"Meteor Blasters";
+                    to2.TopScore = @5000;
+                    to2.Wins = @150;
+                    to2.Losses = @45;
+                    
+                    to2.purchased = YES;
+                } else {
+                    to2.GameTitle = j==0?gameTitleArray[arc4random_uniform((u_int32_t)gameTitleArray.count)]:@"Destiny";
+                    to2.TopScore = [NSNumber numberWithInt:arc4random_uniform(3000)];
+                    to2.Wins = [NSNumber numberWithInteger:arc4random_uniform(100)+20];
+                    to2.Losses = [NSNumber numberWithInteger:arc4random_uniform(100)+20];
+                }
+                [tasks addObject:[dynamoDBObjectMapper save:to2]];
+            }
+        }
+        
+        return [AWSTask taskForCompletionOfAllTasks:tasks];
+    }] continueWithBlock:^id(AWSTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: %@",task.error);
+        }
+        return nil;
+    }] waitUntilFinished];
+    
+    //Query using gsi index table
+    //What is the top score ever recorded for the game Meteor Blasters?
+    AWSDynamoDBQueryExpression *queryExpression = [AWSDynamoDBQueryExpression new];
+    queryExpression.hashKeyValues = @"Meteor Blasters";
+    queryExpression.scanIndexForward = @NO; //sort descending
+    queryExpression.indexName = @"GameTitleIndex"; //using indexTable for query
+    
+    AWSDynamoDBAttributeValue *gsiRangeAttributeValue = [AWSDynamoDBAttributeValue new];
+    gsiRangeAttributeValue.N = [@20 stringValue];
+    
+    AWSDynamoDBCondition *gsiRangeCondition = [AWSDynamoDBCondition new];
+    gsiRangeCondition.attributeValueList = @[gsiRangeAttributeValue];
+    gsiRangeCondition.comparisonOperator = AWSDynamoDBComparisonOperatorGE;
+    
+    queryExpression.rangeKeyConditions = @{@"TopScore":gsiRangeCondition};
+
+    queryExpression.hashKeyAttribute = @"GameTitle";
+    
+    [[[dynamoDBObjectMapper query:[TestObject2 class] expression:queryExpression] continueWithBlock:^id(AWSTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: %@",task.error);
+            return nil;
+        }
+        XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBPaginatedOutput class]]);
+        AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
+        
+        //first object should be the highest score
+        TestObject2 *firstObj = [paginatedOutput.items firstObject];
+        XCTAssertEqualObjects(firstObj.TopScore, @5000, @"expected higested TopScore doesn't match");
+        XCTAssertEqualObjects(firstObj.UserId, @"21", @"expected userId doesn't match");
+        XCTAssertEqualObjects(firstObj.Wins, @150, @"expected Wins doesn't match");
+        XCTAssertEqualObjects(firstObj.Losses, @45, @"expected Wins doesn't match");
+        
+        XCTAssertEqual(firstObj.purchased,YES, @"expected purchased doesn't match");
+        
+        return nil;
+    }] waitUntilFinished];
+    
+    //Query using lsi index table
+    //The game  won most for a specified user?
+    AWSDynamoDBQueryExpression *lsiQueryExpression = [AWSDynamoDBQueryExpression new];
+    lsiQueryExpression.hashKeyValues = @"21";
+    lsiQueryExpression.scanIndexForward = @NO;
+    lsiQueryExpression.indexName = @"WinsLocalIndex";
+    
+    AWSDynamoDBAttributeValue *lsiRangeAttributeValue = [AWSDynamoDBAttributeValue new];
+    lsiRangeAttributeValue.N = [@20 stringValue];
+    AWSDynamoDBCondition *lsiRangeCondition = [AWSDynamoDBCondition new];
+    lsiRangeCondition.attributeValueList = @[lsiRangeAttributeValue];
+    lsiRangeCondition.comparisonOperator = AWSDynamoDBComparisonOperatorGE;
+    
+    lsiQueryExpression.rangeKeyConditions = @{@"Wins":lsiRangeCondition};
+
+    
+    [[[dynamoDBObjectMapper query:[TestObject2 class] expression:lsiQueryExpression] continueWithBlock:^id(AWSTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: %@",task.error);
+        }
+        XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBPaginatedOutput class]]);
+        AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
+        
+        //first object should be the highest score
+        TestObject2 *firstObj = [paginatedOutput.items firstObject];
+        XCTAssertEqualObjects(firstObj.TopScore, @5000, @"expected higested TopScore doesn't match");
+        XCTAssertEqualObjects(firstObj.UserId, @"21", @"expected userId doesn't match");
+        XCTAssertEqualObjects(firstObj.Wins, @150, @"expected Wins doesn't match");
+        XCTAssertEqualObjects(firstObj.Losses, @45, @"expected Wins doesn't match");
+        
+        XCTAssertEqual(firstObj.purchased,YES, @"expected purchased doesn't match");
+        
+        return nil;
+    }] waitUntilFinished ];
+
+    //Scan using gsi index table
+    AWSDynamoDBScanExpression *gsiScanExpression = [AWSDynamoDBScanExpression new];
+    gsiScanExpression.indexName = @"GameTitleIndex"; //using indexTable for scan
+    
+    AWSDynamoDBCondition *condition = [AWSDynamoDBCondition new];
+    AWSDynamoDBAttributeValue *attributeValue = [AWSDynamoDBAttributeValue new];
+    attributeValue.S = @"Attack Ships";
+    condition.attributeValueList = @[attributeValue];
+    condition.comparisonOperator = AWSDynamoDBComparisonOperatorEQ;
+    
+    gsiScanExpression.scanFilter = @{@"GameTitle":condition};
+    
+    
+    [[[dynamoDBObjectMapper scan:[TestObject2 class] expression:gsiScanExpression] continueWithBlock:^id(AWSTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: %@",task.error);
+        }
+        
+        XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBPaginatedOutput class]]);
+        AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
+        
+        NSArray *items = paginatedOutput.items;
+        XCTAssertTrue([items count] > 0);
+        
+        for (TestObject2 *item in items) {
+            XCTAssertEqualObjects(@"Attack Ships",item.GameTitle);
+        }
+        
+        return nil;
+        
+        
+    }] waitUntilFinished];
+    
+    //Scan using lsi index table
+    AWSDynamoDBScanExpression *lsiScanExpression = [AWSDynamoDBScanExpression new];
+    lsiScanExpression.indexName = @"WinsLocalIndex";
+    
+    lsiScanExpression.scanFilter = @{@"GameTitle":condition};
+    
+    [[[dynamoDBObjectMapper scan:[TestObject2 class] expression:lsiScanExpression] continueWithBlock:^id(AWSTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: %@",task.error);
+        }
+        XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBPaginatedOutput class]]);
+        AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
+        
+        NSArray *items = paginatedOutput.items;
+        XCTAssertTrue([items count] > 0);
+        
+        for (TestObject2 *item in items) {
+            XCTAssertEqualObjects(@"Attack Ships",item.GameTitle);
+        }
+        
+        return nil;
+        
+    }] waitUntilFinished ];
+    
+    
+    //Delete Table
+    [AWSDynamoDBObjectMapperTests deleteTable:tableName2];
+    
 }
 
 - (void)testIndexQueryAndScan {
@@ -618,8 +943,8 @@ static NSString *tableNameKeyOnly = nil;
     winsAttrDef.attributeType = AWSDynamoDBScalarAttributeTypeN;
 
     AWSDynamoDBProvisionedThroughput *provisionedThroughput = [AWSDynamoDBProvisionedThroughput new];
-    provisionedThroughput.readCapacityUnits = @5;
-    provisionedThroughput.writeCapacityUnits = @5;
+    provisionedThroughput.readCapacityUnits = @50;
+    provisionedThroughput.writeCapacityUnits = @50;
 
 
     //Create Global Secondary Index
@@ -696,9 +1021,9 @@ static NSString *tableNameKeyOnly = nil;
                     to2.purchased = YES;
                 } else {
                     to2.GameTitle = j==0?gameTitleArray[arc4random_uniform((u_int32_t)gameTitleArray.count)]:@"Destiny";
-                    to2.TopScore = [NSNumber numberWithInt:arc4random_uniform(3000)];
-                    to2.Wins = [NSNumber numberWithInteger:arc4random_uniform(100)];
-                    to2.Losses = [NSNumber numberWithInteger:arc4random_uniform(100)];
+                    to2.TopScore = [NSNumber numberWithInt:arc4random_uniform(3000)+20];
+                    to2.Wins = [NSNumber numberWithInteger:arc4random_uniform(100)+20];
+                    to2.Losses = [NSNumber numberWithInteger:arc4random_uniform(100)+20];
                 }
                 [tasks addObject:[dynamoDBObjectMapper save:to2]];
             }
@@ -718,9 +1043,27 @@ static NSString *tableNameKeyOnly = nil;
     queryExpression.hashKeyValues = @"Meteor Blasters";
     queryExpression.scanIndexForward = @NO; //sort descending
     queryExpression.indexName = @"GameTitleIndex"; //using indexTable for query
+    
+   
+    
+    AWSDynamoDBAttributeValue *gsiRangeAttributeValue = [AWSDynamoDBAttributeValue new];
+    gsiRangeAttributeValue.N = [@20 stringValue];
+    
+    AWSDynamoDBAttributeValue *twoAttri = [AWSDynamoDBAttributeValue new];
+    twoAttri.N = [@9999 stringValue];
+    
+    
+    AWSDynamoDBCondition *gsiRangeCondition = [AWSDynamoDBCondition new];
+    gsiRangeCondition.attributeValueList = @[gsiRangeAttributeValue,twoAttri];
+    gsiRangeCondition.comparisonOperator = AWSDynamoDBComparisonOperatorBetween;
+    
+    queryExpression.rangeKeyConditions = @{@"TopScore":gsiRangeCondition};
+    
+    
     [[[dynamoDBObjectMapper query:[TestObjectGameTitleAndTopScore class] expression:queryExpression] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: %@",task.error);
+            return nil;
         }
         XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBPaginatedOutput class]]);
         AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
@@ -743,6 +1086,16 @@ static NSString *tableNameKeyOnly = nil;
     lsiQueryExpression.hashKeyValues = @"21";
     lsiQueryExpression.scanIndexForward = @NO;
     lsiQueryExpression.indexName = @"WinsLocalIndex";
+    
+    AWSDynamoDBAttributeValue *lsiRangeAttributeValue = [AWSDynamoDBAttributeValue new];
+    lsiRangeAttributeValue.N = [@20 stringValue];
+    
+    AWSDynamoDBCondition *lsiRangeCondition = [AWSDynamoDBCondition new];
+    lsiRangeCondition.attributeValueList = @[lsiRangeAttributeValue];
+    lsiRangeCondition.comparisonOperator = AWSDynamoDBComparisonOperatorGE;
+    
+    lsiQueryExpression.rangeKeyConditions = @{@"Wins":lsiRangeCondition};
+    
     [[[dynamoDBObjectMapper query:[TestObjectUserIdAndWins class] expression:lsiQueryExpression] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: %@",task.error);

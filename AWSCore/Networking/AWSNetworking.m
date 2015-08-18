@@ -22,7 +22,6 @@
 #import "AWSService.h"
 
 NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDomain";
-NSString *const AWSiOSSDKVersion = @"2.2.3";
 
 #pragma mark - AWSHTTPMethod
 
@@ -317,25 +316,11 @@ NSString *const AWSiOSSDKVersion = @"2.2.3";
 
 @implementation AWSNetworkingRequestInterceptor
 
-- (NSString *)userAgent {
-    static NSString *_userAgent = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSString *systemName = [[[UIDevice currentDevice] systemName] stringByReplacingOccurrencesOfString:@" " withString:@"-"];
-        NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
-        NSString *localeIdentifier = [[NSLocale currentLocale] localeIdentifier];
-        _userAgent = [NSString stringWithFormat:@"aws-sdk-iOS/%@ %@/%@ %@", AWSiOSSDKVersion, systemName, systemVersion, localeIdentifier];
-    });
-
-    return _userAgent;
-}
-
 - (AWSTask *)interceptRequest:(NSMutableURLRequest *)request {
     [request setValue:[[NSDate aws_clockSkewFixedDate] aws_stringValue:AWSDateISO8601DateFormat2]
    forHTTPHeaderField:@"X-Amz-Date"];
 
-    NSString *userAgent = [self userAgent];
-    [request setValue:userAgent forHTTPHeaderField:@"User-Agent"];
+    [request setValue:[NSString aws_baseUserAgent] forHTTPHeaderField:@"User-Agent"];
     
     return [AWSTask taskWithResult:nil];
 }

@@ -55,7 +55,7 @@
 - (void)setDefaultServiceConfiguration:(AWSServiceConfiguration *)defaultServiceConfiguration {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _defaultServiceConfiguration = defaultServiceConfiguration;
+        _defaultServiceConfiguration = [defaultServiceConfiguration copy];
     });
 }
 
