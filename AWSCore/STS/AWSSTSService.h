@@ -187,7 +187,7 @@
  
  @param request A container for the necessary parameters to execute the AssumeRole service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSTSAssumeRoleResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSTSErrorDomain` domian and the following error code: `AWSSTSErrorMalformedPolicyDocument`, `AWSSTSErrorPackedPolicyTooLarge`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSTSAssumeRoleResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSTSErrorDomain` domain and the following error code: `AWSSTSErrorMalformedPolicyDocument`, `AWSSTSErrorPackedPolicyTooLarge`.
  
  @see AWSSTSAssumeRoleRequest
  @see AWSSTSAssumeRoleResponse
@@ -199,7 +199,7 @@
  
  @param request A container for the necessary parameters to execute the AssumeRoleWithSAML service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSTSAssumeRoleWithSAMLResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSTSErrorDomain` domian and the following error code: `AWSSTSErrorMalformedPolicyDocument`, `AWSSTSErrorPackedPolicyTooLarge`, `AWSSTSErrorIDPRejectedClaim`, `AWSSTSErrorInvalidIdentityToken`, `AWSSTSErrorExpiredToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSTSAssumeRoleWithSAMLResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSTSErrorDomain` domain and the following error code: `AWSSTSErrorMalformedPolicyDocument`, `AWSSTSErrorPackedPolicyTooLarge`, `AWSSTSErrorIDPRejectedClaim`, `AWSSTSErrorInvalidIdentityToken`, `AWSSTSErrorExpiredToken`.
  
  @see AWSSTSAssumeRoleWithSAMLRequest
  @see AWSSTSAssumeRoleWithSAMLResponse
@@ -211,7 +211,7 @@
  
  @param request A container for the necessary parameters to execute the AssumeRoleWithWebIdentity service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSTSAssumeRoleWithWebIdentityResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSTSErrorDomain` domian and the following error code: `AWSSTSErrorMalformedPolicyDocument`, `AWSSTSErrorPackedPolicyTooLarge`, `AWSSTSErrorIDPRejectedClaim`, `AWSSTSErrorIDPCommunicationError`, `AWSSTSErrorInvalidIdentityToken`, `AWSSTSErrorExpiredToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSTSAssumeRoleWithWebIdentityResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSTSErrorDomain` domain and the following error code: `AWSSTSErrorMalformedPolicyDocument`, `AWSSTSErrorPackedPolicyTooLarge`, `AWSSTSErrorIDPRejectedClaim`, `AWSSTSErrorIDPCommunicationError`, `AWSSTSErrorInvalidIdentityToken`, `AWSSTSErrorExpiredToken`.
  
  @see AWSSTSAssumeRoleWithWebIdentityRequest
  @see AWSSTSAssumeRoleWithWebIdentityResponse
@@ -223,7 +223,7 @@
  
  @param request A container for the necessary parameters to execute the DecodeAuthorizationMessage service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSTSDecodeAuthorizationMessageResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSTSErrorDomain` domian and the following error code: `AWSSTSErrorInvalidAuthorizationMessage`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSTSDecodeAuthorizationMessageResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSTSErrorDomain` domain and the following error code: `AWSSTSErrorInvalidAuthorizationMessage`.
  
  @see AWSSTSDecodeAuthorizationMessageRequest
  @see AWSSTSDecodeAuthorizationMessageResponse
@@ -235,7 +235,7 @@
  
  @param request A container for the necessary parameters to execute the GetFederationToken service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSTSGetFederationTokenResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSTSErrorDomain` domian and the following error code: `AWSSTSErrorMalformedPolicyDocument`, `AWSSTSErrorPackedPolicyTooLarge`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSTSGetFederationTokenResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSTSErrorDomain` domain and the following error code: `AWSSTSErrorMalformedPolicyDocument`, `AWSSTSErrorPackedPolicyTooLarge`.
  
  @see AWSSTSGetFederationTokenRequest
  @see AWSSTSGetFederationTokenResponse

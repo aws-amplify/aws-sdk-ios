@@ -187,7 +187,7 @@
  
  @param request A container for the necessary parameters to execute the AddTagsToStream service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domian and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorResourceInUse`, `AWSKinesisErrorInvalidArgument`, `AWSKinesisErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domain and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorResourceInUse`, `AWSKinesisErrorInvalidArgument`, `AWSKinesisErrorLimitExceeded`.
  
  @see AWSKinesisAddTagsToStreamInput
  */
@@ -198,7 +198,7 @@
  
  @param request A container for the necessary parameters to execute the CreateStream service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domian and the following error code: `AWSKinesisErrorResourceInUse`, `AWSKinesisErrorLimitExceeded`, `AWSKinesisErrorInvalidArgument`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domain and the following error code: `AWSKinesisErrorResourceInUse`, `AWSKinesisErrorLimitExceeded`, `AWSKinesisErrorInvalidArgument`.
  
  @see AWSKinesisCreateStreamInput
  */
@@ -209,7 +209,7 @@
  
  @param request A container for the necessary parameters to execute the DeleteStream service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domian and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domain and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorLimitExceeded`.
  
  @see AWSKinesisDeleteStreamInput
  */
@@ -220,7 +220,7 @@
  
  @param request A container for the necessary parameters to execute the DescribeStream service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisDescribeStreamOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domian and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisDescribeStreamOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domain and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorLimitExceeded`.
  
  @see AWSKinesisDescribeStreamInput
  @see AWSKinesisDescribeStreamOutput
@@ -232,7 +232,7 @@
  
  @param request A container for the necessary parameters to execute the GetRecords service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisGetRecordsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domian and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorInvalidArgument`, `AWSKinesisErrorProvisionedThroughputExceeded`, `AWSKinesisErrorExpiredIterator`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisGetRecordsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domain and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorInvalidArgument`, `AWSKinesisErrorProvisionedThroughputExceeded`, `AWSKinesisErrorExpiredIterator`.
  
  @see AWSKinesisGetRecordsInput
  @see AWSKinesisGetRecordsOutput
@@ -244,7 +244,7 @@
  
  @param request A container for the necessary parameters to execute the GetShardIterator service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisGetShardIteratorOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domian and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorInvalidArgument`, `AWSKinesisErrorProvisionedThroughputExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisGetShardIteratorOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domain and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorInvalidArgument`, `AWSKinesisErrorProvisionedThroughputExceeded`.
  
  @see AWSKinesisGetShardIteratorInput
  @see AWSKinesisGetShardIteratorOutput
@@ -256,7 +256,7 @@
  
  @param request A container for the necessary parameters to execute the ListStreams service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisListStreamsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domian and the following error code: `AWSKinesisErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisListStreamsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domain and the following error code: `AWSKinesisErrorLimitExceeded`.
  
  @see AWSKinesisListStreamsInput
  @see AWSKinesisListStreamsOutput
@@ -268,7 +268,7 @@
  
  @param request A container for the necessary parameters to execute the ListTagsForStream service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisListTagsForStreamOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domian and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorInvalidArgument`, `AWSKinesisErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisListTagsForStreamOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domain and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorInvalidArgument`, `AWSKinesisErrorLimitExceeded`.
  
  @see AWSKinesisListTagsForStreamInput
  @see AWSKinesisListTagsForStreamOutput
@@ -280,7 +280,7 @@
  
  @param request A container for the necessary parameters to execute the MergeShards service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domian and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorResourceInUse`, `AWSKinesisErrorInvalidArgument`, `AWSKinesisErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domain and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorResourceInUse`, `AWSKinesisErrorInvalidArgument`, `AWSKinesisErrorLimitExceeded`.
  
  @see AWSKinesisMergeShardsInput
  */
@@ -291,7 +291,7 @@
  
  @param request A container for the necessary parameters to execute the PutRecord service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisPutRecordOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domian and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorInvalidArgument`, `AWSKinesisErrorProvisionedThroughputExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisPutRecordOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domain and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorInvalidArgument`, `AWSKinesisErrorProvisionedThroughputExceeded`.
  
  @see AWSKinesisPutRecordInput
  @see AWSKinesisPutRecordOutput
@@ -303,7 +303,7 @@
  
  @param request A container for the necessary parameters to execute the PutRecords service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisPutRecordsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domian and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorInvalidArgument`, `AWSKinesisErrorProvisionedThroughputExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisPutRecordsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domain and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorInvalidArgument`, `AWSKinesisErrorProvisionedThroughputExceeded`.
  
  @see AWSKinesisPutRecordsInput
  @see AWSKinesisPutRecordsOutput
@@ -315,7 +315,7 @@
  
  @param request A container for the necessary parameters to execute the RemoveTagsFromStream service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domian and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorResourceInUse`, `AWSKinesisErrorInvalidArgument`, `AWSKinesisErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domain and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorResourceInUse`, `AWSKinesisErrorInvalidArgument`, `AWSKinesisErrorLimitExceeded`.
  
  @see AWSKinesisRemoveTagsFromStreamInput
  */
@@ -326,7 +326,7 @@
  
  @param request A container for the necessary parameters to execute the SplitShard service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domian and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorResourceInUse`, `AWSKinesisErrorInvalidArgument`, `AWSKinesisErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisErrorDomain` domain and the following error code: `AWSKinesisErrorResourceNotFound`, `AWSKinesisErrorResourceInUse`, `AWSKinesisErrorInvalidArgument`, `AWSKinesisErrorLimitExceeded`.
  
  @see AWSKinesisSplitShardInput
  */

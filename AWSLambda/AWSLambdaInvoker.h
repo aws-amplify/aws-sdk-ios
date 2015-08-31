@@ -180,7 +180,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaInvokerErrorType) {
 
  @param request The request object.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaInvokerInvocationResponse`. On failed service execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domian and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`. On failed function execution, `task.error` may contain an `NSError` with `AWSLambdaInvokerErrorDomain` domian and the following error code: `AWSLambdaInvokerErrorTypeFunctionError`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaInvokerInvocationResponse`. On failed service execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`. On failed function execution, `task.error` may contain an `NSError` with `AWSLambdaInvokerErrorDomain` domain and the following error code: `AWSLambdaInvokerErrorTypeFunctionError`.
 
  @see AWSLambdaInvokerInvocationRequest
  @see AWSLambdaInvokerInvocationResponse
@@ -193,7 +193,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaInvokerErrorType) {
  @param functionName The name of a function.
  @param JSONObject The object from which to generate JSON request data. Can be `nil`.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain a JSON object. On failed service execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domian and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`. On failed function execution, `task.error` may contain an `NSError` with `AWSLambdaInvokerErrorDomain` domian and the following error code: `AWSLambdaInvokerErrorTypeFunctionError`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain a JSON object. On failed service execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`. On failed function execution, `task.error` may contain an `NSError` with `AWSLambdaInvokerErrorDomain` domain and the following error code: `AWSLambdaInvokerErrorTypeFunctionError`.
  */
 - (AWSTask *)invokeFunction:(NSString *)functionName
                 JSONObject:(id)JSONObject;

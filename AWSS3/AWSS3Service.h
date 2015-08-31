@@ -187,7 +187,7 @@
  
  @param request A container for the necessary parameters to execute the AbortMultipartUpload service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domian and the following error code: `AWSS3ErrorNoSuchUpload`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domain and the following error code: `AWSS3ErrorNoSuchUpload`.
  
  @see AWSS3AbortMultipartUploadRequest
  */
@@ -210,7 +210,7 @@
  
  @param request A container for the necessary parameters to execute the CreateBucket service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3CreateBucketOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domian and the following error code: `AWSS3ErrorBucketAlreadyExists`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3CreateBucketOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domain and the following error code: `AWSS3ErrorBucketAlreadyExists`.
  
  @see AWSS3CreateBucketRequest
  @see AWSS3CreateBucketOutput
@@ -456,7 +456,7 @@
  
  @param request A container for the necessary parameters to execute the GetObject service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3GetObjectOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domian and the following error code: `AWSS3ErrorNoSuchKey`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3GetObjectOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domain and the following error code: `AWSS3ErrorNoSuchKey`.
  
  @see AWSS3GetObjectRequest
  @see AWSS3GetObjectOutput
@@ -468,7 +468,7 @@
  
  @param request A container for the necessary parameters to execute the GetObjectAcl service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3GetObjectAclOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domian and the following error code: `AWSS3ErrorNoSuchKey`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3GetObjectAclOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domain and the following error code: `AWSS3ErrorNoSuchKey`.
  
  @see AWSS3GetObjectAclRequest
  @see AWSS3GetObjectAclOutput
@@ -492,7 +492,7 @@
  
  @param request A container for the necessary parameters to execute the HeadBucket service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domian and the following error code: `AWSS3ErrorNoSuchBucket`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domain and the following error code: `AWSS3ErrorNoSuchBucket`.
  
  @see AWSS3HeadBucketRequest
  */
@@ -503,7 +503,7 @@
  
  @param request A container for the necessary parameters to execute the HeadObject service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3HeadObjectOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domian and the following error code: `AWSS3ErrorNoSuchKey`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3HeadObjectOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domain and the following error code: `AWSS3ErrorNoSuchKey`.
  
  @see AWSS3HeadObjectRequest
  @see AWSS3HeadObjectOutput
@@ -551,7 +551,7 @@
  
  @param request A container for the necessary parameters to execute the ListObjects service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3ListObjectsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domian and the following error code: `AWSS3ErrorNoSuchBucket`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3ListObjectsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domain and the following error code: `AWSS3ErrorNoSuchBucket`.
  
  @see AWSS3ListObjectsRequest
  @see AWSS3ListObjectsOutput
@@ -697,7 +697,7 @@
  
  @param request A container for the necessary parameters to execute the PutObjectAcl service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domian and the following error code: `AWSS3ErrorNoSuchKey`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domain and the following error code: `AWSS3ErrorNoSuchKey`.
  
  @see AWSS3PutObjectAclRequest
  */
@@ -708,7 +708,7 @@
  
  @param request A container for the necessary parameters to execute the ReplicateObject service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3ReplicateObjectOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domian and the following error code: `AWSS3ErrorObjectNotInActiveTier`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3ReplicateObjectOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domain and the following error code: `AWSS3ErrorObjectNotInActiveTier`.
  
  @see AWSS3ReplicateObjectRequest
  @see AWSS3ReplicateObjectOutput
@@ -720,7 +720,7 @@
  
  @param request A container for the necessary parameters to execute the RestoreObject service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domian and the following error code: `AWSS3ErrorObjectAlreadyInActiveTier`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domain and the following error code: `AWSS3ErrorObjectAlreadyInActiveTier`.
  
  @see AWSS3RestoreObjectRequest
  */

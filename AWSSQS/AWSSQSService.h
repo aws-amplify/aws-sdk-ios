@@ -187,7 +187,7 @@
  
  @param request A container for the necessary parameters to execute the AddPermission service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorOverLimit`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorOverLimit`.
  
  @see AWSSQSAddPermissionRequest
  */
@@ -198,7 +198,7 @@
  
  @param request A container for the necessary parameters to execute the ChangeMessageVisibility service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorMessageNotInflight`, `AWSSQSErrorReceiptHandleIsInvalid`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorMessageNotInflight`, `AWSSQSErrorReceiptHandleIsInvalid`.
  
  @see AWSSQSChangeMessageVisibilityRequest
  */
@@ -209,7 +209,7 @@
  
  @param request A container for the necessary parameters to execute the ChangeMessageVisibilityBatch service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSChangeMessageVisibilityBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSChangeMessageVisibilityBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`.
  
  @see AWSSQSChangeMessageVisibilityBatchRequest
  @see AWSSQSChangeMessageVisibilityBatchResult
@@ -221,7 +221,7 @@
  
  @param request A container for the necessary parameters to execute the CreateQueue service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSCreateQueueResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorQueueDeletedRecently`, `AWSSQSErrorQueueNameExists`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSCreateQueueResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDeletedRecently`, `AWSSQSErrorQueueNameExists`.
  
  @see AWSSQSCreateQueueRequest
  @see AWSSQSCreateQueueResult
@@ -233,7 +233,7 @@
  
  @param request A container for the necessary parameters to execute the DeleteMessage service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorInvalidIdFormat`, `AWSSQSErrorReceiptHandleIsInvalid`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidIdFormat`, `AWSSQSErrorReceiptHandleIsInvalid`.
  
  @see AWSSQSDeleteMessageRequest
  */
@@ -244,7 +244,7 @@
  
  @param request A container for the necessary parameters to execute the DeleteMessageBatch service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSDeleteMessageBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSDeleteMessageBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`.
  
  @see AWSSQSDeleteMessageBatchRequest
  @see AWSSQSDeleteMessageBatchResult
@@ -267,7 +267,7 @@
  
  @param request A container for the necessary parameters to execute the GetQueueAttributes service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSGetQueueAttributesResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorInvalidAttributeName`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSGetQueueAttributesResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAttributeName`.
  
  @see AWSSQSGetQueueAttributesRequest
  @see AWSSQSGetQueueAttributesResult
@@ -279,7 +279,7 @@
  
  @param request A container for the necessary parameters to execute the GetQueueUrl service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSGetQueueUrlResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorQueueDoesNotExist`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSGetQueueUrlResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`.
  
  @see AWSSQSGetQueueUrlRequest
  @see AWSSQSGetQueueUrlResult
@@ -291,7 +291,7 @@
  
  @param request A container for the necessary parameters to execute the ListDeadLetterSourceQueues service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListDeadLetterSourceQueuesResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorQueueDoesNotExist`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListDeadLetterSourceQueuesResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`.
  
  @see AWSSQSListDeadLetterSourceQueuesRequest
  @see AWSSQSListDeadLetterSourceQueuesResult
@@ -315,7 +315,7 @@
  
  @param request A container for the necessary parameters to execute the ReceiveMessage service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSReceiveMessageResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorOverLimit`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSReceiveMessageResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorOverLimit`.
  
  @see AWSSQSReceiveMessageRequest
  @see AWSSQSReceiveMessageResult
@@ -338,7 +338,7 @@
  
  @param request A container for the necessary parameters to execute the SendMessage service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSSendMessageResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorInvalidMessageContents`, `AWSSQSErrorUnsupportedOperation`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSSendMessageResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidMessageContents`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSSendMessageRequest
  @see AWSSQSSendMessageResult
@@ -350,7 +350,7 @@
  
  @param request A container for the necessary parameters to execute the SendMessageBatch service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSSendMessageBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorBatchRequestTooLong`, `AWSSQSErrorInvalidBatchEntryId`, `AWSSQSErrorUnsupportedOperation`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSSendMessageBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorBatchRequestTooLong`, `AWSSQSErrorInvalidBatchEntryId`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSSendMessageBatchRequest
  @see AWSSQSSendMessageBatchResult
@@ -362,7 +362,7 @@
  
  @param request A container for the necessary parameters to execute the SetQueueAttributes service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domian and the following error code: `AWSSQSErrorInvalidAttributeName`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAttributeName`.
  
  @see AWSSQSSetQueueAttributesRequest
  */
