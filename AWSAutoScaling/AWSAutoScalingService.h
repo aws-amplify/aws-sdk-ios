@@ -210,7 +210,7 @@
  
  @param request A container for the necessary parameters to execute the CreateAutoScalingGroup service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorLimitExceeded`.
  
  @see AWSAutoScalingCreateAutoScalingGroupType
  */
@@ -221,7 +221,7 @@
  
  @param request A container for the necessary parameters to execute the CreateLaunchConfiguration service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorLimitExceeded`.
  
  @see AWSAutoScalingCreateLaunchConfigurationType
  */
@@ -232,7 +232,7 @@
  
  @param request A container for the necessary parameters to execute the CreateOrUpdateTags service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorAlreadyExists`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorAlreadyExists`.
  
  @see AWSAutoScalingCreateOrUpdateTagsType
  */
@@ -243,7 +243,7 @@
  
  @param request A container for the necessary parameters to execute the DeleteAutoScalingGroup service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`, `AWSAutoScalingErrorResourceInUse`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`, `AWSAutoScalingErrorResourceInUse`.
  
  @see AWSAutoScalingDeleteAutoScalingGroupType
  */
@@ -254,7 +254,7 @@
  
  @param request A container for the necessary parameters to execute the DeleteLaunchConfiguration service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorResourceInUse`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceInUse`.
  
  @see AWSAutoScalingLaunchConfigurationNameType
  */
@@ -345,7 +345,7 @@
  
  @param request A container for the necessary parameters to execute the DescribeAutoScalingGroups service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingAutoScalingGroupsType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingAutoScalingGroupsType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
  
  @see AWSAutoScalingAutoScalingGroupNamesType
  @see AWSAutoScalingAutoScalingGroupsType
@@ -357,7 +357,7 @@
  
  @param request A container for the necessary parameters to execute the DescribeAutoScalingInstances service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingAutoScalingInstancesType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingAutoScalingInstancesType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
  
  @see AWSAutoScalingDescribeAutoScalingInstancesType
  @see AWSAutoScalingAutoScalingInstancesType
@@ -381,7 +381,7 @@
  
  @param request A container for the necessary parameters to execute the DescribeLaunchConfigurations service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingLaunchConfigurationsType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingLaunchConfigurationsType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
  
  @see AWSAutoScalingLaunchConfigurationNamesType
  @see AWSAutoScalingLaunchConfigurationsType
@@ -429,7 +429,7 @@
  
  @param request A container for the necessary parameters to execute the DescribeNotificationConfigurations service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeNotificationConfigurationsAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeNotificationConfigurationsAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
  
  @see AWSAutoScalingDescribeNotificationConfigurationsType
  @see AWSAutoScalingDescribeNotificationConfigurationsAnswer
@@ -441,7 +441,7 @@
  
  @param request A container for the necessary parameters to execute the DescribePolicies service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingPoliciesType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingPoliciesType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
  
  @see AWSAutoScalingDescribePoliciesType
  @see AWSAutoScalingPoliciesType
@@ -453,7 +453,7 @@
  
  @param request A container for the necessary parameters to execute the DescribeScalingActivities service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingActivitiesType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingActivitiesType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
  
  @see AWSAutoScalingDescribeScalingActivitiesType
  @see AWSAutoScalingActivitiesType
@@ -477,7 +477,7 @@
  
  @param request A container for the necessary parameters to execute the DescribeScheduledActions service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingScheduledActionsType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingScheduledActionsType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
  
  @see AWSAutoScalingDescribeScheduledActionsType
  @see AWSAutoScalingScheduledActionsType
@@ -489,7 +489,7 @@
  
  @param request A container for the necessary parameters to execute the DescribeTags service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingTagsType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingTagsType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
  
  @see AWSAutoScalingDescribeTagsType
  @see AWSAutoScalingTagsType
@@ -559,7 +559,7 @@
  
  @param request A container for the necessary parameters to execute the ExecutePolicy service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`.
  
  @see AWSAutoScalingExecutePolicyType
  */
@@ -582,7 +582,7 @@
  
  @param request A container for the necessary parameters to execute the PutLifecycleHook service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingPutLifecycleHookAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingPutLifecycleHookAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`.
  
  @see AWSAutoScalingPutLifecycleHookType
  @see AWSAutoScalingPutLifecycleHookAnswer
@@ -594,7 +594,7 @@
  
  @param request A container for the necessary parameters to execute the PutNotificationConfiguration service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`.
  
  @see AWSAutoScalingPutNotificationConfigurationType
  */
@@ -605,7 +605,7 @@
  
  @param request A container for the necessary parameters to execute the PutScalingPolicy service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingPolicyARNType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingPolicyARNType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`.
  
  @see AWSAutoScalingPutScalingPolicyType
  @see AWSAutoScalingPolicyARNType
@@ -617,7 +617,7 @@
  
  @param request A container for the necessary parameters to execute the PutScheduledUpdateGroupAction service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorLimitExceeded`.
  
  @see AWSAutoScalingPutScheduledUpdateGroupActionType
  */
@@ -651,7 +651,7 @@
  
  @param request A container for the necessary parameters to execute the SetDesiredCapacity service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`.
  
  @see AWSAutoScalingSetDesiredCapacityType
  */
@@ -684,7 +684,7 @@
  
  @param request A container for the necessary parameters to execute the TerminateInstanceInAutoScalingGroup service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingActivityType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingActivityType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`.
  
  @see AWSAutoScalingTerminateInstanceInAutoScalingGroupType
  @see AWSAutoScalingActivityType
@@ -696,7 +696,7 @@
  
  @param request A container for the necessary parameters to execute the UpdateAutoScalingGroup service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domian and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`.
  
  @see AWSAutoScalingUpdateAutoScalingGroupType
  */

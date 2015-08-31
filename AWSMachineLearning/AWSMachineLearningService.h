@@ -172,7 +172,7 @@
  
  @param request A container for the necessary parameters to execute the GetMLModel service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSMachineLearningGetMLModelOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSMachineLearningErrorDomain` domian and the following error code: `AWSMachineLearningErrorInvalidInput`, `AWSMachineLearningErrorResourceNotFound`, `AWSMachineLearningErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSMachineLearningGetMLModelOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSMachineLearningErrorDomain` domain and the following error code: `AWSMachineLearningErrorInvalidInput`, `AWSMachineLearningErrorResourceNotFound`, `AWSMachineLearningErrorInternalServer`.
  
  @see AWSMachineLearningGetMLModelInput
  @see AWSMachineLearningGetMLModelOutput
@@ -184,7 +184,7 @@
  
  @param request A container for the necessary parameters to execute the Predict service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSMachineLearningPredictOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSMachineLearningErrorDomain` domian and the following error code: `AWSMachineLearningErrorInvalidInput`, `AWSMachineLearningErrorResourceNotFound`, `AWSMachineLearningErrorLimitExceeded`, `AWSMachineLearningErrorInternalServer`, `AWSMachineLearningErrorPredictorNotMounted`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSMachineLearningPredictOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSMachineLearningErrorDomain` domain and the following error code: `AWSMachineLearningErrorInvalidInput`, `AWSMachineLearningErrorResourceNotFound`, `AWSMachineLearningErrorLimitExceeded`, `AWSMachineLearningErrorInternalServer`, `AWSMachineLearningErrorPredictorNotMounted`.
  
  @see AWSMachineLearningPredictInput
  @see AWSMachineLearningPredictOutput

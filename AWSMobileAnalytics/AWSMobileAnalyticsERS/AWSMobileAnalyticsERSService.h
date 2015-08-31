@@ -172,7 +172,7 @@
  
  @param request A container for the necessary parameters to execute the PutEvents service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSMobileAnalyticsERSErrorDomain` domian and the following error code: `AWSMobileAnalyticsERSErrorBadRequest`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSMobileAnalyticsERSErrorDomain` domain and the following error code: `AWSMobileAnalyticsERSErrorBadRequest`.
  
  @see AWSMobileAnalyticsERSPutEventsInput
  */

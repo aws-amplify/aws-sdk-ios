@@ -198,7 +198,7 @@
  
  @param request A container for the necessary parameters to execute the BatchPutAttributes service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domian and the following error code: `AWSSimpleDBErrorDuplicateItemName`, `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNoSuchDomain`, `AWSSimpleDBErrorNumberItemAttributesExceeded`, `AWSSimpleDBErrorNumberDomainAttributesExceeded`, `AWSSimpleDBErrorNumberDomainBytesExceeded`, `AWSSimpleDBErrorNumberSubmittedItemsExceeded`, `AWSSimpleDBErrorNumberSubmittedAttributesExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domain and the following error code: `AWSSimpleDBErrorDuplicateItemName`, `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNoSuchDomain`, `AWSSimpleDBErrorNumberItemAttributesExceeded`, `AWSSimpleDBErrorNumberDomainAttributesExceeded`, `AWSSimpleDBErrorNumberDomainBytesExceeded`, `AWSSimpleDBErrorNumberSubmittedItemsExceeded`, `AWSSimpleDBErrorNumberSubmittedAttributesExceeded`.
  
  @see AWSSimpleDBBatchPutAttributesRequest
  */
@@ -209,7 +209,7 @@
  
  @param request A container for the necessary parameters to execute the CreateDomain service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domian and the following error code: `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNumberDomainsExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domain and the following error code: `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNumberDomainsExceeded`.
  
  @see AWSSimpleDBCreateDomainRequest
  */
@@ -220,7 +220,7 @@
  
  @param request A container for the necessary parameters to execute the DeleteAttributes service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domian and the following error code: `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNoSuchDomain`, `AWSSimpleDBErrorAttributeDoesNotExist`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domain and the following error code: `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNoSuchDomain`, `AWSSimpleDBErrorAttributeDoesNotExist`.
  
  @see AWSSimpleDBDeleteAttributesRequest
  */
@@ -231,7 +231,7 @@
  
  @param request A container for the necessary parameters to execute the DeleteDomain service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domian and the following error code: `AWSSimpleDBErrorMissingParameter`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domain and the following error code: `AWSSimpleDBErrorMissingParameter`.
  
  @see AWSSimpleDBDeleteDomainRequest
  */
@@ -242,7 +242,7 @@
  
  @param request A container for the necessary parameters to execute the DomainMetadata service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSimpleDBDomainMetadataResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domian and the following error code: `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNoSuchDomain`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSimpleDBDomainMetadataResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domain and the following error code: `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNoSuchDomain`.
  
  @see AWSSimpleDBDomainMetadataRequest
  @see AWSSimpleDBDomainMetadataResult
@@ -254,7 +254,7 @@
  
  @param request A container for the necessary parameters to execute the GetAttributes service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSimpleDBGetAttributesResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domian and the following error code: `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNoSuchDomain`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSimpleDBGetAttributesResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domain and the following error code: `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNoSuchDomain`.
  
  @see AWSSimpleDBGetAttributesRequest
  @see AWSSimpleDBGetAttributesResult
@@ -266,7 +266,7 @@
  
  @param request A container for the necessary parameters to execute the ListDomains service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSimpleDBListDomainsResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domian and the following error code: `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorInvalidNextToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSimpleDBListDomainsResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domain and the following error code: `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorInvalidNextToken`.
  
  @see AWSSimpleDBListDomainsRequest
  @see AWSSimpleDBListDomainsResult
@@ -278,7 +278,7 @@
  
  @param request A container for the necessary parameters to execute the PutAttributes service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domian and the following error code: `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNoSuchDomain`, `AWSSimpleDBErrorNumberDomainAttributesExceeded`, `AWSSimpleDBErrorNumberDomainBytesExceeded`, `AWSSimpleDBErrorNumberItemAttributesExceeded`, `AWSSimpleDBErrorAttributeDoesNotExist`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domain and the following error code: `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNoSuchDomain`, `AWSSimpleDBErrorNumberDomainAttributesExceeded`, `AWSSimpleDBErrorNumberDomainBytesExceeded`, `AWSSimpleDBErrorNumberItemAttributesExceeded`, `AWSSimpleDBErrorAttributeDoesNotExist`.
  
  @see AWSSimpleDBPutAttributesRequest
  */
@@ -289,7 +289,7 @@
  
  @param request A container for the necessary parameters to execute the Select service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSimpleDBSelectResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domian and the following error code: `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorInvalidNextToken`, `AWSSimpleDBErrorInvalidNumberPredicates`, `AWSSimpleDBErrorInvalidNumberValueTests`, `AWSSimpleDBErrorInvalidQueryExpression`, `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNoSuchDomain`, `AWSSimpleDBErrorRequestTimeout`, `AWSSimpleDBErrorTooManyRequestedAttributes`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSimpleDBSelectResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSimpleDBErrorDomain` domain and the following error code: `AWSSimpleDBErrorInvalidParameterValue`, `AWSSimpleDBErrorInvalidNextToken`, `AWSSimpleDBErrorInvalidNumberPredicates`, `AWSSimpleDBErrorInvalidNumberValueTests`, `AWSSimpleDBErrorInvalidQueryExpression`, `AWSSimpleDBErrorMissingParameter`, `AWSSimpleDBErrorNoSuchDomain`, `AWSSimpleDBErrorRequestTimeout`, `AWSSimpleDBErrorTooManyRequestedAttributes`.
  
  @see AWSSimpleDBSelectRequest
  @see AWSSimpleDBSelectResult

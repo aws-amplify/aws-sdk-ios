@@ -187,7 +187,7 @@
  
  @param request A container for the necessary parameters to execute the BatchGetItem service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBBatchGetItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domian and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBBatchGetItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBBatchGetItemInput
  @see AWSDynamoDBBatchGetItemOutput
@@ -199,7 +199,7 @@
  
  @param request A container for the necessary parameters to execute the BatchWriteItem service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBBatchWriteItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domian and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBBatchWriteItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBBatchWriteItemInput
  @see AWSDynamoDBBatchWriteItemOutput
@@ -211,7 +211,7 @@
  
  @param request A container for the necessary parameters to execute the CreateTable service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBCreateTableOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domian and the following error code: `AWSDynamoDBErrorResourceInUse`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBCreateTableOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceInUse`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBCreateTableInput
  @see AWSDynamoDBCreateTableOutput
@@ -223,7 +223,7 @@
  
  @param request A container for the necessary parameters to execute the DeleteItem service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBDeleteItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domian and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBDeleteItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBDeleteItemInput
  @see AWSDynamoDBDeleteItemOutput
@@ -235,7 +235,7 @@
  
  @param request A container for the necessary parameters to execute the DeleteTable service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBDeleteTableOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domian and the following error code: `AWSDynamoDBErrorResourceInUse`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBDeleteTableOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceInUse`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBDeleteTableInput
  @see AWSDynamoDBDeleteTableOutput
@@ -247,7 +247,7 @@
  
  @param request A container for the necessary parameters to execute the DescribeTable service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBDescribeTableOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domian and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBDescribeTableOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBDescribeTableInput
  @see AWSDynamoDBDescribeTableOutput
@@ -259,7 +259,7 @@
  
  @param request A container for the necessary parameters to execute the GetItem service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBGetItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domian and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBGetItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBGetItemInput
  @see AWSDynamoDBGetItemOutput
@@ -271,7 +271,7 @@
  
  @param request A container for the necessary parameters to execute the ListTables service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBListTablesOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domian and the following error code: `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBListTablesOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBListTablesInput
  @see AWSDynamoDBListTablesOutput
@@ -283,7 +283,7 @@
  
  @param request A container for the necessary parameters to execute the PutItem service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBPutItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domian and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBPutItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBPutItemInput
  @see AWSDynamoDBPutItemOutput
@@ -295,7 +295,7 @@
  
  @param request A container for the necessary parameters to execute the Query service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBQueryOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domian and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBQueryOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBQueryInput
  @see AWSDynamoDBQueryOutput
@@ -307,7 +307,7 @@
  
  @param request A container for the necessary parameters to execute the Scan service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBScanOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domian and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBScanOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBScanInput
  @see AWSDynamoDBScanOutput
@@ -319,7 +319,7 @@
  
  @param request A container for the necessary parameters to execute the UpdateItem service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBUpdateItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domian and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBUpdateItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBUpdateItemInput
  @see AWSDynamoDBUpdateItemOutput
@@ -331,7 +331,7 @@
  
  @param request A container for the necessary parameters to execute the UpdateTable service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBUpdateTableOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domian and the following error code: `AWSDynamoDBErrorResourceInUse`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBUpdateTableOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceInUse`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBUpdateTableInput
  @see AWSDynamoDBUpdateTableOutput

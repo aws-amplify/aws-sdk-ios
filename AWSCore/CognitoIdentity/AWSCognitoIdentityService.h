@@ -187,7 +187,7 @@
  
  @param request A container for the necessary parameters to execute the CreateIdentityPool service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityIdentityPool`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`, `AWSCognitoIdentityErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityIdentityPool`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`, `AWSCognitoIdentityErrorLimitExceeded`.
  
  @see AWSCognitoIdentityCreateIdentityPoolInput
  @see AWSCognitoIdentityIdentityPool
@@ -199,7 +199,7 @@
  
  @param request A container for the necessary parameters to execute the DeleteIdentityPool service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
  
  @see AWSCognitoIdentityDeleteIdentityPoolInput
  */
@@ -210,7 +210,7 @@
  
  @param request A container for the necessary parameters to execute the DescribeIdentity service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityIdentityDescription`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityIdentityDescription`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
  
  @see AWSCognitoIdentityDescribeIdentityInput
  @see AWSCognitoIdentityIdentityDescription
@@ -222,7 +222,7 @@
  
  @param request A container for the necessary parameters to execute the DescribeIdentityPool service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityIdentityPool`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityIdentityPool`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
  
  @see AWSCognitoIdentityDescribeIdentityPoolInput
  @see AWSCognitoIdentityIdentityPool
@@ -234,7 +234,7 @@
  
  @param request A container for the necessary parameters to execute the GetCredentialsForIdentity service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityGetCredentialsForIdentityResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInvalidIdentityPoolConfiguration`, `AWSCognitoIdentityErrorInternalError`, `AWSCognitoIdentityErrorExternalService`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityGetCredentialsForIdentityResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInvalidIdentityPoolConfiguration`, `AWSCognitoIdentityErrorInternalError`, `AWSCognitoIdentityErrorExternalService`.
  
  @see AWSCognitoIdentityGetCredentialsForIdentityInput
  @see AWSCognitoIdentityGetCredentialsForIdentityResponse
@@ -246,7 +246,7 @@
  
  @param request A container for the necessary parameters to execute the GetId service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityGetIdResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`, `AWSCognitoIdentityErrorLimitExceeded`, `AWSCognitoIdentityErrorExternalService`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityGetIdResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`, `AWSCognitoIdentityErrorLimitExceeded`, `AWSCognitoIdentityErrorExternalService`.
  
  @see AWSCognitoIdentityGetIdInput
  @see AWSCognitoIdentityGetIdResponse
@@ -258,7 +258,7 @@
  
  @param request A container for the necessary parameters to execute the GetIdentityPoolRoles service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityGetIdentityPoolRolesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityGetIdentityPoolRolesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
  
  @see AWSCognitoIdentityGetIdentityPoolRolesInput
  @see AWSCognitoIdentityGetIdentityPoolRolesResponse
@@ -270,7 +270,7 @@
  
  @param request A container for the necessary parameters to execute the GetOpenIdToken service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityGetOpenIdTokenResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`, `AWSCognitoIdentityErrorExternalService`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityGetOpenIdTokenResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`, `AWSCognitoIdentityErrorExternalService`.
  
  @see AWSCognitoIdentityGetOpenIdTokenInput
  @see AWSCognitoIdentityGetOpenIdTokenResponse
@@ -282,7 +282,7 @@
  
  @param request A container for the necessary parameters to execute the GetOpenIdTokenForDeveloperIdentity service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`, `AWSCognitoIdentityErrorDeveloperUserAlreadyRegistered`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`, `AWSCognitoIdentityErrorDeveloperUserAlreadyRegistered`.
  
  @see AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput
  @see AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse
@@ -294,7 +294,7 @@
  
  @param request A container for the necessary parameters to execute the ListIdentities service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityListIdentitiesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityListIdentitiesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
  
  @see AWSCognitoIdentityListIdentitiesInput
  @see AWSCognitoIdentityListIdentitiesResponse
@@ -306,7 +306,7 @@
  
  @param request A container for the necessary parameters to execute the ListIdentityPools service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityListIdentityPoolsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityListIdentityPoolsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
  
  @see AWSCognitoIdentityListIdentityPoolsInput
  @see AWSCognitoIdentityListIdentityPoolsResponse
@@ -318,7 +318,7 @@
  
  @param request A container for the necessary parameters to execute the LookupDeveloperIdentity service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityLookupDeveloperIdentityResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityLookupDeveloperIdentityResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
  
  @see AWSCognitoIdentityLookupDeveloperIdentityInput
  @see AWSCognitoIdentityLookupDeveloperIdentityResponse
@@ -330,7 +330,7 @@
  
  @param request A container for the necessary parameters to execute the MergeDeveloperIdentities service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityMergeDeveloperIdentitiesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityMergeDeveloperIdentitiesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
  
  @see AWSCognitoIdentityMergeDeveloperIdentitiesInput
  @see AWSCognitoIdentityMergeDeveloperIdentitiesResponse
@@ -342,7 +342,7 @@
  
  @param request A container for the necessary parameters to execute the SetIdentityPoolRoles service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`, `AWSCognitoIdentityErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`, `AWSCognitoIdentityErrorLimitExceeded`.
  
  @see AWSCognitoIdentitySetIdentityPoolRolesInput
  */
@@ -353,7 +353,7 @@
  
  @param request A container for the necessary parameters to execute the UnlinkDeveloperIdentity service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
  
  @see AWSCognitoIdentityUnlinkDeveloperIdentityInput
  */
@@ -364,7 +364,7 @@
  
  @param request A container for the necessary parameters to execute the UnlinkIdentity service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`, `AWSCognitoIdentityErrorExternalService`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`, `AWSCognitoIdentityErrorExternalService`.
  
  @see AWSCognitoIdentityUnlinkIdentityInput
  */
@@ -375,7 +375,7 @@
  
  @param request A container for the necessary parameters to execute the UpdateIdentityPool service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityIdentityPool`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domian and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`, `AWSCognitoIdentityErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityIdentityPool`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorResourceConflict`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`, `AWSCognitoIdentityErrorLimitExceeded`.
  
  @see AWSCognitoIdentityIdentityPool
  @see AWSCognitoIdentityIdentityPool

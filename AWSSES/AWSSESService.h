@@ -294,7 +294,7 @@
  
  @param request A container for the necessary parameters to execute the SendEmail service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSESSendEmailResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSESErrorDomain` domian and the following error code: `AWSSESErrorMessageRejected`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSESSendEmailResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSESErrorDomain` domain and the following error code: `AWSSESErrorMessageRejected`.
  
  @see AWSSESSendEmailRequest
  @see AWSSESSendEmailResponse
@@ -306,7 +306,7 @@
  
  @param request A container for the necessary parameters to execute the SendRawEmail service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSESSendRawEmailResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSESErrorDomain` domian and the following error code: `AWSSESErrorMessageRejected`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSESSendRawEmailResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSESErrorDomain` domain and the following error code: `AWSSESErrorMessageRejected`.
  
  @see AWSSESSendRawEmailRequest
  @see AWSSESSendRawEmailResponse

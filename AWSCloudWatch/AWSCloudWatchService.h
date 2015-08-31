@@ -187,7 +187,7 @@
  
  @param request A container for the necessary parameters to execute the DeleteAlarms service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domian and the following error code: `AWSCloudWatchErrorResourceNotFound`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorResourceNotFound`.
  
  @see AWSCloudWatchDeleteAlarmsInput
  */
@@ -198,7 +198,7 @@
  
  @param request A container for the necessary parameters to execute the DescribeAlarmHistory service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCloudWatchDescribeAlarmHistoryOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domian and the following error code: `AWSCloudWatchErrorInvalidNextToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCloudWatchDescribeAlarmHistoryOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorInvalidNextToken`.
  
  @see AWSCloudWatchDescribeAlarmHistoryInput
  @see AWSCloudWatchDescribeAlarmHistoryOutput
@@ -210,7 +210,7 @@
  
  @param request A container for the necessary parameters to execute the DescribeAlarms service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCloudWatchDescribeAlarmsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domian and the following error code: `AWSCloudWatchErrorInvalidNextToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCloudWatchDescribeAlarmsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorInvalidNextToken`.
  
  @see AWSCloudWatchDescribeAlarmsInput
  @see AWSCloudWatchDescribeAlarmsOutput
@@ -256,7 +256,7 @@
  
  @param request A container for the necessary parameters to execute the GetMetricStatistics service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCloudWatchGetMetricStatisticsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domian and the following error code: `AWSCloudWatchErrorInvalidParameterValue`, `AWSCloudWatchErrorMissingRequiredParameter`, `AWSCloudWatchErrorInvalidParameterCombination`, `AWSCloudWatchErrorInternalService`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCloudWatchGetMetricStatisticsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorInvalidParameterValue`, `AWSCloudWatchErrorMissingRequiredParameter`, `AWSCloudWatchErrorInvalidParameterCombination`, `AWSCloudWatchErrorInternalService`.
  
  @see AWSCloudWatchGetMetricStatisticsInput
  @see AWSCloudWatchGetMetricStatisticsOutput
@@ -268,7 +268,7 @@
  
  @param request A container for the necessary parameters to execute the ListMetrics service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCloudWatchListMetricsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domian and the following error code: `AWSCloudWatchErrorInternalService`, `AWSCloudWatchErrorInvalidParameterValue`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCloudWatchListMetricsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorInternalService`, `AWSCloudWatchErrorInvalidParameterValue`.
  
  @see AWSCloudWatchListMetricsInput
  @see AWSCloudWatchListMetricsOutput
@@ -280,7 +280,7 @@
  
  @param request A container for the necessary parameters to execute the PutMetricAlarm service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domian and the following error code: `AWSCloudWatchErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorLimitExceeded`.
  
  @see AWSCloudWatchPutMetricAlarmInput
  */
@@ -291,7 +291,7 @@
  
  @param request A container for the necessary parameters to execute the PutMetricData service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domian and the following error code: `AWSCloudWatchErrorInvalidParameterValue`, `AWSCloudWatchErrorMissingRequiredParameter`, `AWSCloudWatchErrorInvalidParameterCombination`, `AWSCloudWatchErrorInternalService`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorInvalidParameterValue`, `AWSCloudWatchErrorMissingRequiredParameter`, `AWSCloudWatchErrorInvalidParameterCombination`, `AWSCloudWatchErrorInternalService`.
  
  @see AWSCloudWatchPutMetricDataInput
  */
@@ -302,7 +302,7 @@
  
  @param request A container for the necessary parameters to execute the SetAlarmState service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domian and the following error code: `AWSCloudWatchErrorResourceNotFound`, `AWSCloudWatchErrorInvalidFormat`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorResourceNotFound`, `AWSCloudWatchErrorInvalidFormat`.
  
  @see AWSCloudWatchSetAlarmStateInput
  */
