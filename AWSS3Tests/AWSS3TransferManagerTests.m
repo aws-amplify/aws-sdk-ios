@@ -1535,7 +1535,7 @@ static NSURL *tempSmallURL = nil;
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
     [[[downloadRequest pause] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'AWSS3TransferManagerErrorCompleted' Error, but got nil");
-        XCTAssertEqualObjects(@"com.amazonaws.AWSS3TransferManagerErrorDomain", task.error.domain, @"expected AWSS3TransferManagerErrorDomian error, but got:%@",task.error.domain);
+        XCTAssertEqualObjects(@"com.amazonaws.AWSS3TransferManagerErrorDomain", task.error.domain, @"expected AWSS3TransferManagerErrorDomain error, but got:%@",task.error.domain);
         XCTAssertEqual(AWSS3TransferManagerErrorCompleted, task.error.code, @"expected got  'AWSS3TransferManagerErrorCompleted' error code, but got:%ld",(long)task.error.code);
         return nil;
     }] waitUntilFinished];
@@ -1545,7 +1545,7 @@ static NSURL *tempSmallURL = nil;
     //try to resume the finished task
     [[[transferManager download:downloadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'AWSS3TransferManagerErrorCompleted' Error, but got nil");
-        XCTAssertEqualObjects(@"com.amazonaws.AWSS3TransferManagerErrorDomain", task.error.domain, @"expected AWSS3TransferManagerErrorDomian error, but got:%@",task.error.domain);
+        XCTAssertEqualObjects(@"com.amazonaws.AWSS3TransferManagerErrorDomain", task.error.domain, @"expected AWSS3TransferManagerErrorDomain error, but got:%@",task.error.domain);
         XCTAssertEqual(AWSS3TransferManagerErrorCompleted, task.error.code, @"expected got  'AWSS3TransferManagerErrorCompleted' error code, but got:%ld",(long)task.error.code);
         return nil;
     }] waitUntilFinished];
