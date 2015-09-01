@@ -221,6 +221,10 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             contentType:(NSString *)contentType
              expression:(AWSS3TransferUtilityUploadExpression *)expression
        completionHander:(AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler {
+    if (!expression) {
+        expression = [AWSS3TransferUtilityUploadExpression new];
+    }
+
     AWSS3TransferUtilityUploadTask *transferUtilityTask = [AWSS3TransferUtilityUploadTask new];
     transferUtilityTask.bucket = bucket;
     transferUtilityTask.key = key;
@@ -283,6 +287,10 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                        key:(NSString *)key
                 expression:(AWSS3TransferUtilityDownloadExpression *)expression
           completionHander:(AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler {
+    if (!expression) {
+        expression = [AWSS3TransferUtilityDownloadExpression new];
+    }
+
     AWSS3TransferUtilityDownloadTask *transferUtilityTask = [AWSS3TransferUtilityDownloadTask new];
     transferUtilityTask.location = fileURL;
     transferUtilityTask.bucket = bucket;

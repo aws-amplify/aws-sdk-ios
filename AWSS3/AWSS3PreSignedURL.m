@@ -273,27 +273,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                     ];
         }
 
-        //validate accessKey
-        if ([credentialsProvider respondsToSelector:@selector(accessKey)] && [credentialsProvider.accessKey length] > 0) {
-            //continue to process.
-        } else {
-            return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
-                                                             code:AWSS3PresignedURLErrorAccessKeyIsNil
-                                                         userInfo:@{NSLocalizedDescriptionKey: @"accessKey in credentialsProvider can not be nil"}]
-                    ];
-        }
-
-        //validate secretKey
-        if ([credentialsProvider respondsToSelector:@selector(secretKey)] && [credentialsProvider.secretKey length] > 0) {
-            //continue to process.
-        } else {
-            return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
-                                                             code:AWSS3PresignedURLErrorSecretKeyIsNil
-                                                         userInfo:@{NSLocalizedDescriptionKey: @"secretKey in credentialsProvider can not be nil"}]
-                    ];
-
-        }
-
         //validate bucketName
         if (!bucketName || [bucketName length] < 1) {
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
@@ -354,6 +333,27 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         
     }] continueWithSuccessBlock:^id(AWSTask *task) {
         
+        //validate accessKey
+        if ([credentialsProvider respondsToSelector:@selector(accessKey)] && [credentialsProvider.accessKey length] > 0) {
+            //continue to process.
+        } else {
+            return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
+                                                              code:AWSS3PresignedURLErrorAccessKeyIsNil
+                                                          userInfo:@{NSLocalizedDescriptionKey: @"accessKey in credentialsProvider can not be nil"}]
+                    ];
+        }
+        
+        //validate secretKey
+        if ([credentialsProvider respondsToSelector:@selector(secretKey)] && [credentialsProvider.secretKey length] > 0) {
+            //continue to process.
+        } else {
+            return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
+                                                              code:AWSS3PresignedURLErrorSecretKeyIsNil
+                                                          userInfo:@{NSLocalizedDescriptionKey: @"secretKey in credentialsProvider can not be nil"}]
+                    ];
+            
+        }
+
         //generate baseURL String (use virtualHostStyle if possible)
         NSString *keyPath = nil;
         if (bucketName == nil || [bucketName aws_isVirtualHostedStyleCompliant]) {

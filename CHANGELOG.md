@@ -1,5 +1,14 @@
 # AWSiOSSDKv2 CHANGELOG
 
+
+## 2.2.5
+
+### Resolved Issues
+* **Amazon S3 PresignedURL**
+* 	*  Fixed an issue in which `getPreSignedURL` may incorrectly returns credentials error under certain circumstance.
+* 	**Amazon S3 Transfer Utility**
+* 	* Fixed an issue in which `AWSS3TransferUtility` does not execute a completion handler when an expression is not provided.
+
 ## 2.2.4
 
 ### New Features

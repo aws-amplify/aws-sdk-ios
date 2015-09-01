@@ -858,7 +858,15 @@ static NSString *tableNameKeyOnly = nil;
     condition.attributeValueList = @[attributeValue];
     condition.comparisonOperator = AWSDynamoDBComparisonOperatorEQ;
     
-    gsiScanExpression.scanFilter = @{@"GameTitle":condition};
+    //second condition
+    AWSDynamoDBCondition *secondCondition = [AWSDynamoDBCondition new];
+    AWSDynamoDBAttributeValue * secondAttributeValue = [AWSDynamoDBAttributeValue new];
+    secondAttributeValue.N = @"50";
+    secondCondition.attributeValueList = @[secondAttributeValue];
+    secondCondition.comparisonOperator = AWSDynamoDBComparisonOperatorLE;
+    
+    gsiScanExpression.scanFilter = @{@"GameTitle":condition,
+                                     @"Wins":secondCondition};
     
     
     [[[dynamoDBObjectMapper scan:[TestObject2 class] expression:gsiScanExpression] continueWithBlock:^id(AWSTask *task) {
