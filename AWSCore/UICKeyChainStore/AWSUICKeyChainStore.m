@@ -1169,6 +1169,9 @@ static NSString *_defaultService;
                 NSLog(@"error: [%@] %@", @(e.code), e.localizedDescription);
                 if (error) {
                     *error = e;
+                    if (accessControl) {
+                        CFRelease(accessControl);
+                    }
                     return nil;
                 }
             }
@@ -1181,6 +1184,7 @@ static NSString *_defaultService;
                 return nil;
             }
             attributes[(__bridge __strong id)kSecAttrAccessControl] = (__bridge id)accessControl;
+            CFRelease(accessControl);
         } else {
 #if TARGET_OS_IPHONE
             NSLog(@"%@", @"Unavailable 'Touch ID integration' on iOS versions prior to 8.0.");
