@@ -22,7 +22,7 @@
 #import "AWSGZIP.h"
 #import "AWSMantle.h"
 
-NSString *const AWSiOSSDKVersion = @"2.2.5";
+NSString *const AWSiOSSDKVersion = @"2.2.6";
 
 NSString *const AWSDateRFC822DateFormat1 = @"EEE, dd MMM yyyy HH:mm:ss z";
 NSString *const AWSDateISO8601DateFormat1 = @"yyyy-MM-dd'T'HH:mm:ss'Z'";

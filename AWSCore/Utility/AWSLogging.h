@@ -36,28 +36,60 @@ typedef NS_ENUM(NSInteger, AWSLogLevel) {
 };
 
 /**
- *  AWSLogger is an utility class that handles logging to the console.
- *  You can specify the log level to control how verbose the output will be.
+ AWSLogger is an utility class that handles logging to the console. Changing log levels during development may make debugging easier. You can change the log level by importing `AWSCore.h` and calling:
+
+ *Swift*
+
+     AWSLogger.defaultLogger().logLevel = .Verbose
+
+ The following logging level options are available:
+
+     .None
+     .Error (This is the default. Only error logs are printed to the console.)
+     .Warn
+     .Info
+     .Debug
+     .Verbose
+
+ *Objective-C*
+
+     [AWSLogger defaultLogger].logLevel = AWSLogLevelVerbose;
+
+ The following logging level options are available:
+
+     AWSLogLevelNone
+     AWSLogLevelError (This is the default. Only error logs are printed to the console.)
+     AWSLogLevelWarn
+     AWSLogLevelInfo
+     AWSLogLevelDebug
+     AWSLogLevelVerbose
+
  */
 @interface AWSLogger : NSObject
 
 /**
- *  The log level setting. The default is AWSLogLevelNone.
+ The log level setting. The default is AWSLogLevelError.
  */
 @property (atomic, assign) AWSLogLevel logLevel;
 
 /**
- *  Returns the shared logger object.
- *
- *  @return The shared logger object.
+ Returns the shared logger object.
+
+ @return The shared logger object.
  */
 + (instancetype)defaultLogger;
 
 /**
- *  Prints out the formatted logs to the console.
- *
- *  @param logLevel The level of this log.
- *  @param fmt      The formatted string to log.
+ Prints out the formatted logs to the console. You can use the following predefined shorthand methods instead:
+
+     AWSLogError(fmt, ...)
+     AWSLogWarn(fmt, ...)
+     AWSLogInfo(fmt, ...)
+     AWSLogDebug(fmt, ...)
+     AWSLogVerbose(fmt, ...)
+
+ @param logLevel The level of this log.
+ @param fmt      The formatted string to log.
  */
 - (void)log:(AWSLogLevel)logLevel
      format:(NSString *)fmt, ... NS_FORMAT_FUNCTION(2, 3);

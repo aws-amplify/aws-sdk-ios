@@ -765,7 +765,8 @@
           \"sa-east-1\", \
           \"\", \
           \"cn-north-1\", \
-          \"eu-central-1\" \
+          \"eu-central-1\", \
+          \"us-gov-west-1\" \
         ] \
       }, \
       \"BucketLoggingStatus\":{ \
@@ -4001,7 +4002,10 @@
       }, \
       \"ServerSideEncryption\":{ \
         \"type\":\"string\", \
-        \"enum\":[\"AES256\"] \
+        \"enum\":[ \
+          \"AES256\", \
+          \"aws:kms\" \
+        ] \
       }, \
       \"Size\":{\"type\":\"integer\"}, \
       \"StorageClass\":{ \

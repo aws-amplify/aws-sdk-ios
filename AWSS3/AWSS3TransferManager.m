@@ -323,6 +323,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                 uploadPartRequest.body = tempURL;
                 uploadPartRequest.contentLength = @(dataLength);
                 uploadPartRequest.uploadId = output.uploadId?output.uploadId:uploadRequest.uploadId;
+                
+                //pass SSE Value
+                uploadPartRequest.SSECustomerAlgorithm = uploadRequest.SSECustomerAlgorithm;
+                uploadPartRequest.SSECustomerKey = uploadRequest.SSECustomerKey;
+                uploadPartRequest.SSECustomerKeyMD5 = uploadRequest.SSECustomerKeyMD5;
 
                 uploadRequest.currentUploadingPart = uploadPartRequest; //retain the current uploading parts for cancel/pause purpose
 

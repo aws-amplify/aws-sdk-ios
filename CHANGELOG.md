@@ -1,5 +1,17 @@
 # AWSiOSSDKv2 CHANGELOG
 
+## 2.2.6
+
+### New Features
+* **Amazon DynamoDB**
+* 	* Added support for Expressions syntax in DynamoDB Object Mapper.
+* **Amazon S3**
+* 	*  Added support for Key Management Service (kms) in S3.
+
+### Resolved Issues
+* **Amazon S3**
+    * [S3] Fixed an issue that failed large file uploads while using customer-provided encryption keys.
+
 
 ## 2.2.5
 

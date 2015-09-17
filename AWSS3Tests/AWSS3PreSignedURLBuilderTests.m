@@ -662,6 +662,111 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
     
 }
+
+
+-(void)testPutObjectWithCustomMetadata {
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    AWSS3PreSignedURLBuilder *preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
+    
+    NSString *testString1 = [NSString stringWithFormat:@"test string1: %@",[[NSUUID UUID] UUIDString]];
+    NSData *testObjectData = [testString1 dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *bucketName = @"ios-v2-s3-tm-testdata";
+    NSString *keyName = @"ios-presignedURL-testMetaData";
+    
+    NSString *userDefinedHeader = @"x-amz-meta-userdefined-key";
+    NSString *userDefinedValue = @"this is a test value with \" quotes \"";
+    
+    AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
+    getPreSignedURLRequest.bucket = bucketName;
+    getPreSignedURLRequest.key = keyName;
+    getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodPUT;
+    getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600]; //presigned-URL expiration date
+    
+    //Add other parameters or your custom metadata
+    [getPreSignedURLRequest setValue:userDefinedValue forRequestParameter:userDefinedHeader];
+    
+    //Build pre-signedURL
+    [[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
+        
+        //retrieve presigned-URL
+        NSURL *presignedURL = task.result;
+        
+        //create a url request
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
+        [request setHTTPMethod:@"PUT"];
+        [request setHTTPBody:testObjectData];
+        
+        //send HTTP PUT Request
+        NSError *returnError = nil;
+        NSHTTPURLResponse *returnResponse = nil;
+        [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
+        
+        if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) {
+            NSLog(@"server returns error.");
+        }
+        return nil;
+    }];
+    
+    
+    //Get the object back
+    if (true) {
+        
+        AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
+        getPreSignedURLRequest.bucket = bucketName;
+        getPreSignedURLRequest.key = keyName;
+        getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodGET;
+        getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
+        
+        [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
+            
+            if (task.error) {
+                XCTAssertNil(task.error);
+                return nil;
+            }
+            
+            NSURL *presignedURL = task.result;
+            
+            XCTAssertNotNil(presignedURL);
+            
+            //NSLog(@"(GET)presigned URL is: %@",presignedURL.absoluteString);
+            
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
+            request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+            
+            NSError *returnError = nil;
+            NSHTTPURLResponse *returnResponse = nil;
+            
+            NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
+            
+            XCTAssertNil(returnError, @"response contains error:%@,\n presigned URL is:%@",returnError,presignedURL.absoluteString);
+            
+            if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) {
+                XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
+                NSLog(@"response data is:%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
+            }
+            
+            //Assert response contains user-defined metadata
+            XCTAssertEqualObjects(userDefinedValue, [[returnResponse allHeaderFields] objectForKey:userDefinedHeader]);
+            
+            return nil;
+        }] waitUntilFinished];
+        
+        //remove the object
+        //delete uploaded Object
+        AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
+        deleteObjectRequest.bucket = bucketName;
+        deleteObjectRequest.key = keyName;
+        
+        [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
+            return nil;
+        }] waitUntilFinished];
+        
+    }
+    
+    
+}
+
 - (void)testPutObject2 {
     
     

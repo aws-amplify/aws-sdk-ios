@@ -16,24 +16,22 @@
 #import <Foundation/Foundation.h>
 
 /**
- * The AWSMobileAnalyticsOptions protocol is implemented by all classes that can
- * provide options such as enablement of event collection and allowance of event
- * delivery on WAN within the SDK.
+ The AWSMobileAnalyticsOptions protocol is implemented by all classes that can
+ provide options such as enablement of event collection and allowance of event
+ delivery on WAN within the SDK.
  */
 @protocol AWSMobileAnalyticsOptions <NSObject>
 
 /**
- * Indicates whether or not event collection is enabled for the SDK.
- * @returns YES/NO indicating if event collection is enabled
+ Indicates whether or not event collection is enabled for the SDK.
+ @returns YES/NO indicating if event collection is enabled
  */
 @required
 @property (nonatomic, readonly) BOOL allowEventCollection;
 
 /**
- * Indicates whether or not events will be sent to Mobile Analytics website over WAN (mobile) networks.
- * @returns YES indicates events will be delivered via WAN or WIFI networks.
- *           NO indicates events will be delivered via WIFI
- *         network only.
+ Indicates whether or not events will be sent to Mobile Analytics website over WAN (mobile) networks.
+ @returns YES indicates events will be delivered via WAN or WIFI networks. NO indicates events will be delivered via WIFI network only.
  */
 @required
 @property (nonatomic, readonly) BOOL allowWANDelivery;
