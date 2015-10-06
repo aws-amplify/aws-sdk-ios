@@ -105,6 +105,11 @@ static NSString *const AWSAPIGatewaySDKVersion = @"2.4.3";
         task = [task continueWithSuccessBlock:^id(AWSTask *task) {
             return [interceptor interceptRequest:request];
         }];
+    }    
+    
+    // AVAI OVERRIDE
+    if ([headerParameters objectForKey:@"Authorization"]) {
+        [request setValue:[headerParameters objectForKey:@"Authorization"] forHTTPHeaderField:@"Authorization"];
     }
 
     return [task continueWithSuccessBlock:^id(AWSTask *task) {
