@@ -159,4 +159,58 @@
     }] waitUntilFinished];
 }
 
+- (void)testInvokeWithVersion {
+    AWSLambda *lambda = [AWSLambda defaultLambda];
+    AWSLambdaInvocationRequest *invocationRequest = [AWSLambdaInvocationRequest new];
+    invocationRequest.functionName = @"helloWorldExample";
+    invocationRequest.qualifier = @"2";
+    invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
+    NSDictionary *parameters = @{@"key1" : @"value1",
+                                 @"key2" : @"value2",
+                                 @"key3" : @"value3",
+                                 @"isError" : @NO};
+    invocationRequest.payload = [NSJSONSerialization dataWithJSONObject:parameters
+                                                                options:kNilOptions
+                                                                  error:nil];
+    invocationRequest.clientContext = [[AWSClientContext new] base64EncodedJSONString];
+
+    [[[lambda invoke:invocationRequest] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        XCTAssertNil(task.exception);
+        XCTAssertNotNil(task.result);
+        AWSLambdaInvocationResponse *invocationResponse = task.result;
+        XCTAssertTrue([invocationResponse.payload isKindOfClass:[NSDictionary class]]);
+        NSDictionary *result = invocationResponse.payload;
+        XCTAssertEqualObjects(result[@"version"], @"1");
+        return nil;
+    }] waitUntilFinished];
+}
+
+- (void)testInvokeWithVersionAlias {
+    AWSLambda *lambda = [AWSLambda defaultLambda];
+    AWSLambdaInvocationRequest *invocationRequest = [AWSLambdaInvocationRequest new];
+    invocationRequest.functionName = @"helloWorldExample";
+    invocationRequest.qualifier = @"version2";
+    invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
+    NSDictionary *parameters = @{@"key1" : @"value1",
+                                 @"key2" : @"value2",
+                                 @"key3" : @"value3",
+                                 @"isError" : @NO};
+    invocationRequest.payload = [NSJSONSerialization dataWithJSONObject:parameters
+                                                                options:kNilOptions
+                                                                  error:nil];
+    invocationRequest.clientContext = [[AWSClientContext new] base64EncodedJSONString];
+
+    [[[lambda invoke:invocationRequest] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        XCTAssertNil(task.exception);
+        XCTAssertNotNil(task.result);
+        AWSLambdaInvocationResponse *invocationResponse = task.result;
+        XCTAssertTrue([invocationResponse.payload isKindOfClass:[NSDictionary class]]);
+        NSDictionary *result = invocationResponse.payload;
+        XCTAssertEqualObjects(result[@"version"], @"1");
+        return nil;
+    }] waitUntilFinished];
+}
+
 @end

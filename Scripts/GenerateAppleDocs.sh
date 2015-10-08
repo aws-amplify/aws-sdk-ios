@@ -5,19 +5,19 @@
 function cleanup
 {
     rm -rf docs
-    rm -rf Documentation   
+    rm -rf Documentation
 }
 
 
-VERSION="2.2.6"
+VERSION="2.2.7"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
 	exit 0
 else
 	cd "$SOURCE_ROOT"
-    
-    if [ -d docs ]; 
+
+    if [ -d docs ];
     then
         cleanup
     fi
@@ -56,7 +56,7 @@ else
 
 
     if [ -d ./AWSiOSSDKCognitoSync ]
-    then 
+    then
     	cp -r ./AWSiOSSDKCognitoSync/Cognito ./docs_tmp/Cognito
         rm -rf ./docs_tmp/Cognito/Internal
     	cp -r ./AWSiOSSDKCognitoSync/CognitoSync ./docs_tmp/CognitoSync
@@ -81,10 +81,10 @@ else
                             --keep-intermediate-files \
                             --index-desc ../aws-sdk-for-ios.markdown \
                             ./
-    
+
     # get command execution result
     result=$?
-    
+
     if [ $result != 0 ];
     then
         echo "Building the AWS iOS SDK document FAILED!"

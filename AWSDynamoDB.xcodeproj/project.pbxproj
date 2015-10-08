@@ -276,6 +276,7 @@
 		BDF5591F1AB374F00067F4F1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {

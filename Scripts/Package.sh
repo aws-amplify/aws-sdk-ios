@@ -38,6 +38,7 @@ if [ -x "Scripts/SdkPackage.sh" ]; then
     Scripts/SdkPackage.sh AWSSNS
     Scripts/SdkPackage.sh AWSSQS
 
+    Scripts/SdkPackage.sh AWSCognito AWSiOSSDKCognitoSync/
 fi
 
 git checkout .

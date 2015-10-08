@@ -79,6 +79,28 @@ static id mockNetworking = nil;
     [AWSLambda removeLambdaForKey:key];
 }
 
+- (void)testCreateAlias {
+    NSString *key = @"testCreateAlias";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] createAlias:nil] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.exception);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
 - (void)testCreateEventSourceMapping {
     NSString *key = @"testCreateEventSourceMapping";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
@@ -123,6 +145,28 @@ static id mockNetworking = nil;
     [AWSLambda removeLambdaForKey:key];
 }
 
+- (void)testDeleteAlias {
+    NSString *key = @"testDeleteAlias";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] deleteAlias:nil] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.exception);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
 - (void)testDeleteEventSourceMapping {
     NSString *key = @"testDeleteEventSourceMapping";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
@@ -154,6 +198,28 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
     [[[[AWSLambda LambdaForKey:key] deleteFunction:nil] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.exception);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testGetAlias {
+    NSString *key = @"testGetAlias";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] getAlias:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -299,6 +365,28 @@ static id mockNetworking = nil;
     [AWSLambda removeLambdaForKey:key];
 }
 
+- (void)testListAliases {
+    NSString *key = @"testListAliases";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] listAliases:nil] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.exception);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
 - (void)testListEventSourceMappings {
     NSString *key = @"testListEventSourceMappings";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
@@ -343,6 +431,50 @@ static id mockNetworking = nil;
     [AWSLambda removeLambdaForKey:key];
 }
 
+- (void)testListVersionsByFunction {
+    NSString *key = @"testListVersionsByFunction";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] listVersionsByFunction:nil] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.exception);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testPublishVersion {
+    NSString *key = @"testPublishVersion";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] publishVersion:nil] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.exception);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
 - (void)testRemovePermission {
     NSString *key = @"testRemovePermission";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
@@ -352,6 +484,28 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
     [[[[AWSLambda LambdaForKey:key] removePermission:nil] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.exception);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testUpdateAlias {
+    NSString *key = @"testUpdateAlias";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] updateAlias:nil] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);

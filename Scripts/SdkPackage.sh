@@ -20,6 +20,9 @@ if [ $# -eq 0 ]
 fi
 
 project_name=$1
+#set the project_path if $2 exists, if not, assign it to "."
+project_path=${2-.}
+echo "Project name: ${project_name}, Project Path: ${project_path}"
 
 # Define these to suit your nefarious purposes
 CURR_DIR=$(PWD)
@@ -45,7 +48,7 @@ fi
 xcodebuild ARCHS="armv7 armv7s arm64 i386 x86_64" \
 	ONLY_ACTIVE_ARCH=NO \
 	-configuration Debug \
-    -project "${project_name}.xcodeproj" \
+    -project "${project_path}/${project_name}.xcodeproj" \
     -target "${project_name}" \
     -sdk iphonesimulator \
     SYMROOT=$(PWD)/builtFramework \
@@ -56,7 +59,7 @@ exitOnFailureCode $?
 xcodebuild ARCHS="armv7 armv7s arm64 i386 x86_64" \
 	ONLY_ACTIVE_ARCH=NO \
 	-configuration Release \
-    -project "${project_name}.xcodeproj" \
+    -project "${project_path}/${project_name}.xcodeproj" \
     -target "${project_name}" \
     -sdk iphoneos \
     SYMROOT=$(PWD)/builtFramework \

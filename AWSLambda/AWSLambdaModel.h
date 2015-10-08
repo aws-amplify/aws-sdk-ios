@@ -58,18 +58,24 @@ typedef NS_ENUM(NSInteger, AWSLambdaLogType) {
 typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimeUnknown,
     AWSLambdaRuntimeNodejs,
+    AWSLambdaRuntimeJava8,
+    AWSLambdaRuntimePython27,
 };
 
 @class AWSLambdaAddPermissionRequest;
 @class AWSLambdaAddPermissionResponse;
+@class AWSLambdaAliasConfiguration;
+@class AWSLambdaCreateAliasRequest;
 @class AWSLambdaCreateEventSourceMappingRequest;
 @class AWSLambdaCreateFunctionRequest;
+@class AWSLambdaDeleteAliasRequest;
 @class AWSLambdaDeleteEventSourceMappingRequest;
 @class AWSLambdaDeleteFunctionRequest;
 @class AWSLambdaEventSourceMappingConfiguration;
 @class AWSLambdaFunctionCode;
 @class AWSLambdaFunctionCodeLocation;
 @class AWSLambdaFunctionConfiguration;
+@class AWSLambdaGetAliasRequest;
 @class AWSLambdaGetEventSourceMappingRequest;
 @class AWSLambdaGetFunctionConfigurationRequest;
 @class AWSLambdaGetFunctionRequest;
@@ -80,11 +86,17 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 @class AWSLambdaInvocationResponse;
 @class AWSLambdaInvokeAsyncRequest;
 @class AWSLambdaInvokeAsyncResponse;
+@class AWSLambdaListAliasesRequest;
+@class AWSLambdaListAliasesResponse;
 @class AWSLambdaListEventSourceMappingsRequest;
 @class AWSLambdaListEventSourceMappingsResponse;
 @class AWSLambdaListFunctionsRequest;
 @class AWSLambdaListFunctionsResponse;
+@class AWSLambdaListVersionsByFunctionRequest;
+@class AWSLambdaListVersionsByFunctionResponse;
+@class AWSLambdaPublishVersionRequest;
 @class AWSLambdaRemovePermissionRequest;
+@class AWSLambdaUpdateAliasRequest;
 @class AWSLambdaUpdateEventSourceMappingRequest;
 @class AWSLambdaUpdateFunctionCodeRequest;
 @class AWSLambdaUpdateFunctionConfigurationRequest;
@@ -101,7 +113,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 @property (nonatomic, strong) NSString *action;
 
 /**
- <p>Name of the Lambda function whose access policy you are updating by adding a new permission.</p><p> You can specify an unqualified function name (for example, "Thumbnail") or you can specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail"). AWS Lambda also allows you to specify only the account ID qualifier (for example, "account-id:Thumbnail"). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length. </p>
+ <p>Name of the Lambda function whose resource policy you are updating by adding a new permission.</p><p> You can specify an unqualified function name (for example, "Thumbnail") or you can specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail"). AWS Lambda also allows you to specify only the account ID qualifier (for example, "account-id:Thumbnail"). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length. </p>
  */
 @property (nonatomic, strong) NSString *functionName;
 
@@ -111,7 +123,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 @property (nonatomic, strong) NSString *principal;
 
 /**
- <p>The AWS account ID (without a hyphen) of the source owner. If the <code>SourceArn</code> identifies a bucket, then this is the bucket owner's account ID. You can use this additional condition to ensure the bucket you specify is owned by a specific account (it is possible the bucket owner deleted the bucket and some other AWS account created the bucket). You can also use this condition to specify all sources (that is, you don't specify the <code>SourceArn</code>) owned by a specific account. </p>
+ <p>You can specify this optional query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN. For example, if you specify function version 2 as the qualifier, then permission applies only when request is made using qualified function ARN: </p><p><code>arn:aws:lambda:aws-region:acct-id:function:function-name:2</code></p><p>If you specify alias name, for example "PROD", then the permission is valid only for requests made using the alias ARN:</p><p><code>arn:aws:lambda:aws-region:acct-id:function:function-name:PROD</code></p><p>If the qualifier is not specified, the permission is valid only when requests is made using unqualified function ARN. </p><p><code>arn:aws:lambda:aws-region:acct-id:function:function-name</code></p>
+ */
+@property (nonatomic, strong) NSString *qualifier;
+
+/**
+ <p>The AWS account ID (without a hyphen) of the source owner. For example, if the <code>SourceArn</code> identifies a bucket, then this is the bucket owner's account ID. You can use this additional condition to ensure the bucket you specify is owned by a specific account (it is possible the bucket owner deleted the bucket and some other AWS account created the bucket). You can also use this condition to specify all sources (that is, you don't specify the <code>SourceArn</code>) owned by a specific account. </p>
  */
 @property (nonatomic, strong) NSString *sourceAccount;
 
@@ -141,6 +158,62 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 @end
 
 /**
+ <p>Provides configuration information about a Lambda function version alias.</p>
+ */
+@interface AWSLambdaAliasConfiguration : AWSModel
+
+
+/**
+ <p>Lambda function ARN that is qualified using alias name as the suffix. For example, if you create an alias "BETA" pointing to a helloworld function version, the ARN is <code>arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA</code>.</p>
+ */
+@property (nonatomic, strong) NSString *aliasArn;
+
+/**
+ <p>Alias description.</p>
+ */
+@property (nonatomic, strong) NSString *detail;
+
+/**
+ <p>Function version to which the alias points.</p>
+ */
+@property (nonatomic, strong) NSString *functionVersion;
+
+/**
+ <p>Alias name.</p>
+ */
+@property (nonatomic, strong) NSString *name;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaCreateAliasRequest : AWSRequest
+
+
+/**
+ <p>Description of the alias.</p>
+ */
+@property (nonatomic, strong) NSString *detail;
+
+/**
+ <p>Name of the Lambda function for which you want to create an alias. </p>
+ */
+@property (nonatomic, strong) NSString *functionName;
+
+/**
+ <p>Lambda function version for which you are creating the alias.</p>
+ */
+@property (nonatomic, strong) NSString *functionVersion;
+
+/**
+ <p>Name for the alias your creating.</p>
+ */
+@property (nonatomic, strong) NSString *name;
+
+@end
+
+/**
  
  */
 @interface AWSLambdaCreateEventSourceMappingRequest : AWSRequest
@@ -152,7 +225,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 @property (nonatomic, strong) NSNumber *batchSize;
 
 /**
- <p>Indicates whether AWS Lambda should begin polling the event source. </p>
+ <p>Indicates whether AWS Lambda should begin polling the event source. By default, <code>Enabled</code> is true. </p>
  */
 @property (nonatomic, strong) NSNumber *enabled;
 
@@ -195,7 +268,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 @property (nonatomic, strong) NSString *functionName;
 
 /**
- <p>The function within your code that Lambda calls to begin execution. For Node.js, it is the <i>module-name</i>.<i>export</i> value in your function. </p>
+ <p>The function within your code that Lambda calls to begin execution. For Node.js, it is the <i>module-name</i>.<i>export</i> value in your function. For Java, it can be <code>package.class-name::handler</code> or <code>package.class-name</code>. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/java-programming-model-handler-types.html">Lambda Function Handler (Java)</a>. </p>
  */
 @property (nonatomic, strong) NSString *handler;
 
@@ -205,12 +278,17 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 @property (nonatomic, strong) NSNumber *memorySize;
 
 /**
+ <p>This boolean parameter can be used to request AWS Lambda to create the Lambda function and publish a version as an atomic operation. </p>
+ */
+@property (nonatomic, strong) NSNumber *publish;
+
+/**
  <p>The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS Lambda: How it Works</a></p>
  */
 @property (nonatomic, strong) NSString *role;
 
 /**
- <p>The runtime environment for the Lambda function you are uploading. Currently, Lambda supports only "nodejs" as the runtime.</p>
+ <p>The runtime environment for the Lambda function you are uploading. Currently, Lambda supports "java" and "nodejs" as the runtime.</p>
  */
 @property (nonatomic, assign) AWSLambdaRuntime runtime;
 
@@ -218,6 +296,24 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
  <p>The function execution time at which Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds. </p>
  */
 @property (nonatomic, strong) NSNumber *timeout;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaDeleteAliasRequest : AWSRequest
+
+
+/**
+ <p>The Lambda function name for which the alias is created.</p>
+ */
+@property (nonatomic, strong) NSString *functionName;
+
+/**
+ <p>Name of the alias to delete.</p>
+ */
+@property (nonatomic, strong) NSString *name;
 
 @end
 
@@ -244,6 +340,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
  <p>The Lambda function to delete.</p><p> You can specify an unqualified function name (for example, "Thumbnail") or you can specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail"). AWS Lambda also allows you to specify only the account ID qualifier (for example, "account-id:Thumbnail"). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length. </p>
  */
 @property (nonatomic, strong) NSString *functionName;
+
+/**
+ <p>Using this optional parameter you can specify a function version (but not the $LATEST version) to direct AWS Lambda to delete a specific function version. If the function version has one or more aliases pointing to it, you will get an error because you cannot have aliases pointing to it. You can delete any function version but not the $LATEST, that is, you cannot specify $LATEST as the value of this parameter. The $LATEST version can be deleted only when you want to delete all the function versions and aliases.</p><p>You can only specify a function version and not alias name using this parameter. You cannot delete a function version using its alias.</p><p>If you don't specify this parameter, AWS Lambda will delete the function, including all its versions and aliases.</p>
+ */
+@property (nonatomic, strong) NSString *qualifier;
 
 @end
 
@@ -348,6 +449,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 
 
 /**
+ <p>It is the SHA256 hash of your function deployment package.</p>
+ */
+@property (nonatomic, strong) NSString *codeSha256;
+
+/**
  <p>The size, in bytes, of the function .zip file you uploaded.</p>
  */
 @property (nonatomic, strong) NSNumber *codeSize;
@@ -397,6 +503,29 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
  */
 @property (nonatomic, strong) NSNumber *timeout;
 
+/**
+ <p>The version of the Lambda function.</p>
+ */
+@property (nonatomic, strong) NSString *version;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaGetAliasRequest : AWSRequest
+
+
+/**
+ <p>Function name for which the alias is created. An alias is a subresource that exists only in the context of an existing Lambda function. So you must specify the function name.</p>
+ */
+@property (nonatomic, strong) NSString *functionName;
+
+/**
+ <p>Name of the alias for which you want to retrieve information.</p>
+ */
+@property (nonatomic, strong) NSString *name;
+
 @end
 
 /**
@@ -423,6 +552,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
  */
 @property (nonatomic, strong) NSString *functionName;
 
+/**
+ <p>Using this optional parameter you can specify function version or alias name. If you specify function version, the API uses qualified function ARN and returns information about the specific function version. if you specify alias name, the API uses alias ARN and returns information about the function version to which the alias points.</p><p>If you don't specify this parameter, the API uses unqualified function ARN, and returns information about the $LATEST function version.</p>
+ */
+@property (nonatomic, strong) NSString *qualifier;
+
 @end
 
 /**
@@ -435,6 +569,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
  <p>The Lambda function name. </p><p> You can specify an unqualified function name (for example, "Thumbnail") or you can specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail"). AWS Lambda also allows you to specify only the account ID qualifier (for example, "account-id:Thumbnail"). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length. </p>
  */
 @property (nonatomic, strong) NSString *functionName;
+
+/**
+ <p>Using this optional parameter to specify a function version or alias name. If you specify function version, the API uses qualified function ARN for the request and returns information about the specific Lambda function version. If you specify alias name, the API uses alias ARN and returns information about the function version to which the alias points. If you don't provide this parameter, the API uses unqualified function ARN and returns information about the $LATEST version of the Lambda function.</p>
+ */
+@property (nonatomic, strong) NSString *qualifier;
 
 @end
 
@@ -463,9 +602,14 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 
 
 /**
- <p>Function name whose access policy you want to retrieve. </p><p> You can specify an unqualified function name (for example, "Thumbnail") or you can specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail"). AWS Lambda also allows you to specify only the account ID qualifier (for example, "account-id:Thumbnail"). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length. </p>
+ <p>Function name whose resource policy you want to retrieve. </p><p> You can specify an unqualified function name (for example, "Thumbnail") or you can specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail"). AWS Lambda also allows you to specify only the account ID qualifier (for example, "account-id:Thumbnail"). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length. </p>
  */
 @property (nonatomic, strong) NSString *functionName;
+
+/**
+ <p>You can specify this optional query parameter to specify function version or alias name in which case this API will return all permissions associated with the specific ARN. If you don't provide this parameter, the API will return permissions that apply to the unqualified function ARN. </p>
+ */
+@property (nonatomic, strong) NSString *qualifier;
 
 @end
 
@@ -476,7 +620,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 
 
 /**
- <p>The access policy associated with the specified function. The response returns the same as a string using "\" as an escape character in the JSON. </p>
+ <p>The resource policy associated with the specified function. The response returns the same as a string using "\" as an escape character in the JSON. </p>
  */
 @property (nonatomic, strong) NSString *policy;
 
@@ -512,6 +656,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
  <p>JSON that you want to provide to your Lambda function as input.</p>
  */
 @property (nonatomic, strong) id payload;
+
+/**
+ <p>You can use this optional paramter to specify a Lambda function version or alias name. If you specify function version, the API uses qualified function ARN to invoke a specific Lambda function. If you specify alias name, the API uses the alias ARN to invoke the Lambda function version to which the alias points.</p><p>If you don't provide this parameter, then the API uses unqualified function ARN which results in invocation of the $LATEST version.</p>
+ */
+@property (nonatomic, strong) NSString *qualifier;
 
 @end
 
@@ -571,6 +720,52 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
  <p>It will be 202 upon success.</p>
  */
 @property (nonatomic, strong) NSNumber *status;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaListAliasesRequest : AWSRequest
+
+
+/**
+ <p>Lambda function name for which the alias is created.</p>
+ */
+@property (nonatomic, strong) NSString *functionName;
+
+/**
+ <p>If you specify this optional parameter, the API returns only the aliases pointing to the specific Lambda function version, otherwise returns all aliases created for the Lambda function.</p>
+ */
+@property (nonatomic, strong) NSString *functionVersion;
+
+/**
+ <p>Optional string. An opaque pagination token returned from a previous ListAliases operation. If present, indicates where to continue the listing.</p>
+ */
+@property (nonatomic, strong) NSString *marker;
+
+/**
+ <p>Optional integer. Specifies the maximum number of aliases to return in response. This parameter value must be greater than 0.</p>
+ */
+@property (nonatomic, strong) NSNumber *maxItems;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaListAliasesResponse : AWSModel
+
+
+/**
+ <p>An list of alises.</p>
+ */
+@property (nonatomic, strong) NSArray *aliases;
+
+/**
+ <p>A string, present if there are more aliases.</p>
+ */
+@property (nonatomic, strong) NSString *nextMarker;
 
 @end
 
@@ -659,18 +854,115 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 /**
  
  */
+@interface AWSLambdaListVersionsByFunctionRequest : AWSRequest
+
+
+/**
+ <p>Function name whose versions to list. You can specify an unqualified function name (for example, "Thumbnail") or you can specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail"). AWS Lambda also allows you to specify only the account ID qualifier (for example, "account-id:Thumbnail"). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length. </p>
+ */
+@property (nonatomic, strong) NSString *functionName;
+
+/**
+ <p> Optional string. An opaque pagination token returned from a previous <code>ListVersionsByFunction</code> operation. If present, indicates where to continue the listing. </p>
+ */
+@property (nonatomic, strong) NSString *marker;
+
+/**
+ <p> Optional integer. Specifies the maximum number of AWS Lambda function versions to return in response. This parameter value must be greater than 0. </p>
+ */
+@property (nonatomic, strong) NSNumber *maxItems;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaListVersionsByFunctionResponse : AWSModel
+
+
+/**
+ <p>A string, present if there are more function versions.</p>
+ */
+@property (nonatomic, strong) NSString *nextMarker;
+
+/**
+ <p>A list of Lambda function versions.</p>
+ */
+@property (nonatomic, strong) NSArray *versions;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaPublishVersionRequest : AWSRequest
+
+
+/**
+ <p>The SHA256 hash of the deployment package you want to publish. This provides validation on the code you are publishing. If you provide this parameter value must match the SHA256 of the HEAD version for the publication to succeed. </p>
+ */
+@property (nonatomic, strong) NSString *codeSha256;
+
+/**
+ <p> The description for the version you are publishing. If not provided, AWS Lambda copies the description from the HEAD version. </p>
+ */
+@property (nonatomic, strong) NSString *detail;
+
+/**
+ <p>The Lambda function name. You can specify an unqualified function name (for example, "Thumbnail") or you can specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail"). AWS Lambda also allows you to specify only the account ID qualifier (for example, "account-id:Thumbnail"). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length. </p>
+ */
+@property (nonatomic, strong) NSString *functionName;
+
+@end
+
+/**
+ 
+ */
 @interface AWSLambdaRemovePermissionRequest : AWSRequest
 
 
 /**
- <p>Lambda function whose access policy you want to remove a permission from.</p><p> You can specify an unqualified function name (for example, "Thumbnail") or you can specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail"). AWS Lambda also allows you to specify only the account ID qualifier (for example, "account-id:Thumbnail"). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length. </p>
+ <p>Lambda function whose resource policy you want to remove a permission from.</p><p> You can specify an unqualified function name (for example, "Thumbnail") or you can specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail"). AWS Lambda also allows you to specify only the account ID qualifier (for example, "account-id:Thumbnail"). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length. </p>
  */
 @property (nonatomic, strong) NSString *functionName;
+
+/**
+ <p>You can specify this optional parameter to remove permission associated with a specific function version or function alias. The value of this paramter is the function version or alias name. If you don't specify this parameter, the API removes permission associated with the unqualified function ARN.</p>
+ */
+@property (nonatomic, strong) NSString *qualifier;
 
 /**
  <p>Statement ID of the permission to remove.</p>
  */
 @property (nonatomic, strong) NSString *statementId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaUpdateAliasRequest : AWSRequest
+
+
+/**
+ <p>You can optionally change the description of the alias using this parameter.</p>
+ */
+@property (nonatomic, strong) NSString *detail;
+
+/**
+ <p>The function name for which the alias is created.</p>
+ */
+@property (nonatomic, strong) NSString *functionName;
+
+/**
+ <p>Using this parameter you can optionally change the Lambda function version to which the alias to points to.</p>
+ */
+@property (nonatomic, strong) NSString *functionVersion;
+
+/**
+ <p>The alias name.</p>
+ */
+@property (nonatomic, strong) NSString *name;
 
 @end
 
@@ -712,6 +1004,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
  <p>The existing Lambda function name whose code you want to replace.</p><p> You can specify an unqualified function name (for example, "Thumbnail") or you can specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail"). AWS Lambda also allows you to specify only the account ID qualifier (for example, "account-id:Thumbnail"). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length. </p>
  */
 @property (nonatomic, strong) NSString *functionName;
+
+/**
+ <p>This boolean parameter can be used to request AWS Lambda to update the Lambda function and publish a version as an atomic operation. </p>
+ */
+@property (nonatomic, strong) NSNumber *publish;
 
 /**
  <p>Amazon S3 bucket name where the .zip file containing your deployment package is stored. This bucket must reside in the same AWS region where you are creating the Lambda function.</p>

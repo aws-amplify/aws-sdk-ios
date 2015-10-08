@@ -138,4 +138,60 @@
     }] waitUntilFinished];
 }
 
+- (void)testInvokeWithVersion {
+    AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
+
+    AWSLambdaInvokerInvocationRequest *invocationRequest = [AWSLambdaInvokerInvocationRequest new];
+    invocationRequest.functionName = @"helloWorldExample";
+    invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
+    invocationRequest.logType = AWSLambdaLogTypeTail;
+    invocationRequest.payload = @{@"key1" : @"value1",
+                                  @"key2" : @"value2",
+                                  @"key3" : @"value3",
+                                  @"isError" : @NO};
+    invocationRequest.qualifier = @"2";
+
+    [[[lambdaInvoker invoke:invocationRequest] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        XCTAssertNil(task.exception);
+        XCTAssertNotNil(task.result);
+        XCTAssertTrue([task.result isKindOfClass:[AWSLambdaInvokerInvocationResponse class]]);
+        AWSLambdaInvokerInvocationResponse *invocationResponse = task.result;
+        XCTAssertTrue([invocationResponse.payload isKindOfClass:[NSDictionary class]]);
+        NSDictionary *result = invocationResponse.payload;
+        XCTAssertEqualObjects(result[@"version"], @"1");
+        XCTAssertNotNil(invocationResponse.logResult);
+        XCTAssertTrue([invocationResponse.logResult isKindOfClass:[NSString class]]);
+        return nil;
+    }] waitUntilFinished];
+}
+
+- (void)testInvokeWithVersionAlias {
+    AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
+
+    AWSLambdaInvokerInvocationRequest *invocationRequest = [AWSLambdaInvokerInvocationRequest new];
+    invocationRequest.functionName = @"helloWorldExample";
+    invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
+    invocationRequest.logType = AWSLambdaLogTypeTail;
+    invocationRequest.payload = @{@"key1" : @"value1",
+                                  @"key2" : @"value2",
+                                  @"key3" : @"value3",
+                                  @"isError" : @NO};
+    invocationRequest.qualifier = @"version2";
+
+    [[[lambdaInvoker invoke:invocationRequest] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        XCTAssertNil(task.exception);
+        XCTAssertNotNil(task.result);
+        XCTAssertTrue([task.result isKindOfClass:[AWSLambdaInvokerInvocationResponse class]]);
+        AWSLambdaInvokerInvocationResponse *invocationResponse = task.result;
+        XCTAssertTrue([invocationResponse.payload isKindOfClass:[NSDictionary class]]);
+        NSDictionary *result = invocationResponse.payload;
+        XCTAssertEqualObjects(result[@"version"], @"1");
+        XCTAssertNotNil(invocationResponse.logResult);
+        XCTAssertTrue([invocationResponse.logResult isKindOfClass:[NSString class]]);
+        return nil;
+    }] waitUntilFinished];
+}
+
 @end
