@@ -21,11 +21,13 @@
 #import "AWSLogging.h"
 #import "AWSSynchronizedMutableDictionary.h"
 
+// Private constants
 NSUInteger const AWSS3TransferManagerMinimumPartSize = 5 * 1024 * 1024; // 5MB
 NSString *const AWSS3TransferManagerCacheName = @"com.amazonaws.AWSS3TransferManager.CacheName";
 NSString *const AWSS3TransferManagerErrorDomain = @"com.amazonaws.AWSS3TransferManagerErrorDomain";
 NSUInteger const AWSS3TransferManagerByteLimitDefault = 5 * 1024 * 1024; // 5MB
 NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the data indefinitely unless it hits the size limit.
+NSString *const AWSS3TransferManagerUserAgentPrefix = @"transfer-manager";
 
 @interface AWSS3TransferManager()
 
@@ -113,9 +115,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration
                             cacheName:(NSString *)cacheName {
     if (self = [super init]) {
+        AWSServiceConfiguration *_configuration = [configuration copy];
+        [_configuration addUserAgentProductToken:AWSS3TransferManagerUserAgentPrefix];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        _s3 = [[AWSS3 alloc] initWithConfiguration:configuration];
+        _s3 = [[AWSS3 alloc] initWithConfiguration:_configuration];
 #pragma clang diagnostic pop
 
         _cache = [[AWSTMCache alloc] initWithName:cacheName

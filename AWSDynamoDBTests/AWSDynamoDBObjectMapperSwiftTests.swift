@@ -65,7 +65,7 @@ class AWSDynamoDBObjectMapperSwiftTests: XCTestCase {
         let boolNumberArray:Array<AnyObject> = [true,false,NSNumber(bool: true),NSNumber(bool: false)]
         let nonBoolNumberArray:Array<AnyObject> = [20,500.34,NSNumber(integer: 34),NSNumber(char: 3),NSNumber(float: 23.4)]
         let myboolClass = NSNumber(bool: true).dynamicType
-        var klass: AnyClass = object_getClass( NSNumber(bool: true))
+        let klass: AnyClass = object_getClass(NSNumber(bool: true))
 
         for myNum in boolNumberArray {
             let result = myNum.isKindOfClass(myboolClass)
@@ -105,9 +105,6 @@ class AWSDynamoDBObjectMapperSwiftTests: XCTestCase {
         let listElement = ["StringInList",55,binaryElement,stringSet,numberSet,binarySet,true,["stringInListOfList",57]]
         let mapElement = ["mapStringKey":"mapStringValue","mapNumberKey":98,"mapBinaryKey":binaryElement,"mapStringSetKey":stringSet,"mapNumberSetKey":numberSet,"mapBoolKey":true,"mapListKey":listElement,"mapMapKey":["str":"strValue","num":5,"lst":listElement]]
 
-        let updatedListElement = ["updatedValue",999,false,["newListOfList",123]]
-        let updatedMapElement = ["mapStringKey":"updatedValue","mapNumberSetKey":123456,"mapBoolKey":false,"mapListKey":updatedListElement]
-
         let objv2 = TestObjectV2()
         objv2.hashKey = hashKeyValue
         objv2.rangeKey = rangeKeyValue
@@ -126,5 +123,4 @@ class AWSDynamoDBObjectMapperSwiftTests: XCTestCase {
             return nil
             }.waitUntilFinished()
     }
-
 }

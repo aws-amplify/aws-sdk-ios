@@ -78,7 +78,7 @@
 		BDF559941AB375EC0067F4F1 /* AWSElasticLoadBalancingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSElasticLoadBalancingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF5599A1AB375EC0067F4F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDF559A51AB3761C0067F4F1 /* AWSElasticLoadBalancing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSElasticLoadBalancing.h; sourceTree = "<group>"; };
-		BDF559A61AB3761C0067F4F1 /* AWSElasticLoadBalancingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSElasticLoadBalancingService.m; sourceTree = "<group>"; };
+		BDF559A61AB3761C0067F4F1 /* AWSElasticLoadBalancingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSElasticLoadBalancingService.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BDF559A71AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSElasticLoadBalancingModel.h; sourceTree = "<group>"; };
 		BDF559A81AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSElasticLoadBalancingModel.m; sourceTree = "<group>"; };
 		CEE5325F1B03D397002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -259,7 +259,7 @@
 		BDF559811AB375EC0067F4F1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
 					BDF559881AB375EC0067F4F1 = {
@@ -355,10 +355,7 @@
 		BDF125BC1B45C1A900DFBFEC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -378,6 +375,7 @@
 					"-force_load",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AWSElasticLoadBalancingUnitTests;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
 			};
@@ -386,10 +384,7 @@
 		BDF125BD1B45C1A900DFBFEC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = AWSElasticLoadBalancingTests/Info.plist;
@@ -405,6 +400,7 @@
 					"-force_load",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AWSElasticLoadBalancingUnitTests;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
 			};
@@ -433,6 +429,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -497,6 +494,8 @@
 		BDF5599E1AB375EC0067F4F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -511,6 +510,8 @@
 		BDF5599F1AB375EC0067F4F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -525,10 +526,7 @@
 		BDF559A11AB375EC0067F4F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -538,6 +536,7 @@
 				INFOPLIST_FILE = AWSElasticLoadBalancingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(SYMROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AWSElasticLoadBalancingTests;
 			};
 			name = Debug;
@@ -545,15 +544,13 @@
 		BDF559A21AB375EC0067F4F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = AWSElasticLoadBalancingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(SYMROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AWSElasticLoadBalancingTests;
 			};
 			name = Release;

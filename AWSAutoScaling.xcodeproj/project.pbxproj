@@ -74,7 +74,7 @@
 		BDB5DF271AB37A7A002DD224 /* AWSAutoScalingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSAutoScalingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB5DF2D1AB37A7A002DD224 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../AWSAutoScalingTests/Info.plist; sourceTree = "<group>"; };
 		BDB5DF371AB37AA9002DD224 /* AWSAutoScaling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSAutoScaling.h; path = ../AWSAutoScaling/AWSAutoScaling.h; sourceTree = "<group>"; };
-		BDB5DF381AB37AA9002DD224 /* AWSAutoScalingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSAutoScalingService.m; path = ../AWSAutoScaling/AWSAutoScalingService.m; sourceTree = "<group>"; };
+		BDB5DF381AB37AA9002DD224 /* AWSAutoScalingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AWSAutoScalingService.m; path = ../AWSAutoScaling/AWSAutoScalingService.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BDB5DF391AB37AA9002DD224 /* AWSAutoScalingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSAutoScalingModel.h; path = ../AWSAutoScaling/AWSAutoScalingModel.h; sourceTree = "<group>"; };
 		BDB5DF3A1AB37AA9002DD224 /* AWSAutoScalingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSAutoScalingModel.m; path = ../AWSAutoScaling/AWSAutoScalingModel.m; sourceTree = "<group>"; };
 		BDB73D651B1D3E6D00717559 /* AWSAutoScalingResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSAutoScalingResources.h; sourceTree = "<group>"; };
@@ -259,7 +259,7 @@
 		BDB5DF141AB37A79002DD224 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
 					BDB5DF1B1AB37A79002DD224 = {
@@ -375,6 +375,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -439,6 +440,8 @@
 		BDB5DF311AB37A7A002DD224 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -452,6 +455,8 @@
 		BDB5DF321AB37A7A002DD224 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -465,10 +470,7 @@
 		BDB5DF341AB37A7A002DD224 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -478,6 +480,7 @@
 				INFOPLIST_FILE = AWSAutoScalingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(SYMROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AWSAutoScalingTests;
 			};
 			name = Debug;
@@ -485,15 +488,13 @@
 		BDB5DF351AB37A7A002DD224 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = AWSAutoScalingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(SYMROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AWSAutoScalingTests;
 			};
 			name = Release;
@@ -501,10 +502,7 @@
 		BDF1256E1B45BF3000DFBFEC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -524,6 +522,7 @@
 					"-force_load",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AWSAutoScalingUnitTests;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
 			};
@@ -532,10 +531,7 @@
 		BDF1256F1B45BF3000DFBFEC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = AWSAutoScalingTests/Info.plist;
@@ -551,6 +547,7 @@
 					"-force_load",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AWSAutoScalingUnitTests;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
 			};

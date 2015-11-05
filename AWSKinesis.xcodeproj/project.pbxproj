@@ -86,7 +86,7 @@
 		BDF559C41AB376720067F4F1 /* AWSKinesisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSKinesisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF559CA1AB376720067F4F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../AWSKinesisTests/Info.plist; sourceTree = "<group>"; };
 		BDF559D51AB376A50067F4F1 /* AWSKinesis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSKinesis.h; sourceTree = "<group>"; };
-		BDF559D61AB376A50067F4F1 /* AWSKinesisService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisService.m; sourceTree = "<group>"; };
+		BDF559D61AB376A50067F4F1 /* AWSKinesisService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSKinesisService.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BDF559D71AB376A50067F4F1 /* AWSKinesisModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSKinesisModel.h; sourceTree = "<group>"; };
 		BDF559D81AB376A50067F4F1 /* AWSKinesisModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisModel.m; sourceTree = "<group>"; };
 		BDF559D91AB376A50067F4F1 /* AWSKinesisRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AWSKinesisRecorder.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -277,7 +277,7 @@
 		BDF559B11AB376720067F4F1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
 					BDF559B81AB376720067F4F1 = {
@@ -375,10 +375,7 @@
 		BDF125D01B45C1D000DFBFEC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -398,6 +395,7 @@
 					"-force_load",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AWSKinesisUnitTests;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
 			};
@@ -406,10 +404,7 @@
 		BDF125D11B45C1D000DFBFEC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = AWSKinesisTests/Info.plist;
@@ -425,6 +420,7 @@
 					"-force_load",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AWSKinesisUnitTests;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
 			};
@@ -453,6 +449,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -517,6 +514,8 @@
 		BDF559CE1AB376720067F4F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -531,6 +530,8 @@
 		BDF559CF1AB376720067F4F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -545,10 +546,7 @@
 		BDF559D11AB376720067F4F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -558,6 +556,7 @@
 				INFOPLIST_FILE = AWSKinesisTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(SYMROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AWSKinesisTests;
 			};
 			name = Debug;
@@ -565,15 +564,13 @@
 		BDF559D21AB376720067F4F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = AWSKinesisTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(SYMROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AWSKinesisTests;
 			};
 			name = Release;

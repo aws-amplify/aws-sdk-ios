@@ -644,10 +644,19 @@ BOOL _identityChanged;
     // Add a new test user, the result contains an access key we can use to test assume role
     NSString *addUserURI = [NSString stringWithFormat:@"https://graph.facebook.com/%@/accounts/test-users?installed=true&name=Foo%%20Bar&locale=en_US&permissions=read_stream&method=post&access_token=%@", AWSCognitoCredentialsProviderTestsFacebookAppID, _facebookAppToken];
 
-    NSString *newUser = [NSString stringWithContentsOfURL:[NSURL URLWithString:addUserURI] encoding:NSASCIIStringEncoding error:nil];
-    NSDictionary *user = [NSJSONSerialization JSONObjectWithData: [newUser dataUsingEncoding:NSUTF8StringEncoding]
-                                                         options: NSJSONReadingMutableContainers
-                                                           error: nil];
+    NSError *error = nil;
+    NSString *newUser = [NSString stringWithContentsOfURL:[NSURL URLWithString:addUserURI]
+                                                 encoding:NSASCIIStringEncoding
+                                                    error:&error];
+    if (!newUser) {
+        NSLog(@"Error: %@", error);
+    }
+    NSDictionary *user = [NSJSONSerialization JSONObjectWithData:[newUser dataUsingEncoding:NSUTF8StringEncoding]
+                                                         options:NSJSONReadingMutableContainers
+                                                           error:&error];
+    if (!user) {
+        NSLog(@"Error: %@", error);
+    }
 
     _facebookToken = [user objectForKey:@"access_token"];
     _facebookId = [user objectForKey:@"id"];

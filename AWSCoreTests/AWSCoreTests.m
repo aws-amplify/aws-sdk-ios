@@ -336,6 +336,7 @@
             //create mockRequest
             NSMutableURLRequest *mockRequest = [NSMutableURLRequest new];
             mockRequest.URL = [NSURL URLWithString:@"/"];
+            mockRequest.HTTPMethod = @"POST";
             
             //create user input parameters
             NSDictionary *testParameters = aTest[@"params"];
@@ -823,6 +824,7 @@
             //create mockRequest
             NSMutableURLRequest *mockRequest = [NSMutableURLRequest new];
             mockRequest.URL = [NSURL URLWithString:@"/"];
+            mockRequest.HTTPMethod = @"POST";
             
             //create user input parameters
             NSDictionary *testParameters = aTest[@"params"];
@@ -950,6 +952,48 @@
     }
 }
 
+- (void)testSerializersForHTTPMethodAndBodyMismatch {
+    NSMutableURLRequest *request = [NSMutableURLRequest new];
+    request.URL = [NSURL URLWithString:@"/"];
+    request.HTTPMethod = @"GET";
+
+    AWSJSONRequestSerializer *requestSerializer = [AWSJSONRequestSerializer new];
+
+    [[[requestSerializer serializeRequest:request
+                                  headers:@{@"some-test-header" : @"some-test-header-value"}
+                               parameters:@{@"key1" : @"value1",
+                                            @"key2" : @"value2",
+                                            @"key3" : @"value3"}] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        XCTAssertNil(task.exception);
+        XCTAssertNil(request.HTTPBody);
+        return nil;
+    }] waitUntilFinished];
+
+    request.HTTPMethod = @"DELETE";
+    [[[requestSerializer serializeRequest:request
+                                  headers:@{@"some-test-header" : @"some-test-header-value"}
+                               parameters:@{@"key1" : @"value1",
+                                            @"key2" : @"value2",
+                                            @"key3" : @"value3"}] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        XCTAssertNil(task.exception);
+        XCTAssertNil(request.HTTPBody);
+        return nil;
+    }] waitUntilFinished];
+
+    request.HTTPMethod = @"POST";
+    [[[requestSerializer serializeRequest:request
+                                  headers:@{@"some-test-header" : @"some-test-header-value"}
+                               parameters:@{@"key1" : @"value1",
+                                            @"key2" : @"value2",
+                                            @"key3" : @"value3"}] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        XCTAssertNil(task.exception);
+        XCTAssertNotNil(request.HTTPBody);
+        return nil;
+    }] waitUntilFinished];
+}
 
 - (void) replaceNSData2NSString:(id)jsonObject
 {

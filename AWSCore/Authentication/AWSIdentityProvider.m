@@ -87,6 +87,9 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
                 case AWSCognitoLoginProviderKeyLoginWithAmazon:
                     updatedKey = @"www.amazon.com";
                     break;
+                case AWSCognitoLoginProviderKeyTwitter:
+                    updatedKey = @"api.twitter.com";
+                    break;
                 case AWSCognitoLoginProviderKeyUnknown:
                 default:
                     break;

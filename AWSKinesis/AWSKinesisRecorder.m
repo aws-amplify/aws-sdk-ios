@@ -28,6 +28,7 @@ NSString *const AWSKinesisRecorderByteThresholdReachedNotificationDiskBytesUsedK
 NSString *const AWSKinesisRecorderDatabasePathPrefix = @"com/amazonaws/AWSKinesisRecorder";
 NSUInteger const AWSKinesisRecorderByteLimitDefault = 5 * 1024 * 1024; // 5MB
 NSTimeInterval const AWSKinesisRecorderAgeLimitDefault = 0.0; // Keeps the data indefinitely unless it hits the size limit.
+NSString *const AWSKinesisRecorderUserAgent = @"recorder";
 
 // Legacy constants
 NSString *const AWSKinesisRecorderCacheName = @"com.amazonaws.AWSKinesisRecorderCacheName.Cache";
@@ -100,11 +101,13 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                            identifier:(NSString *)identifier
                             cacheName:(NSString *)cacheName {
     if (self = [super init]) {
+        AWSServiceConfiguration *_configuration = [configuration copy];
+        [_configuration addUserAgentProductToken:AWSKinesisRecorderUserAgent];
         NSString *databaseDirectoryPath = [NSTemporaryDirectory() stringByAppendingPathComponent:AWSKinesisRecorderDatabasePathPrefix];
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        _kinesis = [[AWSKinesis alloc] initWithConfiguration:configuration];
+        _kinesis = [[AWSKinesis alloc] initWithConfiguration:_configuration];
 #pragma clang diagnostic pop
 
         _databasePath = [databaseDirectoryPath stringByAppendingPathComponent:identifier];

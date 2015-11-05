@@ -211,7 +211,7 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
                 }];
             }
         }
-        
+
         return task;
     }] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSNetworkingRequest *request = delegate.request;

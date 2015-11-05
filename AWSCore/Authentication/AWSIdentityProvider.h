@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoLoginProviderKey) {
     AWSCognitoLoginProviderKeyFacebook,
     AWSCognitoLoginProviderKeyGoogle,
     AWSCognitoLoginProviderKeyLoginWithAmazon,
+    AWSCognitoLoginProviderKeyTwitter,
 };
 
 FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderErrorDomain;

@@ -37,6 +37,7 @@
 		BDF55A191AB377010067F4F1 /* AWSS3Model.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF55A0F1AB377010067F4F1 /* AWSS3Model.m */; };
 		CE83D0EA1B7171EB004A42E4 /* AWSS3TransferUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = CE83D0E81B7171EB004A42E4 /* AWSS3TransferUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE83D0EB1B7171EB004A42E4 /* AWSS3TransferUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE83D0E91B7171EB004A42E4 /* AWSS3TransferUtility.m */; };
+		CED7DE4D1BE2E121008DA1DC /* AWSS3TransferUtility.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE83D0E81B7171EB004A42E4 /* AWSS3TransferUtility.h */; };
 		CEE5326E1B03D3CB002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE5326D1B03D3CB002CED62 /* libz.dylib */; };
 		CEE7DE731AC1E1DA0095C4B7 /* AWSS3Service.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE721AC1E1DA0095C4B7 /* AWSS3Service.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				CED7DE4D1BE2E121008DA1DC /* AWSS3TransferUtility.h in CopyFiles */,
 				BD9D97631AC1EEC000CEEE08 /* AWSS3Service.h in CopyFiles */,
 				BDC91C481ABBA0B500F74D49 /* AWSS3PreSignedURL.h in CopyFiles */,
 				BDC91C491ABBA0B500F74D49 /* AWSS3TransferManager.h in CopyFiles */,
@@ -290,7 +292,7 @@
 		BDF559E41AB376DC0067F4F1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
 					BDF559EB1AB376DC0067F4F1 = {
@@ -391,10 +393,7 @@
 		BDF1261D1B45C2C100DFBFEC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -414,6 +413,7 @@
 					"-force_load",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AWSS3UnitTests;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
 			};
@@ -422,10 +422,7 @@
 		BDF1261E1B45C2C100DFBFEC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = AWSS3Tests/Info.plist;
@@ -441,6 +438,7 @@
 					"-force_load",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AWSS3UnitTests;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
 			};
@@ -469,6 +467,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -533,6 +532,8 @@
 		BDF55A011AB376DC0067F4F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -546,6 +547,8 @@
 		BDF55A021AB376DC0067F4F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -559,10 +562,7 @@
 		BDF55A041AB376DC0067F4F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -572,6 +572,7 @@
 				INFOPLIST_FILE = AWSS3Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(SYMROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AWSS3Tests;
 			};
 			name = Debug;
@@ -579,15 +580,13 @@
 		BDF55A051AB376DC0067F4F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = AWSS3Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(SYMROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AWSS3Tests;
 			};
 			name = Release;

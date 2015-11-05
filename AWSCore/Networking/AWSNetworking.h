@@ -198,4 +198,8 @@ typedef NS_ENUM(NSInteger, AWSHTTPMethod) {
 
 @interface AWSNetworkingRequestInterceptor : NSObject <AWSNetworkingRequestInterceptor>
 
+@property (nonatomic, readonly) NSString *userAgent;
+
+- (instancetype)initWithUserAgent:(NSString *)userAgent;
+
 @end

@@ -164,6 +164,9 @@ NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDom
     configuration.responseSerializer = self.responseSerializer;
     configuration.responseInterceptors = [self.responseInterceptors copy];
     configuration.retryHandler = self.retryHandler;
+    configuration.maxRetryCount = self.maxRetryCount;
+    configuration.timeoutIntervalForRequest = self.timeoutIntervalForRequest;
+    configuration.timeoutIntervalForResource = self.timeoutIntervalForResource;
 
     return configuration;
 }
@@ -312,15 +315,32 @@ NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDom
 
 @interface AWSNetworkingRequestInterceptor()
 
+@property (nonatomic, strong) NSString *userAgent;
+
 @end
 
 @implementation AWSNetworkingRequestInterceptor
+
+- (instancetype)init {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:@"`- init` is not a valid initializer. Use `- initWithUserAgent:` instead."
+                                 userInfo:nil];
+}
+
+- (instancetype)initWithUserAgent:(NSString *)userAgent {
+    if (self = [super init]) {
+        _userAgent = userAgent;
+    }
+
+    return self;
+}
 
 - (AWSTask *)interceptRequest:(NSMutableURLRequest *)request {
     [request setValue:[[NSDate aws_clockSkewFixedDate] aws_stringValue:AWSDateISO8601DateFormat2]
    forHTTPHeaderField:@"X-Amz-Date"];
 
-    [request setValue:[NSString aws_baseUserAgent] forHTTPHeaderField:@"User-Agent"];
+    [request setValue:self.userAgent
+   forHTTPHeaderField:@"User-Agent"];
     
     return [AWSTask taskWithResult:nil];
 }

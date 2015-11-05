@@ -150,6 +150,33 @@ static NSString *testBucketNameGeneral = nil;
 + (BOOL)deleteBucketWithName:(NSString *)bucketName {
     AWSS3 *s3 = [AWSS3 defaultS3];
 
+    AWSS3ListObjectVersionsRequest *listObjectVersionsRequest = [AWSS3ListObjectVersionsRequest new];
+    listObjectVersionsRequest.bucket = bucketName;
+
+    [[[s3 listObjectVersions:listObjectVersionsRequest] continueWithSuccessBlock:^id(AWSTask *task) {
+        NSMutableArray *tasks = [NSMutableArray new];
+
+        AWSS3ListObjectVersionsOutput *listObjectVersionsOutput = task.result;
+        for (AWSS3ObjectVersion *version in listObjectVersionsOutput.versions) {
+            AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
+            deleteObjectRequest.bucket = bucketName;
+            deleteObjectRequest.key = version.key;
+            deleteObjectRequest.versionId = version.versionId;
+            AWSTask *task = [s3 deleteObject:deleteObjectRequest];
+            [tasks addObject:task];
+        }
+        for (AWSS3DeleteMarkerEntry *deleteMarker in listObjectVersionsOutput.deleteMarkers) {
+            AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
+            deleteObjectRequest.bucket = bucketName;
+            deleteObjectRequest.key = deleteMarker.key;
+            deleteObjectRequest.versionId = deleteMarker.versionId;
+            AWSTask *task = [s3 deleteObject:deleteObjectRequest];
+            [tasks addObject:task];
+        }
+
+        return [AWSTask taskForCompletionOfAllTasks:tasks];
+    }] waitUntilFinished];
+
     AWSS3DeleteBucketRequest *deleteBucketReq = [AWSS3DeleteBucketRequest new];
     deleteBucketReq.bucket = bucketName;
 
@@ -339,7 +366,6 @@ static NSString *testBucketNameGeneral = nil;
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3ListObjectsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListObjectsOutput class]));
         AWSS3ListObjectsOutput *listObjectsOutput = task.result;
-        //        XCTAssertEqualObjects(listObjectsOutput.name, @"ios-test-listobjects");
 
         for (AWSS3Object *s3Object in listObjectsOutput.contents) {
             XCTAssertTrue([s3Object.lastModified isKindOfClass:[NSDate class]], @"listObject doesn't contain LastModified(NSDate)");
@@ -829,10 +855,23 @@ static NSString *testBucketNameGeneral = nil;
     AWSS3PutBucketVersioningRequest *versionRequest =  [AWSS3PutBucketVersioningRequest new];
     versionRequest.bucket = testBucketNameGeneral;
     versionRequest.versioningConfiguration = conf;
-    NSLog(@"Config %@",versionRequest);
-    
+
     [[[s3 putBucketVersioning:versionRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
+        XCTAssertNil(task.exception);
+        return nil;
+    }] waitUntilFinished];
+
+    conf = [AWSS3VersioningConfiguration new];
+    conf.status = AWSS3BucketVersioningStatusSuspended;
+
+    versionRequest =  [AWSS3PutBucketVersioningRequest new];
+    versionRequest.bucket = testBucketNameGeneral;
+    versionRequest.versioningConfiguration = conf;
+
+    [[[s3 putBucketVersioning:versionRequest] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        XCTAssertNil(task.exception);
         return nil;
     }] waitUntilFinished];
 }

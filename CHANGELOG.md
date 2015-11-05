@@ -1,12 +1,25 @@
 # AWSiOSSDKv2 CHANGELOG
 
+## 2.3.0
+
+### New Features
+* **SDK Core**
+    * The frameworks now include bitcode so that you can use them with Xcode 7 without modifying the project configuration. Please note that AWS Mobile SDK for iOS 2.3.0 supports Xcode 7 and above.
+    * Added extra validation to ensure HTTP body to be nil when HTTP method is either `GET` or `DELETE`.
+
+## 2.2.7
+
+### New Features
+* **AWS Lambda**
+    * Added support for AWS Lambda function versioning.
+
 ## 2.2.6
 
 ### New Features
 * **Amazon DynamoDB**
-* 	* Added support for Expressions syntax in DynamoDB Object Mapper.
+ 	* Added support for Expressions syntax in DynamoDB Object Mapper.
 * **Amazon S3**
-* 	*  Added support for Key Management Service (kms) in S3.
+ 	* Added support for Key Management Service (kms) in S3.
 
 ### Resolved Issues
 * **Amazon S3**

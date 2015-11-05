@@ -24,6 +24,7 @@ NSString *const AWSLambdaInvokerFunctionErrorKey = @"com.amazonaws.AWSLambdaInvo
 NSString *const AWSLambdaInvokerErrorTypeKey = @"errorType";
 NSString *const AWSLambdaInvokerErrorMessageKey = @"errorMessage";
 NSString *const AWSLambdaInvokerErrorStackTraceKey = @"stackTrace";
+NSString *const AWSLambdaInvokerUserAgent = @"invoker";
 
 @interface AWSLambda()
 
@@ -84,7 +85,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
-        _lambda = [[AWSLambda alloc] initWithConfiguration:configuration];
+        AWSServiceConfiguration *_configuration = [configuration copy];
+        [_configuration addUserAgentProductToken:AWSLambdaInvokerUserAgent];
+        _lambda = [[AWSLambda alloc] initWithConfiguration:_configuration];
         _clientContext = [AWSClientContext new];
     }
     return self;

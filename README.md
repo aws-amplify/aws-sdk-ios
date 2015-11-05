@@ -6,7 +6,7 @@ To get started with the AWS SDK for iOS, you can set up the SDK and start buildi
 
 The AWS Mobile SDK for iOS supports the following versions of software:
 
-* Xcode 6 and later
+* Xcode 7 and later
 * iOS 7 and later
 
 You can check out the [SDK source code](https://github.com/aws/aws-sdk-ios).

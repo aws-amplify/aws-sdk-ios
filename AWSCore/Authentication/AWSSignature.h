@@ -37,9 +37,6 @@ FOUNDATION_EXPORT NSString *const AWSSignatureV4Terminator;
 
 @property (nonatomic, strong, readonly) id<AWSCredentialsProvider> credentialsProvider;
 
-+ (instancetype)signerWithCredentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider
-                                     endpoint:(AWSEndpoint *)endpoint;
-
 - (instancetype)initWithCredentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider
                                    endpoint:(AWSEndpoint *)endpoint;
 
@@ -55,6 +52,9 @@ FOUNDATION_EXPORT NSString *const AWSSignatureV4Terminator;
                     service:(NSString *)serviceName;
 
 + (NSString *)getSignedHeadersString:(NSDictionary *)headers;
+
++ (instancetype)signerWithCredentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider
+                                     endpoint:(AWSEndpoint *)endpoint __attribute__ ((deprecated("Use '- initWithCredentialsProvider:endpoint:' instead.")));
 
 @end
 
