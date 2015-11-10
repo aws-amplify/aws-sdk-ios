@@ -322,9 +322,11 @@ NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDom
 @implementation AWSNetworkingRequestInterceptor
 
 - (instancetype)init {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:@"`- init` is not a valid initializer. Use `- initWithUserAgent:` instead."
-                                 userInfo:nil];
+    if (self = [super init]) {
+        _userAgent = [AWSServiceConfiguration baseUserAgent];
+    }
+
+    return self;
 }
 
 - (instancetype)initWithUserAgent:(NSString *)userAgent {

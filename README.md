@@ -140,6 +140,36 @@ When we release a new version of the SDK, you can pick up the changes as describ
 
 1. Follow the installation process above to include the new version of the SDK.
 
+##Preparing your apps for iOS 9
+The release of iOS 9 includes changes that might impact how your apps interact with some AWS services. If you compile your apps with Apple’s iOS 9 SDK (or Xcode 7), Apple’s [App Transport Security (ATS)](https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html) feature may affect the ability of apps to connect to certain AWS service endpoints. In order to ensure affected apps continue to successfully connect to AWS endpoints, you’ll need to configure them to interact properly with Apple’s ATS by adding these properties to your `info.plist` file:
+
+	    <key>NSAppTransportSecurity</key>
+	    <dict>
+    	        <key>NSExceptionDomains</key>
+    	        <dict>
+        	    <key>amazonaws.com</key>
+        	    <dict>
+                        <key>NSThirdPartyExceptionMinimumTLSVersion</key>
+                        <string>TLSv1.0</string>
+                        <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                        <false/>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+        	    </dict>
+        	    <key>amazonaws.com.cn</key>
+        	    <dict>
+                        <key>NSThirdPartyExceptionMinimumTLSVersion</key>
+                        <string>TLSv1.0</string>
+                        <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                        <false/>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+        	    </dict>
+    	        </dict>
+	    </dict>
+
+For detailed steps on how to do identify and resolve this issue if your app is affected, follow the instructions on [AWS Developer Guide](http://docs.aws.amazon.com/mobile/sdkforios/developerguide/ats.html).
+
 ##Getting Started with Swift
 
 1. Create an Objective-C bridging header file using Xcode.
@@ -174,10 +204,15 @@ When we release a new version of the SDK, you can pick up the changes as describ
         let dynamoDB = AWSDynamoDB.defaultDynamoDB()
         let listTableInput = AWSDynamoDBListTablesInput()
         dynamoDB.listTables(listTableInput).continueWithBlock{ (task: AWSTask!) -> AnyObject! in
+            if let error = task.error {
+                print("Error occurred: \(error)")
+                return nil
+            }
+
             let listTablesOutput = task.result as AWSDynamoDBListTablesOutput
 
             for tableName : AnyObject in listTablesOutput.tableNames {
-                println("\(tableName)")
+                print("\(tableName)")
             }
 
             return nil
