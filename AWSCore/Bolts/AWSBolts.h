@@ -8,9 +8,28 @@
  *
  */
 
-#import "AWSExecutor.h"
-#import "AWSTask.h"
-#import "AWSTaskCompletionSource.h"
+#import <AWSCore/AWSBoltsVersion.h>
+#import <AWSCore/AWSCancellationToken.h>
+#import <AWSCore/AWSCancellationTokenRegistration.h>
+#import <AWSCore/AWSCancellationTokenSource.h>
+#import <AWSCore/AWSDefines.h>
+#import <AWSCore/AWSExecutor.h>
+#import <AWSCore/AWSTask.h>
+#import <AWSCore/AWSTaskCompletionSource.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 /*! @abstract 80175001: There were multiple errors. */
 extern NSInteger const kAWSMultipleErrorsError;
+
+@interface AWSBolts : NSObject
+
+/*!
+ Returns the version of the Bolts Framework as an NSString.
+ @returns The NSString representation of the current version.
+ */
++ (NSString *)version;
+
+@end
+
+NS_ASSUME_NONNULL_END

@@ -33,6 +33,9 @@
 		BDF559E11AB376A50067F4F1 /* AWSKinesisRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = BDF559D91AB376A50067F4F1 /* AWSKinesisRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDF559E21AB376A50067F4F1 /* AWSKinesisRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF559DA1AB376A50067F4F1 /* AWSKinesisRecorder.m */; };
 		CE14DF8D1B02DEBC00EF6D09 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE14DF8C1B02DEBC00EF6D09 /* libsqlite3.dylib */; };
+		CE27CB5C1BF1885700B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB5B1BF1885700B22AB3 /* UIKit.framework */; };
+		CE27CB5D1BF1885C00B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB5B1BF1885700B22AB3 /* UIKit.framework */; };
+		CE2EDE981BF3DF2F00B9F26B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE6552361BEC363600DACBC2 /* module.modulemap */; };
 		CEE532661B03D3B2002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532651B03D3B2002CED62 /* libz.dylib */; };
 		CEE7DE711AC1E1AF0095C4B7 /* AWSKinesisService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE701AC1E1AF0095C4B7 /* AWSKinesisService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -68,6 +71,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE2EDE971BF3DF2900B9F26B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "modules/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				CE2EDE981BF3DF2F00B9F26B /* module.modulemap in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -90,8 +103,10 @@
 		BDF559D71AB376A50067F4F1 /* AWSKinesisModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSKinesisModel.h; sourceTree = "<group>"; };
 		BDF559D81AB376A50067F4F1 /* AWSKinesisModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisModel.m; sourceTree = "<group>"; };
 		BDF559D91AB376A50067F4F1 /* AWSKinesisRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AWSKinesisRecorder.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		BDF559DA1AB376A50067F4F1 /* AWSKinesisRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisRecorder.m; sourceTree = "<group>"; };
+		BDF559DA1AB376A50067F4F1 /* AWSKinesisRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSKinesisRecorder.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CE14DF8C1B02DEBC00EF6D09 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		CE27CB5B1BF1885700B22AB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CE6552361BEC363600DACBC2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		CEE532651B03D3B2002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CEE7DE701AC1E1AF0095C4B7 /* AWSKinesisService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSKinesisService.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE27CB5D1BF1885C00B22AB3 /* UIKit.framework in Frameworks */,
 				BDD876AA1B4B52E3009268C7 /* libOCMock.a in Frameworks */,
 				BDF125C91B45C1D000DFBFEC /* libz.dylib in Frameworks */,
 				BDF125CA1B45C1D000DFBFEC /* libsqlite3.dylib in Frameworks */,
@@ -120,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE27CB5C1BF1885700B22AB3 /* UIKit.framework in Frameworks */,
 				CEE532661B03D3B2002CED62 /* libz.dylib in Frameworks */,
 				CE14DF8D1B02DEBC00EF6D09 /* libsqlite3.dylib in Frameworks */,
 				BD00FF431AB8B6DA004496EF /* libAWSCore.a in Frameworks */,
@@ -153,6 +170,7 @@
 		BDF559BB1AB376720067F4F1 /* AWSKinesis */ = {
 			isa = PBXGroup;
 			children = (
+				CE6552361BEC363600DACBC2 /* module.modulemap */,
 				BDF559D51AB376A50067F4F1 /* AWSKinesis.h */,
 				BDF559D71AB376A50067F4F1 /* AWSKinesisModel.h */,
 				BDF559D81AB376A50067F4F1 /* AWSKinesisModel.m */,
@@ -191,6 +209,7 @@
 		D34BD40ED7327D8616BDFE58 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE27CB5B1BF1885700B22AB3 /* UIKit.framework */,
 				BDD876A91B4B52E3009268C7 /* libOCMock.a */,
 				CEE532651B03D3B2002CED62 /* libz.dylib */,
 				CE14DF8C1B02DEBC00EF6D09 /* libsqlite3.dylib */,
@@ -243,6 +262,7 @@
 				BDF559B61AB376720067F4F1 /* Frameworks */,
 				BDF559B71AB376720067F4F1 /* CopyFiles */,
 				BDF559D31AB3769A0067F4F1 /* Headers */,
+				CE2EDE971BF3DF2900B9F26B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -436,7 +456,8 @@
 				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -482,7 +503,8 @@
 				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -516,14 +538,18 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSKinesis;
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 			};
 			name = Debug;
 		};
@@ -532,14 +558,18 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSKinesis;
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 			};
 			name = Release;
 		};

@@ -238,7 +238,7 @@ static NSString *testBucketNameGeneral = nil;
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
 
-    [[[s3 listBuckets:nil] continueWithBlock:^id(AWSTask *task) {
+    [[[s3 listBuckets:[AWSRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3ListBucketsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListBucketsOutput class]));
 
@@ -252,7 +252,7 @@ static NSString *testBucketNameGeneral = nil;
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
 
-    [[[s3 listBuckets:nil] continueWithBlock:^id(AWSTask *task) {
+    [[[s3 listBuckets:[AWSRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3ListBucketsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListBucketsOutput class]));
 
@@ -281,7 +281,7 @@ static NSString *testBucketNameGeneral = nil;
     [[[[[[s3 createBucket:createBucketReq] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
-        return [s3 listBuckets:nil];
+        return [s3 listBuckets:[AWSRequest new]];
     }] continueWithBlock:^id(AWSTask *task) {
         //Check if bucket are there.
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
@@ -297,7 +297,7 @@ static NSString *testBucketNameGeneral = nil;
     }] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
-        return [s3 listBuckets:nil];
+        return [s3 listBuckets:[AWSRequest new]];
     }] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3ListBucketsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListBucketsOutput class]));

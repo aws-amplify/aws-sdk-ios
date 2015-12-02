@@ -17,6 +17,8 @@
 #import <XCTest/XCTest.h>
 #import "AWSCore.h"
 #import "AWSURLSessionManager.h"
+#import "AWSURLRequestSerialization.h"
+#import "AWSURLResponseSerialization.h"
 
 @interface AWSNetworkingTests : XCTestCase
 

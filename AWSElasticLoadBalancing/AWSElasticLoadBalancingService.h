@@ -16,6 +16,9 @@
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSCore.h>
 #import "AWSElasticLoadBalancingModel.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  
  */
@@ -519,3 +522,5 @@
 - (AWSTask *)setLoadBalancerPoliciesOfListener:(AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerInput *)request;
 
 @end
+
+NS_ASSUME_NONNULL_END

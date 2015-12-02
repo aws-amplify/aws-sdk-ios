@@ -1,4 +1,4 @@
-﻿Version 2 of AWS SDK for iOS 
+﻿Version 2 of AWS SDK for iOS
 
 Copyright 2015 Amazon.com, Inc. or its affiliates. All Rights Reserved. 
 
@@ -12,7 +12,7 @@ See the License for the specific language governing permissions and limitations 
 AMAZON PROPRIETARY COMPONENTS
 *****************************
 
-The following components are distributed under a proprietary license by Amazon Technologies, Inc 
+The following components are distributed under a proprietary license by Amazon Technologies, Inc
 - Amazon Cognito Sync - Copyright 2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.(Amazon Software License)
 
 See the License for the specific language governing permissions and limitations under the License.
@@ -23,16 +23,16 @@ THIRD PARTY COMPONENTS
 
 This software includes third party software subject to the following copyrights:
 - Bolts-iOS - Copyright (c) 2013, Facebook, Inc. - BSD License
-- CSURITemplate - Copyright (c) 2013 Cogenta Systems Ltd - MIT license
 - Mantle - Copyright (c) 2012 - 2014, GitHub, Inc. All rights reserved, copyright (c) 2012, Bitswift, Inc. All rights reserved - MIT license
-- TMCache - Copyright 2013 Tumblr, Inc. - Apache License
+- TMCache - Copyright 2013 Tumblr, Inc. - Apache License Version 2.0
 - XMLDictionary - Copyright (C) 2011 Charcoal Design - https://github.com/nicklockwood/XMLDictionary/blob/master/LICENCE.md
 - XMLWriter - Copyright (C) 2010 by Thomas Rørvik Skjølberg - MIT License
 - UICKeyChainStore - Copyright (c) 2011 kishikawa katsumi - MIT License
 - OCMock - Copyright (c) 2004-2008 by Mulle Kybernetik - https://github.com/erikdoe/ocmock/blob/f34e053c8901e8d36d59a582c35e78dcd50d743a/Source/License.txt
-- OCHamcrest - Copyright 2014 hamcrest.org - BSD License - 
+- OCHamcrest - Copyright 2014 hamcrest.org - BSD License -
 - GZIP - Copyright (C) 2012 Charcoal Design - zlib License
 - Reachability - Copyright (c) 2011-2013, Tony Million. All rights reserved. - https://github.com/tonymillion/Reachability/blob/master/LICENCE.txt
 - FMDB - Copyright (c) 2008-2014 Flying Meat Inc. - MIT License
+- Fabric - Copyright (c) 2015 Twitter Inc. - Apache License Version 2.0
 
 The licenses for these third party components are included in the License file.

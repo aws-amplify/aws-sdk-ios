@@ -1,22 +1,15 @@
 #import "AWSTMDiskCache.h"
+#import "AWSTMCacheBackgroundTaskManager.h"
 
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_0
 #import <UIKit/UIKit.h>
 #endif
 
-#define TMDiskCacheError(error) if (error) { NSLog(@"%@ (%d) ERROR: %@", \
+#define AWSTMDiskCacheError(error) if (error) { NSLog(@"%@ (%d) ERROR: %@", \
                                     [[NSString stringWithUTF8String:__FILE__] lastPathComponent], \
                                     __LINE__, [error localizedDescription]); }
 
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_0 && defined(__clang) && defined(__has_feature) && !__has_feature(attribute_availability_app_extension)
-    #define TMCacheStartBackgroundTask() UIBackgroundTaskIdentifier taskID = UIBackgroundTaskInvalid; \
-            taskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{ \
-            [[UIApplication sharedApplication] endBackgroundTask:taskID]; }];
-    #define TMCacheEndBackgroundTask() [[UIApplication sharedApplication] endBackgroundTask:taskID];
-#else
-    #define TMCacheStartBackgroundTask()
-    #define TMCacheEndBackgroundTask()
-#endif
+static id <AWSTMCacheBackgroundTaskManager> AWSTMCacheBackgroundTaskManager;
 
 NSString * const AWSTMDiskCachePrefix = @"com.tumblr.TMDiskCache";
 NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
@@ -137,12 +130,15 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
     if (![string length])
         return @"";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     CFStringRef static const charsToEscape = CFSTR(".:/");
     CFStringRef escapedString = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                                                         (__bridge CFStringRef)string,
                                                                         NULL,
                                                                         charsToEscape,
                                                                         kCFStringEncodingUTF8);
+#pragma clang diagnostic pop
     return (__bridge_transfer NSString *)escapedString;
 }
 
@@ -151,10 +147,13 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
     if (![string length])
         return @"";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     CFStringRef unescapedString = CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
                                                                                           (__bridge CFStringRef)string,
                                                                                           CFSTR(""),
                                                                                           kCFStringEncodingUTF8);
+#pragma clang diagnostic pop
     return (__bridge_transfer NSString *)unescapedString;
 }
 
@@ -188,7 +187,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
                                      withIntermediateDirectories:YES
                                                       attributes:nil
                                                            error:&error];
-            TMDiskCacheError(error);
+            AWSTMDiskCacheError(error);
         }
     });
     
@@ -204,13 +203,13 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
     NSString *uniqueString = [[NSProcessInfo processInfo] globallyUniqueString];
     NSURL *uniqueTrashURL = [[AWSTMDiskCache sharedTrashURL] URLByAppendingPathComponent:uniqueString];
     BOOL moved = [[NSFileManager defaultManager] moveItemAtURL:itemURL toURL:uniqueTrashURL error:&error];
-    TMDiskCacheError(error);
+    AWSTMDiskCacheError(error);
     return moved;
 }
 
 + (void)emptyTrash
 {
-    TMCacheStartBackgroundTask();
+    UIBackgroundTaskIdentifier taskID = [AWSTMCacheBackgroundTaskManager beginBackgroundTask];
     
     dispatch_async([self sharedTrashQueue], ^{        
         NSError *error = nil;
@@ -218,15 +217,15 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
                                                               includingPropertiesForKeys:nil
                                                                                  options:0
                                                                                    error:&error];
-        TMDiskCacheError(error);
+        AWSTMDiskCacheError(error);
 
         for (NSURL *trashedItemURL in trashedItems) {
             NSError *error = nil;
             [[NSFileManager defaultManager] removeItemAtURL:trashedItemURL error:&error];
-            TMDiskCacheError(error);
+            AWSTMDiskCacheError(error);
         }
-            
-        TMCacheEndBackgroundTask();
+        
+        [AWSTMCacheBackgroundTaskManager endBackgroundTask:taskID];
     });
 }
 
@@ -242,7 +241,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
                                             withIntermediateDirectories:YES
                                                              attributes:nil
                                                                   error:&error];
-    TMDiskCacheError(error);
+    AWSTMDiskCacheError(error);
 
     return success;
 }
@@ -257,14 +256,14 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
                                                    includingPropertiesForKeys:keys
                                                                       options:NSDirectoryEnumerationSkipsHiddenFiles
                                                                         error:&error];
-    TMDiskCacheError(error);
+    AWSTMDiskCacheError(error);
 
     for (NSURL *fileURL in files) {
         NSString *key = [self keyForEncodedFileURL:fileURL];
 
         error = nil;
         NSDictionary *dictionary = [fileURL resourceValuesForKeys:keys error:&error];
-        TMDiskCacheError(error);
+        AWSTMDiskCacheError(error);
 
         NSDate *date = [dictionary objectForKey:NSURLContentModificationDateKey];
         if (date && key)
@@ -291,7 +290,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
     BOOL success = [[NSFileManager defaultManager] setAttributes:@{ NSFileModificationDate: date }
                                                     ofItemAtPath:[fileURL path]
                                                            error:&error];
-    TMDiskCacheError(error);
+    AWSTMDiskCacheError(error);
 
     if (success) {
         NSString *key = [self keyForEncodedFileURL:fileURL];
@@ -421,7 +420,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
             @catch (NSException *exception) {
                 NSError *error = nil;
                 [[NSFileManager defaultManager] removeItemAtPath:[fileURL path] error:&error];
-                TMDiskCacheError(error);
+                AWSTMDiskCacheError(error);
             }
 
             [strongSelf setFileModificationDate:now forURL:fileURL];
@@ -464,14 +463,14 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
     if (!key || !object)
         return;
 
-    TMCacheStartBackgroundTask();
+    UIBackgroundTaskIdentifier taskID = [AWSTMCacheBackgroundTaskManager beginBackgroundTask];
 
     __weak AWSTMDiskCache *weakSelf = self;
 
     dispatch_async(_queue, ^{
         AWSTMDiskCache *strongSelf = weakSelf;
         if (!strongSelf) {
-            TMCacheEndBackgroundTask();
+            [AWSTMCacheBackgroundTaskManager endBackgroundTask:taskID];
             return;
         }
 
@@ -487,7 +486,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
 
             NSError *error = nil;
             NSDictionary *values = [fileURL resourceValuesForKeys:@[ NSURLTotalFileAllocatedSizeKey ] error:&error];
-            TMDiskCacheError(error);
+            AWSTMDiskCacheError(error);
 
             NSNumber *diskFileSize = [values objectForKey:NSURLTotalFileAllocatedSizeKey];
             if (diskFileSize) {
@@ -513,7 +512,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
         if (block)
             block(strongSelf, key, object, fileURL);
 
-        TMCacheEndBackgroundTask();
+        [AWSTMCacheBackgroundTaskManager endBackgroundTask:taskID];
     });
 }
 
@@ -522,14 +521,14 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
     if (!key)
         return;
 
-    TMCacheStartBackgroundTask();
+    UIBackgroundTaskIdentifier taskID = [AWSTMCacheBackgroundTaskManager beginBackgroundTask];
 
     __weak AWSTMDiskCache *weakSelf = self;
 
     dispatch_async(_queue, ^{
         AWSTMDiskCache *strongSelf = weakSelf;
         if (!strongSelf) {
-            TMCacheEndBackgroundTask();
+            [AWSTMCacheBackgroundTaskManager endBackgroundTask:taskID];
             return;
         }
 
@@ -539,7 +538,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
         if (block)
             block(strongSelf, key, nil, fileURL);
 
-        TMCacheEndBackgroundTask();
+        [AWSTMCacheBackgroundTaskManager endBackgroundTask:taskID];
     });
 }
 
@@ -550,14 +549,14 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
         return;
     }
 
-    TMCacheStartBackgroundTask();
+    UIBackgroundTaskIdentifier taskID = [AWSTMCacheBackgroundTaskManager beginBackgroundTask];
     
     __weak AWSTMDiskCache *weakSelf = self;
     
     dispatch_async(_queue, ^{
         AWSTMDiskCache *strongSelf = weakSelf;
         if (!strongSelf) {
-            TMCacheEndBackgroundTask();
+            [AWSTMCacheBackgroundTaskManager endBackgroundTask:taskID];
             return;
         }
 
@@ -566,7 +565,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
         if (block)
             block(strongSelf);
         
-        TMCacheEndBackgroundTask();
+        [AWSTMCacheBackgroundTaskManager endBackgroundTask:taskID];
     });
 }
 
@@ -580,14 +579,14 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
         return;
     }
     
-    TMCacheStartBackgroundTask();
+    UIBackgroundTaskIdentifier taskID = [AWSTMCacheBackgroundTaskManager beginBackgroundTask];
 
     __weak AWSTMDiskCache *weakSelf = self;
 
     dispatch_async(_queue, ^{
         AWSTMDiskCache *strongSelf = weakSelf;
         if (!strongSelf) {
-            TMCacheEndBackgroundTask();
+            [AWSTMCacheBackgroundTaskManager endBackgroundTask:taskID];
             return;
         }
 
@@ -596,7 +595,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
         if (block)
             block(strongSelf);
         
-        TMCacheEndBackgroundTask();
+        [AWSTMCacheBackgroundTaskManager endBackgroundTask:taskID];
     });
 }
 
@@ -607,14 +606,14 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
         return;
     }
 
-    TMCacheStartBackgroundTask();
+    UIBackgroundTaskIdentifier taskID = [AWSTMCacheBackgroundTaskManager beginBackgroundTask];
 
     __weak AWSTMDiskCache *weakSelf = self;
 
     dispatch_async(_queue, ^{
         AWSTMDiskCache *strongSelf = weakSelf;
         if (!strongSelf) {
-            TMCacheEndBackgroundTask();
+            [AWSTMCacheBackgroundTaskManager endBackgroundTask:taskID];
             return;
         }
 
@@ -623,20 +622,20 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
         if (block)
             block(strongSelf);
 
-        TMCacheEndBackgroundTask();
+        [AWSTMCacheBackgroundTaskManager endBackgroundTask:taskID];
     });
 }
 
 - (void)removeAllObjects:(AWSTMDiskCacheBlock)block
 {
-    TMCacheStartBackgroundTask();
+    UIBackgroundTaskIdentifier taskID = [AWSTMCacheBackgroundTaskManager beginBackgroundTask];
     
     __weak AWSTMDiskCache *weakSelf = self;
 
     dispatch_async(_queue, ^{
         AWSTMDiskCache *strongSelf = weakSelf;
         if (!strongSelf) {
-            TMCacheEndBackgroundTask();
+            [AWSTMCacheBackgroundTaskManager endBackgroundTask:taskID];
             return;
         }
 
@@ -658,7 +657,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
         if (block)
             block(strongSelf);
         
-        TMCacheEndBackgroundTask();
+        [AWSTMCacheBackgroundTaskManager endBackgroundTask:taskID];
     });
 }
 
@@ -667,14 +666,14 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
     if (!block)
         return;
 
-    TMCacheStartBackgroundTask();
+    UIBackgroundTaskIdentifier taskID = [AWSTMCacheBackgroundTaskManager beginBackgroundTask];
 
     __weak AWSTMDiskCache *weakSelf = self;
 
     dispatch_async(_queue, ^{
         AWSTMDiskCache *strongSelf = weakSelf;
         if (!strongSelf) {
-            TMCacheEndBackgroundTask();
+            [AWSTMCacheBackgroundTaskManager endBackgroundTask:taskID];
             return;
         }
 
@@ -688,7 +687,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
         if (completionBlock)
             completionBlock(strongSelf);
 
-        TMCacheEndBackgroundTask();
+        [AWSTMCacheBackgroundTaskManager endBackgroundTask:taskID];
     });
 }
 
@@ -1059,6 +1058,12 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
         
         [strongSelf trimToAgeLimitRecursively];
     });
+}
+
+#pragma mark - Background Tasks -
+
++ (void)setBackgroundTaskManager:(id <AWSTMCacheBackgroundTaskManager>)backgroundTaskManager {
+    AWSTMCacheBackgroundTaskManager = backgroundTaskManager;
 }
 
 @end

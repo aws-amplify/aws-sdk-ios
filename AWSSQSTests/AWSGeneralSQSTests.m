@@ -59,13 +59,14 @@ static id mockNetworking = nil;
 
 - (void)testAddPermission {
     NSString *key = @"testAddPermission";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
     AWSSQS *awsClient = [AWSSQS SQSForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSQS SQSForKey:key] addPermission:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSQS SQSForKey:key] addPermission:[AWSSQSAddPermissionRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -81,13 +82,14 @@ static id mockNetworking = nil;
 
 - (void)testChangeMessageVisibility {
     NSString *key = @"testChangeMessageVisibility";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
     AWSSQS *awsClient = [AWSSQS SQSForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSQS SQSForKey:key] changeMessageVisibility:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSQS SQSForKey:key] changeMessageVisibility:[AWSSQSChangeMessageVisibilityRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -103,13 +105,14 @@ static id mockNetworking = nil;
 
 - (void)testChangeMessageVisibilityBatch {
     NSString *key = @"testChangeMessageVisibilityBatch";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
     AWSSQS *awsClient = [AWSSQS SQSForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSQS SQSForKey:key] changeMessageVisibilityBatch:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSQS SQSForKey:key] changeMessageVisibilityBatch:[AWSSQSChangeMessageVisibilityBatchRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -125,13 +128,14 @@ static id mockNetworking = nil;
 
 - (void)testCreateQueue {
     NSString *key = @"testCreateQueue";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
     AWSSQS *awsClient = [AWSSQS SQSForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSQS SQSForKey:key] createQueue:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSQS SQSForKey:key] createQueue:[AWSSQSCreateQueueRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -147,13 +151,14 @@ static id mockNetworking = nil;
 
 - (void)testDeleteMessage {
     NSString *key = @"testDeleteMessage";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
     AWSSQS *awsClient = [AWSSQS SQSForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSQS SQSForKey:key] deleteMessage:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSQS SQSForKey:key] deleteMessage:[AWSSQSDeleteMessageRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -169,13 +174,14 @@ static id mockNetworking = nil;
 
 - (void)testDeleteMessageBatch {
     NSString *key = @"testDeleteMessageBatch";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
     AWSSQS *awsClient = [AWSSQS SQSForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSQS SQSForKey:key] deleteMessageBatch:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSQS SQSForKey:key] deleteMessageBatch:[AWSSQSDeleteMessageBatchRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -191,13 +197,14 @@ static id mockNetworking = nil;
 
 - (void)testDeleteQueue {
     NSString *key = @"testDeleteQueue";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
     AWSSQS *awsClient = [AWSSQS SQSForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSQS SQSForKey:key] deleteQueue:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSQS SQSForKey:key] deleteQueue:[AWSSQSDeleteQueueRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -213,13 +220,14 @@ static id mockNetworking = nil;
 
 - (void)testGetQueueAttributes {
     NSString *key = @"testGetQueueAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
     AWSSQS *awsClient = [AWSSQS SQSForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSQS SQSForKey:key] getQueueAttributes:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSQS SQSForKey:key] getQueueAttributes:[AWSSQSGetQueueAttributesRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -235,13 +243,14 @@ static id mockNetworking = nil;
 
 - (void)testGetQueueUrl {
     NSString *key = @"testGetQueueUrl";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
     AWSSQS *awsClient = [AWSSQS SQSForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSQS SQSForKey:key] getQueueUrl:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSQS SQSForKey:key] getQueueUrl:[AWSSQSGetQueueUrlRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -257,13 +266,14 @@ static id mockNetworking = nil;
 
 - (void)testListDeadLetterSourceQueues {
     NSString *key = @"testListDeadLetterSourceQueues";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
     AWSSQS *awsClient = [AWSSQS SQSForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSQS SQSForKey:key] listDeadLetterSourceQueues:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSQS SQSForKey:key] listDeadLetterSourceQueues:[AWSSQSListDeadLetterSourceQueuesRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -279,13 +289,14 @@ static id mockNetworking = nil;
 
 - (void)testListQueues {
     NSString *key = @"testListQueues";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
     AWSSQS *awsClient = [AWSSQS SQSForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSQS SQSForKey:key] listQueues:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSQS SQSForKey:key] listQueues:[AWSSQSListQueuesRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -301,13 +312,14 @@ static id mockNetworking = nil;
 
 - (void)testReceiveMessage {
     NSString *key = @"testReceiveMessage";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
     AWSSQS *awsClient = [AWSSQS SQSForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSQS SQSForKey:key] receiveMessage:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSQS SQSForKey:key] receiveMessage:[AWSSQSReceiveMessageRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -323,13 +335,14 @@ static id mockNetworking = nil;
 
 - (void)testRemovePermission {
     NSString *key = @"testRemovePermission";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
     AWSSQS *awsClient = [AWSSQS SQSForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSQS SQSForKey:key] removePermission:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSQS SQSForKey:key] removePermission:[AWSSQSRemovePermissionRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -345,13 +358,14 @@ static id mockNetworking = nil;
 
 - (void)testSendMessage {
     NSString *key = @"testSendMessage";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
     AWSSQS *awsClient = [AWSSQS SQSForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSQS SQSForKey:key] sendMessage:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSQS SQSForKey:key] sendMessage:[AWSSQSSendMessageRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -367,13 +381,14 @@ static id mockNetworking = nil;
 
 - (void)testSendMessageBatch {
     NSString *key = @"testSendMessageBatch";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
     AWSSQS *awsClient = [AWSSQS SQSForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSQS SQSForKey:key] sendMessageBatch:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSQS SQSForKey:key] sendMessageBatch:[AWSSQSSendMessageBatchRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -389,13 +404,14 @@ static id mockNetworking = nil;
 
 - (void)testSetQueueAttributes {
     NSString *key = @"testSetQueueAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
 
     AWSSQS *awsClient = [AWSSQS SQSForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSQS SQSForKey:key] setQueueAttributes:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSQS SQSForKey:key] setQueueAttributes:[AWSSQSSetQueueAttributesRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);

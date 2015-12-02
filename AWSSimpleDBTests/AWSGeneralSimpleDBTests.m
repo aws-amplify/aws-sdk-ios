@@ -59,13 +59,14 @@ static id mockNetworking = nil;
 
 - (void)testBatchDeleteAttributes {
     NSString *key = @"testBatchDeleteAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
     AWSSimpleDB *awsClient = [AWSSimpleDB SimpleDBForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSimpleDB SimpleDBForKey:key] batchDeleteAttributes:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSimpleDB SimpleDBForKey:key] batchDeleteAttributes:[AWSSimpleDBBatchDeleteAttributesRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -81,13 +82,14 @@ static id mockNetworking = nil;
 
 - (void)testBatchPutAttributes {
     NSString *key = @"testBatchPutAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
     AWSSimpleDB *awsClient = [AWSSimpleDB SimpleDBForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSimpleDB SimpleDBForKey:key] batchPutAttributes:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSimpleDB SimpleDBForKey:key] batchPutAttributes:[AWSSimpleDBBatchPutAttributesRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -103,13 +105,14 @@ static id mockNetworking = nil;
 
 - (void)testCreateDomain {
     NSString *key = @"testCreateDomain";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
     AWSSimpleDB *awsClient = [AWSSimpleDB SimpleDBForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSimpleDB SimpleDBForKey:key] createDomain:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSimpleDB SimpleDBForKey:key] createDomain:[AWSSimpleDBCreateDomainRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -125,13 +128,14 @@ static id mockNetworking = nil;
 
 - (void)testDeleteAttributes {
     NSString *key = @"testDeleteAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
     AWSSimpleDB *awsClient = [AWSSimpleDB SimpleDBForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSimpleDB SimpleDBForKey:key] deleteAttributes:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSimpleDB SimpleDBForKey:key] deleteAttributes:[AWSSimpleDBDeleteAttributesRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -147,13 +151,14 @@ static id mockNetworking = nil;
 
 - (void)testDeleteDomain {
     NSString *key = @"testDeleteDomain";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
     AWSSimpleDB *awsClient = [AWSSimpleDB SimpleDBForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSimpleDB SimpleDBForKey:key] deleteDomain:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSimpleDB SimpleDBForKey:key] deleteDomain:[AWSSimpleDBDeleteDomainRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -169,13 +174,14 @@ static id mockNetworking = nil;
 
 - (void)testDomainMetadata {
     NSString *key = @"testDomainMetadata";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
     AWSSimpleDB *awsClient = [AWSSimpleDB SimpleDBForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSimpleDB SimpleDBForKey:key] domainMetadata:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSimpleDB SimpleDBForKey:key] domainMetadata:[AWSSimpleDBDomainMetadataRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -191,13 +197,14 @@ static id mockNetworking = nil;
 
 - (void)testGetAttributes {
     NSString *key = @"testGetAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
     AWSSimpleDB *awsClient = [AWSSimpleDB SimpleDBForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSimpleDB SimpleDBForKey:key] getAttributes:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSimpleDB SimpleDBForKey:key] getAttributes:[AWSSimpleDBGetAttributesRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -213,13 +220,14 @@ static id mockNetworking = nil;
 
 - (void)testListDomains {
     NSString *key = @"testListDomains";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
     AWSSimpleDB *awsClient = [AWSSimpleDB SimpleDBForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSimpleDB SimpleDBForKey:key] listDomains:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSimpleDB SimpleDBForKey:key] listDomains:[AWSSimpleDBListDomainsRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -235,13 +243,14 @@ static id mockNetworking = nil;
 
 - (void)testPutAttributes {
     NSString *key = @"testPutAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
     AWSSimpleDB *awsClient = [AWSSimpleDB SimpleDBForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSimpleDB SimpleDBForKey:key] putAttributes:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSimpleDB SimpleDBForKey:key] putAttributes:[AWSSimpleDBPutAttributesRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -257,13 +266,14 @@ static id mockNetworking = nil;
 
 - (void)testSelect {
     NSString *key = @"testSelect";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSimpleDB registerSimpleDBWithConfiguration:configuration forKey:key];
 
     AWSSimpleDB *awsClient = [AWSSimpleDB SimpleDBForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSimpleDB SimpleDBForKey:key] select:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSimpleDB SimpleDBForKey:key] select:[AWSSimpleDBSelectRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);

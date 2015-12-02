@@ -14,7 +14,7 @@
  */
 
 #import "AWSAutoScalingModel.h"
-#import "AWSCategory.h"
+#import <AWSCore/AWSCategory.h>
 
 NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorDomain";
 

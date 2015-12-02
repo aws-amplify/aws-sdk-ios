@@ -1,0 +1,1 @@
+#define AWS_BOLTS_VERSION @"1.5.0"

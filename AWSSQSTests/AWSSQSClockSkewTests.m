@@ -17,7 +17,7 @@
 #import <XCTest/XCTest.h>
 #import "AWSTestUtility.h"
 #import "AWSSQS.h"
-@import ObjectiveC.runtime;
+#import <objc/runtime.h>
 
 @interface AWSSQSClockSkewTests : XCTestCase
 

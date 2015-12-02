@@ -15,12 +15,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "AWSServiceEnum.h"
 #import "AWSService.h"
-#import "AWSNetworking.h"
 #import "AWSCredentialsProvider.h"
-#import "AWSValidation.h"
-#import "AWSURLRequestSerialization.h"
-#import "AWSURLResponseSerialization.h"
+#import "AWSIdentityProvider.h"
+#import "AWSModel.h"
+#import "AWSNetworking.h"
 #import "AWSCategory.h"
 #import "AWSLogging.h"
 #import "AWSClientContext.h"
@@ -29,3 +29,4 @@
 #import "AWSCognitoIdentity.h"
 
 #import "AWSBolts.h"
+#import "AWSGZIP.h"

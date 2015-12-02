@@ -27,6 +27,9 @@
 		BDF559AC1AB3761C0067F4F1 /* AWSElasticLoadBalancingService.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF559A61AB3761C0067F4F1 /* AWSElasticLoadBalancingService.m */; };
 		BDF559AD1AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BDF559A71AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDF559AE1AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF559A81AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.m */; };
+		CE27CB591BF1881B00B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB581BF1881B00B22AB3 /* UIKit.framework */; };
+		CE27CB5A1BF1882000B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB581BF1881B00B22AB3 /* UIKit.framework */; };
+		CE2EDE961BF3DF2100B9F26B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE6552341BEC361D00DACBC2 /* module.modulemap */; };
 		CEE532601B03D397002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE5325F1B03D397002CED62 /* libz.dylib */; };
 		CEE7DE6F1AC1E19D0095C4B7 /* AWSElasticLoadBalancingService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE6E1AC1E19D0095C4B7 /* AWSElasticLoadBalancingService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -61,6 +64,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE2EDE951BF3DF1B00B9F26B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "modules/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				CE2EDE961BF3DF2100B9F26B /* module.modulemap in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +94,8 @@
 		BDF559A61AB3761C0067F4F1 /* AWSElasticLoadBalancingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSElasticLoadBalancingService.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BDF559A71AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSElasticLoadBalancingModel.h; sourceTree = "<group>"; };
 		BDF559A81AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSElasticLoadBalancingModel.m; sourceTree = "<group>"; };
+		CE27CB581BF1881B00B22AB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CE6552341BEC361D00DACBC2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		CEE5325F1B03D397002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CEE7DE6E1AC1E19D0095C4B7 /* AWSElasticLoadBalancingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSElasticLoadBalancingService.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE27CB5A1BF1882000B22AB3 /* UIKit.framework in Frameworks */,
 				BDD876A81B4B52CE009268C7 /* libOCMock.a in Frameworks */,
 				BDF125B61B45C1A900DFBFEC /* libz.dylib in Frameworks */,
 				BDF125B71B45C1A900DFBFEC /* libAWSCore.a in Frameworks */,
@@ -108,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE27CB591BF1881B00B22AB3 /* UIKit.framework in Frameworks */,
 				CEE532601B03D397002CED62 /* libz.dylib in Frameworks */,
 				BD00FF451AB8B6E2004496EF /* libAWSCore.a in Frameworks */,
 				BDF559951AB375EC0067F4F1 /* libAWSElasticLoadBalancing.a in Frameworks */,
@@ -120,6 +137,7 @@
 		412CEC016EC21D18D1D11C56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE27CB581BF1881B00B22AB3 /* UIKit.framework */,
 				BDD876A71B4B52CE009268C7 /* libOCMock.a */,
 				CEE5325F1B03D397002CED62 /* libz.dylib */,
 				BD00FF441AB8B6E2004496EF /* libAWSCore.a */,
@@ -150,6 +168,7 @@
 		BDF5598B1AB375EC0067F4F1 /* AWSElasticLoadBalancing */ = {
 			isa = PBXGroup;
 			children = (
+				CE6552341BEC361D00DACBC2 /* module.modulemap */,
 				BDF559A51AB3761C0067F4F1 /* AWSElasticLoadBalancing.h */,
 				BDF559A71AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.h */,
 				BDF559A81AB3761C0067F4F1 /* AWSElasticLoadBalancingModel.m */,
@@ -225,6 +244,7 @@
 				BDF559861AB375EC0067F4F1 /* Frameworks */,
 				BDF559871AB375EC0067F4F1 /* CopyFiles */,
 				BDF559A31AB3760F0067F4F1 /* Headers */,
+				CE2EDE951BF3DF1B00B9F26B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -416,7 +436,8 @@
 				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -462,7 +483,8 @@
 				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -496,14 +518,18 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSElasticLoadBalancing;
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 			};
 			name = Debug;
 		};
@@ -512,14 +538,18 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSElasticLoadBalancing;
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 			};
 			name = Release;
 		};

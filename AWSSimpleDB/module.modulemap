@@ -1,0 +1,6 @@
+framework module AWSSimpleDB {
+  umbrella header "AWSSimpleDB.h"
+
+  export *
+  module * { export * }
+}

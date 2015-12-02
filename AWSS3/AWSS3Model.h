@@ -17,6 +17,8 @@
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSModel.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 FOUNDATION_EXPORT NSString *const AWSS3ErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSS3ErrorType) {
@@ -312,17 +314,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *uploadId;
+@property (nonatomic, strong) NSString * _Nullable uploadId;
 
 @end
 
@@ -335,12 +337,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  A list of grants.
  */
-@property (nonatomic, strong) NSArray *grants;
+@property (nonatomic, strong) NSArray * _Nullable grants;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3Owner *owner;
+@property (nonatomic, strong) AWSS3Owner * _Nullable owner;
 
 @end
 
@@ -353,12 +355,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Date the bucket was created.
  */
-@property (nonatomic, strong) NSDate *creationDate;
+@property (nonatomic, strong) NSDate * _Nullable creationDate;
 
 /**
  The name of the bucket.
  */
-@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString * _Nullable name;
 
 @end
 
@@ -371,7 +373,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) AWSS3LoggingEnabled *loggingEnabled;
+@property (nonatomic, strong) AWSS3LoggingEnabled * _Nullable loggingEnabled;
 
 @end
 
@@ -384,7 +386,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *CORSRules;
+@property (nonatomic, strong) NSArray * _Nullable CORSRules;
 
 @end
 
@@ -397,27 +399,27 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Specifies which headers are allowed in a pre-flight OPTIONS request.
  */
-@property (nonatomic, strong) NSArray *allowedHeaders;
+@property (nonatomic, strong) NSArray * _Nullable allowedHeaders;
 
 /**
  Identifies HTTP methods that the domain/origin specified in the rule is allowed to execute.
  */
-@property (nonatomic, strong) NSArray *allowedMethods;
+@property (nonatomic, strong) NSArray * _Nullable allowedMethods;
 
 /**
  One or more origins you want customers to be able to access the bucket from.
  */
-@property (nonatomic, strong) NSArray *allowedOrigins;
+@property (nonatomic, strong) NSArray * _Nullable allowedOrigins;
 
 /**
  One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).
  */
-@property (nonatomic, strong) NSArray *exposeHeaders;
+@property (nonatomic, strong) NSArray * _Nullable exposeHeaders;
 
 /**
  The time in seconds that your browser is to cache the preflight response for the specified resource.
  */
-@property (nonatomic, strong) NSNumber *maxAgeSeconds;
+@property (nonatomic, strong) NSNumber * _Nullable maxAgeSeconds;
 
 @end
 
@@ -430,7 +432,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *cloudFunction;
+@property (nonatomic, strong) NSString * _Nullable cloudFunction;
 
 /**
  
@@ -440,17 +442,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *events;
+@property (nonatomic, strong) NSArray * _Nullable events;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *invocationRole;
+@property (nonatomic, strong) NSString * _Nullable invocationRole;
 
 @end
 
@@ -463,7 +465,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *prefix;
+@property (nonatomic, strong) NSString * _Nullable prefix;
 
 @end
 
@@ -476,32 +478,32 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  Entity tag of the object.
  */
-@property (nonatomic, strong) NSString *ETag;
+@property (nonatomic, strong) NSString * _Nullable ETag;
 
 /**
  If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
  */
-@property (nonatomic, strong) NSString *expiration;
+@property (nonatomic, strong) NSString * _Nullable expiration;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *location;
+@property (nonatomic, strong) NSString * _Nullable location;
 
 /**
  If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
  */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
+@property (nonatomic, strong) NSString * _Nullable SSEKMSKeyId;
 
 /**
  The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
@@ -511,7 +513,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Version of the object.
  */
-@property (nonatomic, strong) NSString *versionId;
+@property (nonatomic, strong) NSString * _Nullable versionId;
 
 @end
 
@@ -524,22 +526,22 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3CompletedMultipartUpload *multipartUpload;
+@property (nonatomic, strong) AWSS3CompletedMultipartUpload * _Nullable multipartUpload;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *uploadId;
+@property (nonatomic, strong) NSString * _Nullable uploadId;
 
 @end
 
@@ -552,7 +554,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *parts;
+@property (nonatomic, strong) NSArray * _Nullable parts;
 
 @end
 
@@ -565,12 +567,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Entity tag returned when the part was uploaded.
  */
-@property (nonatomic, strong) NSString *ETag;
+@property (nonatomic, strong) NSString * _Nullable ETag;
 
 /**
  Part number that identifies the part.
  */
-@property (nonatomic, strong) NSNumber *partNumber;
+@property (nonatomic, strong) NSNumber * _Nullable partNumber;
 
 @end
 
@@ -583,12 +585,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element Condition is specified and sibling KeyPrefixEquals is not specified. If both are specified, then both must be true for the redirect to be applied.
  */
-@property (nonatomic, strong) NSString *httpErrorCodeReturnedEquals;
+@property (nonatomic, strong) NSString * _Nullable httpErrorCodeReturnedEquals;
 
 /**
  The object key name prefix when the redirect is applied. For example, to redirect requests for ExamplePage.html, the key prefix will be ExamplePage.html. To redirect request for all pages with the prefix docs/, the key prefix will be /docs, which identifies all objects in the docs/ folder. Required when the parent element Condition is specified and sibling HttpErrorCodeReturnedEquals is not specified. If both conditions are specified, both must be true for the redirect to be applied.
  */
-@property (nonatomic, strong) NSString *keyPrefixEquals;
+@property (nonatomic, strong) NSString * _Nullable keyPrefixEquals;
 
 @end
 
@@ -614,7 +616,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *location;
+@property (nonatomic, strong) NSString * _Nullable location;
 
 @end
 
@@ -632,37 +634,37 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3CreateBucketConfiguration *createBucketConfiguration;
+@property (nonatomic, strong) AWSS3CreateBucketConfiguration * _Nullable createBucketConfiguration;
 
 /**
  Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
  */
-@property (nonatomic, strong) NSString *grantFullControl;
+@property (nonatomic, strong) NSString * _Nullable grantFullControl;
 
 /**
  Allows grantee to list the objects in the bucket.
  */
-@property (nonatomic, strong) NSString *grantRead;
+@property (nonatomic, strong) NSString * _Nullable grantRead;
 
 /**
  Allows grantee to read the bucket ACL.
  */
-@property (nonatomic, strong) NSString *grantReadACP;
+@property (nonatomic, strong) NSString * _Nullable grantReadACP;
 
 /**
  Allows grantee to create, overwrite, and delete any object in the bucket.
  */
-@property (nonatomic, strong) NSString *grantWrite;
+@property (nonatomic, strong) NSString * _Nullable grantWrite;
 
 /**
  Allows grantee to write the ACL for the applicable bucket.
  */
-@property (nonatomic, strong) NSString *grantWriteACP;
+@property (nonatomic, strong) NSString * _Nullable grantWriteACP;
 
 @end
 
@@ -675,27 +677,27 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Name of the bucket to which the multipart upload was initiated.
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  Object key for which the multipart upload was initiated.
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
  */
-@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerAlgorithm;
 
 /**
  If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
  */
-@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKeyMD5;
 
 /**
  If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
  */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
+@property (nonatomic, strong) NSString * _Nullable SSEKMSKeyId;
 
 /**
  The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
@@ -705,7 +707,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  ID for the initiated multipart upload.
  */
-@property (nonatomic, strong) NSString *uploadId;
+@property (nonatomic, strong) NSString * _Nullable uploadId;
 
 @end
 
@@ -723,87 +725,87 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  Specifies caching behavior along the request/reply chain.
  */
-@property (nonatomic, strong) NSString *cacheControl;
+@property (nonatomic, strong) NSString * _Nullable cacheControl;
 
 /**
  Specifies presentational information for the object.
  */
-@property (nonatomic, strong) NSString *contentDisposition;
+@property (nonatomic, strong) NSString * _Nullable contentDisposition;
 
 /**
  Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
  */
-@property (nonatomic, strong) NSString *contentEncoding;
+@property (nonatomic, strong) NSString * _Nullable contentEncoding;
 
 /**
  The language the content is in.
  */
-@property (nonatomic, strong) NSString *contentLanguage;
+@property (nonatomic, strong) NSString * _Nullable contentLanguage;
 
 /**
  A standard MIME type describing the format of the object data.
  */
-@property (nonatomic, strong) NSString *contentType;
+@property (nonatomic, strong) NSString * _Nullable contentType;
 
 /**
  The date and time at which the object is no longer cacheable.
  */
-@property (nonatomic, strong) NSDate *expires;
+@property (nonatomic, strong) NSDate * _Nullable expires;
 
 /**
  Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
  */
-@property (nonatomic, strong) NSString *grantFullControl;
+@property (nonatomic, strong) NSString * _Nullable grantFullControl;
 
 /**
  Allows grantee to read the object data and its metadata.
  */
-@property (nonatomic, strong) NSString *grantRead;
+@property (nonatomic, strong) NSString * _Nullable grantRead;
 
 /**
  Allows grantee to read the object ACL.
  */
-@property (nonatomic, strong) NSString *grantReadACP;
+@property (nonatomic, strong) NSString * _Nullable grantReadACP;
 
 /**
  Allows grantee to write the ACL for the applicable object.
  */
-@property (nonatomic, strong) NSString *grantWriteACP;
+@property (nonatomic, strong) NSString * _Nullable grantWriteACP;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  A map of metadata to store with the object in S3.
  */
-@property (nonatomic, strong) NSDictionary *metadata;
+@property (nonatomic, strong) NSDictionary * _Nullable metadata;
 
 /**
  Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
  */
-@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerAlgorithm;
 
 /**
  Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
  */
-@property (nonatomic, strong) NSString *SSECustomerKey;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKey;
 
 /**
  Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
-@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKeyMD5;
 
 /**
  Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version
  */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
+@property (nonatomic, strong) NSString * _Nullable SSEKMSKeyId;
 
 /**
  The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
@@ -818,7 +820,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
  */
-@property (nonatomic, strong) NSString *websiteRedirectLocation;
+@property (nonatomic, strong) NSString * _Nullable websiteRedirectLocation;
 
 @end
 
@@ -831,7 +833,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 @end
 
@@ -844,7 +846,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 @end
 
@@ -857,7 +859,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 @end
 
@@ -870,7 +872,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 @end
 
@@ -883,7 +885,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 @end
 
@@ -896,7 +898,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 @end
 
@@ -909,27 +911,27 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Specifies whether the object is (true) or is not (false) the latest version of an object.
  */
-@property (nonatomic, strong) NSNumber *isLatest;
+@property (nonatomic, strong) NSNumber * _Nullable isLatest;
 
 /**
  The object key.
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  Date and time the object was last modified.
  */
-@property (nonatomic, strong) NSDate *lastModified;
+@property (nonatomic, strong) NSDate * _Nullable lastModified;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3Owner *owner;
+@property (nonatomic, strong) AWSS3Owner * _Nullable owner;
 
 /**
  Version ID of an object.
  */
-@property (nonatomic, strong) NSString *versionId;
+@property (nonatomic, strong) NSString * _Nullable versionId;
 
 @end
 
@@ -942,12 +944,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker.
  */
-@property (nonatomic, strong) NSNumber *deleteMarker;
+@property (nonatomic, strong) NSNumber * _Nullable deleteMarker;
 
 /**
  Returns the version ID of the delete marker created as a result of the DELETE operation.
  */
-@property (nonatomic, strong) NSString *versionId;
+@property (nonatomic, strong) NSString * _Nullable versionId;
 
 @end
 
@@ -960,22 +962,22 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
  */
-@property (nonatomic, strong) NSString *MFA;
+@property (nonatomic, strong) NSString * _Nullable MFA;
 
 /**
  VersionId used to reference a specific version of the object.
  */
-@property (nonatomic, strong) NSString *versionId;
+@property (nonatomic, strong) NSString * _Nullable versionId;
 
 @end
 
@@ -988,12 +990,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *deleted;
+@property (nonatomic, strong) NSArray * _Nullable deleted;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *errors;
+@property (nonatomic, strong) NSArray * _Nullable errors;
 
 @end
 
@@ -1006,17 +1008,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
  */
-@property (nonatomic, strong) NSString *MFA;
+@property (nonatomic, strong) NSString * _Nullable MFA;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3Remove *remove;
+@property (nonatomic, strong) AWSS3Remove * _Nullable remove;
 
 @end
 
@@ -1029,22 +1031,22 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSNumber *deleteMarker;
+@property (nonatomic, strong) NSNumber * _Nullable deleteMarker;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *deleteMarkerVersionId;
+@property (nonatomic, strong) NSString * _Nullable deleteMarkerVersionId;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *versionId;
+@property (nonatomic, strong) NSString * _Nullable versionId;
 
 @end
 
@@ -1057,22 +1059,22 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *code;
+@property (nonatomic, strong) NSString * _Nullable code;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *message;
+@property (nonatomic, strong) NSString * _Nullable message;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *versionId;
+@property (nonatomic, strong) NSString * _Nullable versionId;
 
 @end
 
@@ -1085,7 +1087,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  The object key name to use when a 4XX class error occurs.
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 @end
 
@@ -1098,12 +1100,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  A list of grants.
  */
-@property (nonatomic, strong) NSArray *grants;
+@property (nonatomic, strong) NSArray * _Nullable grants;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3Owner *owner;
+@property (nonatomic, strong) AWSS3Owner * _Nullable owner;
 
 @end
 
@@ -1116,7 +1118,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 @end
 
@@ -1129,7 +1131,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *CORSRules;
+@property (nonatomic, strong) NSArray * _Nullable CORSRules;
 
 @end
 
@@ -1142,7 +1144,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 @end
 
@@ -1155,7 +1157,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *rules;
+@property (nonatomic, strong) NSArray * _Nullable rules;
 
 @end
 
@@ -1168,7 +1170,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 @end
 
@@ -1194,7 +1196,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 @end
 
@@ -1207,7 +1209,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) AWSS3LoggingEnabled *loggingEnabled;
+@property (nonatomic, strong) AWSS3LoggingEnabled * _Nullable loggingEnabled;
 
 @end
 
@@ -1220,7 +1222,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 @end
 
@@ -1233,17 +1235,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) AWSS3CloudFunctionConfiguration *cloudFunctionConfiguration;
+@property (nonatomic, strong) AWSS3CloudFunctionConfiguration * _Nullable cloudFunctionConfiguration;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3QueueConfiguration *queueConfiguration;
+@property (nonatomic, strong) AWSS3QueueConfiguration * _Nullable queueConfiguration;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3TopicConfiguration *topicConfiguration;
+@property (nonatomic, strong) AWSS3TopicConfiguration * _Nullable topicConfiguration;
 
 @end
 
@@ -1256,7 +1258,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 @end
 
@@ -1269,7 +1271,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  The bucket policy as a JSON document.
  */
-@property (nonatomic, strong) NSString *policy;
+@property (nonatomic, strong) NSString * _Nullable policy;
 
 @end
 
@@ -1282,7 +1284,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 @end
 
@@ -1308,7 +1310,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 @end
 
@@ -1321,7 +1323,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *tagSet;
+@property (nonatomic, strong) NSArray * _Nullable tagSet;
 
 @end
 
@@ -1334,7 +1336,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 @end
 
@@ -1365,7 +1367,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 @end
 
@@ -1378,22 +1380,22 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) AWSS3ErrorDocument *errorDocument;
+@property (nonatomic, strong) AWSS3ErrorDocument * _Nullable errorDocument;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3IndexDocument *indexDocument;
+@property (nonatomic, strong) AWSS3IndexDocument * _Nullable indexDocument;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3RedirectAllRequestsTo *redirectAllRequestsTo;
+@property (nonatomic, strong) AWSS3RedirectAllRequestsTo * _Nullable redirectAllRequestsTo;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *routingRules;
+@property (nonatomic, strong) NSArray * _Nullable routingRules;
 
 @end
 
@@ -1406,7 +1408,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 @end
 
@@ -1419,12 +1421,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  A list of grants.
  */
-@property (nonatomic, strong) NSArray *grants;
+@property (nonatomic, strong) NSArray * _Nullable grants;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3Owner *owner;
+@property (nonatomic, strong) AWSS3Owner * _Nullable owner;
 
 @end
 
@@ -1437,17 +1439,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  VersionId used to reference a specific version of the object.
  */
-@property (nonatomic, strong) NSString *versionId;
+@property (nonatomic, strong) NSString * _Nullable versionId;
 
 @end
 
@@ -1460,97 +1462,97 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *acceptRanges;
+@property (nonatomic, strong) NSString * _Nullable acceptRanges;
 
 /**
  Object data.
  */
-@property (nonatomic, strong) id body;
+@property (nonatomic, strong) id _Nullable body;
 
 /**
  Specifies caching behavior along the request/reply chain.
  */
-@property (nonatomic, strong) NSString *cacheControl;
+@property (nonatomic, strong) NSString * _Nullable cacheControl;
 
 /**
  Specifies presentational information for the object.
  */
-@property (nonatomic, strong) NSString *contentDisposition;
+@property (nonatomic, strong) NSString * _Nullable contentDisposition;
 
 /**
  Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
  */
-@property (nonatomic, strong) NSString *contentEncoding;
+@property (nonatomic, strong) NSString * _Nullable contentEncoding;
 
 /**
  The language the content is in.
  */
-@property (nonatomic, strong) NSString *contentLanguage;
+@property (nonatomic, strong) NSString * _Nullable contentLanguage;
 
 /**
  Size of the body in bytes.
  */
-@property (nonatomic, strong) NSNumber *contentLength;
+@property (nonatomic, strong) NSNumber * _Nullable contentLength;
 
 /**
  A standard MIME type describing the format of the object data.
  */
-@property (nonatomic, strong) NSString *contentType;
+@property (nonatomic, strong) NSString * _Nullable contentType;
 
 /**
  Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
  */
-@property (nonatomic, strong) NSNumber *deleteMarker;
+@property (nonatomic, strong) NSNumber * _Nullable deleteMarker;
 
 /**
  An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL
  */
-@property (nonatomic, strong) NSString *ETag;
+@property (nonatomic, strong) NSString * _Nullable ETag;
 
 /**
  If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
  */
-@property (nonatomic, strong) NSString *expiration;
+@property (nonatomic, strong) NSString * _Nullable expiration;
 
 /**
  The date and time at which the object is no longer cacheable.
  */
-@property (nonatomic, strong) NSDate *expires;
+@property (nonatomic, strong) NSDate * _Nullable expires;
 
 /**
  Last modified date of the object
  */
-@property (nonatomic, strong) NSDate *lastModified;
+@property (nonatomic, strong) NSDate * _Nullable lastModified;
 
 /**
  A map of metadata to store with the object in S3.
  */
-@property (nonatomic, strong) NSDictionary *metadata;
+@property (nonatomic, strong) NSDictionary * _Nullable metadata;
 
 /**
  This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
  */
-@property (nonatomic, strong) NSNumber *missingMeta;
+@property (nonatomic, strong) NSNumber * _Nullable missingMeta;
 
 /**
  Provides information about object restoration operation and expiration time of the restored object copy.
  */
-@property (nonatomic, strong) NSString *restore;
+@property (nonatomic, strong) NSString * _Nullable restore;
 
 /**
  If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
  */
-@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerAlgorithm;
 
 /**
  If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
  */
-@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKeyMD5;
 
 /**
  If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
  */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
+@property (nonatomic, strong) NSString * _Nullable SSEKMSKeyId;
 
 /**
  The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
@@ -1560,12 +1562,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Version of the object.
  */
-@property (nonatomic, strong) NSString *versionId;
+@property (nonatomic, strong) NSString * _Nullable versionId;
 
 /**
  If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
  */
-@property (nonatomic, strong) NSString *websiteRedirectLocation;
+@property (nonatomic, strong) NSString * _Nullable websiteRedirectLocation;
 
 @end
 
@@ -1578,87 +1580,87 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
  */
-@property (nonatomic, strong) NSString *ifMatch;
+@property (nonatomic, strong) NSString * _Nullable ifMatch;
 
 /**
  Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
  */
-@property (nonatomic, strong) NSDate *ifModifiedSince;
+@property (nonatomic, strong) NSDate * _Nullable ifModifiedSince;
 
 /**
  Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
  */
-@property (nonatomic, strong) NSString *ifNoneMatch;
+@property (nonatomic, strong) NSString * _Nullable ifNoneMatch;
 
 /**
  Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
  */
-@property (nonatomic, strong) NSDate *ifUnmodifiedSince;
+@property (nonatomic, strong) NSDate * _Nullable ifUnmodifiedSince;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
  */
-@property (nonatomic, strong) NSString *range;
+@property (nonatomic, strong) NSString * _Nullable range;
 
 /**
  Sets the Cache-Control header of the response.
  */
-@property (nonatomic, strong) NSString *responseCacheControl;
+@property (nonatomic, strong) NSString * _Nullable responseCacheControl;
 
 /**
  Sets the Content-Disposition header of the response
  */
-@property (nonatomic, strong) NSString *responseContentDisposition;
+@property (nonatomic, strong) NSString * _Nullable responseContentDisposition;
 
 /**
  Sets the Content-Encoding header of the response.
  */
-@property (nonatomic, strong) NSString *responseContentEncoding;
+@property (nonatomic, strong) NSString * _Nullable responseContentEncoding;
 
 /**
  Sets the Content-Language header of the response.
  */
-@property (nonatomic, strong) NSString *responseContentLanguage;
+@property (nonatomic, strong) NSString * _Nullable responseContentLanguage;
 
 /**
  Sets the Content-Type header of the response.
  */
-@property (nonatomic, strong) NSString *responseContentType;
+@property (nonatomic, strong) NSString * _Nullable responseContentType;
 
 /**
  Sets the Expires header of the response.
  */
-@property (nonatomic, strong) NSDate *responseExpires;
+@property (nonatomic, strong) NSDate * _Nullable responseExpires;
 
 /**
  Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
  */
-@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerAlgorithm;
 
 /**
  Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
  */
-@property (nonatomic, strong) NSString *SSECustomerKey;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKey;
 
 /**
  Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
-@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKeyMD5;
 
 /**
  VersionId used to reference a specific version of the object.
  */
-@property (nonatomic, strong) NSString *versionId;
+@property (nonatomic, strong) NSString * _Nullable versionId;
 
 @end
 
@@ -1671,7 +1673,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) id body;
+@property (nonatomic, strong) id _Nullable body;
 
 @end
 
@@ -1684,12 +1686,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 @end
 
@@ -1702,7 +1704,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) AWSS3Grantee *grantee;
+@property (nonatomic, strong) AWSS3Grantee * _Nullable grantee;
 
 /**
  Specifies the permission given to the grantee.
@@ -1720,17 +1722,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Screen name of the grantee.
  */
-@property (nonatomic, strong) NSString *displayName;
+@property (nonatomic, strong) NSString * _Nullable displayName;
 
 /**
  Email address of the grantee.
  */
-@property (nonatomic, strong) NSString *emailAddress;
+@property (nonatomic, strong) NSString * _Nullable emailAddress;
 
 /**
  The canonical user ID of the grantee.
  */
-@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
  Type of grantee
@@ -1740,7 +1742,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  URI of the grantee group.
  */
-@property (nonatomic, strong) NSString *URI;
+@property (nonatomic, strong) NSString * _Nullable URI;
 
 @end
 
@@ -1753,7 +1755,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 @end
 
@@ -1766,92 +1768,92 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *acceptRanges;
+@property (nonatomic, strong) NSString * _Nullable acceptRanges;
 
 /**
  Specifies caching behavior along the request/reply chain.
  */
-@property (nonatomic, strong) NSString *cacheControl;
+@property (nonatomic, strong) NSString * _Nullable cacheControl;
 
 /**
  Specifies presentational information for the object.
  */
-@property (nonatomic, strong) NSString *contentDisposition;
+@property (nonatomic, strong) NSString * _Nullable contentDisposition;
 
 /**
  Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
  */
-@property (nonatomic, strong) NSString *contentEncoding;
+@property (nonatomic, strong) NSString * _Nullable contentEncoding;
 
 /**
  The language the content is in.
  */
-@property (nonatomic, strong) NSString *contentLanguage;
+@property (nonatomic, strong) NSString * _Nullable contentLanguage;
 
 /**
  Size of the body in bytes.
  */
-@property (nonatomic, strong) NSNumber *contentLength;
+@property (nonatomic, strong) NSNumber * _Nullable contentLength;
 
 /**
  A standard MIME type describing the format of the object data.
  */
-@property (nonatomic, strong) NSString *contentType;
+@property (nonatomic, strong) NSString * _Nullable contentType;
 
 /**
  Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
  */
-@property (nonatomic, strong) NSNumber *deleteMarker;
+@property (nonatomic, strong) NSNumber * _Nullable deleteMarker;
 
 /**
  An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL
  */
-@property (nonatomic, strong) NSString *ETag;
+@property (nonatomic, strong) NSString * _Nullable ETag;
 
 /**
  If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
  */
-@property (nonatomic, strong) NSString *expiration;
+@property (nonatomic, strong) NSString * _Nullable expiration;
 
 /**
  The date and time at which the object is no longer cacheable.
  */
-@property (nonatomic, strong) NSDate *expires;
+@property (nonatomic, strong) NSDate * _Nullable expires;
 
 /**
  Last modified date of the object
  */
-@property (nonatomic, strong) NSDate *lastModified;
+@property (nonatomic, strong) NSDate * _Nullable lastModified;
 
 /**
  A map of metadata to store with the object in S3.
  */
-@property (nonatomic, strong) NSDictionary *metadata;
+@property (nonatomic, strong) NSDictionary * _Nullable metadata;
 
 /**
  This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
  */
-@property (nonatomic, strong) NSNumber *missingMeta;
+@property (nonatomic, strong) NSNumber * _Nullable missingMeta;
 
 /**
  Provides information about object restoration operation and expiration time of the restored object copy.
  */
-@property (nonatomic, strong) NSString *restore;
+@property (nonatomic, strong) NSString * _Nullable restore;
 
 /**
  If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
  */
-@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerAlgorithm;
 
 /**
  If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
  */
-@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKeyMD5;
 
 /**
  If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
  */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
+@property (nonatomic, strong) NSString * _Nullable SSEKMSKeyId;
 
 /**
  The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
@@ -1861,12 +1863,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Version of the object.
  */
-@property (nonatomic, strong) NSString *versionId;
+@property (nonatomic, strong) NSString * _Nullable versionId;
 
 /**
  If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
  */
-@property (nonatomic, strong) NSString *websiteRedirectLocation;
+@property (nonatomic, strong) NSString * _Nullable websiteRedirectLocation;
 
 @end
 
@@ -1879,57 +1881,57 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
  */
-@property (nonatomic, strong) NSString *ifMatch;
+@property (nonatomic, strong) NSString * _Nullable ifMatch;
 
 /**
  Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
  */
-@property (nonatomic, strong) NSDate *ifModifiedSince;
+@property (nonatomic, strong) NSDate * _Nullable ifModifiedSince;
 
 /**
  Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
  */
-@property (nonatomic, strong) NSString *ifNoneMatch;
+@property (nonatomic, strong) NSString * _Nullable ifNoneMatch;
 
 /**
  Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
  */
-@property (nonatomic, strong) NSDate *ifUnmodifiedSince;
+@property (nonatomic, strong) NSDate * _Nullable ifUnmodifiedSince;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
  */
-@property (nonatomic, strong) NSString *range;
+@property (nonatomic, strong) NSString * _Nullable range;
 
 /**
  Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
  */
-@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerAlgorithm;
 
 /**
  Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
  */
-@property (nonatomic, strong) NSString *SSECustomerKey;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKey;
 
 /**
  Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
-@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKeyMD5;
 
 /**
  VersionId used to reference a specific version of the object.
  */
-@property (nonatomic, strong) NSString *versionId;
+@property (nonatomic, strong) NSString * _Nullable versionId;
 
 @end
 
@@ -1942,7 +1944,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  A suffix that is appended to a request that is for a directory on the website endpoint (e.g. if the suffix is index.html and you make a request to samplebucket/images/ the data that is returned will be for the object with the key name images/index.html) The suffix must not be empty and must not include a slash character.
  */
-@property (nonatomic, strong) NSString *suffix;
+@property (nonatomic, strong) NSString * _Nullable suffix;
 
 @end
 
@@ -1955,12 +1957,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Name of the Principal.
  */
-@property (nonatomic, strong) NSString *displayName;
+@property (nonatomic, strong) NSString * _Nullable displayName;
 
 /**
  If the principal is an AWS account, it provides the Canonical User ID. If the principal is an IAM User, it provides a user ARN value.
  */
-@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSString * _Nullable identifier;
 
 @end
 
@@ -1973,7 +1975,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *rules;
+@property (nonatomic, strong) NSArray * _Nullable rules;
 
 @end
 
@@ -1986,12 +1988,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
  */
-@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSDate * _Nullable date;
 
 /**
  Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
  */
-@property (nonatomic, strong) NSNumber *days;
+@property (nonatomic, strong) NSNumber * _Nullable days;
 
 @end
 
@@ -2004,12 +2006,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *buckets;
+@property (nonatomic, strong) NSArray * _Nullable buckets;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3Owner *owner;
+@property (nonatomic, strong) AWSS3Owner * _Nullable owner;
 
 @end
 
@@ -2022,17 +2024,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Name of the bucket to which the multipart upload was initiated.
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *commonPrefixes;
+@property (nonatomic, strong) NSArray * _Nullable commonPrefixes;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *delimiter;
+@property (nonatomic, strong) NSString * _Nullable delimiter;
 
 /**
  Encoding type used by Amazon S3 to encode object keys in the response.
@@ -2042,42 +2044,42 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.
  */
-@property (nonatomic, strong) NSNumber *isTruncated;
+@property (nonatomic, strong) NSNumber * _Nullable isTruncated;
 
 /**
  The key at or after which the listing began.
  */
-@property (nonatomic, strong) NSString *keyMarker;
+@property (nonatomic, strong) NSString * _Nullable keyMarker;
 
 /**
  Maximum number of multipart uploads that could have been included in the response.
  */
-@property (nonatomic, strong) NSNumber *maxUploads;
+@property (nonatomic, strong) NSNumber * _Nullable maxUploads;
 
 /**
  When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.
  */
-@property (nonatomic, strong) NSString *nextKeyMarker;
+@property (nonatomic, strong) NSString * _Nullable nextKeyMarker;
 
 /**
  When a list is truncated, this element specifies the value that should be used for the upload-id-marker request parameter in a subsequent request.
  */
-@property (nonatomic, strong) NSString *nextUploadIdMarker;
+@property (nonatomic, strong) NSString * _Nullable nextUploadIdMarker;
 
 /**
  When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.
  */
-@property (nonatomic, strong) NSString *prefix;
+@property (nonatomic, strong) NSString * _Nullable prefix;
 
 /**
  Upload ID after which listing began.
  */
-@property (nonatomic, strong) NSString *uploadIdMarker;
+@property (nonatomic, strong) NSString * _Nullable uploadIdMarker;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *uploads;
+@property (nonatomic, strong) NSArray * _Nullable uploads;
 
 @end
 
@@ -2090,12 +2092,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  Character you use to group keys.
  */
-@property (nonatomic, strong) NSString *delimiter;
+@property (nonatomic, strong) NSString * _Nullable delimiter;
 
 /**
  Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
@@ -2105,22 +2107,22 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.
  */
-@property (nonatomic, strong) NSString *keyMarker;
+@property (nonatomic, strong) NSString * _Nullable keyMarker;
 
 /**
  Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.
  */
-@property (nonatomic, strong) NSNumber *maxUploads;
+@property (nonatomic, strong) NSNumber * _Nullable maxUploads;
 
 /**
  Lists in-progress uploads only for those keys that begin with the specified prefix.
  */
-@property (nonatomic, strong) NSString *prefix;
+@property (nonatomic, strong) NSString * _Nullable prefix;
 
 /**
  Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.
  */
-@property (nonatomic, strong) NSString *uploadIdMarker;
+@property (nonatomic, strong) NSString * _Nullable uploadIdMarker;
 
 @end
 
@@ -2133,17 +2135,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *commonPrefixes;
+@property (nonatomic, strong) NSArray * _Nullable commonPrefixes;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *deleteMarkers;
+@property (nonatomic, strong) NSArray * _Nullable deleteMarkers;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *delimiter;
+@property (nonatomic, strong) NSString * _Nullable delimiter;
 
 /**
  Encoding type used by Amazon S3 to encode object keys in the response.
@@ -2153,47 +2155,47 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request using the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in another request to return the rest of the results.
  */
-@property (nonatomic, strong) NSNumber *isTruncated;
+@property (nonatomic, strong) NSNumber * _Nullable isTruncated;
 
 /**
  Marks the last Key returned in a truncated response.
  */
-@property (nonatomic, strong) NSString *keyMarker;
+@property (nonatomic, strong) NSString * _Nullable keyMarker;
 
 /**
  
  */
-@property (nonatomic, strong) NSNumber *maxKeys;
+@property (nonatomic, strong) NSNumber * _Nullable maxKeys;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString * _Nullable name;
 
 /**
  Use this value for the key marker request parameter in a subsequent request.
  */
-@property (nonatomic, strong) NSString *nextKeyMarker;
+@property (nonatomic, strong) NSString * _Nullable nextKeyMarker;
 
 /**
  Use this value for the next version id marker parameter in a subsequent request.
  */
-@property (nonatomic, strong) NSString *nextVersionIdMarker;
+@property (nonatomic, strong) NSString * _Nullable nextVersionIdMarker;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *prefix;
+@property (nonatomic, strong) NSString * _Nullable prefix;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *versionIdMarker;
+@property (nonatomic, strong) NSString * _Nullable versionIdMarker;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *versions;
+@property (nonatomic, strong) NSArray * _Nullable versions;
 
 @end
 
@@ -2206,12 +2208,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  A delimiter is a character you use to group keys.
  */
-@property (nonatomic, strong) NSString *delimiter;
+@property (nonatomic, strong) NSString * _Nullable delimiter;
 
 /**
  Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
@@ -2221,22 +2223,22 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Specifies the key to start with when listing objects in a bucket.
  */
-@property (nonatomic, strong) NSString *keyMarker;
+@property (nonatomic, strong) NSString * _Nullable keyMarker;
 
 /**
  Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
  */
-@property (nonatomic, strong) NSNumber *maxKeys;
+@property (nonatomic, strong) NSNumber * _Nullable maxKeys;
 
 /**
  Limits the response to keys that begin with the specified prefix.
  */
-@property (nonatomic, strong) NSString *prefix;
+@property (nonatomic, strong) NSString * _Nullable prefix;
 
 /**
  Specifies the object version you want to start listing from.
  */
-@property (nonatomic, strong) NSString *versionIdMarker;
+@property (nonatomic, strong) NSString * _Nullable versionIdMarker;
 
 @end
 
@@ -2249,17 +2251,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *commonPrefixes;
+@property (nonatomic, strong) NSArray * _Nullable commonPrefixes;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *contents;
+@property (nonatomic, strong) NSArray * _Nullable contents;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *delimiter;
+@property (nonatomic, strong) NSString * _Nullable delimiter;
 
 /**
  Encoding type used by Amazon S3 to encode object keys in the response.
@@ -2269,32 +2271,32 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria.
  */
-@property (nonatomic, strong) NSNumber *isTruncated;
+@property (nonatomic, strong) NSNumber * _Nullable isTruncated;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *marker;
+@property (nonatomic, strong) NSString * _Nullable marker;
 
 /**
  
  */
-@property (nonatomic, strong) NSNumber *maxKeys;
+@property (nonatomic, strong) NSNumber * _Nullable maxKeys;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString * _Nullable name;
 
 /**
  When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMaker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys.
  */
-@property (nonatomic, strong) NSString *nextMarker;
+@property (nonatomic, strong) NSString * _Nullable nextMarker;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *prefix;
+@property (nonatomic, strong) NSString * _Nullable prefix;
 
 @end
 
@@ -2307,12 +2309,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  A delimiter is a character you use to group keys.
  */
-@property (nonatomic, strong) NSString *delimiter;
+@property (nonatomic, strong) NSString * _Nullable delimiter;
 
 /**
  Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
@@ -2322,17 +2324,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Specifies the key to start with when listing objects in a bucket.
  */
-@property (nonatomic, strong) NSString *marker;
+@property (nonatomic, strong) NSString * _Nullable marker;
 
 /**
  Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
  */
-@property (nonatomic, strong) NSNumber *maxKeys;
+@property (nonatomic, strong) NSNumber * _Nullable maxKeys;
 
 /**
  Limits the response to keys that begin with the specified prefix.
  */
-@property (nonatomic, strong) NSString *prefix;
+@property (nonatomic, strong) NSString * _Nullable prefix;
 
 @end
 
@@ -2345,47 +2347,47 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Name of the bucket to which the multipart upload was initiated.
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  Identifies who initiated the multipart upload.
  */
-@property (nonatomic, strong) AWSS3Initiator *initiator;
+@property (nonatomic, strong) AWSS3Initiator * _Nullable initiator;
 
 /**
  Indicates whether the returned list of parts is truncated.
  */
-@property (nonatomic, strong) NSNumber *isTruncated;
+@property (nonatomic, strong) NSNumber * _Nullable isTruncated;
 
 /**
  Object key for which the multipart upload was initiated.
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  Maximum number of parts that were allowed in the response.
  */
-@property (nonatomic, strong) NSNumber *maxParts;
+@property (nonatomic, strong) NSNumber * _Nullable maxParts;
 
 /**
  When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.
  */
-@property (nonatomic, strong) NSNumber *nextPartNumberMarker;
+@property (nonatomic, strong) NSNumber * _Nullable nextPartNumberMarker;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3Owner *owner;
+@property (nonatomic, strong) AWSS3Owner * _Nullable owner;
 
 /**
  Part number after which listing begins.
  */
-@property (nonatomic, strong) NSNumber *partNumberMarker;
+@property (nonatomic, strong) NSNumber * _Nullable partNumberMarker;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *parts;
+@property (nonatomic, strong) NSArray * _Nullable parts;
 
 /**
  The class of storage used to store the object.
@@ -2395,7 +2397,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Upload ID identifying the multipart upload whose parts are being listed.
  */
-@property (nonatomic, strong) NSString *uploadId;
+@property (nonatomic, strong) NSString * _Nullable uploadId;
 
 @end
 
@@ -2408,27 +2410,27 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  Sets the maximum number of parts to return.
  */
-@property (nonatomic, strong) NSNumber *maxParts;
+@property (nonatomic, strong) NSNumber * _Nullable maxParts;
 
 /**
  Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.
  */
-@property (nonatomic, strong) NSNumber *partNumberMarker;
+@property (nonatomic, strong) NSNumber * _Nullable partNumberMarker;
 
 /**
  Upload ID identifying the multipart upload whose parts are being listed.
  */
-@property (nonatomic, strong) NSString *uploadId;
+@property (nonatomic, strong) NSString * _Nullable uploadId;
 
 @end
 
@@ -2441,17 +2443,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Specifies the bucket where you want Amazon S3 to store server access logs. You can have your logs delivered to any bucket that you own, including the same bucket that is being logged. You can also configure multiple buckets to deliver their logs to the same target bucket. In this case you should choose a different TargetPrefix for each source bucket so that the delivered log files can be distinguished by key.
  */
-@property (nonatomic, strong) NSString *targetBucket;
+@property (nonatomic, strong) NSString * _Nullable targetBucket;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *targetGrants;
+@property (nonatomic, strong) NSArray * _Nullable targetGrants;
 
 /**
  This element lets you specify a prefix for the keys that the log files will be stored under.
  */
-@property (nonatomic, strong) NSString *targetPrefix;
+@property (nonatomic, strong) NSString * _Nullable targetPrefix;
 
 @end
 
@@ -2464,22 +2466,22 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Date and time at which the multipart upload was initiated.
  */
-@property (nonatomic, strong) NSDate *initiated;
+@property (nonatomic, strong) NSDate * _Nullable initiated;
 
 /**
  Identifies who initiated the multipart upload.
  */
-@property (nonatomic, strong) AWSS3Initiator *initiator;
+@property (nonatomic, strong) AWSS3Initiator * _Nullable initiator;
 
 /**
  Key of the object for which the multipart upload was initiated.
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3Owner *owner;
+@property (nonatomic, strong) AWSS3Owner * _Nullable owner;
 
 /**
  The class of storage used to store the object.
@@ -2489,7 +2491,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Upload ID that identifies the multipart upload.
  */
-@property (nonatomic, strong) NSString *uploadId;
+@property (nonatomic, strong) NSString * _Nullable uploadId;
 
 @end
 
@@ -2502,7 +2504,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href="/AmazonS3/latest/dev/s3-access-control.html">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.
  */
-@property (nonatomic, strong) NSNumber *noncurrentDays;
+@property (nonatomic, strong) NSNumber * _Nullable noncurrentDays;
 
 @end
 
@@ -2515,7 +2517,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href="/AmazonS3/latest/dev/s3-access-control.html">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.
  */
-@property (nonatomic, strong) NSNumber *noncurrentDays;
+@property (nonatomic, strong) NSNumber * _Nullable noncurrentDays;
 
 /**
  The class of storage used to store the object.
@@ -2533,17 +2535,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) AWSS3CloudFunctionConfiguration *cloudFunctionConfiguration;
+@property (nonatomic, strong) AWSS3CloudFunctionConfiguration * _Nullable cloudFunctionConfiguration;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3QueueConfiguration *queueConfiguration;
+@property (nonatomic, strong) AWSS3QueueConfiguration * _Nullable queueConfiguration;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3TopicConfiguration *topicConfiguration;
+@property (nonatomic, strong) AWSS3TopicConfiguration * _Nullable topicConfiguration;
 
 @end
 
@@ -2556,27 +2558,27 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *ETag;
+@property (nonatomic, strong) NSString * _Nullable ETag;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  
  */
-@property (nonatomic, strong) NSDate *lastModified;
+@property (nonatomic, strong) NSDate * _Nullable lastModified;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3Owner *owner;
+@property (nonatomic, strong) AWSS3Owner * _Nullable owner;
 
 /**
  
  */
-@property (nonatomic, strong) NSNumber *size;
+@property (nonatomic, strong) NSNumber * _Nullable size;
 
 /**
  The class of storage used to store the object.
@@ -2594,12 +2596,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Key name of the object to delete.
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  VersionId for the specific version of the object to delete.
  */
-@property (nonatomic, strong) NSString *versionId;
+@property (nonatomic, strong) NSString * _Nullable versionId;
 
 @end
 
@@ -2612,32 +2614,32 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *ETag;
+@property (nonatomic, strong) NSString * _Nullable ETag;
 
 /**
  Specifies whether the object is (true) or is not (false) the latest version of an object.
  */
-@property (nonatomic, strong) NSNumber *isLatest;
+@property (nonatomic, strong) NSNumber * _Nullable isLatest;
 
 /**
  The object key.
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  Date and time the object was last modified.
  */
-@property (nonatomic, strong) NSDate *lastModified;
+@property (nonatomic, strong) NSDate * _Nullable lastModified;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3Owner *owner;
+@property (nonatomic, strong) AWSS3Owner * _Nullable owner;
 
 /**
  Size in bytes of the object.
  */
-@property (nonatomic, strong) NSNumber *size;
+@property (nonatomic, strong) NSNumber * _Nullable size;
 
 /**
  The class of storage used to store the object.
@@ -2647,7 +2649,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Version ID of an object.
  */
-@property (nonatomic, strong) NSString *versionId;
+@property (nonatomic, strong) NSString * _Nullable versionId;
 
 @end
 
@@ -2660,12 +2662,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *displayName;
+@property (nonatomic, strong) NSString * _Nullable displayName;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSString * _Nullable identifier;
 
 @end
 
@@ -2678,22 +2680,22 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Entity tag returned when the part was uploaded.
  */
-@property (nonatomic, strong) NSString *ETag;
+@property (nonatomic, strong) NSString * _Nullable ETag;
 
 /**
  Date and time at which the part was uploaded.
  */
-@property (nonatomic, strong) NSDate *lastModified;
+@property (nonatomic, strong) NSDate * _Nullable lastModified;
 
 /**
  Part number identifying the part.
  */
-@property (nonatomic, strong) NSNumber *partNumber;
+@property (nonatomic, strong) NSNumber * _Nullable partNumber;
 
 /**
  Size of the uploaded part data.
  */
-@property (nonatomic, strong) NSNumber *size;
+@property (nonatomic, strong) NSNumber * _Nullable size;
 
 @end
 
@@ -2711,42 +2713,42 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) AWSS3AccessControlPolicy *accessControlPolicy;
+@property (nonatomic, strong) AWSS3AccessControlPolicy * _Nullable accessControlPolicy;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *contentMD5;
+@property (nonatomic, strong) NSString * _Nullable contentMD5;
 
 /**
  Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
  */
-@property (nonatomic, strong) NSString *grantFullControl;
+@property (nonatomic, strong) NSString * _Nullable grantFullControl;
 
 /**
  Allows grantee to list the objects in the bucket.
  */
-@property (nonatomic, strong) NSString *grantRead;
+@property (nonatomic, strong) NSString * _Nullable grantRead;
 
 /**
  Allows grantee to read the bucket ACL.
  */
-@property (nonatomic, strong) NSString *grantReadACP;
+@property (nonatomic, strong) NSString * _Nullable grantReadACP;
 
 /**
  Allows grantee to create, overwrite, and delete any object in the bucket.
  */
-@property (nonatomic, strong) NSString *grantWrite;
+@property (nonatomic, strong) NSString * _Nullable grantWrite;
 
 /**
  Allows grantee to write the ACL for the applicable bucket.
  */
-@property (nonatomic, strong) NSString *grantWriteACP;
+@property (nonatomic, strong) NSString * _Nullable grantWriteACP;
 
 @end
 
@@ -2759,17 +2761,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3CORSConfiguration *CORSConfiguration;
+@property (nonatomic, strong) AWSS3CORSConfiguration * _Nullable CORSConfiguration;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *contentMD5;
+@property (nonatomic, strong) NSString * _Nullable contentMD5;
 
 @end
 
@@ -2782,17 +2784,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *contentMD5;
+@property (nonatomic, strong) NSString * _Nullable contentMD5;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3LifecycleConfiguration *lifecycleConfiguration;
+@property (nonatomic, strong) AWSS3LifecycleConfiguration * _Nullable lifecycleConfiguration;
 
 @end
 
@@ -2805,17 +2807,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3BucketLoggingStatus *bucketLoggingStatus;
+@property (nonatomic, strong) AWSS3BucketLoggingStatus * _Nullable bucketLoggingStatus;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *contentMD5;
+@property (nonatomic, strong) NSString * _Nullable contentMD5;
 
 @end
 
@@ -2828,17 +2830,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *contentMD5;
+@property (nonatomic, strong) NSString * _Nullable contentMD5;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3NotificationConfiguration *notificationConfiguration;
+@property (nonatomic, strong) AWSS3NotificationConfiguration * _Nullable notificationConfiguration;
 
 @end
 
@@ -2851,17 +2853,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *contentMD5;
+@property (nonatomic, strong) NSString * _Nullable contentMD5;
 
 /**
  The bucket policy as a JSON document.
  */
-@property (nonatomic, strong) NSString *policy;
+@property (nonatomic, strong) NSString * _Nullable policy;
 
 @end
 
@@ -2874,17 +2876,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *contentMD5;
+@property (nonatomic, strong) NSString * _Nullable contentMD5;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3RequestPaymentConfiguration *requestPaymentConfiguration;
+@property (nonatomic, strong) AWSS3RequestPaymentConfiguration * _Nullable requestPaymentConfiguration;
 
 @end
 
@@ -2897,17 +2899,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *contentMD5;
+@property (nonatomic, strong) NSString * _Nullable contentMD5;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3Tagging *tagging;
+@property (nonatomic, strong) AWSS3Tagging * _Nullable tagging;
 
 @end
 
@@ -2920,22 +2922,22 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *contentMD5;
+@property (nonatomic, strong) NSString * _Nullable contentMD5;
 
 /**
  The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
  */
-@property (nonatomic, strong) NSString *MFA;
+@property (nonatomic, strong) NSString * _Nullable MFA;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3VersioningConfiguration *versioningConfiguration;
+@property (nonatomic, strong) AWSS3VersioningConfiguration * _Nullable versioningConfiguration;
 
 @end
 
@@ -2948,17 +2950,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *contentMD5;
+@property (nonatomic, strong) NSString * _Nullable contentMD5;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3WebsiteConfiguration *websiteConfiguration;
+@property (nonatomic, strong) AWSS3WebsiteConfiguration * _Nullable websiteConfiguration;
 
 @end
 
@@ -2976,47 +2978,47 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) AWSS3AccessControlPolicy *accessControlPolicy;
+@property (nonatomic, strong) AWSS3AccessControlPolicy * _Nullable accessControlPolicy;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *contentMD5;
+@property (nonatomic, strong) NSString * _Nullable contentMD5;
 
 /**
  Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
  */
-@property (nonatomic, strong) NSString *grantFullControl;
+@property (nonatomic, strong) NSString * _Nullable grantFullControl;
 
 /**
  Allows grantee to list the objects in the bucket.
  */
-@property (nonatomic, strong) NSString *grantRead;
+@property (nonatomic, strong) NSString * _Nullable grantRead;
 
 /**
  Allows grantee to read the bucket ACL.
  */
-@property (nonatomic, strong) NSString *grantReadACP;
+@property (nonatomic, strong) NSString * _Nullable grantReadACP;
 
 /**
  Allows grantee to create, overwrite, and delete any object in the bucket.
  */
-@property (nonatomic, strong) NSString *grantWrite;
+@property (nonatomic, strong) NSString * _Nullable grantWrite;
 
 /**
  Allows grantee to write the ACL for the applicable bucket.
  */
-@property (nonatomic, strong) NSString *grantWriteACP;
+@property (nonatomic, strong) NSString * _Nullable grantWriteACP;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 @end
 
@@ -3029,27 +3031,27 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Entity tag for the uploaded object.
  */
-@property (nonatomic, strong) NSString *ETag;
+@property (nonatomic, strong) NSString * _Nullable ETag;
 
 /**
  If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
  */
-@property (nonatomic, strong) NSString *expiration;
+@property (nonatomic, strong) NSString * _Nullable expiration;
 
 /**
  If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
  */
-@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerAlgorithm;
 
 /**
  If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
  */
-@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKeyMD5;
 
 /**
  If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
  */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
+@property (nonatomic, strong) NSString * _Nullable SSEKMSKeyId;
 
 /**
  The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
@@ -3059,7 +3061,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Version of the object.
  */
-@property (nonatomic, strong) NSString *versionId;
+@property (nonatomic, strong) NSString * _Nullable versionId;
 
 @end
 
@@ -3077,102 +3079,102 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Object data.
  */
-@property (nonatomic, strong) id body;
+@property (nonatomic, strong) id _Nullable body;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  Specifies caching behavior along the request/reply chain.
  */
-@property (nonatomic, strong) NSString *cacheControl;
+@property (nonatomic, strong) NSString * _Nullable cacheControl;
 
 /**
  Specifies presentational information for the object.
  */
-@property (nonatomic, strong) NSString *contentDisposition;
+@property (nonatomic, strong) NSString * _Nullable contentDisposition;
 
 /**
  Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
  */
-@property (nonatomic, strong) NSString *contentEncoding;
+@property (nonatomic, strong) NSString * _Nullable contentEncoding;
 
 /**
  The language the content is in.
  */
-@property (nonatomic, strong) NSString *contentLanguage;
+@property (nonatomic, strong) NSString * _Nullable contentLanguage;
 
 /**
  Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
  */
-@property (nonatomic, strong) NSNumber *contentLength;
+@property (nonatomic, strong) NSNumber * _Nullable contentLength;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *contentMD5;
+@property (nonatomic, strong) NSString * _Nullable contentMD5;
 
 /**
  A standard MIME type describing the format of the object data.
  */
-@property (nonatomic, strong) NSString *contentType;
+@property (nonatomic, strong) NSString * _Nullable contentType;
 
 /**
  The date and time at which the object is no longer cacheable.
  */
-@property (nonatomic, strong) NSDate *expires;
+@property (nonatomic, strong) NSDate * _Nullable expires;
 
 /**
  Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
  */
-@property (nonatomic, strong) NSString *grantFullControl;
+@property (nonatomic, strong) NSString * _Nullable grantFullControl;
 
 /**
  Allows grantee to read the object data and its metadata.
  */
-@property (nonatomic, strong) NSString *grantRead;
+@property (nonatomic, strong) NSString * _Nullable grantRead;
 
 /**
  Allows grantee to read the object ACL.
  */
-@property (nonatomic, strong) NSString *grantReadACP;
+@property (nonatomic, strong) NSString * _Nullable grantReadACP;
 
 /**
  Allows grantee to write the ACL for the applicable object.
  */
-@property (nonatomic, strong) NSString *grantWriteACP;
+@property (nonatomic, strong) NSString * _Nullable grantWriteACP;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  A map of metadata to store with the object in S3.
  */
-@property (nonatomic, strong) NSDictionary *metadata;
+@property (nonatomic, strong) NSDictionary * _Nullable metadata;
 
 /**
  Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
  */
-@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerAlgorithm;
 
 /**
  Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
  */
-@property (nonatomic, strong) NSString *SSECustomerKey;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKey;
 
 /**
  Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
-@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKeyMD5;
 
 /**
  Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version
  */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
+@property (nonatomic, strong) NSString * _Nullable SSEKMSKeyId;
 
 /**
  The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
@@ -3187,7 +3189,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
  */
-@property (nonatomic, strong) NSString *websiteRedirectLocation;
+@property (nonatomic, strong) NSString * _Nullable websiteRedirectLocation;
 
 @end
 
@@ -3205,17 +3207,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *events;
+@property (nonatomic, strong) NSArray * _Nullable events;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *queue;
+@property (nonatomic, strong) NSString * _Nullable queue;
 
 @end
 
@@ -3228,12 +3230,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  The host name to use in the redirect request.
  */
-@property (nonatomic, strong) NSString *hostName;
+@property (nonatomic, strong) NSString * _Nullable hostName;
 
 /**
  The HTTP redirect code to use on the response. Not required if one of the siblings is present.
  */
-@property (nonatomic, strong) NSString *httpRedirectCode;
+@property (nonatomic, strong) NSString * _Nullable httpRedirectCode;
 
 /**
  Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.
@@ -3243,12 +3245,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix docs/ (objects in the docs/ folder) to documents/, you can set a condition block with KeyPrefixEquals set to docs/ and in the Redirect set ReplaceKeyPrefixWith to /documents. Not required if one of the siblings is present. Can be present only if ReplaceKeyWith is not provided.
  */
-@property (nonatomic, strong) NSString *replaceKeyPrefixWith;
+@property (nonatomic, strong) NSString * _Nullable replaceKeyPrefixWith;
 
 /**
  The specific object key to use in the redirect request. For example, redirect request to error.html. Not required if one of the sibling is present. Can be present only if ReplaceKeyPrefixWith is not provided.
  */
-@property (nonatomic, strong) NSString *replaceKeyWith;
+@property (nonatomic, strong) NSString * _Nullable replaceKeyWith;
 
 @end
 
@@ -3261,7 +3263,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Name of the host where requests will be redirected.
  */
-@property (nonatomic, strong) NSString *hostName;
+@property (nonatomic, strong) NSString * _Nullable hostName;
 
 /**
  Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.
@@ -3279,12 +3281,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *objects;
+@property (nonatomic, strong) NSArray * _Nullable objects;
 
 /**
  Element to enable quiet mode for the request. When you add this element, you must set its value to true.
  */
-@property (nonatomic, strong) NSNumber *quiet;
+@property (nonatomic, strong) NSNumber * _Nullable quiet;
 
 @end
 
@@ -3297,32 +3299,32 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  If the object expiration is configured, the response includes this header.
  */
-@property (nonatomic, strong) NSString *expiration;
+@property (nonatomic, strong) NSString * _Nullable expiration;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3ReplicateObjectResult *replicateObjectResult;
+@property (nonatomic, strong) AWSS3ReplicateObjectResult * _Nullable replicateObjectResult;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *replicateSourceVersionId;
+@property (nonatomic, strong) NSString * _Nullable replicateSourceVersionId;
 
 /**
  If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
  */
-@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerAlgorithm;
 
 /**
  If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
  */
-@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKeyMD5;
 
 /**
  If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
  */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
+@property (nonatomic, strong) NSString * _Nullable SSEKMSKeyId;
 
 /**
  The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
@@ -3345,67 +3347,67 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  Specifies caching behavior along the request/reply chain.
  */
-@property (nonatomic, strong) NSString *cacheControl;
+@property (nonatomic, strong) NSString * _Nullable cacheControl;
 
 /**
  Specifies presentational information for the object.
  */
-@property (nonatomic, strong) NSString *contentDisposition;
+@property (nonatomic, strong) NSString * _Nullable contentDisposition;
 
 /**
  Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
  */
-@property (nonatomic, strong) NSString *contentEncoding;
+@property (nonatomic, strong) NSString * _Nullable contentEncoding;
 
 /**
  The language the content is in.
  */
-@property (nonatomic, strong) NSString *contentLanguage;
+@property (nonatomic, strong) NSString * _Nullable contentLanguage;
 
 /**
  A standard MIME type describing the format of the object data.
  */
-@property (nonatomic, strong) NSString *contentType;
+@property (nonatomic, strong) NSString * _Nullable contentType;
 
 /**
  The date and time at which the object is no longer cacheable.
  */
-@property (nonatomic, strong) NSDate *expires;
+@property (nonatomic, strong) NSDate * _Nullable expires;
 
 /**
  Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
  */
-@property (nonatomic, strong) NSString *grantFullControl;
+@property (nonatomic, strong) NSString * _Nullable grantFullControl;
 
 /**
  Allows grantee to read the object data and its metadata.
  */
-@property (nonatomic, strong) NSString *grantRead;
+@property (nonatomic, strong) NSString * _Nullable grantRead;
 
 /**
  Allows grantee to read the object ACL.
  */
-@property (nonatomic, strong) NSString *grantReadACP;
+@property (nonatomic, strong) NSString * _Nullable grantReadACP;
 
 /**
  Allows grantee to write the ACL for the applicable object.
  */
-@property (nonatomic, strong) NSString *grantWriteACP;
+@property (nonatomic, strong) NSString * _Nullable grantWriteACP;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  A map of metadata to store with the object in S3.
  */
-@property (nonatomic, strong) NSDictionary *metadata;
+@property (nonatomic, strong) NSDictionary * _Nullable metadata;
 
 /**
  Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.
@@ -3415,62 +3417,62 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.
  */
-@property (nonatomic, strong) NSString *replicateSource;
+@property (nonatomic, strong) NSString * _Nullable replicateSource;
 
 /**
  Copies the object if its entity tag (ETag) matches the specified tag.
  */
-@property (nonatomic, strong) NSString *replicateSourceIfMatch;
+@property (nonatomic, strong) NSString * _Nullable replicateSourceIfMatch;
 
 /**
  Copies the object if it has been modified since the specified time.
  */
-@property (nonatomic, strong) NSDate *replicateSourceIfModifiedSince;
+@property (nonatomic, strong) NSDate * _Nullable replicateSourceIfModifiedSince;
 
 /**
  Copies the object if its entity tag (ETag) is different than the specified ETag.
  */
-@property (nonatomic, strong) NSString *replicateSourceIfNoneMatch;
+@property (nonatomic, strong) NSString * _Nullable replicateSourceIfNoneMatch;
 
 /**
  Copies the object if it hasn't been modified since the specified time.
  */
-@property (nonatomic, strong) NSDate *replicateSourceIfUnmodifiedSince;
+@property (nonatomic, strong) NSDate * _Nullable replicateSourceIfUnmodifiedSince;
 
 /**
  Specifies the algorithm to use when decrypting the source object (e.g., AES256).
  */
-@property (nonatomic, strong) NSString *replicateSourceSSECustomerAlgorithm;
+@property (nonatomic, strong) NSString * _Nullable replicateSourceSSECustomerAlgorithm;
 
 /**
  Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
  */
-@property (nonatomic, strong) NSString *replicateSourceSSECustomerKey;
+@property (nonatomic, strong) NSString * _Nullable replicateSourceSSECustomerKey;
 
 /**
  Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
-@property (nonatomic, strong) NSString *replicateSourceSSECustomerKeyMD5;
+@property (nonatomic, strong) NSString * _Nullable replicateSourceSSECustomerKeyMD5;
 
 /**
  Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
  */
-@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerAlgorithm;
 
 /**
  Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
  */
-@property (nonatomic, strong) NSString *SSECustomerKey;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKey;
 
 /**
  Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
-@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKeyMD5;
 
 /**
  Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version
  */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
+@property (nonatomic, strong) NSString * _Nullable SSEKMSKeyId;
 
 /**
  The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
@@ -3485,7 +3487,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
  */
-@property (nonatomic, strong) NSString *websiteRedirectLocation;
+@property (nonatomic, strong) NSString * _Nullable websiteRedirectLocation;
 
 @end
 
@@ -3498,12 +3500,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *ETag;
+@property (nonatomic, strong) NSString * _Nullable ETag;
 
 /**
  
  */
-@property (nonatomic, strong) NSDate *lastModified;
+@property (nonatomic, strong) NSDate * _Nullable lastModified;
 
 @end
 
@@ -3516,12 +3518,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Entity tag of the object.
  */
-@property (nonatomic, strong) NSString *ETag;
+@property (nonatomic, strong) NSString * _Nullable ETag;
 
 /**
  Date and time at which the object was uploaded.
  */
-@property (nonatomic, strong) NSDate *lastModified;
+@property (nonatomic, strong) NSDate * _Nullable lastModified;
 
 @end
 
@@ -3547,22 +3549,22 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3RestoreRequest *restoreRequest;
+@property (nonatomic, strong) AWSS3RestoreRequest * _Nullable restoreRequest;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *versionId;
+@property (nonatomic, strong) NSString * _Nullable versionId;
 
 @end
 
@@ -3575,7 +3577,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Lifetime of the active copy in days
  */
-@property (nonatomic, strong) NSNumber *days;
+@property (nonatomic, strong) NSNumber * _Nullable days;
 
 @end
 
@@ -3588,12 +3590,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the /docs folder, redirect to the /documents folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
  */
-@property (nonatomic, strong) AWSS3Condition *condition;
+@property (nonatomic, strong) AWSS3Condition * _Nullable condition;
 
 /**
  Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can can specify a different error code to return.
  */
-@property (nonatomic, strong) AWSS3Redirect *redirect;
+@property (nonatomic, strong) AWSS3Redirect * _Nullable redirect;
 
 @end
 
@@ -3606,27 +3608,27 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) AWSS3LifecycleExpiration *expiration;
+@property (nonatomic, strong) AWSS3LifecycleExpiration * _Nullable expiration;
 
 /**
  Unique identifier for the rule. The value cannot be longer than 255 characters.
  */
-@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
  Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
  */
-@property (nonatomic, strong) AWSS3NoncurrentVersionExpiration *noncurrentVersionExpiration;
+@property (nonatomic, strong) AWSS3NoncurrentVersionExpiration * _Nullable noncurrentVersionExpiration;
 
 /**
  Container for the transition rule that describes when noncurrent objects transition to the GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the GLACIER storage class at a specific period in the object's lifetime.
  */
-@property (nonatomic, strong) AWSS3NoncurrentVersionTransition *noncurrentVersionTransition;
+@property (nonatomic, strong) AWSS3NoncurrentVersionTransition * _Nullable noncurrentVersionTransition;
 
 /**
  Prefix identifying one or more objects to which the rule applies.
  */
-@property (nonatomic, strong) NSString *prefix;
+@property (nonatomic, strong) NSString * _Nullable prefix;
 
 /**
  If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
@@ -3636,7 +3638,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) AWSS3Transition *transition;
+@property (nonatomic, strong) AWSS3Transition * _Nullable transition;
 
 @end
 
@@ -3649,12 +3651,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Name of the tag.
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  Value of the tag.
  */
-@property (nonatomic, strong) NSString *value;
+@property (nonatomic, strong) NSString * _Nullable value;
 
 @end
 
@@ -3667,7 +3669,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *tagSet;
+@property (nonatomic, strong) NSArray * _Nullable tagSet;
 
 @end
 
@@ -3680,7 +3682,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) AWSS3Grantee *grantee;
+@property (nonatomic, strong) AWSS3Grantee * _Nullable grantee;
 
 /**
  Logging permissions assigned to the Grantee for the bucket.
@@ -3703,17 +3705,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *events;
+@property (nonatomic, strong) NSArray * _Nullable events;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
  Amazon SNS topic to which Amazon S3 will publish a message to report the specified events for the bucket.
  */
-@property (nonatomic, strong) NSString *topic;
+@property (nonatomic, strong) NSString * _Nullable topic;
 
 @end
 
@@ -3726,12 +3728,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
  */
-@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSDate * _Nullable date;
 
 /**
  Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
  */
-@property (nonatomic, strong) NSNumber *days;
+@property (nonatomic, strong) NSNumber * _Nullable days;
 
 /**
  The class of storage used to store the object.
@@ -3749,27 +3751,27 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) AWSS3ReplicatePartResult *replicatePartResult;
+@property (nonatomic, strong) AWSS3ReplicatePartResult * _Nullable replicatePartResult;
 
 /**
  The version of the source object that was copied, if you have enabled versioning on the source bucket.
  */
-@property (nonatomic, strong) NSString *replicateSourceVersionId;
+@property (nonatomic, strong) NSString * _Nullable replicateSourceVersionId;
 
 /**
  If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
  */
-@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerAlgorithm;
 
 /**
  If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
  */
-@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKeyMD5;
 
 /**
  If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
  */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
+@property (nonatomic, strong) NSString * _Nullable SSEKMSKeyId;
 
 /**
  The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
@@ -3787,82 +3789,82 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  Part number of part being copied.
  */
-@property (nonatomic, strong) NSNumber *partNumber;
+@property (nonatomic, strong) NSNumber * _Nullable partNumber;
 
 /**
  The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.
  */
-@property (nonatomic, strong) NSString *replicateSource;
+@property (nonatomic, strong) NSString * _Nullable replicateSource;
 
 /**
  Copies the object if its entity tag (ETag) matches the specified tag.
  */
-@property (nonatomic, strong) NSString *replicateSourceIfMatch;
+@property (nonatomic, strong) NSString * _Nullable replicateSourceIfMatch;
 
 /**
  Copies the object if it has been modified since the specified time.
  */
-@property (nonatomic, strong) NSDate *replicateSourceIfModifiedSince;
+@property (nonatomic, strong) NSDate * _Nullable replicateSourceIfModifiedSince;
 
 /**
  Copies the object if its entity tag (ETag) is different than the specified ETag.
  */
-@property (nonatomic, strong) NSString *replicateSourceIfNoneMatch;
+@property (nonatomic, strong) NSString * _Nullable replicateSourceIfNoneMatch;
 
 /**
  Copies the object if it hasn't been modified since the specified time.
  */
-@property (nonatomic, strong) NSDate *replicateSourceIfUnmodifiedSince;
+@property (nonatomic, strong) NSDate * _Nullable replicateSourceIfUnmodifiedSince;
 
 /**
  The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 GB.
  */
-@property (nonatomic, strong) NSString *replicateSourceRange;
+@property (nonatomic, strong) NSString * _Nullable replicateSourceRange;
 
 /**
  Specifies the algorithm to use when decrypting the source object (e.g., AES256).
  */
-@property (nonatomic, strong) NSString *replicateSourceSSECustomerAlgorithm;
+@property (nonatomic, strong) NSString * _Nullable replicateSourceSSECustomerAlgorithm;
 
 /**
  Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
  */
-@property (nonatomic, strong) NSString *replicateSourceSSECustomerKey;
+@property (nonatomic, strong) NSString * _Nullable replicateSourceSSECustomerKey;
 
 /**
  Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
-@property (nonatomic, strong) NSString *replicateSourceSSECustomerKeyMD5;
+@property (nonatomic, strong) NSString * _Nullable replicateSourceSSECustomerKeyMD5;
 
 /**
  Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
  */
-@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerAlgorithm;
 
 /**
  Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.
  */
-@property (nonatomic, strong) NSString *SSECustomerKey;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKey;
 
 /**
  Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
-@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKeyMD5;
 
 /**
  Upload ID identifying the multipart upload whose part is being copied.
  */
-@property (nonatomic, strong) NSString *uploadId;
+@property (nonatomic, strong) NSString * _Nullable uploadId;
 
 @end
 
@@ -3875,22 +3877,22 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Entity tag for the uploaded object.
  */
-@property (nonatomic, strong) NSString *ETag;
+@property (nonatomic, strong) NSString * _Nullable ETag;
 
 /**
  If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
  */
-@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerAlgorithm;
 
 /**
  If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
  */
-@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKeyMD5;
 
 /**
  If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
  */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
+@property (nonatomic, strong) NSString * _Nullable SSEKMSKeyId;
 
 /**
  The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
@@ -3908,52 +3910,52 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) id body;
+@property (nonatomic, strong) id _Nullable body;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *bucket;
+@property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
  Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
  */
-@property (nonatomic, strong) NSNumber *contentLength;
+@property (nonatomic, strong) NSNumber * _Nullable contentLength;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *contentMD5;
+@property (nonatomic, strong) NSString * _Nullable contentMD5;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  Part number of part being uploaded.
  */
-@property (nonatomic, strong) NSNumber *partNumber;
+@property (nonatomic, strong) NSNumber * _Nullable partNumber;
 
 /**
  Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
  */
-@property (nonatomic, strong) NSString *SSECustomerAlgorithm;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerAlgorithm;
 
 /**
  Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.
  */
-@property (nonatomic, strong) NSString *SSECustomerKey;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKey;
 
 /**
  Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
-@property (nonatomic, strong) NSString *SSECustomerKeyMD5;
+@property (nonatomic, strong) NSString * _Nullable SSECustomerKeyMD5;
 
 /**
  Upload ID identifying the multipart upload whose part is being uploaded.
  */
-@property (nonatomic, strong) NSString *uploadId;
+@property (nonatomic, strong) NSString * _Nullable uploadId;
 
 @end
 
@@ -3984,21 +3986,23 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) AWSS3ErrorDocument *errorDocument;
+@property (nonatomic, strong) AWSS3ErrorDocument * _Nullable errorDocument;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3IndexDocument *indexDocument;
+@property (nonatomic, strong) AWSS3IndexDocument * _Nullable indexDocument;
 
 /**
  
  */
-@property (nonatomic, strong) AWSS3RedirectAllRequestsTo *redirectAllRequestsTo;
+@property (nonatomic, strong) AWSS3RedirectAllRequestsTo * _Nullable redirectAllRequestsTo;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *routingRules;
+@property (nonatomic, strong) NSArray * _Nullable routingRules;
 
 @end
+
+NS_ASSUME_NONNULL_END

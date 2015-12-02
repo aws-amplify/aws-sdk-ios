@@ -59,13 +59,14 @@ static id mockNetworking = nil;
 
 - (void)testCreateIdentityPool {
     NSString *key = @"testCreateIdentityPool";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
     AWSCognitoIdentity *awsClient = [AWSCognitoIdentity CognitoIdentityForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] createIdentityPool:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] createIdentityPool:[AWSCognitoIdentityCreateIdentityPoolInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -81,13 +82,14 @@ static id mockNetworking = nil;
 
 - (void)testDeleteIdentityPool {
     NSString *key = @"testDeleteIdentityPool";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
     AWSCognitoIdentity *awsClient = [AWSCognitoIdentity CognitoIdentityForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] deleteIdentityPool:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] deleteIdentityPool:[AWSCognitoIdentityDeleteIdentityPoolInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -103,13 +105,14 @@ static id mockNetworking = nil;
 
 - (void)testDescribeIdentity {
     NSString *key = @"testDescribeIdentity";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
     AWSCognitoIdentity *awsClient = [AWSCognitoIdentity CognitoIdentityForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] describeIdentity:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] describeIdentity:[AWSCognitoIdentityDescribeIdentityInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -125,13 +128,14 @@ static id mockNetworking = nil;
 
 - (void)testDescribeIdentityPool {
     NSString *key = @"testDescribeIdentityPool";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
     AWSCognitoIdentity *awsClient = [AWSCognitoIdentity CognitoIdentityForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] describeIdentityPool:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] describeIdentityPool:[AWSCognitoIdentityDescribeIdentityPoolInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -147,13 +151,14 @@ static id mockNetworking = nil;
 
 - (void)testGetCredentialsForIdentity {
     NSString *key = @"testGetCredentialsForIdentity";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
     AWSCognitoIdentity *awsClient = [AWSCognitoIdentity CognitoIdentityForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getCredentialsForIdentity:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getCredentialsForIdentity:[AWSCognitoIdentityGetCredentialsForIdentityInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -169,13 +174,14 @@ static id mockNetworking = nil;
 
 - (void)testGetId {
     NSString *key = @"testGetId";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
     AWSCognitoIdentity *awsClient = [AWSCognitoIdentity CognitoIdentityForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getId:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getId:[AWSCognitoIdentityGetIdInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -191,13 +197,14 @@ static id mockNetworking = nil;
 
 - (void)testGetIdentityPoolRoles {
     NSString *key = @"testGetIdentityPoolRoles";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
     AWSCognitoIdentity *awsClient = [AWSCognitoIdentity CognitoIdentityForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getIdentityPoolRoles:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getIdentityPoolRoles:[AWSCognitoIdentityGetIdentityPoolRolesInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -213,13 +220,14 @@ static id mockNetworking = nil;
 
 - (void)testGetOpenIdToken {
     NSString *key = @"testGetOpenIdToken";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
     AWSCognitoIdentity *awsClient = [AWSCognitoIdentity CognitoIdentityForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getOpenIdToken:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getOpenIdToken:[AWSCognitoIdentityGetOpenIdTokenInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -235,13 +243,14 @@ static id mockNetworking = nil;
 
 - (void)testGetOpenIdTokenForDeveloperIdentity {
     NSString *key = @"testGetOpenIdTokenForDeveloperIdentity";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
     AWSCognitoIdentity *awsClient = [AWSCognitoIdentity CognitoIdentityForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getOpenIdTokenForDeveloperIdentity:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] getOpenIdTokenForDeveloperIdentity:[AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -257,13 +266,14 @@ static id mockNetworking = nil;
 
 - (void)testListIdentities {
     NSString *key = @"testListIdentities";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
     AWSCognitoIdentity *awsClient = [AWSCognitoIdentity CognitoIdentityForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] listIdentities:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] listIdentities:[AWSCognitoIdentityListIdentitiesInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -279,13 +289,14 @@ static id mockNetworking = nil;
 
 - (void)testListIdentityPools {
     NSString *key = @"testListIdentityPools";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
     AWSCognitoIdentity *awsClient = [AWSCognitoIdentity CognitoIdentityForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] listIdentityPools:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] listIdentityPools:[AWSCognitoIdentityListIdentityPoolsInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -301,13 +312,14 @@ static id mockNetworking = nil;
 
 - (void)testLookupDeveloperIdentity {
     NSString *key = @"testLookupDeveloperIdentity";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
     AWSCognitoIdentity *awsClient = [AWSCognitoIdentity CognitoIdentityForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] lookupDeveloperIdentity:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] lookupDeveloperIdentity:[AWSCognitoIdentityLookupDeveloperIdentityInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -323,13 +335,14 @@ static id mockNetworking = nil;
 
 - (void)testMergeDeveloperIdentities {
     NSString *key = @"testMergeDeveloperIdentities";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
     AWSCognitoIdentity *awsClient = [AWSCognitoIdentity CognitoIdentityForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] mergeDeveloperIdentities:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] mergeDeveloperIdentities:[AWSCognitoIdentityMergeDeveloperIdentitiesInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -345,13 +358,14 @@ static id mockNetworking = nil;
 
 - (void)testSetIdentityPoolRoles {
     NSString *key = @"testSetIdentityPoolRoles";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
     AWSCognitoIdentity *awsClient = [AWSCognitoIdentity CognitoIdentityForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] setIdentityPoolRoles:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] setIdentityPoolRoles:[AWSCognitoIdentitySetIdentityPoolRolesInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -367,13 +381,14 @@ static id mockNetworking = nil;
 
 - (void)testUnlinkDeveloperIdentity {
     NSString *key = @"testUnlinkDeveloperIdentity";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
     AWSCognitoIdentity *awsClient = [AWSCognitoIdentity CognitoIdentityForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] unlinkDeveloperIdentity:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] unlinkDeveloperIdentity:[AWSCognitoIdentityUnlinkDeveloperIdentityInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -389,13 +404,14 @@ static id mockNetworking = nil;
 
 - (void)testUnlinkIdentity {
     NSString *key = @"testUnlinkIdentity";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
     AWSCognitoIdentity *awsClient = [AWSCognitoIdentity CognitoIdentityForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] unlinkIdentity:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] unlinkIdentity:[AWSCognitoIdentityUnlinkIdentityInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -411,13 +427,14 @@ static id mockNetworking = nil;
 
 - (void)testUpdateIdentityPool {
     NSString *key = @"testUpdateIdentityPool";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
 
     AWSCognitoIdentity *awsClient = [AWSCognitoIdentity CognitoIdentityForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] updateIdentityPool:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentity CognitoIdentityForKey:key] updateIdentityPool:[AWSCognitoIdentityIdentityPool new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);

@@ -14,7 +14,7 @@
  */
 
 #import "AWSSNSModel.h"
-#import "AWSCategory.h"
+#import <AWSCore/AWSCategory.h>
 
 NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 

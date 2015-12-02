@@ -16,11 +16,11 @@
 
 __attribute__ ((noinline)) void awsbf_warnBlockingOperationOnMainThread() {
     NSLog(@"Warning: A long-running operation is being executed on the main thread. \n"
-          " Break on warnBlockingOperationOnMainThread() to debug.");
+          " Break on awsbf_warnBlockingOperationOnMainThread() to debug.");
 }
 
 NSString *const AWSTaskErrorDomain = @"bolts";
-NSString *const AWSTaskMultipleExceptionsException = @"BFMultipleExceptionsException";
+NSString *const AWSTaskMultipleExceptionsException = @"AWSMultipleExceptionsException";
 
 @interface AWSTask () {
     id _result;
@@ -28,9 +28,9 @@ NSString *const AWSTaskMultipleExceptionsException = @"BFMultipleExceptionsExcep
     NSException *_exception;
 }
 
-@property (atomic, assign, readwrite, getter = isCancelled) BOOL cancelled;
-@property (atomic, assign, readwrite, getter = isFaulted) BOOL faulted;
-@property (atomic, assign, readwrite, getter = isCompleted) BOOL completed;
+@property (atomic, assign, readwrite, getter=isCancelled) BOOL cancelled;
+@property (atomic, assign, readwrite, getter=isFaulted) BOOL faulted;
+@property (atomic, assign, readwrite, getter=isCompleted) BOOL completed;
 
 @property (nonatomic, strong) NSObject *lock;
 @property (nonatomic, strong) NSCondition *condition;
@@ -43,38 +43,68 @@ NSString *const AWSTaskMultipleExceptionsException = @"BFMultipleExceptionsExcep
 #pragma mark - Initializer
 
 - (instancetype)init {
-    if (self = [super init]) {
-        _lock = [[NSObject alloc] init];
-        _condition = [[NSCondition alloc] init];
-        _callbacks = [NSMutableArray array];
-    }
+    self = [super init];
+    if (!self) return nil;
+
+    _lock = [[NSObject alloc] init];
+    _condition = [[NSCondition alloc] init];
+    _callbacks = [NSMutableArray array];
+
+    return self;
+}
+
+- (instancetype)initWithResult:(id)result {
+    self = [super init];
+    if (!self) return nil;
+
+    [self trySetResult:result];
+
+    return self;
+}
+
+- (instancetype)initWithError:(NSError *)error {
+    self = [super init];
+    if (!self) return nil;
+
+    [self trySetError:error];
+
+    return self;
+}
+
+- (instancetype)initWithException:(NSException *)exception {
+    self = [super init];
+    if (!self) return nil;
+
+    [self trySetException:exception];
+
+    return self;
+}
+
+- (instancetype)initCancelled {
+    self = [super init];
+    if (!self) return nil;
+
+    [self trySetCancelled];
+
     return self;
 }
 
 #pragma mark - Task Class methods
 
 + (instancetype)taskWithResult:(id)result {
-    AWSTaskCompletionSource *tcs = [AWSTaskCompletionSource taskCompletionSource];
-    tcs.result = result;
-    return tcs.task;
+    return [[self alloc] initWithResult:result];
 }
 
 + (instancetype)taskWithError:(NSError *)error {
-    AWSTaskCompletionSource *tcs = [AWSTaskCompletionSource taskCompletionSource];
-    tcs.error = error;
-    return tcs.task;
+    return [[self alloc] initWithError:error];
 }
 
 + (instancetype)taskWithException:(NSException *)exception {
-    AWSTaskCompletionSource *tcs = [AWSTaskCompletionSource taskCompletionSource];
-    tcs.exception = exception;
-    return tcs.task;
+    return [[self alloc] initWithException:exception];
 }
 
 + (instancetype)cancelledTask {
-    AWSTaskCompletionSource *tcs = [AWSTaskCompletionSource taskCompletionSource];
-    [tcs cancel];
-    return tcs.task;
+    return [[self alloc] initCancelled];
 }
 
 + (instancetype)taskForCompletionOfAllTasks:(NSArray *)tasks {
@@ -82,7 +112,7 @@ NSString *const AWSTaskMultipleExceptionsException = @"BFMultipleExceptionsExcep
     if (total == 0) {
         return [self taskWithResult:nil];
     }
-    
+
     __block int32_t cancelled = 0;
     NSObject *lock = [[NSObject alloc] init];
     NSMutableArray *errors = [NSMutableArray array];
@@ -150,28 +180,41 @@ NSString *const AWSTaskMultipleExceptionsException = @"BFMultipleExceptionsExcep
     return tcs.task;
 }
 
++ (instancetype)taskWithDelay:(int)millis
+            cancellationToken:(AWSCancellationToken *)token {
+    if (token.cancellationRequested) {
+        return [AWSTask cancelledTask];
+    }
+
+    AWSTaskCompletionSource *tcs = [AWSTaskCompletionSource taskCompletionSource];
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, millis * NSEC_PER_MSEC);
+    dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        if (token.cancellationRequested) {
+            [tcs cancel];
+            return;
+        }
+        tcs.result = nil;
+    });
+    return tcs.task;
+}
+
 + (instancetype)taskFromExecutor:(AWSExecutor *)executor
                        withBlock:(id (^)())block {
-    return [[self taskWithResult:nil] continueWithExecutor:executor withBlock:block];
+    return [[self taskWithResult:nil] continueWithExecutor:executor withBlock:^id(AWSTask *task) {
+        return block();
+    }];
 }
 
 #pragma mark - Custom Setters/Getters
 
 - (id)result {
-    @synchronized (self.lock) {
+    @synchronized(self.lock) {
         return _result;
     }
 }
 
-- (void)setResult:(id)result {
-    if (![self trySetResult:result]) {
-        [NSException raise:NSInternalInconsistencyException
-                    format:@"Cannot set the result on a completed task."];
-    }
-}
-
 - (BOOL)trySetResult:(id)result {
-    @synchronized (self.lock) {
+    @synchronized(self.lock) {
         if (self.completed) {
             return NO;
         }
@@ -183,20 +226,13 @@ NSString *const AWSTaskMultipleExceptionsException = @"BFMultipleExceptionsExcep
 }
 
 - (NSError *)error {
-    @synchronized (self.lock) {
+    @synchronized(self.lock) {
         return _error;
     }
 }
 
-- (void)setError:(NSError *)error {
-    if (![self trySetError:error]) {
-        [NSException raise:NSInternalInconsistencyException
-                    format:@"Cannot set the error on a completed task."];
-    }
-}
-
 - (BOOL)trySetError:(NSError *)error {
-    @synchronized (self.lock) {
+    @synchronized(self.lock) {
         if (self.completed) {
             return NO;
         }
@@ -209,20 +245,13 @@ NSString *const AWSTaskMultipleExceptionsException = @"BFMultipleExceptionsExcep
 }
 
 - (NSException *)exception {
-    @synchronized (self.lock) {
+    @synchronized(self.lock) {
         return _exception;
     }
 }
 
-- (void)setException:(NSException *)exception {
-    if (![self trySetException:exception]) {
-        [NSException raise:NSInternalInconsistencyException
-                    format:@"Cannot set the exception on a completed task."];
-    }
-}
-
 - (BOOL)trySetException:(NSException *)exception {
-    @synchronized (self.lock) {
+    @synchronized(self.lock) {
         if (self.completed) {
             return NO;
         }
@@ -235,28 +264,19 @@ NSString *const AWSTaskMultipleExceptionsException = @"BFMultipleExceptionsExcep
 }
 
 - (BOOL)isCancelled {
-    @synchronized (self.lock) {
+    @synchronized(self.lock) {
         return _cancelled;
     }
 }
 
 - (BOOL)isFaulted {
-    @synchronized (self.lock) {
+    @synchronized(self.lock) {
         return _faulted;
     }
 }
 
-- (void)cancel {
-    @synchronized (self.lock) {
-        if (![self trySetCancelled]) {
-            [NSException raise:NSInternalInconsistencyException
-                        format:@"Cannot cancel a completed task."];
-        }
-    }
-}
-
 - (BOOL)trySetCancelled {
-    @synchronized (self.lock) {
+    @synchronized(self.lock) {
         if (self.completed) {
             return NO;
         }
@@ -268,19 +288,19 @@ NSString *const AWSTaskMultipleExceptionsException = @"BFMultipleExceptionsExcep
 }
 
 - (BOOL)isCompleted {
-    @synchronized (self.lock) {
+    @synchronized(self.lock) {
         return _completed;
     }
 }
 
 - (void)setCompleted {
-    @synchronized (self.lock) {
+    @synchronized(self.lock) {
         _completed = YES;
     }
 }
 
 - (void)runContinuations {
-    @synchronized (self.lock) {
+    @synchronized(self.lock) {
         [self.condition lock];
         [self.condition broadcast];
         [self.condition unlock];
@@ -293,13 +313,24 @@ NSString *const AWSTaskMultipleExceptionsException = @"BFMultipleExceptionsExcep
 
 #pragma mark - Chaining methods
 
-- (instancetype)continueWithExecutor:(AWSExecutor *)executor
-                           withBlock:(AWSContinuationBlock)block {
+- (AWSTask *)continueWithExecutor:(AWSExecutor *)executor
+                       withBlock:(AWSContinuationBlock)block {
+    return [self continueWithExecutor:executor block:block cancellationToken:nil];
+}
+
+- (AWSTask *)continueWithExecutor:(AWSExecutor *)executor
+                           block:(AWSContinuationBlock)block
+               cancellationToken:(AWSCancellationToken *)cancellationToken {
     AWSTaskCompletionSource *tcs = [AWSTaskCompletionSource taskCompletionSource];
 
     // Capture all of the state that needs to used when the continuation is complete.
     void (^wrappedBlock)() = ^() {
         [executor execute:^{
+            if (cancellationToken.cancellationRequested) {
+                [tcs cancel];
+                return;
+            }
+
             id result = nil;
             @try {
                 result = block(self);
@@ -307,9 +338,11 @@ NSString *const AWSTaskMultipleExceptionsException = @"BFMultipleExceptionsExcep
                 tcs.exception = exception;
                 return;
             }
+
             if ([result isKindOfClass:[AWSTask class]]) {
-                [(AWSTask *)result continueWithBlock:^id(AWSTask *task) {
-                    if (task.cancelled) {
+
+                id (^setupWithTask) (AWSTask *) = ^id(AWSTask *task) {
+                    if (cancellationToken.cancellationRequested || task.cancelled) {
                         [tcs cancel];
                     } else if (task.exception) {
                         tcs.exception = task.exception;
@@ -319,7 +352,16 @@ NSString *const AWSTaskMultipleExceptionsException = @"BFMultipleExceptionsExcep
                         tcs.result = task.result;
                     }
                     return nil;
-                }];
+                };
+
+                AWSTask *resultTask = (AWSTask *)result;
+
+                if (resultTask.completed) {
+                    setupWithTask(resultTask);
+                } else {
+                    [resultTask continueWithBlock:setupWithTask];
+                }
+
             } else {
                 tcs.result = result;
             }
@@ -327,7 +369,7 @@ NSString *const AWSTaskMultipleExceptionsException = @"BFMultipleExceptionsExcep
     };
 
     BOOL completed;
-    @synchronized (self.lock) {
+    @synchronized(self.lock) {
         completed = self.completed;
         if (!completed) {
             [self.callbacks addObject:[wrappedBlock copy]];
@@ -340,23 +382,43 @@ NSString *const AWSTaskMultipleExceptionsException = @"BFMultipleExceptionsExcep
     return tcs.task;
 }
 
-- (instancetype)continueWithBlock:(AWSContinuationBlock)block {
-    return [self continueWithExecutor:[AWSExecutor defaultExecutor] withBlock:block];
+- (AWSTask *)continueWithBlock:(AWSContinuationBlock)block {
+    return [self continueWithExecutor:[AWSExecutor defaultExecutor] block:block cancellationToken:nil];
 }
 
-- (instancetype)continueWithExecutor:(AWSExecutor *)executor
-                    withSuccessBlock:(AWSContinuationBlock)block {
-    return [self continueWithExecutor:executor withBlock:^id(AWSTask *task) {
+- (AWSTask *)continueWithBlock:(AWSContinuationBlock)block
+            cancellationToken:(AWSCancellationToken *)cancellationToken {
+    return [self continueWithExecutor:[AWSExecutor defaultExecutor] block:block cancellationToken:cancellationToken];
+}
+
+- (AWSTask *)continueWithExecutor:(AWSExecutor *)executor
+                withSuccessBlock:(AWSContinuationBlock)block {
+    return [self continueWithExecutor:executor successBlock:block cancellationToken:nil];
+}
+
+- (AWSTask *)continueWithExecutor:(AWSExecutor *)executor
+                    successBlock:(AWSContinuationBlock)block
+               cancellationToken:(AWSCancellationToken *)cancellationToken {
+    if (cancellationToken.cancellationRequested) {
+        return [AWSTask cancelledTask];
+    }
+
+    return [self continueWithExecutor:executor block:^id(AWSTask *task) {
         if (task.faulted || task.cancelled) {
             return task;
         } else {
             return block(task);
         }
-    }];
+    } cancellationToken:cancellationToken];
 }
 
-- (instancetype)continueWithSuccessBlock:(AWSContinuationBlock)block {
-    return [self continueWithExecutor:[AWSExecutor defaultExecutor] withSuccessBlock:block];
+- (AWSTask *)continueWithSuccessBlock:(AWSContinuationBlock)block {
+    return [self continueWithExecutor:[AWSExecutor defaultExecutor] successBlock:block cancellationToken:nil];
+}
+
+- (AWSTask *)continueWithSuccessBlock:(AWSContinuationBlock)block
+                   cancellationToken:(AWSCancellationToken *)cancellationToken {
+    return [self continueWithExecutor:[AWSExecutor defaultExecutor] successBlock:block cancellationToken:cancellationToken];
 }
 
 #pragma mark - Syncing Task (Avoid it)
@@ -370,7 +432,7 @@ NSString *const AWSTaskMultipleExceptionsException = @"BFMultipleExceptionsExcep
         [self warnOperationOnMainThread];
     }
 
-    @synchronized (self.lock) {
+    @synchronized(self.lock) {
         if (self.completed) {
             return;
         }
@@ -387,22 +449,24 @@ NSString *const AWSTaskMultipleExceptionsException = @"BFMultipleExceptionsExcep
     BOOL completed;
     BOOL cancelled;
     BOOL faulted;
+    NSString *resultDescription = nil;
 
-    @synchronized (self.lock) {
+    @synchronized(self.lock) {
         completed = self.completed;
         cancelled = self.cancelled;
         faulted = self.faulted;
+        resultDescription = completed ? [NSString stringWithFormat:@" result = %@", self.result] : @"";
     }
 
     // Description string includes status information and, if available, the
-    // result sisnce in some ways this is what a promise actually "is".
+    // result since in some ways this is what a promise actually "is".
     return [NSString stringWithFormat:@"<%@: %p; completed = %@; cancelled = %@; faulted = %@;%@>",
             NSStringFromClass([self class]),
             self,
             completed ? @"YES" : @"NO",
             cancelled ? @"YES" : @"NO",
             faulted ? @"YES" : @"NO",
-            completed ? [NSString stringWithFormat:@" result:%@", _result] : @""];
+            resultDescription];
 }
 
 @end

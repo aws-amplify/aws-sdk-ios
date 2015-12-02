@@ -1,11 +1,26 @@
-# AWSiOSSDKv2 CHANGELOG
+# AWS Mobile SDK for iOS CHANGELOG
+
+## 2.3.1
+
+### New Features
+* **Low-level Clients**
+    * Added nullability annotations for the low-level service clients.
+* **Frameworks**
+    * The framework now includes the module map.
+* **Twitter Fabric**
+    * Added Twitter Fabric support for Amazon Cognito.
+
+### Resolved Issues
+* **SDK Core**
+    * Updated the SDK so that the compiler no longer emits the deprecation warnings when the Base SDK is set to iOS 9.
+    * Updated the following embedded third-party libraries: `Bolts`, `FMDB`, `TMCache`, and `UIKeyChainStore`.
 
 ## 2.3.0
 
 ### New Features
 * **SDK Core**
-    * The frameworks now include bitcode so that you can use them with Xcode 7 without modifying the project configuration. Please note that AWS Mobile SDK for iOS 2.3.0 supports Xcode 7 and above.
-    * Added extra validation to ensure HTTP body to be nil when HTTP method is either `GET` or `DELETE`.
+    * The frameworks now include `bitcode` so that you can use them with Xcode 7 without modifying the project configuration. Please note the AWS Mobile SDK for iOS 2.3.0 supports Xcode 7 and above.
+    * Added extra validation to ensure HTTP body is `nil` when HTTP method is either `GET` or `DELETE`.
 
 ## 2.2.7
 

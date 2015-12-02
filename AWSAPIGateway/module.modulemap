@@ -1,0 +1,6 @@
+framework module AWSAPIGateway {
+  umbrella header "AWSAPIGateway.h"
+
+  export *
+  module * { export * }
+}

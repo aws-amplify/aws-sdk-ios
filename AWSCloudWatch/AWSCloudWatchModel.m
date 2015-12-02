@@ -14,7 +14,7 @@
  */
 
 #import "AWSCloudWatchModel.h"
-#import "AWSCategory.h"
+#import <AWSCore/AWSCategory.h>
 
 NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDomain";
 

@@ -14,9 +14,8 @@
  */
 
 #import "AWSTestUtility.h"
-#import "AWSCore.h"
-
-@import ObjectiveC.runtime;
+#import <AWSCore/AWSCore.h>
+#import <objc/runtime.h>
 
 NSString *const AWSTestUtilitySTSKey = @"test-sts";
 NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";

@@ -17,6 +17,7 @@
 #import "AWSCore.h"
 #import "AWSSerialization.h"
 #import "AWSURLRequestSerialization.h"
+#import "AWSURLResponseSerialization.h"
 #import "AWSXMLDictionary.h"
 
 @interface AWSJSONResponseSerializer()

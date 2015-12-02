@@ -1,0 +1,10 @@
+framework module AWSCore {
+  umbrella header "AWSCore.h"
+
+  export *
+  module * { export * }
+
+  link "z"
+  link "sqlite3"
+  link framework "SystemConfiguration"
+}

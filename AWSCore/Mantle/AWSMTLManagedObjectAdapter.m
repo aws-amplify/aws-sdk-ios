@@ -23,10 +23,12 @@ const NSInteger AWSMTLManagedObjectAdapterErrorInvalidManagedObjectMapping = 8;
 
 // Performs the given block in the context's queue, if it has one.
 static id performInContext(NSManagedObjectContext *context, id (^block)(void)) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 	if (context.concurrencyType == NSConfinementConcurrencyType) {
 		return block();
 	}
-
+#pragma clang diagnostic pop
 	__block id result = nil;
 	[context performBlockAndWait:^{
 		result = block();

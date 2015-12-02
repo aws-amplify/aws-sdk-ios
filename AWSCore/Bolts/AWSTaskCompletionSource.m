@@ -20,10 +20,6 @@
 
 @interface AWSTask (AWSTaskCompletionSource)
 
-- (void)setResult:(id)result;
-- (void)setError:(NSError *)error;
-- (void)setException:(NSException *)exception;
-- (void)cancel;
 - (BOOL)trySetResult:(id)result;
 - (BOOL)trySetError:(NSError *)error;
 - (BOOL)trySetException:(NSException *)exception;
@@ -40,28 +36,42 @@
 }
 
 - (instancetype)init {
-    if (self = [super init]) {
-        _task = [[AWSTask alloc] init];
-    }
+    self = [super init];
+    if (!self) return nil;
+
+    _task = [[AWSTask alloc] init];
+
     return self;
 }
 
 #pragma mark - Custom Setters/Getters
 
 - (void)setResult:(id)result {
-    [self.task setResult:result];
+    if (![self.task trySetResult:result]) {
+        [NSException raise:NSInternalInconsistencyException
+                    format:@"Cannot set the result on a completed task."];
+    }
 }
 
 - (void)setError:(NSError *)error {
-    [self.task setError:error];
+    if (![self.task trySetError:error]) {
+        [NSException raise:NSInternalInconsistencyException
+                    format:@"Cannot set the error on a completed task."];
+    }
 }
 
 - (void)setException:(NSException *)exception {
-    [self.task setException:exception];
+    if (![self.task trySetException:exception]) {
+        [NSException raise:NSInternalInconsistencyException
+                    format:@"Cannot set the exception on a completed task."];
+    }
 }
 
 - (void)cancel {
-    [self.task cancel];
+    if (![self.task trySetCancelled]) {
+        [NSException raise:NSInternalInconsistencyException
+                    format:@"Cannot cancel a completed task."];
+    }
 }
 
 - (BOOL)trySetResult:(id)result {

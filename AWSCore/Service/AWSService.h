@@ -18,6 +18,8 @@
 #import "AWSCredentialsProvider.h"
 #import "AWSServiceEnum.h"
 
+FOUNDATION_EXPORT NSString *const AWSiOSSDKVersion;
+
 @class AWSEndpoint;
 
 #pragma mark - AWSService

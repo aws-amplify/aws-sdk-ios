@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'AWSCore'
-  s.version      = '2.3.0'
+  s.version      = '2.3.1'
   s.summary      = 'Amazon Web Services SDK for iOS.'
 
   s.description  = 'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'
@@ -17,5 +17,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'AWSCore/*.{h,m}', 'AWSCore/**/*.{h,m}'
-  s.private_header_files = 'AWSCore/FMDB/**/*.h', 'AWSCore/GZIP/**/*.h', 'AWSCore/Reachability/**/*.h', 'AWSCore/TMCache/**/*.h', 'AWSCore/UICKeyChainStore/**/*.h', 'AWSCore/XMLDictionary/**/*.h', 'AWSCore/XMLWriter/**/*.h'
+  s.private_header_files = 'AWSCore/XMLDictionary/**/*.h', 'AWSCore/XMLWriter/**/*.h', 'AWSCore/FMDB/AWSFMDatabase+Private.h'
 end

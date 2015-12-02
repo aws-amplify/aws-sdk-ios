@@ -60,7 +60,7 @@ static NSString *_verifiedEmailAddress = nil;
     AWSSES *ses = [AWSSES defaultSES];
     XCTAssertNotNil(ses);
 
-    [[[ses getSendQuota:nil] continueWithBlock:^id(AWSTask *task) {
+    [[[ses getSendQuota:[AWSRequest new]] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -82,7 +82,7 @@ static NSString *_verifiedEmailAddress = nil;
 - (void)testGetSendQuota {
     AWSSES *ses = [AWSSES defaultSES];
 
-    [[[ses getSendQuota:nil] continueWithBlock:^id(AWSTask *task) {
+    [[[ses getSendQuota:[AWSRequest new]] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }

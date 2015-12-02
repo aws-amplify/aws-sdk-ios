@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.3.0"
+VERSION="2.3.1"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -44,6 +44,7 @@ else
     cp -r AWSSQS ./docs_tmp/AWSSQS
 
     rm -rf ./docs_tmp/AWSCore/Bolts
+    rm -rf ./docs_tmp/AWSCore/Fabric
     rm -rf ./docs_tmp/AWSCore/FMDB
     rm -rf ./docs_tmp/AWSCore/GZIP
     rm -rf ./docs_tmp/AWSCore/Mantle
@@ -73,7 +74,7 @@ else
                             --docset-install-path ../docs \
                             --docset-bundle-filename com.amazon.aws.ios.docset \
                             --company-id aws.amazon.com \
-                            --project-name "AWS SDK for iOS v${VERSION}" \
+                            --project-name "AWS Mobile SDK for iOS v${VERSION}" \
                             --project-version "${VERSION}" \
                             --project-company "Amazon Web Services, Inc." \
                             --create-html \
@@ -87,7 +88,7 @@ else
 
     if [ $result != 0 ];
     then
-        echo "Building the AWS iOS SDK document FAILED!"
+        echo "Building the AWS Mobile SDK for iOS documentation FAILED!"
         cleanup;
         exit 1;
     fi

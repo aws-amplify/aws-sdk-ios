@@ -17,6 +17,8 @@
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSModel.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 FOUNDATION_EXPORT NSString *const AWSSESErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSSESErrorType) {
@@ -99,12 +101,12 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message. </p>
  */
-@property (nonatomic, strong) AWSSESContent *html;
+@property (nonatomic, strong) AWSSESContent * _Nullable html;
 
 /**
  <p>The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices). </p>
  */
-@property (nonatomic, strong) AWSSESContent *text;
+@property (nonatomic, strong) AWSSESContent * _Nullable text;
 
 @end
 
@@ -118,12 +120,12 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The character set of the content.</p>
  */
-@property (nonatomic, strong) NSString *charset;
+@property (nonatomic, strong) NSString * _Nullable charset;
 
 /**
  <p>The textual data of the content.</p>
  */
-@property (nonatomic, strong) NSString *data;
+@property (nonatomic, strong) NSString * _Nullable data;
 
 @end
 
@@ -137,7 +139,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The identity to be removed from the list of identities for the AWS Account.</p>
  */
-@property (nonatomic, strong) NSString *identity;
+@property (nonatomic, strong) NSString * _Nullable identity;
 
 @end
 
@@ -159,7 +161,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>An email address to be removed from the list of verified addresses.</p>
  */
-@property (nonatomic, strong) NSString *emailAddress;
+@property (nonatomic, strong) NSString * _Nullable emailAddress;
 
 @end
 
@@ -172,17 +174,17 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The BCC: field(s) of the message.</p>
  */
-@property (nonatomic, strong) NSArray *bccAddresses;
+@property (nonatomic, strong) NSArray * _Nullable bccAddresses;
 
 /**
  <p>The CC: field(s) of the message.</p>
  */
-@property (nonatomic, strong) NSArray *ccAddresses;
+@property (nonatomic, strong) NSArray * _Nullable ccAddresses;
 
 /**
  <p>The To: field(s) of the message.</p>
  */
-@property (nonatomic, strong) NSArray *toAddresses;
+@property (nonatomic, strong) NSArray * _Nullable toAddresses;
 
 @end
 
@@ -196,7 +198,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>A list of one or more verified identities - email addresses, domains, or both.</p>
  */
-@property (nonatomic, strong) NSArray *identities;
+@property (nonatomic, strong) NSArray * _Nullable identities;
 
 @end
 
@@ -210,7 +212,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The DKIM attributes for an email address or a domain. </p>
  */
-@property (nonatomic, strong) NSDictionary *dkimAttributes;
+@property (nonatomic, strong) NSDictionary * _Nullable dkimAttributes;
 
 @end
 
@@ -223,7 +225,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>A list of one or more identities.</p>
  */
-@property (nonatomic, strong) NSArray *identities;
+@property (nonatomic, strong) NSArray * _Nullable identities;
 
 @end
 
@@ -237,7 +239,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>A map of Identity to IdentityNotificationAttributes.</p>
  */
-@property (nonatomic, strong) NSDictionary *notificationAttributes;
+@property (nonatomic, strong) NSDictionary * _Nullable notificationAttributes;
 
 @end
 
@@ -251,7 +253,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>A list of identities.</p>
  */
-@property (nonatomic, strong) NSArray *identities;
+@property (nonatomic, strong) NSArray * _Nullable identities;
 
 @end
 
@@ -265,7 +267,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>A map of Identities to IdentityVerificationAttributes objects.</p>
  */
-@property (nonatomic, strong) NSDictionary *verificationAttributes;
+@property (nonatomic, strong) NSDictionary * _Nullable verificationAttributes;
 
 @end
 
@@ -278,17 +280,17 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The maximum number of emails the user is allowed to send in a 24-hour interval.</p>
  */
-@property (nonatomic, strong) NSNumber *max24HourSend;
+@property (nonatomic, strong) NSNumber * _Nullable max24HourSend;
 
 /**
  <p>The maximum number of emails the user is allowed to send per second.</p>
  */
-@property (nonatomic, strong) NSNumber *maxSendRate;
+@property (nonatomic, strong) NSNumber * _Nullable maxSendRate;
 
 /**
  <p>The number of emails sent during the previous 24 hours.</p>
  */
-@property (nonatomic, strong) NSNumber *sentLast24Hours;
+@property (nonatomic, strong) NSNumber * _Nullable sentLast24Hours;
 
 @end
 
@@ -301,7 +303,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>A list of data points, each of which represents 15 minutes of activity.</p>
  */
-@property (nonatomic, strong) NSArray *sendDataPoints;
+@property (nonatomic, strong) NSArray * _Nullable sendDataPoints;
 
 @end
 
@@ -315,12 +317,12 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>True if DKIM signing is enabled for email sent from the identity; false otherwise.</p>
  */
-@property (nonatomic, strong) NSNumber *dkimEnabled;
+@property (nonatomic, strong) NSNumber * _Nullable dkimEnabled;
 
 /**
  <p>A set of character strings that represent the domain's identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.)</p><p>For more information about creating DNS records using DKIM tokens, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon SES Developer Guide</a>.</p>
  */
-@property (nonatomic, strong) NSArray *dkimTokens;
+@property (nonatomic, strong) NSArray * _Nullable dkimTokens;
 
 /**
  <p>Describes whether Amazon SES has successfully verified the DKIM DNS records (tokens) published in the domain name's DNS. (This only applies to domain identities, not email address identities.)</p>
@@ -339,22 +341,22 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish bounce notifications.</p>
  */
-@property (nonatomic, strong) NSString *bounceTopic;
+@property (nonatomic, strong) NSString * _Nullable bounceTopic;
 
 /**
  <p>The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish complaint notifications.</p>
  */
-@property (nonatomic, strong) NSString *complaintTopic;
+@property (nonatomic, strong) NSString * _Nullable complaintTopic;
 
 /**
  <p>The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish delivery notifications.</p>
  */
-@property (nonatomic, strong) NSString *deliveryTopic;
+@property (nonatomic, strong) NSString * _Nullable deliveryTopic;
 
 /**
  <p>Describes whether Amazon SES will forward bounce and complaint notifications as email. <code>true</code> indicates that Amazon SES will forward bounce and complaint notifications as email, while <code>false</code> indicates that bounce and complaint notifications will be published only to the specified bounce and complaint Amazon SNS topics.</p>
  */
-@property (nonatomic, strong) NSNumber *forwardingEnabled;
+@property (nonatomic, strong) NSNumber * _Nullable forwardingEnabled;
 
 @end
 
@@ -373,7 +375,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The verification token for a domain identity. Null for email address identities.</p>
  */
-@property (nonatomic, strong) NSString *verificationToken;
+@property (nonatomic, strong) NSString * _Nullable verificationToken;
 
 @end
 
@@ -391,12 +393,12 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The maximum number of identities per page. Possible values are 1-100 inclusive.</p>
  */
-@property (nonatomic, strong) NSNumber *maxItems;
+@property (nonatomic, strong) NSNumber * _Nullable maxItems;
 
 /**
  <p>The token to use for pagination.</p>
  */
-@property (nonatomic, strong) NSString *nextToken;
+@property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
@@ -410,12 +412,12 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>A list of identities.</p>
  */
-@property (nonatomic, strong) NSArray *identities;
+@property (nonatomic, strong) NSArray * _Nullable identities;
 
 /**
  <p>The token used for pagination.</p>
  */
-@property (nonatomic, strong) NSString *nextToken;
+@property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
@@ -428,7 +430,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>A list of email addresses that have been verified.</p>
  */
-@property (nonatomic, strong) NSArray *verifiedEmailAddresses;
+@property (nonatomic, strong) NSArray * _Nullable verifiedEmailAddresses;
 
 @end
 
@@ -442,12 +444,12 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The message body.</p>
  */
-@property (nonatomic, strong) AWSSESBody *body;
+@property (nonatomic, strong) AWSSESBody * _Nullable body;
 
 /**
  <p>The subject of the message: A short summary of the content, which will appear in the recipient's inbox.</p>
  */
-@property (nonatomic, strong) AWSSESContent *subject;
+@property (nonatomic, strong) AWSSESContent * _Nullable subject;
 
 @end
 
@@ -461,7 +463,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The raw data of the message. The client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, MIME encoding, and base64 encoding (if necessary). </p><p>The To:, CC:, and BCC: headers in the raw message can contain a group list. </p><p>For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Amazon SES Developer Guide</a>. </p>
  */
-@property (nonatomic, strong) NSData *data;
+@property (nonatomic, strong) NSData * _Nullable data;
 
 @end
 
@@ -474,27 +476,27 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>Number of emails that have bounced.</p>
  */
-@property (nonatomic, strong) NSNumber *bounces;
+@property (nonatomic, strong) NSNumber * _Nullable bounces;
 
 /**
  <p>Number of unwanted emails that were rejected by recipients.</p>
  */
-@property (nonatomic, strong) NSNumber *complaints;
+@property (nonatomic, strong) NSNumber * _Nullable complaints;
 
 /**
  <p>Number of emails that have been enqueued for sending.</p>
  */
-@property (nonatomic, strong) NSNumber *deliveryAttempts;
+@property (nonatomic, strong) NSNumber * _Nullable deliveryAttempts;
 
 /**
  <p>Number of emails rejected by Amazon SES.</p>
  */
-@property (nonatomic, strong) NSNumber *rejects;
+@property (nonatomic, strong) NSNumber * _Nullable rejects;
 
 /**
  <p>Time of the data point.</p>
  */
-@property (nonatomic, strong) NSDate *timestamp;
+@property (nonatomic, strong) NSDate * _Nullable timestamp;
 
 @end
 
@@ -508,27 +510,27 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The destination for this email, composed of To:, CC:, and BCC: fields.</p>
  */
-@property (nonatomic, strong) AWSSESDestination *destination;
+@property (nonatomic, strong) AWSSESDestination * _Nullable destination;
 
 /**
  <p>The message to be sent.</p>
  */
-@property (nonatomic, strong) AWSSESMessage *message;
+@property (nonatomic, strong) AWSSESMessage * _Nullable message;
 
 /**
  <p>The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply. </p>
  */
-@property (nonatomic, strong) NSArray *replyToAddresses;
+@property (nonatomic, strong) NSArray * _Nullable replyToAddresses;
 
 /**
  <p>The email address to which bounces and complaints are to be forwarded when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the <code>ReturnPath</code> parameter. </p>
  */
-@property (nonatomic, strong) NSString *returnPath;
+@property (nonatomic, strong) NSString * _Nullable returnPath;
 
 /**
  <p>The identity's email address.</p><p> By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href="http://tools.ietf.org/html/rfc2047">RFC 2047</a>. </p>
  */
-@property (nonatomic, strong) NSString *source;
+@property (nonatomic, strong) NSString * _Nullable source;
 
 @end
 
@@ -542,7 +544,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The unique message identifier returned from the <code>SendEmail</code> action. </p>
  */
-@property (nonatomic, strong) NSString *messageId;
+@property (nonatomic, strong) NSString * _Nullable messageId;
 
 @end
 
@@ -556,17 +558,17 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>A list of destinations for the message, consisting of To:, CC:, and BCC: addresses.</p>
  */
-@property (nonatomic, strong) NSArray *destinations;
+@property (nonatomic, strong) NSArray * _Nullable destinations;
 
 /**
  <p>The raw text of the message. The client is responsible for ensuring the following:</p><p><ul><li>Message must contain a header and a body, separated by a blank line.</li><li>All required header fields must be present.</li><li>Each part of a multipart MIME message must be formatted properly.</li><li>MIME content types must be among those supported by Amazon SES. For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Amazon SES Developer Guide</a>. </li><li>Content must be base64-encoded, if MIME requires it.</li></ul></p>
  */
-@property (nonatomic, strong) AWSSESRawMessage *rawMessage;
+@property (nonatomic, strong) AWSSESRawMessage * _Nullable rawMessage;
 
 /**
  <p>The identity's email address.</p><p> By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href="http://tools.ietf.org/html/rfc2047">RFC 2047</a>. </p><note>If you specify the <code>Source</code> parameter and have feedback forwarding enabled, then bounces and complaints will be sent to this email address. This takes precedence over any <i>Return-Path</i> header that you might include in the raw text of the message. </note>
  */
-@property (nonatomic, strong) NSString *source;
+@property (nonatomic, strong) NSString * _Nullable source;
 
 @end
 
@@ -580,7 +582,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The unique message identifier returned from the <code>SendRawEmail</code> action. </p>
  */
-@property (nonatomic, strong) NSString *messageId;
+@property (nonatomic, strong) NSString * _Nullable messageId;
 
 @end
 
@@ -594,12 +596,12 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>Sets whether DKIM signing is enabled for an identity. Set to <code>true</code> to enable DKIM signing for this identity; <code>false</code> to disable it. </p>
  */
-@property (nonatomic, strong) NSNumber *dkimEnabled;
+@property (nonatomic, strong) NSNumber * _Nullable dkimEnabled;
 
 /**
  <p>The identity for which DKIM signing should be enabled or disabled.</p>
  */
-@property (nonatomic, strong) NSString *identity;
+@property (nonatomic, strong) NSString * _Nullable identity;
 
 @end
 
@@ -620,12 +622,12 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>Sets whether Amazon SES will forward bounce and complaint notifications as email. <code>true</code> specifies that Amazon SES will forward bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. <code>false</code> specifies that Amazon SES will publish bounce and complaint notifications only through Amazon SNS. This value can only be set to <code>false</code> when Amazon SNS topics are set for both <code>Bounce</code> and <code>Complaint</code> notification types.</p>
  */
-@property (nonatomic, strong) NSNumber *forwardingEnabled;
+@property (nonatomic, strong) NSNumber * _Nullable forwardingEnabled;
 
 /**
  <p>The identity for which to set bounce and complaint notification forwarding. Examples: <code>user@example.com</code>, <code>example.com</code>.</p>
  */
-@property (nonatomic, strong) NSString *identity;
+@property (nonatomic, strong) NSString * _Nullable identity;
 
 @end
 
@@ -647,7 +649,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The identity for which the Amazon SNS topic will be set. Examples: <code>user@example.com</code>, <code>example.com</code>.</p>
  */
-@property (nonatomic, strong) NSString *identity;
+@property (nonatomic, strong) NSString * _Nullable identity;
 
 /**
  <p>The type of notifications that will be published to the specified Amazon SNS topic.</p>
@@ -657,7 +659,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from the request or a null value is passed, <code>SnsTopic</code> is cleared and publishing is disabled.</p>
  */
-@property (nonatomic, strong) NSString *snsTopic;
+@property (nonatomic, strong) NSString * _Nullable snsTopic;
 
 @end
 
@@ -679,7 +681,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The name of the domain to be verified for Easy DKIM signing.</p>
  */
-@property (nonatomic, strong) NSString *domain;
+@property (nonatomic, strong) NSString * _Nullable domain;
 
 @end
 
@@ -693,7 +695,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>A set of character strings that represent the domain's identity. If the identity is an email address, the tokens represent the domain of that address.</p><p>Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign emails originating from that domain.</p><p>For more information about creating DNS records using DKIM tokens, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon SES Developer Guide</a>.</p>
  */
-@property (nonatomic, strong) NSArray *dkimTokens;
+@property (nonatomic, strong) NSArray * _Nullable dkimTokens;
 
 @end
 
@@ -707,7 +709,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The domain to be verified.</p>
  */
-@property (nonatomic, strong) NSString *domain;
+@property (nonatomic, strong) NSString * _Nullable domain;
 
 @end
 
@@ -721,7 +723,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>A TXT record that must be placed in the DNS settings for the domain, in order to complete domain verification.</p>
  */
-@property (nonatomic, strong) NSString *verificationToken;
+@property (nonatomic, strong) NSString * _Nullable verificationToken;
 
 @end
 
@@ -735,7 +737,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The email address to be verified.</p>
  */
-@property (nonatomic, strong) NSString *emailAddress;
+@property (nonatomic, strong) NSString * _Nullable emailAddress;
 
 @end
 
@@ -749,7 +751,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 /**
  <p>The email address to be verified.</p>
  */
-@property (nonatomic, strong) NSString *emailAddress;
+@property (nonatomic, strong) NSString * _Nullable emailAddress;
 
 @end
 
@@ -760,3 +762,5 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -19,6 +19,9 @@
 		BDF126031B45C27900DFBFEC /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E0C8E1B03F2A300DE3906 /* libAWSCore.a */; };
 		BDF126041B45C27900DFBFEC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E0C681B03EBDB00DE3906 /* libz.dylib */; };
 		BDF126051B45C27900DFBFEC /* libAWSMobileAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532781B03DE7F002CED62 /* libAWSMobileAnalytics.a */; };
+		CE27CB651BF1894E00B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB641BF1894E00B22AB3 /* UIKit.framework */; };
+		CE27CB661BF1895300B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB641BF1894E00B22AB3 /* UIKit.framework */; };
+		CE27CB671BF1895700B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB641BF1894E00B22AB3 /* UIKit.framework */; };
 		CE2E0C671B03EB9100DE3906 /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E0C661B03EB9100DE3906 /* libAWSCore.a */; };
 		CE2E0C691B03EBDB00DE3906 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E0C681B03EBDB00DE3906 /* libz.dylib */; };
 		CE2E0C6B1B03EBE600DE3906 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E0C6A1B03EBE600DE3906 /* libsqlite3.dylib */; };
@@ -30,6 +33,7 @@
 		CE2E0C8C1B03F11400DE3906 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E0C681B03EBDB00DE3906 /* libz.dylib */; };
 		CE2E0C8F1B03F2A300DE3906 /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E0C8E1B03F2A300DE3906 /* libAWSCore.a */; };
 		CE2E0C911B03F2B400DE3906 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E0C901B03F2B400DE3906 /* SystemConfiguration.framework */; };
+		CE2EDE9E1BF3DF5900B9F26B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE65523C1BEC366A00DACBC2 /* module.modulemap */; };
 		CE5FAB9E1B042B3000D7010F /* AWSMobileAnalyticsERS.h in Headers */ = {isa = PBXBuildFile; fileRef = CE5FAB971B042B3000D7010F /* AWSMobileAnalyticsERS.h */; };
 		CE5FAB9F1B042B3000D7010F /* AWSMobileAnalyticsERSModel.h in Headers */ = {isa = PBXBuildFile; fileRef = CE5FAB981B042B3000D7010F /* AWSMobileAnalyticsERSModel.h */; };
 		CE5FABA01B042B3000D7010F /* AWSMobileAnalyticsERSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FAB991B042B3000D7010F /* AWSMobileAnalyticsERSModel.m */; };
@@ -256,6 +260,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		CE2EDE9D1BF3DF5300B9F26B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "modules/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				CE2EDE9E1BF3DF5900B9F26B /* module.modulemap in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEE532761B03DE7F002CED62 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -281,8 +295,9 @@
 		BD39B0D01B6AF6FF004296BE /* AWSMockFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSMockFileManager.m; sourceTree = "<group>"; };
 		BDB73D611B1D3E3300717559 /* AWSMobileAnalyticsERSResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsERSResources.h; path = AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSResources.h; sourceTree = SOURCE_ROOT; };
 		BDB73D621B1D3E3300717559 /* AWSMobileAnalyticsERSResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSMobileAnalyticsERSResources.m; path = AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSResources.m; sourceTree = SOURCE_ROOT; };
-		BDD876AF1B4B5316009268C7 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = AWSCoreTests/OCMock/libOCMock.a; sourceTree = "<group>"; };
+		BDD876AF1B4B5316009268C7 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = ../AWSCoreTests/OCMock/libOCMock.a; sourceTree = "<group>"; };
 		BDF1260B1B45C27900DFBFEC /* AWSMobileAnalyticsUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSMobileAnalyticsUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE27CB641BF1894E00B22AB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE2E0C661B03EB9100DE3906 /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "../build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
 		CE2E0C681B03EBDB00DE3906 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CE2E0C6A1B03EBE600DE3906 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -296,6 +311,7 @@
 		CE5FAB991B042B3000D7010F /* AWSMobileAnalyticsERSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSMobileAnalyticsERSModel.m; path = AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSModel.m; sourceTree = SOURCE_ROOT; };
 		CE5FAB9A1B042B3000D7010F /* AWSMobileAnalyticsERSService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsERSService.h; path = AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSService.h; sourceTree = SOURCE_ROOT; };
 		CE5FAB9B1B042B3000D7010F /* AWSMobileAnalyticsERSService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AWSMobileAnalyticsERSService.m; path = AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSService.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		CE65523C1BEC366A00DACBC2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		CEB3C6B41B2FAE780010599E /* AWSMobileAnalyticsDefaultContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSMobileAnalyticsDefaultContext.h; sourceTree = "<group>"; };
 		CEB3C6B51B2FAE780010599E /* AWSMobileAnalyticsDefaultContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSMobileAnalyticsDefaultContext.m; sourceTree = "<group>"; };
 		CEB3C6B61B2FAE780010599E /* AWSMobileAnalyticsStringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSMobileAnalyticsStringUtils.h; sourceTree = "<group>"; };
@@ -545,6 +561,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE27CB671BF1895700B22AB3 /* UIKit.framework in Frameworks */,
 				BDD876B01B4B5316009268C7 /* libOCMock.a in Frameworks */,
 				BDF126021B45C27900DFBFEC /* SystemConfiguration.framework in Frameworks */,
 				BDF126031B45C27900DFBFEC /* libAWSCore.a in Frameworks */,
@@ -557,6 +574,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE27CB651BF1894E00B22AB3 /* UIKit.framework in Frameworks */,
 				CE2E0C911B03F2B400DE3906 /* SystemConfiguration.framework in Frameworks */,
 				CE2E0C8F1B03F2A300DE3906 /* libAWSCore.a in Frameworks */,
 				CE2E0C8C1B03F11400DE3906 /* libz.dylib in Frameworks */,
@@ -575,6 +593,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE27CB661BF1895300B22AB3 /* UIKit.framework in Frameworks */,
 				BD4C9AEB1B4C69DB00267270 /* SystemConfiguration.framework in Frameworks */,
 				BD4C9AEA1B4C697400267270 /* libOCMock.a in Frameworks */,
 				CE2E0C6B1B03EBE600DE3906 /* libsqlite3.dylib in Frameworks */,
@@ -611,6 +630,8 @@
 		CE2E0C791B03EFD300DE3906 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE27CB641BF1894E00B22AB3 /* UIKit.framework */,
+				BDD876AF1B4B5316009268C7 /* libOCMock.a */,
 				CE2E0C901B03F2B400DE3906 /* SystemConfiguration.framework */,
 				CE2E0C8E1B03F2A300DE3906 /* libAWSCore.a */,
 				CE2E0C6C1B03EC6D00DE3906 /* credentials.json */,
@@ -623,7 +644,6 @@
 		CEE5326F1B03DE7F002CED62 = {
 			isa = PBXGroup;
 			children = (
-				BDD876AF1B4B5316009268C7 /* libOCMock.a */,
 				CEE5327A1B03DE7F002CED62 /* AWSMobileAnalytics */,
 				CE2E0C781B03EFD300DE3906 /* AWSMobileAnalyticsTests */,
 				CEE532871B03DE7F002CED62 /* AWSMobileAnalyticsLegacyTests */,
@@ -645,6 +665,7 @@
 		CEE5327A1B03DE7F002CED62 /* AWSMobileAnalytics */ = {
 			isa = PBXGroup;
 			children = (
+				CE65523C1BEC366A00DACBC2 /* module.modulemap */,
 				CEE533171B03DF26002CED62 /* AWSMobileAnalytics.h */,
 				CEE532941B03DF26002CED62 /* AWSMobileAnalyticsAppleMonetizationEventBuilder.h */,
 				CEE532951B03DF26002CED62 /* AWSMobileAnalyticsAppleMonetizationEventBuilder.m */,
@@ -1079,6 +1100,7 @@
 				CEE532751B03DE7F002CED62 /* Frameworks */,
 				CEE532761B03DE7F002CED62 /* CopyFiles */,
 				CEE533561B03E32B002CED62 /* Headers */,
+				CE2EDE9D1BF3DF5300B9F26B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1433,7 +1455,8 @@
 				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1481,7 +1504,8 @@
 				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1517,9 +1541,13 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 			};
 			name = Debug;
 		};
@@ -1528,9 +1556,13 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 			};
 			name = Release;
 		};

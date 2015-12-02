@@ -28,6 +28,9 @@
 		BDF126601B45C36100DFBFEC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532691B03D3BE002CED62 /* libz.dylib */; };
 		BDF126611B45C36100DFBFEC /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD00FF381AB8B69F004496EF /* libAWSCore.a */; };
 		BDF126621B45C36100DFBFEC /* libAWSSQS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB5DEEE1AB37849002DD224 /* libAWSSQS.a */; };
+		CE27CB751BF1933000B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB741BF1933000B22AB3 /* UIKit.framework */; };
+		CE27CB761BF1933400B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB741BF1933000B22AB3 /* UIKit.framework */; };
+		CE2EDEA91BF3DFA100B9F26B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE6552461BEC36C900DACBC2 /* module.modulemap */; };
 		CEE5326A1B03D3BE002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532691B03D3BE002CED62 /* libz.dylib */; };
 		CEE7DE791AC1E23F0095C4B7 /* AWSSQSService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE781AC1E23F0095C4B7 /* AWSSQSService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -62,6 +65,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE2EDEA81BF3DF9B00B9F26B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "modules/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				CE2EDEA91BF3DFA100B9F26B /* module.modulemap in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +96,8 @@
 		BDB73D961B1D3FF100717559 /* AWSSQSResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSQSResources.m; sourceTree = "<group>"; };
 		BDD876B91B4B5370009268C7 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = AWSCoreTests/OCMock/libOCMock.a; sourceTree = "<group>"; };
 		BDF126681B45C36100DFBFEC /* AWSSQSUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSSQSUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE27CB741BF1933000B22AB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CE6552461BEC36C900DACBC2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		CEE532691B03D3BE002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CEE7DE781AC1E23F0095C4B7 /* AWSSQSService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSQSService.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE27CB751BF1933000B22AB3 /* UIKit.framework in Frameworks */,
 				CEE5326A1B03D3BE002CED62 /* libz.dylib in Frameworks */,
 				BD00FF391AB8B69F004496EF /* libAWSCore.a in Frameworks */,
 				BDB5DEFA1AB37849002DD224 /* libAWSSQS.a in Frameworks */,
@@ -109,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE27CB761BF1933400B22AB3 /* UIKit.framework in Frameworks */,
 				BDD876BA1B4B5370009268C7 /* libOCMock.a in Frameworks */,
 				BDF126601B45C36100DFBFEC /* libz.dylib in Frameworks */,
 				BDF126611B45C36100DFBFEC /* libAWSCore.a in Frameworks */,
@@ -122,6 +139,7 @@
 		9CB08B3BEE06127D4F608086 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE27CB741BF1933000B22AB3 /* UIKit.framework */,
 				BDD876B91B4B5370009268C7 /* libOCMock.a */,
 				CEE532691B03D3BE002CED62 /* libz.dylib */,
 				BD00FF381AB8B69F004496EF /* libAWSCore.a */,
@@ -152,6 +170,7 @@
 		BDB5DEF01AB37849002DD224 /* AWSSQS */ = {
 			isa = PBXGroup;
 			children = (
+				CE6552461BEC36C900DACBC2 /* module.modulemap */,
 				BDB5DF091AB3786A002DD224 /* AWSSQS.h */,
 				BDB5DF0B1AB3786A002DD224 /* AWSSQSModel.h */,
 				BDB5DF0C1AB3786A002DD224 /* AWSSQSModel.m */,
@@ -210,6 +229,7 @@
 				BDB5DEEB1AB37849002DD224 /* Frameworks */,
 				BDB5DEEC1AB37849002DD224 /* CopyFiles */,
 				BDB5DF081AB37863002DD224 /* Headers */,
+				CE2EDEA81BF3DF9B00B9F26B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -366,7 +386,8 @@
 				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -412,7 +433,8 @@
 				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -446,14 +468,18 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSSQS;
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 			};
 			name = Debug;
 		};
@@ -462,14 +488,18 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSSQS;
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 			};
 			name = Release;
 		};

@@ -35,6 +35,9 @@
 		BDF55A171AB377010067F4F1 /* AWSS3Service.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF55A0D1AB377010067F4F1 /* AWSS3Service.m */; };
 		BDF55A181AB377010067F4F1 /* AWSS3Model.h in Headers */ = {isa = PBXBuildFile; fileRef = BDF55A0E1AB377010067F4F1 /* AWSS3Model.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDF55A191AB377010067F4F1 /* AWSS3Model.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF55A0F1AB377010067F4F1 /* AWSS3Model.m */; };
+		CE27CB691BF18C6000B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB681BF18C6000B22AB3 /* UIKit.framework */; };
+		CE27CB6A1BF18C6500B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB681BF18C6000B22AB3 /* UIKit.framework */; };
+		CE2EDEA01BF3DF6600B9F26B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE65523E1BEC368100DACBC2 /* module.modulemap */; };
 		CE83D0EA1B7171EB004A42E4 /* AWSS3TransferUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = CE83D0E81B7171EB004A42E4 /* AWSS3TransferUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE83D0EB1B7171EB004A42E4 /* AWSS3TransferUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE83D0E91B7171EB004A42E4 /* AWSS3TransferUtility.m */; };
 		CED7DE4D1BE2E121008DA1DC /* AWSS3TransferUtility.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE83D0E81B7171EB004A42E4 /* AWSS3TransferUtility.h */; };
@@ -75,6 +78,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE2EDE9F1BF3DF6000B9F26B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "modules/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				CE2EDEA01BF3DF6600B9F26B /* module.modulemap in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -94,13 +107,15 @@
 		BDF559F71AB376DC0067F4F1 /* AWSS3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSS3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF559FD1AB376DC0067F4F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDF55A081AB377010067F4F1 /* AWSS3PreSignedURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSS3PreSignedURL.h; sourceTree = "<group>"; };
-		BDF55A091AB377010067F4F1 /* AWSS3PreSignedURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSS3PreSignedURL.m; sourceTree = "<group>"; };
+		BDF55A091AB377010067F4F1 /* AWSS3PreSignedURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSS3PreSignedURL.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BDF55A0A1AB377010067F4F1 /* AWSS3TransferManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AWSS3TransferManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		BDF55A0B1AB377010067F4F1 /* AWSS3TransferManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSS3TransferManager.m; sourceTree = "<group>"; };
 		BDF55A0C1AB377010067F4F1 /* AWSS3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSS3.h; sourceTree = "<group>"; };
 		BDF55A0D1AB377010067F4F1 /* AWSS3Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSS3Service.m; sourceTree = "<group>"; };
 		BDF55A0E1AB377010067F4F1 /* AWSS3Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSS3Model.h; sourceTree = "<group>"; };
 		BDF55A0F1AB377010067F4F1 /* AWSS3Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSS3Model.m; sourceTree = "<group>"; };
+		CE27CB681BF18C6000B22AB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CE65523E1BEC368100DACBC2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		CE83D0E81B7171EB004A42E4 /* AWSS3TransferUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSS3TransferUtility.h; sourceTree = "<group>"; };
 		CE83D0E91B7171EB004A42E4 /* AWSS3TransferUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSS3TransferUtility.m; sourceTree = "<group>"; };
 		CEE5326D1B03D3CB002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -112,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE27CB6A1BF18C6500B22AB3 /* UIKit.framework in Frameworks */,
 				BDD876B21B4B5339009268C7 /* libOCMock.a in Frameworks */,
 				BDF126171B45C2C100DFBFEC /* libz.dylib in Frameworks */,
 				BDF126181B45C2C100DFBFEC /* libAWSCore.a in Frameworks */,
@@ -130,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE27CB691BF18C6000B22AB3 /* UIKit.framework in Frameworks */,
 				CEE5326E1B03D3CB002CED62 /* libz.dylib in Frameworks */,
 				BD00FF411AB8B6D2004496EF /* libAWSCore.a in Frameworks */,
 				BDF559F81AB376DC0067F4F1 /* libAWSS3.a in Frameworks */,
@@ -142,6 +159,7 @@
 		7D7D82B43AAE1FAA16A74BC2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE27CB681BF18C6000B22AB3 /* UIKit.framework */,
 				BDD876B11B4B5339009268C7 /* libOCMock.a */,
 				CEE5326D1B03D3CB002CED62 /* libz.dylib */,
 				BD00FF401AB8B6D2004496EF /* libAWSCore.a */,
@@ -172,6 +190,7 @@
 		BDF559EE1AB376DC0067F4F1 /* AWSS3 */ = {
 			isa = PBXGroup;
 			children = (
+				CE65523E1BEC368100DACBC2 /* module.modulemap */,
 				BDF55A0C1AB377010067F4F1 /* AWSS3.h */,
 				BDF55A0E1AB377010067F4F1 /* AWSS3Model.h */,
 				BDF55A0F1AB377010067F4F1 /* AWSS3Model.m */,
@@ -258,6 +277,7 @@
 				BDF559E91AB376DC0067F4F1 /* Frameworks */,
 				BDF559EA1AB376DC0067F4F1 /* CopyFiles */,
 				BDF55A061AB376F50067F4F1 /* Headers */,
+				CE2EDE9F1BF3DF6000B9F26B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -454,7 +474,8 @@
 				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -500,7 +521,8 @@
 				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -534,13 +556,17 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSS3;
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 			};
 			name = Debug;
 		};
@@ -549,13 +575,17 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSS3;
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 			};
 			name = Release;
 		};

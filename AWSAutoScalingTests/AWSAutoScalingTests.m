@@ -48,7 +48,7 @@
     AWSAutoScaling *autoScaling = [AWSAutoScaling defaultAutoScaling];
     XCTAssertNotNil(autoScaling);
 
-    [[[autoScaling describeAccountLimits:nil] continueWithBlock:^id(AWSTask *task) {
+    [[[autoScaling describeAccountLimits:[AWSRequest new]] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -68,7 +68,7 @@
 - (void)testDescribeAccountLimits {
     AWSAutoScaling *autoScaling = [AWSAutoScaling defaultAutoScaling];
 
-    [[[autoScaling describeAccountLimits:nil] continueWithBlock:^id(AWSTask *task) {
+    [[[autoScaling describeAccountLimits:[AWSRequest new]] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }

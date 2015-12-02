@@ -1,5 +1,4 @@
 #import <Foundation/Foundation.h>
-#import "sqlite3.h"
 #import "AWSFMResultSet.h"
 #import "AWSFMDatabasePool.h"
 
@@ -45,7 +44,7 @@ typedef int(^AWSFMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDiction
 /** A SQLite ([http://sqlite.org/](http://sqlite.org/)) Objective-C wrapper.
  
  ### Usage
- The three main classes in FMDB are:
+ The three main classes in AWSFMDB are:
 
  - `FMDatabase` - Represents a single SQLite database.  Used for executing SQL statements.
  - `<FMResultSet>` - Represents the results of executing a query on an `FMDatabase`.
@@ -58,9 +57,9 @@ typedef int(^AWSFMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDiction
  
  ### External links
  
- - [FMDB on GitHub](https://github.com/ccgus/fmdb) including introductory documentation
+ - [AWSFMDB on GitHub](https://github.com/ccgus/fmdb) including introductory documentation
  - [SQLite web site](http://sqlite.org/)
- - [FMDB mailing list](http://groups.google.com/group/fmdb)
+ - [AWSFMDB mailing list](http://groups.google.com/group/fmdb)
  - [SQLite FAQ](http://www.sqlite.org/faq.html)
  
  @warning Do not instantiate a single `FMDatabase` object and use it across multiple threads. Instead, use `<FMDatabaseQueue>`.
@@ -73,7 +72,6 @@ typedef int(^AWSFMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDiction
 
 @interface AWSFMDatabase : NSObject  {
     
-    sqlite3*            _db;
     NSString*           _databasePath;
     BOOL                _logsErrors;
     BOOL                _crashOnErrors;
@@ -194,7 +192,7 @@ typedef int(^AWSFMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDiction
 
 - (BOOL)open;
 
-/** Opening a new database connection with flags
+/** Opening a new database connection with flags and an optional virtual file system (VFS)
 
  @param flags one of the following three values, optionally combined with the `SQLITE_OPEN_NOMUTEX`, `SQLITE_OPEN_FULLMUTEX`, `SQLITE_OPEN_SHAREDCACHE`, `SQLITE_OPEN_PRIVATECACHE`, and/or `SQLITE_OPEN_URI` flags:
 
@@ -210,16 +208,19 @@ typedef int(^AWSFMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDiction
  
  The database is opened for reading and writing, and is created if it does not already exist. This is the behavior that is always used for `open` method.
  
+ If vfs is given the value is passed to the vfs parameter of sqlite3_open_v2.
+ 
  @return `YES` if successful, `NO` on error.
 
  @see [sqlite3_open_v2()](http://sqlite.org/c3ref/open.html)
  @see open
  @see close
+ 
+ @warning Requires SQLite 3.5
  */
 
-#if SQLITE_VERSION_NUMBER >= 3005000
 - (BOOL)openWithFlags:(int)flags;
-#endif
+- (BOOL)openWithFlags:(int)flags vfs:(NSString *)vfsName;
 
 /** Closing a database connection
  
@@ -437,7 +438,7 @@ typedef int(^AWSFMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDiction
 
  */
 
-- (sqlite_int64)lastInsertRowId;
+- (long long int)lastInsertRowId;
 
 /** The number of rows changed by prior SQL statement.
  
@@ -473,6 +474,8 @@ typedef int(^AWSFMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDiction
  @see FMResultSet
  @see [`FMResultSet next`](<[FMResultSet next]>)
  @see [`sqlite3_bind`](http://sqlite.org/c3ref/bind_blob.html)
+ 
+ @note If you want to use this from Swift, please note that you must include `FMDatabaseVariadic.swift` in your project. Without that, you cannot use this method directly, and instead have to use methods such as `<executeQuery:withArgumentsInArray:>`.
  */
 
 - (AWSFMResultSet *)executeQuery:(NSString*)sql, ...;
@@ -503,8 +506,6 @@ typedef int(^AWSFMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDiction
  
  There are two reasons why this distinction is important. First, the printf-style escape sequences can only be used where it is permissible to use a SQLite `?` placeholder. You can use it only for values in SQL statements, but not for table names or column names or any other non-value context. This method also cannot be used in conjunction with `pragma` statements and the like. Second, note the lack of quotation marks in the SQL. The `WHERE` clause was _not_ `WHERE name='%@'` (like you might have to do if you built a SQL statement using `NSString` method `stringWithFormat`), but rather simply `WHERE name=%@`.
  
- @note If you want to use this from Swift, please note that you must include `FMDatabaseVariadic.swift` in your project. Without that, you cannot use this method directly, and instead have to use methods such as `<executeQuery:withArgumentsInArray:>`.
-
  */
 
 - (AWSFMResultSet *)executeQueryWithFormat:(NSString*)format, ... NS_FORMAT_FUNCTION(1,2);
@@ -727,7 +728,7 @@ typedef int(^AWSFMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDiction
  
  */
 
-- (sqlite3*)sqliteHandle;
+- (void*)sqliteHandle;
 
 
 ///-----------------------------
@@ -791,8 +792,6 @@ typedef int(^AWSFMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDiction
 - (NSTimeInterval)maxBusyRetryTimeInterval;
 
 
-#if SQLITE_VERSION_NUMBER >= 3007000
-
 ///------------------
 /// @name Save points
 ///------------------
@@ -854,7 +853,6 @@ typedef int(^AWSFMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDiction
 
 - (NSError*)inSavePoint:(void (^)(BOOL *rollback))block;
 
-#endif
 
 ///----------------------------
 /// @name SQLite library status
@@ -920,7 +918,7 @@ typedef int(^AWSFMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDiction
             rowCount++;
             NSLog(@"Does %@ start with 'h'?", [rs stringForColumnIndex:0]);
         }
-        FMDBQuickCheck(rowCount == 2);
+        AWSFMDBQuickCheck(rowCount == 2);
     }];
 
  @param name Name of function
@@ -932,7 +930,7 @@ typedef int(^AWSFMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDiction
  @see [sqlite3_create_function()](http://sqlite.org/c3ref/create_function.html)
  */
 
-- (void)makeFunctionNamed:(NSString*)name maximumArguments:(int)count withBlock:(void (^)(sqlite3_context *context, int argc, sqlite3_value **argv))block;
+- (void)makeFunctionNamed:(NSString*)name maximumArguments:(int)count withBlock:(void (^)(void *context, int argc, void **argv))block;
 
 
 ///---------------------
@@ -957,7 +955,7 @@ typedef int(^AWSFMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDiction
  @see stringFromDate:
  @see storeableDateFormat:
 
- @warning Note that `NSDateFormatter` is not thread-safe, so the formatter generated by this method should be assigned to only one FMDB instance and should not be used for other purposes.
+ @warning Note that `NSDateFormatter` is not thread-safe, so the formatter generated by this method should be assigned to only one AWSFMDB instance and should not be used for other purposes.
 
  */
 
@@ -986,7 +984,7 @@ typedef int(^AWSFMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDiction
  @see stringFromDate:
  @see storeableDateFormat:
  
- @warning Note there is no direct getter for the `NSDateFormatter`, and you should not use the formatter you pass to FMDB for other purposes, as `NSDateFormatter` is not thread-safe.
+ @warning Note there is no direct getter for the `NSDateFormatter`, and you should not use the formatter you pass to AWSFMDB for other purposes, as `NSDateFormatter` is not thread-safe.
  */
 
 - (void)setDateFormat:(NSDateFormatter *)format;
@@ -1026,7 +1024,7 @@ typedef int(^AWSFMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDiction
 
 /** Objective-C wrapper for `sqlite3_stmt`
  
- This is a wrapper for a SQLite `sqlite3_stmt`. Generally when using FMDB you will not need to interact directly with `FMStatement`, but rather with `<FMDatabase>` and `<FMResultSet>` only.
+ This is a wrapper for a SQLite `sqlite3_stmt`. Generally when using AWSFMDB you will not need to interact directly with `FMStatement`, but rather with `<FMDatabase>` and `<FMResultSet>` only.
  
  ### See also
  
@@ -1036,7 +1034,6 @@ typedef int(^AWSFMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDiction
  */
 
 @interface AWSFMStatement : NSObject {
-    sqlite3_stmt *_statement;
     NSString *_query;
     long _useCount;
     BOOL _inUse;
@@ -1059,7 +1056,7 @@ typedef int(^AWSFMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDiction
  @see [`sqlite3_stmt`](http://www.sqlite.org/c3ref/stmt.html)
  */
 
-@property (atomic, assign) sqlite3_stmt *statement;
+@property (atomic, assign) void *statement;
 
 /** Indication of whether the statement is in use */
 

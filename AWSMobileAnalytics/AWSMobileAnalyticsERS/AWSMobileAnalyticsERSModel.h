@@ -17,6 +17,8 @@
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSModel.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 FOUNDATION_EXPORT NSString *const AWSMobileAnalyticsERSErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSMobileAnalyticsERSErrorType) {
@@ -41,32 +43,32 @@ typedef NS_ENUM(NSInteger, AWSMobileAnalyticsERSErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSDictionary *attributes;
+@property (nonatomic, strong) NSDictionary * _Nullable attributes;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *eventType;
+@property (nonatomic, strong) NSString * _Nullable eventType;
 
 /**
  
  */
-@property (nonatomic, strong) NSDictionary *metrics;
+@property (nonatomic, strong) NSDictionary * _Nullable metrics;
 
 /**
  
  */
-@property (nonatomic, strong) AWSMobileAnalyticsERSSession *session;
+@property (nonatomic, strong) AWSMobileAnalyticsERSSession * _Nullable session;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *timestamp;
+@property (nonatomic, strong) NSString * _Nullable timestamp;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *version;
+@property (nonatomic, strong) NSString * _Nullable version;
 
 @end
 
@@ -80,12 +82,12 @@ typedef NS_ENUM(NSInteger, AWSMobileAnalyticsERSErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *clientContext;
+@property (nonatomic, strong) NSString * _Nullable clientContext;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *events;
+@property (nonatomic, strong) NSArray * _Nullable events;
 
 @end
 
@@ -98,21 +100,23 @@ typedef NS_ENUM(NSInteger, AWSMobileAnalyticsERSErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSNumber *duration;
+@property (nonatomic, strong) NSNumber * _Nullable duration;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *startTimestamp;
+@property (nonatomic, strong) NSString * _Nullable startTimestamp;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *stopTimestamp;
+@property (nonatomic, strong) NSString * _Nullable stopTimestamp;
 
 @end
+
+NS_ASSUME_NONNULL_END

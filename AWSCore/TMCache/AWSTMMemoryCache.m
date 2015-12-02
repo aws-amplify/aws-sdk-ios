@@ -70,15 +70,18 @@ NSString * const AWSTMMemoryCachePrefix = @"com.tumblr.TMMemoryCache";
 
         _removeAllObjectsOnMemoryWarning = YES;
         _removeAllObjectsOnEnteringBackground = YES;
-
-        #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_0 && defined(__clang) && defined(__has_feature) && !__has_feature(attribute_availability_app_extension)
-        for (NSString *name in @[UIApplicationDidReceiveMemoryWarningNotification, UIApplicationDidEnterBackgroundNotification]) {
-            [[NSNotificationCenter defaultCenter] addObserver:self
-                                                     selector:@selector(didObserveApocalypticNotification:)
-                                                         name:name
-                                                       object:[UIApplication sharedApplication]];
-        }
-        #endif
+        
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_0
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(handleMemoryWarning)
+                                                     name:UIApplicationDidReceiveMemoryWarningNotification
+                                                   object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(handleApplicationBackgrounding)
+                                                     name:UIApplicationDidEnterBackgroundNotification
+                                                   object:nil];
+#endif
     }
     return self;
 }
@@ -97,41 +100,46 @@ NSString * const AWSTMMemoryCachePrefix = @"com.tumblr.TMMemoryCache";
 
 #pragma mark - Private Methods -
 
-- (void)didObserveApocalypticNotification:(NSNotification *)notification
+- (void)handleMemoryWarning
 {
-        #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_0 && defined(__clang) && defined(__has_feature) && !__has_feature(attribute_availability_app_extension)
-
-    if ([[notification name] isEqualToString:UIApplicationDidReceiveMemoryWarningNotification]) {
-        if (self.removeAllObjectsOnMemoryWarning)
-            [self removeAllObjects:nil];
-
-        __weak TMMemoryCache *weakSelf = self;
-
-        dispatch_async(_queue, ^{
-            TMMemoryCache *strongSelf = weakSelf;
-            if (!strongSelf)
-                return;
-
-            if (strongSelf->_didReceiveMemoryWarningBlock)
-                strongSelf->_didReceiveMemoryWarningBlock(strongSelf);
-        });
-    } else if ([[notification name] isEqualToString:UIApplicationDidEnterBackgroundNotification]) {
-        if (self.removeAllObjectsOnEnteringBackground)
-            [self removeAllObjects:nil];
-
-        __weak TMMemoryCache *weakSelf = self;
-
-        dispatch_async(_queue, ^{
-            TMMemoryCache *strongSelf = weakSelf;
-            if (!strongSelf)
-                return;
-
-            if (strongSelf->_didEnterBackgroundBlock)
-                strongSelf->_didEnterBackgroundBlock(strongSelf);
-        });
-    }
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_0
     
-    #endif
+    if (self.removeAllObjectsOnMemoryWarning)
+        [self removeAllObjects:nil];
+    
+    __weak AWSTMMemoryCache *weakSelf = self;
+    
+    dispatch_async(_queue, ^{
+        AWSTMMemoryCache *strongSelf = weakSelf;
+        if (!strongSelf)
+            return;
+        
+        if (strongSelf->_didReceiveMemoryWarningBlock)
+            strongSelf->_didReceiveMemoryWarningBlock(strongSelf);
+    });
+    
+#endif
+}
+
+- (void)handleApplicationBackgrounding
+{
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_0
+    
+    if (self.removeAllObjectsOnEnteringBackground)
+        [self removeAllObjects:nil];
+    
+    __weak AWSTMMemoryCache *weakSelf = self;
+    
+    dispatch_async(_queue, ^{
+        AWSTMMemoryCache *strongSelf = weakSelf;
+        if (!strongSelf)
+            return;
+        
+        if (strongSelf->_didEnterBackgroundBlock)
+            strongSelf->_didEnterBackgroundBlock(strongSelf);
+    });
+    
+#endif
 }
 
 - (void)removeObjectAndExecuteBlocksForKey:(NSString *)key

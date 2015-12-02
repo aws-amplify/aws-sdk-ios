@@ -27,6 +27,9 @@
 		BDF1264D1B45C34100DFBFEC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE5325D1B03D38F002CED62 /* libz.dylib */; };
 		BDF1264E1B45C34100DFBFEC /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD00FF3A1AB8B6B6004496EF /* libAWSCore.a */; };
 		BDF1264F1B45C34100DFBFEC /* libAWSSNS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB5DEBF1AB377FA002DD224 /* libAWSSNS.a */; };
+		CE27CB721BF1931C00B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB711BF1931C00B22AB3 /* UIKit.framework */; };
+		CE27CB731BF1932100B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB711BF1931C00B22AB3 /* UIKit.framework */; };
+		CE2EDEA61BF3DF8B00B9F26B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE6552441BEC36B900DACBC2 /* module.modulemap */; };
 		CEE5325E1B03D38F002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE5325D1B03D38F002CED62 /* libz.dylib */; };
 		CEE7DE771AC1E2270095C4B7 /* AWSSNSService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE761AC1E2270095C4B7 /* AWSSNSService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -61,6 +64,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE2EDEA51BF3DF8500B9F26B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "modules/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				CE2EDEA61BF3DF8B00B9F26B /* module.modulemap in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +94,8 @@
 		BDB73D921B1D3F8D00717559 /* AWSSNSResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSNSResources.m; sourceTree = "<group>"; };
 		BDD876B71B4B5361009268C7 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = AWSCoreTests/OCMock/libOCMock.a; sourceTree = "<group>"; };
 		BDF126551B45C34100DFBFEC /* AWSSNSUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSSNSUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE27CB711BF1931C00B22AB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CE6552441BEC36B900DACBC2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		CEE5325D1B03D38F002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CEE7DE761AC1E2270095C4B7 /* AWSSNSService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSNSService.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE27CB721BF1931C00B22AB3 /* UIKit.framework in Frameworks */,
 				CEE5325E1B03D38F002CED62 /* libz.dylib in Frameworks */,
 				BD00FF3B1AB8B6B6004496EF /* libAWSCore.a in Frameworks */,
 				BDB5DECB1AB377FA002DD224 /* libAWSSNS.a in Frameworks */,
@@ -107,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE27CB731BF1932100B22AB3 /* UIKit.framework in Frameworks */,
 				BDD876B81B4B5361009268C7 /* libOCMock.a in Frameworks */,
 				BDF1264D1B45C34100DFBFEC /* libz.dylib in Frameworks */,
 				BDF1264E1B45C34100DFBFEC /* libAWSCore.a in Frameworks */,
@@ -120,6 +137,7 @@
 		64A8D5459E21A3F4F06E6A97 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE27CB711BF1931C00B22AB3 /* UIKit.framework */,
 				BDD876B71B4B5361009268C7 /* libOCMock.a */,
 				CEE5325D1B03D38F002CED62 /* libz.dylib */,
 				BD00FF3A1AB8B6B6004496EF /* libAWSCore.a */,
@@ -150,6 +168,7 @@
 		BDB5DEC11AB377FA002DD224 /* AWSSNS */ = {
 			isa = PBXGroup;
 			children = (
+				CE6552441BEC36B900DACBC2 /* module.modulemap */,
 				BDB5DEDB1AB3781F002DD224 /* AWSSNS.h */,
 				BDB5DEDD1AB3781F002DD224 /* AWSSNSModel.h */,
 				BDB5DEDE1AB3781F002DD224 /* AWSSNSModel.m */,
@@ -207,6 +226,7 @@
 				BDB5DEBC1AB377FA002DD224 /* Frameworks */,
 				BDB5DEBD1AB377FA002DD224 /* CopyFiles */,
 				BDB5DED91AB37815002DD224 /* Headers */,
+				CE2EDEA51BF3DF8500B9F26B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -362,7 +382,8 @@
 				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -408,7 +429,8 @@
 				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -442,14 +464,18 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSSNS;
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 			};
 			name = Debug;
 		};
@@ -458,14 +484,18 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSSNS;
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 			};
 			name = Release;
 		};

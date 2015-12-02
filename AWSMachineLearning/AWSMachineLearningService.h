@@ -16,6 +16,9 @@
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSCore.h>
 #import "AWSMachineLearningModel.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  Definition of the public APIs exposed by Amazon Machine Learning
  */
@@ -192,3 +195,5 @@
 - (AWSTask *)predict:(AWSMachineLearningPredictInput *)request;
 
 @end
+
+NS_ASSUME_NONNULL_END

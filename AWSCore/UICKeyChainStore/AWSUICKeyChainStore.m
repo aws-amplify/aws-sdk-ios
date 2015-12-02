@@ -526,10 +526,17 @@ static NSString *_defaultService;
     
     NSMutableDictionary *query = [self query];
     query[(__bridge __strong id)kSecAttrAccount] = key;
-#if TARGET_OS_IPHONE
-    if (floor(NSFoundationVersionNumber) > floor(1047.25)) { // iOS 8+
+#if TARGET_OS_IOS
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    if (floor(NSFoundationVersionNumber) > floor(1144.17)) { // iOS 9+
+        query[(__bridge __strong id)kSecUseAuthenticationUI] = (__bridge id)kSecUseAuthenticationUIFail;
+    } else if (floor(NSFoundationVersionNumber) > floor(1047.25)) { // iOS 8+
         query[(__bridge __strong id)kSecUseNoAuthenticationUI] = (__bridge id)kCFBooleanTrue;
     }
+#pragma clang diagnostic pop
+#elif TARGET_OS_WATCH || TARGET_OS_TV
+    query[(__bridge __strong id)kSecUseAuthenticationUI] = (__bridge id)kSecUseAuthenticationUIFail;
 #endif
     
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
@@ -759,7 +766,7 @@ static NSString *_defaultService;
 
 #pragma mark -
 
-- (NSArray *)allKeys
+- (NSArray UIC_KEY_TYPE *)allKeys
 {
     NSArray *items = [self.class prettify:[self itemClassObject] items:[self items]];
     NSMutableArray *keys = [[NSMutableArray alloc] init];
@@ -769,7 +776,7 @@ static NSString *_defaultService;
     return keys.copy;
 }
 
-+ (NSArray *)allKeysWithItemClass:(AWSUICKeyChainStoreItemClass)itemClass
++ (NSArray UIC_KEY_TYPE *)allKeysWithItemClass:(AWSUICKeyChainStoreItemClass)itemClass
 {
     CFTypeRef itemClassObject = kSecClassGenericPassword;
     if (itemClass == AWSUICKeyChainStoreItemClassGenericPassword) {
@@ -784,7 +791,9 @@ static NSString *_defaultService;
     query[(__bridge __strong id)kSecReturnAttributes] = (__bridge id)kCFBooleanTrue;
     
     CFArrayRef result = nil;
-    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query,(CFTypeRef *)&result);
+    CFDictionaryRef cfquery = (CFDictionaryRef)CFBridgingRetain(query);
+    OSStatus status = SecItemCopyMatching(cfquery, (CFTypeRef *)&result);
+    CFRelease(cfquery);
     
     if (status == errSecSuccess) {
         NSArray *items = [self prettify:itemClassObject items:(__bridge NSArray *)result];
@@ -822,7 +831,9 @@ static NSString *_defaultService;
 #endif
     
     CFArrayRef result = nil;
-    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query,(CFTypeRef *)&result);
+    CFDictionaryRef cfquery = (CFDictionaryRef)CFBridgingRetain(query);
+    OSStatus status = SecItemCopyMatching(cfquery, (CFTypeRef *)&result);
+    CFRelease(cfquery);
     
     if (status == errSecSuccess) {
         return [self prettify:itemClassObject items:(__bridge NSArray *)result];
@@ -906,9 +917,12 @@ static NSString *_defaultService;
         if (accessible) {
             item[@"accessibility"] = accessible;
         }
-        id synchronizable = attributes[(__bridge id)kSecAttrSynchronizable];
-        if (synchronizable) {
-            item[@"synchronizable"] = synchronizable;
+        
+        if (floor(NSFoundationVersionNumber) > floor(993.00)) { // iOS 7+
+            id synchronizable = attributes[(__bridge id)kSecAttrSynchronizable];
+            if (synchronizable) {
+                item[@"synchronizable"] = synchronizable;
+            }
         }
         
         [prettified addObject:item];
@@ -938,7 +952,7 @@ static NSString *_defaultService;
 
 #pragma mark -
 
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IOS
 - (void)sharedPasswordWithCompletion:(void (^)(NSString *account, NSString *password, NSError *error))completion
 {
     NSString *domain = self.server.host;
@@ -1012,12 +1026,12 @@ static NSString *_defaultService;
     [self setSharedPassword:nil forAccount:account completion:completion];
 }
 
-+ (void)requestSharedWebCredentialWithCompletion:(void (^)(NSArray *credentials, NSError *error))completion
++ (void)requestSharedWebCredentialWithCompletion:(void (^)(NSArray UIC_CREDENTIAL_TYPE *credentials, NSError *error))completion
 {
     [self requestSharedWebCredentialForDomain:nil account:nil completion:completion];
 }
 
-+ (void)requestSharedWebCredentialForDomain:(NSString *)domain account:(NSString *)account completion:(void (^)(NSArray *credentials, NSError *error))completion
++ (void)requestSharedWebCredentialForDomain:(NSString *)domain account:(NSString *)account completion:(void (^)(NSArray UIC_CREDENTIAL_TYPE *credentials, NSError *error))completion
 {
     SecRequestSharedWebCredential((__bridge CFStringRef)domain, (__bridge CFStringRef)account, ^(CFArrayRef credentials, CFErrorRef error) {
         if (error) {
@@ -1106,7 +1120,7 @@ static NSString *_defaultService;
     
     if (itemClass == kSecClassGenericPassword) {
         query[(__bridge __strong id)(kSecAttrService)] = _service;
-#if !TARGET_IPHONE_SIMULATOR
+#if !TARGET_OS_SIMULATOR
         if (_accessGroup) {
             query[(__bridge __strong id)kSecAttrAccessGroup] = _accessGroup;
         }
@@ -1128,7 +1142,7 @@ static NSString *_defaultService;
         }
     }
     
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IOS
     if (_authenticationPrompt) {
         if (floor(NSFoundationVersionNumber) > floor(1047.25)) { // iOS 8+ (NSFoundationVersionNumber_iOS_7_1)
             query[(__bridge __strong id)kSecUseOperationPrompt] = _authenticationPrompt;
@@ -1154,7 +1168,7 @@ static NSString *_defaultService;
     
     attributes[(__bridge __strong id)kSecValueData] = value;
     
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IOS
     double iOS_7_1_or_10_9_2 = 1047.25; // NSFoundationVersionNumber_iOS_7_1
 #else
     double iOS_7_1_or_10_9_2 = 1056.13; // NSFoundationVersionNumber10_9_2
@@ -1169,6 +1183,7 @@ static NSString *_defaultService;
                 NSLog(@"error: [%@] %@", @(e.code), e.localizedDescription);
                 if (error) {
                     *error = e;
+                    CFRelease(accessControl);
                     return nil;
                 }
             }
@@ -1180,9 +1195,9 @@ static NSString *_defaultService;
                 }
                 return nil;
             }
-            attributes[(__bridge __strong id)kSecAttrAccessControl] = (__bridge id)accessControl;
+            attributes[(__bridge __strong id)kSecAttrAccessControl] = (__bridge_transfer id)accessControl;
         } else {
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IOS
             NSLog(@"%@", @"Unavailable 'Touch ID integration' on iOS versions prior to 8.0.");
 #else
             NSLog(@"%@", @"Unavailable 'Touch ID integration' on OS X versions prior to 10.10.");
@@ -1190,10 +1205,10 @@ static NSString *_defaultService;
         }
     } else {
         if (floor(NSFoundationVersionNumber) <= floor(iOS_7_1_or_10_9_2) && _accessibility == AWSUICKeyChainStoreAccessibilityWhenPasscodeSetThisDeviceOnly) {
-#if TARGET_OS_IPHONE
-            NSLog(@"%@", @"Unavailable 'AWSUICKeyChainStoreAccessibilityWhenPasscodeSetThisDeviceOnly' attribute on iOS versions prior to 8.0.");
+#if TARGET_OS_IOS
+            NSLog(@"%@", @"Unavailable 'UICKeyChainStoreAccessibilityWhenPasscodeSetThisDeviceOnly' attribute on iOS versions prior to 8.0.");
 #else
-            NSLog(@"%@", @"Unavailable 'AWSUICKeyChainStoreAccessibilityWhenPasscodeSetThisDeviceOnly' attribute on OS X versions prior to 10.10.");
+            NSLog(@"%@", @"Unavailable 'UICKeyChainStoreAccessibilityWhenPasscodeSetThisDeviceOnly' attribute on OS X versions prior to 10.10.");
 #endif
         } else {
             if (accessibilityObject) {
@@ -1202,7 +1217,9 @@ static NSString *_defaultService;
         }
     }
     
-    attributes[(__bridge __strong id)kSecAttrSynchronizable] = @(_synchronizable);
+    if (floor(NSFoundationVersionNumber) > floor(993.00)) { // iOS 7+
+        attributes[(__bridge __strong id)kSecAttrSynchronizable] = @(_synchronizable);
+    }
     
     return attributes;
 }
@@ -1350,7 +1367,7 @@ static NSString *_defaultService;
 + (NSError *)securityError:(OSStatus)status
 {
     NSString *message = @"Security error has occurred.";
-#if !TARGET_OS_IPHONE
+#if TARGET_OS_MAC && !TARGET_OS_IPHONE
     CFStringRef description = SecCopyErrorMessageString(status, NULL);
     if (description) {
         message = (__bridge_transfer NSString *)description;

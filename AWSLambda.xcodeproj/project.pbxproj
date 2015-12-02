@@ -15,6 +15,9 @@
 		BDF125DE1B45C22300DFBFEC /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6397121AC48EF300459E23 /* libAWSCore.a */; };
 		BDF125DF1B45C22300DFBFEC /* libAWSLambda.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CED822151AC4895F0017E687 /* libAWSLambda.a */; };
 		BDF126931B45C98400DFBFEC /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE63971E1AC495CD00459E23 /* AWSTestUtility.m */; };
+		CE27CB5F1BF188E900B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB5E1BF188E900B22AB3 /* UIKit.framework */; };
+		CE27CB601BF188ED00B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB5E1BF188E900B22AB3 /* UIKit.framework */; };
+		CE2EDE9A1BF3DF3C00B9F26B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE6552381BEC364700DACBC2 /* module.modulemap */; };
 		CE5502C81AD361AC00AE9F4A /* AWSLambdaInvoker.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE6397261AC4A7F300459E23 /* AWSLambdaInvoker.h */; };
 		CE6397131AC48EF300459E23 /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6397121AC48EF300459E23 /* libAWSCore.a */; };
 		CE63971D1AC4957D00459E23 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CE63971C1AC4957D00459E23 /* credentials.json */; };
@@ -53,6 +56,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		CE2EDE991BF3DF3700B9F26B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "modules/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				CE2EDE9A1BF3DF3C00B9F26B /* module.modulemap in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CED822131AC4895F0017E687 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -73,6 +86,7 @@
 		BDB73D7E1B1D3F1400717559 /* AWSLambdaResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLambdaResources.m; sourceTree = "<group>"; };
 		BDD876AB1B4B52F0009268C7 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = AWSCoreTests/OCMock/libOCMock.a; sourceTree = "<group>"; };
 		BDF125E51B45C22300DFBFEC /* AWSLambdaUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSLambdaUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE27CB5E1BF188E900B22AB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE6397121AC48EF300459E23 /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
 		CE6397141AC494C100459E23 /* AWSGeneralLambdaTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralLambdaTests.m; sourceTree = "<group>"; };
 		CE63971C1AC4957D00459E23 /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
@@ -80,6 +94,7 @@
 		CE6397241AC4A4CC00459E23 /* AWSLambdaTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLambdaTests.m; sourceTree = "<group>"; };
 		CE6397261AC4A7F300459E23 /* AWSLambdaInvoker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AWSLambdaInvoker.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		CE6397271AC4A7F300459E23 /* AWSLambdaInvoker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLambdaInvoker.m; sourceTree = "<group>"; };
+		CE6552381BEC364700DACBC2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		CED822151AC4895F0017E687 /* libAWSLambda.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSLambda.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED822201AC4895F0017E687 /* AWSLambdaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSLambdaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED822261AC4895F0017E687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE27CB601BF188ED00B22AB3 /* UIKit.framework in Frameworks */,
 				BDD876AC1B4B52F0009268C7 /* libOCMock.a in Frameworks */,
 				BDF125DD1B45C22300DFBFEC /* libz.dylib in Frameworks */,
 				BDF125DE1B45C22300DFBFEC /* libAWSCore.a in Frameworks */,
@@ -115,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE27CB5F1BF188E900B22AB3 /* UIKit.framework in Frameworks */,
 				CEE532641B03D3A8002CED62 /* libz.dylib in Frameworks */,
 				CE6397131AC48EF300459E23 /* libAWSCore.a in Frameworks */,
 				CED822211AC4895F0017E687 /* libAWSLambda.a in Frameworks */,
@@ -127,6 +144,7 @@
 		3EAFA3A380A2651599D9FC74 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE27CB5E1BF188E900B22AB3 /* UIKit.framework */,
 				BDD876AB1B4B52F0009268C7 /* libOCMock.a */,
 				CEE532631B03D3A8002CED62 /* libz.dylib */,
 				CE6397121AC48EF300459E23 /* libAWSCore.a */,
@@ -157,6 +175,7 @@
 		CED822171AC4895F0017E687 /* AWSLambda */ = {
 			isa = PBXGroup;
 			children = (
+				CE6552381BEC364700DACBC2 /* module.modulemap */,
 				CED822341AC48A3D0017E687 /* AWSLambda.h */,
 				CE6397261AC4A7F300459E23 /* AWSLambdaInvoker.h */,
 				CE6397271AC4A7F300459E23 /* AWSLambdaInvoker.m */,
@@ -235,6 +254,7 @@
 				CED822121AC4895F0017E687 /* Frameworks */,
 				CED822131AC4895F0017E687 /* CopyFiles */,
 				CED8223F1AC48ACE0017E687 /* Headers */,
+				CE2EDE991BF3DF3700B9F26B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -428,7 +448,8 @@
 				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -474,7 +495,8 @@
 				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -508,14 +530,18 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 			};
 			name = Debug;
 		};
@@ -524,14 +550,18 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 			};
 			name = Release;
 		};

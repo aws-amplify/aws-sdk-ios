@@ -21,12 +21,77 @@
 #import "AWSLogging.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.3.0";
+NSString *const AWSiOSSDKVersion = @"2.3.1";
 NSString *const AWSServiceConfigurationUnknown = @"Unknown";
 
 #pragma mark - AWSService
 
 @implementation AWSService
+
++ (void)initializeIfNeededWithDefaultRegionType:(AWSRegionType)defaultRegionType
+                      cognitoIdentityRegionType:(AWSRegionType)cognitoIdentityRegionType
+                          cognitoIdentityPoolId:(NSString *)cognitoIdentityPoolId {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // Performs some basic configuration check.
+        if (cognitoIdentityPoolId
+            && defaultRegionType != AWSRegionUnknown
+            && cognitoIdentityRegionType != AWSRegionUnknown) {
+            // Sets up the AWS Mobile SDK.
+            AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:cognitoIdentityRegionType
+                                                                                                            identityPoolId:cognitoIdentityPoolId];
+            AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:defaultRegionType
+                                                                                 credentialsProvider:credentialsProvider];
+            [configuration addUserAgentProductToken:@"fabric"];
+            AWSServiceManager.defaultServiceManager.defaultServiceConfiguration = configuration;
+            AWSLogInfo(@"The default Cognito credentials provider and service configuration were successfully initialized.");
+        } else {
+            // The configuration values from info.plist seem invalid.
+            AWSLogWarn(@"Could not find valid 'AWSDefaultRegionType', 'AWSCognitoRegionType', and 'AWSCognitoIdentityPoolId' values in info.plist. Unable to set the default Cognito credentials provider and service configuration. Please follow the instructions on this website and manually set up the AWS Mobile SDK for iOS. http://docs.aws.amazon.com/mobile/sdkforios/developerguide/setup.html");
+        }
+    });
+}
+
+/**
+ Converts a region string to AWSRegionType.
+ */
++ (AWSRegionType)regionTypeFromString:(NSString *)regionTypeString {
+    if ([regionTypeString isEqualToString:@"AWSRegionUSEast1"]) {
+        return AWSRegionUSEast1;
+    }
+    if ([regionTypeString isEqualToString:@"AWSRegionUSWest1"]) {
+        return AWSRegionUSWest1;
+    }
+    if ([regionTypeString isEqualToString:@"AWSRegionUSWest2"]) {
+        return AWSRegionUSWest2;
+    }
+    if ([regionTypeString isEqualToString:@"AWSRegionEUWest1"]) {
+        return AWSRegionEUWest1;
+    }
+    if ([regionTypeString isEqualToString:@"AWSRegionEUCentral1"]) {
+        return AWSRegionEUCentral1;
+    }
+    if ([regionTypeString isEqualToString:@"AWSRegionAPSoutheast1"]) {
+        return AWSRegionAPSoutheast1;
+    }
+    if ([regionTypeString isEqualToString:@"AWSRegionAPNortheast1"]) {
+        return AWSRegionAPNortheast1;
+    }
+    if ([regionTypeString isEqualToString:@"AWSRegionAPSoutheast2"]) {
+        return AWSRegionAPSoutheast2;
+    }
+    if ([regionTypeString isEqualToString:@"AWSRegionSAEast1"]) {
+        return AWSRegionSAEast1;
+    }
+    /*
+     Amazon Cognito Identity is not support in the China region.
+     if ([regionTypeString isEqualToString:@"AWSRegionCNNorth1"]) {
+     return AWSRegionCNNorth1;
+     }
+     */
+
+    return AWSRegionUnknown;
+}
 
 @end
 
@@ -240,11 +305,15 @@ NSString *const AWSServiceNameSTS = @"sts";
         _useUnsafeURL = useUnsafeURL;
         _regionName = [self regionNameFromType:regionType];
         if (!_regionName) {
-            AWSLogError(@"Invalid region type.");
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:@"Invalid region type."
+                                         userInfo:nil];
         }
         _serviceName = [self serviceNameFromType:serviceType];
         if (!_serviceName) {
-            AWSLogError(@"Invalid service type.");
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:@"Invalid service type."
+                                         userInfo:nil];
         }
         _URL = [self URLWithRegion:_regionType
                         regionName:_regionName
@@ -376,8 +445,6 @@ NSString *const AWSServiceNameSTS = @"sts";
     } else if (serviceType == AWSServiceSTS) {
         if (regionType == AWSRegionCNNorth1) {
             URL = [NSURL URLWithString:@"https://sts.cn-north-1.amazonaws.com"];
-        } else if (regionType == AWSRegionUSGovWest1) {
-            URL = [NSURL URLWithString:@"https://sts.us-gov-west-1.amazonaws.com"];
         } else {
             URL = [NSURL URLWithString:@"https://sts.amazonaws.com"];
         }

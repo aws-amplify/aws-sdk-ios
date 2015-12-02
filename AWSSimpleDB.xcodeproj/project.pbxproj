@@ -27,6 +27,9 @@
 		BDF1263B1B45C31C00DFBFEC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532671B03D3B7002CED62 /* libz.dylib */; };
 		BDF1263C1B45C31C00DFBFEC /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD00FF3C1AB8B6C4004496EF /* libAWSCore.a */; };
 		BDF1263D1B45C31C00DFBFEC /* libAWSSimpleDB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB5DE901AB377AF002DD224 /* libAWSSimpleDB.a */; };
+		CE27CB6F1BF192FF00B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB6E1BF192FF00B22AB3 /* UIKit.framework */; };
+		CE27CB701BF1930300B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB6E1BF192FF00B22AB3 /* UIKit.framework */; };
+		CE2EDEA41BF3DF7E00B9F26B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE6552421BEC36A800DACBC2 /* module.modulemap */; };
 		CEE532681B03D3B7002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532671B03D3B7002CED62 /* libz.dylib */; };
 		CEE7DE5F1AC1DEEA0095C4B7 /* AWSSimpleDBService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE5E1AC1DEEA0095C4B7 /* AWSSimpleDBService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -61,6 +64,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE2EDEA31BF3DF7800B9F26B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "modules/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				CE2EDEA41BF3DF7E00B9F26B /* module.modulemap in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +94,8 @@
 		BDB73D8E1B1D3F7500717559 /* AWSSimpleDBResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSimpleDBResources.m; sourceTree = "<group>"; };
 		BDD876B51B4B5354009268C7 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = AWSCoreTests/OCMock/libOCMock.a; sourceTree = "<group>"; };
 		BDF126431B45C31C00DFBFEC /* AWSSimpleDBUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSSimpleDBUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE27CB6E1BF192FF00B22AB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CE6552421BEC36A800DACBC2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		CEE532671B03D3B7002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CEE7DE5E1AC1DEEA0095C4B7 /* AWSSimpleDBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSimpleDBService.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE27CB6F1BF192FF00B22AB3 /* UIKit.framework in Frameworks */,
 				CEE532681B03D3B7002CED62 /* libz.dylib in Frameworks */,
 				BD00FF3D1AB8B6C4004496EF /* libAWSCore.a in Frameworks */,
 				BDB5DE9C1AB377AF002DD224 /* libAWSSimpleDB.a in Frameworks */,
@@ -107,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE27CB701BF1930300B22AB3 /* UIKit.framework in Frameworks */,
 				BDD876B61B4B5354009268C7 /* libOCMock.a in Frameworks */,
 				BDF1263B1B45C31C00DFBFEC /* libz.dylib in Frameworks */,
 				BDF1263C1B45C31C00DFBFEC /* libAWSCore.a in Frameworks */,
@@ -140,6 +157,7 @@
 		BDB5DE921AB377AF002DD224 /* AWSSimpleDB */ = {
 			isa = PBXGroup;
 			children = (
+				CE6552421BEC36A800DACBC2 /* module.modulemap */,
 				BDB5DEAC1AB377D1002DD224 /* AWSSimpleDB.h */,
 				BDB5DEAE1AB377D1002DD224 /* AWSSimpleDBModel.h */,
 				BDB5DEAF1AB377D1002DD224 /* AWSSimpleDBModel.m */,
@@ -175,6 +193,7 @@
 		CC221F0612D8271C7295C9FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE27CB6E1BF192FF00B22AB3 /* UIKit.framework */,
 				BDD876B51B4B5354009268C7 /* libOCMock.a */,
 				CEE532671B03D3B7002CED62 /* libz.dylib */,
 				BD00FF3C1AB8B6C4004496EF /* libAWSCore.a */,
@@ -207,6 +226,7 @@
 				BDB5DE8D1AB377AF002DD224 /* Frameworks */,
 				BDB5DE8E1AB377AF002DD224 /* CopyFiles */,
 				BDB5DEAA1AB377C9002DD224 /* Headers */,
+				CE2EDEA31BF3DF7800B9F26B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -362,7 +382,8 @@
 				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -408,7 +429,8 @@
 				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -442,14 +464,18 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSSimpleDB;
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 			};
 			name = Debug;
 		};
@@ -458,14 +484,18 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SRCROOT}/Pods/Headers/**",
 				);
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSSimpleDB;
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 			};
 			name = Release;
 		};

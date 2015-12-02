@@ -8,6 +8,7 @@
 
 #import "AWSFMDatabaseQueue.h"
 #import "AWSFMDatabase.h"
+#import "AWSFMDatabase+Private.h"
 
 /*
  
@@ -51,7 +52,7 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
     return [AWSFMDatabase class];
 }
 
-- (instancetype)initWithPath:(NSString*)aPath flags:(int)openFlags {
+- (instancetype)initWithPath:(NSString*)aPath flags:(int)openFlags vfs:(NSString *)vfsName {
     
     self = [super init];
     
@@ -61,7 +62,7 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
         AWSFMDBRetain(_db);
         
 #if SQLITE_VERSION_NUMBER >= 3005000
-        BOOL success = [_db openWithFlags:openFlags];
+        BOOL success = [_db openWithFlags:openFlags vfs:vfsName];
 #else
         BOOL success = [_db open];
 #endif
@@ -81,10 +82,14 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
     return self;
 }
 
+- (instancetype)initWithPath:(NSString*)aPath flags:(int)openFlags {
+    return [self initWithPath:aPath flags:openFlags vfs:nil];
+}
+
 - (instancetype)initWithPath:(NSString*)aPath {
     
     // default flags for sqlite3_open
-    return [self initWithPath:aPath flags:SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE];
+    return [self initWithPath:aPath flags:SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE vfs:nil];
 }
 
 - (instancetype)init {
@@ -200,11 +205,13 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
     [self beginTransaction:NO withBlock:block];
 }
 
-#if SQLITE_VERSION_NUMBER >= 3007000
 - (NSError*)inSavePoint:(void (^)(AWSFMDatabase *db, BOOL *rollback))block {
     
-    static unsigned long savePointIdx = 0;
     __block NSError *err = 0x00;
+
+#if SQLITE_VERSION_NUMBER >= 3007000
+
+    static unsigned long savePointIdx = 0;
     AWSFMDBRetain(self);
     dispatch_sync(_queue, ^() { 
         
@@ -225,8 +232,9 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
         }
     });
     AWSFMDBRelease(self);
+
+#endif
     return err;
 }
-#endif
 
 @end

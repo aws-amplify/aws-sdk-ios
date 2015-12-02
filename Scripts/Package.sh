@@ -2,7 +2,7 @@
 set -e
 # Helper function to exit on nonzero code
 function exitOnFailureCode() {
-    if [ $1 -ne 0 ] 
+    if [ $1 -ne 0 ]
     then
     	echo "Error occurred, abort"
     	git checkout .
@@ -10,7 +10,7 @@ function exitOnFailureCode() {
     fi
 }
 
-# clean 
+# clean
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	rm -rf builtFramework
@@ -40,5 +40,3 @@ if [ -x "Scripts/SdkPackage.sh" ]; then
 
     Scripts/SdkPackage.sh AWSCognito AWSiOSSDKCognitoSync/
 fi
-
-git checkout .

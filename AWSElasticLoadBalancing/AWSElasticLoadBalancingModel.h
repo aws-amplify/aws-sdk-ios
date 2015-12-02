@@ -17,6 +17,8 @@
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSModel.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
@@ -135,22 +137,22 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSNumber *emitInterval;
+@property (nonatomic, strong) NSNumber * _Nullable emitInterval;
 
 /**
  
  */
-@property (nonatomic, strong) NSNumber *enabled;
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *s3BucketName;
+@property (nonatomic, strong) NSString * _Nullable s3BucketName;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *s3BucketPrefix;
+@property (nonatomic, strong) NSString * _Nullable s3BucketPrefix;
 
 @end
 
@@ -163,12 +165,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *availabilityZones;
+@property (nonatomic, strong) NSArray * _Nullable availabilityZones;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 @end
 
@@ -181,7 +183,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *availabilityZones;
+@property (nonatomic, strong) NSArray * _Nullable availabilityZones;
 
 @end
 
@@ -194,12 +196,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *loadBalancerNames;
+@property (nonatomic, strong) NSArray * _Nullable loadBalancerNames;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *tags;
+@property (nonatomic, strong) NSArray * _Nullable tags;
 
 @end
 
@@ -220,12 +222,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *cookieName;
+@property (nonatomic, strong) NSString * _Nullable cookieName;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *policyName;
+@property (nonatomic, strong) NSString * _Nullable policyName;
 
 @end
 
@@ -238,12 +240,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *securityGroups;
+@property (nonatomic, strong) NSArray * _Nullable securityGroups;
 
 @end
 
@@ -256,7 +258,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *securityGroups;
+@property (nonatomic, strong) NSArray * _Nullable securityGroups;
 
 @end
 
@@ -269,12 +271,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *subnets;
+@property (nonatomic, strong) NSArray * _Nullable subnets;
 
 @end
 
@@ -287,7 +289,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *subnets;
+@property (nonatomic, strong) NSArray * _Nullable subnets;
 
 @end
 
@@ -300,12 +302,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSNumber *instancePort;
+@property (nonatomic, strong) NSNumber * _Nullable instancePort;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *policyNames;
+@property (nonatomic, strong) NSArray * _Nullable policyNames;
 
 @end
 
@@ -318,12 +320,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) AWSElasticLoadBalancingHealthCheck *healthCheck;
+@property (nonatomic, strong) AWSElasticLoadBalancingHealthCheck * _Nullable healthCheck;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 @end
 
@@ -336,7 +338,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) AWSElasticLoadBalancingHealthCheck *healthCheck;
+@property (nonatomic, strong) AWSElasticLoadBalancingHealthCheck * _Nullable healthCheck;
 
 @end
 
@@ -349,12 +351,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSNumber *enabled;
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
  
  */
-@property (nonatomic, strong) NSNumber *timeout;
+@property (nonatomic, strong) NSNumber * _Nullable timeout;
 
 @end
 
@@ -367,7 +369,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSNumber *idleTimeout;
+@property (nonatomic, strong) NSNumber * _Nullable idleTimeout;
 
 @end
 
@@ -380,37 +382,37 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *availabilityZones;
+@property (nonatomic, strong) NSArray * _Nullable availabilityZones;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *listeners;
+@property (nonatomic, strong) NSArray * _Nullable listeners;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *scheme;
+@property (nonatomic, strong) NSString * _Nullable scheme;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *securityGroups;
+@property (nonatomic, strong) NSArray * _Nullable securityGroups;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *subnets;
+@property (nonatomic, strong) NSArray * _Nullable subnets;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *tags;
+@property (nonatomic, strong) NSArray * _Nullable tags;
 
 @end
 
@@ -423,7 +425,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *DNSName;
+@property (nonatomic, strong) NSString * _Nullable DNSName;
 
 @end
 
@@ -436,17 +438,17 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *cookieName;
+@property (nonatomic, strong) NSString * _Nullable cookieName;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *policyName;
+@property (nonatomic, strong) NSString * _Nullable policyName;
 
 @end
 
@@ -467,17 +469,17 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSNumber *cookieExpirationPeriod;
+@property (nonatomic, strong) NSNumber * _Nullable cookieExpirationPeriod;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *policyName;
+@property (nonatomic, strong) NSString * _Nullable policyName;
 
 @end
 
@@ -498,12 +500,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *listeners;
+@property (nonatomic, strong) NSArray * _Nullable listeners;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 @end
 
@@ -524,22 +526,22 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *policyAttributes;
+@property (nonatomic, strong) NSArray * _Nullable policyAttributes;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *policyName;
+@property (nonatomic, strong) NSString * _Nullable policyName;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *policyTypeName;
+@property (nonatomic, strong) NSString * _Nullable policyTypeName;
 
 @end
 
@@ -560,7 +562,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSNumber *enabled;
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 @end
 
@@ -573,7 +575,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 @end
 
@@ -594,12 +596,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *loadBalancerPorts;
+@property (nonatomic, strong) NSArray * _Nullable loadBalancerPorts;
 
 @end
 
@@ -620,12 +622,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *policyName;
+@property (nonatomic, strong) NSString * _Nullable policyName;
 
 @end
 
@@ -646,12 +648,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *instances;
+@property (nonatomic, strong) NSArray * _Nullable instances;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 @end
 
@@ -664,7 +666,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *instances;
+@property (nonatomic, strong) NSArray * _Nullable instances;
 
 @end
 
@@ -677,17 +679,17 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *loadBalancerNames;
+@property (nonatomic, strong) NSArray * _Nullable loadBalancerNames;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *marker;
+@property (nonatomic, strong) NSString * _Nullable marker;
 
 /**
  
  */
-@property (nonatomic, strong) NSNumber *pageSize;
+@property (nonatomic, strong) NSNumber * _Nullable pageSize;
 
 @end
 
@@ -700,12 +702,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *loadBalancerDescriptions;
+@property (nonatomic, strong) NSArray * _Nullable loadBalancerDescriptions;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *nextMarker;
+@property (nonatomic, strong) NSString * _Nullable nextMarker;
 
 @end
 
@@ -718,12 +720,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *instances;
+@property (nonatomic, strong) NSArray * _Nullable instances;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 @end
 
@@ -736,7 +738,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *instanceStates;
+@property (nonatomic, strong) NSArray * _Nullable instanceStates;
 
 @end
 
@@ -749,7 +751,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 @end
 
@@ -762,7 +764,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) AWSElasticLoadBalancingLoadBalancerAttributes *loadBalancerAttributes;
+@property (nonatomic, strong) AWSElasticLoadBalancingLoadBalancerAttributes * _Nullable loadBalancerAttributes;
 
 @end
 
@@ -775,12 +777,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *policyNames;
+@property (nonatomic, strong) NSArray * _Nullable policyNames;
 
 @end
 
@@ -793,7 +795,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *policyDescriptions;
+@property (nonatomic, strong) NSArray * _Nullable policyDescriptions;
 
 @end
 
@@ -806,7 +808,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *policyTypeNames;
+@property (nonatomic, strong) NSArray * _Nullable policyTypeNames;
 
 @end
 
@@ -819,7 +821,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *policyTypeDescriptions;
+@property (nonatomic, strong) NSArray * _Nullable policyTypeDescriptions;
 
 @end
 
@@ -832,7 +834,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *loadBalancerNames;
+@property (nonatomic, strong) NSArray * _Nullable loadBalancerNames;
 
 @end
 
@@ -845,7 +847,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *tagDescriptions;
+@property (nonatomic, strong) NSArray * _Nullable tagDescriptions;
 
 @end
 
@@ -858,12 +860,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *subnets;
+@property (nonatomic, strong) NSArray * _Nullable subnets;
 
 @end
 
@@ -876,7 +878,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *subnets;
+@property (nonatomic, strong) NSArray * _Nullable subnets;
 
 @end
 
@@ -889,27 +891,27 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSNumber *healthyThreshold;
+@property (nonatomic, strong) NSNumber * _Nullable healthyThreshold;
 
 /**
  
  */
-@property (nonatomic, strong) NSNumber *interval;
+@property (nonatomic, strong) NSNumber * _Nullable interval;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *target;
+@property (nonatomic, strong) NSString * _Nullable target;
 
 /**
  
  */
-@property (nonatomic, strong) NSNumber *timeout;
+@property (nonatomic, strong) NSNumber * _Nullable timeout;
 
 /**
  
  */
-@property (nonatomic, strong) NSNumber *unhealthyThreshold;
+@property (nonatomic, strong) NSNumber * _Nullable unhealthyThreshold;
 
 @end
 
@@ -922,7 +924,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *instanceId;
+@property (nonatomic, strong) NSString * _Nullable instanceId;
 
 @end
 
@@ -935,22 +937,22 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *detail;
+@property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *instanceId;
+@property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *reasonCode;
+@property (nonatomic, strong) NSString * _Nullable reasonCode;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *state;
+@property (nonatomic, strong) NSString * _Nullable state;
 
 @end
 
@@ -963,12 +965,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSNumber *cookieExpirationPeriod;
+@property (nonatomic, strong) NSNumber * _Nullable cookieExpirationPeriod;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *policyName;
+@property (nonatomic, strong) NSString * _Nullable policyName;
 
 @end
 
@@ -981,27 +983,27 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSNumber *instancePort;
+@property (nonatomic, strong) NSNumber * _Nullable instancePort;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *instanceProtocol;
+@property (nonatomic, strong) NSString * _Nullable instanceProtocol;
 
 /**
  
  */
-@property (nonatomic, strong) NSNumber *loadBalancerPort;
+@property (nonatomic, strong) NSNumber * _Nullable loadBalancerPort;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *protocols;
+@property (nonatomic, strong) NSString * _Nullable protocols;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *SSLCertificateId;
+@property (nonatomic, strong) NSString * _Nullable SSLCertificateId;
 
 @end
 
@@ -1014,12 +1016,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) AWSElasticLoadBalancingListener *listener;
+@property (nonatomic, strong) AWSElasticLoadBalancingListener * _Nullable listener;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *policyNames;
+@property (nonatomic, strong) NSArray * _Nullable policyNames;
 
 @end
 
@@ -1032,22 +1034,22 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) AWSElasticLoadBalancingAccessLog *accessLog;
+@property (nonatomic, strong) AWSElasticLoadBalancingAccessLog * _Nullable accessLog;
 
 /**
  
  */
-@property (nonatomic, strong) AWSElasticLoadBalancingConnectionDraining *connectionDraining;
+@property (nonatomic, strong) AWSElasticLoadBalancingConnectionDraining * _Nullable connectionDraining;
 
 /**
  
  */
-@property (nonatomic, strong) AWSElasticLoadBalancingConnectionSettings *connectionSettings;
+@property (nonatomic, strong) AWSElasticLoadBalancingConnectionSettings * _Nullable connectionSettings;
 
 /**
  
  */
-@property (nonatomic, strong) AWSElasticLoadBalancingCrossZoneLoadBalancing *crossZoneLoadBalancing;
+@property (nonatomic, strong) AWSElasticLoadBalancingCrossZoneLoadBalancing * _Nullable crossZoneLoadBalancing;
 
 @end
 
@@ -1060,82 +1062,82 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *availabilityZones;
+@property (nonatomic, strong) NSArray * _Nullable availabilityZones;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *backendServerDescriptions;
+@property (nonatomic, strong) NSArray * _Nullable backendServerDescriptions;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *canonicalHostedZoneName;
+@property (nonatomic, strong) NSString * _Nullable canonicalHostedZoneName;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *canonicalHostedZoneNameID;
+@property (nonatomic, strong) NSString * _Nullable canonicalHostedZoneNameID;
 
 /**
  
  */
-@property (nonatomic, strong) NSDate *createdTime;
+@property (nonatomic, strong) NSDate * _Nullable createdTime;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *DNSName;
+@property (nonatomic, strong) NSString * _Nullable DNSName;
 
 /**
  
  */
-@property (nonatomic, strong) AWSElasticLoadBalancingHealthCheck *healthCheck;
+@property (nonatomic, strong) AWSElasticLoadBalancingHealthCheck * _Nullable healthCheck;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *instances;
+@property (nonatomic, strong) NSArray * _Nullable instances;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *listenerDescriptions;
+@property (nonatomic, strong) NSArray * _Nullable listenerDescriptions;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
  
  */
-@property (nonatomic, strong) AWSElasticLoadBalancingPolicies *policies;
+@property (nonatomic, strong) AWSElasticLoadBalancingPolicies * _Nullable policies;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *scheme;
+@property (nonatomic, strong) NSString * _Nullable scheme;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *securityGroups;
+@property (nonatomic, strong) NSArray * _Nullable securityGroups;
 
 /**
  
  */
-@property (nonatomic, strong) AWSElasticLoadBalancingSourceSecurityGroup *sourceSecurityGroup;
+@property (nonatomic, strong) AWSElasticLoadBalancingSourceSecurityGroup * _Nullable sourceSecurityGroup;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *subnets;
+@property (nonatomic, strong) NSArray * _Nullable subnets;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *VPCId;
+@property (nonatomic, strong) NSString * _Nullable VPCId;
 
 @end
 
@@ -1148,12 +1150,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) AWSElasticLoadBalancingLoadBalancerAttributes *loadBalancerAttributes;
+@property (nonatomic, strong) AWSElasticLoadBalancingLoadBalancerAttributes * _Nullable loadBalancerAttributes;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 @end
 
@@ -1166,12 +1168,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) AWSElasticLoadBalancingLoadBalancerAttributes *loadBalancerAttributes;
+@property (nonatomic, strong) AWSElasticLoadBalancingLoadBalancerAttributes * _Nullable loadBalancerAttributes;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 @end
 
@@ -1184,17 +1186,17 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *appCookieStickinessPolicies;
+@property (nonatomic, strong) NSArray * _Nullable appCookieStickinessPolicies;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *LBCookieStickinessPolicies;
+@property (nonatomic, strong) NSArray * _Nullable LBCookieStickinessPolicies;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *otherPolicies;
+@property (nonatomic, strong) NSArray * _Nullable otherPolicies;
 
 @end
 
@@ -1207,12 +1209,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *attributeName;
+@property (nonatomic, strong) NSString * _Nullable attributeName;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *attributeValue;
+@property (nonatomic, strong) NSString * _Nullable attributeValue;
 
 @end
 
@@ -1225,12 +1227,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *attributeName;
+@property (nonatomic, strong) NSString * _Nullable attributeName;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *attributeValue;
+@property (nonatomic, strong) NSString * _Nullable attributeValue;
 
 @end
 
@@ -1243,27 +1245,27 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *attributeName;
+@property (nonatomic, strong) NSString * _Nullable attributeName;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *attributeType;
+@property (nonatomic, strong) NSString * _Nullable attributeType;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *cardinality;
+@property (nonatomic, strong) NSString * _Nullable cardinality;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *defaultValue;
+@property (nonatomic, strong) NSString * _Nullable defaultValue;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *detail;
+@property (nonatomic, strong) NSString * _Nullable detail;
 
 @end
 
@@ -1276,17 +1278,17 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *policyAttributeDescriptions;
+@property (nonatomic, strong) NSArray * _Nullable policyAttributeDescriptions;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *policyName;
+@property (nonatomic, strong) NSString * _Nullable policyName;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *policyTypeName;
+@property (nonatomic, strong) NSString * _Nullable policyTypeName;
 
 @end
 
@@ -1299,17 +1301,17 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *detail;
+@property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *policyAttributeTypeDescriptions;
+@property (nonatomic, strong) NSArray * _Nullable policyAttributeTypeDescriptions;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *policyTypeName;
+@property (nonatomic, strong) NSString * _Nullable policyTypeName;
 
 @end
 
@@ -1322,12 +1324,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *instances;
+@property (nonatomic, strong) NSArray * _Nullable instances;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 @end
 
@@ -1340,7 +1342,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *instances;
+@property (nonatomic, strong) NSArray * _Nullable instances;
 
 @end
 
@@ -1353,12 +1355,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *availabilityZones;
+@property (nonatomic, strong) NSArray * _Nullable availabilityZones;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 @end
 
@@ -1371,7 +1373,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *availabilityZones;
+@property (nonatomic, strong) NSArray * _Nullable availabilityZones;
 
 @end
 
@@ -1384,12 +1386,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray *loadBalancerNames;
+@property (nonatomic, strong) NSArray * _Nullable loadBalancerNames;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *tags;
+@property (nonatomic, strong) NSArray * _Nullable tags;
 
 @end
 
@@ -1410,17 +1412,17 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
  
  */
-@property (nonatomic, strong) NSNumber *loadBalancerPort;
+@property (nonatomic, strong) NSNumber * _Nullable loadBalancerPort;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *SSLCertificateId;
+@property (nonatomic, strong) NSString * _Nullable SSLCertificateId;
 
 @end
 
@@ -1441,17 +1443,17 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSNumber *instancePort;
+@property (nonatomic, strong) NSNumber * _Nullable instancePort;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *policyNames;
+@property (nonatomic, strong) NSArray * _Nullable policyNames;
 
 @end
 
@@ -1472,17 +1474,17 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
  
  */
-@property (nonatomic, strong) NSNumber *loadBalancerPort;
+@property (nonatomic, strong) NSNumber * _Nullable loadBalancerPort;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *policyNames;
+@property (nonatomic, strong) NSArray * _Nullable policyNames;
 
 @end
 
@@ -1503,12 +1505,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *groupName;
+@property (nonatomic, strong) NSString * _Nullable groupName;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *ownerAlias;
+@property (nonatomic, strong) NSString * _Nullable ownerAlias;
 
 @end
 
@@ -1521,12 +1523,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  
  */
-@property (nonatomic, strong) NSString *value;
+@property (nonatomic, strong) NSString * _Nullable value;
 
 @end
 
@@ -1539,12 +1541,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *loadBalancerName;
+@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray *tags;
+@property (nonatomic, strong) NSArray * _Nullable tags;
 
 @end
 
@@ -1557,6 +1559,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString * _Nullable key;
 
 @end
+
+NS_ASSUME_NONNULL_END

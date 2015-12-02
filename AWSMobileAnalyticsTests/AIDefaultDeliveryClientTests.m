@@ -18,6 +18,7 @@
 #import "AWSMobileAnalyticsDeliveryPolicyFactory.h"
 #import "AWSMobileAnalyticsERSRequestBuilder.h"
 #import "AWSMockFileManager.h"
+#import "AWSMobileAnalyticsEventStore.h"
 
 static NSString *const APP_KEY = @"app_key";
 static NSString *const PRIVATE_KEY = @"private_key";
@@ -141,8 +142,8 @@ static id mockIterator = nil;
 
     [[[mockIterator expect] andReturnValue:@YES] hasNext];
     [[[mockIterator expect] andReturnValue:@NO] hasNext];
-    [[[mockIterator expect] andReturn:@"{'event':'event'}"] peek];
-    [[[mockIterator expect] andReturn:@"{'event':'event'}"] next];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator expect] andReturn:@"{'event':'event'}"] peek];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator expect] andReturn:@"{'event':'event'}"] next];
     [[mockIterator reject] removeReadEvents];
     
     [client attemptDelivery];
@@ -159,8 +160,8 @@ static id mockIterator = nil;
     
     [[[mockIterator expect] andReturnValue:@YES] hasNext];
     [[[mockIterator expect] andReturnValue:@NO] hasNext];
-    [[[mockIterator expect] andReturn:@"{'event':'event'}"] peek];
-    [[[mockIterator expect] andReturn:@"{'event':'event'}"] next];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator expect] andReturn:@"{'event':'event'}"] peek];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator expect] andReturn:@"{'event':'event'}"] next];
     [[mockIterator expect] removeReadEvents];
     
     [client attemptDelivery];
@@ -177,8 +178,8 @@ static id mockIterator = nil;
     
     [[[mockIterator expect] andReturnValue:@YES] hasNext];
     [[[mockIterator expect] andReturnValue:@NO] hasNext];
-    [[[mockIterator expect] andReturn:@"{'event':'event'}"] peek];
-    [[[mockIterator expect] andReturn:@"{'event':'event'}"] next];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator expect] andReturn:@"{'event':'event'}"] peek];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator expect] andReturn:@"{'event':'event'}"] next];
     [[mockIterator reject] removeReadEvents];
     
     [client attemptDelivery];
@@ -195,8 +196,8 @@ static id mockIterator = nil;
     
     [[[mockIterator expect] andReturnValue:@YES] hasNext];
     [[[mockIterator expect] andReturnValue:@NO] hasNext];
-    [[[mockIterator expect] andReturn:@"{'event':'event'}"] peek];
-    [[[mockIterator expect] andReturn:@"{'event':'event'}"] next];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator expect] andReturn:@"{'event':'event'}"] peek];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator expect] andReturn:@"{'event':'event'}"] next];
     [[mockIterator reject] removeReadEvents];
     
     [client attemptDelivery];
@@ -213,8 +214,8 @@ static id mockIterator = nil;
     
     [[[mockIterator expect] andReturnValue:@YES] hasNext];
     [[[mockIterator expect] andReturnValue:@NO] hasNext];
-    [[[mockIterator expect] andReturn:@"{'event':'event'}"] peek];
-    [[[mockIterator expect] andReturn:@"{'event':'event'}"] next];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator expect] andReturn:@"{'event':'event'}"] peek];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator expect] andReturn:@"{'event':'event'}"] next];
     [[mockIterator reject] removeReadEvents];
     
     [client attemptDelivery];
@@ -231,8 +232,8 @@ static id mockIterator = nil;
     
     [[[mockIterator expect] andReturnValue:@YES] hasNext];
     [[[mockIterator expect] andReturnValue:@NO] hasNext];
-    [[[mockIterator expect] andReturn:@"{'event':'event'}"] peek];
-    [[[mockIterator expect] andReturn:@"{'event':'event'}"] next];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator expect] andReturn:@"{'event':'event'}"] peek];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator expect] andReturn:@"{'event':'event'}"] next];
     [[mockIterator reject] removeReadEvents];
     
     [client attemptDelivery];
@@ -273,8 +274,8 @@ static id mockIterator = nil;
     [[[mockIterator expect] andReturnValue:@YES] hasNext];
     [[[mockIterator expect] andReturnValue:@YES] hasNext];
     [[[mockIterator expect] andReturnValue:@NO] hasNext];
-    [[[mockIterator stub] andReturn:@"{'event':'event'}"] peek];
-    [[[mockIterator stub] andReturn:@"{'event':'event'}"] next];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator stub] andReturn:@"{'event':'event'}"] peek];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator stub] andReturn:@"{'event':'event'}"] next];
     [[[mockIterator stub] andDo:iteratorArgChecker] removeReadEvents];
     
     [[[mockConfiguration stub] andReturnValue:OCMOCK_VALUE(ValueMaxSubmissionSizeDup)] longForKey:AWSKeyMaxSubmissionSize withOptValue:ValueMaxSubmissionSizeDup];
@@ -318,8 +319,8 @@ static id mockIterator = nil;
     };
     
     [[[mockIterator stub] andReturnValue:@YES] hasNext];
-    [[[mockIterator stub] andReturn:@"{'event':'event'}"] peek];
-    [[[mockIterator stub] andReturn:@"{'event':'event'}"] next];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator stub] andReturn:@"{'event':'event'}"] peek];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator stub] andReturn:@"{'event':'event'}"] next];
     [[[mockIterator stub] andDo:iteratorArgChecker] removeReadEvents];
     
     [[[mockConfiguration stub] andReturnValue:OCMOCK_VALUE(ValueMaxSubmissionSizeSingleEvent)] longForKey:AWSKeyMaxSubmissionSize withOptValue:ValueMaxSubmissionSizeDup];
@@ -344,8 +345,8 @@ static id mockIterator = nil;
     
     [[[mockIterator expect] andReturnValue:@YES] hasNext];
     [[[mockIterator expect] andReturnValue:@NO] hasNext];
-    [[[mockIterator expect] andReturn:@"{'event':'event'}"] peek];
-    [[[mockIterator expect] andReturn:@"{'event':'event'}"] next];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator expect] andReturn:@"{'event':'event'}"] peek];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator expect] andReturn:@"{'event':'event'}"] next];
     [self expectSubmissionHandlingForPolicies:policies submitted:YES];
     
     [client attemptDelivery];
@@ -363,8 +364,8 @@ static id mockIterator = nil;
     
     [[[mockIterator expect] andReturnValue:@YES] hasNext];
     [[[mockIterator expect] andReturnValue:@NO] hasNext];
-    [[[mockIterator expect] andReturn:@"{'event':'event'}"] peek];
-    [[[mockIterator expect] andReturn:@"{'event':'event'}"] next];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator expect] andReturn:@"{'event':'event'}"] peek];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator expect] andReturn:@"{'event':'event'}"] next];
     [self expectSubmissionHandlingForPolicies:policies submitted:YES];
     
     [client attemptDelivery];
@@ -382,8 +383,8 @@ static id mockIterator = nil;
     
     [[[mockIterator expect] andReturnValue:@YES] hasNext];
     [[[mockIterator expect] andReturnValue:@NO] hasNext];
-    [[[mockIterator expect] andReturn:@"{'event':'event'}"] peek];
-    [[[mockIterator expect] andReturn:@"{'event':'event'}"] next];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator expect] andReturn:@"{'event':'event'}"] peek];
+    [(id<AWSMobileAnalyticsEventIterator>)[[mockIterator expect] andReturn:@"{'event':'event'}"] next];
     [self expectSubmissionHandlingForPolicies:policies submitted:NO];
     
     [client attemptDelivery];

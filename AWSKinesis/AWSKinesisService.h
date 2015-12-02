@@ -16,6 +16,9 @@
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSCore.h>
 #import "AWSKinesisModel.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  <fullname>Amazon Kinesis Service API Reference</fullname><p>Amazon Kinesis is a managed service that scales elastically for real time processing of streaming big data.</p>
  */
@@ -333,3 +336,5 @@
 - (AWSTask *)splitShard:(AWSKinesisSplitShardInput *)request;
 
 @end
+
+NS_ASSUME_NONNULL_END

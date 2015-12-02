@@ -16,15 +16,12 @@
 
 #import "AWSMobileAnalyticsDefaultHttpClient.h"
 
-#import "AWSBolts.h"
-#import "AWSGZIP.h"
 #import <AWSCore/AWSCore.h>
+
 #import "AWSMobileAnalyticsInstanceIdInterceptor.h"
 #import "AWSMobileAnalyticsClientContextInterceptor.h"
 #import "AWSMobileAnalyticsDefaultSessionClient.h"
-#import "AWSLogging.h"
 #import "AWSMobileAnalyticsERS.h"
-#import "AWSClientContext.h"
 
 @interface AWSMobileAnalyticsDefaultHttpClient()
 

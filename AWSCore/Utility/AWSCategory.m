@@ -370,27 +370,36 @@ static NSTimeInterval _clockskew = 0.0;
 }
 
 - (NSString *)aws_stringWithURLEncoding {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                                                                  (__bridge CFStringRef)[self aws_decodeURLEncoding],
                                                                                  NULL,
                                                                                  (CFStringRef)@"!*'\();:@&=+$,/?%#[] ",
                                                                                  kCFStringEncodingUTF8));
+#pragma clang diagnostic pop
 }
 
 - (NSString *)aws_stringWithURLEncodingPath {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                                                                  (__bridge CFStringRef)[self aws_decodeURLEncoding],
                                                                                  NULL,
                                                                                  (CFStringRef)@"!*'\();:@&=+$,?%#[] ",
                                                                                  kCFStringEncodingUTF8));
+#pragma clang diagnostic pop
 }
 
 - (NSString *)aws_stringWithURLEncodingPathWithoutPriorDecoding {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                                                                  (__bridge CFStringRef)self,
                                                                                  NULL,
                                                                                  (CFStringRef)@"!*'\();:@&=+$,?%#[] ",
                                                                                  kCFStringEncodingUTF8));
+#pragma clang diagnostic pop
 }
 
 - (NSString *)aws_decodeURLEncoding {

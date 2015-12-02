@@ -26,6 +26,7 @@
 #import <Foundation/Foundation.h>
 
 @class AWSTMDiskCache;
+@protocol AWSTMCacheBackgroundTaskManager;
 
 typedef void (^AWSTMDiskCacheBlock)(AWSTMDiskCache *cache);
 typedef void (^AWSTMDiskCacheObjectBlock)(AWSTMDiskCache *cache, NSString *key, id <NSCoding> object, NSURL *fileURL);
@@ -335,5 +336,15 @@ typedef void (^AWSTMDiskCacheObjectBlock)(AWSTMDiskCache *cache, NSString *key, 
  Instead use the asynchronous version, <enumerateObjectsWithBlock:completionBlock:>.
  */
 - (void)enumerateObjectsWithBlock:(AWSTMDiskCacheObjectBlock)block;
+
+#pragma mark -
+/// @name Background Tasks
+
+/**
+ Set a global manager to be used for setting up/tearing down any background tasks needed by TMCache.
+ 
+ @param backgroundTaskManager Background task manager.
+ */
++ (void)setBackgroundTaskManager:(id <AWSTMCacheBackgroundTaskManager>)backgroundTaskManager;
 
 @end

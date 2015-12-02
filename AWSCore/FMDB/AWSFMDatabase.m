@@ -1,8 +1,11 @@
 #import "AWSFMDatabase.h"
 #import "unistd.h"
 #import <objc/runtime.h>
+#import "AWSFMDatabase+Private.h"
 
 @interface AWSFMDatabase ()
+
+@property (nonatomic, assign) sqlite3 *db;
 
 - (AWSFMResultSet *)executeQuery:(NSString *)sql withArgumentsInArray:(NSArray*)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args;
 - (BOOL)executeUpdate:(NSString*)sql error:(NSError**)outErr withArgumentsInArray:(NSArray*)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args;
@@ -71,8 +74,8 @@
 }
 
 // returns 0x0240 for version 2.4.  This makes it super easy to do things like:
-// /* need to make sure to do X with FMDB version 2.4 or later */
-// if ([FMDatabase FMDBVersion] >= 0x0240) { … }
+// /* need to make sure to do X with AWSFMDB version 2.4 or later */
+// if ([FMDatabase AWSFMDBVersion] >= 0x0240) { … }
 
 + (SInt32)AWSFMDBVersion {
     
@@ -109,7 +112,7 @@
     return sqlite3_threadsafe() != 0;
 }
 
-- (sqlite3*)sqliteHandle {
+- (void*)sqliteHandle {
     return _db;
 }
 
@@ -149,13 +152,16 @@
     return YES;
 }
 
-#if SQLITE_VERSION_NUMBER >= 3005000
 - (BOOL)openWithFlags:(int)flags {
+    return [self openWithFlags:flags vfs:nil];
+}
+- (BOOL)openWithFlags:(int)flags vfs:(NSString *)vfsName; {
+#if SQLITE_VERSION_NUMBER >= 3005000
     if (_db) {
         return YES;
     }
 
-    int err = sqlite3_open_v2([self sqlitePath], &_db, flags, NULL /* Name of VFS module to use */);
+    int err = sqlite3_open_v2([self sqlitePath], &_db, flags, [vfsName UTF8String]);
     if(err != SQLITE_OK) {
         NSLog(@"error opening!: %d", err);
         return NO;
@@ -167,8 +173,12 @@
     }
     
     return YES;
-}
+#else 
+    NSLog(@"Requires SQLite 3.5; will just open");
+    return [self open];
 #endif
+
+}
 
 
 - (BOOL)close {
@@ -231,7 +241,7 @@ static int AWSFMDBDatabaseBusyHandler(void *f, int count) {
     NSTimeInterval delta = [NSDate timeIntervalSinceReferenceDate] - (self->_startBusyRetryTime);
     
     if (delta < [self maxBusyRetryTimeInterval]) {
-        int requestedSleepInMillseconds = arc4random_uniform(50) + 50;
+        int requestedSleepInMillseconds = (int) arc4random_uniform(50) + 50;
         int actualSleepInMilliseconds = sqlite3_sleep(requestedSleepInMillseconds);
         if (actualSleepInMilliseconds != requestedSleepInMillseconds) {
             NSLog(@"WARNING: Requested sleep of %i milliseconds, but SQLite returned %i. Maybe SQLite wasn't built with HAVE_USLEEP=1?", requestedSleepInMillseconds, actualSleepInMilliseconds);
@@ -269,13 +279,13 @@ static int AWSFMDBDatabaseBusyHandler(void *f, int count) {
 // we'll still implement the method so they don't get suprise crashes
 - (int)busyRetryTimeout {
     NSLog(@"%s:%d", __FUNCTION__, __LINE__);
-    NSLog(@"FMDB: busyRetryTimeout no longer works, please use maxBusyRetryTimeInterval");
+    NSLog(@"AWSFMDB: busyRetryTimeout no longer works, please use maxBusyRetryTimeInterval");
     return -1;
 }
 
 - (void)setBusyRetryTimeout:(int)i {
     NSLog(@"%s:%d", __FUNCTION__, __LINE__);
-    NSLog(@"FMDB: setBusyRetryTimeout does nothing, please use setMaxBusyRetryTimeInterval:");
+    NSLog(@"AWSFMDB: setBusyRetryTimeout does nothing, please use setMaxBusyRetryTimeInterval:");
 }
 
 #pragma mark Result set functions
@@ -488,7 +498,7 @@ static int AWSFMDBDatabaseBusyHandler(void *f, int count) {
 - (NSError*)errorWithMessage:(NSString*)message {
     NSDictionary* errorMessage = [NSDictionary dictionaryWithObject:message forKey:NSLocalizedDescriptionKey];
     
-    return [NSError errorWithDomain:@"AWSFMDatabase" code:sqlite3_errcode(_db) userInfo:errorMessage];    
+    return [NSError errorWithDomain:@"FMDatabase" code:sqlite3_errcode(_db) userInfo:errorMessage];    
 }
 
 - (NSError*)lastError {
@@ -1312,7 +1322,9 @@ static NSString *AWSFMDBEscapeSavePointName(NSString *savepointName) {
         return err;
     }
     
-    block(&shouldRollback);
+    if (block) {
+        block(&shouldRollback);
+    }
     
     if (shouldRollback) {
         // We need to rollback and release this savepoint to remove it
@@ -1353,11 +1365,13 @@ void AWSFMDBBlockSQLiteCallBackFunction(sqlite3_context *context, int argc, sqli
 #else
     void (^block)(sqlite3_context *context, int argc, sqlite3_value **argv) = (__bridge id)sqlite3_user_data(context);
 #endif
-    block(context, argc, argv);
+    if (block) {
+        block(context, argc, argv);
+    }
 }
 
 
-- (void)makeFunctionNamed:(NSString*)name maximumArguments:(int)count withBlock:(void (^)(sqlite3_context *context, int argc, sqlite3_value **argv))block {
+- (void)makeFunctionNamed:(NSString*)name maximumArguments:(int)count withBlock:(void (^)(void *context, int argc, void **argv))block {
     
     if (!_openFunctions) {
         _openFunctions = [NSMutableSet new];

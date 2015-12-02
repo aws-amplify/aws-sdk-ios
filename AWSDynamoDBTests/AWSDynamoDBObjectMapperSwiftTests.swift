@@ -115,7 +115,7 @@ class AWSDynamoDBObjectMapperSwiftTests: XCTestCase {
         objv2.listElement = listElement
         objv2.mapElement = mapElement
 
-        updateMapper.save(objv2).continueWithBlock { (task:AWSTask!) -> AnyObject! in
+        updateMapper.save(objv2).continueWithBlock() { (task) -> AnyObject? in
             if (task.error != nil) {
                 XCTFail("Error: \(task.error)")
             }

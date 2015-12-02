@@ -14,7 +14,7 @@
  */
 
 #import "AWSSTSModel.h"
-#import "AWSCategory.h"
+#import <AWSCore/AWSCategory.h>
 
 NSString *const AWSSTSErrorDomain = @"com.amazonaws.AWSSTSErrorDomain";
 

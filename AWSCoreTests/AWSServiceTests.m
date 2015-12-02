@@ -324,38 +324,18 @@
     XCTAssertEqualObjects(endpoint.hostName, @"s3-us-west-2.amazonaws.com");
     XCTAssertTrue(endpoint.useUnsafeURL);
 
-    endpoint = [[AWSEndpoint alloc] initWithRegion:AWSRegionUnknown
-                                           service:AWSServiceUnknown
-                                      useUnsafeURL:NO];
-    XCTAssertEqual(endpoint.regionType, AWSRegionUnknown);
-    XCTAssertNil(endpoint.regionName);
-    XCTAssertEqual(endpoint.serviceType, AWSServiceUnknown);
-    XCTAssertNil(endpoint.serviceName);
-    XCTAssertEqualObjects(endpoint.URL, [NSURL URLWithString:@"https://(null).(null).amazonaws.com"]);
-    XCTAssertEqualObjects(endpoint.hostName, @"(null).(null).amazonaws.com");
-    XCTAssertFalse(endpoint.useUnsafeURL);
-
-    endpoint = [[AWSEndpoint alloc] initWithRegion:AWSRegionUSGovWest1
-                                           service:AWSServiceS3
-                                      useUnsafeURL:NO];
-    XCTAssertEqual(endpoint.regionType, AWSRegionUSGovWest1);
-    XCTAssertEqualObjects(endpoint.regionName, @"us-gov-west-1");
-    XCTAssertEqual(endpoint.serviceType, AWSServiceS3);
-    XCTAssertEqualObjects(endpoint.serviceName, @"s3");
-    XCTAssertEqualObjects(endpoint.URL, [NSURL URLWithString:@"https://s3-us-gov-west-1.amazonaws.com"]);
-    XCTAssertEqualObjects(endpoint.hostName, @"s3-us-gov-west-1.amazonaws.com");
-    XCTAssertFalse(endpoint.useUnsafeURL);
-
-    endpoint = [[AWSEndpoint alloc] initWithRegion:AWSRegionUSGovWest1
-                                           service:AWSServiceSTS
-                                      useUnsafeURL:NO];
-    XCTAssertEqual(endpoint.regionType, AWSRegionUSGovWest1);
-    XCTAssertEqualObjects(endpoint.regionName, @"us-gov-west-1");
-    XCTAssertEqual(endpoint.serviceType, AWSServiceSTS);
-    XCTAssertEqualObjects(endpoint.serviceName, @"sts");
-    XCTAssertEqualObjects(endpoint.URL, [NSURL URLWithString:@"https://sts.us-gov-west-1.amazonaws.com"]);
-    XCTAssertEqualObjects(endpoint.hostName, @"sts.us-gov-west-1.amazonaws.com");
-    XCTAssertFalse(endpoint.useUnsafeURL);
+    __block BOOL didThrowException = NO;
+    @try {
+        endpoint = [[AWSEndpoint alloc] initWithRegion:AWSRegionUnknown
+                                               service:AWSServiceUnknown
+                                          useUnsafeURL:NO];
+    }
+    @catch (NSException *exception) {
+        didThrowException = YES;
+    }
+    @finally {
+        XCTAssertTrue(didThrowException);
+    }
 }
 
 - (void)testServiceManager {

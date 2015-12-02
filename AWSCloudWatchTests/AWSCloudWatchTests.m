@@ -49,7 +49,7 @@
     AWSCloudWatch *cloudWatch = [AWSCloudWatch defaultCloudWatch];
     XCTAssertNotNil(cloudWatch);
 
-    [[[cloudWatch listMetrics:nil] continueWithBlock:^id(AWSTask *task) {
+    [[[cloudWatch listMetrics:[AWSCloudWatchListMetricsInput new]] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
@@ -69,7 +69,7 @@
 - (void)testListMetrics {
     AWSCloudWatch *cloudWatch = [AWSCloudWatch defaultCloudWatch];
 
-    [[[cloudWatch listMetrics:nil] continueWithBlock:^id(AWSTask *task) {
+    [[[cloudWatch listMetrics:[AWSCloudWatchListMetricsInput new]] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }

@@ -1,0 +1,6 @@
+framework module AWSLambda {
+  umbrella header "AWSLambda.h"
+
+  export *
+  module * { export * }
+}

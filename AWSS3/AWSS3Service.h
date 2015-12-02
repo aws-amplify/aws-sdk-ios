@@ -16,6 +16,9 @@
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSCore.h>
 #import "AWSS3Model.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  
  */
@@ -751,3 +754,5 @@
 - (AWSTask *)uploadPartCopy:(AWSS3UploadPartCopyRequest *)request;
 
 @end
+
+NS_ASSUME_NONNULL_END

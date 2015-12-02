@@ -9,6 +9,7 @@
 #import "AWSFMDatabase.h"
 #import "AWSFMDatabaseAdditions.h"
 #import "TargetConditionals.h"
+#import "AWSFMDatabase+Private.h"
 
 @interface AWSFMDatabase (PrivateStuff)
 - (AWSFMResultSet *)executeQuery:(NSString *)sql withArgumentsInArray:(NSArray*)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args;
@@ -119,10 +120,9 @@ return ret;
 }
 
 
-#if SQLITE_VERSION_NUMBER >= 3007017
-
 - (uint32_t)applicationID {
     
+#if SQLITE_VERSION_NUMBER >= 3007017
     uint32_t r = 0;
     
     AWSFMResultSet *rs = [self executeQuery:@"pragma application_id"];
@@ -132,15 +132,18 @@ return ret;
     }
     
     [rs close];
+#endif
     
     return r;
 }
 
 - (void)setApplicationID:(uint32_t)appID {
+#if SQLITE_VERSION_NUMBER >= 3007017
     NSString *query = [NSString stringWithFormat:@"pragma application_id=%d", appID];
     AWSFMResultSet *rs = [self executeQuery:query];
     [rs next];
     [rs close];
+#endif
 }
 
 
@@ -166,10 +169,8 @@ return ret;
     [self setApplicationID:NSHFSTypeCodeFromFileType([NSString stringWithFormat:@"'%@'", s])];
 }
 
-
 #endif
 
-#endif
 
 - (uint32_t)userVersion {
     uint32_t r = 0;
@@ -205,7 +206,7 @@ return ret;
     sqlite3_stmt *pStmt = NULL;
     BOOL validationSucceeded = YES;
     
-    int rc = sqlite3_prepare_v2(_db, [sql UTF8String], -1, &pStmt, 0);
+    int rc = sqlite3_prepare_v2(self.db, [sql UTF8String], -1, &pStmt, 0);
     if (rc != SQLITE_OK) {
         validationSucceeded = NO;
         if (error) {

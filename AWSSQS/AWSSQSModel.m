@@ -14,7 +14,7 @@
  */
 
 #import "AWSSQSModel.h"
-#import "AWSCategory.h"
+#import <AWSCore/AWSCategory.h>
 
 NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 

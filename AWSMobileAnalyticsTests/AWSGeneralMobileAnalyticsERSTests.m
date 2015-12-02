@@ -59,13 +59,14 @@ static id mockNetworking = nil;
 
 - (void)testPutEvents {
     NSString *key = @"testPutEvents";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSMobileAnalyticsERS registerMobileAnalyticsERSWithConfiguration:configuration forKey:key];
 
     AWSMobileAnalyticsERS *awsClient = [AWSMobileAnalyticsERS MobileAnalyticsERSForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSMobileAnalyticsERS MobileAnalyticsERSForKey:key] putEvents:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSMobileAnalyticsERS MobileAnalyticsERSForKey:key] putEvents:[AWSMobileAnalyticsERSPutEventsInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE2EDE8E1BF3DEDA00B9F26B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE65522A1BEC35A300DACBC2 /* module.modulemap */; };
 		CE6BC1131B4A440C002E2414 /* libAWSAPIGateway.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6BC1071B4A440B002E2414 /* libAWSAPIGateway.a */; };
 		CE6BC12C1B4A447D002E2414 /* AWSAPIGatewayClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6BC12B1B4A447D002E2414 /* AWSAPIGatewayClient.m */; };
 		CEB2AE911B4B3A7300F32474 /* AWSAPIGateway.h in Headers */ = {isa = PBXBuildFile; fileRef = CEB2AE8F1B4B067800F32474 /* AWSAPIGateway.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -26,6 +27,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		CE2EDE8D1BF3DED300B9F26B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "modules/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				CE2EDE8E1BF3DEDA00B9F26B /* module.modulemap in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE6BC1051B4A440B002E2414 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -40,6 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CE65522A1BEC35A300DACBC2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		CE6BC1071B4A440B002E2414 /* libAWSAPIGateway.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSAPIGateway.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6BC1121B4A440C002E2414 /* AWSAPIGatewayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSAPIGatewayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6BC1181B4A440C002E2414 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,6 +100,7 @@
 		CE6BC1091B4A440B002E2414 /* AWSAPIGateway */ = {
 			isa = PBXGroup;
 			children = (
+				CE65522A1BEC35A300DACBC2 /* module.modulemap */,
 				CEB2AE8F1B4B067800F32474 /* AWSAPIGateway.h */,
 				CE6BC12A1B4A447D002E2414 /* AWSAPIGatewayClient.h */,
 				CE6BC12B1B4A447D002E2414 /* AWSAPIGatewayClient.m */,
@@ -134,6 +147,7 @@
 				CE6BC1041B4A440B002E2414 /* Frameworks */,
 				CE6BC1051B4A440B002E2414 /* CopyFiles */,
 				CEB2AE901B4B3A6B00F32474 /* Headers */,
+				CE2EDE8D1BF3DED300B9F26B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -327,9 +341,13 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 			};
 			name = Debug;
 		};
@@ -338,9 +356,13 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
+				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 			};
 			name = Release;
 		};

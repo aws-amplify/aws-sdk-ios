@@ -94,7 +94,9 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 
 + (instancetype)defaultS3TransferUtility {
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        return nil;
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:@"`defaultServiceConfiguration` is `nil`. You need to set it before using this method."
+                                     userInfo:nil];
     }
 
     static dispatch_once_t onceToken;
@@ -153,7 +155,10 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         if ([NSURLSessionConfiguration respondsToSelector:@selector(backgroundSessionConfigurationWithIdentifier:)]) {
             configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:_sessionIdentifier];
         } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             configuration = [NSURLSessionConfiguration backgroundSessionConfiguration:_sessionIdentifier];
+#pragma clang diagnostic pop
         }
 
         configuration.timeoutIntervalForResource = AWSS3TransferUtilityTimeoutIntervalForResource;

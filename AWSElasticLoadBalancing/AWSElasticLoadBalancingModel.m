@@ -14,7 +14,7 @@
  */
 
 #import "AWSElasticLoadBalancingModel.h"
-#import "AWSCategory.h"
+#import <AWSCore/AWSCategory.h>
 
 NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticLoadBalancingErrorDomain";
 

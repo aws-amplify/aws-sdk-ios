@@ -14,7 +14,7 @@
  */
 
 #import "AWSMachineLearningModel.h"
-#import "AWSCategory.h"
+#import <AWSCore/AWSCategory.h>
 
 NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearningErrorDomain";
 

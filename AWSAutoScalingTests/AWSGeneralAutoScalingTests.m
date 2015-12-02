@@ -59,13 +59,14 @@ static id mockNetworking = nil;
 
 - (void)testAttachInstances {
     NSString *key = @"testAttachInstances";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] attachInstances:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] attachInstances:[AWSAutoScalingAttachInstancesQuery new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -81,13 +82,14 @@ static id mockNetworking = nil;
 
 - (void)testCompleteLifecycleAction {
     NSString *key = @"testCompleteLifecycleAction";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] completeLifecycleAction:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] completeLifecycleAction:[AWSAutoScalingCompleteLifecycleActionType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -103,13 +105,14 @@ static id mockNetworking = nil;
 
 - (void)testCreateAutoScalingGroup {
     NSString *key = @"testCreateAutoScalingGroup";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] createAutoScalingGroup:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] createAutoScalingGroup:[AWSAutoScalingCreateAutoScalingGroupType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -125,13 +128,14 @@ static id mockNetworking = nil;
 
 - (void)testCreateLaunchConfiguration {
     NSString *key = @"testCreateLaunchConfiguration";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] createLaunchConfiguration:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] createLaunchConfiguration:[AWSAutoScalingCreateLaunchConfigurationType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -147,13 +151,14 @@ static id mockNetworking = nil;
 
 - (void)testCreateOrUpdateTags {
     NSString *key = @"testCreateOrUpdateTags";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] createOrUpdateTags:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] createOrUpdateTags:[AWSAutoScalingCreateOrUpdateTagsType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -169,13 +174,14 @@ static id mockNetworking = nil;
 
 - (void)testDeleteAutoScalingGroup {
     NSString *key = @"testDeleteAutoScalingGroup";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] deleteAutoScalingGroup:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] deleteAutoScalingGroup:[AWSAutoScalingDeleteAutoScalingGroupType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -191,13 +197,14 @@ static id mockNetworking = nil;
 
 - (void)testDeleteLaunchConfiguration {
     NSString *key = @"testDeleteLaunchConfiguration";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] deleteLaunchConfiguration:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] deleteLaunchConfiguration:[AWSAutoScalingLaunchConfigurationNameType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -213,13 +220,14 @@ static id mockNetworking = nil;
 
 - (void)testDeleteLifecycleHook {
     NSString *key = @"testDeleteLifecycleHook";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] deleteLifecycleHook:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] deleteLifecycleHook:[AWSAutoScalingDeleteLifecycleHookType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -235,13 +243,14 @@ static id mockNetworking = nil;
 
 - (void)testDeleteNotificationConfiguration {
     NSString *key = @"testDeleteNotificationConfiguration";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] deleteNotificationConfiguration:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] deleteNotificationConfiguration:[AWSAutoScalingDeleteNotificationConfigurationType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -257,13 +266,14 @@ static id mockNetworking = nil;
 
 - (void)testDeletePolicy {
     NSString *key = @"testDeletePolicy";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] deletePolicy:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] deletePolicy:[AWSAutoScalingDeletePolicyType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -279,13 +289,14 @@ static id mockNetworking = nil;
 
 - (void)testDeleteScheduledAction {
     NSString *key = @"testDeleteScheduledAction";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] deleteScheduledAction:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] deleteScheduledAction:[AWSAutoScalingDeleteScheduledActionType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -301,13 +312,14 @@ static id mockNetworking = nil;
 
 - (void)testDeleteTags {
     NSString *key = @"testDeleteTags";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] deleteTags:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] deleteTags:[AWSAutoScalingDeleteTagsType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -323,13 +335,14 @@ static id mockNetworking = nil;
 
 - (void)testDescribeAccountLimits {
     NSString *key = @"testDescribeAccountLimits";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeAccountLimits:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeAccountLimits:[AWSRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -345,13 +358,14 @@ static id mockNetworking = nil;
 
 - (void)testDescribeAdjustmentTypes {
     NSString *key = @"testDescribeAdjustmentTypes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeAdjustmentTypes:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeAdjustmentTypes:[AWSRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -367,13 +381,14 @@ static id mockNetworking = nil;
 
 - (void)testDescribeAutoScalingGroups {
     NSString *key = @"testDescribeAutoScalingGroups";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeAutoScalingGroups:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeAutoScalingGroups:[AWSAutoScalingAutoScalingGroupNamesType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -389,13 +404,14 @@ static id mockNetworking = nil;
 
 - (void)testDescribeAutoScalingInstances {
     NSString *key = @"testDescribeAutoScalingInstances";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeAutoScalingInstances:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeAutoScalingInstances:[AWSAutoScalingDescribeAutoScalingInstancesType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -411,13 +427,14 @@ static id mockNetworking = nil;
 
 - (void)testDescribeAutoScalingNotificationTypes {
     NSString *key = @"testDescribeAutoScalingNotificationTypes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeAutoScalingNotificationTypes:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeAutoScalingNotificationTypes:[AWSRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -433,13 +450,14 @@ static id mockNetworking = nil;
 
 - (void)testDescribeLaunchConfigurations {
     NSString *key = @"testDescribeLaunchConfigurations";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeLaunchConfigurations:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeLaunchConfigurations:[AWSAutoScalingLaunchConfigurationNamesType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -455,13 +473,14 @@ static id mockNetworking = nil;
 
 - (void)testDescribeLifecycleHookTypes {
     NSString *key = @"testDescribeLifecycleHookTypes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeLifecycleHookTypes:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeLifecycleHookTypes:[AWSRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -477,13 +496,14 @@ static id mockNetworking = nil;
 
 - (void)testDescribeLifecycleHooks {
     NSString *key = @"testDescribeLifecycleHooks";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeLifecycleHooks:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeLifecycleHooks:[AWSAutoScalingDescribeLifecycleHooksType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -499,13 +519,14 @@ static id mockNetworking = nil;
 
 - (void)testDescribeMetricCollectionTypes {
     NSString *key = @"testDescribeMetricCollectionTypes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeMetricCollectionTypes:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeMetricCollectionTypes:[AWSRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -521,13 +542,14 @@ static id mockNetworking = nil;
 
 - (void)testDescribeNotificationConfigurations {
     NSString *key = @"testDescribeNotificationConfigurations";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeNotificationConfigurations:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeNotificationConfigurations:[AWSAutoScalingDescribeNotificationConfigurationsType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -543,13 +565,14 @@ static id mockNetworking = nil;
 
 - (void)testDescribePolicies {
     NSString *key = @"testDescribePolicies";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] describePolicies:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] describePolicies:[AWSAutoScalingDescribePoliciesType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -565,13 +588,14 @@ static id mockNetworking = nil;
 
 - (void)testDescribeScalingActivities {
     NSString *key = @"testDescribeScalingActivities";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeScalingActivities:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeScalingActivities:[AWSAutoScalingDescribeScalingActivitiesType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -587,13 +611,14 @@ static id mockNetworking = nil;
 
 - (void)testDescribeScalingProcessTypes {
     NSString *key = @"testDescribeScalingProcessTypes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeScalingProcessTypes:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeScalingProcessTypes:[AWSRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -609,13 +634,14 @@ static id mockNetworking = nil;
 
 - (void)testDescribeScheduledActions {
     NSString *key = @"testDescribeScheduledActions";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeScheduledActions:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeScheduledActions:[AWSAutoScalingDescribeScheduledActionsType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -631,13 +657,14 @@ static id mockNetworking = nil;
 
 - (void)testDescribeTags {
     NSString *key = @"testDescribeTags";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeTags:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeTags:[AWSAutoScalingDescribeTagsType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -653,13 +680,14 @@ static id mockNetworking = nil;
 
 - (void)testDescribeTerminationPolicyTypes {
     NSString *key = @"testDescribeTerminationPolicyTypes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] describeTerminationPolicyTypes:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeTerminationPolicyTypes:[AWSRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -675,13 +703,14 @@ static id mockNetworking = nil;
 
 - (void)testDetachInstances {
     NSString *key = @"testDetachInstances";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] detachInstances:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] detachInstances:[AWSAutoScalingDetachInstancesQuery new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -697,13 +726,14 @@ static id mockNetworking = nil;
 
 - (void)testDisableMetricsCollection {
     NSString *key = @"testDisableMetricsCollection";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] disableMetricsCollection:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] disableMetricsCollection:[AWSAutoScalingDisableMetricsCollectionQuery new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -719,13 +749,14 @@ static id mockNetworking = nil;
 
 - (void)testEnableMetricsCollection {
     NSString *key = @"testEnableMetricsCollection";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] enableMetricsCollection:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] enableMetricsCollection:[AWSAutoScalingEnableMetricsCollectionQuery new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -741,13 +772,14 @@ static id mockNetworking = nil;
 
 - (void)testEnterStandby {
     NSString *key = @"testEnterStandby";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] enterStandby:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] enterStandby:[AWSAutoScalingEnterStandbyQuery new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -763,13 +795,14 @@ static id mockNetworking = nil;
 
 - (void)testExecutePolicy {
     NSString *key = @"testExecutePolicy";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] executePolicy:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] executePolicy:[AWSAutoScalingExecutePolicyType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -785,13 +818,14 @@ static id mockNetworking = nil;
 
 - (void)testExitStandby {
     NSString *key = @"testExitStandby";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] exitStandby:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] exitStandby:[AWSAutoScalingExitStandbyQuery new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -807,13 +841,14 @@ static id mockNetworking = nil;
 
 - (void)testPutLifecycleHook {
     NSString *key = @"testPutLifecycleHook";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] putLifecycleHook:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] putLifecycleHook:[AWSAutoScalingPutLifecycleHookType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -829,13 +864,14 @@ static id mockNetworking = nil;
 
 - (void)testPutNotificationConfiguration {
     NSString *key = @"testPutNotificationConfiguration";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] putNotificationConfiguration:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] putNotificationConfiguration:[AWSAutoScalingPutNotificationConfigurationType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -851,13 +887,14 @@ static id mockNetworking = nil;
 
 - (void)testPutScalingPolicy {
     NSString *key = @"testPutScalingPolicy";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] putScalingPolicy:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] putScalingPolicy:[AWSAutoScalingPutScalingPolicyType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -873,13 +910,14 @@ static id mockNetworking = nil;
 
 - (void)testPutScheduledUpdateGroupAction {
     NSString *key = @"testPutScheduledUpdateGroupAction";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] putScheduledUpdateGroupAction:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] putScheduledUpdateGroupAction:[AWSAutoScalingPutScheduledUpdateGroupActionType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -895,13 +933,14 @@ static id mockNetworking = nil;
 
 - (void)testRecordLifecycleActionHeartbeat {
     NSString *key = @"testRecordLifecycleActionHeartbeat";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] recordLifecycleActionHeartbeat:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] recordLifecycleActionHeartbeat:[AWSAutoScalingRecordLifecycleActionHeartbeatType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -917,13 +956,14 @@ static id mockNetworking = nil;
 
 - (void)testResumeProcesses {
     NSString *key = @"testResumeProcesses";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] resumeProcesses:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] resumeProcesses:[AWSAutoScalingScalingProcessQuery new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -939,13 +979,14 @@ static id mockNetworking = nil;
 
 - (void)testSetDesiredCapacity {
     NSString *key = @"testSetDesiredCapacity";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] setDesiredCapacity:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] setDesiredCapacity:[AWSAutoScalingSetDesiredCapacityType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -961,13 +1002,14 @@ static id mockNetworking = nil;
 
 - (void)testSetInstanceHealth {
     NSString *key = @"testSetInstanceHealth";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] setInstanceHealth:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] setInstanceHealth:[AWSAutoScalingSetInstanceHealthQuery new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -983,13 +1025,14 @@ static id mockNetworking = nil;
 
 - (void)testSuspendProcesses {
     NSString *key = @"testSuspendProcesses";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] suspendProcesses:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] suspendProcesses:[AWSAutoScalingScalingProcessQuery new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1005,13 +1048,14 @@ static id mockNetworking = nil;
 
 - (void)testTerminateInstanceInAutoScalingGroup {
     NSString *key = @"testTerminateInstanceInAutoScalingGroup";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] terminateInstanceInAutoScalingGroup:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] terminateInstanceInAutoScalingGroup:[AWSAutoScalingTerminateInstanceInAutoScalingGroupType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1027,13 +1071,14 @@ static id mockNetworking = nil;
 
 - (void)testUpdateAutoScalingGroup {
     NSString *key = @"testUpdateAutoScalingGroup";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown credentialsProvider:nil];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
 
     AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
     XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSAutoScaling AutoScalingForKey:key] updateAutoScalingGroup:nil] continueWithBlock:^id(AWSTask *task) {
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] updateAutoScalingGroup:[AWSAutoScalingUpdateAutoScalingGroupType new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);

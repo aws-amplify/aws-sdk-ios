@@ -16,6 +16,9 @@
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSCore.h>
 #import "AWSMobileAnalyticsERSModel.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  A service which is used to record Amazon Mobile Analytics events
  */
@@ -179,3 +182,5 @@
 - (AWSTask *)putEvents:(AWSMobileAnalyticsERSPutEventsInput *)request;
 
 @end
+
+NS_ASSUME_NONNULL_END

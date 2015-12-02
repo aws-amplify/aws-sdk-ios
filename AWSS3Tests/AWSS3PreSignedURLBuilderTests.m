@@ -1394,17 +1394,18 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     AWSTask *resultThree = [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequestThree];
     XCTAssertEqual(AWSS3PresignedURLErrorUnsupportedHTTPVerbs, resultThree.error.code);
 
-    [AWSS3PreSignedURLBuilder registerS3PreSignedURLBuilderWithConfiguration:nil
-                                                                      forKey:@"testInvalidParameters_nil"];
-    AWSS3PreSignedURLBuilder *customPreSignedURLBuilder = [AWSS3PreSignedURLBuilder S3PreSignedURLBuilderForKey:@"testInvalidParameters_nil"];
-
-    AWSS3GetPreSignedURLRequest *getPreSignedURLRequestFour = [AWSS3GetPreSignedURLRequest new];
-    getPreSignedURLRequestFour.bucket = @"somebucket";
-    getPreSignedURLRequestFour.key = @"somekey";
-    getPreSignedURLRequestFour.HTTPMethod = AWSHTTPMethodGET;
-    getPreSignedURLRequestFour.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
-    AWSTask *resultFour = [customPreSignedURLBuilder getPreSignedURL:getPreSignedURLRequestFour];
-    XCTAssertEqual(AWSS3PresignedURLErrorEndpointIsNil, resultFour.error.code);
+    __block BOOL didThrowException = NO;
+    @try {
+        [AWSS3PreSignedURLBuilder registerS3PreSignedURLBuilderWithConfiguration:nil
+                                                                          forKey:@"testInvalidParameters_nil"];
+        [AWSS3PreSignedURLBuilder S3PreSignedURLBuilderForKey:@"testInvalidParameters_nil"];
+    }
+    @catch (NSException *exception) {
+        didThrowException = YES;
+    }
+    @finally {
+        XCTAssertTrue(didThrowException);
+    }
 
     AWSS3TestCredentialsProvider *testCredentialProvider = [AWSS3TestCredentialsProvider new];
     testCredentialProvider.accessKey = s3.configuration.credentialsProvider.accessKey;
