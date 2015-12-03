@@ -297,7 +297,10 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSSimpleDBSelectRequest
  @see AWSSimpleDBSelectResult
  */
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnullability"
 - (AWSTask *)select:(AWSSimpleDBSelectRequest *)request;
+#pragma clang diagnostic pop
 
 @end
 

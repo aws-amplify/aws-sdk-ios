@@ -246,7 +246,7 @@
     XCTAssertEqualObjects(endpoint.hostName, @"sqs.us-east-1.amazonaws.com");
     XCTAssertFalse(endpoint.useUnsafeURL);
 
-    // Special cases
+    // ===== Special cases =====
     endpoint = [[AWSEndpoint alloc] initWithRegion:AWSRegionUSEast1
                                            service:AWSServiceSTS
                                       useUnsafeURL:NO];
@@ -267,6 +267,17 @@
     XCTAssertEqualObjects(endpoint.serviceName, @"sts");
     XCTAssertEqualObjects(endpoint.URL, [NSURL URLWithString:@"https://sts.cn-north-1.amazonaws.com.cn"]);
     XCTAssertEqualObjects(endpoint.hostName, @"sts.cn-north-1.amazonaws.com.cn");
+    XCTAssertFalse(endpoint.useUnsafeURL);
+
+    endpoint = [[AWSEndpoint alloc] initWithRegion:AWSRegionUSGovWest1
+                                           service:AWSServiceSTS
+                                      useUnsafeURL:NO];
+    XCTAssertEqual(endpoint.regionType, AWSRegionUSGovWest1);
+    XCTAssertEqualObjects(endpoint.regionName, @"us-gov-west-1");
+    XCTAssertEqual(endpoint.serviceType, AWSServiceSTS);
+    XCTAssertEqualObjects(endpoint.serviceName, @"sts");
+    XCTAssertEqualObjects(endpoint.URL, [NSURL URLWithString:@"https://sts.us-gov-west-1.amazonaws.com"]);
+    XCTAssertEqualObjects(endpoint.hostName, @"sts.us-gov-west-1.amazonaws.com");
     XCTAssertFalse(endpoint.useUnsafeURL);
 
     endpoint = [[AWSEndpoint alloc] initWithRegion:AWSRegionUSEast1
@@ -323,6 +334,17 @@
     XCTAssertEqualObjects(endpoint.URL, [NSURL URLWithString:@"http://s3-us-west-2.amazonaws.com"]);
     XCTAssertEqualObjects(endpoint.hostName, @"s3-us-west-2.amazonaws.com");
     XCTAssertTrue(endpoint.useUnsafeURL);
+
+    endpoint = [[AWSEndpoint alloc] initWithRegion:AWSRegionUSGovWest1
+                                           service:AWSServiceS3
+                                      useUnsafeURL:NO];
+    XCTAssertEqual(endpoint.regionType, AWSRegionUSGovWest1);
+    XCTAssertEqualObjects(endpoint.regionName, @"us-gov-west-1");
+    XCTAssertEqual(endpoint.serviceType, AWSServiceS3);
+    XCTAssertEqualObjects(endpoint.serviceName, @"s3");
+    XCTAssertEqualObjects(endpoint.URL, [NSURL URLWithString:@"https://s3-us-gov-west-1.amazonaws.com"]);
+    XCTAssertEqualObjects(endpoint.hostName, @"s3-us-gov-west-1.amazonaws.com");
+    XCTAssertFalse(endpoint.useUnsafeURL);
 
     __block BOOL didThrowException = NO;
     @try {

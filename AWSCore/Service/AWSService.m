@@ -445,6 +445,8 @@ NSString *const AWSServiceNameSTS = @"sts";
     } else if (serviceType == AWSServiceSTS) {
         if (regionType == AWSRegionCNNorth1) {
             URL = [NSURL URLWithString:@"https://sts.cn-north-1.amazonaws.com"];
+        } else if (regionType == AWSRegionUSGovWest1) {
+            URL = [NSURL URLWithString:@"https://sts.us-gov-west-1.amazonaws.com"];
         } else {
             URL = [NSURL URLWithString:@"https://sts.amazonaws.com"];
         }
