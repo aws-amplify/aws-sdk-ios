@@ -36,6 +36,13 @@
 		CE27CB5C1BF1885700B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB5B1BF1885700B22AB3 /* UIKit.framework */; };
 		CE27CB5D1BF1885C00B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB5B1BF1885700B22AB3 /* UIKit.framework */; };
 		CE2EDE981BF3DF2F00B9F26B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE6552361BEC363600DACBC2 /* module.modulemap */; };
+		CE6A6DB71C03E50F006F986B /* AWSAbstractKinesisRecorder.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDEC21A1BFD640100BE16EA /* AWSAbstractKinesisRecorder.h */; };
+		CEB3802B1C177F19008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB3802A1C177F19008B520C /* SystemConfiguration.framework */; };
+		CEB380411C177FA3008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB3802A1C177F19008B520C /* SystemConfiguration.framework */; };
+		CEB380611C1780A5008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380601C1780A5008B520C /* Security.framework */; };
+		CEB380621C1780A9008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380601C1780A5008B520C /* Security.framework */; };
+		CEDEC21C1BFD640100BE16EA /* AWSAbstractKinesisRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = CEDEC21A1BFD640100BE16EA /* AWSAbstractKinesisRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEDEC21D1BFD640100BE16EA /* AWSAbstractKinesisRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDEC21B1BFD640100BE16EA /* AWSAbstractKinesisRecorder.m */; };
 		CEE532661B03D3B2002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532651B03D3B2002CED62 /* libz.dylib */; };
 		CEE7DE711AC1E1AF0095C4B7 /* AWSKinesisService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE701AC1E1AF0095C4B7 /* AWSKinesisService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -64,6 +71,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				CE6A6DB71C03E50F006F986B /* AWSAbstractKinesisRecorder.h in CopyFiles */,
 				BD9D97621AC1EEAE00CEEE08 /* AWSKinesisService.h in CopyFiles */,
 				BDC91C4D1ABBA0C600F74D49 /* AWSKinesis.h in CopyFiles */,
 				BDC91C4E1ABBA0C600F74D49 /* AWSKinesisModel.h in CopyFiles */,
@@ -107,6 +115,10 @@
 		CE14DF8C1B02DEBC00EF6D09 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CE27CB5B1BF1885700B22AB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE6552361BEC363600DACBC2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		CEB3802A1C177F19008B520C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CEB380601C1780A5008B520C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CEDEC21A1BFD640100BE16EA /* AWSAbstractKinesisRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSAbstractKinesisRecorder.h; sourceTree = "<group>"; };
+		CEDEC21B1BFD640100BE16EA /* AWSAbstractKinesisRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSAbstractKinesisRecorder.m; sourceTree = "<group>"; };
 		CEE532651B03D3B2002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CEE7DE701AC1E1AF0095C4B7 /* AWSKinesisService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSKinesisService.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +128,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB380621C1780A9008B520C /* Security.framework in Frameworks */,
+				CEB3802B1C177F19008B520C /* SystemConfiguration.framework in Frameworks */,
 				CE27CB5D1BF1885C00B22AB3 /* UIKit.framework in Frameworks */,
 				BDD876AA1B4B52E3009268C7 /* libOCMock.a in Frameworks */,
 				BDF125C91B45C1D000DFBFEC /* libz.dylib in Frameworks */,
@@ -136,6 +150,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB380611C1780A5008B520C /* Security.framework in Frameworks */,
+				CEB380411C177FA3008B520C /* SystemConfiguration.framework in Frameworks */,
 				CE27CB5C1BF1885700B22AB3 /* UIKit.framework in Frameworks */,
 				CEE532661B03D3B2002CED62 /* libz.dylib in Frameworks */,
 				CE14DF8D1B02DEBC00EF6D09 /* libsqlite3.dylib in Frameworks */,
@@ -152,8 +168,8 @@
 			children = (
 				BDF559BB1AB376720067F4F1 /* AWSKinesis */,
 				BDF559C81AB376720067F4F1 /* AWSKinesisTests */,
-				BDF559BA1AB376720067F4F1 /* Products */,
 				D34BD40ED7327D8616BDFE58 /* Frameworks */,
+				BDF559BA1AB376720067F4F1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -170,16 +186,18 @@
 		BDF559BB1AB376720067F4F1 /* AWSKinesis */ = {
 			isa = PBXGroup;
 			children = (
-				CE6552361BEC363600DACBC2 /* module.modulemap */,
+				CEDEC21A1BFD640100BE16EA /* AWSAbstractKinesisRecorder.h */,
+				CEDEC21B1BFD640100BE16EA /* AWSAbstractKinesisRecorder.m */,
 				BDF559D51AB376A50067F4F1 /* AWSKinesis.h */,
 				BDF559D71AB376A50067F4F1 /* AWSKinesisModel.h */,
 				BDF559D81AB376A50067F4F1 /* AWSKinesisModel.m */,
 				BDF559D91AB376A50067F4F1 /* AWSKinesisRecorder.h */,
 				BDF559DA1AB376A50067F4F1 /* AWSKinesisRecorder.m */,
-				CEE7DE701AC1E1AF0095C4B7 /* AWSKinesisService.h */,
-				BDF559D61AB376A50067F4F1 /* AWSKinesisService.m */,
 				BDB73D791B1D3EFC00717559 /* AWSKinesisResources.h */,
 				BDB73D7A1B1D3EFC00717559 /* AWSKinesisResources.m */,
+				CEE7DE701AC1E1AF0095C4B7 /* AWSKinesisService.h */,
+				BDF559D61AB376A50067F4F1 /* AWSKinesisService.m */,
+				CE6552361BEC363600DACBC2 /* module.modulemap */,
 			);
 			path = AWSKinesis;
 			sourceTree = "<group>";
@@ -209,6 +227,8 @@
 		D34BD40ED7327D8616BDFE58 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEB380601C1780A5008B520C /* Security.framework */,
+				CEB3802A1C177F19008B520C /* SystemConfiguration.framework */,
 				CE27CB5B1BF1885700B22AB3 /* UIKit.framework */,
 				BDD876A91B4B52E3009268C7 /* libOCMock.a */,
 				CEE532651B03D3B2002CED62 /* libz.dylib */,
@@ -230,6 +250,7 @@
 				BDF559DD1AB376A50067F4F1 /* AWSKinesis.h in Headers */,
 				CEE7DE711AC1E1AF0095C4B7 /* AWSKinesisService.h in Headers */,
 				BDB73D7B1B1D3EFC00717559 /* AWSKinesisResources.h in Headers */,
+				CEDEC21C1BFD640100BE16EA /* AWSAbstractKinesisRecorder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +318,7 @@
 		BDF559B11AB376720067F4F1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
 					BDF559B81AB376720067F4F1 = {
@@ -359,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEDEC21D1BFD640100BE16EA /* AWSAbstractKinesisRecorder.m in Sources */,
 				BDB73D7C1B1D3EFC00717559 /* AWSKinesisResources.m in Sources */,
 				BDF559E21AB376A50067F4F1 /* AWSKinesisRecorder.m in Sources */,
 				BDF559E01AB376A50067F4F1 /* AWSKinesisModel.m in Sources */,

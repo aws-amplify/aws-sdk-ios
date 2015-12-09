@@ -28,6 +28,7 @@ if [ -x "Scripts/SdkPackage.sh" ]; then
     Scripts/SdkPackage.sh AWSDynamoDB
     Scripts/SdkPackage.sh AWSEC2
     Scripts/SdkPackage.sh AWSElasticLoadBalancing
+    Scripts/SdkPackage.sh AWSIoT
     Scripts/SdkPackage.sh AWSKinesis
     Scripts/SdkPackage.sh AWSLambda
     Scripts/SdkPackage.sh AWSMachineLearning

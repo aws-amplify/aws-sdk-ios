@@ -229,6 +229,8 @@
 		CEB05B8A1B018C150063B44C /* AWSTaskCompletionSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEA0CA421B0187640061508B /* AWSTaskCompletionSource.h */; };
 		CEB05B9C1B0190DC0063B44C /* AWSXMLDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = CEB05B981B0190DC0063B44C /* AWSXMLDictionary.h */; };
 		CEB05B9D1B0190DC0063B44C /* AWSXMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB05B991B0190DC0063B44C /* AWSXMLDictionary.m */; };
+		CEB380751C1780E6008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380741C1780E6008B520C /* Security.framework */; };
+		CEB380761C1780E9008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380741C1780E6008B520C /* Security.framework */; };
 		CED822031AC486E40017E687 /* AWSClientContext.h in Headers */ = {isa = PBXBuildFile; fileRef = CED822011AC486E40017E687 /* AWSClientContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CED822041AC486E40017E687 /* AWSClientContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CED822021AC486E40017E687 /* AWSClientContext.m */; };
 		CED823D51AC1E5070091F9D7 /* AWSSTSService.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEE7DE601AC1DFB10095C4B7 /* AWSSTSService.h */; };
@@ -492,6 +494,7 @@
 		CEA589761B02B30D009901A6 /* AWSReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSReachability.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CEB05B981B0190DC0063B44C /* AWSXMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSXMLDictionary.h; sourceTree = "<group>"; };
 		CEB05B991B0190DC0063B44C /* AWSXMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSXMLDictionary.m; sourceTree = "<group>"; };
+		CEB380741C1780E6008B520C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CED822011AC486E40017E687 /* AWSClientContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSClientContext.h; sourceTree = "<group>"; };
 		CED822021AC486E40017E687 /* AWSClientContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSClientContext.m; sourceTree = "<group>"; };
 		CEE6F4DF1BF17494002DA621 /* AWSFMDatabase+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSFMDatabase+Private.h"; sourceTree = "<group>"; };
@@ -506,6 +509,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB380761C1780E9008B520C /* Security.framework in Frameworks */,
 				CE27CB3D1BF179A100B22AB3 /* UIKit.framework in Frameworks */,
 				BDF1267D1B45C37D00DFBFEC /* SystemConfiguration.framework in Frameworks */,
 				BDF1267E1B45C37D00DFBFEC /* libz.dylib in Frameworks */,
@@ -526,6 +530,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB380751C1780E6008B520C /* Security.framework in Frameworks */,
 				CE27CB3E1BF179C300B22AB3 /* UIKit.framework in Frameworks */,
 				CE08A0CB1B02B6560000ED1F /* SystemConfiguration.framework in Frameworks */,
 				CEA589691B02B15B009901A6 /* libz.dylib in Frameworks */,
@@ -540,6 +545,7 @@
 		BDB6EC231AB90F7D004C4D80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEB380741C1780E6008B520C /* Security.framework */,
 				CE27CB3C1BF179A100B22AB3 /* UIKit.framework */,
 				CE08A0C91B02B6510000ED1F /* SystemConfiguration.framework */,
 				CEA589681B02B15B009901A6 /* libz.dylib */,
@@ -1071,7 +1077,7 @@
 		BDF5574A1AB371480067F4F1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
 					BDC91C831ABBAB6500F74D49 = {
@@ -1284,7 +1290,6 @@
 		BDC91C841ABBAB6500F74D49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1292,7 +1297,6 @@
 		BDC91C851ABBAB6500F74D49 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

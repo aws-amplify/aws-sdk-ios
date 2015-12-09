@@ -31,6 +31,10 @@
 		CE92004B1ACF7F3700637171 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE92004A1ACF7F3700637171 /* AWSTestUtility.m */; };
 		CE92004D1ACF7FBB00637171 /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE92004C1ACF7FBB00637171 /* libAWSCore.a */; };
 		CE92004F1ACF7FFE00637171 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CE92004E1ACF7FFE00637171 /* credentials.json */; };
+		CEB3802F1C177F27008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB3802E1C177F27008B520C /* SystemConfiguration.framework */; };
+		CEB3803F1C177F95008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB3802E1C177F27008B520C /* SystemConfiguration.framework */; };
+		CEB3805B1C178091008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB3805A1C178091008B520C /* Security.framework */; };
+		CEB3805C1C178096008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB3805A1C178091008B520C /* Security.framework */; };
 		CEE5325C1B03D386002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE5325B1B03D386002CED62 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +100,8 @@
 		CE92004A1ACF7F3700637171 /* AWSTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSTestUtility.m; path = AWSCoreTests/AWSTestUtility.m; sourceTree = SOURCE_ROOT; };
 		CE92004C1ACF7FBB00637171 /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
 		CE92004E1ACF7FFE00637171 /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
+		CEB3802E1C177F27008B520C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CEB3805A1C178091008B520C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CEE5325B1B03D386002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -104,6 +110,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB3805C1C178096008B520C /* Security.framework in Frameworks */,
+				CEB3802F1C177F27008B520C /* SystemConfiguration.framework in Frameworks */,
 				CE27CB631BF1891F00B22AB3 /* UIKit.framework in Frameworks */,
 				BDD876AE1B4B5302009268C7 /* libOCMock.a in Frameworks */,
 				BDF125EF1B45C24500DFBFEC /* libz.dylib in Frameworks */,
@@ -123,6 +131,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB3805B1C178091008B520C /* Security.framework in Frameworks */,
+				CEB3803F1C177F95008B520C /* SystemConfiguration.framework in Frameworks */,
 				CE27CB621BF1891B00B22AB3 /* UIKit.framework in Frameworks */,
 				CEE5325C1B03D386002CED62 /* libz.dylib in Frameworks */,
 				CE92004D1ACF7FBB00637171 /* libAWSCore.a in Frameworks */,
@@ -136,6 +146,8 @@
 		13BA91A9ED2214407949A932 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEB3805A1C178091008B520C /* Security.framework */,
+				CEB3802E1C177F27008B520C /* SystemConfiguration.framework */,
 				CE27CB611BF1891B00B22AB3 /* UIKit.framework */,
 				BDD876AD1B4B5302009268C7 /* libOCMock.a */,
 				CEE5325B1B03D386002CED62 /* libz.dylib */,
@@ -277,7 +289,7 @@
 		CE71234D1ACF7A0B00D96A87 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
 					CE7123541ACF7A0B00D96A87 = {

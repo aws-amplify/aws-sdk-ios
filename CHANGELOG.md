@@ -1,5 +1,24 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.3.2
+
+### New Features
+* **AWS IoT**
+    * Added AWS IoT platform APIs.
+    * Supports publishing and subscribing to MQTT topics with certificate-based authentication.
+    * Supports device shadows via AWS IoT REST API.
+
+### Resolved Issues
+* **SDK Core**
+    * Fixed the STS endpoint for the GovCloud region.
+    * Fixed an issue where module map does not contain appropriate headers.
+    * Suppressed the erroneous nullability warning.
+* **Amazon API Gateway**
+    * Resolved an issue where the SDK sometimes does not generate the URL path correctly.
+* **Amazon Kinesis Recorder**
+    * Resolved an issue where the SQLite vacuum may fail when there are many concurrent requests.
+    * Improved the handling of concurrent `DELETE` requests to the SQLite database.
+
 ## 2.3.1
 
 ### New Features

@@ -222,15 +222,11 @@ NSString *const AWSAPIGatewayAPIKeyHeader = @"x-api-key";
     NSMutableString *mutableURLString = [NSMutableString stringWithString:URLString];
 
     // Constructs the URL path components
-    NSCharacterSet *delimiters = [NSCharacterSet characterSetWithCharactersInString:@"{}"];
-    NSArray *URLPathComponents = [URLString componentsSeparatedByCharactersInSet:delimiters];
-    if ([URLPathComponents count] >= 2) {
-        for (NSUInteger i = 1; i < [URLPathComponents count] - 1; i++) {
-            [mutableURLString replaceOccurrencesOfString:[NSString stringWithFormat:@"{%@}", URLPathComponents[i]]
-                                              withString:[self encodeQueryStringValue:[URLPathComponentsDictionary valueForKey:URLPathComponents[i]]]
-                                                 options:NSLiteralSearch
-                                                   range:NSMakeRange(0, [mutableURLString length])];
-        }
+    for (NSString *key in URLPathComponentsDictionary) {
+        [mutableURLString replaceOccurrencesOfString:[NSString stringWithFormat:@"{%@}", key]
+                                          withString:[self encodeQueryStringValue:URLPathComponentsDictionary[key]]
+                                             options:NSLiteralSearch
+                                               range:NSMakeRange(0, [mutableURLString length])];
     }
 
     // Adds query string

@@ -30,6 +30,10 @@
 		CE27CB401BF17A9500B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB3F1BF17A9500B22AB3 /* UIKit.framework */; };
 		CE27CB411BF17A9B00B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB3F1BF17A9500B22AB3 /* UIKit.framework */; };
 		CE2EDE901BF3DEEC00B9F26B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE65522C1BEC35BD00DACBC2 /* module.modulemap */; };
+		CEB3801F1C177EE1008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB3801E1C177EE1008B520C /* SystemConfiguration.framework */; };
+		CEB380461C177FC1008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB3801E1C177EE1008B520C /* SystemConfiguration.framework */; };
+		CEB380721C1780D7008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380711C1780D7008B520C /* Security.framework */; };
+		CEB380731C1780DB008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380711C1780D7008B520C /* Security.framework */; };
 		CEE532561B03D1A8002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532551B03D1A8002CED62 /* libz.dylib */; };
 		CEE7DE671AC1E0C30095C4B7 /* AWSAutoScalingService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE661AC1E0C30095C4B7 /* AWSAutoScalingService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -96,6 +100,8 @@
 		BDF125701B45BF3000DFBFEC /* AWSAutoScalingUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSAutoScalingUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE27CB3F1BF17A9500B22AB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE65522C1BEC35BD00DACBC2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		CEB3801E1C177EE1008B520C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CEB380711C1780D7008B520C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CEE532551B03D1A8002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CEE7DE661AC1E0C30095C4B7 /* AWSAutoScalingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSAutoScalingService.h; path = ../AWSAutoScaling/AWSAutoScalingService.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +118,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB380721C1780D7008B520C /* Security.framework in Frameworks */,
+				CEB380461C177FC1008B520C /* SystemConfiguration.framework in Frameworks */,
 				CE27CB401BF17A9500B22AB3 /* UIKit.framework in Frameworks */,
 				CEE532561B03D1A8002CED62 /* libz.dylib in Frameworks */,
 				BD00FF371AB8B683004496EF /* libAWSCore.a in Frameworks */,
@@ -123,6 +131,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB380731C1780DB008B520C /* Security.framework in Frameworks */,
+				CEB3801F1C177EE1008B520C /* SystemConfiguration.framework in Frameworks */,
 				CE27CB411BF17A9B00B22AB3 /* UIKit.framework in Frameworks */,
 				BDD876A01B4B4062009268C7 /* libOCMock.a in Frameworks */,
 				BDF125681B45BF3000DFBFEC /* libz.dylib in Frameworks */,
@@ -193,6 +203,8 @@
 		FC5D4AEC7530694251AE5CAE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEB380711C1780D7008B520C /* Security.framework */,
+				CEB3801E1C177EE1008B520C /* SystemConfiguration.framework */,
 				CE27CB3F1BF17A9500B22AB3 /* UIKit.framework */,
 				BDD8769F1B4B4062009268C7 /* libOCMock.a */,
 				CEE532551B03D1A8002CED62 /* libz.dylib */,
@@ -279,7 +291,7 @@
 		BDB5DF141AB37A79002DD224 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
 					BDB5DF1B1AB37A79002DD224 = {

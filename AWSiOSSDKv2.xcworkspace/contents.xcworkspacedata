@@ -23,6 +23,9 @@
       location = "group:AWSElasticLoadBalancing.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:AWSIoT.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:AWSKinesis.xcodeproj">
    </FileRef>
    <FileRef

@@ -35,6 +35,10 @@
 		CE27CB531BF1861700B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB521BF1861700B22AB3 /* UIKit.framework */; };
 		CE27CB541BF1861C00B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB521BF1861700B22AB3 /* UIKit.framework */; };
 		CE2EDE8A1BF3DE1800B9F26B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE6552301BEC35F400DACBC2 /* module.modulemap */; };
+		CEB380231C177EF4008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380221C177EF4008B520C /* SystemConfiguration.framework */; };
+		CEB380441C177FB6008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380221C177EF4008B520C /* SystemConfiguration.framework */; };
+		CEB3806C1C1780C5008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB3806B1C1780C5008B520C /* Security.framework */; };
+		CEB3806D1C1780CA008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB3806B1C1780C5008B520C /* Security.framework */; };
 		CEE5325A1B03D374002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532591B03D374002CED62 /* libz.dylib */; };
 		CEE7DE6B1AC1E1500095C4B7 /* AWSDynamoDBService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE6A1AC1E1500095C4B7 /* AWSDynamoDBService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -107,6 +111,8 @@
 		BDF559481AB375260067F4F1 /* AWSDynamoDBObjectMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSDynamoDBObjectMapper.m; path = ../AWSDynamoDB/AWSDynamoDBObjectMapper.m; sourceTree = "<group>"; };
 		CE27CB521BF1861700B22AB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE6552301BEC35F400DACBC2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		CEB380221C177EF4008B520C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CEB3806B1C1780C5008B520C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CEE532591B03D374002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CEE7DE6A1AC1E1500095C4B7 /* AWSDynamoDBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSDynamoDBService.h; path = ../AWSDynamoDB/AWSDynamoDBService.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +122,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB3806D1C1780CA008B520C /* Security.framework in Frameworks */,
+				CEB380231C177EF4008B520C /* SystemConfiguration.framework in Frameworks */,
 				CE27CB541BF1861C00B22AB3 /* UIKit.framework in Frameworks */,
 				BDD876A41B4B52AE009268C7 /* libOCMock.a in Frameworks */,
 				BDF125921B45C12600DFBFEC /* libz.dylib in Frameworks */,
@@ -135,6 +143,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB3806C1C1780C5008B520C /* Security.framework in Frameworks */,
+				CEB380441C177FB6008B520C /* SystemConfiguration.framework in Frameworks */,
 				CE27CB531BF1861700B22AB3 /* UIKit.framework in Frameworks */,
 				CEE5325A1B03D374002CED62 /* libz.dylib in Frameworks */,
 				BD00FF491AB8B6F8004496EF /* libAWSCore.a in Frameworks */,
@@ -148,6 +158,8 @@
 		A5F6D5DAB609D2CE34387FFD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEB3806B1C1780C5008B520C /* Security.framework */,
+				CEB380221C177EF4008B520C /* SystemConfiguration.framework */,
 				CE27CB521BF1861700B22AB3 /* UIKit.framework */,
 				BDD876A31B4B52AE009268C7 /* libOCMock.a */,
 				CEE532591B03D374002CED62 /* libz.dylib */,
@@ -297,7 +309,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
 					BDF559261AB374F00067F4F1 = {

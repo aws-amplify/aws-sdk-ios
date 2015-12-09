@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0710"
+   LastUpgradeVersion = "0720"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -388,6 +388,36 @@
                BuildableName = "AWSCloudWatchUnitTests.xctest"
                BlueprintName = "AWSCloudWatchUnitTests"
                ReferencedContainer = "container:AWSCloudWatch.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CE48F5F31BD97F4D005F9E3F"
+               BuildableName = "AWSIoTUnitTests.xctest"
+               BlueprintName = "AWSIoTUnitTests"
+               ReferencedContainer = "container:AWSIoT.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CE1009FA1C112877008F1A91"
+               BuildableName = "AWSAPIGatewayUnitTests.xctest"
+               BlueprintName = "AWSAPIGatewayUnitTests"
+               ReferencedContainer = "container:AWSAPIGateway.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CE6BC1111B4A440C002E2414"
+               BuildableName = "AWSAPIGatewayTests.xctest"
+               BlueprintName = "AWSAPIGatewayTests"
+               ReferencedContainer = "container:AWSAPIGateway.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

@@ -30,6 +30,10 @@
 		CE27CB561BF187E400B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB551BF187E400B22AB3 /* UIKit.framework */; };
 		CE27CB571BF187EA00B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB551BF187E400B22AB3 /* UIKit.framework */; };
 		CE2EDE941BF3DF1300B9F26B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE6552321BEC360700DACBC2 /* module.modulemap */; };
+		CEB380251C177EFE008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380241C177EFE008B520C /* SystemConfiguration.framework */; };
+		CEB380431C177FB1008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380241C177EFE008B520C /* SystemConfiguration.framework */; };
+		CEB380691C1780BD008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380681C1780BD008B520C /* Security.framework */; };
+		CEB3806A1C1780C0008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380681C1780BD008B520C /* Security.framework */; };
 		CEE5326C1B03D3C4002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE5326B1B03D3C4002CED62 /* libz.dylib */; };
 		CEE7DE6D1AC1E1780095C4B7 /* AWSEC2Service.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE6C1AC1E1780095C4B7 /* AWSEC2Service.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -96,6 +100,8 @@
 		BDF559791AB375AE0067F4F1 /* AWSEC2Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSEC2Model.m; path = ../AWSEC2/AWSEC2Model.m; sourceTree = "<group>"; };
 		CE27CB551BF187E400B22AB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE6552321BEC360700DACBC2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		CEB380241C177EFE008B520C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CEB380681C1780BD008B520C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CEE5326B1B03D3C4002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CEE7DE6C1AC1E1780095C4B7 /* AWSEC2Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSEC2Service.h; path = ../AWSEC2/AWSEC2Service.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +111,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB3806A1C1780C0008B520C /* Security.framework in Frameworks */,
+				CEB380251C177EFE008B520C /* SystemConfiguration.framework in Frameworks */,
 				CE27CB571BF187EA00B22AB3 /* UIKit.framework in Frameworks */,
 				BDD876A61B4B52C1009268C7 /* libOCMock.a in Frameworks */,
 				BDF125A41B45C17D00DFBFEC /* libz.dylib in Frameworks */,
@@ -124,6 +132,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB380691C1780BD008B520C /* Security.framework in Frameworks */,
+				CEB380431C177FB1008B520C /* SystemConfiguration.framework in Frameworks */,
 				CE27CB561BF187E400B22AB3 /* UIKit.framework in Frameworks */,
 				CEE5326C1B03D3C4002CED62 /* libz.dylib in Frameworks */,
 				BD00FF471AB8B6F0004496EF /* libAWSCore.a in Frameworks */,
@@ -137,6 +147,8 @@
 		44F883773B67388A29D3A410 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEB380681C1780BD008B520C /* Security.framework */,
+				CEB380241C177EFE008B520C /* SystemConfiguration.framework */,
 				CE27CB551BF187E400B22AB3 /* UIKit.framework */,
 				BDD876A51B4B52C0009268C7 /* libOCMock.a */,
 				CEE5326B1B03D3C4002CED62 /* libz.dylib */,
@@ -279,7 +291,7 @@
 		BDF559521AB375800067F4F1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
 					BDF559591AB375800067F4F1 = {
@@ -520,11 +532,7 @@
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				DEAD_CODE_STRIPPING = NO;
 				DEFINES_MODULE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"${SRCROOT}/Pods/Headers/**",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSEC2;
@@ -540,11 +548,7 @@
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				DEAD_CODE_STRIPPING = NO;
 				DEFINES_MODULE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"${SRCROOT}/Pods/Headers/**",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSEC2;

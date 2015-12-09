@@ -34,5 +34,6 @@ This software includes third party software subject to the following copyrights:
 - Reachability - Copyright (c) 2011-2013, Tony Million. All rights reserved. - https://github.com/tonymillion/Reachability/blob/master/LICENCE.txt
 - FMDB - Copyright (c) 2008-2014 Flying Meat Inc. - MIT License
 - Fabric - Copyright (c) 2015 Twitter Inc. - Apache License Version 2.0
+- Objective-C MQTT Client - From the Eclipse Paho Project - Eclipse Public License v1.0
 
 The licenses for these third party components are included in the License file.

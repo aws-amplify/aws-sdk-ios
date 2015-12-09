@@ -1,0 +1,6 @@
+framework module AWSIoT {
+  umbrella header "AWSIoT.h"
+
+  export *
+  module * { export * }
+}

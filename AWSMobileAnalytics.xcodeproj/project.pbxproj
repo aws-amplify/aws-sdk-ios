@@ -39,6 +39,9 @@
 		CE5FABA01B042B3000D7010F /* AWSMobileAnalyticsERSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FAB991B042B3000D7010F /* AWSMobileAnalyticsERSModel.m */; };
 		CE5FABA11B042B3000D7010F /* AWSMobileAnalyticsERSService.h in Headers */ = {isa = PBXBuildFile; fileRef = CE5FAB9A1B042B3000D7010F /* AWSMobileAnalyticsERSService.h */; };
 		CE5FABA21B042B3000D7010F /* AWSMobileAnalyticsERSService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FAB9B1B042B3000D7010F /* AWSMobileAnalyticsERSService.m */; };
+		CEB380571C178084008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380561C178084008B520C /* Security.framework */; };
+		CEB380581C178087008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380561C178084008B520C /* Security.framework */; };
+		CEB380591C17808B008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380561C178084008B520C /* Security.framework */; };
 		CEB3C6B81B2FAE780010599E /* AWSMobileAnalyticsDefaultContext.h in Headers */ = {isa = PBXBuildFile; fileRef = CEB3C6B41B2FAE780010599E /* AWSMobileAnalyticsDefaultContext.h */; };
 		CEB3C6B91B2FAE780010599E /* AWSMobileAnalyticsDefaultContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB3C6B51B2FAE780010599E /* AWSMobileAnalyticsDefaultContext.m */; };
 		CEB3C6BA1B2FAE780010599E /* AWSMobileAnalyticsStringUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = CEB3C6B61B2FAE780010599E /* AWSMobileAnalyticsStringUtils.h */; };
@@ -312,6 +315,7 @@
 		CE5FAB9A1B042B3000D7010F /* AWSMobileAnalyticsERSService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsERSService.h; path = AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSService.h; sourceTree = SOURCE_ROOT; };
 		CE5FAB9B1B042B3000D7010F /* AWSMobileAnalyticsERSService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AWSMobileAnalyticsERSService.m; path = AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSService.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CE65523C1BEC366A00DACBC2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		CEB380561C178084008B520C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CEB3C6B41B2FAE780010599E /* AWSMobileAnalyticsDefaultContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSMobileAnalyticsDefaultContext.h; sourceTree = "<group>"; };
 		CEB3C6B51B2FAE780010599E /* AWSMobileAnalyticsDefaultContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSMobileAnalyticsDefaultContext.m; sourceTree = "<group>"; };
 		CEB3C6B61B2FAE780010599E /* AWSMobileAnalyticsStringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSMobileAnalyticsStringUtils.h; sourceTree = "<group>"; };
@@ -561,6 +565,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB380591C17808B008B520C /* Security.framework in Frameworks */,
 				CE27CB671BF1895700B22AB3 /* UIKit.framework in Frameworks */,
 				BDD876B01B4B5316009268C7 /* libOCMock.a in Frameworks */,
 				BDF126021B45C27900DFBFEC /* SystemConfiguration.framework in Frameworks */,
@@ -574,6 +579,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB380571C178084008B520C /* Security.framework in Frameworks */,
 				CE27CB651BF1894E00B22AB3 /* UIKit.framework in Frameworks */,
 				CE2E0C911B03F2B400DE3906 /* SystemConfiguration.framework in Frameworks */,
 				CE2E0C8F1B03F2A300DE3906 /* libAWSCore.a in Frameworks */,
@@ -593,6 +599,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB380581C178087008B520C /* Security.framework in Frameworks */,
 				CE27CB661BF1895300B22AB3 /* UIKit.framework in Frameworks */,
 				BD4C9AEB1B4C69DB00267270 /* SystemConfiguration.framework in Frameworks */,
 				BD4C9AEA1B4C697400267270 /* libOCMock.a in Frameworks */,
@@ -644,6 +651,7 @@
 		CEE5326F1B03DE7F002CED62 = {
 			isa = PBXGroup;
 			children = (
+				CEB380561C178084008B520C /* Security.framework */,
 				CEE5327A1B03DE7F002CED62 /* AWSMobileAnalytics */,
 				CE2E0C781B03EFD300DE3906 /* AWSMobileAnalyticsTests */,
 				CEE532871B03DE7F002CED62 /* AWSMobileAnalyticsLegacyTests */,
@@ -1135,7 +1143,7 @@
 		CEE532701B03DE7F002CED62 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
 					CE2E0C761B03EFD300DE3906 = {

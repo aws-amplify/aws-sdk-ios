@@ -25,6 +25,10 @@
 		CE6397251AC4A4CC00459E23 /* AWSLambdaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6397241AC4A4CC00459E23 /* AWSLambdaTests.m */; };
 		CE6397281AC4A7F300459E23 /* AWSLambdaInvoker.h in Headers */ = {isa = PBXBuildFile; fileRef = CE6397261AC4A7F300459E23 /* AWSLambdaInvoker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE6397291AC4A7F300459E23 /* AWSLambdaInvoker.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6397271AC4A7F300459E23 /* AWSLambdaInvoker.m */; };
+		CEB3802D1C177F1F008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB3802C1C177F1F008B520C /* SystemConfiguration.framework */; };
+		CEB380401C177F9B008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB3802C1C177F1F008B520C /* SystemConfiguration.framework */; };
+		CEB3805E1C17809C008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB3805D1C17809C008B520C /* Security.framework */; };
+		CEB3805F1C1780A0008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB3805D1C17809C008B520C /* Security.framework */; };
 		CED822211AC4895F0017E687 /* libAWSLambda.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CED822151AC4895F0017E687 /* libAWSLambda.a */; };
 		CED8223C1AC48A3D0017E687 /* AWSLambdaService.m in Sources */ = {isa = PBXBuildFile; fileRef = CED822351AC48A3D0017E687 /* AWSLambdaService.m */; };
 		CED8223D1AC48A3D0017E687 /* AWSLambdaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CED822371AC48A3D0017E687 /* AWSLambdaModel.m */; };
@@ -95,6 +99,8 @@
 		CE6397261AC4A7F300459E23 /* AWSLambdaInvoker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AWSLambdaInvoker.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		CE6397271AC4A7F300459E23 /* AWSLambdaInvoker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLambdaInvoker.m; sourceTree = "<group>"; };
 		CE6552381BEC364700DACBC2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		CEB3802C1C177F1F008B520C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CEB3805D1C17809C008B520C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CED822151AC4895F0017E687 /* libAWSLambda.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSLambda.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED822201AC4895F0017E687 /* AWSLambdaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSLambdaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED822261AC4895F0017E687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,6 +118,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB3805F1C1780A0008B520C /* Security.framework in Frameworks */,
+				CEB3802D1C177F1F008B520C /* SystemConfiguration.framework in Frameworks */,
 				CE27CB601BF188ED00B22AB3 /* UIKit.framework in Frameworks */,
 				BDD876AC1B4B52F0009268C7 /* libOCMock.a in Frameworks */,
 				BDF125DD1B45C22300DFBFEC /* libz.dylib in Frameworks */,
@@ -131,6 +139,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB3805E1C17809C008B520C /* Security.framework in Frameworks */,
+				CEB380401C177F9B008B520C /* SystemConfiguration.framework in Frameworks */,
 				CE27CB5F1BF188E900B22AB3 /* UIKit.framework in Frameworks */,
 				CEE532641B03D3A8002CED62 /* libz.dylib in Frameworks */,
 				CE6397131AC48EF300459E23 /* libAWSCore.a in Frameworks */,
@@ -144,6 +154,8 @@
 		3EAFA3A380A2651599D9FC74 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEB3805D1C17809C008B520C /* Security.framework */,
+				CEB3802C1C177F1F008B520C /* SystemConfiguration.framework */,
 				CE27CB5E1BF188E900B22AB3 /* UIKit.framework */,
 				BDD876AB1B4B52F0009268C7 /* libOCMock.a */,
 				CEE532631B03D3A8002CED62 /* libz.dylib */,
@@ -289,7 +301,7 @@
 		CED8220D1AC4895F0017E687 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
 					CED822141AC4895F0017E687 = {

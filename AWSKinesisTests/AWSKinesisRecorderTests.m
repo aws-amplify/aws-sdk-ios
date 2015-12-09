@@ -110,27 +110,18 @@ static NSString *testStreamName = nil;
     XCTAssertEqual([kinesisRecorder class], [AWSKinesisRecorder class]);
     [AWSKinesisRecorder removeKinesisRecorderForKey:@"AWSKinesisRecorderTests.testConstructors"];
     XCTAssertNil([AWSKinesisRecorder KinesisRecorderForKey:@"AWSKinesisRecorderTests.testConstructors"]);
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    kinesisRecorder = [[AWSKinesisRecorder alloc] initWithConfiguration:serviceConfiguration
-                                                             identifier:@"Some random string"];
-#pragma clang diagnostic pop
-
-    XCTAssertNotNil(kinesisRecorder);
-    XCTAssertEqual([kinesisRecorder class], [AWSKinesisRecorder class]);
 }
 
 - (void)testSaveLargeData {
     NSMutableString *mutableString = [NSMutableString new];
-    for (int i = 0; i < 5100; i++) {
+    for (int i = 0; i < 30000; i++) {
         [mutableString appendString:@"0123456789"];
     }
     NSData *data = [mutableString dataUsingEncoding:NSUTF8StringEncoding];
-    XCTAssertGreaterThan([data length], 50 * 1024 - 256);
+    XCTAssertGreaterThan([data length], 256 * 1024 - 256);
     AWSKinesisRecorder *kinesisRecorder = [AWSKinesisRecorder defaultKinesisRecorder];
     [[[kinesisRecorder saveRecord:data
-                     streamName:@"testSaveLargeData"] continueWithBlock:^id(AWSTask *task) {
+                       streamName:@"testSaveLargeData"] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.result);
         XCTAssertNil(task.exception);
         XCTAssertNotNil(task.error);

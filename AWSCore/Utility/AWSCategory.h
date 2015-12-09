@@ -20,6 +20,7 @@ FOUNDATION_EXPORT NSString *const AWSDateISO8601DateFormat1;
 FOUNDATION_EXPORT NSString *const AWSDateISO8601DateFormat2;
 FOUNDATION_EXPORT NSString *const AWSDateISO8601DateFormat3;
 FOUNDATION_EXPORT NSString *const AWSDateShortDateFormat1;
+FOUNDATION_EXPORT NSString *const AWSDateShortDateFormat2;
 
 @interface NSDate (AWS)
 

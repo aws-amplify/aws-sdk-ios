@@ -21,7 +21,7 @@
 #import "AWSLogging.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.3.1";
+NSString *const AWSiOSSDKVersion = @"2.3.2";
 NSString *const AWSServiceConfigurationUnknown = @"Unknown";
 
 #pragma mark - AWSService
@@ -277,6 +277,9 @@ NSString *const AWSServiceNameCognitoService = @"cognito-sync";
 NSString *const AWSServiceNameDynamoDB = @"dynamodb";
 NSString *const AWSServiceNameEC2 = @"ec2";
 NSString *const AWSServiceNameElasticLoadBalancing = @"elasticloadbalancing";
+NSString *const AWSServiceNameIoT = @"execute-api";
+NSString *const AWSServiceNameIoTData = @"iotdata";
+NSString *const AWSServiceNameFirehose = @"firehose";
 NSString *const AWSServiceNameKinesis = @"kinesis";
 NSString *const AWSServiceNameLambda = @"lambda";
 NSString *const AWSServiceNameMachineLearning = @"machinelearning";
@@ -389,6 +392,12 @@ NSString *const AWSServiceNameSTS = @"sts";
             return AWSServiceNameEC2;
         case AWSServiceElasticLoadBalancing:
             return AWSServiceNameElasticLoadBalancing;
+        case AWSServiceIoT:
+            return AWSServiceNameIoT;
+        case AWSServiceIoTData:
+            return AWSServiceNameIoTData;
+        case AWSServiceFirehose:
+            return AWSServiceNameFirehose;
         case AWSServiceKinesis:
             return AWSServiceNameKinesis;
         case AWSServiceLambda:
@@ -452,6 +461,10 @@ NSString *const AWSServiceNameSTS = @"sts";
         }
     } else if (serviceType == AWSServiceSimpleDB && regionType == AWSRegionUSEast1) {
         URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://sdb.amazonaws.com", HTTPType]];
+    } else if (serviceType == AWSServiceIoT) {
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://iot%@%@.amazonaws.com", HTTPType, separator, regionName]];
+    } else if (serviceType == AWSServiceIoTData) {
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://data%@iot%@%@.amazonaws.com", HTTPType, separator, separator, regionName]];
     } else {
         URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@%@%@.amazonaws.com", HTTPType, serviceName, separator, regionName]];
     }

@@ -32,6 +32,7 @@ The [sample apps](https://github.com/awslabs/aws-sdk-ios-samples) are standalone
         pod 'AWSDynamoDB'
         pod 'AWSEC2'
         pod 'AWSElasticLoadBalancing'
+        pod 'AWSIoT'
         pod 'AWSKinesis'
         pod 'AWSLambda'
         pod 'AWSMachineLearning'
@@ -90,6 +91,7 @@ The [sample apps](https://github.com/awslabs/aws-sdk-ios-samples) are standalone
     * `AWSDynamoDB.framework`
     * `AWSEC2.framework`
     * `AWSElasticLoadBalancing.framework`
+    * `AWSIoT.framework`
     * `AWSKinesis.framework`
     * `AWSLambda.framework`
     * `AWSMachineLearning.framework`
@@ -101,7 +103,7 @@ The [sample apps](https://github.com/awslabs/aws-sdk-ios-samples) are standalone
     * `AWSSQS.framework`
     * `extras/AWSCognito.framework` - for [Amazon Cognito Sync](http://aws.amazon.com/cognito/)
 
-1. Open a target for your project, select **Build Phases**, expand **Link Binary With Libraries**, click the **+** button, and add `libsqlite3.dylib`, `libz.dylib`, and `SystemConfiguration.framework`.
+1. Open a target for your project, select **Build Phases**, expand **Link Binary With Libraries**, click the **+** button, and add `libsqlite3.tbd`, `libz.tbd`, `CFNetwork.framework`, `Security.framework`, `SystemConfiguration.framework`, and `UIKit.framework`.
 
 ##Update the SDK to a Newer Version
 
@@ -127,6 +129,7 @@ When we release a new version of the SDK, you can pick up the changes as describ
     * `AWSDynamoDB.framework`
     * `AWSEC2.framework`
     * `AWSElasticLoadBalancing.framework`
+    * `AWSIoT.framework`
     * `AWSKinesis.framework`
     * `AWSLambda.framework`
     * `AWSMachineLearning.framework`
@@ -203,7 +206,7 @@ For detailed steps on how to do identify and resolve this issue if your app is a
 
         let dynamoDB = AWSDynamoDB.defaultDynamoDB()
         let listTableInput = AWSDynamoDBListTablesInput()
-        dynamoDB.listTables(listTableInput).continueWithBlock{ (task: AWSTask!) -> AnyObject! in
+        dynamoDB.listTables(listTableInput).continueWithBlock{ (task: AWSTask!) -> AnyObject? in
             if let error = task.error {
                 print("Error occurred: \(error)")
                 return nil
@@ -297,7 +300,7 @@ The following logging level options are available:
 
 The AWS SDK for iOS includes sample apps that demonstrate common use cases.
 
-###Cognito Sync Sample ([Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoSync-Sample/Objective-C/))
+###Cognito Sync Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoSync-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoSync-Sample/Objective-C/))
 
 This sample demonstrates how to securely manage and sync your mobile app data and create unique identities via login providers including Facebook, Google, and Login with Amazon.
 
@@ -342,6 +345,24 @@ This sample demonstrates how to set up Amazon SNS Mobile Push and record events 
 
 * [Amazon SNS Mobile Push](http://aws.amazon.com/sns/)
 * [Amazon Mobile Analytics](http://aws.amazon.com/mobileanalytics/)
+* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
+
+###IoT Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/IoT-Sample/Swift/))
+
+This sample demonstrates how to publish and subscribe to data using AWS IoT.
+
+####AWS Services Demonstrated:
+
+* [Amazon AWS IoT](http://aws.amazon.com/iot/)
+* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
+
+###IoT Temperature Control Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/IoTTemperatureControl-Sample/Swift/))
+
+This sample demonstrates accessing device shadows using Cognito authentication; it works in conjunction with the Temperature Control Example Program in the [AWS IoT JavaScript SDK for Embedded Devices](https://github.com/aws/aws-iot-device-sdk-js).
+
+####AWS Services Demonstrated:
+
+* [Amazon AWS IoT](http://aws.amazon.com/iot/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
 
 ##Install the Reference Documentation in Xcode

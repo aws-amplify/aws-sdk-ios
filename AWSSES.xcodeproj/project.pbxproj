@@ -30,6 +30,10 @@
 		CE27CB6C1BF192D800B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB6B1BF192D800B22AB3 /* UIKit.framework */; };
 		CE27CB6D1BF192DD00B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB6B1BF192D800B22AB3 /* UIKit.framework */; };
 		CE2EDEA21BF3DF7200B9F26B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE6552401BEC369800DACBC2 /* module.modulemap */; };
+		CEB380331C177F43008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380321C177F43008B520C /* SystemConfiguration.framework */; };
+		CEB3803D1C177F85008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380321C177F43008B520C /* SystemConfiguration.framework */; };
+		CEB380511C17806D008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380501C17806D008B520C /* Security.framework */; };
+		CEB380521C178074008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380501C17806D008B520C /* Security.framework */; };
 		CEE532621B03D3A1002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532611B03D3A1002CED62 /* libz.dylib */; };
 		CEE7DE751AC1E2030095C4B7 /* AWSSESService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE741AC1E2030095C4B7 /* AWSSESService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -96,6 +100,8 @@
 		BDF126311B45C2E400DFBFEC /* AWSSESUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSSESUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE27CB6B1BF192D800B22AB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE6552401BEC369800DACBC2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		CEB380321C177F43008B520C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CEB380501C17806D008B520C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CEE532611B03D3A1002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CEE7DE741AC1E2030095C4B7 /* AWSSESService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSESService.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +118,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB380511C17806D008B520C /* Security.framework in Frameworks */,
+				CEB3803D1C177F85008B520C /* SystemConfiguration.framework in Frameworks */,
 				CE27CB6C1BF192D800B22AB3 /* UIKit.framework in Frameworks */,
 				CEE532621B03D3A1002CED62 /* libz.dylib in Frameworks */,
 				BD00FF3F1AB8B6CB004496EF /* libAWSCore.a in Frameworks */,
@@ -123,6 +131,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB380521C178074008B520C /* Security.framework in Frameworks */,
+				CEB380331C177F43008B520C /* SystemConfiguration.framework in Frameworks */,
 				CE27CB6D1BF192DD00B22AB3 /* UIKit.framework in Frameworks */,
 				BDD876B41B4B5348009268C7 /* libOCMock.a in Frameworks */,
 				BDF126291B45C2E400DFBFEC /* libz.dylib in Frameworks */,
@@ -137,6 +147,8 @@
 		3389B24E19BA4F4B5860898B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEB380501C17806D008B520C /* Security.framework */,
+				CEB380321C177F43008B520C /* SystemConfiguration.framework */,
 				CE27CB6B1BF192D800B22AB3 /* UIKit.framework */,
 				BDD876B31B4B5348009268C7 /* libOCMock.a */,
 				CEE532611B03D3A1002CED62 /* libz.dylib */,
@@ -280,7 +292,7 @@
 		BDB5DE591AB37745002DD224 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
 					BDB5DE601AB37745002DD224 = {

@@ -1538,8 +1538,14 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
     NSMutableDictionary *parsedData = [NSMutableDictionary new];
 
     if (isPayloadData) {
-        //check if it is streaming type
-        if (rules[@"members"][isPayloadData][@"streaming"]) {
+        NSString *shapeName = [rules[@"members"][isPayloadData] objectForKey:@"shape"];
+        //
+        // Check if we should apply additional serialization; for streaming
+        // types or the 'JsonDocument' shape, no additional serialization will
+        // be applied and the data will be returned as-is in the response.
+	// The 'JsonDocument' shape is used by the AWSIoT service.
+        //
+        if ((rules[@"members"][isPayloadData][@"streaming"]) || ([shapeName isEqual:@"JsonDocument"])) {
             parsedData[isPayloadData] = data;
             if (error) *error = nil;
             return parsedData;

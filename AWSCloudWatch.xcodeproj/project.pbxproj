@@ -29,6 +29,10 @@
 		CE27CB431BF17AD500B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB421BF17AD500B22AB3 /* UIKit.framework */; };
 		CE27CB441BF17ADB00B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB421BF17AD500B22AB3 /* UIKit.framework */; };
 		CE2EDE921BF3DF0100B9F26B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE65522E1BEC35DE00DACBC2 /* module.modulemap */; };
+		CEB380211C177EEB008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380201C177EEB008B520C /* SystemConfiguration.framework */; };
+		CEB380451C177FBB008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380201C177EEB008B520C /* SystemConfiguration.framework */; };
+		CEB3806F1C1780CE008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB3806E1C1780CE008B520C /* Security.framework */; };
+		CEB380701C1780D2008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB3806E1C1780CE008B520C /* Security.framework */; };
 		CEE532581B03D332002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532571B03D332002CED62 /* libz.dylib */; };
 		CEE7DE691AC1E1330095C4B7 /* AWSCloudWatchService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE7DE681AC1E1330095C4B7 /* AWSCloudWatchService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEF83EDC1AD3521A00620E1C /* AWSCloudWatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF83ED91AD3521A00620E1C /* AWSCloudWatchTests.m */; };
@@ -93,6 +97,8 @@
 		BDF559171AB3747F0067F4F1 /* AWSCloudWatchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSCloudWatchModel.m; path = ../AWSCloudWatch/AWSCloudWatchModel.m; sourceTree = "<group>"; };
 		CE27CB421BF17AD500B22AB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE65522E1BEC35DE00DACBC2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		CEB380201C177EEB008B520C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CEB3806E1C1780CE008B520C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CEE532571B03D332002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CEE7DE681AC1E1330095C4B7 /* AWSCloudWatchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSCloudWatchService.h; path = ../AWSCloudWatch/AWSCloudWatchService.h; sourceTree = "<group>"; };
 		CEF83ED91AD3521A00620E1C /* AWSCloudWatchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSCloudWatchTests.m; path = ../AWSCloudWatchTests/AWSCloudWatchTests.m; sourceTree = "<group>"; };
@@ -105,6 +111,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB380701C1780D2008B520C /* Security.framework in Frameworks */,
+				CEB380211C177EEB008B520C /* SystemConfiguration.framework in Frameworks */,
 				CE27CB441BF17ADB00B22AB3 /* UIKit.framework in Frameworks */,
 				BDD876A21B4B5247009268C7 /* libOCMock.a in Frameworks */,
 				BDF1257A1B45BFE500DFBFEC /* libz.dylib in Frameworks */,
@@ -124,6 +132,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB3806F1C1780CE008B520C /* Security.framework in Frameworks */,
+				CEB380451C177FBB008B520C /* SystemConfiguration.framework in Frameworks */,
 				CE27CB431BF17AD500B22AB3 /* UIKit.framework in Frameworks */,
 				CEE532581B03D332002CED62 /* libz.dylib in Frameworks */,
 				BD00FF4B1AB8B700004496EF /* libAWSCore.a in Frameworks */,
@@ -137,6 +147,8 @@
 		2953C160B39FCEC4E052451B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEB3806E1C1780CE008B520C /* Security.framework */,
+				CEB380201C177EEB008B520C /* SystemConfiguration.framework */,
 				CE27CB421BF17AD500B22AB3 /* UIKit.framework */,
 				BDD876A11B4B5247009268C7 /* libOCMock.a */,
 				CEE532571B03D332002CED62 /* libz.dylib */,
@@ -279,7 +291,7 @@
 		BDF558F01AB374250067F4F1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
 					BDF558F71AB374250067F4F1 = {
