@@ -371,6 +371,12 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
  */
 @interface AWSS3TransferUtilityUploadTask : AWSS3TransferUtilityTask
 
+/* number of body bytes already sent */
+@property (readonly) int64_t countOfBytesSent;
+
+/* number of body bytes we expect to send, derived from the Content-Length of the HTTP request */
+@property (readonly) int64_t countOfBytesExpectedToSend;
+
 @end
 
 /**

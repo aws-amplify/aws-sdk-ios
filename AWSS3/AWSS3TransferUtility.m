@@ -57,6 +57,20 @@ NSString *const AWSS3TransferUtilityUserAgent = @"transfer-utility";
 
 @end
 
+@implementation AWSS3TransferUtilityUploadTask
+
+- (int64_t)countOfBytesSent
+{
+    self.sessionTask.countOfBytesSent;
+}
+
+- (int64_t)countOfBytesExpectedToSend
+{
+    self.sessionTask.countOfBytesExpectedToSend;
+}
+
+@end
+
 @interface AWSS3TransferUtilityDownloadTask()
 
 @property (strong, nonatomic) AWSS3TransferUtilityDownloadExpression *expression;
