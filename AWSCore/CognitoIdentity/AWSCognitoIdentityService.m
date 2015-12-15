@@ -27,7 +27,7 @@
 #import "AWSSynchronizedMutableDictionary.h"
 #import "AWSCognitoIdentityResources.h"
 
-NSString *const AWSCIBDefinitionFileName = @"cognito-identity-2014-06-30";
+static NSString *const AWSCIBDefinitionFileName = @"cognito-identity-2014-06-30";
 
 @interface AWSCognitoIdentityResponseSerializer : AWSJSONResponseSerializer
 

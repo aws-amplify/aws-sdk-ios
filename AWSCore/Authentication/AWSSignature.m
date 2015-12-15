@@ -22,7 +22,7 @@
 #import "AWSLogging.h"
 #import "AWSBolts.h"
 
-NSString *const AWSSigV4Marker = @"AWS4";
+static NSString *const AWSSigV4Marker = @"AWS4";
 NSString *const AWSSignatureV4Algorithm = @"AWS4-HMAC-SHA256";
 NSString *const AWSSignatureV4Terminator = @"aws4_request";
 
@@ -564,8 +564,8 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
 
 #pragma mark - S3ChunkedEncodingInputStream
 
-NSUInteger defaultChunkSize = 32 * 1024 - 91;
-NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
+static NSUInteger defaultChunkSize = 32 * 1024 - 91;
+static NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
 
 @interface AWSS3ChunkedEncodingInputStream()
 

@@ -21,11 +21,11 @@
 
 NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCognitoCredentialsProviderErrorDomain";
 
-NSString *const AWSCredentialsProviderKeychainAccessKeyId = @"accessKey";
-NSString *const AWSCredentialsProviderKeychainSecretAccessKey = @"secretKey";
-NSString *const AWSCredentialsProviderKeychainSessionToken = @"sessionKey";
-NSString *const AWSCredentialsProviderKeychainExpiration = @"expiration";
-NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
+static NSString *const AWSCredentialsProviderKeychainAccessKeyId = @"accessKey";
+static NSString *const AWSCredentialsProviderKeychainSecretAccessKey = @"secretKey";
+static NSString *const AWSCredentialsProviderKeychainSessionToken = @"sessionKey";
+static NSString *const AWSCredentialsProviderKeychainExpiration = @"expiration";
+static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 
 @implementation AWSStaticCredentialsProvider
 
