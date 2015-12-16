@@ -26,7 +26,7 @@
 #import "AWSSynchronizedMutableDictionary.h"
 #import "AWSSTSResources.h"
 
-NSString *const AWSSTSDefinitionFileName = @"sts-2011-06-15";
+static NSString *const AWSSTSDefinitionFileName = @"sts-2011-06-15";
 
 @interface AWSSTSResponseSerializer : AWSXMLResponseSerializer
 

@@ -26,9 +26,9 @@ NSString *const AWSClientContextHeader = @"x-amz-Client-Context";
 NSString *const AWSClientContextHeaderEncoding = @"x-amz-Client-Context-Encoding";
 
 // Private constants
-NSString *const AWSClientContextUnknown = @"Unknown";
-NSString *const AWSClientContextKeychainService = @"com.amazonaws.AWSClientContext";
-NSString *const AWSClientContextKeychainInstallationIdKey = @"com.amazonaws.AWSClientContextKeychainInstallationIdKey";
+static NSString *const AWSClientContextUnknown = @"Unknown";
+static NSString *const AWSClientContextKeychainService = @"com.amazonaws.AWSClientContext";
+static NSString *const AWSClientContextKeychainInstallationIdKey = @"com.amazonaws.AWSClientContextKeychainInstallationIdKey";
 
 @interface AWSClientContext()
 

@@ -22,7 +22,7 @@
 #import "AWSCategory.h"
 
 NSString *const AWSiOSSDKVersion = @"2.3.2";
-NSString *const AWSServiceConfigurationUnknown = @"Unknown";
+static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
 
 #pragma mark - AWSService
 
@@ -257,39 +257,39 @@ static NSMutableArray *_globalUserAgentPrefixes = nil;
 
 #pragma mark - AWSEndpoint
 
-NSString *const AWSRegionNameUSEast1 = @"us-east-1";
-NSString *const AWSRegionNameUSWest2 = @"us-west-2";
-NSString *const AWSRegionNameUSWest1 = @"us-west-1";
-NSString *const AWSRegionNameEUWest1 = @"eu-west-1";
-NSString *const AWSRegionNameEUCentral1 = @"eu-central-1";
-NSString *const AWSRegionNameAPSoutheast1 = @"ap-southeast-1";
-NSString *const AWSRegionNameAPNortheast1 = @"ap-northeast-1";
-NSString *const AWSRegionNameAPSoutheast2 = @"ap-southeast-2";
-NSString *const AWSRegionNameSAEast1 = @"sa-east-1";
-NSString *const AWSRegionNameCNNorth1 = @"cn-north-1";
-NSString *const AWSRegionNameUSGovWest1 = @"us-gov-west-1";
+static NSString *const AWSRegionNameUSEast1 = @"us-east-1";
+static NSString *const AWSRegionNameUSWest2 = @"us-west-2";
+static NSString *const AWSRegionNameUSWest1 = @"us-west-1";
+static NSString *const AWSRegionNameEUWest1 = @"eu-west-1";
+static NSString *const AWSRegionNameEUCentral1 = @"eu-central-1";
+static NSString *const AWSRegionNameAPSoutheast1 = @"ap-southeast-1";
+static NSString *const AWSRegionNameAPNortheast1 = @"ap-northeast-1";
+static NSString *const AWSRegionNameAPSoutheast2 = @"ap-southeast-2";
+static NSString *const AWSRegionNameSAEast1 = @"sa-east-1";
+static NSString *const AWSRegionNameCNNorth1 = @"cn-north-1";
+static NSString *const AWSRegionNameUSGovWest1 = @"us-gov-west-1";
 
-NSString *const AWSServiceNameAPIGateway = @"execute-api";
-NSString *const AWSServiceNameAutoScaling = @"autoscaling";
-NSString *const AWSServiceNameCloudWatch = @"monitoring";
-NSString *const AWSServiceNameCognitoIdentityBroker = @"cognito-identity";
-NSString *const AWSServiceNameCognitoService = @"cognito-sync";
-NSString *const AWSServiceNameDynamoDB = @"dynamodb";
-NSString *const AWSServiceNameEC2 = @"ec2";
-NSString *const AWSServiceNameElasticLoadBalancing = @"elasticloadbalancing";
-NSString *const AWSServiceNameIoT = @"execute-api";
-NSString *const AWSServiceNameIoTData = @"iotdata";
-NSString *const AWSServiceNameFirehose = @"firehose";
-NSString *const AWSServiceNameKinesis = @"kinesis";
-NSString *const AWSServiceNameLambda = @"lambda";
-NSString *const AWSServiceNameMachineLearning = @"machinelearning";
-NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
-NSString *const AWSServiceNameS3 = @"s3";
-NSString *const AWSServiceNameSES = @"email";
-NSString *const AWSServiceNameSimpleDB = @"sdb";
-NSString *const AWSServiceNameSNS = @"sns";
-NSString *const AWSServiceNameSQS = @"sqs";
-NSString *const AWSServiceNameSTS = @"sts";
+static NSString *const AWSServiceNameAPIGateway = @"execute-api";
+static NSString *const AWSServiceNameAutoScaling = @"autoscaling";
+static NSString *const AWSServiceNameCloudWatch = @"monitoring";
+static NSString *const AWSServiceNameCognitoIdentityBroker = @"cognito-identity";
+static NSString *const AWSServiceNameCognitoService = @"cognito-sync";
+static NSString *const AWSServiceNameDynamoDB = @"dynamodb";
+static NSString *const AWSServiceNameEC2 = @"ec2";
+static NSString *const AWSServiceNameElasticLoadBalancing = @"elasticloadbalancing";
+static NSString *const AWSServiceNameIoT = @"execute-api";
+static NSString *const AWSServiceNameIoTData = @"iotdata";
+static NSString *const AWSServiceNameFirehose = @"firehose";
+static NSString *const AWSServiceNameKinesis = @"kinesis";
+static NSString *const AWSServiceNameLambda = @"lambda";
+static NSString *const AWSServiceNameMachineLearning = @"machinelearning";
+static NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
+static NSString *const AWSServiceNameS3 = @"s3";
+static NSString *const AWSServiceNameSES = @"email";
+static NSString *const AWSServiceNameSimpleDB = @"sdb";
+static NSString *const AWSServiceNameSNS = @"sns";
+static NSString *const AWSServiceNameSQS = @"sqs";
+static NSString *const AWSServiceNameSTS = @"sts";
 
 @implementation AWSEndpoint
 
