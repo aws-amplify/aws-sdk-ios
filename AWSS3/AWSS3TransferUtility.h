@@ -364,18 +364,29 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
  */
 - (void)suspend;
 
-@end
+// NSURLSessionTask access
 
-/**
- The task object to represent a upload task.
- */
-@interface AWSS3TransferUtilityUploadTask : AWSS3TransferUtilityTask
+/* number of body bytes already received */
+@property (readonly) int64_t countOfBytesReceived;
 
 /* number of body bytes already sent */
 @property (readonly) int64_t countOfBytesSent;
 
 /* number of body bytes we expect to send, derived from the Content-Length of the HTTP request */
 @property (readonly) int64_t countOfBytesExpectedToSend;
+
+/* number of byte bytes we expect to receive, usually derived from the Content-Length header of an HTTP response. */
+@property (readonly) int64_t countOfBytesExpectedToReceive;
+
+/* progress of NSURLSessionTask */
+@property (readonly) NSProgress *progress;
+
+@end
+
+/**
+ The task object to represent a upload task.
+ */
+@interface AWSS3TransferUtilityUploadTask : AWSS3TransferUtilityTask
 
 @end
 

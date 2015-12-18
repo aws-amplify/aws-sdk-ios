@@ -59,16 +59,6 @@ NSString *const AWSS3TransferUtilityUserAgent = @"transfer-utility";
 
 @implementation AWSS3TransferUtilityUploadTask
 
-- (int64_t)countOfBytesSent
-{
-    self.sessionTask.countOfBytesSent;
-}
-
-- (int64_t)countOfBytesExpectedToSend
-{
-    self.sessionTask.countOfBytesExpectedToSend;
-}
-
 @end
 
 @interface AWSS3TransferUtilityDownloadTask()
@@ -638,6 +628,7 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
                                                                 totalBytesSent,
                                                                 totalBytesExpectedToSend);
         }
+        [transferUtilityUploadTask.progress setCompletedUnitCount:totalBytesSent];
     }
 }
 
@@ -674,6 +665,7 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
                                                                 totalBytesWritten,
                                                                 totalBytesExpectedToWrite);
     }
+    [transferUtilityDownloadTask.progress setCompletedUnitCount:bytesWritten];
 }
 
 @end
@@ -696,6 +688,40 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
 
 - (void)suspend {
     [self.sessionTask suspend];
+}
+
+@dynamic countOfBytesReceived, countOfBytesSent, countOfBytesExpectedToSend, countOfBytesExpectedToReceive;
+
+- (int64_t)countOfBytesReceived
+{
+    return self.sessionTask.countOfBytesReceived;
+}
+
+- (int64_t)countOfBytesSent
+{
+    return self.sessionTask.countOfBytesSent;
+}
+
+- (int64_t)countOfBytesExpectedToSend
+{
+    return self.sessionTask.countOfBytesExpectedToSend;
+}
+
+- (int64_t)countOfBytesExpectedToReceive
+{
+    return self.sessionTask.countOfBytesExpectedToReceive;
+}
+
+- (void)setSessionTask:(NSURLSessionTask *)sessionTask
+{
+    _sessionTask = sessionTask;
+    if ([sessionTask isKindOfClass:[NSURLSessionUploadTask class]]) {
+        _progress = [NSProgress progressWithTotalUnitCount:_sessionTask.countOfBytesExpectedToSend];
+    }
+    
+    if ([sessionTask isKindOfClass:[NSURLSessionDownloadTask class]]) {
+        _progress = [NSProgress progressWithTotalUnitCount:_sessionTask.countOfBytesExpectedToReceive];
+    }
 }
 
 @end
