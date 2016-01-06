@@ -144,17 +144,19 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     return NO;
 }
 
-+ (BOOL)addCertificateToKeychain:(NSString*)cert {
- 
++ (NSData *)certToDer:(NSString *)cert {
     if ([cert rangeOfString:AWSIoTKeychainStartCertKeyTag].location != NSNotFound) {
         cert = [cert substringFromIndex:AWSIoTKeychainStartCertKeyTag.length];
     }
     if ([cert rangeOfString:AWSIoTKeychainEndCertKeyTag].location != NSNotFound) {
         cert = [cert substringToIndex:(cert.length - AWSIoTKeychainEndCertKeyTag.length)];
     }
-    
-    NSData *certData = [AWSIoTKeychain base64DecodeWithIgnoreUnknownSymbols:cert];
-    return [AWSIoTKeychain addCertificate:certData];
+
+    return [AWSIoTKeychain base64DecodeWithIgnoreUnknownSymbols:cert];
+}
+
++ (BOOL)addCertificateToKeychain:(NSString*)cert {
+    return [AWSIoTKeychain addCertificate:[AWSIoTKeychain certToDer:cert]];
 }
 
 + (BOOL)addCertificate:(NSData*)cert {
@@ -164,8 +166,13 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
         return NO;
     }
     
+    return [self addCertificateRef:certRef];
+}
+
+
++ (BOOL)addCertificateRef:(SecCertificateRef)certRef {
     NSMutableDictionary * queryCertificate = [[NSMutableDictionary alloc] init];
-    
+
     [queryCertificate setObject:(id)kSecClassCertificate forKey:(id)kSecClass];
     [queryCertificate setObject:[AWSIoTKeychain certTag] forKey:(id)kSecAttrLabel];
     [queryCertificate setObject:(__bridge id)certRef forKey:(id)kSecValueRef];
@@ -175,7 +182,7 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
         NSLog(@"add certificate to keychain with error: %d", (int)sanityCheck);
         return NO;
     }
-    
+
     return YES;
 }
 

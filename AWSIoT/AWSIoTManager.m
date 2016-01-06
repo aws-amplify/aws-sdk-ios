@@ -188,6 +188,119 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
++ (bool)importPKCS12:(NSData *)pk12Data withPassPharse:(NSString *)passPhrase forCertificateId:(NSString *)certificateId {
+    SecKeyRef privateKey = NULL;
+    SecKeyRef publicKey = NULL;
+    SecCertificateRef certRef = NULL;
+
+
+    [AWSIoTManager readPk12:pk12Data withPassPhrase:passPhrase certRef:&certRef privateKeyRef:&privateKey publicKeyRef:&publicKey];
+
+    NSString *publicTag = [AWSIoTKeychain.publicKeyTag stringByAppendingString:certificateId];
+    NSString *privateTag = [AWSIoTKeychain.privateKeyTag stringByAppendingString:certificateId];
+
+    if (![AWSIoTKeychain addPrivateKeyRef:privateKey tag:privateTag]) {
+        NSLog(@"Unable to add private key");
+        return NO;
+    }
+
+    if (![AWSIoTKeychain addPublicKeyRef:publicKey tag:publicTag]) {
+        [AWSIoTKeychain deleteAsymmetricKeysWithPublicTag:publicTag privateTag:privateTag];
+
+        NSLog(@"Unable to add public key");
+        return NO;
+    }
+
+    if(![AWSIoTKeychain addCertificateRef:certRef]) {
+        [AWSIoTKeychain deleteAsymmetricKeysWithPublicTag:publicTag privateTag:privateTag];
+
+        NSLog(@"Unable to add certificate");
+        return NO;
+    }
+
+    return YES;
+}
+
+// Helper method to get cert, public key, and private key reference to import into the keychain.
++ (BOOL)readPk12:(NSData *)pk12Data withPassPhrase:(NSString *)passPhrase certRef:(SecCertificateRef *)certRef privateKeyRef:(SecKeyRef *)privateKeyRef publicKeyRef:(SecKeyRef *)publicKeyRef {
+    SecPolicyRef policy = NULL;
+    SecTrustRef trust = NULL;
+
+    // cleanup stuff in a block so we don't need to do this over and over again.
+    static BOOL (^cleanup)();
+    static BOOL (^errorCleanup)();
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        cleanup = ^BOOL {
+            if(policy) {
+                CFRelease(policy);
+            }
+
+            if(trust) {
+                CFRelease(trust);
+            }
+
+            return YES;
+        };
+
+        errorCleanup = ^BOOL {
+            *privateKeyRef = NULL;
+            *publicKeyRef = NULL;
+            *certRef = NULL;
+
+            cleanup();
+
+            return NO;
+        };
+    });
+
+    CFDictionaryRef secImportOptions = (__bridge CFDictionaryRef) @{(__bridge id) kSecImportExportPassphrase : passPhrase};
+    CFArrayRef secImportItems = NULL;
+
+    OSStatus status = SecPKCS12Import((__bridge CFDataRef) pk12Data, (CFDictionaryRef) secImportOptions, &secImportItems);
+
+    if (status == errSecSuccess && CFArrayGetCount(secImportItems) > 0) {
+        CFDictionaryRef identityDict = CFArrayGetValueAtIndex(secImportItems, 0);
+        SecIdentityRef identityApp = (SecIdentityRef) CFDictionaryGetValue(identityDict, kSecImportItemIdentity);
+
+        if (SecIdentityCopyPrivateKey(identityApp, privateKeyRef) != errSecSuccess) {
+            NSLog(@"Unable to copy private key");
+            return errorCleanup();
+        }
+
+        if (SecIdentityCopyCertificate(identityApp, certRef) != errSecSuccess) {
+            NSLog(@"Unable to copy certificate");
+            return errorCleanup();
+        }
+
+        // it would be as easy as calling SecCertificateCopyPublicKey(*certRef, publicKeyRef)... however iOS doesn't let you use this so we have to go around and get it in a different way.
+        policy = SecPolicyCreateBasicX509();
+        status = SecTrustCreateWithCertificates((__bridge CFArrayRef) @[(__bridge id) *certRef], policy, &trust);
+        if (status != errSecSuccess) {
+            NSLog(@"Unable to create trust");
+            return errorCleanup();
+        }
+
+        SecTrustResultType result;
+        if (SecTrustEvaluate(trust, &result) != errSecSuccess) {
+            NSLog(@"Unable to evaluate trust");
+            return errorCleanup();
+        }
+
+        *publicKeyRef = SecTrustCopyPublicKey(trust);
+        if(*publicKeyRef == NULL) {
+            NSLog(@"Unable to copy public key");
+            return errorCleanup();
+        }
+
+        return cleanup();
+    }
+
+
+    NSLog(@"No item in PKCS12");
+    return errorCleanup();
+}
+
 + (BOOL)deleteCertificate {
     return [AWSIoTKeychain removeCertificate];
 }

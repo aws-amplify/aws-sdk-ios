@@ -185,6 +185,20 @@
  */
 - (void)createKeysAndCertificateFromCsr:(NSDictionary *)csrDictionary callback:(void (^)(AWSIoTCreateCertificateResponse *mainResponse))callback;
 
+
+// openssl pkcs12 -export -in cert.pem -inkey key.pem -CAFile root-ca.crt -out cloud-key.p12
+/**
+ * Import PKCS12 into keychain.
+ *
+ * @param pk12Data pk12 raw data. Will only import the first item.
+ *
+ * @param passPhrase Pass pharse used to decrypt the pk12 data.
+ *
+ * @param certificateId Unique identifier used to find the key/certificate for use.
+ *
+ */
++ (bool)importPKCS12:(NSData *)pk12Data withPassPharse:(NSString *)passPhrase forCertificateId:(NSString *)certificateId;
+
 /**
  *  Validates the certificate with the given identifier of certificate.
  *
