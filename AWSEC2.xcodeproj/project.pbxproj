@@ -87,8 +87,8 @@
 		BD00FF461AB8B6F0004496EF /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
 		BD00FFF81AB8C456004496EF /* AWSGeneralEC2Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSGeneralEC2Tests.m; path = ../AWSEC2Tests/AWSGeneralEC2Tests.m; sourceTree = "<group>"; };
 		BD00FFF91AB8C456004496EF /* AWSEC2Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSEC2Tests.m; path = ../AWSEC2Tests/AWSEC2Tests.m; sourceTree = "<group>"; };
-		BDB73D711B1D3ECD00717559 /* AWSEC2Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSEC2Resources.h; sourceTree = "<group>"; };
-		BDB73D721B1D3ECD00717559 /* AWSEC2Resources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSEC2Resources.m; sourceTree = "<group>"; };
+		BDB73D711B1D3ECD00717559 /* AWSEC2Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AWSEC2Resources.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		BDB73D721B1D3ECD00717559 /* AWSEC2Resources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSEC2Resources.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BDD876A51B4B52C0009268C7 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = AWSCoreTests/OCMock/libOCMock.a; sourceTree = "<group>"; };
 		BDF125AC1B45C17D00DFBFEC /* AWSEC2UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSEC2UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF5595A1AB375800067F4F1 /* libAWSEC2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSEC2.a; sourceTree = BUILT_PRODUCTS_DIR; };

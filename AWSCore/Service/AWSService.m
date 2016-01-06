@@ -1,17 +1,17 @@
-/*
- Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License").
- You may not use this file except in compliance with the License.
- A copy of the License is located at
-
- http://aws.amazon.com/apache2.0
-
- or in the "license" file accompanying this file. This file is distributed
- on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- express or implied. See the License for the specific language governing
- permissions and limitations under the License.
- */
+//
+// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License").
+// You may not use this file except in compliance with the License.
+// A copy of the License is located at
+//
+// http://aws.amazon.com/apache2.0
+//
+// or in the "license" file accompanying this file. This file is distributed
+// on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+// express or implied. See the License for the specific language governing
+// permissions and limitations under the License.
+//
 
 #import "AWSService.h"
 
@@ -21,7 +21,7 @@
 #import "AWSLogging.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.3.2";
+NSString *const AWSiOSSDKVersion = @"2.3.3";
 static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
 
 #pragma mark - AWSService
@@ -76,6 +76,9 @@ static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
     }
     if ([regionTypeString isEqualToString:@"AWSRegionAPNortheast1"]) {
         return AWSRegionAPNortheast1;
+    }
+    if ([regionTypeString isEqualToString:@"AWSRegionAPNortheast2"]) {
+        return AWSRegionAPNortheast2;
     }
     if ([regionTypeString isEqualToString:@"AWSRegionAPSoutheast2"]) {
         return AWSRegionAPSoutheast2;
@@ -264,6 +267,7 @@ static NSString *const AWSRegionNameEUWest1 = @"eu-west-1";
 static NSString *const AWSRegionNameEUCentral1 = @"eu-central-1";
 static NSString *const AWSRegionNameAPSoutheast1 = @"ap-southeast-1";
 static NSString *const AWSRegionNameAPNortheast1 = @"ap-northeast-1";
+static NSString *const AWSRegionNameAPNortheast2 = @"ap-northeast-2";
 static NSString *const AWSRegionNameAPSoutheast2 = @"ap-southeast-2";
 static NSString *const AWSRegionNameSAEast1 = @"sa-east-1";
 static NSString *const AWSRegionNameCNNorth1 = @"cn-north-1";
@@ -272,8 +276,8 @@ static NSString *const AWSRegionNameUSGovWest1 = @"us-gov-west-1";
 static NSString *const AWSServiceNameAPIGateway = @"execute-api";
 static NSString *const AWSServiceNameAutoScaling = @"autoscaling";
 static NSString *const AWSServiceNameCloudWatch = @"monitoring";
-static NSString *const AWSServiceNameCognitoIdentityBroker = @"cognito-identity";
-static NSString *const AWSServiceNameCognitoService = @"cognito-sync";
+static NSString *const AWSServiceNameCognitoIdentity = @"cognito-identity";
+static NSString *const AWSServiceNameCognitoSync = @"cognito-sync";
 static NSString *const AWSServiceNameDynamoDB = @"dynamodb";
 static NSString *const AWSServiceNameEC2 = @"ec2";
 static NSString *const AWSServiceNameElasticLoadBalancing = @"elasticloadbalancing";
@@ -363,6 +367,8 @@ static NSString *const AWSServiceNameSTS = @"sts";
             return AWSRegionNameAPSoutheast2;
         case AWSRegionAPNortheast1:
             return AWSRegionNameAPNortheast1;
+        case AWSRegionAPNortheast2:
+            return AWSRegionNameAPNortheast2;
         case AWSRegionSAEast1:
             return AWSRegionNameSAEast1;
         case AWSRegionCNNorth1:
@@ -382,10 +388,10 @@ static NSString *const AWSServiceNameSTS = @"sts";
             return AWSServiceNameAutoScaling;
         case AWSServiceCloudWatch:
             return AWSServiceNameCloudWatch;
-        case AWSServiceCognitoIdentityBroker:
-            return AWSServiceNameCognitoIdentityBroker;
-        case AWSServiceCognitoService:
-            return AWSServiceNameCognitoService;
+        case AWSServiceCognitoIdentity:
+            return AWSServiceNameCognitoIdentity;
+        case AWSServiceCognitoSync:
+            return AWSServiceNameCognitoSync;
         case AWSServiceDynamoDB:
             return AWSServiceNameDynamoDB;
         case AWSServiceEC2:
@@ -438,6 +444,7 @@ static NSString *const AWSServiceNameSTS = @"sts";
             || regionType == AWSRegionEUWest1
             || regionType == AWSRegionAPSoutheast1
             || regionType == AWSRegionAPNortheast1
+            || regionType == AWSRegionAPNortheast2
             || regionType == AWSRegionAPSoutheast2
             || regionType == AWSRegionSAEast1
             || regionType == AWSRegionUSGovWest1)) {

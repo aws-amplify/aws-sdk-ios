@@ -298,16 +298,16 @@
 		BD39B0D01B6AF6FF004296BE /* AWSMockFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSMockFileManager.m; sourceTree = "<group>"; };
 		BDB73D611B1D3E3300717559 /* AWSMobileAnalyticsERSResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsERSResources.h; path = AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSResources.h; sourceTree = SOURCE_ROOT; };
 		BDB73D621B1D3E3300717559 /* AWSMobileAnalyticsERSResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSMobileAnalyticsERSResources.m; path = AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSResources.m; sourceTree = SOURCE_ROOT; };
-		BDD876AF1B4B5316009268C7 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = ../AWSCoreTests/OCMock/libOCMock.a; sourceTree = "<group>"; };
+		BDD876AF1B4B5316009268C7 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = AWSCoreTests/OCMock/libOCMock.a; sourceTree = "<group>"; };
 		BDF1260B1B45C27900DFBFEC /* AWSMobileAnalyticsUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSMobileAnalyticsUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE27CB641BF1894E00B22AB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		CE2E0C661B03EB9100DE3906 /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "../build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
+		CE2E0C661B03EB9100DE3906 /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
 		CE2E0C681B03EBDB00DE3906 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CE2E0C6A1B03EBE600DE3906 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CE2E0C6C1B03EC6D00DE3906 /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
 		CE2E0C771B03EFD300DE3906 /* AWSMobileAnalyticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSMobileAnalyticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2E0C7A1B03EFD300DE3906 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE2E0C8E1B03F2A300DE3906 /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "../build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
+		CE2E0C8E1B03F2A300DE3906 /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
 		CE2E0C901B03F2B400DE3906 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CE5FAB971B042B3000D7010F /* AWSMobileAnalyticsERS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsERS.h; path = AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERS.h; sourceTree = SOURCE_ROOT; };
 		CE5FAB981B042B3000D7010F /* AWSMobileAnalyticsERSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsERSModel.h; path = AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSModel.h; sourceTree = SOURCE_ROOT; };
@@ -543,7 +543,7 @@
 		CEE533C31B03E4FB002CED62 /* AZIOSClientContextTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZIOSClientContextTests.m; sourceTree = "<group>"; };
 		CEE533C41B03E4FB002CED62 /* BlockingInterceptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockingInterceptor.h; sourceTree = "<group>"; };
 		CEE533C51B03E4FB002CED62 /* BlockingInterceptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockingInterceptor.m; sourceTree = "<group>"; };
-		CEE533CA1B03E4FB002CED62 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrestIOS.framework; sourceTree = "<group>"; };
+		CEE533CA1B03E4FB002CED62 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = AWSMobileAnalyticsTests/Frameworks/OCHamcrestIOS.framework; sourceTree = "<group>"; };
 		CEE533CB1B03E4FB002CED62 /* NSLocale+TTTOverrideLocale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLocale+TTTOverrideLocale.h"; sourceTree = "<group>"; };
 		CEE533CC1B03E4FB002CED62 /* NSLocale+TTTOverrideLocale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLocale+TTTOverrideLocale.m"; sourceTree = "<group>"; };
 		CEE533CD1B03E4FB002CED62 /* NSObject+TTTSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TTTSwizzling.h"; sourceTree = "<group>"; };
@@ -637,24 +637,36 @@
 		CE2E0C791B03EFD300DE3906 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CE27CB641BF1894E00B22AB3 /* UIKit.framework */,
-				BDD876AF1B4B5316009268C7 /* libOCMock.a */,
-				CE2E0C901B03F2B400DE3906 /* SystemConfiguration.framework */,
-				CE2E0C8E1B03F2A300DE3906 /* libAWSCore.a */,
-				CE2E0C6C1B03EC6D00DE3906 /* credentials.json */,
 				CEE5341B1B03E5C0002CED62 /* AWSTestUtility.m */,
+				CE2E0C6C1B03EC6D00DE3906 /* credentials.json */,
 				CE2E0C7A1B03EFD300DE3906 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CE4D25BF1C3B541900C1D812 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE2E0C6A1B03EBE600DE3906 /* libsqlite3.dylib */,
+				CE2E0C681B03EBDB00DE3906 /* libz.dylib */,
+				CE2E0C661B03EB9100DE3906 /* libAWSCore.a */,
+				CEE533CA1B03E4FB002CED62 /* OCHamcrestIOS.framework */,
+				CE2E0C8E1B03F2A300DE3906 /* libAWSCore.a */,
+				BDD876AF1B4B5316009268C7 /* libOCMock.a */,
+				CEB380561C178084008B520C /* Security.framework */,
+				CE2E0C901B03F2B400DE3906 /* SystemConfiguration.framework */,
+				CE27CB641BF1894E00B22AB3 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CEE5326F1B03DE7F002CED62 = {
 			isa = PBXGroup;
 			children = (
-				CEB380561C178084008B520C /* Security.framework */,
 				CEE5327A1B03DE7F002CED62 /* AWSMobileAnalytics */,
-				CE2E0C781B03EFD300DE3906 /* AWSMobileAnalyticsTests */,
 				CEE532871B03DE7F002CED62 /* AWSMobileAnalyticsLegacyTests */,
+				CE2E0C781B03EFD300DE3906 /* AWSMobileAnalyticsTests */,
+				CE4D25BF1C3B541900C1D812 /* Frameworks */,
 				CEE532791B03DE7F002CED62 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -697,7 +709,6 @@
 		CEE532871B03DE7F002CED62 /* AWSMobileAnalyticsLegacyTests */ = {
 			isa = PBXGroup;
 			children = (
-				BD39B0CE1B6AF6C7004296BE /* Helper */,
 				CEE5336A1B03E4FB002CED62 /* AIActiveSessionStateTests.h */,
 				CEE5336B1B03E4FB002CED62 /* AIActiveSessionStateTests.m */,
 				CEE5336C1B03E4FB002CED62 /* AIAmazonInsightsTests.h */,
@@ -786,13 +797,14 @@
 				CEE533C31B03E4FB002CED62 /* AZIOSClientContextTests.m */,
 				CEE533C41B03E4FB002CED62 /* BlockingInterceptor.h */,
 				CEE533C51B03E4FB002CED62 /* BlockingInterceptor.m */,
-				CEE533C91B03E4FB002CED62 /* Frameworks */,
+				BD39B0CE1B6AF6C7004296BE /* Helper */,
 				CEE533CB1B03E4FB002CED62 /* NSLocale+TTTOverrideLocale.h */,
 				CEE533CC1B03E4FB002CED62 /* NSLocale+TTTOverrideLocale.m */,
 				CEE533CD1B03E4FB002CED62 /* NSObject+TTTSwizzling.h */,
 				CEE533CE1B03E4FB002CED62 /* NSObject+TTTSwizzling.m */,
 				CEE533CF1B03E4FB002CED62 /* NSURLRequest+NSURLRequestSSLY.h */,
 				CEE533D01B03E4FB002CED62 /* NSURLRequest+NSURLRequestSSLY.m */,
+				CEE532881B03DE7F002CED62 /* Supporting Files */,
 				CEE533D11B03E4FB002CED62 /* TestConnectivity.h */,
 				CEE533D21B03E4FB002CED62 /* TestConnectivity.m */,
 				CEE533D31B03E4FB002CED62 /* TestConstants.h */,
@@ -800,7 +812,6 @@
 				CEE533D51B03E4FB002CED62 /* TestEventObserver.m */,
 				CEE533D61B03E4FB002CED62 /* TestInsightsContext.h */,
 				CEE533D71B03E4FB002CED62 /* TestInsightsContext.m */,
-				CEE532881B03DE7F002CED62 /* Supporting Files */,
 			);
 			name = AWSMobileAnalyticsLegacyTests;
 			path = AWSMobileAnalyticsTests;
@@ -809,9 +820,6 @@
 		CEE532881B03DE7F002CED62 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CE2E0C6A1B03EBE600DE3906 /* libsqlite3.dylib */,
-				CE2E0C681B03EBDB00DE3906 /* libz.dylib */,
-				CE2E0C661B03EB9100DE3906 /* libAWSCore.a */,
 				CEE532891B03DE7F002CED62 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -956,14 +964,6 @@
 			);
 			name = AWSMobileAnalyticsERS;
 			path = MobileAnalyticsERS;
-			sourceTree = "<group>";
-		};
-		CEE533C91B03E4FB002CED62 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CEE533CA1B03E4FB002CED62 /* OCHamcrestIOS.framework */,
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -1,5 +1,13 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.3.3
+
+### New Features
+* **Amazon Kinesis Firehose**
+    * Added Amazon Kinesis Firehose support.
+* **Asia Pacific (Seoul) Region**
+    * Added Asia Pacific (Seoul) Region support. See `AWSServiceEnum.h` for more details.
+
 ## 2.3.2
 
 ### New Features

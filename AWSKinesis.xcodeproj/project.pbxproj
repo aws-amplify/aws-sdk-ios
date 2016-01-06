@@ -41,6 +41,17 @@
 		CEB380411C177FA3008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB3802A1C177F19008B520C /* SystemConfiguration.framework */; };
 		CEB380611C1780A5008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380601C1780A5008B520C /* Security.framework */; };
 		CEB380621C1780A9008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380601C1780A5008B520C /* Security.framework */; };
+		CEBA353F1C24D4140003237B /* AWSFirehoseModel.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBA35371C24D4140003237B /* AWSFirehoseModel.h */; };
+		CEBA35401C24D4140003237B /* AWSFirehoseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA35381C24D4140003237B /* AWSFirehoseModel.m */; };
+		CEBA35411C24D4140003237B /* AWSFirehoseRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBA35391C24D4140003237B /* AWSFirehoseRecorder.h */; };
+		CEBA35421C24D4140003237B /* AWSFirehoseRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA353A1C24D4140003237B /* AWSFirehoseRecorder.m */; };
+		CEBA35431C24D4140003237B /* AWSFirehoseResources.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBA353B1C24D4140003237B /* AWSFirehoseResources.h */; };
+		CEBA35441C24D4140003237B /* AWSFirehoseResources.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA353C1C24D4140003237B /* AWSFirehoseResources.m */; };
+		CEBA35451C24D4140003237B /* AWSFirehoseService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBA353D1C24D4140003237B /* AWSFirehoseService.h */; };
+		CEBA35461C24D4140003237B /* AWSFirehoseService.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA353E1C24D4140003237B /* AWSFirehoseService.m */; };
+		CEBA354A1C24D4280003237B /* AWSFirehoseRecorderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA35471C24D4280003237B /* AWSFirehoseRecorderTests.m */; };
+		CEBA354B1C24D4280003237B /* AWSFirehoseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA35481C24D4280003237B /* AWSFirehoseTests.m */; };
+		CEBA354D1C24D4390003237B /* AWSGeneralFirehoseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA35491C24D4280003237B /* AWSGeneralFirehoseTests.m */; };
 		CEDEC21C1BFD640100BE16EA /* AWSAbstractKinesisRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = CEDEC21A1BFD640100BE16EA /* AWSAbstractKinesisRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEDEC21D1BFD640100BE16EA /* AWSAbstractKinesisRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDEC21B1BFD640100BE16EA /* AWSAbstractKinesisRecorder.m */; };
 		CEE532661B03D3B2002CED62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE532651B03D3B2002CED62 /* libz.dylib */; };
@@ -117,6 +128,17 @@
 		CE6552361BEC363600DACBC2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		CEB3802A1C177F19008B520C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CEB380601C1780A5008B520C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CEBA35371C24D4140003237B /* AWSFirehoseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSFirehoseModel.h; sourceTree = "<group>"; };
+		CEBA35381C24D4140003237B /* AWSFirehoseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSFirehoseModel.m; sourceTree = "<group>"; };
+		CEBA35391C24D4140003237B /* AWSFirehoseRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSFirehoseRecorder.h; sourceTree = "<group>"; };
+		CEBA353A1C24D4140003237B /* AWSFirehoseRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSFirehoseRecorder.m; sourceTree = "<group>"; };
+		CEBA353B1C24D4140003237B /* AWSFirehoseResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSFirehoseResources.h; sourceTree = "<group>"; };
+		CEBA353C1C24D4140003237B /* AWSFirehoseResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSFirehoseResources.m; sourceTree = "<group>"; };
+		CEBA353D1C24D4140003237B /* AWSFirehoseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSFirehoseService.h; sourceTree = "<group>"; };
+		CEBA353E1C24D4140003237B /* AWSFirehoseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSFirehoseService.m; sourceTree = "<group>"; };
+		CEBA35471C24D4280003237B /* AWSFirehoseRecorderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSFirehoseRecorderTests.m; sourceTree = "<group>"; };
+		CEBA35481C24D4280003237B /* AWSFirehoseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSFirehoseTests.m; sourceTree = "<group>"; };
+		CEBA35491C24D4280003237B /* AWSGeneralFirehoseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralFirehoseTests.m; sourceTree = "<group>"; };
 		CEDEC21A1BFD640100BE16EA /* AWSAbstractKinesisRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSAbstractKinesisRecorder.h; sourceTree = "<group>"; };
 		CEDEC21B1BFD640100BE16EA /* AWSAbstractKinesisRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSAbstractKinesisRecorder.m; sourceTree = "<group>"; };
 		CEE532651B03D3B2002CED62 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -188,6 +210,14 @@
 			children = (
 				CEDEC21A1BFD640100BE16EA /* AWSAbstractKinesisRecorder.h */,
 				CEDEC21B1BFD640100BE16EA /* AWSAbstractKinesisRecorder.m */,
+				CEBA35371C24D4140003237B /* AWSFirehoseModel.h */,
+				CEBA35381C24D4140003237B /* AWSFirehoseModel.m */,
+				CEBA35391C24D4140003237B /* AWSFirehoseRecorder.h */,
+				CEBA353A1C24D4140003237B /* AWSFirehoseRecorder.m */,
+				CEBA353B1C24D4140003237B /* AWSFirehoseResources.h */,
+				CEBA353C1C24D4140003237B /* AWSFirehoseResources.m */,
+				CEBA353D1C24D4140003237B /* AWSFirehoseService.h */,
+				CEBA353E1C24D4140003237B /* AWSFirehoseService.m */,
 				BDF559D51AB376A50067F4F1 /* AWSKinesis.h */,
 				BDF559D71AB376A50067F4F1 /* AWSKinesisModel.h */,
 				BDF559D81AB376A50067F4F1 /* AWSKinesisModel.m */,
@@ -205,6 +235,9 @@
 		BDF559C81AB376720067F4F1 /* AWSKinesisTests */ = {
 			isa = PBXGroup;
 			children = (
+				CEBA35471C24D4280003237B /* AWSFirehoseRecorderTests.m */,
+				CEBA35481C24D4280003237B /* AWSFirehoseTests.m */,
+				CEBA35491C24D4280003237B /* AWSGeneralFirehoseTests.m */,
 				BD00FFEE1AB8C437004496EF /* AWSGeneralKinesisTests.m */,
 				BD00FFEF1AB8C437004496EF /* AWSKinesisRecorderTests.m */,
 				BD00FFF01AB8C437004496EF /* AWSKinesisTests.m */,
@@ -246,10 +279,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDF559E11AB376A50067F4F1 /* AWSKinesisRecorder.h in Headers */,
+				CEBA35411C24D4140003237B /* AWSFirehoseRecorder.h in Headers */,
+				CEBA353F1C24D4140003237B /* AWSFirehoseModel.h in Headers */,
 				BDF559DF1AB376A50067F4F1 /* AWSKinesisModel.h in Headers */,
 				BDF559DD1AB376A50067F4F1 /* AWSKinesis.h in Headers */,
 				CEE7DE711AC1E1AF0095C4B7 /* AWSKinesisService.h in Headers */,
 				BDB73D7B1B1D3EFC00717559 /* AWSKinesisResources.h in Headers */,
+				CEBA35451C24D4140003237B /* AWSFirehoseService.h in Headers */,
+				CEBA35431C24D4140003237B /* AWSFirehoseResources.h in Headers */,
 				CEDEC21C1BFD640100BE16EA /* AWSAbstractKinesisRecorder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBA354D1C24D4390003237B /* AWSGeneralFirehoseTests.m in Sources */,
 				BDF125C61B45C1D000DFBFEC /* AWSTestUtility.m in Sources */,
 				BDF125C71B45C1D000DFBFEC /* AWSGeneralKinesisTests.m in Sources */,
 			);
@@ -383,7 +421,11 @@
 				CEDEC21D1BFD640100BE16EA /* AWSAbstractKinesisRecorder.m in Sources */,
 				BDB73D7C1B1D3EFC00717559 /* AWSKinesisResources.m in Sources */,
 				BDF559E21AB376A50067F4F1 /* AWSKinesisRecorder.m in Sources */,
+				CEBA35421C24D4140003237B /* AWSFirehoseRecorder.m in Sources */,
+				CEBA35461C24D4140003237B /* AWSFirehoseService.m in Sources */,
+				CEBA35441C24D4140003237B /* AWSFirehoseResources.m in Sources */,
 				BDF559E01AB376A50067F4F1 /* AWSKinesisModel.m in Sources */,
+				CEBA35401C24D4140003237B /* AWSFirehoseModel.m in Sources */,
 				BDF559DE1AB376A50067F4F1 /* AWSKinesisService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,8 +434,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBA354B1C24D4280003237B /* AWSFirehoseTests.m in Sources */,
 				BD00FFF21AB8C437004496EF /* AWSKinesisRecorderTests.m in Sources */,
 				BDF126941B45CF4700DFBFEC /* AWSKinesisTests.m in Sources */,
+				CEBA354A1C24D4280003237B /* AWSFirehoseRecorderTests.m in Sources */,
 				BD00005B1AB8E19E004496EF /* AWSTestUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

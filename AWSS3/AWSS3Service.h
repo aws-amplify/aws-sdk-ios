@@ -1,17 +1,17 @@
-/*
- Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License").
- You may not use this file except in compliance with the License.
- A copy of the License is located at
-
- http://aws.amazon.com/apache2.0
-
- or in the "license" file accompanying this file. This file is distributed
- on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- express or implied. See the License for the specific language governing
- permissions and limitations under the License.
- */
+//
+// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License").
+// You may not use this file except in compliance with the License.
+// A copy of the License is located at
+//
+// http://aws.amazon.com/apache2.0
+//
+// or in the "license" file accompanying this file. This file is distributed
+// on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+// express or implied. See the License for the specific language governing
+// permissions and limitations under the License.
+//
 
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSCore.h>
@@ -190,9 +190,10 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param request A container for the necessary parameters to execute the AbortMultipartUpload service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domain and the following error code: `AWSS3ErrorNoSuchUpload`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3AbortMultipartUploadOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domain and the following error code: `AWSS3ErrorNoSuchUpload`.
  
  @see AWSS3AbortMultipartUploadRequest
+ @see AWSS3AbortMultipartUploadOutput
  */
 - (AWSTask *)abortMultipartUpload:(AWSS3AbortMultipartUploadRequest *)request;
 
@@ -213,7 +214,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param request A container for the necessary parameters to execute the CreateBucket service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3CreateBucketOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domain and the following error code: `AWSS3ErrorBucketAlreadyExists`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3CreateBucketOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domain and the following error code: `AWSS3ErrorBucketAlreadyExists`, `AWSS3ErrorBucketAlreadyOwnedByYou`.
  
  @see AWSS3CreateBucketRequest
  @see AWSS3CreateBucketOutput
@@ -275,6 +276,17 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSS3DeleteBucketPolicyRequest
  */
 - (AWSTask *)deleteBucketPolicy:(AWSS3DeleteBucketPolicyRequest *)request;
+
+/**
+ DeleteBucketReplication
+ 
+ @param request A container for the necessary parameters to execute the DeleteBucketReplication service method.
+ 
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ 
+ @see AWSS3DeleteBucketReplicationRequest
+ */
+- (AWSTask *)deleteBucketReplication:(AWSS3DeleteBucketReplicationRequest *)request;
 
 /**
  Deletes the tags from the bucket.
@@ -347,7 +359,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)getBucketCors:(AWSS3GetBucketCorsRequest *)request;
 
 /**
- Returns the lifecycle configuration information set on the bucket.
+ Deprecated, see the GetBucketLifecycleConfiguration operation.
  
  @param request A container for the necessary parameters to execute the GetBucketLifecycle service method.
  
@@ -357,6 +369,18 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSS3GetBucketLifecycleOutput
  */
 - (AWSTask *)getBucketLifecycle:(AWSS3GetBucketLifecycleRequest *)request;
+
+/**
+ Returns the lifecycle configuration information set on the bucket.
+ 
+ @param request A container for the necessary parameters to execute the GetBucketLifecycleConfiguration service method.
+ 
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3GetBucketLifecycleConfigurationOutput`.
+ 
+ @see AWSS3GetBucketLifecycleConfigurationRequest
+ @see AWSS3GetBucketLifecycleConfigurationOutput
+ */
+- (AWSTask *)getBucketLifecycleConfiguration:(AWSS3GetBucketLifecycleConfigurationRequest *)request;
 
 /**
  Returns the region the bucket resides in.
@@ -383,16 +407,28 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)getBucketLogging:(AWSS3GetBucketLoggingRequest *)request;
 
 /**
- Return the notification configuration of a bucket.
+ Deprecated, see the GetBucketNotificationConfiguration operation.
  
  @param request A container for the necessary parameters to execute the GetBucketNotification service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3GetBucketNotificationOutput`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3NotificationConfigurationDeprecated`.
  
- @see AWSS3GetBucketNotificationRequest
- @see AWSS3GetBucketNotificationOutput
+ @see AWSS3GetBucketNotificationConfigurationRequest
+ @see AWSS3NotificationConfigurationDeprecated
  */
-- (AWSTask *)getBucketNotification:(AWSS3GetBucketNotificationRequest *)request;
+- (AWSTask *)getBucketNotification:(AWSS3GetBucketNotificationConfigurationRequest *)request;
+
+/**
+ Returns the notification configuration of a bucket.
+ 
+ @param request A container for the necessary parameters to execute the GetBucketNotificationConfiguration service method.
+ 
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3NotificationConfiguration`.
+ 
+ @see AWSS3GetBucketNotificationConfigurationRequest
+ @see AWSS3NotificationConfiguration
+ */
+- (AWSTask *)getBucketNotificationConfiguration:(AWSS3GetBucketNotificationConfigurationRequest *)request;
 
 /**
  Returns the policy of a specified bucket.
@@ -405,6 +441,18 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSS3GetBucketPolicyOutput
  */
 - (AWSTask *)getBucketPolicy:(AWSS3GetBucketPolicyRequest *)request;
+
+/**
+ GetBucketReplication
+ 
+ @param request A container for the necessary parameters to execute the GetBucketReplication service method.
+ 
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3GetBucketReplicationOutput`.
+ 
+ @see AWSS3GetBucketReplicationRequest
+ @see AWSS3GetBucketReplicationOutput
+ */
+- (AWSTask *)getBucketReplication:(AWSS3GetBucketReplicationRequest *)request;
 
 /**
  Returns the request payment configuration of a bucket.
@@ -596,7 +644,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketCors:(AWSS3PutBucketCorsRequest *)request;
 
 /**
- Sets lifecycle configuration for your bucket. If a lifecycle configuration exists, it replaces it.
+ Deprecated, see the PutBucketLifecycleConfiguration operation.
  
  @param request A container for the necessary parameters to execute the PutBucketLifecycle service method.
  
@@ -605,6 +653,17 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSS3PutBucketLifecycleRequest
  */
 - (AWSTask *)putBucketLifecycle:(AWSS3PutBucketLifecycleRequest *)request;
+
+/**
+ Sets lifecycle configuration for your bucket. If a lifecycle configuration exists, it replaces it.
+ 
+ @param request A container for the necessary parameters to execute the PutBucketLifecycleConfiguration service method.
+ 
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ 
+ @see AWSS3PutBucketLifecycleConfigurationRequest
+ */
+- (AWSTask *)putBucketLifecycleConfiguration:(AWSS3PutBucketLifecycleConfigurationRequest *)request;
 
 /**
  Set the logging parameters for a bucket and to specify permissions for who can view and modify the logging parameters. To set the logging status of a bucket, you must be the bucket owner.
@@ -618,7 +677,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketLogging:(AWSS3PutBucketLoggingRequest *)request;
 
 /**
- Enables notifications of specified events for a bucket.
+ Deprecated, see the PutBucketNotificationConfiguraiton operation.
  
  @param request A container for the necessary parameters to execute the PutBucketNotification service method.
  
@@ -627,6 +686,17 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSS3PutBucketNotificationRequest
  */
 - (AWSTask *)putBucketNotification:(AWSS3PutBucketNotificationRequest *)request;
+
+/**
+ Enables notifications of specified events for a bucket.
+ 
+ @param request A container for the necessary parameters to execute the PutBucketNotificationConfiguration service method.
+ 
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ 
+ @see AWSS3PutBucketNotificationConfigurationRequest
+ */
+- (AWSTask *)putBucketNotificationConfiguration:(AWSS3PutBucketNotificationConfigurationRequest *)request;
 
 /**
  Replaces a policy on a bucket. If the bucket already has a policy, the one in this request completely replaces it.
@@ -640,7 +710,18 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketPolicy:(AWSS3PutBucketPolicyRequest *)request;
 
 /**
- Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person requesting the download will be charged for the download.
+ Creates a new replication configuration (or replaces an existing one, if present).
+ 
+ @param request A container for the necessary parameters to execute the PutBucketReplication service method.
+ 
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ 
+ @see AWSS3PutBucketReplicationRequest
+ */
+- (AWSTask *)putBucketReplication:(AWSS3PutBucketReplicationRequest *)request;
+
+/**
+ Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person requesting the download will be charged for the download. Documentation on requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html
  
  @param request A container for the necessary parameters to execute the PutBucketRequestPayment service method.
  
@@ -700,9 +781,10 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param request A container for the necessary parameters to execute the PutObjectAcl service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domain and the following error code: `AWSS3ErrorNoSuchKey`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3PutObjectAclOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domain and the following error code: `AWSS3ErrorNoSuchKey`.
  
  @see AWSS3PutObjectAclRequest
+ @see AWSS3PutObjectAclOutput
  */
 - (AWSTask *)putObjectAcl:(AWSS3PutObjectAclRequest *)request;
 
@@ -723,9 +805,10 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param request A container for the necessary parameters to execute the RestoreObject service method.
  
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domain and the following error code: `AWSS3ErrorObjectAlreadyInActiveTier`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3RestoreObjectOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSS3ErrorDomain` domain and the following error code: `AWSS3ErrorObjectAlreadyInActiveTier`.
  
  @see AWSS3RestoreObjectRequest
+ @see AWSS3RestoreObjectOutput
  */
 - (AWSTask *)restoreObject:(AWSS3RestoreObjectRequest *)request;
 

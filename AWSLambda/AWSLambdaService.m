@@ -26,8 +26,6 @@
 #import "AWSSynchronizedMutableDictionary.h"
 #import "AWSLambdaResources.h"
 
-NSString *const AWSLambdaDefinitionFileName = @"lambda-2015-03-31";
-
 @interface AWSLambdaResponseSerializer : AWSJSONResponseSerializer
 
 @end

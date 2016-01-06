@@ -1,17 +1,17 @@
-/*
- Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License").
- You may not use this file except in compliance with the License.
- A copy of the License is located at
-
- http://aws.amazon.com/apache2.0
-
- or in the "license" file accompanying this file. This file is distributed
- on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- express or implied. See the License for the specific language governing
- permissions and limitations under the License.
- */
+//
+// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License").
+// You may not use this file except in compliance with the License.
+// A copy of the License is located at
+//
+// http://aws.amazon.com/apache2.0
+//
+// or in the "license" file accompanying this file. This file is distributed
+// on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+// express or implied. See the License for the specific language governing
+// permissions and limitations under the License.
+//
 
 #import "AWSURLResponseSerialization.h"
 
@@ -288,10 +288,13 @@ static NSDictionary *errorCodeDictionary = nil;
 
     NSMutableDictionary *resultDic = [NSMutableDictionary new];
 
-    if (response.statusCode >= 200 && response.statusCode < 300 ) {
-        // status is good, we can keep NSURL as data
+    // There is a small edge case where S3 returns a 200 response for an error.
+    // http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectCOPY.html
+    if (response.statusCode / 100 == 2
+        && ![originalRequest.HTTPMethod isEqualToString:@"PUT"]) {
+        // status is good and it's not a PUT request, we can keep NSURL as data
     } else {
-        //if status error indicates error, need to convert NSURL to NSData for error processing
+        //if status error indicates error or it's a PUT request, need to convert NSURL to NSData for error processing
         if ([data isKindOfClass:[NSURL class]]) {
             data = [NSData dataWithContentsOfFile:[(NSURL *)data path]];
         }

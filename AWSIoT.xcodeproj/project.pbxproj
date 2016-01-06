@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		A63295181C05090D00493B04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63295171C05090D00493B04 /* UIKit.framework */; };
-		CE0907641BD9A13600372E85 /* AWSIoTTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0907631BD9A13600372E85 /* AWSIoTTests.m */; };
+		CE07D4391C3B490800ABF5AE /* libAWSIoT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE48F5CA1BD975A1005F9E3F /* libAWSIoT.a */; };
+		CE07D4401C3B497E00ABF5AE /* AWSIoTTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0907631BD9A13600372E85 /* AWSIoTTests.m */; };
+		CE07D4411C3B49B800ABF5AE /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CE48F60E1BD986C7005F9E3F /* credentials.json */; };
+		CE07D4421C3B4A0300ABF5AE /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE48F60B1BD98673005F9E3F /* libOCMock.a */; };
+		CE07D4431C3B4B5200ABF5AE /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE09077B1BD9B05A00372E85 /* AWSTestUtility.m */; };
 		CE09076C1BD9A8EF00372E85 /* AWSIoTDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE09076A1BD9A8EF00372E85 /* AWSIoTDataService.m */; };
 		CE09076F1BD9A91B00372E85 /* AWSIoTDataResources.m in Sources */ = {isa = PBXBuildFile; fileRef = CE09076E1BD9A91B00372E85 /* AWSIoTDataResources.m */; };
 		CE0907751BD9AD9F00372E85 /* AWSIoTDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0907721BD9AD9F00372E85 /* AWSIoTDataModel.m */; };
 		CE0907781BD9AF0800372E85 /* AWSGeneralIoTDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0907771BD9AF0800372E85 /* AWSGeneralIoTDataTests.m */; };
 		CE09077C1BD9B05A00372E85 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE09077B1BD9B05A00372E85 /* AWSTestUtility.m */; };
-		CE09077E1BD9B0BB00372E85 /* AWSIoTDataUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE09077D1BD9B0BB00372E85 /* AWSIoTDataUnitTests.m */; };
 		CE0907911BD9B7E200372E85 /* AWSIoTCSR.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0907811BD9B7E200372E85 /* AWSIoTCSR.m */; };
 		CE0907921BD9B7E200372E85 /* AWSIoTKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0907831BD9B7E200372E85 /* AWSIoTKeychain.m */; };
 		CE0907931BD9B7E200372E85 /* AWSIoTMQTTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0907851BD9B7E200372E85 /* AWSIoTMQTTClient.m */; };
@@ -34,7 +37,9 @@
 		CE48F6081BD9865B005F9E3F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE48F6071BD9865B005F9E3F /* libz.tbd */; };
 		CE48F60A1BD98661005F9E3F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE48F6091BD98661005F9E3F /* libsqlite3.tbd */; };
 		CE48F60C1BD98673005F9E3F /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE48F60B1BD98673005F9E3F /* libOCMock.a */; };
-		CE48F60F1BD986C7005F9E3F /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CE48F60E1BD986C7005F9E3F /* credentials.json */; };
+		CE4D25BB1C3B500400C1D812 /* AWSIoTDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D25BA1C3B500400C1D812 /* AWSIoTDataTests.m */; };
+		CE4D25BD1C3B501A00C1D812 /* AWSIoTUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D25BC1C3B501A00C1D812 /* AWSIoTUnitTests.m */; };
+		CE4D25BE1C3B504800C1D812 /* AWSIoTDataUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE09077D1BD9B0BB00372E85 /* AWSIoTDataUnitTests.m */; };
 		CE6A6DBB1C03FFC7006F986B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE6A6DB91C03FF79006F986B /* module.modulemap */; };
 		CEA5FC4E1BE00371002396AB /* AWSIoT.h in Headers */ = {isa = PBXBuildFile; fileRef = CE48F5DC1BD9768A005F9E3F /* AWSIoT.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEA5FC4F1BE00371002396AB /* AWSIoTDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0907711BD9AD9F00372E85 /* AWSIoTDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -55,9 +60,21 @@
 		CEB380291C177F11008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380281C177F11008B520C /* SystemConfiguration.framework */; };
 		CEB380641C1780AE008B520C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380631C1780AE008B520C /* Security.framework */; };
 		CEB380781C17815B008B520C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380771C17815B008B520C /* CFNetwork.framework */; };
+		CEB400301C3B4D0A0072C295 /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB4002F1C3B4D0A0072C295 /* libAWSCore.a */; };
+		CEB400311C3B4D170072C295 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63295171C05090D00493B04 /* UIKit.framework */; };
+		CEB400321C3B4D1C0072C295 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380631C1780AE008B520C /* Security.framework */; };
+		CEB400331C3B4D270072C295 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE48F6071BD9865B005F9E3F /* libz.tbd */; };
+		CEB400341C3B4D4E0072C295 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB380771C17815B008B520C /* CFNetwork.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CE07D43A1C3B490800ABF5AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE48F5C21BD975A1005F9E3F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE48F5C91BD975A1005F9E3F;
+			remoteInfo = AWSIoT;
+		};
 		CE48F5FA1BD97F4D005F9E3F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE48F5C21BD975A1005F9E3F /* Project object */;
@@ -99,6 +116,7 @@
 /* Begin PBXFileReference section */
 		A63295151C05087300493B04 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A63295171C05090D00493B04 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CE07D4341C3B490800ABF5AE /* AWSIoTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSIoTTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0907631BD9A13600372E85 /* AWSIoTTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSIoTTests.m; path = AWSIoTTests/AWSIoTTests.m; sourceTree = SOURCE_ROOT; };
 		CE09076A1BD9A8EF00372E85 /* AWSIoTDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSIoTDataService.m; sourceTree = "<group>"; };
 		CE09076D1BD9A91B00372E85 /* AWSIoTDataResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSIoTDataResources.h; sourceTree = "<group>"; };
@@ -146,13 +164,30 @@
 		CE48F6091BD98661005F9E3F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		CE48F60B1BD98673005F9E3F /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = AWSCoreTests/OCMock/libOCMock.a; sourceTree = "<group>"; };
 		CE48F60E1BD986C7005F9E3F /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = credentials.json; path = AWSCoreTests/credentials.json; sourceTree = SOURCE_ROOT; };
+		CE4D25BA1C3B500400C1D812 /* AWSIoTDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSIoTDataTests.m; sourceTree = "<group>"; };
+		CE4D25BC1C3B501A00C1D812 /* AWSIoTUnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSIoTUnitTests.m; sourceTree = "<group>"; };
 		CE6A6DB91C03FF79006F986B /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		CEB380281C177F11008B520C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CEB380631C1780AE008B520C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CEB380771C17815B008B520C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		CEB4002F1C3B4D0A0072C295 /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CE07D4311C3B490800ABF5AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEB400341C3B4D4E0072C295 /* CFNetwork.framework in Frameworks */,
+				CEB400331C3B4D270072C295 /* libz.tbd in Frameworks */,
+				CEB400321C3B4D1C0072C295 /* Security.framework in Frameworks */,
+				CEB400311C3B4D170072C295 /* UIKit.framework in Frameworks */,
+				CEB400301C3B4D0A0072C295 /* libAWSCore.a in Frameworks */,
+				CE07D4391C3B490800ABF5AE /* libAWSIoT.a in Frameworks */,
+				CE07D4421C3B4A0300ABF5AE /* libOCMock.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE48F5C71BD975A1005F9E3F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -179,6 +214,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE07D4351C3B490800ABF5AE /* AWSIoTTests */ = {
+			isa = PBXGroup;
+			children = (
+				CE0907771BD9AF0800372E85 /* AWSGeneralIoTDataTests.m */,
+				CE48F6011BD98604005F9E3F /* AWSGeneralIoTTests.m */,
+				CE4D25BA1C3B500400C1D812 /* AWSIoTDataTests.m */,
+				CE09077D1BD9B0BB00372E85 /* AWSIoTDataUnitTests.m */,
+				CE0907631BD9A13600372E85 /* AWSIoTTests.m */,
+				CE4D25BC1C3B501A00C1D812 /* AWSIoTUnitTests.m */,
+				CE0907651BD9A87A00372E85 /* Supporting Files */,
+			);
+			path = AWSIoTTests;
+			sourceTree = "<group>";
+		};
 		CE0907651BD9A87A00372E85 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +237,7 @@
 				CE48F5F81BD97F4D005F9E3F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			path = ../AWSIoTUnitTests;
 			sourceTree = "<group>";
 		};
 		CE09077F1BD9B7E200372E85 /* Internal */ = {
@@ -225,7 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				CE48F5CC1BD975A1005F9E3F /* AWSIoT */,
-				CE48F5F51BD97F4D005F9E3F /* AWSIoTUnitTests */,
+				CE07D4351C3B490800ABF5AE /* AWSIoTTests */,
 				CE48F5CB1BD975A1005F9E3F /* Products */,
 				CE48F6001BD97F6E005F9E3F /* Frameworks */,
 			);
@@ -236,6 +286,7 @@
 			children = (
 				CE48F5CA1BD975A1005F9E3F /* libAWSIoT.a */,
 				CE48F5F41BD97F4D005F9E3F /* AWSIoTUnitTests.xctest */,
+				CE07D4341C3B490800ABF5AE /* AWSIoTTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -266,21 +317,10 @@
 			path = AWSIoT;
 			sourceTree = "<group>";
 		};
-		CE48F5F51BD97F4D005F9E3F /* AWSIoTUnitTests */ = {
-			isa = PBXGroup;
-			children = (
-				CE0907771BD9AF0800372E85 /* AWSGeneralIoTDataTests.m */,
-				CE48F6011BD98604005F9E3F /* AWSGeneralIoTTests.m */,
-				CE09077D1BD9B0BB00372E85 /* AWSIoTDataUnitTests.m */,
-				CE0907631BD9A13600372E85 /* AWSIoTTests.m */,
-				CE0907651BD9A87A00372E85 /* Supporting Files */,
-			);
-			path = AWSIoTUnitTests;
-			sourceTree = "<group>";
-		};
 		CE48F6001BD97F6E005F9E3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEB4002F1C3B4D0A0072C295 /* libAWSCore.a */,
 				CEB380771C17815B008B520C /* CFNetwork.framework */,
 				CEB380631C1780AE008B520C /* Security.framework */,
 				CEB380281C177F11008B520C /* SystemConfiguration.framework */,
@@ -316,6 +356,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		CE07D4331C3B490800ABF5AE /* AWSIoTTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE07D43E1C3B490800ABF5AE /* Build configuration list for PBXNativeTarget "AWSIoTTests" */;
+			buildPhases = (
+				CE07D4301C3B490800ABF5AE /* Sources */,
+				CE07D4311C3B490800ABF5AE /* Frameworks */,
+				CE07D4321C3B490800ABF5AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE07D43B1C3B490800ABF5AE /* PBXTargetDependency */,
+			);
+			name = AWSIoTTests;
+			productName = AWSIoTTests;
+			productReference = CE07D4341C3B490800ABF5AE /* AWSIoTTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		CE48F5C91BD975A1005F9E3F /* AWSIoT */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE48F5D31BD975A1005F9E3F /* Build configuration list for PBXNativeTarget "AWSIoT" */;
@@ -362,6 +420,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
+					CE07D4331C3B490800ABF5AE = {
+						CreatedOnToolsVersion = 7.2;
+					};
 					CE48F5C91BD975A1005F9E3F = {
 						CreatedOnToolsVersion = 7.1;
 					};
@@ -383,23 +444,41 @@
 			projectRoot = "";
 			targets = (
 				CE48F5C91BD975A1005F9E3F /* AWSIoT */,
+				CE07D4331C3B490800ABF5AE /* AWSIoTTests */,
 				CE48F5F31BD97F4D005F9E3F /* AWSIoTUnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CE07D4321C3B490800ABF5AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE07D4411C3B49B800ABF5AE /* credentials.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE48F5F21BD97F4D005F9E3F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE48F60F1BD986C7005F9E3F /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CE07D4301C3B490800ABF5AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE4D25BB1C3B500400C1D812 /* AWSIoTDataTests.m in Sources */,
+				CE07D4401C3B497E00ABF5AE /* AWSIoTTests.m in Sources */,
+				CE07D4431C3B4B5200ABF5AE /* AWSTestUtility.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE48F5C61BD975A1005F9E3F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -429,15 +508,20 @@
 			files = (
 				CE0907781BD9AF0800372E85 /* AWSGeneralIoTDataTests.m in Sources */,
 				CE48F6021BD98604005F9E3F /* AWSGeneralIoTTests.m in Sources */,
+				CE4D25BE1C3B504800C1D812 /* AWSIoTDataUnitTests.m in Sources */,
+				CE4D25BD1C3B501A00C1D812 /* AWSIoTUnitTests.m in Sources */,
 				CE09077C1BD9B05A00372E85 /* AWSTestUtility.m in Sources */,
-				CE0907641BD9A13600372E85 /* AWSIoTTests.m in Sources */,
-				CE09077E1BD9B0BB00372E85 /* AWSIoTDataUnitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CE07D43B1C3B490800ABF5AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE48F5C91BD975A1005F9E3F /* AWSIoT */;
+			targetProxy = CE07D43A1C3B490800ABF5AE /* PBXContainerItemProxy */;
+		};
 		CE48F5FB1BD97F4D005F9E3F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CE48F5C91BD975A1005F9E3F /* AWSIoT */;
@@ -446,6 +530,54 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		CE07D43C1C3B490800ABF5AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_MODULES = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = AWSIoTTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSIoTTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
+			};
+			name = Debug;
+		};
+		CE07D43D1C3B490800ABF5AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_MODULES = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = AWSIoTTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock/libOCMock.a",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSIoTTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/include/** $(PROJECT_DIR)/AWSCoreTests/OCMock";
+			};
+			name = Release;
+		};
 		CE48F5D11BD975A1005F9E3F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -623,6 +755,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CE07D43E1C3B490800ABF5AE /* Build configuration list for PBXNativeTarget "AWSIoTTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE07D43C1C3B490800ABF5AE /* Debug */,
+				CE07D43D1C3B490800ABF5AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CE48F5C51BD975A1005F9E3F /* Build configuration list for PBXProject "AWSIoT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
