@@ -35,11 +35,14 @@ FOUNDATION_EXPORT NSString *const AWSIoTKeychainEndCertKeyTag;
 + (NSData *)base64Decode:(NSString *)str;
 + (NSData *)base64DecodeWithIgnoreUnknownSymbols:(NSString *)str;
 
++ (NSData *)certToDer:(NSString *)cert;
+
 + (BOOL)generateKeyPairWithPublicTag:(NSString *)publicTag privateTag:(NSString *)privateTag;
 + (BOOL)deleteAsymmetricKeysWithPublicTag:(NSString *)publicTag privateTag:(NSString *)privateTag;
 + (BOOL)isValidCertificate:(NSString *)tag;
 + (BOOL)addCertificateToKeychain:(NSString *)cert;
 + (BOOL)addCertificate:(NSData *)cert;
++ (BOOL)addCertificateRef:(SecCertificateRef)certRef;
 + (BOOL)removeCertificate;
 + (SecKeyRef)getPublicKeyRef:(NSString *)tag;
 + (NSData *)getPublicKeyBits:(NSString *)tag;
