@@ -10,8 +10,6 @@
 
 #import "AWSBolts.h"
 
-NSInteger const kAWSMultipleErrorsError = 80175001;
-
 @implementation AWSBolts
 
 + (NSString *)version {

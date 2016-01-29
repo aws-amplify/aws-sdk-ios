@@ -174,25 +174,51 @@ NS_ASSUME_NONNULL_BEGIN
  <p>Returns an <code>MLModel</code> that includes detailed metadata, and data source information as well as the current status of the <code>MLModel</code>.</p><p><code>GetMLModel</code> provides results in normal or verbose format. </p>
  
  @param request A container for the necessary parameters to execute the GetMLModel service method.
- 
+
  @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSMachineLearningGetMLModelOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSMachineLearningErrorDomain` domain and the following error code: `AWSMachineLearningErrorInvalidInput`, `AWSMachineLearningErrorResourceNotFound`, `AWSMachineLearningErrorInternalServer`.
  
  @see AWSMachineLearningGetMLModelInput
  @see AWSMachineLearningGetMLModelOutput
  */
-- (AWSTask *)getMLModel:(AWSMachineLearningGetMLModelInput *)request;
+- (AWSTask<AWSMachineLearningGetMLModelOutput *> *)getMLModel:(AWSMachineLearningGetMLModelInput *)request;
+
+/**
+ <p>Returns an <code>MLModel</code> that includes detailed metadata, and data source information as well as the current status of the <code>MLModel</code>.</p><p><code>GetMLModel</code> provides results in normal or verbose format. </p>
+ 
+ @param request A container for the necessary parameters to execute the GetMLModel service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSMachineLearningErrorDomain` domain and the following error code: `AWSMachineLearningErrorInvalidInput`, `AWSMachineLearningErrorResourceNotFound`, `AWSMachineLearningErrorInternalServer`.
+ 
+ @see AWSMachineLearningGetMLModelInput
+ @see AWSMachineLearningGetMLModelOutput
+ */
+- (void)getMLModel:(AWSMachineLearningGetMLModelInput *)request completionHandler:(void (^ _Nullable)(AWSMachineLearningGetMLModelOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Generates a prediction for the observation using the specified <code>MLModel</code>.</p><note><title>Note</title><p>Not all response parameters will be populated because this is dependent on the type of requested model.</p></note>
  
  @param request A container for the necessary parameters to execute the Predict service method.
- 
+
  @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSMachineLearningPredictOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSMachineLearningErrorDomain` domain and the following error code: `AWSMachineLearningErrorInvalidInput`, `AWSMachineLearningErrorResourceNotFound`, `AWSMachineLearningErrorLimitExceeded`, `AWSMachineLearningErrorInternalServer`, `AWSMachineLearningErrorPredictorNotMounted`.
  
  @see AWSMachineLearningPredictInput
  @see AWSMachineLearningPredictOutput
  */
-- (AWSTask *)predict:(AWSMachineLearningPredictInput *)request;
+- (AWSTask<AWSMachineLearningPredictOutput *> *)predict:(AWSMachineLearningPredictInput *)request;
+
+/**
+ <p>Generates a prediction for the observation using the specified <code>MLModel</code>.</p><note><title>Note</title><p>Not all response parameters will be populated because this is dependent on the type of requested model.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the Predict service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSMachineLearningErrorDomain` domain and the following error code: `AWSMachineLearningErrorInvalidInput`, `AWSMachineLearningErrorResourceNotFound`, `AWSMachineLearningErrorLimitExceeded`, `AWSMachineLearningErrorInternalServer`, `AWSMachineLearningErrorPredictorNotMounted`.
+ 
+ @see AWSMachineLearningPredictInput
+ @see AWSMachineLearningPredictOutput
+ */
+- (void)predict:(AWSMachineLearningPredictInput *)request completionHandler:(void (^ _Nullable)(AWSMachineLearningPredictOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 @end
 

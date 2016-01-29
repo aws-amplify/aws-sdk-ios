@@ -93,12 +93,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 /**
  <p>A list of OpendID Connect provider ARNs.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable openIdConnectProviderARNs;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable openIdConnectProviderARNs;
 
 /**
  <p>Optional key:value pairs mapping provider names to provider app IDs.</p>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable supportedLoginProviders;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable supportedLoginProviders;
 
 @end
 
@@ -187,7 +187,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 /**
  <p>A set of optional name-value pairs that map provider names to provider tokens.</p>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable logins;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable logins;
 
 @end
 
@@ -229,7 +229,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 /**
  <p>A set of optional name-value pairs that map provider names to provider tokens.</p><p>The available provider names for <code>Logins</code> are as follows: <ul><li>Facebook: <code>graph.facebook.com</code></li><li>Google: <code>accounts.google.com</code></li><li>Amazon: <code>www.amazon.com</code></li><li>Twitter: <code>www.twitter.com</code></li><li>Digits: <code>www.digits.com</code></li></ul></p>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable logins;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable logins;
 
 @end
 
@@ -274,7 +274,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 /**
  <p>The map of roles associated with this pool. Currently only authenticated and unauthenticated roles are supported.</p>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable roles;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable roles;
 
 @end
 
@@ -298,7 +298,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 /**
  <p>A set of optional name-value pairs that map provider names to provider tokens. Each name-value pair represents a user from a public provider or developer provider. If the user is from a developer provider, the name-value pair will follow the syntax <code>"developer_provider_name": "developer_user_identifier"</code>. The developer provider is the "domain" by which Cognito will refer to your users; you provided this domain while creating/updating the identity pool. The developer user identifier is an identifier from your backend that uniquely identifies a user. When you create an identity pool, you can specify the supported logins.</p>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable logins;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable logins;
 
 /**
  <p>The expiration time of the token, in seconds. You can specify a custom expiration time for the token so that you can cache it. If you don't provide an expiration time, the token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS credentials, which are valid for a maximum of one hour. The maximum token duration you can set is 24 hours. You should take care in setting the expiration time for a token, as there are significant security implications: an attacker could use a leaked token to access your AWS resources for the token's duration.</p>
@@ -340,7 +340,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 /**
  A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com or any other OpenId Connect provider, always include the id_token.
  */
-@property (nonatomic, strong) NSDictionary * _Nullable logins;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable logins;
 
 @end
 
@@ -386,7 +386,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 /**
  A set of optional name-value pairs that map provider names to provider tokens.
  */
-@property (nonatomic, strong) NSArray * _Nullable logins;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable logins;
 
 @end
 
@@ -420,12 +420,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 /**
  <p>A list of OpendID Connect provider ARNs.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable openIdConnectProviderARNs;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable openIdConnectProviderARNs;
 
 /**
  <p>Optional key:value pairs mapping provider names to provider app IDs.</p>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable supportedLoginProviders;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable supportedLoginProviders;
 
 @end
 
@@ -480,7 +480,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 /**
  An object containing a set of identities and associated mappings.
  */
-@property (nonatomic, strong) NSArray * _Nullable identities;
+@property (nonatomic, strong) NSArray<AWSCognitoIdentityIdentityDescription *> * _Nullable identities;
 
 /**
  An identity pool ID in the format REGION:GUID.
@@ -522,7 +522,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 /**
  The identity pools returned by the ListIdentityPools action.
  */
-@property (nonatomic, strong) NSArray * _Nullable identityPools;
+@property (nonatomic, strong) NSArray<AWSCognitoIdentityIdentityPoolShortDescription *> * _Nullable identityPools;
 
 /**
  A pagination token.
@@ -574,7 +574,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 /**
  <p>This is the list of developer user identifiers associated with an identity ID. Cognito supports the association of multiple developer user identifiers with an identity ID.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable developerUserIdentifierList;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable developerUserIdentifierList;
 
 /**
  <p>A unique identifier in the format REGION:GUID.</p>
@@ -645,7 +645,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 /**
  <p>The map of roles associated with this pool. Currently only authenticated and unauthenticated roles are supported.</p>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable roles;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable roles;
 
 @end
 
@@ -693,12 +693,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
 /**
  A set of optional name-value pairs that map provider names to provider tokens.
  */
-@property (nonatomic, strong) NSDictionary * _Nullable logins;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable logins;
 
 /**
  Provider names to unlink from this identity.
  */
-@property (nonatomic, strong) NSArray * _Nullable loginsToRemove;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable loginsToRemove;
 
 @end
 

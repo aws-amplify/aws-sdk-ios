@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		A63295181C05090D00493B04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63295171C05090D00493B04 /* UIKit.framework */; };
+		A69F0C161C52F77900777C5B /* AWSSRWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = A69F0C131C52F77900777C5B /* AWSSRWebSocket.h */; };
+		A69F0C171C52F77900777C5B /* AWSSRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A69F0C141C52F77900777C5B /* AWSSRWebSocket.m */; };
+		A69F0C1A1C52F81300777C5B /* AWSIoTWebSocketOutputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = A69F0C181C52F81300777C5B /* AWSIoTWebSocketOutputStream.h */; };
+		A69F0C1B1C52F81300777C5B /* AWSIoTWebSocketOutputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = A69F0C191C52F81300777C5B /* AWSIoTWebSocketOutputStream.m */; };
 		CE07D4391C3B490800ABF5AE /* libAWSIoT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE48F5CA1BD975A1005F9E3F /* libAWSIoT.a */; };
 		CE07D4401C3B497E00ABF5AE /* AWSIoTTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0907631BD9A13600372E85 /* AWSIoTTests.m */; };
 		CE07D4411C3B49B800ABF5AE /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CE48F60E1BD986C7005F9E3F /* credentials.json */; };
@@ -28,6 +32,7 @@
 		CE0907981BD9B7E200372E85 /* MQttTxFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0907901BD9B7E200372E85 /* MQttTxFlow.m */; };
 		CE09079B1BD9B91400372E85 /* AWSIoTManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE09079A1BD9B91400372E85 /* AWSIoTManager.m */; };
 		CE09079E1BD9B99F00372E85 /* AWSIoTDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE09079D1BD9B99F00372E85 /* AWSIoTDataManager.m */; };
+		CE3038261C3F386300008F26 /* AWSIoTData.h in Headers */ = {isa = PBXBuildFile; fileRef = CE3038251C3F386300008F26 /* AWSIoTData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE48F5E81BD9768A005F9E3F /* AWSIoTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE48F5E31BD9768A005F9E3F /* AWSIoTModel.m */; };
 		CE48F5E91BD9768A005F9E3F /* AWSIoTService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE48F5E51BD9768A005F9E3F /* AWSIoTService.m */; };
 		CE48F5EC1BD977EE005F9E3F /* AWSIoTResources.m in Sources */ = {isa = PBXBuildFile; fileRef = CE48F5EB1BD977EE005F9E3F /* AWSIoTResources.m */; };
@@ -116,6 +121,10 @@
 /* Begin PBXFileReference section */
 		A63295151C05087300493B04 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A63295171C05090D00493B04 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A69F0C131C52F77900777C5B /* AWSSRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSRWebSocket.h; sourceTree = "<group>"; };
+		A69F0C141C52F77900777C5B /* AWSSRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSRWebSocket.m; sourceTree = "<group>"; };
+		A69F0C181C52F81300777C5B /* AWSIoTWebSocketOutputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSIoTWebSocketOutputStream.h; sourceTree = "<group>"; };
+		A69F0C191C52F81300777C5B /* AWSIoTWebSocketOutputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSIoTWebSocketOutputStream.m; sourceTree = "<group>"; };
 		CE07D4341C3B490800ABF5AE /* AWSIoTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSIoTTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0907631BD9A13600372E85 /* AWSIoTTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSIoTTests.m; path = AWSIoTTests/AWSIoTTests.m; sourceTree = SOURCE_ROOT; };
 		CE09076A1BD9A8EF00372E85 /* AWSIoTDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSIoTDataService.m; sourceTree = "<group>"; };
@@ -148,6 +157,7 @@
 		CE09079A1BD9B91400372E85 /* AWSIoTManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSIoTManager.m; sourceTree = "<group>"; };
 		CE09079C1BD9B99F00372E85 /* AWSIoTDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSIoTDataManager.h; sourceTree = "<group>"; };
 		CE09079D1BD9B99F00372E85 /* AWSIoTDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSIoTDataManager.m; sourceTree = "<group>"; };
+		CE3038251C3F386300008F26 /* AWSIoTData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSIoTData.h; sourceTree = "<group>"; };
 		CE48F5CA1BD975A1005F9E3F /* libAWSIoT.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSIoT.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE48F5DC1BD9768A005F9E3F /* AWSIoT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSIoT.h; sourceTree = "<group>"; };
 		CE48F5E21BD9768A005F9E3F /* AWSIoTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSIoTModel.h; sourceTree = "<group>"; };
@@ -214,6 +224,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A69F0C151C52F77900777C5B /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				A69F0C131C52F77900777C5B /* AWSSRWebSocket.h */,
+				A69F0C141C52F77900777C5B /* AWSSRWebSocket.m */,
+			);
+			path = SocketRocket;
+			sourceTree = "<group>";
+		};
 		CE07D4351C3B490800ABF5AE /* AWSIoTTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +262,8 @@
 		CE09077F1BD9B7E200372E85 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				A69F0C181C52F81300777C5B /* AWSIoTWebSocketOutputStream.h */,
+				A69F0C191C52F81300777C5B /* AWSIoTWebSocketOutputStream.m */,
 				CE0907801BD9B7E200372E85 /* AWSIoTCSR.h */,
 				CE0907811BD9B7E200372E85 /* AWSIoTCSR.m */,
 				CE0907821BD9B7E200372E85 /* AWSIoTKeychain.h */,
@@ -250,6 +271,7 @@
 				CE0907841BD9B7E200372E85 /* AWSIoTMQTTClient.h */,
 				CE0907851BD9B7E200372E85 /* AWSIoTMQTTClient.m */,
 				CE0907861BD9B7E200372E85 /* MQTTSDK */,
+				A69F0C151C52F77900777C5B /* SocketRocket */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -294,25 +316,26 @@
 		CE48F5CC1BD975A1005F9E3F /* AWSIoT */ = {
 			isa = PBXGroup;
 			children = (
-				CE6A6DB91C03FF79006F986B /* module.modulemap */,
 				CE48F5DC1BD9768A005F9E3F /* AWSIoT.h */,
+				CE3038251C3F386300008F26 /* AWSIoTData.h */,
+				CE09079C1BD9B99F00372E85 /* AWSIoTDataManager.h */,
+				CE09079D1BD9B99F00372E85 /* AWSIoTDataManager.m */,
 				CE0907711BD9AD9F00372E85 /* AWSIoTDataModel.h */,
 				CE0907721BD9AD9F00372E85 /* AWSIoTDataModel.m */,
 				CE09076D1BD9A91B00372E85 /* AWSIoTDataResources.h */,
 				CE09076E1BD9A91B00372E85 /* AWSIoTDataResources.m */,
 				CE0907731BD9AD9F00372E85 /* AWSIoTDataService.h */,
 				CE09076A1BD9A8EF00372E85 /* AWSIoTDataService.m */,
+				CE0907991BD9B91400372E85 /* AWSIoTManager.h */,
+				CE09079A1BD9B91400372E85 /* AWSIoTManager.m */,
 				CE48F5E21BD9768A005F9E3F /* AWSIoTModel.h */,
 				CE48F5E31BD9768A005F9E3F /* AWSIoTModel.m */,
 				CE48F5EA1BD977EE005F9E3F /* AWSIoTResources.h */,
 				CE48F5EB1BD977EE005F9E3F /* AWSIoTResources.m */,
 				CE48F5E41BD9768A005F9E3F /* AWSIoTService.h */,
 				CE48F5E51BD9768A005F9E3F /* AWSIoTService.m */,
-				CE0907991BD9B91400372E85 /* AWSIoTManager.h */,
-				CE09079A1BD9B91400372E85 /* AWSIoTManager.m */,
-				CE09079C1BD9B99F00372E85 /* AWSIoTDataManager.h */,
-				CE09079D1BD9B99F00372E85 /* AWSIoTDataManager.m */,
 				CE09077F1BD9B7E200372E85 /* Internal */,
+				CE6A6DB91C03FF79006F986B /* module.modulemap */,
 			);
 			path = AWSIoT;
 			sourceTree = "<group>";
@@ -341,6 +364,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A69F0C161C52F77900777C5B /* AWSSRWebSocket.h in Headers */,
 				CEA5FC4E1BE00371002396AB /* AWSIoT.h in Headers */,
 				CEA5FC4F1BE00371002396AB /* AWSIoTDataModel.h in Headers */,
 				CEA5FC511BE00371002396AB /* AWSIoTDataService.h in Headers */,
@@ -348,7 +372,9 @@
 				CEA5FC541BE00371002396AB /* AWSIoTService.h in Headers */,
 				CEA5FC551BE00371002396AB /* AWSIoTManager.h in Headers */,
 				CEA5FC561BE00371002396AB /* AWSIoTDataManager.h in Headers */,
+				CE3038261C3F386300008F26 /* AWSIoTData.h in Headers */,
 				CEA5FC531BE00371002396AB /* AWSIoTResources.h in Headers */,
+				A69F0C1A1C52F81300777C5B /* AWSIoTWebSocketOutputStream.h in Headers */,
 				CEA5FC501BE00371002396AB /* AWSIoTDataResources.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE0907751BD9AD9F00372E85 /* AWSIoTDataModel.m in Sources */,
+				A69F0C1B1C52F81300777C5B /* AWSIoTWebSocketOutputStream.m in Sources */,
 				CE48F5E91BD9768A005F9E3F /* AWSIoTService.m in Sources */,
 				CE09079E1BD9B99F00372E85 /* AWSIoTDataManager.m in Sources */,
 				CE09076C1BD9A8EF00372E85 /* AWSIoTDataService.m in Sources */,
@@ -494,6 +521,7 @@
 				CE0907911BD9B7E200372E85 /* AWSIoTCSR.m in Sources */,
 				CE0907921BD9B7E200372E85 /* AWSIoTKeychain.m in Sources */,
 				CE0907931BD9B7E200372E85 /* AWSIoTMQTTClient.m in Sources */,
+				A69F0C171C52F77900777C5B /* AWSSRWebSocket.m in Sources */,
 				CE0907951BD9B7E200372E85 /* MQTTEncoder.m in Sources */,
 				CE0907971BD9B7E200372E85 /* MQTTSession.m in Sources */,
 				CE0907981BD9B7E200372E85 /* MQttTxFlow.m in Sources */,
@@ -676,6 +704,7 @@
 				DEAD_CODE_STRIPPING = NO;
 				DEFINES_MODULE = YES;
 				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
+				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -689,6 +718,7 @@
 				DEAD_CODE_STRIPPING = NO;
 				DEFINES_MODULE = YES;
 				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
+				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

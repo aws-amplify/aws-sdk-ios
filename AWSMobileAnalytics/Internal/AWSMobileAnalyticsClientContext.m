@@ -13,17 +13,20 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
-#import "AWSMobileAnalyticsDefaultInterceptor.h"
+#import "AWSMobileAnalyticsClientContext.h"
 
-static NSString* const INSTANCE_ID_HEADER_KEY = @"x-amzn-Context-Id";
+@implementation AWSMobileAnalyticsClientContext
 
-@interface AWSMobileAnalyticsInstanceIdInterceptor : AWSMobileAnalyticsDefaultInterceptor
-
-@property (nonatomic, readwrite) NSString *instanceId;
-
--(id) initWithInstanceId:(NSString *)instanceId;
-
--(void) before:(id<AWSMobileAnalyticsRequest>)theRequest;
+- (NSDictionary *)dictionaryRepresentation {
+    NSMutableDictionary *clientContext = [[super dictionaryRepresentation] mutableCopy];
+    
+    if (self.clientId) {
+        NSMutableDictionary *client = [[clientContext objectForKey:@"client"] mutableCopy];
+        [client setObject:self.clientId forKey:@"client_id"];
+        [clientContext setObject:client forKey:@"client"];
+    }
+    
+    return clientContext;
+}
 
 @end

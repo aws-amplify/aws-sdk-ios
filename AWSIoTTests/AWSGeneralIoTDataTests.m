@@ -17,7 +17,7 @@
 #import <XCTest/XCTest.h>
 #import <OCMock/OCMock.h>
 #import "AWSTestUtility.h"
-#import "AWSIoT.h"
+#import "AWSIoTData.h"
 
 static id mockNetworking = nil;
 

@@ -177,7 +177,7 @@ typedef void(^AWSIoTMQTTNewMessageBlock)(NSData *data);
 + (void)removeIoTDataManagerForKey:(NSString *)key;
 
 /**
- Initialises the MQTT session and connects to the specified MQTT server
+ Initialises the MQTT session and connects to AWS IoT using certificate-based mutual authentication
 
  @return true if initialise finished with success
 
@@ -194,6 +194,23 @@ typedef void(^AWSIoTMQTTNewMessageBlock)(NSData *data);
                cleanSession:(BOOL)cleanSession
               certificateId:(NSString *)certificateId
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
+
+/**
+ Initialises the MQTT session and connects to AWS IoT using WebSocket/SigV4 authentication.  IAM
+ credentials are taken from the current service configuration.
+ 
+ @return true if initialise finished with success
+ 
+ @param clientId The Client Identifier identifies the Client to the Server.
+ 
+ @param certificateId contains the ID of the certificate to use in the connection; must be in the keychain
+ 
+ @param block Reference. When new mqtt session status is received the function of block will be called with new connection status.
+ 
+ */
+- (BOOL)connectUsingWebSocketWithClientId:(NSString *)clientId
+               cleanSession:(BOOL)cleanSession
+               statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
 
 /**
  Disconnect from a mqtt client (close current mqtt session)

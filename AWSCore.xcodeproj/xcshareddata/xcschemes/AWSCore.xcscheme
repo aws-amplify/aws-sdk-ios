@@ -420,6 +420,16 @@
                ReferencedContainer = "container:AWSAPIGateway.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CE07D4331C3B490800ABF5AE"
+               BuildableName = "AWSIoTTests.xctest"
+               BlueprintName = "AWSIoTTests"
+               ReferencedContainer = "container:AWSIoT.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

@@ -39,8 +39,12 @@ FOUNDATION_EXPORT NSString *const AWSIoTKeychainEndCertKeyTag;
 + (BOOL)deleteAsymmetricKeysWithPublicTag:(NSString *)publicTag privateTag:(NSString *)privateTag;
 + (BOOL)isValidCertificate:(NSString *)tag;
 + (BOOL)addCertificateToKeychain:(NSString *)cert;
++ (BOOL)addCertificateFromPemFile:(NSString*)fileName withTag:(NSString*)tag;
 + (BOOL)addCertificate:(NSData *)cert;
++ (BOOL)addCertificate:(NSData*)cert withTag:(NSString*)tag;
++ (BOOL)removeCertificateWithTag:(NSString*)tag;
 + (BOOL)removeCertificate;
+
 + (SecKeyRef)getPublicKeyRef:(NSString *)tag;
 + (NSData *)getPublicKeyBits:(NSString *)tag;
 + (SecKeyRef)getPrivateKeyRef:(NSString *)tag;
@@ -50,5 +54,8 @@ FOUNDATION_EXPORT NSString *const AWSIoTKeychainEndCertKeyTag;
 + (BOOL)addPublicKey:(NSData *)pubkey tag:(NSString *)tag;
 + (BOOL)addPrivateKeyRef:(SecKeyRef)privkeyRef tag:(NSString *)tag;
 + (BOOL)addPrivateKey:(NSData *)privkey tag:(NSString *)tag;
++ (BOOL)deletePrivateKeyWithTag:(NSString*)tag;
+
++ (SecIdentityRef)certificateFromP12:(NSString*)path password:(NSString *)password;
 
 @end

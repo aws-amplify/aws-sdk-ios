@@ -55,8 +55,7 @@ static NSString* const AWSMobileAnalyticsEnabled = @"isAnalyticsEnabled";
         _eventObservers       = [NSMutableArray new];
         _allowEventCollection = eventCollection;
 
-        NSString* verKey = [_context.configuration stringForKey:@"versionKey" withOptValue:@"ver"];
-        [_reservedAttributes setValue:AWSMobileAnalyticsEventSchemaVersion forKey:verKey];
+        [_reservedAttributes setValue:AWSMobileAnalyticsEventSchemaVersion forKey:@"ver"];
 
         [self addEventObserver:self.deliveryClient];
     }

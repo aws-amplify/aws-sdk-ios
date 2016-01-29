@@ -14,9 +14,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AWSCore/AWSTask.h>
 #import "AWSAbstractKinesisRecorder.h"
-
-@class AWSTask;
 
 FOUNDATION_EXPORT NSString *const AWSFirehoseRecorderErrorDomain;
 

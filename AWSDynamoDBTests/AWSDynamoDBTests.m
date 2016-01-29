@@ -768,6 +768,7 @@ static NSString *table2Name = nil;
 
     AWSDynamoDBBatchWriteItemInput *batchWriteItemInput = [AWSDynamoDBBatchWriteItemInput new];
     batchWriteItemInput.requestItems = @{table1Name: @[writeRequest,writeRequest2]};
+    batchWriteItemInput.returnConsumedCapacity = AWSDynamoDBReturnConsumedCapacityTotal;
 
     [[[dynamoDB batchWriteItem:batchWriteItemInput
        ] continueWithBlock:^id(AWSTask *task) {
@@ -776,8 +777,8 @@ static NSString *table2Name = nil;
         } else {
             XCTAssertTrue([task.result isKindOfClass:[AWSDynamoDBBatchWriteItemOutput class]], @"The response object is not a class of [%@]", NSStringFromClass([AWSDynamoDBBatchWriteItemOutput class]));
             AWSDynamoDBBatchWriteItemOutput *batchWriteItemOutput = task.result;
-            NSDictionary *unprocessedItems = batchWriteItemOutput.unprocessedItems;
-            XCTAssertEqual([unprocessedItems count], (NSUInteger)0);
+            NSArray *consumedCapacity = batchWriteItemOutput.consumedCapacity;
+            XCTAssertGreaterThan([consumedCapacity count], (NSUInteger)0);
         }
 
         return nil;

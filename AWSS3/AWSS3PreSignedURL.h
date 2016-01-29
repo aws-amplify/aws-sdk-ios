@@ -13,8 +13,9 @@
 // permissions and limitations under the License.
 //
 
-#import <AWSCore/AWSService.h>
+#import <AWSCore/AWSCore.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
 static NSString *const AWSS3PresignedURLVersionID = @"versionId";
 static NSString *const AWSS3PresignedURLTorrent = @"torrent";
@@ -201,7 +202,7 @@ typedef NS_ENUM(NSInteger, AWSS3PresignedURLErrorType) {
  @return A pre-signed NSURL for the resource. return nil if any errors occured.
  @see AWSS3GetPreSignedURLRequest
  */
-- (AWSTask *)getPreSignedURL:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest;
+- (AWSTask<NSURL *> *)getPreSignedURL:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest;
 
 @end
 
@@ -240,12 +241,12 @@ typedef NS_ENUM(NSInteger, AWSS3PresignedURLErrorType) {
 /**
  Expected content-type of the request. If set, the content-type will be included in the signature and future requests must include the same content-type header value to access the presigned URL. This parameter is ignored unless AWSHTTPMethod is equal to AWSHTTPMethodPUT. Default is nil.
  */
-@property (nonatomic, strong) NSString *contentType;
+@property (nonatomic, strong) NSString * _Nullable contentType;
 
 /**
  Expected content-md5 header of the request. If set, this header value will be included when calculating the signature and future requests must include the same content-md5 header value to access the presigned URL. This parameter is ignored unless HTTPMethod is equal to AWSHTTPMethodPUT. Default is nil.
  */
-@property (nonatomic, strong) NSString *contentMD5;
+@property (nonatomic, strong) NSString * _Nullable contentMD5;
 
 /**
  VersionId used in the pre signed URL. Default is nil.
@@ -254,12 +255,12 @@ typedef NS_ENUM(NSInteger, AWSS3PresignedURLErrorType) {
  
  @see additionalParameters
  */
-@property (nonatomic, strong) NSString *versionId __attribute__ ((deprecated("Use 'additionalParameters' instead to set versionId.")));
+@property (nonatomic, strong) NSString * _Nullable versionId __attribute__ ((deprecated("Use 'additionalParameters' instead to set versionId.")));
 
 /**
  This NSDictionary can contains additional request parameters to be included in the pre-signed URL. Adding additional request parameters enables more advanced pre-signed URLs, such as accessing Amazon S3's torrent resource for an object, or for specifying a version ID when accessing an object. Default is emtpy.
  */
-@property (nonatomic, readonly, strong) NSDictionary *requestParameters;
+@property (nonatomic, readonly, strong) NSDictionary<NSString *, NSString *> *requestParameters;
 
 /**
  Set an additional request parameter to be included in the pre-signed URL. Adding additional request parameters enables more advanced pre-signed URLs, such as accessing Amazon S3's torrent resource for an object, or for specifying a version ID when accessing an object.
@@ -268,6 +269,8 @@ typedef NS_ENUM(NSInteger, AWSS3PresignedURLErrorType) {
  @param requestParameter The name of the request parameter, as it appears in the URL's query string (e.g. AWSS3PresignedURLVersionID).
 
  */
-- (void)setValue:(NSString *)value forRequestParameter:(NSString *)requestParameter;
+- (void)setValue:(NSString * _Nullable)value forRequestParameter:(NSString *)requestParameter;
 
 @end
+
+NS_ASSUME_NONNULL_END

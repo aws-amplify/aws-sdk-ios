@@ -36,26 +36,26 @@
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
-                             @"IncompleteSignature" : @(AWSIoTErrorIncompleteSignature),
-                             @"InvalidClientTokenId" : @(AWSIoTErrorInvalidClientTokenId),
-                             @"MissingAuthenticationToken" : @(AWSIoTErrorMissingAuthenticationToken),
-                             @"CertificateStateException" : @(AWSIoTErrorCertificateState),
-                             @"DeleteConflictException" : @(AWSIoTErrorDeleteConflict),
-                             @"InternalException" : @(AWSIoTErrorInternal),
-                             @"InternalFailureException" : @(AWSIoTErrorInternalFailure),
-                             @"InvalidRequestException" : @(AWSIoTErrorInvalidRequest),
-                             @"LimitExceededException" : @(AWSIoTErrorLimitExceeded),
-                             @"MalformedPolicyException" : @(AWSIoTErrorMalformedPolicy),
-                             @"ResourceAlreadyExistsException" : @(AWSIoTErrorResourceAlreadyExists),
-                             @"ResourceNotFoundException" : @(AWSIoTErrorResourceNotFound),
-                             @"ServiceUnavailableException" : @(AWSIoTErrorServiceUnavailable),
-                             @"SqlParseException" : @(AWSIoTErrorSqlParse),
-                             @"ThrottlingException" : @(AWSIoTErrorThrottling),
-                             @"TransferAlreadyCompletedException" : @(AWSIoTErrorTransferAlreadyCompleted),
-                             @"TransferConflictException" : @(AWSIoTErrorTransferConflict),
-                             @"UnauthorizedException" : @(AWSIoTErrorUnauthorized),
-                             @"VersionsLimitExceededException" : @(AWSIoTErrorVersionsLimitExceeded),
-                             };
+                            @"IncompleteSignature" : @(AWSIoTErrorIncompleteSignature),
+                            @"InvalidClientTokenId" : @(AWSIoTErrorInvalidClientTokenId),
+                            @"MissingAuthenticationToken" : @(AWSIoTErrorMissingAuthenticationToken),
+                            @"CertificateStateException" : @(AWSIoTErrorCertificateState),
+                            @"DeleteConflictException" : @(AWSIoTErrorDeleteConflict),
+                            @"InternalException" : @(AWSIoTErrorInternal),
+                            @"InternalFailureException" : @(AWSIoTErrorInternalFailure),
+                            @"InvalidRequestException" : @(AWSIoTErrorInvalidRequest),
+                            @"LimitExceededException" : @(AWSIoTErrorLimitExceeded),
+                            @"MalformedPolicyException" : @(AWSIoTErrorMalformedPolicy),
+                            @"ResourceAlreadyExistsException" : @(AWSIoTErrorResourceAlreadyExists),
+                            @"ResourceNotFoundException" : @(AWSIoTErrorResourceNotFound),
+                            @"ServiceUnavailableException" : @(AWSIoTErrorServiceUnavailable),
+                            @"SqlParseException" : @(AWSIoTErrorSqlParse),
+                            @"ThrottlingException" : @(AWSIoTErrorThrottling),
+                            @"TransferAlreadyCompletedException" : @(AWSIoTErrorTransferAlreadyCompleted),
+                            @"TransferConflictException" : @(AWSIoTErrorTransferConflict),
+                            @"UnauthorizedException" : @(AWSIoTErrorUnauthorized),
+                            @"VersionsLimitExceededException" : @(AWSIoTErrorVersionsLimitExceeded),
+                            };
 }
 
 - (id)responseObjectForResponse:(NSHTTPURLResponse *)response
@@ -274,6 +274,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
+- (void)acceptCertificateTransfer:(AWSIoTAcceptCertificateTransferRequest *)request
+                completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self acceptCertificateTransfer:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)attachPrincipalPolicy:(AWSIoTAttachPrincipalPolicyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -283,13 +301,50 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)attachThingPrincipal:(AWSIoTAttachThingPrincipalRequest *)request {
+- (void)attachPrincipalPolicy:(AWSIoTAttachPrincipalPolicyRequest *)request
+            completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self attachPrincipalPolicy:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTAttachThingPrincipalResponse *> *)attachThingPrincipal:(AWSIoTAttachThingPrincipalRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/things/{thingName}/principals"
                   targetPrefix:@""
                  operationName:@"AttachThingPrincipal"
                    outputClass:[AWSIoTAttachThingPrincipalResponse class]];
+}
+
+- (void)attachThingPrincipal:(AWSIoTAttachThingPrincipalRequest *)request
+           completionHandler:(void (^)(AWSIoTAttachThingPrincipalResponse *response, NSError *error))completionHandler {
+    [[self attachThingPrincipal:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTAttachThingPrincipalResponse *> * _Nonnull task) {
+        AWSIoTAttachThingPrincipalResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)cancelCertificateTransfer:(AWSIoTCancelCertificateTransferRequest *)request {
@@ -301,7 +356,25 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)createCertificateFromCsr:(AWSIoTCreateCertificateFromCsrRequest *)request {
+- (void)cancelCertificateTransfer:(AWSIoTCancelCertificateTransferRequest *)request
+                completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self cancelCertificateTransfer:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTCreateCertificateFromCsrResponse *> *)createCertificateFromCsr:(AWSIoTCreateCertificateFromCsrRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/certificates"
@@ -310,7 +383,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSIoTCreateCertificateFromCsrResponse class]];
 }
 
-- (AWSTask *)createKeysAndCertificate:(AWSIoTCreateKeysAndCertificateRequest *)request {
+- (void)createCertificateFromCsr:(AWSIoTCreateCertificateFromCsrRequest *)request
+               completionHandler:(void (^)(AWSIoTCreateCertificateFromCsrResponse *response, NSError *error))completionHandler {
+    [[self createCertificateFromCsr:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateCertificateFromCsrResponse *> * _Nonnull task) {
+        AWSIoTCreateCertificateFromCsrResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTCreateKeysAndCertificateResponse *> *)createKeysAndCertificate:(AWSIoTCreateKeysAndCertificateRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/keys-and-certificate"
@@ -319,7 +411,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSIoTCreateKeysAndCertificateResponse class]];
 }
 
-- (AWSTask *)createPolicy:(AWSIoTCreatePolicyRequest *)request {
+- (void)createKeysAndCertificate:(AWSIoTCreateKeysAndCertificateRequest *)request
+               completionHandler:(void (^)(AWSIoTCreateKeysAndCertificateResponse *response, NSError *error))completionHandler {
+    [[self createKeysAndCertificate:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateKeysAndCertificateResponse *> * _Nonnull task) {
+        AWSIoTCreateKeysAndCertificateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTCreatePolicyResponse *> *)createPolicy:(AWSIoTCreatePolicyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/policies/{policyName}"
@@ -328,7 +439,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSIoTCreatePolicyResponse class]];
 }
 
-- (AWSTask *)createPolicyVersion:(AWSIoTCreatePolicyVersionRequest *)request {
+- (void)createPolicy:(AWSIoTCreatePolicyRequest *)request
+   completionHandler:(void (^)(AWSIoTCreatePolicyResponse *response, NSError *error))completionHandler {
+    [[self createPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreatePolicyResponse *> * _Nonnull task) {
+        AWSIoTCreatePolicyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTCreatePolicyVersionResponse *> *)createPolicyVersion:(AWSIoTCreatePolicyVersionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/policies/{policyName}/version"
@@ -337,13 +467,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSIoTCreatePolicyVersionResponse class]];
 }
 
-- (AWSTask *)createThing:(AWSIoTCreateThingRequest *)request {
+- (void)createPolicyVersion:(AWSIoTCreatePolicyVersionRequest *)request
+          completionHandler:(void (^)(AWSIoTCreatePolicyVersionResponse *response, NSError *error))completionHandler {
+    [[self createPolicyVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreatePolicyVersionResponse *> * _Nonnull task) {
+        AWSIoTCreatePolicyVersionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTCreateThingResponse *> *)createThing:(AWSIoTCreateThingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/things/{thingName}"
                   targetPrefix:@""
                  operationName:@"CreateThing"
                    outputClass:[AWSIoTCreateThingResponse class]];
+}
+
+- (void)createThing:(AWSIoTCreateThingRequest *)request
+  completionHandler:(void (^)(AWSIoTCreateThingResponse *response, NSError *error))completionHandler {
+    [[self createThing:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateThingResponse *> * _Nonnull task) {
+        AWSIoTCreateThingResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)createTopicRule:(AWSIoTCreateTopicRuleRequest *)request {
@@ -355,6 +523,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
+- (void)createTopicRule:(AWSIoTCreateTopicRuleRequest *)request
+      completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self createTopicRule:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteCertificate:(AWSIoTDeleteCertificateRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -362,6 +548,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                   targetPrefix:@""
                  operationName:@"DeleteCertificate"
                    outputClass:nil];
+}
+
+- (void)deleteCertificate:(AWSIoTDeleteCertificateRequest *)request
+        completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteCertificate:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)deletePolicy:(AWSIoTDeletePolicyRequest *)request {
@@ -373,6 +577,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
+- (void)deletePolicy:(AWSIoTDeletePolicyRequest *)request
+   completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deletePolicy:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deletePolicyVersion:(AWSIoTDeletePolicyVersionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -382,13 +604,50 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)deleteThing:(AWSIoTDeleteThingRequest *)request {
+- (void)deletePolicyVersion:(AWSIoTDeletePolicyVersionRequest *)request
+          completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deletePolicyVersion:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDeleteThingResponse *> *)deleteThing:(AWSIoTDeleteThingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/things/{thingName}"
                   targetPrefix:@""
                  operationName:@"DeleteThing"
                    outputClass:[AWSIoTDeleteThingResponse class]];
+}
+
+- (void)deleteThing:(AWSIoTDeleteThingRequest *)request
+  completionHandler:(void (^)(AWSIoTDeleteThingResponse *response, NSError *error))completionHandler {
+    [[self deleteThing:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeleteThingResponse *> * _Nonnull task) {
+        AWSIoTDeleteThingResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)deleteTopicRule:(AWSIoTDeleteTopicRuleRequest *)request {
@@ -400,7 +659,25 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)describeCertificate:(AWSIoTDescribeCertificateRequest *)request {
+- (void)deleteTopicRule:(AWSIoTDeleteTopicRuleRequest *)request
+      completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteTopicRule:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDescribeCertificateResponse *> *)describeCertificate:(AWSIoTDescribeCertificateRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/certificates/{certificateId}"
@@ -409,7 +686,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSIoTDescribeCertificateResponse class]];
 }
 
-- (AWSTask *)describeEndpoint:(AWSIoTDescribeEndpointRequest *)request {
+- (void)describeCertificate:(AWSIoTDescribeCertificateRequest *)request
+          completionHandler:(void (^)(AWSIoTDescribeCertificateResponse *response, NSError *error))completionHandler {
+    [[self describeCertificate:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeCertificateResponse *> * _Nonnull task) {
+        AWSIoTDescribeCertificateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDescribeEndpointResponse *> *)describeEndpoint:(AWSIoTDescribeEndpointRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/endpoint"
@@ -418,13 +714,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSIoTDescribeEndpointResponse class]];
 }
 
-- (AWSTask *)describeThing:(AWSIoTDescribeThingRequest *)request {
+- (void)describeEndpoint:(AWSIoTDescribeEndpointRequest *)request
+       completionHandler:(void (^)(AWSIoTDescribeEndpointResponse *response, NSError *error))completionHandler {
+    [[self describeEndpoint:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeEndpointResponse *> * _Nonnull task) {
+        AWSIoTDescribeEndpointResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDescribeThingResponse *> *)describeThing:(AWSIoTDescribeThingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/things/{thingName}"
                   targetPrefix:@""
                  operationName:@"DescribeThing"
                    outputClass:[AWSIoTDescribeThingResponse class]];
+}
+
+- (void)describeThing:(AWSIoTDescribeThingRequest *)request
+    completionHandler:(void (^)(AWSIoTDescribeThingResponse *response, NSError *error))completionHandler {
+    [[self describeThing:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeThingResponse *> * _Nonnull task) {
+        AWSIoTDescribeThingResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)detachPrincipalPolicy:(AWSIoTDetachPrincipalPolicyRequest *)request {
@@ -436,7 +770,25 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)detachThingPrincipal:(AWSIoTDetachThingPrincipalRequest *)request {
+- (void)detachPrincipalPolicy:(AWSIoTDetachPrincipalPolicyRequest *)request
+            completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self detachPrincipalPolicy:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDetachThingPrincipalResponse *> *)detachThingPrincipal:(AWSIoTDetachThingPrincipalRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/things/{thingName}/principals"
@@ -445,7 +797,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSIoTDetachThingPrincipalResponse class]];
 }
 
-- (AWSTask *)getLoggingOptions:(AWSIoTGetLoggingOptionsRequest *)request {
+- (void)detachThingPrincipal:(AWSIoTDetachThingPrincipalRequest *)request
+           completionHandler:(void (^)(AWSIoTDetachThingPrincipalResponse *response, NSError *error))completionHandler {
+    [[self detachThingPrincipal:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDetachThingPrincipalResponse *> * _Nonnull task) {
+        AWSIoTDetachThingPrincipalResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTGetLoggingOptionsResponse *> *)getLoggingOptions:(AWSIoTGetLoggingOptionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/loggingOptions"
@@ -454,7 +825,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSIoTGetLoggingOptionsResponse class]];
 }
 
-- (AWSTask *)getPolicy:(AWSIoTGetPolicyRequest *)request {
+- (void)getLoggingOptions:(AWSIoTGetLoggingOptionsRequest *)request
+        completionHandler:(void (^)(AWSIoTGetLoggingOptionsResponse *response, NSError *error))completionHandler {
+    [[self getLoggingOptions:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTGetLoggingOptionsResponse *> * _Nonnull task) {
+        AWSIoTGetLoggingOptionsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTGetPolicyResponse *> *)getPolicy:(AWSIoTGetPolicyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/policies/{policyName}"
@@ -463,7 +853,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSIoTGetPolicyResponse class]];
 }
 
-- (AWSTask *)getPolicyVersion:(AWSIoTGetPolicyVersionRequest *)request {
+- (void)getPolicy:(AWSIoTGetPolicyRequest *)request
+completionHandler:(void (^)(AWSIoTGetPolicyResponse *response, NSError *error))completionHandler {
+    [[self getPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTGetPolicyResponse *> * _Nonnull task) {
+        AWSIoTGetPolicyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTGetPolicyVersionResponse *> *)getPolicyVersion:(AWSIoTGetPolicyVersionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/policies/{policyName}/version/{policyVersionId}"
@@ -472,7 +881,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSIoTGetPolicyVersionResponse class]];
 }
 
-- (AWSTask *)getTopicRule:(AWSIoTGetTopicRuleRequest *)request {
+- (void)getPolicyVersion:(AWSIoTGetPolicyVersionRequest *)request
+       completionHandler:(void (^)(AWSIoTGetPolicyVersionResponse *response, NSError *error))completionHandler {
+    [[self getPolicyVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTGetPolicyVersionResponse *> * _Nonnull task) {
+        AWSIoTGetPolicyVersionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTGetTopicRuleResponse *> *)getTopicRule:(AWSIoTGetTopicRuleRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/rules/{ruleName}"
@@ -481,7 +909,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSIoTGetTopicRuleResponse class]];
 }
 
-- (AWSTask *)listCertificates:(AWSIoTListCertificatesRequest *)request {
+- (void)getTopicRule:(AWSIoTGetTopicRuleRequest *)request
+   completionHandler:(void (^)(AWSIoTGetTopicRuleResponse *response, NSError *error))completionHandler {
+    [[self getTopicRule:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTGetTopicRuleResponse *> * _Nonnull task) {
+        AWSIoTGetTopicRuleResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListCertificatesResponse *> *)listCertificates:(AWSIoTListCertificatesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/certificates"
@@ -490,7 +937,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSIoTListCertificatesResponse class]];
 }
 
-- (AWSTask *)listPolicies:(AWSIoTListPoliciesRequest *)request {
+- (void)listCertificates:(AWSIoTListCertificatesRequest *)request
+       completionHandler:(void (^)(AWSIoTListCertificatesResponse *response, NSError *error))completionHandler {
+    [[self listCertificates:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListCertificatesResponse *> * _Nonnull task) {
+        AWSIoTListCertificatesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListPoliciesResponse *> *)listPolicies:(AWSIoTListPoliciesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/policies"
@@ -499,7 +965,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSIoTListPoliciesResponse class]];
 }
 
-- (AWSTask *)listPolicyVersions:(AWSIoTListPolicyVersionsRequest *)request {
+- (void)listPolicies:(AWSIoTListPoliciesRequest *)request
+   completionHandler:(void (^)(AWSIoTListPoliciesResponse *response, NSError *error))completionHandler {
+    [[self listPolicies:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListPoliciesResponse *> * _Nonnull task) {
+        AWSIoTListPoliciesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListPolicyVersionsResponse *> *)listPolicyVersions:(AWSIoTListPolicyVersionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/policies/{policyName}/version"
@@ -508,7 +993,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSIoTListPolicyVersionsResponse class]];
 }
 
-- (AWSTask *)listPrincipalPolicies:(AWSIoTListPrincipalPoliciesRequest *)request {
+- (void)listPolicyVersions:(AWSIoTListPolicyVersionsRequest *)request
+         completionHandler:(void (^)(AWSIoTListPolicyVersionsResponse *response, NSError *error))completionHandler {
+    [[self listPolicyVersions:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListPolicyVersionsResponse *> * _Nonnull task) {
+        AWSIoTListPolicyVersionsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListPrincipalPoliciesResponse *> *)listPrincipalPolicies:(AWSIoTListPrincipalPoliciesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/principal-policies"
@@ -517,7 +1021,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSIoTListPrincipalPoliciesResponse class]];
 }
 
-- (AWSTask *)listPrincipalThings:(AWSIoTListPrincipalThingsRequest *)request {
+- (void)listPrincipalPolicies:(AWSIoTListPrincipalPoliciesRequest *)request
+            completionHandler:(void (^)(AWSIoTListPrincipalPoliciesResponse *response, NSError *error))completionHandler {
+    [[self listPrincipalPolicies:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListPrincipalPoliciesResponse *> * _Nonnull task) {
+        AWSIoTListPrincipalPoliciesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListPrincipalThingsResponse *> *)listPrincipalThings:(AWSIoTListPrincipalThingsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/principals/things"
@@ -526,7 +1049,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSIoTListPrincipalThingsResponse class]];
 }
 
-- (AWSTask *)listThingPrincipals:(AWSIoTListThingPrincipalsRequest *)request {
+- (void)listPrincipalThings:(AWSIoTListPrincipalThingsRequest *)request
+          completionHandler:(void (^)(AWSIoTListPrincipalThingsResponse *response, NSError *error))completionHandler {
+    [[self listPrincipalThings:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListPrincipalThingsResponse *> * _Nonnull task) {
+        AWSIoTListPrincipalThingsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListThingPrincipalsResponse *> *)listThingPrincipals:(AWSIoTListThingPrincipalsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/things/{thingName}/principals"
@@ -535,7 +1077,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSIoTListThingPrincipalsResponse class]];
 }
 
-- (AWSTask *)listThings:(AWSIoTListThingsRequest *)request {
+- (void)listThingPrincipals:(AWSIoTListThingPrincipalsRequest *)request
+          completionHandler:(void (^)(AWSIoTListThingPrincipalsResponse *response, NSError *error))completionHandler {
+    [[self listThingPrincipals:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListThingPrincipalsResponse *> * _Nonnull task) {
+        AWSIoTListThingPrincipalsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListThingsResponse *> *)listThings:(AWSIoTListThingsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/things"
@@ -544,13 +1105,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSIoTListThingsResponse class]];
 }
 
-- (AWSTask *)listTopicRules:(AWSIoTListTopicRulesRequest *)request {
+- (void)listThings:(AWSIoTListThingsRequest *)request
+ completionHandler:(void (^)(AWSIoTListThingsResponse *response, NSError *error))completionHandler {
+    [[self listThings:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListThingsResponse *> * _Nonnull task) {
+        AWSIoTListThingsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListTopicRulesResponse *> *)listTopicRules:(AWSIoTListTopicRulesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/rules"
                   targetPrefix:@""
                  operationName:@"ListTopicRules"
                    outputClass:[AWSIoTListTopicRulesResponse class]];
+}
+
+- (void)listTopicRules:(AWSIoTListTopicRulesRequest *)request
+     completionHandler:(void (^)(AWSIoTListTopicRulesResponse *response, NSError *error))completionHandler {
+    [[self listTopicRules:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListTopicRulesResponse *> * _Nonnull task) {
+        AWSIoTListTopicRulesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)rejectCertificateTransfer:(AWSIoTRejectCertificateTransferRequest *)request {
@@ -562,6 +1161,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
+- (void)rejectCertificateTransfer:(AWSIoTRejectCertificateTransferRequest *)request
+                completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self rejectCertificateTransfer:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)replaceTopicRule:(AWSIoTReplaceTopicRuleRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPATCH
@@ -569,6 +1186,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                   targetPrefix:@""
                  operationName:@"ReplaceTopicRule"
                    outputClass:nil];
+}
+
+- (void)replaceTopicRule:(AWSIoTReplaceTopicRuleRequest *)request
+       completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self replaceTopicRule:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)setDefaultPolicyVersion:(AWSIoTSetDefaultPolicyVersionRequest *)request {
@@ -580,6 +1215,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
+- (void)setDefaultPolicyVersion:(AWSIoTSetDefaultPolicyVersionRequest *)request
+              completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self setDefaultPolicyVersion:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)setLoggingOptions:(AWSIoTSetLoggingOptionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -589,13 +1242,50 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)transferCertificate:(AWSIoTTransferCertificateRequest *)request {
+- (void)setLoggingOptions:(AWSIoTSetLoggingOptionsRequest *)request
+        completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self setLoggingOptions:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTTransferCertificateResponse *> *)transferCertificate:(AWSIoTTransferCertificateRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPATCH
                      URLString:@"/transfer-certificate/{certificateId}"
                   targetPrefix:@""
                  operationName:@"TransferCertificate"
                    outputClass:[AWSIoTTransferCertificateResponse class]];
+}
+
+- (void)transferCertificate:(AWSIoTTransferCertificateRequest *)request
+          completionHandler:(void (^)(AWSIoTTransferCertificateResponse *response, NSError *error))completionHandler {
+    [[self transferCertificate:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTTransferCertificateResponse *> * _Nonnull task) {
+        AWSIoTTransferCertificateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)updateCertificate:(AWSIoTUpdateCertificateRequest *)request {
@@ -607,13 +1297,50 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)updateThing:(AWSIoTUpdateThingRequest *)request {
+- (void)updateCertificate:(AWSIoTUpdateCertificateRequest *)request
+        completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updateCertificate:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTUpdateThingResponse *> *)updateThing:(AWSIoTUpdateThingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPATCH
                      URLString:@"/things/{thingName}"
                   targetPrefix:@""
                  operationName:@"UpdateThing"
                    outputClass:[AWSIoTUpdateThingResponse class]];
+}
+
+- (void)updateThing:(AWSIoTUpdateThingRequest *)request
+  completionHandler:(void (^)(AWSIoTUpdateThingResponse *response, NSError *error))completionHandler {
+    [[self updateThing:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdateThingResponse *> * _Nonnull task) {
+        AWSIoTUpdateThingResponse *result = task.result;
+        NSError *error = task.error;
+        
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+        
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+        
+        return nil;
+    }];
 }
 
 @end

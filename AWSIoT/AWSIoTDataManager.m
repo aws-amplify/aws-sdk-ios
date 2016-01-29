@@ -90,7 +90,6 @@ AWSIoTMQTTClient *_mqttClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _mqttClient = [AWSIoTMQTTClient sharedInstance];
-        [_mqttClient disconnect];
     });
 
     return _mqttClient;
@@ -117,6 +116,25 @@ AWSIoTMQTTClient *_mqttClient = nil;
                                cleanSession:cleanSession
                               certificateId:certificateId
                              statusCallback:callback];
+}
+
+- (BOOL)connectUsingWebSocketWithClientId:(NSString *)clientId
+                             cleanSession:(BOOL)cleanSession
+                           statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
+{
+    //
+    // Get WebSocket URL which will be used to connect; it has SigV4 authentication
+    // information embedded in the query string.
+    //
+
+    if (clientId == nil || [clientId  isEqualToString: @""]) {
+        return false;
+    }
+ 
+    return [self.mqttClient connectWithClientId:clientId
+                                   cleanSession:cleanSession
+                                  configuration:self.IoTData.configuration
+                                 statusCallback:callback];
 }
 
 - (void)disconnect{

@@ -575,6 +575,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
+				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSS3;
 				SKIP_INSTALL = YES;
@@ -594,6 +595,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
+				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSS3;
 				SKIP_INSTALL = YES;

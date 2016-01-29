@@ -105,12 +105,12 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>The AWS account number of the <a href="http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principal</a> who will be given permission. The principal must have an AWS account, but does not need to be signed up for Amazon SQS. For information about locating the AWS account identification, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AWSCredentials.html">Your AWS Identifiers</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable AWSAccountIds;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable AWSAccountIds;
 
 /**
  <p>The action the client wants to allow for the specified principal. The following are valid values: <code>* | SendMessage | ReceiveMessage | DeleteMessage | ChangeMessageVisibility | GetQueueAttributes | GetQueueUrl</code>. For more information about these actions, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes">Understanding Permissions</a> in the <i>Amazon SQS Developer Guide</i>.</p><p>Specifying <code>SendMessage</code>, <code>DeleteMessage</code>, or <code>ChangeMessageVisibility</code> for the <code>ActionName.n</code> also grants permissions for the corresponding batch versions of those actions: <code>SendMessageBatch</code>, <code>DeleteMessageBatch</code>, and <code>ChangeMessageVisibilityBatch</code>.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable actions;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable actions;
 
 /**
  <p>The unique identification of the permission you're setting (e.g., <code>AliceSendMessage</code>). Constraints: Maximum 80 characters; alphanumeric characters, hyphens (-), and underscores (_) are allowed.</p>
@@ -162,7 +162,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>A list of receipt handles of the messages for which the visibility timeout must be changed.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable entries;
+@property (nonatomic, strong) NSArray<AWSSQSChangeMessageVisibilityBatchRequestEntry *> * _Nullable entries;
 
 /**
  <p>The URL of the Amazon SQS queue to take action on.</p>
@@ -205,12 +205,12 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>A list of <a>BatchResultErrorEntry</a> items.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable failed;
+@property (nonatomic, strong) NSArray<AWSSQSBatchResultErrorEntry *> * _Nullable failed;
 
 /**
  <p>A list of <a>ChangeMessageVisibilityBatchResultEntry</a> items.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable successful;
+@property (nonatomic, strong) NSArray<AWSSQSChangeMessageVisibilityBatchResultEntry *> * _Nullable successful;
 
 @end
 
@@ -260,7 +260,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters the <code>CreateQueue</code> action uses:</p><p><ul><li><code>DelaySeconds</code> - The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 (zero).</li><li><code>MaximumMessageSize</code> - The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).</li><li><code>MessageRetentionPeriod</code> - The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).</li><li><code>Policy</code> - The queue's policy. A valid form-url-encoded policy. For more information about policy structure, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html">Basic Policy Structure</a> in the <i>Amazon SQS Developer Guide</i>. For more information about form-url-encoding, see <a href="http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1">http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1</a>.</li><li><code>ReceiveMessageWaitTimeSeconds</code> - The time for which a <a>ReceiveMessage</a> call will wait for a message to arrive. An integer from 0 to 20 (seconds). The default for this attribute is 0. </li><li><code>VisibilityTimeout</code> - The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</li></ul></p>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable attributes;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
 /**
  <p>The name for the queue to be created.</p>
@@ -291,7 +291,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>A list of receipt handles for the messages to be deleted.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable entries;
+@property (nonatomic, strong) NSArray<AWSSQSDeleteMessageBatchRequestEntry *> * _Nullable entries;
 
 /**
  <p>The URL of the Amazon SQS queue to take action on.</p>
@@ -329,12 +329,12 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>A list of <a>BatchResultErrorEntry</a> items.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable failed;
+@property (nonatomic, strong) NSArray<AWSSQSBatchResultErrorEntry *> * _Nullable failed;
 
 /**
  <p>A list of <a>DeleteMessageBatchResultEntry</a> items.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable successful;
+@property (nonatomic, strong) NSArray<AWSSQSDeleteMessageBatchResultEntry *> * _Nullable successful;
 
 @end
 
@@ -392,7 +392,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>A list of attributes to retrieve information for. </p>
  */
-@property (nonatomic, strong) NSArray * _Nullable attributeNames;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable attributeNames;
 
 /**
  <p>The URL of the Amazon SQS queue to take action on.</p>
@@ -410,7 +410,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>A map of attributes to the respective values.</p>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable attributes;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
 @end
 
@@ -468,7 +468,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  A list of source queue URLs that have the RedrivePolicy queue attribute configured with a dead letter queue.
  */
-@property (nonatomic, strong) NSArray * _Nullable queueUrls;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable queueUrls;
 
 @end
 
@@ -494,7 +494,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>A list of queue URLs, up to 1000 entries.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable queueUrls;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable queueUrls;
 
 @end
 
@@ -507,7 +507,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p><code>SenderId</code>, <code>SentTimestamp</code>, <code>ApproximateReceiveCount</code>, and/or <code>ApproximateFirstReceiveTimestamp</code>. <code>SentTimestamp</code> and <code>ApproximateFirstReceiveTimestamp</code> are each returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable attributes;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
 /**
  <p>The message's contents (not URL-encoded).</p>
@@ -527,7 +527,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>Each message attribute consists of a Name, Type, and Value. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV">Message Attribute Items</a>.</p>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable messageAttributes;
+@property (nonatomic, strong) NSDictionary<NSString *, AWSSQSMessageAttributeValue *> * _Nullable messageAttributes;
 
 /**
  <p>A unique identifier for the message. Message IDs are considered unique across all AWS accounts for an extended period of time.</p>
@@ -551,7 +551,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>Not implemented. Reserved for future use.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable binaryListValues;
+@property (nonatomic, strong) NSArray<NSData *> * _Nullable binaryListValues;
 
 /**
  <p>Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.</p>
@@ -566,7 +566,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>Not implemented. Reserved for future use.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable stringListValues;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable stringListValues;
 
 /**
  <p>Strings are Unicode with UTF8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters</a>.</p>
@@ -584,7 +584,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>A list of attributes that need to be returned along with each message. </p><p> The following lists the names and descriptions of the attributes that can be returned: </p><ul><li><code>All</code> - returns all values.</li><li><code>ApproximateFirstReceiveTimestamp</code> - returns the time when the message was first received (epoch time in milliseconds).</li><li><code>ApproximateReceiveCount</code> - returns the number of times a message has been received but not deleted.</li><li><code>SenderId</code> - returns the AWS account number (or the IP address, if anonymous access is allowed) of the sender.</li><li><code>SentTimestamp</code> - returns the time when the message was sent (epoch time in milliseconds).</li></ul>
  */
-@property (nonatomic, strong) NSArray * _Nullable attributeNames;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable attributeNames;
 
 /**
  <p>The maximum number of messages to return. Amazon SQS never returns more messages than this value but may return fewer. Values can be from 1 to 10. Default is 1.</p><p>All of the messages are not necessarily returned.</p>
@@ -594,7 +594,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>The message attribute Name can contain the following characters: A-Z, a-z, 0-9, underscore(_), hyphen(-), and period (.). The message attribute name must not start or end with a period, and it should not have successive periods. The message attribute name is case sensitive and must be unique among all attribute names for the message. The message attribute name can be up to 256 characters long. Attribute names cannot start with "AWS." or "Amazon." because these prefixes are reserved for use by Amazon Web Services.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable messageAttributeNames;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable messageAttributeNames;
 
 /**
  <p>The URL of the Amazon SQS queue to take action on.</p>
@@ -622,7 +622,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>A list of messages.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable messages;
+@property (nonatomic, strong) NSArray<AWSSQSMessage *> * _Nullable messages;
 
 @end
 
@@ -653,7 +653,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>A list of <a>SendMessageBatchRequestEntry</a> items.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable entries;
+@property (nonatomic, strong) NSArray<AWSSQSSendMessageBatchRequestEntry *> * _Nullable entries;
 
 /**
  <p>The URL of the Amazon SQS queue to take action on.</p>
@@ -682,7 +682,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>Each message attribute consists of a Name, Type, and Value. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV">Message Attribute Items</a>.</p>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable messageAttributes;
+@property (nonatomic, strong) NSDictionary<NSString *, AWSSQSMessageAttributeValue *> * _Nullable messageAttributes;
 
 /**
  <p>Body of the message.</p>
@@ -701,12 +701,12 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>A list of <a>BatchResultErrorEntry</a> items with the error detail about each message that could not be enqueued.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable failed;
+@property (nonatomic, strong) NSArray<AWSSQSBatchResultErrorEntry *> * _Nullable failed;
 
 /**
  <p>A list of <a>SendMessageBatchResultEntry</a> items.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable successful;
+@property (nonatomic, strong) NSArray<AWSSQSSendMessageBatchResultEntry *> * _Nullable successful;
 
 @end
 
@@ -753,7 +753,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>Each message attribute consists of a Name, Type, and Value. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV">Message Attribute Items</a>.</p>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable messageAttributes;
+@property (nonatomic, strong) NSDictionary<NSString *, AWSSQSMessageAttributeValue *> * _Nullable messageAttributes;
 
 /**
  <p>The message to send. String maximum 256 KB in size. For a list of allowed characters, see the preceding important note.</p>
@@ -799,7 +799,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>A map of attributes to set.</p><p>The following lists the names, descriptions, and values of the special request parameters the <code>SetQueueAttributes</code> action uses:</p><p><ul><li><code>DelaySeconds</code> - The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 (zero).</li><li><code>MaximumMessageSize</code> - The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).</li><li><code>MessageRetentionPeriod</code> - The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).</li><li><code>Policy</code> - The queue's policy. A valid form-url-encoded policy. For more information about policy structure, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html">Basic Policy Structure</a> in the <i>Amazon SQS Developer Guide</i>. For more information about form-url-encoding, see <a href="http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1">http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1</a>.</li><li><code>ReceiveMessageWaitTimeSeconds</code> - The time for which a ReceiveMessage call will wait for a message to arrive. An integer from 0 to 20 (seconds). The default for this attribute is 0. </li><li><code>VisibilityTimeout</code> - The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see Visibility Timeout in the <i>Amazon SQS Developer Guide</i>.</li><li><code>RedrivePolicy</code> - The parameters for dead letter queue functionality of the source queue. For more information about RedrivePolicy and dead letter queues, see Using Amazon SQS Dead Letter Queues in the <i>Amazon SQS Developer Guide</i>.</li></ul></p>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable attributes;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
 /**
  <p>The URL of the Amazon SQS queue to take action on.</p>

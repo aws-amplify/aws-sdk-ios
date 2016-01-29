@@ -24,15 +24,15 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
 @implementation AWSIoTKeychain
 
 + (NSString*)publicKeyTag {
-    return [NSString stringWithFormat:@"%@.RSAPublicTag.",[[NSBundle mainBundle] bundleIdentifier]];
+    return [NSString stringWithFormat:@"%@.RSAPublicTag.",[[NSBundle bundleForClass:[self class]] bundleIdentifier]];
 }
 
 + (NSString*)privateKeyTag {
-    return [NSString stringWithFormat:@"%@.RSAPrivateTag.",[[NSBundle mainBundle] bundleIdentifier]];
+    return [NSString stringWithFormat:@"%@.RSAPrivateTag.",[[NSBundle bundleForClass:[self class]] bundleIdentifier]];
 }
 
 + (NSString*)certTag {
-    return [NSString stringWithFormat:@"%@.RSACertTag.",[[NSBundle mainBundle] bundleIdentifier]];
+    return [NSString stringWithFormat:@"%@.RSACertTag.",[[NSBundle bundleForClass:[self class]] bundleIdentifier]];
 }
 
 + (NSString*)base64Encode:(NSData*)data {
@@ -157,6 +157,34 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     return [AWSIoTKeychain addCertificate:certData];
 }
 
++ (BOOL)addCertificateFromPemFile:(NSString*)fileName withTag:(NSString*)tag {
+    
+    if ([fileName hasSuffix:@".pem"]) {
+        fileName = [fileName substringToIndex:(fileName.length - @".pem".length)];
+    }
+    
+    NSBundle *bundle       = [NSBundle bundleForClass:[self class]];
+    NSString *bundleString = [bundle pathForResource:fileName ofType:@"pem"];
+    NSString *cert         = [NSString stringWithContentsOfFile:bundleString encoding:NSUTF8StringEncoding error:nil];
+    
+    if (!cert) {
+        return NO;
+    }
+    
+    if ([cert rangeOfString:AWSIoTKeychainStartCertKeyTag].location != NSNotFound) {
+        cert = [cert substringFromIndex:AWSIoTKeychainStartCertKeyTag.length];
+    }
+    if ([cert rangeOfString:AWSIoTKeychainEndCertKeyTag].location != NSNotFound) {
+        cert = [cert substringToIndex:(cert.length - AWSIoTKeychainEndCertKeyTag.length)];
+    }
+    
+    NSData *certData = [AWSIoTKeychain base64DecodeWithIgnoreUnknownSymbols:cert];
+    if (!certData) {
+        return NO;
+    }
+    return [AWSIoTKeychain addCertificate:certData withTag:tag];
+}
+
 + (BOOL)addCertificate:(NSData*)cert {
     SecCertificateRef certRef = SecCertificateCreateWithData(kCFAllocatorDefault, (__bridge CFDataRef)cert);
     if (certRef == NULL) {
@@ -179,12 +207,55 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     return YES;
 }
 
++ (BOOL)addCertificate:(NSData*)cert withTag:(NSString*)tag {
+    SecCertificateRef certRef = SecCertificateCreateWithData(kCFAllocatorDefault, (__bridge CFDataRef)cert);
+    if (certRef == NULL) {
+        NSLog(@"Error create Sec Certificate from data");
+        return NO;
+    }
+    
+    NSMutableDictionary * queryCertificate = [[NSMutableDictionary alloc] init];
+    
+    [queryCertificate setObject:(id)kSecClassCertificate forKey:(id)kSecClass];
+    [queryCertificate setObject:tag forKey:(id)kSecAttrLabel];
+    [queryCertificate setObject:(__bridge id)certRef forKey:(id)kSecValueRef];
+    
+    OSStatus sanityCheck = SecItemAdd((CFDictionaryRef)queryCertificate, nil);
+    if ((sanityCheck != noErr) && (sanityCheck != errSecDuplicateItem)) {
+        NSLog(@"add certificate to keychain with error: %d", (int)sanityCheck);
+        return NO;
+    }
+    
+    return YES;
+}
+
 + (BOOL)removeCertificate {
     
     NSMutableDictionary * queryCertificate = [[NSMutableDictionary alloc] init];
     
     [queryCertificate setObject:(id)kSecClassCertificate forKey:(id)kSecClass];
     [queryCertificate setObject:[AWSIoTKeychain certTag] forKey:(id)kSecAttrLabel];
+    
+    OSStatus sanityCheck = SecItemDelete((CFDictionaryRef)queryCertificate);
+    if (sanityCheck != noErr) {
+        if (sanityCheck == errSecItemNotFound) {
+            NSLog(@"Error removing certificate key errSecItemNotFound");
+        } else {
+            NSLog(@"Error removing certificate key, OSStatus == %d.", (int)sanityCheck);
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
+
++ (BOOL)removeCertificateWithTag:(NSString*)tag {
+    
+    NSMutableDictionary * queryCertificate = [[NSMutableDictionary alloc] init];
+    
+    [queryCertificate setObject:(id)kSecClassCertificate forKey:(id)kSecClass];
+    [queryCertificate setObject:tag forKey:(id)kSecAttrLabel];
     
     OSStatus sanityCheck = SecItemDelete((CFDictionaryRef)queryCertificate);
     if (sanityCheck != noErr) {
@@ -393,6 +464,106 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     }
     
     return YES;
+}
+
++ (BOOL)addPrivateKeyFromPemFile:(NSString*)fileName withTag:(NSString*)tag {
+    
+    if ([fileName hasSuffix:@".pem"]) {
+        fileName = [fileName substringToIndex:(fileName.length - @".pem".length)];
+    }
+    
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSString *bundleString = [bundle pathForResource:fileName ofType:@"pem"];
+    NSString *privKey = [NSString stringWithContentsOfFile:bundleString encoding:NSUTF8StringEncoding error:nil];
+    
+    if (!privKey) {
+        return NO;
+    }
+    
+    if ([privKey rangeOfString:AWSIoTKeychainStartPrivateKeyTag].location != NSNotFound) {
+        privKey = [privKey substringFromIndex:AWSIoTKeychainStartPrivateKeyTag.length];
+    }
+    if ([privKey rangeOfString:AWSIoTKeychainEndPrivateKeyTag].location != NSNotFound) {
+        privKey = [privKey substringToIndex:(privKey.length - AWSIoTKeychainEndPrivateKeyTag.length)];
+    }
+    
+    NSData *privKeyData = [AWSIoTKeychain base64DecodeWithIgnoreUnknownSymbols:privKey];
+    
+    if (!privKeyData) {
+        return NO;
+    }
+    
+    return [AWSIoTKeychain addPrivateKey:privKeyData tag:tag];
+}
+
++ (BOOL)deletePrivateKeyWithTag:(NSString*)tag {
+    
+    NSMutableDictionary * queryPrivateKey = [[NSMutableDictionary alloc] init];
+    
+    [queryPrivateKey setObject:(id)kSecClassKey forKey:(id)kSecClass];
+    [queryPrivateKey setObject:tag forKey:(id)kSecAttrApplicationTag];
+    [queryPrivateKey setObject:(id)kSecAttrKeyTypeRSA forKey:(id)kSecAttrKeyType];
+    
+    OSStatus sanityCheck = SecItemDelete((CFDictionaryRef)queryPrivateKey);
+    if (sanityCheck != noErr) {
+        if (sanityCheck == errSecItemNotFound) {
+            NSLog(@"Error removing private key errSecItemNotFound");
+        } else {
+            NSLog(@"Error removing private key, OSStatus == %d.", (int)sanityCheck);
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
++ (SecIdentityRef)certificateFromP12:(NSString*)path password:(NSString *)password {
+    
+    if (!path) {
+        NSLog(@"path to p12 cert is nil");
+        return nil;
+    }
+    
+    if (!password) {
+        NSLog(@"no password given");
+        return nil;
+    }
+    
+    NSData *pkcs12data = [[NSData alloc] initWithContentsOfFile:path];
+    if (!pkcs12data) {
+        NSLog(@"can't load p12 cert");
+        return nil;
+    }
+    
+    CFArrayRef keyref = NULL;
+    OSStatus sanityCheck = SecPKCS12Import((__bridge CFDataRef)pkcs12data,
+                                           (__bridge CFDictionaryRef)[NSDictionary dictionaryWithObject:password forKey:(__bridge id)kSecImportExportPassphrase],
+                                           &keyref);
+    if (sanityCheck != noErr) {
+        NSLog(@"Error while importing pkcs12 [%d]", (int)sanityCheck);
+        return nil;
+    }
+    
+    CFDictionaryRef identityDict = CFArrayGetValueAtIndex(keyref, 0);
+    if (!identityDict) {
+        NSLog(@"could not get CFArrayGetValueAtIndex");
+        return nil;
+    }
+    
+    SecIdentityRef identityRef = (SecIdentityRef)CFDictionaryGetValue(identityDict, kSecImportItemIdentity);
+    if (!identityRef) {
+        NSLog(@"could not get CFDictionaryGetValue");
+        return nil;
+    };
+    
+    SecCertificateRef cert = NULL;
+    OSStatus status = SecIdentityCopyCertificate(identityRef, &cert);
+    if (status != noErr) {
+        NSLog(@"SecIdentityCopyCertificate failed [%d]", (int)status);
+        return nil;
+    }
+    
+    return identityRef;
 }
 
 @end

@@ -47,6 +47,7 @@ fi
 # Build .a files
 xcodebuild ARCHS="armv7 armv7s arm64 i386 x86_64" \
 	ONLY_ACTIVE_ARCH=NO \
+	OTHER_CFLAGS="-fembed-bitcode" \
 	-configuration Debug \
     -project "${project_path}/${project_name}.xcodeproj" \
     -target "${project_name}" \
@@ -58,6 +59,7 @@ exitOnFailureCode $?
 
 xcodebuild ARCHS="armv7 armv7s arm64 i386 x86_64" \
 	ONLY_ACTIVE_ARCH=NO \
+	OTHER_CFLAGS="-fembed-bitcode" \
 	-configuration Release \
     -project "${project_path}/${project_name}.xcodeproj" \
     -target "${project_name}" \

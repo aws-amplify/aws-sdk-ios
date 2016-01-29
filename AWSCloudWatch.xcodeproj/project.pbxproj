@@ -538,6 +538,7 @@
 					"${SRCROOT}/Pods/Headers/**",
 				);
 				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
+				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSCloudWatch;
 				SKIP_INSTALL = YES;
@@ -558,6 +559,7 @@
 					"${SRCROOT}/Pods/Headers/**",
 				);
 				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
+				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSCloudWatch;
 				SKIP_INSTALL = YES;

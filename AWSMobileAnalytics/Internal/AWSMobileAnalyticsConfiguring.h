@@ -17,32 +17,17 @@
 
 @protocol AWSMobileAnalyticsConfiguring <NSObject>
 
-//@required
-//- (BOOL)          boolForKey: (NSString*) key;
-
 @required
 - (BOOL)          boolForKey: (NSString*) key withOptValue:(BOOL)       defaultValue;
-
-//@required
-//- (int)            intForKey: (NSString*) key;
 
 @required
 - (int)            intForKey: (NSString*) key withOptValue:(int)        defaultValue;
 
-//@required
-//- (long)          longForKey: (NSString*) key;
-
 @required
 - (long)          longForKey: (NSString*) key withOptValue:(long)       defaultValue;
 
-//@required
-//- (long long) longLongForKey: (NSString*) key;
-
 @required
 - (long long) longLongForKey: (NSString*) key withOptValue:(long long)  defaultValue;
-
-//@required
-//- (double)      doubleForKey: (NSString*) key;
 
 @required
 - (double)      doubleForKey: (NSString*) key withOptValue:(double)     defaultValue;
@@ -61,8 +46,5 @@
 
 @required
 - (id)          objectForKey: (NSString*) key;
-
-@required
-- (void) refresh;
 
 @end

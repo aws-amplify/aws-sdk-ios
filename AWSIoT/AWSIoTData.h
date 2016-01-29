@@ -13,24 +13,7 @@
 // permissions and limitations under the License.
 //
 
-#import "AWSMobileAnalyticsSDKInfoInterceptor.h"
-
-
-@implementation AWSMobileAnalyticsSDKInfoInterceptor
-
--(id) initWithSDKInfo: (AWSMobileAnalyticsSDKInfo *) theSDKInfo
-{
-    if(self = [super init])
-    {
-        self.sdkInfo = theSDKInfo;
-    }
-    return self;
-}
-
--(void) before:(id<AWSMobileAnalyticsRequest>) theRequest
-{
-    NSString *value = [NSString stringWithFormat:@"%@-%@", [self.sdkInfo sdkName], [self.sdkInfo sdkVersion]];
-    [theRequest addHeader:value forName:CLIENT_SDK_VERSION_HEADER_NAME];
-}
-
-@end
+#import <Foundation/Foundation.h>
+#import <AWSCore/AWSCore.h>
+#import "AWSIoTDataService.h"
+#import "AWSIoTDataManager.h"

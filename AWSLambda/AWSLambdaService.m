@@ -301,8 +301,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 #pragma mark - Service method
 
-
-- (AWSTask *)addPermission:(AWSLambdaAddPermissionRequest *)request {
+- (AWSTask<AWSLambdaAddPermissionResponse *> *)addPermission:(AWSLambdaAddPermissionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/2015-03-31/functions/{FunctionName}/policy"
@@ -311,7 +310,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaAddPermissionResponse class]];
 }
 
-- (AWSTask *)createAlias:(AWSLambdaCreateAliasRequest *)request {
+- (void)addPermission:(AWSLambdaAddPermissionRequest *)request
+    completionHandler:(void (^)(AWSLambdaAddPermissionResponse *response, NSError *error))completionHandler {
+    [[self addPermission:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaAddPermissionResponse *> * _Nonnull task) {
+        AWSLambdaAddPermissionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaAliasConfiguration *> *)createAlias:(AWSLambdaCreateAliasRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/2015-03-31/functions/{FunctionName}/aliases"
@@ -320,7 +338,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaAliasConfiguration class]];
 }
 
-- (AWSTask *)createEventSourceMapping:(AWSLambdaCreateEventSourceMappingRequest *)request {
+- (void)createAlias:(AWSLambdaCreateAliasRequest *)request
+  completionHandler:(void (^)(AWSLambdaAliasConfiguration *response, NSError *error))completionHandler {
+    [[self createAlias:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaAliasConfiguration *> * _Nonnull task) {
+        AWSLambdaAliasConfiguration *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaEventSourceMappingConfiguration *> *)createEventSourceMapping:(AWSLambdaCreateEventSourceMappingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/2015-03-31/event-source-mappings/"
@@ -329,13 +366,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaEventSourceMappingConfiguration class]];
 }
 
-- (AWSTask *)createFunction:(AWSLambdaCreateFunctionRequest *)request {
+- (void)createEventSourceMapping:(AWSLambdaCreateEventSourceMappingRequest *)request
+               completionHandler:(void (^)(AWSLambdaEventSourceMappingConfiguration *response, NSError *error))completionHandler {
+    [[self createEventSourceMapping:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaEventSourceMappingConfiguration *> * _Nonnull task) {
+        AWSLambdaEventSourceMappingConfiguration *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaFunctionConfiguration *> *)createFunction:(AWSLambdaCreateFunctionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/2015-03-31/functions"
                   targetPrefix:@""
                  operationName:@"CreateFunction"
                    outputClass:[AWSLambdaFunctionConfiguration class]];
+}
+
+- (void)createFunction:(AWSLambdaCreateFunctionRequest *)request
+     completionHandler:(void (^)(AWSLambdaFunctionConfiguration *response, NSError *error))completionHandler {
+    [[self createFunction:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaFunctionConfiguration *> * _Nonnull task) {
+        AWSLambdaFunctionConfiguration *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)deleteAlias:(AWSLambdaDeleteAliasRequest *)request {
@@ -347,13 +422,50 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)deleteEventSourceMapping:(AWSLambdaDeleteEventSourceMappingRequest *)request {
+- (void)deleteAlias:(AWSLambdaDeleteAliasRequest *)request
+  completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteAlias:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaEventSourceMappingConfiguration *> *)deleteEventSourceMapping:(AWSLambdaDeleteEventSourceMappingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/2015-03-31/event-source-mappings/{UUID}"
                   targetPrefix:@""
                  operationName:@"DeleteEventSourceMapping"
                    outputClass:[AWSLambdaEventSourceMappingConfiguration class]];
+}
+
+- (void)deleteEventSourceMapping:(AWSLambdaDeleteEventSourceMappingRequest *)request
+               completionHandler:(void (^)(AWSLambdaEventSourceMappingConfiguration *response, NSError *error))completionHandler {
+    [[self deleteEventSourceMapping:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaEventSourceMappingConfiguration *> * _Nonnull task) {
+        AWSLambdaEventSourceMappingConfiguration *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)deleteFunction:(AWSLambdaDeleteFunctionRequest *)request {
@@ -365,7 +477,25 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)getAlias:(AWSLambdaGetAliasRequest *)request {
+- (void)deleteFunction:(AWSLambdaDeleteFunctionRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteFunction:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaAliasConfiguration *> *)getAlias:(AWSLambdaGetAliasRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/2015-03-31/functions/{FunctionName}/aliases/{Name}"
@@ -374,7 +504,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaAliasConfiguration class]];
 }
 
-- (AWSTask *)getEventSourceMapping:(AWSLambdaGetEventSourceMappingRequest *)request {
+- (void)getAlias:(AWSLambdaGetAliasRequest *)request
+completionHandler:(void (^)(AWSLambdaAliasConfiguration *response, NSError *error))completionHandler {
+    [[self getAlias:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaAliasConfiguration *> * _Nonnull task) {
+        AWSLambdaAliasConfiguration *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaEventSourceMappingConfiguration *> *)getEventSourceMapping:(AWSLambdaGetEventSourceMappingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/2015-03-31/event-source-mappings/{UUID}"
@@ -383,7 +532,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaEventSourceMappingConfiguration class]];
 }
 
-- (AWSTask *)getFunction:(AWSLambdaGetFunctionRequest *)request {
+- (void)getEventSourceMapping:(AWSLambdaGetEventSourceMappingRequest *)request
+            completionHandler:(void (^)(AWSLambdaEventSourceMappingConfiguration *response, NSError *error))completionHandler {
+    [[self getEventSourceMapping:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaEventSourceMappingConfiguration *> * _Nonnull task) {
+        AWSLambdaEventSourceMappingConfiguration *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaGetFunctionResponse *> *)getFunction:(AWSLambdaGetFunctionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/2015-03-31/functions/{FunctionName}"
@@ -392,7 +560,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaGetFunctionResponse class]];
 }
 
-- (AWSTask *)getFunctionConfiguration:(AWSLambdaGetFunctionConfigurationRequest *)request {
+- (void)getFunction:(AWSLambdaGetFunctionRequest *)request
+  completionHandler:(void (^)(AWSLambdaGetFunctionResponse *response, NSError *error))completionHandler {
+    [[self getFunction:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaGetFunctionResponse *> * _Nonnull task) {
+        AWSLambdaGetFunctionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaFunctionConfiguration *> *)getFunctionConfiguration:(AWSLambdaGetFunctionConfigurationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/2015-03-31/functions/{FunctionName}/configuration"
@@ -401,7 +588,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaFunctionConfiguration class]];
 }
 
-- (AWSTask *)getPolicy:(AWSLambdaGetPolicyRequest *)request {
+- (void)getFunctionConfiguration:(AWSLambdaGetFunctionConfigurationRequest *)request
+               completionHandler:(void (^)(AWSLambdaFunctionConfiguration *response, NSError *error))completionHandler {
+    [[self getFunctionConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaFunctionConfiguration *> * _Nonnull task) {
+        AWSLambdaFunctionConfiguration *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaGetPolicyResponse *> *)getPolicy:(AWSLambdaGetPolicyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/2015-03-31/functions/{FunctionName}/policy"
@@ -410,7 +616,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaGetPolicyResponse class]];
 }
 
-- (AWSTask *)invoke:(AWSLambdaInvocationRequest *)request {
+- (void)getPolicy:(AWSLambdaGetPolicyRequest *)request
+completionHandler:(void (^)(AWSLambdaGetPolicyResponse *response, NSError *error))completionHandler {
+    [[self getPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaGetPolicyResponse *> * _Nonnull task) {
+        AWSLambdaGetPolicyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaInvocationResponse *> *)invoke:(AWSLambdaInvocationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/2015-03-31/functions/{FunctionName}/invocations"
@@ -419,7 +644,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaInvocationResponse class]];
 }
 
-- (AWSTask *)invokeAsync:(AWSLambdaInvokeAsyncRequest *)request {
+- (void)invoke:(AWSLambdaInvocationRequest *)request
+completionHandler:(void (^)(AWSLambdaInvocationResponse *response, NSError *error))completionHandler {
+    [[self invoke:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaInvocationResponse *> * _Nonnull task) {
+        AWSLambdaInvocationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaInvokeAsyncResponse *> *)invokeAsync:(AWSLambdaInvokeAsyncRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/2014-11-13/functions/{FunctionName}/invoke-async/"
@@ -428,7 +672,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaInvokeAsyncResponse class]];
 }
 
-- (AWSTask *)listAliases:(AWSLambdaListAliasesRequest *)request {
+- (void)invokeAsync:(AWSLambdaInvokeAsyncRequest *)request
+  completionHandler:(void (^)(AWSLambdaInvokeAsyncResponse *response, NSError *error))completionHandler {
+    [[self invokeAsync:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaInvokeAsyncResponse *> * _Nonnull task) {
+        AWSLambdaInvokeAsyncResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaListAliasesResponse *> *)listAliases:(AWSLambdaListAliasesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/2015-03-31/functions/{FunctionName}/aliases"
@@ -437,7 +700,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaListAliasesResponse class]];
 }
 
-- (AWSTask *)listEventSourceMappings:(AWSLambdaListEventSourceMappingsRequest *)request {
+- (void)listAliases:(AWSLambdaListAliasesRequest *)request
+  completionHandler:(void (^)(AWSLambdaListAliasesResponse *response, NSError *error))completionHandler {
+    [[self listAliases:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaListAliasesResponse *> * _Nonnull task) {
+        AWSLambdaListAliasesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaListEventSourceMappingsResponse *> *)listEventSourceMappings:(AWSLambdaListEventSourceMappingsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/2015-03-31/event-source-mappings/"
@@ -446,7 +728,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaListEventSourceMappingsResponse class]];
 }
 
-- (AWSTask *)listFunctions:(AWSLambdaListFunctionsRequest *)request {
+- (void)listEventSourceMappings:(AWSLambdaListEventSourceMappingsRequest *)request
+              completionHandler:(void (^)(AWSLambdaListEventSourceMappingsResponse *response, NSError *error))completionHandler {
+    [[self listEventSourceMappings:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaListEventSourceMappingsResponse *> * _Nonnull task) {
+        AWSLambdaListEventSourceMappingsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaListFunctionsResponse *> *)listFunctions:(AWSLambdaListFunctionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/2015-03-31/functions/"
@@ -455,7 +756,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaListFunctionsResponse class]];
 }
 
-- (AWSTask *)listVersionsByFunction:(AWSLambdaListVersionsByFunctionRequest *)request {
+- (void)listFunctions:(AWSLambdaListFunctionsRequest *)request
+    completionHandler:(void (^)(AWSLambdaListFunctionsResponse *response, NSError *error))completionHandler {
+    [[self listFunctions:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaListFunctionsResponse *> * _Nonnull task) {
+        AWSLambdaListFunctionsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaListVersionsByFunctionResponse *> *)listVersionsByFunction:(AWSLambdaListVersionsByFunctionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/2015-03-31/functions/{FunctionName}/versions"
@@ -464,13 +784,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaListVersionsByFunctionResponse class]];
 }
 
-- (AWSTask *)publishVersion:(AWSLambdaPublishVersionRequest *)request {
+- (void)listVersionsByFunction:(AWSLambdaListVersionsByFunctionRequest *)request
+             completionHandler:(void (^)(AWSLambdaListVersionsByFunctionResponse *response, NSError *error))completionHandler {
+    [[self listVersionsByFunction:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaListVersionsByFunctionResponse *> * _Nonnull task) {
+        AWSLambdaListVersionsByFunctionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaFunctionConfiguration *> *)publishVersion:(AWSLambdaPublishVersionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/2015-03-31/functions/{FunctionName}/versions"
                   targetPrefix:@""
                  operationName:@"PublishVersion"
                    outputClass:[AWSLambdaFunctionConfiguration class]];
+}
+
+- (void)publishVersion:(AWSLambdaPublishVersionRequest *)request
+     completionHandler:(void (^)(AWSLambdaFunctionConfiguration *response, NSError *error))completionHandler {
+    [[self publishVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaFunctionConfiguration *> * _Nonnull task) {
+        AWSLambdaFunctionConfiguration *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)removePermission:(AWSLambdaRemovePermissionRequest *)request {
@@ -482,7 +840,25 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)updateAlias:(AWSLambdaUpdateAliasRequest *)request {
+- (void)removePermission:(AWSLambdaRemovePermissionRequest *)request
+       completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self removePermission:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaAliasConfiguration *> *)updateAlias:(AWSLambdaUpdateAliasRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/2015-03-31/functions/{FunctionName}/aliases/{Name}"
@@ -491,7 +867,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaAliasConfiguration class]];
 }
 
-- (AWSTask *)updateEventSourceMapping:(AWSLambdaUpdateEventSourceMappingRequest *)request {
+- (void)updateAlias:(AWSLambdaUpdateAliasRequest *)request
+  completionHandler:(void (^)(AWSLambdaAliasConfiguration *response, NSError *error))completionHandler {
+    [[self updateAlias:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaAliasConfiguration *> * _Nonnull task) {
+        AWSLambdaAliasConfiguration *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaEventSourceMappingConfiguration *> *)updateEventSourceMapping:(AWSLambdaUpdateEventSourceMappingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/2015-03-31/event-source-mappings/{UUID}"
@@ -500,7 +895,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaEventSourceMappingConfiguration class]];
 }
 
-- (AWSTask *)updateFunctionCode:(AWSLambdaUpdateFunctionCodeRequest *)request {
+- (void)updateEventSourceMapping:(AWSLambdaUpdateEventSourceMappingRequest *)request
+               completionHandler:(void (^)(AWSLambdaEventSourceMappingConfiguration *response, NSError *error))completionHandler {
+    [[self updateEventSourceMapping:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaEventSourceMappingConfiguration *> * _Nonnull task) {
+        AWSLambdaEventSourceMappingConfiguration *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaFunctionConfiguration *> *)updateFunctionCode:(AWSLambdaUpdateFunctionCodeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/2015-03-31/functions/{FunctionName}/code"
@@ -509,13 +923,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSLambdaFunctionConfiguration class]];
 }
 
-- (AWSTask *)updateFunctionConfiguration:(AWSLambdaUpdateFunctionConfigurationRequest *)request {
+- (void)updateFunctionCode:(AWSLambdaUpdateFunctionCodeRequest *)request
+         completionHandler:(void (^)(AWSLambdaFunctionConfiguration *response, NSError *error))completionHandler {
+    [[self updateFunctionCode:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaFunctionConfiguration *> * _Nonnull task) {
+        AWSLambdaFunctionConfiguration *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaFunctionConfiguration *> *)updateFunctionConfiguration:(AWSLambdaUpdateFunctionConfigurationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/2015-03-31/functions/{FunctionName}/configuration"
                   targetPrefix:@""
                  operationName:@"UpdateFunctionConfiguration"
                    outputClass:[AWSLambdaFunctionConfiguration class]];
+}
+
+- (void)updateFunctionConfiguration:(AWSLambdaUpdateFunctionConfigurationRequest *)request
+                  completionHandler:(void (^)(AWSLambdaFunctionConfiguration *response, NSError *error))completionHandler {
+    [[self updateFunctionConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaFunctionConfiguration *> * _Nonnull task) {
+        AWSLambdaFunctionConfiguration *result = task.result;
+        NSError *error = task.error;
+        
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+        
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+        
+        return nil;
+    }];
 }
 
 @end

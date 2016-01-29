@@ -293,7 +293,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 #pragma mark - Service method
 
-- (AWSTask *)abortMultipartUpload:(AWSS3AbortMultipartUploadRequest *)request {
+- (AWSTask<AWSS3AbortMultipartUploadOutput *> *)abortMultipartUpload:(AWSS3AbortMultipartUploadRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/{Bucket}/{Key+}"
@@ -302,7 +302,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3AbortMultipartUploadOutput class]];
 }
 
-- (AWSTask *)completeMultipartUpload:(AWSS3CompleteMultipartUploadRequest *)request {
+- (void)abortMultipartUpload:(AWSS3AbortMultipartUploadRequest *)request
+           completionHandler:(void (^)(AWSS3AbortMultipartUploadOutput *response, NSError *error))completionHandler {
+    [[self abortMultipartUpload:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3AbortMultipartUploadOutput *> * _Nonnull task) {
+        AWSS3AbortMultipartUploadOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3CompleteMultipartUploadOutput *> *)completeMultipartUpload:(AWSS3CompleteMultipartUploadRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/{Bucket}/{Key+}"
@@ -311,7 +330,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3CompleteMultipartUploadOutput class]];
 }
 
-- (AWSTask *)createBucket:(AWSS3CreateBucketRequest *)request {
+- (void)completeMultipartUpload:(AWSS3CompleteMultipartUploadRequest *)request
+              completionHandler:(void (^)(AWSS3CompleteMultipartUploadOutput *response, NSError *error))completionHandler {
+    [[self completeMultipartUpload:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3CompleteMultipartUploadOutput *> * _Nonnull task) {
+        AWSS3CompleteMultipartUploadOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3CreateBucketOutput *> *)createBucket:(AWSS3CreateBucketRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}"
@@ -320,13 +358,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3CreateBucketOutput class]];
 }
 
-- (AWSTask *)createMultipartUpload:(AWSS3CreateMultipartUploadRequest *)request {
+- (void)createBucket:(AWSS3CreateBucketRequest *)request
+   completionHandler:(void (^)(AWSS3CreateBucketOutput *response, NSError *error))completionHandler {
+    [[self createBucket:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3CreateBucketOutput *> * _Nonnull task) {
+        AWSS3CreateBucketOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3CreateMultipartUploadOutput *> *)createMultipartUpload:(AWSS3CreateMultipartUploadRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/{Bucket}/{Key+}?uploads"
                   targetPrefix:@""
                  operationName:@"CreateMultipartUpload"
                    outputClass:[AWSS3CreateMultipartUploadOutput class]];
+}
+
+- (void)createMultipartUpload:(AWSS3CreateMultipartUploadRequest *)request
+            completionHandler:(void (^)(AWSS3CreateMultipartUploadOutput *response, NSError *error))completionHandler {
+    [[self createMultipartUpload:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3CreateMultipartUploadOutput *> * _Nonnull task) {
+        AWSS3CreateMultipartUploadOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)deleteBucket:(AWSS3DeleteBucketRequest *)request {
@@ -338,6 +414,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
+- (void)deleteBucket:(AWSS3DeleteBucketRequest *)request
+   completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteBucket:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteBucketCors:(AWSS3DeleteBucketCorsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -345,6 +439,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                   targetPrefix:@""
                  operationName:@"DeleteBucketCors"
                    outputClass:nil];
+}
+
+- (void)deleteBucketCors:(AWSS3DeleteBucketCorsRequest *)request
+       completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteBucketCors:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)deleteBucketLifecycle:(AWSS3DeleteBucketLifecycleRequest *)request {
@@ -356,6 +468,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
+- (void)deleteBucketLifecycle:(AWSS3DeleteBucketLifecycleRequest *)request
+            completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteBucketLifecycle:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteBucketPolicy:(AWSS3DeleteBucketPolicyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -363,6 +493,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                   targetPrefix:@""
                  operationName:@"DeleteBucketPolicy"
                    outputClass:nil];
+}
+
+- (void)deleteBucketPolicy:(AWSS3DeleteBucketPolicyRequest *)request
+         completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteBucketPolicy:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)deleteBucketReplication:(AWSS3DeleteBucketReplicationRequest *)request {
@@ -374,6 +522,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
+- (void)deleteBucketReplication:(AWSS3DeleteBucketReplicationRequest *)request
+              completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteBucketReplication:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteBucketTagging:(AWSS3DeleteBucketTaggingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -381,6 +547,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                   targetPrefix:@""
                  operationName:@"DeleteBucketTagging"
                    outputClass:nil];
+}
+
+- (void)deleteBucketTagging:(AWSS3DeleteBucketTaggingRequest *)request
+          completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteBucketTagging:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)deleteBucketWebsite:(AWSS3DeleteBucketWebsiteRequest *)request {
@@ -392,7 +576,25 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)deleteObject:(AWSS3DeleteObjectRequest *)request {
+- (void)deleteBucketWebsite:(AWSS3DeleteBucketWebsiteRequest *)request
+          completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteBucketWebsite:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3DeleteObjectOutput *> *)deleteObject:(AWSS3DeleteObjectRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/{Bucket}/{Key+}"
@@ -401,7 +603,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3DeleteObjectOutput class]];
 }
 
-- (AWSTask *)deleteObjects:(AWSS3DeleteObjectsRequest *)request {
+- (void)deleteObject:(AWSS3DeleteObjectRequest *)request
+   completionHandler:(void (^)(AWSS3DeleteObjectOutput *response, NSError *error))completionHandler {
+    [[self deleteObject:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3DeleteObjectOutput *> * _Nonnull task) {
+        AWSS3DeleteObjectOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3DeleteObjectsOutput *> *)deleteObjects:(AWSS3DeleteObjectsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/{Bucket}?delete"
@@ -410,7 +631,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3DeleteObjectsOutput class]];
 }
 
-- (AWSTask *)getBucketAcl:(AWSS3GetBucketAclRequest *)request {
+- (void)deleteObjects:(AWSS3DeleteObjectsRequest *)request
+    completionHandler:(void (^)(AWSS3DeleteObjectsOutput *response, NSError *error))completionHandler {
+    [[self deleteObjects:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3DeleteObjectsOutput *> * _Nonnull task) {
+        AWSS3DeleteObjectsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3GetBucketAclOutput *> *)getBucketAcl:(AWSS3GetBucketAclRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?acl"
@@ -419,7 +659,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketAclOutput class]];
 }
 
-- (AWSTask *)getBucketCors:(AWSS3GetBucketCorsRequest *)request {
+- (void)getBucketAcl:(AWSS3GetBucketAclRequest *)request
+   completionHandler:(void (^)(AWSS3GetBucketAclOutput *response, NSError *error))completionHandler {
+    [[self getBucketAcl:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3GetBucketAclOutput *> * _Nonnull task) {
+        AWSS3GetBucketAclOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3GetBucketCorsOutput *> *)getBucketCors:(AWSS3GetBucketCorsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?cors"
@@ -428,7 +687,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketCorsOutput class]];
 }
 
-- (AWSTask *)getBucketLifecycle:(AWSS3GetBucketLifecycleRequest *)request {
+- (void)getBucketCors:(AWSS3GetBucketCorsRequest *)request
+    completionHandler:(void (^)(AWSS3GetBucketCorsOutput *response, NSError *error))completionHandler {
+    [[self getBucketCors:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3GetBucketCorsOutput *> * _Nonnull task) {
+        AWSS3GetBucketCorsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3GetBucketLifecycleOutput *> *)getBucketLifecycle:(AWSS3GetBucketLifecycleRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?lifecycle"
@@ -437,7 +715,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketLifecycleOutput class]];
 }
 
-- (AWSTask *)getBucketLifecycleConfiguration:(AWSS3GetBucketLifecycleConfigurationRequest *)request {
+- (void)getBucketLifecycle:(AWSS3GetBucketLifecycleRequest *)request
+         completionHandler:(void (^)(AWSS3GetBucketLifecycleOutput *response, NSError *error))completionHandler {
+    [[self getBucketLifecycle:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3GetBucketLifecycleOutput *> * _Nonnull task) {
+        AWSS3GetBucketLifecycleOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3GetBucketLifecycleConfigurationOutput *> *)getBucketLifecycleConfiguration:(AWSS3GetBucketLifecycleConfigurationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?lifecycle"
@@ -446,7 +743,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketLifecycleConfigurationOutput class]];
 }
 
-- (AWSTask *)getBucketLocation:(AWSS3GetBucketLocationRequest *)request {
+- (void)getBucketLifecycleConfiguration:(AWSS3GetBucketLifecycleConfigurationRequest *)request
+                      completionHandler:(void (^)(AWSS3GetBucketLifecycleConfigurationOutput *response, NSError *error))completionHandler {
+    [[self getBucketLifecycleConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3GetBucketLifecycleConfigurationOutput *> * _Nonnull task) {
+        AWSS3GetBucketLifecycleConfigurationOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3GetBucketLocationOutput *> *)getBucketLocation:(AWSS3GetBucketLocationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?location"
@@ -455,7 +771,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketLocationOutput class]];
 }
 
-- (AWSTask *)getBucketLogging:(AWSS3GetBucketLoggingRequest *)request {
+- (void)getBucketLocation:(AWSS3GetBucketLocationRequest *)request
+        completionHandler:(void (^)(AWSS3GetBucketLocationOutput *response, NSError *error))completionHandler {
+    [[self getBucketLocation:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3GetBucketLocationOutput *> * _Nonnull task) {
+        AWSS3GetBucketLocationOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3GetBucketLoggingOutput *> *)getBucketLogging:(AWSS3GetBucketLoggingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?logging"
@@ -464,7 +799,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketLoggingOutput class]];
 }
 
-- (AWSTask *)getBucketNotification:(AWSS3GetBucketNotificationConfigurationRequest *)request {
+- (void)getBucketLogging:(AWSS3GetBucketLoggingRequest *)request
+       completionHandler:(void (^)(AWSS3GetBucketLoggingOutput *response, NSError *error))completionHandler {
+    [[self getBucketLogging:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3GetBucketLoggingOutput *> * _Nonnull task) {
+        AWSS3GetBucketLoggingOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3NotificationConfigurationDeprecated *> *)getBucketNotification:(AWSS3GetBucketNotificationConfigurationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?notification"
@@ -473,7 +827,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3NotificationConfigurationDeprecated class]];
 }
 
-- (AWSTask *)getBucketNotificationConfiguration:(AWSS3GetBucketNotificationConfigurationRequest *)request {
+- (void)getBucketNotification:(AWSS3GetBucketNotificationConfigurationRequest *)request
+            completionHandler:(void (^)(AWSS3NotificationConfigurationDeprecated *response, NSError *error))completionHandler {
+    [[self getBucketNotification:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3NotificationConfigurationDeprecated *> * _Nonnull task) {
+        AWSS3NotificationConfigurationDeprecated *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3NotificationConfiguration *> *)getBucketNotificationConfiguration:(AWSS3GetBucketNotificationConfigurationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?notification"
@@ -482,7 +855,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3NotificationConfiguration class]];
 }
 
-- (AWSTask *)getBucketPolicy:(AWSS3GetBucketPolicyRequest *)request {
+- (void)getBucketNotificationConfiguration:(AWSS3GetBucketNotificationConfigurationRequest *)request
+                         completionHandler:(void (^)(AWSS3NotificationConfiguration *response, NSError *error))completionHandler {
+    [[self getBucketNotificationConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3NotificationConfiguration *> * _Nonnull task) {
+        AWSS3NotificationConfiguration *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3GetBucketPolicyOutput *> *)getBucketPolicy:(AWSS3GetBucketPolicyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?policy"
@@ -491,7 +883,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketPolicyOutput class]];
 }
 
-- (AWSTask *)getBucketReplication:(AWSS3GetBucketReplicationRequest *)request {
+- (void)getBucketPolicy:(AWSS3GetBucketPolicyRequest *)request
+      completionHandler:(void (^)(AWSS3GetBucketPolicyOutput *response, NSError *error))completionHandler {
+    [[self getBucketPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3GetBucketPolicyOutput *> * _Nonnull task) {
+        AWSS3GetBucketPolicyOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3GetBucketReplicationOutput *> *)getBucketReplication:(AWSS3GetBucketReplicationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?replication"
@@ -500,7 +911,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketReplicationOutput class]];
 }
 
-- (AWSTask *)getBucketRequestPayment:(AWSS3GetBucketRequestPaymentRequest *)request {
+- (void)getBucketReplication:(AWSS3GetBucketReplicationRequest *)request
+           completionHandler:(void (^)(AWSS3GetBucketReplicationOutput *response, NSError *error))completionHandler {
+    [[self getBucketReplication:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3GetBucketReplicationOutput *> * _Nonnull task) {
+        AWSS3GetBucketReplicationOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3GetBucketRequestPaymentOutput *> *)getBucketRequestPayment:(AWSS3GetBucketRequestPaymentRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?requestPayment"
@@ -509,7 +939,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketRequestPaymentOutput class]];
 }
 
-- (AWSTask *)getBucketTagging:(AWSS3GetBucketTaggingRequest *)request {
+- (void)getBucketRequestPayment:(AWSS3GetBucketRequestPaymentRequest *)request
+              completionHandler:(void (^)(AWSS3GetBucketRequestPaymentOutput *response, NSError *error))completionHandler {
+    [[self getBucketRequestPayment:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3GetBucketRequestPaymentOutput *> * _Nonnull task) {
+        AWSS3GetBucketRequestPaymentOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3GetBucketTaggingOutput *> *)getBucketTagging:(AWSS3GetBucketTaggingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?tagging"
@@ -518,7 +967,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketTaggingOutput class]];
 }
 
-- (AWSTask *)getBucketVersioning:(AWSS3GetBucketVersioningRequest *)request {
+- (void)getBucketTagging:(AWSS3GetBucketTaggingRequest *)request
+       completionHandler:(void (^)(AWSS3GetBucketTaggingOutput *response, NSError *error))completionHandler {
+    [[self getBucketTagging:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3GetBucketTaggingOutput *> * _Nonnull task) {
+        AWSS3GetBucketTaggingOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3GetBucketVersioningOutput *> *)getBucketVersioning:(AWSS3GetBucketVersioningRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?versioning"
@@ -527,7 +995,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketVersioningOutput class]];
 }
 
-- (AWSTask *)getBucketWebsite:(AWSS3GetBucketWebsiteRequest *)request {
+- (void)getBucketVersioning:(AWSS3GetBucketVersioningRequest *)request
+          completionHandler:(void (^)(AWSS3GetBucketVersioningOutput *response, NSError *error))completionHandler {
+    [[self getBucketVersioning:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3GetBucketVersioningOutput *> * _Nonnull task) {
+        AWSS3GetBucketVersioningOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3GetBucketWebsiteOutput *> *)getBucketWebsite:(AWSS3GetBucketWebsiteRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?website"
@@ -536,7 +1023,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetBucketWebsiteOutput class]];
 }
 
-- (AWSTask *)getObject:(AWSS3GetObjectRequest *)request {
+- (void)getBucketWebsite:(AWSS3GetBucketWebsiteRequest *)request
+       completionHandler:(void (^)(AWSS3GetBucketWebsiteOutput *response, NSError *error))completionHandler {
+    [[self getBucketWebsite:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3GetBucketWebsiteOutput *> * _Nonnull task) {
+        AWSS3GetBucketWebsiteOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3GetObjectOutput *> *)getObject:(AWSS3GetObjectRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}/{Key+}"
@@ -545,7 +1051,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetObjectOutput class]];
 }
 
-- (AWSTask *)getObjectAcl:(AWSS3GetObjectAclRequest *)request {
+- (void)getObject:(AWSS3GetObjectRequest *)request
+completionHandler:(void (^)(AWSS3GetObjectOutput *response, NSError *error))completionHandler {
+    [[self getObject:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3GetObjectOutput *> * _Nonnull task) {
+        AWSS3GetObjectOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3GetObjectAclOutput *> *)getObjectAcl:(AWSS3GetObjectAclRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}/{Key+}?acl"
@@ -554,13 +1079,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3GetObjectAclOutput class]];
 }
 
-- (AWSTask *)getObjectTorrent:(AWSS3GetObjectTorrentRequest *)request {
+- (void)getObjectAcl:(AWSS3GetObjectAclRequest *)request
+   completionHandler:(void (^)(AWSS3GetObjectAclOutput *response, NSError *error))completionHandler {
+    [[self getObjectAcl:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3GetObjectAclOutput *> * _Nonnull task) {
+        AWSS3GetObjectAclOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3GetObjectTorrentOutput *> *)getObjectTorrent:(AWSS3GetObjectTorrentRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}/{Key+}?torrent"
                   targetPrefix:@""
                  operationName:@"GetObjectTorrent"
                    outputClass:[AWSS3GetObjectTorrentOutput class]];
+}
+
+- (void)getObjectTorrent:(AWSS3GetObjectTorrentRequest *)request
+       completionHandler:(void (^)(AWSS3GetObjectTorrentOutput *response, NSError *error))completionHandler {
+    [[self getObjectTorrent:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3GetObjectTorrentOutput *> * _Nonnull task) {
+        AWSS3GetObjectTorrentOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)headBucket:(AWSS3HeadBucketRequest *)request {
@@ -572,7 +1135,25 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)headObject:(AWSS3HeadObjectRequest *)request {
+- (void)headBucket:(AWSS3HeadBucketRequest *)request
+ completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self headBucket:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3HeadObjectOutput *> *)headObject:(AWSS3HeadObjectRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodHEAD
                      URLString:@"/{Bucket}/{Key+}"
@@ -581,7 +1162,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3HeadObjectOutput class]];
 }
 
-- (AWSTask *)listBuckets:(AWSRequest *)request {
+- (void)headObject:(AWSS3HeadObjectRequest *)request
+ completionHandler:(void (^)(AWSS3HeadObjectOutput *response, NSError *error))completionHandler {
+    [[self headObject:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3HeadObjectOutput *> * _Nonnull task) {
+        AWSS3HeadObjectOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3ListBucketsOutput *> *)listBuckets:(AWSRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@""
@@ -590,7 +1190,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3ListBucketsOutput class]];
 }
 
-- (AWSTask *)listMultipartUploads:(AWSS3ListMultipartUploadsRequest *)request {
+- (void)listBuckets:(AWSRequest *)request
+  completionHandler:(void (^)(AWSS3ListBucketsOutput *response, NSError *error))completionHandler {
+    [[self listBuckets:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3ListBucketsOutput *> * _Nonnull task) {
+        AWSS3ListBucketsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3ListMultipartUploadsOutput *> *)listMultipartUploads:(AWSS3ListMultipartUploadsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?uploads"
@@ -599,7 +1218,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3ListMultipartUploadsOutput class]];
 }
 
-- (AWSTask *)listObjectVersions:(AWSS3ListObjectVersionsRequest *)request {
+- (void)listMultipartUploads:(AWSS3ListMultipartUploadsRequest *)request
+           completionHandler:(void (^)(AWSS3ListMultipartUploadsOutput *response, NSError *error))completionHandler {
+    [[self listMultipartUploads:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3ListMultipartUploadsOutput *> * _Nonnull task) {
+        AWSS3ListMultipartUploadsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3ListObjectVersionsOutput *> *)listObjectVersions:(AWSS3ListObjectVersionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}?versions"
@@ -608,7 +1246,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3ListObjectVersionsOutput class]];
 }
 
-- (AWSTask *)listObjects:(AWSS3ListObjectsRequest *)request {
+- (void)listObjectVersions:(AWSS3ListObjectVersionsRequest *)request
+         completionHandler:(void (^)(AWSS3ListObjectVersionsOutput *response, NSError *error))completionHandler {
+    [[self listObjectVersions:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3ListObjectVersionsOutput *> * _Nonnull task) {
+        AWSS3ListObjectVersionsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3ListObjectsOutput *> *)listObjects:(AWSS3ListObjectsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}"
@@ -617,13 +1274,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3ListObjectsOutput class]];
 }
 
-- (AWSTask *)listParts:(AWSS3ListPartsRequest *)request {
+- (void)listObjects:(AWSS3ListObjectsRequest *)request
+  completionHandler:(void (^)(AWSS3ListObjectsOutput *response, NSError *error))completionHandler {
+    [[self listObjects:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3ListObjectsOutput *> * _Nonnull task) {
+        AWSS3ListObjectsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3ListPartsOutput *> *)listParts:(AWSS3ListPartsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/{Bucket}/{Key+}"
                   targetPrefix:@""
                  operationName:@"ListParts"
                    outputClass:[AWSS3ListPartsOutput class]];
+}
+
+- (void)listParts:(AWSS3ListPartsRequest *)request
+completionHandler:(void (^)(AWSS3ListPartsOutput *response, NSError *error))completionHandler {
+    [[self listParts:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3ListPartsOutput *> * _Nonnull task) {
+        AWSS3ListPartsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)putBucketAcl:(AWSS3PutBucketAclRequest *)request {
@@ -635,6 +1330,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
+- (void)putBucketAcl:(AWSS3PutBucketAclRequest *)request
+   completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self putBucketAcl:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)putBucketCors:(AWSS3PutBucketCorsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -642,6 +1355,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                   targetPrefix:@""
                  operationName:@"PutBucketCors"
                    outputClass:nil];
+}
+
+- (void)putBucketCors:(AWSS3PutBucketCorsRequest *)request
+    completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self putBucketCors:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)putBucketLifecycle:(AWSS3PutBucketLifecycleRequest *)request {
@@ -653,6 +1384,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
+- (void)putBucketLifecycle:(AWSS3PutBucketLifecycleRequest *)request
+         completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self putBucketLifecycle:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)putBucketLifecycleConfiguration:(AWSS3PutBucketLifecycleConfigurationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -660,6 +1409,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                   targetPrefix:@""
                  operationName:@"PutBucketLifecycleConfiguration"
                    outputClass:nil];
+}
+
+- (void)putBucketLifecycleConfiguration:(AWSS3PutBucketLifecycleConfigurationRequest *)request
+                      completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self putBucketLifecycleConfiguration:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)putBucketLogging:(AWSS3PutBucketLoggingRequest *)request {
@@ -671,6 +1438,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
+- (void)putBucketLogging:(AWSS3PutBucketLoggingRequest *)request
+       completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self putBucketLogging:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)putBucketNotification:(AWSS3PutBucketNotificationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -678,6 +1463,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                   targetPrefix:@""
                  operationName:@"PutBucketNotification"
                    outputClass:nil];
+}
+
+- (void)putBucketNotification:(AWSS3PutBucketNotificationRequest *)request
+            completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self putBucketNotification:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)putBucketNotificationConfiguration:(AWSS3PutBucketNotificationConfigurationRequest *)request {
@@ -689,6 +1492,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
+- (void)putBucketNotificationConfiguration:(AWSS3PutBucketNotificationConfigurationRequest *)request
+                         completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self putBucketNotificationConfiguration:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)putBucketPolicy:(AWSS3PutBucketPolicyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -696,6 +1517,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                   targetPrefix:@""
                  operationName:@"PutBucketPolicy"
                    outputClass:nil];
+}
+
+- (void)putBucketPolicy:(AWSS3PutBucketPolicyRequest *)request
+      completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self putBucketPolicy:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)putBucketReplication:(AWSS3PutBucketReplicationRequest *)request {
@@ -707,6 +1546,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
+- (void)putBucketReplication:(AWSS3PutBucketReplicationRequest *)request
+           completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self putBucketReplication:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)putBucketRequestPayment:(AWSS3PutBucketRequestPaymentRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -714,6 +1571,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                   targetPrefix:@""
                  operationName:@"PutBucketRequestPayment"
                    outputClass:nil];
+}
+
+- (void)putBucketRequestPayment:(AWSS3PutBucketRequestPaymentRequest *)request
+              completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self putBucketRequestPayment:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)putBucketTagging:(AWSS3PutBucketTaggingRequest *)request {
@@ -725,6 +1600,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
+- (void)putBucketTagging:(AWSS3PutBucketTaggingRequest *)request
+       completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self putBucketTagging:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)putBucketVersioning:(AWSS3PutBucketVersioningRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -732,6 +1625,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                   targetPrefix:@""
                  operationName:@"PutBucketVersioning"
                    outputClass:nil];
+}
+
+- (void)putBucketVersioning:(AWSS3PutBucketVersioningRequest *)request
+          completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self putBucketVersioning:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)putBucketWebsite:(AWSS3PutBucketWebsiteRequest *)request {
@@ -743,7 +1654,25 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)putObject:(AWSS3PutObjectRequest *)request {
+- (void)putBucketWebsite:(AWSS3PutBucketWebsiteRequest *)request
+       completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self putBucketWebsite:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3PutObjectOutput *> *)putObject:(AWSS3PutObjectRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}/{Key+}"
@@ -752,7 +1681,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3PutObjectOutput class]];
 }
 
-- (AWSTask *)putObjectAcl:(AWSS3PutObjectAclRequest *)request {
+- (void)putObject:(AWSS3PutObjectRequest *)request
+completionHandler:(void (^)(AWSS3PutObjectOutput *response, NSError *error))completionHandler {
+    [[self putObject:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3PutObjectOutput *> * _Nonnull task) {
+        AWSS3PutObjectOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3PutObjectAclOutput *> *)putObjectAcl:(AWSS3PutObjectAclRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}/{Key+}?acl"
@@ -761,7 +1709,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3PutObjectAclOutput class]];
 }
 
-- (AWSTask *)replicateObject:(AWSS3ReplicateObjectRequest *)request {
+- (void)putObjectAcl:(AWSS3PutObjectAclRequest *)request
+   completionHandler:(void (^)(AWSS3PutObjectAclOutput *response, NSError *error))completionHandler {
+    [[self putObjectAcl:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3PutObjectAclOutput *> * _Nonnull task) {
+        AWSS3PutObjectAclOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3ReplicateObjectOutput *> *)replicateObject:(AWSS3ReplicateObjectRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}/{Key+}"
@@ -770,7 +1737,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3ReplicateObjectOutput class]];
 }
 
-- (AWSTask *)restoreObject:(AWSS3RestoreObjectRequest *)request {
+- (void)replicateObject:(AWSS3ReplicateObjectRequest *)request
+      completionHandler:(void (^)(AWSS3ReplicateObjectOutput *response, NSError *error))completionHandler {
+    [[self replicateObject:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3ReplicateObjectOutput *> * _Nonnull task) {
+        AWSS3ReplicateObjectOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3RestoreObjectOutput *> *)restoreObject:(AWSS3RestoreObjectRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/{Bucket}/{Key+}?restore"
@@ -779,7 +1765,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3RestoreObjectOutput class]];
 }
 
-- (AWSTask *)uploadPart:(AWSS3UploadPartRequest *)request {
+- (void)restoreObject:(AWSS3RestoreObjectRequest *)request
+    completionHandler:(void (^)(AWSS3RestoreObjectOutput *response, NSError *error))completionHandler {
+    [[self restoreObject:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3RestoreObjectOutput *> * _Nonnull task) {
+        AWSS3RestoreObjectOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3UploadPartOutput *> *)uploadPart:(AWSS3UploadPartRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}/{Key+}"
@@ -788,13 +1793,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSS3UploadPartOutput class]];
 }
 
-- (AWSTask *)uploadPartCopy:(AWSS3UploadPartCopyRequest *)request {
+- (void)uploadPart:(AWSS3UploadPartRequest *)request
+ completionHandler:(void (^)(AWSS3UploadPartOutput *response, NSError *error))completionHandler {
+    [[self uploadPart:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3UploadPartOutput *> * _Nonnull task) {
+        AWSS3UploadPartOutput *result = task.result;
+        NSError *error = task.error;
+        
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+        
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+        
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3UploadPartCopyOutput *> *)uploadPartCopy:(AWSS3UploadPartCopyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}/{Key+}"
                   targetPrefix:@""
                  operationName:@"UploadPartCopy"
                    outputClass:[AWSS3UploadPartCopyOutput class]];
+}
+
+- (void)uploadPartCopy:(AWSS3UploadPartCopyRequest *)request
+     completionHandler:(void (^)(AWSS3UploadPartCopyOutput *response, NSError *error))completionHandler {
+    [[self uploadPartCopy:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3UploadPartCopyOutput *> * _Nonnull task) {
+        AWSS3UploadPartCopyOutput *result = task.result;
+        NSError *error = task.error;
+        
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+        
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+        
+        return nil;
+    }];
 }
 
 @end

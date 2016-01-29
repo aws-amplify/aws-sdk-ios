@@ -191,12 +191,12 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 
 #pragma mark - Upload methods
 
-- (AWSTask *)uploadData:(NSData *)data
-                 bucket:(NSString *)bucket
-                    key:(NSString *)key
-            contentType:(NSString *)contentType
-             expression:(AWSS3TransferUtilityUploadExpression *)expression
-       completionHander:(AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler {
+- (AWSTask<AWSS3TransferUtilityUploadTask *> *)uploadData:(NSData *)data
+                                                   bucket:(NSString *)bucket
+                                                      key:(NSString *)key
+                                              contentType:(NSString *)contentType
+                                               expression:(AWSS3TransferUtilityUploadExpression *)expression
+                                         completionHander:(AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler {
     // Saves the data as a file in the temporary directory.
     NSString *fileName = [NSString stringWithFormat:@"%@.tmp", [[NSProcessInfo processInfo] globallyUniqueString]];
     NSString *filePath = [self.temporaryDirectoryPath stringByAppendingPathComponent:fileName];
@@ -224,12 +224,12 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
            completionHander:completionHandler];
 }
 
-- (AWSTask *)uploadFile:(NSURL *)fileURL
-                 bucket:(NSString *)bucket
-                    key:(NSString *)key
-            contentType:(NSString *)contentType
-             expression:(AWSS3TransferUtilityUploadExpression *)expression
-       completionHander:(AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler {
+- (AWSTask<AWSS3TransferUtilityUploadTask *> *)uploadFile:(NSURL *)fileURL
+                                                   bucket:(NSString *)bucket
+                                                      key:(NSString *)key
+                                              contentType:(NSString *)contentType
+                                               expression:(AWSS3TransferUtilityUploadExpression *)expression
+                                         completionHander:(AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler {
     if (!expression) {
         expression = [AWSS3TransferUtilityUploadExpression new];
     }
@@ -281,10 +281,10 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 
 #pragma mark - Download methods
 
-- (AWSTask *)downloadDataFromBucket:(NSString *)bucket
-                                key:(NSString *)key
-                         expression:(AWSS3TransferUtilityDownloadExpression *)expression
-                   completionHander:(AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler {
+- (AWSTask<AWSS3TransferUtilityDownloadTask *> *)downloadDataFromBucket:(NSString *)bucket
+                                                                    key:(NSString *)key
+                                                             expression:(AWSS3TransferUtilityDownloadExpression *)expression
+                                                       completionHander:(AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler {
     return [self downloadToURL:nil
                         bucket:bucket
                            key:key
@@ -292,11 +292,11 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
               completionHander:completionHandler];
 }
 
-- (AWSTask *)downloadToURL:(NSURL *)fileURL
-                    bucket:(NSString *)bucket
-                       key:(NSString *)key
-                expression:(AWSS3TransferUtilityDownloadExpression *)expression
-          completionHander:(AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler {
+- (AWSTask<AWSS3TransferUtilityDownloadTask *> *)downloadToURL:(NSURL *)fileURL
+                                                        bucket:(NSString *)bucket
+                                                           key:(NSString *)key
+                                                    expression:(AWSS3TransferUtilityDownloadExpression *)expression
+                                              completionHander:(AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler {
     if (!expression) {
         expression = [AWSS3TransferUtilityDownloadExpression new];
     }
@@ -397,7 +397,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 - (AWSTask *)getAllTasks {
     AWSTaskCompletionSource *completionSource = [AWSTaskCompletionSource new];
 
-    NSMutableArray *allTasks = [NSMutableArray new];
+    NSMutableArray<__kindof AWSS3TransferUtilityTask *> *allTasks = [NSMutableArray new];
     __weak AWSS3TransferUtility *weakSelf = self;
     [self.session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
         if ([dataTasks count] != 0) {

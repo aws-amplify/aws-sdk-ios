@@ -260,15 +260,15 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @end
 
 /**
- <p>The attribute payload, a JSON string containing up to three key-value pairs.</p><p>For example: {\"attributes\":{\"string1\":\"string2\”}}</p>
+ <p>The attribute payload, a JSON string containing up to three key-value pairs.</p><p>For example: {\"attributes\":{\"string1\":\"string2\"}}</p>
  */
 @interface AWSIoTAttributePayload : AWSModel
 
 
 /**
- <p>A JSON string containing up to three key-value pair in JSON format.</p><p>For example: {\"attributes\":{\"string1\":\"string2\”}}</p>
+ <p>A JSON string containing up to three key-value pair in JSON format.</p><p>For example: {\"attributes\":{\"string1\":\"string2\"}}</p>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable attributes;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
 @end
 
@@ -495,7 +495,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 
 
 /**
- <p>The JSON document that describes the policy.</p>
+ <p>The JSON document that describes the policy. Minimum length of 1. Maximum length of 2048 excluding whitespaces</p>
  */
 @property (nonatomic, strong) NSString * _Nullable policyDocument;
 
@@ -505,7 +505,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @property (nonatomic, strong) NSString * _Nullable policyName;
 
 /**
- <p>Specifies whether the policy version is set as the default.</p>
+ <p>Specifies whether the policy version is set as the default. When this parameter is true, the new policy version becomes the operative version; that is, the version that is in effect for the certificates that the policy is attached to.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable setAsDefault;
 
@@ -547,7 +547,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 
 
 /**
- <p>The attribute payload. Which consists of up to 3 name/value pairs in a JSON document. For example: {\"attributes\":{\"string1\":\"string2\”}}</p>
+ <p>The attribute payload. Which consists of up to 3 name/value pairs in a JSON document. For example: {\"attributes\":{\"string1\":\"string2\"}}</p>
  */
 @property (nonatomic, strong) AWSIoTAttributePayload * _Nullable attributePayload;
 
@@ -720,7 +720,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 
 
 /**
- <p>The address.</p>
+ <p>The endpoint. The format of the endpoint is as follows: <i>identifier</i>.iot.<i>region</i>.amazonaws.com.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endpointAddress;
 
@@ -747,9 +747,9 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 
 
 /**
- <p>The attributes which are name/value pairs in JSON format. For example: </p><p>{\"attributes\":{\"some-name1\":\"some-value1\”}, {\"some-name2\":\"some-value2\”}, {\"some-name3\":\"some-value3\”}}</p>
+ <p>The attributes which are name/value pairs in JSON format. For example: </p><p>{\"attributes\":{\"some-name1\":\"some-value1\"}, {\"some-name2\":\"some-value2\"}, {\"some-name3\":\"some-value3\"}}</p>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable attributes;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
 /**
  <p>The default client ID.</p>
@@ -827,7 +827,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @property (nonatomic, strong) NSString * _Nullable hashKeyValue;
 
 /**
- <p>The action payload.</p>
+ <p>The action payload, this name can be customized.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable payloadField;
 
@@ -1106,7 +1106,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 /**
  <p>The descriptions of the certificates.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable certificates;
+@property (nonatomic, strong) NSArray<AWSIoTCertificate *> * _Nullable certificates;
 
 /**
  <p>The marker for the next set of results, or null if there are no additional results.</p>
@@ -1152,7 +1152,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 /**
  <p>The descriptions of the policies.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable policies;
+@property (nonatomic, strong) NSArray<AWSIoTPolicy *> * _Nullable policies;
 
 @end
 
@@ -1179,7 +1179,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 /**
  <p>The policy versions.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable policyVersions;
+@property (nonatomic, strong) NSArray<AWSIoTPolicyVersion *> * _Nullable policyVersions;
 
 @end
 
@@ -1226,7 +1226,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 /**
  <p>The policies.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable policies;
+@property (nonatomic, strong) NSArray<AWSIoTPolicy *> * _Nullable policies;
 
 @end
 
@@ -1238,7 +1238,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 
 
 /**
- 
+ <p>The maximum number of principals to return.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -1268,7 +1268,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 /**
  <p>The things.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable things;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable things;
 
 @end
 
@@ -1295,7 +1295,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 /**
  <p>The principals.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable principals;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable principals;
 
 @end
 
@@ -1341,7 +1341,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 /**
  <p>The things.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable things;
+@property (nonatomic, strong) NSArray<AWSIoTThingAttribute *> * _Nullable things;
 
 @end
 
@@ -1387,7 +1387,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 /**
  <p>The rules.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable rules;
+@property (nonatomic, strong) NSArray<AWSIoTTopicRuleListItem *> * _Nullable rules;
 
 @end
 
@@ -1611,7 +1611,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 /**
  <p>The attributes.</p>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable attributes;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
 /**
  <p>The name of the thing.</p>
@@ -1629,7 +1629,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 /**
  <p>The actions associated with the rule.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable actions;
+@property (nonatomic, strong) NSArray<AWSIoTAction *> * _Nullable actions;
 
 /**
  <p>The date and time the rule was created.</p>
@@ -1696,7 +1696,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 /**
  <p>The actions associated with the rule.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable actions;
+@property (nonatomic, strong) NSArray<AWSIoTAction *> * _Nullable actions;
 
 /**
  <p>The description of the rule.</p>
@@ -1774,7 +1774,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 
 
 /**
- <p>The attribute payload, a JSON string containing up to three key-value pairs.</p><p>For example: {\"attributes\":{\"string1\":\"string2\”}}</p>
+ <p>The attribute payload, a JSON string containing up to three key-value pairs.</p><p>For example: {\"attributes\":{\"string1\":\"string2\"}}</p>
  */
 @property (nonatomic, strong) AWSIoTAttributePayload * _Nullable attributePayload;
 

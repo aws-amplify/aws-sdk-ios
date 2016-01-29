@@ -534,6 +534,7 @@
 				DEFINES_MODULE = YES;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
+				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSEC2;
 				SKIP_INSTALL = YES;
@@ -550,6 +551,7 @@
 				DEFINES_MODULE = YES;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
+				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSEC2;
 				SKIP_INSTALL = YES;

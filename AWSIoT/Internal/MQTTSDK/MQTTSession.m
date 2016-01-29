@@ -282,19 +282,8 @@
         CFRelease(sslSettings);
     }
 
-    encoder = [[MQTTEncoder alloc] initWithStream:(__bridge NSOutputStream*)writeStream
-                                          runLoop:runLoop
-                                      runLoopMode:runLoopMode];
-
-    decoder = [[MQTTDecoder alloc] initWithStream:(__bridge NSInputStream*)readStream
-                                          runLoop:runLoop
-                                      runLoopMode:runLoopMode];
-
-    [encoder setDelegate:self];
-    [decoder setDelegate:self];
     
-    [encoder open];
-    [decoder open];
+    [self connectToInputStream:(__bridge NSInputStream *)readStream outputStream:(__bridge NSOutputStream *)writeStream];
 }
 
 
@@ -309,6 +298,26 @@
     [self connectToHost:ip port:port usingSSL:usingSSL sslCertificated:nil];
 }
 
+- (id)connectToInputStream:(NSInputStream *)readStream outputStream:(NSOutputStream *)writeStream;
+{
+    status = MQTTSessionStatusCreated;
+
+    encoder = [[MQTTEncoder alloc] initWithStream:writeStream
+                                          runLoop:runLoop
+                                      runLoopMode:runLoopMode];
+    
+    decoder = [[MQTTDecoder alloc] initWithStream:readStream
+                                          runLoop:runLoop
+                                      runLoopMode:runLoopMode];
+    
+    [encoder setDelegate:self];
+    [decoder setDelegate:self];
+    
+    [encoder open];
+    [decoder open];
+    
+    return self;
+}
 
 #pragma mark Subscription Management
 
@@ -473,10 +482,12 @@
 
 - (void)decoder:(MQTTDecoder*)sender newMessage:(MQTTMessage*)msg {
     //NSLog(@"decoder:(MQTTDecoder*)sender newMessage:(MQTTMessage*)msg ");
+    MQTTMessageType messageType = [msg type];
+    
     if(sender == decoder){
         switch (status) {
             case MQTTSessionStatusConnecting:
-                switch ([msg type]) {
+                switch (messageType) {
                     case MQTTConnack:
                         if ([[msg data] length] != 2) {
                             [self error:MQTTSessionEventProtocolError];

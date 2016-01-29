@@ -276,6 +276,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
+- (void)addPermission:(AWSSQSAddPermissionRequest *)request
+    completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self addPermission:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)changeMessageVisibility:(AWSSQSChangeMessageVisibilityRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -285,7 +303,25 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)changeMessageVisibilityBatch:(AWSSQSChangeMessageVisibilityBatchRequest *)request {
+- (void)changeMessageVisibility:(AWSSQSChangeMessageVisibilityRequest *)request
+              completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self changeMessageVisibility:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSQSChangeMessageVisibilityBatchResult *> *)changeMessageVisibilityBatch:(AWSSQSChangeMessageVisibilityBatchRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -294,13 +330,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSQSChangeMessageVisibilityBatchResult class]];
 }
 
-- (AWSTask *)createQueue:(AWSSQSCreateQueueRequest *)request {
+- (void)changeMessageVisibilityBatch:(AWSSQSChangeMessageVisibilityBatchRequest *)request
+                   completionHandler:(void (^)(AWSSQSChangeMessageVisibilityBatchResult *response, NSError *error))completionHandler {
+    [[self changeMessageVisibilityBatch:request] continueWithBlock:^id _Nullable(AWSTask<AWSSQSChangeMessageVisibilityBatchResult *> * _Nonnull task) {
+        AWSSQSChangeMessageVisibilityBatchResult *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSQSCreateQueueResult *> *)createQueue:(AWSSQSCreateQueueRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateQueue"
                    outputClass:[AWSSQSCreateQueueResult class]];
+}
+
+- (void)createQueue:(AWSSQSCreateQueueRequest *)request
+  completionHandler:(void (^)(AWSSQSCreateQueueResult *response, NSError *error))completionHandler {
+    [[self createQueue:request] continueWithBlock:^id _Nullable(AWSTask<AWSSQSCreateQueueResult *> * _Nonnull task) {
+        AWSSQSCreateQueueResult *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)deleteMessage:(AWSSQSDeleteMessageRequest *)request {
@@ -312,13 +386,50 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)deleteMessageBatch:(AWSSQSDeleteMessageBatchRequest *)request {
+- (void)deleteMessage:(AWSSQSDeleteMessageRequest *)request
+    completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteMessage:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSQSDeleteMessageBatchResult *> *)deleteMessageBatch:(AWSSQSDeleteMessageBatchRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteMessageBatch"
                    outputClass:[AWSSQSDeleteMessageBatchResult class]];
+}
+
+- (void)deleteMessageBatch:(AWSSQSDeleteMessageBatchRequest *)request
+         completionHandler:(void (^)(AWSSQSDeleteMessageBatchResult *response, NSError *error))completionHandler {
+    [[self deleteMessageBatch:request] continueWithBlock:^id _Nullable(AWSTask<AWSSQSDeleteMessageBatchResult *> * _Nonnull task) {
+        AWSSQSDeleteMessageBatchResult *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)deleteQueue:(AWSSQSDeleteQueueRequest *)request {
@@ -330,7 +441,25 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)getQueueAttributes:(AWSSQSGetQueueAttributesRequest *)request {
+- (void)deleteQueue:(AWSSQSDeleteQueueRequest *)request
+  completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteQueue:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSQSGetQueueAttributesResult *> *)getQueueAttributes:(AWSSQSGetQueueAttributesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -339,7 +468,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSQSGetQueueAttributesResult class]];
 }
 
-- (AWSTask *)getQueueUrl:(AWSSQSGetQueueUrlRequest *)request {
+- (void)getQueueAttributes:(AWSSQSGetQueueAttributesRequest *)request
+         completionHandler:(void (^)(AWSSQSGetQueueAttributesResult *response, NSError *error))completionHandler {
+    [[self getQueueAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSSQSGetQueueAttributesResult *> * _Nonnull task) {
+        AWSSQSGetQueueAttributesResult *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSQSGetQueueUrlResult *> *)getQueueUrl:(AWSSQSGetQueueUrlRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -348,7 +496,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSQSGetQueueUrlResult class]];
 }
 
-- (AWSTask *)listDeadLetterSourceQueues:(AWSSQSListDeadLetterSourceQueuesRequest *)request {
+- (void)getQueueUrl:(AWSSQSGetQueueUrlRequest *)request
+  completionHandler:(void (^)(AWSSQSGetQueueUrlResult *response, NSError *error))completionHandler {
+    [[self getQueueUrl:request] continueWithBlock:^id _Nullable(AWSTask<AWSSQSGetQueueUrlResult *> * _Nonnull task) {
+        AWSSQSGetQueueUrlResult *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSQSListDeadLetterSourceQueuesResult *> *)listDeadLetterSourceQueues:(AWSSQSListDeadLetterSourceQueuesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -357,7 +524,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSQSListDeadLetterSourceQueuesResult class]];
 }
 
-- (AWSTask *)listQueues:(AWSSQSListQueuesRequest *)request {
+- (void)listDeadLetterSourceQueues:(AWSSQSListDeadLetterSourceQueuesRequest *)request
+                 completionHandler:(void (^)(AWSSQSListDeadLetterSourceQueuesResult *response, NSError *error))completionHandler {
+    [[self listDeadLetterSourceQueues:request] continueWithBlock:^id _Nullable(AWSTask<AWSSQSListDeadLetterSourceQueuesResult *> * _Nonnull task) {
+        AWSSQSListDeadLetterSourceQueuesResult *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSQSListQueuesResult *> *)listQueues:(AWSSQSListQueuesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -366,13 +552,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSQSListQueuesResult class]];
 }
 
-- (AWSTask *)receiveMessage:(AWSSQSReceiveMessageRequest *)request {
+- (void)listQueues:(AWSSQSListQueuesRequest *)request
+ completionHandler:(void (^)(AWSSQSListQueuesResult *response, NSError *error))completionHandler {
+    [[self listQueues:request] continueWithBlock:^id _Nullable(AWSTask<AWSSQSListQueuesResult *> * _Nonnull task) {
+        AWSSQSListQueuesResult *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSQSReceiveMessageResult *> *)receiveMessage:(AWSSQSReceiveMessageRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"ReceiveMessage"
                    outputClass:[AWSSQSReceiveMessageResult class]];
+}
+
+- (void)receiveMessage:(AWSSQSReceiveMessageRequest *)request
+     completionHandler:(void (^)(AWSSQSReceiveMessageResult *response, NSError *error))completionHandler {
+    [[self receiveMessage:request] continueWithBlock:^id _Nullable(AWSTask<AWSSQSReceiveMessageResult *> * _Nonnull task) {
+        AWSSQSReceiveMessageResult *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)removePermission:(AWSSQSRemovePermissionRequest *)request {
@@ -384,7 +608,25 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)sendMessage:(AWSSQSSendMessageRequest *)request {
+- (void)removePermission:(AWSSQSRemovePermissionRequest *)request
+       completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self removePermission:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSQSSendMessageResult *> *)sendMessage:(AWSSQSSendMessageRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -393,13 +635,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSQSSendMessageResult class]];
 }
 
-- (AWSTask *)sendMessageBatch:(AWSSQSSendMessageBatchRequest *)request {
+- (void)sendMessage:(AWSSQSSendMessageRequest *)request
+  completionHandler:(void (^)(AWSSQSSendMessageResult *response, NSError *error))completionHandler {
+    [[self sendMessage:request] continueWithBlock:^id _Nullable(AWSTask<AWSSQSSendMessageResult *> * _Nonnull task) {
+        AWSSQSSendMessageResult *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSQSSendMessageBatchResult *> *)sendMessageBatch:(AWSSQSSendMessageBatchRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"SendMessageBatch"
                    outputClass:[AWSSQSSendMessageBatchResult class]];
+}
+
+- (void)sendMessageBatch:(AWSSQSSendMessageBatchRequest *)request
+       completionHandler:(void (^)(AWSSQSSendMessageBatchResult *response, NSError *error))completionHandler {
+    [[self sendMessageBatch:request] continueWithBlock:^id _Nullable(AWSTask<AWSSQSSendMessageBatchResult *> * _Nonnull task) {
+        AWSSQSSendMessageBatchResult *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)setQueueAttributes:(AWSSQSSetQueueAttributesRequest *)request {
@@ -409,6 +689,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                   targetPrefix:@""
                  operationName:@"SetQueueAttributes"
                    outputClass:nil];
+}
+
+- (void)setQueueAttributes:(AWSSQSSetQueueAttributesRequest *)request
+         completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self setQueueAttributes:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+        
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+        
+        if (completionHandler) {
+            completionHandler(error);
+        }
+        
+        return nil;
+    }];
 }
 
 @end

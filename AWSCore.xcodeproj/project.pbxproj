@@ -177,12 +177,10 @@
 		CE2EDE801BF3D7B900B9F26B /* AWSCancellationTokenRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDE781BF3D7B900B9F26B /* AWSCancellationTokenRegistration.m */; };
 		CE2EDE811BF3D7B900B9F26B /* AWSCancellationTokenSource.h in Headers */ = {isa = PBXBuildFile; fileRef = CE2EDE791BF3D7B900B9F26B /* AWSCancellationTokenSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE2EDE821BF3D7B900B9F26B /* AWSCancellationTokenSource.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDE7A1BF3D7B900B9F26B /* AWSCancellationTokenSource.m */; };
-		CE2EDE831BF3D7B900B9F26B /* AWSDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = CE2EDE7B1BF3D7B900B9F26B /* AWSDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE2EDE841BF3DC7100B9F26B /* AWSBoltsVersion.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE2EDE741BF3D7B900B9F26B /* AWSBoltsVersion.h */; };
 		CE2EDE851BF3DC7100B9F26B /* AWSCancellationToken.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE2EDE751BF3D7B900B9F26B /* AWSCancellationToken.h */; };
 		CE2EDE861BF3DC7100B9F26B /* AWSCancellationTokenRegistration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE2EDE771BF3D7B900B9F26B /* AWSCancellationTokenRegistration.h */; };
 		CE2EDE871BF3DC7100B9F26B /* AWSCancellationTokenSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE2EDE791BF3D7B900B9F26B /* AWSCancellationTokenSource.h */; };
-		CE2EDE881BF3DC7100B9F26B /* AWSDefines.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE2EDE7B1BF3D7B900B9F26B /* AWSDefines.h */; };
 		CE2EDE8C1BF3DEC500B9F26B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE6552191BEC308400DACBC2 /* module.modulemap */; };
 		CE6397221AC49D4D00459E23 /* rest-json-input.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6397201AC49D4D00459E23 /* rest-json-input.json */; };
 		CE6397231AC49D4D00459E23 /* rest-json-output.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6397211AC49D4D00459E23 /* rest-json-output.json */; };
@@ -269,7 +267,6 @@
 				CE2EDE851BF3DC7100B9F26B /* AWSCancellationToken.h in CopyFiles */,
 				CE2EDE861BF3DC7100B9F26B /* AWSCancellationTokenRegistration.h in CopyFiles */,
 				CE2EDE871BF3DC7100B9F26B /* AWSCancellationTokenSource.h in CopyFiles */,
-				CE2EDE881BF3DC7100B9F26B /* AWSDefines.h in CopyFiles */,
 				CE9D7C971BF19C8F009D935B /* AWSGZIP.h in CopyFiles */,
 				CE27CB4D1BF1851500B22AB3 /* AWSFMDatabase.h in CopyFiles */,
 				CE27CB4E1BF1851500B22AB3 /* AWSFMDatabasePool.h in CopyFiles */,
@@ -378,7 +375,7 @@
 		BDF557771AB371AB0067F4F1 /* AWSCognitoIdentityService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSCognitoIdentityService.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BDF557781AB371AB0067F4F1 /* AWSCognitoIdentityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCognitoIdentityModel.h; sourceTree = "<group>"; };
 		BDF557791AB371AB0067F4F1 /* AWSCognitoIdentityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoIdentityModel.m; sourceTree = "<group>"; };
-		BDF558101AB371AB0067F4F1 /* AWSNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSNetworking.h; sourceTree = "<group>"; };
+		BDF558101AB371AB0067F4F1 /* AWSNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AWSNetworking.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		BDF558111AB371AB0067F4F1 /* AWSNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSNetworking.m; sourceTree = "<group>"; };
 		BDF558121AB371AB0067F4F1 /* AWSURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSURLSessionManager.h; sourceTree = "<group>"; };
 		BDF558131AB371AB0067F4F1 /* AWSURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSURLSessionManager.m; sourceTree = "<group>"; };
@@ -458,7 +455,6 @@
 		CE2EDE781BF3D7B900B9F26B /* AWSCancellationTokenRegistration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSCancellationTokenRegistration.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CE2EDE791BF3D7B900B9F26B /* AWSCancellationTokenSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AWSCancellationTokenSource.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		CE2EDE7A1BF3D7B900B9F26B /* AWSCancellationTokenSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSCancellationTokenSource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		CE2EDE7B1BF3D7B900B9F26B /* AWSDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AWSDefines.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		CE5E04551AD89085002EF47E /* AWSNetworkingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSNetworkingTests.m; sourceTree = "<group>"; };
 		CE6397201AC49D4D00459E23 /* rest-json-input.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "rest-json-input.json"; sourceTree = "<group>"; };
 		CE6397211AC49D4D00459E23 /* rest-json-output.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "rest-json-output.json"; sourceTree = "<group>"; };
@@ -857,7 +853,6 @@
 				CE2EDE781BF3D7B900B9F26B /* AWSCancellationTokenRegistration.m */,
 				CE2EDE791BF3D7B900B9F26B /* AWSCancellationTokenSource.h */,
 				CE2EDE7A1BF3D7B900B9F26B /* AWSCancellationTokenSource.m */,
-				CE2EDE7B1BF3D7B900B9F26B /* AWSDefines.h */,
 				CEA0CA3E1B0187640061508B /* AWSExecutor.h */,
 				CEA0CA3F1B0187640061508B /* AWSExecutor.m */,
 				CEA0CA401B0187640061508B /* AWSTask.h */,
@@ -1000,7 +995,6 @@
 				BDB73D5B1B1D3DF500717559 /* AWSCognitoIdentityResources.h in Headers */,
 				BDF558DB1AB371AD0067F4F1 /* AWSValidation.h in Headers */,
 				BDF558E21AB371AD0067F4F1 /* AWSSTSModel.h in Headers */,
-				CE2EDE831BF3D7B900B9F26B /* AWSDefines.h in Headers */,
 				BDF558ED1AB371AE0067F4F1 /* AWSXMLWriter.h in Headers */,
 				CE14DF821B02C7CE00EF6D09 /* AWSEXTKeyPathCoding.h in Headers */,
 				BDF558E51AB371AD0067F4F1 /* AWSCategory.h in Headers */,
@@ -1457,6 +1451,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
+				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1475,6 +1470,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
+				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

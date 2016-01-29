@@ -10,8 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <AWSCore/AWSCancellationToken.h>
-#import <AWSCore/AWSDefines.h>
+#import "AWSCancellationToken.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,6 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
  Error domain used if there was multiple errors on <AWSTask taskForCompletionOfAllTasks:>.
  */
 extern NSString *const AWSTaskErrorDomain;
+
+/*!
+ An error code used for <AWSTask taskForCompletionOfAllTasks:>, if there were multiple errors.
+ */
+extern NSInteger const kAWSMultipleErrorsError;
 
 /*!
  An exception that is thrown if there was multiple exceptions on <AWSTask taskForCompletionOfAllTasks:>.
@@ -33,18 +37,18 @@ extern NSString *const AWSTaskMultipleExceptionsException;
  inspect the state of the task, and to add continuations to
  be run once the task is complete.
  */
-@interface AWSTask AWS_GENERIC(__covariant AWSGenericType) : NSObject
+@interface AWSTask<__covariant ResultType> : NSObject
 
 /*!
  A block that can act as a continuation for a task.
  */
-typedef __nullable id(^AWSContinuationBlock)(AWSTask AWS_GENERIC(AWSGenericType) *task);
+typedef __nullable id(^AWSContinuationBlock)(AWSTask<ResultType> *task);
 
 /*!
  Creates a task that is already completed with the given result.
  @param result The result for the task.
  */
-+ (instancetype)taskWithResult:(nullable AWSGenericType)result;
++ (instancetype)taskWithResult:(nullable ResultType)result;
 
 /*!
  Creates a task that is already completed with the given error.
@@ -68,7 +72,7 @@ typedef __nullable id(^AWSContinuationBlock)(AWSTask AWS_GENERIC(AWSGenericType)
  all of the input tasks have completed.
  @param tasks An `NSArray` of the tasks to use as an input.
  */
-+ (instancetype)taskForCompletionOfAllTasks:(nullable NSArray *)tasks;
++ (instancetype)taskForCompletionOfAllTasks:(nullable NSArray<AWSTask *> *)tasks;
 
 /*!
  Returns a task that will be completed once all of the input tasks have completed.
@@ -76,7 +80,7 @@ typedef __nullable id(^AWSContinuationBlock)(AWSTask AWS_GENERIC(AWSGenericType)
  an `NSArray` of all task results in the order they were provided.
  @param tasks An `NSArray` of the tasks to use as an input.
  */
-+ (instancetype)taskForCompletionOfAllTasksWithResults:(nullable NSArray *)tasks;
++ (instancetype)taskForCompletionOfAllTasksWithResults:(nullable NSArray<AWSTask *> *)tasks;
 
 /*!
  Returns a task that will be completed a certain amount of time in the future.
@@ -103,14 +107,14 @@ typedef __nullable id(^AWSContinuationBlock)(AWSTask AWS_GENERIC(AWSGenericType)
  If block returns a AWSTask, then the task returned from
  this method will not be completed until that task is completed.
  */
-+ (instancetype)taskFromExecutor:(AWSExecutor *)executor withBlock:(id (^)())block;
++ (instancetype)taskFromExecutor:(AWSExecutor *)executor withBlock:(nullable id (^)())block;
 
 // Properties that will be set on the task once it is completed.
 
 /*!
  The result of a successful task.
  */
-@property (nullable, nonatomic, strong, readonly) AWSGenericType result;
+@property (nullable, nonatomic, strong, readonly) ResultType result;
 
 /*!
  The error of a failed task.

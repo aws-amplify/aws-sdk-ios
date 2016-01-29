@@ -24,7 +24,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
     AWSCognitoCredentialsProviderInvalidConfiguration,
 };
 
-@class AWSTask;
+@class AWSTask<__covariant ResultType>;
 
 /**
  *  The AWS credentials provider protocol used to provide credentials

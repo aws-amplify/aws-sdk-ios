@@ -33,14 +33,14 @@
                           withWanDelivery:(BOOL)allowWANDelivery
                        withOperationQueue:(NSOperationQueue*)operationQueue;
 
-- (id)initWithHttpClient:(id<AWSMobileAnalyticsHttpClient>)client
-       withConfiguration:(id<AWSMobileAnalyticsConfiguring>)configuration
-    withLifeCycleManager:(id<AWSMobileAnalyticsLifeCycleManager>)lifeCycleManager
-       withPolicyFactory:(AWSMobileAnalyticsDeliveryPolicyFactory *)factory
-      withRequestBuilder:(AWSMobileAnalyticsERSRequestBuilder *)builder
-      withOperationQueue:(NSOperationQueue*)operationQueue
-          withEventStore:(id<AWSMobileAnalyticsEventStore>)eventStore
-          withSerializer:(id<AWSMobileAnalyticsSerializer>)serializer;
+- (id)initWithConfiguration:(id<AWSMobileAnalyticsConfiguring>)configuration
+       withLifeCycleManager:(id<AWSMobileAnalyticsLifeCycleManager>)lifeCycleManager
+          withPolicyFactory:(AWSMobileAnalyticsDeliveryPolicyFactory *)factory
+         withOperationQueue:(NSOperationQueue*)operationQueue
+             withEventStore:(id<AWSMobileAnalyticsEventStore>)eventStore
+             withSerializer:(id<AWSMobileAnalyticsSerializer>)serializer
+          withClientContext:(AWSMobileAnalyticsClientContext *) clientContext
+             withERSService:(AWSMobileAnalyticsERS*)ers;
 
 - (void)notify:(id<AWSMobileAnalyticsInternalEvent>)event;
 - (void)enqueueEventForDelivery:(id<AWSMobileAnalyticsInternalEvent>)event;

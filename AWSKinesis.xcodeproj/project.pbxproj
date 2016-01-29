@@ -36,6 +36,7 @@
 		CE27CB5C1BF1885700B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB5B1BF1885700B22AB3 /* UIKit.framework */; };
 		CE27CB5D1BF1885C00B22AB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27CB5B1BF1885700B22AB3 /* UIKit.framework */; };
 		CE2EDE981BF3DF2F00B9F26B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE6552361BEC363600DACBC2 /* module.modulemap */; };
+		CE3038241C3F37EF00008F26 /* AWSFirehose.h in Headers */ = {isa = PBXBuildFile; fileRef = CE3038231C3F37EF00008F26 /* AWSFirehose.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE6A6DB71C03E50F006F986B /* AWSAbstractKinesisRecorder.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDEC21A1BFD640100BE16EA /* AWSAbstractKinesisRecorder.h */; };
 		CEB3802B1C177F19008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB3802A1C177F19008B520C /* SystemConfiguration.framework */; };
 		CEB380411C177FA3008B520C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB3802A1C177F19008B520C /* SystemConfiguration.framework */; };
@@ -125,6 +126,7 @@
 		BDF559DA1AB376A50067F4F1 /* AWSKinesisRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSKinesisRecorder.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CE14DF8C1B02DEBC00EF6D09 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CE27CB5B1BF1885700B22AB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CE3038231C3F37EF00008F26 /* AWSFirehose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSFirehose.h; sourceTree = "<group>"; };
 		CE6552361BEC363600DACBC2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		CEB3802A1C177F19008B520C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CEB380601C1780A5008B520C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -210,6 +212,7 @@
 			children = (
 				CEDEC21A1BFD640100BE16EA /* AWSAbstractKinesisRecorder.h */,
 				CEDEC21B1BFD640100BE16EA /* AWSAbstractKinesisRecorder.m */,
+				CE3038231C3F37EF00008F26 /* AWSFirehose.h */,
 				CEBA35371C24D4140003237B /* AWSFirehoseModel.h */,
 				CEBA35381C24D4140003237B /* AWSFirehoseModel.m */,
 				CEBA35391C24D4140003237B /* AWSFirehoseRecorder.h */,
@@ -286,6 +289,7 @@
 				CEE7DE711AC1E1AF0095C4B7 /* AWSKinesisService.h in Headers */,
 				BDB73D7B1B1D3EFC00717559 /* AWSKinesisResources.h in Headers */,
 				CEBA35451C24D4140003237B /* AWSFirehoseService.h in Headers */,
+				CE3038241C3F37EF00008F26 /* AWSFirehose.h in Headers */,
 				CEBA35431C24D4140003237B /* AWSFirehoseResources.h in Headers */,
 				CEDEC21C1BFD640100BE16EA /* AWSAbstractKinesisRecorder.h in Headers */,
 			);
@@ -612,6 +616,7 @@
 					"${SRCROOT}/Pods/Headers/**",
 				);
 				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
+				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSKinesis;
 				SKIP_INSTALL = YES;
@@ -632,6 +637,7 @@
 					"${SRCROOT}/Pods/Headers/**",
 				);
 				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
+				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSKinesis;
 				SKIP_INSTALL = YES;

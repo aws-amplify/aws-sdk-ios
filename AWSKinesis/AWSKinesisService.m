@@ -263,6 +263,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
+- (void)addTagsToStream:(AWSKinesisAddTagsToStreamInput *)request
+      completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self addTagsToStream:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)createStream:(AWSKinesisCreateStreamInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -270,6 +288,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                   targetPrefix:@"Kinesis_20131202"
                  operationName:@"CreateStream"
                    outputClass:nil];
+}
+
+- (void)createStream:(AWSKinesisCreateStreamInput *)request
+   completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self createStream:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)deleteStream:(AWSKinesisDeleteStreamInput *)request {
@@ -281,7 +317,25 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)describeStream:(AWSKinesisDescribeStreamInput *)request {
+- (void)deleteStream:(AWSKinesisDeleteStreamInput *)request
+   completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteStream:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKinesisDescribeStreamOutput *> *)describeStream:(AWSKinesisDescribeStreamInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -290,7 +344,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSKinesisDescribeStreamOutput class]];
 }
 
-- (AWSTask *)getRecords:(AWSKinesisGetRecordsInput *)request {
+- (void)describeStream:(AWSKinesisDescribeStreamInput *)request
+     completionHandler:(void (^)(AWSKinesisDescribeStreamOutput *response, NSError *error))completionHandler {
+    [[self describeStream:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisDescribeStreamOutput *> * _Nonnull task) {
+        AWSKinesisDescribeStreamOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKinesisGetRecordsOutput *> *)getRecords:(AWSKinesisGetRecordsInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -299,7 +372,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSKinesisGetRecordsOutput class]];
 }
 
-- (AWSTask *)getShardIterator:(AWSKinesisGetShardIteratorInput *)request {
+- (void)getRecords:(AWSKinesisGetRecordsInput *)request
+ completionHandler:(void (^)(AWSKinesisGetRecordsOutput *response, NSError *error))completionHandler {
+    [[self getRecords:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisGetRecordsOutput *> * _Nonnull task) {
+        AWSKinesisGetRecordsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKinesisGetShardIteratorOutput *> *)getShardIterator:(AWSKinesisGetShardIteratorInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -308,7 +400,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSKinesisGetShardIteratorOutput class]];
 }
 
-- (AWSTask *)listStreams:(AWSKinesisListStreamsInput *)request {
+- (void)getShardIterator:(AWSKinesisGetShardIteratorInput *)request
+       completionHandler:(void (^)(AWSKinesisGetShardIteratorOutput *response, NSError *error))completionHandler {
+    [[self getShardIterator:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisGetShardIteratorOutput *> * _Nonnull task) {
+        AWSKinesisGetShardIteratorOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKinesisListStreamsOutput *> *)listStreams:(AWSKinesisListStreamsInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -317,13 +428,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSKinesisListStreamsOutput class]];
 }
 
-- (AWSTask *)listTagsForStream:(AWSKinesisListTagsForStreamInput *)request {
+- (void)listStreams:(AWSKinesisListStreamsInput *)request
+  completionHandler:(void (^)(AWSKinesisListStreamsOutput *response, NSError *error))completionHandler {
+    [[self listStreams:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisListStreamsOutput *> * _Nonnull task) {
+        AWSKinesisListStreamsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKinesisListTagsForStreamOutput *> *)listTagsForStream:(AWSKinesisListTagsForStreamInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@"Kinesis_20131202"
                  operationName:@"ListTagsForStream"
                    outputClass:[AWSKinesisListTagsForStreamOutput class]];
+}
+
+- (void)listTagsForStream:(AWSKinesisListTagsForStreamInput *)request
+        completionHandler:(void (^)(AWSKinesisListTagsForStreamOutput *response, NSError *error))completionHandler {
+    [[self listTagsForStream:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisListTagsForStreamOutput *> * _Nonnull task) {
+        AWSKinesisListTagsForStreamOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)mergeShards:(AWSKinesisMergeShardsInput *)request {
@@ -335,7 +484,25 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)putRecord:(AWSKinesisPutRecordInput *)request {
+- (void)mergeShards:(AWSKinesisMergeShardsInput *)request
+  completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self mergeShards:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKinesisPutRecordOutput *> *)putRecord:(AWSKinesisPutRecordInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -344,13 +511,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSKinesisPutRecordOutput class]];
 }
 
-- (AWSTask *)putRecords:(AWSKinesisPutRecordsInput *)request {
+- (void)putRecord:(AWSKinesisPutRecordInput *)request
+completionHandler:(void (^)(AWSKinesisPutRecordOutput *response, NSError *error))completionHandler {
+    [[self putRecord:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisPutRecordOutput *> * _Nonnull task) {
+        AWSKinesisPutRecordOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKinesisPutRecordsOutput *> *)putRecords:(AWSKinesisPutRecordsInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@"Kinesis_20131202"
                  operationName:@"PutRecords"
                    outputClass:[AWSKinesisPutRecordsOutput class]];
+}
+
+- (void)putRecords:(AWSKinesisPutRecordsInput *)request
+ completionHandler:(void (^)(AWSKinesisPutRecordsOutput *response, NSError *error))completionHandler {
+    [[self putRecords:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisPutRecordsOutput *> * _Nonnull task) {
+        AWSKinesisPutRecordsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)removeTagsFromStream:(AWSKinesisRemoveTagsFromStreamInput *)request {
@@ -362,6 +567,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
+- (void)removeTagsFromStream:(AWSKinesisRemoveTagsFromStreamInput *)request
+           completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self removeTagsFromStream:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)splitShard:(AWSKinesisSplitShardInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -369,6 +592,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                   targetPrefix:@"Kinesis_20131202"
                  operationName:@"SplitShard"
                    outputClass:nil];
+}
+
+- (void)splitShard:(AWSKinesisSplitShardInput *)request
+ completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self splitShard:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+        
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+        
+        if (completionHandler) {
+            completionHandler(error);
+        }
+        
+        return nil;
+    }];
 }
 
 @end

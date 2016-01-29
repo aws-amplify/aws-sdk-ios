@@ -13,8 +13,7 @@
 // permissions and limitations under the License.
 //
 
-#import <AWSCore/AWSService.h>
-#import "AWSS3Model.h"
+#import "AWSS3Service.h"
 
 FOUNDATION_EXPORT NSString *const AWSS3TransferManagerErrorDomain;
 typedef NS_ENUM(NSInteger, AWSS3TransferManagerErrorType) {
@@ -38,7 +37,6 @@ typedef NS_ENUM(NSInteger, AWSS3TransferManagerRequestState) {
 typedef void (^AWSS3TransferManagerResumeAllBlock) (AWSRequest *request);
 
 @class AWSS3;
-@class AWSTask;
 @class AWSS3TransferManagerUploadRequest;
 @class AWSS3TransferManagerUploadOutput;
 @class AWSS3TransferManagerDownloadRequest;

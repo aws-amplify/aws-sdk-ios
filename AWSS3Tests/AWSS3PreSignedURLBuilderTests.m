@@ -544,7 +544,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
             switch (count) {
                 case 0:
                     preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
-                    [getPreSignedURLRequest setValue:nil forRequestParameter:AWSS3PresignedURLTorrent];
+                    [getPreSignedURLRequest setValue:@"" forRequestParameter:AWSS3PresignedURLTorrent];
                     break;
                 case 2:
                     preSignedURLBuilder = [AWSS3PreSignedURLBuilder S3PreSignedURLBuilderForKey:testS3PresignedURLEUCentralKey];
@@ -1393,19 +1393,6 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     getPreSignedURLRequestThree.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
     AWSTask *resultThree = [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequestThree];
     XCTAssertEqual(AWSS3PresignedURLErrorUnsupportedHTTPVerbs, resultThree.error.code);
-
-    __block BOOL didThrowException = NO;
-    @try {
-        [AWSS3PreSignedURLBuilder registerS3PreSignedURLBuilderWithConfiguration:nil
-                                                                          forKey:@"testInvalidParameters_nil"];
-        [AWSS3PreSignedURLBuilder S3PreSignedURLBuilderForKey:@"testInvalidParameters_nil"];
-    }
-    @catch (NSException *exception) {
-        didThrowException = YES;
-    }
-    @finally {
-        XCTAssertTrue(didThrowException);
-    }
 
     AWSS3TestCredentialsProvider *testCredentialProvider = [AWSS3TestCredentialsProvider new];
     testCredentialProvider.accessKey = s3.configuration.credentialsProvider.accessKey;

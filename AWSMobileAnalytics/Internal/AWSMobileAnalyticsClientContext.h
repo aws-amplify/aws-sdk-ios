@@ -13,18 +13,12 @@
 // permissions and limitations under the License.
 //
 
-#import "AWSMobileAnalyticsDefaultInterceptor.h"
+#import <AWSCore/AWSCore.h>
 
-@implementation AWSMobileAnalyticsDefaultInterceptor
+@interface AWSMobileAnalyticsClientContext : AWSClientContext
 
--(void) before:(id<AWSMobileAnalyticsRequest>) theRequest
-{
-    
-}
+@property (nonatomic, strong) NSString *clientId;
 
--(void) after:(id<AWSMobileAnalyticsResponse>) theResponse
-{
-    
-}
+- (NSDictionary *)dictionaryRepresentation;
 
 @end

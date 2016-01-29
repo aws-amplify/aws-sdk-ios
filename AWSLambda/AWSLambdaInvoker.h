@@ -14,8 +14,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AWSCore/AWSService.h>
+#import <AWSCore/AWSCore.h>
 #import "AWSLambdaModel.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 FOUNDATION_EXPORT NSString *const AWSLambdaInvokerErrorDomain;
 FOUNDATION_EXPORT NSString *const AWSLambdaInvokerFunctionErrorKey;
@@ -185,7 +187,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaInvokerErrorType) {
  @see AWSLambdaInvokerInvocationRequest
  @see AWSLambdaInvokerInvocationResponse
  */
-- (AWSTask *)invoke:(AWSLambdaInvokerInvocationRequest *)request;
+- (AWSTask<AWSLambdaInvokerInvocationResponse *> *)invoke:(AWSLambdaInvokerInvocationRequest *)request;
 
 /**
  Invokes a synchronous AWS Lambda function with given parameters.
@@ -196,7 +198,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaInvokerErrorType) {
  @return An instance of `AWSTask`. On successful execution, `task.result` will contain a JSON object. On failed service execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`. On failed function execution, `task.error` may contain an `NSError` with `AWSLambdaInvokerErrorDomain` domain and the following error code: `AWSLambdaInvokerErrorTypeFunctionError`.
  */
 - (AWSTask *)invokeFunction:(NSString *)functionName
-                JSONObject:(id)JSONObject;
+                 JSONObject:(id)JSONObject;
 
 @end
 
@@ -213,3 +215,5 @@ typedef NS_ENUM(NSInteger, AWSLambdaInvokerErrorType) {
 @interface AWSLambdaInvokerInvocationResponse : AWSLambdaInvocationResponse
 
 @end
+
+NS_ASSUME_NONNULL_END

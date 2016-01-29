@@ -13,33 +13,7 @@
 // permissions and limitations under the License.
 //
 
-#import "AWSMobileAnalyticsLogInterceptor.h"
-#import "AWSLogging.h"
-
-@implementation AWSMobileAnalyticsLogInterceptor
-
--(void) before:(id<AWSMobileAnalyticsRequest>) theRequest
-{
-    @try
-    {
-        AWSLogDebug( @"%@", theRequest);
-    }
-    @catch (NSException *exception)
-    {
-        AWSLogWarn( @"%@", exception);
-    }
-}
-
--(void) after:(id<AWSMobileAnalyticsResponse>) theResponse
-{
-    @try
-    {
-        AWSLogDebug( @"%@", theResponse);
-    }
-    @catch (NSException *exception)
-    {
-        AWSLogWarn( @"%@", exception);
-    }
-}
-
-@end
+#import <Foundation/Foundation.h>
+#import <AWSCore/AWSCore.h>
+#import "AWSFirehoseService.h"
+#import "AWSFirehoseRecorder.h"
