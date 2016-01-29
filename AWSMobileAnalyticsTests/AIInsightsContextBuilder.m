@@ -37,7 +37,6 @@
 @property(nonatomic) NSString* appName;
 
 @property(nonatomic) id<AWSMobileAnalyticsConfiguring> configuration;
-@property(nonatomic) id<AWSMobileAnalyticsHttpClient> httpClient;
 @property(nonatomic) id<AWSMobileAnalyticsPreferences> preferences;
 @property(nonatomic) id<AWSMobileAnalyticsFileManager> fileManager;
 @property(nonatomic) id<AWSMobileAnalyticsConnectivity> connectivity;
@@ -76,7 +75,6 @@
 
         
         self.configuration = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsConfiguring)];
-        self.httpClient = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsHttpClient)];
         self.preferences = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsPreferences)];
         self.fileManager = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsFileManager)];
         self.connectivity = [OCMockObject niceMockForProtocol:@protocol(AWSMobileAnalyticsConnectivity)];
@@ -126,7 +124,6 @@
     [[[mockContext stub] andReturn:clientContext] clientContext];
     [[[mockContext stub] andReturn:self.configuration] configuration];
     [[[mockContext stub] andReturn:self.uniqueId] uniqueId];
-    [[[mockContext stub] andReturn:self.httpClient] httpClient];
 
     
     return mockContext;
@@ -206,12 +203,6 @@
 -(AIInsightsContextBuilder*)withConfiguration:(id<AWSMobileAnalyticsConfiguring>)configuration
 {
     self.configuration = configuration;
-    return self;
-}
-
--(AIInsightsContextBuilder*)withHttpClient:(id<AWSMobileAnalyticsHttpClient>)httpClient
-{
-    self.httpClient = httpClient;
     return self;
 }
 

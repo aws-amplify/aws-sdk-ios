@@ -20,7 +20,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- <fullname>AWS IoT (Beta)</fullname><p><b>AWS IoT is considered a beta service as defined in the Service Terms</b></p><p>AWS IoT-Data enables secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. It implements a broker for applications and things to publish messages over HTTP (Publish) and retrieve, update, and delete thing shadows. A thing shadow is a persistent representation of your things and their state in the AWS cloud.</p>
+ <fullname>AWS IoT</fullname><p>AWS IoT-Data enables secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. It implements a broker for applications and things to publish messages over HTTP (Publish) and retrieve, update, and delete thing shadows. A thing shadow is a persistent representation of your things and their state in the AWS cloud.</p>
  */
 @interface AWSIoTData : AWSService
 
@@ -174,31 +174,57 @@ NS_ASSUME_NONNULL_BEGIN
  <p>Deletes the thing shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html">DeleteThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DeleteThingShadow service method.
- 
+
  @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTDataDeleteThingShadowResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTDataErrorDomain` domain and the following error code: `AWSIoTDataErrorResourceNotFound`, `AWSIoTDataErrorInvalidRequest`, `AWSIoTDataErrorThrottling`, `AWSIoTDataErrorUnauthorized`, `AWSIoTDataErrorServiceUnavailable`, `AWSIoTDataErrorInternalFailure`, `AWSIoTDataErrorMethodNotAllowed`, `AWSIoTDataErrorUnsupportedDocumentEncoding`.
  
  @see AWSIoTDataDeleteThingShadowRequest
  @see AWSIoTDataDeleteThingShadowResponse
  */
-- (AWSTask *)deleteThingShadow:(AWSIoTDataDeleteThingShadowRequest *)request;
+- (AWSTask<AWSIoTDataDeleteThingShadowResponse *> *)deleteThingShadow:(AWSIoTDataDeleteThingShadowRequest *)request;
+
+/**
+ <p>Deletes the thing shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html">DeleteThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteThingShadow service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTDataErrorDomain` domain and the following error code: `AWSIoTDataErrorResourceNotFound`, `AWSIoTDataErrorInvalidRequest`, `AWSIoTDataErrorThrottling`, `AWSIoTDataErrorUnauthorized`, `AWSIoTDataErrorServiceUnavailable`, `AWSIoTDataErrorInternalFailure`, `AWSIoTDataErrorMethodNotAllowed`, `AWSIoTDataErrorUnsupportedDocumentEncoding`.
+ 
+ @see AWSIoTDataDeleteThingShadowRequest
+ @see AWSIoTDataDeleteThingShadowResponse
+ */
+- (void)deleteThingShadow:(AWSIoTDataDeleteThingShadowRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDataDeleteThingShadowResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Gets the thing shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html">GetThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the GetThingShadow service method.
- 
+
  @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTDataGetThingShadowResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTDataErrorDomain` domain and the following error code: `AWSIoTDataErrorInvalidRequest`, `AWSIoTDataErrorResourceNotFound`, `AWSIoTDataErrorThrottling`, `AWSIoTDataErrorUnauthorized`, `AWSIoTDataErrorServiceUnavailable`, `AWSIoTDataErrorInternalFailure`, `AWSIoTDataErrorMethodNotAllowed`, `AWSIoTDataErrorUnsupportedDocumentEncoding`.
  
  @see AWSIoTDataGetThingShadowRequest
  @see AWSIoTDataGetThingShadowResponse
  */
-- (AWSTask *)getThingShadow:(AWSIoTDataGetThingShadowRequest *)request;
+- (AWSTask<AWSIoTDataGetThingShadowResponse *> *)getThingShadow:(AWSIoTDataGetThingShadowRequest *)request;
+
+/**
+ <p>Gets the thing shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html">GetThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetThingShadow service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTDataErrorDomain` domain and the following error code: `AWSIoTDataErrorInvalidRequest`, `AWSIoTDataErrorResourceNotFound`, `AWSIoTDataErrorThrottling`, `AWSIoTDataErrorUnauthorized`, `AWSIoTDataErrorServiceUnavailable`, `AWSIoTDataErrorInternalFailure`, `AWSIoTDataErrorMethodNotAllowed`, `AWSIoTDataErrorUnsupportedDocumentEncoding`.
+ 
+ @see AWSIoTDataGetThingShadowRequest
+ @see AWSIoTDataGetThingShadowResponse
+ */
+- (void)getThingShadow:(AWSIoTDataGetThingShadowRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDataGetThingShadowResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Publishes state information.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http">HTTP Protocol</a> in the <i>AWS IoT Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the Publish service method.
- 
+
  @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTDataErrorDomain` domain and the following error code: `AWSIoTDataErrorInternalFailure`, `AWSIoTDataErrorInvalidRequest`, `AWSIoTDataErrorUnauthorized`, `AWSIoTDataErrorMethodNotAllowed`.
  
  @see AWSIoTDataPublishRequest
@@ -206,16 +232,40 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)publish:(AWSIoTDataPublishRequest *)request;
 
 /**
+ <p>Publishes state information.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http">HTTP Protocol</a> in the <i>AWS IoT Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the Publish service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTDataErrorDomain` domain and the following error code: `AWSIoTDataErrorInternalFailure`, `AWSIoTDataErrorInvalidRequest`, `AWSIoTDataErrorUnauthorized`, `AWSIoTDataErrorMethodNotAllowed`.
+ 
+ @see AWSIoTDataPublishRequest
+ */
+- (void)publish:(AWSIoTDataPublishRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p>Updates the thing shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html">UpdateThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the UpdateThingShadow service method.
- 
+
  @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTDataUpdateThingShadowResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTDataErrorDomain` domain and the following error code: `AWSIoTDataErrorConflict`, `AWSIoTDataErrorRequestEntityTooLarge`, `AWSIoTDataErrorInvalidRequest`, `AWSIoTDataErrorThrottling`, `AWSIoTDataErrorUnauthorized`, `AWSIoTDataErrorServiceUnavailable`, `AWSIoTDataErrorInternalFailure`, `AWSIoTDataErrorMethodNotAllowed`, `AWSIoTDataErrorUnsupportedDocumentEncoding`.
  
  @see AWSIoTDataUpdateThingShadowRequest
  @see AWSIoTDataUpdateThingShadowResponse
  */
-- (AWSTask *)updateThingShadow:(AWSIoTDataUpdateThingShadowRequest *)request;
+- (AWSTask<AWSIoTDataUpdateThingShadowResponse *> *)updateThingShadow:(AWSIoTDataUpdateThingShadowRequest *)request;
+
+/**
+ <p>Updates the thing shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html">UpdateThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateThingShadow service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTDataErrorDomain` domain and the following error code: `AWSIoTDataErrorConflict`, `AWSIoTDataErrorRequestEntityTooLarge`, `AWSIoTDataErrorInvalidRequest`, `AWSIoTDataErrorThrottling`, `AWSIoTDataErrorUnauthorized`, `AWSIoTDataErrorServiceUnavailable`, `AWSIoTDataErrorInternalFailure`, `AWSIoTDataErrorMethodNotAllowed`, `AWSIoTDataErrorUnsupportedDocumentEncoding`.
+ 
+ @see AWSIoTDataUpdateThingShadowRequest
+ @see AWSIoTDataUpdateThingShadowResponse
+ */
+- (void)updateThingShadow:(AWSIoTDataUpdateThingShadowRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDataUpdateThingShadowResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 @end
 

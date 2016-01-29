@@ -11,7 +11,6 @@
 		BD00004C1AB8E12D004496EF /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00004B1AB8E12D004496EF /* AWSTestUtility.m */; };
 		BD00FF391AB8B69F004496EF /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD00FF381AB8B69F004496EF /* libAWSCore.a */; };
 		BD00FFD91AB8C3FE004496EF /* AWSSQSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD00FFD71AB8C3FE004496EF /* AWSSQSTests.m */; };
-		BD3464871ADDB5D3000C5A95 /* AWSSQSClockSkewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3464861ADDB5D3000C5A95 /* AWSSQSClockSkewTests.m */; };
 		BD9D97671AC1EEF100CEEE08 /* AWSSQSService.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEE7DE781AC1E23F0095C4B7 /* AWSSQSService.h */; };
 		BDB5DEFA1AB37849002DD224 /* libAWSSQS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB5DEEE1AB37849002DD224 /* libAWSSQS.a */; };
 		BDB5DF0F1AB3786A002DD224 /* AWSSQS.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB5DF091AB3786A002DD224 /* AWSSQS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -88,7 +87,6 @@
 		BD00FF381AB8B69F004496EF /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
 		BD00FFD61AB8C3FE004496EF /* AWSGeneralSQSTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralSQSTests.m; sourceTree = "<group>"; };
 		BD00FFD71AB8C3FE004496EF /* AWSSQSTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSQSTests.m; sourceTree = "<group>"; };
-		BD3464861ADDB5D3000C5A95 /* AWSSQSClockSkewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSQSClockSkewTests.m; sourceTree = "<group>"; };
 		BDB5DEEE1AB37849002DD224 /* libAWSSQS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSSQS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB5DEF91AB37849002DD224 /* AWSSQSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSSQSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB5DEFF1AB37849002DD224 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				BD00FFD61AB8C3FE004496EF /* AWSGeneralSQSTests.m */,
-				BD3464861ADDB5D3000C5A95 /* AWSSQSClockSkewTests.m */,
 				BD00FFD71AB8C3FE004496EF /* AWSSQSTests.m */,
 				BDB5DEFE1AB37849002DD224 /* Supporting Files */,
 			);
@@ -357,7 +354,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD3464871ADDB5D3000C5A95 /* AWSSQSClockSkewTests.m in Sources */,
 				BD00004C1AB8E12D004496EF /* AWSTestUtility.m in Sources */,
 				BD00FFD91AB8C3FE004496EF /* AWSSQSTests.m in Sources */,
 			);
@@ -488,6 +484,7 @@
 					"${SRCROOT}/Pods/Headers/**",
 				);
 				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
+				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSSQS;
 				SKIP_INSTALL = YES;
@@ -508,6 +505,7 @@
 					"${SRCROOT}/Pods/Headers/**",
 				);
 				MODULEMAP_FILE = "$(PRODUCT_NAME:c99extidentifier)/module.modulemap";
+				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = AWSSQS;
 				SKIP_INSTALL = YES;

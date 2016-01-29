@@ -14,6 +14,8 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "AWSTestUtility.h"
+#import "AWSIoTData.h"
 
 @interface AWSIoTDataTests : XCTestCase
 
@@ -21,6 +23,11 @@
 
 @implementation AWSIoTDataTests
 
++ (void)setUp {
+    [super setUp];
+    [AWSTestUtility setupCognitoCredentialsProvider];
+    // Put setup code here. This method is called before the invocation of each test method in the class.
+}
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -31,9 +38,60 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testUpdateThing {
+    AWSIoTData *iotData = [AWSIoTData defaultIoTData];
+    
+    AWSIoTDataUpdateThingShadowRequest *updateThingRequest = [AWSIoTDataUpdateThingShadowRequest new];
+    updateThingRequest.thingName = @"testThing1";
+    updateThingRequest.payload = @"{\"payloadData\":\"12345\"}";
+    
+    [[[iotData updateThingShadow:updateThingRequest] continueWithBlock:^id(AWSTask *task) {
+        
+        XCTAssertNotNil(task.error, @"expected Validation Error, but got nil");
+        return nil;
+    }] waitUntilFinished];
 }
+
+- (void)testGetThing {
+    AWSIoTData *iotData = [AWSIoTData defaultIoTData];
+    
+    AWSIoTDataGetThingShadowRequest *getThingShadowRequest = [AWSIoTDataGetThingShadowRequest new];
+    getThingShadowRequest.thingName = @"testThing2";
+    
+    [[[iotData getThingShadow:getThingShadowRequest] continueWithBlock:^id(AWSTask *task) {
+        
+        XCTAssertNotNil(task.error, @"expected Validation Error, but got nil");
+        return nil;
+    }] waitUntilFinished];
+}
+
+- (void)testDeleteThing {
+    AWSIoTData *iotData = [AWSIoTData defaultIoTData];
+    
+    AWSIoTDataDeleteThingShadowRequest *deleteThingShadowRequest = [AWSIoTDataDeleteThingShadowRequest new];
+    deleteThingShadowRequest.thingName = @"testThing3";
+    
+    [[[iotData deleteThingShadow:deleteThingShadowRequest] continueWithBlock:^id(AWSTask *task) {
+        
+        XCTAssertNotNil(task.error, @"expected Validation Error, but got nil");
+        return nil;
+    }] waitUntilFinished];
+}
+
+- (void)testPublish {
+    AWSIoTData *iotData = [AWSIoTData defaultIoTData];
+    
+    AWSIoTDataPublishRequest *publishRequest = [AWSIoTDataPublishRequest new];
+    publishRequest.topic = @"aTestTopic";
+    publishRequest.payload = @"{\"payloadData\":\"6789\"}";
+    
+    [[[iotData publish:publishRequest] continueWithBlock:^id(AWSTask *task) {
+        
+        XCTAssertNotNil(task.error, @"expected Validation Error, but got nil");
+        return nil;
+    }] waitUntilFinished];
+    
+}
+
 
 @end

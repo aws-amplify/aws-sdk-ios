@@ -762,7 +762,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 /**
  <p>An list of alises.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable aliases;
+@property (nonatomic, strong) NSArray<AWSLambdaAliasConfiguration *> * _Nullable aliases;
 
 /**
  <p>A string, present if there are more aliases.</p>
@@ -808,7 +808,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 /**
  <p>An array of <code>EventSourceMappingConfiguration</code> objects.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable eventSourceMappings;
+@property (nonatomic, strong) NSArray<AWSLambdaEventSourceMappingConfiguration *> * _Nullable eventSourceMappings;
 
 /**
  <p>A string, present if there are more event source mappings.</p>
@@ -844,7 +844,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 /**
  <p>A list of Lambda functions.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable functions;
+@property (nonatomic, strong) NSArray<AWSLambdaFunctionConfiguration *> * _Nullable functions;
 
 /**
  <p>A string, present if there are more functions.</p>
@@ -890,7 +890,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 /**
  <p>A list of Lambda function versions.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable versions;
+@property (nonatomic, strong) NSArray<AWSLambdaFunctionConfiguration *> * _Nullable versions;
 
 @end
 

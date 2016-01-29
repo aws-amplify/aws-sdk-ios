@@ -190,7 +190,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 /**
  <p>The destinations.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable destinations;
+@property (nonatomic, strong) NSArray<AWSFirehoseDestinationDescription *> * _Nullable destinations;
 
 /**
  <p>Indicates whether there are more destinations available to list.</p>
@@ -331,7 +331,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 /**
  <p>The names of the delivery streams.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable deliveryStreamNames;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable deliveryStreamNames;
 
 /**
  <p>Indicates whether there are more delivery streams available to list.</p>
@@ -355,7 +355,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 /**
  <p>One or more records.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable records;
+@property (nonatomic, strong) NSArray<AWSFirehoseRecord *> * _Nullable records;
 
 @end
 
@@ -374,7 +374,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 /**
  <p>The results for the individual records. The index of each element matches the same index in which records were sent.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable requestResponses;
+@property (nonatomic, strong) NSArray<AWSFirehosePutRecordBatchResponseEntry *> * _Nullable requestResponses;
 
 @end
 

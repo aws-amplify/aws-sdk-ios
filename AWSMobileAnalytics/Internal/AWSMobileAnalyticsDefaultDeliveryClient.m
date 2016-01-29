@@ -15,7 +15,6 @@
 
 #import "AWSMobileAnalyticsDefaultDeliveryClient.h"
 #import "AWSMobileAnalyticsDeliveryPolicyFactory.h"
-#import "AWSMobileAnalyticsERSRequestBuilder.h"
 #import "AWSMobileAnalyticsDeliveryPolicy.h"
 #import "AWSMobileAnalyticsEventStore.h"
 #import "AWSMobileAnalyticsFileEventStore.h"
@@ -25,20 +24,21 @@
 #import "AWSLogging.h"
 #import "AWSMObileAnalyticsDefaultSessionClient.h"
 #import <UIKit/UIKit.h>
+#import "AWSMobileAnalyticsClientContext.h"
 
 static NSSet *AWSMobileAnalyticsDefaultDeliveryClientRetryRequestCodes = nil;
 NSUInteger const AWSMobileAnalyticsDefaultDeliveryClientMaxOperations = 1000;
 
 @interface AWSMobileAnalyticsDefaultDeliveryClient()
 
-@property (nonatomic, strong) id<AWSMobileAnalyticsHttpClient> httpClient;
 @property (nonatomic, strong) id<AWSMobileAnalyticsConfiguring> configuration;
 @property (nonatomic, strong) AWSMobileAnalyticsDeliveryPolicyFactory *factory;
-@property (nonatomic, strong) AWSMobileAnalyticsERSRequestBuilder *builder;
 @property (nonatomic, strong) NSOperationQueue* operationQueue;
 @property (nonatomic, strong) id<AWSMobileAnalyticsEventStore> eventStore;
 @property (nonatomic, strong) id<AWSMobileAnalyticsSerializer> serializer;
 @property (nonatomic, strong) id backgroundObserverHandle;
+@property (nonatomic, strong) AWSMobileAnalyticsClientContext *clientContext;
+@property (nonatomic, strong) AWSMobileAnalyticsERS *ers;
 
 @end
 
@@ -69,38 +69,34 @@ NSUInteger const AWSMobileAnalyticsDefaultDeliveryClientMaxOperations = 1000;
                                                                                                   withPreferences:context.system.preferences
                                                                                                 withConfiguration:context.configuration
                                                                                            withAllowWanSubmission:allowWANDelivery];
-
-    AWSMobileAnalyticsERSRequestBuilder* builder = [AWSMobileAnalyticsERSRequestBuilder builderWithConfiguration:context.configuration
-                                                                                                  withHttpClient:context.httpClient
-                                                                                              withApplicationKey:context.identifier
-                                                                                                    withUniqueId:context.uniqueId];
-
-    return [[AWSMobileAnalyticsDefaultDeliveryClient alloc] initWithHttpClient:context.httpClient
-                                                             withConfiguration:context.configuration
-                                                          withLifeCycleManager:context.system.lifeCycleManager
-                                                             withPolicyFactory:factory
-                                                            withRequestBuilder:builder
-                                                            withOperationQueue:operationQueue
-                                                                withEventStore:eventStore
-                                                                withSerializer:[AWSMobileAnalyticsSerializerFactory serializerFromFormatType:JSON]];
+    
+    return [[AWSMobileAnalyticsDefaultDeliveryClient alloc] initWithConfiguration:context.configuration
+                                                             withLifeCycleManager:context.system.lifeCycleManager
+                                                                withPolicyFactory:factory
+                                                               withOperationQueue:operationQueue
+                                                                   withEventStore:eventStore
+                                                                   withSerializer:[AWSMobileAnalyticsSerializerFactory serializerFromFormatType:JSON]
+                                                                withClientContext:context.clientContext
+                                                                   withERSService:context.ers];
 }
 
-- (id)initWithHttpClient:(id<AWSMobileAnalyticsHttpClient>)client
-       withConfiguration:(id<AWSMobileAnalyticsConfiguring>)configuration
-    withLifeCycleManager:(id<AWSMobileAnalyticsLifeCycleManager>)lifeCycleManager
-       withPolicyFactory:(AWSMobileAnalyticsDeliveryPolicyFactory *)factory
-      withRequestBuilder:(AWSMobileAnalyticsERSRequestBuilder *)builder
-      withOperationQueue:(NSOperationQueue*)operationQueue
-          withEventStore:(id<AWSMobileAnalyticsEventStore>)eventStore
-          withSerializer:(id<AWSMobileAnalyticsSerializer>)serializer {
+- (id)initWithConfiguration:(id<AWSMobileAnalyticsConfiguring>)configuration
+       withLifeCycleManager:(id<AWSMobileAnalyticsLifeCycleManager>)lifeCycleManager
+          withPolicyFactory:(AWSMobileAnalyticsDeliveryPolicyFactory *)factory
+         withOperationQueue:(NSOperationQueue*)operationQueue
+             withEventStore:(id<AWSMobileAnalyticsEventStore>)eventStore
+             withSerializer:(id<AWSMobileAnalyticsSerializer>)serializer
+          withClientContext:(AWSMobileAnalyticsClientContext *)clientContext
+             withERSService:(AWSMobileAnalyticsERS*)ers
+{
     if(self = [super init]) {
-        _httpClient = client;
         _configuration = configuration;
         _factory = factory;
-        _builder = builder;
         _operationQueue = operationQueue;
         _eventStore = eventStore;
         _serializer = serializer;
+        _clientContext = clientContext;
+        _ers = ers;
     }
     return self;
 }
@@ -249,39 +245,29 @@ NSUInteger const AWSMobileAnalyticsDefaultDeliveryClientMaxOperations = 1000;
 
 - (BOOL)submitEvents:(NSArray*)events
    andUpdatePolicies:(NSArray*)policies {
-    BOOL submitted = NO;
-    // package them into an ers request
-    id<AWSMobileAnalyticsRequest> request = [self.builder buildWithObjects:events];
-    if(!request) {
-        AWSLogError( @"There was an error when building the http request");
-        return submitted;
-    }
-
-    int requestRetries = [self.configuration intForKey:AWSKeyEventRecorderMaxRetries
-                                          withOptValue:AWSValueEventRecorderMaxRetries];
-    int timeout = [self.configuration intForKey:AWSKeyEventRecorderRequestTimeout
-                                   withOptValue:AWSValueEventRecorderRequestTimeout];
-    id<AWSMobileAnalyticsResponse> response = [self.httpClient execute:request
-                                                           withRetries:requestRetries
-                                                           withTimeout:timeout];
-
-    if(!response) {
-        AWSLogError( @"The http request returned a null http response");
-        return submitted;
-    }
-    AWSLogVerbose( @"The http response code is %d", response.code);
-
-    if(response.code / 100 == 2) {
-        AWSLogInfo(@"Successful submission of %lu events. Response code:%d", (unsigned long)[events count], response.code);
-        submitted = YES;
-    } else if(response.code / 100 == 4
-              && ![AWSMobileAnalyticsDefaultDeliveryClientRetryRequestCodes containsObject:@(response.code)]) {
-        AWSLogError(@"Server rejected submission of %lu events. (Pending events will be removed from queue.) Response code:%d, Error Message:%@", (unsigned long)[events count], response.code, response.error);
-        submitted = YES;
-    } else {
-        AWSLogError(@"Unable to successfully deliver events to server. Response code: %d. Error Message:%@", response.code, response.error);
-    }
-
+    __block BOOL submitted = NO;
+    
+    [[[self.ers putEvents:[self putEventsInputForEvents:events]] continueWithBlock:^id(AWSTask *task) {
+        if (task.error) {
+            AWSLogError(@"Unable to successfully deliver events to server. Error Message:%@", task.error);
+            submitted = NO;
+        } else {
+            int responseCode = [task.result[@"responseStatusCode"] intValue];
+            AWSLogVerbose( @"The http response code is %d", responseCode);
+            if(responseCode / 100 == 2) {
+                AWSLogInfo(@"Successful submission of %lu events. Response code:%d", (unsigned long)[events count], responseCode);
+                submitted = YES;
+            } else if(responseCode / 100 == 4
+                      && ![AWSMobileAnalyticsDefaultDeliveryClientRetryRequestCodes containsObject:@(responseCode)]) {
+                AWSLogError(@"Server rejected submission of %lu events. (Pending events will be removed from queue.) Response code:%d, Error Message:%@", (unsigned long)[events count], responseCode, task.error);
+                submitted = YES;
+            } else {
+                AWSLogError(@"Unable to successfully deliver events to server. Response code: %d. Error Message:%@", responseCode, task.error);
+            }
+        }
+        return nil;
+    }] waitUntilFinished];
+    
     // inform the policies that we've attempted a submission
     for (id<AWSMobileAnalyticsDeliveryPolicy> policy in policies) {
         [policy handleDeliveryAttempt:submitted];
@@ -289,5 +275,53 @@ NSUInteger const AWSMobileAnalyticsDefaultDeliveryClientMaxOperations = 1000;
     
     return submitted;
 }
+
+- (AWSMobileAnalyticsERSPutEventsInput*) putEventsInputForEvents:(NSArray*) events {
+    AWSMobileAnalyticsERSPutEventsInput *putEventInput = [AWSMobileAnalyticsERSPutEventsInput new];
+    
+    putEventInput.clientContext = [self.clientContext JSONString];
+    
+    NSMutableArray *parsedEventsArray = [NSMutableArray new];
+    for (NSString *event in events) {
+        NSDictionary *sourceEventDict = [NSJSONSerialization JSONObjectWithData:[event dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:NULL];
+        
+        AWSMobileAnalyticsERSEvent *serviceEvent = [AWSMobileAnalyticsERSEvent new];
+        AWSMobileAnalyticsERSSession *serviceSession = [AWSMobileAnalyticsERSSession new];
+        
+        //process the attributes
+        NSMutableDictionary *mutableAttributesDic = [sourceEventDict[@"attributes"] mutableCopy];
+        NSMutableDictionary *mutableMetricsDic = [sourceEventDict[@"metrics"] mutableCopy];
+        serviceEvent.version = mutableAttributesDic[@"ver"];
+        [mutableAttributesDic removeObjectForKey:@"ver"];
+        
+        serviceSession.identifier = mutableAttributesDic[AWSSessionIDAttributeKey];
+        [mutableAttributesDic removeObjectForKey:AWSSessionIDAttributeKey];
+        
+        serviceSession.startTimestamp = mutableAttributesDic[AWSSessionStartTimeAttributeKey];
+        [mutableAttributesDic removeObjectForKey:AWSSessionStartTimeAttributeKey];
+        
+        //move sessionStop time attribute session section
+        serviceSession.stopTimestamp = mutableAttributesDic[AWSSessionEndTimeAttributeKey];
+        [mutableAttributesDic removeObjectForKey:AWSSessionEndTimeAttributeKey];
+        
+        //move session duration Time metrics to session section
+        serviceSession.duration = mutableMetricsDic[AWSSessionDurationMetricKey];
+        [mutableMetricsDic removeObjectForKey:AWSSessionDurationMetricKey];
+        
+        serviceEvent.session = serviceSession;
+        serviceEvent.attributes = mutableAttributesDic;
+        serviceEvent.metrics = mutableMetricsDic;
+        
+        //process others
+        serviceEvent.eventType = sourceEventDict[@"event_type"];
+        serviceEvent.timestamp = sourceEventDict[@"timestamp"];
+        
+        [parsedEventsArray addObject:serviceEvent];
+    }
+    putEventInput.events = parsedEventsArray;
+    
+    return putEventInput;
+}
+
 
 @end

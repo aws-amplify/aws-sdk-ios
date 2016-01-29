@@ -16,6 +16,5 @@
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSCore.h>
 #import "AWSIoTService.h"
-#import "AWSIoTDataService.h"
 #import "AWSIoTManager.h"
-#import "AWSIoTDataManager.h"
+#import "AWSIoTData.h"

@@ -26,9 +26,9 @@
 #import "AWSClientContext.h"
 #import "AWSSynchronizedMutableDictionary.h"
 
-#import "AWSSTS.h"
-#import "AWSCognitoIdentity.h"
-
 #import "AWSBolts.h"
 #import "AWSGZIP.h"
 #import "AWSFMDB.h"
+
+#import "AWSSTS.h"
+#import "AWSCognitoIdentity.h"

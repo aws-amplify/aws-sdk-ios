@@ -14,9 +14,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#import <AWSCore/AWSService.h>
-#import <AWSCore/AWSModel.h>
+#import "AWSDynamoDBService.h"
 
 /**
  Enumeration of behaviors for the save operation.
@@ -63,9 +61,6 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
     AWSDynamoDBObjectMapperSaveBehaviorClobber
 };
 
-@class AWSTask;
-@class AWSServiceConfiguration;
-@class AWSDynamoDB;
 @class AWSDynamoDBObjectMapperConfiguration;
 @class AWSDynamoDBQueryExpression;
 @class AWSDynamoDBScanExpression;

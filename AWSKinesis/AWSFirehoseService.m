@@ -252,7 +252,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 #pragma mark - Service method
 
-- (AWSTask *)createDeliveryStream:(AWSFirehoseCreateDeliveryStreamInput *)request {
+- (AWSTask<AWSFirehoseCreateDeliveryStreamOutput *> *)createDeliveryStream:(AWSFirehoseCreateDeliveryStreamInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -261,7 +261,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSFirehoseCreateDeliveryStreamOutput class]];
 }
 
-- (AWSTask *)deleteDeliveryStream:(AWSFirehoseDeleteDeliveryStreamInput *)request {
+- (void)createDeliveryStream:(AWSFirehoseCreateDeliveryStreamInput *)request
+           completionHandler:(void (^)(AWSFirehoseCreateDeliveryStreamOutput *response, NSError *error))completionHandler {
+    [[self createDeliveryStream:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehoseCreateDeliveryStreamOutput *> * _Nonnull task) {
+        AWSFirehoseCreateDeliveryStreamOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSFirehoseDeleteDeliveryStreamOutput *> *)deleteDeliveryStream:(AWSFirehoseDeleteDeliveryStreamInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -270,7 +289,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSFirehoseDeleteDeliveryStreamOutput class]];
 }
 
-- (AWSTask *)describeDeliveryStream:(AWSFirehoseDescribeDeliveryStreamInput *)request {
+- (void)deleteDeliveryStream:(AWSFirehoseDeleteDeliveryStreamInput *)request
+           completionHandler:(void (^)(AWSFirehoseDeleteDeliveryStreamOutput *response, NSError *error))completionHandler {
+    [[self deleteDeliveryStream:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehoseDeleteDeliveryStreamOutput *> * _Nonnull task) {
+        AWSFirehoseDeleteDeliveryStreamOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSFirehoseDescribeDeliveryStreamOutput *> *)describeDeliveryStream:(AWSFirehoseDescribeDeliveryStreamInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -279,7 +317,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSFirehoseDescribeDeliveryStreamOutput class]];
 }
 
-- (AWSTask *)listDeliveryStreams:(AWSFirehoseListDeliveryStreamsInput *)request {
+- (void)describeDeliveryStream:(AWSFirehoseDescribeDeliveryStreamInput *)request
+             completionHandler:(void (^)(AWSFirehoseDescribeDeliveryStreamOutput *response, NSError *error))completionHandler {
+    [[self describeDeliveryStream:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehoseDescribeDeliveryStreamOutput *> * _Nonnull task) {
+        AWSFirehoseDescribeDeliveryStreamOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSFirehoseListDeliveryStreamsOutput *> *)listDeliveryStreams:(AWSFirehoseListDeliveryStreamsInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -288,7 +345,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSFirehoseListDeliveryStreamsOutput class]];
 }
 
-- (AWSTask *)putRecord:(AWSFirehosePutRecordInput *)request {
+- (void)listDeliveryStreams:(AWSFirehoseListDeliveryStreamsInput *)request
+          completionHandler:(void (^)(AWSFirehoseListDeliveryStreamsOutput *response, NSError *error))completionHandler {
+    [[self listDeliveryStreams:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehoseListDeliveryStreamsOutput *> * _Nonnull task) {
+        AWSFirehoseListDeliveryStreamsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSFirehosePutRecordOutput *> *)putRecord:(AWSFirehosePutRecordInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -297,7 +373,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSFirehosePutRecordOutput class]];
 }
 
-- (AWSTask *)putRecordBatch:(AWSFirehosePutRecordBatchInput *)request {
+- (void)putRecord:(AWSFirehosePutRecordInput *)request
+completionHandler:(void (^)(AWSFirehosePutRecordOutput *response, NSError *error))completionHandler {
+    [[self putRecord:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehosePutRecordOutput *> * _Nonnull task) {
+        AWSFirehosePutRecordOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSFirehosePutRecordBatchOutput *> *)putRecordBatch:(AWSFirehosePutRecordBatchInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -306,13 +401,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSFirehosePutRecordBatchOutput class]];
 }
 
-- (AWSTask *)updateDestination:(AWSFirehoseUpdateDestinationInput *)request {
+- (void)putRecordBatch:(AWSFirehosePutRecordBatchInput *)request
+     completionHandler:(void (^)(AWSFirehosePutRecordBatchOutput *response, NSError *error))completionHandler {
+    [[self putRecordBatch:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehosePutRecordBatchOutput *> * _Nonnull task) {
+        AWSFirehosePutRecordBatchOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSFirehoseUpdateDestinationOutput *> *)updateDestination:(AWSFirehoseUpdateDestinationInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@"Firehose_20150804"
                  operationName:@"UpdateDestination"
                    outputClass:[AWSFirehoseUpdateDestinationOutput class]];
+}
+
+- (void)updateDestination:(AWSFirehoseUpdateDestinationInput *)request
+        completionHandler:(void (^)(AWSFirehoseUpdateDestinationOutput *response, NSError *error))completionHandler {
+    [[self updateDestination:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehoseUpdateDestinationOutput *> * _Nonnull task) {
+        AWSFirehoseUpdateDestinationOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+        
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+        
+        return nil;
+    }];
 }
 
 @end

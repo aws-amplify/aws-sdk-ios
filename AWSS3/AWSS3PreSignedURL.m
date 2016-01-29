@@ -98,11 +98,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 - (NSString *)generateQueryStringForSignatureV4WithBucketName:(NSString *)bucketName
                                                       keyName:(NSString *)keyName
-                                           credentialsProvider:(id<AWSCredentialsProvider> )credentialsProvider
+                                          credentialsProvider:(id<AWSCredentialsProvider> )credentialsProvider
                                                    httpMethod:(AWSHTTPMethod)httpMethod
                                                   contentType:(NSString *)contentType
                                                expireDuration:(int32_t)expireDuration
-                                         requestParameters:(NSDictionary *)requestParameters
+                                            requestParameters:(NSDictionary<NSString *, NSString *> *)requestParameters
                                                      endpoint:(AWSEndpoint *)endpoint
                                                       keyPath:(NSString *)keyPath
                                                          host:(NSString *)host
@@ -157,13 +157,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     
     //add additionalParameters to queryString
     for (NSString *key in requestParameters) {
-        id value = requestParameters[key];
-        if ([value isKindOfClass:[NSNull class]]) {
-            [queryString appendFormat:@"%@=&",[key aws_stringWithURLEncoding]];
-        } else {
-            [queryString appendFormat:@"%@=%@&",[key aws_stringWithURLEncoding], [value aws_stringWithURLEncoding]];
-        }
-        
+        NSString *value = requestParameters[key];
+        [queryString appendFormat:@"%@=%@&",[key aws_stringWithURLEncoding], [value aws_stringWithURLEncoding]];
     }
     
     //add security-token if necessary
@@ -226,7 +221,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return queryString;
 }
 
-- (AWSTask *)getPreSignedURL:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest {
+- (AWSTask<NSURL *> *)getPreSignedURL:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest {
 
     //retrive parameters from request;
     NSString *bucketName = getPreSignedURLRequest.bucket;
@@ -246,7 +241,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         //validate additionalParams
         for (id key in getPreSignedURLRequest.requestParameters) {
             id value = getPreSignedURLRequest.requestParameters[key];
-            if (![key isKindOfClass:[NSString class]] || (![value isKindOfClass:[NSString class]] && ![value isKindOfClass:[NSNull class]]) ) {
+            if (![key isKindOfClass:[NSString class]]
+                || ![value isKindOfClass:[NSString class]]) {
                 return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
                                                                   code:AWSS3PresignedURLErrorInvalidRequestParameters
                                                               userInfo:@{NSLocalizedDescriptionKey: @"requestParameters can only contain key-value pairs in NSString type."}]
@@ -412,7 +408,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 @interface AWSS3GetPreSignedURLRequest ()
 
-@property (nonatomic, strong) NSMutableDictionary *internalRequestParameters;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, NSString *> *internalRequestParameters;
 
 @end
 
@@ -421,21 +417,17 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (instancetype)init {
     if ( self = [super init] ) {
         _minimumCredentialsExpirationInterval = 50*60;
-        _internalRequestParameters = [NSMutableDictionary new];
+        _internalRequestParameters = [NSMutableDictionary<NSString *, NSString *> new];
     }
     return self;
 }
 
-- (void)setValue:(NSString *)value forRequestParameter:(NSString *)requestParameter {
-    if (value) {
-        [self.internalRequestParameters setObject:value forKey:requestParameter];
-    } else {
-        [self.internalRequestParameters setObject:[NSNull null] forKey:requestParameter];
-    }
+- (void)setValue:(NSString * _Nullable)value forRequestParameter:(NSString *)requestParameter {
+    [self.internalRequestParameters setValue:value forKey:requestParameter];
 }
 
 //Getter method for requestParameters property
-- (NSDictionary *)requestParameters {
+- (NSDictionary<NSString *, NSString *> *)requestParameters {
     return [NSDictionary dictionaryWithDictionary:self.internalRequestParameters];
 }
 

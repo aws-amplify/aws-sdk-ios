@@ -14,6 +14,7 @@
 //
 
 #import "AWSCredentialsProvider.h"
+#import "AWSCognitoIdentity.h"
 #import "AWSSTS.h"
 #import "AWSUICKeyChainStore.h"
 #import "AWSLogging.h"

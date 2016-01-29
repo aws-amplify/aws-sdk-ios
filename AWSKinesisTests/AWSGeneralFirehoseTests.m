@@ -17,7 +17,7 @@
 #import <XCTest/XCTest.h>
 #import <OCMock/OCMock.h>
 #import "AWSTestUtility.h"
-#import "AWSKinesis.h"
+#import "AWSFirehose.h"
 
 static id mockNetworking = nil;
 

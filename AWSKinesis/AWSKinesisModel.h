@@ -94,7 +94,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 /**
  <p>The set of key-value pairs to use to create the tags.</p>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable tags;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 @end
 
@@ -203,7 +203,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 /**
  <P>The data records retrieved from the shard.</P>
  */
-@property (nonatomic, strong) NSArray * _Nullable records;
+@property (nonatomic, strong) NSArray<AWSKinesisRecord *> * _Nullable records;
 
 @end
 
@@ -301,7 +301,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 /**
  <p>The names of the streams that are associated with the AWS account making the <code>ListStreams</code> request.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable streamNames;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable streamNames;
 
 @end
 
@@ -344,7 +344,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 /**
  <p>A list of tags associated with <code>StreamName</code>, starting with the first tag after <code>ExclusiveStartTagKey</code> and up to the specified <code>Limit</code>. </p>
  */
-@property (nonatomic, strong) NSArray * _Nullable tags;
+@property (nonatomic, strong) NSArray<AWSKinesisTag *> * _Nullable tags;
 
 @end
 
@@ -435,7 +435,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 /**
  <p>The records associated with the request.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable records;
+@property (nonatomic, strong) NSArray<AWSKinesisPutRecordsRequestEntry *> * _Nullable records;
 
 /**
  <p>The stream name associated with the request.</p>
@@ -459,7 +459,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 /**
  <p>An array of successfully and unsuccessfully processed record results, correlated with the request by natural ordering. A record that is successfully added to your Amazon Kinesis stream includes <code>SequenceNumber</code> and <code>ShardId</code> in the result. A record that fails to be added to your Amazon Kinesis stream includes <code>ErrorCode</code> and <code>ErrorMessage</code> in the result.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable records;
+@property (nonatomic, strong) NSArray<AWSKinesisPutRecordsResultEntry *> * _Nullable records;
 
 @end
 
@@ -554,7 +554,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 /**
  <p>A list of tag keys. Each corresponding tag is removed from the stream.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable tagKeys;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable tagKeys;
 
 @end
 
@@ -650,7 +650,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 /**
  <p>The shards that comprise the stream.</p>
  */
-@property (nonatomic, strong) NSArray * _Nullable shards;
+@property (nonatomic, strong) NSArray<AWSKinesisShard *> * _Nullable shards;
 
 /**
  <p>The Amazon Resource Name (ARN) for the stream being described.</p>

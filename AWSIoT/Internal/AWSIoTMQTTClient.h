@@ -17,6 +17,8 @@
 #import "AWSIoTModel.h"
 #import "AWSIoTDataManager.h"
 
+#import "AWSSRWebSocket.h"
+
 @interface AWSIoTMQTTTopicModel : NSObject
 @property (nonatomic, strong) NSString *topic;
 @property (nonatomic) UInt8 qos;
@@ -28,7 +30,7 @@
 @property (nonatomic, strong) NSData *message;
 @end
 
-@interface AWSIoTMQTTClient : NSObject
+@interface AWSIoTMQTTClient <AWSSRWebSocketDelegate, NSStreamDelegate>: NSObject
 
 /**
  Returns a default singleton object. You should use this singleton method instead of creating an instance of the mqtt client.
@@ -41,6 +43,11 @@
                        port:(UInt32)port
                cleanSession:(BOOL)cleanSession
                 certificateId:(NSString *)certificateId
+             statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
+
+- (BOOL)connectWithClientId:(NSString *)clientId
+               cleanSession:(BOOL)cleanSession
+              configuration:(AWSServiceConfiguration *)configuration
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
 
 - (void)disconnect;

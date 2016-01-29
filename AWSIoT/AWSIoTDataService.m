@@ -268,7 +268,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 #pragma mark - Service method
 
-- (AWSTask *)deleteThingShadow:(AWSIoTDataDeleteThingShadowRequest *)request {
+- (AWSTask<AWSIoTDataDeleteThingShadowResponse *> *)deleteThingShadow:(AWSIoTDataDeleteThingShadowRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
                      URLString:@"/things/{thingName}/shadow"
@@ -277,13 +277,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSIoTDataDeleteThingShadowResponse class]];
 }
 
-- (AWSTask *)getThingShadow:(AWSIoTDataGetThingShadowRequest *)request {
+- (void)deleteThingShadow:(AWSIoTDataDeleteThingShadowRequest *)request
+        completionHandler:(void (^)(AWSIoTDataDeleteThingShadowResponse *response, NSError *error))completionHandler {
+    [[self deleteThingShadow:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDataDeleteThingShadowResponse *> * _Nonnull task) {
+        AWSIoTDataDeleteThingShadowResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDataGetThingShadowResponse *> *)getThingShadow:(AWSIoTDataGetThingShadowRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
                      URLString:@"/things/{thingName}/shadow"
                   targetPrefix:@""
                  operationName:@"GetThingShadow"
                    outputClass:[AWSIoTDataGetThingShadowResponse class]];
+}
+
+- (void)getThingShadow:(AWSIoTDataGetThingShadowRequest *)request
+     completionHandler:(void (^)(AWSIoTDataGetThingShadowResponse *response, NSError *error))completionHandler {
+    [[self getThingShadow:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDataGetThingShadowResponse *> * _Nonnull task) {
+        AWSIoTDataGetThingShadowResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)publish:(AWSIoTDataPublishRequest *)request {
@@ -295,13 +333,50 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)updateThingShadow:(AWSIoTDataUpdateThingShadowRequest *)request {
+- (void)publish:(AWSIoTDataPublishRequest *)request
+completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self publish:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDataUpdateThingShadowResponse *> *)updateThingShadow:(AWSIoTDataUpdateThingShadowRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@"/things/{thingName}/shadow"
                   targetPrefix:@""
                  operationName:@"UpdateThingShadow"
                    outputClass:[AWSIoTDataUpdateThingShadowResponse class]];
+}
+
+- (void)updateThingShadow:(AWSIoTDataUpdateThingShadowRequest *)request
+        completionHandler:(void (^)(AWSIoTDataUpdateThingShadowResponse *response, NSError *error))completionHandler {
+    [[self updateThingShadow:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDataUpdateThingShadowResponse *> * _Nonnull task) {
+        AWSIoTDataUpdateThingShadowResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+        
+        return nil;
+    }];
 }
 
 @end

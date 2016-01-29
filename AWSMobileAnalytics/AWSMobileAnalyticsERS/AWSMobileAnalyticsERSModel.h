@@ -43,7 +43,7 @@ typedef NS_ENUM(NSInteger, AWSMobileAnalyticsERSErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSDictionary * _Nullable attributes;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
 /**
  
@@ -53,7 +53,7 @@ typedef NS_ENUM(NSInteger, AWSMobileAnalyticsERSErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSDictionary * _Nullable metrics;
+@property (nonatomic, strong) NSDictionary<NSString *, NSNumber *> * _Nullable metrics;
 
 /**
  
@@ -87,7 +87,7 @@ typedef NS_ENUM(NSInteger, AWSMobileAnalyticsERSErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable events;
+@property (nonatomic, strong) NSArray<AWSMobileAnalyticsERSEvent *> * _Nullable events;
 
 @end
 

@@ -123,7 +123,7 @@ typedef void (^AWSS3TransferUtilityDownloadProgressBlock) (AWSS3TransferUtilityD
 
  @return The default service client.
  */
-+ (nullable instancetype)defaultS3TransferUtility;
++ (instancetype)defaultS3TransferUtility;
 
 /**
  Creates a service client with the given service configuration and registers it for the key.
@@ -193,7 +193,7 @@ typedef void (^AWSS3TransferUtilityDownloadProgressBlock) (AWSS3TransferUtilityD
 
  @return An instance of the service client.
  */
-+ (nullable instancetype)S3TransferUtilityForKey:(NSString *)key;
++ (instancetype)S3TransferUtilityForKey:(NSString *)key;
 
 /**
  Removes the service client associated with the key and release it.
@@ -227,12 +227,12 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 
  @return Returns an instance of `AWSTask`. On successful initialization, `task.result` contains an instance of `AWSS3TransferUtilityUploadTask`.
  */
-- (AWSTask *)uploadData:(NSData *)data
-                 bucket:(NSString *)bucket
-                    key:(NSString *)key
-            contentType:(NSString *)contentType
-             expression:(nullable AWSS3TransferUtilityUploadExpression *)expression
-       completionHander:(nullable AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler;
+- (AWSTask<AWSS3TransferUtilityUploadTask *> *)uploadData:(NSData *)data
+                                                   bucket:(NSString *)bucket
+                                                      key:(NSString *)key
+                                              contentType:(NSString *)contentType
+                                               expression:(nullable AWSS3TransferUtilityUploadExpression *)expression
+                                         completionHander:(nullable AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler;
 
 /**
  Uploads the file to the specified Amazon S3 bucket.
@@ -246,12 +246,12 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 
  @return Returns an instance of `AWSTask`. On successful initialization, `task.result` contains an instance of `AWSS3TransferUtilityUploadTask`.
  */
-- (AWSTask *)uploadFile:(NSURL *)fileURL
-                 bucket:(NSString *)bucket
-                    key:(NSString *)key
-            contentType:(NSString *)contentType
-             expression:(nullable AWSS3TransferUtilityUploadExpression *)expression
-       completionHander:(nullable AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler;
+- (AWSTask<AWSS3TransferUtilityUploadTask *> *)uploadFile:(NSURL *)fileURL
+                                                   bucket:(NSString *)bucket
+                                                      key:(NSString *)key
+                                              contentType:(NSString *)contentType
+                                               expression:(nullable AWSS3TransferUtilityUploadExpression *)expression
+                                         completionHander:(nullable AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler;
 
 /**
  Downloads the specified Amazon S3 object as `NSData`.
@@ -263,10 +263,10 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 
  @return Returns an instance of `AWSTask`. On successful initialization, `task.result` contains an instance of `AWSS3TransferUtilityDownloadTask`.
  */
-- (AWSTask *)downloadDataFromBucket:(NSString *)bucket
-                                key:(NSString *)key
-                         expression:(nullable AWSS3TransferUtilityDownloadExpression *)expression
-                   completionHander:(nullable AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler;
+- (AWSTask<AWSS3TransferUtilityDownloadTask *> *)downloadDataFromBucket:(NSString *)bucket
+                                                                    key:(NSString *)key
+                                                             expression:(nullable AWSS3TransferUtilityDownloadExpression *)expression
+                                                       completionHander:(nullable AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler;
 
 /**
  Downloads the specified Amazon S3 object to a file URL.
@@ -279,11 +279,11 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 
  @return Returns an instance of `AWSTask`. On successful initialization, `task.result` contains an instance of `AWSS3TransferUtilityDownloadTask`.
  */
-- (AWSTask *)downloadToURL:(nullable NSURL *)fileURL
-                    bucket:(NSString *)bucket
-                       key:(NSString *)key
-                expression:(nullable AWSS3TransferUtilityDownloadExpression *)expression
-          completionHander:(nullable AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler;
+- (AWSTask<AWSS3TransferUtilityDownloadTask *> *)downloadToURL:(nullable NSURL *)fileURL
+                                                        bucket:(NSString *)bucket
+                                                           key:(NSString *)key
+                                                    expression:(nullable AWSS3TransferUtilityDownloadExpression *)expression
+                                              completionHander:(nullable AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler;
 
 // Without disabling the nullability completeness, the compiler shows the following warning (Xcode 6.4):
 // Block pointer is missing a nullability type specifier (__nonnull or __nullable)
@@ -309,21 +309,21 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 
  @return An array of `AWSS3TransferUtilityTask`.
  */
-- (AWSTask *)getAllTasks;
+- (AWSTask<NSArray<__kindof AWSS3TransferUtilityTask *> *> *)getAllTasks;
 
 /**
  Retrieves all running upload tasks.
 
  @return An array of `AWSS3TransferUtilityUploadTask`.
  */
-- (AWSTask *)getUploadTasks;
+- (AWSTask<NSArray<AWSS3TransferUtilityUploadTask *> *> *)getUploadTasks;
 
 /**
  Retrieves all running download tasks.
 
  @return An array of `AWSS3TransferUtilityDownloadTask`.
  */
-- (AWSTask *)getDownloadTasks;
+- (AWSTask<NSArray<AWSS3TransferUtilityDownloadTask *> *> *)getDownloadTasks;
 
 @end
 
@@ -388,9 +388,9 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 @interface AWSS3TransferUtilityExpression : NSObject
 
 /**
- The request parameters. It is an dictionary of `<NSString *, NSString *>`.
+ The request parameters.
  */
-@property (readonly, nullable) NSDictionary *requestParameters;
+@property (readonly, nullable) NSDictionary<NSString *, NSString *> *requestParameters;
 
 /**
  Sets value for the request parameter.

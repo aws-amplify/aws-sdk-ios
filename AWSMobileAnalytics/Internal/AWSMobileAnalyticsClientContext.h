@@ -13,8 +13,12 @@
 // permissions and limitations under the License.
 //
 
-#import "AIIntegrationTestBase.h"
+#import <AWSCore/AWSCore.h>
 
-@interface AIAmazonInsightsTests : AIIntegrationTestBase
+@interface AWSMobileAnalyticsClientContext : AWSClientContext
+
+@property (nonatomic, strong) NSString *clientId;
+
+- (NSDictionary *)dictionaryRepresentation;
 
 @end

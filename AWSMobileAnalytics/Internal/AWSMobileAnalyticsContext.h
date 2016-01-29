@@ -16,11 +16,11 @@
 #import <Foundation/Foundation.h>
 #import "AWSMobileAnalyticsConfiguring.h"
 #import "AWSMobileAnalyticsDeliveryClient.h"
-#import "AWSMobileAnalyticsHttpClient.h"
 #import "AWSMobileAnalyticsSDKInfo.h"
 #import "AWSMobileAnalyticsSystem.h"
+#import "AWSMobileAnalyticsERS.h"
 
-@class AWSClientContext;
+@class AWSMobileAnalyticsClientContext;
 
 @protocol AZCredentialProvider;
 
@@ -31,7 +31,7 @@
 @property (nonatomic, retain, readonly) NSString* identifier;
 
 @required
-@property (nonatomic, retain, readonly) AWSClientContext *clientContext;
+@property (nonatomic, retain, readonly) AWSMobileAnalyticsClientContext *clientContext;
 
 @required
 @property (nonatomic, retain, readonly) id<AWSMobileAnalyticsConfiguring> configuration;
@@ -40,7 +40,7 @@
 @property (nonatomic, retain, readonly) NSString* uniqueId;
 
 @required
-@property (nonatomic, retain, readonly) id<AWSMobileAnalyticsHttpClient> httpClient;
+@property (nonatomic, strong) AWSMobileAnalyticsERS *ers;
 
 @required
 @property (nonatomic, retain, readonly) AWSMobileAnalyticsSDKInfo* sdkInfo;

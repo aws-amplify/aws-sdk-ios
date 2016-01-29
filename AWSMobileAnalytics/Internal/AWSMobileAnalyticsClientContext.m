@@ -13,18 +13,20 @@
 // permissions and limitations under the License.
 //
 
-#import "AWSMobileAnalyticsDefaultInterceptor.h"
+#import "AWSMobileAnalyticsClientContext.h"
 
-@implementation AWSMobileAnalyticsDefaultInterceptor
+@implementation AWSMobileAnalyticsClientContext
 
--(void) before:(id<AWSMobileAnalyticsRequest>) theRequest
-{
+- (NSDictionary *)dictionaryRepresentation {
+    NSMutableDictionary *clientContext = [[super dictionaryRepresentation] mutableCopy];
     
-}
-
--(void) after:(id<AWSMobileAnalyticsResponse>) theResponse
-{
+    if (self.clientId) {
+        NSMutableDictionary *client = [[clientContext objectForKey:@"client"] mutableCopy];
+        [client setObject:self.clientId forKey:@"client_id"];
+        [clientContext setObject:client forKey:@"client"];
+    }
     
+    return clientContext;
 }
 
 @end

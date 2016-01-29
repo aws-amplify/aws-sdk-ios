@@ -18,7 +18,6 @@
 #import "AWSMobileAnalyticsContext.h"
 #import "AWSMobileAnalyticsConfiguration.h"
 #import "AWSMobileAnalyticsDeliveryClient.h"
-#import "AWSMobileAnalyticsHttpClient.h"
 #import "AWSMobileAnalyticsPreferences.h"
 #import "AWSMobileAnalyticsFileManager.h"
 #import "AWSMobileAnalyticsConnectivity.h"
@@ -44,7 +43,6 @@
 -(AIInsightsContextBuilder*)withUniqueId:(NSString*)uniqueId;
 
 -(AIInsightsContextBuilder*)withConfiguration:(id<AWSMobileAnalyticsConfiguring>)configuration;
--(AIInsightsContextBuilder*)withHttpClient:(id<AWSMobileAnalyticsHttpClient>)httpClient;
 -(AIInsightsContextBuilder*)withPreferences:(id<AWSMobileAnalyticsPreferences>)preferences;
 -(AIInsightsContextBuilder*)withLifeCycleManager:(id<AWSMobileAnalyticsLifeCycleManager>)lifeCycleManager;
 -(AIInsightsContextBuilder*)withFileManager:(id<AWSMobileAnalyticsFileManager>)fileManager;

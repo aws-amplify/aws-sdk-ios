@@ -174,12 +174,23 @@ NS_ASSUME_NONNULL_BEGIN
  Record a batch of events
  
  @param request A container for the necessary parameters to execute the PutEvents service method.
- 
+
  @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSMobileAnalyticsERSErrorDomain` domain and the following error code: `AWSMobileAnalyticsERSErrorBadRequest`.
  
  @see AWSMobileAnalyticsERSPutEventsInput
  */
 - (AWSTask *)putEvents:(AWSMobileAnalyticsERSPutEventsInput *)request;
+
+/**
+ Record a batch of events
+ 
+ @param request A container for the necessary parameters to execute the PutEvents service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSMobileAnalyticsERSErrorDomain` domain and the following error code: `AWSMobileAnalyticsERSErrorBadRequest`.
+ 
+ @see AWSMobileAnalyticsERSPutEventsInput
+ */
+- (void)putEvents:(AWSMobileAnalyticsERSPutEventsInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 @end
 

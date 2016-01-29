@@ -15,9 +15,6 @@
 
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSCore.h>
-
 #import "AWSKinesisService.h"
 #import "AWSKinesisRecorder.h"
-
-#import "AWSFirehoseService.h"
-#import "AWSFirehoseRecorder.h"
+#import "AWSFirehose.h"

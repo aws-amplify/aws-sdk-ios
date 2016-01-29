@@ -1,5 +1,22 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.3.4
+
+### New Features
+* **AWS IoT**
+    * Added support for MQTT over WebSocket connections to AWS IoT. WebSocket connections allow applications to connect, publish, and subscribe to topics on AWS IoT using the standard secure web port 443 without requiring a client certificate and private key.
+* **SDK Core**
+    * Added generics annotations to all low-level clients and `AWSS3TransferUtility`, `AWSS3PreSignedURLBuilder`, and `AWSLambdaInvoker`.
+    * Added service call APIs with completion handlers to all low-level clients.
+
+### Resolved Issues
+* **Amazon Cognito Sync**
+    * Fixed bug in `AWSCognito` `- subscribeAll` and `- unsubscribeAll` that caused `NSInvalidArgumentException` exception.
+* **Amazon Mobile Analytics**
+    * Addressed an issue that may cause an app to crash under certain situations.
+* **SDK Core**
+    * Fixed the build settings to fully enable bitcode support.
+
 ## 2.3.3
 
 ### New Features
@@ -7,6 +24,8 @@
     * Added Amazon Kinesis Firehose support.
 * **Asia Pacific (Seoul) Region**
     * Added Asia Pacific (Seoul) Region support. See `AWSServiceEnum.h` for more details.
+* **Amazon S3**
+    * Updated the Amazon S3 client model to the latest version.
 
 ## 2.3.2
 

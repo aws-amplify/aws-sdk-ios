@@ -95,7 +95,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return self;
 }
 
-- (AWSTask *)invoke:(AWSLambdaInvokerInvocationRequest *)request {
+- (AWSTask<AWSLambdaInvokerInvocationResponse *> *)invoke:(AWSLambdaInvokerInvocationRequest *)request {
     AWSLambdaInvocationRequest *invocationRequest = [AWSLambdaInvocationRequest new];
     [invocationRequest aws_copyPropertiesFromObject:request];
 

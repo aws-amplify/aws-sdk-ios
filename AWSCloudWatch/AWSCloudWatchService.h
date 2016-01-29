@@ -189,7 +189,7 @@ NS_ASSUME_NONNULL_BEGIN
  <p> Deletes all specified alarms. In the event of an error, no alarms are deleted. </p>
  
  @param request A container for the necessary parameters to execute the DeleteAlarms service method.
- 
+
  @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorResourceNotFound`.
  
  @see AWSCloudWatchDeleteAlarmsInput
@@ -197,46 +197,96 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)deleteAlarms:(AWSCloudWatchDeleteAlarmsInput *)request;
 
 /**
+ <p> Deletes all specified alarms. In the event of an error, no alarms are deleted. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteAlarms service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorResourceNotFound`.
+ 
+ @see AWSCloudWatchDeleteAlarmsInput
+ */
+- (void)deleteAlarms:(AWSCloudWatchDeleteAlarmsInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p> Retrieves history for the specified alarm. Filter alarms by date range or item type. If an alarm name is not specified, Amazon CloudWatch returns histories for all of the owner's alarms. </p><note> Amazon CloudWatch retains the history of an alarm for two weeks, whether or not you delete the alarm. </note>
  
  @param request A container for the necessary parameters to execute the DescribeAlarmHistory service method.
- 
+
  @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCloudWatchDescribeAlarmHistoryOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorInvalidNextToken`.
  
  @see AWSCloudWatchDescribeAlarmHistoryInput
  @see AWSCloudWatchDescribeAlarmHistoryOutput
  */
-- (AWSTask *)describeAlarmHistory:(AWSCloudWatchDescribeAlarmHistoryInput *)request;
+- (AWSTask<AWSCloudWatchDescribeAlarmHistoryOutput *> *)describeAlarmHistory:(AWSCloudWatchDescribeAlarmHistoryInput *)request;
+
+/**
+ <p> Retrieves history for the specified alarm. Filter alarms by date range or item type. If an alarm name is not specified, Amazon CloudWatch returns histories for all of the owner's alarms. </p><note> Amazon CloudWatch retains the history of an alarm for two weeks, whether or not you delete the alarm. </note>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAlarmHistory service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorInvalidNextToken`.
+ 
+ @see AWSCloudWatchDescribeAlarmHistoryInput
+ @see AWSCloudWatchDescribeAlarmHistoryOutput
+ */
+- (void)describeAlarmHistory:(AWSCloudWatchDescribeAlarmHistoryInput *)request completionHandler:(void (^ _Nullable)(AWSCloudWatchDescribeAlarmHistoryOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p> Retrieves alarms with the specified names. If no name is specified, all alarms for the user are returned. Alarms can be retrieved by using only a prefix for the alarm name, the alarm state, or a prefix for any action. </p>
  
  @param request A container for the necessary parameters to execute the DescribeAlarms service method.
- 
+
  @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCloudWatchDescribeAlarmsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorInvalidNextToken`.
  
  @see AWSCloudWatchDescribeAlarmsInput
  @see AWSCloudWatchDescribeAlarmsOutput
  */
-- (AWSTask *)describeAlarms:(AWSCloudWatchDescribeAlarmsInput *)request;
+- (AWSTask<AWSCloudWatchDescribeAlarmsOutput *> *)describeAlarms:(AWSCloudWatchDescribeAlarmsInput *)request;
+
+/**
+ <p> Retrieves alarms with the specified names. If no name is specified, all alarms for the user are returned. Alarms can be retrieved by using only a prefix for the alarm name, the alarm state, or a prefix for any action. </p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAlarms service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorInvalidNextToken`.
+ 
+ @see AWSCloudWatchDescribeAlarmsInput
+ @see AWSCloudWatchDescribeAlarmsOutput
+ */
+- (void)describeAlarms:(AWSCloudWatchDescribeAlarmsInput *)request completionHandler:(void (^ _Nullable)(AWSCloudWatchDescribeAlarmsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p> Retrieves all alarms for a single metric. Specify a statistic, period, or unit to filter the set of alarms further. </p>
  
  @param request A container for the necessary parameters to execute the DescribeAlarmsForMetric service method.
- 
+
  @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCloudWatchDescribeAlarmsForMetricOutput`.
  
  @see AWSCloudWatchDescribeAlarmsForMetricInput
  @see AWSCloudWatchDescribeAlarmsForMetricOutput
  */
-- (AWSTask *)describeAlarmsForMetric:(AWSCloudWatchDescribeAlarmsForMetricInput *)request;
+- (AWSTask<AWSCloudWatchDescribeAlarmsForMetricOutput *> *)describeAlarmsForMetric:(AWSCloudWatchDescribeAlarmsForMetricInput *)request;
+
+/**
+ <p> Retrieves all alarms for a single metric. Specify a statistic, period, or unit to filter the set of alarms further. </p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAlarmsForMetric service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSCloudWatchDescribeAlarmsForMetricInput
+ @see AWSCloudWatchDescribeAlarmsForMetricOutput
+ */
+- (void)describeAlarmsForMetric:(AWSCloudWatchDescribeAlarmsForMetricInput *)request completionHandler:(void (^ _Nullable)(AWSCloudWatchDescribeAlarmsForMetricOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p> Disables actions for the specified alarms. When an alarm's actions are disabled the alarm's state may change, but none of the alarm's actions will execute. </p>
  
  @param request A container for the necessary parameters to execute the DisableAlarmActions service method.
- 
+
  @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
  
  @see AWSCloudWatchDisableAlarmActionsInput
@@ -244,10 +294,21 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)disableAlarmActions:(AWSCloudWatchDisableAlarmActionsInput *)request;
 
 /**
+ <p> Disables actions for the specified alarms. When an alarm's actions are disabled the alarm's state may change, but none of the alarm's actions will execute. </p>
+ 
+ @param request A container for the necessary parameters to execute the DisableAlarmActions service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSCloudWatchDisableAlarmActionsInput
+ */
+- (void)disableAlarmActions:(AWSCloudWatchDisableAlarmActionsInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p> Enables actions for the specified alarms. </p>
  
  @param request A container for the necessary parameters to execute the EnableAlarmActions service method.
- 
+
  @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
  
  @see AWSCloudWatchEnableAlarmActionsInput
@@ -255,34 +316,71 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)enableAlarmActions:(AWSCloudWatchEnableAlarmActionsInput *)request;
 
 /**
+ <p> Enables actions for the specified alarms. </p>
+ 
+ @param request A container for the necessary parameters to execute the EnableAlarmActions service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSCloudWatchEnableAlarmActionsInput
+ */
+- (void)enableAlarmActions:(AWSCloudWatchEnableAlarmActionsInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p> Gets statistics for the specified metric. </p><p> The maximum number of data points returned from a single <code>GetMetricStatistics</code> request is 1,440, wereas the maximum number of data points that can be queried is 50,850. If you make a request that generates more than 1,440 data points, Amazon CloudWatch returns an error. In such a case, you can alter the request by narrowing the specified time range or increasing the specified period. Alternatively, you can make multiple requests across adjacent time ranges. </p><p> Amazon CloudWatch aggregates data points based on the length of the <code>period</code> that you specify. For example, if you request statistics with a one-minute granularity, Amazon CloudWatch aggregates data points with time stamps that fall within the same one-minute period. In such a case, the data points queried can greatly outnumber the data points returned. </p><p> The following examples show various statistics allowed by the data point query maximum of 50,850 when you call <code>GetMetricStatistics</code> on Amazon EC2 instances with detailed (one-minute) monitoring enabled: </p><ul><li>Statistics for up to 400 instances for a span of one hour</li><li>Statistics for up to 35 instances over a span of 24 hours</li><li>Statistics for up to 2 instances over a span of 2 weeks</li></ul><p> For information about the namespace, metric names, and dimensions that other Amazon Web Services products use to send metrics to Cloudwatch, go to <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html">Amazon CloudWatch Metrics, Namespaces, and Dimensions Reference</a> in the <i>Amazon CloudWatch Developer Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the GetMetricStatistics service method.
- 
+
  @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCloudWatchGetMetricStatisticsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorInvalidParameterValue`, `AWSCloudWatchErrorMissingRequiredParameter`, `AWSCloudWatchErrorInvalidParameterCombination`, `AWSCloudWatchErrorInternalService`.
  
  @see AWSCloudWatchGetMetricStatisticsInput
  @see AWSCloudWatchGetMetricStatisticsOutput
  */
-- (AWSTask *)getMetricStatistics:(AWSCloudWatchGetMetricStatisticsInput *)request;
+- (AWSTask<AWSCloudWatchGetMetricStatisticsOutput *> *)getMetricStatistics:(AWSCloudWatchGetMetricStatisticsInput *)request;
+
+/**
+ <p> Gets statistics for the specified metric. </p><p> The maximum number of data points returned from a single <code>GetMetricStatistics</code> request is 1,440, wereas the maximum number of data points that can be queried is 50,850. If you make a request that generates more than 1,440 data points, Amazon CloudWatch returns an error. In such a case, you can alter the request by narrowing the specified time range or increasing the specified period. Alternatively, you can make multiple requests across adjacent time ranges. </p><p> Amazon CloudWatch aggregates data points based on the length of the <code>period</code> that you specify. For example, if you request statistics with a one-minute granularity, Amazon CloudWatch aggregates data points with time stamps that fall within the same one-minute period. In such a case, the data points queried can greatly outnumber the data points returned. </p><p> The following examples show various statistics allowed by the data point query maximum of 50,850 when you call <code>GetMetricStatistics</code> on Amazon EC2 instances with detailed (one-minute) monitoring enabled: </p><ul><li>Statistics for up to 400 instances for a span of one hour</li><li>Statistics for up to 35 instances over a span of 24 hours</li><li>Statistics for up to 2 instances over a span of 2 weeks</li></ul><p> For information about the namespace, metric names, and dimensions that other Amazon Web Services products use to send metrics to Cloudwatch, go to <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html">Amazon CloudWatch Metrics, Namespaces, and Dimensions Reference</a> in the <i>Amazon CloudWatch Developer Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the GetMetricStatistics service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorInvalidParameterValue`, `AWSCloudWatchErrorMissingRequiredParameter`, `AWSCloudWatchErrorInvalidParameterCombination`, `AWSCloudWatchErrorInternalService`.
+ 
+ @see AWSCloudWatchGetMetricStatisticsInput
+ @see AWSCloudWatchGetMetricStatisticsOutput
+ */
+- (void)getMetricStatistics:(AWSCloudWatchGetMetricStatisticsInput *)request completionHandler:(void (^ _Nullable)(AWSCloudWatchGetMetricStatisticsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p> Returns a list of valid metrics stored for the AWS account owner. Returned metrics can be used with <a>GetMetricStatistics</a> to obtain statistical data for a given metric. </p><note> Up to 500 results are returned for any one call. To retrieve further results, use returned <code>NextToken</code> values with subsequent <code>ListMetrics</code> operations. </note><note> If you create a metric with the <a>PutMetricData</a> action, allow up to fifteen minutes for the metric to appear in calls to the <code>ListMetrics</code> action. Statistics about the metric, however, are available sooner using <a>GetMetricStatistics</a>. </note>
  
  @param request A container for the necessary parameters to execute the ListMetrics service method.
- 
+
  @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCloudWatchListMetricsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorInternalService`, `AWSCloudWatchErrorInvalidParameterValue`.
  
  @see AWSCloudWatchListMetricsInput
  @see AWSCloudWatchListMetricsOutput
  */
-- (AWSTask *)listMetrics:(AWSCloudWatchListMetricsInput *)request;
+- (AWSTask<AWSCloudWatchListMetricsOutput *> *)listMetrics:(AWSCloudWatchListMetricsInput *)request;
+
+/**
+ <p> Returns a list of valid metrics stored for the AWS account owner. Returned metrics can be used with <a>GetMetricStatistics</a> to obtain statistical data for a given metric. </p><note> Up to 500 results are returned for any one call. To retrieve further results, use returned <code>NextToken</code> values with subsequent <code>ListMetrics</code> operations. </note><note> If you create a metric with the <a>PutMetricData</a> action, allow up to fifteen minutes for the metric to appear in calls to the <code>ListMetrics</code> action. Statistics about the metric, however, are available sooner using <a>GetMetricStatistics</a>. </note>
+ 
+ @param request A container for the necessary parameters to execute the ListMetrics service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorInternalService`, `AWSCloudWatchErrorInvalidParameterValue`.
+ 
+ @see AWSCloudWatchListMetricsInput
+ @see AWSCloudWatchListMetricsOutput
+ */
+- (void)listMetrics:(AWSCloudWatchListMetricsInput *)request completionHandler:(void (^ _Nullable)(AWSCloudWatchListMetricsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p> Creates or updates an alarm and associates it with the specified Amazon CloudWatch metric. Optionally, this operation can associate one or more Amazon Simple Notification Service resources with the alarm. </p><p> When this operation creates an alarm, the alarm state is immediately set to <code>INSUFFICIENT_DATA</code>. The alarm is evaluated and its <code>StateValue</code> is set appropriately. Any actions associated with the <code>StateValue</code> is then executed. </p><note> When updating an existing alarm, its <code>StateValue</code> is left unchanged. </note>
  
  @param request A container for the necessary parameters to execute the PutMetricAlarm service method.
- 
+
  @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorLimitExceeded`.
  
  @see AWSCloudWatchPutMetricAlarmInput
@@ -290,10 +388,21 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putMetricAlarm:(AWSCloudWatchPutMetricAlarmInput *)request;
 
 /**
+ <p> Creates or updates an alarm and associates it with the specified Amazon CloudWatch metric. Optionally, this operation can associate one or more Amazon Simple Notification Service resources with the alarm. </p><p> When this operation creates an alarm, the alarm state is immediately set to <code>INSUFFICIENT_DATA</code>. The alarm is evaluated and its <code>StateValue</code> is set appropriately. Any actions associated with the <code>StateValue</code> is then executed. </p><note> When updating an existing alarm, its <code>StateValue</code> is left unchanged. </note>
+ 
+ @param request A container for the necessary parameters to execute the PutMetricAlarm service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorLimitExceeded`.
+ 
+ @see AWSCloudWatchPutMetricAlarmInput
+ */
+- (void)putMetricAlarm:(AWSCloudWatchPutMetricAlarmInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p> Publishes metric data points to Amazon CloudWatch. Amazon Cloudwatch associates the data points with the specified metric. If the specified metric does not exist, Amazon CloudWatch creates the metric. It can take up to fifteen minutes for a new metric to appear in calls to the <a>ListMetrics</a> action.</p><p> The size of a <function>PutMetricData</function> request is limited to 8 KB for HTTP GET requests and 40 KB for HTTP POST requests. </p><important> Although the <code>Value</code> parameter accepts numbers of type <code>Double</code>, Amazon CloudWatch truncates values with very large exponents. Values with base-10 exponents greater than 126 (1 x 10^126) are truncated. Likewise, values with base-10 exponents less than -130 (1 x 10^-130) are also truncated. </important><p>Data that is timestamped 24 hours or more in the past may take in excess of 48 hours to become available from submission time using <code>GetMetricStatistics</code>.</p>
  
  @param request A container for the necessary parameters to execute the PutMetricData service method.
- 
+
  @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorInvalidParameterValue`, `AWSCloudWatchErrorMissingRequiredParameter`, `AWSCloudWatchErrorInvalidParameterCombination`, `AWSCloudWatchErrorInternalService`.
  
  @see AWSCloudWatchPutMetricDataInput
@@ -301,15 +410,37 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putMetricData:(AWSCloudWatchPutMetricDataInput *)request;
 
 /**
+ <p> Publishes metric data points to Amazon CloudWatch. Amazon Cloudwatch associates the data points with the specified metric. If the specified metric does not exist, Amazon CloudWatch creates the metric. It can take up to fifteen minutes for a new metric to appear in calls to the <a>ListMetrics</a> action.</p><p> The size of a <function>PutMetricData</function> request is limited to 8 KB for HTTP GET requests and 40 KB for HTTP POST requests. </p><important> Although the <code>Value</code> parameter accepts numbers of type <code>Double</code>, Amazon CloudWatch truncates values with very large exponents. Values with base-10 exponents greater than 126 (1 x 10^126) are truncated. Likewise, values with base-10 exponents less than -130 (1 x 10^-130) are also truncated. </important><p>Data that is timestamped 24 hours or more in the past may take in excess of 48 hours to become available from submission time using <code>GetMetricStatistics</code>.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutMetricData service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorInvalidParameterValue`, `AWSCloudWatchErrorMissingRequiredParameter`, `AWSCloudWatchErrorInvalidParameterCombination`, `AWSCloudWatchErrorInternalService`.
+ 
+ @see AWSCloudWatchPutMetricDataInput
+ */
+- (void)putMetricData:(AWSCloudWatchPutMetricDataInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p> Temporarily sets the state of an alarm. When the updated <code>StateValue</code> differs from the previous value, the action configured for the appropriate state is invoked. This is not a permanent change. The next periodic alarm check (in about a minute) will set the alarm to its actual state. </p>
  
  @param request A container for the necessary parameters to execute the SetAlarmState service method.
- 
+
  @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorResourceNotFound`, `AWSCloudWatchErrorInvalidFormat`.
  
  @see AWSCloudWatchSetAlarmStateInput
  */
 - (AWSTask *)setAlarmState:(AWSCloudWatchSetAlarmStateInput *)request;
+
+/**
+ <p> Temporarily sets the state of an alarm. When the updated <code>StateValue</code> differs from the previous value, the action configured for the appropriate state is invoked. This is not a permanent change. The next periodic alarm check (in about a minute) will set the alarm to its actual state. </p>
+ 
+ @param request A container for the necessary parameters to execute the SetAlarmState service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCloudWatchErrorDomain` domain and the following error code: `AWSCloudWatchErrorResourceNotFound`, `AWSCloudWatchErrorInvalidFormat`.
+ 
+ @see AWSCloudWatchSetAlarmStateInput
+ */
+- (void)setAlarmState:(AWSCloudWatchSetAlarmStateInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 @end
 

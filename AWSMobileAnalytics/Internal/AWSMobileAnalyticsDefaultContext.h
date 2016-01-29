@@ -15,11 +15,6 @@
 
 #import <Foundation/Foundation.h>
 #import "AWSMobileAnalyticsContext.h"
-#import "AWSMobileAnalyticsDefaultHttpClient.h"
-#import "AWSMobileAnalyticsSDKInfoInterceptor.h"
-#import "AWSMobileAnalyticsLogInterceptor.h"
-#import "AWSMobileAnalyticsClientContextInterceptor.h"
-#import "AWSMobileAnalyticsInstanceIdInterceptor.h"
 #import "AWSClientContext.h"
 
 @class AWSMobileAnalyticsConfiguration;
@@ -40,13 +35,13 @@
 
 @property (nonatomic, retain, readonly) NSString* identifier;
 
-@property (nonatomic, retain, readonly) AWSClientContext *clientContext;
+@property (nonatomic, retain, readonly) AWSMobileAnalyticsClientContext *clientContext;
 
 @property (nonatomic, retain, readonly) id<AWSMobileAnalyticsConfiguring> configuration;
 
 @property (nonatomic, retain, readonly) NSString* uniqueId;
 
-@property (nonatomic, retain, readonly) id<AWSMobileAnalyticsHttpClient> httpClient;
+@property (nonatomic, strong) AWSMobileAnalyticsERS *ers;
 
 @property (nonatomic, retain, readonly) AWSMobileAnalyticsSDKInfo* sdkInfo;
 

@@ -13,7 +13,7 @@
 
 @interface AWSCancellationToken ()
 
-@property (atomic, assign, getter=isCancellationRequested) BOOL cancellationRequested;
+@property (nonatomic, assign, getter=isCancellationRequested) BOOL cancellationRequested;
 @property (nonatomic, strong) NSMutableArray *registrations;
 @property (nonatomic, strong) NSObject *lock;
 @property (nonatomic) BOOL disposed;

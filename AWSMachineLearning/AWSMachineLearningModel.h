@@ -182,7 +182,7 @@ typedef NS_ENUM(NSInteger, AWSMachineLearningRealtimeEndpointStatus) {
 /**
  <p>A list of the training parameters in the <code>MLModel</code>. The list is implemented as a map of key/value pairs.</p><p>The following is the current set of training parameters: </p><ul><li><p><code>sgd.l1RegularizationAmount</code> - Coefficient regularization L1 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to zero, resulting in a sparse feature set. If you use this parameter, specify a small value, such as 1.0E-04 or 1.0E-08.</p><p>The value is a double that ranges from 0 to MAX_DOUBLE. The default is not to use L1 normalization. The parameter cannot be used when <code>L2</code> is specified. Use this parameter sparingly.</p></li><li><p><code>sgd.l2RegularizationAmount</code> - Coefficient regularization L2 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, specify a small value, such as 1.0E-04 or 1.0E-08.</p><p>The value is a double that ranges from 0 to MAX_DOUBLE. The default is not to use L2 normalization. This parameter cannot be used when <code>L1</code> is specified. Use this parameter sparingly.</p></li><li><p><code>sgd.maxPasses</code> - The number of times that the training process traverses the observations to build the <code>MLModel</code>. The value is an integer that ranges from 1 to 10000. The default value is 10. </p></li><li><p><code>sgd.maxMLModelSizeInBytes</code> - The maximum allowed size of the model. Depending on the input data, the model size might affect performance. </p><p> The value is an integer that ranges from 100000 to 2147483648. The default value is 33554432. </p></li></ul>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable trainingParameters;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable trainingParameters;
 
 @end
 
@@ -205,7 +205,7 @@ typedef NS_ENUM(NSInteger, AWSMachineLearningRealtimeEndpointStatus) {
 /**
  <p>A map of variable name-value pairs that represent an observation.</p>
  */
-@property (nonatomic, strong) NSDictionary * _Nullable record;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable record;
 
 @end
 
@@ -231,7 +231,7 @@ typedef NS_ENUM(NSInteger, AWSMachineLearningRealtimeEndpointStatus) {
 /**
  Provides any additional details regarding the prediction.
  */
-@property (nonatomic, strong) NSDictionary * _Nullable details;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable details;
 
 /**
  The prediction label for either a BINARY or MULTICLASS <code>MLModel</code>.
@@ -241,7 +241,7 @@ typedef NS_ENUM(NSInteger, AWSMachineLearningRealtimeEndpointStatus) {
 /**
  Provides the raw classification score corresponding to each label.
  */
-@property (nonatomic, strong) NSDictionary * _Nullable predictedScores;
+@property (nonatomic, strong) NSDictionary<NSString *, NSNumber *> * _Nullable predictedScores;
 
 /**
  The prediction value for REGRESSION <code>MLModel</code>.

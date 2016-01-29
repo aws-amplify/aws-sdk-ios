@@ -14,8 +14,8 @@
 //
 
 #import "TestInsightsContext.h"
-#import "AWSClientContext.h"
-
+#import "AWSMobileAnalyticsClientContext.h"
+#import "AWSMobileAnalyticsDefaultConfiguration.h"
 @implementation TestInsightsContext
 
 + (id<AWSMobileAnalyticsContext>)contextWithCredentials:(NSString *)theIdentifier withSdkInfo:(AWSMobileAnalyticsSDKInfo *)sdkInfo withConfigurationSettings:(NSDictionary *)settings
@@ -32,7 +32,7 @@
     if (self = [super init])
     {
         _identifier = theIdentifier;
-        _clientContext = [AWSClientContext new];
+        _clientContext = [AWSMobileAnalyticsClientContext new];
         [_clientContext setDetails:@{@"app_id" : theIdentifier}
                         forService:@"mobile_analytics"];
 
@@ -45,21 +45,12 @@
         _uniqueIdService = [AWSMobileAnalyticsPrefsUniqueIdService idService];
         _uniqueId = [self.uniqueIdService getUniqueIdWithContext:self];
 
-        _httpClient = [[AWSMobileAnalyticsDefaultHttpClient alloc] init];
-        [_httpClient addInterceptor:[[AWSMobileAnalyticsSDKInfoInterceptor alloc] initWithSDKInfo:_sdkInfo]];
-        [_httpClient addInterceptor:[[AWSMobileAnalyticsInstanceIdInterceptor alloc] initWithInstanceId:_uniqueId]];
-        [_httpClient addInterceptor:[AWSMobileAnalyticsClientContextInterceptor contextInterceptorWithClientContext:_clientContext]];
-
-        [_httpClient addInterceptor:[[AWSMobileAnalyticsLogInterceptor alloc] init]];
-
         NSOperationQueue* queue = [[NSOperationQueue alloc] init];
         [queue setMaxConcurrentOperationCount:1];
 
 
-        _configuration = [AWSMobileAnalyticsHttpCachingConfiguration configurationWithContext:self
-                                                                              withFileManager:_system.fileManager
-                                                                         withOverrideSettings:settings
-                                                                           withOperationQueue:queue];
+        _configuration = [AWSMobileAnalyticsDefaultConfiguration configurationWithSettings:settings];
+                          
     }
     return self;
 }
@@ -67,7 +58,6 @@
 - (void)synchronize
 {
     _uniqueId = [self.uniqueIdService getUniqueIdWithContext:self];
-    [_configuration refresh];
 }
 
 - (void)setConnected:(BOOL)isConnected

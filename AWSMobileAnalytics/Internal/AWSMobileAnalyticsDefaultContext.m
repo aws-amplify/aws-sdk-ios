@@ -18,11 +18,11 @@
 #import "AWSMobileAnalyticsUniqueIdService.h"
 #import "AWSMobileAnalyticsIOSSystem.h"
 #import "AWSMobileAnalyticsPrefsUniqueIdService.h"
-#import "AWSMobileAnalyticsHttpCachingConfiguration.h"
+#import "AWSMobileAnalyticsDefaultConfiguration.h"
 #import "AWSMobileAnalyticsJSONSerializer.h"
 #import "AWSMobileAnalyticsDefaultDeliveryClient.h"
 #import "AWSMobileAnalyticsIOSLifeCycleManager.h"
-#import "AWSClientContext.h"
+#import "AWSMobileAnalyticsClientContext.h"
 #import "AWSMobileAnalyticsConfiguration.h"
 #import "AWSMobileAnalyticsERS.h"
 
@@ -79,40 +79,23 @@ static NSString *AWSMobileAnalyticsDefaulyContextERSKey = @"com.amazonaws.Mobile
         // now that we have the id, create the client context from the client configuration that
         // was passed in
         AWSMobileAnalyticsEnvironment *environment = clientConfiguration.environment;
-        _clientContext = [AWSClientContext new];
+        _clientContext = [AWSMobileAnalyticsClientContext new];
         _clientContext.appVersion = environment.appVersion;
         _clientContext.appBuild = environment.appBuild;
         _clientContext.appPackageName = environment.appPackageName;
         _clientContext.appName = environment.appName;
         _clientContext.customAttributes = clientConfiguration.attributes;
+        _clientContext.clientId = _uniqueId;
 
         [_clientContext setDetails:@{@"app_id" : theIdentifier} forService:@"mobile_analytics"];
 
-        _httpClient = [[AWSMobileAnalyticsDefaultHttpClient alloc] init];
-        [_httpClient addInterceptor:[[AWSMobileAnalyticsSDKInfoInterceptor alloc] initWithSDKInfo:_sdkInfo]];
-        [_httpClient addInterceptor:[[AWSMobileAnalyticsInstanceIdInterceptor alloc] initWithInstanceId:_uniqueId]];
-        [_httpClient addInterceptor:[AWSMobileAnalyticsClientContextInterceptor contextInterceptorWithClientContext:_clientContext]];
-
-        [_httpClient addInterceptor:[[AWSMobileAnalyticsLogInterceptor alloc] init]];
-        
-        [AWSMobileAnalyticsERS registerMobileAnalyticsERSWithConfiguration:clientConfiguration.serviceConfiguration forKey:AWSMobileAnalyticsDefaulyContextERSKey];
-        _httpClient.ers = [AWSMobileAnalyticsERS MobileAnalyticsERSForKey:AWSMobileAnalyticsDefaulyContextERSKey];
-
-        NSOperationQueue* queue = [[NSOperationQueue alloc] init];
-        [queue setMaxConcurrentOperationCount:1];
-
-
-        _configuration = [AWSMobileAnalyticsHttpCachingConfiguration configurationWithContext:self
-                                                                              withFileManager:_system.fileManager
-                                                                         withOverrideSettings:settings
-                                                                           withOperationQueue:queue];
+        _configuration = [AWSMobileAnalyticsDefaultConfiguration configurationWithSettings:settings];
     }
     return self;
 }
 
 - (void)synchronize {
     _uniqueId = [self.uniqueIdService getUniqueIdWithContext:self];
-    [_configuration refresh];
 }
 
 @end

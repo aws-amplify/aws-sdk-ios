@@ -56,7 +56,14 @@
 - (void)stream:(NSStream*)sender handleEvent:(NSStreamEvent)eventCode {
     if(stream == nil)
         return;
-    assert(sender == stream);
+//
+// This assertion no longer applies when WebSockets are used as the event
+// can come from the NSOutputStream inside of AWSIoTWebSocketOutputStream
+// rather than the AWSIoTWebSocketOutputStream instance used for output.
+// It is left here for reference purposes only.
+//
+//   assert(sender == stream);
+//
     switch (eventCode) {
         case NSStreamEventOpenCompleted:
             break;

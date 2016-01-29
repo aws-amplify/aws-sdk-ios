@@ -178,6 +178,8 @@ static NSURL *tempSmallURL = nil;
                                                               andPath:[[NSFileManager defaultManager] destinationOfSymbolicLinkAtPath:testDataURL.path error:nil]],
                   @"received and sent file are different1");
 
+    sleep(30);
+
     //download again by using IfModifiedSince Header
     AWSS3TransferManagerDownloadRequest *downloadRequest2 = [AWSS3TransferManagerDownloadRequest new];
     downloadRequest2.bucket = testBucketNameGeneral;
@@ -186,7 +188,6 @@ static NSURL *tempSmallURL = nil;
     downloadRequest2.ifModifiedSince = [NSDate date]; //should return 304 (not modified), with nil body
     
     [[[transferManager download:downloadRequest2] continueWithBlock:^id(AWSTask *task) {
-        
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerDownloadOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3TransferManagerDownloadOutput class]),NSStringFromClass([task.result class]));
         AWSS3TransferManagerDownloadOutput *output = task.result;

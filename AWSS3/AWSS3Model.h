@@ -415,7 +415,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  A list of grants.
  */
-@property (nonatomic, strong) NSArray * _Nullable grants;
+@property (nonatomic, strong) NSArray<AWSS3Grant *> * _Nullable grants;
 
 /**
  
@@ -451,7 +451,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable rules;
+@property (nonatomic, strong) NSArray<AWSS3LifecycleRule *> * _Nullable rules;
 
 @end
 
@@ -477,7 +477,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable CORSRules;
+@property (nonatomic, strong) NSArray<AWSS3CORSRule *> * _Nullable CORSRules;
 
 @end
 
@@ -490,22 +490,22 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Specifies which headers are allowed in a pre-flight OPTIONS request.
  */
-@property (nonatomic, strong) NSArray * _Nullable allowedHeaders;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedHeaders;
 
 /**
  Identifies HTTP methods that the domain/origin specified in the rule is allowed to execute.
  */
-@property (nonatomic, strong) NSArray * _Nullable allowedMethods;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedMethods;
 
 /**
  One or more origins you want customers to be able to access the bucket from.
  */
-@property (nonatomic, strong) NSArray * _Nullable allowedOrigins;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedOrigins;
 
 /**
  One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).
  */
-@property (nonatomic, strong) NSArray * _Nullable exposeHeaders;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable exposeHeaders;
 
 /**
  The time in seconds that your browser is to cache the preflight response for the specified resource.
@@ -533,7 +533,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable events;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable events;
 
 /**
  Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.
@@ -655,7 +655,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable parts;
+@property (nonatomic, strong) NSArray<AWSS3CompletedPart *> * _Nullable parts;
 
 @end
 
@@ -891,7 +891,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  A map of metadata to store with the object in S3.
  */
-@property (nonatomic, strong) NSDictionary * _Nullable metadata;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable metadata;
 
 /**
  Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html
@@ -1124,12 +1124,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable deleted;
+@property (nonatomic, strong) NSArray<AWSS3DeletedObject *> * _Nullable deleted;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable errors;
+@property (nonatomic, strong) NSArray<AWSS3Error *> * _Nullable errors;
 
 /**
  If present, indicates that the requester was successfully charged for the request.
@@ -1280,7 +1280,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  A list of grants.
  */
-@property (nonatomic, strong) NSArray * _Nullable grants;
+@property (nonatomic, strong) NSArray<AWSS3Grant *> * _Nullable grants;
 
 /**
  
@@ -1311,7 +1311,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable CORSRules;
+@property (nonatomic, strong) NSArray<AWSS3CORSRule *> * _Nullable CORSRules;
 
 @end
 
@@ -1337,7 +1337,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable rules;
+@property (nonatomic, strong) NSArray<AWSS3LifecycleRule *> * _Nullable rules;
 
 @end
 
@@ -1363,7 +1363,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable rules;
+@property (nonatomic, strong) NSArray<AWSS3Rule *> * _Nullable rules;
 
 @end
 
@@ -1532,7 +1532,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable tagSet;
+@property (nonatomic, strong) NSArray<AWSS3Tag *> * _Nullable tagSet;
 
 @end
 
@@ -1604,7 +1604,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable routingRules;
+@property (nonatomic, strong) NSArray<AWSS3RoutingRule *> * _Nullable routingRules;
 
 @end
 
@@ -1630,7 +1630,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  A list of grants.
  */
-@property (nonatomic, strong) NSArray * _Nullable grants;
+@property (nonatomic, strong) NSArray<AWSS3Grant *> * _Nullable grants;
 
 /**
  
@@ -1751,7 +1751,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  A map of metadata to store with the object in S3.
  */
-@property (nonatomic, strong) NSDictionary * _Nullable metadata;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable metadata;
 
 /**
  This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
@@ -2082,7 +2082,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  A map of metadata to store with the object in S3.
  */
-@property (nonatomic, strong) NSDictionary * _Nullable metadata;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable metadata;
 
 /**
  This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
@@ -2250,7 +2250,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable events;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable events;
 
 /**
  Container for object key name filtering rules. For information about key name filtering, go to <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Event Notifications</a> in the Amazon Simple Storage Service Developer Guide.
@@ -2278,7 +2278,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable rules;
+@property (nonatomic, strong) NSArray<AWSS3Rule *> * _Nullable rules;
 
 @end
 
@@ -2324,7 +2324,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable noncurrentVersionTransitions;
+@property (nonatomic, strong) NSArray<AWSS3NoncurrentVersionTransition *> * _Nullable noncurrentVersionTransitions;
 
 /**
  Prefix identifying one or more objects to which the rule applies.
@@ -2339,7 +2339,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable transitions;
+@property (nonatomic, strong) NSArray<AWSS3Transition *> * _Nullable transitions;
 
 @end
 
@@ -2352,7 +2352,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable buckets;
+@property (nonatomic, strong) NSArray<AWSS3Bucket *> * _Nullable buckets;
 
 /**
  
@@ -2375,7 +2375,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable commonPrefixes;
+@property (nonatomic, strong) NSArray<AWSS3CommonPrefix *> * _Nullable commonPrefixes;
 
 /**
  
@@ -2425,7 +2425,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable uploads;
+@property (nonatomic, strong) NSArray<AWSS3MultipartUpload *> * _Nullable uploads;
 
 @end
 
@@ -2481,12 +2481,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable commonPrefixes;
+@property (nonatomic, strong) NSArray<AWSS3CommonPrefix *> * _Nullable commonPrefixes;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable deleteMarkers;
+@property (nonatomic, strong) NSArray<AWSS3DeleteMarkerEntry *> * _Nullable deleteMarkers;
 
 /**
  
@@ -2541,7 +2541,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable versions;
+@property (nonatomic, strong) NSArray<AWSS3ObjectVersion *> * _Nullable versions;
 
 @end
 
@@ -2597,12 +2597,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable commonPrefixes;
+@property (nonatomic, strong) NSArray<AWSS3CommonPrefix *> * _Nullable commonPrefixes;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable contents;
+@property (nonatomic, strong) NSArray<AWSS3Object *> * _Nullable contents;
 
 /**
  
@@ -2733,7 +2733,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable parts;
+@property (nonatomic, strong) NSArray<AWSS3Part *> * _Nullable parts;
 
 /**
  If present, indicates that the requester was successfully charged for the request.
@@ -2804,7 +2804,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable targetGrants;
+@property (nonatomic, strong) NSArray<AWSS3TargetGrant *> * _Nullable targetGrants;
 
 /**
  This element lets you specify a prefix for the keys that the log files will be stored under.
@@ -2891,17 +2891,17 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable lambdaFunctionConfigurations;
+@property (nonatomic, strong) NSArray<AWSS3LambdaFunctionConfiguration *> * _Nullable lambdaFunctionConfigurations;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable queueConfigurations;
+@property (nonatomic, strong) NSArray<AWSS3QueueConfiguration *> * _Nullable queueConfigurations;
 
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable topicConfigurations;
+@property (nonatomic, strong) NSArray<AWSS3TopicConfiguration *> * _Nullable topicConfigurations;
 
 @end
 
@@ -3628,7 +3628,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  A map of metadata to store with the object in S3.
  */
-@property (nonatomic, strong) NSDictionary * _Nullable metadata;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable metadata;
 
 /**
  Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html
@@ -3682,7 +3682,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable events;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable events;
 
 /**
  Container for object key name filtering rules. For information about key name filtering, go to <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Event Notifications</a> in the Amazon Simple Storage Service Developer Guide.
@@ -3715,7 +3715,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable events;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable events;
 
 /**
  Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.
@@ -3789,7 +3789,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable objects;
+@property (nonatomic, strong) NSArray<AWSS3ObjectIdentifier *> * _Nullable objects;
 
 /**
  Element to enable quiet mode for the request. When you add this element, you must set its value to true.
@@ -3925,7 +3925,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  A map of metadata to store with the object in S3.
  */
-@property (nonatomic, strong) NSDictionary * _Nullable metadata;
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable metadata;
 
 /**
  Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.
@@ -4065,7 +4065,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  Container for information about a particular replication rule. Replication configuration must have at least one rule and can contain up to 1,000 rules.
  */
-@property (nonatomic, strong) NSArray * _Nullable rules;
+@property (nonatomic, strong) NSArray<AWSS3ReplicationRule *> * _Nullable rules;
 
 @end
 
@@ -4239,7 +4239,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  A list of containers for key value pair that defines the criteria for the filter rule.
  */
-@property (nonatomic, strong) NSArray * _Nullable filterRules;
+@property (nonatomic, strong) NSArray<AWSS3FilterRule *> * _Nullable filterRules;
 
 @end
 
@@ -4270,7 +4270,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable tagSet;
+@property (nonatomic, strong) NSArray<AWSS3Tag *> * _Nullable tagSet;
 
 @end
 
@@ -4302,7 +4302,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable events;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable events;
 
 /**
  Container for object key name filtering rules. For information about key name filtering, go to <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Event Notifications</a> in the Amazon Simple Storage Service Developer Guide.
@@ -4335,7 +4335,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable events;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable events;
 
 /**
  Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.
@@ -4651,7 +4651,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable routingRules;
+@property (nonatomic, strong) NSArray<AWSS3RoutingRule *> * _Nullable routingRules;
 
 @end
 

@@ -110,7 +110,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 /**
  A list of items on which to perform the operation.
  */
-@property (nonatomic, strong) NSArray * _Nullable items;
+@property (nonatomic, strong) NSArray<AWSSimpleDBDeletableItem *> * _Nullable items;
 
 @end
 
@@ -128,7 +128,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 /**
  A list of items on which to perform the operation.
  */
-@property (nonatomic, strong) NSArray * _Nullable items;
+@property (nonatomic, strong) NSArray<AWSSimpleDBReplaceableItem *> * _Nullable items;
 
 @end
 
@@ -173,7 +173,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray * _Nullable attributes;
+@property (nonatomic, strong) NSArray<AWSSimpleDBDeletableAttribute *> * _Nullable attributes;
 
 /**
  
@@ -191,7 +191,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 /**
  A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.
  */
-@property (nonatomic, strong) NSArray * _Nullable attributes;
+@property (nonatomic, strong) NSArray<AWSSimpleDBDeletableAttribute *> * _Nullable attributes;
 
 /**
  The name of the domain in which to perform the operation.
@@ -288,7 +288,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 /**
  The names of the attributes.
  */
-@property (nonatomic, strong) NSArray * _Nullable attributeNames;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable attributeNames;
 
 /**
  Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If <code>true</code>, any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read.
@@ -316,7 +316,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 /**
  The list of attributes returned by the operation.
  */
-@property (nonatomic, strong) NSArray * _Nullable attributes;
+@property (nonatomic, strong) NSArray<AWSSimpleDBAttribute *> * _Nullable attributes;
 
 @end
 
@@ -335,7 +335,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 /**
  A list of attributes.
  */
-@property (nonatomic, strong) NSArray * _Nullable attributes;
+@property (nonatomic, strong) NSArray<AWSSimpleDBAttribute *> * _Nullable attributes;
 
 /**
  The name of the item.
@@ -371,7 +371,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 /**
  A list of domain names that match the expression.
  */
-@property (nonatomic, strong) NSArray * _Nullable domainNames;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable domainNames;
 
 /**
  An opaque token indicating that there are more domains than the specified <code>MaxNumberOfDomains</code> still available.
@@ -389,7 +389,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 /**
  The list of attributes.
  */
-@property (nonatomic, strong) NSArray * _Nullable attributes;
+@property (nonatomic, strong) NSArray<AWSSimpleDBReplaceableAttribute *> * _Nullable attributes;
 
 /**
  The name of the domain in which to perform the operation.
@@ -442,7 +442,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 /**
  The list of attributes for a replaceable item.
  */
-@property (nonatomic, strong) NSArray * _Nullable attributes;
+@property (nonatomic, strong) NSArray<AWSSimpleDBReplaceableAttribute *> * _Nullable attributes;
 
 /**
  The name of the replaceable item.
@@ -483,7 +483,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 /**
  A list of items that match the select expression.
  */
-@property (nonatomic, strong) NSArray * _Nullable items;
+@property (nonatomic, strong) NSArray<AWSSimpleDBItem *> * _Nullable items;
 
 /**
  An opaque token indicating that more items than <code>MaxNumberOfItems</code> were matched, the response size exceeded 1 megabyte, or the execution time exceeded 5 seconds.

@@ -252,13 +252,32 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 #pragma mark - Service method
 
-- (AWSTask *)deleteIdentity:(AWSSESDeleteIdentityRequest *)request {
+- (AWSTask<AWSSESDeleteIdentityResponse *> *)deleteIdentity:(AWSSESDeleteIdentityRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteIdentity"
                    outputClass:[AWSSESDeleteIdentityResponse class]];
+}
+
+- (void)deleteIdentity:(AWSSESDeleteIdentityRequest *)request
+     completionHandler:(void (^)(AWSSESDeleteIdentityResponse *response, NSError *error))completionHandler {
+    [[self deleteIdentity:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESDeleteIdentityResponse *> * _Nonnull task) {
+        AWSSESDeleteIdentityResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)deleteVerifiedEmailAddress:(AWSSESDeleteVerifiedEmailAddressRequest *)request {
@@ -270,7 +289,25 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)getIdentityDkimAttributes:(AWSSESGetIdentityDkimAttributesRequest *)request {
+- (void)deleteVerifiedEmailAddress:(AWSSESDeleteVerifiedEmailAddressRequest *)request
+                 completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteVerifiedEmailAddress:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSESGetIdentityDkimAttributesResponse *> *)getIdentityDkimAttributes:(AWSSESGetIdentityDkimAttributesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -279,7 +316,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESGetIdentityDkimAttributesResponse class]];
 }
 
-- (AWSTask *)getIdentityNotificationAttributes:(AWSSESGetIdentityNotificationAttributesRequest *)request {
+- (void)getIdentityDkimAttributes:(AWSSESGetIdentityDkimAttributesRequest *)request
+                completionHandler:(void (^)(AWSSESGetIdentityDkimAttributesResponse *response, NSError *error))completionHandler {
+    [[self getIdentityDkimAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESGetIdentityDkimAttributesResponse *> * _Nonnull task) {
+        AWSSESGetIdentityDkimAttributesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSESGetIdentityNotificationAttributesResponse *> *)getIdentityNotificationAttributes:(AWSSESGetIdentityNotificationAttributesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -288,7 +344,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESGetIdentityNotificationAttributesResponse class]];
 }
 
-- (AWSTask *)getIdentityVerificationAttributes:(AWSSESGetIdentityVerificationAttributesRequest *)request {
+- (void)getIdentityNotificationAttributes:(AWSSESGetIdentityNotificationAttributesRequest *)request
+                        completionHandler:(void (^)(AWSSESGetIdentityNotificationAttributesResponse *response, NSError *error))completionHandler {
+    [[self getIdentityNotificationAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESGetIdentityNotificationAttributesResponse *> * _Nonnull task) {
+        AWSSESGetIdentityNotificationAttributesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSESGetIdentityVerificationAttributesResponse *> *)getIdentityVerificationAttributes:(AWSSESGetIdentityVerificationAttributesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -297,7 +372,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESGetIdentityVerificationAttributesResponse class]];
 }
 
-- (AWSTask *)getSendQuota:(AWSRequest *)request {
+- (void)getIdentityVerificationAttributes:(AWSSESGetIdentityVerificationAttributesRequest *)request
+                        completionHandler:(void (^)(AWSSESGetIdentityVerificationAttributesResponse *response, NSError *error))completionHandler {
+    [[self getIdentityVerificationAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESGetIdentityVerificationAttributesResponse *> * _Nonnull task) {
+        AWSSESGetIdentityVerificationAttributesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSESGetSendQuotaResponse *> *)getSendQuota:(AWSRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -306,7 +400,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESGetSendQuotaResponse class]];
 }
 
-- (AWSTask *)getSendStatistics:(AWSRequest *)request {
+- (void)getSendQuota:(AWSRequest *)request
+   completionHandler:(void (^)(AWSSESGetSendQuotaResponse *response, NSError *error))completionHandler {
+    [[self getSendQuota:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESGetSendQuotaResponse *> * _Nonnull task) {
+        AWSSESGetSendQuotaResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSESGetSendStatisticsResponse *> *)getSendStatistics:(AWSRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -315,7 +428,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESGetSendStatisticsResponse class]];
 }
 
-- (AWSTask *)listIdentities:(AWSSESListIdentitiesRequest *)request {
+- (void)getSendStatistics:(AWSRequest *)request
+        completionHandler:(void (^)(AWSSESGetSendStatisticsResponse *response, NSError *error))completionHandler {
+    [[self getSendStatistics:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESGetSendStatisticsResponse *> * _Nonnull task) {
+        AWSSESGetSendStatisticsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSESListIdentitiesResponse *> *)listIdentities:(AWSSESListIdentitiesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -324,7 +456,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESListIdentitiesResponse class]];
 }
 
-- (AWSTask *)listVerifiedEmailAddresses:(AWSRequest *)request {
+- (void)listIdentities:(AWSSESListIdentitiesRequest *)request
+     completionHandler:(void (^)(AWSSESListIdentitiesResponse *response, NSError *error))completionHandler {
+    [[self listIdentities:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESListIdentitiesResponse *> * _Nonnull task) {
+        AWSSESListIdentitiesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSESListVerifiedEmailAddressesResponse *> *)listVerifiedEmailAddresses:(AWSRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -333,7 +484,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESListVerifiedEmailAddressesResponse class]];
 }
 
-- (AWSTask *)sendEmail:(AWSSESSendEmailRequest *)request {
+- (void)listVerifiedEmailAddresses:(AWSRequest *)request
+                 completionHandler:(void (^)(AWSSESListVerifiedEmailAddressesResponse *response, NSError *error))completionHandler {
+    [[self listVerifiedEmailAddresses:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESListVerifiedEmailAddressesResponse *> * _Nonnull task) {
+        AWSSESListVerifiedEmailAddressesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSESSendEmailResponse *> *)sendEmail:(AWSSESSendEmailRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -342,7 +512,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESSendEmailResponse class]];
 }
 
-- (AWSTask *)sendRawEmail:(AWSSESSendRawEmailRequest *)request {
+- (void)sendEmail:(AWSSESSendEmailRequest *)request
+completionHandler:(void (^)(AWSSESSendEmailResponse *response, NSError *error))completionHandler {
+    [[self sendEmail:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESSendEmailResponse *> * _Nonnull task) {
+        AWSSESSendEmailResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSESSendRawEmailResponse *> *)sendRawEmail:(AWSSESSendRawEmailRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -351,7 +540,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESSendRawEmailResponse class]];
 }
 
-- (AWSTask *)setIdentityDkimEnabled:(AWSSESSetIdentityDkimEnabledRequest *)request {
+- (void)sendRawEmail:(AWSSESSendRawEmailRequest *)request
+   completionHandler:(void (^)(AWSSESSendRawEmailResponse *response, NSError *error))completionHandler {
+    [[self sendRawEmail:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESSendRawEmailResponse *> * _Nonnull task) {
+        AWSSESSendRawEmailResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSESSetIdentityDkimEnabledResponse *> *)setIdentityDkimEnabled:(AWSSESSetIdentityDkimEnabledRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -360,7 +568,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESSetIdentityDkimEnabledResponse class]];
 }
 
-- (AWSTask *)setIdentityFeedbackForwardingEnabled:(AWSSESSetIdentityFeedbackForwardingEnabledRequest *)request {
+- (void)setIdentityDkimEnabled:(AWSSESSetIdentityDkimEnabledRequest *)request
+             completionHandler:(void (^)(AWSSESSetIdentityDkimEnabledResponse *response, NSError *error))completionHandler {
+    [[self setIdentityDkimEnabled:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESSetIdentityDkimEnabledResponse *> * _Nonnull task) {
+        AWSSESSetIdentityDkimEnabledResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSESSetIdentityFeedbackForwardingEnabledResponse *> *)setIdentityFeedbackForwardingEnabled:(AWSSESSetIdentityFeedbackForwardingEnabledRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -369,7 +596,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESSetIdentityFeedbackForwardingEnabledResponse class]];
 }
 
-- (AWSTask *)setIdentityNotificationTopic:(AWSSESSetIdentityNotificationTopicRequest *)request {
+- (void)setIdentityFeedbackForwardingEnabled:(AWSSESSetIdentityFeedbackForwardingEnabledRequest *)request
+                           completionHandler:(void (^)(AWSSESSetIdentityFeedbackForwardingEnabledResponse *response, NSError *error))completionHandler {
+    [[self setIdentityFeedbackForwardingEnabled:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESSetIdentityFeedbackForwardingEnabledResponse *> * _Nonnull task) {
+        AWSSESSetIdentityFeedbackForwardingEnabledResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSESSetIdentityNotificationTopicResponse *> *)setIdentityNotificationTopic:(AWSSESSetIdentityNotificationTopicRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -378,7 +624,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESSetIdentityNotificationTopicResponse class]];
 }
 
-- (AWSTask *)verifyDomainDkim:(AWSSESVerifyDomainDkimRequest *)request {
+- (void)setIdentityNotificationTopic:(AWSSESSetIdentityNotificationTopicRequest *)request
+                   completionHandler:(void (^)(AWSSESSetIdentityNotificationTopicResponse *response, NSError *error))completionHandler {
+    [[self setIdentityNotificationTopic:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESSetIdentityNotificationTopicResponse *> * _Nonnull task) {
+        AWSSESSetIdentityNotificationTopicResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSESVerifyDomainDkimResponse *> *)verifyDomainDkim:(AWSSESVerifyDomainDkimRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
@@ -387,13 +652,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:[AWSSESVerifyDomainDkimResponse class]];
 }
 
-- (AWSTask *)verifyDomainIdentity:(AWSSESVerifyDomainIdentityRequest *)request {
+- (void)verifyDomainDkim:(AWSSESVerifyDomainDkimRequest *)request
+       completionHandler:(void (^)(AWSSESVerifyDomainDkimResponse *response, NSError *error))completionHandler {
+    [[self verifyDomainDkim:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESVerifyDomainDkimResponse *> * _Nonnull task) {
+        AWSSESVerifyDomainDkimResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSESVerifyDomainIdentityResponse *> *)verifyDomainIdentity:(AWSSESVerifyDomainIdentityRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"VerifyDomainIdentity"
                    outputClass:[AWSSESVerifyDomainIdentityResponse class]];
+}
+
+- (void)verifyDomainIdentity:(AWSSESVerifyDomainIdentityRequest *)request
+           completionHandler:(void (^)(AWSSESVerifyDomainIdentityResponse *response, NSError *error))completionHandler {
+    [[self verifyDomainIdentity:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESVerifyDomainIdentityResponse *> * _Nonnull task) {
+        AWSSESVerifyDomainIdentityResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
 }
 
 - (AWSTask *)verifyEmailAddress:(AWSSESVerifyEmailAddressRequest *)request {
@@ -405,13 +708,50 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    outputClass:nil];
 }
 
-- (AWSTask *)verifyEmailIdentity:(AWSSESVerifyEmailIdentityRequest *)request {
+- (void)verifyEmailAddress:(AWSSESVerifyEmailAddressRequest *)request
+         completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self verifyEmailAddress:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSESVerifyEmailIdentityResponse *> *)verifyEmailIdentity:(AWSSESVerifyEmailIdentityRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"VerifyEmailIdentity"
                    outputClass:[AWSSESVerifyEmailIdentityResponse class]];
+}
+
+- (void)verifyEmailIdentity:(AWSSESVerifyEmailIdentityRequest *)request
+          completionHandler:(void (^)(AWSSESVerifyEmailIdentityResponse *response, NSError *error))completionHandler {
+    [[self verifyEmailIdentity:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESVerifyEmailIdentityResponse *> * _Nonnull task) {
+        AWSSESVerifyEmailIdentityResponse *result = task.result;
+        NSError *error = task.error;
+        
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+        
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+        
+        return nil;
+    }];
 }
 
 @end

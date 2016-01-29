@@ -15,35 +15,20 @@
 
 #import <Foundation/Foundation.h>
 #import "AWSMobileAnalyticsConfiguring.h"
-#import "AWSMobileAnalyticsFileManager.h"
 
-@protocol AWSMobileAnalyticsHttpClient;
-@protocol AWSMobileAnalyticsContext;
-@protocol AWSMobileAnalyticsSerializer;
 
-FOUNDATION_EXPORT NSString * const AWSConfigurationFileStoreFilename;
+@interface AWSMobileAnalyticsDefaultConfiguration : NSObject <AWSMobileAnalyticsConfiguring>
++(AWSMobileAnalyticsDefaultConfiguration*)configurationWithSettings:(NSDictionary*) settings;
 
-@interface AWSMobileAnalyticsHttpCachingConfiguration : NSObject <AWSMobileAnalyticsConfiguring>
-+(AWSMobileAnalyticsHttpCachingConfiguration*)configurationWithContext:(id<AWSMobileAnalyticsContext>)context
-                                       withFileManager:(id<AWSMobileAnalyticsFileManager>)fileManager
-                                  withOverrideSettings:(NSDictionary*)overrideSettings
-                                    withOperationQueue:(NSOperationQueue*)operationQueue;
-
-//- (BOOL)          boolForKey: (NSString*) key;
 - (BOOL)          boolForKey: (NSString*) key withOptValue:(BOOL)       defaultValue;
-//- (int)            intForKey: (NSString*) key;
 - (int)            intForKey: (NSString*) key withOptValue:(int)        defaultValue;
-//- (long)          longForKey: (NSString*) key;
 - (long)          longForKey: (NSString*) key withOptValue:(long)       defaultValue;
-//- (long long) longLongForKey: (NSString*) key;
 - (long long) longLongForKey: (NSString*) key withOptValue:(long long)  defaultValue;
-//- (double)      doubleForKey: (NSString*) key;
 - (double)      doubleForKey: (NSString*) key withOptValue:(double)     defaultValue;
 - (NSString *)  stringForKey: (NSString*) key;
 - (NSString *)  stringForKey: (NSString*) key withOptValue:(NSString *) defaultValue;
 - (NSArray *)    arrayForKey: (NSString*) key;
 - (NSArray *)    arrayForKey: (NSString*) key withOptValue:(NSArray *)  defaultValue;
 - (id)          objectForKey: (NSString*) key;
-- (void) refresh;
 
 @end
