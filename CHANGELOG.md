@@ -1,5 +1,17 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.3.5
+
+### New Features
+* **AWS Lambda**
+    * Updated `AWSLambda` to add support for VPC.
+
+### Resolved Issues
+* **Amazon Cognito Sync**
+    * Fixed a bug that `- registerDeviceInternal:` may not return a valid data type object.
+* **SDK Core**
+    * Updated podspecs to avoid conflicts with other projects that embed Mantle, libextobjc, and Fabric.
+
 ## 2.3.4
 
 ### New Features

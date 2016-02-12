@@ -119,6 +119,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"role" : @"Role",
              @"runtime" : @"Runtime",
              @"timeout" : @"Timeout",
+             @"vpcConfig" : @"VpcConfig",
              };
 }
 
@@ -151,6 +152,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaVpcConfig class]];
 }
 
 @end
@@ -252,6 +257,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"runtime" : @"Runtime",
              @"timeout" : @"Timeout",
              @"version" : @"Version",
+             @"vpcConfig" : @"VpcConfig",
              };
 }
 
@@ -280,6 +286,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaVpcConfigResponse class]];
 }
 
 @end
@@ -649,6 +659,34 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"memorySize" : @"MemorySize",
              @"role" : @"Role",
              @"timeout" : @"Timeout",
+             @"vpcConfig" : @"VpcConfig",
+             };
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaVpcConfig class]];
+}
+
+@end
+
+@implementation AWSLambdaVpcConfig
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"securityGroupIds" : @"SecurityGroupIds",
+             @"subnetIds" : @"SubnetIds",
+             };
+}
+
+@end
+
+@implementation AWSLambdaVpcConfigResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"securityGroupIds" : @"SecurityGroupIds",
+             @"subnetIds" : @"SubnetIds",
+             @"vpcId" : @"VpcId",
              };
 }
 

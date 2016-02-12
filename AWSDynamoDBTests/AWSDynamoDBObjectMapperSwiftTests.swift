@@ -43,10 +43,6 @@ class TestObjectV2: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     class func rangeKeyAttribute() -> String {
         return "rangeKey"
     }
-
-    override func isEqual(anObject: AnyObject?) -> Bool {
-        return super.isEqual(anObject)
-    }
 }
 
 class AWSDynamoDBObjectMapperSwiftTests: XCTestCase {

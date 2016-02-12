@@ -25,6 +25,7 @@
 #import "AWSLogging.h"
 #import "AWSClientContext.h"
 #import "AWSSynchronizedMutableDictionary.h"
+#import "AWSSignature.h"
 
 #import "AWSBolts.h"
 #import "AWSGZIP.h"

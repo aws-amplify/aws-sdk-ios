@@ -21,7 +21,7 @@
 #import "AWSLogging.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.3.4";
+NSString *const AWSiOSSDKVersion = @"2.3.5";
 static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
 
 #pragma mark - AWSService

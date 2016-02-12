@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.3.4"
+VERSION="2.3.5"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -45,7 +45,6 @@ else
     cp -r AWSSQS ./docs_tmp/AWSSQS
 
     rm -rf ./docs_tmp/AWSCore/Bolts
-    rm -rf ./docs_tmp/AWSCore/Fabric
     rm -rf ./docs_tmp/AWSCore/FMDB
     rm -rf ./docs_tmp/AWSCore/GZIP
     rm -rf ./docs_tmp/AWSCore/Mantle
@@ -61,6 +60,7 @@ else
     then
     	cp -r ./AWSiOSSDKCognitoSync/Cognito ./docs_tmp/Cognito
         rm -rf ./docs_tmp/Cognito/Internal
+        rm -rf ./docs_tmp/Cognito/Fabric
     	cp -r ./AWSiOSSDKCognitoSync/CognitoSync ./docs_tmp/CognitoSync
     fi
 

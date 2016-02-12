@@ -83,7 +83,7 @@
 		BDF558381AB371AB0067F4F1 /* AWSCredentialsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF557701AB371AB0067F4F1 /* AWSCredentialsProvider.m */; };
 		BDF558391AB371AB0067F4F1 /* AWSIdentityProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = BDF557711AB371AB0067F4F1 /* AWSIdentityProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDF5583A1AB371AB0067F4F1 /* AWSIdentityProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF557721AB371AB0067F4F1 /* AWSIdentityProvider.m */; };
-		BDF5583B1AB371AB0067F4F1 /* AWSSignature.h in Headers */ = {isa = PBXBuildFile; fileRef = BDF557731AB371AB0067F4F1 /* AWSSignature.h */; };
+		BDF5583B1AB371AB0067F4F1 /* AWSSignature.h in Headers */ = {isa = PBXBuildFile; fileRef = BDF557731AB371AB0067F4F1 /* AWSSignature.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDF5583C1AB371AB0067F4F1 /* AWSSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF557741AB371AB0067F4F1 /* AWSSignature.m */; };
 		BDF5583D1AB371AB0067F4F1 /* AWSCognitoIdentity.h in Headers */ = {isa = PBXBuildFile; fileRef = BDF557761AB371AB0067F4F1 /* AWSCognitoIdentity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDF5583E1AB371AB0067F4F1 /* AWSCognitoIdentityService.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF557771AB371AB0067F4F1 /* AWSCognitoIdentityService.m */; };
@@ -184,6 +184,7 @@
 		CE2EDE8C1BF3DEC500B9F26B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE6552191BEC308400DACBC2 /* module.modulemap */; };
 		CE6397221AC49D4D00459E23 /* rest-json-input.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6397201AC49D4D00459E23 /* rest-json-input.json */; };
 		CE6397231AC49D4D00459E23 /* rest-json-output.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6397211AC49D4D00459E23 /* rest-json-output.json */; };
+		CE89AC2F1C6D3E730086A0BA /* AWSSignature.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDF557731AB371AB0067F4F1 /* AWSSignature.h */; };
 		CE9D7C971BF19C8F009D935B /* AWSGZIP.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEA589601B02B051009901A6 /* AWSGZIP.h */; };
 		CEA0CA471B0187640061508B /* AWSExecutor.h in Headers */ = {isa = PBXBuildFile; fileRef = CEA0CA3E1B0187640061508B /* AWSExecutor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEA0CA481B0187640061508B /* AWSExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0CA3F1B0187640061508B /* AWSExecutor.m */; };
@@ -263,6 +264,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				CE89AC2F1C6D3E730086A0BA /* AWSSignature.h in CopyFiles */,
 				CE2EDE841BF3DC7100B9F26B /* AWSBoltsVersion.h in CopyFiles */,
 				CE2EDE851BF3DC7100B9F26B /* AWSCancellationToken.h in CopyFiles */,
 				CE2EDE861BF3DC7100B9F26B /* AWSCancellationTokenRegistration.h in CopyFiles */,
@@ -477,10 +479,6 @@
 		CEA0CA591B01899B0061508B /* AWSFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSFMDB.h; sourceTree = "<group>"; };
 		CEA0CA5A1B01899B0061508B /* AWSFMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSFMResultSet.h; sourceTree = "<group>"; };
 		CEA0CA5B1B01899B0061508B /* AWSFMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSFMResultSet.m; sourceTree = "<group>"; };
-		CEA0F6331BCF20F500D8AD56 /* FABAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FABAttributes.h; sourceTree = "<group>"; };
-		CEA0F6341BCF20F500D8AD56 /* FABKitProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FABKitProtocol.h; sourceTree = "<group>"; };
-		CEA0F6351BCF20F500D8AD56 /* Fabric+FABKits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fabric+FABKits.h"; sourceTree = "<group>"; };
-		CEA0F6361BCF20F500D8AD56 /* Fabric.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fabric.h; sourceTree = "<group>"; };
 		CEA589601B02B051009901A6 /* AWSGZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSGZIP.h; sourceTree = "<group>"; };
 		CEA589611B02B051009901A6 /* AWSGZIP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGZIP.m; sourceTree = "<group>"; };
 		CEA589681B02B15B009901A6 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -768,7 +766,6 @@
 			isa = PBXGroup;
 			children = (
 				CEA0CA3D1B0187640061508B /* Bolts */,
-				CEA0F6321BCF20F500D8AD56 /* Fabric */,
 				CEA0CA501B01899B0061508B /* FMDB */,
 				CEA5895F1B02B051009901A6 /* GZIP */,
 				CE08A0851B02B5B10000ED1F /* Mantle */,
@@ -882,17 +879,6 @@
 			path = FMDB;
 			sourceTree = "<group>";
 		};
-		CEA0F6321BCF20F500D8AD56 /* Fabric */ = {
-			isa = PBXGroup;
-			children = (
-				CEA0F6331BCF20F500D8AD56 /* FABAttributes.h */,
-				CEA0F6341BCF20F500D8AD56 /* FABKitProtocol.h */,
-				CEA0F6351BCF20F500D8AD56 /* Fabric+FABKits.h */,
-				CEA0F6361BCF20F500D8AD56 /* Fabric.h */,
-			);
-			path = Fabric;
-			sourceTree = "<group>";
-		};
 		CEA5895F1B02B051009901A6 /* GZIP */ = {
 			isa = PBXGroup;
 			children = (
@@ -936,6 +922,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDF5583B1AB371AB0067F4F1 /* AWSSignature.h in Headers */,
 				CEA589641B02B051009901A6 /* AWSGZIP.h in Headers */,
 				CEA0CA661B01899B0061508B /* AWSFMDB.h in Headers */,
 				CEA0CA671B01899B0061508B /* AWSFMResultSet.h in Headers */,
@@ -978,7 +965,6 @@
 				BDF5583F1AB371AB0067F4F1 /* AWSCognitoIdentityModel.h in Headers */,
 				BDF558D31AB371AD0067F4F1 /* AWSSerialization.h in Headers */,
 				BDF558D71AB371AD0067F4F1 /* AWSURLRequestSerialization.h in Headers */,
-				BDF5583B1AB371AB0067F4F1 /* AWSSignature.h in Headers */,
 				CE2EDE811BF3D7B900B9F26B /* AWSCancellationTokenSource.h in Headers */,
 				CE14DF871B02C7CE00EF6D09 /* AWSmetamacros.h in Headers */,
 				CED822031AC486E40017E687 /* AWSClientContext.h in Headers */,

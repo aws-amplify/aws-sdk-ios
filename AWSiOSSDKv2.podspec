@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'AWSiOSSDKv2'
-  s.version      = '2.3.4'
+  s.version      = '2.3.5'
   s.summary      = 'Amazon Web Services SDK for iOS.'
 
   s.description  = 'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'
@@ -15,54 +15,54 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.subspec 'AWSCore' do |aws|
-    aws.dependency 'AWSCore', '2.3.4'
+    aws.dependency 'AWSCore', '2.3.5'
   end
 
   s.subspec 'AutoScaling' do |autoscaling|
-  	autoscaling.dependency 'AWSAutoScaling', '2.3.4'
+  	autoscaling.dependency 'AWSAutoScaling', '2.3.5'
   end
 
   s.subspec 'CloudWatch' do |cloudwatch|
-  	cloudwatch.dependency 'AWSCloudWatch', '2.3.4'
+  	cloudwatch.dependency 'AWSCloudWatch', '2.3.5'
   end
 
   s.subspec 'DynamoDB' do |ddb|
-  	ddb.dependency 'AWSDynamoDB', '2.3.4'
+  	ddb.dependency 'AWSDynamoDB', '2.3.5'
   end
 
   s.subspec 'EC2' do |ec2|
-  	ec2.dependency 'AWSEC2', '2.3.4'
+  	ec2.dependency 'AWSEC2', '2.3.5'
   end
 
   s.subspec 'ElasticLoadBalancing' do |elasticloadbalancing|
-  	elasticloadbalancing.dependency 'AWSElasticLoadBalancing', '2.3.4'
+  	elasticloadbalancing.dependency 'AWSElasticLoadBalancing', '2.3.5'
   end
 
   s.subspec 'Kinesis' do |kinesis|
-  	kinesis.dependency 'AWSKinesis', '2.3.4'
+  	kinesis.dependency 'AWSKinesis', '2.3.5'
   end
 
   s.subspec 'MobileAnalytics' do |mobileanalytics|
-  	mobileanalytics.dependency 'AWSMobileAnalytics', '2.3.4'
+  	mobileanalytics.dependency 'AWSMobileAnalytics', '2.3.5'
   end
 
   s.subspec 'S3' do |s3|
-  	s3.dependency 'AWSS3', '2.3.4'
+  	s3.dependency 'AWSS3', '2.3.5'
   end
 
   s.subspec 'SES' do |ses|
-  	ses.dependency 'AWSSES', '2.3.4'
+  	ses.dependency 'AWSSES', '2.3.5'
   end
 
   s.subspec 'SimpleDB' do |simpledb|
-  	simpledb.dependency 'AWSSimpleDB', '2.3.4'
+  	simpledb.dependency 'AWSSimpleDB', '2.3.5'
   end
 
   s.subspec 'SNS' do |sns|
-  	sns.dependency 'AWSSNS', '2.3.4'
+  	sns.dependency 'AWSSNS', '2.3.5'
   end
 
   s.subspec 'SQS' do |sqs|
-  	sqs.dependency 'AWSSQS', '2.3.4'
+  	sqs.dependency 'AWSSQS', '2.3.5'
   end
 end
