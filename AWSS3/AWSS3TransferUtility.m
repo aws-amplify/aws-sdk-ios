@@ -135,10 +135,10 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     return nil;
 }
 
-- (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration
+- (instancetype)initWithConfiguration:(AWSServiceConfiguration *)serviceConfiguration
                            identifier:(NSString *)identifier {
     if (self = [super init]) {
-        _configuration = [configuration copy];
+        _configuration = [serviceConfiguration copy];
         [_configuration addUserAgentProductToken:AWSS3TransferUtilityUserAgent];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -160,6 +160,8 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             configuration = [NSURLSessionConfiguration backgroundSessionConfiguration:_sessionIdentifier];
 #pragma clang diagnostic pop
         }
+
+        configuration.allowsCellularAccess = serviceConfiguration.allowsCellularAccess;
 
         configuration.timeoutIntervalForResource = AWSS3TransferUtilityTimeoutIntervalForResource;
         _session = [NSURLSession sessionWithConfiguration:configuration

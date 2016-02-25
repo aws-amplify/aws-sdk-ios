@@ -139,6 +139,7 @@ typedef NS_ENUM(NSInteger, AWSHTTPMethod) {
 @property (nonatomic, strong) NSString *URLString;
 @property (nonatomic, assign) AWSHTTPMethod HTTPMethod;
 @property (nonatomic, strong) NSDictionary *headers;
+@property (nonatomic, assign) BOOL allowsCellularAccess;
 
 @property (nonatomic, strong) id<AWSURLRequestSerializer> requestSerializer;
 @property (nonatomic, strong) NSArray *requestInterceptors; // Array of AWSNetworkingRequestInterceptor.

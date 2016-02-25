@@ -107,10 +107,11 @@
     
     AWSNetworkingConfiguration *networkConfig = [[AWSNetworkingConfiguration alloc] init];
     networkConfig.baseURL = [NSURL URLWithString:@"baseURL"];
+    networkConfig.allowsCellularAccess = NO;
     AWSNetworkingConfiguration *networkConfigClone = [networkConfig copy];
     XCTAssertEqualObjects(networkConfig.baseURL, networkConfigClone.baseURL);
-    
-    
+    XCTAssertEqual(networkConfig.allowsCellularAccess, networkConfigClone.allowsCellularAccess);
+
 }
 
 - (void)testConfigurationDefault {
