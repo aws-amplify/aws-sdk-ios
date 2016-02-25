@@ -114,6 +114,7 @@ NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDom
 - (instancetype)init {
     if (self = [super init]) {
         _maxRetryCount = 3;
+        _allowsCellularAccess = YES;
     }
     return self;
 }
@@ -159,6 +160,7 @@ NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDom
     configuration.URLString = [self.URLString copy];
     configuration.HTTPMethod = self.HTTPMethod;
     configuration.headers = [self.headers copy];
+    configuration.allowsCellularAccess = self.allowsCellularAccess;
     configuration.requestSerializer = self.requestSerializer;
     configuration.requestInterceptors = [self.requestInterceptors copy];
     configuration.responseSerializer = self.responseSerializer;
