@@ -26,6 +26,13 @@ NS_ASSUME_NONNULL_BEGIN
 @class AWSS3TransferUtilityDownloadExpression;
 
 /**
+ The invalidation completion handler.
+
+ @param error Returns the error that caused invalidation, or nil if the invalidation was explicit.
+ */
+typedef void (^AWSS3TransferUtilityInvalidationCompletionHandlerBlock) (NSError * __nullable error);
+
+/**
  The upload completion handler.
 
  @param task  The upload task object.
@@ -302,6 +309,15 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
                                 downloadTask:(nullable void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
                                                                 AWSS3TransferUtilityDownloadProgressBlock * __nullable downloadProgressBlockReference,
                                                                 AWSS3TransferUtilityDownloadCompletionHandlerBlock * __nullable completionHandlerReference))downloadBlocksAssigner;
+
+/**
+  Invalidates the underlying NSURLSession.
+
+  @param cancel Cancel all tasks before invalidating
+  @param completionHandler Completion handler to be called after all outstanding tasks have been canceled or have finished.
+ */
+- (void)invalidateAndCancel:(BOOL)cancel withCompletionHandler:(AWSS3TransferUtilityInvalidationCompletionHandlerBlock)completionHandler;
+
 #pragma clang diagnostic pop
 
 /**
