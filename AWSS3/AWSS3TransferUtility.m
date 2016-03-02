@@ -32,6 +32,7 @@ NSString *const AWSS3TransferUtilityUserAgent = @"transfer-utility";
 @property (strong, nonatomic) NSString *temporaryDirectoryPath;
 @property (strong, nonatomic) AWSSynchronizedMutableDictionary *taskDictionary;
 @property (copy, nonatomic) void (^backgroundURLSessionCompletionHandler)();
+@property (copy, nonatomic) AWSS3TransferUtilityInvalidationCompletionHandlerBlock invalidationCompletionHandler;
 
 @end
 
@@ -396,6 +397,15 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 
 }
 
+- (void)invalidateAndCancel:(BOOL)cancel withCompletionHandler:(AWSS3TransferUtilityInvalidationCompletionHandlerBlock)completionHandler {
+    self.invalidationCompletionHandler = completionHandler;
+
+    if (cancel)
+        [self.session invalidateAndCancel];
+    else
+        [self.session finishTasksAndInvalidate];
+}
+
 - (AWSTask *)getAllTasks {
     AWSTaskCompletionSource *completionSource = [AWSTaskCompletionSource new];
 
@@ -570,6 +580,14 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 - (void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession *)session {
     if (self.backgroundURLSessionCompletionHandler) {
         self.backgroundURLSessionCompletionHandler();
+    }
+}
+
+- (void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(NSError *)error {
+    NSLog(@"session: %@ didBecomeInvalidWithError: %@", session.debugDescription, error.localizedDescription);
+
+    if (self.invalidationCompletionHandler) {
+        self.invalidationCompletionHandler(error);
     }
 }
 
