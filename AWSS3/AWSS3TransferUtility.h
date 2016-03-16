@@ -172,7 +172,7 @@ typedef void (^AWSS3TransferUtilityDownloadProgressBlock) (AWSS3TransferUtilityD
                                             forKey:(NSString *)key;
 
 /**
- Retrieves the service client associated with the key. You need to call `+ registerS3TransferUtilityWithConfiguration:forKey:` before invoking this method. If `+ registerS3TransferUtilityWithConfiguration:forKey:` has not been called in advance or the key does not exist, this method returns `nil`.
+ Retrieves the service client associated with the key. You need to call `+ registerS3TransferUtilityWithConfiguration:forKey:` before invoking this method.
 
  For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
 
@@ -271,7 +271,7 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 /**
  Downloads the specified Amazon S3 object to a file URL.
 
- @param fileURL           The file URL to download the object to. Should not be `nil` even though it is marked as `nullable`.
+ @param fileURL           The file URL to download the object to.
  @param bucket            The Amazon S3 bucket name.
  @param key               The Amazon S3 object key name.
  @param expression        The container object to configure the download request.
@@ -279,7 +279,7 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 
  @return Returns an instance of `AWSTask`. On successful initialization, `task.result` contains an instance of `AWSS3TransferUtilityDownloadTask`.
  */
-- (AWSTask<AWSS3TransferUtilityDownloadTask *> *)downloadToURL:(nullable NSURL *)fileURL
+- (AWSTask<AWSS3TransferUtilityDownloadTask *> *)downloadToURL:(NSURL *)fileURL
                                                         bucket:(NSString *)bucket
                                                            key:(NSString *)key
                                                     expression:(nullable AWSS3TransferUtilityDownloadExpression *)expression

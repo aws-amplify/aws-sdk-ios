@@ -91,7 +91,8 @@
     configuration.responseSerializer = [[AWSJSONResponseSerializer alloc] initWithJSONDefinition:nil
                                                                                 actionName:@"operationName"
                                                                                outputClass:nil];
-    
+
+    XCTAssertTrue(configuration.allowsCellularAccess);
     
     AWSServiceConfiguration *configurationClone = [configuration copy];
     
@@ -104,14 +105,16 @@
     XCTAssertEqualObjects(configuration.responseSerializer, configurationClone.responseSerializer);
     XCTAssertEqualObjects(configuration.responseInterceptors, configurationClone.responseInterceptors);
     XCTAssertEqualObjects(configuration.retryHandler, configurationClone.retryHandler);
+    XCTAssertTrue(configuration.allowsCellularAccess);
     
     AWSNetworkingConfiguration *networkConfig = [[AWSNetworkingConfiguration alloc] init];
     networkConfig.baseURL = [NSURL URLWithString:@"baseURL"];
     networkConfig.allowsCellularAccess = NO;
+
     AWSNetworkingConfiguration *networkConfigClone = [networkConfig copy];
     XCTAssertEqualObjects(networkConfig.baseURL, networkConfigClone.baseURL);
     XCTAssertEqual(networkConfig.allowsCellularAccess, networkConfigClone.allowsCellularAccess);
-
+    XCTAssertFalse(networkConfigClone.allowsCellularAccess);
 }
 
 - (void)testConfigurationDefault {

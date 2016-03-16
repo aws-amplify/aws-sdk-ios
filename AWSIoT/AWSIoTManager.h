@@ -123,7 +123,7 @@
 + (void)registerIoTManagerWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key;
 
 /**
- Retrieves the service client associated with the key. You need to call `+ registerIoTManagerWithConfiguration:forKey:` before invoking this method. If `+ registerIoTManagerWithConfiguration:forKey:` has not been called in advance or the key does not exist, this method returns `nil`.
+ Retrieves the service client associated with the key. You need to call `+ registerIoTManagerWithConfiguration:forKey:` before invoking this method.
 
  For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
 

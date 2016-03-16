@@ -79,10 +79,20 @@ static NSDictionary *errorCodeDictionary = nil;
                                              code:AWSSTSErrorUnknown
                                          userInfo:errorInfo];
             }
-        } else if (self.outputClass) {
+        }
+    }
+
+    if (!*error && response.statusCode/100 != 2) {
+        *error = [NSError errorWithDomain:AWSSTSErrorDomain
+                                     code:AWSSTSErrorUnknown
+                                 userInfo:nil];
+    }
+
+    if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
+        if (self.outputClass) {
             responseObject = [AWSMTLJSONAdapter modelOfClass:self.outputClass
-                                       fromJSONDictionary:responseObject
-                                                    error:error];
+                                          fromJSONDictionary:responseObject
+                                                       error:error];
         }
     }
 

@@ -136,6 +136,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (void)invoke:(AWSLambdaInvokerInvocationRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaInvokerInvocationResponse * _Nullable response, NSError * _Nullable error))completionHandler {
+    [[self invoke:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaInvokerInvocationResponse *> * _Nonnull task) {
+        AWSLambdaInvokerInvocationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)invokeFunction:(NSString *)functionName
                 JSONObject:(id)JSONObject {
     AWSLambdaInvokerInvocationRequest *invocationRequest = [AWSLambdaInvokerInvocationRequest new];
@@ -146,6 +164,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [[self invoke:invocationRequest] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSLambdaInvokerInvocationResponse *invocationResponse = task.result;
         return [AWSTask taskWithResult:invocationResponse.payload];
+    }];
+}
+
+- (void)invokeFunction:(NSString *)functionName
+            JSONObject:(id)JSONObject
+     completionHandler:(void (^ _Nullable)(id _Nullable response, NSError * _Nullable error))completionHandler {
+    [[self invokeFunction:functionName JSONObject:JSONObject] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        id result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
     }];
 }
 

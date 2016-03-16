@@ -71,14 +71,12 @@ static NSDictionary *errorCodeDictionary = nil;
                                                     data:data
                                                    error:error];
     if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
-
         NSDictionary *errorInfo = responseObject[@"Error"];
         if (errorInfo[@"Code"] && errorCodeDictionary[errorInfo[@"Code"]]) {
             if (error) {
                 *error = [NSError errorWithDomain:AWSSQSErrorDomain
                                              code:[errorCodeDictionary[errorInfo[@"Code"]] integerValue]
-                                         userInfo:errorInfo
-                          ];
+                                         userInfo:errorInfo];
                 return responseObject;
             }
         } else if (errorInfo) {
@@ -89,7 +87,15 @@ static NSDictionary *errorCodeDictionary = nil;
                 return responseObject;
             }
         }
+    }
 
+    if (!*error && response.statusCode/100 != 2) {
+        *error = [NSError errorWithDomain:AWSSQSErrorDomain
+                                     code:AWSSQSErrorUnknown
+                                 userInfo:nil];
+    }
+
+    if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
         if (self.outputClass) {
             responseObject = [AWSMTLJSONAdapter modelOfClass:self.outputClass
                                           fromJSONDictionary:responseObject

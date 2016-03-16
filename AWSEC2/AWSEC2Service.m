@@ -52,8 +52,8 @@ static NSDictionary *errorCodeDictionary = nil;
                                           currentRequest:currentRequest
                                                     data:data
                                                    error:error];
-    if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
 
+    if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
         NSDictionary *errorInfo = responseObject[@"Error"];
         if (errorInfo[@"Code"] && errorCodeDictionary[errorInfo[@"Code"]]) {
             if (error) {
@@ -72,7 +72,15 @@ static NSDictionary *errorCodeDictionary = nil;
             }
 
         }
+    }
 
+    if (!*error && response.statusCode/100 != 2) {
+        *error = [NSError errorWithDomain:AWSEC2ErrorDomain
+                                     code:AWSEC2ErrorUnknown
+                                 userInfo:nil];
+    }
+
+    if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
         if (self.outputClass) {
             responseObject = [AWSMTLJSONAdapter modelOfClass:self.outputClass
                                           fromJSONDictionary:responseObject

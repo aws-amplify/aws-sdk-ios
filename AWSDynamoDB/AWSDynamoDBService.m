@@ -80,7 +80,15 @@ static NSDictionary *errorCodeDictionary = nil;
             }
             return responseObject;
         }
+    }
 
+    if (!*error && response.statusCode/100 != 2) {
+        *error = [NSError errorWithDomain:AWSDynamoDBErrorDomain
+                                     code:AWSDynamoDBErrorUnknown
+                                 userInfo:nil];
+    }
+
+    if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
         if (self.outputClass) {
             responseObject = [AWSMTLJSONAdapter modelOfClass:self.outputClass
                                           fromJSONDictionary:responseObject

@@ -27,6 +27,9 @@
 #import "AWSSynchronizedMutableDictionary.h"
 #import "AWSCognitoIdentityResources.h"
 
+#import "FABKitProtocol.h"
+#import "Fabric+FABKits.h"
+
 @interface AWSCognitoIdentityResponseSerializer : AWSJSONResponseSerializer
 
 @end
@@ -80,11 +83,19 @@ static NSDictionary *errorCodeDictionary = nil;
             }
             return responseObject;
         }
+    }
 
+    if (!*error && response.statusCode/100 != 2) {
+        *error = [NSError errorWithDomain:AWSCognitoIdentityErrorDomain
+                                     code:AWSCognitoIdentityErrorUnknown
+                                 userInfo:nil];
+    }
+
+    if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
         if (self.outputClass) {
             responseObject = [AWSMTLJSONAdapter modelOfClass:self.outputClass
-                                       fromJSONDictionary:responseObject
-                                                    error:error];
+                                          fromJSONDictionary:responseObject
+                                                       error:error];
         }
     }
 
@@ -133,7 +144,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @end
 
-@interface AWSCognitoIdentity()
+@interface AWSCognitoIdentity() <FABKit>
 
 @property (nonatomic, strong) AWSNetworking *networking;
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
@@ -149,6 +160,96 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSCognitoIdentity
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
+#pragma mark - Fabric
+
++ (NSString *)bundleIdentifier {
+    return @"com.amazonaws.sdk.ios.AWSCognitoIdentity";
+}
+
++ (NSString *)kitDisplayVersion {
+    return AWSiOSSDKVersion;
+}
+
++ (void)internalInitializeIfNeeded {
+    // Retrieves the configuration from info.plist.
+    Class fabricClass = NSClassFromString(@"Fabric");
+    if (fabricClass
+        && [fabricClass respondsToSelector:@selector(configurationDictionaryForKitClass:)]) {
+        NSDictionary *configurationDictionary = [fabricClass configurationDictionaryForKitClass:[AWSCognitoIdentity class]];
+        NSString *defaultRegionTypeString = configurationDictionary[@"AWSDefaultRegionType"];
+        AWSRegionType defaultRegionType = [self regionTypeFromString:defaultRegionTypeString];
+        NSString *cognitoIdentityRegionTypeString = configurationDictionary[@"AWSCognitoIdentityRegionType"];
+        AWSRegionType cognitoIdentityRegionType = [self regionTypeFromString:cognitoIdentityRegionTypeString];
+        NSString *cognitoIdentityPoolId = configurationDictionary[@"AWSCognitoIdentityPoolId"];
+
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            // Performs some basic configuration check.
+            if (cognitoIdentityPoolId
+                && defaultRegionType != AWSRegionUnknown
+                && cognitoIdentityRegionType != AWSRegionUnknown) {
+                // Sets up the AWS Mobile SDK.
+                AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:cognitoIdentityRegionType
+                                                                                                                identityPoolId:cognitoIdentityPoolId];
+                AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:defaultRegionType
+                                                                                     credentialsProvider:credentialsProvider];
+                [configuration addUserAgentProductToken:@"fabric"];
+                AWSServiceManager.defaultServiceManager.defaultServiceConfiguration = configuration;
+                AWSLogInfo(@"The default Cognito credentials provider and service configuration were successfully initialized.");
+            } else {
+                // The configuration values from info.plist seem invalid.
+                AWSLogWarn(@"Could not find valid 'AWSDefaultRegionType', 'AWSCognitoRegionType', and 'AWSCognitoIdentityPoolId' values in info.plist. Unable to set the default Cognito credentials provider and service configuration. Please follow the instructions on this website and manually set up the AWS Mobile SDK for iOS. http://docs.aws.amazon.com/mobile/sdkforios/developerguide/setup.html");
+            }
+        });
+    } else {
+        AWSLogError(@"Fabric is not available.");
+    }
+}
+
+// Converts a region string to AWSRegionType.
++ (AWSRegionType)regionTypeFromString:(NSString *)regionTypeString {
+    if ([regionTypeString isEqualToString:@"AWSRegionUSEast1"]) {
+        return AWSRegionUSEast1;
+    }
+    if ([regionTypeString isEqualToString:@"AWSRegionUSWest1"]) {
+        return AWSRegionUSWest1;
+    }
+    if ([regionTypeString isEqualToString:@"AWSRegionUSWest2"]) {
+        return AWSRegionUSWest2;
+    }
+    if ([regionTypeString isEqualToString:@"AWSRegionEUWest1"]) {
+        return AWSRegionEUWest1;
+    }
+    if ([regionTypeString isEqualToString:@"AWSRegionEUCentral1"]) {
+        return AWSRegionEUCentral1;
+    }
+    if ([regionTypeString isEqualToString:@"AWSRegionAPSoutheast1"]) {
+        return AWSRegionAPSoutheast1;
+    }
+    if ([regionTypeString isEqualToString:@"AWSRegionAPNortheast1"]) {
+        return AWSRegionAPNortheast1;
+    }
+    if ([regionTypeString isEqualToString:@"AWSRegionAPNortheast2"]) {
+        return AWSRegionAPNortheast2;
+    }
+    if ([regionTypeString isEqualToString:@"AWSRegionAPSoutheast2"]) {
+        return AWSRegionAPSoutheast2;
+    }
+    if ([regionTypeString isEqualToString:@"AWSRegionSAEast1"]) {
+        return AWSRegionSAEast1;
+    }
+    /*
+     Amazon Cognito Identity is not support in the China region.
+     if ([regionTypeString isEqualToString:@"AWSRegionCNNorth1"]) {
+     return AWSRegionCNNorth1;
+     }
+     */
+
+    return AWSRegionUnknown;
+}
+
+#pragma mark - Setup
 
 + (instancetype)defaultCognitoIdentity {
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {

@@ -125,7 +125,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaInvokerErrorType) {
 + (void)registerLambdaInvokerWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key;
 
 /**
- Retrieves the service client associated with the key. You need to call `+ registerKinesisWithConfiguration:forKey:` before invoking this method. If `+ registerKinesisWithConfiguration:forKey:` has not been called in advance or the key does not exist, this method returns `nil`.
+ Retrieves the service client associated with the key. You need to call `+ registerKinesisWithConfiguration:forKey:` before invoking this method.
 
  For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
 
@@ -190,15 +190,41 @@ typedef NS_ENUM(NSInteger, AWSLambdaInvokerErrorType) {
 - (AWSTask<AWSLambdaInvokerInvocationResponse *> *)invoke:(AWSLambdaInvokerInvocationRequest *)request;
 
 /**
+ Invokes an AWS Lambda function with a given request object.
+
+ @param request           The request object.
+ @param completionHandler The completion handler to call when the invoke request is complete.
+                          `response` - An `AWSLambdaInvokerInvocationResponse` object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed service execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`. On failed function execution, `task.error` may contain an `NSError` with `AWSLambdaInvokerErrorDomain` domain and the following error code: `AWSLambdaInvokerErrorTypeFunctionError`.
+
+ @see AWSLambdaInvokerInvocationRequest
+ @see AWSLambdaInvokerInvocationResponse
+ */
+- (void)invoke:(AWSLambdaInvokerInvocationRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaInvokerInvocationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  Invokes a synchronous AWS Lambda function with given parameters.
 
  @param functionName The name of a function.
- @param JSONObject The object from which to generate JSON request data. Can be `nil`.
- 
+ @param JSONObject   The object from which to generate JSON request data. Can be `nil`.
+
  @return An instance of `AWSTask`. On successful execution, `task.result` will contain a JSON object. On failed service execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`. On failed function execution, `task.error` may contain an `NSError` with `AWSLambdaInvokerErrorDomain` domain and the following error code: `AWSLambdaInvokerErrorTypeFunctionError`.
  */
 - (AWSTask *)invokeFunction:(NSString *)functionName
                  JSONObject:(id)JSONObject;
+
+/**
+ Invokes a synchronous AWS Lambda function with given parameters.
+
+ @param functionName      The name of a function.
+ @param JSONObject        The object from which to generate JSON request data. Can be `nil`.
+ @param completionHandler The completion handler to call when the invoke request is complete.
+                          `response` - A JSON object., or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed service execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`. On failed function execution, `task.error` may contain an `NSError` with `AWSLambdaInvokerErrorDomain` domain and the following error code: `AWSLambdaInvokerErrorTypeFunctionError`.
+ */
+- (void)invokeFunction:(NSString *)functionName
+            JSONObject:(id)JSONObject
+     completionHandler:(void (^ _Nullable)(id _Nullable response, NSError * _Nullable error))completionHandler;
 
 @end
 

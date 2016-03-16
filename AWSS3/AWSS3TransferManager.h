@@ -134,13 +134,27 @@ typedef void (^AWSS3TransferManagerResumeAllBlock) (AWSRequest *request);
 + (void)registerS3TransferManagerWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key;
 
 /**
- Retrieves the service client associated with the key. You need to call `+ registerS3TransferManagerWithConfiguration:forKey:` before invoking this method. If `+ registerS3TransferManagerWithConfiguration:forKey:` has not been called in advance or the key does not exist, this method returns `nil`.
+ Retrieves the service client associated with the key. You need to call `+ registerS3TransferManagerWithConfiguration:forKey:` before invoking this method.
 
  For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
 
+ *Swift*
+
+     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+         let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+         let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+         AWSS3TransferManager.registerS3TransferManagerWithConfiguration(configuration, forKey: "USWest2S3TransferManager")
+
+         return true
+     }
+
+ *Objective-C*
+
      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-         AWSCognitoCredentialsProvider *credentialsProvider = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1 identityPoolId:@"YourIdentityPoolId"];
-         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2 credentialsProvider:credentialsProvider];
+         AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                         identityPoolId:@"YourIdentityPoolId"];
+         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                              credentialsProvider:credentialsProvider];
 
          [AWSS3TransferManager registerS3TransferManagerWithConfiguration:configuration forKey:@"USWest2S3TransferManager"];
 
@@ -149,7 +163,13 @@ typedef void (^AWSS3TransferManagerResumeAllBlock) (AWSRequest *request);
 
  Then call the following to get the service client:
 
-     AWSS3TransferManager *S3TransferManager = [AWSS3TransferManager S3ForKey:@"USWest2S3TransferManager"];
+ *Swift*
+
+     let S3TransferManager = AWSS3TransferManager(forKey: "USWest2S3TransferManager")
+
+ *Objective-C*
+
+     AWSS3TransferManager *S3TransferManager = [AWSS3TransferManager S3TransferManagerForKey:@"USWest2S3TransferManager"];
 
  @param key A string to identify the service client.
 

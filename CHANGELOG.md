@@ -1,5 +1,19 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.3.6
+
+### New Features
+* **SDK Core**
+    * Allows setting of `allowsCellularAccess` via `AWSNetworkingConfiguration`.
+* **AWS Lambda**
+    * Added `invoke` methods with completion handlers to `AWSLambdaInvoker`.
+
+### Resolved Issues
+* **SDK Core**
+    * Fixed an issue that SDK does not return an error object for certain 4xx and 5xx exceptions.
+    * Updated the API documentation to reflect the correct nullability annotations for some constructors.
+    * Fixed an issue so that Twitter Fabric can properly initialize the AWS Mobile SDK for iOS.
+
 ## 2.3.5
 
 ### New Features

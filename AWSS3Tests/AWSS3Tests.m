@@ -1311,4 +1311,19 @@ static NSString *testBucketNameGeneral = nil;
     }] waitUntilFinished];
 }
 
+- (void)testHeadNonExistingKey {
+    AWSS3 *s3 = [AWSS3 defaultS3];
+
+    AWSS3HeadObjectRequest *headObjectRequest = [AWSS3HeadObjectRequest new];
+    headObjectRequest.bucket = testBucketNameGeneral;
+    headObjectRequest.key = @"some-non-existing-key";
+
+    [[[s3 headObject:headObjectRequest] continueWithBlock:^id _Nullable(AWSTask<AWSS3HeadObjectOutput *> * _Nonnull task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertNil(task.exception);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+}
+
 @end

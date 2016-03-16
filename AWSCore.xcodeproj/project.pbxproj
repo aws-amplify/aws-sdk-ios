@@ -182,6 +182,10 @@
 		CE2EDE861BF3DC7100B9F26B /* AWSCancellationTokenRegistration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE2EDE771BF3D7B900B9F26B /* AWSCancellationTokenRegistration.h */; };
 		CE2EDE871BF3DC7100B9F26B /* AWSCancellationTokenSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE2EDE791BF3D7B900B9F26B /* AWSCancellationTokenSource.h */; };
 		CE2EDE8C1BF3DEC500B9F26B /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE6552191BEC308400DACBC2 /* module.modulemap */; };
+		CE339E681C8656A700E89A30 /* FABAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = CE339E641C86568200E89A30 /* FABAttributes.h */; };
+		CE339E691C8656A700E89A30 /* FABKitProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CE339E651C86568200E89A30 /* FABKitProtocol.h */; };
+		CE339E6A1C8656A700E89A30 /* Fabric+FABKits.h in Headers */ = {isa = PBXBuildFile; fileRef = CE339E661C86568200E89A30 /* Fabric+FABKits.h */; };
+		CE339E6B1C8656A700E89A30 /* Fabric.h in Headers */ = {isa = PBXBuildFile; fileRef = CE339E671C86568200E89A30 /* Fabric.h */; };
 		CE6397221AC49D4D00459E23 /* rest-json-input.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6397201AC49D4D00459E23 /* rest-json-input.json */; };
 		CE6397231AC49D4D00459E23 /* rest-json-output.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6397211AC49D4D00459E23 /* rest-json-output.json */; };
 		CE89AC2F1C6D3E730086A0BA /* AWSSignature.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BDF557731AB371AB0067F4F1 /* AWSSignature.h */; };
@@ -457,6 +461,10 @@
 		CE2EDE781BF3D7B900B9F26B /* AWSCancellationTokenRegistration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSCancellationTokenRegistration.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CE2EDE791BF3D7B900B9F26B /* AWSCancellationTokenSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AWSCancellationTokenSource.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		CE2EDE7A1BF3D7B900B9F26B /* AWSCancellationTokenSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSCancellationTokenSource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		CE339E641C86568200E89A30 /* FABAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FABAttributes.h; sourceTree = "<group>"; };
+		CE339E651C86568200E89A30 /* FABKitProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FABKitProtocol.h; sourceTree = "<group>"; };
+		CE339E661C86568200E89A30 /* Fabric+FABKits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fabric+FABKits.h"; sourceTree = "<group>"; };
+		CE339E671C86568200E89A30 /* Fabric.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fabric.h; sourceTree = "<group>"; };
 		CE5E04551AD89085002EF47E /* AWSNetworkingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSNetworkingTests.m; sourceTree = "<group>"; };
 		CE6397201AC49D4D00459E23 /* rest-json-input.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "rest-json-input.json"; sourceTree = "<group>"; };
 		CE6397211AC49D4D00459E23 /* rest-json-output.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "rest-json-output.json"; sourceTree = "<group>"; };
@@ -765,6 +773,7 @@
 		CE08A0741B02B47B0000ED1F /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				CE339E631C86568200E89A30 /* Fabric */,
 				CEA0CA3D1B0187640061508B /* Bolts */,
 				CEA0CA501B01899B0061508B /* FMDB */,
 				CEA5895F1B02B051009901A6 /* GZIP */,
@@ -836,6 +845,17 @@
 				CE14DF811B02C7CE00EF6D09 /* AWSmetamacros.h */,
 			);
 			path = extobjc;
+			sourceTree = "<group>";
+		};
+		CE339E631C86568200E89A30 /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				CE339E641C86568200E89A30 /* FABAttributes.h */,
+				CE339E651C86568200E89A30 /* FABKitProtocol.h */,
+				CE339E661C86568200E89A30 /* Fabric+FABKits.h */,
+				CE339E671C86568200E89A30 /* Fabric.h */,
+			);
+			path = Fabric;
 			sourceTree = "<group>";
 		};
 		CEA0CA3D1B0187640061508B /* Bolts */ = {
@@ -966,6 +986,10 @@
 				BDF558D31AB371AD0067F4F1 /* AWSSerialization.h in Headers */,
 				BDF558D71AB371AD0067F4F1 /* AWSURLRequestSerialization.h in Headers */,
 				CE2EDE811BF3D7B900B9F26B /* AWSCancellationTokenSource.h in Headers */,
+				CE339E681C8656A700E89A30 /* FABAttributes.h in Headers */,
+				CE339E691C8656A700E89A30 /* FABKitProtocol.h in Headers */,
+				CE339E6A1C8656A700E89A30 /* Fabric+FABKits.h in Headers */,
+				CE339E6B1C8656A700E89A30 /* Fabric.h in Headers */,
 				CE14DF871B02C7CE00EF6D09 /* AWSmetamacros.h in Headers */,
 				CED822031AC486E40017E687 /* AWSClientContext.h in Headers */,
 				BDF558371AB371AB0067F4F1 /* AWSCredentialsProvider.h in Headers */,

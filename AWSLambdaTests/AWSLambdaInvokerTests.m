@@ -62,6 +62,40 @@
     }] waitUntilFinished];
 }
 
+- (void)testInvokeWithCompletionHandler {
+    AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
+
+    AWSLambdaInvokerInvocationRequest *invocationRequest = [AWSLambdaInvokerInvocationRequest new];
+    invocationRequest.functionName = @"helloWorldExample";
+    invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
+    invocationRequest.logType = AWSLambdaLogTypeTail;
+    invocationRequest.payload = @{@"key1" : @"value1",
+                                  @"key2" : @"value2",
+                                  @"key3" : @"value3",
+                                  @"isError" : @NO};
+
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Completion handler called."];
+
+    [lambdaInvoker invoke:invocationRequest completionHandler:^(AWSLambdaInvokerInvocationResponse * _Nullable response, NSError * _Nullable error) {
+        XCTAssertNil(error);
+        XCTAssertNotNil(response);
+        XCTAssertTrue([response isKindOfClass:[AWSLambdaInvokerInvocationResponse class]]);
+        XCTAssertTrue([response.payload isKindOfClass:[NSDictionary class]]);
+        NSDictionary *result = response.payload;
+        XCTAssertEqualObjects(result[@"key1"], @"value1");
+        XCTAssertEqualObjects(result[@"key2"], @"value2");
+        XCTAssertEqualObjects(result[@"key3"], @"value3");
+        XCTAssertNotNil(response.logResult);
+        XCTAssertTrue([response.logResult isKindOfClass:[NSString class]]);
+
+        [expectation fulfill];
+    }];
+
+    [self waitForExpectationsWithTimeout:10.0 handler:^(NSError * _Nullable error) {
+        XCTAssertNil(error);
+    }];
+}
+
 - (void)testInvokeError {
     AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
     AWSLambdaInvokerInvocationRequest *invocationRequest = [AWSLambdaInvokerInvocationRequest new];
@@ -102,6 +136,32 @@
         XCTAssertEqualObjects(result[@"key3"], @"value3");
         return nil;
     }] waitUntilFinished];
+}
+
+- (void)testInvokeFunctionWithCompletionHandler {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Completion handler called."];
+
+    AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
+    [lambdaInvoker invokeFunction:@"helloWorldExample"
+                       JSONObject:@{@"key1" : @"value1",
+                                    @"key2" : @"value2",
+                                    @"key3" : @"value3",
+                                    @"isError" : @NO}
+                completionHandler:^(id  _Nullable response, NSError * _Nullable error) {
+                    XCTAssertNil(error);
+                    XCTAssertNotNil(response);
+                    XCTAssertTrue([response isKindOfClass:[NSDictionary class]]);
+                    NSDictionary *result = response;
+                    XCTAssertEqualObjects(result[@"key1"], @"value1");
+                    XCTAssertEqualObjects(result[@"key2"], @"value2");
+                    XCTAssertEqualObjects(result[@"key3"], @"value3");
+
+                    [expectation fulfill];
+                }];
+
+    [self waitForExpectationsWithTimeout:10.0 handler:^(NSError * _Nullable error) {
+        XCTAssertNil(error);
+    }];
 }
 
 - (void)testInvokeFunction2 {
