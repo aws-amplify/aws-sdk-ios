@@ -16,7 +16,7 @@
 #import <UIKit/UIKit.h>
 #import <AWSCore/AWSCore.h>
 
-FOUNDATION_EXPORT NSString *const AWSS3SessionInvalidatedNotification;
+FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -199,6 +199,10 @@ typedef void (^AWSS3TransferUtilityDownloadProgressBlock) (AWSS3TransferUtilityD
 
 /**
  Removes the service client associated with the key and release it.
+
+ The underlying NSURLSession is invalidated, and after the invalidation has completed the transfer is utility removed.
+
+ Observe the AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification to be informed when this has occurred.
 
  @warning Before calling this method, make sure no method is running on this client.
 
