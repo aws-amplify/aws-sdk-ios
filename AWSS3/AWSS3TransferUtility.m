@@ -17,6 +17,7 @@
 #import "AWSS3PreSignedURL.h"
 #import "AWSSynchronizedMutableDictionary.h"
 
+NSString *const AWSS3SessionInvalidatedNotification = @"com.amazonaws.AWSS3TransferUtility.AWSS3SessionInvalidatedNotification";
 NSString *const AWSS3TransferUtilityIdentifier = @"com.amazonaws.AWSS3TransferUtility.Identifier";
 NSTimeInterval const AWSS3TransferUtilityTimeoutIntervalForResource = 50 * 60; // 50 minutes
 NSString *const AWSS3TransferUtilityUserAgent = @"transfer-utility";
@@ -125,6 +126,9 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 }
 
 + (void)removeS3TransferUtilityForKey:(NSString *)key {
+    AWSS3TransferUtility *transferUtility = [self S3TransferUtilityForKey:key];
+    if (transferUtility)
+        [transferUtility.session invalidateAndCancel];
     [_serviceClients removeObjectForKey:key];
 }
 
@@ -572,6 +576,12 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
         self.backgroundURLSessionCompletionHandler();
     }
 }
+
+- (void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(NSError *)error {
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:AWSS3SessionInvalidatedNotification object:self];
+}
+
 
 #pragma mark - NSURLSessionTaskDelegate
 

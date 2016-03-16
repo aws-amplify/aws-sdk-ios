@@ -16,6 +16,8 @@
 #import <UIKit/UIKit.h>
 #import <AWSCore/AWSCore.h>
 
+FOUNDATION_EXPORT NSString *const AWSS3SessionInvalidatedNotification;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @class AWSS3TransferUtilityTask;
