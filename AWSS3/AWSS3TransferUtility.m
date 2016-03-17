@@ -580,12 +580,7 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 - (void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(NSError *)error {
     [[NSNotificationCenter defaultCenter] postNotificationName:AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification object:self];
 
-    for (NSString *key in _serviceClients.allKeys) {
-        if (self == [_serviceClients objectForKey:key]) {
-            [_serviceClients removeObjectForKey:key];
-            break;
-        }
-    }
+    [_serviceClients removeObject:self];
 }
 
 
