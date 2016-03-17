@@ -167,7 +167,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                 }
             }
         }
-        return nil;
+        return task;
     }];
 }
 

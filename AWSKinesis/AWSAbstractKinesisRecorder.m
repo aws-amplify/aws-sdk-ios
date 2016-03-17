@@ -271,31 +271,37 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
 
                     NSString *streamName = temporaryRecords[0][@"stream_name"];
 
-                    [[self.recorderHelper submitRecordsForStream:streamName
-                                                         records:temporaryRecords
-                                                   partitionKeys:partitionKeys
-                                                putPartitionKeys:putPartitionKeys
-                                              retryPartitionKeys:retryPartitionKeys] waitUntilFinished];
+                    AWSTask *submitTask = [self.recorderHelper submitRecordsForStream:streamName
+                                                                              records:temporaryRecords
+                                                                        partitionKeys:partitionKeys
+                                                                     putPartitionKeys:putPartitionKeys
+                                                                   retryPartitionKeys:retryPartitionKeys];
+                    [submitTask waitUntilFinished];
 
-                    for (NSString *partitionKey in putPartitionKeys) {
-                        BOOL result = [db executeUpdate:@"DELETE FROM record WHERE partition_key = :partition_key"
-                                withParameterDictionary:@{
-                                                          @"partition_key" : partitionKey
-                                                          }];
-                        if (!result) {
-                            AWSLogError(@"SQLite error. [%@]", db.lastError);
-                            error = db.lastError;
+                    if (submitTask.error) {
+                        error = submitTask.error;
+                    } else {
+
+                        for (NSString *partitionKey in putPartitionKeys) {
+                            BOOL result = [db executeUpdate:@"DELETE FROM record WHERE partition_key = :partition_key"
+                                    withParameterDictionary:@{
+                                        @"partition_key" : partitionKey
+                                    }];
+                            if (!result) {
+                                AWSLogError(@"SQLite error. [%@]", db.lastError);
+                                error = db.lastError;
+                            }
                         }
-                    }
 
-                    for (NSString *partitionKey in retryPartitionKeys) {
-                        BOOL result = [db executeUpdate:@"UPDATE record SET retry_count = retry_count + 1 WHERE partition_key = :partition_key"
-                                withParameterDictionary:@{
-                                                          @"partition_key" : partitionKey
-                                                          }];
-                        if (!result) {
-                            AWSLogError(@"SQLite error. [%@]", db.lastError);
-                            error = db.lastError;
+                        for (NSString *partitionKey in retryPartitionKeys) {
+                            BOOL result = [db executeUpdate:@"UPDATE record SET retry_count = retry_count + 1 WHERE partition_key = :partition_key"
+                                    withParameterDictionary:@{
+                                        @"partition_key" : partitionKey
+                                    }];
+                            if (!result) {
+                                AWSLogError(@"SQLite error. [%@]", db.lastError);
+                                error = db.lastError;
+                            }
                         }
                     }
                 }
