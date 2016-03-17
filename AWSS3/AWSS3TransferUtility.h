@@ -16,9 +16,9 @@
 #import <UIKit/UIKit.h>
 #import <AWSCore/AWSCore.h>
 
-FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification;
-
 NS_ASSUME_NONNULL_BEGIN
+
+FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification;
 
 @class AWSS3TransferUtilityTask;
 @class AWSS3TransferUtilityUploadTask;
