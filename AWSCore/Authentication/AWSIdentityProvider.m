@@ -182,17 +182,20 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
                 return [AWSTask taskWithResult:nil];
             }
         }] continueWithBlock:^id(AWSTask *task) {
-            self.count--;
-            dispatch_semaphore_signal(self.semaphore);
             if (task.error) {
                 AWSLogError(@"GetId failed. Error is [%@]", task.error);
-                return task;
             } else if (task.exception) {
                 AWSLogError(@"GetId failed. Exception is [%@]", task.exception);
-                return task;
             } else if (task.result) {
                 AWSCognitoIdentityGetIdResponse *getIdResponse = task.result;
                 self.identityId = getIdResponse.identityId;
+            }
+            //ensure that the identityID is set before the semaphore is signaled, otherwise it's possible
+            //that continuation blocks execute before the identityID is set
+            self.count--;
+            dispatch_semaphore_signal(self.semaphore);
+            if (task.faulted) {
+                return task;
             }
             return [AWSTask taskWithResult:self.identityId];
         }];
