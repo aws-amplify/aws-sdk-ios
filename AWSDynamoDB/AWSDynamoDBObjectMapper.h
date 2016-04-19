@@ -16,6 +16,8 @@
 #import <Foundation/Foundation.h>
 #import "AWSDynamoDBService.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  Enumeration of behaviors for the save operation.
  */
@@ -64,6 +66,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
 @class AWSDynamoDBObjectMapperConfiguration;
 @class AWSDynamoDBQueryExpression;
 @class AWSDynamoDBScanExpression;
+@class AWSDynamoDBPaginatedOutput;
 
 /**
  A DynamoDB Modeling protocol. All objects mapped to an Amazon DynamoDB table row need to conform to this protocol.
@@ -96,36 +99,20 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
 + (NSString *)rangeKeyAttribute;
 
 /**
- Returns an array of `NSString`s for the names of attributes that need to be ignored.
+ Returns the names of attributes that need to be ignored.
 
  @return An array of attribute names.
  */
-+ (NSArray *)ignoreAttributes;
++ (NSArray<NSString *> *)ignoreAttributes;
 
 @end
-
-__attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
-/**
- @warning This class has been deprecated. Use `AWSDynamoDBObjectModel` instead.
- */
-@interface AWSDynamoDBModel : AWSMTLModel <AWSMTLJSONSerializing>
-
-@end
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 /**
  A base class for all objects mapped to an Amazon DynamoDB table row. They need to inherit from this class.
  */
-@interface AWSDynamoDBObjectModel : AWSDynamoDBModel <AWSMTLJSONSerializing>
+@interface AWSDynamoDBObjectModel : AWSMTLModel <AWSMTLJSONSerializing>
 
 @end
-
-#pragma clang diagnostic pop
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 /**
  Object mapper for domain-object interaction with DynamoDB.
@@ -282,64 +269,91 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
 + (void)removeDynamoDBObjectMapperForKey:(NSString *)key;
 
 /**
- Instantiates the service client with the given service configuration.
-
- @warning This method has been deprecated. Use `+ registerDynamoDBObjectMapperWithConfiguration:forKey:` and `+ DynamoDBObjectMapperForKey:` instead.
-
- @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
-
- @warning Unlike the singleton method, you are responsible for maintaining a strong reference to this object. If the service client is released before completing a service request, the request may fail with unspecified errors.
-
- @param configuration The service configuration object.
- @param objectMapperConfiguration The DynamoDB Object Mapper configuration object.
-
- @return An instance of the service client.
- */
-- (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration
-            objectMapperConfiguration:(AWSDynamoDBObjectMapperConfiguration *)objectMapperConfiguration __attribute__ ((deprecated("Use '+ registerDynamoDBObjectMapperWithConfiguration:forKey:' and '+ DynamoDBObjectMapperForKey:' instead.")));
-
-/**
- Saves the object given into DynamoDB, using the default configuration.
+ Saves the model object to an Amazon DynamoDB table using the default configuration.
 
  @param model A model to save.
 
  @return AWSTask.
  */
-- (AWSTask *)save:(AWSDynamoDBModel *)model;
+- (AWSTask *)save:(AWSDynamoDBObjectModel<AWSDynamoDBModeling> *)model;
 
 /**
- Saves the object given into DynamoDB, using the specified configuration.
+ Saves the model object to an Amazon DynamoDB table using the default configuration.
+
+ @param model             A model to save.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error`: An error object that indicates why the request failed, or `nil` if the request was successful.
+ */
+- (void)save:(AWSDynamoDBObjectModel<AWSDynamoDBModeling> *)model
+completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ Saves the model object to an Amazon DynamoDB table using the specified configuration.
 
  @param model         A model to save.
  @param configuration A configuration.
 
  @return AWSTask.
  */
-- (AWSTask *)save:(AWSDynamoDBModel *)model
-   configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration;
+- (AWSTask *)save:(AWSDynamoDBObjectModel<AWSDynamoDBModeling> *)model
+    configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)configuration;
 
 /**
- Deletes the given object from its DynamoDB table using the default configuration.
+ Saves the model object to an Amazon DynamoDB table using the specified configuration.
+
+ @param model             A model to save.
+ @param configuration     A configuration.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error`: An error object that indicates why the request failed, or `nil` if the request was successful.
+ */
+- (void)save:(AWSDynamoDBObjectModel<AWSDynamoDBModeling> *)model
+configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)configuration
+completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ Removes the given model object from the Amazon DynamoDB table using the default configuration.
 
  @param model A model to delete.
 
  @return AWSTask.
  */
-- (AWSTask *)remove:(AWSDynamoDBModel *)model;
+- (AWSTask *)remove:(AWSDynamoDBObjectModel<AWSDynamoDBModeling> *)model;
 
 /**
- Deletes the given object from its DynamoDB table using the specified configuration.
+ Removes the given model object from the Amazon DynamoDB table using the default configuration.
+
+ @param model             A model to delete.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error`: An error object that indicates why the request failed, or `nil` if the request was successful.
+ */
+- (void)remove:(AWSDynamoDBObjectModel<AWSDynamoDBModeling> *)model
+completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ Removes the given model object from the Amazon DynamoDB table using the specified configuration.
 
  @param model         A model to delete.
  @param configuration A configuration.
 
  @return AWSTask.
  */
-- (AWSTask *)remove:(AWSDynamoDBModel *)model
-     configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration;
+- (AWSTask *)remove:(AWSDynamoDBObjectModel<AWSDynamoDBModeling> *)model
+      configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)configuration;
 
 /**
- Loads an object with a hash and range key, using the default configuration.
+ Removes the given model object from the Amazon DynamoDB table using the specified configuration.
+
+ @param model             A model to delete.
+ @param configuration     A configuration.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error`: An error object that indicates why the request failed, or `nil` if the request was successful.
+ */
+- (void)remove:(AWSDynamoDBObjectModel<AWSDynamoDBModeling> *)model
+ configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)configuration
+completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ Returns an object with the given hash key and the range key (if it exists), or `nil` if no such object exists.
 
  @param resultClass The class of the result object.
  @param hashKey     A hash key value.
@@ -348,11 +362,26 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
  @return AWSTask.
  */
 - (AWSTask *)load:(Class)resultClass
-         hashKey:(id)hashKey
-        rangeKey:(id)rangeKey;
+          hashKey:(id)hashKey
+         rangeKey:(nullable id)rangeKey;
 
 /**
- Returns an object with the given hash key, or null if no such object exists.
+ Returns an object with the given hash key and the range key (if it exists), or `nil` if no such object exists.
+
+ @param resultClass       The class of the result object.
+ @param hashKey           A hash key value.
+ @param rangeKey          A range key value.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response`: The specified model object, or `nil` if no such object exists.
+                          `error`: An error object that indicates why the request failed, or `nil` if the request was successful.
+ */
+- (void)load:(Class)resultClass
+     hashKey:(id)hashKey
+    rangeKey:(nullable id)rangeKey
+completionHandler:(void (^ _Nullable)(AWSDynamoDBObjectModel<AWSDynamoDBModeling> * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ Returns an object with the given hash key and the range key (if it exists), or `nil` if no such object exists.
 
  @param resultClass   The class of the result object.
  @param hashKey       A hash key value.
@@ -362,9 +391,26 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
  @return AWSTask.
  */
 - (AWSTask *)load:(Class)resultClass
-         hashKey:(id)hashKey
-        rangeKey:(id)rangeKey
-   configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration;
+          hashKey:(id)hashKey
+         rangeKey:(nullable id)rangeKey
+    configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)configuration;
+
+/**
+ Returns an object with the given hash key and the range key (if it exists), or `nil` if no such object exists.
+
+ @param resultClass       The class of the result object.
+ @param hashKey           A hash key value.
+ @param rangeKey          A range key value.
+ @param configuration     A configuration.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response`: The specified model object, or `nil` if no such object exists.
+                          `error`: An error object that indicates why the request failed, or `nil` if the request was successful.
+ */
+- (void)load:(Class)resultClass
+     hashKey:(id)hashKey
+    rangeKey:(nullable id)rangeKey
+configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)configuration
+completionHandler:(void (^ _Nullable)(AWSDynamoDBObjectModel<AWSDynamoDBModeling> * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  Queries an Amazon DynamoDB table and returns the matching results as an unmodifiable list of instantiated objects, using the default configuration.
@@ -374,8 +420,21 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
 
  @return AWSTask.
  */
-- (AWSTask *)query:(Class)resultClass
-       expression:(AWSDynamoDBQueryExpression *)expression;
+- (AWSTask<AWSDynamoDBPaginatedOutput *> *)query:(Class)resultClass
+                                      expression:(AWSDynamoDBQueryExpression *)expression;
+
+/**
+ Queries an Amazon DynamoDB table and returns the matching results as an unmodifiable list of instantiated objects.
+
+ @param resultClass       The class of the result object.
+ @param expression        An expression object.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response`: `AWSDynamoDBPaginatedOutput` that contains a list of model objects, or `nil` if no such object exists.
+                          `error`: An error object that indicates why the request failed, or `nil` if the request was successful.
+ */
+- (void)query:(Class)resultClass
+   expression:(AWSDynamoDBQueryExpression *)expression
+completionHandler:(void (^ _Nullable)(AWSDynamoDBPaginatedOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  Queries an Amazon DynamoDB table and returns the matching results as an unmodifiable list of instantiated objects.
@@ -386,9 +445,24 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
 
  @return AWSTask.
  */
-- (AWSTask *)query:(Class)resultClass
-       expression:(AWSDynamoDBQueryExpression *)expression
-    configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration;
+- (AWSTask<AWSDynamoDBPaginatedOutput *> *)query:(Class)resultClass
+                                      expression:(AWSDynamoDBQueryExpression *)expression
+                                   configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)configuration;
+
+/**
+ Queries an Amazon DynamoDB table and returns the matching results as an unmodifiable list of instantiated objects.
+
+ @param resultClass       The class of the result object.
+ @param expression        An expression object.
+ @param configuration     A configuration.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response`: `AWSDynamoDBPaginatedOutput` that contains a list of model objects, or `nil` if no such object exists.
+                          `error`: An error object that indicates why the request failed, or `nil` if the request was successful.
+ */
+- (void)query:(Class)resultClass
+   expression:(AWSDynamoDBQueryExpression *)expression
+configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)configuration
+completionHandler:(void (^ _Nullable)(AWSDynamoDBPaginatedOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  Scans through an Amazon DynamoDB table and returns the matching results as an AWSDynamoDBPaginatedOutput of instantiated objects, using the default configuration.
@@ -398,8 +472,21 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
 
  @return AWSTask.
  */
-- (AWSTask *)scan:(Class)resultClass
-      expression:(AWSDynamoDBScanExpression *)expression;
+- (AWSTask<AWSDynamoDBPaginatedOutput *> *)scan:(Class)resultClass
+                                     expression:(AWSDynamoDBScanExpression *)expression;
+
+/**
+ Scans through an Amazon DynamoDB table and returns the matching results as an AWSDynamoDBPaginatedOutput of instantiated objects.
+
+ @param resultClass   The class of the result object.
+ @param expression    An expression object.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response`: `AWSDynamoDBPaginatedOutput` that contains a list of model objects, or `nil` if no such object exists.
+                          `error`: An error object that indicates why the request failed, or `nil` if the request was successful.
+ */
+- (void)scan:(Class)resultClass
+  expression:(AWSDynamoDBScanExpression *)expression
+completionHandler:(void (^ _Nullable)(AWSDynamoDBPaginatedOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  Scans through an Amazon DynamoDB table and returns the matching results as an AWSDynamoDBPaginatedOutput of instantiated objects.
@@ -410,13 +497,26 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
 
  @return AWSTask.
  */
-- (AWSTask *)scan:(Class)resultClass
-      expression:(AWSDynamoDBScanExpression *)expression
-   configuration:(AWSDynamoDBObjectMapperConfiguration *)configuration;
+- (AWSTask<AWSDynamoDBPaginatedOutput *> *)scan:(Class)resultClass
+                                     expression:(AWSDynamoDBScanExpression *)expression
+                                  configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)configuration;
+
+/**
+ Scans through an Amazon DynamoDB table and returns the matching results as an AWSDynamoDBPaginatedOutput of instantiated objects.
+
+ @param resultClass   The class of the result object.
+ @param expression    An expression object.
+ @param configuration A configuration.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response`: `AWSDynamoDBPaginatedOutput` that contains a list of model objects, or `nil` if no such object exists.
+                          `error`: An error object that indicates why the request failed, or `nil` if the request was successful.
+ */
+- (void)scan:(Class)resultClass
+  expression:(AWSDynamoDBScanExpression *)expression
+configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)configuration
+completionHandler:(void (^ _Nullable)(AWSDynamoDBPaginatedOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 @end
-
-#pragma clang diagnostic pop
 
 /**
  Immutable configuration object for service call behavior. An instance of this configuration is supplied to every DynamoDBMapper at construction. New instances can be given to the mapper object on individual save, load, and remove operations to override the defaults.
@@ -431,7 +531,7 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
 /**
  When set to @YES, AWSDynamoDBObjectMapper uses consistent read to read data from the table. When set to @NO, it uses eventually consistant read.
  */
-@property (nonatomic, strong) NSNumber *consistentRead;
+@property (nonatomic, strong, nullable) NSNumber *consistentRead;
 
 @end
 
@@ -441,34 +541,20 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
 @interface AWSDynamoDBQueryExpression : NSObject
 
 /**
- When set to @YES, AWSDynamoDBObjectMapper scans the index forward. When set to @NO, it scans the other direction.
+ The index name.
  */
-@property (nonatomic, strong) NSNumber *scanIndexForward;
-
-/**
- The hash attribute name used as hashKeyConditions. If nil, the class uses the return value of `hashKeyAttribute` in user-defined Object Mapper Class.
- 
- You should set this value when query a global secondary index where the index hash attribute name is different from table's hash attribute name.
- */
-@property (nonatomic, strong) NSString *hashKeyAttribute;
-
-/**
- The value of the hash key.
- */
-@property (nonatomic, strong) id hashKeyValues;
+@property (nonatomic, strong, nullable) NSString *indexName;
 
 /**
  The condition that specifies the key value(s) for items to be retrieved by the Query action. For more information, see [AWSDynamoDBQueryInput keyConditionExpression]
- 
- *Important:* Unlike [AWSDynamoDBQueryInput keyConditionExpression], DynamoDB Object Mapper automatically provides the required hash key equality condition for you. You can provide an optinal range range key condition.
- 
- For example, you may set rangeKeyConditionExpression to `rangeAttributeName = :rangeval`  where `rangeAttributeName` is the attribute name of the range key. You also need to use the expressionAttributeValues property to replace tokens `:rangeval` with actual values at runtime.
+
+ For example, you may set keyConditionExpression to `hashAttributeName = :hashVal AND rangeAttributeName = :rangeVal` where `hashAttributeName` and `rangeAttributeName` is the attribute name of the hash key and range key respectively. Then you can set `expressionAttributeValues` to `@{@":hashVal" : @"myHashValue", @":rangeVal" : @100}`.
  
  @see [AWSDynamoDBQueryInput keyConditionExpression]
  @see expressionAttributeNames
  @see expressionAttributeValues
  */
-@property (nonatomic, strong) NSString *rangeKeyConditionExpression;
+@property (nonatomic, strong, nullable) NSString *keyConditionExpression;
 
 /**
  A string that contains conditions DynamoDB applies after the Query operation, but before the data is returned. For more information, see [AWSDynamoDBQueryInput filterExpression]
@@ -477,7 +563,7 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
  @see expressionAttributeNames
  @see expressionAttributeValues
  */
-@property (nonatomic, strong) NSString *filterExpression;
+@property (nonatomic, strong, nullable) NSString *filterExpression;
 
 /**
  A string that identifies one or more attributes to retrieve from the table. If no attribute names are specified, all attributes will be returned.
@@ -486,45 +572,40 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
  @see expressionAttributeNames
  @see expressionAttributeValues
  */
-@property (nonatomic, strong) NSString *projectionExpression;
+@property (nonatomic, strong, nullable) NSString *projectionExpression;
+
+/**
+ One or more values that can be substituted in an expression.
+
+ @see [AWSDynamoDBQueryInput expressionAttributeValues]
+ */
+@property (nonatomic, strong, nullable) NSDictionary<NSString *, id> *expressionAttributeValues;
 
 /**
  One or more substitution tokens for attribute names in an expression.
  
  @see [AWSDynamoDBQueryInput expressionAttributeNames]
  */
-@property (nonatomic, strong) NSDictionary *expressionAttributeNames;
-
-/**
- One or more values that can be substituted in an expression.
- 
- @see [AWSDynamoDBQueryInput expressionAttributeValues]
- */
-@property (nonatomic, strong) NSDictionary *expressionAttributeValues;
-
-/**
- The range key conditions.
- 
- @warning This is a legacy parameter, provided for backward compatibility. New applications should use KeyConditionExpression instead. Do not combine legacy parameters and expression parameters in a single API call; otherwise, DynamoDB will return a ValidationException error.
- 
- @see KeyConditionExpression
- */
-@property (nonatomic, strong) NSDictionary *rangeKeyConditions __attribute__ ((deprecated("Use 'keyConditionExpression' instead.")));
-
-/**
- The exclusive start key.
- */
-@property (nonatomic, strong) NSDictionary *exclusiveStartKey;
+@property (nonatomic, strong, nullable) NSDictionary<NSString *, NSString *> *expressionAttributeNames;
 
 /**
  The limit.
  */
-@property (nonatomic, strong) NSNumber *limit;
+@property (nonatomic, strong, nullable) NSNumber *limit;
 
 /**
- The index name.
+ When set to @YES, AWSDynamoDBObjectMapper scans the index forward. When set to @NO, it scans the other direction.
  */
-@property (nonatomic, strong) NSString *indexName;
+@property (nonatomic, strong, nullable) NSNumber *scanIndexForward;
+
+/**
+ The exclusive start key.
+ */
+@property (nonatomic, strong, nullable) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> *exclusiveStartKey;
+
+@property (nonatomic, strong, nullable) NSString *hashKeyAttribute __attribute__ ((deprecated("Use 'keyConditionExpression' and 'expressionAttributeValues' instead.")));
+@property (nonatomic, strong, nullable) id hashKeyValues __attribute__ ((deprecated("Use 'keyConditionExpression' and 'expressionAttributeValues' instead.")));
+@property (nonatomic, strong, nullable) NSString *rangeKeyConditionExpression __attribute__ ((deprecated("Use 'keyConditionExpression' instead.")));
 
 @end
 
@@ -540,7 +621,7 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
  @see expressionAttributeNames
  @see expressionAttributeValues
  */
-@property (nonatomic, strong) NSString *filterExpression;
+@property (nonatomic, strong, nullable) NSString *filterExpression;
 
 /**
  A string that identifies one or more attributes to retrieve from the specified table or index. If no attribute names are specified, all attributes will be returned.
@@ -549,41 +630,36 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
  @see expressionAttributeNames
  @see expressionAttributeValues
  */
-@property (nonatomic, strong) NSString *projectionExpression;
+@property (nonatomic, strong, nullable) NSString *projectionExpression;
 
 /**
  One or more substitution tokens for attribute names in an expression.
  
  @see [AWSDynamoDBScanInput expressionAttributeNames]
  */
-@property (nonatomic, strong) NSDictionary *expressionAttributeNames;
+@property (nonatomic, strong, nullable) NSDictionary<NSString *, NSString *> *expressionAttributeNames;
 
 /**
  One or more values that can be substituted in an expression.
  
  @see [AWSDynamoDBScanInput expressionAttributeValues]
  */
-@property (nonatomic, strong) NSDictionary *expressionAttributeValues;
-
-/**
- The scan filter.
- */
-@property (nonatomic, strong) NSDictionary *scanFilter __attribute__ ((deprecated("Use 'filterExpression' instead.")));
+@property (nonatomic, strong, nullable) NSDictionary<NSString *, id> *expressionAttributeValues;
 
 /**
  The exclusive start key.
  */
-@property (nonatomic, strong) NSDictionary *exclusiveStartKey;
+@property (nonatomic, strong, nullable) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> *exclusiveStartKey;
 
 /**
  The limit.
  */
-@property (nonatomic, strong) NSNumber *limit;
+@property (nonatomic, strong, nullable) NSNumber *limit;
 
 /**
  The index name.
  */
-@property (nonatomic, strong) NSString *indexName;
+@property (nonatomic, strong, nullable) NSString *indexName;
 
 @end
 
@@ -595,11 +671,43 @@ __attribute__ ((deprecated("Use 'AWSDynamoDBObjectModel' instead.")))
 /**
  The array of items.
  */
-@property (nonatomic, strong) NSArray *items;
+@property (nonatomic, strong, readonly) NSArray<__kindof AWSDynamoDBObjectModel<AWSDynamoDBModeling> *> *items;
 
 /**
  The last evaluated key.
  */
-@property (nonatomic, strong) NSDictionary *lastEvaluatedKey;
+@property (nonatomic, strong, readonly , nullable) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> *lastEvaluatedKey;
+
+/**
+ Loads the next page of items when `self.lastEvaluatedKey` is not `nil`.
+
+ @return `task.error` indicates why the request failed, or `nil` if the request was successful. `task.result` is always `nil`.
+ */
+- (AWSTask *)loadNextPage;
+
+/**
+ Loads the next page of items when `self.lastEvaluatedKey` is not `nil`.
+
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error`: An error object that indicates why the request failed, or `nil` if the request was successful.
+ */
+- (void)loadNextPageWithCompletionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ Resets `self.lastEvaluatedKey` to `nil` and reloads the results from the beginning.
+
+ @return `task.error` indicates why the request failed, or `nil` if the request was successful. `task.result` is always `nil`.
+ */
+- (AWSTask *)reload;
+
+/**
+ Resets `self.lastEvaluatedKey` to `nil` and reloads the results from the beginning.
+
+ @param completionHandler The completion handler to call when the load request is complete.
+                          error`: An error object that indicates why the request failed, or `nil` if the request was successful.
+ */
+- (void)reloadWithCompletionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 @end
+
+NS_ASSUME_NONNULL_END

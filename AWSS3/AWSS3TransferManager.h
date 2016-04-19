@@ -187,19 +187,6 @@ typedef void (^AWSS3TransferManagerResumeAllBlock) (AWSRequest *request);
 + (void)removeS3TransferManagerForKey:(NSString *)key;
 
 /**
- Returns an instance of this service client using `configuration` and `identifier`.
-
- @warning This method has been deprecated. Use `+ registerS3TransferManagerWithConfiguration:forKey:` and `+ S3TransferManagerForKey:` instead.
-
- @param configuration An object to configure the internal `AWSS3`. At least `regionType` and `credentialsProvider` need to be set.
- @param identifier    An unique identifier for AWSS3TransferManager to create a disk cache. Multiple instances with the same identifier are allowed and can safely access the same data on disk.
-
- @return An instance of this service client.
- */
-- (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration
-                           identifier:(NSString *)identifier  __attribute__ ((deprecated("Use '+ registerS3TransferManagerWithConfiguration:forKey:' and '+ S3TransferManagerForKey:' instead.")));
-
-/**
  Schedules a new transfer to upload data to Amazon S3.
 
  @param uploadRequest The upload request.

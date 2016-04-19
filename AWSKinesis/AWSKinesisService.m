@@ -26,6 +26,8 @@
 #import "AWSSynchronizedMutableDictionary.h"
 #import "AWSKinesisResources.h"
 
+static NSString *const AWSInfoKinesis = @"Kinesis";
+
 @interface AWSKinesisResponseSerializer : AWSJSONResponseSerializer
 
 @end
@@ -37,9 +39,6 @@
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
-                            @"IncompleteSignature" : @(AWSKinesisErrorIncompleteSignature),
-                            @"InvalidClientTokenId" : @(AWSKinesisErrorInvalidClientTokenId),
-                            @"MissingAuthenticationToken" : @(AWSKinesisErrorMissingAuthenticationToken),
                             @"ExpiredIteratorException" : @(AWSKinesisErrorExpiredIterator),
                             @"InvalidArgumentException" : @(AWSKinesisErrorInvalidArgument),
                             @"LimitExceededException" : @(AWSKinesisErrorLimitExceeded),
@@ -116,12 +115,6 @@ static NSDictionary *errorCodeDictionary = nil;
        && [error.domain isEqualToString:AWSKinesisErrorDomain]
        && currentRetryCount < self.maxRetryCount) {
         switch (error.code) {
-            case AWSKinesisErrorIncompleteSignature:
-            case AWSKinesisErrorInvalidClientTokenId:
-            case AWSKinesisErrorMissingAuthenticationToken:
-                retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
-                break;
-
             case AWSKinesisErrorProvisionedThroughputExceeded:
                 retryType = AWSNetworkingRetryTypeShouldRetry;
                 break;
@@ -160,19 +153,26 @@ static NSDictionary *errorCodeDictionary = nil;
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultKinesis {
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"`defaultServiceConfiguration` is `nil`. You need to set it before using this method."
-                                     userInfo:nil];
-    }
-
     static AWSKinesis *_defaultKinesis = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        _defaultKinesis = [[AWSKinesis alloc] initWithConfiguration:AWSServiceManager.defaultServiceManager.defaultServiceConfiguration];
-#pragma clang diagnostic pop
+        AWSServiceConfiguration *serviceConfiguration = nil;
+        AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoKinesis];
+        if (serviceInfo) {
+            serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                               credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+        }
+
+        if (!serviceConfiguration) {
+            serviceConfiguration = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
+        }
+
+        if (!serviceConfiguration) {
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:@"The service configuration is `nil`. You need to configure `Info.plist` or set `defaultServiceConfiguration` before using this method."
+                                         userInfo:nil];
+        }
+        _defaultKinesis = [[AWSKinesis alloc] initWithConfiguration:serviceConfiguration];
     });
 
     return _defaultKinesis;
@@ -183,15 +183,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     dispatch_once(&onceToken, ^{
         _serviceClients = [AWSSynchronizedMutableDictionary new];
     });
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [_serviceClients setObject:[[AWSKinesis alloc] initWithConfiguration:configuration]
                         forKey:key];
-#pragma clang diagnostic pop
 }
 
 + (instancetype)KinesisForKey:(NSString *)key {
-    return [_serviceClients objectForKey:key];
+    @synchronized(self) {
+        AWSKinesis *serviceClient = [_serviceClients objectForKey:key];
+        if (serviceClient) {
+            return serviceClient;
+        }
+
+        AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] serviceInfo:AWSInfoKinesis
+                                                                     forKey:key];
+        if (serviceInfo) {
+            AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                                                        credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+            [AWSKinesis registerKinesisWithConfiguration:serviceConfiguration
+                                                  forKey:key];
+        }
+
+        return [_serviceClients objectForKey:key];
+    }
 }
 
 + (void)removeKinesisForKey:(NSString *)key {

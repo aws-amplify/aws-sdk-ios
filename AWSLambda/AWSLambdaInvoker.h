@@ -211,7 +211,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaInvokerErrorType) {
  @return An instance of `AWSTask`. On successful execution, `task.result` will contain a JSON object. On failed service execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`. On failed function execution, `task.error` may contain an `NSError` with `AWSLambdaInvokerErrorDomain` domain and the following error code: `AWSLambdaInvokerErrorTypeFunctionError`.
  */
 - (AWSTask *)invokeFunction:(NSString *)functionName
-                 JSONObject:(id)JSONObject;
+                 JSONObject:(nullable id)JSONObject;
 
 /**
  Invokes a synchronous AWS Lambda function with given parameters.
@@ -223,7 +223,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaInvokerErrorType) {
                           `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed service execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`. On failed function execution, `task.error` may contain an `NSError` with `AWSLambdaInvokerErrorDomain` domain and the following error code: `AWSLambdaInvokerErrorTypeFunctionError`.
  */
 - (void)invokeFunction:(NSString *)functionName
-            JSONObject:(id)JSONObject
+            JSONObject:(nullable id)JSONObject
      completionHandler:(void (^ _Nullable)(id _Nullable response, NSError * _Nullable error))completionHandler;
 
 @end

@@ -53,9 +53,6 @@ FOUNDATION_EXPORT NSString *const AWSSignatureV4Terminator;
 
 + (NSString *)getSignedHeadersString:(NSDictionary *)headers;
 
-+ (instancetype)signerWithCredentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider
-                                     endpoint:(AWSEndpoint *)endpoint __attribute__ ((deprecated("Use '- initWithCredentialsProvider:endpoint:' instead.")));
-
 @end
 
 @interface AWSSignatureV2Signer : NSObject <AWSNetworkingRequestInterceptor>

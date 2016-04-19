@@ -120,7 +120,26 @@
 
     [request aws_validateHTTPMethodAndBody];
 
-    AWSLogVerbose(@"Request body: [%@]", [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding]);
+    if ([AWSLogger defaultLogger].logLevel > AWSLogLevelDebug) {
+        NSMutableString *bodyString = [[NSMutableString alloc] initWithData:request.HTTPBody
+                                                                   encoding:NSUTF8StringEncoding];
+
+        if ([request.URL.absoluteString containsString:@"cognito-idp."]) {
+            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"Password\":\".*?\""
+                                                                                   options:NSRegularExpressionCaseInsensitive
+                                                                                     error:&error];
+            [regex replaceMatchesInString:bodyString
+                                  options:0
+                                    range:NSMakeRange(0, bodyString.length)
+                             withTemplate:@"Password\":\"[redacted]\""];
+        }
+
+        if (bodyString.length <= 100 * 1024) {
+            AWSLogDebug(@"Request body: [%@]", bodyString);
+        } else {
+            AWSLogDebug(@"Request body (Partial data. The first 100KB is displayed.): [%@]", [bodyString substringWithRange:NSMakeRange(0, 100 * 1024)]);
+        }
+    }
 
     if (!error) {
         for (NSString *key in headers) {
@@ -199,7 +218,14 @@
                                              serviceDefinitionRule:self.serviceDefinitionJSON
                                                              error:&error];
         }
-        AWSLogVerbose(@"Request body: [%@]", [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding]);
+
+        if ([request.HTTPBody length] <= 100 * 1024) {
+            AWSLogDebug(@"Request body: [%@]", [[NSString alloc] initWithData:request.HTTPBody
+                                                                     encoding:NSUTF8StringEncoding]);
+        } else {
+            AWSLogDebug(@"Request body (Partial data. The first 100KB is displayed.): [%@]", [[NSString alloc] initWithData:[request.HTTPBody subdataWithRange:NSMakeRange(0, 100 * 1024)]
+                                                                                                                   encoding:NSUTF8StringEncoding]);
+        }
 
         //contruct additional headers
         if (!error) {
@@ -501,8 +527,15 @@
     if ([queryString length] > 0) {
         request.HTTPBody = [queryString dataUsingEncoding:NSUTF8StringEncoding];
     }
-    AWSLogVerbose(@"Request body: [%@]", [[NSString alloc] initWithData:request.HTTPBody
-                                                               encoding:NSUTF8StringEncoding]);
+
+    if ([request.HTTPBody length] <= 100 * 1024) {
+        AWSLogDebug(@"Request body: [%@]", [[NSString alloc] initWithData:request.HTTPBody
+                                                                 encoding:NSUTF8StringEncoding]);
+    } else {
+        AWSLogDebug(@"Request body (Partial data. The first 100KB is displayed.): [%@]", [[NSString alloc] initWithData:[request.HTTPBody subdataWithRange:NSMakeRange(0, 100 * 1024)]
+                                                                                                               encoding:NSUTF8StringEncoding]);
+    }
+
     //contruct additional headers
     if (headers) {
         //generate HTTP header here
@@ -555,8 +588,15 @@
     if ([queryString length] > 0) {
         request.HTTPBody = [queryString dataUsingEncoding:NSUTF8StringEncoding];
     }
-    AWSLogVerbose(@"Request body: [%@]", [[NSString alloc] initWithData:request.HTTPBody
-                                                               encoding:NSUTF8StringEncoding]);
+
+    if ([request.HTTPBody length] <= 100 * 1024) {
+        AWSLogDebug(@"Request body: [%@]", [[NSString alloc] initWithData:request.HTTPBody
+                                                                 encoding:NSUTF8StringEncoding]);
+    } else {
+        AWSLogDebug(@"Request body (Partial data. The first 100KB is displayed.): [%@]", [[NSString alloc] initWithData:[request.HTTPBody subdataWithRange:NSMakeRange(0, 100 * 1024)]
+                                                                                                               encoding:NSUTF8StringEncoding]);
+    }
+
     //contruct additional headers
     if (headers) {
         //generate HTTP header here

@@ -186,6 +186,24 @@
 - (void)createKeysAndCertificateFromCsr:(NSDictionary *)csrDictionary callback:(void (^)(AWSIoTCreateCertificateResponse *mainResponse))callback;
 
 /**
+  * Import PKCS12 identity into keychain.  This method allows you to import an
+  * identity created using the AWS console or CLI into the keychain.  The identity is
+  * contained in PKCS12 data; you can create PKCS12 files (suffix .p12) using openssl
+  * as follows:
+  *
+  *   openssl pkcs12 -export -in cert.pem -inkey key.pem -CAfile root-ca.crt -out awsiot-identity.p12
+  *
+  * @param pkcs12Data pkcs12 raw data. Will only import the first item.
+  *
+  * @param passPhrase Pass phrase used to decrypt the pkcs12 data.
+  *
+  * @param certificateId Unique identifier used to find the key/certificate for use.
+  *
+  */
++ (BOOL)importIdentityFromPKCS12Data:(NSData *)pkcs12Data passPhrase:(NSString *)passPhrase certificateId:(NSString *)certificateId;
+
+
+/**
  *  Validates the certificate with the given identifier of certificate.
  *
  *  @param certificateId The certificate identifier

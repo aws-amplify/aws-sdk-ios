@@ -14,5 +14,12 @@
 //
 
 #import <Foundation/Foundation.h>
+
+//! Project version number for AWSSimpleDB.
+FOUNDATION_EXPORT double AWSSimpleDBVersionNumber;
+
+//! Project version string for AWSSimpleDB.
+FOUNDATION_EXPORT const unsigned char AWSSimpleDBVersionString[];
+
 #import <AWSCore/AWSCore.h>
 #import "AWSSimpleDBService.h"

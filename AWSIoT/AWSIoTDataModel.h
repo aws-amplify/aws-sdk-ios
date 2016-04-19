@@ -23,9 +23,6 @@ FOUNDATION_EXPORT NSString *const AWSIoTDataErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSIoTDataErrorType) {
     AWSIoTDataErrorUnknown,
-    AWSIoTDataErrorIncompleteSignature,
-    AWSIoTDataErrorInvalidClientTokenId,
-    AWSIoTDataErrorMissingAuthenticationToken,
     AWSIoTDataErrorConflict,
     AWSIoTDataErrorInternalFailure,
     AWSIoTDataErrorInvalidRequest,

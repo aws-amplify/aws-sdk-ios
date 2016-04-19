@@ -47,9 +47,8 @@ fi
 # Build .a files
 xcodebuild ARCHS="armv7 armv7s arm64 i386 x86_64" \
 	ONLY_ACTIVE_ARCH=NO \
-	OTHER_CFLAGS="-fembed-bitcode" \
 	-configuration Debug \
-    -project "${project_path}/${project_name}.xcodeproj" \
+    -project "${project_path}/AWSiOSSDKv2.xcodeproj" \
     -target "${project_name}" \
     -sdk iphonesimulator \
     SYMROOT=$(PWD)/builtFramework \
@@ -59,9 +58,8 @@ exitOnFailureCode $?
 
 xcodebuild ARCHS="armv7 armv7s arm64 i386 x86_64" \
 	ONLY_ACTIVE_ARCH=NO \
-	OTHER_CFLAGS="-fembed-bitcode" \
 	-configuration Release \
-    -project "${project_path}/${project_name}.xcodeproj" \
+    -project "${project_path}/AWSiOSSDKv2.xcodeproj" \
     -target "${project_name}" \
     -sdk iphoneos \
     SYMROOT=$(PWD)/builtFramework \
@@ -74,22 +72,9 @@ exitOnFailureCode $?
 FRAMEWORK_DIR=$FRAMEWORK_BUILD_PATH/$FRAMEWORK_NAME.framework
 
 # clean up old framework directory if exists
-rm -rf $FRAMEWORK_DIR
-
-# Build the canonical Framework bundle directory
-# structure
-echo "Framework: Setting up directories..."
 mkdir -p $FRAMEWORK_DIR
-mkdir -p $FRAMEWORK_DIR/Versions
-mkdir -p $FRAMEWORK_DIR/Versions/$FRAMEWORK_VERSION
-mkdir -p $FRAMEWORK_DIR/Versions/$FRAMEWORK_VERSION/Modules
-mkdir -p $FRAMEWORK_DIR/Versions/$FRAMEWORK_VERSION/Headers
-
-echo "Framework: Creating symlinks..."
-ln -s $FRAMEWORK_VERSION $FRAMEWORK_DIR/Versions/Current
-ln -s Versions/Current/Headers $FRAMEWORK_DIR/Headers
-ln -s Versions/Current/Modules $FRAMEWORK_DIR/Modules
-ln -s Versions/Current/$FRAMEWORK_NAME $FRAMEWORK_DIR/$FRAMEWORK_NAME
+rm -rf $FRAMEWORK_DIR
+cp -aR "builtFramework/Release-iphoneos/${project_name}.framework" "$FRAMEWORK_DIR"
 
 # The trick for creating a fully usable library is
 # to use lipo to glue the different library
@@ -101,20 +86,8 @@ ln -s Versions/Current/$FRAMEWORK_NAME $FRAMEWORK_DIR/$FRAMEWORK_NAME
 # framework with no .a extension.
 echo "Framework: Creating library..."
 lipo -create \
-    "builtFramework/Debug-iphonesimulator/lib${project_name}.a" \
-    "builtFramework/Release-iphoneos/lib${project_name}.a" \
-    -o "$FRAMEWORK_DIR/Versions/Current/$FRAMEWORK_NAME"
+    "builtFramework/Debug-iphonesimulator/${project_name}.framework/${project_name}" \
+    "builtFramework/Release-iphoneos/${project_name}.framework/${project_name}" \
+    -o "$FRAMEWORK_DIR/${project_name}"
 
-exitOnFailureCode $?
-
-# Now copy the final assets over: your library
-# header files and service definition json files
-echo "Framework: Copying public headers into current version..."
-#those headers are declared in xcode's building phase: Headers
-cp -a builtFramework/Release-iphoneos/include/${project_name}/*.h $FRAMEWORK_DIR/Headers/
-exitOnFailureCode $?
-
-echo "Framework: Copying the module map into current version..."
-#those headers are declared in xcode's building phase: Headers
-cp -a builtFramework/Release-iphoneos/modules/${project_name}/module.modulemap $FRAMEWORK_DIR/Modules/
 exitOnFailureCode $?

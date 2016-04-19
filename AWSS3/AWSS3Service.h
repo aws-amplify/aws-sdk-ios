@@ -16,6 +16,7 @@
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSCore.h>
 #import "AWSS3Model.h"
+#import "AWSS3Resources.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -169,21 +170,6 @@ NS_ASSUME_NONNULL_BEGIN
  @param key A string to identify the service client.
  */
 + (void)removeS3ForKey:(NSString *)key;
-
-/**
- Instantiates the service client with the given service configuration.
- 
- @warning This method has been deprecated. Use `+ registerS3WithConfiguration:forKey:` and `+ S3ForKey:` instead.
- 
- @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
- 
- @warning Unlike the singleton method, you are responsible for maintaining a strong reference to this object. If the service client is released before completing a service request, the request may fail with unspecified errors.
- 
- @param configuration The service configuration object.
- 
- @return An instance of the service client.
- */
-- (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration __attribute__ ((deprecated("Use '+ registerS3WithConfiguration:forKey:' and '+ S3ForKey:' instead.")));
 
 /**
  <p>Aborts a multipart upload.</p><p>To verify that all parts have been removed, so you don't get charged for the part storage, you should call the List Parts operation and ensure the parts list is empty.</p>

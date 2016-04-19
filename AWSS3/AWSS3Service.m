@@ -26,11 +26,8 @@
 #import "AWSSynchronizedMutableDictionary.h"
 #import "AWSS3Resources.h"
 
-NSString *const AWSS3APIVersion = @"s3-2006-03-01";
+static NSString *const AWSInfoS3 = @"S3";
 
-/*
- * AWSS3 Response XML Serializer
- */
 @interface AWSS3ResponseSerializer : AWSXMLResponseSerializer
 
 @end
@@ -42,12 +39,6 @@ NSString *const AWSS3APIVersion = @"s3-2006-03-01";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
-                            @"AccessDenied" : @(AWSS3ErrorAccessDenied),
-                            @"ExpiredToken" : @(AWSS3ErrorExpiredToken),
-                            @"InvalidAccessKeyId" : @(AWSS3ErrorInvalidAccessKeyId),
-                            @"InvalidToken" : @(AWSS3ErrorInvalidToken),
-                            @"SignatureDoesNotMatch" : @(AWSS3ErrorSignatureDoesNotMatch),
-                            @"TokenRefreshRequired" : @(AWSS3ErrorTokenRefreshRequired),
                             @"BucketAlreadyExists" : @(AWSS3ErrorBucketAlreadyExists),
                             @"BucketAlreadyOwnedByYou" : @(AWSS3ErrorBucketAlreadyOwnedByYou),
                             @"NoSuchBucket" : @(AWSS3ErrorNoSuchBucket),
@@ -131,35 +122,22 @@ static NSDictionary *errorCodeDictionary = nil;
             && error
             && error.code != NSURLErrorCancelled) {
             retryType = AWSNetworkingRetryTypeShouldRetry;
-        } else if ([error.domain isEqualToString:AWSS3ErrorDomain]) {
-            switch (error.code) {
-                case AWSS3ErrorExpiredToken:
-                case AWSS3ErrorInvalidAccessKeyId:
-                case AWSS3ErrorInvalidToken:
-                case AWSS3ErrorTokenRefreshRequired:
-                    retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
-                    break;
-                    
-                case AWSS3ErrorSignatureDoesNotMatch:
-                    retryType = AWSNetworkingRetryTypeShouldRetry;
-                    break;
-                    
-                default:
-                    break;
-            }
-        } else if ([error.domain isEqualToString:AWSGeneralErrorDomain]) {
-            switch (error.code) {
-                case AWSGeneralErrorSignatureDoesNotMatch:
-                    //may happened right after generating AWS temporary credentials due to the massively distributed nature of Amazon S3, just retry the request
-                    retryType = AWSNetworkingRetryTypeShouldRetry;
-                    break;
-                    
-                default:
-                    break;
-            }
         }
     }
-    
+
+    if (currentRetryCount < self.maxRetryCount
+        && [error.domain isEqualToString:AWSServiceErrorDomain]) {
+        switch (error.code) {
+            case AWSServiceErrorSignatureDoesNotMatch:
+                //may happened right after generating AWS temporary credentials due to the massively distributed nature of Amazon S3, just retry the request
+                retryType = AWSNetworkingRetryTypeShouldRetry;
+                break;
+
+            default:
+                break;
+        }
+    }
+
     return retryType;
 }
 
@@ -189,19 +167,27 @@ static NSDictionary *errorCodeDictionary = nil;
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultS3 {
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"`defaultServiceConfiguration` is `nil`. You need to set it before using this method."
-                                     userInfo:nil];
-    }
-
     static AWSS3 *_defaultS3 = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        _defaultS3 = [[AWSS3 alloc] initWithConfiguration:AWSServiceManager.defaultServiceManager.defaultServiceConfiguration];
-#pragma clang diagnostic pop
+        AWSServiceConfiguration *serviceConfiguration = nil;
+        AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoS3];
+        if (serviceInfo) {
+            serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                               credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+        }
+
+        if (!serviceConfiguration) {
+            serviceConfiguration = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
+        }
+
+        if (!serviceConfiguration) {
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:@"The service configuration is `nil`. You need to configure `Info.plist` or set `defaultServiceConfiguration` before using this method."
+                                         userInfo:nil];
+        }
+
+        _defaultS3 = [[AWSS3 alloc] initWithConfiguration:serviceConfiguration];
     });
 
     return _defaultS3;
@@ -212,15 +198,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     dispatch_once(&onceToken, ^{
         _serviceClients = [AWSSynchronizedMutableDictionary new];
     });
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [_serviceClients setObject:[[AWSS3 alloc] initWithConfiguration:configuration]
                         forKey:key];
-#pragma clang diagnostic pop
 }
 
 + (instancetype)S3ForKey:(NSString *)key {
-    return [_serviceClients objectForKey:key];
+    @synchronized(self) {
+        AWSS3 *serviceClient = [_serviceClients objectForKey:key];
+        if (serviceClient) {
+            return serviceClient;
+        }
+
+        AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] serviceInfo:AWSInfoS3
+                                                                     forKey:key];
+        if (serviceInfo) {
+            AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                                                        credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+            [AWSS3 registerS3WithConfiguration:serviceConfiguration
+                                        forKey:key];
+        }
+
+        return [_serviceClients objectForKey:key];
+    }
 }
 
 + (void)removeS3ForKey:(NSString *)key {

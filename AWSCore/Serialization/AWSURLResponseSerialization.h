@@ -18,17 +18,6 @@
 #import "AWSNetworking.h"
 #import "AWSSerialization.h"
 
-FOUNDATION_EXPORT NSString *const AWSGeneralErrorDomain;
-
-typedef NS_ENUM(NSInteger, AWSGeneralErrorType) {
-    AWSGeneralErrorUnknown,
-    AWSGeneralErrorRequestTimeTooSkewed,
-    AWSGeneralErrorInvalidSignatureException,
-    AWSGeneralErrorSignatureDoesNotMatch,
-    AWSGeneralErrorRequestExpired,
-    AWSGeneralErrorAuthFailure
-};
-
 @interface AWSJSONResponseSerializer : NSObject <AWSHTTPURLResponseSerializer>
 
 @property (nonatomic, strong, readonly) NSDictionary *serviceDefinitionJSON;

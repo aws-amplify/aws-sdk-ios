@@ -22,7 +22,6 @@
 
 - (instancetype)initWithConfiguration:(AWSNetworkingConfiguration *)configuration;
 
-- (void)dataTaskWithRequest:(AWSNetworkingRequest *)request
-          completionHandler:(AWSNetworkingCompletionHandlerBlock)completionHandler;
+- (AWSTask *)dataTaskWithRequest:(AWSNetworkingRequest *)request;
 
 @end

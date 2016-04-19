@@ -14,6 +14,13 @@
 //
 
 #import <Foundation/Foundation.h>
+
+//! Project version number for AWSFirehose.
+FOUNDATION_EXPORT double AWSFirehoseVersionNumber;
+
+//! Project version string for AWSFirehose.
+FOUNDATION_EXPORT const unsigned char AWSFirehoseVersionString[];
+
 #import <AWSCore/AWSCore.h>
 #import "AWSFirehoseService.h"
 #import "AWSFirehoseRecorder.h"

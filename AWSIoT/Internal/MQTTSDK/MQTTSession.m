@@ -15,6 +15,7 @@
 //    Kyle Roche - initial API and implementation and/or initial documentation
 // 
 
+#import "AWSLogging.h"
 #import "MQTTSession.h"
 #import "MQTTDecoder.h"
 #import "MQTTEncoder.h"
@@ -186,23 +187,25 @@
         connectMessage:(MQTTMessage*)theConnectMessage
                runLoop:(NSRunLoop*)theRunLoop
                forMode:(NSString*)theRunLoopMode {
-    clientId = theClientId;
-    keepAliveInterval = theKeepAliveInterval;
-    connectMessage = theConnectMessage;
-    runLoop = theRunLoop;
-    runLoopMode = theRunLoopMode;
     
-    self.queue = [NSMutableArray array];
-    txMsgId = 1;
-    txFlows = [[NSMutableDictionary alloc] init];
-    rxFlows = [[NSMutableDictionary alloc] init];
-    self.timerRing = [[NSMutableArray alloc] initWithCapacity:60];
-    int i;
-    for (i = 0; i < 60; i++) {
-        [self.timerRing addObject:[NSMutableSet set]];
+    if (self = [super init]) {
+        clientId = theClientId;
+        keepAliveInterval = theKeepAliveInterval;
+        connectMessage = theConnectMessage;
+        runLoop = theRunLoop;
+        runLoopMode = theRunLoopMode;
+        
+        self.queue = [NSMutableArray array];
+        txMsgId = 1;
+        txFlows = [[NSMutableDictionary alloc] init];
+        rxFlows = [[NSMutableDictionary alloc] init];
+        self.timerRing = [[NSMutableArray alloc] initWithCapacity:60];
+        int i;
+        for (i = 0; i < 60; i++) {
+            [self.timerRing addObject:[NSMutableSet set]];
+        }
+        ticks = 0;
     }
-    ticks = 0;
-    
     return self;
 }
 
@@ -402,7 +405,7 @@
     NSError * error = nil;
     NSData * data = [NSJSONSerialization dataWithJSONObject:payload options:0 error:&error];
     if(error!=nil){
-        //NSLog(@"Error creating JSON: %@",error.description);
+        AWSLogError(@"Error creating JSON: %@",error.description);
         return;
     }
     [self publishData:data onTopic:theTopic];
@@ -412,7 +415,7 @@
     idleTimer++;
     if (idleTimer >= keepAliveInterval) {
         if ([encoder status] == MQTTEncoderStatusReady) {
-            //NSLog(@"sending PINGREQ");
+            //AWSLogInfo(@"sending PINGREQ");
             [encoder encodeMessage:[MQTTMessage pingreqMessage]];
             idleTimer = 0;
         }
@@ -431,13 +434,13 @@
 }
 
 - (void)encoder:(MQTTEncoder*)sender handleEvent:(MQTTEncoderEvent) eventCode {
-   // NSLog(@"encoder:(MQTTEncoder*)sender handleEvent:(MQTTEncoderEvent) eventCode ");
+   // AWSLogInfo(@"encoder:(MQTTEncoder*)sender handleEvent:(MQTTEncoderEvent) eventCode ");
     if(sender == encoder) {
         switch (eventCode) {
             case MQTTEncoderEventReady:
                 switch (status) {
                     case MQTTSessionStatusCreated:
-                        //NSLog(@"Encoder has been created. Sending Auth Message");
+                        //AWSLogInfo(@"Encoder has been created. Sending Auth Message");
                         [sender encodeMessage:connectMessage];
                         status = MQTTSessionStatusConnecting;
                         break;
@@ -462,7 +465,7 @@
 }
 
 - (void)decoder:(MQTTDecoder*)sender handleEvent:(MQTTDecoderEvent)eventCode {
-    //NSLog(@"decoder:(MQTTDecoder*)sender handleEvent:(MQTTDecoderEvent)eventCode");
+    //AWSLogInfo(@"decoder:(MQTTDecoder*)sender handleEvent:(MQTTDecoderEvent)eventCode");
     if(sender == decoder) {
         MQTTSessionEvent event;
         switch (eventCode) {
@@ -481,7 +484,7 @@
 }
 
 - (void)decoder:(MQTTDecoder*)sender newMessage:(MQTTMessage*)msg {
-    //NSLog(@"decoder:(MQTTDecoder*)sender newMessage:(MQTTMessage*)msg ");
+    //AWSLogInfo(@"decoder:(MQTTDecoder*)sender newMessage:(MQTTMessage*)msg ");
     MQTTMessageType messageType = [msg type];
     
     if(sender == decoder){

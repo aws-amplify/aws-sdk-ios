@@ -30,7 +30,13 @@ static NSString *AWSClockSkewTestsSTSKey = @"AWSClockSkewTestsSTSKey";
     [AWSTestUtility setupCognitoCredentialsProvider];
 
     if (![AWSSTS STSForKey:AWSClockSkewTestsSTSKey]) {
-        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithCredentialsFilename:@"credentials"];
+        NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
+                                                                              ofType:@"json"];
+        NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                        options:NSJSONReadingMutableContainers
+                                                                          error:nil];
+        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
+                                                                                                          secretKey:credentialsJson[@"secretKey"]];
         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
                                                                              credentialsProvider:credentialsProvider];
         [AWSSTS registerSTSWithConfiguration:configuration

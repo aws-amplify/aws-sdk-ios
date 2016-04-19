@@ -14,5 +14,12 @@
 //
 
 #import <Foundation/Foundation.h>
+
+//! Project version number for AWSAutoScaling.
+FOUNDATION_EXPORT double AWSAutoScalingVersionNumber;
+
+//! Project version string for AWSAutoScaling.
+FOUNDATION_EXPORT const unsigned char AWSAutoScalingVersionString[];
+
 #import <AWSCore/AWSCore.h>
 #import "AWSAutoScalingService.h"

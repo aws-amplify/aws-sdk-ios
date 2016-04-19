@@ -14,5 +14,12 @@
 //
 
 #import <Foundation/Foundation.h>
+
+//! Project version number for AWSCloudWatch.
+FOUNDATION_EXPORT double AWSCloudWatchVersionNumber;
+
+//! Project version string for AWSCloudWatch.
+FOUNDATION_EXPORT const unsigned char AWSCloudWatchVersionString[];
+
 #import <AWSCore/AWSCore.h>
 #import "AWSCloudWatchService.h"

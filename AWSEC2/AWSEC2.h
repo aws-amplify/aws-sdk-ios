@@ -14,5 +14,12 @@
 //
 
 #import <Foundation/Foundation.h>
+
+//! Project version number for AWSEC2.
+FOUNDATION_EXPORT double AWSEC2VersionNumber;
+
+//! Project version string for AWSEC2.
+FOUNDATION_EXPORT const unsigned char AWSEC2VersionString[];
+
 #import <AWSCore/AWSCore.h>
 #import "AWSEC2Service.h"

@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.3.6"
+VERSION="2.4.0"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -29,6 +29,8 @@ else
     cp -r AWSAPIGateway ./docs_tmp/AWSAPIGateway
     cp -r AWSAutoScaling ./docs_tmp/AWSAutoScaling
     cp -r AWSCore ./docs_tmp/AWSCore
+    cp -r AWSCognito ./docs_tmp/AWSCognito
+    cp -r AWSCognitoIdentityProvider ./docs_tmp/AWSCognitoIdentityProvider
     cp -r AWSCloudWatch ./docs_tmp/AWSCloudWatch
     cp -r AWSDynamoDB ./docs_tmp/AWSDynamoDB
     cp -r AWSEC2 ./docs_tmp/AWSEC2
@@ -45,6 +47,7 @@ else
     cp -r AWSSQS ./docs_tmp/AWSSQS
 
     rm -rf ./docs_tmp/AWSCore/Bolts
+    rm -rf ./docs_tmp/AWSCore/Fabric
     rm -rf ./docs_tmp/AWSCore/FMDB
     rm -rf ./docs_tmp/AWSCore/GZIP
     rm -rf ./docs_tmp/AWSCore/Mantle
@@ -53,16 +56,11 @@ else
     rm -rf ./docs_tmp/AWSCore/UICKeyChainStore
     rm -rf ./docs_tmp/AWSCore/XMLDictionary
     rm -rf ./docs_tmp/AWSCore/XMLWriter
+    rm -rf ./docs_tmp/AWSCognito/Internal
+    rm -rf ./docs_tmp/AWSCognito/Fabric
+    rm -rf ./docs_tmp/AWSCognitoIdentityProvider/Internal
     rm -rf ./docs_tmp/AWSMobileAnalytics/Internal
     rm -rf ./docs_tmp/AWSIoT/Internal
-
-    if [ -d ./AWSiOSSDKCognitoSync ]
-    then
-    	cp -r ./AWSiOSSDKCognitoSync/Cognito ./docs_tmp/Cognito
-        rm -rf ./docs_tmp/Cognito/Internal
-        rm -rf ./docs_tmp/Cognito/Fabric
-    	cp -r ./AWSiOSSDKCognitoSync/CognitoSync ./docs_tmp/CognitoSync
-    fi
 
     cd docs_tmp
 
@@ -98,11 +96,6 @@ else
 
 	# pack html doc into a zip file
     (cd docs/html; zip -q -r --symlinks ../aws-sdk-ios-docs.zip .)
-
-	# add the zip file to git
-    #git add docs/aws-sdk-ios-docs.zip && \
-    #git commit -m "Latest Appledoc docs" docs/aws-sdk-ios-docs.zip && \
-    #git push origin mainline
 
     rm -rf Documentation
     mkdir "$BUILT_PRODUCTS_DIR"/Documentation

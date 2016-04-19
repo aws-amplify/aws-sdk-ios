@@ -14,6 +14,13 @@
 //
 
 #import <Foundation/Foundation.h>
+
+//! Project version number for AWSS3.
+FOUNDATION_EXPORT double AWSS3VersionNumber;
+
+//! Project version string for AWSS3.
+FOUNDATION_EXPORT const unsigned char AWSS3VersionString[];
+
 #import <AWSCore/AWSCore.h>
 #import "AWSS3Service.h"
 #import "AWSS3TransferManager.h"

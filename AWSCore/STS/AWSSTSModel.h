@@ -23,9 +23,6 @@ FOUNDATION_EXPORT NSString *const AWSSTSErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSSTSErrorType) {
     AWSSTSErrorUnknown,
-    AWSSTSErrorIncompleteSignature,
-    AWSSTSErrorInvalidClientTokenId,
-    AWSSTSErrorMissingAuthenticationToken,
     AWSSTSErrorExpiredToken,
     AWSSTSErrorIDPCommunicationError,
     AWSSTSErrorIDPRejectedClaim,

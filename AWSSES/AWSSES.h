@@ -14,5 +14,12 @@
 //
 
 #import <Foundation/Foundation.h>
+
+//! Project version number for AWSSES.
+FOUNDATION_EXPORT double AWSSESVersionNumber;
+
+//! Project version string for AWSSES.
+FOUNDATION_EXPORT const unsigned char AWSSESVersionString[];
+
 #import <AWSCore/AWSCore.h>
 #import "AWSSESService.h"

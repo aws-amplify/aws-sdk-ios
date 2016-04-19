@@ -23,9 +23,6 @@ FOUNDATION_EXPORT NSString *const AWSCloudWatchErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSCloudWatchErrorType) {
     AWSCloudWatchErrorUnknown,
-    AWSCloudWatchErrorIncompleteSignature,
-    AWSCloudWatchErrorInvalidClientTokenId,
-    AWSCloudWatchErrorMissingAuthenticationToken,
     AWSCloudWatchErrorInternalService,
     AWSCloudWatchErrorInvalidFormat,
     AWSCloudWatchErrorInvalidNextToken,

@@ -26,6 +26,8 @@
 #import "AWSSynchronizedMutableDictionary.h"
 #import "AWSSQSResources.h"
 
+static NSString *const AWSInfoSQS = @"SQS";
+
 @interface AWSSQSResponseSerializer : AWSXMLResponseSerializer
 
 @end
@@ -37,9 +39,6 @@
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
-                            @"IncompleteSignature" : @(AWSSQSErrorIncompleteSignature),
-                            @"InvalidClientTokenId" : @(AWSSQSErrorInvalidClientTokenId),
-                            @"MissingAuthenticationToken" : @(AWSSQSErrorMissingAuthenticationToken),
                             @"AWS.SimpleQueueService.BatchEntryIdsNotDistinct" : @(AWSSQSErrorBatchEntryIdsNotDistinct),
                             @"AWS.SimpleQueueService.BatchRequestTooLong" : @(AWSSQSErrorBatchRequestTooLong),
                             @"AWS.SimpleQueueService.EmptyBatchRequest" : @(AWSSQSErrorEmptyBatchRequest),
@@ -114,42 +113,6 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSSQSRequestRetryHandler
 
-- (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
-                             response:(NSHTTPURLResponse *)response
-                                 data:(NSData *)data
-                                error:(NSError *)error {
-    AWSNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
-                                                 response:response
-                                                     data:data
-                                                    error:error];
-    if(retryType == AWSNetworkingRetryTypeShouldNotRetry
-       && currentRetryCount < self.maxRetryCount) {
-        if ([error.domain isEqualToString:AWSSQSErrorDomain]) {
-            switch (error.code) {
-                case AWSSQSErrorIncompleteSignature:
-                case AWSSQSErrorInvalidClientTokenId:
-                case AWSSQSErrorMissingAuthenticationToken:
-                    retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
-                    break;
-
-                default:
-                    break;
-            }
-        } else if ([error.domain isEqualToString:AWSGeneralErrorDomain]) {
-            switch (error.code) {
-                case AWSGeneralErrorSignatureDoesNotMatch:
-                    retryType = AWSNetworkingRetryTypeShouldCorrectClockSkewAndRetry;
-                    break;
-
-                default:
-                    break;
-            }
-        }
-    }
-
-    return retryType;
-}
-
 @end
 
 @interface AWSRequest()
@@ -176,19 +139,26 @@ static NSDictionary *errorCodeDictionary = nil;
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultSQS {
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"`defaultServiceConfiguration` is `nil`. You need to set it before using this method."
-                                     userInfo:nil];
-    }
-
     static AWSSQS *_defaultSQS = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        _defaultSQS = [[AWSSQS alloc] initWithConfiguration:AWSServiceManager.defaultServiceManager.defaultServiceConfiguration];
-#pragma clang diagnostic pop
+        AWSServiceConfiguration *serviceConfiguration = nil;
+        AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoSQS];
+        if (serviceInfo) {
+            serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                               credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+        }
+
+        if (!serviceConfiguration) {
+            serviceConfiguration = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
+        }
+
+        if (!serviceConfiguration) {
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:@"The service configuration is `nil`. You need to configure `Info.plist` or set `defaultServiceConfiguration` before using this method."
+                                         userInfo:nil];
+        }
+        _defaultSQS = [[AWSSQS alloc] initWithConfiguration:serviceConfiguration];
     });
 
     return _defaultSQS;
@@ -199,15 +169,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     dispatch_once(&onceToken, ^{
         _serviceClients = [AWSSynchronizedMutableDictionary new];
     });
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [_serviceClients setObject:[[AWSSQS alloc] initWithConfiguration:configuration]
                         forKey:key];
-#pragma clang diagnostic pop
 }
 
 + (instancetype)SQSForKey:(NSString *)key {
-    return [_serviceClients objectForKey:key];
+    @synchronized(self) {
+        AWSSQS *serviceClient = [_serviceClients objectForKey:key];
+        if (serviceClient) {
+            return serviceClient;
+        }
+
+        AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] serviceInfo:AWSInfoSQS
+                                                                     forKey:key];
+        if (serviceInfo) {
+            AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                                                        credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+            [AWSSQS registerSQSWithConfiguration:serviceConfiguration
+                                          forKey:key];
+        }
+
+        return [_serviceClients objectForKey:key];
+    }
 }
 
 + (void)removeSQSForKey:(NSString *)key {

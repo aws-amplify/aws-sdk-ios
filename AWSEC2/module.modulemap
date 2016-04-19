@@ -1,6 +1,0 @@
-framework module AWSEC2 {
-  umbrella header "AWSEC2.h"
-
-  export *
-  module * { export * }
-}

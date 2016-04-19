@@ -1,6 +1,0 @@
-framework module AWSKinesis {
-  umbrella header "AWSKinesis.h"
-
-  export *
-  module * { export * }
-}

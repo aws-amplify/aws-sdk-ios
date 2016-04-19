@@ -14,5 +14,12 @@
 //
 
 #import <Foundation/Foundation.h>
+
+//! Project version number for AWSMobileAnalyticsERS.
+FOUNDATION_EXPORT double AWSMobileAnalyticsERSVersionNumber;
+
+//! Project version string for AWSMobileAnalyticsERS.
+FOUNDATION_EXPORT const unsigned char AWSMobileAnalyticsERSVersionString[];
+
 #import <AWSCore/AWSCore.h>
 #import "AWSMobileAnalyticsERSService.h"

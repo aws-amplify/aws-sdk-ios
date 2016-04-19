@@ -26,7 +26,89 @@ typedef NS_ENUM(NSInteger, AWSIoTMQTTStatus) {
     AWSIoTMQTTStatusProtocolError
 };
 
+typedef NS_ENUM(NSInteger, AWSIoTMQTTQoS) {
+    AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce = 0,
+    AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce = 1
+};
+
 typedef void(^AWSIoTMQTTNewMessageBlock)(NSData *data);
+
+#pragma mark - AWSIoTMQTTLastWillAndTestament
+
+@interface AWSIoTMQTTLastWillAndTestament: NSObject
+
+/**
+ The topic to publish the Last Will and Testament message to.  Default
+ value: @"".
+ */
+@property(nonatomic, strong) NSString *topic;
+
+/**
+ The Last Will and Testament message.  Default value: @"".
+ */
+@property(nonatomic, strong) NSString *message;
+
+/**
+ The Quality of Service to use when publishing the Last Will and Testament
+ message.  Default value: AWSIoTMQTTQoSAtMostOnce.
+ */
+@property(nonatomic, assign) AWSIoTMQTTQoS qos;
+
+@end
+
+#pragma mark - AWSIoTMQTTConfiguration
+
+@interface AWSIoTMQTTConfiguration : NSObject
+
+/**
+ The time in seconds to wait before attempting the first reconnect.  If the MQTT client
+ becomes disconnected, it will attempt to reconnect after a quiet period; this quiet
+ period doubles with each failed connection attempt, e.g. 1 second, 2 seconds, 4, 8,
+ 16, 32, etc... up until a maximum reconnection time (maximumReconnectTimeInterval) is 
+ reached.  If a connection is active for the minimum connection time 
+ (minimumConnectionTimeInterval), the quiet period is reset to the initial value.  
+ Default value: 1 second.
+  */
+@property(nonatomic, assign) NSTimeInterval baseReconnectTimeInterval;
+
+/**
+ The time in seconds that a connection must be active before resetting
+ the current reconnection time to the base reconnection time.  Default value:
+ 20 seconds.
+ */
+@property(nonatomic, assign) NSTimeInterval minimumConnectionTimeInterval;
+
+/**
+ The maximum time in seconds to wait prior to attempting to reconnect.  Default value:
+ 128 seconds.
+ */
+@property(nonatomic, assign) NSTimeInterval maximumReconnectTimeInterval;
+
+/**
+ The MQTT keep-alive time in seconds.  Default value: 60s seconds.
+ */
+@property(nonatomic, assign) NSTimeInterval keepAliveTimeInterval;
+
+/**
+ The last will and testament (LWT) to be used when connecting to AWS IoT; in the event
+ that this client disconnects improperly, AWS IoT will use this to notify any interested
+ clients.  Default value: nil
+ */
+@property(atomic, strong) AWSIoTMQTTLastWillAndTestament *lastWillAndTestament;
+
+/**
+ The run loop to execute the MQTT client in.  Default value: [NSRunLoop currentRunLoop]
+ */
+@property(atomic, strong) NSRunLoop *runLoop;
+
+/**
+ The run loop mode to use when executing the MQTT client.  Default value: NSDefaultRunLoopMode
+ */
+@property(nonatomic, strong) NSString *runLoopMode;
+
+@end
+
+#pragma mark - AWSIoTDataManager
 
 @interface AWSIoTDataManager : AWSService
 
@@ -36,6 +118,14 @@ typedef void(^AWSIoTMQTTNewMessageBlock)(NSData *data);
  @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
  */
 @property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration;
+
+/**
+ The MQTT configuration used by this service client. Any changes to this configuration object 
+ will take effect upon the next invocation of either the connectWithClientId or connectUsingWebSocketWithClientId
+ methods.
+ 
+ */
+@property (nonatomic, strong) AWSIoTMQTTConfiguration *mqttConfiguration;
 
 /**
  Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with `defaultServiceConfiguration` from `[AWSServiceManager defaultServiceManager]`. The reference to this object is maintained by the SDK, and you do not need to retain it manually.
@@ -186,7 +276,7 @@ typedef void(^AWSIoTMQTTNewMessageBlock)(NSData *data);
  @param cleanSession specifies if the server should discard previous session information.
 
  @param certificateId contains the ID of the certificate to use in the connection; must be in the keychain
-
+ 
  @param block Reference. When new mqtt session status is received the function of block will be called with new connection status.
 
  */
@@ -203,14 +293,14 @@ typedef void(^AWSIoTMQTTNewMessageBlock)(NSData *data);
  
  @param clientId The Client Identifier identifies the Client to the Server.
  
- @param certificateId contains the ID of the certificate to use in the connection; must be in the keychain
+ @param cleanSession specifies if the server should discard previous session information.
  
  @param block Reference. When new mqtt session status is received the function of block will be called with new connection status.
  
  */
 - (BOOL)connectUsingWebSocketWithClientId:(NSString *)clientId
-               cleanSession:(BOOL)cleanSession
-               statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
+                            cleanSession:(BOOL)cleanSession
+                          statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
 
 /**
  Disconnect from a mqtt client (close current mqtt session)
@@ -218,40 +308,68 @@ typedef void(^AWSIoTMQTTNewMessageBlock)(NSData *data);
  */
 - (void)disconnect;
 
+- (void)publishString:(NSString *)str
+              onTopic:(NSString *)topic __attribute__((deprecated("Use publishString:onTopic:QoS:")));
+
+- (void)publishString:(NSString *)str
+                  qos:(UInt8)qos
+              onTopic:(NSString *)topic __attribute__((deprecated("Use publishString:onTopic:QoS:")));
 /**
  Send MQTT message to specified topic
 
  @param message The message (As NSString object) to be sent.
 
+ @param qos The QoS value to use when publishing (optional, default AWSIoTMQTTQoSAtMostOnce).
+
  @param topic The topic for publish to.
+ 
+ @return Boolean value indicating success or failure.
 
  */
-- (void)publishString:(NSString *)str
-              onTopic:(NSString *)topic;
+- (BOOL) publishString:(NSString *)string
+               onTopic:(NSString *)topic
+                   QoS:(AWSIoTMQTTQoS)qos;
 
+- (void)publishData:(NSData *)data
+            onTopic:(NSString *)topic __attribute__((deprecated("Use publishData:onTopic:QoS:")));
+
+- (void)publishData:(NSData *)data
+                qos:(UInt8)qos
+            onTopic:(NSString *)topic __attribute__((deprecated("Use publishData:onTopic:QoS:")));
 /**
  Send MQTT message to specified topic
 
  @param message The message (As NSData) to be sent.
 
+ @param qos The QoS value to use when publishing (optional, default AWSIoTMQTTQoSAtMostOnce).
+ 
  @param topic The topic for publish to.
 
- */
-- (void)publishData:(NSData *)data
-            onTopic:(NSString *)topic;
+ @return Boolean value indicating success or failure.
 
+ */
+- (BOOL) publishData:(NSData *)data
+             onTopic:(NSString *)topic
+                 QoS:(AWSIoTMQTTQoS)qos;
+
+- (void)subscribeToTopic:(NSString *)topic
+                     qos:(UInt8)qos
+         messageCallback:(AWSIoTMQTTNewMessageBlock)callback __attribute__((deprecated("Use subscribeToTopic:QoS:messageCallback:")));
 /**
  Subscribes to a topic at a specific QoS level
 
  @param topic The Topic to subscribe to.
 
- @param qos Specifies the QoS Level of the subscription. Can be 0, 1, or 2.
+ @param qos Specifies the QoS Level of the subscription: AWSIoTMQTTQoSAtMostOnce or AWSIoTMQTTQoSAtLeastOnce
 
  @param block Reference to AWSIOTMQTTNewMessageBlock. When new message is received the function of block will be called.
+ 
+ @return Boolean value indicating success or failure.
+
  */
-- (void)subscribeToTopic:(NSString *)topic
-                     qos:(UInt8)qos
-         messageCallback:(AWSIoTMQTTNewMessageBlock)callback;
+- (BOOL) subscribeToTopic:(NSString *)topic
+                      QoS:(AWSIoTMQTTQoS)qos
+          messageCallback:(AWSIoTMQTTNewMessageBlock)callback;
 
 /**
  Unsubscribes from a topic

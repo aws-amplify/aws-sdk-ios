@@ -23,9 +23,6 @@ FOUNDATION_EXPORT NSString *const AWSFirehoseErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSFirehoseErrorType) {
     AWSFirehoseErrorUnknown,
-    AWSFirehoseErrorIncompleteSignature,
-    AWSFirehoseErrorInvalidClientTokenId,
-    AWSFirehoseErrorMissingAuthenticationToken,
     AWSFirehoseErrorConcurrentModification,
     AWSFirehoseErrorInvalidArgument,
     AWSFirehoseErrorLimitExceeded,

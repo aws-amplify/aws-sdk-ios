@@ -23,9 +23,6 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
     AWSElasticLoadBalancingErrorUnknown,
-    AWSElasticLoadBalancingErrorIncompleteSignature,
-    AWSElasticLoadBalancingErrorInvalidClientTokenId,
-    AWSElasticLoadBalancingErrorMissingAuthenticationToken,
     AWSElasticLoadBalancingErrorAccessPointNotFound,
     AWSElasticLoadBalancingErrorCertificateNotFound,
     AWSElasticLoadBalancingErrorDuplicateAccessPointName,

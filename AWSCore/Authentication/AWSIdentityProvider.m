@@ -18,47 +18,74 @@
 #import "AWSBolts.h"
 
 NSString *const AWSCognitoIdentityIdChangedNotification = @"com.amazonaws.services.cognitoidentity.AWSCognitoIdentityIdChangedNotification";
-NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.service.cognitoidentity.AWSCognitoIdentityProvider";
+NSString *const AWSCognitoCredentialsProviderHelperErrorDomain = @"com.amazonaws.service.cognitoidentity.AWSCognitoCredentialsProviderHelper";
 NSString *const AWSCognitoNotificationPreviousId = @"PREVID";
 NSString *const AWSCognitoNotificationNewId = @"NEWID";
 
-@interface AWSAbstractIdentityProvider()
-@property (nonatomic, strong) NSString *identityPoolId;
-@property (nonatomic, strong) NSString *token;
+NSString *const AWSIdentityProviderDigits = @"www.digits.com";
+NSString *const AWSIdentityProviderFacebook = @"graph.facebook.com";
+NSString *const AWSIdentityProviderGoogle = @"accounts.google.com";
+NSString *const AWSIdentityProviderLoginWithAmazon = @"www.amazon.com";
+NSString *const AWSIdentityProviderTwitter = @"api.twitter.com";
+
+NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.amazonaws.com";
+
+@interface AWSCognitoCredentialsProvider()
+
++ (BOOL)shouldResetIdentityId:(NSError *)error
+                authenticated:(BOOL)isAuthenticated;
+
 @end
 
-@implementation AWSAbstractIdentityProvider
+@interface AWSAbstractCognitoCredentialsProviderHelper()
 
-@synthesize identityId=_identityId;
-@synthesize token=_token;
-@synthesize logins=_logins;
-@synthesize identityPoolId=_identityPoolId;
+@property (nonatomic, strong) id<AWSIdentityProviderManager> identityProviderManager;
+@property (nonatomic, strong) NSString *identityPoolId;
+@property (nonatomic, strong) NSDictionary *cachedLogins;
 
-// stub class that should be overriden
-- (AWSTask *)getIdentityId {
-    return [AWSTask taskWithResult:self.identityId];
+@end
+
+@interface AWSCognitoIdentity()
+
+- (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration;
+
+@end
+
+@implementation AWSAbstractCognitoCredentialsProviderHelper
+
+#pragma mark - AWSIdentityProvider
+
+// Sub classes should override this.
+- (NSString *)identityProviderName {
+    return @"AWSAbstractCognitoCredentialsProviderHelper";
 }
 
-// stub class that should be overriden
-- (AWSTask *)refresh {
+// Sub classes should override this.
+- (AWSTask<NSString *> *)token {
     return [AWSTask taskWithResult:nil];
 }
 
+#pragma mark - AWSIdentityProviderManager
+
+// Sub classes should override this.
+- (AWSTask<NSDictionary<NSString *, NSString *> *> *)logins {
+    return [AWSTask taskWithResult:nil];
+}
+
+#pragma mark -
+
+// stub class that should be overriden
+- (AWSTask<NSString *> *)getIdentityId {
+    return [AWSTask taskWithResult:self.identityId];
+}
+
 - (void)clear {
-    self.token = nil;
     self.identityId = nil;
-    self.logins = nil;
+    self.cachedLogins = nil;
 }
 
 - (BOOL)isAuthenticated {
-    return self.logins != nil && [self.logins count] > 0;
-}
-
-- (void)setLogins:(NSDictionary *)logins {
-    _logins = [self updateKeysForLogins:logins];
-    // invalidate the credentials, so next time we
-    // are forced to get a new token (and perhaps merge)
-    self.token = nil;
+    return [self.cachedLogins count] > 0;
 }
 
 - (void)setIdentityId:(NSString *)identityId {
@@ -66,43 +93,6 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
         [self postIdentityIdChangedNotification:identityId];
     }
     _identityId = identityId;
-}
-
-- (NSDictionary *)updateKeysForLogins:(NSDictionary *)logins {
-    if (logins == nil) {
-        return nil;
-    }
-
-    NSMutableDictionary *mutableLogin = [NSMutableDictionary new];
-    for (id key in logins) {
-        NSString *updatedKey = key;
-        if ([key isKindOfClass:[NSNumber class]]) {
-            switch ([(NSNumber *)key integerValue]) {
-                case AWSCognitoLoginProviderKeyFacebook:
-                    updatedKey = @"graph.facebook.com";
-                    break;
-                case AWSCognitoLoginProviderKeyGoogle:
-                    updatedKey = @"accounts.google.com";
-                    break;
-                case AWSCognitoLoginProviderKeyLoginWithAmazon:
-                    updatedKey = @"www.amazon.com";
-                    break;
-                case AWSCognitoLoginProviderKeyTwitter:
-                    updatedKey = @"api.twitter.com";
-                    break;
-                case AWSCognitoLoginProviderKeyUnknown:
-                default:
-                    break;
-            }
-        }
-        mutableLogin[updatedKey] = logins[key];
-    }
-
-    if ([mutableLogin count] == 0) {
-        return nil;
-    }
-
-    return mutableLogin;
 }
 
 - (void)postIdentityIdChangedNotification:(NSString *)newId {
@@ -121,61 +111,178 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
 
 @end
 
-@interface AWSAbstractCognitoIdentityProvider()
+@interface AWSCognitoCredentialsProviderHelper()
 
-@property (nonatomic, strong) NSString *accountId;
-@property (nonatomic, strong) NSString *providerName;
-@property (nonatomic, strong) AWSCognitoIdentity *cib;
+@property (nonatomic, strong) AWSCognitoIdentity *cognitoIdentity;
 @property (nonatomic, strong) AWSExecutor *executor;
 @property (atomic, assign) int32_t count;
 @property (nonatomic, strong) dispatch_semaphore_t semaphore;
+@property (atomic, assign) BOOL hasClearedIdentityId;
 
 @end
 
-@implementation AWSAbstractCognitoIdentityProvider
-
-@synthesize accountId = _accountId;
+@implementation AWSCognitoCredentialsProviderHelper
 
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
-                        identityId:(NSString *)identityId
-                         accountId:(NSString *)accountId
                     identityPoolId:(NSString *)identityPoolId
-                            logins:(NSDictionary *)logins {
-
+                   useEnhancedFlow:(BOOL)useEnhancedFlow
+           identityProviderManager:(id<AWSIdentityProviderManager>)identityProviderManager {
     if (self = [super init]) {
-        _accountId = accountId;
         _executor = [AWSExecutor executorWithOperationQueue:[NSOperationQueue new]];
         _count = 0;
         _semaphore = dispatch_semaphore_create(0);
+        _useEnhancedFlow = useEnhancedFlow;
         self.identityPoolId = identityPoolId;
-        self.identityId = identityId;
-        self.logins = [self updateKeysForLogins:logins];
+        self.identityProviderManager = identityProviderManager;
 
         AWSAnonymousCredentialsProvider *credentialsProvider = [AWSAnonymousCredentialsProvider new];
         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:regionType
                                                                              credentialsProvider:credentialsProvider];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        _cib = [[AWSCognitoIdentity alloc] initWithConfiguration:configuration];
-#pragma clang diagnostic pop
+        _cognitoIdentity = [[AWSCognitoIdentity alloc] initWithConfiguration:configuration];
     }
 
     return self;
 }
 
-- (AWSTask *)getIdentityId {
+#pragma mark - AWSIdentityProvider
+
+- (NSString *)identityProviderName {
+    return AWSIdentityProviderAmazonCognitoIdentity;
+}
+
+- (AWSTask<NSString *> *)token {
+    return [[[self getIdentityId] continueWithSuccessBlock:^id(AWSTask *task) {
+        // This should never happen, but just in case
+        if (!self.identityId) {
+            AWSLogError(@"In refresh, but identitId is nil.");
+            AWSLogError(@"Result from getIdentityId is %@", task.result);
+            return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderHelperErrorDomain
+                                                              code:AWSCognitoCredentialsProviderHelperErrorIdentityIsNil
+                                                          userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]];
+        }
+
+        if (self.identityProviderManager) {
+            return [self.identityProviderManager logins];
+        } else {
+            return [AWSTask taskWithResult:nil];
+        }
+    }] continueWithSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        if (self.useEnhancedFlow && !task.result) {
+            return task;
+        }
+        NSDictionary<NSString *, NSString *> *logins = task.result;
+        self.cachedLogins = logins;
+
+        AWSCognitoIdentityGetOpenIdTokenInput *getTokenInput = [AWSCognitoIdentityGetOpenIdTokenInput new];
+        getTokenInput.identityId = self.identityId;
+        getTokenInput.logins = logins;
+
+        return [[[self.cognitoIdentity getOpenIdToken:getTokenInput] continueWithBlock:^id(AWSTask *task) {
+            // When an invalid identityId is cached in the keychain for auth,
+            // we will refresh the identityId and try to get OpenID token again.
+            if (task.error) {
+                AWSLogError(@"GetOpenIdToken failed. Error is [%@]", task.error);
+
+                // If it's auth or we caught a not found or validation error
+                // we want to reset the identity id, otherwise, just return
+                // the error to our caller
+                if (![AWSCognitoCredentialsProvider shouldResetIdentityId:task.error
+                                                            authenticated:[self isAuthenticated]]) {
+                    return task;
+                }
+
+                if (self.hasClearedIdentityId) {
+                    return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderErrorDomain
+                                                                      code:AWSCognitoCredentialsProviderInvalidConfiguration
+                                                                  userInfo:@{NSLocalizedDescriptionKey : @"GetCredentialsForIdentity keeps failing. Clearing identityId did not help. Please check your Amazon Cognito Identity configuration."}]];
+                }
+
+                AWSLogDebug(@"Resetting identity Id and calling getIdentityId");
+                // if it's auth, reset id and refetch
+                self.identityId = nil;
+                self.hasClearedIdentityId = YES;
+
+                return [[self getIdentityId] continueWithSuccessBlock:^id(AWSTask *task) {
+                    // This should never happen, but just in case
+                    if (!self.identityId) {
+                        AWSLogError(@"In refresh, but identitId is nil.");
+                        AWSLogError(@"Result from getIdentityId is %@", task.result);
+                        return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderHelperErrorDomain
+                                                                          code:AWSCognitoCredentialsProviderHelperErrorIdentityIsNil
+                                                                      userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
+                                ];
+                    }
+
+                    AWSLogDebug(@"Retrying GetOpenIdToken");
+
+                    // retry get token
+                    AWSCognitoIdentityGetOpenIdTokenInput *tokenRetry = [AWSCognitoIdentityGetOpenIdTokenInput new];
+                    tokenRetry.identityId = self.identityId;
+                    tokenRetry.logins = self.cachedLogins;
+
+                    return [self.cognitoIdentity getOpenIdToken:tokenRetry];
+                }];
+            }
+            if (task.exception) {
+                AWSLogError(@"GetOpenIdToken failed. Exception is [%@]", task.exception);
+            }
+            return task;
+        }] continueWithSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            AWSCognitoIdentityGetOpenIdTokenResponse *getTokenResponse = task.result;
+            NSString *token = getTokenResponse.token;
+            NSString *identityIdFromToken = getTokenResponse.identityId;
+
+            // This should never happen, but just in case
+            if (!identityIdFromToken) {
+                AWSLogError(@"identityId from getOpenIdToken is nil");
+                return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderHelperErrorDomain
+                                                                  code:AWSCognitoCredentialsProviderHelperErrorIdentityIsNil
+                                                              userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
+                        ];
+            }
+
+            if (![self.identityId isEqualToString:identityIdFromToken]) {
+                self.identityId = identityIdFromToken;
+            }
+
+            return [AWSTask taskWithResult:token];
+        }];
+    }];
+}
+
+#pragma mark - AWSIdentityProviderManager
+
+- (AWSTask<NSDictionary<NSString *, NSString *> *> *)logins {
+    return [[self token] continueWithSuccessBlock:^id _Nullable(AWSTask<NSString *> * _Nonnull task) {
+        if (!task.result) {
+            return [AWSTask taskWithResult:nil];
+        }
+        NSString *token = task.result;
+        return [AWSTask taskWithResult:@{self.identityProviderName : token}];
+    }];
+}
+
+#pragma mark -
+
+- (AWSTask<NSString *> *)getIdentityId {
     if (self.identityId) {
         return [AWSTask taskWithResult:self.identityId];
     } else {
-        return [[[AWSTask taskWithResult:nil] continueWithExecutor:self.executor withBlock:^id(AWSTask *task) {
+        AWSTask *task = [AWSTask taskWithResult:nil];
+        if (self.identityProviderManager) {
+            task = [self.identityProviderManager logins];
+        }
+        return [[task continueWithExecutor:self.executor withSuccessBlock:^id _Nullable(AWSTask<NSDictionary<NSString *,NSString *> *> * _Nonnull task) {
+            NSDictionary<NSString *, NSString *> *logins = task.result;
+            self.cachedLogins = logins;
+
             self.count++;
             if (self.count <= 1) {
                 AWSCognitoIdentityGetIdInput *getIdInput = [AWSCognitoIdentityGetIdInput new];
-                getIdInput.accountId = self.accountId;
                 getIdInput.identityPoolId = self.identityPoolId;
-                getIdInput.logins = self.logins;
+                getIdInput.logins = logins;
 
-                return [self.cib getId:getIdInput];
+                return [self.cognitoIdentity getId:getIdInput];
             }
             else {
                 dispatch_semaphore_wait(self.semaphore, dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC));
@@ -200,124 +307,6 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
             return [AWSTask taskWithResult:self.identityId];
         }];
     }
-}
-
-- (AWSTask *)refresh {
-    return [[[self getIdentityId] continueWithSuccessBlock:^id(AWSTask *task) {
-        // This should never happen, but just in case
-        if (!self.identityId) {
-            AWSLogError(@"In refresh, but identitId is nil.");
-            AWSLogError(@"Result from getIdentityId is %@", task.result);
-            return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
-                                                             code:AWSCognitoIdentityProviderErrorIdentityIsNil
-                                                         userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]];
-        }
-
-        AWSCognitoIdentityGetOpenIdTokenInput *getTokenInput = [AWSCognitoIdentityGetOpenIdTokenInput new];
-        getTokenInput.identityId = self.identityId;
-        getTokenInput.logins = self.logins;
-
-
-        return [[self.cib getOpenIdToken:getTokenInput] continueWithBlock:^id(AWSTask *task) {
-            // When an invalid identityId is cached in the keychain for auth,
-            // we will refresh the identityId and try to get OpenID token again.
-            if (task.error) {
-                AWSLogError(@"GetOpenIdToken failed. Error is [%@]", task.error);
-
-                // If it's auth or we caught a not found or validation error
-                // we want to reset the identity id, otherwise, just return
-                // the error to our caller
-                if (!([self isAuthenticated] || [AWSCognitoCredentialsProvider shouldResetIdentityId:task.error])) {
-                    return task;
-                }
-
-                AWSLogVerbose(@"Resetting identity Id and calling getIdentityId");
-                // if it's auth, reset id and refetch
-                self.identityId = nil;
-                return [[self getIdentityId] continueWithSuccessBlock:^id(AWSTask *task) {
-                    // This should never happen, but just in case
-                    if (!self.identityId) {
-                        AWSLogError(@"In refresh, but identitId is nil.");
-                        AWSLogError(@"Result from getIdentityId is %@", task.result);
-                        return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
-                                                                         code:AWSCognitoIdentityProviderErrorIdentityIsNil
-                                                                     userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
-                                ];
-                    }
-
-                    AWSLogVerbose(@"Retrying GetOpenIdToken");
-
-                    // retry get token
-                    AWSCognitoIdentityGetOpenIdTokenInput *tokenRetry = [AWSCognitoIdentityGetOpenIdTokenInput new];
-                    tokenRetry.identityId = self.identityId;
-                    tokenRetry.logins = self.logins;
-
-                    return [self.cib getOpenIdToken:tokenRetry];
-                }];
-            }
-            if (task.exception) {
-                AWSLogError(@"GetOpenIdToken failed. Exception is [%@]", task.exception);
-            }
-            return task;
-        }];
-    }] continueWithSuccessBlock:^id(AWSTask *task) {
-        AWSCognitoIdentityGetOpenIdTokenResponse *getTokenResponse = task.result;
-        self.token = getTokenResponse.token;
-        NSString *identityIdFromToken = getTokenResponse.identityId;
-
-        // This should never happen, but just in case
-        if (!identityIdFromToken) {
-            AWSLogError(@"identityId from getOpenIdToken is nil");
-            return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain
-                                                             code:AWSCognitoIdentityProviderErrorIdentityIsNil
-                                                         userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
-                    ];
-        }
-
-        if (![self.identityId isEqualToString:identityIdFromToken]) {
-            self.identityId = identityIdFromToken;
-        }
-
-        return [AWSTask taskWithResult:nil];
-    }];
-}
-
-@end
-
-@implementation AWSBasicCognitoIdentityProvider
-
-- (instancetype)initWithRegionType:(AWSRegionType)regionType
-                        identityId:(NSString *)identityId
-                         accountId:(NSString *)accountId
-                    identityPoolId:(NSString *)identityPoolId
-                            logins:(NSDictionary *)logins {
-
-
-    if (self = [super initWithRegionType:regionType identityId:identityId accountId:accountId identityPoolId:identityPoolId logins:logins]) {
-        self.providerName = @"Cognito";
-    }
-    return self;
-}
-
-@end
-
-@implementation AWSEnhancedCognitoIdentityProvider
-
-- (instancetype)initWithRegionType:(AWSRegionType)regionType
-                        identityId:(NSString *)identityId
-                    identityPoolId:(NSString *)identityPoolId
-                            logins:(NSDictionary *)logins {
-
-
-    if (self = [super initWithRegionType:regionType identityId:identityId accountId:nil identityPoolId:identityPoolId logins:logins]) {
-        self.providerName = @"Cognito";
-    }
-    return self;
-}
-
-// In the new flow, this provider only handles identity id
-- (AWSTask *)refresh {
-    return [self getIdentityId];
 }
 
 @end

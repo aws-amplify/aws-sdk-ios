@@ -25,6 +25,8 @@ NSString *const AWSAPIGatewayAPIKeyHeader = @"x-api-key";
 
 @interface AWSAPIGatewayClient()
 
+@property (nonatomic, strong) AWSServiceConfiguration *configuration;
+
 // Networking
 @property (nonatomic, strong) NSURLSession *session;
 
@@ -78,39 +80,10 @@ NSString *const AWSAPIGatewayAPIKeyHeader = @"x-api-key";
     task = [task continueWithSuccessBlock:^id(AWSTask *task) {
         id signer = [self.configuration.requestInterceptors lastObject];
         if (signer) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundeclared-selector"
             if ([signer respondsToSelector:@selector(credentialsProvider)]) {
-                id credentialsProvider = [signer performSelector:@selector(credentialsProvider)];
-
-                if ([credentialsProvider respondsToSelector:@selector(refresh)]) {
-                    NSString *accessKey = nil;
-                    if ([credentialsProvider respondsToSelector:@selector(accessKey)]) {
-                        accessKey = [credentialsProvider performSelector:@selector(accessKey)];
-                    }
-
-                    NSString *secretKey = nil;
-                    if ([credentialsProvider respondsToSelector:@selector(secretKey)]) {
-                        secretKey = [credentialsProvider performSelector:@selector(secretKey)];
-                    }
-
-                    NSDate *expiration = nil;
-                    if  ([credentialsProvider respondsToSelector:@selector(expiration)]) {
-                        expiration = [credentialsProvider performSelector:@selector(expiration)];
-                    }
-
-                    /**
-                     Preemptively refresh credentials if any of the following is true:
-                     1. accessKey or secretKey is nil.
-                     2. the credentials expires within 10 minutes.
-                     */
-                    if ((!accessKey || !secretKey)
-                        || [expiration compare:[NSDate dateWithTimeIntervalSinceNow:10 * 60]] == NSOrderedAscending) {
-                        return [credentialsProvider performSelector:@selector(refresh)];
-                    }
-                }
+                id<AWSCredentialsProvider> credentialsProvider = [signer performSelector:@selector(credentialsProvider)];
+                return [credentialsProvider credentials];
             }
-#pragma clang diagnostic pop
         }
         return nil;
     }];

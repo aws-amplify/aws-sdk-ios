@@ -1,34 +1,50 @@
-#Version 2 of the AWS SDK for iOS
+#AWS Mobile SDK for iOS
 
 ##Setting Up
 
-To get started with the AWS SDK for iOS, you can set up the SDK and start building a new project, or you can integrate the SDK in an existing project. You can also run the samples to get a sense of how the SDK works.
+To get started with the AWS SDK for iOS, you can set up the SDK and start building a new project, or you integrate the SDK in an existing project. You can also run the samples to get a sense of how the SDK works.
 
-The AWS Mobile SDK for iOS supports the following versions of software:
+To use the AWS SDK for iOS, you will need the following installed on your development machine:
 
-* Xcode 7 and later
-* iOS 7 and later
+* Xcode 7 or later
+* iOS 8 or later
 
-You can check out the [SDK source code](https://github.com/aws/aws-sdk-ios).
+At the AWS GitHub repo, you can check out the [SDK source code](https://github.com/aws/aws-sdk-ios).
+
+For more information, see  [AWS Mobile SDK for iOS Developer Guide](http://docs.aws.amazon.com/mobile/sdkforios/developerguide/).
 
 ##Include the SDK for iOS in an Existing Application
 
-The [sample apps](https://github.com/awslabs/aws-sdk-ios-samples) are standalone projects that are already set up for you. You can also integrate the SDK for iOS with an existing application. If you have an existing app in which you'd like to use AWS, there are two ways to import the AWS Mobile SDK for iOS into your project:
+The [samples](https://github.com/awslabs/aws-sdk-ios-samples) included with the SDK for iOS are standalone projects that are already set up for you. You can also integrate the SDK for iOS with your own existing project. There are three ways to import the AWS Mobile SDK for iOS into your project:
+
+* [CocoaPods](https://cocoapods.org/)
+* [Carthage](https://github.com/Carthage/Carthage)
+* [Dynamic Frameworks](https://aws.amazon.com/mobile/sdk/)
+
+You should use one of these three ways to import the AWS Mobile SDK but not multiple. Importing the SDK in multiple ways loads duplicate copies of the SDK into the project and causes compiler errors.
 
 ###CocoaPods
 
 1. The AWS Mobile SDK for iOS is available through [CocoaPods](http://cocoapods.org). If you have not installed CocoaPods, install CocoaPods by running the command:
 
+		$ gem install cocoapods
+		$ pod setup
+
+    Depending on your system settings, you may have to use `sudo` for installing `cocoapods` as follows:
+
 		$ sudo gem install cocoapods
 		$ pod setup
 
-1. In your project directory (the directory where your `*.xcodeproj` file is), create a plain text file named **Podfile** (without any file extension) and add the following lines.
+1. In your project directory (the directory where your `*.xcodeproj` file is), create a plain text file named `Podfile` (without any file extension) and add the lines below.
 
         source 'https://github.com/CocoaPods/Specs.git'
         
-        pod 'AWSCore'
+        platform :ios, '8.0'
+        
         pod 'AWSAutoScaling'
         pod 'AWSCloudWatch'
+        pod 'AWSCognito'
+        pod 'AWSCognitoIdentityProvider'
         pod 'AWSDynamoDB'
         pod 'AWSEC2'
         pod 'AWSElasticLoadBalancing'
@@ -42,7 +58,6 @@ The [sample apps](https://github.com/awslabs/aws-sdk-ios-samples) are standalone
         pod 'AWSSimpleDB'
         pod 'AWSSNS'
         pod 'AWSSQS'
-        pod 'AWSCognito'
         
     ![image](readme-images/cocoapods-setup-01.png?raw=true)
         
@@ -56,38 +71,30 @@ The [sample apps](https://github.com/awslabs/aws-sdk-ios-samples) are standalone
 
     **Note**: Do **NOT** use `*.xcodeproj`. If you open up a project file instead of a workspace, you receive an error:
 
-        ld: library not found for -lPods-AWSiOSSDKv2
+        ld: library not found for -lPods-AWSCore
         clang: error: linker command failed with exit code 1 (use -v to see invocation)
 
-###Frameworks
+###Carthage
 
-1. Download the SDK from our [AWS Mobile SDK](http://aws.amazon.com/mobile/sdk) page. The SDK is stored in a compressed file archive named `aws-ios-sdk-#.#.#` (where `#.#.#` represents the version number, so for version 2.0.0, the filename is `aws-ios-sdk-2.0.0`).
+1. Install the latest version of [Carthage](https://github.com/Carthage/Carthage#installing-carthage).
 
-    **Note**: The size of **AWSiOSSDKv2.framework** is > 65MB; however, it does not add > 65MB to your app binary when imported to your project because:
-    
-    * **Only objects that you use in your app are included in your app binary from the framework**
-    
-        **AWSiOSSDKv2.framework** contains a static library, and object code in the library is incorporated in your app binary file at build time. When the `-ObjC` and `-all_load` linker flags are **NOT** used, Xcode is smart enough to figure out what objects from the framework are necessary for your app and include just those objects. **AWSiOSSDKv2.framework** is packaged so that you do not need to include these linker flags. (If you are using a third-party framework that requires you to include the `-ObjC` or `-all_load` linker flags, you can use `-force_load` instead to include those frameworks.)
+1. Add the following to your `Cartfile`:
 
-        For example, if you only use Amazon DynamoDB in your app and none of the other supported services, your app won't include object code for those other services. Unless you use every single object from the framework, only a portion of the code from the framework will be included in your app.
-    
-    * **The framework contains five architectures, while apps on a device need at most three**
-    
-        We currently compile the AWS Mobile SDK for iOS for five architectures: `armv7`, `armv7s`, `arm64`, `i386`, and `x86_64`. If you want to optimize your app for 64-bit devices including iPhone 6 and iPhone 5S, you need to build your app with `arm64` support. 32-bit iOS devices that the AWS SDK for iOS supports use the `armv7` and `armv7s` architectures.
+        github "aws/aws-sdk-ios"
 
-        The 64-bit iPhone simulators use `x86_64`, and 32-bit simulators use `i386` because they run on the Mac. We support these architectures so that the developers can run their apps with our framework on the simulator for testing. `x86_64` and `i386` support is essential for testing, but the code is unnecessary for apps on the App Store. Even if you use every single object from the AWS Mobile SDK, the app that you submit to Apple never includes about two fifths of the code included in the framework.
-    
-    * **Apps on the App Store are compressed**
-    
-        After you submit your app to Apple, it is encrypted for DRM purposes and re-compressed. This leads to an even smaller footprint.
+1. Then run the following command:
+	
+		$ carthage update
 
-1. With your project open in Xcode, Control+click **Frameworks** and then click **Add files to "\<project name\>"...**.
+1. With your project open in Xcode, select your **Target**. Under **General** tab, find **Embedded Binaries** and then click the **+** button.
 
-1. In Finder, navigate to the `AWS<#ServiceName#>.framework` files and select them.
+1. Click the **Add Other...** button, navigate to the `AWS<#ServiceName#>.framework` files under `Carthage` > `Build` > `iOS` and select them. Do not check the **Destination: Copy items if needed** checkbox when prompted.
 
     * `AWSCore.framework`
     * `AWSAutoScaling.framework`
     * `AWSCloudWatch.framework`
+    * `AWSCognito.framework`
+    * `AWSCognitoIdentityProvider.framework`
     * `AWSDynamoDB.framework`
     * `AWSEC2.framework`
     * `AWSElasticLoadBalancing.framework`
@@ -101,9 +108,57 @@ The [sample apps](https://github.com/awslabs/aws-sdk-ios-samples) are standalone
     * `AWSSimpleDB.framework`
     * `AWSSNS.framework`
     * `AWSSQS.framework`
-    * `extras/AWSCognito.framework` - for [Amazon Cognito Sync](http://aws.amazon.com/cognito/)
 
-1. Open a target for your project, select **Build Phases**, expand **Link Binary With Libraries**, click the **+** button, and add `libsqlite3.tbd`, `libz.tbd`, `CFNetwork.framework`, `Security.framework`, `SystemConfiguration.framework`, and `UIKit.framework`.
+1. Under the **Buid Phases** tab in your **Target**, click the **+** button on the top left and then select **New Run Script Phase**. Then setup the build phase as follows. Make sure this phase is below the `Embed Frameworks` phase.
+
+        Shell /bin/sh
+        
+        bash "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework/strip-frameworks.sh"
+        
+        Show environment variables in build log: Checked
+        Run script only when installing: Not checked
+        
+        Input Files: Empty
+        Output Files: Empty
+
+###Frameworks
+
+1. Download the SDK from our [AWS Mobile SDK](http://aws.amazon.com/mobile/sdk) page. The SDK is stored in a compressed file archive named `aws-ios-sdk-#.#.#` (where `#.#.#` represents the version number, so for version 2.4.0, the filename is `aws-ios-sdk-2.4.0`).
+
+1. With your project open in Xcode, select your **Target**. Under **General** tab, find **Embedded Binaries** and then click the **+** button.
+
+1. Click the **Add Other...** button, navigate to the `AWS<#ServiceName#>.framework` files and select them. Check the **Destination: Copy items if needed** checkbox when prompted.
+
+    * `AWSCore.framework`
+    * `AWSAutoScaling.framework`
+    * `AWSCloudWatch.framework`
+    * `AWSCognito.framework`
+    * `AWSCognitoIdentityProvider.framework`
+    * `AWSDynamoDB.framework`
+    * `AWSEC2.framework`
+    * `AWSElasticLoadBalancing.framework`
+    * `AWSIoT.framework`
+    * `AWSKinesis.framework`
+    * `AWSLambda.framework`
+    * `AWSMachineLearning.framework`
+    * `AWSMobileAnalytics.framework`
+    * `AWSS3.framework`
+    * `AWSSES.framework`
+    * `AWSSimpleDB.framework`
+    * `AWSSNS.framework`
+    * `AWSSQS.framework`
+
+1. Under the **Buid Phases** tab in your **Target**, click the **+** button on the top left and then select **New Run Script Phase**. Then setup the build phase as follows. Make sure this phase is below the `Embed Frameworks` phase.
+
+        Shell /bin/sh
+        
+        bash "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework/strip-frameworks.sh"
+        
+        Show environment variables in build log: Checked
+        Run script only when installing: Not checked
+        
+        Input Files: Empty
+        Output Files: Empty
 
 ##Update the SDK to a Newer Version
 
@@ -119,13 +174,21 @@ When we release a new version of the SDK, you can pick up the changes as describ
     
     ![image](readme-images/cocoapods-setup-03.png?raw=true)
 
+###Carthage
+
+1. Run the following command in your project directory. Carthage automatically picks up the new changes.
+
+        $ carthage update
+
 ###Frameworks
 
-1. In Xcode select the following frameworks and hit **delete** on your keyboard. Then select **Move to Trash**:
+1. In Xcode select the following frameworks in **Project Navigator** and hit **delete** on your keyboard. Then select **Move to Trash**:
 
     * `AWSCore.framework`
     * `AWSAutoScaling.framework`
     * `AWSCloudWatch.framework`
+    * `AWSCognito.framework`
+    * `AWSCognitoIdentityProvider.framework`
     * `AWSDynamoDB.framework`
     * `AWSEC2.framework`
     * `AWSElasticLoadBalancing.framework`
@@ -139,12 +202,11 @@ When we release a new version of the SDK, you can pick up the changes as describ
     * `AWSSimpleDB.framework`
     * `AWSSNS.framework`
     * `AWSSQS.framework`
-    * `AWSCognito.framework`
 
 1. Follow the installation process above to include the new version of the SDK.
 
 ##Preparing your apps for iOS 9
-The release of iOS 9 includes changes that might impact how your apps interact with some AWS services. If you compile your apps with Apple’s iOS 9 SDK (or Xcode 7), Apple’s [App Transport Security (ATS)](https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html) feature may affect the ability of apps to connect to certain AWS service endpoints. In order to ensure affected apps continue to successfully connect to AWS endpoints, you’ll need to configure them to interact properly with Apple’s ATS by adding these properties to your `info.plist` file:
+The release of iOS 9 includes changes that might impact how your apps interact with some AWS services. If you compile your apps with Apple’s iOS 9 SDK (or Xcode 7), Apple’s [App Transport Security (ATS)](https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html) feature may affect the ability of apps to connect to certain AWS service endpoints. In order to ensure affected apps continue to successfully connect to AWS endpoints, you’ll need to configure them to interact properly with Apple’s ATS by adding these properties to your `Info.plist` file:
 
 	    <key>NSAppTransportSecurity</key>
 	    <dict>
@@ -171,26 +233,13 @@ The release of iOS 9 includes changes that might impact how your apps interact w
     	        </dict>
 	    </dict>
 
-For detailed steps on how to do identify and resolve this issue if your app is affected, follow the instructions on [AWS Developer Guide](http://docs.aws.amazon.com/mobile/sdkforios/developerguide/ats.html).
+For more information, see [Preparing Your Apps for iOS 9](http://docs.aws.amazon.com/mobile/sdkforios/developerguide/ats.html).
 
 ##Getting Started with Swift
 
-1. Create an Objective-C bridging header file using Xcode.
+1. Import the AWSCore header in the application delegate.
 
-1. In the bridging header, import the appropriate headers for the services you are using. The header file import convention is `#import <AWSServiceName/AWSServiceName.h>`, as in the following examples:
-
-        #import <AWSCore/AWSCore.h>
-        #import <AWSS3/AWSS3.h>
-        #import <AWSDynamoDB/AWSDynamoDB.h>
-        #import <AWSSQS/AWSSQS.h>
-        #import <AWSSNS/AWSSNS.h>
-        #import <AWSCognito/AWSCognito.h>
-
-    ![image](readme-images/objc-bridging-header-01.png?raw=true)
-
-1. From **Your Target** > **Build Settings** > **Objective-C Bridging Header**, point **Objective-C Bridging Header** to the bridging header you just created.
-
-    ![image](readme-images/objc-bridging-header-02.png?raw=true)
+        import AWSCore
 
 1. Create a default service configuration by adding the following code snippet in the `application:didFinishLaunchingWithOptions:` application delegate method.
 
@@ -202,6 +251,14 @@ For detailed steps on how to do identify and resolve this issue if your app is a
             credentialsProvider: credentialsProvider)
         AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
 
+1. In Swift file you want to use the SDK, import the appropriate headers for the services you are using. The header file import convention is `import AWSServiceName`, as in the following examples:
+
+        import AWSS3
+        import AWSDynamoDB
+        import AWSSQS
+        import AWSSNS
+        import AWSCognito
+        
 1. Make a call to the AWS services.
 
         let dynamoDB = AWSDynamoDB.defaultDynamoDB()
@@ -214,7 +271,7 @@ For detailed steps on how to do identify and resolve this issue if your app is a
 
             let listTablesOutput = task.result as AWSDynamoDBListTablesOutput
 
-            for tableName : AnyObject in listTablesOutput.tableNames {
+            for tableName in listTablesOutput.tableNames {
                 print("\(tableName)")
             }
 
@@ -227,7 +284,7 @@ For detailed steps on how to do identify and resolve this issue if your app is a
 
 1. Import the AWSCore header in the application delegate.
 
-        #import <AWSCore/AWSCore.h>
+        @import AWSCore;
 
 1. Create a default service configuration by adding the following code snippet in the `application:didFinishLaunchingWithOptions:` application delegate method.
 
@@ -237,14 +294,13 @@ For detailed steps on how to do identify and resolve this issue if your app is a
                                                                              credentialsProvider:credentialsProvider];
         AWSServiceManager.defaultServiceManager.defaultServiceConfiguration = configuration;
 
-1. Import the appropriate headers for the services you are using. The header file import convention is `#import <AWSServiceName/AWSServiceName.h>`, as in the following examples:
+1. Import the appropriate headers for the services you are using. The header file import convention is `@import AWSServiceName;`, as in the following examples:
 
-        #import <AWSCore/AWSCore.h>
-        #import <AWSS3/AWSS3.h>
-        #import <AWSDynamoDB/AWSDynamoDB.h>
-        #import <AWSSQS/AWSSQS.h>
-        #import <AWSSNS/AWSSNS.h>
-        #import <AWSCognito/AWSCognito.h>
+        @import AWSS3;
+        @import AWSDynamoDB;
+        @import AWSSQS;
+        @import AWSSNS;
+        @import AWSCognito;
 
 1. Make a call to the AWS services.
 
@@ -264,7 +320,7 @@ For detailed steps on how to do identify and resolve this issue if your app is a
 
 ##AWSTask
 
-With native AWSTask support in the SDK for iOS, you can chain async requests instead of nesting them. It makes the logic cleaner, while keeping the code more readable. Read this [blog post](http://mobile.awsblog.com/post/Tx2B17V9NSVLP3I/The-AWS-Mobile-SDK-for-iOS-How-to-use-BFTask) to learn how to use AWSTask.
+With native AWSTask support in the SDK for iOS, you can chain async requests instead of nesting them. It makes the logic cleaner, while keeping the code more readable. Read [Working with AWSTask](http://docs.aws.amazon.com/mobile/sdkforios/developerguide/awstask.html) to learn how to use AWSTask.
 
 ##Logging
 
@@ -277,10 +333,10 @@ Changing log levels during development may make debugging easier. You can change
 The following logging level options are available:
 
 * `.None`
-* `.Error` (This is the default. Only error logs are printed to the console.)
+* `.Error`
 * `.Warn`
 * `.Info`
-* `.Debug`
+* `.Debug` (This is the default.)
 * `.Verbose`
 
 **Objective-C**
@@ -290,10 +346,10 @@ The following logging level options are available:
 The following logging level options are available:
 
 * `AWSLogLevelNone`
-* `AWSLogLevelError` (This is the default. Only error logs are printed to the console.)
+* `AWSLogLevelError`
 * `AWSLogLevelWarn`
 * `AWSLogLevelInfo`
-* `AWSLogLevelDebug`
+* `AWSLogLevelDebug` (This is the default.)
 * `AWSLogLevelVerbose`
 
 ##Sample Apps
@@ -371,9 +427,9 @@ The AWS Mobile SDK for iOS zip file includes documentation in the DocSets format
 
 1. Open the Mac OS X terminal and go to the directory containing the expanded archive. For example:
 
-        $ cd ~/Downloads/aws-ios-sdk-2.0.0
+        $ cd ~/Downloads/aws-ios-sdk-2.4.0
 
-    **Note**: Remember to replace 2.0.0 in the example above with the actual version number of the AWS SDK for iOS that you downloaded.
+    **Note**: Remember to replace 2.4.0 in the example above with the actual version number of the AWS SDK for iOS that you downloaded.
 
 1. Create a directory called `~/Library/Developer/Shared/Documentation/DocSets`:
 
@@ -383,7 +439,7 @@ The AWS Mobile SDK for iOS zip file includes documentation in the DocSets format
 
         $ mv Documentation/com.amazon.aws.ios.docset ~/Library/Developer/Shared/Documentation/DocSets/
 
-1. If Xcode was running during this procedure, restart Xcode. To browse the documentation, go to **Help**, click **Documentation and API Reference**, and select **AWS SDK for iOS v2.0 Documentation** (where '2.0' is the appropriate version number).
+1. If Xcode was running during this procedure, restart Xcode. To browse the documentation, go to **Help**, click **Documentation and API Reference**, and select **AWS Mobile SDK for iOS v2.4.0 Documentation** (where '2.4.0' is the appropriate version number).
 
 ##Talk to Us
 
@@ -395,4 +451,4 @@ Amazon Web Services
 
 ##License
 
-The AWS Mobile SDK for iOS is available under the Apache License. See the **LICENSE** file for more info.
+See the **LICENSE** file for more info.

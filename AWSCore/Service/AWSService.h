@@ -20,6 +20,31 @@
 
 FOUNDATION_EXPORT NSString *const AWSiOSSDKVersion;
 
+FOUNDATION_EXPORT NSString *const AWSServiceErrorDomain;
+
+typedef NS_ENUM(NSInteger, AWSServiceErrorType) {
+    AWSServiceErrorUnknown,
+    AWSServiceErrorRequestTimeTooSkewed,
+    AWSServiceErrorInvalidSignatureException,
+    AWSServiceErrorSignatureDoesNotMatch,
+    AWSServiceErrorRequestExpired,
+    AWSServiceErrorAuthFailure,
+    AWSServiceErrorAccessDeniedException,
+    AWSServiceErrorUnrecognizedClientException,
+    AWSServiceErrorIncompleteSignature,
+    AWSServiceErrorInvalidClientTokenId,
+    AWSServiceErrorMissingAuthenticationToken,
+    AWSServiceErrorAccessDenied,
+    AWSServiceErrorExpiredToken,
+    AWSServiceErrorInvalidAccessKeyId,
+    AWSServiceErrorInvalidToken,
+    AWSServiceErrorTokenRefreshRequired,
+    AWSServiceErrorAccessFailure,
+    AWSServiceErrorAuthMissingFailure,
+    AWSServiceErrorThrottling,
+    AWSServiceErrorThrottlingException,
+};
+
 @class AWSEndpoint;
 
 #pragma mark - AWSService
@@ -28,6 +53,8 @@ FOUNDATION_EXPORT NSString *const AWSiOSSDKVersion;
  An abstract representation of AWS services.
  */
 @interface AWSService : NSObject
+
++ (NSDictionary<NSString *, NSNumber *> *)errorCodeDictionary;
 
 @end
 
@@ -52,10 +79,6 @@ FOUNDATION_EXPORT NSString *const AWSiOSSDKVersion;
  */
 + (instancetype)defaultServiceManager;
 
-- (AWSService *)serviceForKey:(id)key __attribute__ ((deprecated("Use '+ SERVICEForKey:' in each service client instead. e.g. '+ S3ForKey:' in AWSS3")));
-- (void)setService:(AWSService *)service forKey:(id)key __attribute__ ((deprecated("Use '+ registerSERVICEWithConfiguration:forKey:' in each service client instead. e.g. '+ registerS3WithConfiguration:forKey' in AWSS3")));
-- (void)removeServiceForKey:(id)key __attribute__ ((deprecated("Use '+ removeSERVICEForKey:' in each service client instead. e.g. '+ removeS3ForKey:' in AWSS3")));
-
 @end
 
 #pragma mark - AWSServiceConfiguration
@@ -78,9 +101,6 @@ FOUNDATION_EXPORT NSString *const AWSiOSSDKVersion;
            credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider;
 
 - (void)addUserAgentProductToken:(NSString *)productToken;
-
-+ (instancetype)configurationWithRegion:(AWSRegionType)regionType
-                    credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider __attribute__ ((deprecated("Use '- initWithRegion:credentialsProvider:' instead.")));
 
 @end
 

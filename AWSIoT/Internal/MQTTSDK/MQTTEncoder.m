@@ -15,6 +15,7 @@
 //    Kyle Roche - initial API and implementation and/or initial documentation
 // 
 
+#import "AWSLogging.h"
 #import "MQTTEncoder.h"
 
 @interface MQTTEncoder () {
@@ -105,7 +106,7 @@
             }
             break;
         default:
-            NSLog(@"Oops, event code not handled: 0x%02lx", (unsigned long)eventCode);
+            AWSLogDebug(@"Oops, event code not handled: 0x%02lx", (unsigned long)eventCode);
             break;
     }
 }
@@ -115,7 +116,7 @@
     NSInteger n, length;
     
     if (_status != MQTTEncoderStatusReady) {
-        NSLog(@"Encoder not ready");
+        AWSLogInfo(@"Encoder not ready");
         return;
     }
     

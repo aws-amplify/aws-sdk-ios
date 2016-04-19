@@ -14,5 +14,12 @@
 //
 
 #import <Foundation/Foundation.h>
+
+//! Project version number for AWSElasticLoadBalancing.
+FOUNDATION_EXPORT double AWSElasticLoadBalancingVersionNumber;
+
+//! Project version string for AWSElasticLoadBalancing.
+FOUNDATION_EXPORT const unsigned char AWSElasticLoadBalancingVersionString[];
+
 #import <AWSCore/AWSCore.h>
 #import "AWSElasticLoadBalancingService.h"

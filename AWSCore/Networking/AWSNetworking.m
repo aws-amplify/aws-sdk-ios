@@ -93,17 +93,7 @@ NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDom
 }
 
 - (AWSTask *)sendRequest:(AWSNetworkingRequest *)request {
-    AWSTaskCompletionSource *taskCompletionSource = [AWSTaskCompletionSource taskCompletionSource];
-    [self.networkManager dataTaskWithRequest:request
-                           completionHandler:^(id responseObject, NSError *error) {
-                               if (!error) {
-                                   taskCompletionSource.result = responseObject;
-                               } else {
-                                   taskCompletionSource.error = error;
-                               }
-                           }];
-
-    return taskCompletionSource.task;
+    return [self.networkManager dataTaskWithRequest:request];
 }
 @end
 
@@ -148,7 +138,6 @@ NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDom
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-    
     AWSNetworkingConfiguration *configuration = nil;
     if ([self isMemberOfClass:[AWSServiceConfiguration class]]) {
         configuration = [[AWSServiceConfiguration allocWithZone:zone] initWithRegion:AWSRegionUnknown credentialsProvider:nil];

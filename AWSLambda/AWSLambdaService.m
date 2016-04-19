@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -26,6 +26,8 @@
 #import "AWSSynchronizedMutableDictionary.h"
 #import "AWSLambdaResources.h"
 
+static NSString *const AWSInfoLambda = @"Lambda";
+
 @interface AWSLambdaResponseSerializer : AWSJSONResponseSerializer
 
 @end
@@ -37,9 +39,6 @@
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
-                            @"IncompleteSignature" : @(AWSLambdaErrorIncompleteSignature),
-                            @"InvalidClientTokenId" : @(AWSLambdaErrorInvalidClientTokenId),
-                            @"MissingAuthenticationToken" : @(AWSLambdaErrorMissingAuthenticationToken),
                             @"CodeStorageExceededException" : @(AWSLambdaErrorCodeStorageExceeded),
                             @"EC2AccessDeniedException" : @(AWSLambdaErrorEC2AccessDenied),
                             @"EC2ThrottledException" : @(AWSLambdaErrorEC2Throttled),
@@ -154,32 +153,6 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSLambdaRequestRetryHandler
 
-- (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
-                             response:(NSHTTPURLResponse *)response
-                                 data:(NSData *)data
-                                error:(NSError *)error {
-    AWSNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
-                                                 response:response
-                                                     data:data
-                                                    error:error];
-    if(retryType == AWSNetworkingRetryTypeShouldNotRetry
-       && [error.domain isEqualToString:AWSLambdaErrorDomain]
-       && currentRetryCount < self.maxRetryCount) {
-        switch (error.code) {
-            case AWSLambdaErrorIncompleteSignature:
-            case AWSLambdaErrorInvalidClientTokenId:
-            case AWSLambdaErrorMissingAuthenticationToken:
-                retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
-                break;
-
-            default:
-                break;
-        }
-    }
-
-    return retryType;
-}
-
 @end
 
 @interface AWSRequest()
@@ -206,19 +179,26 @@ static NSDictionary *errorCodeDictionary = nil;
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultLambda {
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"`defaultServiceConfiguration` is `nil`. You need to set it before using this method."
-                                     userInfo:nil];
-    }
-
     static AWSLambda *_defaultLambda = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        _defaultLambda = [[AWSLambda alloc] initWithConfiguration:AWSServiceManager.defaultServiceManager.defaultServiceConfiguration];
-#pragma clang diagnostic pop
+        AWSServiceConfiguration *serviceConfiguration = nil;
+        AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoLambda];
+        if (serviceInfo) {
+            serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                               credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+        }
+
+        if (!serviceConfiguration) {
+            serviceConfiguration = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
+        }
+
+        if (!serviceConfiguration) {
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:@"The service configuration is `nil`. You need to configure `Info.plist` or set `defaultServiceConfiguration` before using this method."
+                                         userInfo:nil];
+        }
+        _defaultLambda = [[AWSLambda alloc] initWithConfiguration:serviceConfiguration];
     });
 
     return _defaultLambda;
@@ -229,15 +209,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     dispatch_once(&onceToken, ^{
         _serviceClients = [AWSSynchronizedMutableDictionary new];
     });
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [_serviceClients setObject:[[AWSLambda alloc] initWithConfiguration:configuration]
                         forKey:key];
-#pragma clang diagnostic pop
 }
 
 + (instancetype)LambdaForKey:(NSString *)key {
-    return [_serviceClients objectForKey:key];
+    @synchronized(self) {
+        AWSLambda *serviceClient = [_serviceClients objectForKey:key];
+        if (serviceClient) {
+            return serviceClient;
+        }
+
+        AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] serviceInfo:AWSInfoLambda
+                                                                     forKey:key];
+        if (serviceInfo) {
+            AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                                                        credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+            [AWSLambda registerLambdaWithConfiguration:serviceConfiguration
+                                                forKey:key];
+        }
+
+        return [_serviceClients objectForKey:key];
+    }
 }
 
 + (void)removeLambdaForKey:(NSString *)key {

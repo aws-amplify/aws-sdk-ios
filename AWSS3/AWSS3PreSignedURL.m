@@ -23,6 +23,8 @@
 
 NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURLErrorDomain";
 
+static NSString *const AWSInfoS3PreSignedURLBuilder = @"S3PreSignedURLBuilder";
+
 @interface AWSS3PreSignedURLBuilder()
 
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
@@ -40,19 +42,27 @@ NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURL
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultS3PreSignedURLBuilder {
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"`defaultServiceConfiguration` is `nil`. You need to set it before using this method."
-                                     userInfo:nil];
-    }
-
     static AWSS3PreSignedURLBuilder *_defaultS3PreSignedURLBuilder = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        _defaultS3PreSignedURLBuilder = [[AWSS3PreSignedURLBuilder alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration];
-#pragma clang diagnostic pop
+        AWSServiceConfiguration *serviceConfiguration = nil;
+        AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoS3PreSignedURLBuilder];
+        if (serviceInfo) {
+            serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                               credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+        }
+
+        if (!serviceConfiguration) {
+            serviceConfiguration = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
+        }
+
+        if (!serviceConfiguration) {
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:@"The service configuration is `nil`. You need to configure `Info.plist` or set `defaultServiceConfiguration` before using this method."
+                                         userInfo:nil];
+        }
+
+        _defaultS3PreSignedURLBuilder = [[AWSS3PreSignedURLBuilder alloc] initWithConfiguration:serviceConfiguration];
     });
 
     return _defaultS3PreSignedURLBuilder;
@@ -63,15 +73,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     dispatch_once(&onceToken, ^{
         _serviceClients = [AWSSynchronizedMutableDictionary new];
     });
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [_serviceClients setObject:[[AWSS3PreSignedURLBuilder alloc] initWithConfiguration:configuration]
                         forKey:key];
-#pragma clang diagnostic pop
 }
 
 + (instancetype)S3PreSignedURLBuilderForKey:(NSString *)key {
-    return [_serviceClients objectForKey:key];
+    @synchronized(self) {
+        AWSS3PreSignedURLBuilder *serviceClient = [_serviceClients objectForKey:key];
+        if (serviceClient) {
+            return serviceClient;
+        }
+
+        AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] serviceInfo:AWSInfoS3PreSignedURLBuilder
+                                                                     forKey:key];
+        if (serviceInfo) {
+            AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                                                        credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+            [AWSS3PreSignedURLBuilder registerS3PreSignedURLBuilderWithConfiguration:serviceConfiguration
+                                                                              forKey:key];
+        }
+
+        return [_serviceClients objectForKey:key];
+    }
 }
 
 + (void)removeS3PreSignedURLBuilderForKey:(NSString *)key {
@@ -98,7 +121,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 - (NSString *)generateQueryStringForSignatureV4WithBucketName:(NSString *)bucketName
                                                       keyName:(NSString *)keyName
-                                          credentialsProvider:(id<AWSCredentialsProvider> )credentialsProvider
+                                                  credentials:(AWSCredentials *)credentials
                                                    httpMethod:(AWSHTTPMethod)httpMethod
                                                   contentType:(NSString *)contentType
                                                expireDuration:(int32_t)expireDuration
@@ -106,8 +129,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                      endpoint:(AWSEndpoint *)endpoint
                                                       keyPath:(NSString *)keyPath
                                                          host:(NSString *)host
-                                                   contentMD5:(NSString *)contentMD5
-{
+                                                   contentMD5:(NSString *)contentMD5 {
     //Implementation of V4 signaure http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html
     NSMutableString *queryString = [NSMutableString new];
     
@@ -124,7 +146,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                        endpoint.serviceName,
                        AWSSignatureV4Terminator];
     
-    NSString *signingCredentials = [NSString stringWithFormat:@"%@/%@",credentialsProvider.accessKey,scope];
+    NSString *signingCredentials = [NSString stringWithFormat:@"%@/%@",credentials.accessKey, scope];
     //need to replace "/" with "%2F"
     NSString *xAmzCredentialString = [signingCredentials stringByReplacingOccurrencesOfString:@"/" withString:@"\%2F"];
     
@@ -162,8 +184,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }
     
     //add security-token if necessary
-    if ([credentialsProvider respondsToSelector:@selector(sessionKey)] && [credentialsProvider.sessionKey length] > 0) {
-        [queryString appendFormat:@"%@=%@&", @"x-amz-security-token", [credentialsProvider.sessionKey aws_stringWithURLEncoding]];
+    if ([credentials.sessionKey length] > 0) {
+        [queryString appendFormat:@"%@=%@&", @"x-amz-security-token", [credentials.sessionKey aws_stringWithURLEncoding]];
     }
     
     // =============  generate v4 signature string ===================
@@ -205,7 +227,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     AWSLogDebug(@"AWS4 PresignedURL String to Sign: [%@]", stringToSign);
     
     //Generate Signature
-    NSData *kSigning  = [AWSSignatureV4Signer getV4DerivedKey:credentialsProvider.secretKey
+    NSData *kSigning  = [AWSSignatureV4Signer getV4DerivedKey:credentials.secretKey
                                                          date:[currentDate aws_stringValue:AWSDateShortDateFormat1]
                                                        region:endpoint.regionName
                                                       service:endpoint.serviceName];
@@ -315,24 +337,20 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                 break;
         }
 
-        AWSTask *validationTask = [AWSTask taskWithResult:nil];
-        
-        //validate expiration date if using temporary token and refresh it if condition met
-        if ([credentialsProvider respondsToSelector:@selector(expiration)]) {
-            if ([credentialsProvider respondsToSelector:@selector(refresh)]) {
-                if ([credentialsProvider.expiration timeIntervalSinceNow] < getPreSignedURLRequest.minimumCredentialsExpirationInterval) {
-                    //need to refresh temp credential
-                    validationTask = [credentialsProvider refresh];
-                }
+        return [[credentialsProvider credentials] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
+            AWSCredentials *credentials = task.result;
+            if ([credentials.expiration timeIntervalSinceNow] < getPreSignedURLRequest.minimumCredentialsExpirationInterval) {
+                [credentialsProvider invalidateCachedTemporaryCredentials];
+                return [credentialsProvider credentials];
             }
-        }
 
-        return validationTask;
-        
-    }] continueWithSuccessBlock:^id(AWSTask *task) {
-        
+            return task;
+        }];
+    }] continueWithSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        AWSCredentials *credentials = task.result;
+
         //validate accessKey
-        if ([credentialsProvider respondsToSelector:@selector(accessKey)] && [credentialsProvider.accessKey length] > 0) {
+        if ([credentials.accessKey length] > 0) {
             //continue to process.
         } else {
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
@@ -342,7 +360,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         }
         
         //validate secretKey
-        if ([credentialsProvider respondsToSelector:@selector(secretKey)] && [credentialsProvider.secretKey length] > 0) {
+        if ([credentials.secretKey length] > 0) {
             //continue to process.
         } else {
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
@@ -375,11 +393,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                               code:AWSS3PresignedURLErrorInvalidExpiresDate
                                                           userInfo:@{NSLocalizedDescriptionKey: @"Invalid ExpiresDate, must be less than seven days in future"}]
                     ];
-            
+
         }
         NSString *generatedQueryString = [self generateQueryStringForSignatureV4WithBucketName:bucketName
                                                                                        keyName:keyName
-                                                                           credentialsProvider:credentialsProvider
+                                                                                   credentials:credentials
                                                                                     httpMethod:httpMethod
                                                                                    contentType:contentType
                                                                                 expireDuration:expireDuration
@@ -388,8 +406,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                                                        keyPath:keyPath
                                                                                           host:host
                                                                                     contentMD5:contentMD5];
-        
-        
+
+
         if (generatedQueryString == nil) {
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
                                                               code:AWSS3PreSignedURLErrorInternalError
@@ -429,22 +447,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 //Getter method for requestParameters property
 - (NSDictionary<NSString *, NSString *> *)requestParameters {
     return [NSDictionary dictionaryWithDictionary:self.internalRequestParameters];
-}
-
-//Setter method for versionId property
-- (void)setVersionId:(NSString *)versionId {
-    if ([versionId length] > 0) {
-        if (self.internalRequestParameters[AWSS3PresignedURLVersionID] == nil) {
-            self.internalRequestParameters[AWSS3PresignedURLVersionID] = versionId;
-        } else {
-            AWSLogError(@"versionId ignored: entry already exists in requestParameters. Please update the versionId by calling setValue:forRequestParameters: method.");
-        }
-    }
-}
-
-//Getter method for versionID property
-- (NSString *)versionId {
-    return self.internalRequestParameters[AWSS3PresignedURLVersionID];
 }
 
 @end

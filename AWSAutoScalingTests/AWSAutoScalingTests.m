@@ -87,12 +87,12 @@
     AWSAutoScaling *autoScaling = [AWSAutoScaling defaultAutoScaling];
     AWSAutoScalingAttachInstancesQuery *attacheInstancesQuery = [AWSAutoScalingAttachInstancesQuery new];
     attacheInstancesQuery.autoScalingGroupName = @"invalidGroupName"; //invalid group name
-    
+
     [[[autoScaling attachInstances:attacheInstancesQuery] continueWithBlock:^id(AWSTask *task) {
         if (task.error == nil) {
             XCTFail(@"Expect Error but got nil");
         }
-        
+
         return nil;
     }]waitUntilFinished];
 }

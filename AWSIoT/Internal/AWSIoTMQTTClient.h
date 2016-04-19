@@ -28,9 +28,34 @@
 @interface AWSIoTMQTTQueueMessage : NSObject
 @property (nonatomic, strong) NSString *topic;
 @property (nonatomic, strong) NSData *message;
+@property (atomic, assign) UInt8 qos;
 @end
 
 @interface AWSIoTMQTTClient <AWSSRWebSocketDelegate, NSStreamDelegate>: NSObject
+
+/**
+ These properties control the reconnect behavior of the MQTT Client.  If the MQTT
+ client becomes disconnected, it will attempt to reconnect after a quiet period;
+ this quiet period doubles with each reconnection attempt, e.g. 1 seconds, 2
+ seconds, 2, 8, 16, 32, etc... up until a maximum reconnection time is reached.
+ If a connection is active for the minimum connection time, the quiet period
+ is reset to the initial value.
+ 
+ baseReconnectTime: the time in seconds to wait before the first reconnect attempt
+ minimumConnectionTime: the time in seconds that a connection must be active before
+     resetting the current reconnection time to the base reconnection time
+ maximumReconnectTime: the maximum time in seconds to wait between reconnect
+     attempts
+ 
+ The defaults for these values are:
+ 
+ baseReconnectTime: 1 seconds
+ minimumConnectionTime: 20 seconds
+ maximumReconnectTime: 128 seconds
+ */
+@property(atomic, assign) NSTimeInterval baseReconnectTime;
+@property(atomic, assign) NSTimeInterval minimumConnectionTime;
+@property(atomic, assign) NSTimeInterval maximumReconnectTime;
 
 /**
  Returns a default singleton object. You should use this singleton method instead of creating an instance of the mqtt client.
@@ -42,12 +67,26 @@
                      toHost:(NSString *)host
                        port:(UInt32)port
                cleanSession:(BOOL)cleanSession
-                certificateId:(NSString *)certificateId
+              certificateId:(NSString *)certificateId
+                  keepAlive:(UInt16)theKeepAliveInterval
+                  willTopic:(NSString*)willTopic
+                    willMsg:(NSData*)willMsg
+                    willQoS:(UInt8)willQoS
+             willRetainFlag:(BOOL)willRetainFlag
+                    runLoop:(NSRunLoop*)theRunLoop
+                    forMode:(NSString*)theRunLoopMode
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
 
 - (BOOL)connectWithClientId:(NSString *)clientId
                cleanSession:(BOOL)cleanSession
               configuration:(AWSServiceConfiguration *)configuration
+                  keepAlive:(UInt16)theKeepAliveInterval
+                  willTopic:(NSString*)willTopic
+                    willMsg:(NSData*)willMsg
+                    willQoS:(UInt8)willQoS
+             willRetainFlag:(BOOL)willRetainFlag
+                    runLoop:(NSRunLoop*)theRunLoop
+                    forMode:(NSString*)theRunLoopMode
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
 
 - (void)disconnect;
@@ -57,13 +96,23 @@
 
  @param message The message to be sent.
 
+ @param qos The qos to use when sending (optional, default 0).
+
  @param topic The topic for publish to.
 
  */
 - (void)publishString:(NSString *)str
               onTopic:(NSString *)topic;
 
+- (void)publishString:(NSString *)str
+                  qos:(UInt8)qos
+              onTopic:(NSString *)topic;
+
 - (void)publishData:(NSData *)data
+            onTopic:(NSString *)topic;
+
+- (void)publishData:(NSData *)data
+                qos:(UInt8)qos
             onTopic:(NSString *)topic;
 
 /**

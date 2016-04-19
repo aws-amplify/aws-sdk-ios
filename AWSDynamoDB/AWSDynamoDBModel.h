@@ -23,11 +23,6 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSDynamoDBErrorType) {
     AWSDynamoDBErrorUnknown,
-    AWSDynamoDBErrorAccessDenied,
-    AWSDynamoDBErrorUnrecognizedClient,
-    AWSDynamoDBErrorIncompleteSignature,
-    AWSDynamoDBErrorInvalidClientTokenId,
-    AWSDynamoDBErrorMissingAuthenticationToken,
     AWSDynamoDBErrorConditionalCheckFailed,
     AWSDynamoDBErrorInternalServer,
     AWSDynamoDBErrorItemCollectionSizeLimitExceeded,

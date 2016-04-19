@@ -45,10 +45,10 @@ typedef NS_ENUM(NSInteger, AWSLogLevel) {
  The following logging level options are available:
 
      .None
-     .Error (This is the default. Only error logs are printed to the console.)
+     .Error
      .Warn
      .Info
-     .Debug
+     .Debug (This is the default. Only error logs are printed to the console.)
      .Verbose
 
  *Objective-C*
@@ -58,10 +58,10 @@ typedef NS_ENUM(NSInteger, AWSLogLevel) {
  The following logging level options are available:
 
      AWSLogLevelNone
-     AWSLogLevelError (This is the default. Only error logs are printed to the console.)
+     AWSLogLevelError
      AWSLogLevelWarn
      AWSLogLevelInfo
-     AWSLogLevelDebug
+     AWSLogLevelDebug (This is the default. Only error logs are printed to the console.)
      AWSLogLevelVerbose
 
  */

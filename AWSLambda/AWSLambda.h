@@ -14,6 +14,13 @@
 //
 
 #import <Foundation/Foundation.h>
+
+//! Project version number for AWSLambda.
+FOUNDATION_EXPORT double AWSLambdaVersionNumber;
+
+//! Project version string for AWSLambda.
+FOUNDATION_EXPORT const unsigned char AWSLambdaVersionString[];
+
 #import <AWSCore/AWSCore.h>
 #import "AWSLambdaService.h"
 #import "AWSLambdaInvoker.h"

@@ -23,12 +23,6 @@ FOUNDATION_EXPORT NSString *const AWSS3ErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSS3ErrorType) {
     AWSS3ErrorUnknown,
-    AWSS3ErrorAccessDenied,
-    AWSS3ErrorExpiredToken,
-    AWSS3ErrorInvalidAccessKeyId,
-    AWSS3ErrorInvalidToken,
-    AWSS3ErrorSignatureDoesNotMatch,
-    AWSS3ErrorTokenRefreshRequired,
     AWSS3ErrorBucketAlreadyExists,
     AWSS3ErrorBucketAlreadyOwnedByYou,
     AWSS3ErrorNoSuchBucket,

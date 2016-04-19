@@ -20,6 +20,7 @@
 #import "AWSCategory.h"
 #import "AWSSignature.h"
 #import "AWSBolts.h"
+#import "AWSCredentialsProvider.h"
 
 #pragma mark - AWSURLSessionManagerDelegate
 
@@ -35,7 +36,7 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
 @interface AWSURLSessionManagerDelegate : NSObject
 
 @property (nonatomic, assign) AWSURLSessionTaskType taskType;
-@property (nonatomic, copy) AWSNetworkingCompletionHandlerBlock dataTaskCompletionHandler;
+@property (nonatomic, strong) AWSTaskCompletionSource *taskCompletionSource;
 @property (nonatomic, strong) AWSNetworkingRequest *request;
 @property (nonatomic, strong) NSURL *uploadingFileURL;
 @property (nonatomic, strong) NSURL *downloadingFileURL;
@@ -118,12 +119,11 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
     return self;
 }
 
-- (void)dataTaskWithRequest:(AWSNetworkingRequest *)request
-          completionHandler:(AWSNetworkingCompletionHandlerBlock)completionHandler {
+- (AWSTask *)dataTaskWithRequest:(AWSNetworkingRequest *)request {
     [request assignProperties:self.configuration];
     
     AWSURLSessionManagerDelegate *delegate = [AWSURLSessionManagerDelegate new];
-    delegate.dataTaskCompletionHandler = completionHandler;
+    delegate.taskCompletionSource = [AWSTaskCompletionSource taskCompletionSource];
     delegate.request = request;
     delegate.taskType = AWSURLSessionTaskTypeData;
     delegate.downloadingFileURL = request.downloadingFileURL;
@@ -131,6 +131,8 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
     delegate.shouldWriteDirectly = request.shouldWriteDirectly;
     
     [self taskWithDelegate:delegate];
+
+    return delegate.taskCompletionSource.task;
 }
 
 - (void)taskWithDelegate:(AWSURLSessionManagerDelegate *)delegate {
@@ -140,88 +142,35 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
     delegate.error = nil;
     NSMutableURLRequest *mutableRequest = [NSMutableURLRequest requestWithURL:delegate.request.URL];
     mutableRequest.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
-    
-    [[[[[[AWSTask taskWithResult:nil] continueWithBlock:^id(AWSTask *task) {
-        id signer = [delegate.request.requestInterceptors lastObject];
-        if (signer) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundeclared-selector"
-            if ([signer respondsToSelector:@selector(credentialsProvider)]) {
-                id credentialsProvider = [signer performSelector:@selector(credentialsProvider)];
-                
-                if ([credentialsProvider respondsToSelector:@selector(refresh)]) {
-                    NSString *accessKey = nil;
-                    if ([credentialsProvider respondsToSelector:@selector(accessKey)]) {
-                        accessKey = [credentialsProvider performSelector:@selector(accessKey)];
-                    }
-                    
-                    NSString *secretKey = nil;
-                    if ([credentialsProvider respondsToSelector:@selector(secretKey)]) {
-                        secretKey = [credentialsProvider performSelector:@selector(secretKey)];
-                    }
-                    
-                    NSDate *expiration = nil;
-                    if  ([credentialsProvider respondsToSelector:@selector(expiration)]) {
-                        expiration = [credentialsProvider performSelector:@selector(expiration)];
-                    }
-                    
-                    /**
-                     Preemptively refresh credentials if any of the following is true:
-                     1. accessKey or secretKey is nil.
-                     2. the credentials expires within 10 minutes.
-                     */
-                    if ((!accessKey || !secretKey)
-                        || [expiration compare:[NSDate dateWithTimeIntervalSinceNow:10 * 60]] == NSOrderedAscending) {
-                        return [credentialsProvider performSelector:@selector(refresh)];
-                    }
-                }
-            }
-#pragma clang diagnostic pop
-        }
-        
-        return nil;
-    }] continueWithSuccessBlock:^id(AWSTask *task) {
-        AWSNetworkingRequest *request = delegate.request;
-        if (request.isCancelled) {
-            if (delegate.dataTaskCompletionHandler) {
-                AWSNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
-                completionHandler(nil, [NSError errorWithDomain:AWSNetworkingErrorDomain
-                                                           code:AWSNetworkingErrorCancelled
-                                                       userInfo:nil]);
-            }
-            return nil;
-        }
-        
-        mutableRequest.HTTPMethod = [NSString aws_stringWithHTTPMethod:delegate.request.HTTPMethod];
-        
-        if ([request.requestSerializer respondsToSelector:@selector(serializeRequest:headers:parameters:)]) {
-            AWSTask *resultTask = [request.requestSerializer serializeRequest:mutableRequest
-                                                                     headers:request.headers
-                                                                  parameters:request.parameters];
-            //if serialization has error, abort task.
-            if (resultTask.error) {
-                return resultTask;
-            }
-        }
-        
-        AWSTask *sequencialTask = [AWSTask taskWithResult:nil];
-        for(id<AWSNetworkingRequestInterceptor>interceptor in request.requestInterceptors) {
-            if ([interceptor respondsToSelector:@selector(interceptRequest:)]) {
-                sequencialTask = [sequencialTask continueWithSuccessBlock:^id(AWSTask *task) {
-                    return [interceptor interceptRequest:mutableRequest];
-                }];
-            }
-        }
 
-        return task;
-    }] continueWithSuccessBlock:^id(AWSTask *task) {
+    AWSNetworkingRequest *request = delegate.request;
+    if (request.isCancelled) {
+        delegate.taskCompletionSource.error = [NSError errorWithDomain:AWSNetworkingErrorDomain
+                                                                  code:AWSNetworkingErrorCancelled
+                                                              userInfo:nil];
+        return;
+    }
+
+    mutableRequest.HTTPMethod = [NSString aws_stringWithHTTPMethod:delegate.request.HTTPMethod];
+
+    AWSTask *task = [AWSTask taskWithResult:nil];
+
+    if (request.requestSerializer) {
+        task = [request.requestSerializer serializeRequest:mutableRequest
+                                                   headers:request.headers
+                                                parameters:request.parameters];
+    }
+
+    for(id<AWSNetworkingRequestInterceptor>interceptor in request.requestInterceptors) {
+        task = [task continueWithSuccessBlock:^id(AWSTask *task) {
+            return [interceptor interceptRequest:mutableRequest];
+        }];
+    }
+
+    [[[task continueWithSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
         AWSNetworkingRequest *request = delegate.request;
-        if ([request.requestSerializer respondsToSelector:@selector(validateRequest:)]) {
-            return [request.requestSerializer validateRequest:mutableRequest];
-        } else {
-            return [AWSTask taskWithResult:nil];
-        }
-    }] continueWithSuccessBlock:^id(AWSTask *task) {
+        return [request.requestSerializer validateRequest:mutableRequest];
+    }] continueWithSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
         switch (delegate.taskType) {
             case AWSURLSessionTaskTypeData:
                 delegate.request.task = [self.session dataTaskWithRequest:mutableRequest];
@@ -245,10 +194,8 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
         return nil;
     }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
-            if (delegate.dataTaskCompletionHandler) {
-                AWSNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
-                completionHandler(nil, task.error);
-            }
+            NSError *error = task.error;
+            delegate.taskCompletionSource.error = error;
         }
         return nil;
     }];
@@ -361,20 +308,17 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
                         }
                     }
                 }
-                    
+                    // Keep going to the next 'case' statement.
+
                 case AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry: {
                     id signer = [delegate.request.requestInterceptors lastObject];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundeclared-selector"
                     if ([signer respondsToSelector:@selector(credentialsProvider)]) {
-                        id credentialsProvider = [signer performSelector:@selector(credentialsProvider)];
-                        if ([credentialsProvider respondsToSelector:@selector(refresh)]) {
-                            [[credentialsProvider performSelector:@selector(refresh)] waitUntilFinished];
-                        }
+                        id<AWSCredentialsProvider> credentialsProvider = [signer performSelector:@selector(credentialsProvider)];
+                        [credentialsProvider invalidateCachedTemporaryCredentials];
                     }
-#pragma clang diagnostic pop
                 }
-                    
+                    // Keep going to the next 'case' statement.
+
                 case AWSNetworkingRetryTypeShouldRetry: {
                     NSTimeInterval timeIntervalToSleep = [delegate.request.retryHandler timeIntervalForRetry:delegate.currentRetryCount
                                                                                                     response:(NSHTTPURLResponse *)sessionTask.response
@@ -385,11 +329,14 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
                     [self taskWithDelegate:delegate];
                 }
                     break;
-                    
+
                 case AWSNetworkingRetryTypeShouldNotRetry: {
-                    if (delegate.dataTaskCompletionHandler) {
-                        AWSNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
-                        completionHandler(delegate.responseObject, delegate.error);
+                    if (delegate.error) {
+                        NSError *error = delegate.error;
+                        delegate.taskCompletionSource.error = error;
+                    } else if (delegate.responseObject) {
+                        id result = delegate.responseObject;
+                        delegate.taskCompletionSource.result = result;
                     }
                 }
                     break;
@@ -405,10 +352,13 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
             if ([[retryHandler valueForKey:@"isClockSkewRetried"] boolValue]) {
                 [retryHandler setValue:@NO forKey:@"isClockSkewRetried"];
             }
-            
-            if (delegate.dataTaskCompletionHandler) {
-                AWSNetworkingCompletionHandlerBlock completionHandler = delegate.dataTaskCompletionHandler;
-                completionHandler(delegate.responseObject, delegate.error);
+
+            if (delegate.error) {
+                NSError *error = delegate.error;
+                delegate.taskCompletionSource.error = error;
+            } else if (delegate.responseObject) {
+                id result = delegate.responseObject;
+                delegate.taskCompletionSource.result = result;
             }
         }
         return nil;

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'AWSiOSSDKv2'
-  s.version      = '2.3.6'
+  s.version      = '2.4.0'
   s.summary      = 'Amazon Web Services SDK for iOS.'
 
   s.description  = 'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'
@@ -9,60 +9,60 @@ Pod::Spec.new do |s|
   s.homepage     = 'http://aws.amazon.com/sdkforios'
   s.license      = 'Apache License, Version 2.0'
   s.author       = { 'Amazon Web Services' => 'amazonwebservices' }
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '8.0'
   s.source       = { :git => 'https://github.com/aws/aws-sdk-ios.git',
                      :tag => s.version}
   s.requires_arc = true
 
   s.subspec 'AWSCore' do |aws|
-    aws.dependency 'AWSCore', '2.3.6'
+    aws.dependency 'AWSCore', '2.4.0'
   end
 
   s.subspec 'AutoScaling' do |autoscaling|
-  	autoscaling.dependency 'AWSAutoScaling', '2.3.6'
+  	autoscaling.dependency 'AWSAutoScaling', '2.4.0'
   end
 
   s.subspec 'CloudWatch' do |cloudwatch|
-  	cloudwatch.dependency 'AWSCloudWatch', '2.3.6'
+  	cloudwatch.dependency 'AWSCloudWatch', '2.4.0'
   end
 
   s.subspec 'DynamoDB' do |ddb|
-  	ddb.dependency 'AWSDynamoDB', '2.3.6'
+  	ddb.dependency 'AWSDynamoDB', '2.4.0'
   end
 
   s.subspec 'EC2' do |ec2|
-  	ec2.dependency 'AWSEC2', '2.3.6'
+  	ec2.dependency 'AWSEC2', '2.4.0'
   end
 
   s.subspec 'ElasticLoadBalancing' do |elasticloadbalancing|
-  	elasticloadbalancing.dependency 'AWSElasticLoadBalancing', '2.3.6'
+  	elasticloadbalancing.dependency 'AWSElasticLoadBalancing', '2.4.0'
   end
 
   s.subspec 'Kinesis' do |kinesis|
-  	kinesis.dependency 'AWSKinesis', '2.3.6'
+  	kinesis.dependency 'AWSKinesis', '2.4.0'
   end
 
   s.subspec 'MobileAnalytics' do |mobileanalytics|
-  	mobileanalytics.dependency 'AWSMobileAnalytics', '2.3.6'
+  	mobileanalytics.dependency 'AWSMobileAnalytics', '2.4.0'
   end
 
   s.subspec 'S3' do |s3|
-  	s3.dependency 'AWSS3', '2.3.6'
+  	s3.dependency 'AWSS3', '2.4.0'
   end
 
   s.subspec 'SES' do |ses|
-  	ses.dependency 'AWSSES', '2.3.6'
+  	ses.dependency 'AWSSES', '2.4.0'
   end
 
   s.subspec 'SimpleDB' do |simpledb|
-  	simpledb.dependency 'AWSSimpleDB', '2.3.6'
+  	simpledb.dependency 'AWSSimpleDB', '2.4.0'
   end
 
   s.subspec 'SNS' do |sns|
-  	sns.dependency 'AWSSNS', '2.3.6'
+  	sns.dependency 'AWSSNS', '2.4.0'
   end
 
   s.subspec 'SQS' do |sqs|
-  	sqs.dependency 'AWSSQS', '2.3.6'
+  	sqs.dependency 'AWSSQS', '2.4.0'
   end
 end

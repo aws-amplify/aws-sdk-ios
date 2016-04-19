@@ -23,8 +23,6 @@ FOUNDATION_EXPORT NSString *const AWSEC2ErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSEC2ErrorType) {
     AWSEC2ErrorUnknown,
-    AWSEC2ErrorAuthFailure,
-    AWSEC2ErrorSignatureDoesNotMatch,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2AccountAttributeName) {

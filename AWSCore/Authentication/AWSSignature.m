@@ -142,32 +142,41 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
 }
 
 - (AWSTask *)interceptRequest:(NSMutableURLRequest *)request {
+    NSString *absoluteString = [request.URL absoluteString];
+    if ([absoluteString hasSuffix:@"/"]) {
+        request.URL = [NSURL URLWithString:[absoluteString substringToIndex:[absoluteString length] - 1]];
+    }
+
     [request addValue:request.URL.host forHTTPHeaderField:@"Host"];
-    return [[AWSTask taskWithResult:nil] continueWithSuccessBlock:^id(AWSTask *task) {
+    return [[self.credentialsProvider credentials] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
+        AWSCredentials *credentials = task.result;
         // clear authorization header if set
         [request setValue:nil forHTTPHeaderField:@"Authorization"];
 
-        NSString *autorization;
-        NSArray *hostArray  = [[[request URL] host] componentsSeparatedByString:@"."];
+        if (credentials) {
+            NSString *autorization;
+            NSArray *hostArray  = [[[request URL] host] componentsSeparatedByString:@"."];
 
-        if ([self.credentialsProvider respondsToSelector:@selector(sessionKey)]) {
-            [request setValue:self.credentialsProvider.sessionKey forHTTPHeaderField:@"X-Amz-Security-Token"];
-        }
-        if ([hostArray firstObject] && [[hostArray firstObject] rangeOfString:@"s3"].location != NSNotFound) {
-            //If it is a S3 Request
-            autorization = [self signS3RequestV4:request];
-        } else {
-            autorization = [self signRequestV4:request];
-        }
+            [request setValue:credentials.sessionKey forHTTPHeaderField:@"X-Amz-Security-Token"];
+            if ([hostArray firstObject] && [[hostArray firstObject] rangeOfString:@"s3"].location != NSNotFound) {
+                //If it is a S3 Request
+                autorization = [self signS3RequestV4:request
+                                         credentials:credentials];
+            } else {
+                autorization = [self signRequestV4:request
+                                       credentials:credentials];
+            }
 
-        if (autorization) {
-            [request setValue:autorization forHTTPHeaderField:@"Authorization"];
+            if (autorization) {
+                [request setValue:autorization forHTTPHeaderField:@"Authorization"];
+            }
         }
         return nil;
     }];
 }
 
-- (NSString *)signS3RequestV4:(NSMutableURLRequest *)urlRequest {
+- (NSString *)signS3RequestV4:(NSMutableURLRequest *)urlRequest
+                  credentials:(AWSCredentials *)credentials {
     if ( [urlRequest valueForHTTPHeaderField:@"Content-Type"] == nil) {
         [urlRequest addValue:@"binary/octet-stream" forHTTPHeaderField:@"Content-Type"];
     }
@@ -188,7 +197,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
     //NSString *dateTime  = [date aws_stringValue:AWSDateAmzDateFormat];
 
     NSString *scope = [NSString stringWithFormat:@"%@/%@/%@/%@", dateStamp, self.endpoint.regionName, self.endpoint.serviceName, AWSSignatureV4Terminator];
-    NSString *signingCredentials = [NSString stringWithFormat:@"%@/%@", self.credentialsProvider.accessKey, scope];
+    NSString *signingCredentials = [NSString stringWithFormat:@"%@/%@", credentials.accessKey, scope];
 
     // compute canonical request
     NSString *httpMethod = urlRequest.HTTPMethod;
@@ -259,7 +268,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
                               [AWSSignatureSignerUtility hexEncode:[AWSSignatureSignerUtility hashString:canonicalRequest]]];
     AWSLogDebug(@"AWS4 String to Sign: [%@]", stringToSign);
 
-    NSData *kSigning  = [AWSSignatureV4Signer getV4DerivedKey:self.credentialsProvider.secretKey
+    NSData *kSigning  = [AWSSignatureV4Signer getV4DerivedKey:credentials.secretKey
                                                          date:dateStamp
                                                        region:self.endpoint.regionName
                                                       service:self.endpoint.serviceName];
@@ -288,18 +297,14 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
 }
 
 
-- (NSString *)signRequestV4:(NSURLRequest *)request{
-    if (![self.credentialsProvider respondsToSelector:@selector(accessKey)]
-        || ![self.credentialsProvider respondsToSelector:@selector(secretKey)]) {
-        return nil;
-    }
-
+- (NSString *)signRequestV4:(NSURLRequest *)request
+                credentials:(AWSCredentials *)credentials {
     NSDate *xAmzDate = [NSDate aws_dateFromString:[request valueForHTTPHeaderField:@"X-Amz-Date"]
                                           format:AWSDateISO8601DateFormat2];
 
     NSString *dateStamp = [xAmzDate aws_stringValue:AWSDateShortDateFormat1];
 
-    NSString *cfPath = (NSString*)CFBridgingRelease(CFURLCopyPath((CFURLRef)request.URL)) ;
+    NSString *cfPath = (NSString *)CFBridgingRelease(CFURLCopyPath((CFURLRef)request.URL));
     //For  AWS Services (except S3) , url-encoded URL will be used to generate CanonicalURL directly. (i.e. the encoded URL will be encoded again, e.g. "%3A" -> "%253A"
     NSString *path = [cfPath aws_stringWithURLEncodingPathWithoutPriorDecoding];
     if (path.length == 0) {
@@ -327,7 +332,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
                        self.endpoint.serviceName,
                        AWSSignatureV4Terminator];
     NSString *signingCredentials = [NSString stringWithFormat:@"%@/%@",
-                                    self.credentialsProvider.accessKey,
+                                    credentials.accessKey,
                                     scope];
     NSString *stringToSign = [NSString stringWithFormat:@"%@\n%@\n%@\n%@",
                               AWSSignatureV4Algorithm,
@@ -337,7 +342,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
 
     AWSLogDebug(@"AWS4 String to Sign: [%@]", stringToSign);
 
-    NSData *kSigning  = [AWSSignatureV4Signer getV4DerivedKey:self.credentialsProvider.secretKey
+    NSData *kSigning  = [AWSSignatureV4Signer getV4DerivedKey:credentials.secretKey
                                                          date:dateStamp
                                                        region:self.endpoint.regionName
                                                       service:self.endpoint.serviceName];
@@ -528,7 +533,9 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
 }
 
 - (AWSTask *)interceptRequest:(NSMutableURLRequest *)request {
-    return [[AWSTask taskWithResult:nil] continueWithSuccessBlock:^id(AWSTask *task) {
+    return [[self.credentialsProvider credentials] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
+        AWSCredentials *credentials = task.result;
+
         NSString *HTTPBodyString = [[NSString alloc] initWithData:request.HTTPBody
                                                          encoding:NSUTF8StringEncoding];
         NSMutableDictionary *parameters = [NSMutableDictionary new];
@@ -539,19 +546,19 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
 
         [parameters setObject:@"HmacSHA256" forKey:@"SignatureMethod"];
         [parameters setObject:@"2" forKey:@"SignatureVersion"];
-        [parameters setObject:self.credentialsProvider.accessKey forKey:@"AWSAccessKeyId"];
+        [parameters setObject:credentials.accessKey forKey:@"AWSAccessKeyId"];
         [parameters setObject:[[NSDate aws_clockSkewFixedDate] aws_stringValue:AWSDateISO8601DateFormat3]
                        forKey:@"Timestamp"];
         //Added SecurityToken field in QueryString for SigV2 if STS has been used.
-        if ([self.credentialsProvider respondsToSelector:@selector(sessionKey)]) {
-            [parameters setObject:self.credentialsProvider.sessionKey forKey:@"SecurityToken"];
+        if (credentials.sessionKey) {
+            [parameters setObject:credentials.sessionKey forKey:@"SecurityToken"];
         }
 
         NSMutableString *canonicalizedQueryString = [[AWSSignatureV4Signer canonicalizedQueryString:parameters] mutableCopy];
         NSData *dataToSign = [[AWSSignatureV4Signer getV2StringToSign:request
                                              canonicalizedQueryString:canonicalizedQueryString] dataUsingEncoding:NSUTF8StringEncoding];
         NSString *signature = [AWSSignatureSignerUtility HMACSign:dataToSign
-                                                          withKey:self.credentialsProvider.secretKey
+                                                          withKey:credentials.secretKey
                                                    usingAlgorithm:kCCHmacAlgSHA256];
         [canonicalizedQueryString appendFormat:@"&Signature=%@", [signature aws_stringWithURLEncoding]];
         request.HTTPBody = [canonicalizedQueryString dataUsingEncoding:NSUTF8StringEncoding];

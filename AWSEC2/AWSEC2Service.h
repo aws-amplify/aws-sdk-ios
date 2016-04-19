@@ -16,6 +16,7 @@
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSCore.h>
 #import "AWSEC2Model.h"
+#import "AWSEC2Resources.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -169,21 +170,6 @@ NS_ASSUME_NONNULL_BEGIN
  @param key A string to identify the service client.
  */
 + (void)removeEC2ForKey:(NSString *)key;
-
-/**
- Instantiates the service client with the given service configuration.
- 
- @warning This method has been deprecated. Use `+ registerEC2WithConfiguration:forKey:` and `+ EC2ForKey:` instead.
- 
- @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
- 
- @warning Unlike the singleton method, you are responsible for maintaining a strong reference to this object. If the service client is released before completing a service request, the request may fail with unspecified errors.
- 
- @param configuration The service configuration object.
- 
- @return An instance of the service client.
- */
-- (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration __attribute__ ((deprecated("Use '+ registerEC2WithConfiguration:forKey:' and '+ EC2ForKey:' instead.")));
 
 /**
  <p>Accept a VPC peering connection request. To accept a request, the VPC peering connection must be in the <code>pending-acceptance</code> state, and you must be the owner of the peer VPC. Use the <code>DescribeVpcPeeringConnections</code> request to view your outstanding VPC peering connection requests.</p>

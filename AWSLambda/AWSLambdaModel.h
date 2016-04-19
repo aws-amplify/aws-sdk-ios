@@ -23,9 +23,6 @@ FOUNDATION_EXPORT NSString *const AWSLambdaErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSLambdaErrorType) {
     AWSLambdaErrorUnknown,
-    AWSLambdaErrorIncompleteSignature,
-    AWSLambdaErrorInvalidClientTokenId,
-    AWSLambdaErrorMissingAuthenticationToken,
     AWSLambdaErrorCodeStorageExceeded,
     AWSLambdaErrorEC2AccessDenied,
     AWSLambdaErrorEC2Throttled,

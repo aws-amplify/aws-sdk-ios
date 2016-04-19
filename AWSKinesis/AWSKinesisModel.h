@@ -23,9 +23,6 @@ FOUNDATION_EXPORT NSString *const AWSKinesisErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSKinesisErrorType) {
     AWSKinesisErrorUnknown,
-    AWSKinesisErrorIncompleteSignature,
-    AWSKinesisErrorInvalidClientTokenId,
-    AWSKinesisErrorMissingAuthenticationToken,
     AWSKinesisErrorExpiredIterator,
     AWSKinesisErrorInvalidArgument,
     AWSKinesisErrorLimitExceeded,

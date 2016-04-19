@@ -15,6 +15,7 @@
 //    Kyle Roche - initial API and implementation and/or initial documentation
 // 
 
+#import "AWSLogging.h"
 #import "MQTTMessage.h"
 
 @implementation MQTTMessage
@@ -49,7 +50,7 @@
             [data appendMQTTString:password];
         }
     }
-    NSLog(@"%@",data);
+    AWSLogInfo(@"%@",data);
     msg = [[MQTTMessage alloc] initWithType:MQTTConnect data:data];
     return msg;
 }
@@ -63,11 +64,8 @@
                          willMsg:(NSData*)willMsg
                          willQoS:(UInt8)willQoS
                       willRetain:(BOOL)willRetainFlag {
-    UInt8 flags = 0x04 | (willQoS << 4 & 0x18);
+    UInt8 flags = 0x00;
 
-    if (willRetainFlag) {
-        flags |= 0x20;
-    }
     if (cleanSessionFlag) {
         flags |= 0x02;
     }
@@ -77,6 +75,13 @@
             flags |= 0x40;
         }
     }
+    if ([willTopic length] > 0) {
+        flags |= (0x04 | (willQoS << 3 & 0x18));
+        
+        if (willRetainFlag) {
+            flags |= 0x20;
+        }
+    }
 
     NSMutableData* data = [NSMutableData data];
     [data appendMQTTString:@"MQTT"];
@@ -84,15 +89,19 @@
     [data appendByte:flags];
     [data appendUInt16BigEndian:keepAlive];
     [data appendMQTTString:clientId];
-    [data appendMQTTString:willTopic];
-    [data appendUInt16BigEndian:[willMsg length]];
-    [data appendData:willMsg];
+    if ([willTopic length] > 0) {
+        [data appendMQTTString:willTopic];
+        [data appendUInt16BigEndian:[willMsg length]];
+        [data appendData:willMsg];
+    }
+
     if ([userName length] > 0) {
         [data appendMQTTString:userName];
         if ([password length] > 0) {
             [data appendMQTTString:password];
         }
     }
+    AWSLogInfo(@"%@",data);
 
     MQTTMessage *msg = [[MQTTMessage alloc] initWithType:MQTTConnect
                                                     data:data];

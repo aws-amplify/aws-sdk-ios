@@ -32,7 +32,7 @@
     // Put setup code here. This method is called before the invocation of each test method in the class.
     _dummyAccessKey = @"dummyAccessKey";
     _dummySecretKey = @"dummySecretKey";
-    
+
 }
 
 - (void)tearDown {
@@ -40,99 +40,66 @@
     [super tearDown];
 }
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-
 - (void)testCreateStaticCredentialsProvider {
-    AWSStaticCredentialsProvider *staticProviderOne = [AWSStaticCredentialsProvider credentialsWithAccessKey:self.dummyAccessKey secretKey:self.dummySecretKey];
-    
-    XCTAssertEqualObjects(self.dummyAccessKey, staticProviderOne.accessKey);
-    XCTAssertEqualObjects(self.dummySecretKey, staticProviderOne.secretKey);
-    
+    AWSStaticCredentialsProvider *staticProviderOne = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:self.dummyAccessKey
+                                                                                                    secretKey:self.dummySecretKey];
+
+    [[[staticProviderOne credentials] continueWithBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
+        AWSCredentials *credentials = task.result;
+        XCTAssertEqualObjects(self.dummyAccessKey, credentials.accessKey);
+        XCTAssertEqualObjects(self.dummySecretKey, credentials.secretKey);
+
+        return nil;
+    }] waitUntilFinished];
+
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials" ofType:@"json"];
     NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                     options:NSJSONReadingMutableContainers
                                                                       error:nil];
-    AWSStaticCredentialsProvider *staticProviderTwo = [AWSStaticCredentialsProvider credentialsWithCredentialsFilename:@"credentials"];
-    XCTAssertEqualObjects(credentialsJson[@"accessKey"], staticProviderTwo.accessKey);
-    XCTAssertEqualObjects(credentialsJson[@"secretKey"], staticProviderTwo.secretKey);
-    
+    AWSStaticCredentialsProvider *staticProviderTwo = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
+                                                                                                    secretKey:credentialsJson[@"secretKey"]];
+
+    [[[staticProviderTwo credentials] continueWithBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
+        AWSCredentials *credentials = task.result;
+        XCTAssertEqualObjects(credentialsJson[@"accessKey"], credentials.accessKey);
+        XCTAssertEqualObjects(credentialsJson[@"secretKey"], credentials.secretKey);
+
+        return nil;
+    }] waitUntilFinished];
 }
 
 - (void)testCreateWebIdentityCredentialsProvider {
-    
     NSString *providerId = @"providerId";
     NSString *roleArn = @"invalidARN";
     NSString *roleSessionName = @"testSession";
     NSString *webIdentityToken = @"OauthToken";
-    
-    AWSWebIdentityCredentialsProvider *provider = [AWSWebIdentityCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
-                                                                                                    providerId:providerId
-                                                                                                       roleArn:roleArn
-                                                                                               roleSessionName:roleSessionName
-                                                                                              webIdentityToken:webIdentityToken];
-    
+
+    AWSWebIdentityCredentialsProvider *provider = [[AWSWebIdentityCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     providerId:providerId
+                                                                                                        roleArn:roleArn
+                                                                                                roleSessionName:roleSessionName
+                                                                                               webIdentityToken:webIdentityToken];
+
     XCTAssertEqualObjects(providerId, provider.providerId);
     XCTAssertEqualObjects(roleArn, provider.roleArn);
     XCTAssertEqualObjects(roleSessionName, provider.roleSessionName);
     XCTAssertEqualObjects(webIdentityToken, provider.webIdentityToken);
-    
-    [provider setValue:@"accessKey" forKey:@"accessKey"];
-    [provider setValue:@"secretKey" forKey:@"secretKey"];
-    [provider setValue:@"sessionKey" forKey:@"sessionKey"];
-    [provider setValue:[NSDate date] forKey:@"expiration"];
-    [[provider refresh] waitUntilFinished];
-    
-    XCTAssertNil(provider.accessKey);
-    XCTAssertNil(provider.secretKey);
-    XCTAssertNil(provider.sessionKey);
-    XCTAssertNil(provider.expiration);
-    
-    
-}
 
-- (void)testCreateCognitoCredentialsProvider {
-    
-    AWSCognitoCredentialsProvider *provider1 = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
-                                                                                       identityProvider:nil
-                                                                                          unauthRoleArn:nil
-                                                                                            authRoleArn:nil];
-    XCTAssertNotNil(provider1);
-    
-    
-    AWSCognitoCredentialsProvider *provider2 = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
-                                                                                         identityPoolId:nil];
-    
-    XCTAssertNotNil(provider2);
-    
-    AWSCognitoCredentialsProvider *provider3 = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
-                                                                                             accountId:nil
-                                                                                        identityPoolId:nil
-                                                                                         unauthRoleArn:nil
-                                                                                           authRoleArn:nil];
-    
-    XCTAssertNotNil(provider3);
-    
-    AWSCognitoCredentialsProvider *provider4 = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
-                                                                                              accountId:nil
-                                                                                         identityPoolId:nil
-                                                                                          unauthRoleArn:nil
-                                                                                            authRoleArn:nil
-                                                                                                 logins:nil];
-    XCTAssertNotNil(provider4);
-    
-    AWSCognitoCredentialsProvider *provider5 = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
-                                                                                             identityId:nil
-                                                                                              accountId:nil
-                                                                                         identityPoolId:nil
-                                                                                          unauthRoleArn:nil
-                                                                                            authRoleArn:nil
-                                                                                                 logins:nil];
-    
-    XCTAssertNotNil(provider5);
-    
-    
+    AWSCredentials *credentials = [[AWSCredentials alloc] initWithAccessKey:@"accessKey"
+                                                                  secretKey:@"secretKey"
+                                                                 sessionKey:@"sessionKey"
+                                                                 expiration:[NSDate date]];
+
+    [provider setValue:credentials forKey:@"internalCredentials"];
+    [[[provider credentials] continueWithBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
+        AWSCredentials *credentials = task.result;
+        XCTAssertNil(credentials.accessKey);
+        XCTAssertNil(credentials.secretKey);
+        XCTAssertNil(credentials.sessionKey);
+        XCTAssertNil(credentials.expiration);
+
+        return nil;
+    }] waitUntilFinished];
 }
-#pragma clang diagnostic pop
 
 @end

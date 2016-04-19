@@ -23,9 +23,6 @@ FOUNDATION_EXPORT NSString *const AWSSimpleDBErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
     AWSSimpleDBErrorUnknown,
-    AWSSimpleDBErrorAccessFailure,
-    AWSSimpleDBErrorAuthFailure,
-    AWSSimpleDBErrorAuthMissingFailure,
     AWSSimpleDBErrorAttributeDoesNotExist,
     AWSSimpleDBErrorDuplicateItemName,
     AWSSimpleDBErrorInvalidNextToken,

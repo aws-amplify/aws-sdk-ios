@@ -16,6 +16,7 @@
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSCore.h>
 #import "AWSSQSModel.h"
+#import "AWSSQSResources.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -169,21 +170,6 @@ NS_ASSUME_NONNULL_BEGIN
  @param key A string to identify the service client.
  */
 + (void)removeSQSForKey:(NSString *)key;
-
-/**
- Instantiates the service client with the given service configuration.
- 
- @warning This method has been deprecated. Use `+ registerSQSWithConfiguration:forKey:` and `+ SQSForKey:` instead.
- 
- @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
- 
- @warning Unlike the singleton method, you are responsible for maintaining a strong reference to this object. If the service client is released before completing a service request, the request may fail with unspecified errors.
- 
- @param configuration The service configuration object.
- 
- @return An instance of the service client.
- */
-- (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration __attribute__ ((deprecated("Use '+ registerSQSWithConfiguration:forKey:' and '+ SQSForKey:' instead.")));
 
 /**
  <p>Adds a permission to a queue for a specific <a href="http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principal</a>. This allows for sharing access to the queue.</p><p>When you create a queue, you have full control access rights for the queue. Only you (as owner of the queue) can grant or deny permissions to the queue. For more information about these permissions, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html">Shared Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p><note><p><code>AddPermission</code> writes an Amazon SQS-generated policy. If you want to write your own policy, use <a>SetQueueAttributes</a> to upload your policy. For more information about writing your own policy, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AccessPolicyLanguage.html">Using The Access Policy Language</a> in the <i>Amazon SQS Developer Guide</i>.</p></note><note>Some API actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this: </note><p><code>&amp;Attribute.1=this</code></p><p><code>&amp;Attribute.2=that</code></p>

@@ -1,5 +1,40 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.4.0
+
+### New Features
+* **SDK Core**
+    * Migrated from the static frameworks to the dynamic frameworks. The AWS Mobile SDK for iOS now supports iOS 8 and above due to this change. If you need iOS 7 support, continue using 2.3.x.
+    * Added official support for [Carthage](https://github.com/Carthage/Carthage). See `README.md` for more information.
+    * Added support for the SDK configurations through `Info.plist`.
+    * Updated the credentials provider and identity provider protocols to asynchronous interfaces instead of previous synchronous ones. The `logins` dictionary of `AWSCognitoCredentialsProvider` is now deprecated. Use `AWSIdentityProviderManager` to provide login providers' credentials. See `AWSCredentialsProvider.h` and `AWSIdentityProvider.h` for more details.
+* **Amazon Cognito Identity Provider**
+    * You can now use Amazon Cognito to easily add user sign-up and sign-in to your mobile and web apps. Your User Pool in Amazon Cognito is a fully managed user directory that can scale to hundreds of millions of users, so you don't have to worry about building, securing, and scaling a solution to handle user management and authentication. See `AWSCognitoIdentityUserPool.h` for more details.
+* **AWS IoT**
+    * Added support for Amazon Cognito Identity with WebSocket connections, identity import, custom `Keep-Alive` and Last Will and Testament, and exponential back-off on reconnect.
+* **Amazon DynamoDB**
+    * Added the attribute name override capability to `AWSDynamoDBObjectMapper` by implementing `+ JSONKeyPathsByPropertyKey` in the model class.
+
+### Resolved Issues
+* **SDK Core**
+    * Fixed an issue where Cognito Identity Id is not properly cleaned up under certain circumstances.
+    * Improved the retry handling for certain throttling exceptions.
+    * Fixed an AWS Signature Version 4 issue when there is an extra `/` at the end of the endpoint URL.
+    * Fixed the `FMDatabasePoolDelegate` naming collision.
+* **Amazon DynamoDB**
+    * Fixed `- load:hashKey:rangeKey:` to return `nil` when the row does not exist.
+* **Amazon Kinesis**
+    * Patched an issue where `AWSKinesisRecorder` and `AWSFirehoseRecorder` may cause an infinite retry loop when the device is offline.
+* **Amazon S3**
+    * The SDK now invalidates the internal `NSURLSession` when `+ removeS3TransferUtilityForKey:` is called.
+    * Fixed a memory issue for downloading a large object as an `NSData`.
+
+### Misc Changes
+* **SDK Core**
+    * Changed the default logging level from `Error` to `Debug`.
+* **Amazon Cognito Sync**
+    * The source code for the Amazon Cognito Sync iOS client is now hosted in our [aws-sdk-ios](https://github.com/aws/aws-sdk-ios) repository instead of [amazon-cognito-ios](https://github.com/aws/amazon-cognito-ios). The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Sync and Amazon Cognito Identity Provider subcomponents being licensed under the Amazon Software License. See `LICENSE`, `LICENSE.AMAZON`, and `LICENSE.APACHE` for more details.
+
 ## 2.3.6
 
 ### New Features

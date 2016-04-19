@@ -1,6 +1,0 @@
-framework module AWSSNS {
-  umbrella header "AWSSNS.h"
-
-  export *
-  module * { export * }
-}

@@ -16,6 +16,7 @@
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSCore.h>
 #import "AWSIoTModel.h"
+#import "AWSIoTResources.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

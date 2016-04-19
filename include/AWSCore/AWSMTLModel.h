@@ -1,1 +1,0 @@
-../../AWSCore/Mantle/AWSMTLModel.h

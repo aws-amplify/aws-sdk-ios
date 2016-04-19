@@ -22,6 +22,8 @@ NSString *const AWSFirehoseRecorderErrorDomain = @"com.amazonaws.AWSFirehoseReco
 NSString *const AWSFirehoseRecorderByteThresholdReachedNotification = @"com.amazonaws.AWSFirehoseRecorderByteThresholdReachedNotification";
 NSString *const AWSFirehoseRecorderByteThresholdReachedNotificationDiskBytesUsedKey = @"diskBytesUsed";
 
+static NSString *const AWSInfoFirehoseRecorder = @"FirehoseRecorder";
+
 // Legacy constants
 NSString *const AWSFirehoseRecorderCacheName = @"com.amazonaws.AWSFirehoseRecorderCacheName.Cache";
 
@@ -52,16 +54,27 @@ NSString *const AWSFirehoseRecorderCacheName = @"com.amazonaws.AWSFirehoseRecord
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultFirehoseRecorder {
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"`defaultServiceConfiguration` is `nil`. You need to set it before using this method."
-                                     userInfo:nil];
-    }
-
     static AWSFirehoseRecorder *_defaultFirehoseRecorder = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _defaultFirehoseRecorder = [[AWSFirehoseRecorder alloc] initWithConfiguration:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration
+        AWSServiceConfiguration *serviceConfiguration = nil;
+        AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoFirehoseRecorder];
+        if (serviceInfo) {
+            serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                               credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+        }
+
+        if (!serviceConfiguration) {
+            serviceConfiguration = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
+        }
+
+        if (!serviceConfiguration) {
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:@"The service configuration is `nil`. You need to configure `Info.plist` or set `defaultServiceConfiguration` before using this method."
+                                         userInfo:nil];
+        }
+
+        _defaultFirehoseRecorder = [[AWSFirehoseRecorder alloc] initWithConfiguration:serviceConfiguration
                                                                          identifier:@"Default"
                                                                           cacheName:AWSFirehoseRecorderCacheName];
     });
@@ -83,7 +96,23 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 + (instancetype)FirehoseRecorderForKey:(NSString *)key {
-    return [_serviceClients objectForKey:key];
+    @synchronized(self) {
+        AWSFirehoseRecorder *serviceClient = [_serviceClients objectForKey:key];
+        if (serviceClient) {
+            return serviceClient;
+        }
+
+        AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] serviceInfo:AWSInfoFirehoseRecorder
+                                                                     forKey:key];
+        if (serviceInfo) {
+            AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                                                        credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+            [AWSFirehoseRecorder registerFirehoseRecorderWithConfiguration:serviceConfiguration
+                                                                    forKey:key];
+        }
+
+        return [_serviceClients objectForKey:key];
+    }
 }
 
 + (void)removeFirehoseRecorderForKey:(NSString *)key {
@@ -129,7 +158,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                             records:(NSArray *)temporaryRecords
                       partitionKeys:(NSArray *)partitionKeys
                    putPartitionKeys:(NSMutableArray *)putPartitionKeys
-                 retryPartitionKeys:(NSMutableArray *)retryPartitionKeys {
+                 retryPartitionKeys:(NSMutableArray *)retryPartitionKeys
+                               stop:(BOOL *)stop {
     NSMutableArray *records = [NSMutableArray new];
 
     for (NSDictionary *recordDictionary in temporaryRecords) {
@@ -147,6 +177,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [[self.firehose putRecordBatch:putRecordBatchInput] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             AWSLogError(@"Error: [%@]", task.error);
+            if ([task.error.domain isEqualToString:NSURLErrorDomain]) {
+                *stop = YES;
+            }
         }
         if (task.exception) {
             AWSLogError(@"Exception: [%@]", task.exception);

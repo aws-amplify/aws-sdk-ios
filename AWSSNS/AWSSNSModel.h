@@ -23,9 +23,6 @@ FOUNDATION_EXPORT NSString *const AWSSNSErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
     AWSSNSErrorUnknown,
-    AWSSNSErrorIncompleteSignature,
-    AWSSNSErrorInvalidClientTokenId,
-    AWSSNSErrorMissingAuthenticationToken,
     AWSSNSErrorAuthorizationError,
     AWSSNSErrorEndpointDisabled,
     AWSSNSErrorInternalError,

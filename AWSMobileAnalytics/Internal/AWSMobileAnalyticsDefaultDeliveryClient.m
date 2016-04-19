@@ -26,7 +26,6 @@
 #import <UIKit/UIKit.h>
 #import "AWSMobileAnalyticsClientContext.h"
 
-static NSSet *AWSMobileAnalyticsDefaultDeliveryClientRetryRequestCodes = nil;
 NSUInteger const AWSMobileAnalyticsDefaultDeliveryClientMaxOperations = 1000;
 
 @interface AWSMobileAnalyticsDefaultDeliveryClient()
@@ -43,12 +42,6 @@ NSUInteger const AWSMobileAnalyticsDefaultDeliveryClientMaxOperations = 1000;
 @end
 
 @implementation AWSMobileAnalyticsDefaultDeliveryClient
-
-+ (void)initialize {
-    if (self == [AWSMobileAnalyticsDefaultDeliveryClient class]) {
-        AWSMobileAnalyticsDefaultDeliveryClientRetryRequestCodes = [NSSet setWithObjects:@401, @404, @407, @408, nil];
-    }
-}
 
 + (AWSMobileAnalyticsDefaultDeliveryClient*)deliveryClientWithContext:(id<AWSMobileAnalyticsContext>)context
                                                       withWanDelivery:(BOOL)allowWANDelivery {
@@ -249,22 +242,24 @@ NSUInteger const AWSMobileAnalyticsDefaultDeliveryClientMaxOperations = 1000;
     
     [[[self.ers putEvents:[self putEventsInputForEvents:events]] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
-            AWSLogError(@"Unable to successfully deliver events to server. Error Message:%@", task.error);
-            submitted = NO;
-        } else {
-            int responseCode = [task.result[@"responseStatusCode"] intValue];
-            AWSLogVerbose( @"The http response code is %d", responseCode);
-            if(responseCode / 100 == 2) {
-                AWSLogInfo(@"Successful submission of %lu events. Response code:%d", (unsigned long)[events count], responseCode);
-                submitted = YES;
-            } else if(responseCode / 100 == 4
-                      && ![AWSMobileAnalyticsDefaultDeliveryClientRetryRequestCodes containsObject:@(responseCode)]) {
-                AWSLogError(@"Server rejected submission of %lu events. (Pending events will be removed from queue.) Response code:%d, Error Message:%@", (unsigned long)[events count], responseCode, task.error);
+            if ([task.error.domain isEqualToString:AWSMobileAnalyticsERSErrorDomain]
+                && task.error.code == AWSMobileAnalyticsERSErrorBadRequest) {
+                NSInteger responseCode = [task.error.userInfo[@"responseStatusCode"] integerValue];
+                AWSLogError(@"Server rejected submission of %lu events. (Pending events will be removed from queue.) Response code:%ld, Error Message:%@", (unsigned long)[events count], (long)responseCode, task.error);
                 submitted = YES;
             } else {
-                AWSLogError(@"Unable to successfully deliver events to server. Response code: %d. Error Message:%@", responseCode, task.error);
+                AWSLogError(@"Unable to successfully deliver events to server. Error Message:%@", task.error);
+                submitted = NO;
             }
         }
+
+        if (task.result) {
+            NSInteger responseCode = [task.result[@"responseStatusCode"] integerValue];
+            AWSLogVerbose(@"The http response code is %ld", (long)responseCode);
+            AWSLogInfo(@"Successful submission of %lu events. Response code:%ld", (unsigned long)[events count], (long)responseCode);
+            submitted = YES;
+        }
+
         return nil;
     }] waitUntilFinished];
     

@@ -15,51 +15,74 @@
 
 import UIKit
 import XCTest
+import AWSDynamoDB
 
-let tableName:String = "dynamoDBOMTestSwift";
+var tableName = ""
 
 class TestObjectV2: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
-    var hashKey:String?
-    var rangeKey:String?
-    var stringAttribute:String?
-    var numberAttribute:Double?
-    var binaryAttribute:NSData?
-    var stringSetAttribute:NSSet?
-    var numberSetAttribute:NSSet?
-    var binarySetAttribute:NSSet?
+    var hashKeyRenamed: String?
+    var rangeKeyRenamed: String?
 
-    var bool2Element:NSNumber?
-    var listElement:Array<AnyObject>?
-    var mapElement:Dictionary<String,AnyObject>?
+    var stringAttributeRenamed: String?
+    var numberAttributeRenamed: NSNumber?
+    var binaryAttributeRenamed: NSData?
+
+    var stringSetAttributeRenamed: Set<String>?
+    var numberSetAttributeRenamed: Set<NSNumber>?
+    var binarySetAttributeRenamed: Set<NSData>?
+
+    var bool2ElementRenamed: NSNumber?
+    var listElementRenamed: Array<NSObject>?
+    var mapElementRenamed: Dictionary<String, NSObject>?
+
+    var emptyElement: NSString?
 
     class func dynamoDBTableName() -> String {
         return tableName
     }
 
     class func hashKeyAttribute() -> String {
-        return "hashKey"
+        return "hashKeyRenamed"
     }
 
     class func rangeKeyAttribute() -> String {
-        return "rangeKey"
+        return "rangeKeyRenamed"
+    }
+
+    override class func JSONKeyPathsByPropertyKey() -> [NSObject: AnyObject] {
+        return ["hashKeyRenamed" : "hashKey1",
+                "rangeKeyRenamed" : "rangeKey1",
+                "stringAttributeRenamed" : "stringAttribute",
+                "numberAttributeRenamed" : "numberAttribute",
+                "binaryAttributeRenamed" : "binaryAttribute",
+                "stringSetAttributeRenamed" : "stringSetAttribute",
+                "numberSetAttributeRenamed" : "numberSetAttribute",
+                "binarySetAttributeRenamed" : "binarySetAttribute",
+                "bool2ElementRenamed" : "bool2Element",
+                "listElementRenamed" : "listElement",
+                "mapElementRenamed" : "mapElement",];
     }
 }
 
 class AWSDynamoDBObjectMapperSwiftTests: XCTestCase {
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
         AWSTestUtility.setupCognitoCredentialsProvider()
+
+        let timeIntervalSinceReferenceDate = Int(NSDate().timeIntervalSinceReferenceDate)
+        tableName = "DynamoDBOMTestSwift-\(timeIntervalSinceReferenceDate)"
+
+        AWSDynamoDBTestUtility.createTable(tableName)
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        AWSDynamoDBTestUtility.deleteTable(tableName)
         super.tearDown()
     }
 
     func testBooleanNumber() {
-        let boolNumberArray:Array<AnyObject> = [true,false,NSNumber(bool: true),NSNumber(bool: false)]
-        let nonBoolNumberArray:Array<AnyObject> = [20,500.34,NSNumber(integer: 34),NSNumber(char: 3),NSNumber(float: 23.4)]
+        let boolNumberArray:Array<AnyObject> = [true, false, NSNumber(bool: true), NSNumber(bool: false)]
+        let nonBoolNumberArray:Array<AnyObject> = [20, 500.34, NSNumber(integer: 34), NSNumber(char: 3), NSNumber(float: 23.4)]
         let myboolClass = NSNumber(bool: true).dynamicType
         let klass: AnyClass = object_getClass(NSNumber(bool: true))
 
@@ -85,38 +108,71 @@ class AWSDynamoDBObjectMapperSwiftTests: XCTestCase {
     }
 
     func testSaveBehaviorUpdateV2() {
-        let updateMapper = AWSDynamoDBObjectMapper.defaultDynamoDBObjectMapper()
-        let hashKeyValue = "hash-v2-swift-\(__FUNCTION__)"
-        let rangeKeyValue = "range-v2-swift-\(__FUNCTION__)"
+        let objectMapper = AWSDynamoDBObjectMapper.defaultDynamoDBObjectMapper()
+        let hashKeyValue = "hash-v2-swift-\(#function)"
+        let rangeKeyValue = "range-v2-swift-\(#function)"
 
+        let stringElement = "testString"
+        let numberElement = 123.4
         let binaryElement = "testData".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
 
-        let stringSet = NSSet(objects: "StringSet1","stringSet2","stringSet3")
-        let numberSet = NSSet(objects: 1,2,3)
+        let stringSet = Set(["StringSet1", "stringSet2", "stringSet3"])
+        let numberSet = Set([1, 2, 3])
         let data1 = "testDataSet1".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
         let data2 = "testDataSet2".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
         let data3 = "testDataSet4".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
-        let binarySet = NSSet(objects: data1,data2,data3)
+        let binarySet = Set([data1, data2, data3])
         let boolElement = true
-        let listElement = ["StringInList",55,binaryElement,stringSet,numberSet,binarySet,true,["stringInListOfList",57]]
-        let mapElement = ["mapStringKey":"mapStringValue","mapNumberKey":98,"mapBinaryKey":binaryElement,"mapStringSetKey":stringSet,"mapNumberSetKey":numberSet,"mapBoolKey":true,"mapListKey":listElement,"mapMapKey":["str":"strValue","num":5,"lst":listElement]]
+        let listElement = ["StringInList", 55, binaryElement, stringSet, numberSet, binarySet, true, ["stringInListOfList", 57]]
+        let mapElement = ["mapStringKey" : "mapStringValue",
+                          "mapNumberKey" : 98,
+                          "mapBinaryKey" : binaryElement,
+                          "mapStringSetKey" : stringSet,
+                          "mapNumberSetKey" : numberSet,
+                          "mapBoolKey" : true,
+                          "mapListKey" : listElement,
+                          "mapMapKey" : [
+                            "str" : "strValue",
+                            "num" : 5,
+                            "lst" : listElement]]
 
         let objv2 = TestObjectV2()
-        objv2.hashKey = hashKeyValue
-        objv2.rangeKey = rangeKeyValue
-        objv2.stringSetAttribute = stringSet
-        objv2.numberSetAttribute = numberSet
-        objv2.binarySetAttribute = binarySet
-        objv2.bool2Element = boolElement
-        objv2.listElement = listElement
-        objv2.mapElement = mapElement
+        objv2.hashKeyRenamed = hashKeyValue
+        objv2.rangeKeyRenamed = rangeKeyValue
+        objv2.stringAttributeRenamed = stringElement
+        objv2.numberAttributeRenamed = numberElement
+        objv2.binaryAttributeRenamed = binaryElement;
+        objv2.stringSetAttributeRenamed = stringSet
+        objv2.numberSetAttributeRenamed = numberSet
+        objv2.binarySetAttributeRenamed = binarySet
+        objv2.bool2ElementRenamed = boolElement
+        objv2.listElementRenamed = listElement
+        objv2.mapElementRenamed = mapElement
 
-        updateMapper.save(objv2).continueWithBlock() { (task) -> AnyObject? in
-            if (task.error != nil) {
-                XCTFail("Error: \(task.error)")
-            }
-
-            return nil
+        objectMapper.save(objv2).continueWithSuccessBlock { (task) -> AnyObject? in
+            return objectMapper.load(TestObjectV2.self, hashKey: hashKeyValue, rangeKey: rangeKeyValue)
+            }.continueWithBlock { (task) -> AnyObject? in
+                if (task.error != nil) {
+                    XCTFail("Error: \(task.error)")
+                }
+                if (task.exception != nil) {
+                    XCTFail("Exception: \(task.exception)")
+                }
+                if let obj = task.result as? TestObjectV2 {
+                    XCTAssertEqual(obj.hashKeyRenamed, hashKeyValue)
+                    XCTAssertEqual(obj.rangeKeyRenamed, rangeKeyValue)
+                    XCTAssertEqual(obj.stringAttributeRenamed, stringElement)
+                    XCTAssertEqual(obj.numberAttributeRenamed, numberElement)
+                    XCTAssertEqual(obj.binaryAttributeRenamed, binaryElement)
+                    XCTAssertEqual(obj.stringSetAttributeRenamed, stringSet)
+                    XCTAssertEqual(obj.numberSetAttributeRenamed, numberSet)
+                    XCTAssertEqual(obj.binarySetAttributeRenamed, binarySet)
+                    XCTAssertEqual(obj.bool2ElementRenamed, boolElement)
+                    XCTAssertEqual(obj.listElementRenamed!, listElement)
+                    XCTAssertEqual(obj.mapElementRenamed!, mapElement)
+                    XCTAssertNil(obj.emptyElement)
+                }
+                return nil
             }.waitUntilFinished()
     }
 }

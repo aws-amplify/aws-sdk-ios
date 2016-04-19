@@ -16,6 +16,7 @@
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSCore.h>
 #import "AWSLambdaModel.h"
+#import "AWSLambdaResources.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -23,9 +23,6 @@ FOUNDATION_EXPORT NSString *const AWSMachineLearningErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSMachineLearningErrorType) {
     AWSMachineLearningErrorUnknown,
-    AWSMachineLearningErrorIncompleteSignature,
-    AWSMachineLearningErrorInvalidClientTokenId,
-    AWSMachineLearningErrorMissingAuthenticationToken,
     AWSMachineLearningErrorInternalServer,
     AWSMachineLearningErrorInvalidInput,
     AWSMachineLearningErrorLimitExceeded,

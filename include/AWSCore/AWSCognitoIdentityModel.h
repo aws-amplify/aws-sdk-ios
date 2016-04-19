@@ -1,1 +1,0 @@
-../../AWSCore/CognitoIdentity/AWSCognitoIdentityModel.h

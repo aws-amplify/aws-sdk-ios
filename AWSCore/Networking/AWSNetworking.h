@@ -36,7 +36,6 @@ typedef NS_ENUM(NSInteger, AWSNetworkingRetryType) {
 
 typedef void (^AWSNetworkingUploadProgressBlock) (int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend);
 typedef void (^AWSNetworkingDownloadProgressBlock) (int64_t bytesWritten, int64_t totalBytesWritten, int64_t totalBytesExpectedToWrite);
-typedef void (^AWSNetworkingCompletionHandlerBlock)(id responseObject, NSError *error);
 
 #pragma mark - AWSHTTPMethod
 
@@ -142,9 +141,9 @@ typedef NS_ENUM(NSInteger, AWSHTTPMethod) {
 @property (nonatomic, assign) BOOL allowsCellularAccess;
 
 @property (nonatomic, strong) id<AWSURLRequestSerializer> requestSerializer;
-@property (nonatomic, strong) NSArray *requestInterceptors; // Array of AWSNetworkingRequestInterceptor.
+@property (nonatomic, strong) NSArray<id<AWSNetworkingRequestInterceptor>> *requestInterceptors;
 @property (nonatomic, strong) id<AWSHTTPURLResponseSerializer> responseSerializer;
-@property (nonatomic, strong) NSArray *responseInterceptors; // Array of AWSNetworkingResponseInterceptor.
+@property (nonatomic, strong) NSArray<id<AWSNetworkingHTTPResponseInterceptor>> *responseInterceptors;
 @property (nonatomic, strong) id<AWSURLRequestRetryHandler> retryHandler;
 
 /**

@@ -23,15 +23,22 @@ NSUInteger const AWSS3PreSignedURLTest256KB = 1024 * 256;
 static NSString *testS3PresignedURLEUCentralKey = @"testS3PresignedURLEUCentral";
 static NSString *testS3EUCentralKey = @"testS3EUCentral";
 static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCentralStatic";
+
 @interface AWSS3TestCredentialsProvider : NSObject <AWSCredentialsProvider>
 
-@property (nonatomic, strong) NSString *accessKey;
-@property (nonatomic, strong) NSString *secretKey;
-@property (nonatomic, strong) NSString *sessionKey;
+@property (nonatomic, strong) AWSCredentials *internalCredentials;
 
 @end
 
 @implementation AWSS3TestCredentialsProvider
+
+- (AWSTask<AWSCredentials *> *)credentials {
+    return [AWSTask taskWithResult:self.internalCredentials];
+}
+
+- (void)invalidateCachedTemporaryCredentials {
+    self.internalCredentials = nil;
+}
 
 @end
 
@@ -51,10 +58,16 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
                                                                          credentialsProvider:credentialProvider];
     [AWSS3PreSignedURLBuilder registerS3PreSignedURLBuilderWithConfiguration:configuration forKey:testS3PresignedURLEUCentralKey];
     [AWSS3 registerS3WithConfiguration:configuration forKey:testS3EUCentralKey];
-    
-    AWSStaticCredentialsProvider *staticCredentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithCredentialsFilename:@"credentials"];
+
+    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
+                                                                          ofType:@"json"];
+    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                    options:NSJSONReadingMutableContainers
+                                                                      error:nil];
+    AWSStaticCredentialsProvider *staticCredentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
+                                                                                                            secretKey:credentialsJson[@"secretKey"]];
     AWSServiceConfiguration *staticConfig = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionEUCentral1
-                                                                         credentialsProvider:staticCredentialsProvider];
+                                                                        credentialsProvider:staticCredentialsProvider];
     [AWSS3PreSignedURLBuilder registerS3PreSignedURLBuilderWithConfiguration:staticConfig forKey:testS3PresignedURLEUCentralStaticKey];
     
     
@@ -67,7 +80,13 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
 
 - (void)testCustomServiceConfiguration {
-    AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithCredentialsFilename:@"credentials"];
+    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
+                                                                          ofType:@"json"];
+    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                    options:NSJSONReadingMutableContainers
+                                                                      error:nil];
+    AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
+                                                                                                      secretKey:credentialsJson[@"secretKey"]];
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
                                                                          credentialsProvider:credentialsProvider];
 
@@ -91,19 +110,23 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
         request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
 
-        NSError *returnError = nil;
-        NSHTTPURLResponse *returnResponse = nil;
+        dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+        [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                        completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                            XCTAssertNil(error, @"response contains error:%@,\n presigned URL is:%@",error,presignedURL.absoluteString);
 
-        NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
+                                            if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
+                                                XCTFail(@"response status Code is :%ld", (long)((NSHTTPURLResponse *)response).statusCode);
+                                                NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                            }
 
-        XCTAssertNil(returnError, @"response contains error:%@,\n presigned URL is:%@",returnError,presignedURL.absoluteString);
+                                            XCTAssertEqual(65961003, [data length],
+                                                           @"received object is different from sent object. expect file size:%lu, got:%lu", (unsigned long)65961003, (unsigned long)[data length]);
 
-        if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) {
-            XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
-            NSLog(@"response data is:%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-        }
+                                            dispatch_semaphore_signal(semaphore);
+                                        }] resume];
 
-        XCTAssertEqual(65961003, [responseData length],@"received object is different from sent object. expect file size:%lu, got:%lu",(unsigned long)65961003,(unsigned long)[responseData length]);
+        XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 240 * NSEC_PER_SEC)), 0);
 
         return nil;
     }] waitUntilFinished];
@@ -169,23 +192,26 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
             [request setHTTPBody:testObjectData];
 
-            NSError *returnError = nil;
-            NSHTTPURLResponse *returnResponse = nil;
+            dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+            [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                            completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                XCTAssertNil(error, @"response contains error:%@ \n presigned URL is:%@", error, presignedURL.absoluteString);
 
-            NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
+                                                if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
+                                                    XCTFail(@"response status Code is :%ld", (long)((NSHTTPURLResponse *)response).statusCode);
+                                                    NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                                }
 
-            XCTAssertNil(returnError, @"response contains error:%@ \n presigned URL is:%@",returnError,presignedURL.absoluteString);
+                                                if ([data length] != 0) {
+                                                    //expected the got 0 size returnData, but got something else.
+                                                    NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                    XCTFail(@"Error response received:\n %@",responseString);
+                                                }
 
-            if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) {
-                XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
-                NSLog(@"response data is:%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-            }
+                                                dispatch_semaphore_signal(semaphore);
+                                            }] resume];
 
-            if ([responseData length] != 0) {
-                //expected the got 0 size returnData, but got something else.
-                NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-                XCTFail(@"Error response received:\n %@",responseString);
-            }
+            XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC)), 0);
 
             return nil;
         }] waitUntilFinished];
@@ -217,25 +243,27 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
             request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
             [request setHTTPMethod:@"HEAD"];
 
-            NSError *returnError = nil;
-            NSHTTPURLResponse *returnResponse = nil;
+            dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+            [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                             completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                 XCTAssertNil(error, @"response contains error:%@ \n presigned URL is:%@",error, presignedURL.absoluteString);
 
-            NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
+                                                 if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
+                                                     XCTFail(@"response status Code is :%ld",(long)((NSHTTPURLResponse *)response).statusCode);
+                                                     NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                                 }
 
-            XCTAssertNil(returnError, @"response contains error:%@ \n presigned URL is:%@",returnError, presignedURL.absoluteString);
+                                                 XCTAssertEqual((unsigned long)AWSS3PreSignedURLTest256KB, [[[((NSHTTPURLResponse *)response) allHeaderFields] objectForKey:@"Content-Length"] integerValue],@"received object is different from sent object. expect file size:%lu, got:%lu",(unsigned long)AWSS3PreSignedURLTest256KB,(long)[[[((NSHTTPURLResponse *)response) allHeaderFields] objectForKey:@"Content-Length"] integerValue]);
 
-            if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) {
-                XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
-                NSLog(@"response data is:%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-            }
+                                                 if ([data length] != 0) {
+                                                     //expected the got 0 size returnData, but got something else.
+                                                     NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                     XCTFail(@"Error response received:\n %@",responseString);
+                                                 }
+                                                 dispatch_semaphore_signal(semaphore);
+                                             }] resume];
 
-            XCTAssertEqual((unsigned long)AWSS3PreSignedURLTest256KB, [[[returnResponse allHeaderFields] objectForKey:@"Content-Length"] integerValue],@"received object is different from sent object. expect file size:%lu, got:%lu",(unsigned long)AWSS3PreSignedURLTest256KB,(long)[[[returnResponse allHeaderFields] objectForKey:@"Content-Length"] integerValue]);
-
-            if ([responseData length] != 0) {
-                //expected the got 0 size returnData, but got something else.
-                NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-                XCTFail(@"Error response received:\n %@",responseString);
-            }
+            XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC)), 0);
 
             return nil;
         }] waitUntilFinished];
@@ -264,19 +292,22 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
             request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
 
-            NSError *returnError = nil;
-            NSHTTPURLResponse *returnResponse = nil;
+            dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+            [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                             completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                 XCTAssertNil(error, @"response contains error:%@,\n presigned URL is:%@",error,presignedURL.absoluteString);
 
-            NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
+                                                 if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
+                                                     XCTFail(@"response status Code is :%ld",(long)((NSHTTPURLResponse *)response).statusCode);
+                                                     NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                                 }
 
-            XCTAssertNil(returnError, @"response contains error:%@,\n presigned URL is:%@",returnError,presignedURL.absoluteString);
+                                                 XCTAssertEqual((unsigned long)AWSS3PreSignedURLTest256KB, [data length],@"received object is different from sent object. expect file size:%lu, got:%lu",(unsigned long)AWSS3PreSignedURLTest256KB,(unsigned long)[data length]);
 
-            if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) {
-                XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
-                NSLog(@"response data is:%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-            }
+                                                 dispatch_semaphore_signal(semaphore);
+                                             }] resume];
 
-            XCTAssertEqual((unsigned long)AWSS3PreSignedURLTest256KB, [responseData length],@"received object is different from sent object. expect file size:%lu, got:%lu",(unsigned long)AWSS3PreSignedURLTest256KB,(unsigned long)[responseData length]);
+            XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC)), 0);
 
             return nil;
         }] waitUntilFinished];
@@ -306,23 +337,26 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
             request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
             [request setHTTPMethod:@"DELETE"];
 
-            NSError *returnError = nil;
-            NSHTTPURLResponse *returnResponse = nil;
+            dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+            [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                             completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                 XCTAssertNil(error, @"response contains error:%@, \n presigned URL is:%@",error, presignedURL.absoluteString);
 
-            NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
+                                                 if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
+                                                     XCTFail(@"response status Code is :%ld",(long)((NSHTTPURLResponse *)response).statusCode);
+                                                     NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                                 }
 
-            XCTAssertNil(returnError, @"response contains error:%@, \n presigned URL is:%@",returnError, presignedURL.absoluteString);
+                                                 if ([data length] != 0) {
+                                                     //expected the got 0 size returnData, but got something else.
+                                                     NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                     XCTFail(@"Error response received:\n %@",responseString);
+                                                 }
 
-            if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) {
-                XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
-                NSLog(@"response data is:%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-            }
+                                                 dispatch_semaphore_signal(semaphore);
+                                             }] resume];
 
-            if ([responseData length] != 0) {
-                //expected the got 0 size returnData, but got something else.
-                NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-                XCTFail(@"Error response received:\n %@",responseString);
-            }
+            XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC)), 0);
 
             return nil;
         }] waitUntilFinished];
@@ -422,23 +456,28 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
                 [request setHTTPBody:testObjectData];
 
-                NSError *returnError = nil;
-                NSHTTPURLResponse *returnResponse = nil;
+                dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+                [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                                 completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                     XCTAssertNil(error, @"response contains error:%@ \n presigned URL is:%@",error,presignedURL.absoluteString);
 
-                NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
+                                                     if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
+                                                         XCTFail(@"response status Code is :%ld",(long)((NSHTTPURLResponse *)response).statusCode);
+                                                         NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                                     }
 
-                XCTAssertNil(returnError, @"response contains error:%@ \n presigned URL is:%@",returnError,presignedURL.absoluteString);
+                                                     if ([data length] != 0) {
+                                                         //expected the got 0 size returnData, but got something else.
+                                                         NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                         XCTFail(@"Error response received:\n %@",responseString);
+                                                     }
 
-                if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) {
-                    XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
-                    NSLog(@"response data is:%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-                }
+                                                     dispatch_semaphore_signal(semaphore);
+                                                 }] resume];
 
-                if ([responseData length] != 0) {
-                    //expected the got 0 size returnData, but got something else.
-                    NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-                    XCTFail(@"Error response received:\n %@",responseString);
-                }
+                XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC)), 0);
+
+
 
                 return nil;
             }] waitUntilFinished];
@@ -491,19 +530,22 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
                     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
                     request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
 
-                    NSError *returnError = nil;
-                    NSHTTPURLResponse *returnResponse = nil;
+                    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+                    [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                                     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                         XCTAssertNil(error, @"response contains error:%@,\n presigned URL is:%@",error,presignedURL.absoluteString);
 
-                    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
+                                                         if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
+                                                             XCTFail(@"response status Code is :%ld",(long)((NSHTTPURLResponse *)response).statusCode);
+                                                             NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                                         }
+                                                         
+                                                         XCTAssertEqualObjects(testObjectData, data);
 
-                    XCTAssertNil(returnError, @"response contains error:%@,\n presigned URL is:%@",returnError,presignedURL.absoluteString);
+                                                         dispatch_semaphore_signal(semaphore);
+                                                     }] resume];
 
-                    if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) {
-                        XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
-                        NSLog(@"response data is:%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-                    }
-
-                    XCTAssertEqualObjects(testObjectData, responseData);
+                    XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC)), 0);
 
                     return nil;
                 }] waitUntilFinished];
@@ -575,26 +617,28 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
                 NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
                 request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
                 
-                NSError *returnError = nil;
-                NSHTTPURLResponse *returnResponse = nil;
-                
-                NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
-                
-                XCTAssertNil(returnError, @"response contains error:%@,\n presigned URL is:%@",returnError,presignedURL.absoluteString);
-                
-                if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) {
-                    XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
-                    NSLog(@"response data is:%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-                }
-                
-                if (count == 0) {
-                    XCTAssertTrue([responseData length] > 0);
-                    NSString *responseContentTypeStr = [returnResponse allHeaderFields][@"Content-Type"];
-                    XCTAssertEqualObjects(@"application/x-bittorrent", responseContentTypeStr);
-                } else {
-                    XCTAssertEqual(65961003, [responseData length],@"received object is different from sent object. expect file size:%lu, got:%lu",(unsigned long)65961003,(unsigned long)[responseData length]);
-                }
+                dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+                [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                                 completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                     XCTAssertNil(error, @"response contains error:%@,\n presigned URL is:%@",error,presignedURL.absoluteString);
 
+                                                     if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
+                                                         XCTFail(@"response status Code is :%ld",(long)((NSHTTPURLResponse *)response).statusCode);
+                                                         NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                                     }
+
+                                                     if (count == 0) {
+                                                         XCTAssertTrue([data length] > 0);
+                                                         NSString *responseContentTypeStr = [((NSHTTPURLResponse *)response) allHeaderFields][@"Content-Type"];
+                                                         XCTAssertEqualObjects(@"application/x-bittorrent", responseContentTypeStr);
+                                                     } else {
+                                                         XCTAssertEqual(65961003, [data length],@"received object is different from sent object. expect file size:%lu, got:%lu",(unsigned long)65961003,(unsigned long)[data length]);
+                                                     }
+
+                                                     dispatch_semaphore_signal(semaphore);
+                                                 }] resume];
+
+                XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 240 * NSEC_PER_SEC)), 0);
                 
                 return nil;
             }] waitUntilFinished];
@@ -637,30 +681,30 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     [request setHTTPMethod:@"PUT"];
     [request setHTTPBody:testObjectData];
     
-    NSError *returnError = nil;
-    NSHTTPURLResponse *returnResponse = nil;
-    
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
-    
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                         XCTAssertNil(error, @"response contains error:%@ \n presigned URL is:%@",error,presignedURL.absoluteString);
 
-    XCTAssertNil(returnError, @"response contains error:%@ \n presigned URL is:%@",returnError,presignedURL.absoluteString);
-    
-    if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) {
-        XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
-        NSLog(@"response data is:%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-    }
-    
-    if ([responseData length] != 0) {
-        //expected the got 0 size returnData, but got something else.
-        NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-        XCTFail(@"Error response received:\n %@",responseString);
-    }
-    
-    //confirm server side encryption
-    NSString *encryptDesc = [returnResponse allHeaderFields][@"x-amz-server-side-encryption"];
-    XCTAssertEqualObjects(@"AES256", encryptDesc);
+                                         if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
+                                             XCTFail(@"response status Code is :%ld",(long)((NSHTTPURLResponse *)response).statusCode);
+                                             NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                         }
 
-    
+                                         if ([data length] != 0) {
+                                             //expected the got 0 size returnData, but got something else.
+                                             NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                             XCTFail(@"Error response received:\n %@",responseString);
+                                         }
+                                         
+                                         //confirm server side encryption
+                                         NSString *encryptDesc = [((NSHTTPURLResponse *)response) allHeaderFields][@"x-amz-server-side-encryption"];
+                                         XCTAssertEqualObjects(@"AES256", encryptDesc);
+
+                                         dispatch_semaphore_signal(semaphore);
+                                     }] resume];
+
+    XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC)), 0);
 }
 
 
@@ -698,13 +742,19 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
         [request setHTTPBody:testObjectData];
         
         //send HTTP PUT Request
-        NSError *returnError = nil;
-        NSHTTPURLResponse *returnResponse = nil;
-        [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
-        
-        if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) {
-            NSLog(@"server returns error.");
-        }
+        dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+        [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                         completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                             if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
+                                                 NSLog(@"server returns error.");
+                                             }
+
+                                             dispatch_semaphore_signal(semaphore);
+                                         }] resume];
+
+        XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC)), 0);
+
+
         return nil;
     }];
     
@@ -734,21 +784,24 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
             request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
             
-            NSError *returnError = nil;
-            NSHTTPURLResponse *returnResponse = nil;
-            
-            NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
-            
-            XCTAssertNil(returnError, @"response contains error:%@,\n presigned URL is:%@",returnError,presignedURL.absoluteString);
-            
-            if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) {
-                XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
-                NSLog(@"response data is:%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-            }
-            
-            //Assert response contains user-defined metadata
-            XCTAssertEqualObjects(userDefinedValue, [[returnResponse allHeaderFields] objectForKey:userDefinedHeader]);
-            
+            dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+            [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                             completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                 XCTAssertNil(error, @"response contains error:%@,\n presigned URL is:%@",error,presignedURL.absoluteString);
+
+                                                 if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
+                                                     XCTFail(@"response status Code is :%ld",(long)((NSHTTPURLResponse *)response).statusCode);
+                                                     NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                                 }
+
+                                                 //Assert response contains user-defined metadata
+                                                 XCTAssertEqualObjects(userDefinedValue, [[((NSHTTPURLResponse *)response) allHeaderFields] objectForKey:userDefinedHeader]);
+
+                                                 dispatch_semaphore_signal(semaphore);
+                                             }] resume];
+
+            XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC)), 0);
+
             return nil;
         }] waitUntilFinished];
         
@@ -761,15 +814,10 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
         [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
             return nil;
         }] waitUntilFinished];
-        
     }
-    
-    
 }
 
 - (void)testPutObject2 {
-    
-    
     NSArray *bucketNameArray = @[@"ios-v2-s3-tm-testdata",@"ios-v2-s3.periods",@"ios-v2-s3-eu-central",@"ios-v2-s3-eu-c.periods"];
     NSString *testContentType = @"application/x-authorware-bin";
     int32_t count = 0;
@@ -852,54 +900,55 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
                     [request setHTTPBody:testObjectData];
                 }
                 
-                
-                NSError *returnError = nil;
-                NSHTTPURLResponse *returnResponse = nil;
-                
-                NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
-                
-                XCTAssertNil(returnError, @"response contains error:%@ \n presigned URL is:%@",returnError,presignedURL.absoluteString);
-                
-                switch (count) {
-                    case 0:
-                        //should return 403 Forbidden error, since Content-Type is not in request header
-                        if (returnResponse.statusCode != 403) {
-                            XCTFail(@"Expected 403 Error but got response status Code is :%ld, response data is:\n%@",(long)returnResponse.statusCode,[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-                        }
-                        break;
-                    case 1:
-                        //should return 403 Forbidden error, since Content-MD5 is not in request header
-                        if (returnResponse.statusCode != 403) {
-                            XCTFail(@"Expected 403 Error but got response status Code is :%ld, response data is:\n%@",(long)returnResponse.statusCode,[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-                        }
-                        break;
-                        
-                    default:
-                        //should success
-                        if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) {
-                            XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
-                            NSLog(@"response data is:%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-                        }
-                        if ([responseData length] != 0) {
-                            //expected the got 0 size returnData, but got something else.
-                            NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-                            XCTFail(@"Error response received:\n %@",responseString);
-                        }
-                        
-                        
-                        if ( versionIDDic[[NSNumber numberWithInt:count]] == nil) {
-                            NSMutableArray *array = [NSMutableArray new];
-                            versionIDDic[[NSNumber numberWithInt:count]] = array;
-                        }
-                        
-                        NSString *versionID = [returnResponse allHeaderFields][@"x-amz-version-id"];
-                        XCTAssertNotNil(versionID);
-                        [versionIDDic[[NSNumber numberWithInt:count]] addObject:versionID];
-                        
-                        
-                        break;
-                }
+                dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+                [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                                 completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                     XCTAssertNil(error, @"response contains error:%@ \n presigned URL is:%@",error,presignedURL.absoluteString);
 
+                                                     switch (count) {
+                                                         case 0:
+                                                             //should return 403 Forbidden error, since Content-Type is not in request header
+                                                             if (((NSHTTPURLResponse *)response).statusCode != 403) {
+                                                                 XCTFail(@"Expected 403 Error but got response status Code is :%ld, response data is:\n%@",(long)((NSHTTPURLResponse *)response).statusCode,[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                                             }
+                                                             break;
+                                                         case 1:
+                                                             //should return 403 Forbidden error, since Content-MD5 is not in request header
+                                                             if (((NSHTTPURLResponse *)response).statusCode != 403) {
+                                                                 XCTFail(@"Expected 403 Error but got response status Code is :%ld, response data is:\n%@",(long)((NSHTTPURLResponse *)response).statusCode,[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                                             }
+                                                             break;
+
+                                                         default:
+                                                             //should success
+                                                             if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
+                                                                 XCTFail(@"response status Code is :%ld",(long)((NSHTTPURLResponse *)response).statusCode);
+                                                                 NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                                             }
+                                                             if ([data length] != 0) {
+                                                                 //expected the got 0 size returnData, but got something else.
+                                                                 NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                                 XCTFail(@"Error response received:\n %@",responseString);
+                                                             }
+                                                             
+                                                             
+                                                             if ( versionIDDic[[NSNumber numberWithInt:count]] == nil) {
+                                                                 NSMutableArray *array = [NSMutableArray new];
+                                                                 versionIDDic[[NSNumber numberWithInt:count]] = array;
+                                                             }
+                                                             
+                                                             NSString *versionID = [((NSHTTPURLResponse *)response) allHeaderFields][@"x-amz-version-id"];
+                                                             XCTAssertNotNil(versionID);
+                                                             [versionIDDic[[NSNumber numberWithInt:count]] addObject:versionID];
+                                                             
+                                                             
+                                                             break;
+                                                     }
+
+                                                     dispatch_semaphore_signal(semaphore);
+                                                 }] resume];
+
+                XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC)), 0);
             }
             
             return nil;
@@ -917,20 +966,14 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
             getPreSignedURLRequest.key = keyName;
             getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodGET;
             getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
-            
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
             if (count == 2) {
-                getPreSignedURLRequest.versionId = [versionIDDic[[NSNumber numberWithInt:count]] firstObject];
+                [getPreSignedURLRequest setValue:[versionIDDic[[NSNumber numberWithInt:count]] firstObject] forRequestParameter:AWSS3PresignedURLVersionID];
             }
             if (count == 3) {
-                getPreSignedURLRequest.versionId = @"invalidVersionID"; //this should be overwritten by additionalParameters below.
                 [getPreSignedURLRequest setValue:[versionIDDic[[NSNumber numberWithInt:count]] firstObject] forRequestParameter:AWSS3PresignedURLVersionID];
                 [getPreSignedURLRequest setValue:@"x-amz-meta-userdefined-key" forRequestParameter:@"user-defined-value"];
-                getPreSignedURLRequest.versionId = @"invalidVersionIDTWO"; //this should be automatically ignored.
             }
-#pragma clang diagnostic pop
-            
             
             [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
                 
@@ -948,19 +991,22 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
                 NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
                 request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
                 
-                NSError *returnError = nil;
-                NSHTTPURLResponse *returnResponse = nil;
-                
-                NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
-                
-                XCTAssertNil(returnError, @"response contains error:%@,\n presigned URL is:%@",returnError,presignedURL.absoluteString);
-                
-                if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) {
-                    XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
-                    NSLog(@"response data is:%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-                }
-                XCTAssertEqualObjects(testObjectData,responseData,@"Expected: %@, but got: %@",[[NSString alloc] initWithData:testObjectData encoding:NSUTF8StringEncoding],[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-                
+                dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+                [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                                 completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                     XCTAssertNil(error, @"response contains error:%@,\n presigned URL is:%@",error,presignedURL.absoluteString);
+
+                                                     if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
+                                                         XCTFail(@"response status Code is :%ld",(long)((NSHTTPURLResponse *)response).statusCode);
+                                                         NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                                     }
+                                                     XCTAssertEqualObjects(testObjectData,data,@"Expected: %@, but got: %@",[[NSString alloc] initWithData:testObjectData encoding:NSUTF8StringEncoding],[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+
+                                                     dispatch_semaphore_signal(semaphore);
+                                                 }] resume];
+
+                XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC)), 0);
+
                 return nil;
             }] waitUntilFinished];
             
@@ -1041,23 +1087,26 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
             [request setHTTPBody:testObjectData];
 
-            NSError *returnError = nil;
-            NSHTTPURLResponse *returnResponse = nil;
+            dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+            [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                             completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                 XCTAssertNil(error, @"response contains error:%@ \n presigned URL is:%@",error,presignedURL.absoluteString);
 
-            NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
+                                                 if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
+                                                     XCTFail(@"response status Code is :%ld",(long)((NSHTTPURLResponse *)response).statusCode);
+                                                     NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                                 }
 
-            XCTAssertNil(returnError, @"response contains error:%@ \n presigned URL is:%@",returnError,presignedURL.absoluteString);
+                                                 if ([data length] != 0) {
+                                                     //expected the got 0 size returnData, but got something else.
+                                                     NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                     XCTFail(@"Error response received:\n %@",responseString);
+                                                 }
 
-            if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) {
-                XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
-                NSLog(@"response data is:%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-            }
+                                                 dispatch_semaphore_signal(semaphore);
+                                             }] resume];
 
-            if ([responseData length] != 0) {
-                //expected the got 0 size returnData, but got something else.
-                NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-                XCTFail(@"Error response received:\n %@",responseString);
-            }
+            XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC)), 0);
 
             return nil;
         }] waitUntilFinished];
@@ -1148,25 +1197,28 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
             request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
             [request setHTTPMethod:@"HEAD"];
 
-            NSError *returnError = nil;
-            NSHTTPURLResponse *returnResponse = nil;
+            dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+            [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                             completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                 XCTAssertNil(error, @"response contains error:%@ \n presigned URL is:%@",error, presignedURL.absoluteString);
 
-            NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
+                                                 if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
+                                                     XCTFail(@"response status Code is :%ld",(long)((NSHTTPURLResponse *)response).statusCode);
+                                                     NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                                 }
 
-            XCTAssertNil(returnError, @"response contains error:%@ \n presigned URL is:%@",returnError, presignedURL.absoluteString);
+                                                 XCTAssertEqual(65961003, [[[((NSHTTPURLResponse *)response) allHeaderFields] objectForKey:@"Content-Length"] integerValue],@"received object is different from sent object. expect file size:%lu, got:%lu",(unsigned long)65961003,(long)[[[((NSHTTPURLResponse *)response) allHeaderFields] objectForKey:@"Content-Length"] integerValue]);
 
-            if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) {
-                XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
-                NSLog(@"response data is:%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-            }
+                                                 if ([data length] != 0) {
+                                                     //expected the got 0 size returnData, but got something else.
+                                                     NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                     XCTFail(@"Error response received:\n %@",responseString);
+                                                 }
 
-            XCTAssertEqual(65961003, [[[returnResponse allHeaderFields] objectForKey:@"Content-Length"] integerValue],@"received object is different from sent object. expect file size:%lu, got:%lu",(unsigned long)65961003,(long)[[[returnResponse allHeaderFields] objectForKey:@"Content-Length"] integerValue]);
+                                                 dispatch_semaphore_signal(semaphore);
+                                             }] resume];
 
-            if ([responseData length] != 0) {
-                //expected the got 0 size returnData, but got something else.
-                NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-                XCTFail(@"Error response received:\n %@",responseString);
-            }
+            XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC)), 0);
 
             return nil;
         }] waitUntilFinished];
@@ -1176,8 +1228,6 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 }
 
 - (void)testDeleteBucket {
-    
-
     NSArray *bucketNameArray = @[@"ios-v2-s3-tm-testdata",@"ios-v2-s3.periods",@"ios-v2-s3-eu-central",@"ios-v2-s3-eu-c.periods"];
 
     int32_t count = 0;
@@ -1254,23 +1304,26 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
             request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
             [request setHTTPMethod:@"DELETE"];
 
-            NSError *returnError = nil;
-            NSHTTPURLResponse *returnResponse = nil;
+            dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+            [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                             completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                 XCTAssertNil(error, @"response contains error:%@, \n presigned URL is:%@",error, presignedURL.absoluteString);
 
-            NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
+                                                 if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
+                                                     XCTFail(@"response status Code is :%ld",(long)((NSHTTPURLResponse *)response).statusCode);
+                                                     NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                                 }
 
-            XCTAssertNil(returnError, @"response contains error:%@, \n presigned URL is:%@",returnError, presignedURL.absoluteString);
+                                                 if ([data length] != 0) {
+                                                     //expected the got 0 size returnData, but got something else.
+                                                     NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                     XCTFail(@"Error response received:\n %@",responseString);
+                                                 }
 
-            if (returnResponse.statusCode < 200 || returnResponse.statusCode >=300) {
-                XCTFail(@"response status Code is :%ld",(long)returnResponse.statusCode);
-                NSLog(@"response data is:%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-            }
+                                                 dispatch_semaphore_signal(semaphore);
+                                             }] resume];
 
-            if ([responseData length] != 0) {
-                //expected the got 0 size returnData, but got something else.
-                NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-                XCTFail(@"Error response received:\n %@",responseString);
-            }
+            XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC)), 0);
 
             return nil;
         }] waitUntilFinished];
@@ -1340,36 +1393,35 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
     request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
 
-    NSError *returnError = nil;
-    NSHTTPURLResponse *returnResponse = nil;
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                         XCTAssertNil(error, @"response contains error:%@ \n presigned URL is:%@",error, presignedURL.absoluteString);
 
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&returnResponse error:&returnError];
+                                         XCTAssertEqual(403, ((NSHTTPURLResponse *)response).statusCode, @"expected HTTP 403 Forbidden response code, but got: %ld",(long)((NSHTTPURLResponse *)response).statusCode);
 
-    XCTAssertNil(returnError, @"response contains error:%@ \n presigned URL is:%@",returnError, presignedURL.absoluteString);
+                                         if (((NSHTTPURLResponse *)response).statusCode == 403) {
+                                             if (data) {
+                                                 NSString *responseXMLString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                 if ([responseXMLString rangeOfString:@"AccessDenied"].location == NSNotFound) {
+                                                     XCTFail(@"Can not find 'AccessDenied' in the responseData: %@",responseXMLString);
+                                                 }
+                                                 
+                                             } else {
+                                                 XCTAssertNotNil(data);
+                                             }
+                                             
+                                         } else {
+                                             XCTAssertEqual(403, ((NSHTTPURLResponse *)response).statusCode, @"expected HTTP 403 Forbidden response code, but got: %ld",(long)((NSHTTPURLResponse *)response).statusCode);
+                                         }
 
-    XCTAssertEqual(403, returnResponse.statusCode, @"expected HTTP 403 Forbidden response code, but got: %ld",(long)returnResponse.statusCode);
+                                         dispatch_semaphore_signal(semaphore);
+                                     }] resume];
 
-    if (returnResponse.statusCode == 403) {
-        if (responseData) {
-            NSString *responseXMLString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-            if ([responseXMLString rangeOfString:@"AccessDenied"].location == NSNotFound) {
-                XCTFail(@"Can not find 'AccessDenied' in the responseData: %@",responseXMLString);
-            }
-   
-        } else {
-            XCTAssertNotNil(responseData);
-        }
-
-    } else {
-        XCTAssertEqual(403, returnResponse.statusCode, @"expected HTTP 403 Forbidden response code, but got: %ld",(long)returnResponse.statusCode);
-    }
-
+    XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC)), 0);
 }
 
 - (void)testInvalidParameters {
-
-    AWSS3 *s3 = [AWSS3 defaultS3];
-
     AWSS3PreSignedURLBuilder *preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
 
     AWSS3GetPreSignedURLRequest *getPreSignedURLRequestOne = [AWSS3GetPreSignedURLRequest new];
@@ -1393,42 +1445,6 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     getPreSignedURLRequestThree.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
     AWSTask *resultThree = [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequestThree];
     XCTAssertEqual(AWSS3PresignedURLErrorUnsupportedHTTPVerbs, resultThree.error.code);
-
-    AWSS3TestCredentialsProvider *testCredentialProvider = [AWSS3TestCredentialsProvider new];
-    testCredentialProvider.accessKey = s3.configuration.credentialsProvider.accessKey;
-    testCredentialProvider.sessionKey = s3.configuration.credentialsProvider.sessionKey;
-    
-    AWSServiceConfiguration *customServiceConfigTwo = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:testCredentialProvider];
-    [AWSS3PreSignedURLBuilder registerS3PreSignedURLBuilderWithConfiguration:customServiceConfigTwo
-                                                                      forKey:@"customPreSignedURLBuilderTwo"];
-    AWSS3PreSignedURLBuilder *customPreSignedURLBuilderTwo = [AWSS3PreSignedURLBuilder S3PreSignedURLBuilderForKey:@"customPreSignedURLBuilderTwo"];
-    
-    AWSS3GetPreSignedURLRequest *getPreSignedURLRequestFive = [AWSS3GetPreSignedURLRequest new];
-    getPreSignedURLRequestFive.bucket = @"somebucket";
-    getPreSignedURLRequestFive.key = @"somekey";
-    getPreSignedURLRequestFive.HTTPMethod = AWSHTTPMethodGET;
-    getPreSignedURLRequestFive.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
-    AWSTask *resultFive = [customPreSignedURLBuilderTwo getPreSignedURL:getPreSignedURLRequestFive];
-    
-    XCTAssertEqual(AWSS3PresignedURLErrorSecretKeyIsNil, resultFive.error.code);
-    
-    testCredentialProvider.accessKey = nil;
-    testCredentialProvider.secretKey = s3.configuration.credentialsProvider.secretKey;
-    
-    AWSServiceConfiguration *customServiceConfigThree = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:testCredentialProvider];
-    [AWSS3PreSignedURLBuilder registerS3PreSignedURLBuilderWithConfiguration:customServiceConfigThree
-                                                                      forKey:@"customPreSignedURLBuilderThree"];
-    AWSS3PreSignedURLBuilder *customPreSignedURLBuilderThree = [AWSS3PreSignedURLBuilder S3PreSignedURLBuilderForKey:@"customPreSignedURLBuilderThree"];
-    
-    AWSS3GetPreSignedURLRequest *getPreSignedURLRequestSix = [AWSS3GetPreSignedURLRequest new];
-    getPreSignedURLRequestSix.bucket = @"somebucket";
-    getPreSignedURLRequestSix.key = @"somekey";
-    getPreSignedURLRequestSix.HTTPMethod = AWSHTTPMethodGET;
-    getPreSignedURLRequestSix.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
-    
-    AWSTask *resultSix = [customPreSignedURLBuilderThree getPreSignedURL:getPreSignedURLRequestSix];
-    
-    XCTAssertEqual(AWSS3PresignedURLErrorAccessKeyIsNil, resultSix.error.code);
     
     AWSS3GetPreSignedURLRequest *getPreSignedURLRequestSeven= [AWSS3GetPreSignedURLRequest new];
     getPreSignedURLRequestSeven.key = @"anyKey";

@@ -174,7 +174,7 @@
  This is a category that defines the protocol for the FMDatabasePool delegate
  */
 
-@interface NSObject (FMDatabasePoolDelegate)
+@interface NSObject (AWSFMDatabasePoolDelegate)
 
 /** Asks the delegate whether database should be added to the pool. 
  

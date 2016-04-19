@@ -14,7 +14,7 @@
 //   limitations under the License.
 //
 
-
+#import "AWSLogging.h"
 #import "AWSSRWebSocket.h"
 
 //
@@ -602,7 +602,11 @@ static __strong NSData *CRLFCRLF;
         }
         
 #if DEBUG
-        self.allowsUntrustedSSLCertificates = YES;
+//
+// The original implementation disables server certificate verification in DEBUG builds;
+// this has been disabled here but the original code is left commented out for reference.
+//
+//        self.allowsUntrustedSSLCertificates = YES;
 #endif
 
         if (self.allowsUntrustedSSLCertificates) {
@@ -632,7 +636,7 @@ static __strong NSData *CRLFCRLF;
             if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_8_3) {
                 static dispatch_once_t predicate;
                 dispatch_once(&predicate, ^{
-                    NSLog(@"SocketRocket: %@ - this service type is deprecated in favor of using PushKit for VoIP control", networkServiceType);
+                    AWSLogInfo(@"SocketRocket: %@ - this service type is deprecated in favor of using PushKit for VoIP control", networkServiceType);
                 });
             }
 #endif
@@ -1717,7 +1721,7 @@ static inline void SRFastLog(NSString *format, ...)  {
     
     va_end(arg_list);
     
-    NSLog(@"[SR] %@", formattedString);
+    AWSLogInfo(@"[SR] %@", formattedString);
 #endif
 }
 

@@ -1,1 +1,0 @@
-../../AWSCore/Mantle/AWSMantle.h

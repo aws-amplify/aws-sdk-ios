@@ -1,6 +1,0 @@
-framework module AWSS3 {
-  umbrella header "AWSS3.h"
-
-  export *
-  module * { export * }
-}

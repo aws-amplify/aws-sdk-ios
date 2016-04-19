@@ -14,6 +14,13 @@
 //
 
 #import <Foundation/Foundation.h>
+
+//! Project version number for AWSDynamoDB.
+FOUNDATION_EXPORT double AWSDynamoDBVersionNumber;
+
+//! Project version string for AWSDynamoDB.
+FOUNDATION_EXPORT const unsigned char AWSDynamoDBVersionString[];
+
 #import <AWSCore/AWSCore.h>
 #import "AWSDynamoDBService.h"
 #import "AWSDynamoDBObjectMapper.h"

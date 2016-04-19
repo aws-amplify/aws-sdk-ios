@@ -1,6 +1,0 @@
-framework module AWSMachineLearning {
-  umbrella header "AWSMachineLearning.h"
-
-  export *
-  module * { export * }
-}

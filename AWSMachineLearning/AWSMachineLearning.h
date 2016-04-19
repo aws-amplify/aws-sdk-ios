@@ -14,5 +14,12 @@
 //
 
 #import <Foundation/Foundation.h>
+
+//! Project version number for AWSMachineLearning.
+FOUNDATION_EXPORT double AWSMachineLearningVersionNumber;
+
+//! Project version string for AWSMachineLearning.
+FOUNDATION_EXPORT const unsigned char AWSMachineLearningVersionString[];
+
 #import <AWSCore/AWSCore.h>
 #import "AWSMachineLearningService.h"

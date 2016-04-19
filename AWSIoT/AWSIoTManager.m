@@ -18,6 +18,8 @@
 #import "AWSIoTCSR.h"
 #import <AWSCore/AWSSynchronizedMutableDictionary.h>
 
+static NSString *const AWSInfoIoTManager = @"IoTManager";
+
 @interface AWSIoT()
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration;
@@ -39,16 +41,27 @@
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultIoTManager {
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"`defaultServiceConfiguration` is `nil`. You need to set it before using this method."
-                                     userInfo:nil];
-    }
-
     static AWSIoTManager *_defaultIoTManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _defaultIoTManager = [[AWSIoTManager alloc] initWithConfiguration:AWSServiceManager.defaultServiceManager.defaultServiceConfiguration];
+        AWSServiceConfiguration *serviceConfiguration = nil;
+        AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoIoTManager];
+        if (serviceInfo) {
+            serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                               credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+        }
+
+        if (!serviceConfiguration) {
+            serviceConfiguration = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
+        }
+
+        if (!serviceConfiguration) {
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:@"The service configuration is `nil`. You need to configure `Info.plist` or set `defaultServiceConfiguration` before using this method."
+                                         userInfo:nil];
+        }
+
+        _defaultIoTManager = [[AWSIoTManager alloc] initWithConfiguration:serviceConfiguration];
     });
 
     return _defaultIoTManager;
@@ -64,7 +77,23 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 + (instancetype)IoTManagerForKey:(NSString *)key {
-    return [_serviceClients objectForKey:key];
+    @synchronized(self) {
+        AWSIoTManager *serviceClient = [_serviceClients objectForKey:key];
+        if (serviceClient) {
+            return serviceClient;
+        }
+
+        AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] serviceInfo:AWSInfoIoTManager
+                                                                     forKey:key];
+        if (serviceInfo) {
+            AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                                                        credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+            [AWSIoTManager registerIoTManagerWithConfiguration:serviceConfiguration
+                                                        forKey:key];
+        }
+
+        return [_serviceClients objectForKey:key];
+    }
 }
 
 + (void)removeIoTManagerForKey:(NSString *)key {
@@ -95,7 +124,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     
     if ((commonName == nil) || (countryName == nil) || (organizationName == nil) || (organizationalUnitName == nil))
     {
-        NSLog(@"all CSR dictionary fields must be specified");
+        AWSLogError(@"all CSR dictionary fields must be specified");
         callback(nil);
     }
     
@@ -116,32 +145,32 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
     [[self.IoT createCertificateFromCsr:request] continueWithBlock:^id(AWSTask *task) {
         NSError *error = task.error;
-        NSLog(@"error: %@", error);
+        AWSLogInfo(@"error: %@", error);
         if (error != nil) {
             callback(nil);
             return nil;
         }
         NSException *exception = task.exception;
-        NSLog(@"exception: %@", exception);
+        AWSLogInfo(@"exception: %@", exception);
         if (exception != nil) {
             callback(nil);
             return nil;
         }
 
-        NSLog(@"result: %@", task.result);
+        AWSLogInfo(@"result: %@", task.result);
 
         if ([task.result isKindOfClass:[AWSIoTCreateCertificateFromCsrResponse class]]) {
 
             AWSIoTCreateCertificateFromCsrResponse *response = task.result;
 
             NSString* certificateArn = response.certificateArn;
-            NSLog(@"certificateArn: %@", certificateArn);
+            AWSLogInfo(@"certificateArn: %@", certificateArn);
 
             NSString* certificateId = response.certificateId;
-            NSLog(@"certificateId: %@", certificateId);
+            AWSLogInfo(@"certificateId: %@", certificateId);
 
             NSString* certificatePem = response.certificatePem;
-            NSLog(@"certificatePem: %@", certificatePem);
+            AWSLogInfo(@"certificatePem: %@", certificatePem);
 
             if (certificatePem != nil && certificateArn != nil && certificateId != nil) {
                 NSString *newPublicTag = [AWSIoTKeychain.publicKeyTag stringByAppendingString:certificateId];
@@ -187,6 +216,136 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         return nil;
     }];
 }
+
++ (BOOL)importIdentityFromPKCS12Data:(NSData *)pkcs12Data passPhrase:(NSString *)passPhrase certificateId:(NSString *)certificateId;
+{
+    SecKeyRef privateKey = NULL;
+    SecKeyRef publicKey = NULL;
+    SecCertificateRef certRef = NULL;
+    
+    [AWSIoTManager readPk12:pkcs12Data passPhrase:passPhrase certRef:&certRef privateKeyRef:&privateKey publicKeyRef:&publicKey];
+    
+    NSString *publicTag = [AWSIoTKeychain.publicKeyTag stringByAppendingString:certificateId];
+    NSString *privateTag = [AWSIoTKeychain.privateKeyTag stringByAppendingString:certificateId];
+
+    if (![AWSIoTKeychain addPrivateKeyRef:privateKey tag:privateTag])
+    {
+        AWSLogError(@"Unable to add private key");
+        return NO;
+    }
+    
+    if (![AWSIoTKeychain addPublicKeyRef:publicKey tag:publicTag])
+    {
+        [AWSIoTKeychain deleteAsymmetricKeysWithPublicTag:publicTag privateTag:privateTag];
+        
+        AWSLogError(@"Unable to add public key");
+        return NO;
+    }
+    
+    if(![AWSIoTKeychain addCertificateRef:certRef])
+    {
+        [AWSIoTKeychain deleteAsymmetricKeysWithPublicTag:publicTag privateTag:privateTag];
+        
+        AWSLogError(@"Unable to add certificate");
+        return NO;
+    }
+    
+    return YES;
+}
+//
+// Helper method to get certificate, public key, and private key references to import into the keychain.
+//
++ (BOOL)readPk12:(NSData *)pk12Data passPhrase:(NSString *)passPhrase certRef:(SecCertificateRef *)certRef privateKeyRef:(SecKeyRef *)privateKeyRef publicKeyRef:(SecKeyRef *)publicKeyRef
+{
+    SecPolicyRef policy = NULL;
+    SecTrustRef trust = NULL;
+    
+    // cleanup stuff in a block so we don't need to do this over and over again.
+    static BOOL (^cleanup)();
+    static BOOL (^errorCleanup)();
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        cleanup = ^BOOL {
+            if(policy) {
+                CFRelease(policy);
+            }
+        
+            if(trust) {
+                CFRelease(trust);
+            }
+        
+            return YES;
+        };
+        
+        errorCleanup = ^BOOL {
+            *privateKeyRef = NULL;
+            *publicKeyRef = NULL;
+            *certRef = NULL;
+        
+            cleanup();
+        
+            return NO;
+        };
+    });
+    
+    CFDictionaryRef secImportOptions = (__bridge CFDictionaryRef) @{(__bridge id) kSecImportExportPassphrase : passPhrase};
+    CFArrayRef secImportItems = NULL;
+    
+    OSStatus status = SecPKCS12Import((__bridge CFDataRef) pk12Data, (CFDictionaryRef) secImportOptions, &secImportItems);
+    
+    if (status == errSecSuccess && CFArrayGetCount(secImportItems) > 0)
+    {
+        CFDictionaryRef identityDict = CFArrayGetValueAtIndex(secImportItems, 0);
+        SecIdentityRef identityApp = (SecIdentityRef) CFDictionaryGetValue(identityDict, kSecImportItemIdentity);
+        
+        if (SecIdentityCopyPrivateKey(identityApp, privateKeyRef) != errSecSuccess)
+        {
+                AWSLogError(@"Unable to copy private key");
+                return errorCleanup();
+        }
+        
+        if (SecIdentityCopyCertificate(identityApp, certRef) != errSecSuccess)
+        {
+                AWSLogError(@"Unable to copy certificate");
+                return errorCleanup();
+        }
+        
+        //
+        // Create trust management object
+        //
+        policy = SecPolicyCreateBasicX509();
+        status = SecTrustCreateWithCertificates((__bridge CFArrayRef) @[(__bridge id) *certRef], policy, &trust);
+        if (status != errSecSuccess)
+        {
+            AWSLogError(@"Unable to create trust");
+            return errorCleanup();
+        }
+        //
+        // Evaluate the trust management object
+        //
+        SecTrustResultType result;
+        if (SecTrustEvaluate(trust, &result) != errSecSuccess)
+        {
+            AWSLogError(@"Unable to evaluate trust");
+            return errorCleanup();
+        }
+        
+        //
+        // Try to retrieve a reference to the public key for the trust management object.
+        //
+        *publicKeyRef = SecTrustCopyPublicKey(trust);
+        if(*publicKeyRef == NULL)
+        {
+            AWSLogError(@"Unable to copy public key");
+            return errorCleanup();
+        }
+    
+        return cleanup();
+    }
+    AWSLogError(@"Unable to import from PKCS12 data");
+    return errorCleanup();
+}
+
 
 + (BOOL)deleteCertificate {
     return [AWSIoTKeychain removeCertificate];

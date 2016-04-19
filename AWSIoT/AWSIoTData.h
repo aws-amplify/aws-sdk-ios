@@ -14,6 +14,13 @@
 //
 
 #import <Foundation/Foundation.h>
+
+//! Project version number for AWSIoTData.
+FOUNDATION_EXPORT double AWSIoTDataVersionNumber;
+
+//! Project version string for AWSIoTData.
+FOUNDATION_EXPORT const unsigned char AWSIoTDataVersionString[];
+
 #import <AWSCore/AWSCore.h>
 #import "AWSIoTDataService.h"
 #import "AWSIoTDataManager.h"

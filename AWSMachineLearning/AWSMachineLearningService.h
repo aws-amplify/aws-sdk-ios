@@ -16,6 +16,7 @@
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSCore.h>
 #import "AWSMachineLearningModel.h"
+#import "AWSMachineLearningResources.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

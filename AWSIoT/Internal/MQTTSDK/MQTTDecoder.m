@@ -15,6 +15,7 @@
 //    Kyle Roche - initial API and implementation and/or initial documentation
 // 
 
+#import "AWSLogging.h"
 #import "MQTTDecoder.h"
 
 @interface MQTTDecoder() {
@@ -148,7 +149,7 @@
             [_delegate decoder:self handleEvent:MQTTDecoderEventConnectionError];
             break;
         default:
-            NSLog(@"unhandled event code");
+            AWSLogDebug(@"unhandled event code");
             break;
     }
 }

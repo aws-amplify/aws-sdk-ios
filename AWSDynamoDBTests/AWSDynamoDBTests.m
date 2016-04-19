@@ -221,6 +221,7 @@ static NSString *table2Name = nil;
     }] waitUntilFinished];
 }
 
+/* Testing a cancelation of a quick request is not reliable.
 - (void)testCancelDescribeTable {
     AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
 
@@ -240,6 +241,7 @@ static NSString *table2Name = nil;
 
     [task waitUntilFinished];
 }
+*/
 
 - (void)testListTables {
     AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];

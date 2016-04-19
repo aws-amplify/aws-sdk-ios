@@ -23,9 +23,6 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSAutoScalingErrorType) {
     AWSAutoScalingErrorUnknown,
-    AWSAutoScalingErrorIncompleteSignature,
-    AWSAutoScalingErrorInvalidClientTokenId,
-    AWSAutoScalingErrorMissingAuthenticationToken,
     AWSAutoScalingErrorAlreadyExists,
     AWSAutoScalingErrorInvalidNextToken,
     AWSAutoScalingErrorLimitExceeded,

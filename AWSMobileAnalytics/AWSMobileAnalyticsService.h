@@ -38,6 +38,13 @@ typedef void(^AWSInitializationCompletionBlock)(AWSMobileAnalytics *mobileAnalyt
 @property (nonatomic, strong, readonly) id<AWSMobileAnalyticsEventClient> eventClient;
 
 /**
+ Creates an `AWSMobileAnalytics` instance with the specified `appId` in the `Info.plist` if the instance does not already exists for the `appId`. If an instance exists for the given `appId`, returns the existing instance. The strong reference to the instance is maintained by `AWSMobileAnalytics`, and the developer does not need to retain it manually.
+
+ @returns The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.
+ */
++ (instancetype)defaultMobileAnalytics;
+
+/**
  Creates an `AWSMobileAnalytics` instance with the specified `appId` using the default `configuration` if the instance does not already exists for the `appId`. If an instance exists for the given `appId`, returns the existing instance. The strong reference to the instance is maintained by `AWSMobileAnalytics`, and the developer does not need to retain it manually.
 
  @param appId AppId from Amazon Mobile Analytics Management Console.

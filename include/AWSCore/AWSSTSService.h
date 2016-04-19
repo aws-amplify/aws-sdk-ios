@@ -1,1 +1,0 @@
-../../AWSCore/STS/AWSSTSService.h

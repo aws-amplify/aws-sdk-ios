@@ -22,13 +22,19 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
 
 @interface AWSTestCredentialsProvider : NSObject <AWSCredentialsProvider>
 
-@property (nonatomic) NSString *accessKey;
-@property (nonatomic) NSString *secretKey;
-@property (nonatomic) NSString *sessionKey;
+@property (nonatomic, strong) AWSCredentials *internalCredentials;
 
 @end
 
 @implementation AWSTestCredentialsProvider
+
+- (AWSTask<AWSCredentials *> *)credentials {
+    return [AWSTask taskWithResult:self.internalCredentials];
+}
+
+- (void)invalidateCachedTemporaryCredentials {
+    // No-op
+}
 
 @end
 
@@ -48,7 +54,13 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
                                                                                credentialsProvider:credentialsProvider];
 
 #else
-        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithCredentialsFilename:@"credentials"];
+        NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
+                                                                              ofType:@"json"];
+        NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                        options:NSJSONReadingMutableContainers
+                                                                          error:nil];
+        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
+                                                                                                          secretKey:credentialsJson[@"secretKey"]];
         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
                                                                              credentialsProvider:credentialsProvider];
 #endif
@@ -81,16 +93,11 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
                                                                         options:NSJSONReadingMutableContainers
                                                                           error:nil];
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        AWSCognitoCredentialsProvider *credentialsProvider = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
-                                                                                                           identityId:nil
-                                                                                                            accountId:credentialsJson[@"accountId"]
-                                                                                                       identityPoolId:credentialsJson[@"identityPoolId"]
-                                                                                                        unauthRoleArn:credentialsJson[@"unauthRoleArn"]
-                                                                                                          authRoleArn:credentialsJson[@"authRoleArn"]
-                                                                                                               logins:nil];
-#pragma clang diagnostic pop
+        AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                        identityPoolId:credentialsJson[@"identityPoolId"]
+                                                                                                         unauthRoleArn:credentialsJson[@"unauthRoleArn"]
+                                                                                                           authRoleArn:credentialsJson[@"authRoleArn"]
+                                                                                               identityProviderManager:nil];
 
         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
                                                                              credentialsProvider:credentialsProvider];
@@ -112,7 +119,13 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
         AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionCNNorth1
                                                                                credentialsProvider:credentialsProvider];
 #else
-        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithCredentialsFilename:@"credentials"];
+        NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
+                                                                              ofType:@"json"];
+        NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                        options:NSJSONReadingMutableContainers
+                                                                          error:nil];
+        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
+                                                                                                          secretKey:credentialsJson[@"secretKey"]];
         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
                                                                              credentialsProvider:credentialsProvider];
 #endif
@@ -123,7 +136,13 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
 
 + (void)setupCognitoIdentityService {
     if (![AWSCognitoIdentity CognitoIdentityForKey:AWSTestUtilityCognitoIdentityServiceKey]) {
-        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithCredentialsFilename:@"credentials"];
+        NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
+                                                                              ofType:@"json"];
+        NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                        options:NSJSONReadingMutableContainers
+                                                                          error:nil];
+        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
+                                                                                                          secretKey:credentialsJson[@"secretKey"]];
         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
                                                                              credentialsProvider:credentialsProvider];
         [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration
@@ -131,6 +150,7 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
     }
 }
 
+/* TODO: currently not used. Should clean this up.
 + (void)runServiceWithStsCredential {
     AWSTestCredentialsProvider *testCredentialProvider = [AWSTestCredentialsProvider new];
 
@@ -172,6 +192,7 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
     
     
 }
+*/
 
 Method _originalDateMethod;
 Method _mockDateMethod;

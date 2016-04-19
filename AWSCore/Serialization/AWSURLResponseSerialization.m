@@ -21,11 +21,7 @@
 #import "AWSValidation.h"
 #import "AWSSerialization.h"
 
-NSString *const AWSGeneralErrorDomain = @"com.amazonaws.AWSGeneralErrorDomain";
-
 #pragma mark - Service errors
-
-static NSDictionary *errorCodeDictionary = nil;
 
 @interface AWSJSONResponseSerializer()
 
@@ -36,16 +32,6 @@ static NSDictionary *errorCodeDictionary = nil;
 @end
 
 @implementation AWSJSONResponseSerializer
-
-+ (void)initialize {
-    errorCodeDictionary = @{
-                            @"RequestTimeTooSkewed" : @(AWSGeneralErrorRequestTimeTooSkewed),
-                            @"InvalidSignatureException" : @(AWSGeneralErrorInvalidSignatureException),
-                            @"RequestExpired" : @(AWSGeneralErrorRequestExpired),
-                            @"SignatureDoesNotMatch" : @(AWSGeneralErrorSignatureDoesNotMatch),
-                            @"AuthFailure" : @(AWSGeneralErrorAuthFailure),
-                            };
-}
 
 - (instancetype)initWithJSONDefinition:(NSDictionary *)JSONDefinition
                             actionName:(NSString *)actionName
@@ -75,8 +61,14 @@ static NSDictionary *errorCodeDictionary = nil;
     }
 
     if ([data isKindOfClass:[NSData class]]) {
-        AWSLogVerbose(@"Response body: [%@]", [[NSString alloc] initWithData:data
-                                                                    encoding:NSUTF8StringEncoding]);
+        if ([data length] <= 100 * 1024) {
+            AWSLogDebug(@"Response body: [%@]", [[NSString alloc] initWithData:data
+                                                                     encoding:NSUTF8StringEncoding]);
+        } else {
+            AWSLogDebug(@"Response body (Partial data. The first 100KB is displayed.): [%@]", [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 100 * 1024)]
+                                                                                                                   encoding:NSUTF8StringEncoding]);
+            
+        }
     }
 
     NSString *responseContentTypeStr = [[response allHeaderFields] objectForKey:@"Content-Type"];
@@ -87,8 +79,8 @@ static NSDictionary *errorCodeDictionary = nil;
                 NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 
 
-                *error = [NSError errorWithDomain:AWSGeneralErrorDomain
-                                             code:AWSGeneralErrorUnknown
+                *error = [NSError errorWithDomain:AWSServiceErrorDomain
+                                             code:AWSServiceErrorUnknown
                                          userInfo:@{NSLocalizedDescriptionKey : message?message:[NSNull null]}];
                 return nil;
             }
@@ -107,17 +99,17 @@ static NSDictionary *errorCodeDictionary = nil;
     //parse JSON data
     result = [AWSJSONParser dictionaryForJsonData:data response:response actionName:self.actionName serviceDefinitionRule:self.serviceDefinitionJSON error:error];
 
-    //Parse AWSGeneralError
+    //Parse AWSServiceError
     if ([result isKindOfClass:[NSDictionary class]]) {
         NSDictionary *anActionRules = [[self.serviceDefinitionJSON objectForKey:@"operations"] objectForKey:_actionName];
         NSDictionary *shapeRules = [self.serviceDefinitionJSON objectForKey:@"shapes"];
         AWSJSONDictionary *outputRules = [[AWSJSONDictionary alloc] initWithDictionary:[anActionRules objectForKey:@"output"] JSONDefinitionRule:shapeRules];
         result = [AWSXMLResponseSerializer parseResponse:response rules:outputRules bodyDictionary:[result mutableCopy] error:error];
 
-        if ([errorCodeDictionary objectForKey:[[[result objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]]) {
+        if ([[AWSService errorCodeDictionary] objectForKey:[[[result objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]]) {
             if (error) {
-                *error = [NSError errorWithDomain:AWSGeneralErrorDomain
-                                             code:[[errorCodeDictionary objectForKey:[[[result objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]] integerValue]
+                *error = [NSError errorWithDomain:AWSServiceErrorDomain
+                                             code:[[[AWSService errorCodeDictionary] objectForKey:[[[result objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]] integerValue]
                                          userInfo:result];
             }
         }
@@ -143,16 +135,6 @@ static NSDictionary *errorCodeDictionary = nil;
 @end
 
 @implementation AWSXMLResponseSerializer
-
-+ (void)initialize {
-    errorCodeDictionary = @{
-                            @"RequestTimeTooSkewed" : @(AWSGeneralErrorRequestTimeTooSkewed),
-                            @"InvalidSignatureException" : @(AWSGeneralErrorInvalidSignatureException),
-                            @"RequestExpired" : @(AWSGeneralErrorRequestExpired),
-                            @"SignatureDoesNotMatch" : @(AWSGeneralErrorSignatureDoesNotMatch),
-                            @"AuthFailure" : @(AWSGeneralErrorAuthFailure),
-                            };
-}
 
 - (instancetype)initWithJSONDefinition:(NSDictionary *)JSONDefinition
                             actionName:(NSString *)actionName
@@ -258,8 +240,14 @@ static NSDictionary *errorCodeDictionary = nil;
     }
 
     if ([data isKindOfClass:[NSData class]]) {
-        AWSLogVerbose(@"Response body: [%@]", [[NSString alloc] initWithData:data
-                                                                    encoding:NSUTF8StringEncoding]);
+        if ([data length] <= 100 * 1024) {
+            AWSLogDebug(@"Response body: [%@]", [[NSString alloc] initWithData:data
+                                                                     encoding:NSUTF8StringEncoding]);
+        } else {
+            AWSLogDebug(@"Response body (Partial data. The first 100KB is displayed.): [%@]", [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 100 * 1024)]
+                                                                                                                   encoding:NSUTF8StringEncoding]);
+
+        }
     }
 
     NSString *responseContentTypeStr = [[response allHeaderFields] objectForKey:@"Content-Type"];
@@ -270,8 +258,8 @@ static NSDictionary *errorCodeDictionary = nil;
                 NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 
 
-                *error = [NSError errorWithDomain:AWSGeneralErrorDomain
-                                             code:AWSGeneralErrorUnknown
+                *error = [NSError errorWithDomain:AWSServiceErrorDomain
+                                             code:AWSServiceErrorUnknown
                                          userInfo:@{NSLocalizedDescriptionKey : message?message:[NSNull null]}];
                 return nil;
             }
@@ -311,13 +299,13 @@ static NSDictionary *errorCodeDictionary = nil;
     //parse response header
     resultDic = [AWSXMLResponseSerializer parseResponse:response rules:outputRules bodyDictionary:resultDic error:error];
 
-    //Parse AWSGeneralError
+    //Parse AWSServiceError
     NSDictionary *errorInfo = resultDic[@"Error"];
     if (errorInfo) {
-        if (errorInfo[@"Code"] && errorCodeDictionary[errorInfo[@"Code"]]) {
+        if (errorInfo[@"Code"] && [AWSService errorCodeDictionary][errorInfo[@"Code"]]) {
             if (error && (*error == nil)) {
-                *error = [NSError errorWithDomain:AWSGeneralErrorDomain
-                                             code:[errorCodeDictionary[errorInfo[@"Code"]] integerValue]
+                *error = [NSError errorWithDomain:AWSServiceErrorDomain
+                                             code:[[AWSService errorCodeDictionary][errorInfo[@"Code"]] integerValue]
                                          userInfo:errorInfo
                           ];
             }

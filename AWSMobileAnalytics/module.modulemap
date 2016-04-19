@@ -1,6 +1,0 @@
-framework module AWSMobileAnalytics {
-  umbrella header "AWSMobileAnalytics.h"
-
-  export *
-  module * { export * }
-}
