@@ -18,6 +18,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification;
+
 @class AWSS3TransferUtilityTask;
 @class AWSS3TransferUtilityUploadTask;
 @class AWSS3TransferUtilityDownloadTask;
@@ -197,6 +199,10 @@ typedef void (^AWSS3TransferUtilityDownloadProgressBlock) (AWSS3TransferUtilityD
 
 /**
  Removes the service client associated with the key and release it.
+
+ The underlying NSURLSession is invalidated, and after the invalidation has completed the transfer is utility removed.
+
+ Observe the AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification to be informed when this has occurred.
 
  @warning Before calling this method, make sure no method is running on this client.
 
