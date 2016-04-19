@@ -669,7 +669,11 @@ didFinishDownloadingToURL:(NSURL *)location {
             }
         }
     } else {
-        transferUtilityTask.data = [NSData dataWithContentsOfURL:location];
+        NSError *error = nil;
+        transferUtilityTask.data = [NSData dataWithContentsOfFile:location.path options:NSDataReadingMappedIfSafe error:&error];
+        if (!transferUtilityTask.data) {
+            transferUtilityTask.error = error;
+        }
     }
 }
 
