@@ -116,7 +116,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return self;
 }
 
-- (AWSTask<AWSCognitoIdentityUser *>*) signUp: (NSString*) username
+- (AWSTask<AWSCognitoIdentityUserPoolSignUpResponse *>*) signUp: (NSString*) username
                                      password: (NSString*) password
                                userAttributes: (NSArray<AWSCognitoIdentityUserAttributeType *> *) userAttributes
                                validationData: (NSArray<AWSCognitoIdentityUserAttributeType *> *) validationData {
@@ -126,7 +126,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     request.password = password;
     request.userAttributes = userAttributes;
     request.validationData = [self getValidationData:validationData];
-    ;
     request.secretHash = [self calculateSecretHash:username];
     return [[self.client signUp:request] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderSignUpResponse *> * _Nonnull task) {
         AWSCognitoIdentityUser * user = [[AWSCognitoIdentityUser alloc] initWithUsername:username pool:self];
@@ -135,7 +134,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         }else if([task.result.userConfirmed intValue] == AWSCognitoIdentityProviderUserStatusTypeUnconfirmed) {
             user.confirmedStatus = AWSCognitoIdentityUserStatusUnconfirmed;
         }
-        return [AWSTask taskWithResult:user];
+        AWSCognitoIdentityUserPoolSignUpResponse *signupResponse = [AWSCognitoIdentityUserPoolSignUpResponse new];
+        [signupResponse aws_copyPropertiesFromObject:task.result];
+        signupResponse.user = user;
+        return [AWSTask taskWithResult:signupResponse];
     }];
 }
 
@@ -290,15 +292,22 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData {
 
 @end
 
-@interface AWSCognitoIdentityPasswordAuthenticationInput()
-@property(nonatomic,strong) NSString * lastKnownUsername;
-@end
-
 @implementation AWSCognitoIdentityPasswordAuthenticationInput
 -(instancetype) initWithLastKnownUsername: (NSString *) lastKnownUsername {
     self = [super init];
     if(nil != self){
         self.lastKnownUsername = lastKnownUsername;
+    }
+    return self;
+}
+@end
+
+@implementation AWSCognitoIdentityMultifactorAuthenticationInput
+-(instancetype) initWithDeliveryMedium: (AWSCognitoIdentityProviderDeliveryMediumType) deliveryMedium destination:(NSString *) destination {
+    self = [super init];
+    if(nil != self){
+        self.deliveryMedium = deliveryMedium;
+        self.destination = destination;
     }
     return self;
 }
@@ -314,4 +323,8 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData {
     }
     return self;
 }
+@end
+
+@implementation AWSCognitoIdentityUserPoolSignUpResponse
+
 @end

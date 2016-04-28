@@ -17,11 +17,14 @@
 #import "AWSS3PreSignedURL.h"
 #import "AWSSynchronizedMutableDictionary.h"
 
+// Public constants
+NSString *const AWSS3TransferUtilityErrorDomain = @"com.amazonaws.AWSS3TransferUtilityErrorDomain";
 NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification = @"com.amazonaws.AWSS3TransferUtility.AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification";
-NSString *const AWSS3TransferUtilityIdentifier = @"com.amazonaws.AWSS3TransferUtility.Identifier";
-NSTimeInterval const AWSS3TransferUtilityTimeoutIntervalForResource = 50 * 60; // 50 minutes
-NSString *const AWSS3TransferUtilityUserAgent = @"transfer-utility";
 
+// Private constnats
+static NSString *const AWSS3TransferUtilityIdentifier = @"com.amazonaws.AWSS3TransferUtility.Identifier";
+static NSTimeInterval const AWSS3TransferUtilityTimeoutIntervalForResource = 50 * 60; // 50 minutes
+static NSString *const AWSS3TransferUtilityUserAgent = @"transfer-utility";
 static NSString *const AWSInfoS3TransferUtility = @"S3TransferUtility";
 
 #pragma mark - Private classes
@@ -44,8 +47,6 @@ static NSString *const AWSInfoS3TransferUtility = @"S3TransferUtility";
 
 @property (strong, nonatomic) NSString *bucket;
 @property (strong, nonatomic) NSString *key;
-
-@property (strong, nonatomic) AWSS3TransferUtilityExpression *expression;
 
 // Temporary storages
 @property (strong, nonatomic) NSData *data;
@@ -187,19 +188,10 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             _sessionIdentifier = AWSS3TransferUtilityIdentifier;
         }
 
-        NSURLSessionConfiguration *configuration =  nil;
-        if ([NSURLSessionConfiguration respondsToSelector:@selector(backgroundSessionConfigurationWithIdentifier:)]) {
-            configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:_sessionIdentifier];
-        } else {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-            configuration = [NSURLSessionConfiguration backgroundSessionConfiguration:_sessionIdentifier];
-#pragma clang diagnostic pop
-        }
-
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:_sessionIdentifier];
         configuration.allowsCellularAccess = serviceConfiguration.allowsCellularAccess;
-
         configuration.timeoutIntervalForResource = AWSS3TransferUtilityTimeoutIntervalForResource;
+
         _session = [NSURLSession sessionWithConfiguration:configuration
                                                  delegate:self
                                             delegateQueue:nil];
@@ -390,10 +382,10 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 #pragma mark - Utility methods
 
 - (void)enumerateToAssignBlocksForUploadTask:(void (^)(AWSS3TransferUtilityUploadTask *uploadTask,
-                                                       AWSS3TransferUtilityUploadProgressBlock *uploadProgressBlockReference,
+                                                       AWSS3TransferUtilityProgressBlock *uploadProgressBlockReference,
                                                        AWSS3TransferUtilityUploadCompletionHandlerBlock *completionHandlerReference))uploadBlocksAssigner
                                 downloadTask:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
-                                                       AWSS3TransferUtilityDownloadProgressBlock *downloadProgressBlockReference,
+                                                       AWSS3TransferUtilityProgressBlock *downloadProgressBlockReference,
                                                        AWSS3TransferUtilityDownloadCompletionHandlerBlock *completionHandlerReference))downloadBlocksAssigner {
     __weak AWSS3TransferUtility *weakSelf = self;
     [self.session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
@@ -406,13 +398,13 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             AWSS3TransferUtilityUploadTask *transferUtilityUploadTask = [weakSelf getUploadTask:uploadTask];
             if (transferUtilityUploadTask) {
                 if (uploadBlocksAssigner) {
-                    AWSS3TransferUtilityUploadProgressBlock uploadProgress = nil;
+                    AWSS3TransferUtilityProgressBlock progressBlock = nil;
                     AWSS3TransferUtilityUploadCompletionHandlerBlock completionHandler = nil;
 
-                    uploadBlocksAssigner(transferUtilityUploadTask, &uploadProgress, &completionHandler);
+                    uploadBlocksAssigner(transferUtilityUploadTask, &progressBlock, &completionHandler);
 
-                    if (uploadProgress) {
-                        transferUtilityUploadTask.expression.uploadProgress = uploadProgress;
+                    if (progressBlock) {
+                        transferUtilityUploadTask.expression.progressBlock = progressBlock;
                     }
                     if (completionHandler) {
                         transferUtilityUploadTask.expression.completionHandler = completionHandler;
@@ -426,13 +418,13 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             AWSS3TransferUtilityDownloadTask *transferUtilityDownloadTask = [weakSelf getDownloadTask:downloadTask];
             if (transferUtilityDownloadTask) {
                 if (downloadBlocksAssigner) {
-                    AWSS3TransferUtilityDownloadProgressBlock downloadProgress = nil;
+                    AWSS3TransferUtilityProgressBlock progressBlock = nil;
                     AWSS3TransferUtilityDownloadCompletionHandlerBlock completionHandler = nil;
 
-                    downloadBlocksAssigner(transferUtilityDownloadTask, &downloadProgress, &completionHandler);
+                    downloadBlocksAssigner(transferUtilityDownloadTask, &progressBlock, &completionHandler);
 
-                    if (downloadProgress) {
-                        transferUtilityDownloadTask.expression.downloadProgress = downloadProgress;
+                    if (progressBlock) {
+                        transferUtilityDownloadTask.expression.progressBlock = progressBlock;
                     }
                     if (completionHandler) {
                         transferUtilityDownloadTask.expression.completionHandler = completionHandler;
@@ -627,20 +619,41 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
     [_serviceClients removeObject:self];
 }
 
-
 #pragma mark - NSURLSessionTaskDelegate
 
 - (void)URLSession:(NSURLSession *)session
               task:(NSURLSessionTask *)task
 didCompleteWithError:(NSError *)error {
+    if (!error) {
+        assert([task.response isKindOfClass:[NSHTTPURLResponse class]]);
+        NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)task.response;
+
+        if (HTTPResponse.statusCode % 100 == 3
+            && HTTPResponse.statusCode != 304) { // 304 Not Modified is a valid response.
+            error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
+                                        code:AWSS3TransferUtilityErrorRedirection
+                                    userInfo:nil];
+        }
+
+        if (HTTPResponse.statusCode % 100 == 4) {
+            error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
+                                        code:AWSS3TransferUtilityErrorClientError
+                                    userInfo:nil];
+        }
+
+        if (HTTPResponse.statusCode % 100 == 5) {
+            error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
+                                        code:AWSS3TransferUtilityErrorServerError
+                                    userInfo:nil];
+        }
+    }
+
     if ([task isKindOfClass:[NSURLSessionUploadTask class]]) {
         AWSS3TransferUtilityUploadTask *uploadTask = [self getUploadTask:(NSURLSessionUploadTask *)task];
         if (uploadTask.expression.completionHandler) {
             uploadTask.expression.completionHandler(uploadTask,
                                                     error);
         }
-
-        [self cleanUpTask:uploadTask];
     }
     if ([task isKindOfClass:[NSURLSessionDownloadTask class]]) {
         AWSS3TransferUtilityDownloadTask *downloadTask = [self getDownloadTask:(NSURLSessionDownloadTask *)task];
@@ -653,19 +666,9 @@ didCompleteWithError:(NSError *)error {
                                                       downloadTask.data,
                                                       downloadTask.error);
         }
-
-        [self cleanUpTask:downloadTask];
     }
 
     [self.taskDictionary removeObjectForKey:@(task.taskIdentifier)];
-}
-
-- (void)cleanUpTask:(AWSS3TransferUtilityTask *)task {
-    task.location = nil;
-    task.data = nil;
-    task.error = nil;
-    task.expression = nil;
-    task.sessionTask = nil;
 }
 
 - (void)URLSession:(NSURLSession *)session
@@ -675,11 +678,15 @@ didCompleteWithError:(NSError *)error {
 totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
     if ([task isKindOfClass:[NSURLSessionUploadTask class]]) {
         AWSS3TransferUtilityUploadTask *transferUtilityUploadTask = [self getUploadTask:(NSURLSessionUploadTask *)task];
-        if (transferUtilityUploadTask.expression.uploadProgress) {
-            transferUtilityUploadTask.expression.uploadProgress(transferUtilityUploadTask,
-                                                                bytesSent,
-                                                                totalBytesSent,
-                                                                totalBytesExpectedToSend);
+        if (transferUtilityUploadTask.progress.totalUnitCount != totalBytesExpectedToSend) {
+            transferUtilityUploadTask.progress.totalUnitCount = totalBytesExpectedToSend;
+        }
+        if (transferUtilityUploadTask.progress.completedUnitCount != totalBytesSent) {
+            transferUtilityUploadTask.progress.completedUnitCount = totalBytesSent;
+        }
+
+        if (transferUtilityUploadTask.expression.progressBlock) {
+            transferUtilityUploadTask.expression.progressBlock(transferUtilityUploadTask, transferUtilityUploadTask.progress);
         }
     }
 }
@@ -689,7 +696,7 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
 - (void)URLSession:(NSURLSession *)session
       downloadTask:(NSURLSessionDownloadTask *)downloadTask
 didFinishDownloadingToURL:(NSURL *)location {
-    AWSS3TransferUtilityTask *transferUtilityTask = [self getDownloadTask:downloadTask];
+    AWSS3TransferUtilityDownloadTask *transferUtilityTask = [self getDownloadTask:downloadTask];
     if (transferUtilityTask.location) {
         if (![[NSFileManager defaultManager] fileExistsAtPath:[transferUtilityTask.location path]]) {
             NSError *error = nil;
@@ -715,11 +722,15 @@ didFinishDownloadingToURL:(NSURL *)location {
  totalBytesWritten:(int64_t)totalBytesWritten
 totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
     AWSS3TransferUtilityDownloadTask *transferUtilityDownloadTask = [self getDownloadTask:downloadTask];
-    if (transferUtilityDownloadTask.expression.downloadProgress) {
-        transferUtilityDownloadTask.expression.downloadProgress(transferUtilityDownloadTask,
-                                                                bytesWritten,
-                                                                totalBytesWritten,
-                                                                totalBytesExpectedToWrite);
+    if (transferUtilityDownloadTask.progress.totalUnitCount != totalBytesExpectedToWrite) {
+        transferUtilityDownloadTask.progress.totalUnitCount = totalBytesExpectedToWrite;
+    }
+    if (transferUtilityDownloadTask.progress.completedUnitCount != totalBytesWritten) {
+        transferUtilityDownloadTask.progress.completedUnitCount = totalBytesWritten;
+    }
+
+    if (transferUtilityDownloadTask.expression.progressBlock) {
+        transferUtilityDownloadTask.expression.progressBlock(transferUtilityDownloadTask, transferUtilityDownloadTask.progress);
     }
 }
 
@@ -728,6 +739,14 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
 #pragma mark - AWSS3TransferUtilityTasks
 
 @implementation AWSS3TransferUtilityTask
+
+- (instancetype)init {
+    if (self = [super init]) {
+        _progress = [NSProgress new];
+    }
+
+    return self;
+}
 
 - (NSUInteger)taskIdentifier {
     return self.sessionTask.taskIdentifier;
@@ -745,30 +764,38 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
     [self.sessionTask suspend];
 }
 
+- (NSURLRequest *)request {
+    return self.sessionTask.originalRequest;
+}
+
+- (NSHTTPURLResponse *)response {
+    if ([self.sessionTask.response isKindOfClass:[NSHTTPURLResponse class]]) {
+        return (NSHTTPURLResponse *)self.sessionTask.response;
+    }
+
+    return nil;
+}
+
 @end
 
 @implementation AWSS3TransferUtilityUploadTask
 
-@dynamic expression;
-
 - (AWSS3TransferUtilityUploadExpression *)expression {
-    if (!super.expression) {
-        super.expression = [AWSS3TransferUtilityUploadExpression new];
+    if (!_expression) {
+        _expression = [AWSS3TransferUtilityUploadExpression new];
     }
-    return (AWSS3TransferUtilityUploadExpression *)super.expression;
+    return _expression;
 }
 
 @end
 
 @implementation AWSS3TransferUtilityDownloadTask
 
-@dynamic expression;
-
 - (AWSS3TransferUtilityDownloadExpression *)expression {
-    if (!super.expression) {
-        super.expression = [AWSS3TransferUtilityDownloadExpression new];
+    if (!_expression) {
+        _expression = [AWSS3TransferUtilityDownloadExpression new];
     }
-    return (AWSS3TransferUtilityDownloadExpression *)super.expression;
+    return _expression;
 }
 
 @end

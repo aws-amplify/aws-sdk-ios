@@ -256,7 +256,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 
 // === Deprecated property and methods ===
 
-@property (nonatomic, strong, nullable) NSDictionary *logins __attribute__ ((deprecated("Use 'AWSIdentityProviderManager' to provide a valid logins dictionary to the credentials provider.")));;
+@property (nonatomic, strong, nullable) NSDictionary *logins __attribute__ ((deprecated("Use 'AWSIdentityProviderManager' to provide a valid logins dictionary to the credentials provider.")));
 
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
                         identityId:(NSString *)identityId

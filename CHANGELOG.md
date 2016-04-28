@@ -1,14 +1,30 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.4.1
+
+### New Features
+* **Amazon S3**
+    * **(Breaking)** `AWSS3TransferUtility` is generally available. Now you have access to the underlying `NSURLSessionTask`, `NSURLRequest` and `NSHTTPURLResponse`. The progress feedback block is updated to use `NSProgress`. Also, the error messages returned by Amazon S3 are correctly propagated as an `NSError`.
+* **Amazon Cognito Identity Provider (Beta)**
+    * Fixed the issue requiring password reentry with a valid refresh token.
+    * The SDK retries for bad auth attempts.
+    * **(Breaking)** Switched from blocks to delegates for interactive authentication. Set a class that conforms to the `AWSCognitoIdentityInteractiveAuthenticationDelegate` protocol as the delegate on `AWSCognitoIdentityUserPool`.
+    * **(Breaking)** `- signUp:password:userAttributes:validationData:` on `AWSCognitoIdentityUserPool` returns an `AWSCognitoIdentityUserPoolSignUpResponse` containing the `AWSCognitoIdentityUser` instead of directly returning an `AWSCognitoIdentityUser`.
+
+### Misc Changes
+* **SDK Core**
+    * Now the SDK fails fast to help identify an issue when you mix different versions of the `AWSCore` SDK and service client SDKs. You need to use the same version of the AWS Mobile SDKs within a project.
+    * The AWS Signature related logs are moved from the `Debug` to `Verbose` level.
+
 ## 2.4.0
 
 ### New Features
 * **SDK Core**
-    * Migrated from the static frameworks to the dynamic frameworks. The AWS Mobile SDK for iOS now supports iOS 8 and above due to this change. If you need iOS 7 support, continue using 2.3.x.
+    * **(Breaking)** Migrated from the static frameworks to the dynamic frameworks. The AWS Mobile SDK for iOS now supports iOS 8 and above due to this change. If you need iOS 7 support, continue using 2.3.x.
     * Added official support for [Carthage](https://github.com/Carthage/Carthage). See `README.md` for more information.
     * Added support for the SDK configurations through `Info.plist`.
-    * Updated the credentials provider and identity provider protocols to asynchronous interfaces instead of previous synchronous ones. The `logins` dictionary of `AWSCognitoCredentialsProvider` is now deprecated. Use `AWSIdentityProviderManager` to provide login providers' credentials. See `AWSCredentialsProvider.h` and `AWSIdentityProvider.h` for more details.
-* **Amazon Cognito Identity Provider**
+    * **(Breaking)** Updated the credentials provider and identity provider protocols to asynchronous interfaces instead of previous synchronous ones. The `logins` dictionary of `AWSCognitoCredentialsProvider` is now deprecated. Use `AWSIdentityProviderManager` to provide login providers' credentials. See `AWSCredentialsProvider.h` and `AWSIdentityProvider.h` for more details.
+* **Amazon Cognito Identity Provider (Beta)**
     * You can now use Amazon Cognito to easily add user sign-up and sign-in to your mobile and web apps. Your User Pool in Amazon Cognito is a fully managed user directory that can scale to hundreds of millions of users, so you don't have to worry about building, securing, and scaling a solution to handle user management and authentication. See `AWSCognitoIdentityUserPool.h` for more details.
 * **AWS IoT**
     * Added support for Amazon Cognito Identity with WebSocket connections, identity import, custom `Keep-Alive` and Last Will and Testament, and exponential back-off on reconnect.

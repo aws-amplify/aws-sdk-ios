@@ -28,6 +28,7 @@
 #import "AWSMobileAnalyticsERSResources.h"
 
 static NSString *const AWSInfoMobileAnalyticsERS = @"MobileAnalyticsERS";
+static NSString *const AWSMobileAnalyticsERSSDKVersion = @"2.4.1";
 
 @interface AWSMobileAnalyticsERSResponseSerializer : AWSJSONResponseSerializer
 
@@ -163,6 +164,16 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSMobileAnalyticsERS
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
++ (void)initialize {
+    [super initialize];
+
+    if (![AWSiOSSDKVersion isEqualToString:AWSMobileAnalyticsERSSDKVersion]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSMobileAnalytics versions need to match. Check your SDK installation. AWSCore: %@ AWSMobileAnalytics: %@", AWSiOSSDKVersion, AWSMobileAnalyticsERSSDKVersion]
+                                     userInfo:nil];
+    }
+}
 
 + (instancetype)defaultMobileAnalyticsERS {
     static AWSMobileAnalyticsERS *_defaultMobileAnalyticsERS = nil;

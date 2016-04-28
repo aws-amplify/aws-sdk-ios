@@ -27,6 +27,7 @@
 #import "AWSFirehoseResources.h"
 
 static NSString *const AWSInfoFirehose = @"Firehose";
+static NSString *const AWSFirehoseSDKVersion = @"2.4.1";
 
 @interface AWSFirehoseResponseSerializer : AWSJSONResponseSerializer
 
@@ -151,6 +152,16 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSFirehose
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
++ (void)initialize {
+    [super initialize];
+
+    if (![AWSiOSSDKVersion isEqualToString:AWSFirehoseSDKVersion]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSKinesis versions need to match. Check your SDK installation. AWSCore: %@ AWSKinesis: %@", AWSiOSSDKVersion, AWSFirehoseSDKVersion]
+                                     userInfo:nil];
+    }
+}
 
 + (instancetype)defaultFirehose {
     static AWSFirehose *_defaultFirehose = nil;

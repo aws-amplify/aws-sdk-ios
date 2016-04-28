@@ -24,6 +24,7 @@
 NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURLErrorDomain";
 
 static NSString *const AWSInfoS3PreSignedURLBuilder = @"S3PreSignedURLBuilder";
+static NSString *const AWSS3PreSignedURLBuilderSDKVersion = @"2.4.1";
 
 @interface AWSS3PreSignedURLBuilder()
 
@@ -40,6 +41,16 @@ static NSString *const AWSInfoS3PreSignedURLBuilder = @"S3PreSignedURLBuilder";
 @implementation AWSS3PreSignedURLBuilder
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
++ (void)initialize {
+    [super initialize];
+
+    if (![AWSiOSSDKVersion isEqualToString:AWSS3PreSignedURLBuilderSDKVersion]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSS3 versions need to match. Check your SDK installation. AWSCore: %@ AWSS3: %@", AWSiOSSDKVersion, AWSS3PreSignedURLBuilderSDKVersion]
+                                     userInfo:nil];
+    }
+}
 
 + (instancetype)defaultS3PreSignedURLBuilder {
     static AWSS3PreSignedURLBuilder *_defaultS3PreSignedURLBuilder = nil;

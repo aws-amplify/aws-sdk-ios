@@ -27,6 +27,7 @@
 #import "AWSSimpleDBResources.h"
 
 static NSString *const AWSInfoSimpleDB = @"SimpleDB";
+static NSString *const AWSSimpleDBSDKVersion = @"2.4.1";
 
 @interface AWSSimpleDBResponseSerializer : AWSXMLResponseSerializer
 
@@ -141,6 +142,16 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSSimpleDB
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
++ (void)initialize {
+    [super initialize];
+
+    if (![AWSiOSSDKVersion isEqualToString:AWSSimpleDBSDKVersion]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSSimpleDB versions need to match. Check your SDK installation. AWSCore: %@ AWSSimpleDB: %@", AWSiOSSDKVersion, AWSSimpleDBSDKVersion]
+                                     userInfo:nil];
+    }
+}
 
 + (instancetype)defaultSimpleDB {
     static AWSSimpleDB *_defaultSimpleDB = nil;

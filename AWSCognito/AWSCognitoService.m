@@ -34,6 +34,7 @@
 #import "Fabric+FABKits.h"
 
 static NSString *const AWSInfoCognito = @"Cognito";
+static NSString *const AWSCognitoSDKVersion = @"2.4.1";
 
 NSString *const AWSCognitoDidStartSynchronizeNotification = @"com.amazon.cognito.AWSCognitoDidStartSynchronizeNotification";
 NSString *const AWSCognitoDidEndSynchronizeNotification = @"com.amazon.cognito.AWSCognitoDidEndSynchronizeNotification";
@@ -93,6 +94,14 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 #pragma mark - Setups
 
 + (void)initialize {
+    [super initialize];
+
+    if (![AWSiOSSDKVersion isEqualToString:AWSCognitoSDKVersion]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSCognito versions need to match. Check your SDK installation. AWSCore: %@ AWSCognito: %@", AWSiOSSDKVersion, AWSCognitoSDKVersion]
+                                     userInfo:nil];
+    }
+
     keychain = [AWSUICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@", [NSBundle mainBundle].bundleIdentifier, [AWSCognito class]]];
     _pushPlatform = [AWSCognitoUtil pushPlatform];
 }

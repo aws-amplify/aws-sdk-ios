@@ -17,6 +17,7 @@
 #import "AWSCategory.h"
 #import "AWSCredentialsProvider.h"
 #import "AWSLogging.h"
+#import "AWSService.h"
 
 NSString *const AWSInfoDefault = @"Default";
 
@@ -109,12 +110,17 @@ static NSString *const AWSInfoIdentityManager = @"IdentityManager";
         }
 
         if (!_cognitoCredentialsProvider) {
-            AWSLogDebug(@"Couldn't read credentials provider configurations from `Info.plist`. Please check your `Info.plist` if you are providing the SDK configuration values through `Info.plist`.");
+            if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
+                AWSLogDebug(@"Couldn't read credentials provider configurations from `Info.plist`. Please check your `Info.plist` if you are providing the SDK configuration values through `Info.plist`.");
+            }
             return nil;
         }
 
-        if (checkRegion && _region == AWSRegionUnknown) {
-            AWSLogDebug(@"Couldn't read the region configuration from Info.plist for the client. Please check your `Info.plist` if you are providing the SDK configuration values through `Info.plist`.");
+        if (checkRegion
+            && _region == AWSRegionUnknown) {
+            if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
+                AWSLogDebug(@"Couldn't read the region configuration from Info.plist for the client. Please check your `Info.plist` if you are providing the SDK configuration values through `Info.plist`.");
+            }
             return nil;
         }
     }

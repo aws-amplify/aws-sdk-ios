@@ -21,8 +21,14 @@
 @class AWSCognitoIdentityUser;
 @class AWSCognitoIdentityUserAttributeType;
 @class AWSCognitoIdentityPasswordAuthenticationInput;
+@class AWSCognitoIdentityMultifactorAuthenticationInput;
 @class AWSCognitoIdentityPasswordAuthenticationDetails;
 @class AWSCognitoIdentityUserPoolConfiguration;
+@class AWSCognitoIdentityUserPoolSignUpResponse;
+@protocol AWSCognitoIdentityInteractiveAuthenticationDelegate;
+@protocol AWSCognitoIdentityPasswordAuthentication;
+@protocol AWSCognitoIdentityMultiFactorAuthentication;
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -31,16 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) AWSServiceConfiguration *configuration;
 @property (nonatomic, readonly) AWSCognitoIdentityUserPoolConfiguration *userPoolConfiguration;
 @property (nonatomic, readonly) NSString *identityProviderName;
-
-/**
- For interacting with the user to obtain username/password
- */
-@property (nonatomic, copy) void(^getPasswordAuthenticationDetails)(AWSCognitoIdentityPasswordAuthenticationInput *authenticationInput, AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails *> *passwordAuthenticationDetails);
-
-/**
- For interacting with the user to obtain multifactor auth code
- */
-@property (nonatomic, copy, nullable) void(^getMultiFactorAuthenticationCode)(AWSCognitoIdentityProviderDeliveryMediumType deliveryMedium, NSString *destination, AWSTaskCompletionSource<NSString *> * mfaCode);
+@property (nonatomic, strong) id <AWSCognitoIdentityInteractiveAuthenticationDelegate> delegate;
 
 + (void)registerCognitoIdentityUserPoolWithUserPoolConfiguration:(AWSCognitoIdentityUserPoolConfiguration *)userPoolConfiguration
                                                           forKey:(NSString *)key;
@@ -56,10 +53,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Sign up a new user
  */
-- (AWSTask<AWSCognitoIdentityUser *> *)signUp:(NSString *)username
-                                     password:(NSString *)password
-                               userAttributes:(nullable NSArray<AWSCognitoIdentityUserAttributeType *> *)userAttributes
-                               validationData:(nullable NSArray<AWSCognitoIdentityUserAttributeType *> *)validationData;
+- (AWSTask<AWSCognitoIdentityUserPoolSignUpResponse *> *)signUp:(NSString *)username
+                                                       password:(NSString *)password
+                                                 userAttributes:(nullable NSArray<AWSCognitoIdentityUserAttributeType *> *)userAttributes
+                                                 validationData:(nullable NSArray<AWSCognitoIdentityUserAttributeType *> *)validationData;
 
 /**
  Return the user who last authenticated.  Username may be nil if current user is unknown.
@@ -104,8 +101,18 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData;
 
 @property(nonatomic, readonly, nullable) NSString *lastKnownUsername;
 
-- (nullable instancetype) initWithLastKnownUsername:(nullable NSString *)lastKnownUsername;
+@end
 
+
+
+/**
+ When interactive auth requires a multifactor authentication code, this encapsulates the
+ destination and delivery medium
+ */
+@interface AWSCognitoIdentityMultifactorAuthenticationInput : NSObject
+
+@property(nonatomic, readonly, nullable) NSString *destination;
+@property(nonatomic, assign, readonly) AWSCognitoIdentityProviderDeliveryMediumType deliveryMedium;
 @end
 
 /**
@@ -125,12 +132,58 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData;
  The error domain for AWSCognitoIdentityProvider errors.
  <ul>
  <li>AWSCognitoIdentityProviderClientErrorUnknown - Unknown error.</li>
- <li>AWSCognitoIdentityProviderClientErrorInvalidAuthenticationBlock - Necessary authentication block isn't set.</li>
+ <li>AWSCognitoIdentityProviderClientErrorInvalidAuthenticationDelegate - Necessary authentication delegate isn't set.</li>
  </ul>
  */
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityClientErrorType) {
     AWSCognitoIdentityProviderClientErrorUnknown = 0,
-    AWSCognitoIdentityProviderClientErrorInvalidAuthenticationBlock = -1000,
+    AWSCognitoIdentityProviderClientErrorInvalidAuthenticationDelegate = -1000,
 };
+
+@interface AWSCognitoIdentityUserPoolSignUpResponse : AWSCognitoIdentityProviderSignUpResponse
+@property (nonatomic, readonly) AWSCognitoIdentityUser* user;
+@end
+
+
+@protocol AWSCognitoIdentityInteractiveAuthenticationDelegate <NSObject>
+/**
+ Initialize ui to prompt end user for username and password
+ */
+-(id<AWSCognitoIdentityPasswordAuthentication>) startPasswordAuthentication;
+@optional
+/**
+ Initialize ui to prompt end user for multifactor authentication code
+ */
+-(id<AWSCognitoIdentityMultiFactorAuthentication>) startMultiFactorAuthentication;
+@end
+
+@protocol AWSCognitoIdentityPasswordAuthentication <NSObject>
+/**
+ Obtain username and password from end user.
+ @param authenticationInput input details including last known username
+ @param passwordAuthenticationCompletionSource set passwordAuthenticationCompletionSource.result
+ with the username and password received from the end user.
+ */
+-(void) getPasswordAuthenticationDetails: (AWSCognitoIdentityPasswordAuthenticationInput *) authenticationInput  passwordAuthenticationCompletionSource: (AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails *> *) passwordAuthenticationCompletionSource;
+/**
+ This step completed, usually either display an error to the end user or dismiss ui
+ @param error the error if any that occured
+ */
+-(void) didCompletePasswordAuthenticationStepWithError:(NSError*) error;
+@end
+
+@protocol AWSCognitoIdentityMultiFactorAuthentication <NSObject>
+/**
+ Obtain mfa code from the end user
+ @param authenticationInput details about the deliveryMedium and masked destination for where the code was sent
+ @param mfaCodeCompletionSource set mfaCodeCompletionSource.result with the mfa code from end user
+ */
+-(void) getMultiFactorAuthenticationCode: (AWSCognitoIdentityMultifactorAuthenticationInput *) authenticationInput mfaCodeCompletionSource: (AWSTaskCompletionSource<NSString *> *) mfaCodeCompletionSource;
+/**
+ This step completed, usually either display an error to the end user or dismiss ui
+ @param error the error if any that occured
+ */
+-(void) didCompleteMultifactorAuthenticationStepWithError:(NSError*) error;
+@end
 
 NS_ASSUME_NONNULL_END

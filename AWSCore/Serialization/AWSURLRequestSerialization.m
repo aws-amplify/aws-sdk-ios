@@ -59,7 +59,7 @@
 - (instancetype)initWithJSONDefinition:(NSDictionary *)JSONDefinition
                             actionName:(NSString *)actionName {
     if (self = [super init]) {
-        
+
         _serviceDefinitionJSON = JSONDefinition;
         if (_serviceDefinitionJSON == nil) {
             AWSLogError(@"serviceDefinitionJSON of is nil.");
@@ -72,8 +72,8 @@
 }
 
 - (AWSTask *)serializeRequest:(NSMutableURLRequest *)request
-                     headers:(NSDictionary *)headers
-                  parameters:(NSDictionary *)parameters {
+                      headers:(NSDictionary *)headers
+                   parameters:(NSDictionary *)parameters {
     request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
 
     //If parameters contains clientContext key, move it to http header. This is a sepcial case
@@ -90,12 +90,12 @@
     NSDictionary *actionRules = [[self.serviceDefinitionJSON objectForKey:@"operations"] objectForKey:self.actionName];
     NSDictionary *shapeRules = [self.serviceDefinitionJSON objectForKey:@"shapes"];
     AWSJSONDictionary *inputRules = [[AWSJSONDictionary alloc] initWithDictionary:[actionRules objectForKey:@"input"] JSONDefinitionRule:shapeRules];
-    
+
     NSDictionary *actionHTTPRule = [actionRules objectForKey:@"http"];
     NSString *ruleURIStr = [actionHTTPRule objectForKey:@"requestUri"];
-    
+
     NSError *error = nil;
-    
+
     [AWSXMLRequestSerializer constructURIandHeadersAndBody:request
                                                      rules:inputRules
                                                 parameters:parameters
@@ -104,7 +104,7 @@
     if (error) {
         return [AWSTask taskWithError:error];
     }
-    
+
     //construct HTTPBody only if HTTPBodyStream is nil
     if (!request.HTTPBodyStream) {
         NSData *bodyData = [AWSJSONBuilder jsonDataForDictionary:parameters actionName:self.actionName serviceDefinitionRule:self.serviceDefinitionJSON error:&error];
@@ -120,26 +120,7 @@
 
     [request aws_validateHTTPMethodAndBody];
 
-    if ([AWSLogger defaultLogger].logLevel > AWSLogLevelDebug) {
-        NSMutableString *bodyString = [[NSMutableString alloc] initWithData:request.HTTPBody
-                                                                   encoding:NSUTF8StringEncoding];
 
-        if ([request.URL.absoluteString containsString:@"cognito-idp."]) {
-            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"Password\":\".*?\""
-                                                                                   options:NSRegularExpressionCaseInsensitive
-                                                                                     error:&error];
-            [regex replaceMatchesInString:bodyString
-                                  options:0
-                                    range:NSMakeRange(0, bodyString.length)
-                             withTemplate:@"Password\":\"[redacted]\""];
-        }
-
-        if (bodyString.length <= 100 * 1024) {
-            AWSLogDebug(@"Request body: [%@]", bodyString);
-        } else {
-            AWSLogDebug(@"Request body (Partial data. The first 100KB is displayed.): [%@]", [bodyString substringWithRange:NSMakeRange(0, 100 * 1024)]);
-        }
-    }
 
     if (!error) {
         for (NSString *key in headers) {
@@ -171,7 +152,7 @@
 - (instancetype)initWithJSONDefinition:(NSDictionary *)JSONDefinition
                             actionName:(NSString *)actionName {
     if (self = [super init]) {
-        
+
         _serviceDefinitionJSON = JSONDefinition;
         if (_serviceDefinitionJSON == nil) {
             AWSLogError(@"serviceDefinitionJSON of is nil.");
@@ -185,8 +166,8 @@
 
 /* need to overwrite this method to do serialization for self.parameter */
 - (AWSTask *)serializeRequest:(NSMutableURLRequest *)request
-                     headers:(NSDictionary *)headers
-                  parameters:(NSDictionary *)parameters {
+                      headers:(NSDictionary *)headers
+                   parameters:(NSDictionary *)parameters {
     request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
 
     NSDictionary *anActionRules = [[self.serviceDefinitionJSON objectForKey:@"operations"] objectForKey:self.actionName];
@@ -217,14 +198,6 @@
                                                         actionName:self.actionName
                                              serviceDefinitionRule:self.serviceDefinitionJSON
                                                              error:&error];
-        }
-
-        if ([request.HTTPBody length] <= 100 * 1024) {
-            AWSLogDebug(@"Request body: [%@]", [[NSString alloc] initWithData:request.HTTPBody
-                                                                     encoding:NSUTF8StringEncoding]);
-        } else {
-            AWSLogDebug(@"Request body (Partial data. The first 100KB is displayed.): [%@]", [[NSString alloc] initWithData:[request.HTTPBody subdataWithRange:NSMakeRange(0, 100 * 1024)]
-                                                                                                                   encoding:NSUTF8StringEncoding]);
         }
 
         //contruct additional headers
@@ -288,7 +261,7 @@
                 if ([value isKindOfClass:[NSNumber class]]) {
                     valueStr = [value stringValue];
                 }
-                
+
             } else if ([rulesType isEqualToString:@"boolean"]) {
                 if ([value isKindOfClass:[NSNumber class]]) {
                     valueStr = [value boolValue]?@"true":@"false";
@@ -306,7 +279,7 @@
                     } else {
                         valueStr = [value stringValue];
                     }
-                    
+
                 } else if ([value isKindOfClass:[NSString class]]) {
                     valueStr = value; //timestamp will be treated as string here.
                 }
@@ -457,7 +430,6 @@
 - (instancetype)initWithJSONDefinition:(NSDictionary *)JSONDefinition
                             actionName:(NSString *)actionName {
     if (self = [super init]) {
-        
         _serviceDefinitionJSON = JSONDefinition;
         if (_serviceDefinitionJSON == nil) {
             AWSLogError(@"serviceDefinitionJSON of is nil.");
@@ -503,8 +475,8 @@
 }
 
 - (AWSTask *)serializeRequest:(NSMutableURLRequest *)request
-                     headers:(NSDictionary *)headers
-                  parameters:(NSDictionary *)parameters {
+                      headers:(NSDictionary *)headers
+                   parameters:(NSDictionary *)parameters {
     request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
 
     parameters = [parameters mutableCopy];
@@ -526,14 +498,6 @@
 
     if ([queryString length] > 0) {
         request.HTTPBody = [queryString dataUsingEncoding:NSUTF8StringEncoding];
-    }
-
-    if ([request.HTTPBody length] <= 100 * 1024) {
-        AWSLogDebug(@"Request body: [%@]", [[NSString alloc] initWithData:request.HTTPBody
-                                                                 encoding:NSUTF8StringEncoding]);
-    } else {
-        AWSLogDebug(@"Request body (Partial data. The first 100KB is displayed.): [%@]", [[NSString alloc] initWithData:[request.HTTPBody subdataWithRange:NSMakeRange(0, 100 * 1024)]
-                                                                                                               encoding:NSUTF8StringEncoding]);
     }
 
     //contruct additional headers
@@ -564,8 +528,8 @@
 
 //overwrite serializeRequest method for EC2
 - (AWSTask *)serializeRequest:(NSMutableURLRequest *)request
-                     headers:(NSDictionary *)headers
-                  parameters:(NSDictionary *)parameters {
+                      headers:(NSDictionary *)headers
+                   parameters:(NSDictionary *)parameters {
     request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
 
     parameters = [parameters mutableCopy];
@@ -589,14 +553,6 @@
         request.HTTPBody = [queryString dataUsingEncoding:NSUTF8StringEncoding];
     }
 
-    if ([request.HTTPBody length] <= 100 * 1024) {
-        AWSLogDebug(@"Request body: [%@]", [[NSString alloc] initWithData:request.HTTPBody
-                                                                 encoding:NSUTF8StringEncoding]);
-    } else {
-        AWSLogDebug(@"Request body (Partial data. The first 100KB is displayed.): [%@]", [[NSString alloc] initWithData:[request.HTTPBody subdataWithRange:NSMakeRange(0, 100 * 1024)]
-                                                                                                               encoding:NSUTF8StringEncoding]);
-    }
-
     //contruct additional headers
     if (headers) {
         //generate HTTP header here
@@ -609,7 +565,7 @@
         [request addValue:@"application/x-www-form-urlencoded; charset=utf-8"
        forHTTPHeaderField:@"Content-Type"];
     }
-
+    
     [request aws_validateHTTPMethodAndBody];
     
     return [AWSTask taskWithResult:nil];

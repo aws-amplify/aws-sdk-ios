@@ -27,6 +27,7 @@
 #import "AWSAutoScalingResources.h"
 
 static NSString *const AWSInfoAutoScaling = @"AutoScaling";
+static NSString *const AWSAutoScalingSDKVersion = @"2.4.1";
 
 @interface AWSAutoScalingResponseSerializer : AWSXMLResponseSerializer
 
@@ -128,6 +129,16 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSAutoScaling
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
++ (void)initialize {
+    [super initialize];
+
+    if (![AWSiOSSDKVersion isEqualToString:AWSAutoScalingSDKVersion]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSAutoScaling versions need to match. Check your SDK installation. AWSCore: %@ AWSAutoScaling: %@", AWSiOSSDKVersion, AWSAutoScalingSDKVersion]
+                                     userInfo:nil];
+    }
+}
 
 + (instancetype)defaultAutoScaling {
     static AWSAutoScaling *_defaultAutoScaling = nil;

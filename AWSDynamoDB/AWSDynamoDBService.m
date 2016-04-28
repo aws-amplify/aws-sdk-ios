@@ -27,6 +27,7 @@
 #import "AWSDynamoDBResources.h"
 
 static NSString *const AWSInfoDynamoDB = @"DynamoDB";
+static NSString *const AWSDynamoDBSDKVersion = @"2.4.1";
 
 @interface AWSDynamoDBResponseSerializer : AWSJSONResponseSerializer
 
@@ -152,6 +153,16 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSDynamoDB
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
++ (void)initialize {
+    [super initialize];
+
+    if (![AWSiOSSDKVersion isEqualToString:AWSDynamoDBSDKVersion]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSDynamoDB versions need to match. Check your SDK installation. AWSCore: %@ AWSDynamoDB: %@", AWSiOSSDKVersion, AWSDynamoDBSDKVersion]
+                                     userInfo:nil];
+    }
+}
 
 + (instancetype)defaultDynamoDB {
     static AWSDynamoDB *_defaultDynamoDB = nil;

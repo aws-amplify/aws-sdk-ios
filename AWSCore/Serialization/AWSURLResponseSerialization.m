@@ -37,7 +37,7 @@
                             actionName:(NSString *)actionName
                            outputClass:(Class)outputClass {
     if (self = [super init]) {
-        
+
         _serviceDefinitionJSON = JSONDefinition;
         if (_serviceDefinitionJSON == nil) {
             AWSLogError(@"serviceDefinitionJSON of is nil.");
@@ -56,18 +56,16 @@
                  currentRequest:(NSURLRequest *)currentRequest
                            data:(id)data
                           error:(NSError *__autoreleasing *)error {
-    if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-        AWSLogDebug(@"Response header: [%@]", response.allHeaderFields);
-    }
-
-    if ([data isKindOfClass:[NSData class]]) {
-        if ([data length] <= 100 * 1024) {
-            AWSLogDebug(@"Response body: [%@]", [[NSString alloc] initWithData:data
-                                                                     encoding:NSUTF8StringEncoding]);
-        } else {
-            AWSLogDebug(@"Response body (Partial data. The first 100KB is displayed.): [%@]", [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 100 * 1024)]
-                                                                                                                   encoding:NSUTF8StringEncoding]);
-            
+    if ([AWSLogger defaultLogger].logLevel >= AWSLogLevelDebug) {
+        if ([data isKindOfClass:[NSData class]]) {
+            if ([data length] <= 100 * 1024) {
+                AWSLogDebug(@"Response body:\n%@", [[NSString alloc] initWithData:data
+                                                                          encoding:NSUTF8StringEncoding]);
+            } else {
+                AWSLogDebug(@"Response body (Partial data. The first 100KB is displayed.):\n%@", [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 100 * 1024)]
+                                                                                                                        encoding:NSUTF8StringEncoding]);
+                
+            }
         }
     }
 
@@ -140,7 +138,7 @@
                             actionName:(NSString *)actionName
                            outputClass:(Class)outputClass {
     if (self = [super init]) {
-        
+
         _serviceDefinitionJSON = JSONDefinition;
         if (_serviceDefinitionJSON == nil) {
             AWSLogError(@"serviceDefinitionJSON of is nil.");
@@ -167,7 +165,7 @@
                         bodyDictionary:(NSMutableDictionary *)bodyDictionary
                                  error:(NSError *__autoreleasing *)error {
     NSDictionary *responseHeaders = [response allHeaderFields];
-    
+
     //If no rule just return
     if (rules == (id)[NSNull null] ||  [rules count] == 0) {
         return bodyDictionary;
@@ -214,7 +212,7 @@
                 }
             }
         }
-        
+
         //may also need to pass the response statusCode if the memberRule ask for it
         if (memberName && [memberRules isKindOfClass:[NSDictionary class]] && [memberRules[@"location"] isEqualToString:@"statusCode"]) {
             NSString *rulesType = memberRules[@"type"];
@@ -235,18 +233,16 @@
                  currentRequest:(NSURLRequest *)currentRequest
                            data:(id)data
                           error:(NSError *__autoreleasing *)error {
-    if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-        AWSLogDebug(@"Response header: [%@]", response.allHeaderFields);
-    }
-
-    if ([data isKindOfClass:[NSData class]]) {
-        if ([data length] <= 100 * 1024) {
-            AWSLogDebug(@"Response body: [%@]", [[NSString alloc] initWithData:data
-                                                                     encoding:NSUTF8StringEncoding]);
-        } else {
-            AWSLogDebug(@"Response body (Partial data. The first 100KB is displayed.): [%@]", [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 100 * 1024)]
-                                                                                                                   encoding:NSUTF8StringEncoding]);
-
+    if ([AWSLogger defaultLogger].logLevel >= AWSLogLevelDebug) {
+        if ([data isKindOfClass:[NSData class]]) {
+            if ([data length] <= 100 * 1024) {
+                AWSLogDebug(@"Response body:\n%@", [[NSString alloc] initWithData:data
+                                                                          encoding:NSUTF8StringEncoding]);
+            } else {
+                AWSLogDebug(@"Response body (Partial data. The first 100KB is displayed.):\n%@", [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 100 * 1024)]
+                                                                                                                        encoding:NSUTF8StringEncoding]);
+                
+            }
         }
     }
 

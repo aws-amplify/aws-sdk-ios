@@ -20,7 +20,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        _logLevel = AWSLogLevelNone;
+        _logLevel = AWSLogLevelDebug;
     }
 
     return self;
@@ -31,7 +31,6 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _defaultLogger = [AWSLogger new];
-        _defaultLogger.logLevel = AWSLogLevelDebug; //set default logLevel
     });
 
     return _defaultLogger;

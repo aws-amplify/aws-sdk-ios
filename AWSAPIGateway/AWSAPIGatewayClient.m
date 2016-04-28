@@ -21,7 +21,9 @@ NSString *const AWSAPIGatewayErrorDomain = @"com.amazonaws.AWSAPIGatewayErrorDom
 NSString *const AWSAPIGatewayErrorHTTPBodyKey = @"HTTPBody";
 NSString *const AWSAPIGatewayErrorHTTPHeaderFieldsKey = @"HTTPHeaderFields";
 
-NSString *const AWSAPIGatewayAPIKeyHeader = @"x-api-key";
+static NSString *const AWSAPIGatewayAPIKeyHeader = @"x-api-key";
+
+static NSString *const AWSAPIGatewaySDKVersion = @"2.4.1";
 
 @interface AWSAPIGatewayClient()
 
@@ -33,6 +35,16 @@ NSString *const AWSAPIGatewayAPIKeyHeader = @"x-api-key";
 @end
 
 @implementation AWSAPIGatewayClient
+
++ (void)initialize {
+    [super initialize];
+
+    if (![AWSiOSSDKVersion isEqualToString:AWSAPIGatewaySDKVersion]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSAPIGateway versions need to match. Check your SDK installation. AWSCore: %@ AWSAPIGateway: %@", AWSiOSSDKVersion, AWSAPIGatewaySDKVersion]
+                                     userInfo:nil];
+    }
+}
 
 - (instancetype)init {
     if (self = [super init]) {

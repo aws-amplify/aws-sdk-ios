@@ -27,6 +27,7 @@
 #import "AWSSQSResources.h"
 
 static NSString *const AWSInfoSQS = @"SQS";
+static NSString *const AWSSQSSDKVersion = @"2.4.1";
 
 @interface AWSSQSResponseSerializer : AWSXMLResponseSerializer
 
@@ -137,6 +138,16 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSSQS
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
++ (void)initialize {
+    [super initialize];
+
+    if (![AWSiOSSDKVersion isEqualToString:AWSSQSSDKVersion]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSSQS versions need to match. Check your SDK installation. AWSCore: %@ AWSSQS: %@", AWSiOSSDKVersion, AWSSQSSDKVersion]
+                                     userInfo:nil];
+    }
+}
 
 + (instancetype)defaultSQS {
     static AWSSQS *_defaultSQS = nil;

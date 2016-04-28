@@ -27,6 +27,7 @@
 #import "AWSEC2Resources.h"
 
 static NSString *const AWSInfoEC2 = @"EC2";
+static NSString *const AWSEC2SDKVersion = @"2.4.1";
 
 @interface AWSEC2ResponseSerializer : AWSXMLResponseSerializer
 
@@ -123,6 +124,16 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSEC2
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
++ (void)initialize {
+    [super initialize];
+
+    if (![AWSiOSSDKVersion isEqualToString:AWSEC2SDKVersion]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSEC2 versions need to match. Check your SDK installation. AWSCore: %@ AWSEC2: %@", AWSiOSSDKVersion, AWSEC2SDKVersion]
+                                     userInfo:nil];
+    }
+}
 
 + (instancetype)defaultEC2 {
     static AWSEC2 *_defaultEC2 = nil;

@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityUserConfirmSignUpResponse *> *)confirmSignUp:(NSString *)confirmationCode;
 
 /**
- Resend the confirmation code send during sign up
+ Resend the confirmation code sent during sign up
  */
 - (AWSTask<AWSCognitoIdentityUserResendConfirmationCodeResponse *> *)resendConfirmationCode;
 
@@ -81,7 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityUserSession *> *)getSession;
 
 /**
- Get a session with custom scopes
+ Get a session with custom scopes.  For future use, not supported by service yet.
  */
 - (AWSTask<AWSCognitoIdentityUserSession *> *)getSession:(nullable NSSet<NSString *> *)scopes;
 
@@ -110,7 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
                                                                                  password:(NSString *)password;
 
 /**
- Change this users' password
+ Change this user's password
  */
 - (AWSTask<AWSCognitoIdentityUserChangePasswordResponse *> *)changePassword:(NSString *)currentPassword
                                                            proposedPassword:(NSString *)proposedPassword;

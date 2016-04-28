@@ -27,6 +27,7 @@
 #import "AWSCloudWatchResources.h"
 
 static NSString *const AWSInfoCloudWatch = @"CloudWatch";
+static NSString *const AWSCloudWatchSDKVersion = @"2.4.1";
 
 @interface AWSCloudWatchResponseSerializer : AWSXMLResponseSerializer
 
@@ -132,6 +133,16 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSCloudWatch
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
++ (void)initialize {
+    [super initialize];
+
+    if (![AWSiOSSDKVersion isEqualToString:AWSCloudWatchSDKVersion]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSCloudWatch versions need to match. Check your SDK installation. AWSCore: %@ AWSCloudWatch: %@", AWSiOSSDKVersion, AWSCloudWatchSDKVersion]
+                                     userInfo:nil];
+    }
+}
 
 + (instancetype)defaultCloudWatch {
     static AWSCloudWatch *_defaultCloudWatch = nil;

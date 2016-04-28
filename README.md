@@ -352,6 +352,8 @@ The following logging level options are available:
 * `AWSLogLevelDebug` (This is the default.)
 * `AWSLogLevelVerbose`
 
+We recommend setting the log level to `None` before publishing to the Apple App Store.
+
 ##Sample Apps
 
 The AWS SDK for iOS includes sample apps that demonstrate common use cases.

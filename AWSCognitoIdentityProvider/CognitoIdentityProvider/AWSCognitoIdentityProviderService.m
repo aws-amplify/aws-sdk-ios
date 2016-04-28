@@ -26,6 +26,8 @@
 #import "AWSSynchronizedMutableDictionary.h"
 #import "AWSCognitoIdentityProviderResources.h"
 
+static NSString *const AWSCognitoIdentityProviderSDKVersion = @"2.4.1";
+
 @interface AWSCognitoIdentityProviderResponseSerializer : AWSJSONResponseSerializer
 
 @end
@@ -163,6 +165,15 @@ static NSDictionary *errorCodeDictionary = nil;
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
++ (void)initialize {
+    [super initialize];
+
+    if (![AWSiOSSDKVersion isEqualToString:AWSCognitoIdentityProviderSDKVersion]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSCognitoIdentityProvider versions need to match. Check your SDK installation. AWSCore: %@ AWSCognitoIdentityProvider: %@", AWSiOSSDKVersion, AWSCognitoIdentityProviderSDKVersion]
+                                     userInfo:nil];
+    }
+}
 + (instancetype)defaultCognitoIdentityProvider {
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException

@@ -259,14 +259,14 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
                                                                          query:query
                                                                        headers:headers
                                                                  contentSha256:contentSha256];
-    AWSLogDebug(@"Canonical request: [%@]", canonicalRequest);
+    AWSLogVerbose(@"Canonical request: [%@]", canonicalRequest);
 
     NSString *stringToSign = [NSString stringWithFormat:@"%@\n%@\n%@\n%@",
                               AWSSignatureV4Algorithm,
                               [urlRequest valueForHTTPHeaderField:@"X-Amz-Date"],
                               scope,
                               [AWSSignatureSignerUtility hexEncode:[AWSSignatureSignerUtility hashString:canonicalRequest]]];
-    AWSLogDebug(@"AWS4 String to Sign: [%@]", stringToSign);
+    AWSLogVerbose(@"AWS4 String to Sign: [%@]", stringToSign);
 
     NSData *kSigning  = [AWSSignatureV4Signer getV4DerivedKey:credentials.secretKey
                                                          date:dateStamp
@@ -323,8 +323,8 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
                                                                        headers:request.allHTTPHeaderFields
                                                                  contentSha256:contentSha256];
 
-    AWSLogDebug(@"AWS4 Canonical Request: [%@]", canonicalRequest);
-    AWSLogDebug(@"payload %@",[[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding]);
+    AWSLogVerbose(@"AWS4 Canonical Request: [%@]", canonicalRequest);
+    AWSLogVerbose(@"payload %@",[[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding]);
 
     NSString *scope = [NSString stringWithFormat:@"%@/%@/%@/%@",
                        dateStamp,
@@ -340,7 +340,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
                               scope,
                               [AWSSignatureSignerUtility hexEncode:[AWSSignatureSignerUtility hashString:canonicalRequest]]];
 
-    AWSLogDebug(@"AWS4 String to Sign: [%@]", stringToSign);
+    AWSLogVerbose(@"AWS4 String to Sign: [%@]", stringToSign);
 
     NSData *kSigning  = [AWSSignatureV4Signer getV4DerivedKey:credentials.secretKey
                                                          date:dateStamp
@@ -659,7 +659,7 @@ static NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427a
     NSData *data = [NSData dataWithBytesNoCopy:chunkBuffer length:read];
     [self.chunkData appendData:[self getSignedChunk:data]];
 
-    AWSLogDebug(@"stream read: %ld, chunk size: %lu", (long)read, (unsigned long)[self.chunkData length]);
+    AWSLogVerbose(@"stream read: %ld, chunk size: %lu", (long)read, (unsigned long)[self.chunkData length]);
 
     return YES;
 }
@@ -675,13 +675,13 @@ static NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427a
                               self.priorSha256,
                               emptyStringSha256,
                               chunkSha256];
-    AWSLogDebug(@"AWS4 String to Sign: [%@]", stringToSign);
+    AWSLogVerbose(@"AWS4 String to Sign: [%@]", stringToSign);
 
     NSData *signature = [AWSSignatureSignerUtility sha256HMacWithData:[stringToSign dataUsingEncoding:NSUTF8StringEncoding]
                                                               withKey:self.kSigning];
     self.priorSha256 = [self dataToHexString:signature];
     NSString *chunkedHeader = [NSString stringWithFormat:@"%06lx;chunk-signature=%@\r\n", (unsigned long)[data length], self.priorSha256];
-    AWSLogDebug(@"AWS4 Chunked Header: [%@]", chunkedHeader);
+    AWSLogVerbose(@"AWS4 Chunked Header: [%@]", chunkedHeader);
 
     NSMutableData *signedChunk = [NSMutableData data];
     [signedChunk appendData:[chunkedHeader dataUsingEncoding:NSUTF8StringEncoding]];

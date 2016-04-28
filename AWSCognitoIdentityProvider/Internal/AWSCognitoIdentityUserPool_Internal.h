@@ -22,10 +22,26 @@
 
 @interface AWSCognitoIdentityUserPool()
 @property (nonatomic, strong) AWSUICKeyChainStore *keychain;
-@property (nonatomic, strong) NSString * clientSecret;
 
 - (NSString *) calculateSecretHash: (NSString*) userName;
 - (void) setCurrentUser:(NSString *) username;
 - (NSArray<AWSCognitoIdentityProviderAttributeType*>*)getValidationData:(NSArray<AWSCognitoIdentityUserAttributeType*>*)devProvidedValidationData;
 - (NSString*) currentUsername;
 @end
+
+@interface AWSCognitoIdentityUserPoolSignUpResponse()
+@property (nonatomic, strong) AWSCognitoIdentityUser* user;
+@end
+
+
+@interface AWSCognitoIdentityPasswordAuthenticationInput()
+@property(nonatomic,strong) NSString * lastKnownUsername;
+- (nullable instancetype) initWithLastKnownUsername:(nullable NSString *)lastKnownUsername;
+@end
+
+@interface AWSCognitoIdentityMultifactorAuthenticationInput()
+@property(nonatomic, strong, nullable) NSString *destination;
+@property(nonatomic, assign) AWSCognitoIdentityProviderDeliveryMediumType deliveryMedium;
+-(nullable instancetype) initWithDeliveryMedium: (AWSCognitoIdentityProviderDeliveryMediumType) deliveryMedium destination:(NSString *) destination;
+@end
+

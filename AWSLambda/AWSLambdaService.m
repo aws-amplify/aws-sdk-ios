@@ -27,6 +27,7 @@
 #import "AWSLambdaResources.h"
 
 static NSString *const AWSInfoLambda = @"Lambda";
+static NSString *const AWSLambdaSDKVersion = @"2.4.1";
 
 @interface AWSLambdaResponseSerializer : AWSJSONResponseSerializer
 
@@ -177,6 +178,16 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSLambda
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
++ (void)initialize {
+    [super initialize];
+
+    if (![AWSiOSSDKVersion isEqualToString:AWSLambdaSDKVersion]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSLambda versions need to match. Check your SDK installation. AWSCore: %@ AWSLambda: %@", AWSiOSSDKVersion, AWSLambdaSDKVersion]
+                                     userInfo:nil];
+    }
+}
 
 + (instancetype)defaultLambda {
     static AWSLambda *_defaultLambda = nil;

@@ -27,6 +27,7 @@
 #import "AWSS3Resources.h"
 
 static NSString *const AWSInfoS3 = @"S3";
+static NSString *const AWSS3SDKVersion = @"2.4.1";
 
 @interface AWSS3ResponseSerializer : AWSXMLResponseSerializer
 
@@ -165,6 +166,16 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSS3
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
++ (void)initialize {
+    [super initialize];
+
+    if (![AWSiOSSDKVersion isEqualToString:AWSS3SDKVersion]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSS3 versions need to match. Check your SDK installation. AWSCore: %@ AWSS3: %@", AWSiOSSDKVersion, AWSS3SDKVersion]
+                                     userInfo:nil];
+    }
+}
 
 + (instancetype)defaultS3 {
     static AWSS3 *_defaultS3 = nil;

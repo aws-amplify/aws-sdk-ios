@@ -26,6 +26,7 @@
 #import "AWSIoTDataResources.h"
 
 static NSString *const AWSInfoIoTData = @"IoTData";
+static NSString *const AWSIoTDataSDKVersion = @"2.4.1";
 
 @interface AWSIoTDataResponseSerializer : AWSJSONResponseSerializer
 
@@ -136,6 +137,16 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSIoTData
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
++ (void)initialize {
+    [super initialize];
+
+    if (![AWSiOSSDKVersion isEqualToString:AWSIoTDataSDKVersion]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSIoT versions need to match. Check your SDK installation. AWSCore: %@ AWSIoT: %@", AWSiOSSDKVersion, AWSIoTDataSDKVersion]
+                                     userInfo:nil];
+    }
+}
 
 + (instancetype)defaultIoTData {
     static AWSIoTData *_defaultIoTData = nil;

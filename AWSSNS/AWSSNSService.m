@@ -27,6 +27,7 @@
 #import "AWSSNSResources.h"
 
 static NSString *const AWSInfoSNS = @"SNS";
+static NSString *const AWSSNSSDKVersion = @"2.4.1";
 
 @interface AWSSNSResponseSerializer : AWSXMLResponseSerializer
 
@@ -133,6 +134,16 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSSNS
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
++ (void)initialize {
+    [super initialize];
+
+    if (![AWSiOSSDKVersion isEqualToString:AWSSNSSDKVersion]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSSNS versions need to match. Check your SDK installation. AWSCore: %@ AWSSNS: %@", AWSiOSSDKVersion, AWSSNSSDKVersion]
+                                     userInfo:nil];
+    }
+}
 
 + (instancetype)defaultSNS {
     static AWSSNS *_defaultSNS = nil;

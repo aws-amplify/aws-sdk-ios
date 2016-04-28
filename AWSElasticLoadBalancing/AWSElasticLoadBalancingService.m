@@ -27,6 +27,7 @@
 #import "AWSElasticLoadBalancingResources.h"
 
 static NSString *const AWSInfoElasticLoadBalancing = @"ElasticLoadBalancing";
+static NSString *const AWSElasticLoadBalancingSDKVersion = @"2.4.1";
 
 @interface AWSElasticLoadBalancingResponseSerializer : AWSXMLResponseSerializer
 
@@ -142,6 +143,16 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSElasticLoadBalancing
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
++ (void)initialize {
+    [super initialize];
+
+    if (![AWSiOSSDKVersion isEqualToString:AWSElasticLoadBalancingSDKVersion]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSElasticLoadBalancing versions need to match. Check your SDK installation. AWSCore: %@ AWSElasticLoadBalancing: %@", AWSiOSSDKVersion, AWSElasticLoadBalancingSDKVersion]
+                                     userInfo:nil];
+    }
+}
 
 + (instancetype)defaultElasticLoadBalancing {
     static AWSElasticLoadBalancing *_defaultElasticLoadBalancing = nil;

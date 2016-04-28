@@ -27,6 +27,7 @@
 #import "AWSKinesisResources.h"
 
 static NSString *const AWSInfoKinesis = @"Kinesis";
+static NSString *const AWSKinesisSDKVersion = @"2.4.1";
 
 @interface AWSKinesisResponseSerializer : AWSJSONResponseSerializer
 
@@ -151,6 +152,16 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSKinesis
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
++ (void)initialize {
+    [super initialize];
+
+    if (![AWSiOSSDKVersion isEqualToString:AWSKinesisSDKVersion]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSKinesis versions need to match. Check your SDK installation. AWSCore: %@ AWSKinesis: %@", AWSiOSSDKVersion, AWSKinesisSDKVersion]
+                                     userInfo:nil];
+    }
+}
 
 + (instancetype)defaultKinesis {
     static AWSKinesis *_defaultKinesis = nil;

@@ -27,6 +27,7 @@
 #import "AWSSESResources.h"
 
 static NSString *const AWSInfoSES = @"SES";
+static NSString *const AWSSESSDKVersion = @"2.4.1";
 
 @interface AWSSESResponseSerializer : AWSXMLResponseSerializer
 
@@ -124,6 +125,16 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSSES
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
+
++ (void)initialize {
+    [super initialize];
+
+    if (![AWSiOSSDKVersion isEqualToString:AWSSESSDKVersion]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSSES versions need to match. Check your SDK installation. AWSCore: %@ AWSSES: %@", AWSiOSSDKVersion, AWSSESSDKVersion]
+                                     userInfo:nil];
+    }
+}
 
 + (instancetype)defaultSES {
     static AWSSES *_defaultSES = nil;
