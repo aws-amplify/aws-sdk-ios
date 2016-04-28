@@ -36,12 +36,12 @@
 
 @interface AWSCognitoIdentityPasswordAuthenticationInput()
 @property(nonatomic,strong) NSString * lastKnownUsername;
-- (nullable instancetype) initWithLastKnownUsername:(nullable NSString *)lastKnownUsername;
+- (instancetype) initWithLastKnownUsername:(NSString *)lastKnownUsername;
 @end
 
 @interface AWSCognitoIdentityMultifactorAuthenticationInput()
-@property(nonatomic, strong, nullable) NSString *destination;
+@property(nonatomic, strong) NSString *destination;
 @property(nonatomic, assign) AWSCognitoIdentityProviderDeliveryMediumType deliveryMedium;
--(nullable instancetype) initWithDeliveryMedium: (AWSCognitoIdentityProviderDeliveryMediumType) deliveryMedium destination:(NSString *) destination;
+-(instancetype) initWithDeliveryMedium: (AWSCognitoIdentityProviderDeliveryMediumType) deliveryMedium destination:(NSString *) destination;
 @end
 
