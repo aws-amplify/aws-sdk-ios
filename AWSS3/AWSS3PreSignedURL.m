@@ -177,6 +177,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      */
     
     NSMutableDictionary *headers = [NSMutableDictionary new];
+    NSString* key = @"x-amz-server-side-encryption-customer-algorithm";
+    if (requestParameters[key]) {
+        [headers setObject:requestParameters[key] forKey:key];
+    }
     [headers setObject:host forKey:@"host"];
     
     if ([contentType length] > 0) {

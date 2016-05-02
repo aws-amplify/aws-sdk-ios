@@ -287,6 +287,9 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         NSURL *presignedURL = task.result;
 
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
+        for (id key in getPreSignedURLRequest.requestParameters) {
+            [request setValue:getPreSignedURLRequest.requestParameters[key] forHTTPHeaderField:key];
+        }
         request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
         request.HTTPMethod = @"PUT";
 
@@ -364,6 +367,9 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         NSURL *presignedURL = task.result;
 
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
+        for (id key in getPreSignedURLRequest.requestParameters) {
+            [request setValue:getPreSignedURLRequest.requestParameters[key] forHTTPHeaderField:key];
+        }
         request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
         request.HTTPMethod = @"GET";
 
