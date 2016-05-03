@@ -158,8 +158,6 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                                               @"retry_count" : @0
                                               }
                            ];
-            
-            
             if (!result) {
                 AWSLogError(@"SQLite error. [%@]", db.lastError);
                 dbError = db.lastError;
@@ -186,6 +184,7 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
         __block NSError *fileError = nil;
         NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:databasePath
                                                                                     error:&fileError];
+        __block NSError *attError = nil;
         if (attributes) {
             NSUInteger fileSize = (NSUInteger)[attributes fileSize];
             [self.recorderHelper checkByteThresholdForNotification:notificationByteThreshold
@@ -205,8 +204,7 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                                    ];
                     if (!result) {
                         AWSLogError(@"SQLite error. [%@]", db.lastError);
-                        dbError = db.lastError;
-                        return [AWSTask taskWithError:dbError];
+                        attError = db.lastError;
                     }
                 }];
             }
@@ -216,6 +214,8 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
             return [AWSTask taskWithError:dbError];
         } else if (fileError) {
             return [AWSTask taskWithError:fileError];
+        } else if (attError) {
+            return [AWSTask taskWithError:attError];
         } else {
             return nil;
         }
