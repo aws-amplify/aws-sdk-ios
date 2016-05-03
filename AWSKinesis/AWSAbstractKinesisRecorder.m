@@ -132,14 +132,14 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
     if ([data length] > 256 * 1024) {
         return [AWSTask taskWithError:[self.recorderHelper dataTooLargeError]];
     }
-    
+
     AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;
     NSTimeInterval diskAgeLimit = self.diskAgeLimit;
     NSString *databasePath = self.databasePath;
     NSUInteger notificationByteThreshold = self.notificationByteThreshold;
     NSUInteger diskByteLimit = self.diskByteLimit;
     __weak id notificationSender = self;
-    
+
     return [[AWSTask taskWithResult:nil] continueWithSuccessBlock:^id(AWSTask *task) {
         // Inserts a new record to the database.
         __block NSError *dbError = nil;
@@ -163,7 +163,7 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                 dbError = db.lastError;
             }
         }];
-        
+
         if (!dbError && diskAgeLimit > 0) {
             [databaseQueue inDatabase:^(AWSFMDatabase *db) {
                 // Deletes old records exceeding the threshold.
@@ -180,7 +180,7 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                 }
             }];
         }
-        
+
         __block NSError *fileError = nil;
         NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:databasePath
                                                                                     error:&fileError];
@@ -209,7 +209,7 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                 }];
             }
         }
-        
+
         if (dbError) {
             return [AWSTask taskWithError:dbError];
         } else if (fileError) {
