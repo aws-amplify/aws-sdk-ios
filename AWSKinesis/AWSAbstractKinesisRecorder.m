@@ -142,7 +142,7 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
 
     return [[AWSTask taskWithResult:nil] continueWithSuccessBlock:^id(AWSTask *task) {
         // Inserts a new record to the database.
-        __block NSError *dbError = nil;
+        __block NSError *dbInsertOpError = nil;
         [databaseQueue inDatabase:^(AWSFMDatabase *db) {
             BOOL result = [db executeUpdate:
                            @"INSERT INTO record ("
@@ -160,11 +160,16 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                            ];
             if (!result) {
                 AWSLogError(@"SQLite error. [%@]", db.lastError);
-                dbError = db.lastError;
+                dbInsertOpError = db.lastError;
             }
         }];
-
-        if (!dbError && diskAgeLimit > 0) {
+        
+        if (dbInsertOpError) {
+            return [AWSTask taskWithError:dbInsertOpError];
+        }
+        
+        if (diskAgeLimit > 0) {
+            __block NSError *dbDeleteOpError = nil;
             [databaseQueue inDatabase:^(AWSFMDatabase *db) {
                 // Deletes old records exceeding the threshold.
                 BOOL result = [db executeUpdate:
@@ -176,15 +181,21 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                                ];
                 if (!result) {
                     AWSLogError(@"SQLite error. [%@]", db.lastError);
-                    dbError = db.lastError;
+                    dbDeleteOpError = db.lastError;
                 }
             }];
+            if (dbDeleteOpError) {
+                return [AWSTask taskWithError:dbDeleteOpError];
+            }
         }
 
-        __block NSError *fileError = nil;
+        __block NSError *fileOpError = nil;
         NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:databasePath
-                                                                                    error:&fileError];
-        __block NSError *attError = nil;
+                                                                                    error:&fileOpError];
+        if (fileOpError) {
+            return [AWSTask taskWithError:fileOpError];
+        }
+        
         if (attributes) {
             NSUInteger fileSize = (NSUInteger)[attributes fileSize];
             [self.recorderHelper checkByteThresholdForNotification:notificationByteThreshold
@@ -192,6 +203,7 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                                                           fileSize:fileSize];
             if (fileSize > diskByteLimit) {
                 // Deletes the oldest record if it exceeds the disk size threshold.
+                __block NSError *dbAttOpError = nil;
                 [databaseQueue inDatabase:^(AWSFMDatabase *db) {
                     BOOL result = [db executeUpdate:
                                    @"DELETE FROM record "
@@ -204,21 +216,17 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                                    ];
                     if (!result) {
                         AWSLogError(@"SQLite error. [%@]", db.lastError);
-                        attError = db.lastError;
+                        dbAttOpError = db.lastError;
                     }
                 }];
+                
+                if (dbAttOpError) {
+                    return [AWSTask taskWithError:dbAttOpError];
+                }
             }
         }
 
-        if (dbError) {
-            return [AWSTask taskWithError:dbError];
-        } else if (fileError) {
-            return [AWSTask taskWithError:fileError];
-        } else if (attError) {
-            return [AWSTask taskWithError:attError];
-        } else {
-            return nil;
-        }
+        return nil;
     }];
 }
 
