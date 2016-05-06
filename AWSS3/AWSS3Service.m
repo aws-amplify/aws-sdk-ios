@@ -154,6 +154,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @property (nonatomic, strong) AWSNetworking *networking;
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
+@property (nonatomic, strong) AWSExecutor *opExecutor;
 
 @end
 
@@ -261,6 +262,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         _configuration.retryHandler = [[AWSS3RequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
 
         _networking = [[AWSNetworking alloc] initWithConfiguration:_configuration];
+
+        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+        queue.maxConcurrentOperationCount = 6;
+        _opExecutor = [AWSExecutor executorWithOperationQueue:queue];
     }
 
     return self;
@@ -278,17 +283,17 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (AWSTask *)invokeRequest:(AWSRequest *)request
-               HTTPMethod:(AWSHTTPMethod)HTTPMethod
-                URLString:(NSString *) URLString
-             targetPrefix:(NSString *)targetPrefix
-            operationName:(NSString *)operationName
-              outputClass:(Class)outputClass {
-    
+                HTTPMethod:(AWSHTTPMethod)HTTPMethod
+                 URLString:(NSString *) URLString
+              targetPrefix:(NSString *)targetPrefix
+             operationName:(NSString *)operationName
+               outputClass:(Class)outputClass {
+
     @autoreleasepool {
         if (!request) {
             request = [AWSRequest new];
         }
-        
+
         AWSNetworkingRequest *networkingRequest = request.internalRequest;
         if (request) {
             networkingRequest.parameters = [[AWSMTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
@@ -1692,12 +1697,16 @@ completionHandler:(void (^)(AWSS3ListPartsOutput *response, NSError *error))comp
 }
 
 - (AWSTask<AWSS3PutObjectOutput *> *)putObject:(AWSS3PutObjectRequest *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodPUT
-                     URLString:@"/{Bucket}/{Key+}"
-                  targetPrefix:@""
-                 operationName:@"PutObject"
-                   outputClass:[AWSS3PutObjectOutput class]];
+    return [[AWSTask taskWithResult:nil] continueWithExecutor:_opExecutor withBlock:^id (AWSTask *  task) {
+        AWSTask *task_ = [self invokeRequest:request
+                                  HTTPMethod:AWSHTTPMethodPUT
+                                   URLString:@"/{Bucket}/{Key+}"
+                                targetPrefix:@""
+                               operationName:@"PutObject"
+                                 outputClass:[AWSS3PutObjectOutput class]];
+        [task_ waitUntilFinished];
+        return task_;
+    }];
 }
 
 - (void)putObject:(AWSS3PutObjectRequest *)request
@@ -1804,12 +1813,16 @@ completionHandler:(void (^)(AWSS3PutObjectOutput *response, NSError *error))comp
 }
 
 - (AWSTask<AWSS3UploadPartOutput *> *)uploadPart:(AWSS3UploadPartRequest *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodPUT
-                     URLString:@"/{Bucket}/{Key+}"
-                  targetPrefix:@""
-                 operationName:@"UploadPart"
-                   outputClass:[AWSS3UploadPartOutput class]];
+    return [[AWSTask taskWithResult:nil] continueWithExecutor:_opExecutor withBlock:^id (AWSTask *task) {
+        AWSTask *task_ = [self invokeRequest:request
+                                  HTTPMethod:AWSHTTPMethodPUT
+                                   URLString:@"/{Bucket}/{Key+}"
+                                targetPrefix:@""
+                               operationName:@"UploadPart"
+                                 outputClass:[AWSS3UploadPartOutput class]];
+        [task_ waitUntilFinished];
+        return task_;
+    }];
 }
 
 - (void)uploadPart:(AWSS3UploadPartRequest *)request
