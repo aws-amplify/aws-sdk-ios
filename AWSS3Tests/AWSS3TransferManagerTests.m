@@ -701,9 +701,10 @@ static NSURL *tempSmallURL = nil;
 
     AWSTask *uploadTask1 = [[transferManager upload:uploadRequest1] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
-        XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
-        XCTAssertEqual(AWSS3TransferManagerErrorCancelled, task.error.code);
-
+        for (NSError *error in task.error.userInfo[@"errors"]) {
+            XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, error.domain);
+            XCTAssertEqual(AWSS3TransferManagerErrorCancelled, error.code);
+        }
         return nil;
     }];
 
@@ -716,9 +717,10 @@ static NSURL *tempSmallURL = nil;
 
     AWSTask *uploadTask2 = [[transferManager upload:uploadRequest2] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
-        XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
-        XCTAssertEqual(AWSS3TransferManagerErrorCancelled, task.error.code);
-
+        for (NSError *error in task.error.userInfo[@"errors"]) {
+            XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, error.domain);
+            XCTAssertEqual(AWSS3TransferManagerErrorCancelled, error.code);
+        }
         return nil;
     }];
 
@@ -903,7 +905,7 @@ static NSURL *tempSmallURL = nil;
 
     [[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
-        XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
+        XCTAssertEqualObjects(AWSNetworkingErrorDomain, task.error.domain);
         XCTAssertEqual(AWSS3TransferManagerErrorCancelled, task.error.code);
 
         [condition signal];
@@ -944,10 +946,10 @@ static NSURL *tempSmallURL = nil;
 
         AWSTask *uploadRequestLarge = [[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
             XCTAssertNotNil(task.error,@"Expect got 'Cancelled' Error, but got nil");
-            XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
-            XCTAssertEqual(AWSS3TransferManagerErrorCancelled, task.error.code);
-
-
+            for (NSError *error in task.error.userInfo[@"errors"]) {
+                XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, error.domain);
+                XCTAssertEqual(AWSS3TransferManagerErrorCancelled, error.code);
+            }
             return nil;
         }];
 
