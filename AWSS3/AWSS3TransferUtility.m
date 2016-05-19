@@ -69,9 +69,12 @@ static NSString *const AWSInfoS3TransferUtility = @"S3TransferUtility";
 
 @interface AWSS3TransferUtilityExpression()
 
-@property (strong, nonatomic) NSMutableDictionary *internalRequestParameters;
+@property (strong, nonatomic) NSMutableDictionary<NSString *, NSString *> *internalRequestHeaders;
+
+@property (strong, nonatomic) NSMutableDictionary<NSString *, NSString *> *internalRequestParameters;
 
 - (void)assignRequestParameters:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest;
+- (void)assignRequestHeaders:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest;
 
 @end
 
@@ -278,8 +281,8 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:AWSS3TransferUtilityTimeoutIntervalForResource];
     getPreSignedURLRequest.minimumCredentialsExpirationInterval = AWSS3TransferUtilityTimeoutIntervalForResource;
     getPreSignedURLRequest.contentType = contentType;
-    getPreSignedURLRequest.contentMD5 = expression.contentMD5;
 
+    [expression assignRequestHeaders:getPreSignedURLRequest];
     [expression assignRequestParameters:getPreSignedURLRequest];
 
     __weak AWSS3TransferUtility *weakSelf = self;
@@ -290,12 +293,14 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
         request.HTTPMethod = @"PUT";
 
-        [request setValue:self.configuration.userAgent
-       forHTTPHeaderField:@"User-Agent"];
-        [request setValue:contentType forHTTPHeaderField:@"Content-Type"];
+        [request setValue:self.configuration.userAgent forHTTPHeaderField:@"User-Agent"];
 
-        if ([getPreSignedURLRequest.contentMD5 length] > 0) {
-            [request setValue:getPreSignedURLRequest.contentMD5 forHTTPHeaderField:@"Content-MD5"];
+        for (NSString *key in expression.requestHeaders) {
+            [request setValue:expression.requestHeaders[key] forHTTPHeaderField:key];
+        }
+
+        if ([AWSLogger defaultLogger].logLevel >= AWSLogLevelDebug) {
+            AWSLogDebug(@"Request headers:\n%@", request.allHTTPHeaderFields);
         }
 
         NSURLSessionUploadTask *uploadTask = [weakSelf.session uploadTaskWithRequest:request
@@ -357,6 +362,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodGET;
     getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:AWSS3TransferUtilityTimeoutIntervalForResource];
 
+    [expression assignRequestHeaders:getPreSignedURLRequest];
     [expression assignRequestParameters:getPreSignedURLRequest];
 
     __weak AWSS3TransferUtility *weakSelf = self;
@@ -368,6 +374,14 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         request.HTTPMethod = @"GET";
 
         [request setValue:[AWSServiceConfiguration baseUserAgent] forHTTPHeaderField:@"User-Agent"];
+
+        for (NSString *key in expression.requestHeaders) {
+            [request setValue:expression.requestHeaders[key] forHTTPHeaderField:key];
+        }
+
+        if ([AWSLogger defaultLogger].logLevel >= AWSLogLevelDebug) {
+            AWSLogDebug(@"Request headers:\n%@", request.allHTTPHeaderFields);
+        }
 
         NSURLSessionDownloadTask *downloadTask = [weakSelf.session downloadTaskWithRequest:request];
         [downloadTask resume];
@@ -590,7 +604,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 
 + (void)interceptApplication:(UIApplication *)application
 handleEventsForBackgroundURLSession:(NSString *)identifier
-  completionHandler:(void (^)())completionHandler {
+           completionHandler:(void (^)())completionHandler {
     // For the default service client
     if ([identifier isEqualToString:_defaultS3TransferUtility.sessionIdentifier]) {
         _defaultS3TransferUtility.backgroundURLSessionCompletionHandler = completionHandler;
@@ -804,24 +818,41 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
 
 @implementation AWSS3TransferUtilityExpression
 
-- (void)setValue:(NSString *)value forRequestParameter:(NSString *)requestParameter {
-    if (value) {
-        [self.internalRequestParameters setObject:value forKey:requestParameter];
-    } else {
-        [self.internalRequestParameters setObject:[NSNull null] forKey:requestParameter];
-    }
-}
-
-- (NSMutableDictionary *)internalRequestParameters {
-    if(!_internalRequestParameters) {
+- (instancetype)init {
+    if (self = [super init]) {
+        _internalRequestHeaders = [NSMutableDictionary new];
         _internalRequestParameters = [NSMutableDictionary new];
     }
-    return _internalRequestParameters;
+
+    return self;
+}
+
+- (NSDictionary<NSString *, NSString *> *)requestHeaders {
+    return [NSDictionary dictionaryWithDictionary:self.internalRequestHeaders];
+}
+
+- (NSDictionary<NSString *, NSString *> *)requestParameters {
+    return [NSDictionary dictionaryWithDictionary:self.internalRequestParameters];
+}
+
+- (void)setValue:(NSString *)value forRequestHeader:(NSString *)requestHeader {
+    [self.internalRequestHeaders setValue:value forKey:requestHeader];
+}
+
+- (void)setValue:(NSString *)value forRequestParameter:(NSString *)requestParameter {
+    [self.internalRequestParameters setValue:value forKey:requestParameter];
+}
+
+- (void)assignRequestHeaders:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest {
+    for (NSString *key in self.internalRequestHeaders) {
+        [getPreSignedURLRequest setValue:self.internalRequestHeaders[key]
+                        forRequestHeader:key];
+    }
 }
 
 - (void)assignRequestParameters:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest {
-    for (NSString *key in _internalRequestParameters) {
-        [getPreSignedURLRequest setValue:_internalRequestParameters[key]
+    for (NSString *key in self.internalRequestParameters) {
+        [getPreSignedURLRequest setValue:self.internalRequestParameters[key]
                      forRequestParameter:key];
     }
 }
@@ -829,6 +860,14 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
 @end
 
 @implementation AWSS3TransferUtilityUploadExpression
+
+- (NSString *)contentMD5 {
+    return [self.internalRequestHeaders valueForKey:@"Content-MD5"];
+}
+
+- (void)setContentMD5:(NSString *)contentMD5 {
+    [self setValue:contentMD5 forRequestHeader:@"Content-MD5"];
+}
 
 @end
 

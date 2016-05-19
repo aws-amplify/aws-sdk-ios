@@ -27,7 +27,7 @@
 #import "AWSLogging.h"
 #import "AWSSynchronizedMutableDictionary.h"
 #import "AWSMobileAnalyticsContext.h"
-#import "AWSMobileAnalyticsERS.h"
+#import "AWSMobileAnalyticsERSService.h"
 
 #import <AWSCore/AWSInfo.h>
 

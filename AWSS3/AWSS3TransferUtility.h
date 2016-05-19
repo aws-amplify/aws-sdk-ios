@@ -404,9 +404,14 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 @interface AWSS3TransferUtilityExpression : NSObject
 
 /**
- The request parameters.
+ This NSDictionary can contains additional request headers to be included in the pre-signed URL. Default is emtpy.
  */
-@property (readonly, nullable) NSDictionary<NSString *, NSString *> *requestParameters;
+@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> *requestHeaders;
+
+/**
+ This NSDictionary can contains additional request parameters to be included in the pre-signed URL. Adding additional request parameters enables more advanced pre-signed URLs, such as accessing Amazon S3's torrent resource for an object, or for specifying a version ID when accessing an object. Default is emtpy.
+ */
+@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> *requestParameters;
 
 /**
  The progress feedback block.
@@ -414,12 +419,20 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 @property (copy, nonatomic, nullable) AWSS3TransferUtilityProgressBlock progressBlock;
 
 /**
- Sets value for the request parameter.
+ Set an additional request header to be included in the pre-signed URL.
 
- @param value            The request parameter value.
- @param requestParameter The key for the request parameter value.
+ @param value The value of the request parameter being added. Set to nil if parameter doesn't contains value.
+ @param requestHeader The name of the request header.
  */
-- (void)setValue:(NSString *)value forRequestParameter:(NSString *)requestParameter;
+- (void)setValue:(nullable NSString *)value forRequestHeader:(NSString *)requestHeader;
+
+/**
+ Set an additional request parameter to be included in the pre-signed URL. Adding additional request parameters enables more advanced pre-signed URLs, such as accessing Amazon S3's torrent resource for an object, or for specifying a version ID when accessing an object.
+
+ @param value The value of the request parameter being added. Set to nil if parameter doesn't contains value.
+ @param requestParameter The name of the request parameter, as it appears in the URL's query string (e.g. AWSS3PresignedURLVersionID).
+ */
+- (void)setValue:(nullable NSString *)value forRequestParameter:(NSString *)requestParameter;
 
 @end
 
@@ -431,7 +444,7 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 /**
  The upload request header for `Content-MD5`.
  */
-@property (strong, nonatomic, nullable) NSString *contentMD5;
+@property (nonatomic, nullable) NSString *contentMD5;
 
 @end
 

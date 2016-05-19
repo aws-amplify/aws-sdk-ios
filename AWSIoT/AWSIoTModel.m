@@ -33,7 +33,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"cloudwatchAlarm" : @"cloudwatchAlarm",
+             @"cloudwatchMetric" : @"cloudwatchMetric",
              @"dynamoDB" : @"dynamoDB",
+             @"elasticsearch" : @"elasticsearch",
              @"firehose" : @"firehose",
              @"kinesis" : @"kinesis",
              @"lambda" : @"lambda",
@@ -44,8 +47,20 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              };
 }
 
++ (NSValueTransformer *)cloudwatchAlarmJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTCloudwatchAlarmAction class]];
+}
+
++ (NSValueTransformer *)cloudwatchMetricJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTCloudwatchMetricAction class]];
+}
+
 + (NSValueTransformer *)dynamoDBJSONTransformer {
 	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTDynamoDBAction class]];
+}
+
++ (NSValueTransformer *)elasticsearchJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTElasticsearchAction class]];
 }
 
 + (NSValueTransformer *)firehoseJSONTransformer {
@@ -114,6 +129,92 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTCACertificate
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateArn" : @"certificateArn",
+             @"certificateId" : @"certificateId",
+             @"creationDate" : @"creationDate",
+             @"status" : @"status",
+             };
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"ACTIVE"]) {
+            return @(AWSIoTCACertificateStatusActive);
+        }
+        if ([value isEqualToString:@"INACTIVE"]) {
+            return @(AWSIoTCACertificateStatusInactive);
+        }
+        return @(AWSIoTCACertificateStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTCACertificateStatusActive:
+                return @"ACTIVE";
+            case AWSIoTCACertificateStatusInactive:
+                return @"INACTIVE";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSIoTCACertificateDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateArn" : @"certificateArn",
+             @"certificateId" : @"certificateId",
+             @"certificatePem" : @"certificatePem",
+             @"creationDate" : @"creationDate",
+             @"ownedBy" : @"ownedBy",
+             @"status" : @"status",
+             };
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"ACTIVE"]) {
+            return @(AWSIoTCACertificateStatusActive);
+        }
+        if ([value isEqualToString:@"INACTIVE"]) {
+            return @(AWSIoTCACertificateStatusInactive);
+        }
+        return @(AWSIoTCACertificateStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTCACertificateStatusActive:
+                return @"ACTIVE";
+            case AWSIoTCACertificateStatusInactive:
+                return @"INACTIVE";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSIoTCancelCertificateTransferRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -136,10 +237,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 }
 
 + (NSValueTransformer *)creationDateJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate aws_dateFromString:str];
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
 }
 
@@ -157,6 +258,9 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
         if ([value isEqualToString:@"PENDING_TRANSFER"]) {
             return @(AWSIoTCertificateStatusPendingTransfer);
         }
+        if ([value isEqualToString:@"REGISTER_INACTIVE"]) {
+            return @(AWSIoTCertificateStatusRegisterInactive);
+        }
         return @(AWSIoTCertificateStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -168,7 +272,8 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"REVOKED";
             case AWSIoTCertificateStatusPendingTransfer:
                 return @"PENDING_TRANSFER";
-            case AWSIoTCertificateStatusUnknown:
+            case AWSIoTCertificateStatusRegisterInactive:
+                return @"REGISTER_INACTIVE";
             default:
                 return nil;
         }
@@ -181,29 +286,32 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"caCertificateId" : @"caCertificateId",
              @"certificateArn" : @"certificateArn",
              @"certificateId" : @"certificateId",
              @"certificatePem" : @"certificatePem",
              @"creationDate" : @"creationDate",
              @"lastModifiedDate" : @"lastModifiedDate",
              @"ownedBy" : @"ownedBy",
+             @"previousOwnedBy" : @"previousOwnedBy",
              @"status" : @"status",
+             @"transferData" : @"transferData",
              };
 }
 
 + (NSValueTransformer *)creationDateJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate aws_dateFromString:str];
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
 }
 
 + (NSValueTransformer *)lastModifiedDateJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate aws_dateFromString:str];
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
 }
 
@@ -221,6 +329,9 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
         if ([value isEqualToString:@"PENDING_TRANSFER"]) {
             return @(AWSIoTCertificateStatusPendingTransfer);
         }
+        if ([value isEqualToString:@"REGISTER_INACTIVE"]) {
+            return @(AWSIoTCertificateStatusRegisterInactive);
+        }
         return @(AWSIoTCertificateStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -232,11 +343,44 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"REVOKED";
             case AWSIoTCertificateStatusPendingTransfer:
                 return @"PENDING_TRANSFER";
-            case AWSIoTCertificateStatusUnknown:
+            case AWSIoTCertificateStatusRegisterInactive:
+                return @"REGISTER_INACTIVE";
             default:
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)transferDataJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTTransferData class]];
+}
+
+@end
+
+@implementation AWSIoTCloudwatchAlarmAction
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"alarmName" : @"alarmName",
+             @"roleArn" : @"roleArn",
+             @"stateReason" : @"stateReason",
+             @"stateValue" : @"stateValue",
+             };
+}
+
+@end
+
+@implementation AWSIoTCloudwatchMetricAction
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"metricName" : @"metricName",
+             @"metricNamespace" : @"metricNamespace",
+             @"metricTimestamp" : @"metricTimestamp",
+             @"metricUnit" : @"metricUnit",
+             @"metricValue" : @"metricValue",
+             @"roleArn" : @"roleArn",
+             };
 }
 
 @end
@@ -381,6 +525,20 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTDeleteCACertificateRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateId" : @"certificateId",
+             };
+}
+
+@end
+
+@implementation AWSIoTDeleteCACertificateResponse
+
+@end
+
 @implementation AWSIoTDeleteCertificateRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -412,6 +570,14 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTDeleteRegistrationCodeRequest
+
+@end
+
+@implementation AWSIoTDeleteRegistrationCodeResponse
+
+@end
+
 @implementation AWSIoTDeleteThingRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -432,6 +598,30 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 	return @{
              @"ruleName" : @"ruleName",
              };
+}
+
+@end
+
+@implementation AWSIoTDescribeCACertificateRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateId" : @"certificateId",
+             };
+}
+
+@end
+
+@implementation AWSIoTDescribeCACertificateResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateDescription" : @"certificateDescription",
+             };
+}
+
++ (NSValueTransformer *)certificateDescriptionJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTCACertificateDescription class]];
 }
 
 @end
@@ -522,6 +712,16 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTDisableTopicRuleRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ruleName" : @"ruleName",
+             };
+}
+
+@end
+
 @implementation AWSIoTDynamoDBAction
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -533,6 +733,30 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"rangeKeyValue" : @"rangeKeyValue",
              @"roleArn" : @"roleArn",
              @"tableName" : @"tableName",
+             };
+}
+
+@end
+
+@implementation AWSIoTElasticsearchAction
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endpoint" : @"endpoint",
+             @"identifier" : @"id",
+             @"index" : @"index",
+             @"roleArn" : @"roleArn",
+             @"types" : @"type",
+             };
+}
+
+@end
+
+@implementation AWSIoTEnableTopicRuleRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ruleName" : @"ruleName",
              };
 }
 
@@ -592,7 +816,6 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"WARN";
             case AWSIoTLogLevelDisabled:
                 return @"DISABLED";
-            case AWSIoTLogLevelUnknown:
             default:
                 return nil;
         }
@@ -649,6 +872,20 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTGetRegistrationCodeRequest
+
+@end
+
+@implementation AWSIoTGetRegistrationCodeResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"registrationCode" : @"registrationCode",
+             };
+}
+
+@end
+
 @implementation AWSIoTGetTopicRuleRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -664,6 +901,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"rule" : @"rule",
+             @"ruleArn" : @"ruleArn",
              };
 }
 
@@ -702,6 +940,61 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 	return @{
              @"functionArn" : @"functionArn",
              };
+}
+
+@end
+
+@implementation AWSIoTListCACertificatesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ascendingOrder" : @"ascendingOrder",
+             @"marker" : @"marker",
+             @"pageSize" : @"pageSize",
+             };
+}
+
+@end
+
+@implementation AWSIoTListCACertificatesResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificates" : @"certificates",
+             @"nextMarker" : @"nextMarker",
+             };
+}
+
++ (NSValueTransformer *)certificatesJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTCACertificate class]];
+}
+
+@end
+
+@implementation AWSIoTListCertificatesByCARequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ascendingOrder" : @"ascendingOrder",
+             @"caCertificateId" : @"caCertificateId",
+             @"marker" : @"marker",
+             @"pageSize" : @"pageSize",
+             };
+}
+
+@end
+
+@implementation AWSIoTListCertificatesByCAResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificates" : @"certificates",
+             @"nextMarker" : @"nextMarker",
+             };
+}
+
++ (NSValueTransformer *)certificatesJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTCertificate class]];
 }
 
 @end
@@ -950,7 +1243,6 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"WARN";
             case AWSIoTLogLevelDisabled:
                 return @"DISABLED";
-            case AWSIoTLogLevelUnknown:
             default:
                 return nil;
         }
@@ -981,11 +1273,57 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 }
 
 + (NSValueTransformer *)createDateJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate aws_dateFromString:str];
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
+@end
+
+@implementation AWSIoTRegisterCACertificateRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"caCertificate" : @"caCertificate",
+             @"setAsActive" : @"setAsActive",
+             @"verificationCertificate" : @"verificationCertificate",
+             };
+}
+
+@end
+
+@implementation AWSIoTRegisterCACertificateResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateArn" : @"certificateArn",
+             @"certificateId" : @"certificateId",
+             };
+}
+
+@end
+
+@implementation AWSIoTRegisterCertificateRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"caCertificatePem" : @"caCertificatePem",
+             @"certificatePem" : @"certificatePem",
+             @"setAsActive" : @"setAsActive",
+             };
+}
+
+@end
+
+@implementation AWSIoTRegisterCertificateResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateArn" : @"certificateArn",
+             @"certificateId" : @"certificateId",
+             };
 }
 
 @end
@@ -995,6 +1333,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"certificateId" : @"certificateId",
+             @"rejectReason" : @"rejectReason",
              };
 }
 
@@ -1067,9 +1406,31 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"messageFormat" : @"messageFormat",
              @"roleArn" : @"roleArn",
              @"targetArn" : @"targetArn",
              };
+}
+
++ (NSValueTransformer *)messageFormatJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"RAW"]) {
+            return @(AWSIoTMessageFormatRAW);
+        }
+        if ([value isEqualToString:@"JSON"]) {
+            return @(AWSIoTMessageFormatJson);
+        }
+        return @(AWSIoTMessageFormatUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTMessageFormatRAW:
+                return @"RAW";
+            case AWSIoTMessageFormatJson:
+                return @"JSON";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -1102,6 +1463,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"actions" : @"actions",
+             @"awsIotSqlVersion" : @"awsIotSqlVersion",
              @"createdAt" : @"createdAt",
              @"detail" : @"description",
              @"ruleDisabled" : @"ruleDisabled",
@@ -1115,10 +1477,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 }
 
 + (NSValueTransformer *)createdAtJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate aws_dateFromString:str];
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
 }
 
@@ -1129,6 +1491,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"createdAt" : @"createdAt",
+             @"ruleArn" : @"ruleArn",
              @"ruleDisabled" : @"ruleDisabled",
              @"ruleName" : @"ruleName",
              @"topicPattern" : @"topicPattern",
@@ -1136,10 +1499,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 }
 
 + (NSValueTransformer *)createdAtJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate aws_dateFromString:str];
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
 }
 
@@ -1150,6 +1513,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"actions" : @"actions",
+             @"awsIotSqlVersion" : @"awsIotSqlVersion",
              @"detail" : @"description",
              @"ruleDisabled" : @"ruleDisabled",
              @"sql" : @"sql",
@@ -1168,6 +1532,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 	return @{
              @"certificateId" : @"certificateId",
              @"targetAwsAccount" : @"targetAwsAccount",
+             @"transferMessage" : @"transferMessage",
              };
 }
 
@@ -1179,6 +1544,76 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 	return @{
              @"transferredCertificateArn" : @"transferredCertificateArn",
              };
+}
+
+@end
+
+@implementation AWSIoTTransferData
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"acceptDate" : @"acceptDate",
+             @"rejectDate" : @"rejectDate",
+             @"rejectReason" : @"rejectReason",
+             @"transferDate" : @"transferDate",
+             @"transferMessage" : @"transferMessage",
+             };
+}
+
++ (NSValueTransformer *)acceptDateJSONTransformer {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)rejectDateJSONTransformer {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)transferDateJSONTransformer {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSIoTUpdateCACertificateRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateId" : @"certificateId",
+             @"latestStatus" : @"newStatus",
+             };
+}
+
++ (NSValueTransformer *)latestStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"ACTIVE"]) {
+            return @(AWSIoTCACertificateStatusActive);
+        }
+        if ([value isEqualToString:@"INACTIVE"]) {
+            return @(AWSIoTCACertificateStatusInactive);
+        }
+        return @(AWSIoTCACertificateStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTCACertificateStatusActive:
+                return @"ACTIVE";
+            case AWSIoTCACertificateStatusInactive:
+                return @"INACTIVE";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -1206,6 +1641,9 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
         if ([value isEqualToString:@"PENDING_TRANSFER"]) {
             return @(AWSIoTCertificateStatusPendingTransfer);
         }
+        if ([value isEqualToString:@"REGISTER_INACTIVE"]) {
+            return @(AWSIoTCertificateStatusRegisterInactive);
+        }
         return @(AWSIoTCertificateStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1217,7 +1655,8 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"REVOKED";
             case AWSIoTCertificateStatusPendingTransfer:
                 return @"PENDING_TRANSFER";
-            case AWSIoTCertificateStatusUnknown:
+            case AWSIoTCertificateStatusRegisterInactive:
+                return @"REGISTER_INACTIVE";
             default:
                 return nil;
         }

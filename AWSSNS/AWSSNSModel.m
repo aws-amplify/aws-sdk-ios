@@ -31,6 +31,21 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 @end
 
+@implementation AWSSNSAddTagsToResourceInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSNSTag class]];
+}
+
+@end
+
 @implementation AWSSNSConfirmSubscriptionInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -341,6 +356,32 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 @end
 
+@implementation AWSSNSListTagsForResourceInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"resourceArn" : @"ResourceArn",
+             };
+}
+
+@end
+
+@implementation AWSSNSListTagsForResourceResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSNSTag class]];
+}
+
+@end
+
 @implementation AWSSNSListTopicsInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -393,6 +434,7 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"attributes" : @"Attributes",
              @"message" : @"Message",
              @"messageAttributes" : @"MessageAttributes",
              @"messageStructure" : @"MessageStructure",
@@ -428,6 +470,17 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 	return @{
              @"label" : @"Label",
              @"topicArn" : @"TopicArn",
+             };
+}
+
+@end
+
+@implementation AWSSNSRemoveTagsFromResourceInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             @"tags" : @"Tags",
              };
 }
 
@@ -510,6 +563,17 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
              @"protocols" : @"Protocol",
              @"subscriptionArn" : @"SubscriptionArn",
              @"topicArn" : @"TopicArn",
+             };
+}
+
+@end
+
+@implementation AWSSNSTag
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"key" : @"Key",
+             @"value" : @"Value",
              };
 }
 

@@ -40,6 +40,17 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @end
 
+@implementation AWSKinesisDecreaseStreamRetentionPeriodInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"retentionPeriodHours" : @"RetentionPeriodHours",
+             @"streamName" : @"StreamName",
+             };
+}
+
+@end
+
 @implementation AWSKinesisDeleteStreamInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -76,6 +87,50 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @end
 
+@implementation AWSKinesisDisableEnhancedMonitoringInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"shardLevelMetrics" : @"ShardLevelMetrics",
+             @"streamName" : @"StreamName",
+             };
+}
+
+@end
+
+@implementation AWSKinesisEnableEnhancedMonitoringInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"shardLevelMetrics" : @"ShardLevelMetrics",
+             @"streamName" : @"StreamName",
+             };
+}
+
+@end
+
+@implementation AWSKinesisEnhancedMetrics
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"shardLevelMetrics" : @"ShardLevelMetrics",
+             };
+}
+
+@end
+
+@implementation AWSKinesisEnhancedMonitoringOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"currentShardLevelMetrics" : @"CurrentShardLevelMetrics",
+             @"desiredShardLevelMetrics" : @"DesiredShardLevelMetrics",
+             @"streamName" : @"StreamName",
+             };
+}
+
+@end
+
 @implementation AWSKinesisGetRecordsInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -91,6 +146,7 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"millisBehindLatest" : @"MillisBehindLatest",
              @"nextShardIterator" : @"NextShardIterator",
              @"records" : @"Records",
              };
@@ -110,6 +166,7 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
              @"shardIteratorType" : @"ShardIteratorType",
              @"startingSequenceNumber" : @"StartingSequenceNumber",
              @"streamName" : @"StreamName",
+             @"timestamp" : @"Timestamp",
              };
 }
 
@@ -127,6 +184,9 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
         if ([value isEqualToString:@"LATEST"]) {
             return @(AWSKinesisShardIteratorTypeLatest);
         }
+        if ([value isEqualToString:@"AT_TIMESTAMP"]) {
+            return @(AWSKinesisShardIteratorTypeAtTimestamp);
+        }
         return @(AWSKinesisShardIteratorTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -138,10 +198,19 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
                 return @"TRIM_HORIZON";
             case AWSKinesisShardIteratorTypeLatest:
                 return @"LATEST";
-            case AWSKinesisShardIteratorTypeUnknown:
+            case AWSKinesisShardIteratorTypeAtTimestamp:
+                return @"AT_TIMESTAMP";
             default:
                 return nil;
         }
+    }];
+}
+
++ (NSValueTransformer *)timestampJSONTransformer {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
 }
 
@@ -163,6 +232,17 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 	return @{
              @"endingHashKey" : @"EndingHashKey",
              @"startingHashKey" : @"StartingHashKey",
+             };
+}
+
+@end
+
+@implementation AWSKinesisIncreaseStreamRetentionPeriodInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"retentionPeriodHours" : @"RetentionPeriodHours",
+             @"streamName" : @"StreamName",
              };
 }
 
@@ -313,10 +393,19 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"approximateArrivalTimestamp" : @"ApproximateArrivalTimestamp",
              @"data" : @"Data",
              @"partitionKey" : @"PartitionKey",
              @"sequenceNumber" : @"SequenceNumber",
              };
+}
+
++ (NSValueTransformer *)approximateArrivalTimestampJSONTransformer {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -381,12 +470,18 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"enhancedMonitoring" : @"EnhancedMonitoring",
              @"hasMoreShards" : @"HasMoreShards",
+             @"retentionPeriodHours" : @"RetentionPeriodHours",
              @"shards" : @"Shards",
              @"streamARN" : @"StreamARN",
              @"streamName" : @"StreamName",
              @"streamStatus" : @"StreamStatus",
              };
+}
+
++ (NSValueTransformer *)enhancedMonitoringJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSKinesisEnhancedMetrics class]];
 }
 
 + (NSValueTransformer *)shardsJSONTransformer {
@@ -418,7 +513,6 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
                 return @"ACTIVE";
             case AWSKinesisStreamStatusUpdating:
                 return @"UPDATING";
-            case AWSKinesisStreamStatusUnknown:
             default:
                 return nil;
         }

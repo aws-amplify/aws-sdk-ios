@@ -27,7 +27,7 @@
 #import "AWSKinesisResources.h"
 
 static NSString *const AWSInfoKinesis = @"Kinesis";
-static NSString *const AWSKinesisSDKVersion = @"2.4.1";
+static NSString *const AWSKinesisSDKVersion = @"2.4.2";
 
 @interface AWSKinesisResponseSerializer : AWSJSONResponseSerializer
 
@@ -151,8 +151,6 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSKinesis
 
-static AWSSynchronizedMutableDictionary *_serviceClients = nil;
-
 + (void)initialize {
     [super initialize];
 
@@ -162,6 +160,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                      userInfo:nil];
     }
 }
+
+#pragma mark - Setup
+
+static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultKinesis {
     static AWSKinesis *_defaultKinesis = nil;
@@ -228,6 +230,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                  userInfo:nil];
     return nil;
 }
+
+#pragma mark -
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
@@ -340,6 +344,33 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)decreaseStreamRetentionPeriod:(AWSKinesisDecreaseStreamRetentionPeriodInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Kinesis_20131202"
+                 operationName:@"DecreaseStreamRetentionPeriod"
+                   outputClass:nil];
+}
+
+- (void)decreaseStreamRetentionPeriod:(AWSKinesisDecreaseStreamRetentionPeriodInput *)request
+                    completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self decreaseStreamRetentionPeriod:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteStream:(AWSKinesisDeleteStreamInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -380,6 +411,62 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSKinesisDescribeStreamOutput *response, NSError *error))completionHandler {
     [[self describeStream:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisDescribeStreamOutput *> * _Nonnull task) {
         AWSKinesisDescribeStreamOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKinesisEnhancedMonitoringOutput *> *)disableEnhancedMonitoring:(AWSKinesisDisableEnhancedMonitoringInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Kinesis_20131202"
+                 operationName:@"DisableEnhancedMonitoring"
+                   outputClass:[AWSKinesisEnhancedMonitoringOutput class]];
+}
+
+- (void)disableEnhancedMonitoring:(AWSKinesisDisableEnhancedMonitoringInput *)request
+                completionHandler:(void (^)(AWSKinesisEnhancedMonitoringOutput *response, NSError *error))completionHandler {
+    [[self disableEnhancedMonitoring:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisEnhancedMonitoringOutput *> * _Nonnull task) {
+        AWSKinesisEnhancedMonitoringOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKinesisEnhancedMonitoringOutput *> *)enableEnhancedMonitoring:(AWSKinesisEnableEnhancedMonitoringInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Kinesis_20131202"
+                 operationName:@"EnableEnhancedMonitoring"
+                   outputClass:[AWSKinesisEnhancedMonitoringOutput class]];
+}
+
+- (void)enableEnhancedMonitoring:(AWSKinesisEnableEnhancedMonitoringInput *)request
+               completionHandler:(void (^)(AWSKinesisEnhancedMonitoringOutput *response, NSError *error))completionHandler {
+    [[self enableEnhancedMonitoring:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisEnhancedMonitoringOutput *> * _Nonnull task) {
+        AWSKinesisEnhancedMonitoringOutput *result = task.result;
         NSError *error = task.error;
 
         if (task.exception) {
@@ -445,6 +532,33 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)increaseStreamRetentionPeriod:(AWSKinesisIncreaseStreamRetentionPeriodInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Kinesis_20131202"
+                 operationName:@"IncreaseStreamRetentionPeriod"
+                   outputClass:nil];
+}
+
+- (void)increaseStreamRetentionPeriod:(AWSKinesisIncreaseStreamRetentionPeriodInput *)request
+                    completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self increaseStreamRetentionPeriod:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
         }
 
         return nil;
@@ -643,5 +757,7 @@ completionHandler:(void (^)(AWSKinesisPutRecordOutput *response, NSError *error)
         return nil;
     }];
 }
+
+#pragma mark -
 
 @end

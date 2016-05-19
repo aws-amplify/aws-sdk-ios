@@ -31,12 +31,25 @@ typedef NS_ENUM(NSInteger, AWSKinesisErrorType) {
     AWSKinesisErrorResourceNotFound,
 };
 
+typedef NS_ENUM(NSInteger, AWSKinesisMetricsName) {
+    AWSKinesisMetricsNameUnknown,
+    AWSKinesisMetricsNameIncomingBytes,
+    AWSKinesisMetricsNameIncomingRecords,
+    AWSKinesisMetricsNameOutgoingBytes,
+    AWSKinesisMetricsNameOutgoingRecords,
+    AWSKinesisMetricsNameWriteProvisionedThroughputExceeded,
+    AWSKinesisMetricsNameReadProvisionedThroughputExceeded,
+    AWSKinesisMetricsNameIteratorAgeMilliseconds,
+    AWSKinesisMetricsNameAll,
+};
+
 typedef NS_ENUM(NSInteger, AWSKinesisShardIteratorType) {
     AWSKinesisShardIteratorTypeUnknown,
     AWSKinesisShardIteratorTypeAtSequenceNumber,
     AWSKinesisShardIteratorTypeAfterSequenceNumber,
     AWSKinesisShardIteratorTypeTrimHorizon,
     AWSKinesisShardIteratorTypeLatest,
+    AWSKinesisShardIteratorTypeAtTimestamp,
 };
 
 typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
@@ -49,14 +62,20 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 
 @class AWSKinesisAddTagsToStreamInput;
 @class AWSKinesisCreateStreamInput;
+@class AWSKinesisDecreaseStreamRetentionPeriodInput;
 @class AWSKinesisDeleteStreamInput;
 @class AWSKinesisDescribeStreamInput;
 @class AWSKinesisDescribeStreamOutput;
+@class AWSKinesisDisableEnhancedMonitoringInput;
+@class AWSKinesisEnableEnhancedMonitoringInput;
+@class AWSKinesisEnhancedMetrics;
+@class AWSKinesisEnhancedMonitoringOutput;
 @class AWSKinesisGetRecordsInput;
 @class AWSKinesisGetRecordsOutput;
 @class AWSKinesisGetShardIteratorInput;
 @class AWSKinesisGetShardIteratorOutput;
 @class AWSKinesisHashKeyRange;
+@class AWSKinesisIncreaseStreamRetentionPeriodInput;
 @class AWSKinesisListStreamsInput;
 @class AWSKinesisListStreamsOutput;
 @class AWSKinesisListTagsForStreamInput;
@@ -103,19 +122,38 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 
 
 /**
- <p>The number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.</p><p><b>Note:</b> The default limit for an AWS account is 10 shards per stream. If you need to create a stream with more than 10 shards, <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">contact AWS Support</a> to increase the limit on your account.</p>
+ <p>The number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.</p><p>DefaultShardLimit;</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable shardCount;
 
 /**
- <p>A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by region. That is, two streams in two different AWS accounts can have the same name, and two streams in the same AWS account, but in two different regions, can have the same name.</p>
+ <p>A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by region. That is, two streams in two different AWS accounts can have the same name, and two streams in the same AWS account but in two different regions can have the same name.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable streamName;
 
 @end
 
 /**
- <p>Represents the input for <code>DeleteStream</code>.</p>
+ <p>Represents the input for <a>DecreaseStreamRetentionPeriod</a>.</p>
+ Required parameters: [StreamName, RetentionPeriodHours]
+ */
+@interface AWSKinesisDecreaseStreamRetentionPeriodInput : AWSRequest
+
+
+/**
+ <p>The new retention period of the stream, in hours. Must be less than the current retention period.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable retentionPeriodHours;
+
+/**
+ <p>The name of the stream to modify.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+@end
+
+/**
+ <p>Represents the input for <a>DeleteStream</a>.</p>
  Required parameters: [StreamName]
  */
 @interface AWSKinesisDeleteStreamInput : AWSRequest
@@ -167,14 +205,88 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @end
 
 /**
- <p>Represents the input for <code>GetRecords</code>.</p>
+ <p>Represents the input for <a>DisableEnhancedMonitoring</a>.</p>
+ Required parameters: [StreamName, ShardLevelMetrics]
+ */
+@interface AWSKinesisDisableEnhancedMonitoringInput : AWSRequest
+
+
+/**
+ <p>List of shard-level metrics to disable.</p><p>The following are the valid shard-level metrics. The value "<code>ALL</code>" disables every metric.</p><ul><li><code>IncomingBytes</code></li><li><code>IncomingRecords</code></li><li><code>OutgoingBytes</code></li><li><code>OutgoingRecords</code></li><li><code>WriteProvisionedThroughputExceeded</code></li><li><code>ReadProvisionedThroughputExceeded</code></li><li><code>IteratorAgeMilliseconds</code></li><li><code>ALL</code></li></ul><p>For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch</a> in the <i>Amazon Kinesis Streams Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable shardLevelMetrics;
+
+/**
+ <p>The name of the Amazon Kinesis stream for which to disable enhanced monitoring.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+@end
+
+/**
+ <p>Represents the input for <a>EnableEnhancedMonitoring</a>.</p>
+ Required parameters: [StreamName, ShardLevelMetrics]
+ */
+@interface AWSKinesisEnableEnhancedMonitoringInput : AWSRequest
+
+
+/**
+ <p>List of shard-level metrics to enable.</p><p>The following are the valid shard-level metrics. The value "<code>ALL</code>" enables every metric.</p><ul><li><code>IncomingBytes</code></li><li><code>IncomingRecords</code></li><li><code>OutgoingBytes</code></li><li><code>OutgoingRecords</code></li><li><code>WriteProvisionedThroughputExceeded</code></li><li><code>ReadProvisionedThroughputExceeded</code></li><li><code>IteratorAgeMilliseconds</code></li><li><code>ALL</code></li></ul><p>For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch</a> in the <i>Amazon Kinesis Streams Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable shardLevelMetrics;
+
+/**
+ <p>The name of the stream for which to enable enhanced monitoring.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+@end
+
+/**
+ <p>Represents enhanced metrics types.</p>
+ */
+@interface AWSKinesisEnhancedMetrics : AWSModel
+
+
+/**
+ <p>List of shard-level metrics.</p><p>The following are the valid shard-level metrics. The value "<code>ALL</code>" enhances every metric.</p><ul><li><code>IncomingBytes</code></li><li><code>IncomingRecords</code></li><li><code>OutgoingBytes</code></li><li><code>OutgoingRecords</code></li><li><code>WriteProvisionedThroughputExceeded</code></li><li><code>ReadProvisionedThroughputExceeded</code></li><li><code>IteratorAgeMilliseconds</code></li><li><code>ALL</code></li></ul><p>For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch</a> in the <i>Amazon Kinesis Streams Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable shardLevelMetrics;
+
+@end
+
+/**
+ <p>Represents the output for <a>EnableEnhancedMonitoring</a> and <a>DisableEnhancedMonitoring</a>.</p>
+ */
+@interface AWSKinesisEnhancedMonitoringOutput : AWSModel
+
+
+/**
+ <p>Represents the current state of the metrics that are in the enhanced state before the operation.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable currentShardLevelMetrics;
+
+/**
+ <p>Represents the list of all the metrics that would be in the enhanced state after the operation.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable desiredShardLevelMetrics;
+
+/**
+ <p>The name of the Amazon Kinesis stream.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+@end
+
+/**
+ <p>Represents the input for <a>GetRecords</a>.</p>
  Required parameters: [ShardIterator]
  */
 @interface AWSKinesisGetRecordsInput : AWSRequest
 
 
 /**
- <p>The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, <code>GetRecords</code> throws <code>InvalidArgumentException</code>.</p>
+ <p>The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, <a>GetRecords</a> throws <code>InvalidArgumentException</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
@@ -186,11 +298,16 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @end
 
 /**
- <p>Represents the output for <code>GetRecords</code>.</p>
+ <p>Represents the output for <a>GetRecords</a>.</p>
  Required parameters: [Records]
  */
 @interface AWSKinesisGetRecordsOutput : AWSModel
 
+
+/**
+ <p>The number of milliseconds the <a>GetRecords</a> response is from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates record processing is caught up, and there are no new records to process at this moment.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable millisBehindLatest;
 
 /**
  <p>The next position in the shard from which to start sequentially reading data records. If set to <code>null</code>, the shard has been closed and the requested iterator will not return any more data. </p>
@@ -198,7 +315,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @property (nonatomic, strong) NSString * _Nullable nextShardIterator;
 
 /**
- <P>The data records retrieved from the shard.</P>
+ <p>The data records retrieved from the shard.</p>
  */
 @property (nonatomic, strong) NSArray<AWSKinesisRecord *> * _Nullable records;
 
@@ -212,24 +329,29 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 
 
 /**
- <p>The shard ID of the shard to get the iterator for.</p>
+ <p>The shard ID of the Amazon Kinesis shard to get the iterator for.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable shardId;
 
 /**
- <p>Determines how the shard iterator is used to start reading data records from the shard.</p><p>The following are the valid shard iterator types:</p><ul><li>AT_SEQUENCE_NUMBER - Start reading exactly from the position denoted by a specific sequence number.</li><li>AFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a specific sequence number.</li><li>TRIM_HORIZON - Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.</li><li>LATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.</li></ul>
+ <p>Determines how the shard iterator is used to start reading data records from the shard.</p><p>The following are the valid Amazon Kinesis shard iterator types:</p><ul><li>AT_SEQUENCE_NUMBER - Start reading from the position denoted by a specific sequence number, provided in the value <code>StartingSequenceNumber</code>.</li><li>AFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a specific sequence number, provided in the value <code>StartingSequenceNumber</code>.</li><li>AT_TIMESTAMP - Start reading from the position denoted by a specific timestamp, provided in the value <code>Timestamp</code>.</li><li>TRIM_HORIZON - Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.</li><li>LATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.</li></ul>
  */
 @property (nonatomic, assign) AWSKinesisShardIteratorType shardIteratorType;
 
 /**
- <p>The sequence number of the data record in the shard from which to start reading from.</p>
+ <p>The sequence number of the data record in the shard from which to start reading. Used with shard iterator type AT_SEQUENCE_NUMBER and AFTER_SEQUENCE_NUMBER.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable startingSequenceNumber;
 
 /**
- <p>The name of the stream.</p>
+ <p>The name of the Amazon Kinesis stream.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable streamName;
+
+/**
+ <p>The timestamp of the data record from which to start reading. Used with shard iterator type AT_TIMESTAMP. A timestamp is the Unix epoch date with precision in milliseconds. For example, <code>2016-04-04T19:58:46.480-00:00</code> or <code>1459799926.480</code>. If a record with this exact timestamp does not exist, the iterator returned is for the next (later) record. If the timestamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIM_HORIZON).</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable timestamp;
 
 @end
 
@@ -262,6 +384,25 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
  <p>The starting hash key of the hash key range.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable startingHashKey;
+
+@end
+
+/**
+ <p>Represents the input for <a>IncreaseStreamRetentionPeriod</a>.</p>
+ Required parameters: [StreamName, RetentionPeriodHours]
+ */
+@interface AWSKinesisIncreaseStreamRetentionPeriodInput : AWSRequest
+
+
+/**
+ <p>The new retention period of the stream, in hours. Must be more than the current retention period.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable retentionPeriodHours;
+
+/**
+ <p>The name of the stream to modify.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
 
 @end
 
@@ -377,7 +518,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 
 
 /**
- <p>The data blob to put into the record, which is base64-encoded when the blob is serialized. The maximum size of the data blob (the payload before base64-encoding) is 50 kilobytes (KB) </p>
+ <p>The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB). </p>
  */
 @property (nonatomic, strong) NSData * _Nullable data;
 
@@ -387,12 +528,12 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @property (nonatomic, strong) NSString * _Nullable explicitHashKey;
 
 /**
- <p>Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 bytes. Amazon Kinesis uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key will map to the same shard within the stream.</p>
+ <p>Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable partitionKey;
 
 /**
- <p>Guarantees strictly increasing sequence numbers, for puts from the same client and to the same partition key. Usage: set the <code>SequenceNumberForOrdering</code> of record <i>n</i> to the sequence number of record <i>n-1</i> (as returned in the <a>PutRecordResult</a> when putting record <i>n-1</i>). If this parameter is not set, records will be coarsely ordered based on arrival time.</p>
+ <p>Guarantees strictly increasing sequence numbers, for puts from the same client and to the same partition key. Usage: set the <code>SequenceNumberForOrdering</code> of record <i>n</i> to the sequence number of record <i>n-1</i> (as returned in the result when putting record <i>n-1</i>). If this parameter is not set, records will be coarsely ordered based on arrival time.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sequenceNumberForOrdering;
 
@@ -454,7 +595,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable failedRecordCount;
 
 /**
- <p>An array of successfully and unsuccessfully processed record results, correlated with the request by natural ordering. A record that is successfully added to your Amazon Kinesis stream includes <code>SequenceNumber</code> and <code>ShardId</code> in the result. A record that fails to be added to your Amazon Kinesis stream includes <code>ErrorCode</code> and <code>ErrorMessage</code> in the result.</p>
+ <p>An array of successfully and unsuccessfully processed record results, correlated with the request by natural ordering. A record that is successfully added to a stream includes <code>SequenceNumber</code> and <code>ShardId</code> in the result. A record that fails to be added to a stream includes <code>ErrorCode</code> and <code>ErrorMessage</code> in the result.</p>
  */
 @property (nonatomic, strong) NSArray<AWSKinesisPutRecordsResultEntry *> * _Nullable records;
 
@@ -468,7 +609,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 
 
 /**
- <p>The data blob to put into the record, which is base64-encoded when the blob is serialized. The maximum size of the data blob (the payload before base64-encoding) is 50 kilobytes (KB)</p>
+ <p>The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).</p>
  */
 @property (nonatomic, strong) NSData * _Nullable data;
 
@@ -478,14 +619,14 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @property (nonatomic, strong) NSString * _Nullable explicitHashKey;
 
 /**
- <p>Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 bytes. Amazon Kinesis uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.</p>
+ <p>Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable partitionKey;
 
 @end
 
 /**
- <p>Represents the result of an individual record from a <code>PutRecords</code> request. A record that is successfully added to your Amazon Kinesis stream includes SequenceNumber and ShardId in the result. A record that fails to be added to your Amazon Kinesis stream includes ErrorCode and ErrorMessage in the result.</p>
+ <p>Represents the result of an individual record from a <code>PutRecords</code> request. A record that is successfully added to a stream includes <code>SequenceNumber</code> and <code>ShardId</code> in the result. A record that fails to be added to the stream includes <code>ErrorCode</code> and <code>ErrorMessage</code> in the result.</p>
  */
 @interface AWSKinesisPutRecordsResultEntry : AWSModel
 
@@ -520,7 +661,12 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 
 
 /**
- <p>The data blob. The data in the blob is both opaque and immutable to the Amazon Kinesis service, which does not inspect, interpret, or change the data in the blob in any way. The maximum size of the data blob (the payload before base64-encoding) is 50 kilobytes (KB) </p>
+ <p>The approximate time that the record was inserted into the stream.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable approximateArrivalTimestamp;
+
+/**
+ <p>The data blob. The data in the blob is both opaque and immutable to the Amazon Kinesis service, which does not inspect, interpret, or change the data in the blob in any way. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).</p>
  */
 @property (nonatomic, strong) NSData * _Nullable data;
 
@@ -530,7 +676,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @property (nonatomic, strong) NSString * _Nullable partitionKey;
 
 /**
- <p>The unique identifier for the record in the Amazon Kinesis stream.</p>
+ <p>The unique identifier of the record in the stream.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sequenceNumber;
 
@@ -582,7 +728,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 
 
 /**
- <p>The shard Id of the shard adjacent to the shard's parent.</p>
+ <p>The shard ID of the shard adjacent to the shard's parent.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable adjacentParentShardId;
 
@@ -592,7 +738,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @property (nonatomic, strong) AWSKinesisHashKeyRange * _Nullable hashKeyRange;
 
 /**
- <p>The shard Id of the shard's parent.</p>
+ <p>The shard ID of the shard's parent.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable parentShardId;
 
@@ -602,7 +748,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @property (nonatomic, strong) AWSKinesisSequenceNumberRange * _Nullable sequenceNumberRange;
 
 /**
- <p>The unique identifier of the shard within the Amazon Kinesis stream.</p>
+ <p>The unique identifier of the shard within the stream.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable shardId;
 
@@ -633,16 +779,26 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @end
 
 /**
- <p>Represents the output for <code>DescribeStream</code>.</p>
- Required parameters: [StreamName, StreamARN, StreamStatus, Shards, HasMoreShards]
+ <p>Represents the output for <a>DescribeStream</a>.</p>
+ Required parameters: [StreamName, StreamARN, StreamStatus, Shards, HasMoreShards, RetentionPeriodHours, EnhancedMonitoring]
  */
 @interface AWSKinesisStreamDescription : AWSModel
 
 
 /**
+ <p>Represents the current enhanced monitoring settings of the stream.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSKinesisEnhancedMetrics *> * _Nullable enhancedMonitoring;
+
+/**
  <p>If set to <code>true</code>, more shards in the stream are available to describe.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable hasMoreShards;
+
+/**
+ <p>The current retention period, in hours.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable retentionPeriodHours;
 
 /**
  <p>The shards that comprise the stream.</p>
@@ -660,7 +816,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisStreamStatus) {
 @property (nonatomic, strong) NSString * _Nullable streamName;
 
 /**
- <p>The current status of the stream being described.</p><p>The stream status is one of the following states:</p><ul><li><code>CREATING</code> - The stream is being created. Amazon Kinesis immediately returns and sets <code>StreamStatus</code> to <code>CREATING</code>.</li><li><code>DELETING</code> - The stream is being deleted. The specified stream is in the <code>DELETING</code> state until Amazon Kinesis completes the deletion.</li><li><code>ACTIVE</code> - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an <code>ACTIVE</code> stream.</li><li><code>UPDATING</code> - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the <code>UPDATING</code> state.</li></ul>
+ <p>The current status of the stream being described. The stream status is one of the following states:</p><ul><li><code>CREATING</code> - The stream is being created. Amazon Kinesis immediately returns and sets <code>StreamStatus</code> to <code>CREATING</code>.</li><li><code>DELETING</code> - The stream is being deleted. The specified stream is in the <code>DELETING</code> state until Amazon Kinesis completes the deletion.</li><li><code>ACTIVE</code> - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an <code>ACTIVE</code> stream.</li><li><code>UPDATING</code> - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the <code>UPDATING</code> state.</li></ul>
  */
 @property (nonatomic, assign) AWSKinesisStreamStatus streamStatus;
 

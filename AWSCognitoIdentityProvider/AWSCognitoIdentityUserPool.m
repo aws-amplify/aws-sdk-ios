@@ -116,6 +116,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return self;
 }
 
+- (void) dealloc {
+    _delegate = nil;
+}
+
 - (AWSTask<AWSCognitoIdentityUserPoolSignUpResponse *>*) signUp: (NSString*) username
                                      password: (NSString*) password
                                userAttributes: (NSArray<AWSCognitoIdentityUserAttributeType *> *) userAttributes
@@ -163,6 +167,23 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 - (AWSCognitoIdentityUser*) getUser:(NSString *) username {
     return [[AWSCognitoIdentityUser alloc] initWithUsername:username pool:self];
+}
+
+- (void) clearLastKnownUser {
+    NSString * currentUserKey = [self currentUserKey];
+    if(currentUserKey){
+        [self.keychain removeItemForKey:[self currentUserKey]];
+    }
+}
+
+- (void) clearAll {
+    NSArray *keys = keychain.allKeys;
+    NSString *keyChainPrefix = [NSString stringWithFormat:@"%@.", self.userPoolConfiguration.clientId];
+    for (NSString *key in keys) {
+        if([key hasPrefix:keyChainPrefix]){
+            [keychain removeItemForKey:key];
+        }
+    }
 }
 
 #pragma mark identity provider

@@ -60,11 +60,11 @@
         if ([data isKindOfClass:[NSData class]]) {
             if ([data length] <= 100 * 1024) {
                 AWSLogDebug(@"Response body:\n%@", [[NSString alloc] initWithData:data
-                                                                          encoding:NSUTF8StringEncoding]);
+                                                                         encoding:NSUTF8StringEncoding]);
             } else {
                 AWSLogDebug(@"Response body (Partial data. The first 100KB is displayed.):\n%@", [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 100 * 1024)]
-                                                                                                                        encoding:NSUTF8StringEncoding]);
-                
+                                                                                                                       encoding:NSUTF8StringEncoding]);
+
             }
         }
     }
@@ -237,27 +237,11 @@
         if ([data isKindOfClass:[NSData class]]) {
             if ([data length] <= 100 * 1024) {
                 AWSLogDebug(@"Response body:\n%@", [[NSString alloc] initWithData:data
-                                                                          encoding:NSUTF8StringEncoding]);
+                                                                         encoding:NSUTF8StringEncoding]);
             } else {
                 AWSLogDebug(@"Response body (Partial data. The first 100KB is displayed.):\n%@", [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 100 * 1024)]
-                                                                                                                        encoding:NSUTF8StringEncoding]);
-                
-            }
-        }
-    }
+                                                                                                                       encoding:NSUTF8StringEncoding]);
 
-    NSString *responseContentTypeStr = [[response allHeaderFields] objectForKey:@"Content-Type"];
-    if (responseContentTypeStr) {
-        if ([responseContentTypeStr rangeOfString:@"text/html"].location != NSNotFound) {
-            //found html response rather than xml format. should be an error.
-            if (error) {
-                NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-
-
-                *error = [NSError errorWithDomain:AWSServiceErrorDomain
-                                             code:AWSServiceErrorUnknown
-                                         userInfo:@{NSLocalizedDescriptionKey : message?message:[NSNull null]}];
-                return nil;
             }
         }
     }
@@ -265,10 +249,10 @@
     if (![self validateResponse:response fromRequest:currentRequest data:data error:error]) {
         return nil;
     }
+
     NSDictionary *anActionRules = [[self.serviceDefinitionJSON objectForKey:@"operations"] objectForKey:self.actionName];
     NSDictionary *shapeRules = [self.serviceDefinitionJSON objectForKey:@"shapes"];
     AWSJSONDictionary *outputRules = [[AWSJSONDictionary alloc] initWithDictionary:[anActionRules objectForKey:@"output"] JSONDefinitionRule:shapeRules];
-
 
     NSMutableDictionary *resultDic = [NSMutableDictionary new];
 

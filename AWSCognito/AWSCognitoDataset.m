@@ -24,7 +24,7 @@
 #import "AWSCognitoConflict_Internal.h"
 #import <AWSCore/AWSLogging.h>
 #import "AWSCognitoRecord.h"
-#import <AWSCore/AWSReachability.h>
+#import "AWSKSReachability.h"
 
 @interface AWSCognitoDatasetMetadata()
 
@@ -61,28 +61,39 @@
 
 @property (nonatomic, strong) AWSCognitoSync *cognitoService;
 
-@property (nonatomic, strong) AWSReachability *reachability;
+@property (nonatomic, strong) AWSKSReachability *reachability;
 
 @property (nonatomic, strong) NSNumber *currentSyncCount;
 @property (nonatomic, strong) NSDictionary *records;
+
+//for ensuring there is a maximum of 1 sync in flight and 1 pending sync
+//to prevent unnecessary resource conflicts
+@property (nonatomic, strong) dispatch_semaphore_t synchronizeQueue;
+@property (nonatomic, strong) dispatch_semaphore_t serializer;
+
+
 @end
 
 @implementation AWSCognitoDataset
 
+
+
 -(id)initWithDatasetName:(NSString *) datasetName
            sqliteManager:(AWSCognitoSQLiteManager *)sqliteManager
           cognitoService:(AWSCognitoSync *)cognitoService {
+    
     if(self = [super initWithDatasetName:datasetName dataSource:sqliteManager]) {
         _sqliteManager = sqliteManager;
         _cognitoService = cognitoService;
-        _reachability = [AWSReachability reachabilityWithHostname:@"cognito-sync.us-east-1.amazonaws.com"];
+        _reachability = [AWSKSReachability reachabilityToHost:[cognitoService.configuration.endpoint.URL host]];
+        _synchronizeQueue = dispatch_semaphore_create(2l);
+        _serializer = dispatch_semaphore_create(1l);
     }
     return self;
 }
 
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    _reachability.reachableBlock = nil;
 }
 
 #pragma mark - CRUD operations
@@ -163,7 +174,13 @@
         return NO;
     }
     
-    return [self.sqliteManager putRecord:record datasetName:self.name error:error];
+    
+    
+    BOOL result = [self.sqliteManager putRecord:record datasetName:self.name error:error];
+    if(result){
+        self.lastModifiedDate = record.lastModified;
+    }
+    return result;
 }
 
 - (AWSCognitoRecord *)recordForKey: (NSString *)aKey
@@ -207,9 +224,15 @@
         return NO;
     }
     
-    return [self.sqliteManager flagRecordAsDeletedById:recordId
-                                           datasetName:(NSString *)self.name
-                                                 error:error];
+    BOOL result = [self.sqliteManager flagRecordAsDeletedById:recordId
+                                                  datasetName:(NSString *)self.name
+                                                        error:error];
+    
+    if(result){
+        self.lastModifiedDate = [NSDate date];
+    }
+    
+    return result;
 }
 
 - (NSArray *)getAllRecords
@@ -255,6 +278,7 @@
     }
     else {
         self.lastSyncCount = [NSNumber numberWithInt:-1];
+        self.lastModifiedDate = [NSDate date];
     }
 }
 
@@ -578,14 +602,8 @@
 }
 
 - (AWSTask *)synchronize {
-    // uninstall notifier
-    if(self.reachability.reachableBlock != nil){
-        self.reachability.reachableBlock = nil;
-        [self.reachability stopNotifier];
-    }
-    
     // ensure necessary network is available
-    if(self.synchronizeOnWiFiOnly && self.reachability.currentReachabilityStatus != AWSNetworkStatusReachableViaWiFi){
+    if(self.synchronizeOnWiFiOnly && self.reachability.WWANOnly){
         NSError *error = [NSError errorWithDomain:AWSCognitoErrorDomain code:AWSCognitoErrorWiFiNotAvailable userInfo:nil];
         [self postDidFailToSynchronizeNotification:error];
         return [AWSTask taskWithError:error];
@@ -595,16 +613,31 @@
     
     [self checkForLocalMergedDatasets];
     
-    self.syncSessionToken = nil;
-    
     AWSCognitoCredentialsProvider *cognitoCredentials = self.cognitoService.configuration.credentialsProvider;
     return [[[cognitoCredentials getIdentityId] continueWithBlock:^id(AWSTask *task) {
+        NSError * error = nil;
         if (task.error) {
-            NSError *error = [NSError errorWithDomain:AWSCognitoErrorDomain code:AWSCognitoAuthenticationFailed userInfo:nil];
-            [self postDidFailToSynchronizeNotification:error];
-            return [AWSTask taskWithError:error];
+            error = [NSError errorWithDomain:AWSCognitoErrorDomain code:AWSCognitoAuthenticationFailed userInfo:nil];
+         //only allow one sync to be pending and one in flight at a time
+        }else if(!dispatch_semaphore_wait(self.synchronizeQueue, DISPATCH_TIME_NOW)){
+            //only allow one thread to sychronize data at a time, wait a max of 5 minutes for the in flight
+            //sync to complete
+            if(!dispatch_semaphore_wait(self.serializer, dispatch_time(DISPATCH_TIME_NOW, 300 * NSEC_PER_SEC))){
+                self.syncSessionToken = nil;
+                return [[self synchronizeInternal:self.synchronizeRetries] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+                    dispatch_semaphore_signal(self.serializer);
+                    dispatch_semaphore_signal(self.synchronizeQueue);
+                    return task;
+                }];
+            }else {
+                error = [NSError errorWithDomain:AWSCognitoErrorDomain code:AWSCognitoErrorTimedOutWaitingForInFlightSync userInfo:nil];
+            }
+        }else {
+            error = [NSError errorWithDomain:AWSCognitoErrorDomain code:AWSCognitoErrorSyncAlreadyPending userInfo:nil];
         }
-        return [self synchronizeInternal:self.synchronizeRetries];
+        
+        [self postDidFailToSynchronizeNotification:error];
+        return [AWSTask taskWithError:error];
     }] continueWithBlock:^id(AWSTask *task) {
         [self postDidEndSynchronizeNotification];
         return task;
@@ -649,23 +682,21 @@
 }
 
 - (AWSTask *)synchronizeOnConnectivity {
-    //if no network, or network doesn't match requested network type queue request
-    if(self.reachability.currentReachabilityStatus == AWSNetworkStatusNotReachable
-       || (self.reachability.currentReachabilityStatus != AWSNetworkStatusReachableViaWiFi && self.synchronizeOnWiFiOnly)){
-
-        //set notify on wifi only
-        self.reachability.reachableOnWWAN = !self.synchronizeOnWiFiOnly;
-        
-        //only configure reachable block once
-        if(self.reachability.reachableBlock == nil){
+    //if we are out of connectivity or we are on wwan and wifi is required, perform sync when
+    //necessary reachability is achieved
+    if(!self.reachability.reachable || (self.reachability.WWANOnly && self.synchronizeOnWiFiOnly)){
+        AWSTaskCompletionSource<AWSTask *>* completionSource = [AWSTaskCompletionSource<AWSTask *> taskCompletionSource];
+        [AWSKSReachableOperation operationWithReachability:self.reachability allowWWAN:!self.synchronizeOnWiFiOnly onReachabilityAchieved:^{
             __weak AWSCognitoDataset* weakSelf = self;
-            self.reachability.reachableBlock = ^(AWSReachability * reachability){
-                [weakSelf synchronize];
-            };
-            [self.reachability startNotifier];
-        }
-        return [AWSTask taskWithResult:nil];
-    }else{
+            [[weakSelf synchronize] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+                completionSource.result = task;
+                return task;
+            }];
+        }];
+        return completionSource.task;
+    }
+    //else perform sync
+    else{
         return [self synchronize];
     }
 }
@@ -761,6 +792,7 @@
 
 - (void)postDidChangeLocalValueFromRemoteNotification:(NSArray *)changedValues
 {
+    self.lastModifiedDate = [NSDate date];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [[NSNotificationCenter defaultCenter] postNotificationName:AWSCognitoDidChangeLocalValueFromRemoteNotification
                                                             object:self

@@ -148,10 +148,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         _kinesis = [[AWSKinesis alloc] initWithConfiguration:configuration];
-#pragma clang diagnostic pop
     }
 
     return self;

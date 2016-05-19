@@ -194,6 +194,22 @@ NSString *const AWSSTSErrorDomain = @"com.amazonaws.AWSSTSErrorDomain";
 
 @end
 
+@implementation AWSSTSGetCallerIdentityRequest
+
+@end
+
+@implementation AWSSTSGetCallerIdentityResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"account" : @"Account",
+             @"arn" : @"Arn",
+             @"userId" : @"UserId",
+             };
+}
+
+@end
+
 @implementation AWSSTSGetFederationTokenRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {

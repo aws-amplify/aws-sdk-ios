@@ -27,7 +27,7 @@
 #import "AWSSNSResources.h"
 
 static NSString *const AWSInfoSNS = @"SNS";
-static NSString *const AWSSNSSDKVersion = @"2.4.1";
+static NSString *const AWSSNSSDKVersion = @"2.4.2";
 
 @interface AWSSNSResponseSerializer : AWSXMLResponseSerializer
 
@@ -48,6 +48,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"NotFound" : @(AWSSNSErrorNotFound),
                             @"PlatformApplicationDisabled" : @(AWSSNSErrorPlatformApplicationDisabled),
                             @"SubscriptionLimitExceeded" : @(AWSSNSErrorSubscriptionLimitExceeded),
+                            @"TaggingOperationFailed" : @(AWSSNSErrorTaggingOperationFailed),
                             @"TopicLimitExceeded" : @(AWSSNSErrorTopicLimitExceeded),
                             };
 }
@@ -133,8 +134,6 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSSNS
 
-static AWSSynchronizedMutableDictionary *_serviceClients = nil;
-
 + (void)initialize {
     [super initialize];
 
@@ -144,6 +143,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                      userInfo:nil];
     }
 }
+
+#pragma mark - Setup
+
+static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultSNS {
     static AWSSNS *_defaultSNS = nil;
@@ -211,6 +214,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return nil;
 }
 
+#pragma mark -
+
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
         _configuration = [configuration copy];
@@ -275,6 +280,33 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)addPermission:(AWSSNSAddPermissionInput *)request
     completionHandler:(void (^)(NSError *error))completionHandler {
     [[self addPermission:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)addTagsToResource:(AWSSNSAddTagsToResourceInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"AddTagsToResource"
+                   outputClass:nil];
+}
+
+- (void)addTagsToResource:(AWSSNSAddTagsToResourceInput *)request
+        completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self addTagsToResource:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (task.exception) {
@@ -707,6 +739,34 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSSNSListTagsForResourceResponse *> *)listTagsForResource:(AWSSNSListTagsForResourceInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ListTagsForResource"
+                   outputClass:[AWSSNSListTagsForResourceResponse class]];
+}
+
+- (void)listTagsForResource:(AWSSNSListTagsForResourceInput *)request
+          completionHandler:(void (^)(AWSSNSListTagsForResourceResponse *response, NSError *error))completionHandler {
+    [[self listTagsForResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSSNSListTagsForResourceResponse *> * _Nonnull task) {
+        AWSSNSListTagsForResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSSNSListTopicsResponse *> *)listTopics:(AWSSNSListTopicsInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -775,6 +835,33 @@ completionHandler:(void (^)(AWSSNSPublishResponse *response, NSError *error))com
 - (void)removePermission:(AWSSNSRemovePermissionInput *)request
        completionHandler:(void (^)(NSError *error))completionHandler {
     [[self removePermission:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)removeTagsFromResource:(AWSSNSRemoveTagsFromResourceInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"RemoveTagsFromResource"
+                   outputClass:nil];
+}
+
+- (void)removeTagsFromResource:(AWSSNSRemoveTagsFromResourceInput *)request
+             completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self removeTagsFromResource:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (task.exception) {
@@ -952,5 +1039,7 @@ completionHandler:(void (^)(AWSSNSSubscribeResponse *response, NSError *error))c
         return nil;
     }];
 }
+
+#pragma mark -
 
 @end

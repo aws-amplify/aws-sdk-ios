@@ -94,7 +94,6 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
                 return @"BINARY";
             case AWSMachineLearningMLModelTypeMulticlass:
                 return @"MULTICLASS";
-            case AWSMachineLearningMLModelTypeUnknown:
             default:
                 return nil;
         }
@@ -139,7 +138,6 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
                 return @"COMPLETED";
             case AWSMachineLearningEntityStatusDeleted:
                 return @"DELETED";
-            case AWSMachineLearningEntityStatusUnknown:
             default:
                 return nil;
         }
@@ -231,7 +229,6 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
                 return @"UPDATING";
             case AWSMachineLearningRealtimeEndpointStatusFailed:
                 return @"FAILED";
-            case AWSMachineLearningRealtimeEndpointStatusUnknown:
             default:
                 return nil;
         }

@@ -1326,4 +1326,60 @@ static NSString *testBucketNameGeneral = nil;
     }] waitUntilFinished];
 }
 
+- (void)testHTMLContentType {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Completion handler called."];
+
+    NSString *testObjectStr = @"<html></html>";
+    NSString *keyName = @"ios-test-put-get-and-delete-html";
+    NSData *testObjectData = [testObjectStr dataUsingEncoding:NSUTF8StringEncoding];
+
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    XCTAssertNotNil(s3);
+
+    AWSS3PutObjectRequest *putObjectRequest = [AWSS3PutObjectRequest new];
+    putObjectRequest.bucket = testBucketNameGeneral;
+    putObjectRequest.key = keyName;
+    putObjectRequest.body = testObjectData;
+    putObjectRequest.contentLength = @(testObjectData.length);
+    putObjectRequest.contentType = @"text/html";
+
+    [[[[[s3 putObject:putObjectRequest] continueWithSuccessBlock:^id(AWSTask *task) {
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3PutObjectOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3PutObjectOutput class]), [task.result description]);
+        AWSS3PutObjectOutput *putObjectOutput = task.result;
+        XCTAssertNotNil(putObjectOutput.ETag);
+
+        AWSS3GetObjectRequest *getObjectRequest = [AWSS3GetObjectRequest new];
+        getObjectRequest.bucket = testBucketNameGeneral;
+        getObjectRequest.key = keyName;
+
+        return [s3 getObject:getObjectRequest];
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3GetObjectOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3GetObjectOutput class]),[task.result description]);
+        AWSS3GetObjectOutput *getObjectOutput = task.result;
+        NSData *receivedBody = getObjectOutput.body;
+
+        XCTAssertEqualObjects(testObjectData,receivedBody, @"received object is different from sent object, expect:%@ but got:%@",[[NSString alloc] initWithData:testObjectData encoding:NSUTF8StringEncoding],[[NSString alloc] initWithData:receivedBody encoding:NSUTF8StringEncoding]);
+        XCTAssertEqualObjects(getObjectOutput.contentType, @"text/html");
+
+        AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
+        deleteObjectRequest.bucket = testBucketNameGeneral;
+        deleteObjectRequest.key = keyName;
+
+        return [s3 deleteObject:deleteObjectRequest];
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),[task.result description]);
+        return nil;
+    }] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error, @"Error: [%@]", task.error);
+
+        [expectation fulfill];
+
+        return nil;
+    }];
+
+    [self waitForExpectationsWithTimeout:30.0 handler:^(NSError * _Nullable error) {
+        XCTAssertNil(error);
+    }];
+}
+
 @end

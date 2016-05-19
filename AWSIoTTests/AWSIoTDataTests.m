@@ -26,6 +26,7 @@
 @end
 
 NSString *testShadowStringValid =@"{\"state\": { \"desired\": { \"value\":12345 }, \"reported\": { \"value\":6789 } } }";
+NSString *testShadowStringValidNoDelta =@"{\"state\": { \"desired\": { \"value\":6789 }, \"reported\": { \"value\":6789 } } }";
 NSString *testShadowStringInvalid =@"{\"state\": { \"desired\": { \"value\":12345 }, \"reported\": { \"value\":6789 } }";
 NSString *publishMessageTestString=@"this-is-test-message-data";
 
@@ -34,18 +35,13 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
 + (void)setUp {
     [super setUp];
     [AWSTestUtility setupCognitoCredentialsProvider];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-    [AWSLogger defaultLogger].logLevel = AWSLogLevelInfo;
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
-    [AWSLogger defaultLogger].logLevel = AWSLogLevelError;
 }
 
 
@@ -412,6 +408,400 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     [iotDataManager disconnect];
     runUntil = [NSDate dateWithTimeIntervalSinceNow: 3.0 ];
     [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+}
+
+- (void)testWebSocketShadowOperations {
+    
+    __block AWSIoTDataManager *iotDataManager = [AWSIoTDataManager defaultIoTDataManager];
+    __block BOOL connected = NO;
+    NSDate *runUntil;
+    
+    [iotDataManager connectUsingWebSocketWithClientId:@"integration-test-3" cleanSession:true statusCallback:^(AWSIoTMQTTStatus status) {
+        if (status == AWSIoTMQTTStatusConnected) {
+            connected = YES;
+       }
+    }];
+    
+    UInt32 connectWaitSeconds = 0;
+    //
+    // Wait up to 10 seconds for the connection to complete.
+    //
+    while (connected == NO && connectWaitSeconds < 15) {
+        runUntil = [NSDate dateWithTimeIntervalSinceNow: 2.5 ];
+        [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+    }
+    XCTAssertTrue(connected);
+    
+    __block UInt32 numberAccepted = 0;
+    __block UInt32 numberRejected = 0;
+    __block UInt32 numberDeltas   = 0;
+    __block UInt32 numberTimeouts = 0;
+    __block NSDictionary *acceptedJsonDictionary;
+    __block NSDictionary *rejectedJsonDictionary;
+    __block NSDictionary *deltaJsonDictionary;
+    __block NSDictionary *acceptedDesiredDictionary;
+    __block NSDictionary *acceptedReportedDictionary;
+    __block NSError *acceptedJsonParsingError;
+    __block NSError *rejectedJsonParsingError;
+    __block NSError *deltaJsonParsingError;
+    __block NSString *acceptedClientToken;
+    __block NSString *rejectedClientToken;
+    __block NSUInteger versionNumber;
+    
+    __block UInt32 expectedAccepted = 0;
+    __block UInt32 expectedRejected = 0;
+    __block UInt32 expectedDeltas   = 0;
+    __block UInt32 expectedTimeouts = 0;
+    
+    void (^eventCallback)(NSString *shadowName, AWSIoTShadowOperationType operation, AWSIoTShadowOperationStatusType status, NSString *clientToken, NSData *payload) = ^(NSString *shadowName, AWSIoTShadowOperationType operation, AWSIoTShadowOperationStatusType status, NSString *clientToken, NSData *payload) {
+        XCTAssertEqual(shadowName, @"testThing1");
+        XCTAssertTrue( status == AWSIoTShadowOperationStatusTypeAccepted || status == AWSIoTShadowOperationStatusTypeRejected || status == AWSIoTShadowOperationStatusTypeDelta);
+        XCTAssertTrue( operation == AWSIoTShadowOperationTypeUpdate || operation == AWSIoTShadowOperationTypeDelete || operation == AWSIoTShadowOperationTypeGet );
+        switch(status) {
+            case AWSIoTShadowOperationStatusTypeAccepted:
+                acceptedJsonDictionary = [NSJSONSerialization JSONObjectWithData:payload options:0 error:&acceptedJsonParsingError];
+                acceptedClientToken    = [acceptedJsonDictionary objectForKey:@"clientToken"];
+                versionNumber = (UInt32)[[acceptedJsonDictionary objectForKey:@"version"] integerValue];
+                acceptedDesiredDictionary = [[acceptedJsonDictionary objectForKey:@"state"] objectForKey:@"desired"];
+                acceptedReportedDictionary = [[acceptedJsonDictionary objectForKey:@"state"] objectForKey:@"reported"];
+                numberAccepted++;
+                break;
+            case AWSIoTShadowOperationStatusTypeRejected:
+                rejectedJsonDictionary = [NSJSONSerialization JSONObjectWithData:payload options:0 error:&rejectedJsonParsingError];
+                rejectedClientToken    = [rejectedJsonDictionary objectForKey:@"clientToken"];
+                numberRejected++;
+                break;
+            case AWSIoTShadowOperationStatusTypeDelta:
+                deltaJsonDictionary = [NSJSONSerialization JSONObjectWithData:payload options:0 error:&deltaJsonParsingError];
+                numberDeltas++;
+                break;
+            case AWSIoTShadowOperationStatusTypeTimeout:
+                numberTimeouts++;
+                break;
+            default:
+                break;
+        }
+    };
+    void (^resetTestVars)( void ) = ^(void) {
+        expectedAccepted = expectedRejected = expectedDeltas = expectedTimeouts = numberAccepted = numberRejected = numberDeltas = numberTimeouts = 0;
+        acceptedClientToken = rejectedClientToken = nil;
+        acceptedDesiredDictionary = acceptedReportedDictionary = nil;
+    };
+
+    //
+    // Wait a couple of seconds to let the connection settle before registering
+    // the shadow.
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: 2.0 ];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+    
+    //
+    // Register a shadow to test with.
+    //
+    BOOL status = [iotDataManager registerWithShadow:@"testThing1" options:nil eventCallback: eventCallback];
+    XCTAssertEqual(status, YES);
+    
+    //
+    // Wait a couple of seconds to let the service handle the subscriptions
+    // before doing the update.
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: 2.5 ];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+    
+    //
+    // Delete the shadow in case it still exists from a previous test; verify only
+    // that either an accepted or a rejected is received since we're not sure whether
+    // or not it exists.
+    //
+    resetTestVars();
+    BOOL operationStatus = [iotDataManager deleteShadow:@"testThing1"];
+    XCTAssertTrue(operationStatus);
+    
+    //
+    // Wait a bit to let the service process the request and return the result.
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: .5 ];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+    XCTAssertTrue( numberAccepted == 1 || numberRejected == 1 );
+    XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-1"] || [rejectedClientToken isEqualToString:@"integration-test-3-1"] );
+    
+    //
+    // Update the shadow with invalid data.
+    //
+    resetTestVars();
+    operationStatus = [iotDataManager updateShadow:@"testThing1" jsonString:testShadowStringInvalid];
+    XCTAssertFalse(operationStatus);
+    
+    //
+    // Wait a bit to let the service process the request and return the result.
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: .5 ];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+    XCTAssertEqual(numberRejected, expectedRejected);
+    XCTAssertEqual(numberAccepted, expectedAccepted);
+    XCTAssertEqual(numberDeltas,   expectedDeltas);
+    XCTAssertEqual(numberTimeouts, expectedTimeouts);    XCTAssertTrue( acceptedClientToken == nil && rejectedClientToken == nil );
+    
+    //
+    // Update the shadow with valid data.
+    //
+    resetTestVars();
+    operationStatus = [iotDataManager updateShadow:@"testThing1" jsonString:testShadowStringValid];
+    XCTAssertTrue(operationStatus);
+    expectedAccepted++;
+    expectedDeltas++;
+    
+    //
+    // Wait a bit to let the service process the request and return the result.
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: .5 ];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+
+    
+    XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-2"] && rejectedClientToken == nil );
+    XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 12345 );
+    XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
+    XCTAssertEqual(versionNumber,   1);
+    
+    //
+    // Update the shadow with valid data.
+    //
+    resetTestVars();
+    operationStatus = [iotDataManager updateShadow:@"testThing1" jsonString:testShadowStringValidNoDelta];
+    XCTAssertTrue(operationStatus);
+    expectedAccepted++;
+    
+    //
+    // Wait a bit to let the service process the request and return the result.
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: .5 ];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+    XCTAssertEqual(numberRejected, expectedRejected);
+    XCTAssertEqual(numberAccepted, expectedAccepted);
+    XCTAssertEqual(numberDeltas,   expectedDeltas);
+    XCTAssertEqual(numberTimeouts, expectedTimeouts);
+    XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-3"] && rejectedClientToken == nil );
+    XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 6789 );
+    XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
+    XCTAssertEqual(versionNumber,   2);
+
+    //
+    // Get the shadow.
+    //
+    resetTestVars();
+    operationStatus = [iotDataManager getShadow:@"testThing1"];
+    XCTAssertTrue(operationStatus);
+    expectedAccepted++;
+    
+    //
+    // Wait a bit to let the service process the request and return the result.
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: .5 ];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+    XCTAssertEqual(numberRejected, expectedRejected);
+    XCTAssertEqual(numberAccepted, expectedAccepted);
+    XCTAssertEqual(numberDeltas,   expectedDeltas);
+    XCTAssertEqual(numberTimeouts, expectedTimeouts);
+    XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-4"] && rejectedClientToken == nil );
+    XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 6789 );
+    XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
+    XCTAssertEqual(versionNumber,   2);
+    
+    //
+    // Update the shadow with valid data.
+    //
+    resetTestVars();
+    operationStatus = [iotDataManager updateShadow:@"testThing1" jsonString:testShadowStringValid];
+    XCTAssertTrue(operationStatus);
+    expectedAccepted++;
+    expectedDeltas++;
+    
+    //
+    // Wait a bit to let the service process the request and return the result.
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: .5 ];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+    XCTAssertEqual(numberRejected, expectedRejected);
+    XCTAssertEqual(numberAccepted, expectedAccepted);
+    XCTAssertEqual(numberDeltas,   expectedDeltas);
+    XCTAssertEqual(numberTimeouts, expectedTimeouts);
+    XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-5"] && rejectedClientToken == nil );
+    XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 12345 );
+    XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
+    XCTAssertEqual(versionNumber,   3);
+
+    //
+    // Get the shadow.
+    //
+    resetTestVars();
+    operationStatus = [iotDataManager getShadow:@"testThing1"];
+    XCTAssertTrue(operationStatus);
+    expectedAccepted++;
+    
+    //
+    // Wait a bit to let the service process the request and return the result.
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: .5 ];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+    XCTAssertEqual(numberRejected, expectedRejected);
+    XCTAssertEqual(numberAccepted, expectedAccepted);
+    XCTAssertEqual(numberDeltas,   expectedDeltas);
+    XCTAssertEqual(numberTimeouts, expectedTimeouts);
+    XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-6"] && rejectedClientToken == nil );
+    XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 12345 );
+    XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
+    XCTAssertEqual(versionNumber,   3);
+    
+    //
+    // Delete the shadow.
+    //
+    resetTestVars();
+    operationStatus = [iotDataManager deleteShadow:@"testThing1"];
+    XCTAssertTrue(operationStatus);
+    expectedAccepted++;
+    
+    //
+    // Wait a bit to let the service process the request and return the result.
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: .5 ];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+    XCTAssertEqual(numberRejected, expectedRejected);
+    XCTAssertEqual(numberAccepted, expectedAccepted);
+    XCTAssertEqual(numberDeltas,   expectedDeltas);
+    XCTAssertEqual(numberTimeouts, expectedTimeouts);
+    XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-7"] && rejectedClientToken == nil );
+
+    //
+    // Now try to get the shadow, this should be rejected since it no longer exists.
+    //
+    resetTestVars();
+    operationStatus = [iotDataManager getShadow:@"testThing1"];
+    XCTAssertTrue(operationStatus);
+    expectedRejected++;
+    
+    //
+    // Wait a bit to let the service process the request and return the result.
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: .5 ];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+    XCTAssertEqual(numberRejected, expectedRejected);
+    XCTAssertEqual(numberAccepted, expectedAccepted);
+    XCTAssertEqual(numberDeltas,   expectedDeltas);
+    XCTAssertEqual(numberTimeouts, expectedTimeouts);
+    XCTAssertTrue( [rejectedClientToken isEqualToString:@"integration-test-3-8"] && acceptedClientToken == nil );
+    
+    //
+    // Unregister the shadow; this deletes it from the application and it will need to be
+    // re-registered if it's to be used again.
+    //
+    [iotDataManager unregisterFromShadow:@"testThing1"];
+    //
+    // Wait a bit to let the service process the unsubscribe messages.
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: 2.5 ];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+    
+    NSDictionary *optionsDictionary = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:YES],nil] forKeys:[NSArray arrayWithObjects:@"enableIgnoreDeltas", nil]];
+
+    [iotDataManager registerWithShadow:@"testThing1" options:optionsDictionary eventCallback:eventCallback];
+    //
+    // Wait a bit to let the service process the unsubscribe messages.
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: 2.5 ];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+    
+    //
+    // Wait a bit to let the service process the subscriptions
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: 2.5 ];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+    //
+    // Tests using caller-specified client token values.
+    //
+    // The following tests all pass custom client token values to the APIs rather than using
+    // the internally generated ones.
+    //
+    //
+    // Update the shadow with valid data.
+    //
+    resetTestVars();
+    operationStatus = [iotDataManager updateShadow:@"testThing1" jsonString:testShadowStringValid clientToken:@"custom-client-token-1"];
+    XCTAssertTrue(operationStatus);
+    expectedAccepted++;
+    
+    //
+    // Wait a bit to let the service process the request and return the result.
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: .5 ];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+    XCTAssertEqual(numberRejected, expectedRejected);
+    XCTAssertEqual(numberAccepted, expectedAccepted);
+    XCTAssertEqual(numberDeltas,   expectedDeltas);
+    XCTAssertEqual(numberTimeouts, expectedTimeouts);
+    XCTAssertTrue( [acceptedClientToken isEqualToString:@"custom-client-token-1"] && rejectedClientToken == nil );
+    XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 12345 );
+    XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
+    XCTAssertEqual(versionNumber,   1);
+    
+    //
+    // Get the shadow.
+    //
+    resetTestVars();
+    operationStatus = [iotDataManager getShadow:@"testThing1" clientToken:@"custom-client-token-2"];
+    XCTAssertTrue(operationStatus);
+    expectedAccepted++;
+    
+    //
+    // Wait a bit to let the service process the request and return the result.
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: .5 ];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+    XCTAssertEqual(numberRejected, expectedRejected);
+    XCTAssertEqual(numberAccepted, expectedAccepted);
+    XCTAssertEqual(numberDeltas,   expectedDeltas);
+    XCTAssertEqual(numberTimeouts, expectedTimeouts);
+    XCTAssertTrue( [acceptedClientToken isEqualToString:@"custom-client-token-2"] && rejectedClientToken == nil );
+    XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 12345 );
+    XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
+    XCTAssertEqual(versionNumber,   1);
+    
+    //
+    // Delete the shadow.
+    //
+    resetTestVars();
+    operationStatus = [iotDataManager deleteShadow:@"testThing1" clientToken:@"custom-client-token-3"];
+    XCTAssertTrue(operationStatus);
+    expectedAccepted++;
+    
+    //
+    // Wait a bit to let the service process the request and return the result.
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: .5 ];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+    XCTAssertEqual(numberRejected, expectedRejected);
+    XCTAssertEqual(numberAccepted, expectedAccepted);
+    XCTAssertEqual(numberDeltas,   expectedDeltas);
+    XCTAssertEqual(numberTimeouts, expectedTimeouts);
+    XCTAssertTrue( [acceptedClientToken isEqualToString:@"custom-client-token-3"] && rejectedClientToken == nil );
+    
+    //
+    // Now try to get the shadow, this should be rejected since it no longer exists.
+    //
+    resetTestVars();
+    operationStatus = [iotDataManager getShadow:@"testThing1" clientToken:@"custom-client-token-4"];
+    XCTAssertTrue(operationStatus);
+    expectedRejected++;
+    
+    //
+    // Wait a bit to let the service process the request and return the result.
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: .5 ];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+    XCTAssertEqual(numberRejected, expectedRejected);
+    XCTAssertEqual(numberAccepted, expectedAccepted);
+    XCTAssertEqual(numberDeltas,   expectedDeltas);
+    XCTAssertEqual(numberTimeouts, expectedTimeouts);
+    XCTAssertTrue( [rejectedClientToken isEqualToString:@"custom-client-token-4"] && acceptedClientToken == nil );
 }
 
 @end

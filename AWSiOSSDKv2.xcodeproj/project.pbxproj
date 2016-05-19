@@ -100,8 +100,6 @@
 		CE0D42771C6A673E006B91B5 /* AWSNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D41E21C6A673E006B91B5 /* AWSNetworking.m */; };
 		CE0D42781C6A673E006B91B5 /* AWSURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0D41E31C6A673E006B91B5 /* AWSURLSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE0D42791C6A673E006B91B5 /* AWSURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D41E41C6A673E006B91B5 /* AWSURLSessionManager.m */; };
-		CE0D427A1C6A673E006B91B5 /* AWSReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0D41E61C6A673E006B91B5 /* AWSReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE0D427B1C6A673E006B91B5 /* AWSReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D41E71C6A673E006B91B5 /* AWSReachability.m */; };
 		CE0D427E1C6A673E006B91B5 /* AWSSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0D41EB1C6A673E006B91B5 /* AWSSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE0D427F1C6A673E006B91B5 /* AWSSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D41EC1C6A673E006B91B5 /* AWSSerialization.m */; };
 		CE0D42801C6A673E006B91B5 /* AWSURLRequestRetryHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0D41ED1C6A673E006B91B5 /* AWSURLRequestRetryHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -147,9 +145,12 @@
 		CE0D42AE1C6A673E006B91B5 /* AWSXMLWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D42221C6A673E006B91B5 /* AWSXMLWriter.m */; };
 		CE0D42B01C6A67DF006B91B5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D42AF1C6A67DF006B91B5 /* libz.tbd */; };
 		CE0D42B21C6A67E3006B91B5 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D42B11C6A67E3006B91B5 /* libsqlite3.tbd */; };
+		CE1F3A921CD96A9E00C8EBCB /* AWSS3TransferUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F3A911CD96A9E00C8EBCB /* AWSS3TransferUtilityTests.swift */; };
 		CE2D374F1C6E7F8800834EE7 /* AWSCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE2D37511C6E7F9D00834EE7 /* AWSCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE2D37521C6E7FA300834EE7 /* AWSAPIGateway.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE9DEB1E1C6A81160060793F /* AWSAPIGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CE3627CE1CEBA92B003E85B9 /* AWSKSReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = CE3627CC1CEBA92B003E85B9 /* AWSKSReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CE3627CF1CEBA92B003E85B9 /* AWSKSReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3627CD1CEBA92B003E85B9 /* AWSKSReachability.m */; };
 		CE5603E01C6BC7C700B4E00B /* AWSGeneralCognitoIdentityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5603DE1C6BC7C700B4E00B /* AWSGeneralCognitoIdentityTests.m */; };
 		CE5603E11C6BC7C700B4E00B /* AWSGeneralSTSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5603DF1C6BC7C700B4E00B /* AWSGeneralSTSTests.m */; };
 		CE5603E21C6BC80A00B4E00B /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
@@ -356,7 +357,6 @@
 		CE9DE7DF1C6A7B1E0060793F /* AWSMobileAnalyticsVirtualMonetizationEventBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = CE9DE7691C6A7B1E0060793F /* AWSMobileAnalyticsVirtualMonetizationEventBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE9DE7E01C6A7B1E0060793F /* AWSMobileAnalyticsVirtualMonetizationEventBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9DE76A1C6A7B1E0060793F /* AWSMobileAnalyticsVirtualMonetizationEventBuilder.m */; };
 		CE9DE8441C6A7B600060793F /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
-		CE9DE8AF1C6A7B780060793F /* AWSMobileAnalyticsERS.h in Headers */ = {isa = PBXBuildFile; fileRef = CE9DE8461C6A7B780060793F /* AWSMobileAnalyticsERS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE9DE8B01C6A7B780060793F /* AWSMobileAnalyticsERSModel.h in Headers */ = {isa = PBXBuildFile; fileRef = CE9DE8471C6A7B780060793F /* AWSMobileAnalyticsERSModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE9DE8B11C6A7B780060793F /* AWSMobileAnalyticsERSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9DE8481C6A7B780060793F /* AWSMobileAnalyticsERSModel.m */; };
 		CE9DE8B21C6A7B780060793F /* AWSMobileAnalyticsERSResources.h in Headers */ = {isa = PBXBuildFile; fileRef = CE9DE8491C6A7B780060793F /* AWSMobileAnalyticsERSResources.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -526,7 +526,6 @@
 		CE9DEAE51C6A80000060793F /* AWSCognitoService.h in Headers */ = {isa = PBXBuildFile; fileRef = CE9DEADC1C6A80000060793F /* AWSCognitoService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE9DEAE61C6A80000060793F /* AWSCognitoService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9DEADD1C6A80000060793F /* AWSCognitoService.m */; };
 		CE9DEAE91C6A80260060793F /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
-		CE9DEAF21C6A80320060793F /* AWSCognitoSync.h in Headers */ = {isa = PBXBuildFile; fileRef = CE9DEAEB1C6A80320060793F /* AWSCognitoSync.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE9DEAF31C6A80320060793F /* AWSCognitoSyncModel.h in Headers */ = {isa = PBXBuildFile; fileRef = CE9DEAEC1C6A80320060793F /* AWSCognitoSyncModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE9DEAF41C6A80320060793F /* AWSCognitoSyncModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9DEAED1C6A80320060793F /* AWSCognitoSyncModel.m */; };
 		CE9DEAF51C6A80320060793F /* AWSCognitoSyncResources.h in Headers */ = {isa = PBXBuildFile; fileRef = CE9DEAEE1C6A80320060793F /* AWSCognitoSyncResources.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -632,7 +631,6 @@
 		CE9E509A1C72C3B500B60FD7 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
 		CEA316A71C93A0EA002A9F58 /* AWSCognitoSignInTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA316A61C93A0EA002A9F58 /* AWSCognitoSignInTests.m */; };
 		CEA316AF1C93A149002A9F58 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
-		CEA316C31C93A415002A9F58 /* AWSCognitoSignInUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA316C21C93A415002A9F58 /* AWSCognitoSignInUnitTests.m */; };
 		CEA316CB1C93A45F002A9F58 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		CEA316CC1C93A460002A9F58 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		CEA316CD1C93A468002A9F58 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
@@ -640,7 +638,6 @@
 		CEA316D01C93A49E002A9F58 /* AWSCognitoIdentityProvider.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEA316981C93A0EA002A9F58 /* AWSCognitoIdentityProvider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CEA316D11C93A4B8002A9F58 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
 		CEA316D21C93A4B8002A9F58 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
-		CEA316D41C93A9C2002A9F58 /* AWSGeneralCognitoSignInTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA316D31C93A9C2002A9F58 /* AWSGeneralCognitoSignInTests.m */; };
 		CEA33FB41C8A37230083D6BC /* FABAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = CEA33FB01C8A37230083D6BC /* FABAttributes.h */; };
 		CEA33FB51C8A37230083D6BC /* FABKitProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CEA33FB11C8A37230083D6BC /* FABKitProtocol.h */; };
 		CEA33FB61C8A37230083D6BC /* Fabric+FABKits.h in Headers */ = {isa = PBXBuildFile; fileRef = CEA33FB21C8A37230083D6BC /* Fabric+FABKits.h */; };
@@ -710,6 +707,8 @@
 		CECBE1571C6E924200B1291D /* AWSCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CECBE1581C6E924800B1291D /* AWSSQS.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE9DEA8D1C6A7F460060793F /* AWSSQS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CED218AA1C6ACE660031A8E3 /* AWSDynamoDBTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CED218A91C6ACE660031A8E3 /* AWSDynamoDBTestUtility.m */; };
+		CEE5AF321CE126C3008265A3 /* AWSCognitoIdentityProviderUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5AF301CE126C3008265A3 /* AWSCognitoIdentityProviderUnitTests.m */; };
+		CEE5AF331CE126C3008265A3 /* AWSGeneralCognitoIdentityProviderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5AF311CE126C3008265A3 /* AWSGeneralCognitoIdentityProviderTests.m */; };
 		CEFE06541C6AA1C8007A42E4 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		CEFE06551C6AA1DF007A42E4 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
 		CEFE06561C6AA249007A42E4 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
@@ -1452,8 +1451,6 @@
 		CE0D41E21C6A673E006B91B5 /* AWSNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSNetworking.m; sourceTree = "<group>"; };
 		CE0D41E31C6A673E006B91B5 /* AWSURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSURLSessionManager.h; sourceTree = "<group>"; };
 		CE0D41E41C6A673E006B91B5 /* AWSURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSURLSessionManager.m; sourceTree = "<group>"; };
-		CE0D41E61C6A673E006B91B5 /* AWSReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSReachability.h; sourceTree = "<group>"; };
-		CE0D41E71C6A673E006B91B5 /* AWSReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSReachability.m; sourceTree = "<group>"; };
 		CE0D41EB1C6A673E006B91B5 /* AWSSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSerialization.h; sourceTree = "<group>"; };
 		CE0D41EC1C6A673E006B91B5 /* AWSSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSerialization.m; sourceTree = "<group>"; };
 		CE0D41ED1C6A673E006B91B5 /* AWSURLRequestRetryHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSURLRequestRetryHandler.h; sourceTree = "<group>"; };
@@ -1499,6 +1496,10 @@
 		CE0D42221C6A673E006B91B5 /* AWSXMLWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSXMLWriter.m; sourceTree = "<group>"; };
 		CE0D42AF1C6A67DF006B91B5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		CE0D42B11C6A67E3006B91B5 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		CE1F3A901CD96A9E00C8EBCB /* AWSS3Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSS3Tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		CE1F3A911CD96A9E00C8EBCB /* AWSS3TransferUtilityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSS3TransferUtilityTests.swift; sourceTree = "<group>"; };
+		CE3627CC1CEBA92B003E85B9 /* AWSKSReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSKSReachability.h; sourceTree = "<group>"; };
+		CE3627CD1CEBA92B003E85B9 /* AWSKSReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSKSReachability.m; sourceTree = "<group>"; };
 		CE5603D21C6BC74500B4E00B /* AWSCoreUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSCoreUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5603D61C6BC74500B4E00B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE5603DE1C6BC7C700B4E00B /* AWSGeneralCognitoIdentityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralCognitoIdentityTests.m; sourceTree = "<group>"; };
@@ -1730,7 +1731,6 @@
 		CE9DE7681C6A7B1E0060793F /* AWSMobileAnalyticsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSMobileAnalyticsService.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CE9DE7691C6A7B1E0060793F /* AWSMobileAnalyticsVirtualMonetizationEventBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSMobileAnalyticsVirtualMonetizationEventBuilder.h; sourceTree = "<group>"; };
 		CE9DE76A1C6A7B1E0060793F /* AWSMobileAnalyticsVirtualMonetizationEventBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSMobileAnalyticsVirtualMonetizationEventBuilder.m; sourceTree = "<group>"; };
-		CE9DE8461C6A7B780060793F /* AWSMobileAnalyticsERS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSMobileAnalyticsERS.h; sourceTree = "<group>"; };
 		CE9DE8471C6A7B780060793F /* AWSMobileAnalyticsERSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSMobileAnalyticsERSModel.h; sourceTree = "<group>"; };
 		CE9DE8481C6A7B780060793F /* AWSMobileAnalyticsERSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSMobileAnalyticsERSModel.m; sourceTree = "<group>"; };
 		CE9DE8491C6A7B780060793F /* AWSMobileAnalyticsERSResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSMobileAnalyticsERSResources.h; sourceTree = "<group>"; };
@@ -1918,7 +1918,6 @@
 		CE9DEADB1C6A80000060793F /* AWSCognitoRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSCognitoRecord.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CE9DEADC1C6A80000060793F /* AWSCognitoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCognitoService.h; sourceTree = "<group>"; };
 		CE9DEADD1C6A80000060793F /* AWSCognitoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSCognitoService.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		CE9DEAEB1C6A80320060793F /* AWSCognitoSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCognitoSync.h; sourceTree = "<group>"; };
 		CE9DEAEC1C6A80320060793F /* AWSCognitoSyncModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCognitoSyncModel.h; sourceTree = "<group>"; };
 		CE9DEAED1C6A80320060793F /* AWSCognitoSyncModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoSyncModel.m; sourceTree = "<group>"; };
 		CE9DEAEE1C6A80320060793F /* AWSCognitoSyncResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCognitoSyncResources.h; sourceTree = "<group>"; };
@@ -2043,9 +2042,7 @@
 		CEA316A61C93A0EA002A9F58 /* AWSCognitoSignInTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoSignInTests.m; sourceTree = "<group>"; };
 		CEA316A81C93A0EA002A9F58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEA316C01C93A415002A9F58 /* AWSCognitoIdentityProviderUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSCognitoIdentityProviderUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEA316C21C93A415002A9F58 /* AWSCognitoSignInUnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoSignInUnitTests.m; sourceTree = "<group>"; };
 		CEA316C41C93A415002A9F58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEA316D31C93A9C2002A9F58 /* AWSGeneralCognitoSignInTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralCognitoSignInTests.m; sourceTree = "<group>"; };
 		CEA33FB01C8A37230083D6BC /* FABAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FABAttributes.h; sourceTree = "<group>"; };
 		CEA33FB11C8A37230083D6BC /* FABKitProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FABKitProtocol.h; sourceTree = "<group>"; };
 		CEA33FB21C8A37230083D6BC /* Fabric+FABKits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Fabric+FABKits.h"; sourceTree = "<group>"; };
@@ -2090,6 +2087,8 @@
 		CEB8EF5F1C6A6A2E0098B15B /* OCMStubRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMStubRecorder.h; sourceTree = "<group>"; };
 		CED218A91C6ACE660031A8E3 /* AWSDynamoDBTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDynamoDBTestUtility.m; sourceTree = "<group>"; };
 		CED218AB1C6ACF600031A8E3 /* AWSDynamoDBTestUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSDynamoDBTestUtility.h; sourceTree = "<group>"; };
+		CEE5AF301CE126C3008265A3 /* AWSCognitoIdentityProviderUnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoIdentityProviderUnitTests.m; sourceTree = "<group>"; };
+		CEE5AF311CE126C3008265A3 /* AWSGeneralCognitoIdentityProviderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralCognitoIdentityProviderTests.m; sourceTree = "<group>"; };
 		EF1D80031CBC924D007AC243 /* AWSCognitoIdentityProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCognitoIdentityProvider.h; sourceTree = "<group>"; };
 		EFDF14761C986D7E002CCFE2 /* AWSCognitoIdentityUserPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoIdentityUserPool.m; sourceTree = "<group>"; };
 		EFDF147A1C98A79C002CCFE2 /* AWSCognitoIdentityUserPool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSCognitoIdentityUserPool.h; sourceTree = "<group>"; };
@@ -2729,9 +2728,9 @@
 				CEA33FAF1C8A37230083D6BC /* Fabric */,
 				CE0D41A81C6A673E006B91B5 /* FMDB */,
 				CE0D41B71C6A673E006B91B5 /* GZIP */,
+				CE3627CB1CEBA92B003E85B9 /* KSReachability */,
 				CE0D41BD1C6A673E006B91B5 /* Mantle */,
 				CE0D41E01C6A673E006B91B5 /* Networking */,
-				CE0D41E51C6A673E006B91B5 /* Reachability */,
 				EFE40B7E1CC5BDD10045D710 /* Scripts */,
 				CE0D41EA1C6A673E006B91B5 /* Serialization */,
 				CE0D41F51C6A673E006B91B5 /* Service */,
@@ -2902,15 +2901,6 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		CE0D41E51C6A673E006B91B5 /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				CE0D41E61C6A673E006B91B5 /* AWSReachability.h */,
-				CE0D41E71C6A673E006B91B5 /* AWSReachability.m */,
-			);
-			path = Reachability;
-			sourceTree = "<group>";
-		};
 		CE0D41EA1C6A673E006B91B5 /* Serialization */ = {
 			isa = PBXGroup;
 			children = (
@@ -3010,6 +3000,15 @@
 				CE0D42221C6A673E006B91B5 /* AWSXMLWriter.m */,
 			);
 			path = XMLWriter;
+			sourceTree = "<group>";
+		};
+		CE3627CB1CEBA92B003E85B9 /* KSReachability */ = {
+			isa = PBXGroup;
+			children = (
+				CE3627CC1CEBA92B003E85B9 /* AWSKSReachability.h */,
+				CE3627CD1CEBA92B003E85B9 /* AWSKSReachability.m */,
+			);
+			path = KSReachability;
 			sourceTree = "<group>";
 		};
 		CE5603D31C6BC74500B4E00B /* AWSCoreUnitTests */ = {
@@ -3501,7 +3500,6 @@
 		CE9DE8451C6A7B780060793F /* AWSMobileAnalyticsERS */ = {
 			isa = PBXGroup;
 			children = (
-				CE9DE8461C6A7B780060793F /* AWSMobileAnalyticsERS.h */,
 				CE9DE8471C6A7B780060793F /* AWSMobileAnalyticsERSModel.h */,
 				CE9DE8481C6A7B780060793F /* AWSMobileAnalyticsERSModel.m */,
 				CE9DE8491C6A7B780060793F /* AWSMobileAnalyticsERSResources.h */,
@@ -3640,10 +3638,12 @@
 		CE9DE9CA1C6A7C2E0060793F /* AWSS3Tests */ = {
 			isa = PBXGroup;
 			children = (
+				CE1F3A901CD96A9E00C8EBCB /* AWSS3Tests-Bridging-Header.h */,
 				CE9DE9F11C6A7CA50060793F /* AWSS3PreSignedURLBuilderTests.m */,
 				CE9DE9F21C6A7CA50060793F /* AWSS3Tests.m */,
 				CE9DE9F31C6A7CA50060793F /* AWSS3TransferManagerTests.m */,
 				CE9DE9CD1C6A7C2E0060793F /* Info.plist */,
+				CE1F3A911CD96A9E00C8EBCB /* AWSS3TransferUtilityTests.swift */,
 			);
 			path = AWSS3Tests;
 			sourceTree = "<group>";
@@ -3781,7 +3781,6 @@
 		CE9DEAEA1C6A80320060793F /* CognitoSync */ = {
 			isa = PBXGroup;
 			children = (
-				CE9DEAEB1C6A80320060793F /* AWSCognitoSync.h */,
 				CE9DEAEC1C6A80320060793F /* AWSCognitoSyncModel.h */,
 				CE9DEAED1C6A80320060793F /* AWSCognitoSyncModel.m */,
 				CE9DEAEE1C6A80320060793F /* AWSCognitoSyncResources.h */,
@@ -3962,8 +3961,8 @@
 		CEA316C11C93A415002A9F58 /* AWSCognitoIdentityProviderUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				CEA316C21C93A415002A9F58 /* AWSCognitoSignInUnitTests.m */,
-				CEA316D31C93A9C2002A9F58 /* AWSGeneralCognitoSignInTests.m */,
+				CEE5AF301CE126C3008265A3 /* AWSCognitoIdentityProviderUnitTests.m */,
+				CEE5AF311CE126C3008265A3 /* AWSGeneralCognitoIdentityProviderTests.m */,
 				CEA316C41C93A415002A9F58 /* Info.plist */,
 			);
 			path = AWSCognitoIdentityProviderUnitTests;
@@ -4137,7 +4136,6 @@
 				CE0D429D1C6A673E006B91B5 /* AWSUICKeyChainStore.h in Headers */,
 				CE0D42781C6A673E006B91B5 /* AWSURLSessionManager.h in Headers */,
 				CE0D42971C6A673E006B91B5 /* AWSTMDiskCache.h in Headers */,
-				CE0D427A1C6A673E006B91B5 /* AWSReachability.h in Headers */,
 				CE0D42761C6A673E006B91B5 /* AWSNetworking.h in Headers */,
 				CE0D42391C6A673E006B91B5 /* AWSCognitoIdentityModel.h in Headers */,
 				CE0D42581C6A673E006B91B5 /* AWSMTLManagedObjectAdapter.h in Headers */,
@@ -4159,6 +4157,7 @@
 				CE0D42A91C6A673E006B91B5 /* AWSXMLDictionary.h in Headers */,
 				CE0D42961C6A673E006B91B5 /* AWSTMCacheBackgroundTaskManager.h in Headers */,
 				CE0D42671C6A673E006B91B5 /* AWSmetamacros.h in Headers */,
+				CE3627CE1CEBA92B003E85B9 /* AWSKSReachability.h in Headers */,
 				CE0D42621C6A673E006B91B5 /* AWSEXTKeyPathCoding.h in Headers */,
 				CE0D42631C6A673E006B91B5 /* AWSEXTRuntimeExtensions.h in Headers */,
 				CE0D42651C6A673E006B91B5 /* AWSEXTScope.h in Headers */,
@@ -4283,7 +4282,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE9DE8AF1C6A7B780060793F /* AWSMobileAnalyticsERS.h in Headers */,
 				CE9DE8B41C6A7B780060793F /* AWSMobileAnalyticsERSService.h in Headers */,
 				CE9DE8B21C6A7B780060793F /* AWSMobileAnalyticsERSResources.h in Headers */,
 				CE9DE8B01C6A7B780060793F /* AWSMobileAnalyticsERSModel.h in Headers */,
@@ -4420,7 +4418,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE9DEAF21C6A80320060793F /* AWSCognitoSync.h in Headers */,
 				CE9DEAF71C6A80320060793F /* AWSCognitoSyncService.h in Headers */,
 				CE9DEAF51C6A80320060793F /* AWSCognitoSyncResources.h in Headers */,
 				CEA33FB91C8A372D0083D6BC /* FABKitProtocol.h in Headers */,
@@ -6323,7 +6320,6 @@
 				CE0D42471C6A673E006B91B5 /* AWSFMDatabaseAdditions.m in Sources */,
 				CE0D423E1C6A673E006B91B5 /* AWSCognitoIdentityService.m in Sources */,
 				CE0D425D1C6A673E006B91B5 /* AWSMTLModel.m in Sources */,
-				CE0D427B1C6A673E006B91B5 /* AWSReachability.m in Sources */,
 				CE0D42A21C6A673E006B91B5 /* AWSCategory.m in Sources */,
 				CE0D42591C6A673E006B91B5 /* AWSMTLManagedObjectAdapter.m in Sources */,
 				CE0D422F1C6A673E006B91B5 /* AWSCancellationTokenRegistration.m in Sources */,
@@ -6342,6 +6338,7 @@
 				CE0D42721C6A673E006B91B5 /* NSValueTransformer+AWSMTLInversionAdditions.m in Sources */,
 				CE0D424B1C6A673E006B91B5 /* AWSFMDatabaseQueue.m in Sources */,
 				CE0D42611C6A673E006B91B5 /* AWSMTLValueTransformer.m in Sources */,
+				CE3627CF1CEBA92B003E85B9 /* AWSKSReachability.m in Sources */,
 				CE0D428B1C6A673E006B91B5 /* AWSService.m in Sources */,
 				CE0D42521C6A673E006B91B5 /* AWSGZIP.m in Sources */,
 				CE0D428F1C6A673E006B91B5 /* AWSSTSModel.m in Sources */,
@@ -6806,6 +6803,7 @@
 				CE9DE9F51C6A7CA50060793F /* AWSS3PreSignedURLBuilderTests.m in Sources */,
 				CE9DEB481C6A9C0B0060793F /* AWSTestUtility.m in Sources */,
 				CE9DE9F71C6A7CA50060793F /* AWSS3TransferManagerTests.m in Sources */,
+				CE1F3A921CD96A9E00C8EBCB /* AWSS3TransferUtilityTests.swift in Sources */,
 				CE9DE9F61C6A7CA50060793F /* AWSS3Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -7027,8 +7025,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEA316CC1C93A460002A9F58 /* AWSTestUtility.m in Sources */,
-				CEA316D41C93A9C2002A9F58 /* AWSGeneralCognitoSignInTests.m in Sources */,
-				CEA316C31C93A415002A9F58 /* AWSCognitoSignInUnitTests.m in Sources */,
+				CEE5AF331CE126C3008265A3 /* AWSGeneralCognitoIdentityProviderTests.m in Sources */,
+				CEE5AF321CE126C3008265A3 /* AWSCognitoIdentityProviderUnitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8739,6 +8737,7 @@
 		CE9DE9D21C6A7C2E0060793F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSS3Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -8749,12 +8748,15 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSS3Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AWSS3Tests/AWSS3Tests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		CE9DE9D31C6A7C2E0060793F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSS3Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -8765,6 +8767,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSS3Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AWSS3Tests/AWSS3Tests-Bridging-Header.h";
 			};
 			name = Release;
 		};

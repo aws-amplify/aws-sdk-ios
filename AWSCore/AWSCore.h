@@ -43,7 +43,7 @@ FOUNDATION_EXPORT const unsigned char AWSCoreVersionString[];
 #import "AWSBolts.h"
 #import "AWSGZIP.h"
 #import "AWSFMDB.h"
-#import "AWSReachability.h"
+#import "AWSKSReachability.h"
 #import "AWSTMCache.h"
 #import "AWSUICKeyChainStore.h"
 

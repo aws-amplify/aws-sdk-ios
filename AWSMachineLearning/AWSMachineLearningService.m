@@ -27,7 +27,7 @@
 #import "AWSMachineLearningResources.h"
 
 static NSString *const AWSInfoMachineLearning = @"MachineLearning";
-static NSString *const AWSMachineLearningSDKVersion = @"2.4.1";
+static NSString *const AWSMachineLearningSDKVersion = @"2.4.2";
 
 @interface AWSMachineLearningResponseSerializer : AWSJSONResponseSerializer
 
@@ -126,8 +126,6 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSMachineLearning
 
-static AWSSynchronizedMutableDictionary *_serviceClients = nil;
-
 + (void)initialize {
     [super initialize];
 
@@ -137,6 +135,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                      userInfo:nil];
     }
 }
+
+#pragma mark - Setup
+
+static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultMachineLearning {
     static AWSMachineLearning *_defaultMachineLearning = nil;
@@ -203,6 +205,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                  userInfo:nil];
     return nil;
 }
+
+#pragma mark -
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
@@ -313,9 +317,11 @@ completionHandler:(void (^)(AWSMachineLearningPredictOutput *response, NSError *
         if (completionHandler) {
             completionHandler(result, error);
         }
-        
+
         return nil;
     }];
 }
+
+#pragma mark -
 
 @end

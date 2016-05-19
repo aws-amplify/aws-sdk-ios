@@ -21,7 +21,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- <fullname>Auto Scaling</fullname><p> Auto Scaling is a web service designed to automatically launch or terminate Amazon Elastic Compute Cloud (Amazon EC2) instances based on user-defined policies, schedules, and health checks. This service is used in conjunction with Amazon CloudWatch and Elastic Load Balancing services. </p><p>Auto Scaling provides APIs that you can call by submitting a Query Request. Query requests are HTTP or HTTPS requests that use the HTTP verbs GET or POST and a Query parameter named <i>Action</i> or <i>Operation</i> that specifies the API you are calling. Action is used throughout this documentation, although Operation is also supported for backward compatibility with other Amazon Web Services (AWS) Query APIs. </p><p>Calling the API using a Query request is the most direct way to access the web service, but requires that your application handle low-level details such as generating the hash to sign the request and error handling. The benefit of calling the service using a Query request is that you are assured of having access to the complete functionality of the API. For information about signing a a query request, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/api_requests.html">Use Query Requests to Call Auto Scaling APIs</a></p><p> This guide provides detailed information about Auto Scaling actions, data types, parameters, and errors. For detailed information about Auto Scaling features and their associated API actions, go to the <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/">Auto Scaling Developer Guide</a>. </p><p>This reference is based on the current WSDL, which is available at:</p><p><a href="http://autoscaling.amazonaws.com/doc/2011-01-01/AutoScaling.wsdl">http://autoscaling.amazonaws.com/doc/2011-01-01/AutoScaling.wsdl</a></p><p><b>Endpoints</b></p><p>The examples in this guide assume that your instances are launched in the US East (Northern Virginia) region and use us-east-1 as the endpoint.</p><p>You can set up your Auto Scaling infrastructure in other AWS regions. For information about this product's regions and endpoints, see <a href="http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html">Regions and Endpoints</a> in the Amazon Web Services General Reference. </p>
+ <fullname>Auto Scaling</fullname><p>Auto Scaling is designed to automatically launch or terminate EC2 instances based on user-defined policies, schedules, and health checks. Use this service in conjunction with the Amazon CloudWatch and Elastic Load Balancing services.</p>
  */
 @interface AWSAutoScaling : AWSService
 
@@ -172,33 +172,83 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)removeAutoScalingForKey:(NSString *)key;
 
 /**
- <p> Attaches one or more Amazon EC2 instances to an existing Auto Scaling group. After the instance(s) is attached, it becomes a part of the Auto Scaling group. </p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html">Attach Amazon EC2 Instances to Your Existing Auto Scaling Group</a> in the <i>Auto Scaling Developer Guide</i>.</p>
+ <p>Attaches one or more EC2 instances to the specified Auto Scaling group.</p><p>When you attach instances, Auto Scaling increases the desired capacity of the group by the number of instances being attached. If the number of instances being attached plus the desired capacity of the group exceeds the maximum size of the group, the operation fails.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html">Attach EC2 Instances to Your Auto Scaling Group</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the AttachInstances service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingAttachInstancesQuery
  */
 - (AWSTask *)attachInstances:(AWSAutoScalingAttachInstancesQuery *)request;
 
 /**
- <p> Attaches one or more Amazon EC2 instances to an existing Auto Scaling group. After the instance(s) is attached, it becomes a part of the Auto Scaling group. </p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html">Attach Amazon EC2 Instances to Your Existing Auto Scaling Group</a> in the <i>Auto Scaling Developer Guide</i>.</p>
+ <p>Attaches one or more EC2 instances to the specified Auto Scaling group.</p><p>When you attach instances, Auto Scaling increases the desired capacity of the group by the number of instances being attached. If the number of instances being attached plus the desired capacity of the group exceeds the maximum size of the group, the operation fails.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html">Attach EC2 Instances to Your Auto Scaling Group</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the AttachInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingAttachInstancesQuery
  */
 - (void)attachInstances:(AWSAutoScalingAttachInstancesQuery *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Completes the lifecycle action for the associated token initiated under the given lifecycle hook with the specified result. </p><p> This operation is a part of the basic sequence for adding a lifecycle hook to an Auto Scaling group: </p><ol><li> Create a notification target. A target can be either an Amazon SQS queue or an Amazon SNS topic. </li><li> Create an IAM role. This role allows Auto Scaling to publish lifecycle notifications to the designated SQS queue or SNS topic. </li><li> Create the lifecycle hook. You can create a hook that acts when instances launch or when instances terminate. </li><li> If necessary, record the lifecycle action heartbeat to keep the instance in a pending state. </li><li><b>Complete the lifecycle action.</b></li></ol><p>To learn more, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html">Auto Scaling Pending State</a> and <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html">Auto Scaling Terminating State</a>.</p>
+ AttachLoadBalancerTargetGroups
+ 
+ @param request A container for the necessary parameters to execute the AttachLoadBalancerTargetGroups service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingAttachLoadBalancerTargetGroupsResultType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
+ 
+ @see AWSAutoScalingAttachLoadBalancerTargetGroupsType
+ @see AWSAutoScalingAttachLoadBalancerTargetGroupsResultType
+ */
+- (AWSTask<AWSAutoScalingAttachLoadBalancerTargetGroupsResultType *> *)attachLoadBalancerTargetGroups:(AWSAutoScalingAttachLoadBalancerTargetGroupsType *)request;
+
+/**
+ AttachLoadBalancerTargetGroups
+ 
+ @param request A container for the necessary parameters to execute the AttachLoadBalancerTargetGroups service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
+ 
+ @see AWSAutoScalingAttachLoadBalancerTargetGroupsType
+ @see AWSAutoScalingAttachLoadBalancerTargetGroupsResultType
+ */
+- (void)attachLoadBalancerTargetGroups:(AWSAutoScalingAttachLoadBalancerTargetGroupsType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingAttachLoadBalancerTargetGroupsResultType * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Attaches one or more load balancers to the specified Auto Scaling group.</p><p>To describe the load balancers for an Auto Scaling group, use <a>DescribeLoadBalancers</a>. To detach the load balancer from the Auto Scaling group, use <a>DetachLoadBalancers</a>.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-load-balancer-asg.html">Attach a Load Balancer to Your Auto Scaling Group</a> in the <i>Auto Scaling Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the AttachLoadBalancers service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingAttachLoadBalancersResultType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
+ 
+ @see AWSAutoScalingAttachLoadBalancersType
+ @see AWSAutoScalingAttachLoadBalancersResultType
+ */
+- (AWSTask<AWSAutoScalingAttachLoadBalancersResultType *> *)attachLoadBalancers:(AWSAutoScalingAttachLoadBalancersType *)request;
+
+/**
+ <p>Attaches one or more load balancers to the specified Auto Scaling group.</p><p>To describe the load balancers for an Auto Scaling group, use <a>DescribeLoadBalancers</a>. To detach the load balancer from the Auto Scaling group, use <a>DetachLoadBalancers</a>.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-load-balancer-asg.html">Attach a Load Balancer to Your Auto Scaling Group</a> in the <i>Auto Scaling Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the AttachLoadBalancers service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
+ 
+ @see AWSAutoScalingAttachLoadBalancersType
+ @see AWSAutoScalingAttachLoadBalancersResultType
+ */
+- (void)attachLoadBalancers:(AWSAutoScalingAttachLoadBalancersType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingAttachLoadBalancersResultType * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Completes the lifecycle action for the specified token or instance with the specified result.</p><p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:</p><ol><li>(Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when Auto Scaling launches or terminates instances.</li><li>(Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Auto Scaling to publish lifecycle notifications to the target.</li><li>Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.</li><li>If you need more time, record the lifecycle action heartbeat to keep the instance in a pending state.</li><li><b>If you finish before the timeout period ends, complete the lifecycle action.</b></li></ol><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html">Auto Scaling Lifecycle</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CompleteLifecycleAction service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingCompleteLifecycleActionAnswer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingCompleteLifecycleActionAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingCompleteLifecycleActionType
  @see AWSAutoScalingCompleteLifecycleActionAnswer
@@ -206,12 +256,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingCompleteLifecycleActionAnswer *> *)completeLifecycleAction:(AWSAutoScalingCompleteLifecycleActionType *)request;
 
 /**
- <p>Completes the lifecycle action for the associated token initiated under the given lifecycle hook with the specified result. </p><p> This operation is a part of the basic sequence for adding a lifecycle hook to an Auto Scaling group: </p><ol><li> Create a notification target. A target can be either an Amazon SQS queue or an Amazon SNS topic. </li><li> Create an IAM role. This role allows Auto Scaling to publish lifecycle notifications to the designated SQS queue or SNS topic. </li><li> Create the lifecycle hook. You can create a hook that acts when instances launch or when instances terminate. </li><li> If necessary, record the lifecycle action heartbeat to keep the instance in a pending state. </li><li><b>Complete the lifecycle action.</b></li></ol><p>To learn more, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html">Auto Scaling Pending State</a> and <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html">Auto Scaling Terminating State</a>.</p>
+ <p>Completes the lifecycle action for the specified token or instance with the specified result.</p><p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:</p><ol><li>(Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when Auto Scaling launches or terminates instances.</li><li>(Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Auto Scaling to publish lifecycle notifications to the target.</li><li>Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.</li><li>If you need more time, record the lifecycle action heartbeat to keep the instance in a pending state.</li><li><b>If you finish before the timeout period ends, complete the lifecycle action.</b></li></ol><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html">Auto Scaling Lifecycle</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CompleteLifecycleAction service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingCompleteLifecycleActionType
  @see AWSAutoScalingCompleteLifecycleActionAnswer
@@ -219,121 +269,121 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)completeLifecycleAction:(AWSAutoScalingCompleteLifecycleActionType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingCompleteLifecycleActionAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Creates a new Auto Scaling group with the specified name and other attributes. When the creation request is completed, the Auto Scaling group is ready to be used in other calls. </p><note> The Auto Scaling group name must be unique within the scope of your AWS account. </note>
+ <p>Creates an Auto Scaling group with the specified name and attributes.</p><p>If you exceed your maximum limit of Auto Scaling groups, which by default is 20 per region, the call fails. For information about viewing and updating this limit, see <a>DescribeAccountLimits</a>.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroup.html">Auto Scaling Groups</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateAutoScalingGroup service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingCreateAutoScalingGroupType
  */
 - (AWSTask *)createAutoScalingGroup:(AWSAutoScalingCreateAutoScalingGroupType *)request;
 
 /**
- <p> Creates a new Auto Scaling group with the specified name and other attributes. When the creation request is completed, the Auto Scaling group is ready to be used in other calls. </p><note> The Auto Scaling group name must be unique within the scope of your AWS account. </note>
+ <p>Creates an Auto Scaling group with the specified name and attributes.</p><p>If you exceed your maximum limit of Auto Scaling groups, which by default is 20 per region, the call fails. For information about viewing and updating this limit, see <a>DescribeAccountLimits</a>.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroup.html">Auto Scaling Groups</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateAutoScalingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorLimitExceeded`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingCreateAutoScalingGroupType
  */
 - (void)createAutoScalingGroup:(AWSAutoScalingCreateAutoScalingGroupType *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p> Creates a new launch configuration. The launch configuration name must be unique within the scope of the client's AWS account. The maximum limit of launch configurations, which by default is 100, must not yet have been met; otherwise, the call will fail. When created, the new launch configuration is available for immediate use. </p>
+ <p>Creates a launch configuration.</p><p>If you exceed your maximum limit of launch configurations, which by default is 100 per region, the call fails. For information about viewing and updating this limit, see <a>DescribeAccountLimits</a>.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/LaunchConfiguration.html">Launch Configurations</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateLaunchConfiguration service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingCreateLaunchConfigurationType
  */
 - (AWSTask *)createLaunchConfiguration:(AWSAutoScalingCreateLaunchConfigurationType *)request;
 
 /**
- <p> Creates a new launch configuration. The launch configuration name must be unique within the scope of the client's AWS account. The maximum limit of launch configurations, which by default is 100, must not yet have been met; otherwise, the call will fail. When created, the new launch configuration is available for immediate use. </p>
+ <p>Creates a launch configuration.</p><p>If you exceed your maximum limit of launch configurations, which by default is 100 per region, the call fails. For information about viewing and updating this limit, see <a>DescribeAccountLimits</a>.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/LaunchConfiguration.html">Launch Configurations</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateLaunchConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorLimitExceeded`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingCreateLaunchConfigurationType
  */
 - (void)createLaunchConfiguration:(AWSAutoScalingCreateLaunchConfigurationType *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p> Creates new tags or updates existing tags for an Auto Scaling group. </p><note> A tag's definition is composed of a resource ID, resource type, key and value, and the propagate flag. Value and the propagate flag are optional parameters. See the Request Parameters for more information. </note><p>For information on creating tags for your Auto Scaling group, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html">Tag Your Auto Scaling Groups and Amazon EC2 Instances</a>.</p>
+ <p>Creates or updates tags for the specified Auto Scaling group.</p><p>When you specify a tag with a key that already exists, the operation overwrites the previous tag definition, and you do not get an error message.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html">Tagging Auto Scaling Groups and Instances</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateOrUpdateTags service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorAlreadyExists`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingCreateOrUpdateTagsType
  */
 - (AWSTask *)createOrUpdateTags:(AWSAutoScalingCreateOrUpdateTagsType *)request;
 
 /**
- <p> Creates new tags or updates existing tags for an Auto Scaling group. </p><note> A tag's definition is composed of a resource ID, resource type, key and value, and the propagate flag. Value and the propagate flag are optional parameters. See the Request Parameters for more information. </note><p>For information on creating tags for your Auto Scaling group, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html">Tag Your Auto Scaling Groups and Amazon EC2 Instances</a>.</p>
+ <p>Creates or updates tags for the specified Auto Scaling group.</p><p>When you specify a tag with a key that already exists, the operation overwrites the previous tag definition, and you do not get an error message.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html">Tagging Auto Scaling Groups and Instances</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateOrUpdateTags service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorAlreadyExists`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingCreateOrUpdateTagsType
  */
 - (void)createOrUpdateTags:(AWSAutoScalingCreateOrUpdateTagsType *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p> Deletes the specified Auto Scaling group if the group has no instances and no scaling activities in progress. </p><note> To remove all instances before calling <a>DeleteAutoScalingGroup</a>, you can call <a>UpdateAutoScalingGroup</a> to set the minimum and maximum size of the AutoScalingGroup to zero. </note>
+ <p>Deletes the specified Auto Scaling group.</p><p>If the group has instances or scaling activities in progress, you must specify the option to force the deletion in order for it to succeed.</p><p>If the group has policies, deleting the group deletes the policies, the underlying alarm actions, and any alarm that no longer has an associated action.</p><p>To remove instances from the Auto Scaling group before deleting it, call <a>DetachInstances</a> with the list of instances and the option to decrement the desired capacity so that Auto Scaling does not launch replacement instances.</p><p>To terminate all instances before deleting the Auto Scaling group, call <a>UpdateAutoScalingGroup</a> and set the minimum size and desired capacity of the Auto Scaling group to zero.</p>
  
  @param request A container for the necessary parameters to execute the DeleteAutoScalingGroup service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`, `AWSAutoScalingErrorResourceInUse`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`, `AWSAutoScalingErrorResourceInUse`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDeleteAutoScalingGroupType
  */
 - (AWSTask *)deleteAutoScalingGroup:(AWSAutoScalingDeleteAutoScalingGroupType *)request;
 
 /**
- <p> Deletes the specified Auto Scaling group if the group has no instances and no scaling activities in progress. </p><note> To remove all instances before calling <a>DeleteAutoScalingGroup</a>, you can call <a>UpdateAutoScalingGroup</a> to set the minimum and maximum size of the AutoScalingGroup to zero. </note>
+ <p>Deletes the specified Auto Scaling group.</p><p>If the group has instances or scaling activities in progress, you must specify the option to force the deletion in order for it to succeed.</p><p>If the group has policies, deleting the group deletes the policies, the underlying alarm actions, and any alarm that no longer has an associated action.</p><p>To remove instances from the Auto Scaling group before deleting it, call <a>DetachInstances</a> with the list of instances and the option to decrement the desired capacity so that Auto Scaling does not launch replacement instances.</p><p>To terminate all instances before deleting the Auto Scaling group, call <a>UpdateAutoScalingGroup</a> and set the minimum size and desired capacity of the Auto Scaling group to zero.</p>
  
  @param request A container for the necessary parameters to execute the DeleteAutoScalingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`, `AWSAutoScalingErrorResourceInUse`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`, `AWSAutoScalingErrorResourceInUse`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDeleteAutoScalingGroupType
  */
 - (void)deleteAutoScalingGroup:(AWSAutoScalingDeleteAutoScalingGroupType *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p> Deletes the specified <a>LaunchConfiguration</a>. </p><p> The specified launch configuration must not be attached to an Auto Scaling group. When this call completes, the launch configuration is no longer available for use. </p>
+ <p>Deletes the specified launch configuration.</p><p>The launch configuration must not be attached to an Auto Scaling group. When this call completes, the launch configuration is no longer available for use.</p>
  
  @param request A container for the necessary parameters to execute the DeleteLaunchConfiguration service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceInUse`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceInUse`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingLaunchConfigurationNameType
  */
 - (AWSTask *)deleteLaunchConfiguration:(AWSAutoScalingLaunchConfigurationNameType *)request;
 
 /**
- <p> Deletes the specified <a>LaunchConfiguration</a>. </p><p> The specified launch configuration must not be attached to an Auto Scaling group. When this call completes, the launch configuration is no longer available for use. </p>
+ <p>Deletes the specified launch configuration.</p><p>The launch configuration must not be attached to an Auto Scaling group. When this call completes, the launch configuration is no longer available for use.</p>
  
  @param request A container for the necessary parameters to execute the DeleteLaunchConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceInUse`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceInUse`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingLaunchConfigurationNameType
  */
 - (void)deleteLaunchConfiguration:(AWSAutoScalingLaunchConfigurationNameType *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified lifecycle hook. If there are any outstanding lifecycle actions, they are completed first (ABANDON for launching instances, CONTINUE for terminating instances).</p>
+ <p>Deletes the specified lifecycle hook.</p><p>If there are any outstanding lifecycle actions, they are completed first (<code>ABANDON</code> for launching instances, <code>CONTINUE</code> for terminating instances).</p>
  
  @param request A container for the necessary parameters to execute the DeleteLifecycleHook service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDeleteLifecycleHookAnswer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDeleteLifecycleHookAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDeleteLifecycleHookType
  @see AWSAutoScalingDeleteLifecycleHookAnswer
@@ -341,12 +391,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingDeleteLifecycleHookAnswer *> *)deleteLifecycleHook:(AWSAutoScalingDeleteLifecycleHookType *)request;
 
 /**
- <p>Deletes the specified lifecycle hook. If there are any outstanding lifecycle actions, they are completed first (ABANDON for launching instances, CONTINUE for terminating instances).</p>
+ <p>Deletes the specified lifecycle hook.</p><p>If there are any outstanding lifecycle actions, they are completed first (<code>ABANDON</code> for launching instances, <code>CONTINUE</code> for terminating instances).</p>
  
  @param request A container for the necessary parameters to execute the DeleteLifecycleHook service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDeleteLifecycleHookType
  @see AWSAutoScalingDeleteLifecycleHookAnswer
@@ -354,99 +404,99 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteLifecycleHook:(AWSAutoScalingDeleteLifecycleHookType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDeleteLifecycleHookAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes notifications created by <a>PutNotificationConfiguration</a>.</p>
+ <p>Deletes the specified notification.</p>
  
  @param request A container for the necessary parameters to execute the DeleteNotificationConfiguration service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDeleteNotificationConfigurationType
  */
 - (AWSTask *)deleteNotificationConfiguration:(AWSAutoScalingDeleteNotificationConfigurationType *)request;
 
 /**
- <p>Deletes notifications created by <a>PutNotificationConfiguration</a>.</p>
+ <p>Deletes the specified notification.</p>
  
  @param request A container for the necessary parameters to execute the DeleteNotificationConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDeleteNotificationConfigurationType
  */
 - (void)deleteNotificationConfiguration:(AWSAutoScalingDeleteNotificationConfigurationType *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a policy created by <a>PutScalingPolicy</a>.</p>
+ <p>Deletes the specified Auto Scaling policy.</p><p>Deleting a policy deletes the underlying alarm action, but does not delete the alarm, even if it no longer has an associated action.</p>
  
  @param request A container for the necessary parameters to execute the DeletePolicy service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDeletePolicyType
  */
 - (AWSTask *)deletePolicy:(AWSAutoScalingDeletePolicyType *)request;
 
 /**
- <p>Deletes a policy created by <a>PutScalingPolicy</a>.</p>
+ <p>Deletes the specified Auto Scaling policy.</p><p>Deleting a policy deletes the underlying alarm action, but does not delete the alarm, even if it no longer has an associated action.</p>
  
  @param request A container for the necessary parameters to execute the DeletePolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDeletePolicyType
  */
 - (void)deletePolicy:(AWSAutoScalingDeletePolicyType *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a scheduled action previously created using the <a>PutScheduledUpdateGroupAction</a>.</p>
+ <p>Deletes the specified scheduled action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteScheduledAction service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDeleteScheduledActionType
  */
 - (AWSTask *)deleteScheduledAction:(AWSAutoScalingDeleteScheduledActionType *)request;
 
 /**
- <p>Deletes a scheduled action previously created using the <a>PutScheduledUpdateGroupAction</a>.</p>
+ <p>Deletes the specified scheduled action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteScheduledAction service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDeleteScheduledActionType
  */
 - (void)deleteScheduledAction:(AWSAutoScalingDeleteScheduledActionType *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes the specified tags or a set of tags from a set of resources.</p>
+ <p>Deletes the specified tags.</p>
  
  @param request A container for the necessary parameters to execute the DeleteTags service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDeleteTagsType
  */
 - (AWSTask *)deleteTags:(AWSAutoScalingDeleteTagsType *)request;
 
 /**
- <p>Removes the specified tags or a set of tags from a set of resources.</p>
+ <p>Deletes the specified tags.</p>
  
  @param request A container for the necessary parameters to execute the DeleteTags service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDeleteTagsType
  */
 - (void)deleteTags:(AWSAutoScalingDeleteTagsType *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p> Returns the limits for the Auto Scaling resources currently allowed for your AWS account. </p><p>Your AWS account comes with default limits on resources for Auto Scaling. There is a default limit of <code>20</code> Auto Scaling groups and <code>100</code> launch configurations per region.</p><p>If you reach the limits for the number of Auto Scaling groups or the launch configurations, you can go to the <a href="https://aws.amazon.com/support/">Support Center</a> and place a request to raise the limits.</p>
+ <p>Describes the current Auto Scaling resource limits for your AWS account.</p><p>For information about requesting an increase in these limits, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Limits</a> in the <i>Amazon Web Services General Reference</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAccountLimits service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeAccountLimitsAnswer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeAccountLimitsAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSRequest
  @see AWSAutoScalingDescribeAccountLimitsAnswer
@@ -454,12 +504,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingDescribeAccountLimitsAnswer *> *)describeAccountLimits:(AWSRequest *)request;
 
 /**
- <p> Returns the limits for the Auto Scaling resources currently allowed for your AWS account. </p><p>Your AWS account comes with default limits on resources for Auto Scaling. There is a default limit of <code>20</code> Auto Scaling groups and <code>100</code> launch configurations per region.</p><p>If you reach the limits for the number of Auto Scaling groups or the launch configurations, you can go to the <a href="https://aws.amazon.com/support/">Support Center</a> and place a request to raise the limits.</p>
+ <p>Describes the current Auto Scaling resource limits for your AWS account.</p><p>For information about requesting an increase in these limits, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Limits</a> in the <i>Amazon Web Services General Reference</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAccountLimits service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSRequest
  @see AWSAutoScalingDescribeAccountLimitsAnswer
@@ -467,11 +517,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeAccountLimits:(AWSRequest *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDescribeAccountLimitsAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Returns policy adjustment types for use in the <a>PutScalingPolicy</a> action. </p>
+ <p>Describes the policy adjustment types for use with <a>PutScalingPolicy</a>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAdjustmentTypes service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeAdjustmentTypesAnswer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeAdjustmentTypesAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSRequest
  @see AWSAutoScalingDescribeAdjustmentTypesAnswer
@@ -479,12 +529,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingDescribeAdjustmentTypesAnswer *> *)describeAdjustmentTypes:(AWSRequest *)request;
 
 /**
- <p> Returns policy adjustment types for use in the <a>PutScalingPolicy</a> action. </p>
+ <p>Describes the policy adjustment types for use with <a>PutScalingPolicy</a>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAdjustmentTypes service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSRequest
  @see AWSAutoScalingDescribeAdjustmentTypesAnswer
@@ -492,11 +542,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeAdjustmentTypes:(AWSRequest *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDescribeAdjustmentTypesAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Returns a full description of each Auto Scaling group in the given list. This includes all Amazon EC2 instances that are members of the group. If a list of names is not provided, the service returns the full details of all Auto Scaling groups. </p><p> This action supports pagination by returning a token if there are more pages to retrieve. To get the next page, call this action again with the returned token as the <code>NextToken</code> parameter. </p>
+ <p>Describes one or more Auto Scaling groups. If a list of names is not provided, the call describes all Auto Scaling groups.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAutoScalingGroups service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingAutoScalingGroupsType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingAutoScalingGroupsType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingAutoScalingGroupNamesType
  @see AWSAutoScalingAutoScalingGroupsType
@@ -504,12 +554,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingAutoScalingGroupsType *> *)describeAutoScalingGroups:(AWSAutoScalingAutoScalingGroupNamesType *)request;
 
 /**
- <p> Returns a full description of each Auto Scaling group in the given list. This includes all Amazon EC2 instances that are members of the group. If a list of names is not provided, the service returns the full details of all Auto Scaling groups. </p><p> This action supports pagination by returning a token if there are more pages to retrieve. To get the next page, call this action again with the returned token as the <code>NextToken</code> parameter. </p>
+ <p>Describes one or more Auto Scaling groups. If a list of names is not provided, the call describes all Auto Scaling groups.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAutoScalingGroups service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingAutoScalingGroupNamesType
  @see AWSAutoScalingAutoScalingGroupsType
@@ -517,11 +567,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeAutoScalingGroups:(AWSAutoScalingAutoScalingGroupNamesType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingAutoScalingGroupsType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Returns a description of each Auto Scaling instance in the <code>InstanceIds</code> list. If a list is not provided, the service returns the full details of all instances up to a maximum of 50. By default, the service returns a list of 20 items. </p><p> This action supports pagination by returning a token if there are more pages to retrieve. To get the next page, call this action again with the returned token as the <code>NextToken</code> parameter. </p>
+ <p>Describes one or more Auto Scaling instances. If a list is not provided, the call describes all instances.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAutoScalingInstances service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingAutoScalingInstancesType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingAutoScalingInstancesType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDescribeAutoScalingInstancesType
  @see AWSAutoScalingAutoScalingInstancesType
@@ -529,12 +579,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingAutoScalingInstancesType *> *)describeAutoScalingInstances:(AWSAutoScalingDescribeAutoScalingInstancesType *)request;
 
 /**
- <p> Returns a description of each Auto Scaling instance in the <code>InstanceIds</code> list. If a list is not provided, the service returns the full details of all instances up to a maximum of 50. By default, the service returns a list of 20 items. </p><p> This action supports pagination by returning a token if there are more pages to retrieve. To get the next page, call this action again with the returned token as the <code>NextToken</code> parameter. </p>
+ <p>Describes one or more Auto Scaling instances. If a list is not provided, the call describes all instances.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAutoScalingInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDescribeAutoScalingInstancesType
  @see AWSAutoScalingAutoScalingInstancesType
@@ -542,11 +592,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeAutoScalingInstances:(AWSAutoScalingDescribeAutoScalingInstancesType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingAutoScalingInstancesType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Returns a list of all notification types that are supported by Auto Scaling. </p>
+ <p>Describes the notification types that are supported by Auto Scaling.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAutoScalingNotificationTypes service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSRequest
  @see AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer
@@ -554,12 +604,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer *> *)describeAutoScalingNotificationTypes:(AWSRequest *)request;
 
 /**
- <p> Returns a list of all notification types that are supported by Auto Scaling. </p>
+ <p>Describes the notification types that are supported by Auto Scaling.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAutoScalingNotificationTypes service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSRequest
  @see AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer
@@ -567,11 +617,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeAutoScalingNotificationTypes:(AWSRequest *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Returns a full description of the launch configurations, or the specified launch configurations, if they exist. </p><p> If no name is specified, then the full details of all launch configurations are returned. </p>
+ <p>Describes one or more launch configurations. If you omit the list of names, then the call describes all launch configurations.</p>
  
  @param request A container for the necessary parameters to execute the DescribeLaunchConfigurations service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingLaunchConfigurationsType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingLaunchConfigurationsType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingLaunchConfigurationNamesType
  @see AWSAutoScalingLaunchConfigurationsType
@@ -579,12 +629,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingLaunchConfigurationsType *> *)describeLaunchConfigurations:(AWSAutoScalingLaunchConfigurationNamesType *)request;
 
 /**
- <p> Returns a full description of the launch configurations, or the specified launch configurations, if they exist. </p><p> If no name is specified, then the full details of all launch configurations are returned. </p>
+ <p>Describes one or more launch configurations. If you omit the list of names, then the call describes all launch configurations.</p>
  
  @param request A container for the necessary parameters to execute the DescribeLaunchConfigurations service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingLaunchConfigurationNamesType
  @see AWSAutoScalingLaunchConfigurationsType
@@ -596,7 +646,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param request A container for the necessary parameters to execute the DescribeLifecycleHookTypes service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeLifecycleHookTypesAnswer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeLifecycleHookTypesAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSRequest
  @see AWSAutoScalingDescribeLifecycleHookTypesAnswer
@@ -609,7 +659,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param request A container for the necessary parameters to execute the DescribeLifecycleHookTypes service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSRequest
  @see AWSAutoScalingDescribeLifecycleHookTypesAnswer
@@ -617,11 +667,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeLifecycleHookTypes:(AWSRequest *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDescribeLifecycleHookTypesAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Describes the lifecycle hooks that currently belong to the specified Auto Scaling group. </p>
+ <p>Describes the lifecycle hooks for the specified Auto Scaling group.</p>
  
  @param request A container for the necessary parameters to execute the DescribeLifecycleHooks service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeLifecycleHooksAnswer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeLifecycleHooksAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDescribeLifecycleHooksType
  @see AWSAutoScalingDescribeLifecycleHooksAnswer
@@ -629,12 +679,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingDescribeLifecycleHooksAnswer *> *)describeLifecycleHooks:(AWSAutoScalingDescribeLifecycleHooksType *)request;
 
 /**
- <p> Describes the lifecycle hooks that currently belong to the specified Auto Scaling group. </p>
+ <p>Describes the lifecycle hooks for the specified Auto Scaling group.</p>
  
  @param request A container for the necessary parameters to execute the DescribeLifecycleHooks service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDescribeLifecycleHooksType
  @see AWSAutoScalingDescribeLifecycleHooksAnswer
@@ -642,11 +692,61 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeLifecycleHooks:(AWSAutoScalingDescribeLifecycleHooksType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDescribeLifecycleHooksAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Returns a list of metrics and a corresponding list of granularities for each metric. </p><note><p>The <code>GroupStandbyInstances</code> metric is not returned by default. You must explicitly request it when calling <a>EnableMetricsCollection</a>.</p></note>
+ DescribeLoadBalancerTargetGroups
+ 
+ @param request A container for the necessary parameters to execute the DescribeLoadBalancerTargetGroups service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
+ 
+ @see AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest
+ @see AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse
+ */
+- (AWSTask<AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse *> *)describeLoadBalancerTargetGroups:(AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest *)request;
+
+/**
+ DescribeLoadBalancerTargetGroups
+ 
+ @param request A container for the necessary parameters to execute the DescribeLoadBalancerTargetGroups service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
+ 
+ @see AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest
+ @see AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse
+ */
+- (void)describeLoadBalancerTargetGroups:(AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes the load balancers for the specified Auto Scaling group.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeLoadBalancers service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeLoadBalancersResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
+ 
+ @see AWSAutoScalingDescribeLoadBalancersRequest
+ @see AWSAutoScalingDescribeLoadBalancersResponse
+ */
+- (AWSTask<AWSAutoScalingDescribeLoadBalancersResponse *> *)describeLoadBalancers:(AWSAutoScalingDescribeLoadBalancersRequest *)request;
+
+/**
+ <p>Describes the load balancers for the specified Auto Scaling group.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeLoadBalancers service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
+ 
+ @see AWSAutoScalingDescribeLoadBalancersRequest
+ @see AWSAutoScalingDescribeLoadBalancersResponse
+ */
+- (void)describeLoadBalancers:(AWSAutoScalingDescribeLoadBalancersRequest *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDescribeLoadBalancersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes the available CloudWatch metrics for Auto Scaling.</p><p>Note that the <code>GroupStandbyInstances</code> metric is not returned by default. You must explicitly request this metric when calling <a>EnableMetricsCollection</a>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeMetricCollectionTypes service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeMetricCollectionTypesAnswer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeMetricCollectionTypesAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSRequest
  @see AWSAutoScalingDescribeMetricCollectionTypesAnswer
@@ -654,12 +754,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingDescribeMetricCollectionTypesAnswer *> *)describeMetricCollectionTypes:(AWSRequest *)request;
 
 /**
- <p> Returns a list of metrics and a corresponding list of granularities for each metric. </p><note><p>The <code>GroupStandbyInstances</code> metric is not returned by default. You must explicitly request it when calling <a>EnableMetricsCollection</a>.</p></note>
+ <p>Describes the available CloudWatch metrics for Auto Scaling.</p><p>Note that the <code>GroupStandbyInstances</code> metric is not returned by default. You must explicitly request this metric when calling <a>EnableMetricsCollection</a>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeMetricCollectionTypes service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSRequest
  @see AWSAutoScalingDescribeMetricCollectionTypesAnswer
@@ -667,11 +767,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeMetricCollectionTypes:(AWSRequest *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDescribeMetricCollectionTypesAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Returns a list of notification actions associated with Auto Scaling groups for specified events. </p>
+ <p>Describes the notification actions associated with the specified Auto Scaling group.</p>
  
  @param request A container for the necessary parameters to execute the DescribeNotificationConfigurations service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeNotificationConfigurationsAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeNotificationConfigurationsAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDescribeNotificationConfigurationsType
  @see AWSAutoScalingDescribeNotificationConfigurationsAnswer
@@ -679,12 +779,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingDescribeNotificationConfigurationsAnswer *> *)describeNotificationConfigurations:(AWSAutoScalingDescribeNotificationConfigurationsType *)request;
 
 /**
- <p> Returns a list of notification actions associated with Auto Scaling groups for specified events. </p>
+ <p>Describes the notification actions associated with the specified Auto Scaling group.</p>
  
  @param request A container for the necessary parameters to execute the DescribeNotificationConfigurations service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDescribeNotificationConfigurationsType
  @see AWSAutoScalingDescribeNotificationConfigurationsAnswer
@@ -692,11 +792,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeNotificationConfigurations:(AWSAutoScalingDescribeNotificationConfigurationsType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDescribeNotificationConfigurationsAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Returns descriptions of what each policy does. This action supports pagination. If the response includes a token, there are more records available. To get the additional records, repeat the request with the response token as the <code>NextToken</code> parameter. </p>
+ <p>Describes the policies for the specified Auto Scaling group.</p>
  
  @param request A container for the necessary parameters to execute the DescribePolicies service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingPoliciesType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingPoliciesType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDescribePoliciesType
  @see AWSAutoScalingPoliciesType
@@ -704,12 +804,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingPoliciesType *> *)describePolicies:(AWSAutoScalingDescribePoliciesType *)request;
 
 /**
- <p> Returns descriptions of what each policy does. This action supports pagination. If the response includes a token, there are more records available. To get the additional records, repeat the request with the response token as the <code>NextToken</code> parameter. </p>
+ <p>Describes the policies for the specified Auto Scaling group.</p>
  
  @param request A container for the necessary parameters to execute the DescribePolicies service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDescribePoliciesType
  @see AWSAutoScalingPoliciesType
@@ -717,11 +817,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describePolicies:(AWSAutoScalingDescribePoliciesType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingPoliciesType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Returns the scaling activities for the specified Auto Scaling group. </p><p> If the specified <code>ActivityIds</code> list is empty, all the activities from the past six weeks are returned. Activities are sorted by the start time. Activities still in progress appear first on the list. </p><p> This action supports pagination. If the response includes a token, there are more records available. To get the additional records, repeat the request with the response token as the <code>NextToken</code> parameter. </p>
+ <p>Describes one or more scaling activities for the specified Auto Scaling group. If you omit the <code>ActivityIds</code>, the call returns all activities from the past six weeks. Activities are sorted by the start time. Activities still in progress appear first on the list.</p>
  
  @param request A container for the necessary parameters to execute the DescribeScalingActivities service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingActivitiesType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingActivitiesType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDescribeScalingActivitiesType
  @see AWSAutoScalingActivitiesType
@@ -729,12 +829,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingActivitiesType *> *)describeScalingActivities:(AWSAutoScalingDescribeScalingActivitiesType *)request;
 
 /**
- <p> Returns the scaling activities for the specified Auto Scaling group. </p><p> If the specified <code>ActivityIds</code> list is empty, all the activities from the past six weeks are returned. Activities are sorted by the start time. Activities still in progress appear first on the list. </p><p> This action supports pagination. If the response includes a token, there are more records available. To get the additional records, repeat the request with the response token as the <code>NextToken</code> parameter. </p>
+ <p>Describes one or more scaling activities for the specified Auto Scaling group. If you omit the <code>ActivityIds</code>, the call returns all activities from the past six weeks. Activities are sorted by the start time. Activities still in progress appear first on the list.</p>
  
  @param request A container for the necessary parameters to execute the DescribeScalingActivities service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDescribeScalingActivitiesType
  @see AWSAutoScalingActivitiesType
@@ -742,11 +842,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeScalingActivities:(AWSAutoScalingDescribeScalingActivitiesType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingActivitiesType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns scaling process types for use in the <a>ResumeProcesses</a> and <a>SuspendProcesses</a> actions.</p>
+ <p>Describes the scaling process types for use with <a>ResumeProcesses</a> and <a>SuspendProcesses</a>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeScalingProcessTypes service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingProcessesType`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingProcessesType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSRequest
  @see AWSAutoScalingProcessesType
@@ -754,12 +854,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingProcessesType *> *)describeScalingProcessTypes:(AWSRequest *)request;
 
 /**
- <p>Returns scaling process types for use in the <a>ResumeProcesses</a> and <a>SuspendProcesses</a> actions.</p>
+ <p>Describes the scaling process types for use with <a>ResumeProcesses</a> and <a>SuspendProcesses</a>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeScalingProcessTypes service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSRequest
  @see AWSAutoScalingProcessesType
@@ -767,11 +867,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeScalingProcessTypes:(AWSRequest *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingProcessesType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Lists all the actions scheduled for your Auto Scaling group that haven't been executed. To see a list of actions already executed, see the activity record returned in <a>DescribeScalingActivities</a>. </p>
+ <p>Describes the actions scheduled for your Auto Scaling group that haven't run. To describe the actions that have already run, use <a>DescribeScalingActivities</a>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeScheduledActions service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingScheduledActionsType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingScheduledActionsType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDescribeScheduledActionsType
  @see AWSAutoScalingScheduledActionsType
@@ -779,12 +879,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingScheduledActionsType *> *)describeScheduledActions:(AWSAutoScalingDescribeScheduledActionsType *)request;
 
 /**
- <p> Lists all the actions scheduled for your Auto Scaling group that haven't been executed. To see a list of actions already executed, see the activity record returned in <a>DescribeScalingActivities</a>. </p>
+ <p>Describes the actions scheduled for your Auto Scaling group that haven't run. To describe the actions that have already run, use <a>DescribeScalingActivities</a>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeScheduledActions service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDescribeScheduledActionsType
  @see AWSAutoScalingScheduledActionsType
@@ -792,11 +892,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeScheduledActions:(AWSAutoScalingDescribeScheduledActionsType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingScheduledActionsType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Lists the Auto Scaling group tags. </p><p> You can use filters to limit results when describing tags. For example, you can query for tags of a particular Auto Scaling group. You can specify multiple values for a filter. A tag must match at least one of the specified values for it to be included in the results. </p><p> You can also specify multiple filters. The result includes information for a particular tag only if it matches all your filters. If there's no match, no special message is returned. </p>
+ <p>Describes the specified tags.</p><p>You can use filters to limit the results. For example, you can query for the tags for a specific Auto Scaling group. You can specify multiple values for a filter. A tag must match at least one of the specified values for it to be included in the results.</p><p>You can also specify multiple filters. The result includes information for a particular tag only if it matches all the filters. If there's no match, no special message is returned.</p>
  
  @param request A container for the necessary parameters to execute the DescribeTags service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingTagsType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingTagsType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDescribeTagsType
  @see AWSAutoScalingTagsType
@@ -804,12 +904,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingTagsType *> *)describeTags:(AWSAutoScalingDescribeTagsType *)request;
 
 /**
- <p> Lists the Auto Scaling group tags. </p><p> You can use filters to limit results when describing tags. For example, you can query for tags of a particular Auto Scaling group. You can specify multiple values for a filter. A tag must match at least one of the specified values for it to be included in the results. </p><p> You can also specify multiple filters. The result includes information for a particular tag only if it matches all your filters. If there's no match, no special message is returned. </p>
+ <p>Describes the specified tags.</p><p>You can use filters to limit the results. For example, you can query for the tags for a specific Auto Scaling group. You can specify multiple values for a filter. A tag must match at least one of the specified values for it to be included in the results.</p><p>You can also specify multiple filters. The result includes information for a particular tag only if it matches all the filters. If there's no match, no special message is returned.</p>
  
  @param request A container for the necessary parameters to execute the DescribeTags service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorInvalidNextToken`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDescribeTagsType
  @see AWSAutoScalingTagsType
@@ -817,11 +917,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeTags:(AWSAutoScalingDescribeTagsType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingTagsType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Returns a list of all termination policies supported by Auto Scaling. </p>
+ <p>Describes the termination policies supported by Auto Scaling.</p>
  
  @param request A container for the necessary parameters to execute the DescribeTerminationPolicyTypes service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeTerminationPolicyTypesAnswer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeTerminationPolicyTypesAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSRequest
  @see AWSAutoScalingDescribeTerminationPolicyTypesAnswer
@@ -829,12 +929,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingDescribeTerminationPolicyTypesAnswer *> *)describeTerminationPolicyTypes:(AWSRequest *)request;
 
 /**
- <p> Returns a list of all termination policies supported by Auto Scaling. </p>
+ <p>Describes the termination policies supported by Auto Scaling.</p>
  
  @param request A container for the necessary parameters to execute the DescribeTerminationPolicyTypes service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSRequest
  @see AWSAutoScalingDescribeTerminationPolicyTypesAnswer
@@ -842,11 +942,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeTerminationPolicyTypes:(AWSRequest *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDescribeTerminationPolicyTypesAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Using <code>DetachInstances</code>, you can remove an instance from an Auto Scaling group. After the instances are detached, you can manage them independently from the rest of the Auto Scaling group.</p><p>To learn more about detaching instances, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html">Detach Amazon EC2 Instances From Your Auto Scaling Group</a>.</p>
+ <p>Removes one or more instances from the specified Auto Scaling group.</p><p>After the instances are detached, you can manage them independently from the rest of the Auto Scaling group.</p><p>If you do not specify the option to decrement the desired capacity, Auto Scaling launches instances to replace the ones that are detached.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html">Detach EC2 Instances from Your Auto Scaling Group</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DetachInstances service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDetachInstancesAnswer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDetachInstancesAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDetachInstancesQuery
  @see AWSAutoScalingDetachInstancesAnswer
@@ -854,12 +954,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingDetachInstancesAnswer *> *)detachInstances:(AWSAutoScalingDetachInstancesQuery *)request;
 
 /**
- <p>Using <code>DetachInstances</code>, you can remove an instance from an Auto Scaling group. After the instances are detached, you can manage them independently from the rest of the Auto Scaling group.</p><p>To learn more about detaching instances, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html">Detach Amazon EC2 Instances From Your Auto Scaling Group</a>.</p>
+ <p>Removes one or more instances from the specified Auto Scaling group.</p><p>After the instances are detached, you can manage them independently from the rest of the Auto Scaling group.</p><p>If you do not specify the option to decrement the desired capacity, Auto Scaling launches instances to replace the ones that are detached.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html">Detach EC2 Instances from Your Auto Scaling Group</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DetachInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDetachInstancesQuery
  @see AWSAutoScalingDetachInstancesAnswer
@@ -867,55 +967,105 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)detachInstances:(AWSAutoScalingDetachInstancesQuery *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDetachInstancesAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Disables monitoring of group metrics for the Auto Scaling group specified in <code>AutoScalingGroupName</code>. You can specify the list of affected metrics with the <code>Metrics</code> parameter. </p>
+ DetachLoadBalancerTargetGroups
+ 
+ @param request A container for the necessary parameters to execute the DetachLoadBalancerTargetGroups service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDetachLoadBalancerTargetGroupsResultType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
+ 
+ @see AWSAutoScalingDetachLoadBalancerTargetGroupsType
+ @see AWSAutoScalingDetachLoadBalancerTargetGroupsResultType
+ */
+- (AWSTask<AWSAutoScalingDetachLoadBalancerTargetGroupsResultType *> *)detachLoadBalancerTargetGroups:(AWSAutoScalingDetachLoadBalancerTargetGroupsType *)request;
+
+/**
+ DetachLoadBalancerTargetGroups
+ 
+ @param request A container for the necessary parameters to execute the DetachLoadBalancerTargetGroups service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
+ 
+ @see AWSAutoScalingDetachLoadBalancerTargetGroupsType
+ @see AWSAutoScalingDetachLoadBalancerTargetGroupsResultType
+ */
+- (void)detachLoadBalancerTargetGroups:(AWSAutoScalingDetachLoadBalancerTargetGroupsType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDetachLoadBalancerTargetGroupsResultType * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Removes one or more load balancers from the specified Auto Scaling group.</p><p>When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using <a>DescribeLoadBalancers</a>. Note that the instances remain running.</p>
+ 
+ @param request A container for the necessary parameters to execute the DetachLoadBalancers service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDetachLoadBalancersResultType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
+ 
+ @see AWSAutoScalingDetachLoadBalancersType
+ @see AWSAutoScalingDetachLoadBalancersResultType
+ */
+- (AWSTask<AWSAutoScalingDetachLoadBalancersResultType *> *)detachLoadBalancers:(AWSAutoScalingDetachLoadBalancersType *)request;
+
+/**
+ <p>Removes one or more load balancers from the specified Auto Scaling group.</p><p>When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using <a>DescribeLoadBalancers</a>. Note that the instances remain running.</p>
+ 
+ @param request A container for the necessary parameters to execute the DetachLoadBalancers service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
+ 
+ @see AWSAutoScalingDetachLoadBalancersType
+ @see AWSAutoScalingDetachLoadBalancersResultType
+ */
+- (void)detachLoadBalancers:(AWSAutoScalingDetachLoadBalancersType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDetachLoadBalancersResultType * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Disables monitoring of the specified metrics for the specified Auto Scaling group.</p>
  
  @param request A container for the necessary parameters to execute the DisableMetricsCollection service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDisableMetricsCollectionQuery
  */
 - (AWSTask *)disableMetricsCollection:(AWSAutoScalingDisableMetricsCollectionQuery *)request;
 
 /**
- <p> Disables monitoring of group metrics for the Auto Scaling group specified in <code>AutoScalingGroupName</code>. You can specify the list of affected metrics with the <code>Metrics</code> parameter. </p>
+ <p>Disables monitoring of the specified metrics for the specified Auto Scaling group.</p>
  
  @param request A container for the necessary parameters to execute the DisableMetricsCollection service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingDisableMetricsCollectionQuery
  */
 - (void)disableMetricsCollection:(AWSAutoScalingDisableMetricsCollectionQuery *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p> Enables monitoring of group metrics for the Auto Scaling group specified in <code>AutoScalingGroupName</code>. You can specify the list of enabled metrics with the <code>Metrics</code> parameter. </p><p> Auto Scaling metrics collection can be turned on only if the <code>InstanceMonitoring</code> flag, in the Auto Scaling group's launch configuration, is set to <code>True</code>. </p>
+ <p>Enables monitoring of the specified metrics for the specified Auto Scaling group.</p><p>You can only enable metrics collection if <code>InstanceMonitoring</code> in the launch configuration for the group is set to <code>True</code>.</p>
  
  @param request A container for the necessary parameters to execute the EnableMetricsCollection service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingEnableMetricsCollectionQuery
  */
 - (AWSTask *)enableMetricsCollection:(AWSAutoScalingEnableMetricsCollectionQuery *)request;
 
 /**
- <p> Enables monitoring of group metrics for the Auto Scaling group specified in <code>AutoScalingGroupName</code>. You can specify the list of enabled metrics with the <code>Metrics</code> parameter. </p><p> Auto Scaling metrics collection can be turned on only if the <code>InstanceMonitoring</code> flag, in the Auto Scaling group's launch configuration, is set to <code>True</code>. </p>
+ <p>Enables monitoring of the specified metrics for the specified Auto Scaling group.</p><p>You can only enable metrics collection if <code>InstanceMonitoring</code> in the launch configuration for the group is set to <code>True</code>.</p>
  
  @param request A container for the necessary parameters to execute the EnableMetricsCollection service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingEnableMetricsCollectionQuery
  */
 - (void)enableMetricsCollection:(AWSAutoScalingEnableMetricsCollectionQuery *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p> Move instances in an Auto Scaling group into a Standby mode. </p><p>To learn more about how to put instances into a Standby mode, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html">Auto Scaling InService State</a>.</p>
+ <p>Moves the specified instances into <code>Standby</code> mode.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html">Auto Scaling Lifecycle</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the EnterStandby service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingEnterStandbyAnswer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingEnterStandbyAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingEnterStandbyQuery
  @see AWSAutoScalingEnterStandbyAnswer
@@ -923,12 +1073,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingEnterStandbyAnswer *> *)enterStandby:(AWSAutoScalingEnterStandbyQuery *)request;
 
 /**
- <p> Move instances in an Auto Scaling group into a Standby mode. </p><p>To learn more about how to put instances into a Standby mode, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html">Auto Scaling InService State</a>.</p>
+ <p>Moves the specified instances into <code>Standby</code> mode.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html">Auto Scaling Lifecycle</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the EnterStandby service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingEnterStandbyQuery
  @see AWSAutoScalingEnterStandbyAnswer
@@ -936,33 +1086,33 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)enterStandby:(AWSAutoScalingEnterStandbyQuery *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingEnterStandbyAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Executes the specified policy. </p>
+ <p>Executes the specified policy.</p>
  
  @param request A container for the necessary parameters to execute the ExecutePolicy service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingExecutePolicyType
  */
 - (AWSTask *)executePolicy:(AWSAutoScalingExecutePolicyType *)request;
 
 /**
- <p>Executes the specified policy. </p>
+ <p>Executes the specified policy.</p>
  
  @param request A container for the necessary parameters to execute the ExecutePolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingExecutePolicyType
  */
 - (void)executePolicy:(AWSAutoScalingExecutePolicyType *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p> Move an instance out of Standby mode. </p><p>To learn more about how to put instances that are in a Standby mode back into service, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html">Auto Scaling InService State</a>.</p>
+ <p>Moves the specified instances out of <code>Standby</code> mode.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html">Auto Scaling Lifecycle</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ExitStandby service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingExitStandbyAnswer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingExitStandbyAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingExitStandbyQuery
  @see AWSAutoScalingExitStandbyAnswer
@@ -970,12 +1120,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingExitStandbyAnswer *> *)exitStandby:(AWSAutoScalingExitStandbyQuery *)request;
 
 /**
- <p> Move an instance out of Standby mode. </p><p>To learn more about how to put instances that are in a Standby mode back into service, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html">Auto Scaling InService State</a>.</p>
+ <p>Moves the specified instances out of <code>Standby</code> mode.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html">Auto Scaling Lifecycle</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ExitStandby service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingExitStandbyQuery
  @see AWSAutoScalingExitStandbyAnswer
@@ -983,11 +1133,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)exitStandby:(AWSAutoScalingExitStandbyQuery *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingExitStandbyAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates or updates a lifecycle hook for an Auto Scaling Group.</p><p>A lifecycle hook tells Auto Scaling that you want to perform an action on an instance that is not actively in service; for example, either when the instance launches or before the instance terminates.</p><p> This operation is a part of the basic sequence for adding a lifecycle hook to an Auto Scaling group: </p><ol><li> Create a notification target. A target can be either an Amazon SQS queue or an Amazon SNS topic. </li><li> Create an IAM role. This role allows Auto Scaling to publish lifecycle notifications to the designated SQS queue or SNS topic. </li><li><b>Create the lifecycle hook. You can create a hook that acts when instances launch or when instances terminate.</b></li><li> If necessary, record the lifecycle action heartbeat to keep the instance in a pending state. </li><li> Complete the lifecycle action. </li></ol><p>To learn more, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html">Auto Scaling Pending State</a> and <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html">Auto Scaling Terminating State</a>.</p>
+ <p>Creates or updates a lifecycle hook for the specified Auto Scaling Group.</p><p>A lifecycle hook tells Auto Scaling that you want to perform an action on an instance that is not actively in service; for example, either when the instance launches or before the instance terminates.</p><p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:</p><ol><li>(Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when Auto Scaling launches or terminates instances.</li><li>(Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Auto Scaling to publish lifecycle notifications to the target.</li><li><b>Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.</b></li><li>If you need more time, record the lifecycle action heartbeat to keep the instance in a pending state.</li><li>If you finish before the timeout period ends, complete the lifecycle action.</li></ol><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html">Auto Scaling Lifecycle</a> in the <i>Auto Scaling Developer Guide</i>.</p><p>If you exceed your maximum limit of lifecycle hooks, which by default is 50 per region, the call fails. For information about updating this limit, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Limits</a> in the <i>Amazon Web Services General Reference</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutLifecycleHook service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingPutLifecycleHookAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingPutLifecycleHookAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingPutLifecycleHookType
  @see AWSAutoScalingPutLifecycleHookAnswer
@@ -995,12 +1145,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingPutLifecycleHookAnswer *> *)putLifecycleHook:(AWSAutoScalingPutLifecycleHookType *)request;
 
 /**
- <p>Creates or updates a lifecycle hook for an Auto Scaling Group.</p><p>A lifecycle hook tells Auto Scaling that you want to perform an action on an instance that is not actively in service; for example, either when the instance launches or before the instance terminates.</p><p> This operation is a part of the basic sequence for adding a lifecycle hook to an Auto Scaling group: </p><ol><li> Create a notification target. A target can be either an Amazon SQS queue or an Amazon SNS topic. </li><li> Create an IAM role. This role allows Auto Scaling to publish lifecycle notifications to the designated SQS queue or SNS topic. </li><li><b>Create the lifecycle hook. You can create a hook that acts when instances launch or when instances terminate.</b></li><li> If necessary, record the lifecycle action heartbeat to keep the instance in a pending state. </li><li> Complete the lifecycle action. </li></ol><p>To learn more, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html">Auto Scaling Pending State</a> and <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html">Auto Scaling Terminating State</a>.</p>
+ <p>Creates or updates a lifecycle hook for the specified Auto Scaling Group.</p><p>A lifecycle hook tells Auto Scaling that you want to perform an action on an instance that is not actively in service; for example, either when the instance launches or before the instance terminates.</p><p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:</p><ol><li>(Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when Auto Scaling launches or terminates instances.</li><li>(Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Auto Scaling to publish lifecycle notifications to the target.</li><li><b>Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.</b></li><li>If you need more time, record the lifecycle action heartbeat to keep the instance in a pending state.</li><li>If you finish before the timeout period ends, complete the lifecycle action.</li></ol><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html">Auto Scaling Lifecycle</a> in the <i>Auto Scaling Developer Guide</i>.</p><p>If you exceed your maximum limit of lifecycle hooks, which by default is 50 per region, the call fails. For information about updating this limit, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Limits</a> in the <i>Amazon Web Services General Reference</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutLifecycleHook service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingPutLifecycleHookType
  @see AWSAutoScalingPutLifecycleHookAnswer
@@ -1008,33 +1158,33 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putLifecycleHook:(AWSAutoScalingPutLifecycleHookType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingPutLifecycleHookAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Configures an Auto Scaling group to send notifications when specified events take place. Subscribers to this topic can have messages for events delivered to an endpoint such as a web server or email address. </p><p>For more information see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASGettingNotifications.html">Get Email Notifications When Your Auto Scaling Group Changes</a></p><p>A new <code>PutNotificationConfiguration</code> overwrites an existing configuration. </p>
+ <p> Configures an Auto Scaling group to send notifications when specified events take place. Subscribers to this topic can have messages for events delivered to an endpoint such as a web server or email address. </p><p>For more information see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASGettingNotifications.html">Getting Notifications When Your Auto Scaling Group Changes</a> in the <i>Auto Scaling Developer Guide</i>.</p><p>This configuration overwrites an existing configuration.</p>
  
  @param request A container for the necessary parameters to execute the PutNotificationConfiguration service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingPutNotificationConfigurationType
  */
 - (AWSTask *)putNotificationConfiguration:(AWSAutoScalingPutNotificationConfigurationType *)request;
 
 /**
- <p> Configures an Auto Scaling group to send notifications when specified events take place. Subscribers to this topic can have messages for events delivered to an endpoint such as a web server or email address. </p><p>For more information see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASGettingNotifications.html">Get Email Notifications When Your Auto Scaling Group Changes</a></p><p>A new <code>PutNotificationConfiguration</code> overwrites an existing configuration. </p>
+ <p> Configures an Auto Scaling group to send notifications when specified events take place. Subscribers to this topic can have messages for events delivered to an endpoint such as a web server or email address. </p><p>For more information see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASGettingNotifications.html">Getting Notifications When Your Auto Scaling Group Changes</a> in the <i>Auto Scaling Developer Guide</i>.</p><p>This configuration overwrites an existing configuration.</p>
  
  @param request A container for the necessary parameters to execute the PutNotificationConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingPutNotificationConfigurationType
  */
 - (void)putNotificationConfiguration:(AWSAutoScalingPutNotificationConfigurationType *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p> Creates or updates a policy for an Auto Scaling group. To update an existing policy, use the existing policy name and set the parameter(s) you want to change. Any existing parameter not changed in an update to an existing policy is not changed in this update request. </p>
+ <p>Creates or updates a policy for an Auto Scaling group. To update an existing policy, use the existing policy name and set the parameters you want to change. Any existing parameter not changed in an update to an existing policy is not changed in this update request.</p><p>If you exceed your maximum limit of step adjustments, which by default is 20 per region, the call fails. For information about updating this limit, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Limits</a> in the <i>Amazon Web Services General Reference</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutScalingPolicy service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingPolicyARNType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingPolicyARNType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingPutScalingPolicyType
  @see AWSAutoScalingPolicyARNType
@@ -1042,12 +1192,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingPolicyARNType *> *)putScalingPolicy:(AWSAutoScalingPutScalingPolicyType *)request;
 
 /**
- <p> Creates or updates a policy for an Auto Scaling group. To update an existing policy, use the existing policy name and set the parameter(s) you want to change. Any existing parameter not changed in an update to an existing policy is not changed in this update request. </p>
+ <p>Creates or updates a policy for an Auto Scaling group. To update an existing policy, use the existing policy name and set the parameters you want to change. Any existing parameter not changed in an update to an existing policy is not changed in this update request.</p><p>If you exceed your maximum limit of step adjustments, which by default is 20 per region, the call fails. For information about updating this limit, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Limits</a> in the <i>Amazon Web Services General Reference</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutScalingPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingPutScalingPolicyType
  @see AWSAutoScalingPolicyARNType
@@ -1055,33 +1205,33 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putScalingPolicy:(AWSAutoScalingPutScalingPolicyType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingPolicyARNType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Creates or updates a scheduled scaling action for an Auto Scaling group. When updating a scheduled scaling action, if you leave a parameter unspecified, the corresponding value remains unchanged in the affected Auto Scaling group. </p><p>For information on creating or updating a scheduled action for your Auto Scaling group, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html">Scale Based on a Schedule</a>.</p><note><p>Auto Scaling supports the date and time expressed in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only.</p></note>
+ <p> Creates or updates a scheduled scaling action for an Auto Scaling group. When updating a scheduled scaling action, if you leave a parameter unspecified, the corresponding value remains unchanged in the affected Auto Scaling group. </p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html">Scheduled Scaling</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutScheduledUpdateGroupAction service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingPutScheduledUpdateGroupActionType
  */
 - (AWSTask *)putScheduledUpdateGroupAction:(AWSAutoScalingPutScheduledUpdateGroupActionType *)request;
 
 /**
- <p> Creates or updates a scheduled scaling action for an Auto Scaling group. When updating a scheduled scaling action, if you leave a parameter unspecified, the corresponding value remains unchanged in the affected Auto Scaling group. </p><p>For information on creating or updating a scheduled action for your Auto Scaling group, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html">Scale Based on a Schedule</a>.</p><note><p>Auto Scaling supports the date and time expressed in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only.</p></note>
+ <p> Creates or updates a scheduled scaling action for an Auto Scaling group. When updating a scheduled scaling action, if you leave a parameter unspecified, the corresponding value remains unchanged in the affected Auto Scaling group. </p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html">Scheduled Scaling</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutScheduledUpdateGroupAction service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorLimitExceeded`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorAlreadyExists`, `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingPutScheduledUpdateGroupActionType
  */
 - (void)putScheduledUpdateGroupAction:(AWSAutoScalingPutScheduledUpdateGroupActionType *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p> Records a heartbeat for the lifecycle action associated with a specific token. This extends the timeout by the length of time defined by the <code>HeartbeatTimeout</code> parameter of the <a>PutLifecycleHook</a> operation. </p><p> This operation is a part of the basic sequence for adding a lifecycle hook to an Auto Scaling group: </p><ol><li> Create a notification target. A target can be either an Amazon SQS queue or an Amazon SNS topic. </li><li> Create an IAM role. This role allows Auto Scaling to publish lifecycle notifications to the designated SQS queue or SNS topic. </li><li> Create the lifecycle hook. You can create a hook that acts when instances launch or when instances terminate. </li><li><b>If necessary, record the lifecycle action heartbeat to keep the instance in a pending state.</b></li><li> Complete the lifecycle action. </li></ol><p>To learn more, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html">Auto Scaling Pending State</a> and <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html">Auto Scaling Terminating State</a>.</p>
+ <p>Records a heartbeat for the lifecycle action associated with the specified token or instance. This extends the timeout by the length of time defined using <a>PutLifecycleHook</a>.</p><p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:</p><ol><li>(Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when Auto Scaling launches or terminates instances.</li><li>(Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Auto Scaling to publish lifecycle notifications to the target.</li><li>Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.</li><li><b>If you need more time, record the lifecycle action heartbeat to keep the instance in a pending state.</b></li><li>If you finish before the timeout period ends, complete the lifecycle action.</li></ol><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html">Auto Scaling Lifecycle</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the RecordLifecycleActionHeartbeat service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingRecordLifecycleActionHeartbeatAnswer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingRecordLifecycleActionHeartbeatAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingRecordLifecycleActionHeartbeatType
  @see AWSAutoScalingRecordLifecycleActionHeartbeatAnswer
@@ -1089,12 +1239,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingRecordLifecycleActionHeartbeatAnswer *> *)recordLifecycleActionHeartbeat:(AWSAutoScalingRecordLifecycleActionHeartbeatType *)request;
 
 /**
- <p> Records a heartbeat for the lifecycle action associated with a specific token. This extends the timeout by the length of time defined by the <code>HeartbeatTimeout</code> parameter of the <a>PutLifecycleHook</a> operation. </p><p> This operation is a part of the basic sequence for adding a lifecycle hook to an Auto Scaling group: </p><ol><li> Create a notification target. A target can be either an Amazon SQS queue or an Amazon SNS topic. </li><li> Create an IAM role. This role allows Auto Scaling to publish lifecycle notifications to the designated SQS queue or SNS topic. </li><li> Create the lifecycle hook. You can create a hook that acts when instances launch or when instances terminate. </li><li><b>If necessary, record the lifecycle action heartbeat to keep the instance in a pending state.</b></li><li> Complete the lifecycle action. </li></ol><p>To learn more, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html">Auto Scaling Pending State</a> and <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html">Auto Scaling Terminating State</a>.</p>
+ <p>Records a heartbeat for the lifecycle action associated with the specified token or instance. This extends the timeout by the length of time defined using <a>PutLifecycleHook</a>.</p><p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:</p><ol><li>(Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when Auto Scaling launches or terminates instances.</li><li>(Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Auto Scaling to publish lifecycle notifications to the target.</li><li>Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.</li><li><b>If you need more time, record the lifecycle action heartbeat to keep the instance in a pending state.</b></li><li>If you finish before the timeout period ends, complete the lifecycle action.</li></ol><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html">Auto Scaling Lifecycle</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the RecordLifecycleActionHeartbeat service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingRecordLifecycleActionHeartbeatType
  @see AWSAutoScalingRecordLifecycleActionHeartbeatAnswer
@@ -1102,99 +1252,124 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)recordLifecycleActionHeartbeat:(AWSAutoScalingRecordLifecycleActionHeartbeatType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingRecordLifecycleActionHeartbeatAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Resumes all suspended Auto Scaling processes for an Auto Scaling group. For information on suspending and resuming Auto Scaling process, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html">Suspend and Resume Auto Scaling Process</a>. </p>
+ <p>Resumes the specified suspended Auto Scaling processes, or all suspended process, for the specified Auto Scaling group.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html">Suspending and Resuming Auto Scaling Processes</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ResumeProcesses service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceInUse`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingScalingProcessQuery
  */
 - (AWSTask *)resumeProcesses:(AWSAutoScalingScalingProcessQuery *)request;
 
 /**
- <p> Resumes all suspended Auto Scaling processes for an Auto Scaling group. For information on suspending and resuming Auto Scaling process, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html">Suspend and Resume Auto Scaling Process</a>. </p>
+ <p>Resumes the specified suspended Auto Scaling processes, or all suspended process, for the specified Auto Scaling group.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html">Suspending and Resuming Auto Scaling Processes</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ResumeProcesses service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceInUse`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingScalingProcessQuery
  */
 - (void)resumeProcesses:(AWSAutoScalingScalingProcessQuery *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p> Sets the desired size of the specified <a>AutoScalingGroup</a>. </p>
+ <p>Sets the size of the specified Auto Scaling group.</p><p>For more information about desired capacity, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.html">What Is Auto Scaling?</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the SetDesiredCapacity service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingSetDesiredCapacityType
  */
 - (AWSTask *)setDesiredCapacity:(AWSAutoScalingSetDesiredCapacityType *)request;
 
 /**
- <p> Sets the desired size of the specified <a>AutoScalingGroup</a>. </p>
+ <p>Sets the size of the specified Auto Scaling group.</p><p>For more information about desired capacity, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.html">What Is Auto Scaling?</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the SetDesiredCapacity service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingSetDesiredCapacityType
  */
 - (void)setDesiredCapacity:(AWSAutoScalingSetDesiredCapacityType *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p> Sets the health status of a specified instance that belongs to any of your Auto Scaling groups. </p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-configure-healthcheck.html">Configure Health Checks for Your Auto Scaling group</a>.</p>
+ <p>Sets the health status of the specified instance.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html">Health Checks</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the SetInstanceHealth service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingSetInstanceHealthQuery
  */
 - (AWSTask *)setInstanceHealth:(AWSAutoScalingSetInstanceHealthQuery *)request;
 
 /**
- <p> Sets the health status of a specified instance that belongs to any of your Auto Scaling groups. </p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-configure-healthcheck.html">Configure Health Checks for Your Auto Scaling group</a>.</p>
+ <p>Sets the health status of the specified instance.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html">Health Checks</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the SetInstanceHealth service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingSetInstanceHealthQuery
  */
 - (void)setInstanceHealth:(AWSAutoScalingSetInstanceHealthQuery *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p> Suspends Auto Scaling processes for an Auto Scaling group. To suspend specific process types, specify them by name with the <code>ScalingProcesses.member.N</code> parameter. To suspend all process types, omit the <code>ScalingProcesses.member.N</code> parameter. </p><important><p> Suspending either of the two primary process types, <code>Launch</code> or <code>Terminate</code>, can prevent other process types from functioning properly. </p></important><p> To resume processes that have been suspended, use <a>ResumeProcesses</a> For more information on suspending and resuming Auto Scaling process, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html">Suspend and Resume Auto Scaling Process</a>. </p>
+ <p>Updates the instance protection settings of the specified instances.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html#instance-protection">Instance Protection</a> in the <i>Auto Scaling Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the SetInstanceProtection service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingSetInstanceProtectionAnswer`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorResourceContention`.
+ 
+ @see AWSAutoScalingSetInstanceProtectionQuery
+ @see AWSAutoScalingSetInstanceProtectionAnswer
+ */
+- (AWSTask<AWSAutoScalingSetInstanceProtectionAnswer *> *)setInstanceProtection:(AWSAutoScalingSetInstanceProtectionQuery *)request;
+
+/**
+ <p>Updates the instance protection settings of the specified instances.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html#instance-protection">Instance Protection</a> in the <i>Auto Scaling Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the SetInstanceProtection service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorLimitExceeded`, `AWSAutoScalingErrorResourceContention`.
+ 
+ @see AWSAutoScalingSetInstanceProtectionQuery
+ @see AWSAutoScalingSetInstanceProtectionAnswer
+ */
+- (void)setInstanceProtection:(AWSAutoScalingSetInstanceProtectionQuery *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingSetInstanceProtectionAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Suspends the specified Auto Scaling processes, or all processes, for the specified Auto Scaling group.</p><p>Note that if you suspend either the <code>Launch</code> or <code>Terminate</code> process types, it can prevent other process types from functioning properly.</p><p>To resume processes that have been suspended, use <a>ResumeProcesses</a>.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html">Suspending and Resuming Auto Scaling Processes</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the SuspendProcesses service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceInUse`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingScalingProcessQuery
  */
 - (AWSTask *)suspendProcesses:(AWSAutoScalingScalingProcessQuery *)request;
 
 /**
- <p> Suspends Auto Scaling processes for an Auto Scaling group. To suspend specific process types, specify them by name with the <code>ScalingProcesses.member.N</code> parameter. To suspend all process types, omit the <code>ScalingProcesses.member.N</code> parameter. </p><important><p> Suspending either of the two primary process types, <code>Launch</code> or <code>Terminate</code>, can prevent other process types from functioning properly. </p></important><p> To resume processes that have been suspended, use <a>ResumeProcesses</a> For more information on suspending and resuming Auto Scaling process, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html">Suspend and Resume Auto Scaling Process</a>. </p>
+ <p>Suspends the specified Auto Scaling processes, or all processes, for the specified Auto Scaling group.</p><p>Note that if you suspend either the <code>Launch</code> or <code>Terminate</code> process types, it can prevent other process types from functioning properly.</p><p>To resume processes that have been suspended, use <a>ResumeProcesses</a>.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html">Suspending and Resuming Auto Scaling Processes</a> in the <i>Auto Scaling Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the SuspendProcesses service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceInUse`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingScalingProcessQuery
  */
 - (void)suspendProcesses:(AWSAutoScalingScalingProcessQuery *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p> Terminates the specified instance. Optionally, the desired group size can be adjusted. </p><note> This call simply registers a termination request. The termination of the instance cannot happen immediately. </note>
+ <p>Terminates the specified instance and optionally adjusts the desired group size.</p><p>This call simply makes a termination request. The instance is not terminated immediately.</p>
  
  @param request A container for the necessary parameters to execute the TerminateInstanceInAutoScalingGroup service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingActivityType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingActivityType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingTerminateInstanceInAutoScalingGroupType
  @see AWSAutoScalingActivityType
@@ -1202,12 +1377,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSAutoScalingActivityType *> *)terminateInstanceInAutoScalingGroup:(AWSAutoScalingTerminateInstanceInAutoScalingGroupType *)request;
 
 /**
- <p> Terminates the specified instance. Optionally, the desired group size can be adjusted. </p><note> This call simply registers a termination request. The termination of the instance cannot happen immediately. </note>
+ <p>Terminates the specified instance and optionally adjusts the desired group size.</p><p>This call simply makes a termination request. The instance is not terminated immediately.</p>
  
  @param request A container for the necessary parameters to execute the TerminateInstanceInAutoScalingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingTerminateInstanceInAutoScalingGroupType
  @see AWSAutoScalingActivityType
@@ -1215,22 +1390,22 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)terminateInstanceInAutoScalingGroup:(AWSAutoScalingTerminateInstanceInAutoScalingGroupType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingActivityType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Updates the configuration for the specified <a>AutoScalingGroup</a>. </p><note><p> To update an Auto Scaling group with a launch configuration that has the <code>InstanceMonitoring</code> flag set to <code>False</code>, you must first ensure that collection of group metrics is disabled. Otherwise, calls to <a>UpdateAutoScalingGroup</a> will fail. If you have previously enabled group metrics collection, you can disable collection of all group metrics by calling <a>DisableMetricsCollection</a>. </p></note><p> The new settings are registered upon the completion of this call. Any launch configuration settings take effect on any triggers after this call returns. Scaling activities that are currently in progress aren't affected. </p><note><ul><li><p>If a new value is specified for <i>MinSize</i> without specifying the value for <i>DesiredCapacity</i>, and if the new <i>MinSize</i> is larger than the current size of the Auto Scaling Group, there will be an implicit call to <a>SetDesiredCapacity</a> to set the group to the new <i>MinSize</i>. </p></li><li><p>If a new value is specified for <i>MaxSize</i> without specifying the value for <i>DesiredCapacity</i>, and the new <i>MaxSize</i> is smaller than the current size of the Auto Scaling Group, there will be an implicit call to <a>SetDesiredCapacity</a> to set the group to the new <i>MaxSize</i>. </p></li><li><p>All other optional parameters are left unchanged if not passed in the request.</p></li></ul></note>
+ <p>Updates the configuration for the specified Auto Scaling group.</p><p>To update an Auto Scaling group with a launch configuration with <code>InstanceMonitoring</code> set to <code>False</code>, you must first disable the collection of group metrics. Otherwise, you will get an error. If you have previously enabled the collection of group metrics, you can disable it using <a>DisableMetricsCollection</a>.</p><p>The new settings are registered upon the completion of this call. Any launch configuration settings take effect on any triggers after this call returns. Scaling activities that are currently in progress aren't affected.</p><p>Note the following:</p><ul><li><p>If you specify a new value for <code>MinSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MinSize</code> is larger than the current size of the group, we implicitly call <a>SetDesiredCapacity</a> to set the size of the group to the new value of <code>MinSize</code>.</p></li><li><p>If you specify a new value for <code>MaxSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MaxSize</code> is smaller than the current size of the group, we implicitly call <a>SetDesiredCapacity</a> to set the size of the group to the new value of <code>MaxSize</code>.</p></li><li><p>All other optional parameters are left unchanged if not specified.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the UpdateAutoScalingGroup service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingUpdateAutoScalingGroupType
  */
 - (AWSTask *)updateAutoScalingGroup:(AWSAutoScalingUpdateAutoScalingGroupType *)request;
 
 /**
- <p> Updates the configuration for the specified <a>AutoScalingGroup</a>. </p><note><p> To update an Auto Scaling group with a launch configuration that has the <code>InstanceMonitoring</code> flag set to <code>False</code>, you must first ensure that collection of group metrics is disabled. Otherwise, calls to <a>UpdateAutoScalingGroup</a> will fail. If you have previously enabled group metrics collection, you can disable collection of all group metrics by calling <a>DisableMetricsCollection</a>. </p></note><p> The new settings are registered upon the completion of this call. Any launch configuration settings take effect on any triggers after this call returns. Scaling activities that are currently in progress aren't affected. </p><note><ul><li><p>If a new value is specified for <i>MinSize</i> without specifying the value for <i>DesiredCapacity</i>, and if the new <i>MinSize</i> is larger than the current size of the Auto Scaling Group, there will be an implicit call to <a>SetDesiredCapacity</a> to set the group to the new <i>MinSize</i>. </p></li><li><p>If a new value is specified for <i>MaxSize</i> without specifying the value for <i>DesiredCapacity</i>, and the new <i>MaxSize</i> is smaller than the current size of the Auto Scaling Group, there will be an implicit call to <a>SetDesiredCapacity</a> to set the group to the new <i>MaxSize</i>. </p></li><li><p>All other optional parameters are left unchanged if not passed in the request.</p></li></ul></note>
+ <p>Updates the configuration for the specified Auto Scaling group.</p><p>To update an Auto Scaling group with a launch configuration with <code>InstanceMonitoring</code> set to <code>False</code>, you must first disable the collection of group metrics. Otherwise, you will get an error. If you have previously enabled the collection of group metrics, you can disable it using <a>DisableMetricsCollection</a>.</p><p>The new settings are registered upon the completion of this call. Any launch configuration settings take effect on any triggers after this call returns. Scaling activities that are currently in progress aren't affected.</p><p>Note the following:</p><ul><li><p>If you specify a new value for <code>MinSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MinSize</code> is larger than the current size of the group, we implicitly call <a>SetDesiredCapacity</a> to set the size of the group to the new value of <code>MinSize</code>.</p></li><li><p>If you specify a new value for <code>MaxSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MaxSize</code> is smaller than the current size of the group, we implicitly call <a>SetDesiredCapacity</a> to set the size of the group to the new value of <code>MaxSize</code>.</p></li><li><p>All other optional parameters are left unchanged if not specified.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the UpdateAutoScalingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorScalingActivityInProgress`, `AWSAutoScalingErrorResourceContention`.
  
  @see AWSAutoScalingUpdateAutoScalingGroupType
  */

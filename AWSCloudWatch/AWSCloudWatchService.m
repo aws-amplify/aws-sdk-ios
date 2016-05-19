@@ -27,7 +27,7 @@
 #import "AWSCloudWatchResources.h"
 
 static NSString *const AWSInfoCloudWatch = @"CloudWatch";
-static NSString *const AWSCloudWatchSDKVersion = @"2.4.1";
+static NSString *const AWSCloudWatchSDKVersion = @"2.4.2";
 
 @interface AWSCloudWatchResponseSerializer : AWSXMLResponseSerializer
 
@@ -132,8 +132,6 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSCloudWatch
 
-static AWSSynchronizedMutableDictionary *_serviceClients = nil;
-
 + (void)initialize {
     [super initialize];
 
@@ -143,6 +141,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                      userInfo:nil];
     }
 }
+
+#pragma mark - Setup
+
+static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultCloudWatch {
     static AWSCloudWatch *_defaultCloudWatch = nil;
@@ -209,6 +211,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                  userInfo:nil];
     return nil;
 }
+
+#pragma mark -
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
@@ -550,7 +554,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     completionHandler:(void (^)(NSError *error))completionHandler {
     [[self setAlarmState:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-        
+
         if (task.exception) {
             AWSLogError(@"Fatal exception: [%@]", task.exception);
             kill(getpid(), SIGKILL);
@@ -563,5 +567,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         return nil;
     }];
 }
+
+#pragma mark -
 
 @end

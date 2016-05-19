@@ -17,7 +17,7 @@
 
 @implementation TestConnectivity
 
-@synthesize isConnected, hasWifi, hasWAN;
+@synthesize isConnected, hasWifi, hasWANOnly;
 
 -(id) initWithConnected:(BOOL)connected hasWifi:(BOOL)wifi hasWAN:(BOOL)wan
 {
@@ -25,7 +25,7 @@
     if (self) {
         self.isConnected = connected;
         self.hasWifi = wifi;
-        self.hasWAN = wan;
+        self.hasWANOnly = wan;
     }
     return self;
 }

@@ -1,5 +1,37 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.4.2
+### New Features  
+* **SDK Core**
+    * Added a new init method for the Cognito Identity credentials provider.
+    * Added full support for IPv6.
+* **Amazon S3**
+    * Added `requestHeaders` to `AWSS3PreSignedURLBuilder` and `AWSS3TransferUtility`. Now you can specify the headers to sign for pre-signed URLs.        
+* **AWS IoT**
+    * Added MQTT device shadow APIs to `AWSIoTDataManager` 
+    * Added support in `AWSIoTDataManager` for message callbacks with mqtt client and topic parameters
+* **All services**
+    * Updated all of the low-level clients with the latest models.
+
+### Resolved Issues
+* **SDK Core**
+    * Fixed `AWSCore.podspec` for the extobjc conflict.
+    * Fixed the enhanced flow switch in the Cognito Identity credentials provider.
+* **Amazon Cognito User Pools**
+    * Fixed [issue](https://forums.aws.amazon.com/thread.jspa?threadID=230694&tstart=0) with sign-in in locales other than English not working.
+    * Fixed [issue](https://github.com/aws/aws-sdk-ios/issues/373) with sign-in using aliases.
+    * [Added ability to determine whether a user is signed in and clearing last known user](https://github.com/aws/aws-sdk-ios/issues/370).
+    * Fixed [issue](https://github.com/aws/aws-sdk-ios/issues/383) causing user pool delegate to not be released 
+* **Amazon Cognito Sync**
+    * Serialize calls to synchronize and discard duplicate synchronize requests to prevent ResourceConflicts when syncing from one device.
+    * Fixed issue with identity id being preserved when database was cleared.
+    * [Correctly set datasets’s lastModified and creationDate](https://github.com/aws/aws-sdk-ios/issues/246).
+* **Amazon Kinesis**
+    * Fixed the threading issue in the Kinesis Recorder.
+* **Amazon S3**
+    * Fixed the response serialization issue when the response content type is HTML.
+    
+
 ## 2.4.1
 
 ### New Features

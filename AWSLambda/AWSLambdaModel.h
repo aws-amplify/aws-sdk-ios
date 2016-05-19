@@ -64,6 +64,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaLogType) {
 typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimeUnknown,
     AWSLambdaRuntimeNodejs,
+    AWSLambdaRuntimeNodejs43,
     AWSLambdaRuntimeJava8,
     AWSLambdaRuntimePython27,
 };
@@ -119,6 +120,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
  <p>The AWS Lambda action you want to allow in this statement. Each Lambda action is a string starting with <code>lambda:</code> followed by the API name (see <a>Operations</a>). For example, <code>lambda:CreateFunction</code>. You can use wildcard (<code>lambda:*</code>) to grant permission for all AWS Lambda actions. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable action;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable eventSourceToken;
 
 /**
  <p>Name of the Lambda function whose resource policy you are updating by adding a new permission.</p><p> You can specify a function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>). AWS Lambda also allows you to specify partial ARN (for example, <code>account-id:Thumbnail</code>). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length. </p>
@@ -1080,6 +1086,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
  <p>The Amazon Resource Name (ARN) of the IAM role that Lambda will assume when it executes your function. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable role;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSLambdaRuntime runtime;
 
 /**
  <p>The function execution time at which AWS Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds. </p>

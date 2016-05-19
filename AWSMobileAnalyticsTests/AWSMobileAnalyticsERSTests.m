@@ -19,7 +19,7 @@
 #import <XCTest/XCTest.h>
 #import "AWSCore.h"
 #import "AWSTestUtility.h"
-#import "AWSMobileAnalyticsERS.h"
+#import "AWSMobileAnalyticsERSService.h"
 
 @interface AWSMobileAnalyticsERSTests : XCTestCase
 

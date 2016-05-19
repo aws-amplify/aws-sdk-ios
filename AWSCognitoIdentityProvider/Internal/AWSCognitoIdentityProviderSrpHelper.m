@@ -209,10 +209,10 @@ AWSJKBigInteger* finalizeSignedBigIntHash(CC_SHA256_CTX *ctx);
 
     CCHmacContext ctx;
     CCHmacInit(&ctx, kCCHmacAlgSHA256, self.authenticationKey.bytes, self.authenticationKey.length);
-    CCHmacUpdate(&ctx, self.serverState.poolName.UTF8String, self.serverState.poolName.length);
-    CCHmacUpdate(&ctx, self.clientState.userName.UTF8String, self.clientState.userName.length);
+    CCHmacUpdate(&ctx, self.serverState.poolName.UTF8String, (CC_LONG)[self.serverState.poolName lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
+    CCHmacUpdate(&ctx, self.clientState.userName.UTF8String, (CC_LONG)[self.clientState.userName lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
     CCHmacUpdate(&ctx, self.serverState.serviceSecretBlock.bytes, self.serverState.serviceSecretBlock.length);
-    CCHmacUpdate(&ctx, dateStr.UTF8String, dateStr.length);
+    CCHmacUpdate(&ctx, dateStr.UTF8String, (CC_LONG)[dateStr lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
     CCHmacFinal(&ctx, hashOutput.mutableBytes);
 
     return [NSData dataWithData:hashOutput];
@@ -264,6 +264,7 @@ AWSJKBigInteger* finalizeSignedBigIntHash(CC_SHA256_CTX *ctx);
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.timeZone = timeZone;
     dateFormatter.dateFormat = @"EEE MMM d HH:mm:ss 'UTC' yyyy";
+    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
     return [dateFormatter stringFromDate:date];
 }
 

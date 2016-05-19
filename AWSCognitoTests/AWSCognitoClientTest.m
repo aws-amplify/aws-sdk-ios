@@ -154,11 +154,63 @@ Method _mockMethod;
     [manager putRecord:record datasetName:datasetName error:nil];
 }
 
+static AWSCognitoDataset* synchronizeAlreadyInProgressDataset = nil;
+
+- (void)testSynchronizeAlreadyInProgress {
+synchronizeAlreadyInProgressDataset = [[AWSCognito defaultCognito] openOrCreateDataset:@"simultaneous"];
+[synchronizeAlreadyInProgressDataset setString:@"on" forKey:@"wifi"];
+    __block int errors = 0;
+    NSMutableArray * tasks = [NSMutableArray new];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"SimultaneousSynchronize"];
+    for(int i=0; i<3; i++){
+        [tasks addObject:[[synchronizeAlreadyInProgressDataset synchronize] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            if(task.error){
+                XCTAssert(task.error.code == AWSCognitoErrorSyncAlreadyPending, @"Expected error code to be AWSCognitoErrorSyncAlreadyPending was: %ld", task.error.code);
+                errors++;
+            }else {
+                for(AWSCognitoRecord * record in [synchronizeAlreadyInProgressDataset getAllRecords]){
+                    //ensure there are no dirty records after sync.
+                    if(record.isDirty == YES){
+                        XCTFail(@"Dirty record after sync: %@", record.recordId);
+                    }
+                    if(record.syncCount != 1){
+                        XCTFail(@"Records should have only been updated once");
+                    }
+                }
+            }
+            return task;
+        }]];
+    }
+    [[AWSTask taskForCompletionOfAllTasks:tasks] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        [expectation fulfill];
+        return task;
+    }];
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if (error) {
+            XCTFail(@"Timeout Error: %@", error);
+        }
+    }];
+    XCTAssertTrue(errors<2, @"Only max of one sync should have errored out");
+}
 
 - (void)testSynchronize {
+    NSDate *now = [NSDate date];
     AWSCognitoDataset* dataset = [[AWSCognito defaultCognito] openOrCreateDataset:@"mydataset"];
     [dataset setString:@"on" forKey:@"wifi"];
-    [[dataset synchronize] waitUntilFinished];
+    XCTAssertTrue([now compare:dataset.lastModifiedDate] != NSOrderedDescending, @"Dataset Date: %@, Should be >= %@",dataset.lastModifiedDate, now);
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Synchronize"];
+    [[dataset synchronize] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        if(task.error){
+            XCTFail(@"%@",task.error);
+        }
+        [expectation fulfill];
+        return task;
+    }];
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if (error) {
+            XCTFail(@"Timeout Error: %@", error);
+        }
+    }];
     for(AWSCognitoRecord * record in [dataset getAllRecords]){
         //ensure there are no dirty records after sync.
         if(record.isDirty == YES){
@@ -173,7 +225,21 @@ Method _mockMethod;
 - (void)testSynchronizeOnConnectivity {
     AWSCognitoDataset* dataset = [[AWSCognito defaultCognito] openOrCreateDataset:@"testSyncOnConnect"];
     [dataset setString:@"on" forKey:@"wifi"];
-    [[dataset synchronizeOnConnectivity] waitUntilFinished];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"SynchronizeOnConnectivity"];
+    [[dataset synchronizeOnConnectivity] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        if(task.error){
+            XCTFail(@"%@",task.error);
+        }
+        [expectation fulfill];
+        return task;
+    }];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if (error) {
+            XCTFail(@"Timeout Error: %@", error);
+        }
+    }];
+    
     for(AWSCognitoRecord * record in [dataset getAllRecords]){
         //ensure there are no dirty records after sync.
         if(record.isDirty == YES){

@@ -70,9 +70,9 @@
     _connectivity.hasWifi = hasWifi;
 }
 
-- (void)setHasWAN:(BOOL)hasWAN
+- (void)setHasWAN:(BOOL)hasWANOnly
 {
-    _connectivity.hasWAN = hasWAN;
+    _connectivity.hasWANOnly = hasWANOnly;
 }
 
 

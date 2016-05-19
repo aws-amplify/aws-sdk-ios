@@ -27,7 +27,7 @@
 #import "AWSFirehoseResources.h"
 
 static NSString *const AWSInfoFirehose = @"Firehose";
-static NSString *const AWSFirehoseSDKVersion = @"2.4.1";
+static NSString *const AWSFirehoseSDKVersion = @"2.4.2";
 
 @interface AWSFirehoseResponseSerializer : AWSJSONResponseSerializer
 
@@ -151,8 +151,6 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSFirehose
 
-static AWSSynchronizedMutableDictionary *_serviceClients = nil;
-
 + (void)initialize {
     [super initialize];
 
@@ -162,6 +160,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                      userInfo:nil];
     }
 }
+
+#pragma mark - Setup
+
+static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultFirehose {
     static AWSFirehose *_defaultFirehose = nil;
@@ -228,6 +230,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                  userInfo:nil];
     return nil;
 }
+
+#pragma mark -
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
@@ -481,5 +485,7 @@ completionHandler:(void (^)(AWSFirehosePutRecordOutput *response, NSError *error
         return nil;
     }];
 }
+
+#pragma mark -
 
 @end

@@ -20,7 +20,7 @@
 
 @property(nonatomic) BOOL isConnected;
 @property(nonatomic) BOOL hasWifi;
-@property(nonatomic) BOOL hasWAN;
+@property(nonatomic) BOOL hasWANOnly;
 
 -(id) initWithConnected:(BOOL)isConnected hasWifi:(BOOL)hasWifi hasWAN:(BOOL)hasWAN;
 

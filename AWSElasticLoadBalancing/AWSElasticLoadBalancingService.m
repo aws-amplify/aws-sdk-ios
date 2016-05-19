@@ -27,7 +27,7 @@
 #import "AWSElasticLoadBalancingResources.h"
 
 static NSString *const AWSInfoElasticLoadBalancing = @"ElasticLoadBalancing";
-static NSString *const AWSElasticLoadBalancingSDKVersion = @"2.4.1";
+static NSString *const AWSElasticLoadBalancingSDKVersion = @"2.4.2";
 
 @interface AWSElasticLoadBalancingResponseSerializer : AWSXMLResponseSerializer
 
@@ -42,10 +42,12 @@ static NSDictionary *errorCodeDictionary = nil;
     errorCodeDictionary = @{
                             @"LoadBalancerNotFound" : @(AWSElasticLoadBalancingErrorAccessPointNotFound),
                             @"CertificateNotFound" : @(AWSElasticLoadBalancingErrorCertificateNotFound),
+                            @"DependencyThrottle" : @(AWSElasticLoadBalancingErrorDependencyThrottle),
                             @"DuplicateLoadBalancerName" : @(AWSElasticLoadBalancingErrorDuplicateAccessPointName),
                             @"DuplicateListener" : @(AWSElasticLoadBalancingErrorDuplicateListener),
                             @"DuplicatePolicyName" : @(AWSElasticLoadBalancingErrorDuplicatePolicyName),
                             @"DuplicateTagKeys" : @(AWSElasticLoadBalancingErrorDuplicateTagKeys),
+                            @"InsufficientCapacity" : @(AWSElasticLoadBalancingErrorInsufficientCapacity),
                             @"InvalidConfigurationRequest" : @(AWSElasticLoadBalancingErrorInvalidConfigurationRequest),
                             @"InvalidInstance" : @(AWSElasticLoadBalancingErrorInvalidEndPoint),
                             @"InvalidScheme" : @(AWSElasticLoadBalancingErrorInvalidScheme),
@@ -53,12 +55,15 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidSubnet" : @(AWSElasticLoadBalancingErrorInvalidSubnet),
                             @"ListenerNotFound" : @(AWSElasticLoadBalancingErrorListenerNotFound),
                             @"LoadBalancerAttributeNotFound" : @(AWSElasticLoadBalancingErrorLoadBalancerAttributeNotFound),
+                            @"MinimumLBCapacityUnitsDecreaseThrottling" : @(AWSElasticLoadBalancingErrorMinimumLBCapacityUnitsDecreaseThrottling),
+                            @"MinimumLBCapacityUnitsLimitExceeded" : @(AWSElasticLoadBalancingErrorMinimumLBCapacityUnitsLimitExceeded),
                             @"PolicyNotFound" : @(AWSElasticLoadBalancingErrorPolicyNotFound),
                             @"PolicyTypeNotFound" : @(AWSElasticLoadBalancingErrorPolicyTypeNotFound),
                             @"SubnetNotFound" : @(AWSElasticLoadBalancingErrorSubnetNotFound),
                             @"TooManyLoadBalancers" : @(AWSElasticLoadBalancingErrorTooManyAccessPoints),
                             @"TooManyPolicies" : @(AWSElasticLoadBalancingErrorTooManyPolicies),
                             @"TooManyTags" : @(AWSElasticLoadBalancingErrorTooManyTags),
+                            @"UnsupportedProtocol" : @(AWSElasticLoadBalancingErrorUnsupportedProtocol),
                             };
 }
 
@@ -142,8 +147,6 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSElasticLoadBalancing
 
-static AWSSynchronizedMutableDictionary *_serviceClients = nil;
-
 + (void)initialize {
     [super initialize];
 
@@ -153,6 +156,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                      userInfo:nil];
     }
 }
+
+#pragma mark - Setup
+
+static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultElasticLoadBalancing {
     static AWSElasticLoadBalancing *_defaultElasticLoadBalancing = nil;
@@ -219,6 +226,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                  userInfo:nil];
     return nil;
 }
+
+#pragma mark -
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
@@ -776,6 +785,34 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
     }];
 }
 
+- (AWSTask<AWSElasticLoadBalancingDescribeProvisionedCapacityOutput *> *)describeProvisionedCapacity:(AWSElasticLoadBalancingDescribeProvisionedCapacityInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeProvisionedCapacity"
+                   outputClass:[AWSElasticLoadBalancingDescribeProvisionedCapacityOutput class]];
+}
+
+- (void)describeProvisionedCapacity:(AWSElasticLoadBalancingDescribeProvisionedCapacityInput *)request
+                  completionHandler:(void (^)(AWSElasticLoadBalancingDescribeProvisionedCapacityOutput *response, NSError *error))completionHandler {
+    [[self describeProvisionedCapacity:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeProvisionedCapacityOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingDescribeProvisionedCapacityOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSElasticLoadBalancingDescribeTagsOutput *> *)describeTags:(AWSElasticLoadBalancingDescribeTagsInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -901,6 +938,34 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
                    completionHandler:(void (^)(AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput *response, NSError *error))completionHandler {
     [[self modifyLoadBalancerAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSElasticLoadBalancingModifyProvisionedCapacityOutput *> *)modifyProvisionedCapacity:(AWSElasticLoadBalancingModifyProvisionedCapacityInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyProvisionedCapacity"
+                   outputClass:[AWSElasticLoadBalancingModifyProvisionedCapacityOutput class]];
+}
+
+- (void)modifyProvisionedCapacity:(AWSElasticLoadBalancingModifyProvisionedCapacityInput *)request
+                completionHandler:(void (^)(AWSElasticLoadBalancingModifyProvisionedCapacityOutput *response, NSError *error))completionHandler {
+    [[self modifyProvisionedCapacity:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingModifyProvisionedCapacityOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingModifyProvisionedCapacityOutput *result = task.result;
         NSError *error = task.error;
 
         if (task.exception) {
@@ -1055,5 +1120,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
         return nil;
     }];
 }
+
+#pragma mark -
 
 @end

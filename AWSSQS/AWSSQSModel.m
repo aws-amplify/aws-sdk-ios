@@ -329,6 +329,16 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 
 @end
 
+@implementation AWSSQSPurgeQueueRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"queueUrl" : @"QueueUrl",
+             };
+}
+
+@end
+
 @implementation AWSSQSReceiveMessageRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {

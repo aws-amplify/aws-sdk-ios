@@ -32,6 +32,7 @@ typedef NS_ENUM(NSInteger, AWSSQSErrorType) {
     AWSSQSErrorInvalidMessageContents,
     AWSSQSErrorMessageNotInflight,
     AWSSQSErrorOverLimit,
+    AWSSQSErrorPurgeQueueInProgress,
     AWSSQSErrorQueueDeletedRecently,
     AWSSQSErrorQueueDoesNotExist,
     AWSSQSErrorQueueNameExists,
@@ -82,6 +83,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @class AWSSQSListQueuesResult;
 @class AWSSQSMessage;
 @class AWSSQSMessageAttributeValue;
+@class AWSSQSPurgeQueueRequest;
 @class AWSSQSReceiveMessageRequest;
 @class AWSSQSReceiveMessageResult;
 @class AWSSQSRemovePermissionRequest;
@@ -94,7 +96,8 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @class AWSSQSSetQueueAttributesRequest;
 
 /**
- 
+ <p/>
+ Required parameters: [QueueUrl, Label, AWSAccountIds, Actions]
  */
 @interface AWSSQSAddPermissionRequest : AWSRequest
 
@@ -115,7 +118,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSString * _Nullable label;
 
 /**
- <p>The URL of the Amazon SQS queue to take action on.</p>
+ <p>The URL of the Amazon SQS queue to take action on.</p><p>Queue URLs are case-sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueUrl;
 
@@ -151,7 +154,8 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @end
 
 /**
- 
+ <p/>
+ Required parameters: [QueueUrl, Entries]
  */
 @interface AWSSQSChangeMessageVisibilityBatchRequest : AWSRequest
 
@@ -162,14 +166,14 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSArray<AWSSQSChangeMessageVisibilityBatchRequestEntry *> * _Nullable entries;
 
 /**
- <p>The URL of the Amazon SQS queue to take action on.</p>
+ <p>The URL of the Amazon SQS queue to take action on.</p><p>Queue URLs are case-sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueUrl;
 
 @end
 
 /**
- <p>Encloses a receipt handle and an entry id for each message in <a>ChangeMessageVisibilityBatch</a>. </p><important><p>All of the following parameters are list parameters that must be prefixed with <code>ChangeMessageVisibilityBatchRequestEntry.n</code>, where <code>n</code> is an integer value starting with 1. For example, a parameter list for this action might look like this:</p></important><p><code>&amp;ChangeMessageVisibilityBatchRequestEntry.1.Id=change_visibility_msg_2</code></p><p><code>&amp;ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=<replaceable>Your_Receipt_Handle</replaceable></code></p><p><code>&amp;ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=45</code></p>
+ <p>Encloses a receipt handle and an entry id for each message in <a>ChangeMessageVisibilityBatch</a>. </p><important><p>All of the following parameters are list parameters that must be prefixed with <code>ChangeMessageVisibilityBatchRequestEntry.n</code>, where <code>n</code> is an integer value starting with 1. For example, a parameter list for this action might look like this:</p></important><p><code><![CDATA[&amp;ChangeMessageVisibilityBatchRequestEntry.1.Id=change_visibility_msg_2]]></code></p><p><code><![CDATA[&amp;ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=<replaceable>Your_Receipt_Handle</replaceable>]]></code></p><p><code><![CDATA[&amp;ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=45]]></code></p>
  Required parameters: [Id, ReceiptHandle]
  */
 @interface AWSSQSChangeMessageVisibilityBatchRequestEntry : AWSModel
@@ -232,7 +236,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 
 /**
- <p>The URL of the Amazon SQS queue to take action on.</p>
+ <p>The URL of the Amazon SQS queue to take action on.</p><p>Queue URLs are case-sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueUrl;
 
@@ -249,18 +253,19 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @end
 
 /**
- 
+ <p/>
+ Required parameters: [QueueName]
  */
 @interface AWSSQSCreateQueueRequest : AWSRequest
 
 
 /**
- <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters the <code>CreateQueue</code> action uses:</p><p><ul><li><code>DelaySeconds</code> - The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 (zero).</li><li><code>MaximumMessageSize</code> - The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).</li><li><code>MessageRetentionPeriod</code> - The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).</li><li><code>Policy</code> - The queue's policy. A valid form-url-encoded policy. For more information about policy structure, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html">Basic Policy Structure</a> in the <i>Amazon SQS Developer Guide</i>. For more information about form-url-encoding, see <a href="http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1">http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1</a>.</li><li><code>ReceiveMessageWaitTimeSeconds</code> - The time for which a <a>ReceiveMessage</a> call will wait for a message to arrive. An integer from 0 to 20 (seconds). The default for this attribute is 0. </li><li><code>VisibilityTimeout</code> - The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</li></ul></p>
+ <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters the <code>CreateQueue</code> action uses:</p><ul><li><p><code>DelaySeconds</code> - The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 (zero).</p></li><li><p><code>MaximumMessageSize</code> - The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).</p></li><li><p><code>MessageRetentionPeriod</code> - The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).</p></li><li><p><code>Policy</code> - The queue's policy. A valid AWS policy. For more information about policy structure, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html">Overview of AWS IAM Policies</a> in the <i>Amazon IAM User Guide</i>.</p></li><li><p><code>ReceiveMessageWaitTimeSeconds</code> - The time for which a <a>ReceiveMessage</a> call will wait for a message to arrive. An integer from 0 to 20 (seconds). The default for this attribute is 0.</p></li><li><p><code>RedrivePolicy</code> - The parameters for dead letter queue functionality of the source queue. For more information about RedrivePolicy and dead letter queues, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html">Using Amazon SQS Dead Letter Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p></li><li><p><code>VisibilityTimeout</code> - The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</p></li></ul><p>Any other valid special request parameters that are specified (such as <code>ApproximateNumberOfMessages</code>, <code>ApproximateNumberOfMessagesDelayed</code>, <code>ApproximateNumberOfMessagesNotVisible</code>, <code>CreatedTimestamp</code>, <code>LastModifiedTimestamp</code>, and <code>QueueArn</code>) will be ignored.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
 /**
- <p>The name for the queue to be created.</p>
+ <p>The name for the queue to be created.</p><p>Queue names are case-sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueName;
 
@@ -280,7 +285,8 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @end
 
 /**
- 
+ <p/>
+ Required parameters: [QueueUrl, Entries]
  */
 @interface AWSSQSDeleteMessageBatchRequest : AWSRequest
 
@@ -291,7 +297,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSArray<AWSSQSDeleteMessageBatchRequestEntry *> * _Nullable entries;
 
 /**
- <p>The URL of the Amazon SQS queue to take action on.</p>
+ <p>The URL of the Amazon SQS queue to take action on.</p><p>Queue URLs are case-sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueUrl;
 
@@ -350,13 +356,14 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @end
 
 /**
- 
+ <p/>
+ Required parameters: [QueueUrl, ReceiptHandle]
  */
 @interface AWSSQSDeleteMessageRequest : AWSRequest
 
 
 /**
- <p>The URL of the Amazon SQS queue to take action on.</p>
+ <p>The URL of the Amazon SQS queue to take action on.</p><p>Queue URLs are case-sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueUrl;
 
@@ -368,38 +375,40 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @end
 
 /**
- 
+ <p/>
+ Required parameters: [QueueUrl]
  */
 @interface AWSSQSDeleteQueueRequest : AWSRequest
 
 
 /**
- <p>The URL of the Amazon SQS queue to take action on.</p>
+ <p>The URL of the Amazon SQS queue to take action on.</p><p>Queue URLs are case-sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueUrl;
 
 @end
 
 /**
- 
+ <p/>
+ Required parameters: [QueueUrl]
  */
 @interface AWSSQSGetQueueAttributesRequest : AWSRequest
 
 
 /**
- <p>A list of attributes to retrieve information for. </p>
+ <p>A list of attributes to retrieve information for. The following attributes are supported:</p><ul><li><p><code>All</code> - returns all values.</p></li><li><p><code>ApproximateNumberOfMessages</code> - returns the approximate number of visible messages in a queue. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ApproximateNumber.html">Resources Required to Process Messages</a> in the <i>Amazon SQS Developer Guide</i>.</p></li><li><p><code>ApproximateNumberOfMessagesNotVisible</code> - returns the approximate number of messages that are not timed-out and not deleted. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ApproximateNumber.html">Resources Required to Process Messages</a> in the <i>Amazon SQS Developer Guide</i>.</p></li><li><p><code>VisibilityTimeout</code> - returns the visibility timeout for the queue. For more information about visibility timeout, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</p></li><li><p><code>CreatedTimestamp</code> - returns the time when the queue was created (epoch time in seconds).</p></li><li><p><code>LastModifiedTimestamp</code> - returns the time when the queue was last changed (epoch time in seconds).</p></li><li><p><code>Policy</code> - returns the queue's policy.</p></li><li><p><code>MaximumMessageSize</code> - returns the limit of how many bytes a message can contain before Amazon SQS rejects it.</p></li><li><p><code>MessageRetentionPeriod</code> - returns the number of seconds Amazon SQS retains a message.</p></li><li><p><code>QueueArn</code> - returns the queue's Amazon resource name (ARN).</p></li><li><p><code>ApproximateNumberOfMessagesDelayed</code> - returns the approximate number of messages that are pending to be added to the queue.</p></li><li><p><code>DelaySeconds</code> - returns the default delay on the queue in seconds.</p></li><li><p><code>ReceiveMessageWaitTimeSeconds</code> - returns the time for which a ReceiveMessage call will wait for a message to arrive.</p></li><li><p><code>RedrivePolicy</code> - returns the parameters for dead letter queue functionality of the source queue. For more information about RedrivePolicy and dead letter queues, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html">Using Amazon SQS Dead Letter Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p></li></ul><note><p>Going forward, new attributes might be added. If you are writing code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.</p></note>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable attributeNames;
 
 /**
- <p>The URL of the Amazon SQS queue to take action on.</p>
+ <p>The URL of the Amazon SQS queue to take action on.</p><p>Queue URLs are case-sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueUrl;
 
 @end
 
 /**
- A list of returned queue attributes.
+ <p>A list of returned queue attributes.</p>
  */
 @interface AWSSQSGetQueueAttributesResult : AWSModel
 
@@ -412,13 +421,14 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @end
 
 /**
- 
+ <p/>
+ Required parameters: [QueueName]
  */
 @interface AWSSQSGetQueueUrlRequest : AWSRequest
 
 
 /**
- <p>The name of the queue whose URL must be fetched. Maximum 80 characters; alphanumeric characters, hyphens (-), and underscores (_) are allowed.</p>
+ <p>The name of the queue whose URL must be fetched. Maximum 80 characters; alphanumeric characters, hyphens (-), and underscores (_) are allowed.</p><p>Queue names are case-sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueName;
 
@@ -443,47 +453,48 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @end
 
 /**
- 
+ <p/>
+ Required parameters: [QueueUrl]
  */
 @interface AWSSQSListDeadLetterSourceQueuesRequest : AWSRequest
 
 
 /**
- The queue URL of a dead letter queue.
+ <p>The queue URL of a dead letter queue.</p><p>Queue URLs are case-sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueUrl;
 
 @end
 
 /**
- A list of your dead letter source queues.
+ <p>A list of your dead letter source queues.</p>
  Required parameters: [queueUrls]
  */
 @interface AWSSQSListDeadLetterSourceQueuesResult : AWSModel
 
 
 /**
- A list of source queue URLs that have the RedrivePolicy queue attribute configured with a dead letter queue.
+ <p>A list of source queue URLs that have the RedrivePolicy queue attribute configured with a dead letter queue.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable queueUrls;
 
 @end
 
 /**
- 
+ <p/>
  */
 @interface AWSSQSListQueuesRequest : AWSRequest
 
 
 /**
- <p>A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.</p>
+ <p>A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.</p><p>Queue names are case-sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueNamePrefix;
 
 @end
 
 /**
- A list of your queues.
+ <p>A list of your queues.</p>
  */
 @interface AWSSQSListQueuesResult : AWSModel
 
@@ -556,7 +567,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSData * _Nullable binaryValue;
 
 /**
- <p>Amazon SQS supports the following logical data types: String, Number, and Binary. In addition, you can append your own custom labels. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributes.DataTypes">Message Attribute Data Types</a>.</p>
+ <p>Amazon SQS supports the following logical data types: String, Number, and Binary. For the Number data type, you must use StringValue.</p><p>You can also append custom labels. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributes.DataTypes">Message Attribute Data Types</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dataType;
 
@@ -573,13 +584,28 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @end
 
 /**
- 
+ <p/>
+ Required parameters: [QueueUrl]
+ */
+@interface AWSSQSPurgeQueueRequest : AWSRequest
+
+
+/**
+ <p>The queue URL of the queue to delete the messages from when using the <code>PurgeQueue</code> API.</p><p>Queue URLs are case-sensitive.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueUrl;
+
+@end
+
+/**
+ <p/>
+ Required parameters: [QueueUrl]
  */
 @interface AWSSQSReceiveMessageRequest : AWSRequest
 
 
 /**
- <p>A list of attributes that need to be returned along with each message. </p><p> The following lists the names and descriptions of the attributes that can be returned: </p><ul><li><code>All</code> - returns all values.</li><li><code>ApproximateFirstReceiveTimestamp</code> - returns the time when the message was first received (epoch time in milliseconds).</li><li><code>ApproximateReceiveCount</code> - returns the number of times a message has been received but not deleted.</li><li><code>SenderId</code> - returns the AWS account number (or the IP address, if anonymous access is allowed) of the sender.</li><li><code>SentTimestamp</code> - returns the time when the message was sent (epoch time in milliseconds).</li></ul>
+ <p>A list of attributes that need to be returned along with each message. These attributes include:</p><ul><li><p><code>All</code> - returns all values.</p></li><li><p><code>ApproximateFirstReceiveTimestamp</code> - returns the time when the message was first received from the queue (epoch time in milliseconds).</p></li><li><p><code>ApproximateReceiveCount</code> - returns the number of times a message has been received from the queue but not deleted.</p></li><li><p><code>SenderId</code> - returns the AWS account number (or the IP address, if anonymous access is allowed) of the sender.</p></li><li><p><code>SentTimestamp</code> - returns the time when the message was sent to the queue (epoch time in milliseconds).</p></li></ul><p>Any other valid special request parameters that are specified (such as <code>ApproximateNumberOfMessages</code>, <code>ApproximateNumberOfMessagesDelayed</code>, <code>ApproximateNumberOfMessagesNotVisible</code>, <code>CreatedTimestamp</code>, <code>DelaySeconds</code>, <code>LastModifiedTimestamp</code>, <code>MaximumMessageSize</code>, <code>MessageRetentionPeriod</code>, <code>Policy</code>, <code>QueueArn</code>, <code>ReceiveMessageWaitTimeSeconds</code>, <code>RedrivePolicy</code>, and <code>VisibilityTimeout</code>) will be ignored.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable attributeNames;
 
@@ -589,12 +615,12 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSNumber * _Nullable maxNumberOfMessages;
 
 /**
- <p>The message attribute Name can contain the following characters: A-Z, a-z, 0-9, underscore(_), hyphen(-), and period (.). The message attribute name must not start or end with a period, and it should not have successive periods. The message attribute name is case sensitive and must be unique among all attribute names for the message. The message attribute name can be up to 256 characters long. Attribute names cannot start with "AWS." or "Amazon." because these prefixes are reserved for use by Amazon Web Services.</p>
+ <p>The name of the message attribute, where <i>N</i> is the index. The message attribute name can contain the following characters: A-Z, a-z, 0-9, underscore (_), hyphen (-), and period (.). The name must not start or end with a period, and it should not have successive periods. The name is case sensitive and must be unique among all attribute names for the message. The name can be up to 256 characters long. The name cannot start with "AWS." or "Amazon." (or any variations in casing), because these prefixes are reserved for use by Amazon Web Services.</p><p>When using <code>ReceiveMessage</code>, you can send a list of attribute names to receive, or you can return all of the attributes by specifying "All" or ".*" in your request. You can also use "bar.*" to return all message attributes starting with the "bar" prefix.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable messageAttributeNames;
 
 /**
- <p>The URL of the Amazon SQS queue to take action on.</p>
+ <p>The URL of the Amazon SQS queue to take action on.</p><p>Queue URLs are case-sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueUrl;
 
@@ -611,7 +637,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @end
 
 /**
- A list of received messages.
+ <p>A list of received messages.</p>
  */
 @interface AWSSQSReceiveMessageResult : AWSModel
 
@@ -624,7 +650,8 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @end
 
 /**
- 
+ <p/>
+ Required parameters: [QueueUrl, Label]
  */
 @interface AWSSQSRemovePermissionRequest : AWSRequest
 
@@ -635,14 +662,15 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSString * _Nullable label;
 
 /**
- <p>The URL of the Amazon SQS queue to take action on.</p>
+ <p>The URL of the Amazon SQS queue to take action on.</p><p>Queue URLs are case-sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueUrl;
 
 @end
 
 /**
- 
+ <p/>
+ Required parameters: [QueueUrl, Entries]
  */
 @interface AWSSQSSendMessageBatchRequest : AWSRequest
 
@@ -653,7 +681,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSArray<AWSSQSSendMessageBatchRequestEntry *> * _Nullable entries;
 
 /**
- <p>The URL of the Amazon SQS queue to take action on.</p>
+ <p>The URL of the Amazon SQS queue to take action on.</p><p>Queue URLs are case-sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueUrl;
 
@@ -737,7 +765,8 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @end
 
 /**
- 
+ <p/>
+ Required parameters: [QueueUrl, MessageBody]
  */
 @interface AWSSQSSendMessageRequest : AWSRequest
 
@@ -758,7 +787,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSString * _Nullable messageBody;
 
 /**
- <p>The URL of the Amazon SQS queue to take action on.</p>
+ <p>The URL of the Amazon SQS queue to take action on.</p><p>Queue URLs are case-sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueUrl;
 
@@ -788,18 +817,19 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @end
 
 /**
- 
+ <p/>
+ Required parameters: [QueueUrl, Attributes]
  */
 @interface AWSSQSSetQueueAttributesRequest : AWSRequest
 
 
 /**
- <p>A map of attributes to set.</p><p>The following lists the names, descriptions, and values of the special request parameters the <code>SetQueueAttributes</code> action uses:</p><p><ul><li><code>DelaySeconds</code> - The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 (zero).</li><li><code>MaximumMessageSize</code> - The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).</li><li><code>MessageRetentionPeriod</code> - The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).</li><li><code>Policy</code> - The queue's policy. A valid form-url-encoded policy. For more information about policy structure, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html">Basic Policy Structure</a> in the <i>Amazon SQS Developer Guide</i>. For more information about form-url-encoding, see <a href="http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1">http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1</a>.</li><li><code>ReceiveMessageWaitTimeSeconds</code> - The time for which a ReceiveMessage call will wait for a message to arrive. An integer from 0 to 20 (seconds). The default for this attribute is 0. </li><li><code>VisibilityTimeout</code> - The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see Visibility Timeout in the <i>Amazon SQS Developer Guide</i>.</li><li><code>RedrivePolicy</code> - The parameters for dead letter queue functionality of the source queue. For more information about RedrivePolicy and dead letter queues, see Using Amazon SQS Dead Letter Queues in the <i>Amazon SQS Developer Guide</i>.</li></ul></p>
+ <p>A map of attributes to set.</p><p>The following lists the names, descriptions, and values of the special request parameters the <code>SetQueueAttributes</code> action uses:</p><ul><li><p><code>DelaySeconds</code> - The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 (zero).</p></li><li><p><code>MaximumMessageSize</code> - The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).</p></li><li><p><code>MessageRetentionPeriod</code> - The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).</p></li><li><p><code>Policy</code> - The queue's policy. A valid AWS policy. For more information about policy structure, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html">Overview of AWS IAM Policies</a> in the <i>Amazon IAM User Guide</i>.</p></li><li><p><code>ReceiveMessageWaitTimeSeconds</code> - The time for which a ReceiveMessage call will wait for a message to arrive. An integer from 0 to 20 (seconds). The default for this attribute is 0.</p></li><li><p><code>VisibilityTimeout</code> - The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see Visibility Timeout in the <i>Amazon SQS Developer Guide</i>.</p></li><li><p><code>RedrivePolicy</code> - The parameters for dead letter queue functionality of the source queue. For more information about RedrivePolicy and dead letter queues, see Using Amazon SQS Dead Letter Queues in the <i>Amazon SQS Developer Guide</i>.</p></li></ul><p>Any other valid special request parameters that are specified (such as <code>ApproximateNumberOfMessages</code>, <code>ApproximateNumberOfMessagesDelayed</code>, <code>ApproximateNumberOfMessagesNotVisible</code>, <code>CreatedTimestamp</code>, <code>LastModifiedTimestamp</code>, and <code>QueueArn</code>) will be ignored.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
 /**
- <p>The URL of the Amazon SQS queue to take action on.</p>
+ <p>The URL of the Amazon SQS queue to take action on.</p><p>Queue URLs are case-sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueUrl;
 

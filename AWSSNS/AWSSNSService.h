@@ -194,6 +194,28 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addPermission:(AWSSNSAddPermissionInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ AddTagsToResource
+ 
+ @param request A container for the necessary parameters to execute the AddTagsToResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`, `AWSSNSErrorTaggingOperationFailed`.
+ 
+ @see AWSSNSAddTagsToResourceInput
+ */
+- (AWSTask *)addTagsToResource:(AWSSNSAddTagsToResourceInput *)request;
+
+/**
+ AddTagsToResource
+ 
+ @param request A container for the necessary parameters to execute the AddTagsToResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`, `AWSSNSErrorTaggingOperationFailed`.
+ 
+ @see AWSSNSAddTagsToResourceInput
+ */
+- (void)addTagsToResource:(AWSSNSAddTagsToResourceInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p>Verifies an endpoint owner's intent to receive messages by validating the token sent to the endpoint by an earlier <code>Subscribe</code> action. If the token is valid, the action creates a new subscription and returns its Amazon Resource Name (ARN). This call requires an AWS signature only when the <code>AuthenticateOnUnsubscribe</code> flag is set to "true".</p>
  
  @param request A container for the necessary parameters to execute the ConfirmSubscription service method.
@@ -219,7 +241,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)confirmSubscription:(AWSSNSConfirmSubscriptionInput *)request completionHandler:(void (^ _Nullable)(AWSSNSConfirmSubscriptionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a platform application object for one of the supported push notification services, such as APNS and GCM, to which devices and mobile apps may register. You must specify PlatformPrincipal and PlatformCredential attributes when using the <code>CreatePlatformApplication</code> action. The PlatformPrincipal is received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is "SSL certificate". For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is "client id". The PlatformCredential is also received from the notification service. For APNS/APNS_SANDBOX, PlatformCredential is "private key". For GCM, PlatformCredential is "API key". For ADM, PlatformCredential is "client secret". The PlatformApplicationArn that is returned when using <code>CreatePlatformApplication</code> is then used as an attribute for the <code>CreatePlatformEndpoint</code> action. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+ <p>Creates a platform application object for one of the supported push notification services, such as APNS and GCM, to which devices and mobile apps may register. You must specify PlatformPrincipal and PlatformCredential attributes when using the <code>CreatePlatformApplication</code> action. The PlatformPrincipal is received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is "SSL certificate". For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is "client id". The PlatformCredential is also received from the notification service. For WNS, PlatformPrincipal is "Package Security Identifier". For MPNS, PlatformPrincipal is "TLS certificate". For Baidu, PlatformPrincipal is "API key".</p><p>For APNS/APNS_SANDBOX, PlatformCredential is "private key". For GCM, PlatformCredential is "API key". For ADM, PlatformCredential is "client secret". For WNS, PlatformCredential is "secret key". For MPNS, PlatformCredential is "private key". For Baidu, PlatformCredential is "secret key". The PlatformApplicationArn that is returned when using <code>CreatePlatformApplication</code> is then used as an attribute for the <code>CreatePlatformEndpoint</code> action. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. For more information about obtaining the PlatformPrincipal and PlatformCredential for each of the supported push notification services, see <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html">Getting Started with Apple Push Notification Service</a>, <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-adm.html">Getting Started with Amazon Device Messaging</a>, <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-baidu.html">Getting Started with Baidu Cloud Push</a>, <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html">Getting Started with Google Cloud Messaging for Android</a>, <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-mpns.html">Getting Started with MPNS</a>, or <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-wns.html">Getting Started with WNS</a>. </p>
  
  @param request A container for the necessary parameters to execute the CreatePlatformApplication service method.
 
@@ -231,7 +253,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSNSCreatePlatformApplicationResponse *> *)createPlatformApplication:(AWSSNSCreatePlatformApplicationInput *)request;
 
 /**
- <p>Creates a platform application object for one of the supported push notification services, such as APNS and GCM, to which devices and mobile apps may register. You must specify PlatformPrincipal and PlatformCredential attributes when using the <code>CreatePlatformApplication</code> action. The PlatformPrincipal is received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is "SSL certificate". For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is "client id". The PlatformCredential is also received from the notification service. For APNS/APNS_SANDBOX, PlatformCredential is "private key". For GCM, PlatformCredential is "API key". For ADM, PlatformCredential is "client secret". The PlatformApplicationArn that is returned when using <code>CreatePlatformApplication</code> is then used as an attribute for the <code>CreatePlatformEndpoint</code> action. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+ <p>Creates a platform application object for one of the supported push notification services, such as APNS and GCM, to which devices and mobile apps may register. You must specify PlatformPrincipal and PlatformCredential attributes when using the <code>CreatePlatformApplication</code> action. The PlatformPrincipal is received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is "SSL certificate". For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is "client id". The PlatformCredential is also received from the notification service. For WNS, PlatformPrincipal is "Package Security Identifier". For MPNS, PlatformPrincipal is "TLS certificate". For Baidu, PlatformPrincipal is "API key".</p><p>For APNS/APNS_SANDBOX, PlatformCredential is "private key". For GCM, PlatformCredential is "API key". For ADM, PlatformCredential is "client secret". For WNS, PlatformCredential is "secret key". For MPNS, PlatformCredential is "private key". For Baidu, PlatformCredential is "secret key". The PlatformApplicationArn that is returned when using <code>CreatePlatformApplication</code> is then used as an attribute for the <code>CreatePlatformEndpoint</code> action. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. For more information about obtaining the PlatformPrincipal and PlatformCredential for each of the supported push notification services, see <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html">Getting Started with Apple Push Notification Service</a>, <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-adm.html">Getting Started with Amazon Device Messaging</a>, <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-baidu.html">Getting Started with Baidu Cloud Push</a>, <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html">Getting Started with Google Cloud Messaging for Android</a>, <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-mpns.html">Getting Started with MPNS</a>, or <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-wns.html">Getting Started with WNS</a>. </p>
  
  @param request A container for the necessary parameters to execute the CreatePlatformApplication service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -269,7 +291,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)createPlatformEndpoint:(AWSSNSCreatePlatformEndpointInput *)request completionHandler:(void (^ _Nullable)(AWSSNSCreateEndpointResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a topic to which notifications can be published. Users can create at most 3000 topics. For more information, see <a href="http://aws.amazon.com/sns/">http://aws.amazon.com/sns</a>. This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.</p>
+ <p>Creates a topic to which notifications can be published. Users can create at most 100,000 topics. For more information, see <a href="http://aws.amazon.com/sns/">http://aws.amazon.com/sns</a>. This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.</p>
  
  @param request A container for the necessary parameters to execute the CreateTopic service method.
 
@@ -281,7 +303,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSNSCreateTopicResponse *> *)createTopic:(AWSSNSCreateTopicInput *)request;
 
 /**
- <p>Creates a topic to which notifications can be published. Users can create at most 3000 topics. For more information, see <a href="http://aws.amazon.com/sns/">http://aws.amazon.com/sns</a>. This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.</p>
+ <p>Creates a topic to which notifications can be published. Users can create at most 100,000 topics. For more information, see <a href="http://aws.amazon.com/sns/">http://aws.amazon.com/sns</a>. This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.</p>
  
  @param request A container for the necessary parameters to execute the CreateTopic service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -294,7 +316,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)createTopic:(AWSSNSCreateTopicInput *)request completionHandler:(void (^ _Nullable)(AWSSNSCreateTopicResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the endpoint from Amazon SNS. This action is idempotent. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+ <p>Deletes the endpoint for a device and mobile app from Amazon SNS. This action is idempotent. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p><p>When you delete an endpoint that is also subscribed to a topic, then you must also unsubscribe the endpoint from the topic. </p>
  
  @param request A container for the necessary parameters to execute the DeleteEndpoint service method.
 
@@ -305,7 +327,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)deleteEndpoint:(AWSSNSDeleteEndpointInput *)request;
 
 /**
- <p>Deletes the endpoint from Amazon SNS. This action is idempotent. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+ <p>Deletes the endpoint for a device and mobile app from Amazon SNS. This action is idempotent. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p><p>When you delete an endpoint that is also subscribed to a topic, then you must also unsubscribe the endpoint from the topic. </p>
  
  @param request A container for the necessary parameters to execute the DeleteEndpoint service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -560,6 +582,31 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listSubscriptionsByTopic:(AWSSNSListSubscriptionsByTopicInput *)request completionHandler:(void (^ _Nullable)(AWSSNSListSubscriptionsByTopicResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ ListTagsForResource
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSListTagsForResourceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`, `AWSSNSErrorTaggingOperationFailed`.
+ 
+ @see AWSSNSListTagsForResourceInput
+ @see AWSSNSListTagsForResourceResponse
+ */
+- (AWSTask<AWSSNSListTagsForResourceResponse *> *)listTagsForResource:(AWSSNSListTagsForResourceInput *)request;
+
+/**
+ ListTagsForResource
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`, `AWSSNSErrorTaggingOperationFailed`.
+ 
+ @see AWSSNSListTagsForResourceInput
+ @see AWSSNSListTagsForResourceResponse
+ */
+- (void)listTagsForResource:(AWSSNSListTagsForResourceInput *)request completionHandler:(void (^ _Nullable)(AWSSNSListTagsForResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Returns a list of the requester's topics. Each call returns a limited list of topics, up to 100. If there are more topics, a <code>NextToken</code> is also returned. Use the <code>NextToken</code> parameter in a new <code>ListTopics</code> call to get further results.</p>
  
  @param request A container for the necessary parameters to execute the ListTopics service method.
@@ -585,7 +632,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listTopics:(AWSSNSListTopicsInput *)request completionHandler:(void (^ _Nullable)(AWSSNSListTopicsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sends a message to all of a topic's subscribed endpoints. When a <code>messageId</code> is returned, the message has been saved and Amazon SNS will attempt to deliver it to the topic's subscribers shortly. The format of the outgoing message to each subscribed endpoint depends on the notification protocol selected.</p><p>To use the <code>Publish</code> action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. The second example below shows a request and response for publishing to a mobile endpoint. </p>
+ <p>Sends a message to all of a topic's subscribed endpoints. When a <code>messageId</code> is returned, the message has been saved and Amazon SNS will attempt to deliver it to the topic's subscribers shortly. The format of the outgoing message to each subscribed endpoint depends on the notification protocol selected.</p><p>To use the <code>Publish</code> action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. The second example below shows a request and response for publishing to a mobile endpoint. </p><p>For more information about formatting messages, see <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
  
  @param request A container for the necessary parameters to execute the Publish service method.
 
@@ -597,7 +644,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSNSPublishResponse *> *)publish:(AWSSNSPublishInput *)request;
 
 /**
- <p>Sends a message to all of a topic's subscribed endpoints. When a <code>messageId</code> is returned, the message has been saved and Amazon SNS will attempt to deliver it to the topic's subscribers shortly. The format of the outgoing message to each subscribed endpoint depends on the notification protocol selected.</p><p>To use the <code>Publish</code> action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. The second example below shows a request and response for publishing to a mobile endpoint. </p>
+ <p>Sends a message to all of a topic's subscribed endpoints. When a <code>messageId</code> is returned, the message has been saved and Amazon SNS will attempt to deliver it to the topic's subscribers shortly. The format of the outgoing message to each subscribed endpoint depends on the notification protocol selected.</p><p>To use the <code>Publish</code> action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. The second example below shows a request and response for publishing to a mobile endpoint. </p><p>For more information about formatting messages, see <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
  
  @param request A container for the necessary parameters to execute the Publish service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -632,6 +679,28 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removePermission:(AWSSNSRemovePermissionInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ RemoveTagsFromResource
+ 
+ @param request A container for the necessary parameters to execute the RemoveTagsFromResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`, `AWSSNSErrorTaggingOperationFailed`.
+ 
+ @see AWSSNSRemoveTagsFromResourceInput
+ */
+- (AWSTask *)removeTagsFromResource:(AWSSNSRemoveTagsFromResourceInput *)request;
+
+/**
+ RemoveTagsFromResource
+ 
+ @param request A container for the necessary parameters to execute the RemoveTagsFromResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`, `AWSSNSErrorTaggingOperationFailed`.
+ 
+ @see AWSSNSRemoveTagsFromResourceInput
+ */
+- (void)removeTagsFromResource:(AWSSNSRemoveTagsFromResourceInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p>Sets the attributes for an endpoint for a device on one of the supported push notification services, such as GCM and APNS. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
  
  @param request A container for the necessary parameters to execute the SetEndpointAttributes service method.
@@ -654,7 +723,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setEndpointAttributes:(AWSSNSSetEndpointAttributesInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+ <p>Sets the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. For information on configuring attributes for message delivery status, see <a href="http://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html">Using Amazon SNS Application Attributes for Message Delivery Status</a>. </p>
  
  @param request A container for the necessary parameters to execute the SetPlatformApplicationAttributes service method.
 
@@ -665,7 +734,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)setPlatformApplicationAttributes:(AWSSNSSetPlatformApplicationAttributesInput *)request;
 
 /**
- <p>Sets the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+ <p>Sets the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. For information on configuring attributes for message delivery status, see <a href="http://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html">Using Amazon SNS Application Attributes for Message Delivery Status</a>. </p>
  
  @param request A container for the necessary parameters to execute the SetPlatformApplicationAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.

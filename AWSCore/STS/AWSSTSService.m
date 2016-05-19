@@ -46,6 +46,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidIdentityToken" : @(AWSSTSErrorInvalidIdentityToken),
                             @"MalformedPolicyDocument" : @(AWSSTSErrorMalformedPolicyDocument),
                             @"PackedPolicyTooLarge" : @(AWSSTSErrorPackedPolicyTooLarge),
+                            @"RegionDisabledException" : @(AWSSTSErrorRegionDisabled),
                             };
 }
 
@@ -129,6 +130,8 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSSTS
 
+#pragma mark - Setup
+
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultSTS {
@@ -196,6 +199,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                  userInfo:nil];
     return nil;
 }
+
+#pragma mark -
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
@@ -361,6 +366,34 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSSTSGetCallerIdentityResponse *> *)getCallerIdentity:(AWSSTSGetCallerIdentityRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetCallerIdentity"
+                   outputClass:[AWSSTSGetCallerIdentityResponse class]];
+}
+
+- (void)getCallerIdentity:(AWSSTSGetCallerIdentityRequest *)request
+        completionHandler:(void (^)(AWSSTSGetCallerIdentityResponse *response, NSError *error))completionHandler {
+    [[self getCallerIdentity:request] continueWithBlock:^id _Nullable(AWSTask<AWSSTSGetCallerIdentityResponse *> * _Nonnull task) {
+        AWSSTSGetCallerIdentityResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSSTSGetFederationTokenResponse *> *)getFederationToken:(AWSSTSGetFederationTokenRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -416,5 +449,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         return nil;
     }];
 }
+
+#pragma mark -
 
 @end

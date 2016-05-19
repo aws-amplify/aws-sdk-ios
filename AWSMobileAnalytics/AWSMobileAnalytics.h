@@ -32,4 +32,4 @@ FOUNDATION_EXPORT const unsigned char AWSMobileAnalyticsVersionString[];
 #import "AWSMobileAnalyticsAppleMonetizationEventBuilder.h"
 #import "AWSMobileAnalyticsVirtualMonetizationEventBuilder.h"
 
-#import "AWSMobileAnalyticsERS.h"
+#import "AWSMobileAnalyticsERSService.h"

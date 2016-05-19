@@ -68,6 +68,9 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
 
 + (NSValueTransformer *)statusCodeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"PendingSpotBidPlacement"]) {
+            return @(AWSAutoScalingScalingActivityStatusCodePendingSpotBidPlacement);
+        }
         if ([value isEqualToString:@"WaitingForSpotInstanceRequestId"]) {
             return @(AWSAutoScalingScalingActivityStatusCodeWaitingForSpotInstanceRequestId);
         }
@@ -89,6 +92,9 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
         if ([value isEqualToString:@"MidLifecycleAction"]) {
             return @(AWSAutoScalingScalingActivityStatusCodeMidLifecycleAction);
         }
+        if ([value isEqualToString:@"WaitingForInstanceWarmup"]) {
+            return @(AWSAutoScalingScalingActivityStatusCodeWaitingForInstanceWarmup);
+        }
         if ([value isEqualToString:@"Successful"]) {
             return @(AWSAutoScalingScalingActivityStatusCodeSuccessful);
         }
@@ -101,6 +107,8 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
         return @(AWSAutoScalingScalingActivityStatusCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
+            case AWSAutoScalingScalingActivityStatusCodePendingSpotBidPlacement:
+                return @"PendingSpotBidPlacement";
             case AWSAutoScalingScalingActivityStatusCodeWaitingForSpotInstanceRequestId:
                 return @"WaitingForSpotInstanceRequestId";
             case AWSAutoScalingScalingActivityStatusCodeWaitingForSpotInstanceId:
@@ -115,13 +123,14 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
                 return @"WaitingForELBConnectionDraining";
             case AWSAutoScalingScalingActivityStatusCodeMidLifecycleAction:
                 return @"MidLifecycleAction";
+            case AWSAutoScalingScalingActivityStatusCodeWaitingForInstanceWarmup:
+                return @"WaitingForInstanceWarmup";
             case AWSAutoScalingScalingActivityStatusCodeSuccessful:
                 return @"Successful";
             case AWSAutoScalingScalingActivityStatusCodeFailed:
                 return @"Failed";
             case AWSAutoScalingScalingActivityStatusCodeCancelled:
                 return @"Cancelled";
-            case AWSAutoScalingScalingActivityStatusCodeUnknown:
             default:
                 return nil;
         }
@@ -176,6 +185,36 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
 
 @end
 
+@implementation AWSAutoScalingAttachLoadBalancerTargetGroupsResultType
+
+@end
+
+@implementation AWSAutoScalingAttachLoadBalancerTargetGroupsType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoScalingGroupName" : @"AutoScalingGroupName",
+             @"targetGroupARNs" : @"TargetGroupARNs",
+             };
+}
+
+@end
+
+@implementation AWSAutoScalingAttachLoadBalancersResultType
+
+@end
+
+@implementation AWSAutoScalingAttachLoadBalancersType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoScalingGroupName" : @"AutoScalingGroupName",
+             @"loadBalancerNames" : @"LoadBalancerNames",
+             };
+}
+
+@end
+
 @implementation AWSAutoScalingAutoScalingGroup
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -190,6 +229,7 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
              @"healthCheckGracePeriod" : @"HealthCheckGracePeriod",
              @"healthCheckType" : @"HealthCheckType",
              @"instances" : @"Instances",
+             @"latestInstancesProtectedFromScaleIn" : @"NewInstancesProtectedFromScaleIn",
              @"launchConfigurationName" : @"LaunchConfigurationName",
              @"loadBalancerNames" : @"LoadBalancerNames",
              @"maxSize" : @"MaxSize",
@@ -198,6 +238,7 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
              @"status" : @"Status",
              @"suspendedProcesses" : @"SuspendedProcesses",
              @"tags" : @"Tags",
+             @"targetGroupARNs" : @"TargetGroupARNs",
              @"terminationPolicies" : @"TerminationPolicies",
              @"VPCZoneIdentifier" : @"VPCZoneIdentifier",
              };
@@ -266,6 +307,7 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
              @"instanceId" : @"InstanceId",
              @"launchConfigurationName" : @"LaunchConfigurationName",
              @"lifecycleState" : @"LifecycleState",
+             @"protectedFromScaleIn" : @"ProtectedFromScaleIn",
              };
 }
 
@@ -312,6 +354,7 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
+             @"instanceId" : @"InstanceId",
              @"lifecycleActionResult" : @"LifecycleActionResult",
              @"lifecycleActionToken" : @"LifecycleActionToken",
              @"lifecycleHookName" : @"LifecycleHookName",
@@ -331,12 +374,14 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
              @"healthCheckGracePeriod" : @"HealthCheckGracePeriod",
              @"healthCheckType" : @"HealthCheckType",
              @"instanceId" : @"InstanceId",
+             @"latestInstancesProtectedFromScaleIn" : @"NewInstancesProtectedFromScaleIn",
              @"launchConfigurationName" : @"LaunchConfigurationName",
              @"loadBalancerNames" : @"LoadBalancerNames",
              @"maxSize" : @"MaxSize",
              @"minSize" : @"MinSize",
              @"placementGroup" : @"PlacementGroup",
              @"tags" : @"Tags",
+             @"targetGroupARNs" : @"TargetGroupARNs",
              @"terminationPolicies" : @"TerminationPolicies",
              @"VPCZoneIdentifier" : @"VPCZoneIdentifier",
              };
@@ -354,6 +399,8 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
 	return @{
              @"associatePublicIpAddress" : @"AssociatePublicIpAddress",
              @"blockDeviceMappings" : @"BlockDeviceMappings",
+             @"classicLinkVPCId" : @"ClassicLinkVPCId",
+             @"classicLinkVPCSecurityGroups" : @"ClassicLinkVPCSecurityGroups",
              @"ebsOptimized" : @"EbsOptimized",
              @"iamInstanceProfile" : @"IamInstanceProfile",
              @"imageId" : @"ImageId",
@@ -474,6 +521,8 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
 	return @{
              @"maxNumberOfAutoScalingGroups" : @"MaxNumberOfAutoScalingGroups",
              @"maxNumberOfLaunchConfigurations" : @"MaxNumberOfLaunchConfigurations",
+             @"numberOfAutoScalingGroups" : @"NumberOfAutoScalingGroups",
+             @"numberOfLaunchConfigurations" : @"NumberOfLaunchConfigurations",
              };
 }
 
@@ -550,6 +599,60 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
 
 @end
 
+@implementation AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoScalingGroupName" : @"AutoScalingGroupName",
+             @"maxRecords" : @"MaxRecords",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"loadBalancerTargetGroups" : @"LoadBalancerTargetGroups",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)loadBalancerTargetGroupsJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingLoadBalancerTargetGroupState class]];
+}
+
+@end
+
+@implementation AWSAutoScalingDescribeLoadBalancersRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoScalingGroupName" : @"AutoScalingGroupName",
+             @"maxRecords" : @"MaxRecords",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSAutoScalingDescribeLoadBalancersResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"loadBalancers" : @"LoadBalancers",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)loadBalancersJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingLoadBalancerState class]];
+}
+
+@end
+
 @implementation AWSAutoScalingDescribeMetricCollectionTypesAnswer
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -604,6 +707,7 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
              @"maxRecords" : @"MaxRecords",
              @"nextToken" : @"NextToken",
              @"policyNames" : @"PolicyNames",
+             @"policyTypes" : @"PolicyTypes",
              };
 }
 
@@ -705,6 +809,36 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
 
 @end
 
+@implementation AWSAutoScalingDetachLoadBalancerTargetGroupsResultType
+
+@end
+
+@implementation AWSAutoScalingDetachLoadBalancerTargetGroupsType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoScalingGroupName" : @"AutoScalingGroupName",
+             @"targetGroupARNs" : @"TargetGroupARNs",
+             };
+}
+
+@end
+
+@implementation AWSAutoScalingDetachLoadBalancersResultType
+
+@end
+
+@implementation AWSAutoScalingDetachLoadBalancersType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoScalingGroupName" : @"AutoScalingGroupName",
+             @"loadBalancerNames" : @"LoadBalancerNames",
+             };
+}
+
+@end
+
 @implementation AWSAutoScalingDisableMetricsCollectionQuery
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -721,6 +855,7 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"deleteOnTermination" : @"DeleteOnTermination",
+             @"encrypted" : @"Encrypted",
              @"iops" : @"Iops",
              @"snapshotId" : @"SnapshotId",
              @"volumeSize" : @"VolumeSize",
@@ -784,7 +919,9 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
+             @"breachThreshold" : @"BreachThreshold",
              @"honorCooldown" : @"HonorCooldown",
+             @"metricValue" : @"MetricValue",
              @"policyName" : @"PolicyName",
              };
 }
@@ -836,6 +973,7 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
              @"instanceId" : @"InstanceId",
              @"launchConfigurationName" : @"LaunchConfigurationName",
              @"lifecycleState" : @"LifecycleState",
+             @"protectedFromScaleIn" : @"ProtectedFromScaleIn",
              };
 }
 
@@ -909,7 +1047,6 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
                 return @"EnteringStandby";
             case AWSAutoScalingLifecycleStateStandby:
                 return @"Standby";
-            case AWSAutoScalingLifecycleStateUnknown:
             default:
                 return nil;
         }
@@ -934,6 +1071,8 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
 	return @{
              @"associatePublicIpAddress" : @"AssociatePublicIpAddress",
              @"blockDeviceMappings" : @"BlockDeviceMappings",
+             @"classicLinkVPCId" : @"ClassicLinkVPCId",
+             @"classicLinkVPCSecurityGroups" : @"ClassicLinkVPCSecurityGroups",
              @"createdTime" : @"CreatedTime",
              @"ebsOptimized" : @"EbsOptimized",
              @"iamInstanceProfile" : @"IamInstanceProfile",
@@ -1020,6 +1159,28 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
              @"notificationMetadata" : @"NotificationMetadata",
              @"notificationTargetARN" : @"NotificationTargetARN",
              @"roleARN" : @"RoleARN",
+             };
+}
+
+@end
+
+@implementation AWSAutoScalingLoadBalancerState
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"loadBalancerName" : @"LoadBalancerName",
+             @"state" : @"State",
+             };
+}
+
+@end
+
+@implementation AWSAutoScalingLoadBalancerTargetGroupState
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"loadBalancerTargetGroupARN" : @"LoadBalancerTargetGroupARN",
+             @"state" : @"State",
              };
 }
 
@@ -1146,10 +1307,19 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
              @"adjustmentType" : @"AdjustmentType",
              @"autoScalingGroupName" : @"AutoScalingGroupName",
              @"cooldown" : @"Cooldown",
+             @"estimatedInstanceWarmup" : @"EstimatedInstanceWarmup",
+             @"metricAggregationType" : @"MetricAggregationType",
+             @"minAdjustmentMagnitude" : @"MinAdjustmentMagnitude",
              @"minAdjustmentStep" : @"MinAdjustmentStep",
              @"policyName" : @"PolicyName",
+             @"policyType" : @"PolicyType",
              @"scalingAdjustment" : @"ScalingAdjustment",
+             @"stepAdjustments" : @"StepAdjustments",
              };
+}
+
++ (NSValueTransformer *)stepAdjustmentsJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingStepAdjustment class]];
 }
 
 @end
@@ -1205,6 +1375,7 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
+             @"instanceId" : @"InstanceId",
              @"lifecycleActionToken" : @"LifecycleActionToken",
              @"lifecycleHookName" : @"LifecycleHookName",
              };
@@ -1220,15 +1391,24 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
              @"alarms" : @"Alarms",
              @"autoScalingGroupName" : @"AutoScalingGroupName",
              @"cooldown" : @"Cooldown",
+             @"estimatedInstanceWarmup" : @"EstimatedInstanceWarmup",
+             @"metricAggregationType" : @"MetricAggregationType",
+             @"minAdjustmentMagnitude" : @"MinAdjustmentMagnitude",
              @"minAdjustmentStep" : @"MinAdjustmentStep",
              @"policyARN" : @"PolicyARN",
              @"policyName" : @"PolicyName",
+             @"policyType" : @"PolicyType",
              @"scalingAdjustment" : @"ScalingAdjustment",
+             @"stepAdjustments" : @"StepAdjustments",
              };
 }
 
 + (NSValueTransformer *)alarmsJSONTransformer {
 	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingAlarm class]];
+}
+
++ (NSValueTransformer *)stepAdjustmentsJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingStepAdjustment class]];
 }
 
 @end
@@ -1326,6 +1506,34 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
 
 @end
 
+@implementation AWSAutoScalingSetInstanceProtectionAnswer
+
+@end
+
+@implementation AWSAutoScalingSetInstanceProtectionQuery
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoScalingGroupName" : @"AutoScalingGroupName",
+             @"instanceIds" : @"InstanceIds",
+             @"protectedFromScaleIn" : @"ProtectedFromScaleIn",
+             };
+}
+
+@end
+
+@implementation AWSAutoScalingStepAdjustment
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"metricIntervalLowerBound" : @"MetricIntervalLowerBound",
+             @"metricIntervalUpperBound" : @"MetricIntervalUpperBound",
+             @"scalingAdjustment" : @"ScalingAdjustment",
+             };
+}
+
+@end
+
 @implementation AWSAutoScalingSuspendedProcess
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1401,6 +1609,7 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
              @"desiredCapacity" : @"DesiredCapacity",
              @"healthCheckGracePeriod" : @"HealthCheckGracePeriod",
              @"healthCheckType" : @"HealthCheckType",
+             @"latestInstancesProtectedFromScaleIn" : @"NewInstancesProtectedFromScaleIn",
              @"launchConfigurationName" : @"LaunchConfigurationName",
              @"maxSize" : @"MaxSize",
              @"minSize" : @"MinSize",

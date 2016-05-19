@@ -13,7 +13,6 @@
 // permissions and limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "AWSS3.h"
 #import "AWSTestUtility.h"
@@ -52,7 +51,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
     [AWSTestUtility setupCognitoCredentialsProvider];
-    
+
     id<AWSCredentialsProvider> credentialProvider = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration.credentialsProvider;
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionEUCentral1
                                                                          credentialsProvider:credentialProvider];
@@ -69,8 +68,6 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     AWSServiceConfiguration *staticConfig = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionEUCentral1
                                                                         credentialsProvider:staticCredentialsProvider];
     [AWSS3PreSignedURLBuilder registerS3PreSignedURLBuilderWithConfiguration:staticConfig forKey:testS3PresignedURLEUCentralStaticKey];
-    
-    
 }
 
 - (void)tearDown {
@@ -112,19 +109,19 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
         dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
         [[[NSURLSession sharedSession] dataTaskWithRequest:request
-                                        completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                                            XCTAssertNil(error, @"response contains error:%@,\n presigned URL is:%@",error,presignedURL.absoluteString);
+                                         completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                             XCTAssertNil(error, @"response contains error:%@,\n presigned URL is:%@",error,presignedURL.absoluteString);
 
-                                            if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
-                                                XCTFail(@"response status Code is :%ld", (long)((NSHTTPURLResponse *)response).statusCode);
-                                                NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-                                            }
+                                             if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
+                                                 XCTFail(@"response status Code is :%ld", (long)((NSHTTPURLResponse *)response).statusCode);
+                                                 NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                             }
 
-                                            XCTAssertEqual(65961003, [data length],
-                                                           @"received object is different from sent object. expect file size:%lu, got:%lu", (unsigned long)65961003, (unsigned long)[data length]);
+                                             XCTAssertEqual(65961003, [data length],
+                                                            @"received object is different from sent object. expect file size:%lu, got:%lu", (unsigned long)65961003, (unsigned long)[data length]);
 
-                                            dispatch_semaphore_signal(semaphore);
-                                        }] resume];
+                                             dispatch_semaphore_signal(semaphore);
+                                         }] resume];
 
         XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 240 * NSEC_PER_SEC)), 0);
 
@@ -134,9 +131,8 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 }
 
 -(void)testObjectWithGreedyKey {
+    NSArray *bucketNameArray = @[@"ios-v2-s3-tm-testdata", @"ios-v2-s3.periods", @"ios-v2-s3-eu-central", @"ios-v2-s3-eu-c.periods"];
 
-    NSArray *bucketNameArray = @[@"ios-v2-s3-tm-testdata",@"ios-v2-s3.periods",@"ios-v2-s3-eu-central",@"ios-v2-s3-eu-c.periods"];
-    
     int32_t count = 0;
     for (NSString *myBucketName in bucketNameArray) {
 
@@ -158,7 +154,6 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
         }
         XCTAssertNotNil(preSignedURLBuilder);
         XCTAssertNotNil(s3);
-        
 
         NSString *keyName = [NSString stringWithFormat:@"%lld/presignedURL-greedykey",(int64_t)[NSDate timeIntervalSinceReferenceDate]];
         //Put a object
@@ -168,7 +163,6 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
         getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodPUT;
         getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
 
-        
         [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
 
             if (task.error) {
@@ -194,22 +188,22 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
             dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
             [[[NSURLSession sharedSession] dataTaskWithRequest:request
-                                            completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                                                XCTAssertNil(error, @"response contains error:%@ \n presigned URL is:%@", error, presignedURL.absoluteString);
+                                             completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                 XCTAssertNil(error, @"response contains error:%@ \n presigned URL is:%@", error, presignedURL.absoluteString);
 
-                                                if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
-                                                    XCTFail(@"response status Code is :%ld", (long)((NSHTTPURLResponse *)response).statusCode);
-                                                    NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-                                                }
+                                                 if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
+                                                     XCTFail(@"response status Code is :%ld", (long)((NSHTTPURLResponse *)response).statusCode);
+                                                     NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                                 }
 
-                                                if ([data length] != 0) {
-                                                    //expected the got 0 size returnData, but got something else.
-                                                    NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                    XCTFail(@"Error response received:\n %@",responseString);
-                                                }
+                                                 if ([data length] != 0) {
+                                                     //expected the got 0 size returnData, but got something else.
+                                                     NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                     XCTFail(@"Error response received:\n %@",responseString);
+                                                 }
 
-                                                dispatch_semaphore_signal(semaphore);
-                                            }] resume];
+                                                 dispatch_semaphore_signal(semaphore);
+                                             }] resume];
 
             XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC)), 0);
 
@@ -422,9 +416,9 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
         }
         XCTAssertNotNil(preSignedURLBuilder);
         XCTAssertNotNil(s3);
-        
+
         count++;
-        
+
         for (NSString *keyName in keyNameArray) {
 
             AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
@@ -539,7 +533,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
                                                              XCTFail(@"response status Code is :%ld",(long)((NSHTTPURLResponse *)response).statusCode);
                                                              NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
                                                          }
-                                                         
+
                                                          XCTAssertEqualObjects(testObjectData, data);
 
                                                          dispatch_semaphore_signal(semaphore);
@@ -573,15 +567,15 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
     int32_t count = 0;
     for (NSString *myBucketName in bucketNameArray) {
-        
+
         @autoreleasepool {
-            
+
             AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
             getPreSignedURLRequest.bucket = myBucketName;
             getPreSignedURLRequest.key = @"temp2.txt";
             getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodGET;
             getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
-            
+
             AWSS3PreSignedURLBuilder *preSignedURLBuilder = nil;
             switch (count) {
                 case 0:
@@ -599,24 +593,24 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
                     break;
             }
             XCTAssertNotNil(preSignedURLBuilder);
-            
-            
+
+
             [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
-                
+
                 if (task.error) {
                     XCTAssertNil(task.error);
                     return nil;
                 }
-                
+
                 NSURL *presignedURL = task.result;
-                
+
                 XCTAssertNotNil(presignedURL);
-                
+
                 //NSLog(@"(GET)presigned URL is: %@",presignedURL.absoluteString);
-                
+
                 NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
                 request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
-                
+
                 dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
                 [[[NSURLSession sharedSession] dataTaskWithRequest:request
                                                  completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -639,10 +633,10 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
                                                  }] resume];
 
                 XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 240 * NSEC_PER_SEC)), 0);
-                
+
                 return nil;
             }] waitUntilFinished];
-            
+
             count++;
         }
     }
@@ -650,37 +644,37 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 }
 
 -(void)testPutObjectEncryption {
-    
+
     NSString *testString1 = [NSString stringWithFormat:@"test string1: %@",[[NSUUID UUID] UUIDString]];
     NSData *testObjectData = [testString1 dataUsingEncoding:NSUTF8StringEncoding];
     NSString *keyName = @"ios-presignedURL-testEncryption";
-    
+
     //create a currentDate
     AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
     getPreSignedURLRequest.bucket = @"ios-v2-s3-tm-testdata";
     getPreSignedURLRequest.key = keyName;
     getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodPUT;
     getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
-    
+
     //add encryption
     [getPreSignedURLRequest setValue:@"AES256" forRequestParameter:@"x-amz-server-side-encryption"];
-    
+
     AWSS3PreSignedURLBuilder *preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
     AWSTask *task = [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest];
     [task waitUntilFinished];
     NSURL *presignedURL =  task.result;
     XCTAssertNotNil(presignedURL);
-    
-    
+
+
     //NSLog(@"(GET)presigned URL is: %@",presignedURL.absoluteString);
-    
-    
-    
+
+
+
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
     request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
     [request setHTTPMethod:@"PUT"];
     [request setHTTPBody:testObjectData];
-    
+
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     [[[NSURLSession sharedSession] dataTaskWithRequest:request
                                      completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -696,7 +690,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
                                              NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                              XCTFail(@"Error response received:\n %@",responseString);
                                          }
-                                         
+
                                          //confirm server side encryption
                                          NSString *encryptDesc = [((NSHTTPURLResponse *)response) allHeaderFields][@"x-amz-server-side-encryption"];
                                          XCTAssertEqualObjects(@"AES256", encryptDesc);
@@ -711,36 +705,36 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 -(void)testPutObjectWithCustomMetadata {
     AWSS3 *s3 = [AWSS3 defaultS3];
     AWSS3PreSignedURLBuilder *preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
-    
+
     NSString *testString1 = [NSString stringWithFormat:@"test string1: %@",[[NSUUID UUID] UUIDString]];
     NSData *testObjectData = [testString1 dataUsingEncoding:NSUTF8StringEncoding];
-    
+
     NSString *bucketName = @"ios-v2-s3-tm-testdata";
     NSString *keyName = @"ios-presignedURL-testMetaData";
-    
+
     NSString *userDefinedHeader = @"x-amz-meta-userdefined-key";
     NSString *userDefinedValue = @"this is a test value with \" quotes \"";
-    
+
     AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
     getPreSignedURLRequest.bucket = bucketName;
     getPreSignedURLRequest.key = keyName;
     getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodPUT;
     getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600]; //presigned-URL expiration date
-    
+
     //Add other parameters or your custom metadata
     [getPreSignedURLRequest setValue:userDefinedValue forRequestParameter:userDefinedHeader];
-    
+
     //Build pre-signedURL
     [[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
-        
+
         //retrieve presigned-URL
         NSURL *presignedURL = task.result;
-        
+
         //create a url request
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
         [request setHTTPMethod:@"PUT"];
         [request setHTTPBody:testObjectData];
-        
+
         //send HTTP PUT Request
         dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
         [[[NSURLSession sharedSession] dataTaskWithRequest:request
@@ -757,33 +751,33 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
         return nil;
     }];
-    
-    
+
+
     //Get the object back
     if (true) {
-        
+
         AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
         getPreSignedURLRequest.bucket = bucketName;
         getPreSignedURLRequest.key = keyName;
         getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodGET;
         getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
-        
+
         [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
-            
+
             if (task.error) {
                 XCTAssertNil(task.error);
                 return nil;
             }
-            
+
             NSURL *presignedURL = task.result;
-            
+
             XCTAssertNotNil(presignedURL);
-            
+
             //NSLog(@"(GET)presigned URL is: %@",presignedURL.absoluteString);
-            
+
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
             request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
-            
+
             dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
             [[[NSURLSession sharedSession] dataTaskWithRequest:request
                                              completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -804,13 +798,13 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
             return nil;
         }] waitUntilFinished];
-        
+
         //remove the object
         //delete uploaded Object
         AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
         deleteObjectRequest.bucket = bucketName;
         deleteObjectRequest.key = keyName;
-        
+
         [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
             return nil;
         }] waitUntilFinished];
@@ -822,21 +816,21 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     NSString *testContentType = @"application/x-authorware-bin";
     int32_t count = 0;
     for (NSString *myBucketName in bucketNameArray) {
-        
+
         NSString *testString1 = [NSString stringWithFormat:@"test string1: %@",[[NSUUID UUID] UUIDString]];
         NSData *testObjectData = [testString1 dataUsingEncoding:NSUTF8StringEncoding];
-        
+
         NSString *testString2 = [NSString stringWithFormat:@"test string2: %@",[[NSUUID UUID] UUIDString]];
         NSData *testObjectData2 = [testString2 dataUsingEncoding:NSUTF8StringEncoding];
-        
+
         NSString *keyName = @"ios-presignedURL-put";
-        
+
         AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
         getPreSignedURLRequest.bucket = myBucketName;
         getPreSignedURLRequest.key = keyName;
         getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodPUT;
         getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
-        
+
         AWSS3PreSignedURLBuilder *preSignedURLBuilder = nil;
         AWSS3 *s3 = nil;
         switch (count) {
@@ -867,39 +861,39 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
         XCTAssertNotNil(s3);
 
         NSMutableDictionary *versionIDDic = [NSMutableDictionary new];
-        
+
         [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
-            
+
             if (task.error) {
                 XCTAssertNil(task.error);
                 return nil;
             }
-            
-            
-            
+
+
+
             NSURL *presignedURL = task.result;
-            
+
             XCTAssertNotNil(presignedURL);
-            
+
             //NSLog(@"(PUT)presigned URL (Put)is: %@",presignedURL.absoluteString);
             int32_t numOfRuns = 1;
             if (count == 2 || count == 3) {
                 numOfRuns = 2;
             }
-            
+
             for (int i=0; i<numOfRuns; i++) {
-                
+
                 NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
                 request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
                 [request setHTTPMethod:@"PUT"];
-                
-                
+
+
                 if ( (count == 2 || count == 3) && i == 1) {
                     [request setHTTPBody:testObjectData2];
                 } else {
                     [request setHTTPBody:testObjectData];
                 }
-                
+
                 dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
                 [[[NSURLSession sharedSession] dataTaskWithRequest:request
                                                  completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -930,18 +924,18 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
                                                                  NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                                                  XCTFail(@"Error response received:\n %@",responseString);
                                                              }
-                                                             
-                                                             
+
+
                                                              if ( versionIDDic[[NSNumber numberWithInt:count]] == nil) {
                                                                  NSMutableArray *array = [NSMutableArray new];
                                                                  versionIDDic[[NSNumber numberWithInt:count]] = array;
                                                              }
-                                                             
+
                                                              NSString *versionID = [((NSHTTPURLResponse *)response) allHeaderFields][@"x-amz-version-id"];
                                                              XCTAssertNotNil(versionID);
                                                              [versionIDDic[[NSNumber numberWithInt:count]] addObject:versionID];
-                                                             
-                                                             
+
+
                                                              break;
                                                      }
 
@@ -950,17 +944,17 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
                 XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC)), 0);
             }
-            
+
             return nil;
         }] waitUntilFinished];
-        
+
         //wait a few seconds
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
-        
-        
+
+
         if (count == 2 || count == 3) {
             //download the first uploaded data, confirm the data first time downloaded
-            
+
             AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
             getPreSignedURLRequest.bucket = myBucketName;
             getPreSignedURLRequest.key = keyName;
@@ -974,23 +968,23 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
                 [getPreSignedURLRequest setValue:[versionIDDic[[NSNumber numberWithInt:count]] firstObject] forRequestParameter:AWSS3PresignedURLVersionID];
                 [getPreSignedURLRequest setValue:@"x-amz-meta-userdefined-key" forRequestParameter:@"user-defined-value"];
             }
-            
+
             [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
-                
+
                 if (task.error) {
                     XCTAssertNil(task.error);
                     return nil;
                 }
-                
+
                 NSURL *presignedURL = task.result;
-                
+
                 XCTAssertNotNil(presignedURL);
-                
+
                 //NSLog(@"(GET)presigned URL is: %@",presignedURL.absoluteString);
-                
+
                 NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
                 request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
-                
+
                 dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
                 [[[NSURLSession sharedSession] dataTaskWithRequest:request
                                                  completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -1009,32 +1003,32 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
                 return nil;
             }] waitUntilFinished];
-            
+
         }
-        
+
         //delete uploaded Object
         AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
         deleteObjectRequest.bucket = myBucketName;
         deleteObjectRequest.key = keyName;
-        
+
         [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
             return nil;
         }] waitUntilFinished];
-        
+
         count++;
     }
 
-    
+
 }
 - (void)testPutObject {
 
     NSArray *bucketNameArray = @[@"ios-v2-s3-tm-testdata",@"ios-v2-s3.periods",@"ios-v2-s3-eu-central",@"ios-v2-s3-eu-c.periods"];
     NSString *testContentType = @"application/x-authorware-bin";
     int32_t count = 0;
-    
+
     NSString *testString1 = [NSString stringWithFormat:@"test string1: %@",[[NSUUID UUID] UUIDString]];
     NSData *testObjectData = [testString1 dataUsingEncoding:NSUTF8StringEncoding];
-    
+
     for (NSString *myBucketName in bucketNameArray) {
 
         AWSS3PreSignedURLBuilder *preSignedURLBuilder = nil;
@@ -1055,7 +1049,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
         }
         XCTAssertNotNil(preSignedURLBuilder);
         XCTAssertNotNil(s3);
-        
+
         NSString *keyName = @"ios-presignedURL-put";
 
         AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
@@ -1165,7 +1159,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
         getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodHEAD;
         getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
 
-        
+
         AWSS3PreSignedURLBuilder *preSignedURLBuilder = nil;
         switch (count) {
             case 2:
@@ -1179,7 +1173,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
                 break;
         }
         XCTAssertNotNil(preSignedURLBuilder);
-        
+
 
         [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
 
@@ -1253,7 +1247,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
         }
         XCTAssertNotNil(preSignedURLBuilder);
         XCTAssertNotNil(s3);
-        
+
         //upload the object first
         AWSS3PutObjectRequest *putObjectRequest = [AWSS3PutObjectRequest new];
         putObjectRequest.bucket = myBucketName;
@@ -1286,7 +1280,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
         getPreSignedURLRequest.key = keyName;
         getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodDELETE;
         getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
-        
+
         [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
 
             if (task.error) {
@@ -1374,32 +1368,32 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:-100];
     AWSTask *resultTwo = [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest];
     XCTAssertNil(resultTwo.result);
-
+    
     //create a date will expire soon.
     getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3]; //will expired in 3 seconds.
     AWSTask *task =  [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest];
     [task waitUntilFinished];
     NSURL *presignedURL =  task.result;
     XCTAssertNotNil(presignedURL);
-
-
+    
+    
     //wait a few seconds until presigned URL expired
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
-
+    
     //NSLog(@"(GET)presigned URL is: %@",presignedURL.absoluteString);
-
-
-
+    
+    
+    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
     request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
-
+    
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     [[[NSURLSession sharedSession] dataTaskWithRequest:request
                                      completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                                          XCTAssertNil(error, @"response contains error:%@ \n presigned URL is:%@",error, presignedURL.absoluteString);
-
+                                         
                                          XCTAssertEqual(403, ((NSHTTPURLResponse *)response).statusCode, @"expected HTTP 403 Forbidden response code, but got: %ld",(long)((NSHTTPURLResponse *)response).statusCode);
-
+                                         
                                          if (((NSHTTPURLResponse *)response).statusCode == 403) {
                                              if (data) {
                                                  NSString *responseXMLString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -1414,30 +1408,30 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
                                          } else {
                                              XCTAssertEqual(403, ((NSHTTPURLResponse *)response).statusCode, @"expected HTTP 403 Forbidden response code, but got: %ld",(long)((NSHTTPURLResponse *)response).statusCode);
                                          }
-
+                                         
                                          dispatch_semaphore_signal(semaphore);
                                      }] resume];
-
+    
     XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC)), 0);
 }
 
 - (void)testInvalidParameters {
     AWSS3PreSignedURLBuilder *preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
-
+    
     AWSS3GetPreSignedURLRequest *getPreSignedURLRequestOne = [AWSS3GetPreSignedURLRequest new];
     getPreSignedURLRequestOne.key = @"anyKey";
     getPreSignedURLRequestOne.HTTPMethod = AWSHTTPMethodGET;
     getPreSignedURLRequestOne.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
     AWSTask *resultOne = [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequestOne];
     XCTAssertEqual(AWSS3PresignedURLErrorBucketNameIsNil, resultOne.error.code);
-
+    
     AWSS3GetPreSignedURLRequest *getPreSignedURLRequestTwo = [AWSS3GetPreSignedURLRequest new];
     getPreSignedURLRequestTwo.bucket = @"somebucket";
     getPreSignedURLRequestTwo.HTTPMethod = AWSHTTPMethodGET;
     getPreSignedURLRequestTwo.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
     AWSTask *resultTwo = [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequestTwo];
     XCTAssertEqual(AWSS3PresignedURLErrorKeyNameIsNil, resultTwo.error.code);
-
+    
     AWSS3GetPreSignedURLRequest *getPreSignedURLRequestThree = [AWSS3GetPreSignedURLRequest new];
     getPreSignedURLRequestThree.bucket = @"somebucket";
     getPreSignedURLRequestThree.key = @"somekey";

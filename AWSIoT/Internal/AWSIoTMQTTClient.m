@@ -94,6 +94,8 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
         _clientCerts = nil;
         _session.delegate = nil;
         _session = nil;
+        _clientId = nil;
+        _associatedObject = nil;
         _currentReconnectTime = 1;
         _baseReconnectTime = 1;
         _minimumConnectionTime = 20;
@@ -227,6 +229,7 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
     self.port = port;
     self.cleanSession = cleanSession;
     self.connectStatusCallback = callback;
+    self.clientId = clientId;
 
     if (self.cleanSession) {
         [self.topicListeners removeAllObjects];
@@ -325,7 +328,8 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
 {
     self.cleanSession = cleanSession;
     self.connectStatusCallback = callback;
-    
+    self.clientId = clientId;
+
     if (self.cleanSession) {
         [self.topicListeners removeAllObjects];
         [self.queueMessages removeAllObjects];
@@ -438,7 +442,6 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
     if ( self.currentReconnectTime > self.maximumReconnectTime ) {
         self.currentReconnectTime = self.maximumReconnectTime;
     }
-
 }
 
 - (void)resubscribeToTopics {
@@ -508,6 +511,16 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
     topicModel.topic = topic;
     topicModel.qos = qos;
     topicModel.callback = callback;
+    [self.topicListeners setObject:topicModel forKey:topic];
+    [self.session subscribeToTopic:topicModel.topic atLevel:topicModel.qos];
+}
+
+- (void)subscribeToTopic:(NSString*)topic qos:(UInt8)qos extendedCallback:(AWSIoTMQTTExtendedNewMessageBlock)callback {
+    AWSIoTMQTTTopicModel *topicModel = [AWSIoTMQTTTopicModel new];
+    topicModel.topic = topic;
+    topicModel.qos = qos;
+    topicModel.callback = nil;
+    topicModel.extendedCallback = callback;
     [self.topicListeners setObject:topicModel forKey:topic];
     [self.session subscribeToTopic:topicModel.topic atLevel:topicModel.qos];
 }
@@ -637,7 +650,12 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
         if (topicMatch) {
             AWSIoTMQTTTopicModel *topicModel = [self.topicListeners objectForKey:topicKey];
             if (topicModel) {
-                topicModel.callback(data);
+                if (topicModel.callback != nil) {
+                    topicModel.callback(data);
+                }
+                if (topicModel.extendedCallback != nil) {
+                    topicModel.extendedCallback(self, topic, data);
+                }
             }
         }
     }

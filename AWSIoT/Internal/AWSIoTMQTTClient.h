@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSString *topic;
 @property (nonatomic) UInt8 qos;
 @property (nonatomic, strong) AWSIoTMQTTNewMessageBlock callback;
+@property (nonatomic, strong) AWSIoTMQTTExtendedNewMessageBlock extendedCallback;
 @end
 
 @interface AWSIoTMQTTQueueMessage : NSObject
@@ -56,6 +57,16 @@
 @property(atomic, assign) NSTimeInterval baseReconnectTime;
 @property(atomic, assign) NSTimeInterval minimumConnectionTime;
 @property(atomic, assign) NSTimeInterval maximumReconnectTime;
+
+/**
+ The client ID for the current connection; can be nil if not connected.
+ */
+@property(nonatomic, strong) NSString *clientId;
+
+/**
+ An optional associated object (nil by default).
+ */
+@property(nonatomic, strong) NSObject *associatedObject;
 
 /**
  Returns a default singleton object. You should use this singleton method instead of creating an instance of the mqtt client.
@@ -122,10 +133,22 @@
 
  @param qos Specifies the QoS Level of the subscription. Can be 0, 1, or 2.
 
- @param delegate Reference to AWSIOTMQTTNewMessageBlock. When new message is received the function of block will be called.
+ @param delegate Reference to AWSIOTMQTTNewMessageBlock. When new message is received the block will be invoked.
  */
 - (void)subscribeToTopic:(NSString *)topic qos:(UInt8)qos
          messageCallback:(AWSIoTMQTTNewMessageBlock)callback;
+
+/**
+ Subscribes to a topic at a specific QoS level
+ 
+ @param topic The Topic to subscribe to.
+ 
+ @param qos Specifies the QoS Level of the subscription. Can be 0, 1, or 2.
+ 
+ @param delegate Reference to AWSIOTMQTTExtendedNewMessageBlock. When new message is received the block will be invoked.
+ */
+- (void)subscribeToTopic:(NSString *)topic qos:(UInt8)qos
+        extendedCallback:(AWSIoTMQTTExtendedNewMessageBlock)callback;
 
 /**
  Unsubscribes from a topic

@@ -38,20 +38,23 @@ static NSString *const AWSInfoCognitoSync = @"CognitoSync";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
-                            @"AlreadyStreamed" : @(AWSCognitoSyncErrorAlreadyStreamed),
-                            @"DuplicateRequest" : @(AWSCognitoSyncErrorDuplicateRequest),
-                            @"InternalError" : @(AWSCognitoSyncErrorInternalError),
-                            @"InvalidConfiguration" : @(AWSCognitoSyncErrorInvalidConfiguration),
-                            @"InvalidLambdaFunctionOutput" : @(AWSCognitoSyncErrorInvalidLambdaFunctionOutput),
-                            @"InvalidParameter" : @(AWSCognitoSyncErrorInvalidParameter),
-                            @"LambdaThrottled" : @(AWSCognitoSyncErrorLambdaThrottled),
-                            @"LimitExceeded" : @(AWSCognitoSyncErrorLimitExceeded),
-                            @"NotAuthorizedError" : @(AWSCognitoSyncErrorNotAuthorized),
-                            @"ResourceConflict" : @(AWSCognitoSyncErrorResourceConflict),
-                            @"ResourceNotFound" : @(AWSCognitoSyncErrorResourceNotFound),
-                            @"TooManyRequests" : @(AWSCognitoSyncErrorTooManyRequests),
+                            @"AlreadyStreamedException" : @(AWSCognitoSyncErrorAlreadyStreamed),
+                            @"ConcurrentModificationException" : @(AWSCognitoSyncErrorConcurrentModification),
+                            @"DuplicateRequestException" : @(AWSCognitoSyncErrorDuplicateRequest),
+                            @"InternalErrorException" : @(AWSCognitoSyncErrorInternalError),
+                            @"InvalidConfigurationException" : @(AWSCognitoSyncErrorInvalidConfiguration),
+                            @"InvalidLambdaFunctionOutputException" : @(AWSCognitoSyncErrorInvalidLambdaFunctionOutput),
+                            @"InvalidParameterException" : @(AWSCognitoSyncErrorInvalidParameter),
+                            @"LambdaThrottledException" : @(AWSCognitoSyncErrorLambdaThrottled),
+                            @"LimitExceededException" : @(AWSCognitoSyncErrorLimitExceeded),
+                            @"NotAuthorizedException" : @(AWSCognitoSyncErrorNotAuthorized),
+                            @"ResourceConflictException" : @(AWSCognitoSyncErrorResourceConflict),
+                            @"ResourceNotFoundException" : @(AWSCognitoSyncErrorResourceNotFound),
+                            @"TooManyRequestsException" : @(AWSCognitoSyncErrorTooManyRequests),
                             };
 }
+
+#pragma mark -
 
 - (id)responseObjectForResponse:(NSHTTPURLResponse *)response
                 originalRequest:(NSURLRequest *)originalRequest
@@ -66,9 +69,6 @@ static NSDictionary *errorCodeDictionary = nil;
     if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
         NSString *errorTypeString = [[response allHeaderFields] objectForKey:@"x-amzn-ErrorType"];
         NSString *errorTypeHeader = [[errorTypeString componentsSeparatedByString:@":"] firstObject];
-        if ([errorTypeHeader hasSuffix:@"Exception"]) {
-            errorTypeHeader = [errorTypeHeader substringToIndex:errorTypeHeader.length - @"Exception".length];
-        }
 
         if ([errorTypeString length] > 0 && errorTypeHeader) {
             if (errorCodeDictionary[errorTypeHeader]) {
@@ -139,6 +139,8 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSCognitoSync
 
+#pragma mark - Setup
+
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultCognitoSync {
@@ -206,6 +208,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                  userInfo:nil];
     return nil;
 }
+
+#pragma mark -
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
@@ -738,5 +742,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         return nil;
     }];
 }
+
+#pragma mark -
 
 @end

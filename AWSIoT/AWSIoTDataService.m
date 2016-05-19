@@ -26,7 +26,7 @@
 #import "AWSIoTDataResources.h"
 
 static NSString *const AWSInfoIoTData = @"IoTData";
-static NSString *const AWSIoTDataSDKVersion = @"2.4.1";
+static NSString *const AWSIoTDataSDKVersion = @"2.4.2";
 
 @interface AWSIoTDataResponseSerializer : AWSJSONResponseSerializer
 
@@ -51,6 +51,8 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"UnsupportedDocumentEncodingException" : @(AWSIoTDataErrorUnsupportedDocumentEncoding),
                             };
 }
+
+#pragma mark -
 
 - (id)responseObjectForResponse:(NSHTTPURLResponse *)response
                 originalRequest:(NSURLRequest *)originalRequest
@@ -136,8 +138,6 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSIoTData
 
-static AWSSynchronizedMutableDictionary *_serviceClients = nil;
-
 + (void)initialize {
     [super initialize];
 
@@ -147,6 +147,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                      userInfo:nil];
     }
 }
+
+#pragma mark - Setup
+
+static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultIoTData {
     static AWSIoTData *_defaultIoTData = nil;
@@ -213,6 +217,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                  userInfo:nil];
     return nil;
 }
+
+#pragma mark -
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
@@ -380,5 +386,7 @@ completionHandler:(void (^)(NSError *error))completionHandler {
         return nil;
     }];
 }
+
+#pragma mark -
 
 @end

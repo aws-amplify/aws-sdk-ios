@@ -50,7 +50,7 @@
 - (void)synchronize;
 - (void)setConnected:(BOOL)isConnected;
 - (void)setHasWifi:(BOOL)hasWifi;
-- (void)setHasWAN:(BOOL)hasWAN;
+- (void)setHasWAN:(BOOL)hasWANOnly;
 
 
 @end

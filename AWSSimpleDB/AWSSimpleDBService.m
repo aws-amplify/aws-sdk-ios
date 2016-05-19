@@ -27,7 +27,7 @@
 #import "AWSSimpleDBResources.h"
 
 static NSString *const AWSInfoSimpleDB = @"SimpleDB";
-static NSString *const AWSSimpleDBSDKVersion = @"2.4.1";
+static NSString *const AWSSimpleDBSDKVersion = @"2.4.2";
 
 @interface AWSSimpleDBResponseSerializer : AWSXMLResponseSerializer
 
@@ -141,8 +141,6 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSSimpleDB
 
-static AWSSynchronizedMutableDictionary *_serviceClients = nil;
-
 + (void)initialize {
     [super initialize];
 
@@ -152,6 +150,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                      userInfo:nil];
     }
 }
+
+#pragma mark - Setup
+
+static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultSimpleDB {
     static AWSSimpleDB *_defaultSimpleDB = nil;
@@ -218,6 +220,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                  userInfo:nil];
     return nil;
 }
+
+#pragma mark -
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
@@ -544,5 +548,7 @@ completionHandler:(void (^)(AWSSimpleDBSelectResult *response, NSError *error))c
         return nil;
     }];
 }
+
+#pragma mark -
 
 @end

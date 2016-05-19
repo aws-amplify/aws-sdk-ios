@@ -28,4 +28,4 @@ FOUNDATION_EXPORT const unsigned char AWSCognitoVersionString[];
 #import "AWSCognitoRecord.h"
 #import "AWSCognitoHandlers.h"
 #import "AWSCognitoConflict.h"
-#import "AWSCognitoSync.h"
+#import "AWSCognitoSyncService.h"

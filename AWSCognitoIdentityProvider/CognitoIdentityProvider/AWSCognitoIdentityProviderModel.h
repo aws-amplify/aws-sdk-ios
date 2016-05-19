@@ -23,9 +23,6 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderErrorType) {
     AWSCognitoIdentityProviderErrorUnknown,
-    AWSCognitoIdentityProviderErrorIncompleteSignature,
-    AWSCognitoIdentityProviderErrorInvalidClientTokenId,
-    AWSCognitoIdentityProviderErrorMissingAuthenticationToken,
     AWSCognitoIdentityProviderErrorAliasExists,
     AWSCognitoIdentityProviderErrorCodeMismatch,
     AWSCognitoIdentityProviderErrorConcurrentModification,
@@ -34,12 +31,15 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderErrorType) {
     AWSCognitoIdentityProviderErrorInvalidLambdaResponse,
     AWSCognitoIdentityProviderErrorInvalidParameter,
     AWSCognitoIdentityProviderErrorInvalidPassword,
+    AWSCognitoIdentityProviderErrorLimitExceeded,
+    AWSCognitoIdentityProviderErrorMFAMethodNotFound,
     AWSCognitoIdentityProviderErrorNotAuthorized,
     AWSCognitoIdentityProviderErrorResourceNotFound,
     AWSCognitoIdentityProviderErrorTooManyFailedAttempts,
     AWSCognitoIdentityProviderErrorTooManyRequests,
     AWSCognitoIdentityProviderErrorUnexpectedLambda,
     AWSCognitoIdentityProviderErrorUserLambdaValidation,
+    AWSCognitoIdentityProviderErrorUsernameExists,
 };
 
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderAliasAttributeType) {
@@ -2021,6 +2021,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  
  */
 @property (nonatomic, strong) NSString * _Nullable emailVerificationSubject;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable estimatedNumberOfUsers;
 
 /**
  

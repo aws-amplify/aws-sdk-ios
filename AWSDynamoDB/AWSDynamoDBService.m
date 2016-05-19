@@ -27,7 +27,7 @@
 #import "AWSDynamoDBResources.h"
 
 static NSString *const AWSInfoDynamoDB = @"DynamoDB";
-static NSString *const AWSDynamoDBSDKVersion = @"2.4.1";
+static NSString *const AWSDynamoDBSDKVersion = @"2.4.2";
 
 @interface AWSDynamoDBResponseSerializer : AWSJSONResponseSerializer
 
@@ -152,8 +152,6 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSDynamoDB
 
-static AWSSynchronizedMutableDictionary *_serviceClients = nil;
-
 + (void)initialize {
     [super initialize];
 
@@ -163,6 +161,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                      userInfo:nil];
     }
 }
+
+#pragma mark - Setup
+
+static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultDynamoDB {
     static AWSDynamoDB *_defaultDynamoDB = nil;
@@ -229,6 +231,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                  userInfo:nil];
     return nil;
 }
+
+#pragma mark -
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
@@ -412,6 +416,34 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
   completionHandler:(void (^)(AWSDynamoDBDeleteTableOutput *response, NSError *error))completionHandler {
     [[self deleteTable:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBDeleteTableOutput *> * _Nonnull task) {
         AWSDynamoDBDeleteTableOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSDynamoDBDescribeLimitsOutput *> *)describeLimits:(AWSDynamoDBDescribeLimitsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"DynamoDB_20120810"
+                 operationName:@"DescribeLimits"
+                   outputClass:[AWSDynamoDBDescribeLimitsOutput class]];
+}
+
+- (void)describeLimits:(AWSDynamoDBDescribeLimitsInput *)request
+     completionHandler:(void (^)(AWSDynamoDBDescribeLimitsOutput *response, NSError *error))completionHandler {
+    [[self describeLimits:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBDescribeLimitsOutput *> * _Nonnull task) {
+        AWSDynamoDBDescribeLimitsOutput *result = task.result;
         NSError *error = task.error;
 
         if (task.exception) {
@@ -650,5 +682,7 @@ completionHandler:(void (^)(AWSDynamoDBScanOutput *response, NSError *error))com
         return nil;
     }];
 }
+
+#pragma mark -
 
 @end

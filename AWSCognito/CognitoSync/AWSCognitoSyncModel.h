@@ -23,10 +23,8 @@ FOUNDATION_EXPORT NSString *const AWSCognitoSyncErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSCognitoSyncErrorType) {
     AWSCognitoSyncErrorUnknown,
-    AWSCognitoSyncErrorIncompleteSignature,
-    AWSCognitoSyncErrorInvalidClientTokenId,
-    AWSCognitoSyncErrorMissingAuthenticationToken,
     AWSCognitoSyncErrorAlreadyStreamed,
+    AWSCognitoSyncErrorConcurrentModification,
     AWSCognitoSyncErrorDuplicateRequest,
     AWSCognitoSyncErrorInternalError,
     AWSCognitoSyncErrorInvalidConfiguration,

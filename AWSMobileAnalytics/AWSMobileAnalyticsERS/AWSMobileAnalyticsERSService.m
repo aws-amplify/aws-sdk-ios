@@ -13,7 +13,7 @@
 // permissions and limitations under the License.
 //
 
-#import "AWSMobileAnalyticsERS.h"
+#import "AWSMobileAnalyticsERSService.h"
 
 #import "AWSNetworking.h"
 #import "AWSCategory.h"
@@ -28,7 +28,7 @@
 #import "AWSMobileAnalyticsERSResources.h"
 
 static NSString *const AWSInfoMobileAnalyticsERS = @"MobileAnalyticsERS";
-static NSString *const AWSMobileAnalyticsERSSDKVersion = @"2.4.1";
+static NSString *const AWSMobileAnalyticsERSSDKVersion = @"2.4.2";
 
 @interface AWSMobileAnalyticsERSResponseSerializer : AWSJSONResponseSerializer
 
@@ -44,6 +44,8 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"BadRequestException" : @(AWSMobileAnalyticsERSErrorBadRequest),
                             };
 }
+
+#pragma mark -
 
 - (id)responseObjectForResponse:(NSHTTPURLResponse *)response
                 originalRequest:(NSURLRequest *)originalRequest
@@ -163,8 +165,6 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSMobileAnalyticsERS
 
-static AWSSynchronizedMutableDictionary *_serviceClients = nil;
-
 + (void)initialize {
     [super initialize];
 
@@ -174,6 +174,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                      userInfo:nil];
     }
 }
+
+#pragma mark - Setup
+
+static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultMobileAnalyticsERS {
     static AWSMobileAnalyticsERS *_defaultMobileAnalyticsERS = nil;
@@ -240,6 +244,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                  userInfo:nil];
     return nil;
 }
+
+#pragma mark -
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
@@ -329,5 +335,7 @@ completionHandler:(void (^)(NSError *error))completionHandler {
         return nil;
     }];
 }
+
+#pragma mark -
 
 @end

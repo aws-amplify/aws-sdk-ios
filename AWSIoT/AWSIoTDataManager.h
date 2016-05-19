@@ -32,6 +32,8 @@ typedef NS_ENUM(NSInteger, AWSIoTMQTTQoS) {
 };
 
 typedef void(^AWSIoTMQTTNewMessageBlock)(NSData *data);
+typedef void(^AWSIoTMQTTExtendedNewMessageBlock)(NSObject *mqttClient, NSString *topic, NSData *data);
+
 
 #pragma mark - AWSIoTMQTTLastWillAndTestament
 
@@ -362,7 +364,7 @@ typedef void(^AWSIoTMQTTNewMessageBlock)(NSData *data);
 
  @param qos Specifies the QoS Level of the subscription: AWSIoTMQTTQoSAtMostOnce or AWSIoTMQTTQoSAtLeastOnce
 
- @param block Reference to AWSIOTMQTTNewMessageBlock. When new message is received the function of block will be called.
+ @param block Reference to AWSIOTMQTTNewMessageBlock. When new message is received the block will be invoked.
  
  @return Boolean value indicating success or failure.
 
@@ -372,11 +374,182 @@ typedef void(^AWSIoTMQTTNewMessageBlock)(NSData *data);
           messageCallback:(AWSIoTMQTTNewMessageBlock)callback;
 
 /**
+ Subscribes to a topic at a specific QoS level
+ 
+ @param topic The Topic to subscribe to.
+ 
+ @param qos Specifies the QoS Level of the subscription: AWSIoTMQTTQoSAtMostOnce or AWSIoTMQTTQoSAtLeastOnce
+ 
+ @param block Reference to AWSIOTMQTTExtendedNewMessageBlock. When new message is received the block will be invoked.
+ 
+ @return Boolean value indicating success or failure.
+ 
+ */
+- (BOOL) subscribeToTopic:(NSString *)topic
+                      QoS:(AWSIoTMQTTQoS)qos
+          extendedCallback:(AWSIoTMQTTExtendedNewMessageBlock)callback;
+
+
+/**
  Unsubscribes from a topic
 
  @param topic The Topic to unsubscribe from.
 
  */
 - (void)unsubscribeTopic:(NSString *)topic;
+
+
+typedef NS_ENUM(NSInteger, AWSIoTShadowOperationType) {
+    //
+    // NOTE: the first 4 values in this enum may not be re-ordered.
+    // An internal array in the implementation depends on their
+    // values and order.
+    //
+    AWSIoTShadowOperationTypeUpdate,
+    AWSIoTShadowOperationTypeGet,
+    AWSIoTShadowOperationTypeDelete,
+    AWSIoTShadowOperationTypeCount,       // Internal class use only
+    AWSIoTShadowOperationTypeNone         // Internal class use only
+};
+
+typedef NS_ENUM(NSInteger, AWSIoTShadowOperationStatusType) {
+    //
+    // NOTE: the first 4 values in this enum may not be re-ordered.
+    // An internal array in the implementation depends on their
+    // values and order.
+    //
+    AWSIoTShadowOperationStatusTypeAccepted,
+    AWSIoTShadowOperationStatusTypeRejected,
+    AWSIoTShadowOperationStatusTypeDelta,
+    AWSIoTShadowOperationStatusTypeCount, // Internal class use only
+    AWSIoTShadowOperationStatusTypeForeignUpdate,
+    AWSIoTShadowOperationStatusTypeTimeout
+};
+
+/**
+ Register for updates on a device shadow
+ 
+ @param name The device shadow to register for updates on.
+ 
+ @param eventCallback The function to call when updates are received for the device shadow.
+ 
+ @return Boolean value indicating success or failure.
+ 
+ */
+
+- (BOOL) registerWithShadow:(NSString *)name
+              eventCallback:(void(^)(NSString *name, AWSIoTShadowOperationType operation, AWSIoTShadowOperationStatusType status, NSString *clientToken, NSData *payload))callback;
+
+/**
+ Register for updates on a device shadow
+ 
+ @param name The device shadow to register for updates on.
+
+ @param options A dictionary with device shadow registration options.  The options are:
+ 
+enableDebugging: BOOL, set to YES to enable additional console debugging (default NO)
+enableVersioning: BOOL, set to NO to disable versioning (default YES)
+enableForeignStateUpdateNotifications: BOOL, set to YES to enable foreign state updates (default NO)
+enableStaleDiscards: BOOL, set to NO to disable discarding stale updates (default YES)
+enableIgnoreDeltas: BOOL, set to YES to disable delta updates (default NO)
+QoS: AWSIoTMQTTQoS (default AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce)
+shadowOperationTimeoutSeconds: double, device shadow operation timeout (default 10.0)
+ 
+ @param eventCallback The function to call when updates are received for the device shadow.
+ 
+ @return Boolean value indicating success or failure.
+ 
+ */
+
+- (BOOL) registerWithShadow:(NSString *)name
+                    options:(NSDictionary *)options
+              eventCallback:(void(^)(NSString *name, AWSIoTShadowOperationType operation, AWSIoTShadowOperationStatusType status, NSString *clientToken, NSData *payload))callback;
+
+
+/**
+ Unregister from updates on a device shadow
+ 
+ @param name The device shadow to unregister from updates on.
+ 
+ @return Boolean value indicating success or failure.
+ 
+ */
+- (BOOL) unregisterFromShadow:(NSString *)name;
+
+/**
+ Update a device shadow
+ 
+ @param name The device shadow to update.
+ 
+ @param jsonString The JSON string to update the device shadow with.
+ 
+ @return Boolean value indicating success or failure.
+ 
+ */
+- (BOOL) updateShadow:(NSString *)name
+           jsonString:(NSString *)jsonString;
+
+/**
+ Update a device shadow
+ 
+ @param name The device shadow to update.
+ 
+ @param jsonString The JSON string to update the device shadow with.
+ 
+ @param clientToken A client token value to use when updating the device shadow.
+
+ @return Boolean value indicating success or failure.
+ 
+ */
+- (BOOL) updateShadow:(NSString *)name
+           jsonString:(NSString *)jsonString
+          clientToken:(NSString *)clientToken;
+
+/**
+ Get a device shadow
+ 
+ @param name The device shadow to get.
+ 
+ @return Boolean value indicating success or failure.
+ 
+ */
+- (BOOL) getShadow:(NSString *)name;
+
+/**
+ Get a device shadow
+ 
+ @param name The device shadow to get.
+ 
+ @param clientToken A client token to use when requesting the device shadow.
+ 
+ @return Boolean value indicating success or failure.
+
+ */
+- (BOOL) getShadow:(NSString *)name
+       clientToken:(NSString *)clientToken;
+
+/**
+ Delete a device shadow
+ 
+ @param name The device shadow to delete.
+ 
+ @return Boolean value indicating success or failure.
+ 
+ */
+- (BOOL) deleteShadow:(NSString *)name;
+
+/**
+ Delete a device shadow
+ 
+ @param name The device shadow to delete.
+ 
+ @param clientToken A client token to use when deleting the device shadow.
+ 
+ @return Boolean value indicating success or failure.
+ 
+ */
+- (BOOL) deleteShadow:(NSString *)name
+          clientToken:(NSString *)clientToken;
+
 
 @end

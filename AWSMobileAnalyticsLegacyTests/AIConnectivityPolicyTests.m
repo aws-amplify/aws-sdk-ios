@@ -53,7 +53,7 @@ static id mockContext = nil;
     [self setupConnnectivtyWithIsConnected:NO withHasWifi:NO withHasWAN:NO];
     
     AWSMobileAnalyticsConnectivityPolicy* target = [AWSMobileAnalyticsConnectivityPolicy policyWithConnectivity:mockConnectivity withConfiguration:mockConfiguration withAllowWan:YES];
-    assertThatBool([target isAllowed], is(equalToBool(NO)));
+    assertThatBool([target isAllowed], is(equalToBool(YES)));
     
     target = [AWSMobileAnalyticsConnectivityPolicy policyWithConnectivity:mockConnectivity withConfiguration:mockConfiguration withAllowWan:NO];
     assertThatBool([target isAllowed], is(equalToBool(NO)));
@@ -127,7 +127,7 @@ static id mockContext = nil;
 {
     [[[mockConnectivity stub] andReturnValue:[NSNumber numberWithBool:isConnected]] isConnected];
     [[[mockConnectivity stub] andReturnValue:[NSNumber numberWithBool:hasWifi]] hasWifi];
-    [[[mockConnectivity stub] andReturnValue:[NSNumber numberWithBool:hasWAN]] hasWAN];
+    [[[mockConnectivity stub] andReturnValue:[NSNumber numberWithBool:hasWAN]] hasWANOnly];
 }
 
 @end

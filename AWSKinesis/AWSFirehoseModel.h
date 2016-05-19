@@ -46,12 +46,28 @@ typedef NS_ENUM(NSInteger, AWSFirehoseDeliveryStreamStatus) {
     AWSFirehoseDeliveryStreamStatusActive,
 };
 
+typedef NS_ENUM(NSInteger, AWSFirehoseElasticsearchIndexRotationPeriod) {
+    AWSFirehoseElasticsearchIndexRotationPeriodUnknown,
+    AWSFirehoseElasticsearchIndexRotationPeriodNoRotation,
+    AWSFirehoseElasticsearchIndexRotationPeriodOneHour,
+    AWSFirehoseElasticsearchIndexRotationPeriodOneDay,
+    AWSFirehoseElasticsearchIndexRotationPeriodOneWeek,
+    AWSFirehoseElasticsearchIndexRotationPeriodOneMonth,
+};
+
+typedef NS_ENUM(NSInteger, AWSFirehoseElasticsearchS3BackupMode) {
+    AWSFirehoseElasticsearchS3BackupModeUnknown,
+    AWSFirehoseElasticsearchS3BackupModeFailedDocumentsOnly,
+    AWSFirehoseElasticsearchS3BackupModeAllDocuments,
+};
+
 typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
     AWSFirehoseNoEncryptionConfigUnknown,
     AWSFirehoseNoEncryptionConfigNoEncryption,
 };
 
 @class AWSFirehoseBufferingHints;
+@class AWSFirehoseCloudWatchLoggingOptions;
 @class AWSFirehoseCreateDeliveryStreamInput;
 @class AWSFirehoseCreateDeliveryStreamOutput;
 @class AWSFirehoseDeleteDeliveryStreamInput;
@@ -60,6 +76,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @class AWSFirehoseDescribeDeliveryStreamInput;
 @class AWSFirehoseDescribeDeliveryStreamOutput;
 @class AWSFirehoseDestinationDescription;
+@class AWSFirehoseElasticsearchBufferingHints;
+@class AWSFirehoseElasticsearchDestinationConfiguration;
+@class AWSFirehoseElasticsearchDestinationDescription;
+@class AWSFirehoseElasticsearchDestinationUpdate;
+@class AWSFirehoseElasticsearchRetryOptions;
 @class AWSFirehoseEncryptionConfiguration;
 @class AWSFirehoseKMSEncryptionConfig;
 @class AWSFirehoseListDeliveryStreamsInput;
@@ -73,6 +94,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @class AWSFirehoseRedshiftDestinationConfiguration;
 @class AWSFirehoseRedshiftDestinationDescription;
 @class AWSFirehoseRedshiftDestinationUpdate;
+@class AWSFirehoseRedshiftRetryOptions;
 @class AWSFirehoseReplicateCommand;
 @class AWSFirehoseS3DestinationConfiguration;
 @class AWSFirehoseS3DestinationDescription;
@@ -81,7 +103,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @class AWSFirehoseUpdateDestinationOutput;
 
 /**
- <p>Describes the buffering to perform before delivering data to the destination.</p>
+ <p>Describes hints for the buffering to perform before delivering data to the destination. Please note that these options are treated as hints, and therefore Firehose may choose to use different values when it is optimal.</p>
  */
 @interface AWSFirehoseBufferingHints : AWSModel
 
@@ -99,6 +121,29 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @end
 
 /**
+ <p>Describes CloudWatch logging options for your delivery stream.</p>
+ */
+@interface AWSFirehoseCloudWatchLoggingOptions : AWSModel
+
+
+/**
+ <p>Enables or disables CloudWatch logging.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ <p>The CloudWatch group name for logging. This value is required if Enabled is true.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logGroupName;
+
+/**
+ <p>The CloudWatch log stream name for logging. This value is required if Enabled is true.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logStreamName;
+
+@end
+
+/**
  <p>Contains the parameters for <a>CreateDeliveryStream</a>.</p>
  Required parameters: [DeliveryStreamName]
  */
@@ -111,12 +156,17 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @property (nonatomic, strong) NSString * _Nullable deliveryStreamName;
 
 /**
- <p>The destination in Amazon Redshift. This value cannot be specified if Amazon S3 is the desired destination (see restrictions listed above).</p>
+ <p>The destination in Amazon ES. This value cannot be specified if Amazon S3 or Amazon Redshift is the desired destination (see restrictions listed above).</p>
+ */
+@property (nonatomic, strong) AWSFirehoseElasticsearchDestinationConfiguration * _Nullable elasticsearchDestinationConfiguration;
+
+/**
+ <p>The destination in Amazon Redshift. This value cannot be specified if Amazon S3 or Amazon Elasticsearch is the desired destination (see restrictions listed above).</p>
  */
 @property (nonatomic, strong) AWSFirehoseRedshiftDestinationConfiguration * _Nullable redshiftDestinationConfiguration;
 
 /**
- <p>The destination in Amazon S3. This value must be specified if <code>RedshiftDestinationConfiguration</code> is specified (see restrictions listed above).</p>
+ <p>The destination in Amazon S3. This value must be specified if <b>ElasticsearchDestinationConfiguration</b> or <b>RedshiftDestinationConfiguration</b> is specified (see restrictions listed above).</p>
  */
 @property (nonatomic, strong) AWSFirehoseS3DestinationConfiguration * _Nullable s3DestinationConfiguration;
 
@@ -219,7 +269,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @property (nonatomic, strong) NSString * _Nullable deliveryStreamName;
 
 /**
- <p>Specifies the destination ID to start returning the destination information. Currently Amazon Kinesis Firehose supports one destination per delivery stream.</p>
+ <p>Specifies the destination ID to start returning the destination information. Currently Firehose supports one destination per delivery stream.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable exclusiveStartDestinationId;
 
@@ -257,6 +307,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @property (nonatomic, strong) NSString * _Nullable destinationId;
 
 /**
+ <p>The destination in Amazon ES.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseElasticsearchDestinationDescription * _Nullable elasticsearchDestinationDescription;
+
+/**
  <p>The destination in Amazon Redshift.</p>
  */
 @property (nonatomic, strong) AWSFirehoseRedshiftDestinationDescription * _Nullable redshiftDestinationDescription;
@@ -265,6 +320,207 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
  <p>The Amazon S3 destination.</p>
  */
 @property (nonatomic, strong) AWSFirehoseS3DestinationDescription * _Nullable s3DestinationDescription;
+
+@end
+
+/**
+ <p>Describes the buffering to perform before delivering data to the Amazon ES destination.</p>
+ */
+@interface AWSFirehoseElasticsearchBufferingHints : AWSModel
+
+
+/**
+ <p>Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable intervalInSeconds;
+
+/**
+ <p>Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.</p><p>We recommend setting <b>SizeInMBs</b> to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set <b>SizeInMBs</b> to be 10 MB or higher.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable sizeInMBs;
+
+@end
+
+/**
+ <p>Describes the configuration of a destination in Amazon ES.</p>
+ Required parameters: [RoleARN, DomainARN, IndexName, TypeName, S3Configuration]
+ */
+@interface AWSFirehoseElasticsearchDestinationConfiguration : AWSModel
+
+
+/**
+ <p>Buffering options. If no value is specified, <b>ElasticsearchBufferingHints</b> object default values are used. </p>
+ */
+@property (nonatomic, strong) AWSFirehoseElasticsearchBufferingHints * _Nullable bufferingHints;
+
+/**
+ <p>Describes CloudWatch logging options for your delivery stream.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions * _Nullable cloudWatchLoggingOptions;
+
+/**
+ <p>The ARN of the Amazon ES domain. The IAM role must have permission for <code>DescribeElasticsearchDomain</code>, <code>DescribeElasticsearchDomains</code> , and <code>DescribeElasticsearchDomainConfig</code> after assuming <b>RoleARN</b>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable domainARN;
+
+/**
+ <p>The Elasticsearch index name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>The Elasticsearch index rotation period. Index rotation appends a timestamp to the IndexName to facilitate expiration of old data. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index Rotation for Amazon Elasticsearch Service Destination</a>. Default value is <code>OneDay</code>.</p>
+ */
+@property (nonatomic, assign) AWSFirehoseElasticsearchIndexRotationPeriod indexRotationPeriod;
+
+/**
+ <p>Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon ES. Default value is 300 (5 minutes).</p>
+ */
+@property (nonatomic, strong) AWSFirehoseElasticsearchRetryOptions * _Nullable retryOptions;
+
+/**
+ <p>The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Amazon S3 Bucket Access</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleARN;
+
+/**
+ <p>Defines how documents should be delivered to Amazon S3. When set to FailedDocumentsOnly, Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with elasticsearch-failed/ appended to the key prefix. When set to AllDocuments, Firehose delivers all incoming records to Amazon S3, and also writes failed documents with elasticsearch-failed/ appended to the prefix. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup">Amazon S3 Backup for Amazon Elasticsearch Service Destination</a>. Default value is FailedDocumentsOnly.</p>
+ */
+@property (nonatomic, assign) AWSFirehoseElasticsearchS3BackupMode s3BackupMode;
+
+/**
+ <p>Describes the configuration of a destination in Amazon S3.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseS3DestinationConfiguration * _Nullable s3Configuration;
+
+/**
+ <p>The Elasticsearch type name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable typeName;
+
+@end
+
+/**
+ <p>The destination description in Amazon ES. </p>
+ */
+@interface AWSFirehoseElasticsearchDestinationDescription : AWSModel
+
+
+/**
+ <p>Buffering options.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseElasticsearchBufferingHints * _Nullable bufferingHints;
+
+/**
+ <p>CloudWatch logging options.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions * _Nullable cloudWatchLoggingOptions;
+
+/**
+ <p>The ARN of the Amazon ES domain.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable domainARN;
+
+/**
+ <p>The Elasticsearch index name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>The Elasticsearch index rotation period</p>
+ */
+@property (nonatomic, assign) AWSFirehoseElasticsearchIndexRotationPeriod indexRotationPeriod;
+
+/**
+ <p>Elasticsearch retry options.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseElasticsearchRetryOptions * _Nullable retryOptions;
+
+/**
+ <p>The ARN of the AWS credentials.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleARN;
+
+/**
+ <p>Amazon S3 backup mode.</p>
+ */
+@property (nonatomic, assign) AWSFirehoseElasticsearchS3BackupMode s3BackupMode;
+
+/**
+ <p>Describes a destination in Amazon S3.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseS3DestinationDescription * _Nullable s3DestinationDescription;
+
+/**
+ <p>The Elasticsearch type name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable typeName;
+
+@end
+
+/**
+ <p>Describes an update for a destination in Amazon ES.</p>
+ */
+@interface AWSFirehoseElasticsearchDestinationUpdate : AWSModel
+
+
+/**
+ <p>Buffering options. If no value is specified, <b>ElasticsearchBufferingHints</b> object default values are used. </p>
+ */
+@property (nonatomic, strong) AWSFirehoseElasticsearchBufferingHints * _Nullable bufferingHints;
+
+/**
+ <p>Describes CloudWatch logging options for your delivery stream.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions * _Nullable cloudWatchLoggingOptions;
+
+/**
+ <p>The ARN of the Amazon ES domain. The IAM role must have permission for DescribeElasticsearchDomain, DescribeElasticsearchDomains , and DescribeElasticsearchDomainConfig after assuming <b>RoleARN</b>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable domainARN;
+
+/**
+ <p>The Elasticsearch index name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>The Elasticsearch index rotation period. Index rotation appends a timestamp to the IndexName to facilitate the expiration of old data. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index Rotation for Amazon Elasticsearch Service Destination</a>. Default value is <code>OneDay</code>.</p>
+ */
+@property (nonatomic, assign) AWSFirehoseElasticsearchIndexRotationPeriod indexRotationPeriod;
+
+/**
+ <p>Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon ES. Default value is 300 (5 minutes).</p>
+ */
+@property (nonatomic, strong) AWSFirehoseElasticsearchRetryOptions * _Nullable retryOptions;
+
+/**
+ <p>The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Amazon S3 Bucket Access</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleARN;
+
+/**
+ <p>Describes an update for a destination in Amazon S3.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseS3DestinationUpdate * _Nullable s3Update;
+
+/**
+ <p>The Elasticsearch type name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable typeName;
+
+@end
+
+/**
+ <p>Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon ES.</p>
+ */
+@interface AWSFirehoseElasticsearchRetryOptions : AWSModel
+
+
+/**
+ <p>After an initial failure to deliver to Amazon ES, the total amount of time during which Firehose re-attempts delivery. After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds. A value of 0 (zero) results in no retries.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable durationInSeconds;
 
 @end
 
@@ -453,6 +709,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 
 
 /**
+ <p>Describes CloudWatch logging options for your delivery stream.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions * _Nullable cloudWatchLoggingOptions;
+
+/**
  <p>The database connection string.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clusterJDBCURL;
@@ -468,12 +729,17 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @property (nonatomic, strong) AWSFirehoseReplicateCommand * _Nullable replicateCommand;
 
 /**
+ 
+ */
+@property (nonatomic, strong) AWSFirehoseRedshiftRetryOptions * _Nullable retryOptions;
+
+/**
  <p>The ARN of the AWS credentials.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable roleARN;
 
 /**
- <p>The S3 configuration for the intermediate location from which Amazon Redshift obtains data. Restrictions are described in the topic for <a>CreateDeliveryStream</a>.</p><p>The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be specified in <code>RedshiftDestinationConfiguration.S3Configuration</code> because the Amazon Redshift <code>COPY</code> operation that reads from the S3 bucket doesn't support these compression formats.</p>
+ <p>The S3 configuration for the intermediate location from which Amazon Redshift obtains data. Restrictions are described in the topic for <a>CreateDeliveryStream</a>.</p><p>The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be specified in <b>RedshiftDestinationConfiguration.S3Configuration</b> because the Amazon Redshift <code>COPY</code> operation that reads from the S3 bucket doesn't support these compression formats.</p>
  */
 @property (nonatomic, strong) AWSFirehoseS3DestinationConfiguration * _Nullable s3Configuration;
 
@@ -492,6 +758,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 
 
 /**
+ <p>Describes CloudWatch logging options for your delivery stream.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions * _Nullable cloudWatchLoggingOptions;
+
+/**
  <p>The database connection string.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clusterJDBCURL;
@@ -500,6 +771,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
  <p>The <code>COPY</code> command.</p>
  */
 @property (nonatomic, strong) AWSFirehoseReplicateCommand * _Nullable replicateCommand;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSFirehoseRedshiftRetryOptions * _Nullable retryOptions;
 
 /**
  <p>The ARN of the AWS credentials.</p>
@@ -525,6 +801,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 
 
 /**
+ <p>Describes CloudWatch logging options for your delivery stream.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions * _Nullable cloudWatchLoggingOptions;
+
+/**
  <p>The database connection string.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clusterJDBCURL;
@@ -540,12 +821,17 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @property (nonatomic, strong) AWSFirehoseReplicateCommand * _Nullable replicateCommand;
 
 /**
+ 
+ */
+@property (nonatomic, strong) AWSFirehoseRedshiftRetryOptions * _Nullable retryOptions;
+
+/**
  <p>The ARN of the AWS credentials.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable roleARN;
 
 /**
- <p>The Amazon S3 destination.</p><p>The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be specified in <code>RedshiftDestinationUpdate.S3Update</code> because the Amazon Redshift <code>COPY</code> operation that reads from the S3 bucket doesn't support these compression formats.</p>
+ <p>The Amazon S3 destination.</p><p>The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be specified in <b>RedshiftDestinationUpdate.S3Update</b> because the Amazon Redshift <code>COPY</code> operation that reads from the S3 bucket doesn't support these compression formats.</p>
  */
 @property (nonatomic, strong) AWSFirehoseS3DestinationUpdate * _Nullable s3Update;
 
@@ -553,6 +839,19 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
  <p>The name of the user.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
+
+@end
+
+/**
+ 
+ */
+@interface AWSFirehoseRedshiftRetryOptions : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable durationInSeconds;
 
 @end
 
@@ -574,7 +873,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @property (nonatomic, strong) NSString * _Nullable dataTableName;
 
 /**
- <p>Optional parameters to use with the Amazon Redshift <code>COPY</code> command. For more information, see the "Optional Parameters" section of <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html">Amazon Redshift COPY command</a>. Some possible examples that would apply to Amazon Kinesis Firehose are as follows.</p><p><code>delimiter '\t' lzop;</code> - fields are delimited with "\t" (TAB character) and compressed using lzop.</p><p><code>delimiter '|</code> - fields are delimited with "|" (this is the default delimiter).</p><p><code>delimiter '|' escape</code> - the delimiter should be escaped.</p><p><code>fixedwidth 'venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6'</code> - fields are fixed width in the source, with each width specified after every column in the table.</p><p><code>JSON 's3://mybucket/jsonpaths.txt'</code> - data is in JSON format, and the path specified is the format of the data.</p><p>For more examples, see and <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html">Amazon Redshift COPY command exmaples</a>.</p>
+ <p>Optional parameters to use with the Amazon Redshift <code>COPY</code> command. For more information, see the "Optional Parameters" section of <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html">Amazon Redshift COPY command</a>. Some possible examples that would apply to Firehose are as follows.</p><p><code>delimiter '\t' lzop;</code> - fields are delimited with "\t" (TAB character) and compressed using lzop.</p><p><code>delimiter '|</code> - fields are delimited with "|" (this is the default delimiter).</p><p><code>delimiter '|' escape</code> - the delimiter should be escaped.</p><p><code>fixedwidth 'venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6'</code> - fields are fixed width in the source, with each width specified after every column in the table.</p><p><code>JSON 's3://mybucket/jsonpaths.txt'</code> - data is in JSON format, and the path specified is the format of the data.</p><p>For more examples, see <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html">Amazon Redshift COPY command examples</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable replicateOptions;
 
@@ -593,9 +892,14 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @property (nonatomic, strong) NSString * _Nullable bucketARN;
 
 /**
- <p>The buffering option. If no value is specified, <code>BufferingHints</code> object default values are used.</p>
+ <p>The buffering option. If no value is specified, <b>BufferingHints</b> object default values are used.</p>
  */
 @property (nonatomic, strong) AWSFirehoseBufferingHints * _Nullable bufferingHints;
+
+/**
+ <p>Describes CloudWatch logging options for your delivery stream.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions * _Nullable cloudWatchLoggingOptions;
 
 /**
  <p>The compression format. If no value is specified, the default is <code>UNCOMPRESSED</code>.</p><p>The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be specified for Amazon Redshift destinations because they are not supported by the Amazon Redshift <code>COPY</code> operation that reads from the S3 bucket.</p>
@@ -632,9 +936,14 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @property (nonatomic, strong) NSString * _Nullable bucketARN;
 
 /**
- <p>The buffering option. If no value is specified, <code>BufferingHints</code> object default values are used.</p>
+ <p>The buffering option. If no value is specified, <b>BufferingHints</b> object default values are used.</p>
  */
 @property (nonatomic, strong) AWSFirehoseBufferingHints * _Nullable bufferingHints;
+
+/**
+ <p>Describes CloudWatch logging options for your delivery stream.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions * _Nullable cloudWatchLoggingOptions;
 
 /**
  <p>The compression format. If no value is specified, the default is <code>NOCOMPRESSION</code>.</p>
@@ -670,9 +979,14 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @property (nonatomic, strong) NSString * _Nullable bucketARN;
 
 /**
- <p>The buffering option. If no value is specified, <code>BufferingHints</code> object default values are used.</p>
+ <p>The buffering option. If no value is specified, <b>BufferingHints</b> object default values are used.</p>
  */
 @property (nonatomic, strong) AWSFirehoseBufferingHints * _Nullable bufferingHints;
+
+/**
+ <p>Describes CloudWatch logging options for your delivery stream.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions * _Nullable cloudWatchLoggingOptions;
 
 /**
  <p>The compression format. If no value is specified, the default is <code>NOCOMPRESSION</code>.</p><p>The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be specified for Amazon Redshift destinations because they are not supported by the Amazon Redshift <code>COPY</code> operation that reads from the S3 bucket.</p>
@@ -704,7 +1018,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 
 
 /**
- <p>Obtain this value from the <code>VersionId</code> result of the <a>DeliveryStreamDescription</a> operation. This value is required, and helps the service to perform conditional operations. For example, if there is a interleaving update and this value is null, then the update destination fails. After the update is successful, the <code>VersionId</code> value is updated. The service then performs a merge of the old configuration with the new configuration.</p>
+ <p>Obtain this value from the <b>VersionId</b> result of the <a>DeliveryStreamDescription</a> operation. This value is required, and helps the service to perform conditional operations. For example, if there is a interleaving update and this value is null, then the update destination fails. After the update is successful, the <b>VersionId</b> value is updated. The service then performs a merge of the old configuration with the new configuration.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable currentDeliveryStreamVersionId;
 
@@ -717,6 +1031,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
  <p>The ID of the destination.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationId;
+
+/**
+ <p>Describes an update for a destination in Amazon ES.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseElasticsearchDestinationUpdate * _Nullable elasticsearchDestinationUpdate;
 
 /**
  <p>Describes an update for a destination in Amazon Redshift.</p>

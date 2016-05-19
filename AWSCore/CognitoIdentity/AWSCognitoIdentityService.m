@@ -43,6 +43,7 @@ static NSString *const AWSInfoCognitoIdentity = @"CognitoIdentity";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"ConcurrentModificationException" : @(AWSCognitoIdentityErrorConcurrentModification),
                             @"DeveloperUserAlreadyRegisteredException" : @(AWSCognitoIdentityErrorDeveloperUserAlreadyRegistered),
                             @"ExternalServiceException" : @(AWSCognitoIdentityErrorExternalService),
                             @"InternalErrorException" : @(AWSCognitoIdentityErrorInternalError),
@@ -248,6 +249,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return nil;
 }
 
+#pragma mark -
+
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
         _configuration = [configuration copy];
@@ -333,6 +336,34 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
          completionHandler:(void (^)(AWSCognitoIdentityIdentityPool *response, NSError *error))completionHandler {
     [[self createIdentityPool:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityIdentityPool *> * _Nonnull task) {
         AWSCognitoIdentityIdentityPool *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityDeleteIdentitiesResponse *> *)deleteIdentities:(AWSCognitoIdentityDeleteIdentitiesInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityService"
+                 operationName:@"DeleteIdentities"
+                   outputClass:[AWSCognitoIdentityDeleteIdentitiesResponse class]];
+}
+
+- (void)deleteIdentities:(AWSCognitoIdentityDeleteIdentitiesInput *)request
+       completionHandler:(void (^)(AWSCognitoIdentityDeleteIdentitiesResponse *response, NSError *error))completionHandler {
+    [[self deleteIdentities:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityDeleteIdentitiesResponse *> * _Nonnull task) {
+        AWSCognitoIdentityDeleteIdentitiesResponse *result = task.result;
         NSError *error = task.error;
 
         if (task.exception) {
@@ -791,5 +822,7 @@ completionHandler:(void (^)(AWSCognitoIdentityGetIdResponse *response, NSError *
         return nil;
     }];
 }
+
+#pragma mark -
 
 @end

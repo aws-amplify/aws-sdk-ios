@@ -23,13 +23,16 @@ FOUNDATION_EXPORT NSString *const AWSIoTErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSIoTErrorType) {
     AWSIoTErrorUnknown,
+    AWSIoTErrorCertificateConflict,
     AWSIoTErrorCertificateState,
+    AWSIoTErrorCertificateValidation,
     AWSIoTErrorDeleteConflict,
     AWSIoTErrorInternal,
     AWSIoTErrorInternalFailure,
     AWSIoTErrorInvalidRequest,
     AWSIoTErrorLimitExceeded,
     AWSIoTErrorMalformedPolicy,
+    AWSIoTErrorRegistrationCodeValidation,
     AWSIoTErrorResourceAlreadyExists,
     AWSIoTErrorResourceNotFound,
     AWSIoTErrorServiceUnavailable,
@@ -41,12 +44,19 @@ typedef NS_ENUM(NSInteger, AWSIoTErrorType) {
     AWSIoTErrorVersionsLimitExceeded,
 };
 
+typedef NS_ENUM(NSInteger, AWSIoTCACertificateStatus) {
+    AWSIoTCACertificateStatusUnknown,
+    AWSIoTCACertificateStatusActive,
+    AWSIoTCACertificateStatusInactive,
+};
+
 typedef NS_ENUM(NSInteger, AWSIoTCertificateStatus) {
     AWSIoTCertificateStatusUnknown,
     AWSIoTCertificateStatusActive,
     AWSIoTCertificateStatusInactive,
     AWSIoTCertificateStatusRevoked,
     AWSIoTCertificateStatusPendingTransfer,
+    AWSIoTCertificateStatusRegisterInactive,
 };
 
 typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
@@ -58,15 +68,25 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
     AWSIoTLogLevelDisabled,
 };
 
+typedef NS_ENUM(NSInteger, AWSIoTMessageFormat) {
+    AWSIoTMessageFormatUnknown,
+    AWSIoTMessageFormatRAW,
+    AWSIoTMessageFormatJson,
+};
+
 @class AWSIoTAcceptCertificateTransferRequest;
 @class AWSIoTAction;
 @class AWSIoTAttachPrincipalPolicyRequest;
 @class AWSIoTAttachThingPrincipalRequest;
 @class AWSIoTAttachThingPrincipalResponse;
 @class AWSIoTAttributePayload;
+@class AWSIoTCACertificate;
+@class AWSIoTCACertificateDescription;
 @class AWSIoTCancelCertificateTransferRequest;
 @class AWSIoTCertificate;
 @class AWSIoTCertificateDescription;
+@class AWSIoTCloudwatchAlarmAction;
+@class AWSIoTCloudwatchMetricAction;
 @class AWSIoTCreateCertificateFromCsrRequest;
 @class AWSIoTCreateCertificateFromCsrResponse;
 @class AWSIoTCreateKeysAndCertificateRequest;
@@ -78,12 +98,18 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @class AWSIoTCreateThingRequest;
 @class AWSIoTCreateThingResponse;
 @class AWSIoTCreateTopicRuleRequest;
+@class AWSIoTDeleteCACertificateRequest;
+@class AWSIoTDeleteCACertificateResponse;
 @class AWSIoTDeleteCertificateRequest;
 @class AWSIoTDeletePolicyRequest;
 @class AWSIoTDeletePolicyVersionRequest;
+@class AWSIoTDeleteRegistrationCodeRequest;
+@class AWSIoTDeleteRegistrationCodeResponse;
 @class AWSIoTDeleteThingRequest;
 @class AWSIoTDeleteThingResponse;
 @class AWSIoTDeleteTopicRuleRequest;
+@class AWSIoTDescribeCACertificateRequest;
+@class AWSIoTDescribeCACertificateResponse;
 @class AWSIoTDescribeCertificateRequest;
 @class AWSIoTDescribeCertificateResponse;
 @class AWSIoTDescribeEndpointRequest;
@@ -93,7 +119,10 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @class AWSIoTDetachPrincipalPolicyRequest;
 @class AWSIoTDetachThingPrincipalRequest;
 @class AWSIoTDetachThingPrincipalResponse;
+@class AWSIoTDisableTopicRuleRequest;
 @class AWSIoTDynamoDBAction;
+@class AWSIoTElasticsearchAction;
+@class AWSIoTEnableTopicRuleRequest;
 @class AWSIoTFirehoseAction;
 @class AWSIoTGetLoggingOptionsRequest;
 @class AWSIoTGetLoggingOptionsResponse;
@@ -101,11 +130,17 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @class AWSIoTGetPolicyResponse;
 @class AWSIoTGetPolicyVersionRequest;
 @class AWSIoTGetPolicyVersionResponse;
+@class AWSIoTGetRegistrationCodeRequest;
+@class AWSIoTGetRegistrationCodeResponse;
 @class AWSIoTGetTopicRuleRequest;
 @class AWSIoTGetTopicRuleResponse;
 @class AWSIoTKeyPair;
 @class AWSIoTKinesisAction;
 @class AWSIoTLambdaAction;
+@class AWSIoTListCACertificatesRequest;
+@class AWSIoTListCACertificatesResponse;
+@class AWSIoTListCertificatesByCARequest;
+@class AWSIoTListCertificatesByCAResponse;
 @class AWSIoTListCertificatesRequest;
 @class AWSIoTListCertificatesResponse;
 @class AWSIoTListPoliciesRequest;
@@ -125,6 +160,10 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @class AWSIoTLoggingOptionsPayload;
 @class AWSIoTPolicy;
 @class AWSIoTPolicyVersion;
+@class AWSIoTRegisterCACertificateRequest;
+@class AWSIoTRegisterCACertificateResponse;
+@class AWSIoTRegisterCertificateRequest;
+@class AWSIoTRegisterCertificateResponse;
 @class AWSIoTRejectCertificateTransferRequest;
 @class AWSIoTReplaceTopicRuleRequest;
 @class AWSIoTRepublishAction;
@@ -139,6 +178,8 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @class AWSIoTTopicRulePayload;
 @class AWSIoTTransferCertificateRequest;
 @class AWSIoTTransferCertificateResponse;
+@class AWSIoTTransferData;
+@class AWSIoTUpdateCACertificateRequest;
 @class AWSIoTUpdateCertificateRequest;
 @class AWSIoTUpdateThingRequest;
 @class AWSIoTUpdateThingResponse;
@@ -169,17 +210,32 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 
 
 /**
+ <p>Change the state of a CloudWatch alarm.</p>
+ */
+@property (nonatomic, strong) AWSIoTCloudwatchAlarmAction * _Nullable cloudwatchAlarm;
+
+/**
+ <p>Capture a CloudWatch metric.</p>
+ */
+@property (nonatomic, strong) AWSIoTCloudwatchMetricAction * _Nullable cloudwatchMetric;
+
+/**
  <p>Write to a DynamoDB table.</p>
  */
 @property (nonatomic, strong) AWSIoTDynamoDBAction * _Nullable dynamoDB;
 
 /**
- 
+ <p>Write data to an Amazon Elasticsearch Service; domain.</p>
+ */
+@property (nonatomic, strong) AWSIoTElasticsearchAction * _Nullable elasticsearch;
+
+/**
+ <p>Write to an Amazon Kinesis Firehose stream.</p>
  */
 @property (nonatomic, strong) AWSIoTFirehoseAction * _Nullable firehose;
 
 /**
- <p>Write data to a Kinesis stream.</p>
+ <p>Write data to an Amazon Kinesis stream.</p>
  */
 @property (nonatomic, strong) AWSIoTKinesisAction * _Nullable kinesis;
 
@@ -194,17 +250,17 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @property (nonatomic, strong) AWSIoTRepublishAction * _Nullable republish;
 
 /**
- <p>Write to an S3 bucket.</p>
+ <p>Write to an Amazon S3 bucket.</p>
  */
 @property (nonatomic, strong) AWSIoTS3Action * _Nullable s3;
 
 /**
- <p>Publish to an SNS topic.</p>
+ <p>Publish to an Amazon SNS topic.</p>
  */
 @property (nonatomic, strong) AWSIoTSnsAction * _Nullable sns;
 
 /**
- <p>Publish to an SQS queue.</p>
+ <p>Publish to an Amazon SQS queue.</p>
  */
 @property (nonatomic, strong) AWSIoTSqsAction * _Nullable sqs;
 
@@ -223,7 +279,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @property (nonatomic, strong) NSString * _Nullable policyName;
 
 /**
- <p>The principal which can be a certificate ARN (as returned from the CreateCertificate operation) or a Cognito ID.</p>
+ <p>The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable principal;
 
@@ -257,15 +313,81 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @end
 
 /**
- <p>The attribute payload, a JSON string containing up to three key-value pairs.</p><p>For example: {\"attributes\":{\"string1\":\"string2\"}}</p>
+ <p>The attribute payload, a JSON string containing up to three key-value pairs (for example, {\"attributes\":{\"string1\":\"string2\"}}).</p>
  */
 @interface AWSIoTAttributePayload : AWSModel
 
 
 /**
- <p>A JSON string containing up to three key-value pair in JSON format.</p><p>For example: {\"attributes\":{\"string1\":\"string2\"}}</p>
+ <p>A JSON string containing up to three key-value pair in JSON format (for example, {\"attributes\":{\"string1\":\"string2\"}}).</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
+
+@end
+
+/**
+ <p>A CA certificate.</p>
+ */
+@interface AWSIoTCACertificate : AWSModel
+
+
+/**
+ <p>The ARN of the CA certificate.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateArn;
+
+/**
+ <p>The ID of the CA certificate.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateId;
+
+/**
+ <p>The date the CA certificate was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationDate;
+
+/**
+ <p>The status of the CA certificate.</p>
+ */
+@property (nonatomic, assign) AWSIoTCACertificateStatus status;
+
+@end
+
+/**
+ <p>Describes a CA certificate.</p>
+ */
+@interface AWSIoTCACertificateDescription : AWSModel
+
+
+/**
+ <p>The CA certificate ARN.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateArn;
+
+/**
+ <p>The CA certificate ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateId;
+
+/**
+ <p>The CA certificate data, in PEM format.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificatePem;
+
+/**
+ <p>The date the CA certificate was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationDate;
+
+/**
+ <p>The owner of the CA certificate.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ownedBy;
+
+/**
+ <p>The status of a CA certificate.</p>
+ */
+@property (nonatomic, assign) AWSIoTCACertificateStatus status;
 
 @end
 
@@ -318,6 +440,11 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 
 
 /**
+ <p>The certificate ID of the CA certificate used to sign this certificate.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable caCertificateId;
+
+/**
  <p>The ARN of the certificate.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable certificateArn;
@@ -348,9 +475,87 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @property (nonatomic, strong) NSString * _Nullable ownedBy;
 
 /**
+ <p>The ID of the AWS account of the previous owner of the certificate.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable previousOwnedBy;
+
+/**
  <p>The status of the certificate.</p>
  */
 @property (nonatomic, assign) AWSIoTCertificateStatus status;
+
+/**
+ <p>The transfer data.</p>
+ */
+@property (nonatomic, strong) AWSIoTTransferData * _Nullable transferData;
+
+@end
+
+/**
+ <p>Describes an action that updates a CloudWatch alarm.</p>
+ Required parameters: [roleArn, alarmName, stateReason, stateValue]
+ */
+@interface AWSIoTCloudwatchAlarmAction : AWSModel
+
+
+/**
+ <p>The CloudWatch alarm name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable alarmName;
+
+/**
+ <p>The IAM role that allows access to the CloudWatch alarm.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleArn;
+
+/**
+ <p>The reason for the alarm change.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable stateReason;
+
+/**
+ <p>The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable stateValue;
+
+@end
+
+/**
+ <p>Describes an action that captures a CloudWatch metric.</p>
+ Required parameters: [roleArn, metricNamespace, metricName, metricValue, metricUnit]
+ */
+@interface AWSIoTCloudwatchMetricAction : AWSModel
+
+
+/**
+ <p>The CloudWatch metric name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metricName;
+
+/**
+ <p>The CloudWatch metric namespace name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metricNamespace;
+
+/**
+ <p>An optional <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp">Unix timestamp</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metricTimestamp;
+
+/**
+ <p>The <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit">metric unit</a> supported by CloudWatch.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metricUnit;
+
+/**
+ <p>The CloudWatch metric value.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metricValue;
+
+/**
+ <p>The IAM role that allows access to the CloudWatch metric.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleArn;
 
 @end
 
@@ -421,7 +626,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @property (nonatomic, strong) NSString * _Nullable certificateArn;
 
 /**
- <p>The ID of the certificate. AWS IoT issues a default subject name for the certificate (e.g., AWS IoT Certificate).</p>
+ <p>The ID of the certificate. AWS IoT issues a default subject name for the certificate (for example, AWS IoT Certificate).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable certificateId;
 
@@ -445,7 +650,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 
 
 /**
- <p>The JSON document that describes the policy. The length of the <b>policyDocument</b> must be a minimum length of 1, with a maximum length of 2048, excluding whitespace.</p>
+ <p>The JSON document that describes the policy. <b>policyDocument</b> must have a minimum length of 1, with a maximum length of 2048, excluding whitespace.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable policyDocument;
 
@@ -492,7 +697,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 
 
 /**
- <p>The JSON document that describes the policy. Minimum length of 1. Maximum length of 2048 excluding whitespaces</p>
+ <p>The JSON document that describes the policy. Minimum length of 1. Maximum length of 2048, excluding whitespaces</p>
  */
 @property (nonatomic, strong) NSString * _Nullable policyDocument;
 
@@ -502,7 +707,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @property (nonatomic, strong) NSString * _Nullable policyName;
 
 /**
- <p>Specifies whether the policy version is set as the default. When this parameter is true, the new policy version becomes the operative version; that is, the version that is in effect for the certificates that the policy is attached to.</p>
+ <p>Specifies whether the policy version is set as the default. When this parameter is true, the new policy version becomes the operative version (that is, the version that is in effect for the certificates to which the policy is attached).</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable setAsDefault;
 
@@ -544,7 +749,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 
 
 /**
- <p>The attribute payload. Which consists of up to 3 name/value pairs in a JSON document. For example: {\"attributes\":{\"string1\":\"string2\"}}</p>
+ <p>The attribute payload, which consists of up to 3 name/value pairs in a JSON document (for example, {\"attributes\":{\"string1\":\"string2\"}}).</p>
  */
 @property (nonatomic, strong) AWSIoTAttributePayload * _Nullable attributePayload;
 
@@ -589,6 +794,28 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
  <p>The rule payload.</p>
  */
 @property (nonatomic, strong) AWSIoTTopicRulePayload * _Nullable topicRulePayload;
+
+@end
+
+/**
+ <p>Input for the DeleteCACertificate operation.</p>
+ Required parameters: [certificateId]
+ */
+@interface AWSIoTDeleteCACertificateRequest : AWSRequest
+
+
+/**
+ <p>The ID of the certificate to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateId;
+
+@end
+
+/**
+ <p>The output for the DeleteCACertificate operation.</p>
+ */
+@interface AWSIoTDeleteCACertificateResponse : AWSModel
+
 
 @end
 
@@ -640,6 +867,22 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @end
 
 /**
+ <p>The input for the DeleteRegistrationCode operation.</p>
+ */
+@interface AWSIoTDeleteRegistrationCodeRequest : AWSRequest
+
+
+@end
+
+/**
+ <p>The output for the DeleteRegistrationCode operation. </p>
+ */
+@interface AWSIoTDeleteRegistrationCodeResponse : AWSModel
+
+
+@end
+
+/**
  <p>The input for the DeleteThing operation.</p>
  Required parameters: [thingName]
  */
@@ -672,6 +915,33 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
  <p>The name of the rule.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ruleName;
+
+@end
+
+/**
+ <p>The input for the DescribeCACertificate operation.</p>
+ Required parameters: [certificateId]
+ */
+@interface AWSIoTDescribeCACertificateRequest : AWSRequest
+
+
+/**
+ <p>The CA certificate identifier.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateId;
+
+@end
+
+/**
+ <p>The output from the DescribeCACertificate operation.</p>
+ */
+@interface AWSIoTDescribeCACertificateResponse : AWSModel
+
+
+/**
+ <p>The CA certificate description.</p>
+ */
+@property (nonatomic, strong) AWSIoTCACertificateDescription * _Nullable certificateDescription;
 
 @end
 
@@ -744,7 +1014,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 
 
 /**
- <p>The attributes which are name/value pairs in JSON format. For example: </p><p>{\"attributes\":{\"some-name1\":\"some-value1\"}, {\"some-name2\":\"some-value2\"}, {\"some-name3\":\"some-value3\"}}</p>
+ <p>The attributes, which are name/value pairs in JSON format (for example: {\"attributes\":{\"some-name1\":\"some-value1\"}, {\"some-name2\":\"some-value2\"}, {\"some-name3\":\"some-value3\"}})</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -773,7 +1043,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @property (nonatomic, strong) NSString * _Nullable policyName;
 
 /**
- <p>The principal</p><p>If the principal is a certificate, specify the certificate ARN. If the principal is a Cognito identity specify the identity ID.</p>
+ <p>The principal.</p><p>If the principal is a certificate, specify the certificate ARN. If the principal is an Amazon Cognito identity, specify the identity ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable principal;
 
@@ -807,7 +1077,21 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @end
 
 /**
- <p>Describes an action to write to a DynamoDB table.</p><p>The <code>tableName</code>, <code>hashKeyField</code>, and <code>rangeKeyField</code> values must match the values used when you created the table.</p><p>The <code>hashKeyValue</code> and <code>rangeKeyvalue</code> fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: ${<i>sql-expression</i>}.</p><p>You can specify any expression that's valid in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:</p><p><code>"hashKeyValue": "${topic(3)}"</code></p><p>The following field uses the timestamp:</p><p><code>"rangeKeyValue": "${timestamp()}"</code></p>
+ <p>The input for the DisableTopicRuleRequest operation.</p>
+ Required parameters: [ruleName]
+ */
+@interface AWSIoTDisableTopicRuleRequest : AWSRequest
+
+
+/**
+ <p>The name of the rule to disable.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleName;
+
+@end
+
+/**
+ <p>Describes an action to write to a DynamoDB table.</p><p>The <code>tableName</code>, <code>hashKeyField</code>, and <code>rangeKeyField</code> values must match the values used when you created the table.</p><p>The <code>hashKeyValue</code> and <code>rangeKeyvalue</code> fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: ${<i>sql-expression</i>}.</p><p>You can specify any valid expression in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:</p><p><code>"hashKeyValue": "${topic(3)}"</code></p><p>The following field uses the timestamp:</p><p><code>"rangeKeyValue": "${timestamp()}"</code></p>
  Required parameters: [tableName, roleArn, hashKeyField, hashKeyValue, rangeKeyField, rangeKeyValue]
  */
 @interface AWSIoTDynamoDBAction : AWSModel
@@ -824,7 +1108,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @property (nonatomic, strong) NSString * _Nullable hashKeyValue;
 
 /**
- <p>The action payload, this name can be customized.</p>
+ <p>The action payload. This name can be customized.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable payloadField;
 
@@ -839,7 +1123,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @property (nonatomic, strong) NSString * _Nullable rangeKeyValue;
 
 /**
- <p>The ARN of the IAM role that grants access.</p>
+ <p>The ARN of the IAM role that grants access to the DynamoDB table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable roleArn;
 
@@ -851,18 +1135,67 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @end
 
 /**
- 
+ <p>Describes an action that writes data to an Amazon Elasticsearch Service; domain.</p>
+ Required parameters: [roleArn, endpoint, index, type, id]
+ */
+@interface AWSIoTElasticsearchAction : AWSModel
+
+
+/**
+ <p>The endpoint of your Elasticsearch domain.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endpoint;
+
+/**
+ <p>The unique identifier for the document you are storing.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The Elasticsearch index where you want to store your data.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable index;
+
+/**
+ <p>The IAM role ARN that has access to Elasticsearch.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleArn;
+
+/**
+ <p>The type of document you are storing.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable types;
+
+@end
+
+/**
+ <p>The input for the EnableTopicRuleRequest operation.</p>
+ Required parameters: [ruleName]
+ */
+@interface AWSIoTEnableTopicRuleRequest : AWSRequest
+
+
+/**
+ <p>The name of the topic rule to enable.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleName;
+
+@end
+
+/**
+ <p>Describes an action that writes data to an Amazon Kinesis Firehose stream.</p>
+ Required parameters: [roleArn, deliveryStreamName]
  */
 @interface AWSIoTFirehoseAction : AWSModel
 
 
 /**
- 
+ <p>The delivery stream name.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable deliveryStreamName;
 
 /**
- 
+ <p>The IAM role that grants access to the Amazon Kinesis Firehost stream.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable roleArn;
 
@@ -989,6 +1322,27 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @end
 
 /**
+ <p>The input to the GetRegistrationCode operation.</p>
+ */
+@interface AWSIoTGetRegistrationCodeRequest : AWSRequest
+
+
+@end
+
+/**
+ <p>The output from the GetRegistrationCode operation.</p>
+ */
+@interface AWSIoTGetRegistrationCodeResponse : AWSModel
+
+
+/**
+ <p>The CA certificate registration code.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable registrationCode;
+
+@end
+
+/**
  <p>The input for the GetTopicRule operation.</p>
  Required parameters: [ruleName]
  */
@@ -1012,6 +1366,11 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
  <p>The rule.</p>
  */
 @property (nonatomic, strong) AWSIoTTopicRule * _Nullable rule;
+
+/**
+ <p>The rule ARN.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleArn;
 
 @end
 
@@ -1046,19 +1405,19 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @property (nonatomic, strong) NSString * _Nullable partitionKey;
 
 /**
- <p>The ARN of the IAM role that grants access.</p>
+ <p>The ARN of the IAM role that grants access to the Amazon Kinesis stream.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable roleArn;
 
 /**
- <p>The name of the Kinesis stream.</p>
+ <p>The name of the Amazon Kinesis stream.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable streamName;
 
 @end
 
 /**
- <p>Describes an action to invoke a Lamdba function.</p>
+ <p>Describes an action to invoke a Lambda function.</p>
  Required parameters: [functionArn]
  */
 @interface AWSIoTLambdaAction : AWSModel
@@ -1068,6 +1427,94 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
  <p>The ARN of the Lambda function.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionArn;
+
+@end
+
+/**
+ <p>Input for the ListCACertificates operation.</p>
+ */
+@interface AWSIoTListCACertificatesRequest : AWSRequest
+
+
+/**
+ <p>Determines the order of the results.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable ascendingOrder;
+
+/**
+ <p>The marker for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable marker;
+
+/**
+ <p>The result page size.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable pageSize;
+
+@end
+
+/**
+ <p>The output from the ListCACertificates operation.</p>
+ */
+@interface AWSIoTListCACertificatesResponse : AWSModel
+
+
+/**
+ <p>The CA certificates registered in your AWS account.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSIoTCACertificate *> * _Nullable certificates;
+
+/**
+ <p>The current position within the list of CA certificates.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextMarker;
+
+@end
+
+/**
+ <p>The input to the ListCertificatesByCA operation.</p>
+ Required parameters: [caCertificateId]
+ */
+@interface AWSIoTListCertificatesByCARequest : AWSRequest
+
+
+/**
+ <p>Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable ascendingOrder;
+
+/**
+ <p>The ID of the CA certificate. This operation will list all registered device certificate that were signed by this CA certificate. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable caCertificateId;
+
+/**
+ <p>The marker for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable marker;
+
+/**
+ <p>The result page size.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable pageSize;
+
+@end
+
+/**
+ <p>The output of the ListCertificatesByCA operation.</p>
+ */
+@interface AWSIoTListCertificatesByCAResponse : AWSModel
+
+
+/**
+ <p>The device certificates signed by the specified CA certificate.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSIoTCertificate *> * _Nullable certificates;
+
+/**
+ <p>The marker for the next set of results, or null if there are no additional results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextMarker;
 
 @end
 
@@ -1240,7 +1687,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- 
+ <p>A token used to retrieve the next value.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -1449,6 +1896,90 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @end
 
 /**
+ <p>The input to the RegisterCACertificate operation.</p>
+ Required parameters: [caCertificate, verificationCertificate]
+ */
+@interface AWSIoTRegisterCACertificateRequest : AWSRequest
+
+
+/**
+ <p>The CA certificate.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable caCertificate;
+
+/**
+ <p>A boolean value that specifies if the CA certificate is set to active.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable setAsActive;
+
+/**
+ <p>The private key verification certificate.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verificationCertificate;
+
+@end
+
+/**
+ <p>The output from the RegisterCACertificateResponse operation.</p>
+ */
+@interface AWSIoTRegisterCACertificateResponse : AWSModel
+
+
+/**
+ <p>The CA certificate ARN.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateArn;
+
+/**
+ <p>The CA certificate identifier.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateId;
+
+@end
+
+/**
+ <p>The input to the RegisterCertificate operation.</p>
+ Required parameters: [certificatePem]
+ */
+@interface AWSIoTRegisterCertificateRequest : AWSRequest
+
+
+/**
+ <p>The CA certificate used to sign the device certificate being registered.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable caCertificatePem;
+
+/**
+ <p>The certificate data, in PEM format.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificatePem;
+
+/**
+ <p>A boolean value that specifies if the CA certificate is set to active.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable setAsActive;
+
+@end
+
+/**
+ <p>The output from the RegisterCertificate operation.</p>
+ */
+@interface AWSIoTRegisterCertificateResponse : AWSModel
+
+
+/**
+ <p>The certificate ARN.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateArn;
+
+/**
+ <p>The certificate identifier.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateId;
+
+@end
+
+/**
  <p>The input for the RejectCertificateTransfer operation.</p>
  Required parameters: [certificateId]
  */
@@ -1459,6 +1990,11 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
  <p>The ID of the certificate.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable certificateId;
+
+/**
+ <p>The reason the certificate transfer was rejected.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable rejectReason;
 
 @end
 
@@ -1508,7 +2044,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 
 
 /**
- <p>The S3 bucket.</p>
+ <p>The Amazon S3 bucket.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable bucketName;
 
@@ -1545,6 +2081,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 
 /**
  <p>The input for the SetLoggingOptions operation.</p>
+ Required parameters: [loggingOptionsPayload]
  */
 @interface AWSIoTSetLoggingOptionsRequest : AWSRequest
 
@@ -1564,6 +2101,11 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 
 
 /**
+ <p>The message format of the message to publish. Optional. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href="http://docs.aws.amazon.com/sns/latest/dg/json-formats.html"></a> refer to their official documentation.</p>
+ */
+@property (nonatomic, assign) AWSIoTMessageFormat messageFormat;
+
+/**
  <p>The ARN of the IAM role that grants access.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable roleArn;
@@ -1576,7 +2118,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @end
 
 /**
- <p>Describes an action to publish data to an SQS queue.</p>
+ <p>Describes an action to publish data to an Amazon SQS queue.</p>
  Required parameters: [roleArn, queueUrl]
  */
 @interface AWSIoTSqsAction : AWSModel
@@ -1629,6 +2171,11 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @property (nonatomic, strong) NSArray<AWSIoTAction *> * _Nullable actions;
 
 /**
+ <p>The version of the SQL rules engine to use when evaluating the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable awsIotSqlVersion;
+
+/**
  <p>The date and time the rule was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable createdAt;
@@ -1649,7 +2196,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @property (nonatomic, strong) NSString * _Nullable ruleName;
 
 /**
- <p>The SQL statement used to query the topic. When using a SQL query with multiple lines, be sure to escape the newline characters properly.</p>
+ <p>The SQL statement used to query the topic. When using a SQL query with multiple lines, be sure to escape the newline characters.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sql;
 
@@ -1665,6 +2212,11 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
  <p>The date and time the rule was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable createdAt;
+
+/**
+ <p>The rule ARN.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleArn;
 
 /**
  <p>Specifies whether the rule is disabled.</p>
@@ -1694,6 +2246,11 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
  <p>The actions associated with the rule.</p>
  */
 @property (nonatomic, strong) NSArray<AWSIoTAction *> * _Nullable actions;
+
+/**
+ <p>The version of the SQL rules engine to use when evaluating the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable awsIotSqlVersion;
 
 /**
  <p>The description of the rule.</p>
@@ -1729,6 +2286,11 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
  */
 @property (nonatomic, strong) NSString * _Nullable targetAwsAccount;
 
+/**
+ <p>The transfer message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transferMessage;
+
 @end
 
 /**
@@ -1745,6 +2307,58 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @end
 
 /**
+ <p>Data used to transfer a certificate to an AWS account.</p>
+ */
+@interface AWSIoTTransferData : AWSModel
+
+
+/**
+ <p>The date the transfer was accepted.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable acceptDate;
+
+/**
+ <p>The date the transfer was rejected.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable rejectDate;
+
+/**
+ <p>The reason why the transfer was rejected.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable rejectReason;
+
+/**
+ <p>The date the transfer took place.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable transferDate;
+
+/**
+ <p>The transfer message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transferMessage;
+
+@end
+
+/**
+ <p>The input to the UpdateCACertificate operation.</p>
+ Required parameters: [certificateId, newStatus]
+ */
+@interface AWSIoTUpdateCACertificateRequest : AWSRequest
+
+
+/**
+ <p>The CA certificate identifier.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateId;
+
+/**
+ <p>The updated status of the CA certificate.</p>
+ */
+@property (nonatomic, assign) AWSIoTCACertificateStatus latestStatus;
+
+@end
+
+/**
  <p>The input for the UpdateCertificate operation.</p>
  Required parameters: [certificateId, newStatus]
  */
@@ -1757,7 +2371,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 @property (nonatomic, strong) NSString * _Nullable certificateId;
 
 /**
- <p>The new status.</p>
+ <p>The new status.</p><p><b>Note:</b> Setting the status to PENDING_TRANSFER will result in an exception being thrown. PENDING_TRANSFER is a status used internally by AWS IoT. It is not intended for developer use.</p>
  */
 @property (nonatomic, assign) AWSIoTCertificateStatus latestStatus;
 
@@ -1771,7 +2385,7 @@ typedef NS_ENUM(NSInteger, AWSIoTLogLevel) {
 
 
 /**
- <p>The attribute payload, a JSON string containing up to three key-value pairs.</p><p>For example: {\"attributes\":{\"string1\":\"string2\"}}</p>
+ <p>The attribute payload, a JSON string containing up to three key-value pairs (for example, {\"attributes\":{\"string1\":\"string2\"}}).</p>
  */
 @property (nonatomic, strong) AWSIoTAttributePayload * _Nullable attributePayload;
 

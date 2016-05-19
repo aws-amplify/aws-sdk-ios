@@ -71,6 +71,17 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @end
 
+@implementation AWSElasticLoadBalancingAdditionalAttribute
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"key" : @"Key",
+             @"value" : @"Value",
+             };
+}
+
+@end
+
 @implementation AWSElasticLoadBalancingAppCookieStickinessPolicy
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -503,6 +514,30 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @end
 
+@implementation AWSElasticLoadBalancingDescribeProvisionedCapacityInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"loadBalancerName" : @"LoadBalancerName",
+             };
+}
+
+@end
+
+@implementation AWSElasticLoadBalancingDescribeProvisionedCapacityOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"provisionedCapacity" : @"ProvisionedCapacity",
+             };
+}
+
++ (NSValueTransformer *)provisionedCapacityJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingProvisionedCapacity class]];
+}
+
+@end
+
 @implementation AWSElasticLoadBalancingDescribeTagsInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -630,6 +665,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"accessLog" : @"AccessLog",
+             @"additionalAttributes" : @"AdditionalAttributes",
              @"connectionDraining" : @"ConnectionDraining",
              @"connectionSettings" : @"ConnectionSettings",
              @"crossZoneLoadBalancing" : @"CrossZoneLoadBalancing",
@@ -638,6 +674,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 + (NSValueTransformer *)accessLogJSONTransformer {
 	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingAccessLog class]];
+}
+
++ (NSValueTransformer *)additionalAttributesJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingAdditionalAttribute class]];
 }
 
 + (NSValueTransformer *)connectionDrainingJSONTransformer {
@@ -741,6 +781,31 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @end
 
+@implementation AWSElasticLoadBalancingModifyProvisionedCapacityInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"loadBalancerName" : @"LoadBalancerName",
+             @"minimumLBCapacityUnits" : @"MinimumLBCapacityUnits",
+             };
+}
+
+@end
+
+@implementation AWSElasticLoadBalancingModifyProvisionedCapacityOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"provisionedCapacity" : @"ProvisionedCapacity",
+             };
+}
+
++ (NSValueTransformer *)provisionedCapacityJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingProvisionedCapacity class]];
+}
+
+@end
+
 @implementation AWSElasticLoadBalancingPolicies
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -825,6 +890,58 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 + (NSValueTransformer *)policyAttributeTypeDescriptionsJSONTransformer {
 	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingPolicyAttributeTypeDescription class]];
+}
+
+@end
+
+@implementation AWSElasticLoadBalancingProvisionedCapacity
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"decreasesRemaining" : @"DecreasesRemaining",
+             @"lastModifiedTime" : @"LastModifiedTime",
+             @"minimumLBCapacityUnits" : @"MinimumLBCapacityUnits",
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"disabled"]) {
+            return @(AWSElasticLoadBalancingProvisionedCapacityStatusDisabled);
+        }
+        if ([value isEqualToString:@"pending"]) {
+            return @(AWSElasticLoadBalancingProvisionedCapacityStatusPending);
+        }
+        if ([value isEqualToString:@"provisioned"]) {
+            return @(AWSElasticLoadBalancingProvisionedCapacityStatusProvisioned);
+        }
+        if ([value isEqualToString:@"pre-warmed"]) {
+            return @(AWSElasticLoadBalancingProvisionedCapacityStatusPreWarmed);
+        }
+        return @(AWSElasticLoadBalancingProvisionedCapacityStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSElasticLoadBalancingProvisionedCapacityStatusDisabled:
+                return @"disabled";
+            case AWSElasticLoadBalancingProvisionedCapacityStatusPending:
+                return @"pending";
+            case AWSElasticLoadBalancingProvisionedCapacityStatusProvisioned:
+                return @"provisioned";
+            case AWSElasticLoadBalancingProvisionedCapacityStatusPreWarmed:
+                return @"pre-warmed";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end

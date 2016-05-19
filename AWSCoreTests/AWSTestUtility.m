@@ -40,6 +40,12 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
 
 @implementation AWSTestUtility
 
++ (void)initialize {
+    [super initialize];
+
+    [AWSLogger defaultLogger].logLevel = AWSLogLevelError;
+}
+
 + (void)setupCrdentialsViaFile {
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
 #if AWS_TEST_BJS_INSTEAD

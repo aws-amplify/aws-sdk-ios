@@ -27,7 +27,7 @@
 #import "AWSLambdaResources.h"
 
 static NSString *const AWSInfoLambda = @"Lambda";
-static NSString *const AWSLambdaSDKVersion = @"2.4.1";
+static NSString *const AWSLambdaSDKVersion = @"2.4.2";
 
 @interface AWSLambdaResponseSerializer : AWSJSONResponseSerializer
 
@@ -177,8 +177,6 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSLambda
 
-static AWSSynchronizedMutableDictionary *_serviceClients = nil;
-
 + (void)initialize {
     [super initialize];
 
@@ -188,6 +186,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                      userInfo:nil];
     }
 }
+
+#pragma mark - Setup
+
+static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultLambda {
     static AWSLambda *_defaultLambda = nil;
@@ -254,6 +256,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                  userInfo:nil];
     return nil;
 }
+
+#pragma mark -
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
@@ -980,5 +984,7 @@ completionHandler:(void (^)(AWSLambdaInvocationResponse *response, NSError *erro
         return nil;
     }];
 }
+
+#pragma mark -
 
 @end

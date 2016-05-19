@@ -35,29 +35,32 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
 		$ sudo gem install cocoapods
 		$ pod setup
 
-1. In your project directory (the directory where your `*.xcodeproj` file is), create a plain text file named `Podfile` (without any file extension) and add the lines below.
+1. In your project directory (the directory where your `*.xcodeproj` file is), create a plain text file named `Podfile` (without any file extension) and add the lines below. Replace `YourTarget` with your actual target name.
 
         source 'https://github.com/CocoaPods/Specs.git'
         
         platform :ios, '8.0'
+        use_frameworks!
         
-        pod 'AWSAutoScaling'
-        pod 'AWSCloudWatch'
-        pod 'AWSCognito'
-        pod 'AWSCognitoIdentityProvider'
-        pod 'AWSDynamoDB'
-        pod 'AWSEC2'
-        pod 'AWSElasticLoadBalancing'
-        pod 'AWSIoT'
-        pod 'AWSKinesis'
-        pod 'AWSLambda'
-        pod 'AWSMachineLearning'
-        pod 'AWSMobileAnalytics'
-        pod 'AWSS3'
-        pod 'AWSSES'
-        pod 'AWSSimpleDB'
-        pod 'AWSSNS'
-        pod 'AWSSQS'
+        target :'YourTarget' do
+            pod 'AWSAutoScaling'
+            pod 'AWSCloudWatch'
+            pod 'AWSCognito'
+            pod 'AWSCognitoIdentityProvider'
+            pod 'AWSDynamoDB'
+            pod 'AWSEC2'
+            pod 'AWSElasticLoadBalancing'
+            pod 'AWSIoT'
+            pod 'AWSKinesis'
+            pod 'AWSLambda'
+            pod 'AWSMachineLearning'
+            pod 'AWSMobileAnalytics'
+            pod 'AWSS3'
+            pod 'AWSSES'
+            pod 'AWSSimpleDB'
+            pod 'AWSSNS'
+            pod 'AWSSQS'
+        end
         
     ![image](readme-images/cocoapods-setup-01.png?raw=true)
         
@@ -263,7 +266,7 @@ For more information, see [Preparing Your Apps for iOS 9](http://docs.aws.amazon
 
         let dynamoDB = AWSDynamoDB.defaultDynamoDB()
         let listTableInput = AWSDynamoDBListTablesInput()
-        dynamoDB.listTables(listTableInput).continueWithBlock{ (task: AWSTask!) -> AnyObject? in
+        dynamoDB.listTables(listTableInput).continueWithBlock{ (task: AWSTask?) -> AnyObject? in
             if let error = task.error {
                 print("Error occurred: \(error)")
                 return nil
@@ -358,6 +361,10 @@ We recommend setting the log level to `None` before publishing to the Apple App 
 
 The AWS SDK for iOS includes sample apps that demonstrate common use cases.
 
+###Cognito Your User Pools Sample  ([Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoYourUserPools-Sample/Objective-C/))
+
+This sample demonstrates how sign up and sign in a user to display an authenticated portion of your app.
+
 ###Cognito Sync Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoSync-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoSync-Sample/Objective-C/))
 
 This sample demonstrates how to securely manage and sync your mobile app data and create unique identities via login providers including Facebook, Google, and Login with Amazon.
@@ -385,7 +392,7 @@ This sample demonstrates how to upload / download multiple files simultaneously 
 * [Amazon S3](http://aws.amazon.com/s3/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
 
-###S3 Background Transfer Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3BackgroundTransfer-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3BackgroundTransfer-Sample/Objective-C/))
+###S3 Transfer Utility Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3BackgroundTransfer-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3BackgroundTransfer-Sample/Objective-C/))
 
 This sample demonstrates how to use the Amazon S3 PreSigned URL Builder to download / upload files in background.
 

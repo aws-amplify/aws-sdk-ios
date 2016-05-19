@@ -23,6 +23,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"action" : @"Action",
+             @"eventSourceToken" : @"EventSourceToken",
              @"functionName" : @"FunctionName",
              @"principal" : @"Principal",
              @"qualifier" : @"Qualifier",
@@ -97,7 +98,6 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"TRIM_HORIZON";
             case AWSLambdaEventSourcePositionLatest:
                 return @"LATEST";
-            case AWSLambdaEventSourcePositionUnknown:
             default:
                 return nil;
         }
@@ -132,6 +132,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value isEqualToString:@"nodejs"]) {
             return @(AWSLambdaRuntimeNodejs);
         }
+        if ([value isEqualToString:@"nodejs4.3"]) {
+            return @(AWSLambdaRuntimeNodejs43);
+        }
         if ([value isEqualToString:@"java8"]) {
             return @(AWSLambdaRuntimeJava8);
         }
@@ -143,11 +146,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         switch ([value integerValue]) {
             case AWSLambdaRuntimeNodejs:
                 return @"nodejs";
+            case AWSLambdaRuntimeNodejs43:
+                return @"nodejs4.3";
             case AWSLambdaRuntimeJava8:
                 return @"java8";
             case AWSLambdaRuntimePython27:
                 return @"python2.7";
-            case AWSLambdaRuntimeUnknown:
             default:
                 return nil;
         }
@@ -208,10 +212,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)lastModifiedJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate aws_dateFromString:str];
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
 }
 
@@ -266,6 +270,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value isEqualToString:@"nodejs"]) {
             return @(AWSLambdaRuntimeNodejs);
         }
+        if ([value isEqualToString:@"nodejs4.3"]) {
+            return @(AWSLambdaRuntimeNodejs43);
+        }
         if ([value isEqualToString:@"java8"]) {
             return @(AWSLambdaRuntimeJava8);
         }
@@ -277,11 +284,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         switch ([value integerValue]) {
             case AWSLambdaRuntimeNodejs:
                 return @"nodejs";
+            case AWSLambdaRuntimeNodejs43:
+                return @"nodejs4.3";
             case AWSLambdaRuntimeJava8:
                 return @"java8";
             case AWSLambdaRuntimePython27:
                 return @"python2.7";
-            case AWSLambdaRuntimeUnknown:
             default:
                 return nil;
         }
@@ -410,7 +418,6 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"RequestResponse";
             case AWSLambdaInvocationTypeDryRun:
                 return @"DryRun";
-            case AWSLambdaInvocationTypeUnknown:
             default:
                 return nil;
         }
@@ -432,7 +439,6 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"None";
             case AWSLambdaLogTypeTail:
                 return @"Tail";
-            case AWSLambdaLogTypeUnknown:
             default:
                 return nil;
         }
@@ -658,9 +664,41 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"handler" : @"Handler",
              @"memorySize" : @"MemorySize",
              @"role" : @"Role",
+             @"runtime" : @"Runtime",
              @"timeout" : @"Timeout",
              @"vpcConfig" : @"VpcConfig",
              };
+}
+
++ (NSValueTransformer *)runtimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"nodejs"]) {
+            return @(AWSLambdaRuntimeNodejs);
+        }
+        if ([value isEqualToString:@"nodejs4.3"]) {
+            return @(AWSLambdaRuntimeNodejs43);
+        }
+        if ([value isEqualToString:@"java8"]) {
+            return @(AWSLambdaRuntimeJava8);
+        }
+        if ([value isEqualToString:@"python2.7"]) {
+            return @(AWSLambdaRuntimePython27);
+        }
+        return @(AWSLambdaRuntimeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaRuntimeNodejs:
+                return @"nodejs";
+            case AWSLambdaRuntimeNodejs43:
+                return @"nodejs4.3";
+            case AWSLambdaRuntimeJava8:
+                return @"java8";
+            case AWSLambdaRuntimePython27:
+                return @"python2.7";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)vpcConfigJSONTransformer {

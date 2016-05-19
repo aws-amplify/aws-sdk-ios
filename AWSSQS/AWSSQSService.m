@@ -27,7 +27,7 @@
 #import "AWSSQSResources.h"
 
 static NSString *const AWSInfoSQS = @"SQS";
-static NSString *const AWSSQSSDKVersion = @"2.4.1";
+static NSString *const AWSSQSSDKVersion = @"2.4.2";
 
 @interface AWSSQSResponseSerializer : AWSXMLResponseSerializer
 
@@ -49,6 +49,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidMessageContents" : @(AWSSQSErrorInvalidMessageContents),
                             @"AWS.SimpleQueueService.MessageNotInflight" : @(AWSSQSErrorMessageNotInflight),
                             @"OverLimit" : @(AWSSQSErrorOverLimit),
+                            @"AWS.SimpleQueueService.PurgeQueueInProgress" : @(AWSSQSErrorPurgeQueueInProgress),
                             @"AWS.SimpleQueueService.QueueDeletedRecently" : @(AWSSQSErrorQueueDeletedRecently),
                             @"AWS.SimpleQueueService.NonExistentQueue" : @(AWSSQSErrorQueueDoesNotExist),
                             @"QueueAlreadyExists" : @(AWSSQSErrorQueueNameExists),
@@ -137,8 +138,6 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSSQS
 
-static AWSSynchronizedMutableDictionary *_serviceClients = nil;
-
 + (void)initialize {
     [super initialize];
 
@@ -148,6 +147,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                      userInfo:nil];
     }
 }
+
+#pragma mark - Setup
+
+static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultSQS {
     static AWSSQS *_defaultSQS = nil;
@@ -214,6 +217,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                  userInfo:nil];
     return nil;
 }
+
+#pragma mark -
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
@@ -571,6 +576,33 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)purgeQueue:(AWSSQSPurgeQueueRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"PurgeQueue"
+                   outputClass:nil];
+}
+
+- (void)purgeQueue:(AWSSQSPurgeQueueRequest *)request
+ completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self purgeQueue:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSSQSReceiveMessageResult *> *)receiveMessage:(AWSSQSReceiveMessageRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -708,5 +740,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         return nil;
     }];
 }
+
+#pragma mark -
 
 @end

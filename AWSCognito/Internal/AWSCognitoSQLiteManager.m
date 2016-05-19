@@ -108,6 +108,7 @@
         }
         sqlite3_reset(statement);
         sqlite3_finalize(statement);
+        self.identityId = AWSCognitoUnknownIdentity;
     });
 }
 
@@ -184,20 +185,30 @@
 - (void)initializeDatasetTables:(NSString *) datasetName {
     
     dispatch_sync(self.dispatchQueue, ^{
-        NSString *sqlString = [NSString stringWithFormat:@"INSERT INTO %@(%@,%@,%@) VALUES (?,?,?)",
+        
+        
+        NSString *sqlString = [NSString stringWithFormat:@"INSERT INTO %@(%@,%@,%@,%@,%@) VALUES (?,?,?,?,?)",
                                AWSCognitoDefaultSqliteMetadataTableName,
                                AWSCognitoTableDatasetKeyName,
                                AWSCognitoModifiedByFieldName,
-                               AWSCognitoTableIdentityKeyName];
+                               AWSCognitoTableIdentityKeyName,
+                               AWSCognitoDatasetCreationDateFieldName,
+                               AWSCognitoLastModifiedFieldName
+                               ];
+        
         AWSLogDebug(@"sqlString = '%@'", sqlString);
+        
         sqlite3_stmt *statement;
+        
+        NSDate *lastModified = [NSDate date];
         
         if(sqlite3_prepare_v2(self.sqlite, [sqlString UTF8String], -1, &statement, NULL) == SQLITE_OK)
         {
             sqlite3_bind_text(statement, 1, [datasetName UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 2, [[self deviceId] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 3, [[self identityId] UTF8String], -1, SQLITE_TRANSIENT);
-            
+            sqlite3_bind_int64(statement, 4, [AWSCognitoUtil getTimeMillisForDate:lastModified]);
+            sqlite3_bind_int64(statement, 5, [AWSCognitoUtil getTimeMillisForDate:lastModified]);
             int status = sqlite3_step(statement);
             
             if((SQLITE_DONE != status) && (SQLITE_CONSTRAINT != status))
@@ -329,6 +340,57 @@
         sqlite3_reset(statement);
         sqlite3_finalize(statement);
     });
+}
+
+
+- (BOOL)updateDatasetMetadata:(AWSCognitoDatasetMetadata *)dataset error:(NSError **)error {
+    __block BOOL success = YES;
+    NSDate *lastModified = [NSDate date];
+    dispatch_sync(self.dispatchQueue, ^{
+        NSString *updateString = [NSString stringWithFormat:@"UPDATE %@ SET \
+                            %@ = ?,\
+                            WHERE %@ = ? AND %@ = ?",
+                            AWSCognitoDefaultSqliteMetadataTableName,
+                            AWSCognitoLastModifiedFieldName,
+                            AWSCognitoTableIdentityKeyName,
+                            AWSCognitoTableDatasetKeyName];
+        sqlite3_stmt *statement;
+        
+        if(sqlite3_prepare_v2(self.sqlite, [updateString UTF8String], -1, &statement, NULL) == SQLITE_OK)
+        {
+            sqlite3_bind_int64(statement, 1,[AWSCognitoUtil getTimeMillisForDate:lastModified]);
+            sqlite3_bind_text(statement, 2, [[self identityId] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 3, [dataset.name UTF8String], -1, SQLITE_TRANSIENT);
+            
+            int status = sqlite3_step(statement);
+            
+            if((SQLITE_DONE != status) && (SQLITE_CONSTRAINT != status))
+            {
+                AWSLogInfo(@"Error while updating dataset metadata: %s", sqlite3_errmsg(self.sqlite));
+                success = NO;
+                if(error != nil)
+                {
+                    *error = [AWSCognitoUtil errorLocalDataStorageFailed:[NSString stringWithFormat:@"%s", sqlite3_errmsg(self.sqlite)]];
+                }
+            }
+            sqlite3_reset(statement);
+        }
+        else
+        {
+            AWSLogInfo(@"Error while updating dataset metadata: %s", sqlite3_errmsg(self.sqlite));
+            success = NO;
+            if(error != nil)
+            {
+                *error = [AWSCognitoUtil errorLocalDataStorageFailed:[NSString stringWithFormat:@"%s", sqlite3_errmsg(self.sqlite)]];
+            }
+        }
+        sqlite3_finalize(statement);
+    });
+    
+    if(success){
+        dataset.lastModifiedDate = lastModified;
+    }
+    return success;
 }
 
 - (BOOL)putDatasetMetadata:(NSArray *)datasets error:(NSError **)error {
@@ -595,12 +657,12 @@
 
 - (BOOL)putRecord:(AWSCognitoRecord *)record datasetName:(NSString *)datasetName error:(NSError **)error {
     __block BOOL result = NO;
-
+    NSDate *lastModifiedDate = [NSDate date];
     dispatch_sync(self.dispatchQueue, ^{
-
+        
         sqlite3_stmt *statement;
 
-        int64_t lastModified = [AWSCognitoUtil getTimeMillisForDate:[NSDate date]];
+        int64_t lastModified = [AWSCognitoUtil getTimeMillisForDate:lastModifiedDate];
         const char *recordID = [record.recordId UTF8String];
         const char *lastModifiedBy = [self.deviceId UTF8String];
         const char *data = [[record.data toJsonString] UTF8String];
@@ -682,7 +744,9 @@
                 *error = [AWSCognitoUtil errorLocalDataStorageFailed:[NSString stringWithFormat:@"%s", sqlite3_errmsg(self.sqlite)]];
             }
         }
-
+        if(result) {
+            record.lastModified = lastModifiedDate;
+        }
         sqlite3_reset(statement);
         sqlite3_finalize(statement);
     });

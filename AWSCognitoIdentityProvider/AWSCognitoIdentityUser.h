@@ -66,6 +66,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) AWSCognitoIdentityUserStatus confirmedStatus;
 
 /**
+ Determines whether this user has an active session or not. If the refresh token is expired
+ the user will be prompted to authenticate when you call getSession.
+*/
+@property (nonatomic, readonly, getter=isSignedIn) BOOL signedIn;
+
+/**
  Confirm a users' sign up with the confirmation code
  */
 - (AWSTask<AWSCognitoIdentityUserConfirmSignUpResponse *> *)confirmSignUp:(NSString *)confirmationCode;
@@ -148,9 +154,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)deleteUser;
 
 /**
- Remove all sessions from the keychain for this user
+ Remove all sessions from the keychain for this user.  Last known user remains.
  */
 - (void)signOut;
+
+/**
+ Remove all sessions from the keychain for this user and clear last known user.
+ */
+- (void)signOutAndClearLastKnownUser;
 
 @end
 

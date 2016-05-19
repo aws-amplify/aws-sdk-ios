@@ -15,7 +15,7 @@
 
 #import <sys/xattr.h>
 #import <UIKit/UIKit.h>
-#import "AWSReachability.h"
+#import "AWSKSReachability.h"
 #import "AWSMobileAnalyticsIOSSystem.h"
 #import "AWSMobileAnalyticsIOSLifeCycleManager.h"
 #import "AWSLogging.h"
@@ -51,8 +51,7 @@ static NSString* const UNIQUE_ID_KEY = @"UniqueId";
 
         _lifeCycleManager = [AWSMobileAnalyticsIOSLifeCycleManager manager];
 
-        AWSReachability *reachability = [AWSReachability reachabilityForInternetConnection];
-        self.connectivity = [[AWSMobileAnalyticsIOSConnectivity alloc] initWithReachability:reachability];
+        self.connectivity = [AWSMobileAnalyticsIOSConnectivity defaultConnectivity];
 
         NSFileManager *internalFileManager = [NSFileManager defaultManager];
 

@@ -27,8 +27,6 @@
 
 - (void)setUp {
     [super setUp];
-    [AWSLogger defaultLogger].logLevel = AWSLogLevelVerbose;
-
     // Put setup code here. This method is called before the invocation of each test method in the class.
     NSString *key = @"AWSCognitoIdentityProviderTests";
 

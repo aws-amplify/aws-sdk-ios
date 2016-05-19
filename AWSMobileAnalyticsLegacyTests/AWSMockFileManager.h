@@ -14,7 +14,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AWSMobileAnalyticsERS.h"
+#import "AWSMobileAnalyticsERSService.h"
 
 @interface NSFileManager (AWSMobileAnalyticsLegacyTests)
 

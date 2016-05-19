@@ -121,7 +121,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @class AWSCloudWatchStatisticSet;
 
 /**
- <p> The <code>AlarmHistoryItem</code> data type contains descriptive information about the history of a specific alarm. If you call <a>DescribeAlarmHistory</a>, Amazon CloudWatch returns this data type as part of the <a>DescribeAlarmHistoryResult</a> data type. </p>
+ <p> The <code>AlarmHistoryItem</code> data type contains descriptive information about the history of a specific alarm. If you call <a>DescribeAlarmHistory</a>, Amazon CloudWatch returns this data type as part of the DescribeAlarmHistoryResult data type. </p>
  */
 @interface AWSCloudWatchAlarmHistoryItem : AWSModel
 
@@ -147,7 +147,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) NSString * _Nullable historySummary;
 
 /**
- <p> The time stamp for the alarm history item. Amazon CloudWatch uses Coordinated Universal Time (UTC) when returning time stamps, which do not accommodate seasonal adjustments such as daylight savings time. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp">Time stamps</a> in the <i>Amazon CloudWatch Developer Guide</i>. </p>
+ <p> The time stamp for the alarm history item. </p>
  */
 @property (nonatomic, strong) NSDate * _Nullable timestamp;
 
@@ -185,7 +185,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) NSNumber * _Nullable sum;
 
 /**
- <p> The time stamp used for the datapoint. Amazon CloudWatch uses Coordinated Universal Time (UTC) when returning time stamps, which do not accommodate seasonal adjustments such as daylight savings time. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp">Time stamps</a> in the <i>Amazon CloudWatch Developer Guide</i>. </p>
+ <p> The time stamp used for the datapoint. </p>
  */
 @property (nonatomic, strong) NSDate * _Nullable timestamp;
 
@@ -272,7 +272,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 
 
 /**
- <p> The list of dimensions associated with the metric. </p>
+ <p> The list of dimensions associated with the metric. If the metric has any associated dimensions, you must specify them in order for the DescribeAlarmsForMetric to succeed. </p>
  */
 @property (nonatomic, strong) NSArray<AWSCloudWatchDimension *> * _Nullable dimensions;
 
@@ -449,7 +449,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) NSArray<AWSCloudWatchDimension *> * _Nullable dimensions;
 
 /**
- <p> The time stamp to use for determining the last datapoint to return. The value specified is exclusive; results will include datapoints up to the time stamp specified. </p>
+ <p> The time stamp to use for determining the last datapoint to return. The value specified is exclusive; results will include datapoints up to the time stamp specified. The time stamp must be in ISO 8601 UTC format (e.g., 2014-09-03T23:00:00Z). </p>
  */
 @property (nonatomic, strong) NSDate * _Nullable endTime;
 
@@ -469,12 +469,12 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) NSNumber * _Nullable period;
 
 /**
- <p> The time stamp to use for determining the first datapoint to return. The value specified is inclusive; results include datapoints with the time stamp specified. </p><note> The specified start time is rounded down to the nearest value. Datapoints are returned for start times up to two weeks in the past. Specified start times that are more than two weeks in the past will not return datapoints for metrics that are older than two weeks. <p>Data that is timestamped 24 hours or more in the past may take in excess of 48 hours to become available from submission time using <code>GetMetricStatistics</code>.</p></note>
+ <p> The time stamp to use for determining the first datapoint to return. The value specified is inclusive; results include datapoints with the time stamp specified. The time stamp must be in ISO 8601 UTC format (e.g., 2014-09-03T23:00:00Z). </p><note> The specified start time is rounded down to the nearest value. Datapoints are returned for start times up to two weeks in the past. Specified start times that are more than two weeks in the past will not return datapoints for metrics that are older than two weeks. <p>Data that is timestamped 24 hours or more in the past may take in excess of 48 hours to become available from submission time using <code>GetMetricStatistics</code>.</p></note>
  */
 @property (nonatomic, strong) NSDate * _Nullable startTime;
 
 /**
- <p> The metric statistics to return. For information about specific statistics returned by GetMetricStatistics, go to <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/index.html?CHAP_TerminologyandKeyConcepts.html#Statistic">Statistics</a> in the <i>Amazon CloudWatch Developer Guide</i>. </p><p> Valid Values: <code>Average | Sum | SampleCount | Maximum | Minimum</code></p>
+ <p> The metric statistics to return. For information about specific statistics returned by GetMetricStatistics, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Statistic">Statistics</a> in the <i>Amazon CloudWatch Developer Guide</i>. </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable statistics;
 
@@ -584,7 +584,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) NSNumber * _Nullable actionsEnabled;
 
 /**
- <p> The list of actions to execute when this alarm transitions into an <code>ALARM</code> state from any other state. Each action is specified as an Amazon Resource Number (ARN). Currently the only actions supported are publishing to an Amazon SNS topic and triggering an Auto Scaling policy. </p>
+ <p> The list of actions to execute when this alarm transitions into an <code>ALARM</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN). </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable alarmActions;
 
@@ -594,7 +594,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) NSString * _Nullable alarmArn;
 
 /**
- <p> The time stamp of the last update to the alarm configuration. Amazon CloudWatch uses Coordinated Universal Time (UTC) when returning time stamps, which do not accommodate seasonal adjustments such as daylight savings time. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp">Time stamps</a> in the <i>Amazon CloudWatch Developer Guide</i>. </p>
+ <p> The time stamp of the last update to the alarm configuration. </p>
  */
 @property (nonatomic, strong) NSDate * _Nullable alarmConfigurationUpdatedTimestamp;
 
@@ -624,7 +624,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) NSNumber * _Nullable evaluationPeriods;
 
 /**
- <p> The list of actions to execute when this alarm transitions into an <code>INSUFFICIENT_DATA</code> state from any other state. Each action is specified as an Amazon Resource Number (ARN). Currently the only actions supported are publishing to an Amazon SNS topic or triggering an Auto Scaling policy. </p><important>The current WSDL lists this attribute as <code>UnknownActions</code>.</important>
+ <p> The list of actions to execute when this alarm transitions into an <code>INSUFFICIENT_DATA</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN). </p><important>The current WSDL lists this attribute as <code>UnknownActions</code>.</important>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable insufficientDataActions;
 
@@ -639,7 +639,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) NSString * _Nullable namespace;
 
 /**
- <p> The list of actions to execute when this alarm transitions into an <code>OK</code> state from any other state. Each action is specified as an Amazon Resource Number (ARN). Currently the only actions supported are publishing to an Amazon SNS topic and triggering an Auto Scaling policy. </p>
+ <p> The list of actions to execute when this alarm transitions into an <code>OK</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN). </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable OKActions;
 
@@ -659,7 +659,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) NSString * _Nullable stateReasonData;
 
 /**
- <p> The time stamp of the last update to the alarm's state. Amazon CloudWatch uses Coordinated Universal Time (UTC) when returning time stamps, which do not accommodate seasonal adjustments such as daylight savings time. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp">Time stamps</a> in the <i>Amazon CloudWatch Developer Guide</i>. </p>
+ <p> The time stamp of the last update to the alarm's state. </p>
  */
 @property (nonatomic, strong) NSDate * _Nullable stateUpdatedTimestamp;
 
@@ -708,7 +708,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) AWSCloudWatchStatisticSet * _Nullable statisticValues;
 
 /**
- <p> The time stamp used for the metric. If not specified, the default value is set to the time the metric data was received. Amazon CloudWatch uses Coordinated Universal Time (UTC) when returning time stamps, which do not accommodate seasonal adjustments such as daylight savings time. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp">Time stamps</a> in the <i>Amazon CloudWatch Developer Guide</i>. </p>
+ <p> The time stamp used for the metric in ISO 8601 Universal Coordinated Time (UTC) format. If not specified, the default value is set to the time the metric data was received. </p>
  */
 @property (nonatomic, strong) NSDate * _Nullable timestamp;
 
@@ -718,7 +718,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, assign) AWSCloudWatchStandardUnit unit;
 
 /**
- <p> The value for the metric. </p><important>Although the <code>Value</code> parameter accepts numbers of type <code>Double</code>, Amazon CloudWatch truncates values with very large exponents. Values with base-10 exponents greater than 126 (1 x 10^126) are truncated. Likewise, values with base-10 exponents less than -130 (1 x 10^-130) are also truncated. </important>
+ <p> The value for the metric. </p><important>Although the <code>Value</code> parameter accepts numbers of type <code>Double</code>, Amazon CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (e.g., NaN, +Infinity, -Infinity) are not supported. </important>
  */
 @property (nonatomic, strong) NSNumber * _Nullable value;
 
@@ -736,7 +736,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) NSNumber * _Nullable actionsEnabled;
 
 /**
- <p> The list of actions to execute when this alarm transitions into an <code>ALARM</code> state from any other state. Each action is specified as an Amazon Resource Number (ARN). Currently the only action supported is publishing to an Amazon SNS topic or an Amazon Auto Scaling policy. </p>
+ <p> The list of actions to execute when this alarm transitions into an <code>ALARM</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN). </p><p>Valid Values: arn:aws:automate:<i>region (e.g., us-east-1)</i>:ec2:stop | arn:aws:automate:<i>region (e.g., us-east-1)</i>:ec2:terminate | arn:aws:automate:<i>region (e.g., us-east-1)</i>:ec2:recover</p><p>Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Terminate/1.0 | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Reboot/1.0</p><p><b>Note:</b> You must create at least one stop, terminate, or reboot alarm using the Amazon EC2 or CloudWatch console to create the <b>EC2ActionsAccess</b> IAM role for the first time. After this IAM role is created, you can create stop, terminate, or reboot alarms using the CLI.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable alarmActions;
 
@@ -766,7 +766,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) NSNumber * _Nullable evaluationPeriods;
 
 /**
- <p> The list of actions to execute when this alarm transitions into an <code>INSUFFICIENT_DATA</code> state from any other state. Each action is specified as an Amazon Resource Number (ARN). Currently the only action supported is publishing to an Amazon SNS topic or an Amazon Auto Scaling policy. </p>
+ <p> The list of actions to execute when this alarm transitions into an <code>INSUFFICIENT_DATA</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN). </p><p>Valid Values: arn:aws:automate:<i>region (e.g., us-east-1)</i>:ec2:stop | arn:aws:automate:<i>region (e.g., us-east-1)</i>:ec2:terminate | arn:aws:automate:<i>region (e.g., us-east-1)</i>:ec2:recover</p><p>Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Terminate/1.0 | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Reboot/1.0</p><p><b>Note:</b> You must create at least one stop, terminate, or reboot alarm using the Amazon EC2 or CloudWatch console to create the <b>EC2ActionsAccess</b> IAM role for the first time. After this IAM role is created, you can create stop, terminate, or reboot alarms using the CLI.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable insufficientDataActions;
 
@@ -781,7 +781,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) NSString * _Nullable namespace;
 
 /**
- <p> The list of actions to execute when this alarm transitions into an <code>OK</code> state from any other state. Each action is specified as an Amazon Resource Number (ARN). Currently the only action supported is publishing to an Amazon SNS topic or an Amazon Auto Scaling policy. </p>
+ <p> The list of actions to execute when this alarm transitions into an <code>OK</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN). </p><p>Valid Values: arn:aws:automate:<i>region (e.g., us-east-1)</i>:ec2:stop | arn:aws:automate:<i>region (e.g., us-east-1)</i>:ec2:terminate | arn:aws:automate:<i>region (e.g., us-east-1)</i>:ec2:recover</p><p>Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Terminate/1.0 | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Reboot/1.0</p><p><b>Note:</b> You must create at least one stop, terminate, or reboot alarm using the Amazon EC2 or CloudWatch console to create the <b>EC2ActionsAccess</b> IAM role for the first time. After this IAM role is created, you can create stop, terminate, or reboot alarms using the CLI.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable OKActions;
 
@@ -801,7 +801,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) NSNumber * _Nullable threshold;
 
 /**
- <p> The unit for the alarm's associated metric. </p>
+ <p> The statistic's unit of measure. For example, the units for the Amazon EC2 NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an instance receives on all network interfaces. You can also specify a unit when you create a custom metric. Units help provide conceptual meaning to your data. Metric data points that specify a unit of measure, such as Percent, are aggregated separately. </p><p><b>Note:</b> If you specify a unit, you must use a unit that is appropriate for the metric. Otherwise, this can cause an Amazon CloudWatch alarm to get stuck in the INSUFFICIENT DATA state. </p>
  */
 @property (nonatomic, assign) AWSCloudWatchStandardUnit unit;
 

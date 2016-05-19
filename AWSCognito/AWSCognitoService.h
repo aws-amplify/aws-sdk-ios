@@ -92,6 +92,8 @@ extern NSString *const AWSCognitoDidFailToSynchronizeNotification;
  has exceeded the max number of retries.</li>
  <li>AWSCognitoErrorWiFiNotAvailable - WiFi is required and not currently available.</li>
  <li>AWSCognitoErrorDeviceNotRegistered - The device has not been registered yet.</li>
+ <li>AWSCognitoErrorSyncAlreadyPending - This sync is unecessary, there is already a pending sync.</li>
+ <li>AWSCognitoErrorTimedOutWaitingForInFlightSync - There is a in flight sync that took over 5 minutes to complete, so this one was cancelled.</li>
  </ul>
  */
 FOUNDATION_EXPORT NSString *const AWSCognitoErrorDomain;
@@ -107,6 +109,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoErrorType) {
     AWSCognitoErrorConflictRetriesExhausted = -6000,
     AWSCognitoErrorWiFiNotAvailable = -7000,
     AWSCognitoErrorDeviceNotRegistered = -8000,
+    AWSCognitoErrorSyncAlreadyPending = -9000,
+    AWSCognitoErrorTimedOutWaitingForInFlightSync = -10000,
 };
 
 @property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration;

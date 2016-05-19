@@ -140,7 +140,7 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
     NSUInteger diskByteLimit = self.diskByteLimit;
     __weak id notificationSender = self;
 
-    return [[AWSTask taskWithResult:nil] continueWithSuccessBlock:^id(AWSTask *task) {
+    return [[AWSTask taskWithResult:nil] continueWithExecutor:[AWSExecutor executorWithDispatchQueue:[AWSKinesisRecorder sharedQueue]] withSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
         // Inserts a new record to the database.
         __block NSError *error = nil;
         [databaseQueue inDatabase:^(AWSFMDatabase *db) {
@@ -323,7 +323,7 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
 - (AWSTask *)removeAllRecords {
     AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;
 
-    return [[AWSTask taskWithResult:nil] continueWithSuccessBlock:^id(AWSTask *task) {
+    return [[AWSTask taskWithResult:nil] continueWithExecutor:[AWSExecutor executorWithDispatchQueue:[AWSKinesisRecorder sharedQueue]] withSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
         __block NSError *error = nil;
         [databaseQueue inDatabase:^(AWSFMDatabase *db) {
             if (![db executeUpdate:@"DELETE FROM record"]) {

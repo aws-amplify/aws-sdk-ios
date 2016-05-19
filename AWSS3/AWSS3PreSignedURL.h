@@ -231,24 +231,36 @@ typedef NS_ENUM(NSInteger, AWSS3PresignedURLErrorType) {
 /**
  Expected content-type of the request. If set, the content-type will be included in the signature and future requests must include the same content-type header value to access the presigned URL. This parameter is ignored unless AWSHTTPMethod is equal to AWSHTTPMethodPUT. Default is nil.
  */
-@property (nonatomic, strong) NSString * _Nullable contentType;
+@property (nonatomic) NSString * _Nullable contentType;
 
 /**
  Expected content-md5 header of the request. If set, this header value will be included when calculating the signature and future requests must include the same content-md5 header value to access the presigned URL. This parameter is ignored unless HTTPMethod is equal to AWSHTTPMethodPUT. Default is nil.
  */
-@property (nonatomic, strong) NSString * _Nullable contentMD5;
+@property (nonatomic) NSString * _Nullable contentMD5;
+
+/**
+ This NSDictionary can contains additional request headers to be included in the pre-signed URL. Default is emtpy.
+ */
+@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> *requestHeaders;
 
 /**
  This NSDictionary can contains additional request parameters to be included in the pre-signed URL. Adding additional request parameters enables more advanced pre-signed URLs, such as accessing Amazon S3's torrent resource for an object, or for specifying a version ID when accessing an object. Default is emtpy.
  */
-@property (nonatomic, readonly, strong) NSDictionary<NSString *, NSString *> *requestParameters;
+@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> *requestParameters;
+
+/**
+ Set an additional request header to be included in the pre-signed URL.
+
+ @param value The value of the request parameter being added. Set to nil if parameter doesn't contains value.
+ @param requestHeader The name of the request header.
+ */
+- (void)setValue:(NSString * _Nullable)value forRequestHeader:(NSString *)requestHeader;
 
 /**
  Set an additional request parameter to be included in the pre-signed URL. Adding additional request parameters enables more advanced pre-signed URLs, such as accessing Amazon S3's torrent resource for an object, or for specifying a version ID when accessing an object.
  
  @param value The value of the request parameter being added. Set to nil if parameter doesn't contains value.
  @param requestParameter The name of the request parameter, as it appears in the URL's query string (e.g. AWSS3PresignedURLVersionID).
-
  */
 - (void)setValue:(NSString * _Nullable)value forRequestParameter:(NSString *)requestParameter;
 

@@ -174,7 +174,7 @@ static const NSString * AWSCognitoIdentityUserTokenExpiration = @"tokenExpiratio
                 AWSCognitoIdentityProviderAuthenticationResultType *authResult = response.authenticationResult;
                 AWSCognitoIdentityUserSession * session = [[AWSCognitoIdentityUserSession alloc] initWithIdToken: authResult.idToken accessToken:authResult.accessToken refreshToken:authResult.refreshToken expiresIn:authResult.expiresIn];
                 self.lastScopes = scopes;
-                [self persistToKeychain:self.username scopes:scopes session:session];
+                [self updateUsernameAndPersistTokens:self.username scopes:scopes session:session];
                 return [AWSTask taskWithResult:session];
             }];
         }
@@ -203,8 +203,7 @@ static const NSString * AWSCognitoIdentityUserTokenExpiration = @"tokenExpiratio
         //if no mfa required return session
         if(codeDeliveryDetails == nil){
             AWSCognitoIdentityUserSession * session = [[AWSCognitoIdentityUserSession alloc] initWithIdToken:authResult.idToken accessToken:authResult.accessToken refreshToken:authResult.refreshToken expiresIn:authResult.expiresIn];
-            self.username = username;
-            [self persistToKeychain:username scopes:scopes session:session];
+            [self updateUsernameAndPersistTokens:username scopes:scopes session:session];
             return [AWSTask taskWithResult:session];
         }else {
             //else perform mfa step
@@ -272,7 +271,6 @@ static const NSString * AWSCognitoIdentityUserTokenExpiration = @"tokenExpiratio
     return [[self.pool.client getAuthenticationDetails:input] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderGetAuthenticationDetailsResponse *> * _Nonnull task) {
         
         AWSCognitoIdentityProviderGetAuthenticationDetailsResponse *authDetails = task.result;
-        self.username = authDetails.username;
         NSString * strippedPool = [self.pool.userPoolConfiguration.poolId substringFromIndex:[self.pool.userPoolConfiguration.poolId rangeOfString:@"_" ].location+1];
         AWSCognitoIdentityProviderSrpServerState *serverState =
         [AWSCognitoIdentityProviderSrpServerState
@@ -285,15 +283,16 @@ static const NSString * AWSCognitoIdentityUserTokenExpiration = @"tokenExpiratio
          derivedKeySize:16
          serviceSecretBlock:authDetails.secretBlock];
         
+        srpHelper.clientState.userName = authDetails.username;
         NSData *hash = [srpHelper completeAuthentication:serverState];
         AWSCognitoIdentityProviderAuthenticateRequest *authInput = [AWSCognitoIdentityProviderAuthenticateRequest new];
         authInput.clientId = self.pool.userPoolConfiguration.clientId;
-        authInput.username = username;
+        authInput.username = authDetails.username;;
         authInput.timestamp = srpHelper.clientState.timestamp;
         authInput.passwordClaim = [[AWSCognitoIdentityProviderPasswordClaimType alloc] init];
         authInput.passwordClaim.secretBlock = authDetails.secretBlock;
         authInput.passwordClaim.signature = hash;
-        authInput.secretHash = [self.pool calculateSecretHash:username];
+        authInput.secretHash = [self.pool calculateSecretHash:authDetails.username];
         return [self.pool.client authenticate:authInput];
         
     }];
@@ -320,8 +319,7 @@ static const NSString * AWSCognitoIdentityUserTokenExpiration = @"tokenExpiratio
                     AWSCognitoIdentityProviderEnhanceAuthResponse *response = task.result;
                     AWSCognitoIdentityProviderAuthenticationResultType * authResult = response.authenticationResult;
                     AWSCognitoIdentityUserSession * session = [[AWSCognitoIdentityUserSession alloc] initWithIdToken:authResult.idToken accessToken:authResult.accessToken refreshToken:authResult.refreshToken expiresIn:authResult.expiresIn];
-                    self.username = username;
-                    [self persistToKeychain:username scopes:scopes session:session];
+                    [self updateUsernameAndPersistTokens:username scopes:scopes session:session];
                     return [AWSTask taskWithResult:session];
                 }] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
                     [authenticationDelegate didCompleteMultifactorAuthenticationStepWithError:task.error];
@@ -446,16 +444,34 @@ static const NSString * AWSCognitoIdentityUserTokenExpiration = @"tokenExpiratio
 }
 
 -(void) signOut {
-    NSArray *keys = self.pool.keychain.allKeys;
-    NSString *keyChainPrefix = [[self keyChainNamespace:self.username scopes:self.lastScopes] stringByAppendingString:@"."];
-    for (NSString *key in keys) {
-        if([key hasPrefix:keyChainPrefix]){
-            [self.pool.keychain removeItemForKey:key];
+    if(self.username){
+        NSArray *keys = self.pool.keychain.allKeys;
+        NSString *keyChainPrefix = [[self keyChainNamespace:self.username scopes:self.lastScopes] stringByAppendingString:@"."];
+        for (NSString *key in keys) {
+            if([key hasPrefix:keyChainPrefix]){
+                [self.pool.keychain removeItemForKey:key];
+            }
         }
     }
 }
 
-- (void) persistToKeychain:(NSString *) username scopes:(NSSet<NSString*>*) scopes session: (AWSCognitoIdentityUserSession *) session {
+-(void) signOutAndClearLastKnownUser{
+    [self signOut];
+    [self.pool clearLastKnownUser];
+}
+
+-(BOOL) isSignedIn {
+    if(self.username == nil){
+        return NO;
+    }
+    
+    NSString * keyChainNamespace = [self keyChainNamespace:self.username scopes:nil];
+    NSString * refreshTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserRefreshToken];
+    return self.pool.keychain[refreshTokenKey] != nil;
+}
+
+- (void) updateUsernameAndPersistTokens:(NSString *) username scopes:(NSSet<NSString*>*) scopes session: (AWSCognitoIdentityUserSession *) session {
+    self.username = username;
     [self.pool setCurrentUser:username];
     NSString * keyChainNamespace = [self keyChainNamespace:username scopes:scopes];
     if(session.idToken){

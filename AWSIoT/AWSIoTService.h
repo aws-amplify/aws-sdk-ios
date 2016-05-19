@@ -241,7 +241,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)attachThingPrincipal:(AWSIoTAttachThingPrincipalRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTAttachThingPrincipalResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Cancels a pending transfer for the specified certificate.</p><p><b>Note</b> Only the transfer source account can use this operation to cancel a transfer (transfer destinations can use <a>RejectCertificateTransfer</a> instead). After transfer, AWS IoT returns the certificate to the source account in the INACTIVE state. Once the destination account has accepted the transfer, the transfer may no longer be cancelled.</p><p>After a certificate transfer is cancelled, the status of the certificate changes from PENDING_TRANSFER to INACTIVE.</p>
+ <p>Cancels a pending transfer for the specified certificate.</p><p><b>Note</b> Only the transfer source account can use this operation to cancel a transfer. (Transfer destinations can use <a>RejectCertificateTransfer</a> instead.) After transfer, AWS IoT returns the certificate to the source account in the INACTIVE state. After the destination account has accepted the transfer, the transfer cannot be cancelled.</p><p>After a certificate transfer is cancelled, the status of the certificate changes from PENDING_TRANSFER to INACTIVE.</p>
  
  @param request A container for the necessary parameters to execute the CancelCertificateTransfer service method.
 
@@ -252,7 +252,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)cancelCertificateTransfer:(AWSIoTCancelCertificateTransferRequest *)request;
 
 /**
- <p>Cancels a pending transfer for the specified certificate.</p><p><b>Note</b> Only the transfer source account can use this operation to cancel a transfer (transfer destinations can use <a>RejectCertificateTransfer</a> instead). After transfer, AWS IoT returns the certificate to the source account in the INACTIVE state. Once the destination account has accepted the transfer, the transfer may no longer be cancelled.</p><p>After a certificate transfer is cancelled, the status of the certificate changes from PENDING_TRANSFER to INACTIVE.</p>
+ <p>Cancels a pending transfer for the specified certificate.</p><p><b>Note</b> Only the transfer source account can use this operation to cancel a transfer. (Transfer destinations can use <a>RejectCertificateTransfer</a> instead.) After transfer, AWS IoT returns the certificate to the source account in the INACTIVE state. After the destination account has accepted the transfer, the transfer cannot be cancelled.</p><p>After a certificate transfer is cancelled, the status of the certificate changes from PENDING_TRANSFER to INACTIVE.</p>
  
  @param request A container for the necessary parameters to execute the CancelCertificateTransfer service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -263,7 +263,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)cancelCertificateTransfer:(AWSIoTCancelCertificateTransferRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an X.509 certificate using the specified certificate signing request.</p><p><b>Note</b> Reusing the same certificate signing request (CSR) results in a distinct certificate.</p><p>You can create multiple certificates in a batch by creating a directory and copying multiple .csr files into that directory and specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs. </p><p>Assuming a set of CSRs are located inside of the directory my-csr-directory:</p>&gt; <p>On Linux and OSX, the command is:</p><p>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p> This command lists all of the CSRs in my-csr-directory and pipes each CSR filename to the aws iot create-certificate-from-csr AWS CLI command to create a certificate for the corresponding CSR. </p><p> The aws iot create-certificate-from-csr part of the command can also be run in parallel to speed up the certificate creation process: </p><p> $ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{} </p><p> On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is: </p><p> &gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_} </p><p> On Windows Command Prompt, the command to create certificates for all CSRs in my-csr-directory is: </p><p> &gt; forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path"</p>
+ <p>Creates an X.509 certificate using the specified certificate signing request.</p><p><b>Note</b> Reusing the same certificate signing request (CSR) results in a distinct certificate.</p><p>You can create multiple certificates in a batch by creating a directory, copying multiple .csr files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs. </p><p>Assuming a set of CSRs are located inside of the directory my-csr-directory:</p>&gt; <p>On Linux and OS X, the command is:</p><p>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p> This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the aws iot create-certificate-from-csr AWS CLI command to create a certificate for the corresponding CSR. </p><p> The aws iot create-certificate-from-csr part of the command can also be run in parallel to speed up the certificate creation process: </p><p> $ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{} </p><p> On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is: </p><p> &gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_} </p><p> On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is: </p><p> &gt; forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path"</p>
  
  @param request A container for the necessary parameters to execute the CreateCertificateFromCsr service method.
 
@@ -275,7 +275,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSIoTCreateCertificateFromCsrResponse *> *)createCertificateFromCsr:(AWSIoTCreateCertificateFromCsrRequest *)request;
 
 /**
- <p>Creates an X.509 certificate using the specified certificate signing request.</p><p><b>Note</b> Reusing the same certificate signing request (CSR) results in a distinct certificate.</p><p>You can create multiple certificates in a batch by creating a directory and copying multiple .csr files into that directory and specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs. </p><p>Assuming a set of CSRs are located inside of the directory my-csr-directory:</p>&gt; <p>On Linux and OSX, the command is:</p><p>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p> This command lists all of the CSRs in my-csr-directory and pipes each CSR filename to the aws iot create-certificate-from-csr AWS CLI command to create a certificate for the corresponding CSR. </p><p> The aws iot create-certificate-from-csr part of the command can also be run in parallel to speed up the certificate creation process: </p><p> $ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{} </p><p> On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is: </p><p> &gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_} </p><p> On Windows Command Prompt, the command to create certificates for all CSRs in my-csr-directory is: </p><p> &gt; forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path"</p>
+ <p>Creates an X.509 certificate using the specified certificate signing request.</p><p><b>Note</b> Reusing the same certificate signing request (CSR) results in a distinct certificate.</p><p>You can create multiple certificates in a batch by creating a directory, copying multiple .csr files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs. </p><p>Assuming a set of CSRs are located inside of the directory my-csr-directory:</p>&gt; <p>On Linux and OS X, the command is:</p><p>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p> This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the aws iot create-certificate-from-csr AWS CLI command to create a certificate for the corresponding CSR. </p><p> The aws iot create-certificate-from-csr part of the command can also be run in parallel to speed up the certificate creation process: </p><p> $ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{} </p><p> On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is: </p><p> &gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_} </p><p> On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is: </p><p> &gt; forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path"</p>
  
  @param request A container for the necessary parameters to execute the CreateCertificateFromCsr service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -288,7 +288,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)createCertificateFromCsr:(AWSIoTCreateCertificateFromCsrRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateCertificateFromCsrResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a 2048 bit RSA key pair and issues an X.509 certificate using the issued public key.</p><p><b>Note</b> This is the only time AWS IoT issues the private key for this certificate. It is important to keep track of the private key.</p>
+ <p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public key.</p><p><b>Note</b> This is the only time AWS IoT issues the private key for this certificate, so it is important to keep it in a secure location.</p>
  
  @param request A container for the necessary parameters to execute the CreateKeysAndCertificate service method.
 
@@ -300,7 +300,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSIoTCreateKeysAndCertificateResponse *> *)createKeysAndCertificate:(AWSIoTCreateKeysAndCertificateRequest *)request;
 
 /**
- <p>Creates a 2048 bit RSA key pair and issues an X.509 certificate using the issued public key.</p><p><b>Note</b> This is the only time AWS IoT issues the private key for this certificate. It is important to keep track of the private key.</p>
+ <p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public key.</p><p><b>Note</b> This is the only time AWS IoT issues the private key for this certificate, so it is important to keep it in a secure location.</p>
  
  @param request A container for the necessary parameters to execute the CreateKeysAndCertificate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -338,7 +338,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)createPolicy:(AWSIoTCreatePolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreatePolicyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a new version of the specified AWS IoT policy. To update a policy, create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must delete an existing version using <a>DeletePolicyVersion</a> before you create a new version.</p><p>Optionally, you can set the new version as the policy's default version. The default version is the operative version; that is, the version that is in effect for the certificates that the policy is attached to.</p>
+ <p>Creates a new version of the specified AWS IoT policy. To update a policy, create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must use <a>DeletePolicyVersion</a> to delete an existing version before you create a new one.</p><p>Optionally, you can set the new version as the policy's default version. The default version is the operative version (that is, the version that is in effect for the certificates to which the policy is attached).</p>
  
  @param request A container for the necessary parameters to execute the CreatePolicyVersion service method.
 
@@ -350,7 +350,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSIoTCreatePolicyVersionResponse *> *)createPolicyVersion:(AWSIoTCreatePolicyVersionRequest *)request;
 
 /**
- <p>Creates a new version of the specified AWS IoT policy. To update a policy, create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must delete an existing version using <a>DeletePolicyVersion</a> before you create a new version.</p><p>Optionally, you can set the new version as the policy's default version. The default version is the operative version; that is, the version that is in effect for the certificates that the policy is attached to.</p>
+ <p>Creates a new version of the specified AWS IoT policy. To update a policy, create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must use <a>DeletePolicyVersion</a> to delete an existing version before you create a new one.</p><p>Optionally, you can set the new version as the policy's default version. The default version is the operative version (that is, the version that is in effect for the certificates to which the policy is attached).</p>
  
  @param request A container for the necessary parameters to execute the CreatePolicyVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -363,7 +363,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)createPolicyVersion:(AWSIoTCreatePolicyVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreatePolicyVersionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a thing in the thing registry.</p>
+ <p>Creates a thing in the Thing Registry.</p>
  
  @param request A container for the necessary parameters to execute the CreateThing service method.
 
@@ -375,7 +375,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSIoTCreateThingResponse *> *)createThing:(AWSIoTCreateThingRequest *)request;
 
 /**
- <p>Creates a thing in the thing registry.</p>
+ <p>Creates a thing in the Thing Registry.</p>
  
  @param request A container for the necessary parameters to execute the CreateThing service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -388,7 +388,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)createThing:(AWSIoTCreateThingRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateThingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a rule.</p>
+ <p>Creates a rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p>
  
  @param request A container for the necessary parameters to execute the CreateTopicRule service method.
 
@@ -399,7 +399,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)createTopicRule:(AWSIoTCreateTopicRuleRequest *)request;
 
 /**
- <p>Creates a rule.</p>
+ <p>Creates a rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p>
  
  @param request A container for the necessary parameters to execute the CreateTopicRule service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -410,29 +410,54 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)createTopicRule:(AWSIoTCreateTopicRuleRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified certificate.</p><p>A certificate cannot be deleted if it has a policy attached to it or if its status is set to ACTIVE. To delete a certificate, first detach all policies using the <a>DetachPrincipalPolicy</a> API. Next use the <a>UpdateCertificate</a> API to set the certificate to the INACTIVE status.</p>
+ <p>Deletes a registered CA certificate.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteCACertificate service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTDeleteCACertificateResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorCertificateState`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorResourceNotFound`.
+ 
+ @see AWSIoTDeleteCACertificateRequest
+ @see AWSIoTDeleteCACertificateResponse
+ */
+- (AWSTask<AWSIoTDeleteCACertificateResponse *> *)deleteCACertificate:(AWSIoTDeleteCACertificateRequest *)request;
+
+/**
+ <p>Deletes a registered CA certificate.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteCACertificate service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorCertificateState`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorResourceNotFound`.
+ 
+ @see AWSIoTDeleteCACertificateRequest
+ @see AWSIoTDeleteCACertificateResponse
+ */
+- (void)deleteCACertificate:(AWSIoTDeleteCACertificateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteCACertificateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes the specified certificate.</p><p>A certificate cannot be deleted if it has a policy attached to it or if its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPrincipalPolicy</a> API to detach all policies. Next, use the <a>UpdateCertificate</a> API to set the certificate to the INACTIVE status.</p>
  
  @param request A container for the necessary parameters to execute the DeleteCertificate service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorDeleteConflict`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorCertificateState`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorCertificateState`, `AWSIoTErrorDeleteConflict`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorResourceNotFound`.
  
  @see AWSIoTDeleteCertificateRequest
  */
 - (AWSTask *)deleteCertificate:(AWSIoTDeleteCertificateRequest *)request;
 
 /**
- <p>Deletes the specified certificate.</p><p>A certificate cannot be deleted if it has a policy attached to it or if its status is set to ACTIVE. To delete a certificate, first detach all policies using the <a>DetachPrincipalPolicy</a> API. Next use the <a>UpdateCertificate</a> API to set the certificate to the INACTIVE status.</p>
+ <p>Deletes the specified certificate.</p><p>A certificate cannot be deleted if it has a policy attached to it or if its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPrincipalPolicy</a> API to detach all policies. Next, use the <a>UpdateCertificate</a> API to set the certificate to the INACTIVE status.</p>
  
  @param request A container for the necessary parameters to execute the DeleteCertificate service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorDeleteConflict`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorCertificateState`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorCertificateState`, `AWSIoTErrorDeleteConflict`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorResourceNotFound`.
  
  @see AWSIoTDeleteCertificateRequest
  */
 - (void)deleteCertificate:(AWSIoTDeleteCertificateRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified policy.</p><p>A policy cannot be deleted if it has non-default versions and/or it is attached to any certificate.</p><p>To delete a policy, delete all non-default versions of the policy using the DeletePolicyVersion API, detach the policy from any certificate using the DetachPrincipalPolicy API, and then use the DeletePolicy API to delete the policy.</p><p>When a policy is deleted using DeletePolicy, its default version is deleted with it.</p>
+ <p>Deletes the specified policy.</p><p>A policy cannot be deleted if it has non-default versions or it is attached to any certificate.</p><p>To delete a policy, use the DeletePolicyVersion API to delete all non-default versions of the policy; use the DetachPrincipalPolicy API to detach the policy from any certificate; and then use the DeletePolicy API to delete the policy.</p><p>When a policy is deleted using DeletePolicy, its default version is deleted with it.</p>
  
  @param request A container for the necessary parameters to execute the DeletePolicy service method.
 
@@ -443,7 +468,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)deletePolicy:(AWSIoTDeletePolicyRequest *)request;
 
 /**
- <p>Deletes the specified policy.</p><p>A policy cannot be deleted if it has non-default versions and/or it is attached to any certificate.</p><p>To delete a policy, delete all non-default versions of the policy using the DeletePolicyVersion API, detach the policy from any certificate using the DetachPrincipalPolicy API, and then use the DeletePolicy API to delete the policy.</p><p>When a policy is deleted using DeletePolicy, its default version is deleted with it.</p>
+ <p>Deletes the specified policy.</p><p>A policy cannot be deleted if it has non-default versions or it is attached to any certificate.</p><p>To delete a policy, use the DeletePolicyVersion API to delete all non-default versions of the policy; use the DetachPrincipalPolicy API to detach the policy from any certificate; and then use the DeletePolicy API to delete the policy.</p><p>When a policy is deleted using DeletePolicy, its default version is deleted with it.</p>
  
  @param request A container for the necessary parameters to execute the DeletePolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -474,6 +499,31 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSIoTDeletePolicyVersionRequest
  */
 - (void)deletePolicyVersion:(AWSIoTDeletePolicyVersionRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a CA certificate registration code.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteRegistrationCode service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTDeleteRegistrationCodeResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorThrottling`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDeleteRegistrationCodeRequest
+ @see AWSIoTDeleteRegistrationCodeResponse
+ */
+- (AWSTask<AWSIoTDeleteRegistrationCodeResponse *> *)deleteRegistrationCode:(AWSIoTDeleteRegistrationCodeRequest *)request;
+
+/**
+ <p>Deletes a CA certificate registration code.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteRegistrationCode service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorThrottling`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDeleteRegistrationCodeRequest
+ @see AWSIoTDeleteRegistrationCodeResponse
+ */
+- (void)deleteRegistrationCode:(AWSIoTDeleteRegistrationCodeRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteRegistrationCodeResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes the specified thing from the Thing Registry.</p>
@@ -521,6 +571,31 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSIoTDeleteTopicRuleRequest
  */
 - (void)deleteTopicRule:(AWSIoTDeleteTopicRuleRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes a registered CA certificate.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeCACertificate service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTDescribeCACertificateResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorResourceNotFound`.
+ 
+ @see AWSIoTDescribeCACertificateRequest
+ @see AWSIoTDescribeCACertificateResponse
+ */
+- (AWSTask<AWSIoTDescribeCACertificateResponse *> *)describeCACertificate:(AWSIoTDescribeCACertificateRequest *)request;
+
+/**
+ <p>Describes a registered CA certificate.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeCACertificate service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorResourceNotFound`.
+ 
+ @see AWSIoTDescribeCACertificateRequest
+ @see AWSIoTDescribeCACertificateResponse
+ */
+- (void)describeCACertificate:(AWSIoTDescribeCACertificateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeCACertificateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Gets information about the specified certificate.</p>
@@ -645,6 +720,50 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)detachThingPrincipal:(AWSIoTDetachThingPrincipalRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDetachThingPrincipalResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Disables the specified rule.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisableTopicRule service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInternal`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorUnauthorized`.
+ 
+ @see AWSIoTDisableTopicRuleRequest
+ */
+- (AWSTask *)disableTopicRule:(AWSIoTDisableTopicRuleRequest *)request;
+
+/**
+ <p>Disables the specified rule.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisableTopicRule service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInternal`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorUnauthorized`.
+ 
+ @see AWSIoTDisableTopicRuleRequest
+ */
+- (void)disableTopicRule:(AWSIoTDisableTopicRuleRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Enables the specified rule.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableTopicRule service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInternal`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorUnauthorized`.
+ 
+ @see AWSIoTEnableTopicRuleRequest
+ */
+- (AWSTask *)enableTopicRule:(AWSIoTEnableTopicRuleRequest *)request;
+
+/**
+ <p>Enables the specified rule.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableTopicRule service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInternal`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorUnauthorized`.
+ 
+ @see AWSIoTEnableTopicRuleRequest
+ */
+- (void)enableTopicRule:(AWSIoTEnableTopicRuleRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets the logging options.</p>
  
  @param request A container for the necessary parameters to execute the GetLoggingOptions service method.
@@ -720,6 +839,31 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getPolicyVersion:(AWSIoTGetPolicyVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetPolicyVersionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Gets a registration code used to register a CA certificate with AWS IoT.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetRegistrationCode service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTGetRegistrationCodeResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTGetRegistrationCodeRequest
+ @see AWSIoTGetRegistrationCodeResponse
+ */
+- (AWSTask<AWSIoTGetRegistrationCodeResponse *> *)getRegistrationCode:(AWSIoTGetRegistrationCodeRequest *)request;
+
+/**
+ <p>Gets a registration code used to register a CA certificate with AWS IoT.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetRegistrationCode service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTGetRegistrationCodeRequest
+ @see AWSIoTGetRegistrationCodeResponse
+ */
+- (void)getRegistrationCode:(AWSIoTGetRegistrationCodeRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetRegistrationCodeResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets information about the specified rule.</p>
  
  @param request A container for the necessary parameters to execute the GetTopicRule service method.
@@ -745,7 +889,32 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getTopicRule:(AWSIoTGetTopicRuleRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetTopicRuleResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists your certificates.</p><p>The results are paginated with a default page size of 25. You can retrieve additional results using the returned marker.</p>
+ <p>Lists the CA certificates registered for your AWS account.</p><p>The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListCACertificates service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTListCACertificatesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTListCACertificatesRequest
+ @see AWSIoTListCACertificatesResponse
+ */
+- (AWSTask<AWSIoTListCACertificatesResponse *> *)listCACertificates:(AWSIoTListCACertificatesRequest *)request;
+
+/**
+ <p>Lists the CA certificates registered for your AWS account.</p><p>The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListCACertificates service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTListCACertificatesRequest
+ @see AWSIoTListCACertificatesResponse
+ */
+- (void)listCACertificates:(AWSIoTListCACertificatesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListCACertificatesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists the certificates registered in your AWS account.</p><p>The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.</p>
  
  @param request A container for the necessary parameters to execute the ListCertificates service method.
 
@@ -757,7 +926,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSIoTListCertificatesResponse *> *)listCertificates:(AWSIoTListCertificatesRequest *)request;
 
 /**
- <p>Lists your certificates.</p><p>The results are paginated with a default page size of 25. You can retrieve additional results using the returned marker.</p>
+ <p>Lists the certificates registered in your AWS account.</p><p>The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.</p>
  
  @param request A container for the necessary parameters to execute the ListCertificates service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -768,6 +937,31 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSIoTListCertificatesResponse
  */
 - (void)listCertificates:(AWSIoTListCertificatesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListCertificatesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>List the device certificates signed by the specified CA certificate.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListCertificatesByCA service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTListCertificatesByCAResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTListCertificatesByCARequest
+ @see AWSIoTListCertificatesByCAResponse
+ */
+- (AWSTask<AWSIoTListCertificatesByCAResponse *> *)listCertificatesByCA:(AWSIoTListCertificatesByCARequest *)request;
+
+/**
+ <p>List the device certificates signed by the specified CA certificate.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListCertificatesByCA service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTListCertificatesByCARequest
+ @see AWSIoTListCertificatesByCAResponse
+ */
+- (void)listCertificatesByCA:(AWSIoTListCertificatesByCARequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListCertificatesByCAResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Lists your policies.</p>
@@ -820,7 +1014,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listPolicyVersions:(AWSIoTListPolicyVersionsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListPolicyVersionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the policies attached to the specified principal. If you use an Amazon Cognito identity, the ID needs to be in <a href="http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">Amazon Cognito Identity format</a>.</p>
+ <p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href="http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p>
  
  @param request A container for the necessary parameters to execute the ListPrincipalPolicies service method.
 
@@ -832,7 +1026,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSIoTListPrincipalPoliciesResponse *> *)listPrincipalPolicies:(AWSIoTListPrincipalPoliciesRequest *)request;
 
 /**
- <p>Lists the policies attached to the specified principal. If you use an Amazon Cognito identity, the ID needs to be in <a href="http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">Amazon Cognito Identity format</a>.</p>
+ <p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href="http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p>
  
  @param request A container for the necessary parameters to execute the ListPrincipalPolicies service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -895,7 +1089,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listThingPrincipals:(AWSIoTListThingPrincipalsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListThingPrincipalsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists your things. You can pass an AttributeName and/or AttributeValue to filter your things. For example: "ListThings where AttributeName=Color and AttributeValue=Red"</p>
+ <p>Lists your things. You can pass an AttributeName or AttributeValue to filter your things (for example, "ListThings where AttributeName=Color and AttributeValue=Red").</p>
  
  @param request A container for the necessary parameters to execute the ListThings service method.
 
@@ -907,7 +1101,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSIoTListThingsResponse *> *)listThings:(AWSIoTListThingsRequest *)request;
 
 /**
- <p>Lists your things. You can pass an AttributeName and/or AttributeValue to filter your things. For example: "ListThings where AttributeName=Color and AttributeValue=Red"</p>
+ <p>Lists your things. You can pass an AttributeName or AttributeValue to filter your things (for example, "ListThings where AttributeName=Color and AttributeValue=Red").</p>
  
  @param request A container for the necessary parameters to execute the ListThings service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -945,7 +1139,57 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listTopicRules:(AWSIoTListTopicRulesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListTopicRulesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Rejects a pending certificate transfer. After AWS IoT rejects a certificate transfer, the certificate status changes from <b>PENDING_TRANFER</b> to <b>INACTIVE</b>.</p><p>To check for pending certificate transfers, call <a>ListCertificates</a> to enumerate your certificates.</p><p>This operation can only be called by the transfer destination. Once called, the certificate will be returned to the source's account in the INACTIVE state.</p>
+ <p>Registers a CA certificate with AWS IoT. This CA certificate can then be used to sign device certificates, which can be then registered with AWS IoT. You can register up to 10 CA certificates per AWS account that have the same subject field and public key. This enables you to have up to 10 certificate authorities sign your device certificates. If you have more than one CA certificate registered, make sure you pass the CA certificate when you register your device certificates with the RegisterCertificate API.</p>
+ 
+ @param request A container for the necessary parameters to execute the RegisterCACertificate service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTRegisterCACertificateResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorResourceAlreadyExists`, `AWSIoTErrorRegistrationCodeValidation`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorCertificateValidation`, `AWSIoTErrorThrottling`, `AWSIoTErrorLimitExceeded`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTRegisterCACertificateRequest
+ @see AWSIoTRegisterCACertificateResponse
+ */
+- (AWSTask<AWSIoTRegisterCACertificateResponse *> *)registerCACertificate:(AWSIoTRegisterCACertificateRequest *)request;
+
+/**
+ <p>Registers a CA certificate with AWS IoT. This CA certificate can then be used to sign device certificates, which can be then registered with AWS IoT. You can register up to 10 CA certificates per AWS account that have the same subject field and public key. This enables you to have up to 10 certificate authorities sign your device certificates. If you have more than one CA certificate registered, make sure you pass the CA certificate when you register your device certificates with the RegisterCertificate API.</p>
+ 
+ @param request A container for the necessary parameters to execute the RegisterCACertificate service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorResourceAlreadyExists`, `AWSIoTErrorRegistrationCodeValidation`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorCertificateValidation`, `AWSIoTErrorThrottling`, `AWSIoTErrorLimitExceeded`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTRegisterCACertificateRequest
+ @see AWSIoTRegisterCACertificateResponse
+ */
+- (void)registerCACertificate:(AWSIoTRegisterCACertificateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTRegisterCACertificateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Registers a device certificate with AWS IoT. If you have more than one CA certificate that has the same subject field, you must specify the CA certificate that was used to sign the device certificate being registered.</p>
+ 
+ @param request A container for the necessary parameters to execute the RegisterCertificate service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTRegisterCertificateResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorResourceAlreadyExists`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorCertificateValidation`, `AWSIoTErrorCertificateState`, `AWSIoTErrorCertificateConflict`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTRegisterCertificateRequest
+ @see AWSIoTRegisterCertificateResponse
+ */
+- (AWSTask<AWSIoTRegisterCertificateResponse *> *)registerCertificate:(AWSIoTRegisterCertificateRequest *)request;
+
+/**
+ <p>Registers a device certificate with AWS IoT. If you have more than one CA certificate that has the same subject field, you must specify the CA certificate that was used to sign the device certificate being registered.</p>
+ 
+ @param request A container for the necessary parameters to execute the RegisterCertificate service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorResourceAlreadyExists`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorCertificateValidation`, `AWSIoTErrorCertificateState`, `AWSIoTErrorCertificateConflict`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTRegisterCertificateRequest
+ @see AWSIoTRegisterCertificateResponse
+ */
+- (void)registerCertificate:(AWSIoTRegisterCertificateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTRegisterCertificateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Rejects a pending certificate transfer. After AWS IoT rejects a certificate transfer, the certificate status changes from <b>PENDING_TRANSFER</b> to <b>INACTIVE</b>.</p><p>To check for pending certificate transfers, call <a>ListCertificates</a> to enumerate your certificates.</p><p>This operation can only be called by the transfer destination. After it is called, the certificate will be returned to the source's account in the INACTIVE state.</p>
  
  @param request A container for the necessary parameters to execute the RejectCertificateTransfer service method.
 
@@ -956,7 +1200,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)rejectCertificateTransfer:(AWSIoTRejectCertificateTransferRequest *)request;
 
 /**
- <p>Rejects a pending certificate transfer. After AWS IoT rejects a certificate transfer, the certificate status changes from <b>PENDING_TRANFER</b> to <b>INACTIVE</b>.</p><p>To check for pending certificate transfers, call <a>ListCertificates</a> to enumerate your certificates.</p><p>This operation can only be called by the transfer destination. Once called, the certificate will be returned to the source's account in the INACTIVE state.</p>
+ <p>Rejects a pending certificate transfer. After AWS IoT rejects a certificate transfer, the certificate status changes from <b>PENDING_TRANSFER</b> to <b>INACTIVE</b>.</p><p>To check for pending certificate transfers, call <a>ListCertificates</a> to enumerate your certificates.</p><p>This operation can only be called by the transfer destination. After it is called, the certificate will be returned to the source's account in the INACTIVE state.</p>
  
  @param request A container for the necessary parameters to execute the RejectCertificateTransfer service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -967,7 +1211,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)rejectCertificateTransfer:(AWSIoTRejectCertificateTransferRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Replaces the specified rule. You must specify all parameters for the new rule.</p>
+ <p>Replaces the specified rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p>
  
  @param request A container for the necessary parameters to execute the ReplaceTopicRule service method.
 
@@ -978,7 +1222,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)replaceTopicRule:(AWSIoTReplaceTopicRuleRequest *)request;
 
 /**
- <p>Replaces the specified rule. You must specify all parameters for the new rule.</p>
+ <p>Replaces the specified rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p>
  
  @param request A container for the necessary parameters to execute the ReplaceTopicRule service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -989,7 +1233,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)replaceTopicRule:(AWSIoTReplaceTopicRuleRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets the specified version of the specified policy as the policy's default (operative) version. This action affects all certificates that the policy is attached to. To list the principals the policy is attached to, use the ListPrincipalPolicy API.</p>
+ <p>Sets the specified version of the specified policy as the policy's default (operative) version. This action affects all certificates to which the policy is attached. To list the principals the policy is attached to, use the ListPrincipalPolicy API.</p>
  
  @param request A container for the necessary parameters to execute the SetDefaultPolicyVersion service method.
 
@@ -1000,7 +1244,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)setDefaultPolicyVersion:(AWSIoTSetDefaultPolicyVersionRequest *)request;
 
 /**
- <p>Sets the specified version of the specified policy as the policy's default (operative) version. This action affects all certificates that the policy is attached to. To list the principals the policy is attached to, use the ListPrincipalPolicy API.</p>
+ <p>Sets the specified version of the specified policy as the policy's default (operative) version. This action affects all certificates to which the policy is attached. To list the principals the policy is attached to, use the ListPrincipalPolicy API.</p>
  
  @param request A container for the necessary parameters to execute the SetDefaultPolicyVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1033,7 +1277,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setLoggingOptions:(AWSIoTSetLoggingOptionsRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Transfers the specified certificate to the specified AWS account.</p><p>You can cancel the transfer until it is acknowledged by the recipient.</p><p>No notification is sent to the transfer destination's account, it is up to the caller to notify the transfer target.</p><p>The certificate being transferred must not be in the ACTIVE state. It can be deactivated using the UpdateCertificate API.</p><p>The certificate must not have any policies attached to it. These can be detached using the DetachPrincipalPolicy API.</p>
+ <p>Transfers the specified certificate to the specified AWS account.</p><p>You can cancel the transfer until it is acknowledged by the recipient.</p><p>No notification is sent to the transfer destination's account. It is up to the caller to notify the transfer target.</p><p>The certificate being transferred must not be in the ACTIVE state. You can use the UpdateCertificate API to deactivate it.</p><p>The certificate must not have any policies attached to it. You can use the DetachPrincipalPolicy API to detach them.</p>
  
  @param request A container for the necessary parameters to execute the TransferCertificate service method.
 
@@ -1045,7 +1289,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSIoTTransferCertificateResponse *> *)transferCertificate:(AWSIoTTransferCertificateRequest *)request;
 
 /**
- <p>Transfers the specified certificate to the specified AWS account.</p><p>You can cancel the transfer until it is acknowledged by the recipient.</p><p>No notification is sent to the transfer destination's account, it is up to the caller to notify the transfer target.</p><p>The certificate being transferred must not be in the ACTIVE state. It can be deactivated using the UpdateCertificate API.</p><p>The certificate must not have any policies attached to it. These can be detached using the DetachPrincipalPolicy API.</p>
+ <p>Transfers the specified certificate to the specified AWS account.</p><p>You can cancel the transfer until it is acknowledged by the recipient.</p><p>No notification is sent to the transfer destination's account. It is up to the caller to notify the transfer target.</p><p>The certificate being transferred must not be in the ACTIVE state. You can use the UpdateCertificate API to deactivate it.</p><p>The certificate must not have any policies attached to it. You can use the DetachPrincipalPolicy API to detach them.</p>
  
  @param request A container for the necessary parameters to execute the TransferCertificate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1058,7 +1302,29 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)transferCertificate:(AWSIoTTransferCertificateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTTransferCertificateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the status of the specified certificate. This operation is idempotent.</p><p>Moving a cert from the ACTIVE state (including REVOKED) will NOT disconnect currently-connected devices, although these devices will be unable to reconnect.</p><p>The ACTIVE state is required to authenticate devices connecting to AWS IoT using a certificate.</p>
+ <p>Updates a registered CA certificate.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateCACertificate service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTUpdateCACertificateRequest
+ */
+- (AWSTask *)updateCACertificate:(AWSIoTUpdateCACertificateRequest *)request;
+
+/**
+ <p>Updates a registered CA certificate.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateCACertificate service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTUpdateCACertificateRequest
+ */
+- (void)updateCACertificate:(AWSIoTUpdateCACertificateRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates the status of the specified certificate. This operation is idempotent.</p><p>Moving a certificate from the ACTIVE state (including REVOKED) will not disconnect currently connected devices, but these devices will be unable to reconnect.</p><p>The ACTIVE state is required to authenticate devices connecting to AWS IoT using a certificate.</p>
  
  @param request A container for the necessary parameters to execute the UpdateCertificate service method.
 
@@ -1069,7 +1335,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)updateCertificate:(AWSIoTUpdateCertificateRequest *)request;
 
 /**
- <p>Updates the status of the specified certificate. This operation is idempotent.</p><p>Moving a cert from the ACTIVE state (including REVOKED) will NOT disconnect currently-connected devices, although these devices will be unable to reconnect.</p><p>The ACTIVE state is required to authenticate devices connecting to AWS IoT using a certificate.</p>
+ <p>Updates the status of the specified certificate. This operation is idempotent.</p><p>Moving a certificate from the ACTIVE state (including REVOKED) will not disconnect currently connected devices, but these devices will be unable to reconnect.</p><p>The ACTIVE state is required to authenticate devices connecting to AWS IoT using a certificate.</p>
  
  @param request A container for the necessary parameters to execute the UpdateCertificate service method.
  @param completionHandler The completion handler to call when the load request is complete.

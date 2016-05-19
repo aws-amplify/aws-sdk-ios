@@ -50,7 +50,6 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
                 return @"StateUpdate";
             case AWSCloudWatchHistoryItemTypeAction:
                 return @"Action";
-            case AWSCloudWatchHistoryItemTypeUnknown:
             default:
                 return nil;
         }
@@ -229,7 +228,6 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
                 return @"Count/Second";
             case AWSCloudWatchStandardUnitNone:
                 return @"None";
-            case AWSCloudWatchStandardUnitUnknown:
             default:
                 return nil;
         }
@@ -289,7 +287,6 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
                 return @"StateUpdate";
             case AWSCloudWatchHistoryItemTypeAction:
                 return @"Action";
-            case AWSCloudWatchHistoryItemTypeUnknown:
             default:
                 return nil;
         }
@@ -368,7 +365,6 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
                 return @"Minimum";
             case AWSCloudWatchStatisticMaximum:
                 return @"Maximum";
-            case AWSCloudWatchStatisticUnknown:
             default:
                 return nil;
         }
@@ -515,7 +511,6 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
                 return @"Count/Second";
             case AWSCloudWatchStandardUnitNone:
                 return @"None";
-            case AWSCloudWatchStandardUnitUnknown:
             default:
                 return nil;
         }
@@ -571,7 +566,6 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
                 return @"ALARM";
             case AWSCloudWatchStateValueInsufficientData:
                 return @"INSUFFICIENT_DATA";
-            case AWSCloudWatchStateValueUnknown:
             default:
                 return nil;
         }
@@ -812,7 +806,6 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
                 return @"Count/Second";
             case AWSCloudWatchStandardUnitNone:
                 return @"None";
-            case AWSCloudWatchStandardUnitUnknown:
             default:
                 return nil;
         }
@@ -945,7 +938,6 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
                 return @"LessThanThreshold";
             case AWSCloudWatchComparisonOperatorLessThanOrEqualToThreshold:
                 return @"LessThanOrEqualToThreshold";
-            case AWSCloudWatchComparisonOperatorUnknown:
             default:
                 return nil;
         }
@@ -984,7 +976,6 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
                 return @"ALARM";
             case AWSCloudWatchStateValueInsufficientData:
                 return @"INSUFFICIENT_DATA";
-            case AWSCloudWatchStateValueUnknown:
             default:
                 return nil;
         }
@@ -1021,7 +1012,6 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
                 return @"Minimum";
             case AWSCloudWatchStatisticMaximum:
                 return @"Maximum";
-            case AWSCloudWatchStatisticUnknown:
             default:
                 return nil;
         }
@@ -1168,7 +1158,6 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
                 return @"Count/Second";
             case AWSCloudWatchStandardUnitNone:
                 return @"None";
-            case AWSCloudWatchStandardUnitUnknown:
             default:
                 return nil;
         }
@@ -1346,7 +1335,6 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
                 return @"Count/Second";
             case AWSCloudWatchStandardUnitNone:
                 return @"None";
-            case AWSCloudWatchStandardUnitUnknown:
             default:
                 return nil;
         }
@@ -1402,7 +1390,6 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
                 return @"LessThanThreshold";
             case AWSCloudWatchComparisonOperatorLessThanOrEqualToThreshold:
                 return @"LessThanOrEqualToThreshold";
-            case AWSCloudWatchComparisonOperatorUnknown:
             default:
                 return nil;
         }
@@ -1443,7 +1430,6 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
                 return @"Minimum";
             case AWSCloudWatchStatisticMaximum:
                 return @"Maximum";
-            case AWSCloudWatchStatisticUnknown:
             default:
                 return nil;
         }
@@ -1590,7 +1576,6 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
                 return @"Count/Second";
             case AWSCloudWatchStandardUnitNone:
                 return @"None";
-            case AWSCloudWatchStandardUnitUnknown:
             default:
                 return nil;
         }
@@ -1645,7 +1630,6 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
                 return @"ALARM";
             case AWSCloudWatchStateValueInsufficientData:
                 return @"INSUFFICIENT_DATA";
-            case AWSCloudWatchStateValueUnknown:
             default:
                 return nil;
         }

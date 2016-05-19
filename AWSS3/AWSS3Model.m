@@ -18,6 +18,16 @@
 
 NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
+@implementation AWSS3AbortIncompleteMultipartUpload
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"daysAfterInitiation" : @"DaysAfterInitiation",
+             };
+}
+
+@end
+
 @implementation AWSS3AbortMultipartUploadOutput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -36,7 +46,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestChargedRequester:
                 return @"requester";
-            case AWSS3RequestChargedUnknown:
             default:
                 return nil;
         }
@@ -66,7 +75,37 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestPayerRequester:
                 return @"requester";
-            case AWSS3RequestPayerUnknown:
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSS3AccelerateConfiguration
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"Enabled"]) {
+            return @(AWSS3BucketAccelerateStatusEnabled);
+        }
+        if ([value isEqualToString:@"Suspended"]) {
+            return @(AWSS3BucketAccelerateStatusSuspended);
+        }
+        return @(AWSS3BucketAccelerateStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSS3BucketAccelerateStatusEnabled:
+                return @"Enabled";
+            case AWSS3BucketAccelerateStatusSuspended:
+                return @"Suspended";
             default:
                 return nil;
         }
@@ -231,7 +270,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"s3:ObjectRemoved:Delete";
             case AWSS3EventS3ObjectRemovedDeleteMarkerCreated:
                 return @"s3:ObjectRemoved:DeleteMarkerCreated";
-            case AWSS3EventUnknown:
             default:
                 return nil;
         }
@@ -276,7 +314,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestChargedRequester:
                 return @"requester";
-            case AWSS3RequestChargedUnknown:
             default:
                 return nil;
         }
@@ -298,7 +335,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"AES256";
             case AWSS3ServerSideEncryptionAwsKms:
                 return @"aws:kms";
-            case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
         }
@@ -333,7 +369,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestPayerRequester:
                 return @"requester";
-            case AWSS3RequestPayerUnknown:
             default:
                 return nil;
         }
@@ -409,17 +444,20 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         if ([value isEqualToString:@"ap-northeast-1"]) {
             return @(AWSS3BucketLocationConstraintAPNortheast1);
         }
+        if ([value isEqualToString:@"ap-northeast-2"]) {
+            return @(AWSS3BucketLocationConstraintAPNortheast2);
+        }
         if ([value isEqualToString:@"sa-east-1"]) {
             return @(AWSS3BucketLocationConstraintSAEast1);
+        }
+        if ([value isEqualToString:@"eu-central-1"]) {
+            return @(AWSS3BucketLocationConstraintEUCentral1);
         }
         if ([value isEqualToString:@""]) {
             return @(AWSS3BucketLocationConstraintBlank);
         }
         if ([value isEqualToString:@"cn-north-1"]) {
             return @(AWSS3BucketLocationConstraintCNNorth1);
-        }
-        if ([value isEqualToString:@"eu-central-1"]) {
-            return @(AWSS3BucketLocationConstraintEUCentral1);
         }
         if ([value isEqualToString:@"us-gov-west-1"]) {
             return @(AWSS3BucketLocationConstraintUSGovWest1);
@@ -441,17 +479,18 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"ap-southeast-2";
             case AWSS3BucketLocationConstraintAPNortheast1:
                 return @"ap-northeast-1";
+            case AWSS3BucketLocationConstraintAPNortheast2:
+                return @"ap-northeast-2";
             case AWSS3BucketLocationConstraintSAEast1:
                 return @"sa-east-1";
+            case AWSS3BucketLocationConstraintEUCentral1:
+                return @"eu-central-1";
             case AWSS3BucketLocationConstraintBlank:
                 return @"";
             case AWSS3BucketLocationConstraintCNNorth1:
                 return @"cn-north-1";
-            case AWSS3BucketLocationConstraintEUCentral1:
-                return @"eu-central-1";
             case AWSS3BucketLocationConstraintUSGovWest1:
                 return @"us-gov-west-1";
-            case AWSS3BucketLocationConstraintUnknown:
             default:
                 return nil;
         }
@@ -510,7 +549,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"public-read-write";
             case AWSS3BucketCannedACLAuthenticatedRead:
                 return @"authenticated-read";
-            case AWSS3BucketCannedACLUnknown:
             default:
                 return nil;
         }
@@ -527,6 +565,8 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"abortDate" : @"AbortDate",
+             @"abortRuleId" : @"AbortRuleId",
              @"bucket" : @"Bucket",
              @"key" : @"Key",
              @"requestCharged" : @"RequestCharged",
@@ -536,6 +576,14 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"uploadId" : @"UploadId",
              };
+}
+
++ (NSValueTransformer *)abortDateJSONTransformer {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
 }
 
 + (NSValueTransformer *)requestChargedJSONTransformer {
@@ -548,7 +596,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestChargedRequester:
                 return @"requester";
-            case AWSS3RequestChargedUnknown:
             default:
                 return nil;
         }
@@ -570,7 +617,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"AES256";
             case AWSS3ServerSideEncryptionAwsKms:
                 return @"aws:kms";
-            case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
         }
@@ -648,7 +694,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"bucket-owner-read";
             case AWSS3ObjectCannedACLBucketOwnerFullControl:
                 return @"bucket-owner-full-control";
-            case AWSS3ObjectCannedACLUnknown:
             default:
                 return nil;
         }
@@ -673,7 +718,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestPayerRequester:
                 return @"requester";
-            case AWSS3RequestPayerUnknown:
             default:
                 return nil;
         }
@@ -695,7 +739,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"AES256";
             case AWSS3ServerSideEncryptionAwsKms:
                 return @"aws:kms";
-            case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
         }
@@ -722,7 +765,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"REDUCED_REDUNDANCY";
             case AWSS3StorageClassStandardIa:
                 return @"STANDARD_IA";
-            case AWSS3StorageClassUnknown:
             default:
                 return nil;
         }
@@ -847,7 +889,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestChargedRequester:
                 return @"requester";
-            case AWSS3RequestChargedUnknown:
             default:
                 return nil;
         }
@@ -878,7 +919,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestPayerRequester:
                 return @"requester";
-            case AWSS3RequestPayerUnknown:
             default:
                 return nil;
         }
@@ -915,7 +955,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestChargedRequester:
                 return @"requester";
-            case AWSS3RequestChargedUnknown:
             default:
                 return nil;
         }
@@ -949,7 +988,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestPayerRequester:
                 return @"requester";
-            case AWSS3RequestPayerUnknown:
             default:
                 return nil;
         }
@@ -1000,7 +1038,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"REDUCED_REDUNDANCY";
             case AWSS3StorageClassStandardIa:
                 return @"STANDARD_IA";
-            case AWSS3StorageClassUnknown:
             default:
                 return nil;
         }
@@ -1056,11 +1093,51 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"prefix";
             case AWSS3FilterRuleNameSuffix:
                 return @"suffix";
-            case AWSS3FilterRuleNameUnknown:
             default:
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSS3GetBucketAccelerateConfigurationOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"Enabled"]) {
+            return @(AWSS3BucketAccelerateStatusEnabled);
+        }
+        if ([value isEqualToString:@"Suspended"]) {
+            return @(AWSS3BucketAccelerateStatusSuspended);
+        }
+        return @(AWSS3BucketAccelerateStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSS3BucketAccelerateStatusEnabled:
+                return @"Enabled";
+            case AWSS3BucketAccelerateStatusSuspended:
+                return @"Suspended";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSS3GetBucketAccelerateConfigurationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bucket" : @"Bucket",
+             };
 }
 
 @end
@@ -1197,17 +1274,20 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         if ([value isEqualToString:@"ap-northeast-1"]) {
             return @(AWSS3BucketLocationConstraintAPNortheast1);
         }
+        if ([value isEqualToString:@"ap-northeast-2"]) {
+            return @(AWSS3BucketLocationConstraintAPNortheast2);
+        }
         if ([value isEqualToString:@"sa-east-1"]) {
             return @(AWSS3BucketLocationConstraintSAEast1);
+        }
+        if ([value isEqualToString:@"eu-central-1"]) {
+            return @(AWSS3BucketLocationConstraintEUCentral1);
         }
         if ([value isEqualToString:@""]) {
             return @(AWSS3BucketLocationConstraintBlank);
         }
         if ([value isEqualToString:@"cn-north-1"]) {
             return @(AWSS3BucketLocationConstraintCNNorth1);
-        }
-        if ([value isEqualToString:@"eu-central-1"]) {
-            return @(AWSS3BucketLocationConstraintEUCentral1);
         }
         if ([value isEqualToString:@"us-gov-west-1"]) {
             return @(AWSS3BucketLocationConstraintUSGovWest1);
@@ -1229,17 +1309,18 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"ap-southeast-2";
             case AWSS3BucketLocationConstraintAPNortheast1:
                 return @"ap-northeast-1";
+            case AWSS3BucketLocationConstraintAPNortheast2:
+                return @"ap-northeast-2";
             case AWSS3BucketLocationConstraintSAEast1:
                 return @"sa-east-1";
+            case AWSS3BucketLocationConstraintEUCentral1:
+                return @"eu-central-1";
             case AWSS3BucketLocationConstraintBlank:
                 return @"";
             case AWSS3BucketLocationConstraintCNNorth1:
                 return @"cn-north-1";
-            case AWSS3BucketLocationConstraintEUCentral1:
-                return @"eu-central-1";
             case AWSS3BucketLocationConstraintUSGovWest1:
                 return @"us-gov-west-1";
-            case AWSS3BucketLocationConstraintUnknown:
             default:
                 return nil;
         }
@@ -1359,7 +1440,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"Requester";
             case AWSS3PayerBucketOwner:
                 return @"BucketOwner";
-            case AWSS3PayerUnknown:
             default:
                 return nil;
         }
@@ -1426,7 +1506,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"Enabled";
             case AWSS3MFADeleteStatusDisabled:
                 return @"Disabled";
-            case AWSS3MFADeleteStatusUnknown:
             default:
                 return nil;
         }
@@ -1448,7 +1527,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"Enabled";
             case AWSS3BucketVersioningStatusSuspended:
                 return @"Suspended";
-            case AWSS3BucketVersioningStatusUnknown:
             default:
                 return nil;
         }
@@ -1534,7 +1612,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestChargedRequester:
                 return @"requester";
-            case AWSS3RequestChargedUnknown:
             default:
                 return nil;
         }
@@ -1564,7 +1641,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestPayerRequester:
                 return @"requester";
-            case AWSS3RequestPayerUnknown:
             default:
                 return nil;
         }
@@ -1647,7 +1723,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"FAILED";
             case AWSS3ReplicationStatusReplica:
                 return @"REPLICA";
-            case AWSS3ReplicationStatusUnknown:
             default:
                 return nil;
         }
@@ -1664,7 +1739,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestChargedRequester:
                 return @"requester";
-            case AWSS3RequestChargedUnknown:
             default:
                 return nil;
         }
@@ -1686,7 +1760,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"AES256";
             case AWSS3ServerSideEncryptionAwsKms:
                 return @"aws:kms";
-            case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
         }
@@ -1713,7 +1786,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"REDUCED_REDUNDANCY";
             case AWSS3StorageClassStandardIa:
                 return @"STANDARD_IA";
-            case AWSS3StorageClassUnknown:
             default:
                 return nil;
         }
@@ -1773,7 +1845,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestPayerRequester:
                 return @"requester";
-            case AWSS3RequestPayerUnknown:
             default:
                 return nil;
         }
@@ -1809,7 +1880,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestChargedRequester:
                 return @"requester";
-            case AWSS3RequestChargedUnknown:
             default:
                 return nil;
         }
@@ -1838,7 +1908,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestPayerRequester:
                 return @"requester";
-            case AWSS3RequestPayerUnknown:
             default:
                 return nil;
         }
@@ -1890,7 +1959,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"READ";
             case AWSS3PermissionReadAcp:
                 return @"READ_ACP";
-            case AWSS3PermissionUnknown:
             default:
                 return nil;
         }
@@ -1931,7 +1999,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"AmazonCustomerByEmail";
             case AWSS3TypesGroup:
                 return @"Group";
-            case AWSS3TypesUnknown:
             default:
                 return nil;
         }
@@ -2022,7 +2089,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"FAILED";
             case AWSS3ReplicationStatusReplica:
                 return @"REPLICA";
-            case AWSS3ReplicationStatusUnknown:
             default:
                 return nil;
         }
@@ -2039,7 +2105,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestChargedRequester:
                 return @"requester";
-            case AWSS3RequestChargedUnknown:
             default:
                 return nil;
         }
@@ -2061,7 +2126,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"AES256";
             case AWSS3ServerSideEncryptionAwsKms:
                 return @"aws:kms";
-            case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
         }
@@ -2088,7 +2152,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"REDUCED_REDUNDANCY";
             case AWSS3StorageClassStandardIa:
                 return @"STANDARD_IA";
-            case AWSS3StorageClassUnknown:
             default:
                 return nil;
         }
@@ -2142,7 +2205,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestPayerRequester:
                 return @"requester";
-            case AWSS3RequestPayerUnknown:
             default:
                 return nil;
         }
@@ -2209,6 +2271,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 	return @{
              @"date" : @"Date",
              @"days" : @"Days",
+             @"expiredObjectDeleteMarker" : @"ExpiredObjectDeleteMarker",
              };
 }
 
@@ -2226,6 +2289,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"abortIncompleteMultipartUpload" : @"AbortIncompleteMultipartUpload",
              @"expiration" : @"Expiration",
              @"identifier" : @"ID",
              @"noncurrentVersionExpiration" : @"NoncurrentVersionExpiration",
@@ -2234,6 +2298,10 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"status" : @"Status",
              @"transitions" : @"Transitions",
              };
+}
+
++ (NSValueTransformer *)abortIncompleteMultipartUploadJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3AbortIncompleteMultipartUpload class]];
 }
 
 + (NSValueTransformer *)expirationJSONTransformer {
@@ -2263,7 +2331,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"Enabled";
             case AWSS3ExpirationStatusDisabled:
                 return @"Disabled";
-            case AWSS3ExpirationStatusUnknown:
             default:
                 return nil;
         }
@@ -2328,7 +2395,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3EncodingTypeURL:
                 return @"url";
-            case AWSS3EncodingTypeUnknown:
             default:
                 return nil;
         }
@@ -2365,7 +2431,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3EncodingTypeURL:
                 return @"url";
-            case AWSS3EncodingTypeUnknown:
             default:
                 return nil;
         }
@@ -2412,7 +2477,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3EncodingTypeURL:
                 return @"url";
-            case AWSS3EncodingTypeUnknown:
             default:
                 return nil;
         }
@@ -2449,7 +2513,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3EncodingTypeURL:
                 return @"url";
-            case AWSS3EncodingTypeUnknown:
             default:
                 return nil;
         }
@@ -2493,7 +2556,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3EncodingTypeURL:
                 return @"url";
-            case AWSS3EncodingTypeUnknown:
             default:
                 return nil;
         }
@@ -2525,7 +2587,84 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3EncodingTypeURL:
                 return @"url";
-            case AWSS3EncodingTypeUnknown:
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSS3ListObjectsV2Output
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"commonPrefixes" : @"CommonPrefixes",
+             @"contents" : @"Contents",
+             @"continuationToken" : @"ContinuationToken",
+             @"delimiter" : @"Delimiter",
+             @"encodingType" : @"EncodingType",
+             @"isTruncated" : @"IsTruncated",
+             @"keyCount" : @"KeyCount",
+             @"maxKeys" : @"MaxKeys",
+             @"name" : @"Name",
+             @"nextContinuationToken" : @"NextContinuationToken",
+             @"prefix" : @"Prefix",
+             @"startAfter" : @"StartAfter",
+             };
+}
+
++ (NSValueTransformer *)commonPrefixesJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSS3CommonPrefix class]];
+}
+
++ (NSValueTransformer *)contentsJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSS3Object class]];
+}
+
++ (NSValueTransformer *)encodingTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"url"]) {
+            return @(AWSS3EncodingTypeURL);
+        }
+        return @(AWSS3EncodingTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSS3EncodingTypeURL:
+                return @"url";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSS3ListObjectsV2Request
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bucket" : @"Bucket",
+             @"continuationToken" : @"ContinuationToken",
+             @"delimiter" : @"Delimiter",
+             @"encodingType" : @"EncodingType",
+             @"fetchOwner" : @"FetchOwner",
+             @"maxKeys" : @"MaxKeys",
+             @"prefix" : @"Prefix",
+             @"startAfter" : @"StartAfter",
+             };
+}
+
++ (NSValueTransformer *)encodingTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"url"]) {
+            return @(AWSS3EncodingTypeURL);
+        }
+        return @(AWSS3EncodingTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSS3EncodingTypeURL:
+                return @"url";
             default:
                 return nil;
         }
@@ -2538,6 +2677,8 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"abortDate" : @"AbortDate",
+             @"abortRuleId" : @"AbortRuleId",
              @"bucket" : @"Bucket",
              @"initiator" : @"Initiator",
              @"isTruncated" : @"IsTruncated",
@@ -2551,6 +2692,14 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"storageClass" : @"StorageClass",
              @"uploadId" : @"UploadId",
              };
+}
+
++ (NSValueTransformer *)abortDateJSONTransformer {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
 }
 
 + (NSValueTransformer *)initiatorJSONTransformer {
@@ -2575,7 +2724,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestChargedRequester:
                 return @"requester";
-            case AWSS3RequestChargedUnknown:
             default:
                 return nil;
         }
@@ -2602,7 +2750,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"REDUCED_REDUNDANCY";
             case AWSS3StorageClassStandardIa:
                 return @"STANDARD_IA";
-            case AWSS3StorageClassUnknown:
             default:
                 return nil;
         }
@@ -2634,7 +2781,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestPayerRequester:
                 return @"requester";
-            case AWSS3RequestPayerUnknown:
             default:
                 return nil;
         }
@@ -2708,7 +2854,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"REDUCED_REDUNDANCY";
             case AWSS3StorageClassStandardIa:
                 return @"STANDARD_IA";
-            case AWSS3StorageClassUnknown:
             default:
                 return nil;
         }
@@ -2751,7 +2896,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"GLACIER";
             case AWSS3TransitionStorageClassStandardIa:
                 return @"STANDARD_IA";
-            case AWSS3TransitionStorageClassUnknown:
             default:
                 return nil;
         }
@@ -2867,7 +3011,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"REDUCED_REDUNDANCY";
             case AWSS3ObjectStorageClassGlacier:
                 return @"GLACIER";
-            case AWSS3ObjectStorageClassUnknown:
             default:
                 return nil;
         }
@@ -2924,7 +3067,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3ObjectVersionStorageClassStandard:
                 return @"STANDARD";
-            case AWSS3ObjectVersionStorageClassUnknown:
             default:
                 return nil;
         }
@@ -2961,6 +3103,21 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
     } reverseBlock:^id(NSDate *date) {
         return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
+}
+
+@end
+
+@implementation AWSS3PutBucketAccelerateConfigurationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"accelerateConfiguration" : @"AccelerateConfiguration",
+             @"bucket" : @"Bucket",
+             };
+}
+
++ (NSValueTransformer *)accelerateConfigurationJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3AccelerateConfiguration class]];
 }
 
 @end
@@ -3006,7 +3163,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"public-read-write";
             case AWSS3BucketCannedACLAuthenticatedRead:
                 return @"authenticated-read";
-            case AWSS3BucketCannedACLUnknown:
             default:
                 return nil;
         }
@@ -3224,7 +3380,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestChargedRequester:
                 return @"requester";
-            case AWSS3RequestChargedUnknown:
             default:
                 return nil;
         }
@@ -3248,6 +3403,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"grantWriteACP" : @"GrantWriteACP",
              @"key" : @"Key",
              @"requestPayer" : @"RequestPayer",
+             @"versionId" : @"VersionId",
              };
 }
 
@@ -3291,7 +3447,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"bucket-owner-read";
             case AWSS3ObjectCannedACLBucketOwnerFullControl:
                 return @"bucket-owner-full-control";
-            case AWSS3ObjectCannedACLUnknown:
             default:
                 return nil;
         }
@@ -3312,7 +3467,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestPayerRequester:
                 return @"requester";
-            case AWSS3RequestPayerUnknown:
             default:
                 return nil;
         }
@@ -3346,7 +3500,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestChargedRequester:
                 return @"requester";
-            case AWSS3RequestChargedUnknown:
             default:
                 return nil;
         }
@@ -3368,7 +3521,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"AES256";
             case AWSS3ServerSideEncryptionAwsKms:
                 return @"aws:kms";
-            case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
         }
@@ -3449,7 +3601,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"bucket-owner-read";
             case AWSS3ObjectCannedACLBucketOwnerFullControl:
                 return @"bucket-owner-full-control";
-            case AWSS3ObjectCannedACLUnknown:
             default:
                 return nil;
         }
@@ -3474,7 +3625,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestPayerRequester:
                 return @"requester";
-            case AWSS3RequestPayerUnknown:
             default:
                 return nil;
         }
@@ -3496,7 +3646,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"AES256";
             case AWSS3ServerSideEncryptionAwsKms:
                 return @"aws:kms";
-            case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
         }
@@ -3523,7 +3672,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"REDUCED_REDUNDANCY";
             case AWSS3StorageClassStandardIa:
                 return @"STANDARD_IA";
-            case AWSS3StorageClassUnknown:
             default:
                 return nil;
         }
@@ -3610,7 +3758,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"s3:ObjectRemoved:Delete";
             case AWSS3EventS3ObjectRemovedDeleteMarkerCreated:
                 return @"s3:ObjectRemoved:DeleteMarkerCreated";
-            case AWSS3EventUnknown:
             default:
                 return nil;
         }
@@ -3646,7 +3793,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"http";
             case AWSS3ProtocolsHTTPS:
                 return @"https";
-            case AWSS3ProtocolsUnknown:
             default:
                 return nil;
         }
@@ -3679,7 +3825,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"http";
             case AWSS3ProtocolsHTTPS:
                 return @"https";
-            case AWSS3ProtocolsUnknown:
             default:
                 return nil;
         }
@@ -3733,7 +3878,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestChargedRequester:
                 return @"requester";
-            case AWSS3RequestChargedUnknown:
             default:
                 return nil;
         }
@@ -3755,7 +3899,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"AES256";
             case AWSS3ServerSideEncryptionAwsKms:
                 return @"aws:kms";
-            case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
         }
@@ -3842,7 +3985,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"bucket-owner-read";
             case AWSS3ObjectCannedACLBucketOwnerFullControl:
                 return @"bucket-owner-full-control";
-            case AWSS3ObjectCannedACLUnknown:
             default:
                 return nil;
         }
@@ -3872,7 +4014,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"COPY";
             case AWSS3MetadataDirectiveReplace:
                 return @"REPLACE";
-            case AWSS3MetadataDirectiveUnknown:
             default:
                 return nil;
         }
@@ -3905,7 +4046,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestPayerRequester:
                 return @"requester";
-            case AWSS3RequestPayerUnknown:
             default:
                 return nil;
         }
@@ -3927,7 +4067,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"AES256";
             case AWSS3ServerSideEncryptionAwsKms:
                 return @"aws:kms";
-            case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
         }
@@ -3954,7 +4093,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"REDUCED_REDUNDANCY";
             case AWSS3StorageClassStandardIa:
                 return @"STANDARD_IA";
-            case AWSS3StorageClassUnknown:
             default:
                 return nil;
         }
@@ -4046,7 +4184,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"Enabled";
             case AWSS3ReplicationRuleStatusDisabled:
                 return @"Disabled";
-            case AWSS3ReplicationRuleStatusUnknown:
             default:
                 return nil;
         }
@@ -4078,7 +4215,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"Requester";
             case AWSS3PayerBucketOwner:
                 return @"BucketOwner";
-            case AWSS3PayerUnknown:
             default:
                 return nil;
         }
@@ -4105,7 +4241,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestChargedRequester:
                 return @"requester";
-            case AWSS3RequestChargedUnknown:
             default:
                 return nil;
         }
@@ -4136,7 +4271,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestPayerRequester:
                 return @"requester";
-            case AWSS3RequestPayerUnknown:
             default:
                 return nil;
         }
@@ -4182,6 +4316,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"abortIncompleteMultipartUpload" : @"AbortIncompleteMultipartUpload",
              @"expiration" : @"Expiration",
              @"identifier" : @"ID",
              @"noncurrentVersionExpiration" : @"NoncurrentVersionExpiration",
@@ -4190,6 +4325,10 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"status" : @"Status",
              @"transition" : @"Transition",
              };
+}
+
++ (NSValueTransformer *)abortIncompleteMultipartUploadJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3AbortIncompleteMultipartUpload class]];
 }
 
 + (NSValueTransformer *)expirationJSONTransformer {
@@ -4219,7 +4358,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"Enabled";
             case AWSS3ExpirationStatusDisabled:
                 return @"Disabled";
-            case AWSS3ExpirationStatusUnknown:
             default:
                 return nil;
         }
@@ -4304,7 +4442,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"READ";
             case AWSS3BucketLogsPermissionWrite:
                 return @"WRITE";
-            case AWSS3BucketLogsPermissionUnknown:
             default:
                 return nil;
         }
@@ -4391,7 +4528,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"s3:ObjectRemoved:Delete";
             case AWSS3EventS3ObjectRemovedDeleteMarkerCreated:
                 return @"s3:ObjectRemoved:DeleteMarkerCreated";
-            case AWSS3EventUnknown:
             default:
                 return nil;
         }
@@ -4433,7 +4569,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"GLACIER";
             case AWSS3TransitionStorageClassStandardIa:
                 return @"STANDARD_IA";
-            case AWSS3TransitionStorageClassUnknown:
             default:
                 return nil;
         }
@@ -4470,7 +4605,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestChargedRequester:
                 return @"requester";
-            case AWSS3RequestChargedUnknown:
             default:
                 return nil;
         }
@@ -4492,7 +4626,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"AES256";
             case AWSS3ServerSideEncryptionAwsKms:
                 return @"aws:kms";
-            case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
         }
@@ -4551,7 +4684,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestPayerRequester:
                 return @"requester";
-            case AWSS3RequestPayerUnknown:
             default:
                 return nil;
         }
@@ -4583,7 +4715,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestChargedRequester:
                 return @"requester";
-            case AWSS3RequestChargedUnknown:
             default:
                 return nil;
         }
@@ -4605,7 +4736,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"AES256";
             case AWSS3ServerSideEncryptionAwsKms:
                 return @"aws:kms";
-            case AWSS3ServerSideEncryptionUnknown:
             default:
                 return nil;
         }
@@ -4642,7 +4772,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         switch ([value integerValue]) {
             case AWSS3RequestPayerRequester:
                 return @"requester";
-            case AWSS3RequestPayerUnknown:
             default:
                 return nil;
         }
@@ -4675,7 +4804,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"Enabled";
             case AWSS3MFADeleteDisabled:
                 return @"Disabled";
-            case AWSS3MFADeleteUnknown:
             default:
                 return nil;
         }
@@ -4697,7 +4825,6 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"Enabled";
             case AWSS3BucketVersioningStatusSuspended:
                 return @"Suspended";
-            case AWSS3BucketVersioningStatusUnknown:
             default:
                 return nil;
         }

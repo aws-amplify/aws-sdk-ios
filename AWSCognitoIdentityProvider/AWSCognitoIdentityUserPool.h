@@ -74,6 +74,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (AWSCognitoIdentityUser *)getUser:(NSString *)username;
 
+/**
+ Clear the last known user only without signing out of their user session
+ */
+- (void) clearLastKnownUser;
+
+/**
+ Clear everything from keychain, including last known user and user sessions for all users.
+ */
+- (void) clearAll;
+
 @end
 
 @interface AWSCognitoIdentityUserPoolConfiguration : NSObject

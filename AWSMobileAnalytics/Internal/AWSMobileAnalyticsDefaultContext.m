@@ -24,7 +24,7 @@
 #import "AWSMobileAnalyticsIOSLifeCycleManager.h"
 #import "AWSMobileAnalyticsClientContext.h"
 #import "AWSMobileAnalyticsConfiguration.h"
-#import "AWSMobileAnalyticsERS.h"
+#import "AWSMobileAnalyticsERSService.h"
 
 static NSString *AWSMobileAnalyticsDefaulyContextERSKey = @"com.amazonaws.MobileAnalytics.ersKey";
 

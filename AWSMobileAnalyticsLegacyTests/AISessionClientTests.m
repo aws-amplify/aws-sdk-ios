@@ -24,7 +24,7 @@
 #import "AWSMobileAnalyticsEvent.h"
 #import "TestEventObserver.h"
 #import "AWSCategory.h"
-#import "AWSMobileAnalyticsERS.h"
+#import "AWSMobileAnalyticsERSService.h"
 #import "AWSMockFileManager.h"
 
 #define TEST_APP_KEY @"SessionClientTestApplicationKey"

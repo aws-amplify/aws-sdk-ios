@@ -63,7 +63,6 @@ NSString *const AWSCognitoSyncErrorDomain = @"com.amazonaws.AWSCognitoSyncErrorD
                 return @"ENABLED";
             case AWSCognitoSyncStreamingStatusDisabled:
                 return @"DISABLED";
-            case AWSCognitoSyncStreamingStatusUnknown:
             default:
                 return nil;
         }
@@ -268,7 +267,6 @@ NSString *const AWSCognitoSyncErrorDomain = @"com.amazonaws.AWSCognitoSyncErrorD
                 return @"FAILED";
             case AWSCognitoSyncBulkPublishStatusSucceeded:
                 return @"SUCCEEDED";
-            case AWSCognitoSyncBulkPublishStatusUnknown:
             default:
                 return nil;
         }
@@ -542,7 +540,6 @@ NSString *const AWSCognitoSyncErrorDomain = @"com.amazonaws.AWSCognitoSyncErrorD
                 return @"replace";
             case AWSCognitoSyncOperationRemove:
                 return @"remove";
-            case AWSCognitoSyncOperationUnknown:
             default:
                 return nil;
         }
@@ -587,7 +584,6 @@ NSString *const AWSCognitoSyncErrorDomain = @"com.amazonaws.AWSCognitoSyncErrorD
                 return @"GCM";
             case AWSCognitoSyncPlatformAdm:
                 return @"ADM";
-            case AWSCognitoSyncPlatformUnknown:
             default:
                 return nil;
         }
