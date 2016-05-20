@@ -588,7 +588,7 @@ static NSString * const AWSIoTShadowOperationStatusTypeStrings[] = {
                     //
                     if (operation != AWSIoTShadowOperationTypeDelete && shadow.enableStaleDiscards == YES) {
                         if (shadow.enableDebugging == YES) {
-                            AWSLogInfo("out-of-date version '%u' on '%@' (local version '%u')", versionNumber, name, shadow.version);
+                            AWSLogInfo("out-of-date version '%u' on '%@' (local version '%u')", (unsigned int)versionNumber, name, (unsigned int)shadow.version);
                         }
                         rc = NO;
                     }
@@ -694,7 +694,7 @@ static void (^shadowMqttMessageHandler)(NSObject *mqttClient, NSString *topic, N
     else {
         range = NSMakeRange( 0, [self.mqttClient.clientId length]);
     }
-    return [NSString stringWithFormat:@"%@-%u", [self.mqttClient.clientId substringWithRange:range], currentToken++];
+    return [NSString stringWithFormat:@"%@-%u", [self.mqttClient.clientId substringWithRange:range], (unsigned int)currentToken++];
 }
 
 - (void) shadowOperationTimeoutOnTimer:(NSTimer *)timer {
@@ -767,7 +767,7 @@ static void (^shadowMqttMessageHandler)(NSObject *mqttClient, NSString *topic, N
             if (shadow.enableDebugging == YES) {
                 AWSLogInfo("published (%@) on topic (%@)", [[NSString alloc] initWithData:publishData encoding:NSUTF8StringEncoding], publishTopic);
             }
-            rc = shadow.clientToken;      // return the client token to the caller
+            rc = shadow.clientToken != nil;      // return the client token to the caller
         }
         else {
             AWSLogInfo("operation still in progress on shadow (%@)", name);
