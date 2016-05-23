@@ -844,16 +844,14 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
 }
 
 - (void)assignRequestHeaders:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest {
-    for (NSString *key in self.internalRequestHeaders) {
-        [getPreSignedURLRequest setValue:self.internalRequestHeaders[key]
-                        forRequestHeader:key];
+    for (NSString *key in getPreSignedURLRequest.requestHeaders) {
+        [self setValue:getPreSignedURLRequest.requestHeaders[key] forRequestHeader:key];
     }
 }
 
 - (void)assignRequestParameters:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest {
-    for (NSString *key in self.internalRequestParameters) {
-        [getPreSignedURLRequest setValue:self.internalRequestParameters[key]
-                     forRequestParameter:key];
+    for (NSString *key in getPreSignedURLRequest.requestParameters) {
+        [self setValue:getPreSignedURLRequest.requestParameters[key] forRequestParameter:key];
     }
 }
 
