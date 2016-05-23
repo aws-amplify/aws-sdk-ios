@@ -642,20 +642,20 @@ didCompleteWithError:(NSError *)error {
         assert([task.response isKindOfClass:[NSHTTPURLResponse class]]);
         NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)task.response;
 
-        if (HTTPResponse.statusCode % 100 == 3
+        if (HTTPResponse.statusCode / 100 == 3
             && HTTPResponse.statusCode != 304) { // 304 Not Modified is a valid response.
             error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                         code:AWSS3TransferUtilityErrorRedirection
                                     userInfo:nil];
         }
 
-        if (HTTPResponse.statusCode % 100 == 4) {
+        if (HTTPResponse.statusCode / 100 == 4) {
             error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                         code:AWSS3TransferUtilityErrorClientError
                                     userInfo:nil];
         }
 
-        if (HTTPResponse.statusCode % 100 == 5) {
+        if (HTTPResponse.statusCode / 100 == 5) {
             error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                         code:AWSS3TransferUtilityErrorServerError
                                     userInfo:nil];
