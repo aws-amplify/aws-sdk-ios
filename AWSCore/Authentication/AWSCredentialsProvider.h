@@ -100,13 +100,15 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 /**
  Instantiates a static credentials provider.
 
- @param accessKey An AWS Access key.
- @param secretKey An AWS Secret key.
+ @param accessKey  An AWS Access key.
+ @param secretKey  An AWS Secret key.
+ @param sessionKey An AWS Session key.
 
  @return An AWS credentials object.
  */
 - (instancetype)initWithAccessKey:(NSString *)accessKey
-                        secretKey:(NSString *)secretKey;
+                        secretKey:(NSString *)secretKey
+                       sessionKey:(NSString *)sessionKey;
 
 @end
 

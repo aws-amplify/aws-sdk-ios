@@ -81,11 +81,12 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 @implementation AWSStaticCredentialsProvider
 
 - (instancetype)initWithAccessKey:(NSString *)accessKey
-                        secretKey:(NSString *)secretKey {
+                        secretKey:(NSString *)secretKey
+                       sessionKey:(NSString *)sessionKey {
     if (self = [super init]) {
         _internalCredentials = [[AWSCredentials alloc] initWithAccessKey:accessKey
                                                                secretKey:secretKey
-                                                              sessionKey:nil
+                                                              sessionKey:sessionKey
                                                               expiration:nil];
     }
     return self;
