@@ -102,11 +102,13 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 
  @param accessKey An AWS Access key.
  @param secretKey An AWS Secret key.
+ @param secretKey An AWS Session key.
 
  @return An AWS credentials object.
  */
 - (instancetype)initWithAccessKey:(NSString *)accessKey
                         secretKey:(NSString *)secretKey;
+                        sessionKey:(NSString *)sessionKey;
 
 @end
 
