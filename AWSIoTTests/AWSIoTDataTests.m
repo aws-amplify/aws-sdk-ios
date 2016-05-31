@@ -172,11 +172,25 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     publishRequest.payload = @"{\"payloadData\":\"6789\"}";
     
     [[[iotData publish:publishRequest] continueWithBlock:^id(AWSTask *task) {
-        
-        XCTAssertNotNil(task.error, @"expected Validation Error, but got nil");
+        XCTAssertNil(task.error, @"expected no validation error, but got one");
         return nil;
     }] waitUntilFinished];
-    
+
+    publishRequest.topic = nil;
+    publishRequest.payload = @"{\"payloadData\":\"abcd\"}";
+
+    [[[iotData publish:publishRequest] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error, @"expected validation error, but got nil");
+        return nil;
+    }] waitUntilFinished];
+
+    publishRequest.topic = @"";
+    publishRequest.payload = nil;
+
+    [[[iotData publish:publishRequest] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error, @"expected validation error, but got nil");
+        return nil;
+    }] waitUntilFinished];
 }
 
 - (NSString *)generateRandomStringOfLength: (NSUInteger)length {

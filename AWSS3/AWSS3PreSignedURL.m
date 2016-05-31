@@ -23,8 +23,10 @@
 
 NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURLErrorDomain";
 
+static NSString *const AWSS3PreSignedURLBuilderAcceleratedEndpoint = @"s3-accelerate.amazonaws.com";
+
 static NSString *const AWSInfoS3PreSignedURLBuilder = @"S3PreSignedURLBuilder";
-static NSString *const AWSS3PreSignedURLBuilderSDKVersion = @"2.4.2";
+static NSString *const AWSS3PreSignedURLBuilderSDKVersion = @"2.4.3";
 
 @interface AWSS3PreSignedURLBuilder()
 
@@ -250,6 +252,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     AWSServiceConfiguration *configuration = self.configuration;
     id<AWSCredentialsProvider>credentialsProvider = configuration.credentialsProvider;
     AWSEndpoint *endpoint = self.configuration.endpoint;
+    BOOL isAccelerateModeEnabled = getPreSignedURLRequest.isAccelerateModeEnabled;
 
     NSDate *expires = getPreSignedURLRequest.expires;
 
@@ -292,8 +295,15 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         if (!bucketName || [bucketName length] < 1) {
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
                                                               code:AWSS3PresignedURLErrorBucketNameIsNil
-                                                          userInfo:@{NSLocalizedDescriptionKey: @"S3 bucket can not be nil or empty"}]
-                    ];
+                                                          userInfo:@{NSLocalizedDescriptionKey: @"S3 bucket can not be nil or empty"}]];
+        }
+
+        // Validates the buket name for transfer acceleration.
+        if (isAccelerateModeEnabled && ![bucketName aws_isVirtualHostedStyleCompliant]) {
+            return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
+                                                              code:AWSS3PresignedURLErrorInvalidBucketNameForAccelerateModeEnabled
+                                                          userInfo:@{
+                                                                     NSLocalizedDescriptionKey: @"For your bucket to work with transfer acceleration, the bucket name must conform to DNS naming requirements and must not contain periods."}]];
         }
 
         //validate keyName
@@ -376,7 +386,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         //generate correct hostName (use virtualHostStyle if possible)
         NSString *host = nil;
         if (bucketName && [bucketName aws_isVirtualHostedStyleCompliant]) {
-            host = [NSString stringWithFormat:@"%@.%@", bucketName, endpoint.hostName];
+            if (isAccelerateModeEnabled) {
+                host = [NSString stringWithFormat:@"%@.%@", bucketName, AWSS3PreSignedURLBuilderAcceleratedEndpoint];
+            } else {
+                host = [NSString stringWithFormat:@"%@.%@", bucketName, endpoint.hostName];
+            }
         } else {
             host = endpoint.hostName;
         }
@@ -407,11 +421,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                           userInfo:@{NSLocalizedDescriptionKey: @"failed to generate queryString."}]];
         }
 
-        NSString *urlString = [NSString stringWithFormat:@"%@://%@/%@?%@", endpoint.useUnsafeURL ? @"http":@"https", host, keyPath, generatedQueryString];
+        NSString *urlString = [NSString stringWithFormat:@"%@://%@/%@?%@", endpoint.useUnsafeURL ? @"http" : @"https", host, keyPath, generatedQueryString];
         NSURL *result = [NSURL URLWithString:urlString];
 
         return [AWSTask taskWithResult:result];
-
     }];
 }
 
@@ -428,6 +441,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 - (instancetype)init {
     if ( self = [super init] ) {
+        _accelerateModeEnabled = NO;
         _minimumCredentialsExpirationInterval = 50 * 60;
         _internalRequestParameters = [NSMutableDictionary<NSString *, NSString *> new];
         _internalRequestHeaders = [NSMutableDictionary<NSString *, NSString *> new];

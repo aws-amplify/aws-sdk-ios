@@ -32,6 +32,7 @@ static NSString *const AWSInfoS3TransferUtility = @"S3TransferUtility";
 @interface AWSS3TransferUtility() <NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
 
 @property (strong, nonatomic) AWSServiceConfiguration *configuration;
+@property (strong, nonatomic) AWSS3TransferUtilityConfiguration *transferUtilityConfiguration;
 @property (strong, nonatomic) AWSS3PreSignedURLBuilder *preSignedURLBuilder;
 @property (strong, nonatomic) NSURLSession *session;
 @property (strong, nonatomic) NSString *sessionIdentifier;
@@ -109,10 +110,14 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         AWSServiceConfiguration *serviceConfiguration = nil;
+        AWSS3TransferUtilityConfiguration *transferUtilityConfiguration = nil;
         AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoS3TransferUtility];
         if (serviceInfo) {
             serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+            NSNumber *accelerateModeEnabled = [serviceInfo.infoDictionary valueForKey:@"AccelerateModeEnabled"];
+            transferUtilityConfiguration = [AWSS3TransferUtilityConfiguration new];
+            transferUtilityConfiguration.accelerateModeEnabled = [accelerateModeEnabled boolValue];
         }
 
         if (!serviceConfiguration) {
@@ -126,6 +131,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         }
 
         _defaultS3TransferUtility = [[AWSS3TransferUtility alloc] initWithConfiguration:serviceConfiguration
+                                                           transferUtilityConfiguration:transferUtilityConfiguration
                                                                              identifier:nil];
     });
 
@@ -133,12 +139,21 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 }
 
 + (void)registerS3TransferUtilityWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key {
+    [self registerS3TransferUtilityWithConfiguration:configuration
+                        transferUtilityConfiguration:nil
+                                              forKey:key];
+}
+
++ (void)registerS3TransferUtilityWithConfiguration:(AWSServiceConfiguration *)configuration
+                      transferUtilityConfiguration:(AWSS3TransferUtilityConfiguration *)transferUtilityConfiguration
+                                            forKey:(NSString *)key {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _serviceClients = [AWSSynchronizedMutableDictionary new];
     });
 
     AWSS3TransferUtility *s3TransferUtility = [[AWSS3TransferUtility alloc] initWithConfiguration:configuration
+                                                                     transferUtilityConfiguration:transferUtilityConfiguration
                                                                                        identifier:[NSString stringWithFormat:@"%@.%@", AWSS3TransferUtilityIdentifier, key]];
     [_serviceClients setObject:s3TransferUtility
                         forKey:key];
@@ -156,7 +171,13 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         if (serviceInfo) {
             AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                                         credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+
+            NSNumber *accelerateModeEnabled = [serviceInfo.infoDictionary valueForKey:@"AccelerateModeEnabled"];
+            AWSS3TransferUtilityConfiguration *transferUtilityConfiguration = [AWSS3TransferUtilityConfiguration new];
+            transferUtilityConfiguration.accelerateModeEnabled = [accelerateModeEnabled boolValue];
+
             [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:serviceConfiguration
+                                                transferUtilityConfiguration:transferUtilityConfiguration
                                                                       forKey:key];
         }
 
@@ -179,10 +200,14 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 }
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)serviceConfiguration
+         transferUtilityConfiguration:(AWSS3TransferUtilityConfiguration *)transferUtilityConfiguration
                            identifier:(NSString *)identifier {
     if (self = [super init]) {
         _configuration = [serviceConfiguration copy];
         [_configuration addUserAgentProductToken:AWSS3TransferUtilityUserAgent];
+
+        _transferUtilityConfiguration = [transferUtilityConfiguration copy];
+
         _preSignedURLBuilder = [[AWSS3PreSignedURLBuilder alloc] initWithConfiguration:_configuration];
 
         if (identifier) {
@@ -271,6 +296,8 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     transferUtilityTask.bucket = bucket;
     transferUtilityTask.key = key;
 
+    [expression setValue:contentType forRequestHeader:@"Content-Type"];
+
     expression.completionHandler = completionHandler;
     transferUtilityTask.expression = expression;
 
@@ -280,7 +307,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodPUT;
     getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:AWSS3TransferUtilityTimeoutIntervalForResource];
     getPreSignedURLRequest.minimumCredentialsExpirationInterval = AWSS3TransferUtilityTimeoutIntervalForResource;
-    getPreSignedURLRequest.contentType = contentType;
+    getPreSignedURLRequest.accelerateModeEnabled = self.transferUtilityConfiguration.isAccelerateModeEnabled;
 
     [expression assignRequestHeaders:getPreSignedURLRequest];
     [expression assignRequestParameters:getPreSignedURLRequest];
@@ -361,6 +388,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     getPreSignedURLRequest.key = key;
     getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodGET;
     getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:AWSS3TransferUtilityTimeoutIntervalForResource];
+    getPreSignedURLRequest.accelerateModeEnabled = self.transferUtilityConfiguration.isAccelerateModeEnabled;
 
     [expression assignRequestHeaders:getPreSignedURLRequest];
     [expression assignRequestParameters:getPreSignedURLRequest];
@@ -642,20 +670,20 @@ didCompleteWithError:(NSError *)error {
         assert([task.response isKindOfClass:[NSHTTPURLResponse class]]);
         NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)task.response;
 
-        if (HTTPResponse.statusCode % 100 == 3
+        if (HTTPResponse.statusCode / 100 == 3
             && HTTPResponse.statusCode != 304) { // 304 Not Modified is a valid response.
             error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                         code:AWSS3TransferUtilityErrorRedirection
                                     userInfo:nil];
         }
 
-        if (HTTPResponse.statusCode % 100 == 4) {
+        if (HTTPResponse.statusCode / 100 == 4) {
             error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                         code:AWSS3TransferUtilityErrorClientError
                                     userInfo:nil];
         }
 
-        if (HTTPResponse.statusCode % 100 == 5) {
+        if (HTTPResponse.statusCode / 100 == 5) {
             error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                         code:AWSS3TransferUtilityErrorServerError
                                     userInfo:nil];
@@ -746,6 +774,27 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
     if (transferUtilityDownloadTask.expression.progressBlock) {
         transferUtilityDownloadTask.expression.progressBlock(transferUtilityDownloadTask, transferUtilityDownloadTask.progress);
     }
+}
+
+@end
+
+#pragma mark - AWSS3TransferUtilityConfiguration
+
+@implementation AWSS3TransferUtilityConfiguration
+
+- (instancetype)init {
+    if (self = [super init]) {
+        _accelerateModeEnabled = NO;
+    }
+
+    return self;
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+    AWSS3TransferUtilityConfiguration *configuration = [[[self class] allocWithZone:zone] init];
+    configuration.accelerateModeEnabled = self.isAccelerateModeEnabled;
+
+    return configuration;
 }
 
 @end

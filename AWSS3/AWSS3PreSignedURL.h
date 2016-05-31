@@ -39,7 +39,8 @@ typedef NS_ENUM(NSInteger, AWSS3PresignedURLErrorType) {
     AWSS3PresignedURLErrorInvalidServiceType,
     AWSS3PreSignedURLErrorCredentialProviderIsNil,
     AWSS3PreSignedURLErrorInternalError,
-    AWSS3PresignedURLErrorInvalidRequestParameters
+    AWSS3PresignedURLErrorInvalidRequestParameters,
+    AWSS3PresignedURLErrorInvalidBucketNameForAccelerateModeEnabled,
 };
 
 @class AWSS3GetPreSignedURLRequest;
@@ -202,6 +203,11 @@ typedef NS_ENUM(NSInteger, AWSS3PresignedURLErrorType) {
 
  */
 @interface AWSS3GetPreSignedURLRequest : NSObject
+
+/**
+ Returns whether the client has enabled accelerate mode for getting and putting objects. The default is `NO`.
+ */
+@property (nonatomic, assign, getter=isAccelerateModeEnabled) BOOL accelerateModeEnabled;
 
 /**
  The name of the bucket

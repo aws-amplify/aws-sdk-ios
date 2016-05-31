@@ -1,5 +1,14 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.4.3
+### New Features  
+* **Amazon S3**
+    * Added support for Amazon S3 Transfer Acceleration in `AWSS3TransferUtility`.        
+
+### Resolved Issues
+* **Amazon S3**
+    * Fixed the [issue](https://github.com/aws/aws-sdk-ios/issues/390) related to wrong error handling in AWSS3TransferUtility.
+
 ## 2.4.2
 ### New Features  
 * **SDK Core**

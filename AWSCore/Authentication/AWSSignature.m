@@ -576,8 +576,6 @@ static NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427a
 
 @interface AWSS3ChunkedEncodingInputStream()
 
-@property (nonatomic, weak) id<NSStreamDelegate> delegate;
-
 // original input stream
 @property (nonatomic, strong) NSInputStream *stream;
 
@@ -740,9 +738,9 @@ static NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427a
 	[self.stream close];
 }
 
-- (void)setDelegate:(id)delegate {
+- (void)setDelegate:(id<NSStreamDelegate>)delegate {
     if (delegate == nil) {
-        _delegate = nil;
+        _delegate = self;
     } else {
         _delegate = delegate;
     }
