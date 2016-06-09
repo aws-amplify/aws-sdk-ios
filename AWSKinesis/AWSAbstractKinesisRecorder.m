@@ -194,7 +194,8 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
             [self.recorderHelper checkByteThresholdForNotification:notificationByteThreshold
                                                 notificationSender:notificationSender
                                                           fileSize:fileSize];
-            if (fileSize > diskByteLimit) {
+            if ((diskByteLimit > 0) &&
+                (fileSize > diskByteLimit)) {
                 // Deletes the oldest record if it exceeds the disk size threshold.
                 [databaseQueue inDatabase:^(AWSFMDatabase *db) {
                     BOOL result = [db executeUpdate:

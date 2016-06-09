@@ -232,6 +232,44 @@ static NSString *testStreamName = nil;
                                                   object:nil];
 }
 
+- (void)testUnlimitedDiskByteLimit {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    
+    NSMutableString *mutableString = [NSMutableString new];
+    for (int i = 0; i < 5000; i++) {
+        [mutableString appendString:@"0123456789"];
+    }
+    NSData *data = [mutableString dataUsingEncoding:NSUTF8StringEncoding];
+    XCTAssertLessThan([data length], 50 * 1024 - 256);
+    
+    AWSKinesisRecorder *kinesisRecorder = [AWSKinesisRecorder defaultKinesisRecorder];
+    kinesisRecorder.diskByteLimit = 0; // Means, unlimited disk byte
+    
+    AWSTask *task = [AWSTask taskWithResult:nil];
+    for (int i = 0; i < 200; i++) { // About 10 MB data
+        task = [task continueWithBlock:^id(AWSTask *task) {
+            return [kinesisRecorder saveRecord:data
+                                    streamName:[NSString stringWithFormat:@"%d", i]];
+        }];
+    }
+    
+    [[task continueWithBlock:^id(AWSTask *task) {
+        // 12KB is the min. size of file on disk.
+        XCTAssertGreaterThan(kinesisRecorder.diskBytesUsed, 12*1024);
+        return [kinesisRecorder removeAllRecords];
+    }] continueWithBlock:^id(AWSTask *task) {
+        [expectation fulfill];
+        return nil;
+    }];
+    
+    [self waitForExpectationsWithTimeout:10 handler:^(NSError * _Nullable error) {
+        XCTAssertNil(error);
+    }];
+    
+    // Reset the value before the start of next test
+    kinesisRecorder.diskByteLimit = 5 * 1024 * 1024;
+}
+
 - (void)testDiskAgeLimit {
     XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
 
