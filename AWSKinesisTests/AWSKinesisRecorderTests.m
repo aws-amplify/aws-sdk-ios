@@ -312,6 +312,48 @@ static NSString *testStreamName = nil;
     kinesisRecorder.diskAgeLimit = 0.0;
 }
 
+- (void)testBatchRecordsByteLimit {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    
+    AWSKinesisRecorder *kinesisRecorder = [AWSKinesisRecorder defaultKinesisRecorder];
+    kinesisRecorder.diskByteLimit = 200 * 1024 * 1024;
+    
+    // Create a record of size nearly 200KB
+    NSMutableString *mutableString = [NSMutableString new];
+    for (int j = 0; j < 20000; j++) {
+        [mutableString appendString:@"0123456789"];
+    }
+    NSData *data = [mutableString dataUsingEncoding:NSUTF8StringEncoding];
+    NSUInteger recordSize = [data length];
+    XCTAssertEqual(200000, recordSize);
+    
+    __block NSUInteger totalSizeOfRecords = 0;
+    NSMutableArray *tasks = [NSMutableArray new];
+    for (int i = 0; i < 30; i++) { // About 6MB data
+        [tasks addObject:[kinesisRecorder saveRecord:data
+                                          streamName:testStreamName]];
+        totalSizeOfRecords += recordSize;
+    }
+    
+    [[[AWSTask taskForCompletionOfAllTasks:tasks] continueWithSuccessBlock:^id(AWSTask *task) {
+        // To test, we need to make sure that we are hitting the limit
+        XCTAssertGreaterThan(totalSizeOfRecords, AWSKinesisAbstractClientMaxSizeForPutRecords);
+        return [kinesisRecorder submitAllRecords];
+    }] continueWithBlock:^id(AWSTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        // 12KB is the min. size of file on disk.
+        XCTAssertLessThanOrEqual(kinesisRecorder.diskBytesUsed, 12*1024);
+        [expectation fulfill];
+        return nil;
+    }];
+    
+    [self waitForExpectationsWithTimeout:240 handler:^(NSError * _Nullable error) {
+        XCTAssertNil(error);
+    }];
+}
+
 - (void)testAll {
     XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
 

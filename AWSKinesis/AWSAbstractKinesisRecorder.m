@@ -25,7 +25,10 @@
 NSUInteger const AWSKinesisAbstractClientByteLimitDefault = 5 * 1024 * 1024; // 5MB
 NSTimeInterval const AWSKinesisAbstractClientAgeLimitDefault = 0.0; // Keeps the data indefinitely unless it hits the size limit.
 NSString *const AWSKinesisAbstractClientUserAgent = @"recorder";
-NSUInteger const AWSKinesisAbstractClientBatchRecordByteLimitDefault = 512 * 1024 * 1024;
+NSUInteger const AWSKinesisAbstractClientBatchRecordByteLimitDefault = 512 * 1024; // 512KB
+// The max size of records that Kinesis streams today allows is 5MB. Do not change
+// the constant below unless that fact has changed.
+NSUInteger const AWSKinesisAbstractClientMaxSizeForPutRecords = 5 * 1024 * 1024;
 NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazonaws/AWSKinesisRecorder";
 
 @protocol AWSKinesisRecorderHelper <NSObject>
@@ -67,6 +70,11 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                            identifier:(NSString *)identifier
                             cacheName:(NSString *)cacheName {
     if (self = [super init]) {
+        if (AWSKinesisAbstractClientBatchRecordByteLimitDefault > AWSKinesisAbstractClientMaxSizeForPutRecords) {
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:@"Invalid default size for batch records."
+                                         userInfo:nil];
+        }
         AWSServiceConfiguration *_configuration = [configuration copy];
         [_configuration addUserAgentProductToken:AWSKinesisAbstractClientUserAgent];
         NSString *databaseDirectoryPath = [NSTemporaryDirectory() stringByAppendingPathComponent:AWSKinesisAbstractClientRecorderDatabasePathPrefix];

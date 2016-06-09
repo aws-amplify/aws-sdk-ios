@@ -21,6 +21,9 @@
  */
 @interface AWSAbstractKinesisRecorder : AWSService
 
+// The max size of records that Kinesis streams allow.
+extern NSUInteger const AWSKinesisAbstractClientMaxSizeForPutRecords;
+
 /**
  The number of bytes currently used to store AWSKinesisPutRecordInput objects on disk.
  */
