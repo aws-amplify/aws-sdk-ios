@@ -23,6 +23,9 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorType) {
     AWSCognitoIdentityErrorUnknown,
+    AWSCognitoIdentityErrorIncompleteSignature,
+    AWSCognitoIdentityErrorInvalidClientTokenId,
+    AWSCognitoIdentityErrorMissingAuthenticationToken,
     AWSCognitoIdentityErrorConcurrentModification,
     AWSCognitoIdentityErrorDeveloperUserAlreadyRegistered,
     AWSCognitoIdentityErrorExternalService,
@@ -125,6 +128,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorCode) {
  <p>A list of OpendID Connect provider ARNs.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable openIdConnectProviderARNs;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable samlProviderARNs;
 
 /**
  <p>Optional key:value pairs mapping provider names to provider app IDs.</p>
@@ -236,6 +244,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorCode) {
  */
 @interface AWSCognitoIdentityGetCredentialsForIdentityInput : AWSRequest
 
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable customRoleArn;
 
 /**
  <p>A unique identifier in the format REGION:GUID.</p>
@@ -484,6 +497,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityErrorCode) {
  <p>A list of OpendID Connect provider ARNs.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable openIdConnectProviderARNs;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable samlProviderARNs;
 
 /**
  <p>Optional key:value pairs mapping provider names to provider app IDs.</p>

@@ -253,6 +253,17 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
 #pragma mark - AWSIdentityProviderManager
 
 - (AWSTask<NSDictionary<NSString *, NSString *> *> *)logins {
+    if (self.identityProviderManager && self.useEnhancedFlow) {
+        self.cachedLogins = nil;
+        return [[self getIdentityId] continueWithSuccessBlock:^id _Nullable(AWSTask<NSString *> * _Nonnull task) {
+            if(self.cachedLogins){
+                return [AWSTask taskWithResult:self.cachedLogins];
+            }
+            else {
+                return [self.identityProviderManager logins];
+            }
+        }];
+    }
     return [[self token] continueWithSuccessBlock:^id _Nullable(AWSTask<NSString *> * _Nonnull task) {
         if (!task.result) {
             return [AWSTask taskWithResult:nil];

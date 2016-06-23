@@ -27,7 +27,7 @@
 #import "AWSLambdaResources.h"
 
 static NSString *const AWSInfoLambda = @"Lambda";
-static NSString *const AWSLambdaSDKVersion = @"2.4.3";
+static NSString *const AWSLambdaSDKVersion = @"2.4.4";
 
 @interface AWSLambdaResponseSerializer : AWSJSONResponseSerializer
 

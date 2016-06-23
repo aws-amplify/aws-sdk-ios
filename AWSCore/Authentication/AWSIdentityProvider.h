@@ -73,6 +73,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderHelperErrorType) {
  */
 - (AWSTask<NSDictionary<NSString *, NSString *> *> *)logins;
 
+@optional
+/**
+ * If the token contains the role arn and there are multiple roles, return the custom role to assume.  This is currently only supported for SAML identity providers.
+ */
+@property (nonatomic, readonly) NSString *customRoleArn;
+
 @end
 
 /**

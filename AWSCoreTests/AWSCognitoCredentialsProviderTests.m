@@ -287,6 +287,33 @@ BOOL _identityChanged;
         return nil;
     }] waitUntilFinished];
 }
+
+- (void)testProviderEnhancedFlow {
+    AWSTestFacebookIdentityProvider *identityProvider = [[AWSTestFacebookIdentityProvider alloc] initWithLoggedIn:NO];
+    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                         identityPoolId:_identityPoolIdAuth
+                                                                                identityProviderManager:identityProvider];
+    [[[[provider credentials] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
+        AWSCredentials *credentials = task.result;
+        XCTAssertNotNil(provider.identityId, @"Unable to get identityId");
+        XCTAssertNotNil(credentials.accessKey, @"Unable to get accessKey");
+        
+        identityProvider.loggedIn = YES;
+        return [provider credentials];
+    }] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        }
+        
+        AWSCredentials *credentials = task.result;
+        XCTAssertNotNil(credentials.accessKey);
+        XCTAssertNotNil(credentials.secretKey);
+        XCTAssertNotNil(credentials.sessionKey);
+        XCTAssertNotNil(credentials.expiration);
+        
+        return nil;
+    }] waitUntilFinished];
+}
  
 - (void)testProviderNotification {
     AWSTestFacebookIdentityProvider *identityProvider1 = [[AWSTestFacebookIdentityProvider alloc] initWithLoggedIn:YES];

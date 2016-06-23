@@ -1,4 +1,11 @@
 # AWS Mobile SDK for iOS CHANGELOG
+## 2.4.4
+### New Features  
+* **SDK Core**
+    * Added SAML support for `Amazon Cognito Federated Identities`.     
+### Resolved Issues
+* **SDK Core**
+    * Fixed a bug causing SDK to use legacy flow instead of enhanced flow when `IdentityProviderManager` is set.
 
 ## 2.4.3
 ### New Features  
