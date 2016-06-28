@@ -1,9 +1,17 @@
 # AWS Mobile SDK for iOS CHANGELOG
+## 2.4.5
+### New Features  
+* **SDK Core**
+	* Introducing new AWS region Asia Pacific (Mumbai) region, endpoint `ap-south-1`.     
+
+### Resolved Issues
+* **SDK Core**
+    * Fixed a bug with response serialization to sometimes fail.
+
 ## 2.4.4
 ### New Features  
 * **SDK Core**
-    * Added SAML support for `Amazon Cognito Federated Identities`.
-
+    * Added SAML support for `Amazon Cognito Federated Identities`.     
 ### Resolved Issues
 * **SDK Core**
     * Fixed a bug causing SDK to use legacy flow instead of enhanced flow when `IdentityProviderManager` is set.

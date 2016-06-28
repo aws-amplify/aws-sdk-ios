@@ -27,7 +27,7 @@
 #import "AWSDynamoDBResources.h"
 
 static NSString *const AWSInfoDynamoDB = @"DynamoDB";
-static NSString *const AWSDynamoDBSDKVersion = @"2.4.4";
+static NSString *const AWSDynamoDBSDKVersion = @"2.4.5";
 
 @interface AWSDynamoDBResponseSerializer : AWSJSONResponseSerializer
 

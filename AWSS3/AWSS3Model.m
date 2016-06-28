@@ -435,6 +435,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         if ([value isEqualToString:@"us-west-2"]) {
             return @(AWSS3BucketLocationConstraintUSWest2);
         }
+        if ([value isEqualToString:@"ap-south-1"]) {
+            return @(AWSS3BucketLocationConstraintAPSouth1);
+        }
         if ([value isEqualToString:@"ap-southeast-1"]) {
             return @(AWSS3BucketLocationConstraintAPSoutheast1);
         }
@@ -473,6 +476,8 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"us-west-1";
             case AWSS3BucketLocationConstraintUSWest2:
                 return @"us-west-2";
+            case AWSS3BucketLocationConstraintAPSouth1:
+                return @"ap-south-1";
             case AWSS3BucketLocationConstraintAPSoutheast1:
                 return @"ap-southeast-1";
             case AWSS3BucketLocationConstraintAPSoutheast2:
@@ -1265,6 +1270,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         if ([value isEqualToString:@"us-west-2"]) {
             return @(AWSS3BucketLocationConstraintUSWest2);
         }
+        if ([value isEqualToString:@"ap-south-1"]) {
+            return @(AWSS3BucketLocationConstraintAPSouth1);
+        }
         if ([value isEqualToString:@"ap-southeast-1"]) {
             return @(AWSS3BucketLocationConstraintAPSoutheast1);
         }
@@ -1303,6 +1311,8 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"us-west-1";
             case AWSS3BucketLocationConstraintUSWest2:
                 return @"us-west-2";
+            case AWSS3BucketLocationConstraintAPSouth1:
+                return @"ap-south-1";
             case AWSS3BucketLocationConstraintAPSoutheast1:
                 return @"ap-southeast-1";
             case AWSS3BucketLocationConstraintAPSoutheast2:

@@ -530,6 +530,11 @@ static NSTimeInterval _clockskew = 0.0;
         || [self isEqualToString:@"ap-southeast-2"]) {
         return AWSRegionAPSoutheast2;
     }
+    if ([self isEqualToString:@"AWSRegionAPSouth1"]
+        || [self isEqualToString:@"APSouth1"]
+        || [self isEqualToString:@"ap-south-1"]) {
+        return AWSRegionAPSouth1;
+    }
     if ([self isEqualToString:@"AWSRegionSAEast1"]
         || [self isEqualToString:@"SAEast1"]
         || [self isEqualToString:@"sa-east-1"]) {

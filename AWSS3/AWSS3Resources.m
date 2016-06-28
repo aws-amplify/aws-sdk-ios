@@ -885,6 +885,7 @@
         \"eu-west-1\",\
         \"us-west-1\",\
         \"us-west-2\",\
+        \"ap-south-1\",\
         \"ap-southeast-1\",\
         \"ap-southeast-2\",\
         \"ap-northeast-1\",\
@@ -1124,7 +1125,7 @@
     \"ContentDisposition\":{\"type\":\"string\"},\
     \"ContentEncoding\":{\"type\":\"string\"},\
     \"ContentLanguage\":{\"type\":\"string\"},\
-    \"ContentLength\":{\"type\":\"integer\"},\
+    \"ContentLength\":{\"type\":\"long\"},\
     \"ContentMD5\":{\"type\":\"string\"},\
     \"ContentRange\":{\"type\":\"string\"},\
     \"ContentType\":{\"type\":\"string\"},\
@@ -3333,8 +3334,14 @@
           \"shape\":\"IsTruncated\",\
           \"documentation\":\"A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria.\"\
         },\
-        \"Contents\":{\"shape\":\"ObjectList\"},\
-        \"Name\":{\"shape\":\"BucketName\"},\
+        \"Contents\":{\
+          \"shape\":\"ObjectList\",\
+          \"documentation\":\"Metadata about each object returned.\"\
+        },\
+        \"Name\":{\
+          \"shape\":\"BucketName\",\
+          \"documentation\":\"Name of the bucket to list.\"\
+        },\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
           \"documentation\":\"Limits the response to keys that begin with the specified prefix.\"\
@@ -3347,7 +3354,10 @@
           \"shape\":\"MaxKeys\",\
           \"documentation\":\"Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.\"\
         },\
-        \"CommonPrefixes\":{\"shape\":\"CommonPrefixList\"},\
+        \"CommonPrefixes\":{\
+          \"shape\":\"CommonPrefixList\",\
+          \"documentation\":\"CommonPrefixes contains all (if there are any) keys between Prefix and the next occurrence of the string specified by delimiter\"\
+        },\
         \"EncodingType\":{\
           \"shape\":\"EncodingType\",\
           \"documentation\":\"Encoding type used by Amazon S3 to encode object keys in the response.\"\
@@ -3376,6 +3386,7 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
+          \"documentation\":\"Name of the bucket to list.\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         },\
@@ -3419,7 +3430,7 @@
           \"shape\":\"StartAfter\",\
           \"documentation\":\"StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"start-key\"\
+          \"locationName\":\"start-after\"\
         }\
       }\
     },\
@@ -3644,7 +3655,7 @@
       \"members\":{\
         \"NoncurrentDays\":{\
           \"shape\":\"Days\",\
-          \"documentation\":\"Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href=\\\"/AmazonS3/latest/dev/s3-access-control.html\\\">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.\"\
+          \"documentation\":\"Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\\\">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.\"\
         }\
       },\
       \"documentation\":\"Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.\"\
@@ -3654,7 +3665,7 @@
       \"members\":{\
         \"NoncurrentDays\":{\
           \"shape\":\"Days\",\
-          \"documentation\":\"Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href=\\\"/AmazonS3/latest/dev/s3-access-control.html\\\">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.\"\
+          \"documentation\":\"Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\\\">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.\"\
         },\
         \"StorageClass\":{\
           \"shape\":\"TransitionStorageClass\",\

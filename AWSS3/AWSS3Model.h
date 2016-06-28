@@ -52,6 +52,7 @@ typedef NS_ENUM(NSInteger, AWSS3BucketLocationConstraint) {
     AWSS3BucketLocationConstraintEUWest1,
     AWSS3BucketLocationConstraintUSWest1,
     AWSS3BucketLocationConstraintUSWest2,
+    AWSS3BucketLocationConstraintAPSouth1,
     AWSS3BucketLocationConstraintAPSoutheast1,
     AWSS3BucketLocationConstraintAPSoutheast2,
     AWSS3BucketLocationConstraintAPNortheast1,
@@ -2771,12 +2772,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 
 
 /**
- 
+ CommonPrefixes contains all (if there are any) keys between Prefix and the next occurrence of the string specified by delimiter
  */
 @property (nonatomic, strong) NSArray<AWSS3CommonPrefix *> * _Nullable commonPrefixes;
 
 /**
- 
+ Metadata about each object returned.
  */
 @property (nonatomic, strong) NSArray<AWSS3Object *> * _Nullable contents;
 
@@ -2811,7 +2812,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 @property (nonatomic, strong) NSNumber * _Nullable maxKeys;
 
 /**
- 
+ Name of the bucket to list.
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
@@ -2839,7 +2840,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 
 
 /**
- 
+ Name of the bucket to list.
  */
 @property (nonatomic, strong) NSString * _Nullable bucket;
 
@@ -3064,7 +3065,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 
 
 /**
- Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href="/AmazonS3/latest/dev/s3-access-control.html">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.
+ Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.
  */
 @property (nonatomic, strong) NSNumber * _Nullable noncurrentDays;
 
@@ -3077,7 +3078,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 
 
 /**
- Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href="/AmazonS3/latest/dev/s3-access-control.html">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.
+ Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.
  */
 @property (nonatomic, strong) NSNumber * _Nullable noncurrentDays;
 

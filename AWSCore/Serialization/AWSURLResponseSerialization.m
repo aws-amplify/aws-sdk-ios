@@ -181,7 +181,7 @@
                 if ([rulesType isEqualToString:@"integer"]) {
                     bodyDictionary[memberName] = @([responseHeaders[locationName] integerValue]);
                 } else if ([rulesType isEqualToString:@"long"]) {
-                    bodyDictionary[memberName] = @([responseHeaders[locationName] longValue]);
+                    bodyDictionary[memberName] = @([responseHeaders[locationName] longLongValue]);
                 } else if ([rulesType isEqualToString:@"float"]) {
                     bodyDictionary[memberName] = @([responseHeaders[locationName] floatValue]);
                 } else if ([rulesType isEqualToString:@"double"]) {

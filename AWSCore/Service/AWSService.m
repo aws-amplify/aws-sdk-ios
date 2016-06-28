@@ -21,7 +21,7 @@
 #import "AWSLogging.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.4.4";
+NSString *const AWSiOSSDKVersion = @"2.4.5";
 NSString *const AWSServiceErrorDomain = @"com.amazonaws.AWSServiceErrorDomain";
 
 static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
@@ -214,6 +214,7 @@ static NSString *const AWSRegionNameAPSoutheast1 = @"ap-southeast-1";
 static NSString *const AWSRegionNameAPNortheast1 = @"ap-northeast-1";
 static NSString *const AWSRegionNameAPNortheast2 = @"ap-northeast-2";
 static NSString *const AWSRegionNameAPSoutheast2 = @"ap-southeast-2";
+static NSString *const AWSRegionNameAPSouth1 = @"ap-south-1";
 static NSString *const AWSRegionNameSAEast1 = @"sa-east-1";
 static NSString *const AWSRegionNameCNNorth1 = @"cn-north-1";
 static NSString *const AWSRegionNameUSGovWest1 = @"us-gov-west-1";
@@ -315,6 +316,8 @@ static NSString *const AWSServiceNameSTS = @"sts";
             return AWSRegionNameAPNortheast1;
         case AWSRegionAPNortheast2:
             return AWSRegionNameAPNortheast2;
+        case AWSRegionAPSouth1:
+            return AWSRegionNameAPSouth1;
         case AWSRegionSAEast1:
             return AWSRegionNameSAEast1;
         case AWSRegionCNNorth1:
@@ -394,6 +397,7 @@ static NSString *const AWSServiceNameSTS = @"sts";
             || regionType == AWSRegionAPNortheast1
             || regionType == AWSRegionAPNortheast2
             || regionType == AWSRegionAPSoutheast2
+            || regionType == AWSRegionAPSouth1
             || regionType == AWSRegionSAEast1
             || regionType == AWSRegionUSGovWest1)) {
             separator = @"-";
