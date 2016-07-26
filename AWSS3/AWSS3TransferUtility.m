@@ -666,8 +666,7 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 - (void)URLSession:(NSURLSession *)session
               task:(NSURLSessionTask *)task
 didCompleteWithError:(NSError *)error {
-    if (!error) {
-        assert([task.response isKindOfClass:[NSHTTPURLResponse class]]);
+    if (!error && [task.response isKindOfClass:[NSHTTPURLResponse class]]) {
         NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)task.response;
 
         if (HTTPResponse.statusCode / 100 == 3
