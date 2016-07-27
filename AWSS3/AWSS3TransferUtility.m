@@ -666,7 +666,10 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 - (void)URLSession:(NSURLSession *)session
               task:(NSURLSessionTask *)task
 didCompleteWithError:(NSError *)error {
-    if (!error && [task.response isKindOfClass:[NSHTTPURLResponse class]]) {
+    if (!error) {
+        if (![task.response isKindOfClass:[NSHTTPURLResponse class]]) {
+            [NSException raise:@"Invalid NSURLSession state" format:@"The NSURLSessionTask returned with a response object in an invalid state."];
+        }
         NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)task.response;
 
         if (HTTPResponse.statusCode / 100 == 3
