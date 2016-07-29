@@ -21,6 +21,7 @@
 #import "AWSUICKeyChainStore.h"
 #import <CommonCrypto/CommonHMAC.h>
 #import "NSData+AWSCognitoIdentityProvider.h"
+#import "AWSCognitoIdentityProviderModel.h"
 
 static AWSUICKeyChainStore *keychain = nil;
 static const NSString * AWSCognitoIdentityUserPoolCurrentUser = @"currentUser";
@@ -129,7 +130,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     request.username = username;
     request.password = password;
     request.userAttributes = userAttributes;
-    request.validationData = [self getValidationData:validationData];
+    request.validationData = [self getValidationDataAsArray:validationData];
     request.secretHash = [self calculateSecretHash:username];
     return [[self.client signUp:request] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderSignUpResponse *> * _Nonnull task) {
         AWSCognitoIdentityUser * user = [[AWSCognitoIdentityUser alloc] initWithUsername:username pool:self];
@@ -188,7 +189,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 #pragma mark identity provider
 - (NSString *) identityProviderName {
-    return [NSString stringWithFormat:@"cognito-idp.us-east-1.amazonaws.com/%@", self.userPoolConfiguration.poolId];
+    return [NSString stringWithFormat:@"%@/%@", self.configuration.endpoint.hostName, self.userPoolConfiguration.poolId];
 }
 
 - (AWSTask<NSString*>*) token {
@@ -230,12 +231,12 @@ AWSCognitoIdentityUserAttributeType* attribute(NSString *name, NSString *value) 
     return attr;
 }
 
-- (NSArray<AWSCognitoIdentityProviderAttributeType *>*)cognitoValidationData {
+- (NSDictionary<NSString *,NSString *>*)cognitoValidationData {
     UIDevice *device = [UIDevice currentDevice];
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *bundleVersion = [bundle objectForInfoDictionaryKey:(NSString*)kCFBundleVersionKey];
     NSString *bundleShortVersion = [bundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-    NSMutableArray * result = [NSMutableArray new];
+    NSMutableDictionary * result = [NSMutableDictionary new];
 
     NSArray * atts = @[
                        attribute(@"cognito:iOSVersion", device.systemVersion),
@@ -249,27 +250,36 @@ AWSCognitoIdentityUserAttributeType* attribute(NSString *name, NSString *value) 
                        ];
     for (AWSCognitoIdentityUserAttributeType *att in atts) {
         if(att.value != nil) {
-            [result addObject:att];
+            [result setObject:att.value forKey: att.name];
         }
     }
     return result;
 }
 
-- (NSArray<AWSCognitoIdentityProviderAttributeType*>*)getValidationData:(NSArray<AWSCognitoIdentityUserAttributeType*>*)devProvidedValidationData {
-    NSMutableArray *result = [NSMutableArray new];
+- (NSDictionary<NSString*, NSString *>*)getValidationData:(NSArray<AWSCognitoIdentityUserAttributeType*>*)devProvidedValidationData {
+    NSMutableDictionary *result = [NSMutableDictionary new];
     if (self.userPoolConfiguration.shouldProvideCognitoValidationData) {
-        [result addObjectsFromArray:[self cognitoValidationData]];
-    } else {
-        if (devProvidedValidationData != nil) {
-            for (AWSCognitoIdentityUserAttributeType * attribute in devProvidedValidationData) {
-                AWSCognitoIdentityProviderAttributeType *internalType = [AWSCognitoIdentityProviderAttributeType new];
-                internalType.name = attribute.name;
-                internalType.value = attribute.value;
-                [result addObject:internalType];
-            }
+        [result addEntriesFromDictionary:[self cognitoValidationData]];
+    }
+    if (devProvidedValidationData != nil) {
+        for (AWSCognitoIdentityUserAttributeType * att in devProvidedValidationData) {
+            [result setObject:att.value forKey: att.name];
         }
     }
     return result;
+}
+
+- (NSArray<AWSCognitoIdentityUserAttributeType*>*) getValidationDataAsArray:(NSArray<AWSCognitoIdentityUserAttributeType*>*)devProvidedValidationData {
+    NSDictionary * dictionary = [self getValidationData:devProvidedValidationData];
+    NSMutableArray * result = [NSMutableArray new];
+    [dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL* stop) {
+        [result addObject:attribute(key,value)];
+    }];
+    return result;
+}
+
+- (NSString*) strippedPoolId {
+    return [self.userPoolConfiguration.poolId substringFromIndex:[self.userPoolConfiguration.poolId rangeOfString:@"_" ].location+1];
 }
 
 @end
@@ -324,10 +334,16 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData {
 @end
 
 @implementation AWSCognitoIdentityMultifactorAuthenticationInput
--(instancetype) initWithDeliveryMedium: (AWSCognitoIdentityProviderDeliveryMediumType) deliveryMedium destination:(NSString *) destination {
+-(instancetype) initWithDeliveryMedium: (NSString*) deliveryMedium destination:(NSString *) destination {
     self = [super init];
     if(nil != self){
-        self.deliveryMedium = deliveryMedium;
+        if ([deliveryMedium isEqualToString:@"SMS"]) {
+            self.deliveryMedium = AWSCognitoIdentityProviderDeliveryMediumTypeSms;
+        }else if ([deliveryMedium isEqualToString:@"EMAIL"]) {
+            self.deliveryMedium = AWSCognitoIdentityProviderDeliveryMediumTypeEmail;
+        }else {
+            self.deliveryMedium = AWSCognitoIdentityProviderDeliveryMediumTypeUnknown;
+        }
         self.destination = destination;
     }
     return self;

@@ -81,11 +81,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) AWSJKBigInteger *S;
 @property(nonatomic, strong) NSData *authenticationKey;
 
+#pragma mark - Generating password verifier
+@property(nonatomic, strong) AWSJKBigInteger *salt;
+@property(nonatomic, strong) AWSJKBigInteger *v;
+
+
 + (instancetype)beginUserAuthentication:(NSString*)userName
                            password:(NSString*)password;
 
 - (instancetype)init:(NSString *)userName password:(NSString *)password;
 - (instancetype)initWithClientState:(AWSCognitoIdentityProviderSrpClientState *)clientState;
+- (instancetype)initWithPoolName:(NSString *)poolName userName:(NSString *)userName password:(NSString *)password;
 
 - (NSData*)completeAuthentication:(AWSCognitoIdentityProviderSrpServerState*)serverState;
 

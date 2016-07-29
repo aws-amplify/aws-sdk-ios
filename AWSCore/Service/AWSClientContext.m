@@ -85,8 +85,8 @@ static NSString *const AWSClientContextKeychainInstallationIdKey = @"com.amazona
 - (NSDictionary *)dictionaryRepresentation {
     NSDictionary *clientDetails = @{@"installation_id": self.installationId?self.installationId:@"UNKNOWN_INSTALLATION_ID",
                                     @"app_package_name": self.appPackageName,
-                                    @"app_version_name": self.appBuild,
-                                    @"app_version_code": self.appVersion,
+                                    @"app_version_name": self.appVersion,
+                                    @"app_version_code": self.appBuild,
                                     @"app_title": self.appName};
 
     NSDictionary *deviceDetails = @{@"model": self.deviceModel,

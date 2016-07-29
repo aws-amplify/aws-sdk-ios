@@ -28,7 +28,8 @@
 @protocol AWSCognitoIdentityInteractiveAuthenticationDelegate;
 @protocol AWSCognitoIdentityPasswordAuthentication;
 @protocol AWSCognitoIdentityMultiFactorAuthentication;
-
+@protocol AWSCognitoIdentityCustomAuthentication;
+@protocol AWSCognitoIdentityRememberDevice;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -138,6 +139,16 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData;
                                  password:(NSString *)password;
 @end
 
+
+/**
+ When responding to an custom sign in, this encapsulates the end users' challenge responses
+ */
+@interface AWSCognitoIdentityCustomAuthenticationInput : NSObject
+
+@property(nonatomic, strong) NSDictionary<NSString*,NSString*>* challengeResponses;
+@end
+
+
 /**
  The error domain for AWSCognitoIdentityProvider errors.
  <ul>
@@ -148,23 +159,34 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData;
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityClientErrorType) {
     AWSCognitoIdentityProviderClientErrorUnknown = 0,
     AWSCognitoIdentityProviderClientErrorInvalidAuthenticationDelegate = -1000,
+    AWSCognitoIdentityProviderClientErrorCustomAuthenticationNotSupported = -2000,
 };
 
 @interface AWSCognitoIdentityUserPoolSignUpResponse : AWSCognitoIdentityProviderSignUpResponse
 @property (nonatomic, readonly) AWSCognitoIdentityUser* user;
 @end
 
-
 @protocol AWSCognitoIdentityInteractiveAuthenticationDelegate <NSObject>
+@optional
+/**
+ Initialize ui to prompt end user for custom authentication flow
+ */
+-(id<AWSCognitoIdentityCustomAuthentication>) startCustomAuthentication;
+
 /**
  Initialize ui to prompt end user for username and password
  */
 -(id<AWSCognitoIdentityPasswordAuthentication>) startPasswordAuthentication;
-@optional
+
 /**
  Initialize ui to prompt end user for multifactor authentication code
  */
 -(id<AWSCognitoIdentityMultiFactorAuthentication>) startMultiFactorAuthentication;
+
+/**
+ Initialize ui to prompt end user to remember this device
+ */
+-(id<AWSCognitoIdentityRememberDevice>) startRememberDevice;
 @end
 
 @protocol AWSCognitoIdentityPasswordAuthentication <NSObject>
@@ -179,7 +201,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityClientErrorType) {
  This step completed, usually either display an error to the end user or dismiss ui
  @param error the error if any that occured
  */
--(void) didCompletePasswordAuthenticationStepWithError:(NSError*) error;
+-(void) didCompletePasswordAuthenticationStepWithError:(NSError* _Nullable) error;
 @end
 
 @protocol AWSCognitoIdentityMultiFactorAuthentication <NSObject>
@@ -193,7 +215,38 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityClientErrorType) {
  This step completed, usually either display an error to the end user or dismiss ui
  @param error the error if any that occured
  */
--(void) didCompleteMultifactorAuthenticationStepWithError:(NSError*) error;
+-(void) didCompleteMultifactorAuthenticationStepWithError:(NSError* _Nullable) error;
+@end
+
+
+@protocol AWSCognitoIdentityCustomAuthentication <NSObject>
+
+-(NSString*) getAuthenticationFlowName;
+/**
+ Obtain input for a custom challenge from the end user
+ @param authenticationInput details the challenge including the challenge name and inputs
+ @param customAuthCompletionSource set customAuthCompletionSource.result with the challenge answers from the end user
+ */
+-(void) getCustomChallengeDetails: (AWSCognitoIdentityCustomAuthenticationInput *) authenticationInput customAuthCompletionSource: (AWSTaskCompletionSource<NSDictionary<NSString*, NSString *> *> *) customAuthCompletionSource;
+/**
+ This step completed, usually either display an error to the end user or dismiss ui
+ @param error the error if any that occured
+ */
+-(void) didCompleteCustomAuthenticationStepWithError:(NSError* _Nullable) error;
+@end
+
+@protocol AWSCognitoIdentityRememberDevice <NSObject>
+
+/**
+ Obtain whether to remember this device or not
+ @param rememberDeviceCompletionSource set customAuthCompletionSource.result with YES or NO answer from the end user
+ */
+-(void) getRememberDevice: (AWSTaskCompletionSource<NSNumber *> *) rememberDeviceCompletionSource;
+/**
+ This step completed, usually either display an error to the end user or dismiss ui
+ @param error the error if any that occured
+ */
+-(void) didCompleteRememberDeviceStepWithError:(NSError* _Nullable) error;
 @end
 
 NS_ASSUME_NONNULL_END

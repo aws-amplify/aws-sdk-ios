@@ -194,26 +194,29 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addPermission:(AWSSNSAddPermissionInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- AddTagsToResource
+ <p>Accepts a phone number and indicates whether the phone holder has opted out of receiving SMS messages from your account. You cannot send SMS messages to a number that is opted out.</p><p>To resume sending messages, you can opt in the number by using the <code>OptInPhoneNumber</code> action.</p>
  
- @param request A container for the necessary parameters to execute the AddTagsToResource service method.
+ @param request A container for the necessary parameters to execute the CheckIfPhoneNumberIsOptedOut service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`, `AWSSNSErrorTaggingOperationFailed`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSCheckIfPhoneNumberIsOptedOutResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`.
  
- @see AWSSNSAddTagsToResourceInput
+ @see AWSSNSCheckIfPhoneNumberIsOptedOutInput
+ @see AWSSNSCheckIfPhoneNumberIsOptedOutResponse
  */
-- (AWSTask *)addTagsToResource:(AWSSNSAddTagsToResourceInput *)request;
+- (AWSTask<AWSSNSCheckIfPhoneNumberIsOptedOutResponse *> *)checkIfPhoneNumberIsOptedOut:(AWSSNSCheckIfPhoneNumberIsOptedOutInput *)request;
 
 /**
- AddTagsToResource
+ <p>Accepts a phone number and indicates whether the phone holder has opted out of receiving SMS messages from your account. You cannot send SMS messages to a number that is opted out.</p><p>To resume sending messages, you can opt in the number by using the <code>OptInPhoneNumber</code> action.</p>
  
- @param request A container for the necessary parameters to execute the AddTagsToResource service method.
+ @param request A container for the necessary parameters to execute the CheckIfPhoneNumberIsOptedOut service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`, `AWSSNSErrorTaggingOperationFailed`.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`.
  
- @see AWSSNSAddTagsToResourceInput
+ @see AWSSNSCheckIfPhoneNumberIsOptedOutInput
+ @see AWSSNSCheckIfPhoneNumberIsOptedOutResponse
  */
-- (void)addTagsToResource:(AWSSNSAddTagsToResourceInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+- (void)checkIfPhoneNumberIsOptedOut:(AWSSNSCheckIfPhoneNumberIsOptedOutInput *)request completionHandler:(void (^ _Nullable)(AWSSNSCheckIfPhoneNumberIsOptedOutResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Verifies an endpoint owner's intent to receive messages by validating the token sent to the endpoint by an earlier <code>Subscribe</code> action. If the token is valid, the action creates a new subscription and returns its Amazon Resource Name (ARN). This call requires an AWS signature only when the <code>AuthenticateOnUnsubscribe</code> flag is set to "true".</p>
@@ -432,6 +435,31 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getPlatformApplicationAttributes:(AWSSNSGetPlatformApplicationAttributesInput *)request completionHandler:(void (^ _Nullable)(AWSSNSGetPlatformApplicationAttributesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Returns the settings for sending SMS messages from your account.</p><p>These settings are set with the <code>SetSMSAttributes</code> action.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetSMSAttributes service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSGetSMSAttributesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`.
+ 
+ @see AWSSNSGetSMSAttributesInput
+ @see AWSSNSGetSMSAttributesResponse
+ */
+- (AWSTask<AWSSNSGetSMSAttributesResponse *> *)getSMSAttributes:(AWSSNSGetSMSAttributesInput *)request;
+
+/**
+ <p>Returns the settings for sending SMS messages from your account.</p><p>These settings are set with the <code>SetSMSAttributes</code> action.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetSMSAttributes service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`.
+ 
+ @see AWSSNSGetSMSAttributesInput
+ @see AWSSNSGetSMSAttributesResponse
+ */
+- (void)getSMSAttributes:(AWSSNSGetSMSAttributesInput *)request completionHandler:(void (^ _Nullable)(AWSSNSGetSMSAttributesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Returns all of the properties of a subscription.</p>
  
  @param request A container for the necessary parameters to execute the GetSubscriptionAttributes service method.
@@ -505,6 +533,31 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSSNSListEndpointsByPlatformApplicationResponse
  */
 - (void)listEndpointsByPlatformApplication:(AWSSNSListEndpointsByPlatformApplicationInput *)request completionHandler:(void (^ _Nullable)(AWSSNSListEndpointsByPlatformApplicationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns a list of phone numbers that are opted out, meaning you cannot send SMS messages to them.</p><p>The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page returns up to 100 phone numbers. If additional phone numbers are available after the first page of results, then a <code>NextToken</code> string will be returned. To receive the next page, you call <code>ListPhoneNumbersOptedOut</code> again using the <code>NextToken</code> string received from the previous call. When there are no more records to return, <code>NextToken</code> will be null.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListPhoneNumbersOptedOut service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSListPhoneNumbersOptedOutResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`.
+ 
+ @see AWSSNSListPhoneNumbersOptedOutInput
+ @see AWSSNSListPhoneNumbersOptedOutResponse
+ */
+- (AWSTask<AWSSNSListPhoneNumbersOptedOutResponse *> *)listPhoneNumbersOptedOut:(AWSSNSListPhoneNumbersOptedOutInput *)request;
+
+/**
+ <p>Returns a list of phone numbers that are opted out, meaning you cannot send SMS messages to them.</p><p>The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page returns up to 100 phone numbers. If additional phone numbers are available after the first page of results, then a <code>NextToken</code> string will be returned. To receive the next page, you call <code>ListPhoneNumbersOptedOut</code> again using the <code>NextToken</code> string received from the previous call. When there are no more records to return, <code>NextToken</code> will be null.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListPhoneNumbersOptedOut service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`.
+ 
+ @see AWSSNSListPhoneNumbersOptedOutInput
+ @see AWSSNSListPhoneNumbersOptedOutResponse
+ */
+- (void)listPhoneNumbersOptedOut:(AWSSNSListPhoneNumbersOptedOutInput *)request completionHandler:(void (^ _Nullable)(AWSSNSListPhoneNumbersOptedOutResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Lists the platform application objects for the supported push notification services, such as APNS and GCM. The results for <code>ListPlatformApplications</code> are paginated and return a limited list of applications, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call <code>ListPlatformApplications</code> using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
@@ -582,31 +635,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listSubscriptionsByTopic:(AWSSNSListSubscriptionsByTopicInput *)request completionHandler:(void (^ _Nullable)(AWSSNSListSubscriptionsByTopicResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- ListTagsForResource
- 
- @param request A container for the necessary parameters to execute the ListTagsForResource service method.
-
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSListTagsForResourceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`, `AWSSNSErrorTaggingOperationFailed`.
- 
- @see AWSSNSListTagsForResourceInput
- @see AWSSNSListTagsForResourceResponse
- */
-- (AWSTask<AWSSNSListTagsForResourceResponse *> *)listTagsForResource:(AWSSNSListTagsForResourceInput *)request;
-
-/**
- ListTagsForResource
- 
- @param request A container for the necessary parameters to execute the ListTagsForResource service method.
- @param completionHandler The completion handler to call when the load request is complete.
-                          `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`, `AWSSNSErrorTaggingOperationFailed`.
- 
- @see AWSSNSListTagsForResourceInput
- @see AWSSNSListTagsForResourceResponse
- */
-- (void)listTagsForResource:(AWSSNSListTagsForResourceInput *)request completionHandler:(void (^ _Nullable)(AWSSNSListTagsForResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
-
-/**
  <p>Returns a list of the requester's topics. Each call returns a limited list of topics, up to 100. If there are more topics, a <code>NextToken</code> is also returned. Use the <code>NextToken</code> parameter in a new <code>ListTopics</code> call to get further results.</p>
  
  @param request A container for the necessary parameters to execute the ListTopics service method.
@@ -632,7 +660,32 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listTopics:(AWSSNSListTopicsInput *)request completionHandler:(void (^ _Nullable)(AWSSNSListTopicsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sends a message to all of a topic's subscribed endpoints. When a <code>messageId</code> is returned, the message has been saved and Amazon SNS will attempt to deliver it to the topic's subscribers shortly. The format of the outgoing message to each subscribed endpoint depends on the notification protocol selected.</p><p>To use the <code>Publish</code> action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. The second example below shows a request and response for publishing to a mobile endpoint. </p><p>For more information about formatting messages, see <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
+ <p>Use this request to opt in a phone number that is opted out, which enables you to resume sending SMS messages to the number.</p><p>You can opt in a phone number only once every 30 days.</p>
+ 
+ @param request A container for the necessary parameters to execute the OptInPhoneNumber service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSOptInPhoneNumberResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`.
+ 
+ @see AWSSNSOptInPhoneNumberInput
+ @see AWSSNSOptInPhoneNumberResponse
+ */
+- (AWSTask<AWSSNSOptInPhoneNumberResponse *> *)optInPhoneNumber:(AWSSNSOptInPhoneNumberInput *)request;
+
+/**
+ <p>Use this request to opt in a phone number that is opted out, which enables you to resume sending SMS messages to the number.</p><p>You can opt in a phone number only once every 30 days.</p>
+ 
+ @param request A container for the necessary parameters to execute the OptInPhoneNumber service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`.
+ 
+ @see AWSSNSOptInPhoneNumberInput
+ @see AWSSNSOptInPhoneNumberResponse
+ */
+- (void)optInPhoneNumber:(AWSSNSOptInPhoneNumberInput *)request completionHandler:(void (^ _Nullable)(AWSSNSOptInPhoneNumberResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Sends a message to all of a topic's subscribed endpoints. When a <code>messageId</code> is returned, the message has been saved and Amazon SNS will attempt to deliver it to the topic's subscribers shortly. The format of the outgoing message to each subscribed endpoint depends on the notification protocol.</p><p>To use the <code>Publish</code> action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. The second example below shows a request and response for publishing to a mobile endpoint. </p><p>For more information about formatting messages, see <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
  
  @param request A container for the necessary parameters to execute the Publish service method.
 
@@ -644,7 +697,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSNSPublishResponse *> *)publish:(AWSSNSPublishInput *)request;
 
 /**
- <p>Sends a message to all of a topic's subscribed endpoints. When a <code>messageId</code> is returned, the message has been saved and Amazon SNS will attempt to deliver it to the topic's subscribers shortly. The format of the outgoing message to each subscribed endpoint depends on the notification protocol selected.</p><p>To use the <code>Publish</code> action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. The second example below shows a request and response for publishing to a mobile endpoint. </p><p>For more information about formatting messages, see <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
+ <p>Sends a message to all of a topic's subscribed endpoints. When a <code>messageId</code> is returned, the message has been saved and Amazon SNS will attempt to deliver it to the topic's subscribers shortly. The format of the outgoing message to each subscribed endpoint depends on the notification protocol.</p><p>To use the <code>Publish</code> action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. The second example below shows a request and response for publishing to a mobile endpoint. </p><p>For more information about formatting messages, see <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
  
  @param request A container for the necessary parameters to execute the Publish service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -677,28 +730,6 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSSNSRemovePermissionInput
  */
 - (void)removePermission:(AWSSNSRemovePermissionInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
-
-/**
- RemoveTagsFromResource
- 
- @param request A container for the necessary parameters to execute the RemoveTagsFromResource service method.
-
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`, `AWSSNSErrorTaggingOperationFailed`.
- 
- @see AWSSNSRemoveTagsFromResourceInput
- */
-- (AWSTask *)removeTagsFromResource:(AWSSNSRemoveTagsFromResourceInput *)request;
-
-/**
- RemoveTagsFromResource
- 
- @param request A container for the necessary parameters to execute the RemoveTagsFromResource service method.
- @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`, `AWSSNSErrorTaggingOperationFailed`.
- 
- @see AWSSNSRemoveTagsFromResourceInput
- */
-- (void)removeTagsFromResource:(AWSSNSRemoveTagsFromResourceInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>Sets the attributes for an endpoint for a device on one of the supported push notification services, such as GCM and APNS. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
@@ -743,6 +774,31 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSSNSSetPlatformApplicationAttributesInput
  */
 - (void)setPlatformApplicationAttributes:(AWSSNSSetPlatformApplicationAttributesInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Use this request to set the default settings for sending SMS messages and receiving daily SMS usage reports.</p><p>You can override some of these settings for a single message when you use the <code>Publish</code> action with the <code>MessageAttributes.entry.N</code> parameter. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Sending an SMS Message</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the SetSMSAttributes service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSSetSMSAttributesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`.
+ 
+ @see AWSSNSSetSMSAttributesInput
+ @see AWSSNSSetSMSAttributesResponse
+ */
+- (AWSTask<AWSSNSSetSMSAttributesResponse *> *)setSMSAttributes:(AWSSNSSetSMSAttributesInput *)request;
+
+/**
+ <p>Use this request to set the default settings for sending SMS messages and receiving daily SMS usage reports.</p><p>You can override some of these settings for a single message when you use the <code>Publish</code> action with the <code>MessageAttributes.entry.N</code> parameter. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Sending an SMS Message</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the SetSMSAttributes service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`.
+ 
+ @see AWSSNSSetSMSAttributesInput
+ @see AWSSNSSetSMSAttributesResponse
+ */
+- (void)setSMSAttributes:(AWSSNSSetSMSAttributesInput *)request completionHandler:(void (^ _Nullable)(AWSSNSSetSMSAttributesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Allows a subscription owner to set an attribute of the topic to a new value.</p>

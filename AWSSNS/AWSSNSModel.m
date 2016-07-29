@@ -31,17 +31,22 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 @end
 
-@implementation AWSSNSAddTagsToResourceInput
+@implementation AWSSNSCheckIfPhoneNumberIsOptedOutInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"resourceArn" : @"ResourceArn",
-             @"tags" : @"Tags",
+             @"phoneNumber" : @"phoneNumber",
              };
 }
 
-+ (NSValueTransformer *)tagsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSNSTag class]];
+@end
+
+@implementation AWSSNSCheckIfPhoneNumberIsOptedOutResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"isOptedOut" : @"isOptedOut",
+             };
 }
 
 @end
@@ -214,6 +219,26 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 @end
 
+@implementation AWSSNSGetSMSAttributesInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributes" : @"attributes",
+             };
+}
+
+@end
+
+@implementation AWSSNSGetSMSAttributesResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributes" : @"attributes",
+             };
+}
+
+@end
+
 @implementation AWSSNSGetSubscriptionAttributesInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -276,6 +301,27 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 + (NSValueTransformer *)endpointsJSONTransformer {
 	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSNSEndpoint class]];
+}
+
+@end
+
+@implementation AWSSNSListPhoneNumbersOptedOutInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"nextToken",
+             };
+}
+
+@end
+
+@implementation AWSSNSListPhoneNumbersOptedOutResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"nextToken",
+             @"phoneNumbers" : @"phoneNumbers",
+             };
 }
 
 @end
@@ -356,32 +402,6 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 @end
 
-@implementation AWSSNSListTagsForResourceInput
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"nextToken" : @"NextToken",
-             @"resourceArn" : @"ResourceArn",
-             };
-}
-
-@end
-
-@implementation AWSSNSListTagsForResourceResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"nextToken" : @"NextToken",
-             @"tags" : @"Tags",
-             };
-}
-
-+ (NSValueTransformer *)tagsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSNSTag class]];
-}
-
-@end
-
 @implementation AWSSNSListTopicsInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -419,6 +439,20 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 @end
 
+@implementation AWSSNSOptInPhoneNumberInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"phoneNumber" : @"phoneNumber",
+             };
+}
+
+@end
+
+@implementation AWSSNSOptInPhoneNumberResponse
+
+@end
+
 @implementation AWSSNSPlatformApplication
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -434,10 +468,10 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"attributes" : @"Attributes",
              @"message" : @"Message",
              @"messageAttributes" : @"MessageAttributes",
              @"messageStructure" : @"MessageStructure",
+             @"phoneNumber" : @"PhoneNumber",
              @"subject" : @"Subject",
              @"targetArn" : @"TargetArn",
              @"topicArn" : @"TopicArn",
@@ -475,17 +509,6 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 @end
 
-@implementation AWSSNSRemoveTagsFromResourceInput
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"resourceArn" : @"ResourceArn",
-             @"tags" : @"Tags",
-             };
-}
-
-@end
-
 @implementation AWSSNSSetEndpointAttributesInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -505,6 +528,20 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
              @"platformApplicationArn" : @"PlatformApplicationArn",
              };
 }
+
+@end
+
+@implementation AWSSNSSetSMSAttributesInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributes" : @"attributes",
+             };
+}
+
+@end
+
+@implementation AWSSNSSetSMSAttributesResponse
 
 @end
 
@@ -563,17 +600,6 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
              @"protocols" : @"Protocol",
              @"subscriptionArn" : @"SubscriptionArn",
              @"topicArn" : @"TopicArn",
-             };
-}
-
-@end
-
-@implementation AWSSNSTag
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"key" : @"Key",
-             @"value" : @"Value",
              };
 }
 

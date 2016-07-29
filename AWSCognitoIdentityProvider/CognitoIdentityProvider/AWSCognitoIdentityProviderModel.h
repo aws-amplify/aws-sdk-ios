@@ -24,21 +24,29 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderErrorDomain;
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderErrorType) {
     AWSCognitoIdentityProviderErrorUnknown,
     AWSCognitoIdentityProviderErrorAliasExists,
+    AWSCognitoIdentityProviderErrorCodeDeliveryFailure,
     AWSCognitoIdentityProviderErrorCodeMismatch,
     AWSCognitoIdentityProviderErrorConcurrentModification,
     AWSCognitoIdentityProviderErrorExpiredCode,
     AWSCognitoIdentityProviderErrorInternalError,
+    AWSCognitoIdentityProviderErrorInvalidEmailRoleAccessPolicy,
     AWSCognitoIdentityProviderErrorInvalidLambdaResponse,
     AWSCognitoIdentityProviderErrorInvalidParameter,
     AWSCognitoIdentityProviderErrorInvalidPassword,
+    AWSCognitoIdentityProviderErrorInvalidSmsRoleAccessPolicy,
+    AWSCognitoIdentityProviderErrorInvalidSmsRoleTrustRelationship,
+    AWSCognitoIdentityProviderErrorInvalidUserPoolConfiguration,
     AWSCognitoIdentityProviderErrorLimitExceeded,
     AWSCognitoIdentityProviderErrorMFAMethodNotFound,
     AWSCognitoIdentityProviderErrorNotAuthorized,
+    AWSCognitoIdentityProviderErrorPasswordResetRequired,
     AWSCognitoIdentityProviderErrorResourceNotFound,
     AWSCognitoIdentityProviderErrorTooManyFailedAttempts,
     AWSCognitoIdentityProviderErrorTooManyRequests,
     AWSCognitoIdentityProviderErrorUnexpectedLambda,
     AWSCognitoIdentityProviderErrorUserLambdaValidation,
+    AWSCognitoIdentityProviderErrorUserNotConfirmed,
+    AWSCognitoIdentityProviderErrorUserNotFound,
     AWSCognitoIdentityProviderErrorUsernameExists,
 };
 
@@ -57,10 +65,39 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderAttributeDataType) {
     AWSCognitoIdentityProviderAttributeDataTypeBoolean,
 };
 
+typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderAuthFlowType) {
+    AWSCognitoIdentityProviderAuthFlowTypeUnknown,
+    AWSCognitoIdentityProviderAuthFlowTypeUserSrpAuth,
+    AWSCognitoIdentityProviderAuthFlowTypeRefreshTokenAuth,
+    AWSCognitoIdentityProviderAuthFlowTypeCustomAuth,
+    AWSCognitoIdentityProviderAuthFlowTypeAdminNoSrpAuth,
+};
+
+typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderChallengeNameType) {
+    AWSCognitoIdentityProviderChallengeNameTypeUnknown,
+    AWSCognitoIdentityProviderChallengeNameTypeSmsMfa,
+    AWSCognitoIdentityProviderChallengeNameTypePasswordVerifier,
+    AWSCognitoIdentityProviderChallengeNameTypeCustomChallenge,
+    AWSCognitoIdentityProviderChallengeNameTypeDeviceSrpAuth,
+    AWSCognitoIdentityProviderChallengeNameTypeDevicePasswordVerifier,
+    AWSCognitoIdentityProviderChallengeNameTypeAdminNoSrpAuth,
+};
+
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderDeliveryMediumType) {
     AWSCognitoIdentityProviderDeliveryMediumTypeUnknown,
     AWSCognitoIdentityProviderDeliveryMediumTypeSms,
     AWSCognitoIdentityProviderDeliveryMediumTypeEmail,
+};
+
+typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderDeviceRememberedStatusType) {
+    AWSCognitoIdentityProviderDeviceRememberedStatusTypeUnknown,
+    AWSCognitoIdentityProviderDeviceRememberedStatusTypeRemembered,
+    AWSCognitoIdentityProviderDeviceRememberedStatusTypeNotRemembered,
+};
+
+typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderExplicitAuthFlowsType) {
+    AWSCognitoIdentityProviderExplicitAuthFlowsTypeUnknown,
+    AWSCognitoIdentityProviderExplicitAuthFlowsTypeAdminNoSrpAuth,
 };
 
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderStatusType) {
@@ -82,6 +119,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderUserStatusType) {
     AWSCognitoIdentityProviderUserStatusTypeConfirmed,
     AWSCognitoIdentityProviderUserStatusTypeArchived,
     AWSCognitoIdentityProviderUserStatusTypeCompromised,
+    AWSCognitoIdentityProviderUserStatusTypeResetRequired,
 };
 
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
@@ -101,14 +139,27 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderAdminDisableUserResponse;
 @class AWSCognitoIdentityProviderAdminEnableUserRequest;
 @class AWSCognitoIdentityProviderAdminEnableUserResponse;
+@class AWSCognitoIdentityProviderAdminForgetDeviceRequest;
+@class AWSCognitoIdentityProviderAdminGetDeviceRequest;
+@class AWSCognitoIdentityProviderAdminGetDeviceResponse;
 @class AWSCognitoIdentityProviderAdminGetUserRequest;
 @class AWSCognitoIdentityProviderAdminGetUserResponse;
+@class AWSCognitoIdentityProviderAdminInitiateAuthRequest;
+@class AWSCognitoIdentityProviderAdminInitiateAuthResponse;
+@class AWSCognitoIdentityProviderAdminListDevicesRequest;
+@class AWSCognitoIdentityProviderAdminListDevicesResponse;
 @class AWSCognitoIdentityProviderAdminResetUserPasswordRequest;
 @class AWSCognitoIdentityProviderAdminResetUserPasswordResponse;
+@class AWSCognitoIdentityProviderAdminRespondToAuthChallengeRequest;
+@class AWSCognitoIdentityProviderAdminRespondToAuthChallengeResponse;
 @class AWSCognitoIdentityProviderAdminSetUserSettingsRequest;
 @class AWSCognitoIdentityProviderAdminSetUserSettingsResponse;
+@class AWSCognitoIdentityProviderAdminUpdateDeviceStatusRequest;
+@class AWSCognitoIdentityProviderAdminUpdateDeviceStatusResponse;
 @class AWSCognitoIdentityProviderAdminUpdateUserAttributesRequest;
 @class AWSCognitoIdentityProviderAdminUpdateUserAttributesResponse;
+@class AWSCognitoIdentityProviderAdminUserGlobalSignOutRequest;
+@class AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse;
 @class AWSCognitoIdentityProviderAttributeType;
 @class AWSCognitoIdentityProviderAuthenticateRequest;
 @class AWSCognitoIdentityProviderAuthenticateResponse;
@@ -116,6 +167,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderChangePasswordRequest;
 @class AWSCognitoIdentityProviderChangePasswordResponse;
 @class AWSCognitoIdentityProviderCodeDeliveryDetailsType;
+@class AWSCognitoIdentityProviderConfirmDeviceRequest;
+@class AWSCognitoIdentityProviderConfirmDeviceResponse;
 @class AWSCognitoIdentityProviderConfirmForgotPasswordRequest;
 @class AWSCognitoIdentityProviderConfirmForgotPasswordResponse;
 @class AWSCognitoIdentityProviderConfirmSignUpRequest;
@@ -133,12 +186,19 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderDescribeUserPoolClientResponse;
 @class AWSCognitoIdentityProviderDescribeUserPoolRequest;
 @class AWSCognitoIdentityProviderDescribeUserPoolResponse;
+@class AWSCognitoIdentityProviderDeviceConfigurationType;
+@class AWSCognitoIdentityProviderDeviceSecretVerifierConfigType;
+@class AWSCognitoIdentityProviderDeviceType;
+@class AWSCognitoIdentityProviderEmailConfigurationType;
 @class AWSCognitoIdentityProviderEnhanceAuthRequest;
 @class AWSCognitoIdentityProviderEnhanceAuthResponse;
+@class AWSCognitoIdentityProviderForgetDeviceRequest;
 @class AWSCognitoIdentityProviderForgotPasswordRequest;
 @class AWSCognitoIdentityProviderForgotPasswordResponse;
 @class AWSCognitoIdentityProviderGetAuthenticationDetailsRequest;
 @class AWSCognitoIdentityProviderGetAuthenticationDetailsResponse;
+@class AWSCognitoIdentityProviderGetDeviceRequest;
+@class AWSCognitoIdentityProviderGetDeviceResponse;
 @class AWSCognitoIdentityProviderGetJWKSRequest;
 @class AWSCognitoIdentityProviderGetJWKSResponse;
 @class AWSCognitoIdentityProviderGetOpenIdConfigurationRequest;
@@ -147,8 +207,15 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse;
 @class AWSCognitoIdentityProviderGetUserRequest;
 @class AWSCognitoIdentityProviderGetUserResponse;
+@class AWSCognitoIdentityProviderGlobalSignOutRequest;
+@class AWSCognitoIdentityProviderGlobalSignOutResponse;
+@class AWSCognitoIdentityProviderInitiateAuthRequest;
+@class AWSCognitoIdentityProviderInitiateAuthResponse;
 @class AWSCognitoIdentityProviderKeyType;
 @class AWSCognitoIdentityProviderLambdaConfigType;
+@class AWSCognitoIdentityProviderLatestDeviceMetadataType;
+@class AWSCognitoIdentityProviderListDevicesRequest;
+@class AWSCognitoIdentityProviderListDevicesResponse;
 @class AWSCognitoIdentityProviderListUserPoolClientsRequest;
 @class AWSCognitoIdentityProviderListUserPoolClientsResponse;
 @class AWSCognitoIdentityProviderListUserPoolsRequest;
@@ -163,12 +230,17 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderRefreshTokensResponse;
 @class AWSCognitoIdentityProviderResendConfirmationCodeRequest;
 @class AWSCognitoIdentityProviderResendConfirmationCodeResponse;
+@class AWSCognitoIdentityProviderRespondToAuthChallengeRequest;
+@class AWSCognitoIdentityProviderRespondToAuthChallengeResponse;
 @class AWSCognitoIdentityProviderSchemaAttributeType;
 @class AWSCognitoIdentityProviderSetUserSettingsRequest;
 @class AWSCognitoIdentityProviderSetUserSettingsResponse;
 @class AWSCognitoIdentityProviderSignUpRequest;
 @class AWSCognitoIdentityProviderSignUpResponse;
+@class AWSCognitoIdentityProviderSmsConfigurationType;
 @class AWSCognitoIdentityProviderStringAttributeConstraintsType;
+@class AWSCognitoIdentityProviderUpdateDeviceStatusRequest;
+@class AWSCognitoIdentityProviderUpdateDeviceStatusResponse;
 @class AWSCognitoIdentityProviderUpdateUserAttributesRequest;
 @class AWSCognitoIdentityProviderUpdateUserAttributesResponse;
 @class AWSCognitoIdentityProviderUpdateUserPoolClientRequest;
@@ -340,6 +412,65 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 /**
  
  */
+@interface AWSCognitoIdentityProviderAdminForgetDeviceRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable deviceKey;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable username;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminGetDeviceRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable deviceKey;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable username;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminGetDeviceResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderDeviceType * _Nullable device;
+
+@end
+
+/**
+ 
+ */
 @interface AWSCognitoIdentityProviderAdminGetUserRequest : AWSRequest
 
 
@@ -401,6 +532,113 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 /**
  
  */
+@interface AWSCognitoIdentityProviderAdminInitiateAuthRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderAuthFlowType authFlow;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable authParameters;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable clientId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminInitiateAuthResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAuthenticationResultType * _Nullable authenticationResult;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable challengeParameters;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable session;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminListDevicesRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable limit;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable paginationToken;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable username;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminListDevicesResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderDeviceType *> * _Nullable devices;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable paginationToken;
+
+@end
+
+/**
+ 
+ */
 @interface AWSCognitoIdentityProviderAdminResetUserPasswordRequest : AWSRequest
 
 
@@ -421,6 +659,67 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  */
 @interface AWSCognitoIdentityProviderAdminResetUserPasswordResponse : AWSModel
 
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminRespondToAuthChallengeRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable challengeResponses;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable clientId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable session;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminRespondToAuthChallengeResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAuthenticationResultType * _Nullable authenticationResult;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable challengeParameters;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable session;
 
 @end
 
@@ -458,6 +757,42 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 /**
  
  */
+@interface AWSCognitoIdentityProviderAdminUpdateDeviceStatusRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable deviceKey;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderDeviceRememberedStatusType deviceRememberedStatus;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable username;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminUpdateDeviceStatusResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
 @interface AWSCognitoIdentityProviderAdminUpdateUserAttributesRequest : AWSRequest
 
 
@@ -482,6 +817,32 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  
  */
 @interface AWSCognitoIdentityProviderAdminUpdateUserAttributesResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminUserGlobalSignOutRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable username;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse : AWSModel
 
 
 @end
@@ -584,6 +945,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 /**
  
  */
+@property (nonatomic, strong) AWSCognitoIdentityProviderLatestDeviceMetadataType * _Nullable latestDeviceMetadata;
+
+/**
+ 
+ */
 @property (nonatomic, strong) NSString * _Nullable refreshToken;
 
 /**
@@ -644,6 +1010,47 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  
  */
 @property (nonatomic, strong) NSString * _Nullable destination;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderConfirmDeviceRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable accessToken;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable deviceKey;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable deviceName;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderDeviceSecretVerifierConfigType * _Nullable deviceSecretVerifierConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderConfirmDeviceResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable userConfirmationNecessary;
 
 @end
 
@@ -743,12 +1150,32 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 /**
  
  */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable explicitAuthFlows;
+
+/**
+ 
+ */
 @property (nonatomic, strong) NSNumber * _Nullable generateSecret;
 
 /**
  
  */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable readAttributes;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable refreshTokenValidity;
+
+/**
+ 
+ */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable writeAttributes;
 
 @end
 
@@ -784,6 +1211,16 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 /**
  
  */
+@property (nonatomic, strong) AWSCognitoIdentityProviderDeviceConfigurationType * _Nullable deviceConfiguration;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderEmailConfigurationType * _Nullable emailConfiguration;
+
+/**
+ 
+ */
 @property (nonatomic, strong) NSString * _Nullable emailVerificationMessage;
 
 /**
@@ -815,6 +1252,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  
  */
 @property (nonatomic, strong) NSString * _Nullable smsAuthenticationMessage;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderSmsConfigurationType * _Nullable smsConfiguration;
 
 /**
  
@@ -966,6 +1408,93 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 /**
  
  */
+@interface AWSCognitoIdentityProviderDeviceConfigurationType : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable challengeRequiredOnNewDevice;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable deviceOnlyRememberedOnUserPrompt;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderDeviceSecretVerifierConfigType : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable passwordVerifier;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable salt;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderDeviceType : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderAttributeType *> * _Nullable deviceAttributes;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSDate * _Nullable deviceCreateDate;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable deviceKey;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSDate * _Nullable deviceLastAuthenticatedDate;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSDate * _Nullable deviceLastModifiedDate;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderEmailConfigurationType : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable replyToEmailAddress;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceArn;
+
+@end
+
+/**
+ 
+ */
 @interface AWSCognitoIdentityProviderEnhanceAuthRequest : AWSRequest
 
 
@@ -1006,6 +1535,24 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAuthenticationResultType * _Nullable authenticationResult;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderForgetDeviceRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable accessToken;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable deviceKey;
 
 @end
 
@@ -1103,6 +1650,37 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  
  */
 @property (nonatomic, strong) NSString * _Nullable username;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderGetDeviceRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable accessToken;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable deviceKey;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderGetDeviceResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderDeviceType * _Nullable device;
 
 @end
 
@@ -1253,6 +1831,83 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 /**
  
  */
+@interface AWSCognitoIdentityProviderGlobalSignOutRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable accessToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderGlobalSignOutResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderInitiateAuthRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderAuthFlowType authFlow;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable authParameters;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable clientId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderInitiateAuthResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAuthenticationResultType * _Nullable authenticationResult;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable challengeParameters;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable session;
+
+@end
+
+/**
+ 
+ */
 @interface AWSCognitoIdentityProviderKeyType : AWSModel
 
 
@@ -1297,7 +1952,17 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 /**
  
  */
+@property (nonatomic, strong) NSString * _Nullable createAuthChallenge;
+
+/**
+ 
+ */
 @property (nonatomic, strong) NSString * _Nullable customMessage;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable defineAuthChallenge;
 
 /**
  
@@ -1318,6 +1983,70 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  
  */
 @property (nonatomic, strong) NSString * _Nullable preSignUp;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable verifyAuthChallengeResponse;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderLatestDeviceMetadataType : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable deviceGroupKey;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable deviceKey;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderListDevicesRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable accessToken;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable limit;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable paginationToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderListDevicesResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderDeviceType *> * _Nullable devices;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable paginationToken;
 
 @end
 
@@ -1412,6 +2141,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 /**
  
  */
+@property (nonatomic, strong) NSString * _Nullable filter;
+
+/**
+ 
+ */
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
 /**
@@ -1423,11 +2157,6 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
-
-/**
- 
- */
-@property (nonatomic, assign) AWSCognitoIdentityProviderUserStatusType userStatus;
 
 @end
 
@@ -1611,6 +2340,62 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 /**
  
  */
+@interface AWSCognitoIdentityProviderRespondToAuthChallengeRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable challengeResponses;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable clientId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable session;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderRespondToAuthChallengeResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAuthenticationResultType * _Nullable authenticationResult;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable challengeParameters;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable session;
+
+@end
+
+/**
+ 
+ */
 @interface AWSCognitoIdentityProviderSchemaAttributeType : AWSModel
 
 
@@ -1627,7 +2412,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 /**
  
  */
-@property (nonatomic, strong) NSNumber * _Nullable mutable;
+@property (nonatomic, strong) NSNumber * _Nullable modifiable;
 
 /**
  
@@ -1736,6 +2521,24 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 /**
  
  */
+@interface AWSCognitoIdentityProviderSmsConfigurationType : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable externalId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable snsCallerArn;
+
+@end
+
+/**
+ 
+ */
 @interface AWSCognitoIdentityProviderStringAttributeConstraintsType : AWSModel
 
 
@@ -1748,6 +2551,37 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  
  */
 @property (nonatomic, strong) NSString * _Nullable minLength;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderUpdateDeviceStatusRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable accessToken;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable deviceKey;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderDeviceRememberedStatusType deviceRememberedStatus;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderUpdateDeviceStatusResponse : AWSModel
+
 
 @end
 
@@ -1801,7 +2635,27 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 /**
  
  */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable explicitAuthFlows;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable readAttributes;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable refreshTokenValidity;
+
+/**
+ 
+ */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable writeAttributes;
 
 @end
 
@@ -1832,6 +2686,16 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 /**
  
  */
+@property (nonatomic, strong) AWSCognitoIdentityProviderDeviceConfigurationType * _Nullable deviceConfiguration;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderEmailConfigurationType * _Nullable emailConfiguration;
+
+/**
+ 
+ */
 @property (nonatomic, strong) NSString * _Nullable emailVerificationMessage;
 
 /**
@@ -1858,6 +2722,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  
  */
 @property (nonatomic, strong) NSString * _Nullable smsAuthenticationMessage;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderSmsConfigurationType * _Nullable smsConfiguration;
 
 /**
  
@@ -1931,12 +2800,32 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 /**
  
  */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable explicitAuthFlows;
+
+/**
+ 
+ */
 @property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
 
 /**
  
  */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable readAttributes;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable refreshTokenValidity;
+
+/**
+ 
+ */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable writeAttributes;
 
 @end
 
@@ -2015,6 +2904,21 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 /**
  
  */
+@property (nonatomic, strong) AWSCognitoIdentityProviderDeviceConfigurationType * _Nullable deviceConfiguration;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderEmailConfigurationType * _Nullable emailConfiguration;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable emailConfigurationFailure;
+
+/**
+ 
+ */
 @property (nonatomic, strong) NSString * _Nullable emailVerificationMessage;
 
 /**
@@ -2066,6 +2970,16 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  
  */
 @property (nonatomic, strong) NSString * _Nullable smsAuthenticationMessage;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderSmsConfigurationType * _Nullable smsConfiguration;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable smsConfigurationFailure;
 
 /**
  

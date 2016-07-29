@@ -105,6 +105,7 @@
     XCTAssertEqualObjects(configuration.responseSerializer, configurationClone.responseSerializer);
     XCTAssertEqualObjects(configuration.responseInterceptors, configurationClone.responseInterceptors);
     XCTAssertEqualObjects(configuration.retryHandler, configurationClone.retryHandler);
+    XCTAssertEqualObjects(configuration.sharedContainerIdentifier, configurationClone.sharedContainerIdentifier);
     XCTAssertTrue(configuration.allowsCellularAccess);
     
     AWSNetworkingConfiguration *networkConfig = [[AWSNetworkingConfiguration alloc] init];

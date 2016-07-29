@@ -150,6 +150,8 @@ NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDom
     configuration.HTTPMethod = self.HTTPMethod;
     configuration.headers = [self.headers copy];
     configuration.allowsCellularAccess = self.allowsCellularAccess;
+    configuration.sharedContainerIdentifier = self.sharedContainerIdentifier;
+    
     configuration.requestSerializer = self.requestSerializer;
     configuration.requestInterceptors = [self.requestInterceptors copy];
     configuration.responseSerializer = self.responseSerializer;

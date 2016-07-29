@@ -109,7 +109,8 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
             sessionConfiguration.timeoutIntervalForResource = configuration.timeoutIntervalForResource;
         }
         sessionConfiguration.allowsCellularAccess = configuration.allowsCellularAccess;
-
+        sessionConfiguration.sharedContainerIdentifier = configuration.sharedContainerIdentifier;
+        
         _session = [NSURLSession sessionWithConfiguration:sessionConfiguration
                                                  delegate:self
                                             delegateQueue:nil];

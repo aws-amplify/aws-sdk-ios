@@ -112,7 +112,7 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
     * `AWSSNS.framework`
     * `AWSSQS.framework`
 
-1. Under the **Buid Phases** tab in your **Target**, click the **+** button on the top left and then select **New Run Script Phase**. Then setup the build phase as follows. Make sure this phase is below the `Embed Frameworks` phase.
+1. Under the **Build Phases** tab in your **Target**, click the **+** button on the top left and then select **New Run Script Phase**. Then setup the build phase as follows. Make sure this phase is below the `Embed Frameworks` phase.
 
         Shell /bin/sh
         

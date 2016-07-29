@@ -219,7 +219,8 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:_sessionIdentifier];
         configuration.allowsCellularAccess = serviceConfiguration.allowsCellularAccess;
         configuration.timeoutIntervalForResource = AWSS3TransferUtilityTimeoutIntervalForResource;
-
+        configuration.sharedContainerIdentifier = serviceConfiguration.sharedContainerIdentifier;
+        
         _session = [NSURLSession sessionWithConfiguration:configuration
                                                  delegate:self
                                             delegateQueue:nil];
@@ -667,26 +668,29 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
               task:(NSURLSessionTask *)task
 didCompleteWithError:(NSError *)error {
     if (!error) {
-        assert([task.response isKindOfClass:[NSHTTPURLResponse class]]);
-        NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)task.response;
+        if (![task.response isKindOfClass:[NSHTTPURLResponse class]]) {
+            [NSException raise:@"Invalid NSURLSession state" format:@"Expected response of type  %@", @"NSHTTPURLResponse"];
+        }
 
+        NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)task.response;
+        NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:[HTTPResponse allHeaderFields]];
         if (HTTPResponse.statusCode / 100 == 3
             && HTTPResponse.statusCode != 304) { // 304 Not Modified is a valid response.
             error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                         code:AWSS3TransferUtilityErrorRedirection
-                                    userInfo:nil];
+                                    userInfo:userInfo];
         }
 
         if (HTTPResponse.statusCode / 100 == 4) {
             error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                         code:AWSS3TransferUtilityErrorClientError
-                                    userInfo:nil];
+                                    userInfo:userInfo];
         }
 
         if (HTTPResponse.statusCode / 100 == 5) {
             error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                         code:AWSS3TransferUtilityErrorServerError
-                                    userInfo:nil];
+                                    userInfo:userInfo];
         }
     }
 

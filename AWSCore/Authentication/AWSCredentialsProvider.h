@@ -125,7 +125,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 @property (nonatomic, strong) NSString *providerId;
 
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
-                        providerId:(NSString *)providerId
+                        providerId:(nullable NSString *)providerId
                            roleArn:(NSString *)roleArn
                    roleSessionName:(NSString *)roleSessionName
                   webIdentityToken:(NSString *)webIdentityToken;

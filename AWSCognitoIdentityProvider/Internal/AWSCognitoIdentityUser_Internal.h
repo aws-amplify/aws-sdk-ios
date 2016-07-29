@@ -32,13 +32,21 @@
 @end
 
 @interface AWSCognitoIdentityUser()
-@property(nonatomic, strong) NSString* username;
+@property (nonatomic, strong) NSString* username;
 @property (nonatomic, assign) AWSCognitoIdentityUserStatus confirmedStatus;
-@property(nonatomic, strong) AWSCognitoIdentityUserPool* pool;
-@property(nonatomic, copy) NSSet<NSString *>* lastScopes;
+@property (nonatomic, strong) AWSCognitoIdentityUserPool* pool;
+@property (nonatomic, strong) NSString* userIdForSRP;
 -(instancetype) initWithUsername: (NSString *)username pool:(AWSCognitoIdentityUserPool *)pool;
 @end
 
 @interface AWSCognitoIdentityUserMFAOption()
 - (AWSCognitoIdentityProviderMFAOptionType *) mfaOptionTypeValue;
+@end
+
+@interface AWSCognitoIdentityUserDeviceCredentials : NSObject
+@property (nonatomic, strong) AWSCognitoIdentityUser* user;
+@property (nonatomic, strong) NSString * deviceId;
+@property (nonatomic, strong) NSString * deviceSecret;
+@property (nonatomic, strong) NSString * deviceGroup;
+-(instancetype) initWithUser: (AWSCognitoIdentityUser *)user;
 @end

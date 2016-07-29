@@ -25,8 +25,9 @@
 
 - (NSString *) calculateSecretHash: (NSString*) userName;
 - (void) setCurrentUser:(NSString *) username;
-- (NSArray<AWSCognitoIdentityProviderAttributeType*>*)getValidationData:(NSArray<AWSCognitoIdentityUserAttributeType*>*)devProvidedValidationData;
+- (NSDictionary<NSString *, NSString*>*)getValidationData:(NSArray<AWSCognitoIdentityUserAttributeType*>*)devProvidedValidationData;
 - (NSString*) currentUsername;
+- (NSString*) strippedPoolId;
 @end
 
 @interface AWSCognitoIdentityUserPoolSignUpResponse()
@@ -42,6 +43,6 @@
 @interface AWSCognitoIdentityMultifactorAuthenticationInput()
 @property(nonatomic, strong) NSString *destination;
 @property(nonatomic, assign) AWSCognitoIdentityProviderDeliveryMediumType deliveryMedium;
--(instancetype) initWithDeliveryMedium: (AWSCognitoIdentityProviderDeliveryMediumType) deliveryMedium destination:(NSString *) destination;
+-(instancetype) initWithDeliveryMedium: (NSString *) deliveryMedium destination:(NSString *) destination;
 @end
 
