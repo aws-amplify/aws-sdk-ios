@@ -23,7 +23,7 @@ NSString *const AWSAPIGatewayErrorHTTPHeaderFieldsKey = @"HTTPHeaderFields";
 
 static NSString *const AWSAPIGatewayAPIKeyHeader = @"x-api-key";
 
-static NSString *const AWSAPIGatewaySDKVersion = @"2.4.6";
+static NSString *const AWSAPIGatewaySDKVersion = @"2.4.7";
 
 @interface AWSAPIGatewayClient()
 

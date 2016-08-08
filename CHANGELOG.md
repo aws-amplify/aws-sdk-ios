@@ -1,4 +1,34 @@
 # AWS Mobile SDK for iOS CHANGELOG
+
+## 2.4.7
+### Resolved Issues
+* **Amazon Cognito Identity Provider**
+	* Fixed integration between Cognito Identity Provider and Cognito Identity. [#438](https://github.com/aws/aws-sdk-ios/issues/438)
+
+
+## 2.4.6
+### New Features  
+* **SDK Core**
+    * Added support for shared container identifier for extension support.
+* **AWS Cognito Identity Provider**
+    * Added support for devices in Cognito User Pools.
+    * Added support for global sign out in Cognito User Pools.
+    * Updated to support GA Cognito User Pools API's with exception of custom authentication. Custom authentication will be supported in a future release.
+* **AWS S3**
+    * Added userInfo to error objects in AWSS3TransferUtility.
+* **Amazon SNS**
+    * General service updates.
+
+### Resolved Issues
+* **Amazon Cognito Identity Provider**
+    * Made providerId nullable in AWSCredentialProvider.
+    * Fixed non-optional error parameter in Cognito User Pools.
+    * Fixed issue causing resendConfirmationCode to return a null destination in Cognito User Pools.
+* **Amazon S3**
+    * Switched behavior from assert to throwing exception in AWSS3TransferUtility when response is not of class NSHTTPURLResponse type to avoid crashes.
+* **Amazon Mobile Analytics**
+    * Bug fix for [issue](https://github.com/aws/aws-sdk-ios/issues/409). Please refer to [this forum post](https://forums.aws.amazon.com/ann.jspa?annID=3935) for more details .
+    
 ## 2.4.5
 ### New Features  
 * **SDK Core**
