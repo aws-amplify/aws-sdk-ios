@@ -3,7 +3,7 @@
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
-// A copy of the License is located at	
+// A copy of the License is located at
 //
 // http://aws.amazon.com/apache2.0
 //
@@ -13,21 +13,21 @@
 // permissions and limitations under the License.
 //
 
-#import "AWSSNS.h"
-
-#import "AWSNetworking.h"
-#import "AWSCategory.h"
-#import "AWSSignature.h"
-#import "AWSService.h"
-#import "AWSNetworking.h"
-#import "AWSURLRequestSerialization.h"
-#import "AWSURLResponseSerialization.h"
-#import "AWSURLRequestRetryHandler.h"
-#import "AWSSynchronizedMutableDictionary.h"
+#import "AWSSNSService.h"
+#import <AWSCore/AWSNetworking.h>
+#import <AWSCore/AWSCategory.h>
+#import <AWSCore/AWSNetworking.h>
+#import <AWSCore/AWSSignature.h>
+#import <AWSCore/AWSService.h>
+#import <AWSCore/AWSURLRequestSerialization.h>
+#import <AWSCore/AWSURLResponseSerialization.h>
+#import <AWSCore/AWSURLRequestRetryHandler.h>
+#import <AWSCore/AWSSynchronizedMutableDictionary.h>
 #import "AWSSNSResources.h"
 
 static NSString *const AWSInfoSNS = @"SNS";
-static NSString *const AWSSNSSDKVersion = @"2.4.7";
+static NSString *const AWSSNSSDKVersion = @"2.4.8";
+
 
 @interface AWSSNSResponseSerializer : AWSXMLResponseSerializer
 
@@ -40,17 +40,17 @@ static NSString *const AWSSNSSDKVersion = @"2.4.7";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
-                             @"AuthorizationError" : @(AWSSNSErrorAuthorizationError),
-                             @"EndpointDisabled" : @(AWSSNSErrorEndpointDisabled),
-                             @"InternalError" : @(AWSSNSErrorInternalError),
-                             @"InvalidParameter" : @(AWSSNSErrorInvalidParameter),
-                             @"ParameterValueInvalid" : @(AWSSNSErrorInvalidParameterValue),
-                             @"NotFound" : @(AWSSNSErrorNotFound),
-                             @"PlatformApplicationDisabled" : @(AWSSNSErrorPlatformApplicationDisabled),
-                             @"SubscriptionLimitExceeded" : @(AWSSNSErrorSubscriptionLimitExceeded),
-                             @"Throttled" : @(AWSSNSErrorThrottled),
-                             @"TopicLimitExceeded" : @(AWSSNSErrorTopicLimitExceeded),
-                             };
+                            @"AuthorizationError" : @(AWSSNSErrorAuthorizationError),
+                            @"EndpointDisabled" : @(AWSSNSErrorEndpointDisabled),
+                            @"InternalError" : @(AWSSNSErrorInternalError),
+                            @"InvalidParameter" : @(AWSSNSErrorInvalidParameter),
+                            @"ParameterValueInvalid" : @(AWSSNSErrorInvalidParameterValue),
+                            @"NotFound" : @(AWSSNSErrorNotFound),
+                            @"PlatformApplicationDisabled" : @(AWSSNSErrorPlatformApplicationDisabled),
+                            @"SubscriptionLimitExceeded" : @(AWSSNSErrorSubscriptionLimitExceeded),
+                            @"Throttled" : @(AWSSNSErrorThrottled),
+                            @"TopicLimitExceeded" : @(AWSSNSErrorTopicLimitExceeded),
+                            };
 }
 
 #pragma mark -
@@ -66,24 +66,23 @@ static NSDictionary *errorCodeDictionary = nil;
                                                     data:data
                                                    error:error];
     if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
-        
-        NSDictionary *errorInfo = responseObject[@"Error"];
-        if (errorInfo[@"Code"] && errorCodeDictionary[errorInfo[@"Code"]]) {
-            if (error) {
-                *error = [NSError errorWithDomain:AWSSNSErrorDomain
-                                             code:[errorCodeDictionary[errorInfo[@"Code"]] integerValue]
-                                         userInfo:errorInfo
-                          ];
-                return responseObject;
-            }
-        } else if (errorInfo) {
-            if (error) {
-                *error = [NSError errorWithDomain:AWSSNSErrorDomain
-                                             code:AWSSNSErrorUnknown
-                                         userInfo:errorInfo];
-                return responseObject;
-            }
-        }
+    	if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
+	        if ([errorCodeDictionary objectForKey:[[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]]) {
+	            if (error) {
+	                *error = [NSError errorWithDomain:AWSSNSErrorDomain
+	                                             code:[[errorCodeDictionary objectForKey:[[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]] integerValue]
+	                                         userInfo:responseObject];
+	            }
+	            return responseObject;
+	        } else if ([[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]) {
+	            if (error) {
+	                *error = [NSError errorWithDomain:AWSCognitoIdentityErrorDomain
+	                                             code:AWSCognitoIdentityErrorUnknown
+	                                         userInfo:responseObject];
+	            }
+	            return responseObject;
+	        }
+    	}
     }
 
     if (!*error && response.statusCode/100 != 2) {
@@ -91,7 +90,7 @@ static NSDictionary *errorCodeDictionary = nil;
                                      code:AWSSNSErrorUnknown
                                  userInfo:nil];
     }
-                              
+
     if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
         if (self.outputClass) {
             responseObject = [AWSMTLJSONAdapter modelOfClass:self.outputClass
@@ -99,8 +98,7 @@ static NSDictionary *errorCodeDictionary = nil;
                                                        error:error];
         }
     }
-                              
-    return responseObject;
+	    return responseObject;
 }
 
 @end
@@ -122,7 +120,6 @@ static NSDictionary *errorCodeDictionary = nil;
 @interface AWSSNS()
 
 @property (nonatomic, strong) AWSNetworking *networking;
-
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
 
 @end
@@ -135,9 +132,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @implementation AWSSNS
 
-
 + (void)initialize {
-
     [super initialize];
 
     if (![AWSiOSSDKVersion isEqualToString:AWSSNSSDKVersion]) {
@@ -199,7 +194,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                                         credentialsProvider:serviceInfo.cognitoCredentialsProvider];
             [AWSSNS registerSNSWithConfiguration:serviceConfiguration
-                                                          forKey:key];
+                                                                forKey:key];
         }
 
         return [_serviceClients objectForKey:key];
@@ -226,7 +221,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
                                                               service:AWSServiceSNS
                                                          useUnsafeURL:NO];
-                                                         
         AWSSignatureV4Signer *signer = [[AWSSignatureV4Signer alloc] initWithCredentialsProvider:_configuration.credentialsProvider
                                                                                         endpoint:_configuration.endpoint];
         AWSNetworkingRequestInterceptor *baseInterceptor = [[AWSNetworkingRequestInterceptor alloc] initWithUserAgent:_configuration.userAgent];
@@ -234,10 +228,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.retryHandler = [[AWSSNSRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
-
+         
+		
         _networking = [[AWSNetworking alloc] initWithConfiguration:_configuration];
     }
-
+    
     return self;
 }
 
@@ -247,7 +242,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
              targetPrefix:(NSString *)targetPrefix
             operationName:(NSString *)operationName
               outputClass:(Class)outputClass {
-
+    
     @autoreleasepool {
         if (!request) {
             request = [AWSRequest new];
@@ -259,12 +254,14 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         } else {
             networkingRequest.parameters = @{};
         }
+
         networkingRequest.HTTPMethod = HTTPMethod;
         networkingRequest.requestSerializer = [[AWSQueryStringRequestSerializer alloc] initWithJSONDefinition:[[AWSSNSResources sharedInstance] JSONObject]
                                                                                                    actionName:operationName];
         networkingRequest.responseSerializer = [[AWSSNSResponseSerializer alloc] initWithJSONDefinition:[[AWSSNSResources sharedInstance] JSONObject]
                                                                                              actionName:operationName
                                                                                             outputClass:outputClass];
+        
         return [self.networking sendRequest:networkingRequest];
     }
 }

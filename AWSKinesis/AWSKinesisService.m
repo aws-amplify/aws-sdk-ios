@@ -13,21 +13,22 @@
 // permissions and limitations under the License.
 //
 
-#import "AWSKinesis.h"
-
-#import "AWSNetworking.h"
-#import "AWSCategory.h"
-#import "AWSSignature.h"
-#import "AWSService.h"
-#import "AWSNetworking.h"
-#import "AWSURLRequestSerialization.h"
-#import "AWSURLResponseSerialization.h"
-#import "AWSURLRequestRetryHandler.h"
-#import "AWSSynchronizedMutableDictionary.h"
+#import "AWSKinesisService.h"
+#import <AWSCore/AWSNetworking.h>
+#import <AWSCore/AWSCategory.h>
+#import <AWSCore/AWSNetworking.h>
+#import <AWSCore/AWSSignature.h>
+#import <AWSCore/AWSService.h>
+#import <AWSCore/AWSURLRequestSerialization.h>
+#import <AWSCore/AWSURLResponseSerialization.h>
+#import <AWSCore/AWSURLRequestRetryHandler.h>
+#import <AWSCore/AWSSynchronizedMutableDictionary.h>
 #import "AWSKinesisResources.h"
+#import "AWSKinesisRequestRetryHandler.h"
 
 static NSString *const AWSInfoKinesis = @"Kinesis";
-static NSString *const AWSKinesisSDKVersion = @"2.4.7";
+static NSString *const AWSKinesisSDKVersion = @"2.4.8";
+
 
 @interface AWSKinesisResponseSerializer : AWSJSONResponseSerializer
 
@@ -62,21 +63,23 @@ static NSDictionary *errorCodeDictionary = nil;
                                                     data:data
                                                    error:error];
     if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
-        if ([errorCodeDictionary objectForKey:[[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]]) {
-            if (error) {
-                *error = [NSError errorWithDomain:AWSKinesisErrorDomain
-                                             code:[[errorCodeDictionary objectForKey:[[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]] integerValue]
-                                         userInfo:responseObject];
-            }
-            return responseObject;
-        } else if ([[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]) {
-            if (error) {
-                *error = [NSError errorWithDomain:AWSKinesisErrorDomain
-                                             code:AWSKinesisErrorUnknown
-                                         userInfo:responseObject];
-            }
-            return responseObject;
-        }
+    	if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
+	        if ([errorCodeDictionary objectForKey:[[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]]) {
+	            if (error) {
+	                *error = [NSError errorWithDomain:AWSKinesisErrorDomain
+	                                             code:[[errorCodeDictionary objectForKey:[[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]] integerValue]
+	                                         userInfo:responseObject];
+	            }
+	            return responseObject;
+	        } else if ([[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]) {
+	            if (error) {
+	                *error = [NSError errorWithDomain:AWSCognitoIdentityErrorDomain
+	                                             code:AWSCognitoIdentityErrorUnknown
+	                                         userInfo:responseObject];
+	            }
+	            return responseObject;
+	        }
+    	}
     }
 
     if (!*error && response.statusCode/100 != 2) {
@@ -92,43 +95,11 @@ static NSDictionary *errorCodeDictionary = nil;
                                                        error:error];
         }
     }
-
-    return responseObject;
+	    return responseObject;
 }
 
 @end
 
-@interface AWSKinesisRequestRetryHandler : AWSURLRequestRetryHandler
-
-@end
-
-@implementation AWSKinesisRequestRetryHandler
-
-- (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
-                             response:(NSHTTPURLResponse *)response
-                                 data:(NSData *)data
-                                error:(NSError *)error {
-    AWSNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
-                                                 response:response
-                                                     data:data
-                                                    error:error];
-    if(retryType == AWSNetworkingRetryTypeShouldNotRetry
-       && [error.domain isEqualToString:AWSKinesisErrorDomain]
-       && currentRetryCount < self.maxRetryCount) {
-        switch (error.code) {
-            case AWSKinesisErrorProvisionedThroughputExceeded:
-                retryType = AWSNetworkingRetryTypeShouldRetry;
-                break;
-
-            default:
-                break;
-        }
-    }
-
-    return retryType;
-}
-
-@end
 
 @interface AWSRequest()
 
@@ -213,7 +184,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                                         credentialsProvider:serviceInfo.cognitoCredentialsProvider];
             [AWSKinesis registerKinesisWithConfiguration:serviceConfiguration
-                                                  forKey:key];
+                                                                forKey:key];
         }
 
         return [_serviceClients objectForKey:key];
@@ -240,7 +211,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
                                                               service:AWSServiceKinesis
                                                          useUnsafeURL:NO];
-
         AWSSignatureV4Signer *signer = [[AWSSignatureV4Signer alloc] initWithCredentialsProvider:_configuration.credentialsProvider
                                                                                         endpoint:_configuration.endpoint];
         AWSNetworkingRequestInterceptor *baseInterceptor = [[AWSNetworkingRequestInterceptor alloc] initWithUserAgent:_configuration.userAgent];
@@ -248,8 +218,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.retryHandler = [[AWSKinesisRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
-        _configuration.headers = @{@"Content-Type" : @"application/x-amz-json-1.1"};
-
+        _configuration.headers = @{@"Content-Type" : @"application/x-amz-json-1.1"}; 
+		
         _networking = [[AWSNetworking alloc] initWithConfiguration:_configuration];
     }
     
@@ -267,23 +237,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         if (!request) {
             request = [AWSRequest new];
         }
-        
+
         AWSNetworkingRequest *networkingRequest = request.internalRequest;
         if (request) {
             networkingRequest.parameters = [[AWSMTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
         } else {
             networkingRequest.parameters = @{};
         }
-        
-        NSMutableDictionary *headers = [NSMutableDictionary new];
+
+		NSMutableDictionary *headers = [NSMutableDictionary new];
         headers[@"X-Amz-Target"] = [NSString stringWithFormat:@"%@.%@", targetPrefix, operationName];
         networkingRequest.headers = headers;
         networkingRequest.HTTPMethod = HTTPMethod;
         networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithJSONDefinition:[[AWSKinesisResources sharedInstance] JSONObject]
-                                                                                            actionName:operationName];
+                                                                                                   actionName:operationName];
         networkingRequest.responseSerializer = [[AWSKinesisResponseSerializer alloc] initWithJSONDefinition:[[AWSKinesisResources sharedInstance] JSONObject]
-                                                                                                 actionName:operationName
-                                                                                                outputClass:outputClass];
+                                                                                             actionName:operationName
+                                                                                            outputClass:outputClass];
+        
         return [self.networking sendRequest:networkingRequest];
     }
 }
@@ -300,7 +271,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)addTagsToStream:(AWSKinesisAddTagsToStreamInput *)request
-      completionHandler:(void (^)(NSError *error))completionHandler {
+     completionHandler:(void (^)(NSError *error))completionHandler {
     [[self addTagsToStream:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
@@ -327,7 +298,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)createStream:(AWSKinesisCreateStreamInput *)request
-   completionHandler:(void (^)(NSError *error))completionHandler {
+     completionHandler:(void (^)(NSError *error))completionHandler {
     [[self createStream:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
@@ -354,7 +325,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)decreaseStreamRetentionPeriod:(AWSKinesisDecreaseStreamRetentionPeriodInput *)request
-                    completionHandler:(void (^)(NSError *error))completionHandler {
+     completionHandler:(void (^)(NSError *error))completionHandler {
     [[self decreaseStreamRetentionPeriod:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
@@ -381,7 +352,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)deleteStream:(AWSKinesisDeleteStreamInput *)request
-   completionHandler:(void (^)(NSError *error))completionHandler {
+     completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteStream:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
@@ -436,7 +407,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)disableEnhancedMonitoring:(AWSKinesisDisableEnhancedMonitoringInput *)request
-                completionHandler:(void (^)(AWSKinesisEnhancedMonitoringOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSKinesisEnhancedMonitoringOutput *response, NSError *error))completionHandler {
     [[self disableEnhancedMonitoring:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisEnhancedMonitoringOutput *> * _Nonnull task) {
         AWSKinesisEnhancedMonitoringOutput *result = task.result;
         NSError *error = task.error;
@@ -464,7 +435,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)enableEnhancedMonitoring:(AWSKinesisEnableEnhancedMonitoringInput *)request
-               completionHandler:(void (^)(AWSKinesisEnhancedMonitoringOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSKinesisEnhancedMonitoringOutput *response, NSError *error))completionHandler {
     [[self enableEnhancedMonitoring:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisEnhancedMonitoringOutput *> * _Nonnull task) {
         AWSKinesisEnhancedMonitoringOutput *result = task.result;
         NSError *error = task.error;
@@ -492,7 +463,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)getRecords:(AWSKinesisGetRecordsInput *)request
- completionHandler:(void (^)(AWSKinesisGetRecordsOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSKinesisGetRecordsOutput *response, NSError *error))completionHandler {
     [[self getRecords:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisGetRecordsOutput *> * _Nonnull task) {
         AWSKinesisGetRecordsOutput *result = task.result;
         NSError *error = task.error;
@@ -520,7 +491,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)getShardIterator:(AWSKinesisGetShardIteratorInput *)request
-       completionHandler:(void (^)(AWSKinesisGetShardIteratorOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSKinesisGetShardIteratorOutput *response, NSError *error))completionHandler {
     [[self getShardIterator:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisGetShardIteratorOutput *> * _Nonnull task) {
         AWSKinesisGetShardIteratorOutput *result = task.result;
         NSError *error = task.error;
@@ -548,7 +519,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)increaseStreamRetentionPeriod:(AWSKinesisIncreaseStreamRetentionPeriodInput *)request
-                    completionHandler:(void (^)(NSError *error))completionHandler {
+     completionHandler:(void (^)(NSError *error))completionHandler {
     [[self increaseStreamRetentionPeriod:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
@@ -575,7 +546,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)listStreams:(AWSKinesisListStreamsInput *)request
-  completionHandler:(void (^)(AWSKinesisListStreamsOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSKinesisListStreamsOutput *response, NSError *error))completionHandler {
     [[self listStreams:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisListStreamsOutput *> * _Nonnull task) {
         AWSKinesisListStreamsOutput *result = task.result;
         NSError *error = task.error;
@@ -603,7 +574,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)listTagsForStream:(AWSKinesisListTagsForStreamInput *)request
-        completionHandler:(void (^)(AWSKinesisListTagsForStreamOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSKinesisListTagsForStreamOutput *response, NSError *error))completionHandler {
     [[self listTagsForStream:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisListTagsForStreamOutput *> * _Nonnull task) {
         AWSKinesisListTagsForStreamOutput *result = task.result;
         NSError *error = task.error;
@@ -631,7 +602,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)mergeShards:(AWSKinesisMergeShardsInput *)request
-  completionHandler:(void (^)(NSError *error))completionHandler {
+     completionHandler:(void (^)(NSError *error))completionHandler {
     [[self mergeShards:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
@@ -658,7 +629,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)putRecord:(AWSKinesisPutRecordInput *)request
-completionHandler:(void (^)(AWSKinesisPutRecordOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSKinesisPutRecordOutput *response, NSError *error))completionHandler {
     [[self putRecord:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisPutRecordOutput *> * _Nonnull task) {
         AWSKinesisPutRecordOutput *result = task.result;
         NSError *error = task.error;
@@ -686,7 +657,7 @@ completionHandler:(void (^)(AWSKinesisPutRecordOutput *response, NSError *error)
 }
 
 - (void)putRecords:(AWSKinesisPutRecordsInput *)request
- completionHandler:(void (^)(AWSKinesisPutRecordsOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSKinesisPutRecordsOutput *response, NSError *error))completionHandler {
     [[self putRecords:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisPutRecordsOutput *> * _Nonnull task) {
         AWSKinesisPutRecordsOutput *result = task.result;
         NSError *error = task.error;
@@ -714,7 +685,7 @@ completionHandler:(void (^)(AWSKinesisPutRecordOutput *response, NSError *error)
 }
 
 - (void)removeTagsFromStream:(AWSKinesisRemoveTagsFromStreamInput *)request
-           completionHandler:(void (^)(NSError *error))completionHandler {
+     completionHandler:(void (^)(NSError *error))completionHandler {
     [[self removeTagsFromStream:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
@@ -741,19 +712,19 @@ completionHandler:(void (^)(AWSKinesisPutRecordOutput *response, NSError *error)
 }
 
 - (void)splitShard:(AWSKinesisSplitShardInput *)request
- completionHandler:(void (^)(NSError *error))completionHandler {
+     completionHandler:(void (^)(NSError *error))completionHandler {
     [[self splitShard:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-        
+
         if (task.exception) {
             AWSLogError(@"Fatal exception: [%@]", task.exception);
             kill(getpid(), SIGKILL);
         }
-        
+
         if (completionHandler) {
             completionHandler(error);
         }
-        
+
         return nil;
     }];
 }

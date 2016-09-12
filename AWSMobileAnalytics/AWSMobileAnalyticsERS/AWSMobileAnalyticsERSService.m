@@ -14,21 +14,20 @@
 //
 
 #import "AWSMobileAnalyticsERSService.h"
-
-#import "AWSNetworking.h"
-#import "AWSCategory.h"
-#import "AWSNetworking.h"
-#import "AWSSignature.h"
-#import "AWSService.h"
-#import "AWSNetworking.h"
-#import "AWSURLRequestSerialization.h"
-#import "AWSURLResponseSerialization.h"
-#import "AWSURLRequestRetryHandler.h"
-#import "AWSSynchronizedMutableDictionary.h"
+#import <AWSCore/AWSNetworking.h>
+#import <AWSCore/AWSCategory.h>
+#import <AWSCore/AWSNetworking.h>
+#import <AWSCore/AWSSignature.h>
+#import <AWSCore/AWSService.h>
+#import <AWSCore/AWSURLRequestSerialization.h>
+#import <AWSCore/AWSURLResponseSerialization.h>
+#import <AWSCore/AWSURLRequestRetryHandler.h>
+#import <AWSCore/AWSSynchronizedMutableDictionary.h>
 #import "AWSMobileAnalyticsERSResources.h"
 
 static NSString *const AWSInfoMobileAnalyticsERS = @"MobileAnalyticsERS";
-static NSString *const AWSMobileAnalyticsERSSDKVersion = @"2.4.7";
+static NSString *const AWSMobileAnalyticsERSSDKVersion = @"2.4.8";
+
 
 @interface AWSMobileAnalyticsERSResponseSerializer : AWSJSONResponseSerializer
 
@@ -57,7 +56,8 @@ static NSDictionary *errorCodeDictionary = nil;
                                           currentRequest:currentRequest
                                                     data:data
                                                    error:error];
-    if (*error) {
+
+	if (*error) {
         NSMutableDictionary *richUserInfo = [NSMutableDictionary dictionaryWithDictionary:(*error).userInfo];
         [richUserInfo setObject:@"responseStatusCode" forKey:@([response statusCode])];
         [richUserInfo setObject:@"responseHeaders" forKey:[response allHeaderFields]];
@@ -65,17 +65,17 @@ static NSDictionary *errorCodeDictionary = nil;
         *error = [NSError errorWithDomain:(*error).domain
                                      code:(*error).code
                                  userInfo:richUserInfo];
-
+        
     }
-
+    
     if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
         NSString *errorTypeHeader = [[[[response allHeaderFields] objectForKey:@"x-amzn-ErrorType"] componentsSeparatedByString:@":"] firstObject];
-
+        
         //server may also return error message in the body, need to catch it.
         if (errorTypeHeader == nil) {
             errorTypeHeader = [responseObject objectForKey:@"__type"];
         }
-
+        
         if (errorCodeDictionary[[[errorTypeHeader componentsSeparatedByString:@"#"] lastObject]]) {
             if (error) {
                 NSMutableDictionary *userInfo = [@{
@@ -113,15 +113,15 @@ static NSDictionary *errorCodeDictionary = nil;
             }
             return responseObject;
         }
-
-
+        
+        
         if (self.outputClass) {
             responseObject = [AWSMTLJSONAdapter modelOfClass:self.outputClass
                                           fromJSONDictionary:responseObject
                                                        error:error];
         }
     }
-
+    
     if (responseObject == nil ||
         ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject count] == 0)) {
         return @{@"responseStatusCode" : @([response statusCode]),
@@ -129,10 +129,8 @@ static NSDictionary *errorCodeDictionary = nil;
                  @"responseDataSize" : @(data?[data length]:0),
                  };
     }
-
     return responseObject;
 }
-
 
 @end
 
@@ -170,7 +168,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
     if (![AWSiOSSDKVersion isEqualToString:AWSMobileAnalyticsERSSDKVersion]) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:[NSString stringWithFormat:@"AWSCore and AWSMobileAnalytics versions need to match. Check your SDK installation. AWSCore: %@ AWSMobileAnalytics: %@", AWSiOSSDKVersion, AWSMobileAnalyticsERSSDKVersion]
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSMobileAnalyticsERS versions need to match. Check your SDK installation. AWSCore: %@ AWSMobileAnalyticsERS: %@", AWSiOSSDKVersion, AWSMobileAnalyticsERSSDKVersion]
                                      userInfo:nil];
     }
 }
@@ -227,7 +225,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                                         credentialsProvider:serviceInfo.cognitoCredentialsProvider];
             [AWSMobileAnalyticsERS registerMobileAnalyticsERSWithConfiguration:serviceConfiguration
-                                                                        forKey:key];
+                                                                forKey:key];
         }
 
         return [_serviceClients objectForKey:key];
@@ -254,7 +252,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
                                                               service:AWSServiceMobileAnalytics
                                                          useUnsafeURL:NO];
-
         AWSSignatureV4Signer *signer = [[AWSSignatureV4Signer alloc] initWithCredentialsProvider:_configuration.credentialsProvider
                                                                                         endpoint:_configuration.endpoint];
         AWSNetworkingRequestInterceptor *baseInterceptor = [[AWSNetworkingRequestInterceptor alloc] initWithUserAgent:_configuration.userAgent];
@@ -262,13 +259,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.retryHandler = [[AWSMobileAnalyticsERSRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
-        _configuration.headers = @{
-                                   @"Content-Type" : @"application/x-amz-json-1.1",
-                                   @"Content-Encoding": @"gzip"
-                                   };
-
+        _configuration.headers = @{@"Content-Type" : @"application/x-amz-json-1.1"}; 
+		
         _networking = [[AWSNetworking alloc] initWithConfiguration:_configuration];
     }
+    
     return self;
 }
 
@@ -283,29 +278,27 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         if (!request) {
             request = [AWSRequest new];
         }
-        
+
         AWSNetworkingRequest *networkingRequest = request.internalRequest;
         if (request) {
             networkingRequest.parameters = [[AWSMTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
         } else {
             networkingRequest.parameters = @{};
         }
-        
-        NSMutableDictionary *headers = [NSMutableDictionary new];
+
+		NSMutableDictionary *headers = [NSMutableDictionary new];
         headers[@"X-Amz-Target"] = [NSString stringWithFormat:@"%@.%@", targetPrefix, operationName];
-        
         networkingRequest.headers = headers;
-        
         networkingRequest.HTTPMethod = HTTPMethod;
         networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithJSONDefinition:[[AWSMobileAnalyticsERSResources sharedInstance] JSONObject]
-                                                                                            actionName:operationName];
+                                                                                                   actionName:operationName];
         networkingRequest.responseSerializer = [[AWSMobileAnalyticsERSResponseSerializer alloc] initWithJSONDefinition:[[AWSMobileAnalyticsERSResources sharedInstance] JSONObject]
-                                                                                                            actionName:operationName
-                                                                                                           outputClass:outputClass];
+                                                                                             actionName:operationName
+                                                                                            outputClass:outputClass];
+        
         return [self.networking sendRequest:networkingRequest];
     }
 }
-
 
 #pragma mark - Service method
 
@@ -319,7 +312,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)putEvents:(AWSMobileAnalyticsERSPutEventsInput *)request
-completionHandler:(void (^)(NSError *error))completionHandler {
+     completionHandler:(void (^)(NSError *error))completionHandler {
     [[self putEvents:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 

@@ -14,19 +14,20 @@
 //
 
 #import "AWSIoTDataService.h"
-#import "AWSNetworking.h"
-#import "AWSCategory.h"
-#import "AWSNetworking.h"
-#import "AWSSignature.h"
-#import "AWSService.h"
-#import "AWSURLRequestSerialization.h"
-#import "AWSURLResponseSerialization.h"
-#import "AWSURLRequestRetryHandler.h"
-#import "AWSSynchronizedMutableDictionary.h"
+#import <AWSCore/AWSNetworking.h>
+#import <AWSCore/AWSCategory.h>
+#import <AWSCore/AWSNetworking.h>
+#import <AWSCore/AWSSignature.h>
+#import <AWSCore/AWSService.h>
+#import <AWSCore/AWSURLRequestSerialization.h>
+#import <AWSCore/AWSURLResponseSerialization.h>
+#import <AWSCore/AWSURLRequestRetryHandler.h>
+#import <AWSCore/AWSSynchronizedMutableDictionary.h>
 #import "AWSIoTDataResources.h"
 
 static NSString *const AWSInfoIoTData = @"IoTData";
-static NSString *const AWSIoTDataSDKVersion = @"2.4.7";
+static NSString *const AWSIoTDataSDKVersion = @"2.4.8";
+
 
 @interface AWSIoTDataResponseSerializer : AWSJSONResponseSerializer
 
@@ -65,13 +66,13 @@ static NSDictionary *errorCodeDictionary = nil;
                                                     data:data
                                                    error:error];
     if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
-        NSString *errorTypeStr = [[response allHeaderFields] objectForKey:@"x-amzn-ErrorType"];
-        NSString *errorTypeHeader = [[errorTypeStr componentsSeparatedByString:@":"] firstObject];
+    	NSString *errorTypeString = [[response allHeaderFields] objectForKey:@"x-amzn-ErrorType"];
+        NSString *errorTypeHeader = [[errorTypeString componentsSeparatedByString:@":"] firstObject];
 
-        if ([errorTypeStr length] > 0 && errorTypeHeader) {
+        if ([errorTypeString length] > 0 && errorTypeHeader) {
             if (errorCodeDictionary[errorTypeHeader]) {
                 if (error) {
-                    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : [responseObject objectForKey:@"message"]?[responseObject objectForKey:@"message"]:[NSNull null], NSLocalizedFailureReasonErrorKey: errorTypeStr};
+                    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : [responseObject objectForKey:@"message"]?[responseObject objectForKey:@"message"]:[NSNull null], NSLocalizedFailureReasonErrorKey: errorTypeString};
                     *error = [NSError errorWithDomain:AWSIoTDataErrorDomain
                                                  code:[[errorCodeDictionary objectForKey:errorTypeHeader] integerValue]
                                              userInfo:userInfo];
@@ -79,7 +80,7 @@ static NSDictionary *errorCodeDictionary = nil;
                 return responseObject;
             } else if (errorTypeHeader) {
                 if (error) {
-                    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : [responseObject objectForKey:@"message"]?[responseObject objectForKey:@"message"]:[NSNull null], NSLocalizedFailureReasonErrorKey: errorTypeStr};
+                    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : [responseObject objectForKey:@"message"]?[responseObject objectForKey:@"message"]:[NSNull null], NSLocalizedFailureReasonErrorKey: errorTypeString};
                     *error = [NSError errorWithDomain:AWSIoTDataErrorDomain
                                                  code:AWSIoTDataErrorUnknown
                                              userInfo:userInfo];
@@ -102,8 +103,7 @@ static NSDictionary *errorCodeDictionary = nil;
                                                        error:error];
         }
     }
-
-    return responseObject;
+	    return responseObject;
 }
 
 @end
@@ -126,7 +126,6 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @property (nonatomic, strong) AWSNetworking *networking;
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
-@property (nonatomic, strong) AWSEndpoint *endpoint;
 
 @end
 
@@ -143,7 +142,7 @@ static NSDictionary *errorCodeDictionary = nil;
 
     if (![AWSiOSSDKVersion isEqualToString:AWSIoTDataSDKVersion]) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:[NSString stringWithFormat:@"AWSCore and AWSIoT versions need to match. Check your SDK installation. AWSCore: %@ AWSIoT: %@", AWSiOSSDKVersion, AWSIoTDataSDKVersion]
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSIoTData versions need to match. Check your SDK installation. AWSCore: %@ AWSIoTData: %@", AWSiOSSDKVersion, AWSIoTDataSDKVersion]
                                      userInfo:nil];
     }
 }
@@ -200,7 +199,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                                         credentialsProvider:serviceInfo.cognitoCredentialsProvider];
             [AWSIoTData registerIoTDataWithConfiguration:serviceConfiguration
-                                                  forKey:key];
+                                                                forKey:key];
         }
 
         return [_serviceClients objectForKey:key];
@@ -225,53 +224,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         _configuration = [configuration copy];
 
         _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
-                                                service:AWSServiceIoTData
-                                           useUnsafeURL:NO];
-
+                                                              service:AWSServiceIoTData
+                                                         useUnsafeURL:NO];
         AWSSignatureV4Signer *signer = [[AWSSignatureV4Signer alloc] initWithCredentialsProvider:_configuration.credentialsProvider
                                                                                         endpoint:_configuration.endpoint];
         AWSNetworkingRequestInterceptor *baseInterceptor = [[AWSNetworkingRequestInterceptor alloc] initWithUserAgent:_configuration.userAgent];
         _configuration.requestInterceptors = @[baseInterceptor, signer];
 
         _configuration.baseURL = _configuration.endpoint.URL;
-        _configuration.requestSerializer = [AWSJSONRequestSerializer new];
         _configuration.retryHandler = [[AWSIoTDataRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
-        _configuration.headers = @{@"Content-Type" : @"application/x-amz-json-1.1"};
-
+        _configuration.headers = @{@"Content-Type" : @"application/x-amz-json-1.0"}; 
+		
         _networking = [[AWSNetworking alloc] initWithConfiguration:_configuration];
     }
-
+    
     return self;
 }
 
 - (AWSTask *)invokeRequest:(AWSRequest *)request
-                HTTPMethod:(AWSHTTPMethod)HTTPMethod
-                 URLString:(NSString *) URLString
-              targetPrefix:(NSString *)targetPrefix
-             operationName:(NSString *)operationName
-               outputClass:(Class)outputClass {
-    if (!request) {
-        request = [AWSRequest new];
+               HTTPMethod:(AWSHTTPMethod)HTTPMethod
+                URLString:(NSString *) URLString
+             targetPrefix:(NSString *)targetPrefix
+            operationName:(NSString *)operationName
+              outputClass:(Class)outputClass {
+    
+    @autoreleasepool {
+        if (!request) {
+            request = [AWSRequest new];
+        }
+
+        AWSNetworkingRequest *networkingRequest = request.internalRequest;
+        if (request) {
+            networkingRequest.parameters = [[AWSMTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
+        } else {
+            networkingRequest.parameters = @{};
+        }
+
+        networkingRequest.HTTPMethod = HTTPMethod;
+        networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithJSONDefinition:[[AWSIoTDataResources sharedInstance] JSONObject]
+                                                                                                   actionName:operationName];
+        networkingRequest.responseSerializer = [[AWSIoTDataResponseSerializer alloc] initWithJSONDefinition:[[AWSIoTDataResources sharedInstance] JSONObject]
+                                                                                             actionName:operationName
+                                                                                            outputClass:outputClass];
+        
+        return [self.networking sendRequest:networkingRequest];
     }
-
-    AWSNetworkingRequest *networkingRequest = request.internalRequest;
-    if (request) {
-        networkingRequest.parameters = [[AWSMTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
-    } else {
-        networkingRequest.parameters = @{};
-    }
-
-
-    NSMutableDictionary *headers = [NSMutableDictionary new];
-
-    networkingRequest.headers = headers;
-    networkingRequest.HTTPMethod = HTTPMethod;
-    networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithJSONDefinition:[[AWSIoTDataResources sharedInstance] JSONObject]
-                                                                                        actionName:operationName];
-    networkingRequest.responseSerializer = [[AWSIoTDataResponseSerializer alloc] initWithJSONDefinition:[[AWSIoTDataResources sharedInstance] JSONObject]
-                                                                                                 actionName:operationName
-                                                                                                outputClass:outputClass];
-    return [self.networking sendRequest:networkingRequest];
 }
 
 #pragma mark - Service method
@@ -286,7 +283,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)deleteThingShadow:(AWSIoTDataDeleteThingShadowRequest *)request
-        completionHandler:(void (^)(AWSIoTDataDeleteThingShadowResponse *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSIoTDataDeleteThingShadowResponse *response, NSError *error))completionHandler {
     [[self deleteThingShadow:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDataDeleteThingShadowResponse *> * _Nonnull task) {
         AWSIoTDataDeleteThingShadowResponse *result = task.result;
         NSError *error = task.error;
@@ -342,7 +339,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)publish:(AWSIoTDataPublishRequest *)request
-completionHandler:(void (^)(NSError *error))completionHandler {
+     completionHandler:(void (^)(NSError *error))completionHandler {
     [[self publish:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
@@ -369,7 +366,7 @@ completionHandler:(void (^)(NSError *error))completionHandler {
 }
 
 - (void)updateThingShadow:(AWSIoTDataUpdateThingShadowRequest *)request
-        completionHandler:(void (^)(AWSIoTDataUpdateThingShadowResponse *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSIoTDataUpdateThingShadowResponse *response, NSError *error))completionHandler {
     [[self updateThingShadow:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDataUpdateThingShadowResponse *> * _Nonnull task) {
         AWSIoTDataUpdateThingShadowResponse *result = task.result;
         NSError *error = task.error;
@@ -382,7 +379,7 @@ completionHandler:(void (^)(NSError *error))completionHandler {
         if (completionHandler) {
             completionHandler(result, error);
         }
-        
+
         return nil;
     }];
 }

@@ -23,6 +23,7 @@
 @class AWSCognitoIdentityPasswordAuthenticationInput;
 @class AWSCognitoIdentityMultifactorAuthenticationInput;
 @class AWSCognitoIdentityPasswordAuthenticationDetails;
+@class AWSCognitoIdentityCustomChallengeDetails;
 @class AWSCognitoIdentityUserPoolConfiguration;
 @class AWSCognitoIdentityUserPoolSignUpResponse;
 @protocol AWSCognitoIdentityInteractiveAuthenticationDelegate;
@@ -38,6 +39,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) AWSServiceConfiguration *configuration;
 @property (nonatomic, readonly) AWSCognitoIdentityUserPoolConfiguration *userPoolConfiguration;
 @property (nonatomic, readonly) NSString *identityProviderName;
+
+/**
+ Set this delegate to interactively prompt users for authentication challenges when necessary
+ */
 @property (nonatomic, strong) id <AWSCognitoIdentityInteractiveAuthenticationDelegate> delegate;
 
 + (void)registerCognitoIdentityUserPoolWithUserPoolConfiguration:(AWSCognitoIdentityUserPoolConfiguration *)userPoolConfiguration
@@ -141,11 +146,39 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData;
 
 
 /**
- When responding to an custom sign in, this encapsulates the end users' challenge responses
+ When responding to a custom sign in, this encapsulates the end users challenge responses
+ */
+@interface AWSCognitoIdentityCustomChallengeDetails : NSObject
+
+/**
+ Optional developer provided validation data to add to the initate auth call
+ */
+@property(nonatomic, strong, nullable) NSArray<AWSCognitoIdentityUserAttributeType *> *validationData;
+
+/**
+ If you know your initial challenge, set this property to the challenge name
+ */
+@property(nonatomic, strong, nullable) NSString *initialChallengeName;
+
+/**
+ The end user challenge responses for this challenge
+ */
+@property(nonatomic, strong) NSDictionary<NSString*,NSString*>* challengeResponses;
+
+-(instancetype) initWithChallengeResponses: (NSDictionary<NSString*,NSString*> *) challengeResponses;
+
+
+@end
+
+/**
+ When responding to an custom sign in, this encapsulates the challenge parameters that define the challenge
  */
 @interface AWSCognitoIdentityCustomAuthenticationInput : NSObject
 
-@property(nonatomic, strong) NSDictionary<NSString*,NSString*>* challengeResponses;
+@property(nonatomic, strong) NSDictionary<NSString*,NSString*>* challengeParameters;
+
+-(instancetype) initWithChallengeParameters: (NSDictionary<NSString*,NSString*> *) challengeParameters;
+
 @end
 
 
@@ -154,12 +187,15 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData;
  <ul>
  <li>AWSCognitoIdentityProviderClientErrorUnknown - Unknown error.</li>
  <li>AWSCognitoIdentityProviderClientErrorInvalidAuthenticationDelegate - Necessary authentication delegate isn't set.</li>
+ <li>AWSCognitoIdentityProviderClientErrorCustomAuthenticationNotSupported - Custom authentication is not supported by this SDK.</li>
+ <li>AWSCognitoIdentityProviderClientErrorDeviceNotTracked - This device does not have an id, either it was never tracked or previously forgotten.</li>
  </ul>
  */
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityClientErrorType) {
     AWSCognitoIdentityProviderClientErrorUnknown = 0,
     AWSCognitoIdentityProviderClientErrorInvalidAuthenticationDelegate = -1000,
     AWSCognitoIdentityProviderClientErrorCustomAuthenticationNotSupported = -2000,
+    AWSCognitoIdentityProviderClientErrorDeviceNotTracked = -3000,
 };
 
 @interface AWSCognitoIdentityUserPoolSignUpResponse : AWSCognitoIdentityProviderSignUpResponse
@@ -221,18 +257,20 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityClientErrorType) {
 
 @protocol AWSCognitoIdentityCustomAuthentication <NSObject>
 
--(NSString*) getAuthenticationFlowName;
+
 /**
  Obtain input for a custom challenge from the end user
  @param authenticationInput details the challenge including the challenge name and inputs
  @param customAuthCompletionSource set customAuthCompletionSource.result with the challenge answers from the end user
  */
--(void) getCustomChallengeDetails: (AWSCognitoIdentityCustomAuthenticationInput *) authenticationInput customAuthCompletionSource: (AWSTaskCompletionSource<NSDictionary<NSString*, NSString *> *> *) customAuthCompletionSource;
+-(void) getCustomChallengeDetails: (AWSCognitoIdentityCustomAuthenticationInput *) authenticationInput customAuthCompletionSource: (AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails *> *) customAuthCompletionSource;
 /**
  This step completed, usually either display an error to the end user or dismiss ui
  @param error the error if any that occured
  */
 -(void) didCompleteCustomAuthenticationStepWithError:(NSError* _Nullable) error;
+
+
 @end
 
 @protocol AWSCognitoIdentityRememberDevice <NSObject>

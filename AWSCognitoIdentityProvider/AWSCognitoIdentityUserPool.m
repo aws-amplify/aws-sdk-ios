@@ -362,6 +362,28 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData {
 }
 @end
 
+
+@implementation AWSCognitoIdentityCustomAuthenticationInput
+-(instancetype) initWithChallengeParameters: (NSDictionary<NSString*,NSString*> *) challengeParameters {
+    self = [super init];
+    if(nil != self){
+        self.challengeParameters = challengeParameters;
+    }
+    return self;
+}
+@end
+
+
+@implementation AWSCognitoIdentityCustomChallengeDetails
+-(instancetype) initWithChallengeResponses:(NSDictionary<NSString *,NSString *> *)challengeResponses {
+    self = [super init];
+    if(nil != self){
+        self.challengeResponses = challengeResponses;
+    }
+    return self;
+}
+@end
+
 @implementation AWSCognitoIdentityUserPoolSignUpResponse
 
 @end

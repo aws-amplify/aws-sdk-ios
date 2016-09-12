@@ -68,6 +68,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 
 @class AWSFirehoseBufferingHints;
 @class AWSFirehoseCloudWatchLoggingOptions;
+@class AWSFirehoseReplicateCommand;
 @class AWSFirehoseCreateDeliveryStreamInput;
 @class AWSFirehoseCreateDeliveryStreamOutput;
 @class AWSFirehoseDeleteDeliveryStreamInput;
@@ -95,7 +96,6 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @class AWSFirehoseRedshiftDestinationDescription;
 @class AWSFirehoseRedshiftDestinationUpdate;
 @class AWSFirehoseRedshiftRetryOptions;
-@class AWSFirehoseReplicateCommand;
 @class AWSFirehoseS3DestinationConfiguration;
 @class AWSFirehoseS3DestinationDescription;
 @class AWSFirehoseS3DestinationUpdate;
@@ -140,6 +140,30 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
  <p>The CloudWatch log stream name for logging. This value is required if Enabled is true.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable logStreamName;
+
+@end
+
+/**
+ <p>Describes a <code>COPY</code> command for Amazon Redshift.</p>
+ Required parameters: [DataTableName]
+ */
+@interface AWSFirehoseReplicateCommand : AWSModel
+
+
+/**
+ <p>Optional parameters to use with the Amazon Redshift <code>COPY</code> command. For more information, see the "Optional Parameters" section of <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html">Amazon Redshift COPY command</a>. Some possible examples that would apply to Firehose are as follows.</p><p><code>delimiter '\t' lzop;</code> - fields are delimited with "\t" (TAB character) and compressed using lzop.</p><p><code>delimiter '|</code> - fields are delimited with "|" (this is the default delimiter).</p><p><code>delimiter '|' escape</code> - the delimiter should be escaped.</p><p><code>fixedwidth 'venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6'</code> - fields are fixed width in the source, with each width specified after every column in the table.</p><p><code>JSON 's3://mybucket/jsonpaths.txt'</code> - data is in JSON format, and the path specified is the format of the data.</p><p>For more examples, see <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html">Amazon Redshift COPY command examples</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable replicateOptions;
+
+/**
+ <p>A comma-separated list of column names.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataTableColumns;
+
+/**
+ <p>The name of the target table. The table must already exist in the database.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataTableName;
 
 @end
 
@@ -359,7 +383,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions * _Nullable cloudWatchLoggingOptions;
 
 /**
- <p>The ARN of the Amazon ES domain. The IAM role must have permission for <code>DescribeElasticsearchDomain</code>, <code>DescribeElasticsearchDomains</code> , and <code>DescribeElasticsearchDomainConfig</code> after assuming <b>RoleARN</b>.</p>
+ <p>The ARN of the Amazon ES domain. The IAM role must have permission for <code>DescribeElasticsearchDomain</code>, <code>DescribeElasticsearchDomains</code> , and <code>DescribeElasticsearchDomainConfig</code> after assuming <b>RoleARN</b>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable domainARN;
 
@@ -369,7 +393,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
- <p>The Elasticsearch index rotation period. Index rotation appends a timestamp to the IndexName to facilitate expiration of old data. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index Rotation for Amazon Elasticsearch Service Destination</a>. Default value is <code>OneDay</code>.</p>
+ <p>The Elasticsearch index rotation period. Index rotation appends a timestamp to the IndexName to facilitate expiration of old data. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index Rotation for Amazon Elasticsearch Service Destination</a>. Default value is <code>OneDay</code>.</p>
  */
 @property (nonatomic, assign) AWSFirehoseElasticsearchIndexRotationPeriod indexRotationPeriod;
 
@@ -401,7 +425,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @end
 
 /**
- <p>The destination description in Amazon ES. </p>
+ <p>The destination description in Amazon ES.</p>
  */
 @interface AWSFirehoseElasticsearchDestinationDescription : AWSModel
 
@@ -475,7 +499,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions * _Nullable cloudWatchLoggingOptions;
 
 /**
- <p>The ARN of the Amazon ES domain. The IAM role must have permission for DescribeElasticsearchDomain, DescribeElasticsearchDomains , and DescribeElasticsearchDomainConfig after assuming <b>RoleARN</b>.</p>
+ <p>The ARN of the Amazon ES domain. The IAM role must have permission for DescribeElasticsearchDomain, DescribeElasticsearchDomains , and DescribeElasticsearchDomainConfig after assuming <b>RoleARN</b>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable domainARN;
 
@@ -485,7 +509,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
- <p>The Elasticsearch index rotation period. Index rotation appends a timestamp to the IndexName to facilitate the expiration of old data. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index Rotation for Amazon Elasticsearch Service Destination</a>. Default value is <code>OneDay</code>.</p>
+ <p>The Elasticsearch index rotation period. Index rotation appends a timestamp to the IndexName to facilitate the expiration of old data. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index Rotation for Amazon Elasticsearch Service Destination</a>. Default value is <code>OneDay</code>.</p>
  */
 @property (nonatomic, assign) AWSFirehoseElasticsearchIndexRotationPeriod indexRotationPeriod;
 
@@ -518,7 +542,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 
 
 /**
- <p>After an initial failure to deliver to Amazon ES, the total amount of time during which Firehose re-attempts delivery. After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds. A value of 0 (zero) results in no retries.</p>
+ <p>After an initial failure to deliver to Amazon ES, the total amount of time during which Firehose re-attempts delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable durationInSeconds;
 
@@ -719,17 +743,17 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @property (nonatomic, strong) NSString * _Nullable clusterJDBCURL;
 
 /**
- <p>The user password.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable password;
-
-/**
  <p>The <code>COPY</code> command.</p>
  */
 @property (nonatomic, strong) AWSFirehoseReplicateCommand * _Nullable replicateCommand;
 
 /**
- 
+ <p>The user password.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable password;
+
+/**
+ <p>Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).</p>
  */
 @property (nonatomic, strong) AWSFirehoseRedshiftRetryOptions * _Nullable retryOptions;
 
@@ -773,7 +797,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @property (nonatomic, strong) AWSFirehoseReplicateCommand * _Nullable replicateCommand;
 
 /**
- 
+ <p>Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).</p>
  */
 @property (nonatomic, strong) AWSFirehoseRedshiftRetryOptions * _Nullable retryOptions;
 
@@ -811,17 +835,17 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @property (nonatomic, strong) NSString * _Nullable clusterJDBCURL;
 
 /**
- <p>The user password.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable password;
-
-/**
  <p>The <code>COPY</code> command.</p>
  */
 @property (nonatomic, strong) AWSFirehoseReplicateCommand * _Nullable replicateCommand;
 
 /**
- 
+ <p>The user password.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable password;
+
+/**
+ <p>Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).</p>
  */
 @property (nonatomic, strong) AWSFirehoseRedshiftRetryOptions * _Nullable retryOptions;
 
@@ -843,39 +867,15 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @end
 
 /**
- 
+ <p>Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon Redshift.</p>
  */
 @interface AWSFirehoseRedshiftRetryOptions : AWSModel
 
 
 /**
- 
+ <p>The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of <code>DurationInSeconds</code> is 0 (zero) or if the first delivery attempt takes longer than the current value.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable durationInSeconds;
-
-@end
-
-/**
- <p>Describes a <code>COPY</code> command for Amazon Redshift.</p>
- Required parameters: [DataTableName]
- */
-@interface AWSFirehoseReplicateCommand : AWSModel
-
-
-/**
- <p>A comma-separated list of column names.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable dataTableColumns;
-
-/**
- <p>The name of the target table. The table must already exist in the database.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable dataTableName;
-
-/**
- <p>Optional parameters to use with the Amazon Redshift <code>COPY</code> command. For more information, see the "Optional Parameters" section of <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html">Amazon Redshift COPY command</a>. Some possible examples that would apply to Firehose are as follows.</p><p><code>delimiter '\t' lzop;</code> - fields are delimited with "\t" (TAB character) and compressed using lzop.</p><p><code>delimiter '|</code> - fields are delimited with "|" (this is the default delimiter).</p><p><code>delimiter '|' escape</code> - the delimiter should be escaped.</p><p><code>fixedwidth 'venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6'</code> - fields are fixed width in the source, with each width specified after every column in the table.</p><p><code>JSON 's3://mybucket/jsonpaths.txt'</code> - data is in JSON format, and the path specified is the format of the data.</p><p>For more examples, see <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html">Amazon Redshift COPY command examples</a>.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable replicateOptions;
 
 @end
 
@@ -912,7 +912,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @property (nonatomic, strong) AWSFirehoseEncryptionConfiguration * _Nullable encryptionConfiguration;
 
 /**
- <p>The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html">Amazon S3 Object Name Format</a> in the <a href="http://docs.aws.amazon.com/firehose/latest/dev/">guide-fh-dev</a>.</p>
+ <p>The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html">Amazon S3 Object Name Format</a> in the <a href="http://docs.aws.amazon.com/firehose/latest/dev/">Amazon Kinesis Firehose Developer Guide</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable prefix;
 
@@ -956,7 +956,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @property (nonatomic, strong) AWSFirehoseEncryptionConfiguration * _Nullable encryptionConfiguration;
 
 /**
- <p>The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html">Amazon S3 Object Name Format</a> in the <a href="http://docs.aws.amazon.com/firehose/latest/dev/">guide-fh-dev</a>.</p>
+ <p>The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html">Amazon S3 Object Name Format</a> in the <a href="http://docs.aws.amazon.com/firehose/latest/dev/">Amazon Kinesis Firehose Developer Guide</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable prefix;
 
@@ -999,7 +999,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
 @property (nonatomic, strong) AWSFirehoseEncryptionConfiguration * _Nullable encryptionConfiguration;
 
 /**
- <p>The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html">Amazon S3 Object Name Format</a> in the <a href="http://docs.aws.amazon.com/firehose/latest/dev/">guide-fh-dev</a>.</p>
+ <p>The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html">Amazon S3 Object Name Format</a> in the <a href="http://docs.aws.amazon.com/firehose/latest/dev/">Amazon Kinesis Firehose Developer Guide</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable prefix;
 

@@ -30,7 +30,6 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
     AWSElasticLoadBalancingErrorDuplicateListener,
     AWSElasticLoadBalancingErrorDuplicatePolicyName,
     AWSElasticLoadBalancingErrorDuplicateTagKeys,
-    AWSElasticLoadBalancingErrorInsufficientCapacity,
     AWSElasticLoadBalancingErrorInvalidConfigurationRequest,
     AWSElasticLoadBalancingErrorInvalidEndPoint,
     AWSElasticLoadBalancingErrorInvalidScheme,
@@ -38,8 +37,6 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
     AWSElasticLoadBalancingErrorInvalidSubnet,
     AWSElasticLoadBalancingErrorListenerNotFound,
     AWSElasticLoadBalancingErrorLoadBalancerAttributeNotFound,
-    AWSElasticLoadBalancingErrorMinimumLBCapacityUnitsDecreaseThrottling,
-    AWSElasticLoadBalancingErrorMinimumLBCapacityUnitsLimitExceeded,
     AWSElasticLoadBalancingErrorPolicyNotFound,
     AWSElasticLoadBalancingErrorPolicyTypeNotFound,
     AWSElasticLoadBalancingErrorSubnetNotFound,
@@ -47,14 +44,6 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
     AWSElasticLoadBalancingErrorTooManyPolicies,
     AWSElasticLoadBalancingErrorTooManyTags,
     AWSElasticLoadBalancingErrorUnsupportedProtocol,
-};
-
-typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
-    AWSElasticLoadBalancingProvisionedCapacityStatusUnknown,
-    AWSElasticLoadBalancingProvisionedCapacityStatusDisabled,
-    AWSElasticLoadBalancingProvisionedCapacityStatusPending,
-    AWSElasticLoadBalancingProvisionedCapacityStatusProvisioned,
-    AWSElasticLoadBalancingProvisionedCapacityStatusPreWarmed,
 };
 
 @class AWSElasticLoadBalancingAccessLog;
@@ -102,8 +91,6 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @class AWSElasticLoadBalancingDescribeLoadBalancerPoliciesOutput;
 @class AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesInput;
 @class AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput;
-@class AWSElasticLoadBalancingDescribeProvisionedCapacityInput;
-@class AWSElasticLoadBalancingDescribeProvisionedCapacityOutput;
 @class AWSElasticLoadBalancingDescribeTagsInput;
 @class AWSElasticLoadBalancingDescribeTagsOutput;
 @class AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsInput;
@@ -118,15 +105,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @class AWSElasticLoadBalancingLoadBalancerDescription;
 @class AWSElasticLoadBalancingModifyLoadBalancerAttributesInput;
 @class AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput;
-@class AWSElasticLoadBalancingModifyProvisionedCapacityInput;
-@class AWSElasticLoadBalancingModifyProvisionedCapacityOutput;
 @class AWSElasticLoadBalancingPolicies;
 @class AWSElasticLoadBalancingPolicyAttribute;
 @class AWSElasticLoadBalancingPolicyAttributeDescription;
 @class AWSElasticLoadBalancingPolicyAttributeTypeDescription;
 @class AWSElasticLoadBalancingPolicyDescription;
 @class AWSElasticLoadBalancingPolicyTypeDescription;
-@class AWSElasticLoadBalancingProvisionedCapacity;
 @class AWSElasticLoadBalancingRegisterEndPointsInput;
 @class AWSElasticLoadBalancingRegisterEndPointsOutput;
 @class AWSElasticLoadBalancingRemoveAvailabilityZonesInput;
@@ -157,7 +141,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable emitInterval;
 
 /**
- <p>Specifies whether access log is enabled for the load balancer.</p>
+ <p>Specifies whether access logs are enabled for the load balancer.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
@@ -174,7 +158,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for EnableAvailabilityZonesForLoadBalancer.</p>
+ Required parameters: [LoadBalancerName, AvailabilityZones]
  */
 @interface AWSElasticLoadBalancingAddAvailabilityZonesInput : AWSRequest
 
@@ -192,7 +177,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output of EnableAvailabilityZonesForLoadBalancer.</p>
  */
 @interface AWSElasticLoadBalancingAddAvailabilityZonesOutput : AWSModel
 
@@ -205,7 +190,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for AddTags.</p>
+ Required parameters: [LoadBalancerNames, Tags]
  */
 @interface AWSElasticLoadBalancingAddTagsInput : AWSRequest
 
@@ -223,7 +209,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output of AddTags.</p>
  */
 @interface AWSElasticLoadBalancingAddTagsOutput : AWSModel
 
@@ -267,7 +253,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for ApplySecurityGroupsToLoadBalancer.</p>
+ Required parameters: [LoadBalancerName, SecurityGroups]
  */
 @interface AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerInput : AWSRequest
 
@@ -285,7 +272,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output of ApplySecurityGroupsToLoadBalancer.</p>
  */
 @interface AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerOutput : AWSModel
 
@@ -298,7 +285,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for AttachLoaBalancerToSubnets.</p>
+ Required parameters: [LoadBalancerName, Subnets]
  */
 @interface AWSElasticLoadBalancingAttachLoadBalancerToSubnetsInput : AWSRequest
 
@@ -309,14 +297,14 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
- <p>The IDs of the subnets to add for the load balancer. You can add only one subnet per Availability Zone.</p>
+ <p>The IDs of the subnets to add. You can add only one subnet per Availability Zone.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable subnets;
 
 @end
 
 /**
- 
+ <p>Contains the output of AttachLoadBalancerToSubnets.</p>
  */
 @interface AWSElasticLoadBalancingAttachLoadBalancerToSubnetsOutput : AWSModel
 
@@ -329,31 +317,32 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- <p>Information about the configuration of a back-end server.</p>
+ <p>Information about the configuration of an EC2 instance.</p>
  */
 @interface AWSElasticLoadBalancingBackendServerDescription : AWSModel
 
 
 /**
- <p>The port on which the back-end server is listening.</p>
+ <p>The port on which the EC2 instance is listening.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable instancePort;
 
 /**
- <p>The names of the policies enabled for the back-end server.</p>
+ <p>The names of the policies enabled for the EC2 instance.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable policyNames;
 
 @end
 
 /**
- 
+ <p>Contains the parameters for ConfigureHealthCheck.</p>
+ Required parameters: [LoadBalancerName, HealthCheck]
  */
 @interface AWSElasticLoadBalancingConfigureHealthCheckInput : AWSRequest
 
 
 /**
- <p>The configuration information for the new health check.</p>
+ <p>The configuration information.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingHealthCheck * _Nullable healthCheck;
 
@@ -365,7 +354,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output of ConfigureHealthCheck.</p>
  */
 @interface AWSElasticLoadBalancingConfigureHealthCheckOutput : AWSModel
 
@@ -411,18 +400,19 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for CreateLoadBalancer.</p>
+ Required parameters: [LoadBalancerName, Listeners]
  */
 @interface AWSElasticLoadBalancingCreateAccessPointInput : AWSRequest
 
 
 /**
- <p>One or more Availability Zones from the same region as the load balancer. Traffic is equally distributed across all specified Availability Zones.</p><p>You must specify at least one Availability Zone.</p><p>You can add more Availability Zones after you create the load balancer using <a>EnableAvailabilityZonesForLoadBalancer</a>.</p>
+ <p>One or more Availability Zones from the same region as the load balancer.</p><p>You must specify at least one Availability Zone.</p><p>You can add more Availability Zones after you create the load balancer using <a>EnableAvailabilityZonesForLoadBalancer</a>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable availabilityZones;
 
 /**
- <p>The listeners.</p><p>For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html">Listeners for Your Load Balancer</a> in the <i>Elastic Load Balancing Developer Guide</i>.</p>
+ <p>The listeners.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingListener *> * _Nullable listeners;
 
@@ -432,7 +422,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
- <p>The type of a load balancer. Valid only for load balancers in a VPC.</p><p>By default, Elastic Load Balancing creates an Internet-facing load balancer with a publicly resolvable DNS name, which resolves to public IP addresses. For more information about Internet-facing and Internal load balancers, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/vpc-loadbalancer-types.html">Internet-facing and Internal Load Balancers</a> in the <i>Elastic Load Balancing Developer Guide</i>.</p><p>Specify <code>internal</code> to create an internal load balancer with a DNS name that resolves to private IP addresses.</p>
+ <p>The type of a load balancer. Valid only for load balancers in a VPC.</p><p>By default, Elastic Load Balancing creates an Internet-facing load balancer with a DNS name that resolves to public IP addresses. For more information about Internet-facing and Internal load balancers, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme">Load Balancer Scheme</a> in the <i>Elastic Load Balancing User Guide</i>.</p><p>Specify <code>internal</code> to create a load balancer with a DNS name that resolves to private IP addresses.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable scheme;
 
@@ -447,14 +437,14 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable subnets;
 
 /**
- <p>A list of tags to assign to the load balancer.</p><p>For more information about tagging your load balancer, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb">Tagging</a> in the <i>Elastic Load Balancing Developer Guide</i>.</p>
+ <p>A list of tags to assign to the load balancer.</p><p>For more information about tagging your load balancer, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html">Tag Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingTag *> * _Nullable tags;
 
 @end
 
 /**
- 
+ <p>Contains the output for CreateLoadBalancer.</p>
  */
 @interface AWSElasticLoadBalancingCreateAccessPointOutput : AWSModel
 
@@ -467,7 +457,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for CreateAppCookieStickinessPolicy.</p>
+ Required parameters: [LoadBalancerName, PolicyName, CookieName]
  */
 @interface AWSElasticLoadBalancingCreateAppCookieStickinessPolicyInput : AWSRequest
 
@@ -490,7 +481,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output for CreateAppCookieStickinessPolicy.</p>
  */
 @interface AWSElasticLoadBalancingCreateAppCookieStickinessPolicyOutput : AWSModel
 
@@ -498,13 +489,14 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for CreateLBCookieStickinessPolicy.</p>
+ Required parameters: [LoadBalancerName, PolicyName]
  */
 @interface AWSElasticLoadBalancingCreateLBCookieStickinessPolicyInput : AWSRequest
 
 
 /**
- <p>The time period, in seconds, after which the cookie should be considered stale. If you do not specify this parameter, the sticky session lasts for the duration of the browser session.</p>
+ <p>The time period, in seconds, after which the cookie should be considered stale. If you do not specify this parameter, the default value is 0, which indicates that the sticky session should last for the duration of the browser session.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable cookieExpirationPeriod;
 
@@ -521,7 +513,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output for CreateLBCookieStickinessPolicy.</p>
  */
 @interface AWSElasticLoadBalancingCreateLBCookieStickinessPolicyOutput : AWSModel
 
@@ -529,7 +521,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for CreateLoadBalancerListeners.</p>
+ Required parameters: [LoadBalancerName, Listeners]
  */
 @interface AWSElasticLoadBalancingCreateLoadBalancerListenerInput : AWSRequest
 
@@ -547,7 +540,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for CreateLoadBalancerListener.</p>
  */
 @interface AWSElasticLoadBalancingCreateLoadBalancerListenerOutput : AWSModel
 
@@ -555,7 +548,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for CreateLoadBalancerPolicy.</p>
+ Required parameters: [LoadBalancerName, PolicyName, PolicyTypeName]
  */
 @interface AWSElasticLoadBalancingCreateLoadBalancerPolicyInput : AWSRequest
 
@@ -566,7 +560,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
- <p>The attributes for the policy.</p>
+ <p>The policy attributes.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingPolicyAttribute *> * _Nullable policyAttributes;
 
@@ -583,7 +577,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output of CreateLoadBalancerPolicy.</p>
  */
 @interface AWSElasticLoadBalancingCreateLoadBalancerPolicyOutput : AWSModel
 
@@ -605,7 +599,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for DeleteLoadBalancer.</p>
+ Required parameters: [LoadBalancerName]
  */
 @interface AWSElasticLoadBalancingDeleteAccessPointInput : AWSRequest
 
@@ -618,7 +613,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output of DeleteLoadBalancer.</p>
  */
 @interface AWSElasticLoadBalancingDeleteAccessPointOutput : AWSModel
 
@@ -626,7 +621,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for DeleteLoadBalancerListeners.</p>
+ Required parameters: [LoadBalancerName, LoadBalancerPorts]
  */
 @interface AWSElasticLoadBalancingDeleteLoadBalancerListenerInput : AWSRequest
 
@@ -644,7 +640,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output of DeleteLoadBalancerListeners.</p>
  */
 @interface AWSElasticLoadBalancingDeleteLoadBalancerListenerOutput : AWSModel
 
@@ -652,7 +648,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- =
+ <p>Contains the parameters for DeleteLoadBalancerPolicy.</p>
  Required parameters: [LoadBalancerName, PolicyName]
  */
 @interface AWSElasticLoadBalancingDeleteLoadBalancerPolicyInput : AWSRequest
@@ -671,7 +667,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output of DeleteLoadBalancerPolicy.</p>
  */
 @interface AWSElasticLoadBalancingDeleteLoadBalancerPolicyOutput : AWSModel
 
@@ -679,7 +675,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for DeregisterInstancesFromLoadBalancer.</p>
+ Required parameters: [LoadBalancerName, Instances]
  */
 @interface AWSElasticLoadBalancingDeregisterEndPointsInput : AWSRequest
 
@@ -697,7 +694,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output of DeregisterInstancesFromLoadBalancer.</p>
  */
 @interface AWSElasticLoadBalancingDeregisterEndPointsOutput : AWSModel
 
@@ -710,7 +707,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for DescribeLoadBalancers.</p>
  */
 @interface AWSElasticLoadBalancingDescribeAccessPointsInput : AWSRequest
 
@@ -733,7 +730,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for DescribeLoadBalancers.</p>
  */
 @interface AWSElasticLoadBalancingDescribeAccessPointsOutput : AWSModel
 
@@ -751,7 +748,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for DescribeInstanceHealth.</p>
+ Required parameters: [LoadBalancerName]
  */
 @interface AWSElasticLoadBalancingDescribeEndPointStateInput : AWSRequest
 
@@ -769,7 +767,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output for DescribeInstanceHealth.</p>
  */
 @interface AWSElasticLoadBalancingDescribeEndPointStateOutput : AWSModel
 
@@ -782,7 +780,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for DescribeLoadBalancerAttributes.</p>
+ Required parameters: [LoadBalancerName]
  */
 @interface AWSElasticLoadBalancingDescribeLoadBalancerAttributesInput : AWSRequest
 
@@ -795,7 +794,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output of DescribeLoadBalancerAttributes.</p>
  */
 @interface AWSElasticLoadBalancingDescribeLoadBalancerAttributesOutput : AWSModel
 
@@ -808,7 +807,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for DescribeLoadBalancerPolicies.</p>
  */
 @interface AWSElasticLoadBalancingDescribeLoadBalancerPoliciesInput : AWSRequest
 
@@ -826,7 +825,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output of DescribeLoadBalancerPolicies.</p>
  */
 @interface AWSElasticLoadBalancingDescribeLoadBalancerPoliciesOutput : AWSModel
 
@@ -839,7 +838,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for DescribeLoadBalancerPolicyTypes.</p>
  */
 @interface AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesInput : AWSRequest
 
@@ -852,7 +851,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output of DescribeLoadBalancerPolicyTypes.</p>
  */
 @interface AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput : AWSModel
 
@@ -865,33 +864,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
- */
-@interface AWSElasticLoadBalancingDescribeProvisionedCapacityInput : AWSRequest
-
-
-/**
- <p>The name of the load balancer.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
-
-@end
-
-/**
- 
- */
-@interface AWSElasticLoadBalancingDescribeProvisionedCapacityOutput : AWSModel
-
-
-/**
- <p>Information about the provisioned capacity of the load balancer.</p>
- */
-@property (nonatomic, strong) AWSElasticLoadBalancingProvisionedCapacity * _Nullable provisionedCapacity;
-
-@end
-
-/**
- 
+ <p>Contains the parameters for DescribeTags.</p>
+ Required parameters: [LoadBalancerNames]
  */
 @interface AWSElasticLoadBalancingDescribeTagsInput : AWSRequest
 
@@ -904,7 +878,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output for DescribeTags.</p>
  */
 @interface AWSElasticLoadBalancingDescribeTagsOutput : AWSModel
 
@@ -917,7 +891,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for DetachLoadBalancerFromSubnets.</p>
+ Required parameters: [LoadBalancerName, Subnets]
  */
 @interface AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsInput : AWSRequest
 
@@ -935,7 +910,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output of DetachLoadBalancerFromSubnets.</p>
  */
 @interface AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsOutput : AWSModel
 
@@ -982,20 +957,20 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- <p>The ID of a back-end instance.</p>
+ <p>The ID of an EC2 instance.</p>
  */
 @interface AWSElasticLoadBalancingInstance : AWSModel
 
 
 /**
- <p>The ID of the instance.</p>
+ <p>The instance ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 @end
 
 /**
- <p>Information about the state of a back-end instance.</p>
+ <p>Information about the state of an EC2 instance.</p>
  */
 @interface AWSElasticLoadBalancingInstanceState : AWSModel
 
@@ -1034,14 +1009,14 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable cookieExpirationPeriod;
 
 /**
- <p>The name for the policy being created. The name must be unique within the set of policies for this load balancer.</p>
+ <p>The name of the policy. This name must be unique within the set of policies for this load balancer.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable policyName;
 
 @end
 
 /**
- <p>Information about a listener.</p><p>For information about the protocols and the ports supported by Elastic Load Balancing, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html">Listener Configurations for Elastic Load Balancing</a> in the <i>Elastic Load Balancing Developer Guide</i>.</p>
+ <p>Information about a listener.</p><p>For information about the protocols and the ports supported by Elastic Load Balancing, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>
  Required parameters: [Protocol, LoadBalancerPort, InstancePort]
  */
 @interface AWSElasticLoadBalancingListener : AWSModel
@@ -1053,7 +1028,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable instancePort;
 
 /**
- <p>The protocol to use for routing traffic to back-end instances: HTTP, HTTPS, TCP, or SSL.</p><p>If the front-end protocol is HTTP, HTTPS, TCP, or SSL, <code>InstanceProtocol</code> must be at the same protocol.</p><p>If there is another listener with the same <code>InstancePort</code> whose <code>InstanceProtocol</code> is secure, (HTTPS or SSL), the listener's <code>InstanceProtocol</code> must also be secure.</p><p>If there is another listener with the same <code>InstancePort</code> whose <code>InstanceProtocol</code> is HTTP or TCP, the listener's <code>InstanceProtocol</code> must be HTTP or TCP.</p>
+ <p>The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP, or SSL.</p><p>If the front-end protocol is HTTP, HTTPS, TCP, or SSL, <code>InstanceProtocol</code> must be at the same protocol.</p><p>If there is another listener with the same <code>InstancePort</code> whose <code>InstanceProtocol</code> is secure, (HTTPS or SSL), the listener's <code>InstanceProtocol</code> must also be secure.</p><p>If there is another listener with the same <code>InstancePort</code> whose <code>InstanceProtocol</code> is HTTP or TCP, the listener's <code>InstanceProtocol</code> must be HTTP or TCP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceProtocol;
 
@@ -1081,7 +1056,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 
 
 /**
- <p>Information about a listener.</p><p>For information about the protocols and the ports supported by Elastic Load Balancing, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html">Listener Configurations for Elastic Load Balancing</a> in the <i>Elastic Load Balancing Developer Guide</i>.</p>
+ <p>Information about a listener.</p><p>For information about the protocols and the ports supported by Elastic Load Balancing, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingListener * _Nullable listener;
 
@@ -1099,7 +1074,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 
 
 /**
- <p>If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify.</p><p>For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-access-logs.html">Enable Access Logs</a> in the <i>Elastic Load Balancing Developer Guide</i>.</p>
+ <p>If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html">Enable Access Logs</a> in the <i>Classic Load Balancers Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingAccessLog * _Nullable accessLog;
 
@@ -1109,17 +1084,17 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingAdditionalAttribute *> * _Nullable additionalAttributes;
 
 /**
- <p>If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy back-end instance.</p><p>For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-conn-drain.html">Enable Connection Draining</a> in the <i>Elastic Load Balancing Developer Guide</i>.</p>
+ <p>If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html">Configure Connection Draining</a> in the <i>Classic Load Balancers Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingConnectionDraining * _Nullable connectionDraining;
 
 /**
- <p>If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.</p><p>By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-idle-timeout.html">Configure Idle Connection Timeout</a> in the <i>Elastic Load Balancing Developer Guide</i>.</p>
+ <p>If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.</p><p>By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html">Configure Idle Connection Timeout</a> in the <i>Classic Load Balancers Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingConnectionSettings * _Nullable connectionSettings;
 
 /**
- <p>If enabled, the load balancer routes the request traffic evenly across all back-end instances regardless of the Availability Zones.</p><p>For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-disable-crosszone-lb.html">Enable Cross-Zone Load Balancing</a> in the <i>Elastic Load Balancing Developer Guide</i>.</p>
+ <p>If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html">Configure Cross-Zone Load Balancing</a> in the <i>Classic Load Balancers Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingCrossZoneLoadBalancing * _Nullable crossZoneLoadBalancing;
 
@@ -1137,17 +1112,17 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable availabilityZones;
 
 /**
- <p>Information about the back-end servers.</p>
+ <p>Information about your EC2 instances.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingBackendServerDescription *> * _Nullable backendServerDescriptions;
 
 /**
- <p>The Amazon Route 53 hosted zone associated with the load balancer.</p><p>For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/using-domain-names-with-elb.html">Using Domain Names With Elastic Load Balancing</a> in the <i>Elastic Load Balancing Developer Guide</i>.</p>
+ <p>The DNS name of the load balancer.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html">Configure a Custom Domain Name</a> in the <i>Classic Load Balancers Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable canonicalHostedZoneName;
 
 /**
- <p>The ID of the Amazon Route 53 hosted zone name associated with the load balancer.</p>
+ <p>The ID of the Amazon Route 53 hosted zone for the load balancer.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable canonicalHostedZoneNameID;
 
@@ -1157,7 +1132,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @property (nonatomic, strong) NSDate * _Nullable createdTime;
 
 /**
- <p>The external DNS name of the load balancer.</p>
+ <p>The DNS name of the load balancer.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable DNSName;
 
@@ -1197,7 +1172,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroups;
 
 /**
- <p>The security group that you can use as part of your inbound rules for your load balancer's back-end application instances. To only allow traffic from load balancers, add a security group rule to your back end instance that specifies this source security group as the inbound source.</p>
+ <p>The security group for the load balancer, which you can use as part of your inbound rules for your registered instances. To only allow traffic from load balancers, add a security group rule that specifies this source security group as the inbound source.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingSourceSecurityGroup * _Nullable sourceSecurityGroup;
 
@@ -1214,7 +1189,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for ModifyLoadBalancerAttributes.</p>
+ Required parameters: [LoadBalancerName, LoadBalancerAttributes]
  */
 @interface AWSElasticLoadBalancingModifyLoadBalancerAttributesInput : AWSRequest
 
@@ -1232,7 +1208,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output of ModifyLoadBalancerAttributes.</p>
  */
 @interface AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput : AWSModel
 
@@ -1246,37 +1222,6 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
  <p>The name of the load balancer.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable loadBalancerName;
-
-@end
-
-/**
- 
- */
-@interface AWSElasticLoadBalancingModifyProvisionedCapacityInput : AWSRequest
-
-
-/**
- <p>The name of the load balancer.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable loadBalancerName;
-
-/**
- <p>The minimum number of load balancer capacity units (LCU) to provision.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable minimumLBCapacityUnits;
-
-@end
-
-/**
- 
- */
-@interface AWSElasticLoadBalancingModifyProvisionedCapacityOutput : AWSModel
-
-
-/**
- <p>Information about the provisioned capacity for the load balancer.</p>
- */
-@property (nonatomic, strong) AWSElasticLoadBalancingProvisionedCapacity * _Nullable provisionedCapacity;
 
 @end
 
@@ -1356,7 +1301,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @property (nonatomic, strong) NSString * _Nullable attributeType;
 
 /**
- <p>The cardinality of the attribute.</p><p>Valid values:</p><ul><li>ONE(1) : Single value required</li><li>ZERO_OR_ONE(0..1) : Up to one value can be supplied</li><li>ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed</li><li>ONE_OR_MORE(1..*0) : Required. Multiple values are allowed</li></ul>
+ <p>The cardinality of the attribute.</p><p>Valid values:</p><ul><li><p>ONE(1) : Single value required</p></li><li><p>ZERO_OR_ONE(0..1) : Up to one value is allowed</p></li><li><p>ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed</p></li><li><p>ONE_OR_MORE(1..*0) : Required. Multiple values are allowed</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable cardinality;
 
@@ -1419,35 +1364,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- <p>Information about the provisioned capacity of a load balancer.</p>
- */
-@interface AWSElasticLoadBalancingProvisionedCapacity : AWSModel
-
-
-/**
- <p>The remaining number of times that you can decrease the provisioned capacity of the load balancer during the current calendar day (in UTC).</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable decreasesRemaining;
-
-/**
- <p>The date and time the provisioned capacity of the load balancer was modified.</p>
- */
-@property (nonatomic, strong) NSDate * _Nullable lastModifiedTime;
-
-/**
- <p>The minimum requested capacity, in load balancer capacity units (LCU).</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable minimumLBCapacityUnits;
-
-/**
- <p>The status of the request for provisioned capacity.</p><p>If you contacted AWS support to pre-warm your load balancer and the pre-warming has not expired, the status is <code>pre-warmed</code>. If the load balancer currently uses pre-warming, calling <a>ModifyProvisionedCapacity</a> converts it to use provisioned capacity.</p>
- */
-@property (nonatomic, assign) AWSElasticLoadBalancingProvisionedCapacityStatus status;
-
-@end
-
-/**
- 
+ <p>Contains the parameters for RegisterInstancesWithLoadBalancer.</p>
+ Required parameters: [LoadBalancerName, Instances]
  */
 @interface AWSElasticLoadBalancingRegisterEndPointsInput : AWSRequest
 
@@ -1465,7 +1383,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output of RegisterInstancesWithLoadBalancer.</p>
  */
 @interface AWSElasticLoadBalancingRegisterEndPointsOutput : AWSModel
 
@@ -1478,7 +1396,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for DisableAvailabilityZonesForLoadBalancer.</p>
+ Required parameters: [LoadBalancerName, AvailabilityZones]
  */
 @interface AWSElasticLoadBalancingRemoveAvailabilityZonesInput : AWSRequest
 
@@ -1496,7 +1415,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output for DisableAvailabilityZonesForLoadBalancer.</p>
  */
 @interface AWSElasticLoadBalancingRemoveAvailabilityZonesOutput : AWSModel
 
@@ -1509,7 +1428,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for RemoveTags.</p>
+ Required parameters: [LoadBalancerNames, Tags]
  */
 @interface AWSElasticLoadBalancingRemoveTagsInput : AWSRequest
 
@@ -1527,7 +1447,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output of RemoveTags.</p>
  */
 @interface AWSElasticLoadBalancingRemoveTagsOutput : AWSModel
 
@@ -1535,7 +1455,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for SetLoadBalancerListenerSSLCertificate.</p>
+ Required parameters: [LoadBalancerName, LoadBalancerPort, SSLCertificateId]
  */
 @interface AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateInput : AWSRequest
 
@@ -1558,7 +1479,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the output of SetLoadBalancerListenerSSLCertificate.</p>
  */
 @interface AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateOutput : AWSModel
 
@@ -1566,13 +1487,14 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for SetLoadBalancerPoliciesForBackendServer.</p>
+ Required parameters: [LoadBalancerName, InstancePort, PolicyNames]
  */
 @interface AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerInput : AWSRequest
 
 
 /**
- <p>The port number associated with the back-end server.</p>
+ <p>The port number associated with the EC2 instance.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable instancePort;
 
@@ -1582,14 +1504,14 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
- <p>The names of the policies. If the list is empty, then all current polices are removed from the back-end server.</p>
+ <p>The names of the policies. If the list is empty, then all current polices are removed from the EC2 instance.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable policyNames;
 
 @end
 
 /**
- 
+ <p>Contains the output of SetLoadBalancerPoliciesForBackendServer.</p>
  */
 @interface AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerOutput : AWSModel
 
@@ -1597,7 +1519,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @end
 
 /**
- 
+ <p>Contains the parameters for SetLoadBalancePoliciesOfListener.</p>
+ Required parameters: [LoadBalancerName, LoadBalancerPort, PolicyNames]
  */
 @interface AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerInput : AWSRequest
 
@@ -1608,19 +1531,19 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProvisionedCapacityStatus) {
 @property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
- <p>The external port of the load balancer for the policy.</p>
+ <p>The external port of the load balancer.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable loadBalancerPort;
 
 /**
- <p>The names of the policies. If the list is empty, the current policy is removed from the listener.</p>
+ <p>The names of the policies. This list must include all policies to be enabled. If you omit a policy that is currently enabled, it is disabled. If the list is empty, all current policies are disabled.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable policyNames;
 
 @end
 
 /**
- 
+ <p>Contains the output of SetLoadBalancePoliciesOfListener.</p>
  */
 @interface AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerOutput : AWSModel
 

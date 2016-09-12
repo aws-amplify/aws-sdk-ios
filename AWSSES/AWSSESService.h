@@ -21,7 +21,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- <fullname>Amazon Simple Email Service</fullname><p> This is the API Reference for Amazon Simple Email Service (Amazon SES). This documentation is intended to be used in conjunction with the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon SES Developer Guide</a>. </p><note>For a list of Amazon SES endpoints to use in service requests, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/regions.html">Regions and Amazon SES</a> in the Amazon SES Developer Guide. </note>
+ <fullname>Amazon Simple Email Service</fullname><p> This is the API Reference for Amazon Simple Email Service (Amazon SES). This documentation is intended to be used in conjunction with the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon SES Developer Guide</a>. </p><note><p> For a list of Amazon SES endpoints to use in service requests, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/regions.html">Regions and Amazon SES</a> in the Amazon SES Developer Guide. </p></note>
  */
 @interface AWSSES : AWSService
 
@@ -272,7 +272,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)createReceiptRuleSet:(AWSSESCreateReceiptRuleSetRequest *)request completionHandler:(void (^ _Nullable)(AWSSESCreateReceiptRuleSetResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified identity (email address or domain) from the list of verified identities.</p><p>This action is throttled at one request per second.</p>
+ <p>Deletes the specified identity (an email address or a domain) from the list of verified identities.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the DeleteIdentity service method.
 
@@ -284,7 +284,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESDeleteIdentityResponse *> *)deleteIdentity:(AWSSESDeleteIdentityRequest *)request;
 
 /**
- <p>Deletes the specified identity (email address or domain) from the list of verified identities.</p><p>This action is throttled at one request per second.</p>
+ <p>Deletes the specified identity (an email address or a domain) from the list of verified identities.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the DeleteIdentity service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -297,7 +297,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteIdentity:(AWSSESDeleteIdentityRequest *)request completionHandler:(void (^ _Nullable)(AWSSESDeleteIdentityResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified sending authorization policy for the given identity (email address or domain). This API returns successfully even if a policy with the specified name does not exist.</p><note>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
+ <p>Deletes the specified sending authorization policy for the given identity (an email address or a domain). This API returns successfully even if a policy with the specified name does not exist.</p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the DeleteIdentityPolicy service method.
 
@@ -309,7 +309,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESDeleteIdentityPolicyResponse *> *)deleteIdentityPolicy:(AWSSESDeleteIdentityPolicyRequest *)request;
 
 /**
- <p>Deletes the specified sending authorization policy for the given identity (email address or domain). This API returns successfully even if a policy with the specified name does not exist.</p><note>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
+ <p>Deletes the specified sending authorization policy for the given identity (an email address or a domain). This API returns successfully even if a policy with the specified name does not exist.</p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the DeleteIdentityPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -372,7 +372,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteReceiptRule:(AWSSESDeleteReceiptRuleRequest *)request completionHandler:(void (^ _Nullable)(AWSSESDeleteReceiptRuleResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified receipt rule set and all of the receipt rules it contains.</p><note>The currently active rule set cannot be deleted.</note><p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
+ <p>Deletes the specified receipt rule set and all of the receipt rules it contains.</p><note><p>The currently active rule set cannot be deleted.</p></note><p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the DeleteReceiptRuleSet service method.
 
@@ -384,7 +384,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESDeleteReceiptRuleSetResponse *> *)deleteReceiptRuleSet:(AWSSESDeleteReceiptRuleSetRequest *)request;
 
 /**
- <p>Deletes the specified receipt rule set and all of the receipt rules it contains.</p><note>The currently active rule set cannot be deleted.</note><p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
+ <p>Deletes the specified receipt rule set and all of the receipt rules it contains.</p><note><p>The currently active rule set cannot be deleted.</p></note><p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the DeleteReceiptRuleSet service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -397,7 +397,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteReceiptRuleSet:(AWSSESDeleteReceiptRuleSetRequest *)request completionHandler:(void (^ _Nullable)(AWSSESDeleteReceiptRuleSetResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified email address from the list of verified addresses.</p><important>The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The DeleteIdentity action is now preferred.</important><p>This action is throttled at one request per second.</p>
+ <p>Deletes the specified email address from the list of verified addresses.</p><important><p>The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The DeleteIdentity action is now preferred.</p></important><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the DeleteVerifiedEmailAddress service method.
 
@@ -408,7 +408,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)deleteVerifiedEmailAddress:(AWSSESDeleteVerifiedEmailAddressRequest *)request;
 
 /**
- <p>Deletes the specified email address from the list of verified addresses.</p><important>The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The DeleteIdentity action is now preferred.</important><p>This action is throttled at one request per second.</p>
+ <p>Deletes the specified email address from the list of verified addresses.</p><important><p>The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The DeleteIdentity action is now preferred.</p></important><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the DeleteVerifiedEmailAddress service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -494,7 +494,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeReceiptRuleSet:(AWSSESDescribeReceiptRuleSetRequest *)request completionHandler:(void (^ _Nullable)(AWSSESDescribeReceiptRuleSetResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns the current status of Easy DKIM signing for an entity. For domain name identities, this action also returns the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES has successfully verified that these tokens have been published.</p><p>This action takes a list of identities as input and returns the following information for each:</p><ul><li>Whether Easy DKIM signing is enabled or disabled.</li><li>A set of DKIM tokens that represent the identity. If the identity is an email address, the tokens represent the domain of that address.</li><li>Whether Amazon SES has successfully verified the DKIM tokens published in the domain's DNS. This information is only returned for domain name identities, not for email addresses.</li></ul><p>This action is throttled at one request per second and can only get DKIM attributes for up to 100 identities at a time.</p><p>For more information about creating DNS records using DKIM tokens, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon SES Developer Guide</a>.</p>
+ <p>Returns the current status of Easy DKIM signing for an entity. For domain name identities, this action also returns the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES has successfully verified that these tokens have been published.</p><p>This action takes a list of identities as input and returns the following information for each:</p><ul><li><p>Whether Easy DKIM signing is enabled or disabled.</p></li><li><p>A set of DKIM tokens that represent the identity. If the identity is an email address, the tokens represent the domain of that address.</p></li><li><p>Whether Amazon SES has successfully verified the DKIM tokens published in the domain's DNS. This information is only returned for domain name identities, not for email addresses.</p></li></ul><p>This action is throttled at one request per second and can only get DKIM attributes for up to 100 identities at a time.</p><p>For more information about creating DNS records using DKIM tokens, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon SES Developer Guide</a>.</p>
  
  @param request A container for the necessary parameters to execute the GetIdentityDkimAttributes service method.
 
@@ -506,7 +506,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESGetIdentityDkimAttributesResponse *> *)getIdentityDkimAttributes:(AWSSESGetIdentityDkimAttributesRequest *)request;
 
 /**
- <p>Returns the current status of Easy DKIM signing for an entity. For domain name identities, this action also returns the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES has successfully verified that these tokens have been published.</p><p>This action takes a list of identities as input and returns the following information for each:</p><ul><li>Whether Easy DKIM signing is enabled or disabled.</li><li>A set of DKIM tokens that represent the identity. If the identity is an email address, the tokens represent the domain of that address.</li><li>Whether Amazon SES has successfully verified the DKIM tokens published in the domain's DNS. This information is only returned for domain name identities, not for email addresses.</li></ul><p>This action is throttled at one request per second and can only get DKIM attributes for up to 100 identities at a time.</p><p>For more information about creating DNS records using DKIM tokens, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon SES Developer Guide</a>.</p>
+ <p>Returns the current status of Easy DKIM signing for an entity. For domain name identities, this action also returns the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES has successfully verified that these tokens have been published.</p><p>This action takes a list of identities as input and returns the following information for each:</p><ul><li><p>Whether Easy DKIM signing is enabled or disabled.</p></li><li><p>A set of DKIM tokens that represent the identity. If the identity is an email address, the tokens represent the domain of that address.</p></li><li><p>Whether Amazon SES has successfully verified the DKIM tokens published in the domain's DNS. This information is only returned for domain name identities, not for email addresses.</p></li></ul><p>This action is throttled at one request per second and can only get DKIM attributes for up to 100 identities at a time.</p><p>For more information about creating DNS records using DKIM tokens, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon SES Developer Guide</a>.</p>
  
  @param request A container for the necessary parameters to execute the GetIdentityDkimAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -569,7 +569,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getIdentityNotificationAttributes:(AWSSESGetIdentityNotificationAttributesRequest *)request completionHandler:(void (^ _Nullable)(AWSSESGetIdentityNotificationAttributesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns the requested sending authorization policies for the given identity (email address or domain). The policies are returned as a map of policy names to policy contents. You can retrieve a maximum of 20 policies at a time.</p><note>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
+ <p>Returns the requested sending authorization policies for the given identity (an email address or a domain). The policies are returned as a map of policy names to policy contents. You can retrieve a maximum of 20 policies at a time.</p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the GetIdentityPolicies service method.
 
@@ -581,7 +581,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESGetIdentityPoliciesResponse *> *)getIdentityPolicies:(AWSSESGetIdentityPoliciesRequest *)request;
 
 /**
- <p>Returns the requested sending authorization policies for the given identity (email address or domain). The policies are returned as a map of policy names to policy contents. You can retrieve a maximum of 20 policies at a time.</p><note>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
+ <p>Returns the requested sending authorization policies for the given identity (an email address or a domain). The policies are returned as a map of policy names to policy contents. You can retrieve a maximum of 20 policies at a time.</p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the GetIdentityPolicies service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -644,7 +644,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getSendQuota:(AWSRequest *)request completionHandler:(void (^ _Nullable)(AWSSESGetSendQuotaResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns the user's sending statistics. The result is a list of data points, representing the last two weeks of sending activity. </p><p>Each data point in the list contains statistics for a 15-minute interval.</p><p>This action is throttled at one request per second.</p>
+ <p>Returns the user's sending statistics. The result is a list of data points, representing the last two weeks of sending activity.</p><p>Each data point in the list contains statistics for a 15-minute interval.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the GetSendStatistics service method.
 
@@ -656,7 +656,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESGetSendStatisticsResponse *> *)getSendStatistics:(AWSRequest *)request;
 
 /**
- <p>Returns the user's sending statistics. The result is a list of data points, representing the last two weeks of sending activity. </p><p>Each data point in the list contains statistics for a 15-minute interval.</p><p>This action is throttled at one request per second.</p>
+ <p>Returns the user's sending statistics. The result is a list of data points, representing the last two weeks of sending activity.</p><p>Each data point in the list contains statistics for a 15-minute interval.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the GetSendStatistics service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -669,7 +669,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getSendStatistics:(AWSRequest *)request completionHandler:(void (^ _Nullable)(AWSSESGetSendStatisticsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns a list containing all of the identities (email addresses and domains) for a specific AWS Account, regardless of verification status.</p><p>This action is throttled at one request per second.</p>
+ <p>Returns a list containing all of the identities (email addresses and domains) for your AWS account, regardless of verification status.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the ListIdentities service method.
 
@@ -681,7 +681,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESListIdentitiesResponse *> *)listIdentities:(AWSSESListIdentitiesRequest *)request;
 
 /**
- <p>Returns a list containing all of the identities (email addresses and domains) for a specific AWS Account, regardless of verification status.</p><p>This action is throttled at one request per second.</p>
+ <p>Returns a list containing all of the identities (email addresses and domains) for your AWS account, regardless of verification status.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the ListIdentities service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -694,7 +694,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listIdentities:(AWSSESListIdentitiesRequest *)request completionHandler:(void (^ _Nullable)(AWSSESListIdentitiesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns a list of sending authorization policies that are attached to the given identity (email address or domain). This API returns only a list. If you want the actual policy content, you can use <code>GetIdentityPolicies</code>.</p><note>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
+ <p>Returns a list of sending authorization policies that are attached to the given identity (an email address or a domain). This API returns only a list. If you want the actual policy content, you can use <code>GetIdentityPolicies</code>.</p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the ListIdentityPolicies service method.
 
@@ -706,7 +706,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESListIdentityPoliciesResponse *> *)listIdentityPolicies:(AWSSESListIdentityPoliciesRequest *)request;
 
 /**
- <p>Returns a list of sending authorization policies that are attached to the given identity (email address or domain). This API returns only a list. If you want the actual policy content, you can use <code>GetIdentityPolicies</code>.</p><note>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
+ <p>Returns a list of sending authorization policies that are attached to the given identity (an email address or a domain). This API returns only a list. If you want the actual policy content, you can use <code>GetIdentityPolicies</code>.</p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the ListIdentityPolicies service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -719,7 +719,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listIdentityPolicies:(AWSSESListIdentityPoliciesRequest *)request completionHandler:(void (^ _Nullable)(AWSSESListIdentityPoliciesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the IP address filters associated with your account.</p><p>For information about managing IP address filters, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
+ <p>Lists the IP address filters associated with your AWS account.</p><p>For information about managing IP address filters, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the ListReceiptFilters service method.
 
@@ -731,7 +731,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESListReceiptFiltersResponse *> *)listReceiptFilters:(AWSSESListReceiptFiltersRequest *)request;
 
 /**
- <p>Lists the IP address filters associated with your account.</p><p>For information about managing IP address filters, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
+ <p>Lists the IP address filters associated with your AWS account.</p><p>For information about managing IP address filters, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the ListReceiptFilters service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -769,7 +769,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listReceiptRuleSets:(AWSSESListReceiptRuleSetsRequest *)request completionHandler:(void (^ _Nullable)(AWSSESListReceiptRuleSetsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns a list containing all of the email addresses that have been verified.</p><important>The ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012 release of Domain Verification. The ListIdentities action is now preferred.</important><p>This action is throttled at one request per second.</p>
+ <p>Returns a list containing all of the email addresses that have been verified.</p><important><p>The ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012 release of Domain Verification. The ListIdentities action is now preferred.</p></important><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the ListVerifiedEmailAddresses service method.
 
@@ -781,7 +781,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESListVerifiedEmailAddressesResponse *> *)listVerifiedEmailAddresses:(AWSRequest *)request;
 
 /**
- <p>Returns a list containing all of the email addresses that have been verified.</p><important>The ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012 release of Domain Verification. The ListIdentities action is now preferred.</important><p>This action is throttled at one request per second.</p>
+ <p>Returns a list containing all of the email addresses that have been verified.</p><important><p>The ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012 release of Domain Verification. The ListIdentities action is now preferred.</p></important><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the ListVerifiedEmailAddresses service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -794,7 +794,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listVerifiedEmailAddresses:(AWSRequest *)request completionHandler:(void (^ _Nullable)(AWSSESListVerifiedEmailAddressesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds or updates a sending authorization policy for the specified identity (email address or domain).</p><note>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
+ <p>Adds or updates a sending authorization policy for the specified identity (an email address or a domain).</p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the PutIdentityPolicy service method.
 
@@ -806,7 +806,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESPutIdentityPolicyResponse *> *)putIdentityPolicy:(AWSSESPutIdentityPolicyRequest *)request;
 
 /**
- <p>Adds or updates a sending authorization policy for the specified identity (email address or domain).</p><note>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
+ <p>Adds or updates a sending authorization policy for the specified identity (an email address or a domain).</p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the PutIdentityPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -819,7 +819,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putIdentityPolicy:(AWSSESPutIdentityPolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSSESPutIdentityPolicyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Reorders the receipt rules within a receipt rule set.</p><note>All of the rules in the rule set must be represented in this request. That is, this API will return an error if the reorder request doesn't explicitly position all of the rules.</note><p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
+ <p>Reorders the receipt rules within a receipt rule set.</p><note><p>All of the rules in the rule set must be represented in this request. That is, this API will return an error if the reorder request doesn't explicitly position all of the rules.</p></note><p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the ReorderReceiptRuleSet service method.
 
@@ -831,7 +831,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESReorderReceiptRuleSetResponse *> *)reorderReceiptRuleSet:(AWSSESReorderReceiptRuleSetRequest *)request;
 
 /**
- <p>Reorders the receipt rules within a receipt rule set.</p><note>All of the rules in the rule set must be represented in this request. That is, this API will return an error if the reorder request doesn't explicitly position all of the rules.</note><p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
+ <p>Reorders the receipt rules within a receipt rule set.</p><note><p>All of the rules in the rule set must be represented in this request. That is, this API will return an error if the reorder request doesn't explicitly position all of the rules.</p></note><p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the ReorderReceiptRuleSet service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -844,7 +844,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)reorderReceiptRuleSet:(AWSSESReorderReceiptRuleSetRequest *)request completionHandler:(void (^ _Nullable)(AWSSESReorderReceiptRuleSetResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Generates and sends a bounce message to the sender of an email you received through Amazon SES. You can only use this API on an email up to 24 hours after you receive it.</p><note>You cannot use this API to send generic bounces for mail that was not received by Amazon SES.</note><p>For information about receiving email through Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
+ <p>Generates and sends a bounce message to the sender of an email you received through Amazon SES. You can only use this API on an email up to 24 hours after you receive it.</p><note><p>You cannot use this API to send generic bounces for mail that was not received by Amazon SES.</p></note><p>For information about receiving email through Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the SendBounce service method.
 
@@ -856,7 +856,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESSendBounceResponse *> *)sendBounce:(AWSSESSendBounceRequest *)request;
 
 /**
- <p>Generates and sends a bounce message to the sender of an email you received through Amazon SES. You can only use this API on an email up to 24 hours after you receive it.</p><note>You cannot use this API to send generic bounces for mail that was not received by Amazon SES.</note><p>For information about receiving email through Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
+ <p>Generates and sends a bounce message to the sender of an email you received through Amazon SES. You can only use this API on an email up to 24 hours after you receive it.</p><note><p>You cannot use this API to send generic bounces for mail that was not received by Amazon SES.</p></note><p>For information about receiving email through Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the SendBounce service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -869,7 +869,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sendBounce:(AWSSESSendBounceRequest *)request completionHandler:(void (^ _Nullable)(AWSSESSendBounceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Composes an email message based on input data, and then immediately queues the message for sending. </p><p>There are several important points to know about <code>SendEmail</code>:</p><ul><li>You can only send email from verified email addresses and domains; otherwise, you will get an "Email address not verified" error. If your account is still in the Amazon SES sandbox, you must also verify every recipient email address except for the recipients provided by the Amazon SES mailbox simulator. For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer Guide</a>.</li><li>The total size of the message cannot exceed 10 MB. This includes any attachments that are part of the message.</li><li>Amazon SES has a limit on the total number of recipients per message. The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.</li><li>For every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your sending quota - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Amazon SES Developer Guide</a>.</li></ul>
+ <p>Composes an email message based on input data, and then immediately queues the message for sending.</p><p>There are several important points to know about <code>SendEmail</code>:</p><ul><li><p>You can only send email from verified email addresses and domains; otherwise, you will get an "Email address not verified" error. If your account is still in the Amazon SES sandbox, you must also verify every recipient email address except for the recipients provided by the Amazon SES mailbox simulator. For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer Guide</a>.</p></li><li><p>The total size of the message cannot exceed 10 MB. This includes any attachments that are part of the message.</p></li><li><p>Amazon SES has a limit on the total number of recipients per message. The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.</p></li><li><p>For every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your sending quota - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Amazon SES Developer Guide</a>.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the SendEmail service method.
 
@@ -881,7 +881,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESSendEmailResponse *> *)sendEmail:(AWSSESSendEmailRequest *)request;
 
 /**
- <p>Composes an email message based on input data, and then immediately queues the message for sending. </p><p>There are several important points to know about <code>SendEmail</code>:</p><ul><li>You can only send email from verified email addresses and domains; otherwise, you will get an "Email address not verified" error. If your account is still in the Amazon SES sandbox, you must also verify every recipient email address except for the recipients provided by the Amazon SES mailbox simulator. For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer Guide</a>.</li><li>The total size of the message cannot exceed 10 MB. This includes any attachments that are part of the message.</li><li>Amazon SES has a limit on the total number of recipients per message. The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.</li><li>For every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your sending quota - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Amazon SES Developer Guide</a>.</li></ul>
+ <p>Composes an email message based on input data, and then immediately queues the message for sending.</p><p>There are several important points to know about <code>SendEmail</code>:</p><ul><li><p>You can only send email from verified email addresses and domains; otherwise, you will get an "Email address not verified" error. If your account is still in the Amazon SES sandbox, you must also verify every recipient email address except for the recipients provided by the Amazon SES mailbox simulator. For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer Guide</a>.</p></li><li><p>The total size of the message cannot exceed 10 MB. This includes any attachments that are part of the message.</p></li><li><p>Amazon SES has a limit on the total number of recipients per message. The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.</p></li><li><p>For every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your sending quota - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Amazon SES Developer Guide</a>.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the SendEmail service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -894,7 +894,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sendEmail:(AWSSESSendEmailRequest *)request completionHandler:(void (^ _Nullable)(AWSSESSendEmailResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sends an email message, with header and content specified by the client. The <code>SendRawEmail</code> action is useful for sending multipart MIME emails. The raw text of the message must comply with Internet email standards; otherwise, the message cannot be sent. </p><p>There are several important points to know about <code>SendRawEmail</code>:</p><ul><li>You can only send email from verified email addresses and domains; otherwise, you will get an "Email address not verified" error. If your account is still in the Amazon SES sandbox, you must also verify every recipient email address except for the recipients provided by the Amazon SES mailbox simulator. For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer Guide</a>.</li><li>The total size of the message cannot exceed 10 MB. This includes any attachments that are part of the message.</li><li>Amazon SES has a limit on the total number of recipients per message. The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.</li><li>The To:, CC:, and BCC: headers in the raw message can contain a group list. Note that each recipient in a group list counts towards the 50-recipient limit.</li><li>For every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your sending quota - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Amazon SES Developer Guide</a>.</li><li>If you are using sending authorization to send on behalf of another user, <code>SendRawEmail</code> enables you to specify the cross-account identity for the email's "Source," "From," and "Return-Path" parameters in one of two ways: you can pass optional parameters <code>SourceArn</code>, <code>FromArn</code>, and/or <code>ReturnPathArn</code> to the API, or you can include the following X-headers in the header of your raw email: <ul><li><code>X-SES-SOURCE-ARN</code></li><li><code>X-SES-FROM-ARN</code></li><li><code>X-SES-RETURN-PATH-ARN</code></li></ul><important>Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email.</important> For the most common sending authorization use case, we recommend that you specify the <code>SourceIdentityArn</code> and do not specify either the <code>FromIdentityArn</code> or <code>ReturnPathIdentityArn</code>. (The same note applies to the corresponding X-headers.) If you only specify the <code>SourceIdentityArn</code>, Amazon SES will simply set the "From" address and the "Return Path" address to the identity specified in <code>SourceIdentityArn</code>. For more information about sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</li></ul>
+ <p>Sends an email message, with header and content specified by the client. The <code>SendRawEmail</code> action is useful for sending multipart MIME emails. The raw text of the message must comply with Internet email standards; otherwise, the message cannot be sent. </p><p>There are several important points to know about <code>SendRawEmail</code>:</p><ul><li><p>You can only send email from verified email addresses and domains; otherwise, you will get an "Email address not verified" error. If your account is still in the Amazon SES sandbox, you must also verify every recipient email address except for the recipients provided by the Amazon SES mailbox simulator. For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer Guide</a>.</p></li><li><p>The total size of the message cannot exceed 10 MB. This includes any attachments that are part of the message.</p></li><li><p>Amazon SES has a limit on the total number of recipients per message. The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.</p></li><li><p>The To:, CC:, and BCC: headers in the raw message can contain a group list. Note that each recipient in a group list counts towards the 50-recipient limit.</p></li><li><p>Amazon SES overrides any Message-ID and Date headers you provide.</p></li><li><p>For every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your sending quota - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Amazon SES Developer Guide</a>.</p></li><li><p>If you are using sending authorization to send on behalf of another user, <code>SendRawEmail</code> enables you to specify the cross-account identity for the email's "Source," "From," and "Return-Path" parameters in one of two ways: you can pass optional parameters <code>SourceArn</code>, <code>FromArn</code>, and/or <code>ReturnPathArn</code> to the API, or you can include the following X-headers in the header of your raw email:</p><ul><li><p><code>X-SES-SOURCE-ARN</code></p></li><li><p><code>X-SES-FROM-ARN</code></p></li><li><p><code>X-SES-RETURN-PATH-ARN</code></p></li></ul><important><p>Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email.</p></important><p>For the most common sending authorization use case, we recommend that you specify the <code>SourceIdentityArn</code> and do not specify either the <code>FromIdentityArn</code> or <code>ReturnPathIdentityArn</code>. (The same note applies to the corresponding X-headers.) If you only specify the <code>SourceIdentityArn</code>, Amazon SES will simply set the "From" address and the "Return Path" address to the identity specified in <code>SourceIdentityArn</code>. For more information about sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the SendRawEmail service method.
 
@@ -906,7 +906,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESSendRawEmailResponse *> *)sendRawEmail:(AWSSESSendRawEmailRequest *)request;
 
 /**
- <p>Sends an email message, with header and content specified by the client. The <code>SendRawEmail</code> action is useful for sending multipart MIME emails. The raw text of the message must comply with Internet email standards; otherwise, the message cannot be sent. </p><p>There are several important points to know about <code>SendRawEmail</code>:</p><ul><li>You can only send email from verified email addresses and domains; otherwise, you will get an "Email address not verified" error. If your account is still in the Amazon SES sandbox, you must also verify every recipient email address except for the recipients provided by the Amazon SES mailbox simulator. For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer Guide</a>.</li><li>The total size of the message cannot exceed 10 MB. This includes any attachments that are part of the message.</li><li>Amazon SES has a limit on the total number of recipients per message. The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.</li><li>The To:, CC:, and BCC: headers in the raw message can contain a group list. Note that each recipient in a group list counts towards the 50-recipient limit.</li><li>For every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your sending quota - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Amazon SES Developer Guide</a>.</li><li>If you are using sending authorization to send on behalf of another user, <code>SendRawEmail</code> enables you to specify the cross-account identity for the email's "Source," "From," and "Return-Path" parameters in one of two ways: you can pass optional parameters <code>SourceArn</code>, <code>FromArn</code>, and/or <code>ReturnPathArn</code> to the API, or you can include the following X-headers in the header of your raw email: <ul><li><code>X-SES-SOURCE-ARN</code></li><li><code>X-SES-FROM-ARN</code></li><li><code>X-SES-RETURN-PATH-ARN</code></li></ul><important>Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email.</important> For the most common sending authorization use case, we recommend that you specify the <code>SourceIdentityArn</code> and do not specify either the <code>FromIdentityArn</code> or <code>ReturnPathIdentityArn</code>. (The same note applies to the corresponding X-headers.) If you only specify the <code>SourceIdentityArn</code>, Amazon SES will simply set the "From" address and the "Return Path" address to the identity specified in <code>SourceIdentityArn</code>. For more information about sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</li></ul>
+ <p>Sends an email message, with header and content specified by the client. The <code>SendRawEmail</code> action is useful for sending multipart MIME emails. The raw text of the message must comply with Internet email standards; otherwise, the message cannot be sent. </p><p>There are several important points to know about <code>SendRawEmail</code>:</p><ul><li><p>You can only send email from verified email addresses and domains; otherwise, you will get an "Email address not verified" error. If your account is still in the Amazon SES sandbox, you must also verify every recipient email address except for the recipients provided by the Amazon SES mailbox simulator. For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer Guide</a>.</p></li><li><p>The total size of the message cannot exceed 10 MB. This includes any attachments that are part of the message.</p></li><li><p>Amazon SES has a limit on the total number of recipients per message. The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.</p></li><li><p>The To:, CC:, and BCC: headers in the raw message can contain a group list. Note that each recipient in a group list counts towards the 50-recipient limit.</p></li><li><p>Amazon SES overrides any Message-ID and Date headers you provide.</p></li><li><p>For every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your sending quota - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Amazon SES Developer Guide</a>.</p></li><li><p>If you are using sending authorization to send on behalf of another user, <code>SendRawEmail</code> enables you to specify the cross-account identity for the email's "Source," "From," and "Return-Path" parameters in one of two ways: you can pass optional parameters <code>SourceArn</code>, <code>FromArn</code>, and/or <code>ReturnPathArn</code> to the API, or you can include the following X-headers in the header of your raw email:</p><ul><li><p><code>X-SES-SOURCE-ARN</code></p></li><li><p><code>X-SES-FROM-ARN</code></p></li><li><p><code>X-SES-RETURN-PATH-ARN</code></p></li></ul><important><p>Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email.</p></important><p>For the most common sending authorization use case, we recommend that you specify the <code>SourceIdentityArn</code> and do not specify either the <code>FromIdentityArn</code> or <code>ReturnPathIdentityArn</code>. (The same note applies to the corresponding X-headers.) If you only specify the <code>SourceIdentityArn</code>, Amazon SES will simply set the "From" address and the "Return Path" address to the identity specified in <code>SourceIdentityArn</code>. For more information about sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the SendRawEmail service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -919,7 +919,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sendRawEmail:(AWSSESSendRawEmailRequest *)request completionHandler:(void (^ _Nullable)(AWSSESSendRawEmailResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets the specified receipt rule set as the active receipt rule set.</p><note>To disable your email-receiving through Amazon SES completely, you can call this API with RuleSetName set to null.</note><p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
+ <p>Sets the specified receipt rule set as the active receipt rule set.</p><note><p>To disable your email-receiving through Amazon SES completely, you can call this API with RuleSetName set to null.</p></note><p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the SetActiveReceiptRuleSet service method.
 
@@ -931,7 +931,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESSetActiveReceiptRuleSetResponse *> *)setActiveReceiptRuleSet:(AWSSESSetActiveReceiptRuleSetRequest *)request;
 
 /**
- <p>Sets the specified receipt rule set as the active receipt rule set.</p><note>To disable your email-receiving through Amazon SES completely, you can call this API with RuleSetName set to null.</note><p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
+ <p>Sets the specified receipt rule set as the active receipt rule set.</p><note><p>To disable your email-receiving through Amazon SES completely, you can call this API with RuleSetName set to null.</p></note><p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the SetActiveReceiptRuleSet service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -944,7 +944,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setActiveReceiptRuleSet:(AWSSESSetActiveReceiptRuleSetRequest *)request completionHandler:(void (^ _Nullable)(AWSSESSetActiveReceiptRuleSetResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Enables or disables Easy DKIM signing of email sent from an identity:</p><ul><li>If Easy DKIM signing is enabled for a domain name identity (e.g., <code>example.com</code>), then Amazon SES will DKIM-sign all email sent by addresses under that domain name (e.g., <code>user@example.com</code>).</li><li>If Easy DKIM signing is enabled for an email address, then Amazon SES will DKIM-sign all email sent by that email address.</li></ul><p>For email addresses (e.g., <code>user@example.com</code>), you can only enable Easy DKIM signing if the corresponding domain (e.g., <code>example.com</code>) has been set up for Easy DKIM using the AWS Console or the <code>VerifyDomainDkim</code> action.</p><p>This action is throttled at one request per second.</p><p>For more information about Easy DKIM signing, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
+ <p>Enables or disables Easy DKIM signing of email sent from an identity:</p><ul><li><p>If Easy DKIM signing is enabled for a domain name identity (e.g., <code>example.com</code>), then Amazon SES will DKIM-sign all email sent by addresses under that domain name (e.g., <code>user@example.com</code>).</p></li><li><p>If Easy DKIM signing is enabled for an email address, then Amazon SES will DKIM-sign all email sent by that email address.</p></li></ul><p>For email addresses (e.g., <code>user@example.com</code>), you can only enable Easy DKIM signing if the corresponding domain (e.g., <code>example.com</code>) has been set up for Easy DKIM using the AWS Console or the <code>VerifyDomainDkim</code> action.</p><p>This action is throttled at one request per second.</p><p>For more information about Easy DKIM signing, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
  
  @param request A container for the necessary parameters to execute the SetIdentityDkimEnabled service method.
 
@@ -956,7 +956,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESSetIdentityDkimEnabledResponse *> *)setIdentityDkimEnabled:(AWSSESSetIdentityDkimEnabledRequest *)request;
 
 /**
- <p>Enables or disables Easy DKIM signing of email sent from an identity:</p><ul><li>If Easy DKIM signing is enabled for a domain name identity (e.g., <code>example.com</code>), then Amazon SES will DKIM-sign all email sent by addresses under that domain name (e.g., <code>user@example.com</code>).</li><li>If Easy DKIM signing is enabled for an email address, then Amazon SES will DKIM-sign all email sent by that email address.</li></ul><p>For email addresses (e.g., <code>user@example.com</code>), you can only enable Easy DKIM signing if the corresponding domain (e.g., <code>example.com</code>) has been set up for Easy DKIM using the AWS Console or the <code>VerifyDomainDkim</code> action.</p><p>This action is throttled at one request per second.</p><p>For more information about Easy DKIM signing, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
+ <p>Enables or disables Easy DKIM signing of email sent from an identity:</p><ul><li><p>If Easy DKIM signing is enabled for a domain name identity (e.g., <code>example.com</code>), then Amazon SES will DKIM-sign all email sent by addresses under that domain name (e.g., <code>user@example.com</code>).</p></li><li><p>If Easy DKIM signing is enabled for an email address, then Amazon SES will DKIM-sign all email sent by that email address.</p></li></ul><p>For email addresses (e.g., <code>user@example.com</code>), you can only enable Easy DKIM signing if the corresponding domain (e.g., <code>example.com</code>) has been set up for Easy DKIM using the AWS Console or the <code>VerifyDomainDkim</code> action.</p><p>This action is throttled at one request per second.</p><p>For more information about Easy DKIM signing, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
  
  @param request A container for the necessary parameters to execute the SetIdentityDkimEnabled service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -969,7 +969,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setIdentityDkimEnabled:(AWSSESSetIdentityDkimEnabledRequest *)request completionHandler:(void (^ _Nullable)(AWSSESSetIdentityDkimEnabledResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Given an identity (email address or domain), enables or disables whether Amazon SES forwards bounce and complaint notifications as email. Feedback forwarding can only be disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and complaints.</p><note>Feedback forwarding does not apply to delivery notifications. Delivery notifications are only available through Amazon SNS.</note><p>This action is throttled at one request per second.</p><p>For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
+ <p>Given an identity (an email address or a domain), enables or disables whether Amazon SES forwards bounce and complaint notifications as email. Feedback forwarding can only be disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and complaints.</p><note><p>Feedback forwarding does not apply to delivery notifications. Delivery notifications are only available through Amazon SNS.</p></note><p>This action is throttled at one request per second.</p><p>For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
  
  @param request A container for the necessary parameters to execute the SetIdentityFeedbackForwardingEnabled service method.
 
@@ -981,7 +981,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESSetIdentityFeedbackForwardingEnabledResponse *> *)setIdentityFeedbackForwardingEnabled:(AWSSESSetIdentityFeedbackForwardingEnabledRequest *)request;
 
 /**
- <p>Given an identity (email address or domain), enables or disables whether Amazon SES forwards bounce and complaint notifications as email. Feedback forwarding can only be disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and complaints.</p><note>Feedback forwarding does not apply to delivery notifications. Delivery notifications are only available through Amazon SNS.</note><p>This action is throttled at one request per second.</p><p>For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
+ <p>Given an identity (an email address or a domain), enables or disables whether Amazon SES forwards bounce and complaint notifications as email. Feedback forwarding can only be disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and complaints.</p><note><p>Feedback forwarding does not apply to delivery notifications. Delivery notifications are only available through Amazon SNS.</p></note><p>This action is throttled at one request per second.</p><p>For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
  
  @param request A container for the necessary parameters to execute the SetIdentityFeedbackForwardingEnabled service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -994,7 +994,32 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setIdentityFeedbackForwardingEnabled:(AWSSESSetIdentityFeedbackForwardingEnabledRequest *)request completionHandler:(void (^ _Nullable)(AWSSESSetIdentityFeedbackForwardingEnabledResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Enables or disables the custom MAIL FROM domain setup for a verified identity (email address or domain). </p><important>To send emails using the specified MAIL FROM domain, you must add an MX record to your MAIL FROM domain's DNS settings. If you want your emails to pass Sender Policy Framework (SPF) checks, you must also add or update an SPF record. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html">Amazon SES Developer Guide</a>.</important><p>This action is throttled at one request per second.</p>
+ <p>Given an identity (an email address or a domain), sets whether Amazon SES includes the original email headers in the Amazon Simple Notification Service (Amazon SNS) notifications of a specified type.</p><p>This action is throttled at one request per second.</p><p>For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the SetIdentityHeadersInNotificationsEnabled service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSESSetIdentityHeadersInNotificationsEnabledResponse`.
+ 
+ @see AWSSESSetIdentityHeadersInNotificationsEnabledRequest
+ @see AWSSESSetIdentityHeadersInNotificationsEnabledResponse
+ */
+- (AWSTask<AWSSESSetIdentityHeadersInNotificationsEnabledResponse *> *)setIdentityHeadersInNotificationsEnabled:(AWSSESSetIdentityHeadersInNotificationsEnabledRequest *)request;
+
+/**
+ <p>Given an identity (an email address or a domain), sets whether Amazon SES includes the original email headers in the Amazon Simple Notification Service (Amazon SNS) notifications of a specified type.</p><p>This action is throttled at one request per second.</p><p>For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the SetIdentityHeadersInNotificationsEnabled service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSSESSetIdentityHeadersInNotificationsEnabledRequest
+ @see AWSSESSetIdentityHeadersInNotificationsEnabledResponse
+ */
+- (void)setIdentityHeadersInNotificationsEnabled:(AWSSESSetIdentityHeadersInNotificationsEnabledRequest *)request completionHandler:(void (^ _Nullable)(AWSSESSetIdentityHeadersInNotificationsEnabledResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Enables or disables the custom MAIL FROM domain setup for a verified identity (an email address or a domain).</p><important><p>To send emails using the specified MAIL FROM domain, you must add an MX record to your MAIL FROM domain's DNS settings. If you want your emails to pass Sender Policy Framework (SPF) checks, you must also add or update an SPF record. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html">Amazon SES Developer Guide</a>.</p></important><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the SetIdentityMailFromDomain service method.
 
@@ -1006,7 +1031,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESSetIdentityMailFromDomainResponse *> *)setIdentityMailFromDomain:(AWSSESSetIdentityMailFromDomainRequest *)request;
 
 /**
- <p>Enables or disables the custom MAIL FROM domain setup for a verified identity (email address or domain). </p><important>To send emails using the specified MAIL FROM domain, you must add an MX record to your MAIL FROM domain's DNS settings. If you want your emails to pass Sender Policy Framework (SPF) checks, you must also add or update an SPF record. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html">Amazon SES Developer Guide</a>.</important><p>This action is throttled at one request per second.</p>
+ <p>Enables or disables the custom MAIL FROM domain setup for a verified identity (an email address or a domain).</p><important><p>To send emails using the specified MAIL FROM domain, you must add an MX record to your MAIL FROM domain's DNS settings. If you want your emails to pass Sender Policy Framework (SPF) checks, you must also add or update an SPF record. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html">Amazon SES Developer Guide</a>.</p></important><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the SetIdentityMailFromDomain service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1019,7 +1044,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setIdentityMailFromDomain:(AWSSESSetIdentityMailFromDomainRequest *)request completionHandler:(void (^ _Nullable)(AWSSESSetIdentityMailFromDomainResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Given an identity (email address or domain), sets the Amazon Simple Notification Service (Amazon SNS) topic to which Amazon SES will publish bounce, complaint, and/or delivery notifications for emails sent with that identity as the <code>Source</code>.</p><note>Unless feedback forwarding is enabled, you must specify Amazon SNS topics for bounce and complaint notifications. For more information, see <code>SetIdentityFeedbackForwardingEnabled</code>. </note><p>This action is throttled at one request per second.</p><p>For more information about feedback notification, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
+ <p>Given an identity (an email address or a domain), sets the Amazon Simple Notification Service (Amazon SNS) topic to which Amazon SES will publish bounce, complaint, and/or delivery notifications for emails sent with that identity as the <code>Source</code>.</p><note><p>Unless feedback forwarding is enabled, you must specify Amazon SNS topics for bounce and complaint notifications. For more information, see <code>SetIdentityFeedbackForwardingEnabled</code>.</p></note><p>This action is throttled at one request per second.</p><p>For more information about feedback notification, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
  
  @param request A container for the necessary parameters to execute the SetIdentityNotificationTopic service method.
 
@@ -1031,7 +1056,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSESSetIdentityNotificationTopicResponse *> *)setIdentityNotificationTopic:(AWSSESSetIdentityNotificationTopicRequest *)request;
 
 /**
- <p>Given an identity (email address or domain), sets the Amazon Simple Notification Service (Amazon SNS) topic to which Amazon SES will publish bounce, complaint, and/or delivery notifications for emails sent with that identity as the <code>Source</code>.</p><note>Unless feedback forwarding is enabled, you must specify Amazon SNS topics for bounce and complaint notifications. For more information, see <code>SetIdentityFeedbackForwardingEnabled</code>. </note><p>This action is throttled at one request per second.</p><p>For more information about feedback notification, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
+ <p>Given an identity (an email address or a domain), sets the Amazon Simple Notification Service (Amazon SNS) topic to which Amazon SES will publish bounce, complaint, and/or delivery notifications for emails sent with that identity as the <code>Source</code>.</p><note><p>Unless feedback forwarding is enabled, you must specify Amazon SNS topics for bounce and complaint notifications. For more information, see <code>SetIdentityFeedbackForwardingEnabled</code>.</p></note><p>This action is throttled at one request per second.</p><p>For more information about feedback notification, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
  
  @param request A container for the necessary parameters to execute the SetIdentityNotificationTopic service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1144,7 +1169,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)verifyDomainIdentity:(AWSSESVerifyDomainIdentityRequest *)request completionHandler:(void (^ _Nullable)(AWSSESVerifyDomainIdentityResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Verifies an email address. This action causes a confirmation email message to be sent to the specified address.</p><important>The VerifyEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The VerifyEmailIdentity action is now preferred.</important><p>This action is throttled at one request per second.</p>
+ <p>Verifies an email address. This action causes a confirmation email message to be sent to the specified address.</p><important><p>The VerifyEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The VerifyEmailIdentity action is now preferred.</p></important><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the VerifyEmailAddress service method.
 
@@ -1155,7 +1180,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)verifyEmailAddress:(AWSSESVerifyEmailAddressRequest *)request;
 
 /**
- <p>Verifies an email address. This action causes a confirmation email message to be sent to the specified address.</p><important>The VerifyEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The VerifyEmailIdentity action is now preferred.</important><p>This action is throttled at one request per second.</p>
+ <p>Verifies an email address. This action causes a confirmation email message to be sent to the specified address.</p><important><p>The VerifyEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The VerifyEmailIdentity action is now preferred.</p></important><p>This action is throttled at one request per second.</p>
  
  @param request A container for the necessary parameters to execute the VerifyEmailAddress service method.
  @param completionHandler The completion handler to call when the load request is complete.

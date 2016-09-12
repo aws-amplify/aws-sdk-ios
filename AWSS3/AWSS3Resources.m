@@ -1334,7 +1334,7 @@
         },\
         \"SSECustomerKey\":{\
           \"shape\":\"SSECustomerKey\",\
-          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.\",\
+          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header.\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key\"\
         },\
@@ -1657,7 +1657,7 @@
         },\
         \"SSECustomerKey\":{\
           \"shape\":\"SSECustomerKey\",\
-          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.\",\
+          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header.\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key\"\
         },\
@@ -2605,7 +2605,7 @@
         },\
         \"SSECustomerKey\":{\
           \"shape\":\"SSECustomerKey\",\
-          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.\",\
+          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header.\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key\"\
         },\
@@ -2932,7 +2932,7 @@
         },\
         \"SSECustomerKey\":{\
           \"shape\":\"SSECustomerKey\",\
-          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.\",\
+          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header.\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key\"\
         },\
@@ -4539,7 +4539,7 @@
         },\
         \"SSECustomerKey\":{\
           \"shape\":\"SSECustomerKey\",\
-          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.\",\
+          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header.\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key\"\
         },\
@@ -5138,7 +5138,7 @@
         },\
         \"SSECustomerKey\":{\
           \"shape\":\"SSECustomerKey\",\
-          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.\",\
+          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key\"\
         },\
@@ -5271,7 +5271,7 @@
         },\
         \"SSECustomerKey\":{\
           \"shape\":\"SSECustomerKey\",\
-          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.\",\
+          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key\"\
         },\

@@ -247,14 +247,14 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTableStatus) {
 @property (nonatomic, strong) NSString * _Nullable N;
 
 /**
- <p>A Null data type.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable NIL;
-
-/**
  <p>A Number Set data type.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable NS;
+
+/**
+ <p>A Null data type.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable NIL;
 
 /**
  <p>A String data type.</p>

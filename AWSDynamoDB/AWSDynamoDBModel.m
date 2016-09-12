@@ -29,13 +29,13 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)attributeTypeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"S"]) {
+        if ([value caseInsensitiveCompare:@"S"] == NSOrderedSame) {
             return @(AWSDynamoDBScalarAttributeTypeS);
         }
-        if ([value isEqualToString:@"N"]) {
+        if ([value caseInsensitiveCompare:@"N"] == NSOrderedSame) {
             return @(AWSDynamoDBScalarAttributeTypeN);
         }
-        if ([value isEqualToString:@"B"]) {
+        if ([value caseInsensitiveCompare:@"B"] == NSOrderedSame) {
             return @(AWSDynamoDBScalarAttributeTypeB);
         }
         return @(AWSDynamoDBScalarAttributeTypeUnknown);
@@ -65,23 +65,23 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"L" : @"L",
              @"M" : @"M",
              @"N" : @"N",
-             @"NIL" : @"NULL",
              @"NS" : @"NS",
+             @"NIL" : @"NULL",
              @"S" : @"S",
              @"SS" : @"SS",
              };
 }
 
 + (NSValueTransformer *)LJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
 }
 
 + (NSValueTransformer *)MJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 @end
@@ -97,13 +97,13 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)actionJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"ADD"]) {
+        if ([value caseInsensitiveCompare:@"ADD"] == NSOrderedSame) {
             return @(AWSDynamoDBAttributeActionAdd);
         }
-        if ([value isEqualToString:@"PUT"]) {
+        if ([value caseInsensitiveCompare:@"PUT"] == NSOrderedSame) {
             return @(AWSDynamoDBAttributeActionPut);
         }
-        if ([value isEqualToString:@"DELETE"]) {
+        if ([value caseInsensitiveCompare:@"DELETE"] == NSOrderedSame) {
             return @(AWSDynamoDBAttributeActionDelete);
         }
         return @(AWSDynamoDBAttributeActionUnknown);
@@ -122,7 +122,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)valueJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
 }
 
 @end
@@ -137,22 +137,22 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)requestItemsJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBKeysAndAttributes class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBKeysAndAttributes class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)returnConsumedCapacityJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"INDEXES"]) {
+        if ([value caseInsensitiveCompare:@"INDEXES"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityIndexes);
         }
-        if ([value isEqualToString:@"TOTAL"]) {
+        if ([value caseInsensitiveCompare:@"TOTAL"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityTotal);
         }
-        if ([value isEqualToString:@"NONE"]) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityNone);
         }
         return @(AWSDynamoDBReturnConsumedCapacityUnknown);
@@ -183,23 +183,23 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)consumedCapacityJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
 }
 
 + (NSValueTransformer *)responsesJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONArrayDictionary:JSONDictionary arrayElementType:@"map" withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONArrayDictionaryFromMapMTLDictionary:mapMTLDictionary arrayElementType:@"map"];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONArrayDictionary:JSONDictionary arrayElementType:@"map" withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONArrayDictionaryFromMapMTLDictionary:mapMTLDictionary arrayElementType:@"map"];
+    }];
 }
 
 + (NSValueTransformer *)unprocessedKeysJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBKeysAndAttributes class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBKeysAndAttributes class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 @end
@@ -215,22 +215,22 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)requestItemsJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONArrayDictionary:JSONDictionary arrayElementType:@"structure" withModelClass:[AWSDynamoDBWriteRequest class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONArrayDictionaryFromMapMTLDictionary:mapMTLDictionary arrayElementType:@"structure"];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONArrayDictionary:JSONDictionary arrayElementType:@"structure" withModelClass:[AWSDynamoDBWriteRequest class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONArrayDictionaryFromMapMTLDictionary:mapMTLDictionary arrayElementType:@"structure"];
+    }];
 }
 
 + (NSValueTransformer *)returnConsumedCapacityJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"INDEXES"]) {
+        if ([value caseInsensitiveCompare:@"INDEXES"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityIndexes);
         }
-        if ([value isEqualToString:@"TOTAL"]) {
+        if ([value caseInsensitiveCompare:@"TOTAL"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityTotal);
         }
-        if ([value isEqualToString:@"NONE"]) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityNone);
         }
         return @(AWSDynamoDBReturnConsumedCapacityUnknown);
@@ -250,10 +250,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)returnItemCollectionMetricsJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"SIZE"]) {
+        if ([value caseInsensitiveCompare:@"SIZE"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnItemCollectionMetricsSize);
         }
-        if ([value isEqualToString:@"NONE"]) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnItemCollectionMetricsNone);
         }
         return @(AWSDynamoDBReturnItemCollectionMetricsUnknown);
@@ -282,23 +282,23 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)consumedCapacityJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
 }
 
 + (NSValueTransformer *)itemCollectionMetricsJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONArrayDictionary:JSONDictionary arrayElementType:@"structure" withModelClass:[AWSDynamoDBItemCollectionMetrics class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONArrayDictionaryFromMapMTLDictionary:mapMTLDictionary arrayElementType:@"structure"];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONArrayDictionary:JSONDictionary arrayElementType:@"structure" withModelClass:[AWSDynamoDBItemCollectionMetrics class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONArrayDictionaryFromMapMTLDictionary:mapMTLDictionary arrayElementType:@"structure"];
+    }];
 }
 
 + (NSValueTransformer *)unprocessedItemsJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONArrayDictionary:JSONDictionary arrayElementType:@"structure" withModelClass:[AWSDynamoDBWriteRequest class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONArrayDictionaryFromMapMTLDictionary:mapMTLDictionary arrayElementType:@"structure"];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONArrayDictionary:JSONDictionary arrayElementType:@"structure" withModelClass:[AWSDynamoDBWriteRequest class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONArrayDictionaryFromMapMTLDictionary:mapMTLDictionary arrayElementType:@"structure"];
+    }];
 }
 
 @end
@@ -323,48 +323,48 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)attributeValueListJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
 }
 
 + (NSValueTransformer *)comparisonOperatorJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"EQ"]) {
+        if ([value caseInsensitiveCompare:@"EQ"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorEQ);
         }
-        if ([value isEqualToString:@"NE"]) {
+        if ([value caseInsensitiveCompare:@"NE"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorNE);
         }
-        if ([value isEqualToString:@"IN"]) {
+        if ([value caseInsensitiveCompare:@"IN"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorIN);
         }
-        if ([value isEqualToString:@"LE"]) {
+        if ([value caseInsensitiveCompare:@"LE"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorLE);
         }
-        if ([value isEqualToString:@"LT"]) {
+        if ([value caseInsensitiveCompare:@"LT"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorLT);
         }
-        if ([value isEqualToString:@"GE"]) {
+        if ([value caseInsensitiveCompare:@"GE"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorGE);
         }
-        if ([value isEqualToString:@"GT"]) {
+        if ([value caseInsensitiveCompare:@"GT"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorGT);
         }
-        if ([value isEqualToString:@"BETWEEN"]) {
+        if ([value caseInsensitiveCompare:@"BETWEEN"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorBetween);
         }
-        if ([value isEqualToString:@"NOT_NULL"]) {
+        if ([value caseInsensitiveCompare:@"NOT_NULL"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorNotNull);
         }
-        if ([value isEqualToString:@"NULL"]) {
+        if ([value caseInsensitiveCompare:@"NULL"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorNull);
         }
-        if ([value isEqualToString:@"CONTAINS"]) {
+        if ([value caseInsensitiveCompare:@"CONTAINS"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorContains);
         }
-        if ([value isEqualToString:@"NOT_CONTAINS"]) {
+        if ([value caseInsensitiveCompare:@"NOT_CONTAINS"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorNotContains);
         }
-        if ([value isEqualToString:@"BEGINS_WITH"]) {
+        if ([value caseInsensitiveCompare:@"BEGINS_WITH"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorBeginsWith);
         }
         return @(AWSDynamoDBComparisonOperatorUnknown);
@@ -417,23 +417,23 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)globalSecondaryIndexesJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBCapacity class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBCapacity class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)localSecondaryIndexesJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBCapacity class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBCapacity class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)tableJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBCapacity class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBCapacity class]];
 }
 
 @end
@@ -450,15 +450,15 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keySchemaJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
 }
 
 + (NSValueTransformer *)projectionJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
 }
 
 @end
@@ -478,27 +478,27 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)attributeDefinitionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeDefinition class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeDefinition class]];
 }
 
 + (NSValueTransformer *)globalSecondaryIndexesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBGlobalSecondaryIndex class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBGlobalSecondaryIndex class]];
 }
 
 + (NSValueTransformer *)keySchemaJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
 }
 
 + (NSValueTransformer *)localSecondaryIndexesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBLocalSecondaryIndex class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBLocalSecondaryIndex class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
 }
 
 + (NSValueTransformer *)streamSpecificationJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBStreamSpecification class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBStreamSpecification class]];
 }
 
 @end
@@ -512,7 +512,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)tableDescriptionJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
 }
 
 @end
@@ -546,10 +546,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)conditionalOperatorJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"AND"]) {
+        if ([value caseInsensitiveCompare:@"AND"] == NSOrderedSame) {
             return @(AWSDynamoDBConditionalOperatorAnd);
         }
-        if ([value isEqualToString:@"OR"]) {
+        if ([value caseInsensitiveCompare:@"OR"] == NSOrderedSame) {
             return @(AWSDynamoDBConditionalOperatorOr);
         }
         return @(AWSDynamoDBConditionalOperatorUnknown);
@@ -566,38 +566,38 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)expectedJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBExpectedAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBExpectedAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)expressionAttributeValuesJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)keyJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)returnConsumedCapacityJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"INDEXES"]) {
+        if ([value caseInsensitiveCompare:@"INDEXES"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityIndexes);
         }
-        if ([value isEqualToString:@"TOTAL"]) {
+        if ([value caseInsensitiveCompare:@"TOTAL"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityTotal);
         }
-        if ([value isEqualToString:@"NONE"]) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityNone);
         }
         return @(AWSDynamoDBReturnConsumedCapacityUnknown);
@@ -617,10 +617,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)returnItemCollectionMetricsJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"SIZE"]) {
+        if ([value caseInsensitiveCompare:@"SIZE"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnItemCollectionMetricsSize);
         }
-        if ([value isEqualToString:@"NONE"]) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnItemCollectionMetricsNone);
         }
         return @(AWSDynamoDBReturnItemCollectionMetricsUnknown);
@@ -638,19 +638,19 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)returnValuesJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"NONE"]) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnValueNone);
         }
-        if ([value isEqualToString:@"ALL_OLD"]) {
+        if ([value caseInsensitiveCompare:@"ALL_OLD"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnValueAllOld);
         }
-        if ([value isEqualToString:@"UPDATED_OLD"]) {
+        if ([value caseInsensitiveCompare:@"UPDATED_OLD"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnValueUpdatedOld);
         }
-        if ([value isEqualToString:@"ALL_NEW"]) {
+        if ([value caseInsensitiveCompare:@"ALL_NEW"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnValueAllNew);
         }
-        if ([value isEqualToString:@"UPDATED_NEW"]) {
+        if ([value caseInsensitiveCompare:@"UPDATED_NEW"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnValueUpdatedNew);
         }
         return @(AWSDynamoDBReturnValueUnknown);
@@ -685,19 +685,19 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)attributesJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)consumedCapacityJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
 }
 
 + (NSValueTransformer *)itemCollectionMetricsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBItemCollectionMetrics class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBItemCollectionMetrics class]];
 }
 
 @end
@@ -711,11 +711,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keyJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 @end
@@ -739,7 +739,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)tableDescriptionJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
 }
 
 @end
@@ -780,7 +780,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)tableJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
 }
 
 @end
@@ -797,48 +797,48 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)attributeValueListJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
 }
 
 + (NSValueTransformer *)comparisonOperatorJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"EQ"]) {
+        if ([value caseInsensitiveCompare:@"EQ"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorEQ);
         }
-        if ([value isEqualToString:@"NE"]) {
+        if ([value caseInsensitiveCompare:@"NE"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorNE);
         }
-        if ([value isEqualToString:@"IN"]) {
+        if ([value caseInsensitiveCompare:@"IN"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorIN);
         }
-        if ([value isEqualToString:@"LE"]) {
+        if ([value caseInsensitiveCompare:@"LE"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorLE);
         }
-        if ([value isEqualToString:@"LT"]) {
+        if ([value caseInsensitiveCompare:@"LT"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorLT);
         }
-        if ([value isEqualToString:@"GE"]) {
+        if ([value caseInsensitiveCompare:@"GE"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorGE);
         }
-        if ([value isEqualToString:@"GT"]) {
+        if ([value caseInsensitiveCompare:@"GT"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorGT);
         }
-        if ([value isEqualToString:@"BETWEEN"]) {
+        if ([value caseInsensitiveCompare:@"BETWEEN"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorBetween);
         }
-        if ([value isEqualToString:@"NOT_NULL"]) {
+        if ([value caseInsensitiveCompare:@"NOT_NULL"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorNotNull);
         }
-        if ([value isEqualToString:@"NULL"]) {
+        if ([value caseInsensitiveCompare:@"NULL"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorNull);
         }
-        if ([value isEqualToString:@"CONTAINS"]) {
+        if ([value caseInsensitiveCompare:@"CONTAINS"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorContains);
         }
-        if ([value isEqualToString:@"NOT_CONTAINS"]) {
+        if ([value caseInsensitiveCompare:@"NOT_CONTAINS"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorNotContains);
         }
-        if ([value isEqualToString:@"BEGINS_WITH"]) {
+        if ([value caseInsensitiveCompare:@"BEGINS_WITH"] == NSOrderedSame) {
             return @(AWSDynamoDBComparisonOperatorBeginsWith);
         }
         return @(AWSDynamoDBComparisonOperatorUnknown);
@@ -877,7 +877,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)valueJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
 }
 
 @end
@@ -897,22 +897,22 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keyJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)returnConsumedCapacityJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"INDEXES"]) {
+        if ([value caseInsensitiveCompare:@"INDEXES"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityIndexes);
         }
-        if ([value isEqualToString:@"TOTAL"]) {
+        if ([value caseInsensitiveCompare:@"TOTAL"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityTotal);
         }
-        if ([value isEqualToString:@"NONE"]) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityNone);
         }
         return @(AWSDynamoDBReturnConsumedCapacityUnknown);
@@ -942,15 +942,15 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)consumedCapacityJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
 }
 
 + (NSValueTransformer *)itemJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 @end
@@ -967,15 +967,15 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keySchemaJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
 }
 
 + (NSValueTransformer *)projectionJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
 }
 
 @end
@@ -998,16 +998,16 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)indexStatusJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"CREATING"]) {
+        if ([value caseInsensitiveCompare:@"CREATING"] == NSOrderedSame) {
             return @(AWSDynamoDBIndexStatusCreating);
         }
-        if ([value isEqualToString:@"UPDATING"]) {
+        if ([value caseInsensitiveCompare:@"UPDATING"] == NSOrderedSame) {
             return @(AWSDynamoDBIndexStatusUpdating);
         }
-        if ([value isEqualToString:@"DELETING"]) {
+        if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
             return @(AWSDynamoDBIndexStatusDeleting);
         }
-        if ([value isEqualToString:@"ACTIVE"]) {
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
             return @(AWSDynamoDBIndexStatusActive);
         }
         return @(AWSDynamoDBIndexStatusUnknown);
@@ -1028,15 +1028,15 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keySchemaJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
 }
 
 + (NSValueTransformer *)projectionJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughputDescription class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughputDescription class]];
 }
 
 @end
@@ -1052,15 +1052,15 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)createJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBCreateGlobalSecondaryIndexAction class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBCreateGlobalSecondaryIndexAction class]];
 }
 
 + (NSValueTransformer *)removeJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBDeleteGlobalSecondaryIndexAction class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBDeleteGlobalSecondaryIndexAction class]];
 }
 
 + (NSValueTransformer *)updateJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBUpdateGlobalSecondaryIndexAction class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBUpdateGlobalSecondaryIndexAction class]];
 }
 
 @end
@@ -1075,11 +1075,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)itemCollectionKeyJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 @end
@@ -1095,10 +1095,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)keyTypeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"HASH"]) {
+        if ([value caseInsensitiveCompare:@"HASH"] == NSOrderedSame) {
             return @(AWSDynamoDBKeyTypeHash);
         }
-        if ([value isEqualToString:@"RANGE"]) {
+        if ([value caseInsensitiveCompare:@"RANGE"] == NSOrderedSame) {
             return @(AWSDynamoDBKeyTypeRange);
         }
         return @(AWSDynamoDBKeyTypeUnknown);
@@ -1129,11 +1129,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keysJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONArray) {
-		return [AWSModelUtility mapMTLArrayFromJSONArray:JSONArray withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLArray) {
-		return [AWSModelUtility JSONArrayFromMapMTLArray:mapMTLArray];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONArray) {
+        return [AWSModelUtility mapMTLArrayFromJSONArray:JSONArray withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLArray) {
+        return [AWSModelUtility JSONArrayFromMapMTLArray:mapMTLArray];
+    }];
 }
 
 @end
@@ -1171,11 +1171,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keySchemaJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
 }
 
 + (NSValueTransformer *)projectionJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
 }
 
 @end
@@ -1194,11 +1194,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)keySchemaJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
 }
 
 + (NSValueTransformer *)projectionJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
 }
 
 @end
@@ -1214,13 +1214,13 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)projectionTypeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"ALL"]) {
+        if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
             return @(AWSDynamoDBProjectionTypeAll);
         }
-        if ([value isEqualToString:@"KEYS_ONLY"]) {
+        if ([value caseInsensitiveCompare:@"KEYS_ONLY"] == NSOrderedSame) {
             return @(AWSDynamoDBProjectionTypeKeysOnly);
         }
-        if ([value isEqualToString:@"INCLUDE"]) {
+        if ([value caseInsensitiveCompare:@"INCLUDE"] == NSOrderedSame) {
             return @(AWSDynamoDBProjectionTypeInclude);
         }
         return @(AWSDynamoDBProjectionTypeUnknown);
@@ -1264,7 +1264,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)lastDecreaseDateTimeJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
@@ -1272,7 +1272,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)lastIncreaseDateTimeJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
@@ -1300,10 +1300,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)conditionalOperatorJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"AND"]) {
+        if ([value caseInsensitiveCompare:@"AND"] == NSOrderedSame) {
             return @(AWSDynamoDBConditionalOperatorAnd);
         }
-        if ([value isEqualToString:@"OR"]) {
+        if ([value caseInsensitiveCompare:@"OR"] == NSOrderedSame) {
             return @(AWSDynamoDBConditionalOperatorOr);
         }
         return @(AWSDynamoDBConditionalOperatorUnknown);
@@ -1320,38 +1320,38 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)expectedJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBExpectedAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBExpectedAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)expressionAttributeValuesJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)itemJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)returnConsumedCapacityJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"INDEXES"]) {
+        if ([value caseInsensitiveCompare:@"INDEXES"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityIndexes);
         }
-        if ([value isEqualToString:@"TOTAL"]) {
+        if ([value caseInsensitiveCompare:@"TOTAL"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityTotal);
         }
-        if ([value isEqualToString:@"NONE"]) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityNone);
         }
         return @(AWSDynamoDBReturnConsumedCapacityUnknown);
@@ -1371,10 +1371,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)returnItemCollectionMetricsJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"SIZE"]) {
+        if ([value caseInsensitiveCompare:@"SIZE"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnItemCollectionMetricsSize);
         }
-        if ([value isEqualToString:@"NONE"]) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnItemCollectionMetricsNone);
         }
         return @(AWSDynamoDBReturnItemCollectionMetricsUnknown);
@@ -1392,19 +1392,19 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)returnValuesJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"NONE"]) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnValueNone);
         }
-        if ([value isEqualToString:@"ALL_OLD"]) {
+        if ([value caseInsensitiveCompare:@"ALL_OLD"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnValueAllOld);
         }
-        if ([value isEqualToString:@"UPDATED_OLD"]) {
+        if ([value caseInsensitiveCompare:@"UPDATED_OLD"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnValueUpdatedOld);
         }
-        if ([value isEqualToString:@"ALL_NEW"]) {
+        if ([value caseInsensitiveCompare:@"ALL_NEW"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnValueAllNew);
         }
-        if ([value isEqualToString:@"UPDATED_NEW"]) {
+        if ([value caseInsensitiveCompare:@"UPDATED_NEW"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnValueUpdatedNew);
         }
         return @(AWSDynamoDBReturnValueUnknown);
@@ -1439,19 +1439,19 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)attributesJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)consumedCapacityJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
 }
 
 + (NSValueTransformer *)itemCollectionMetricsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBItemCollectionMetrics class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBItemCollectionMetrics class]];
 }
 
 @end
@@ -1465,11 +1465,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)itemJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 @end
@@ -1500,10 +1500,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)conditionalOperatorJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"AND"]) {
+        if ([value caseInsensitiveCompare:@"AND"] == NSOrderedSame) {
             return @(AWSDynamoDBConditionalOperatorAnd);
         }
-        if ([value isEqualToString:@"OR"]) {
+        if ([value caseInsensitiveCompare:@"OR"] == NSOrderedSame) {
             return @(AWSDynamoDBConditionalOperatorOr);
         }
         return @(AWSDynamoDBConditionalOperatorUnknown);
@@ -1520,46 +1520,46 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)exclusiveStartKeyJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)expressionAttributeValuesJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)keyConditionsJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBCondition class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBCondition class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)queryFilterJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBCondition class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBCondition class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)returnConsumedCapacityJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"INDEXES"]) {
+        if ([value caseInsensitiveCompare:@"INDEXES"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityIndexes);
         }
-        if ([value isEqualToString:@"TOTAL"]) {
+        if ([value caseInsensitiveCompare:@"TOTAL"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityTotal);
         }
-        if ([value isEqualToString:@"NONE"]) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityNone);
         }
         return @(AWSDynamoDBReturnConsumedCapacityUnknown);
@@ -1579,16 +1579,16 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)selectJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"ALL_ATTRIBUTES"]) {
+        if ([value caseInsensitiveCompare:@"ALL_ATTRIBUTES"] == NSOrderedSame) {
             return @(AWSDynamoDBSelectAllAttributes);
         }
-        if ([value isEqualToString:@"ALL_PROJECTED_ATTRIBUTES"]) {
+        if ([value caseInsensitiveCompare:@"ALL_PROJECTED_ATTRIBUTES"] == NSOrderedSame) {
             return @(AWSDynamoDBSelectAllProjectedAttributes);
         }
-        if ([value isEqualToString:@"SPECIFIC_ATTRIBUTES"]) {
+        if ([value caseInsensitiveCompare:@"SPECIFIC_ATTRIBUTES"] == NSOrderedSame) {
             return @(AWSDynamoDBSelectSpecificAttributes);
         }
-        if ([value isEqualToString:@"COUNT"]) {
+        if ([value caseInsensitiveCompare:@"COUNT"] == NSOrderedSame) {
             return @(AWSDynamoDBSelectCount);
         }
         return @(AWSDynamoDBSelectUnknown);
@@ -1623,23 +1623,23 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)consumedCapacityJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
 }
 
 + (NSValueTransformer *)itemsJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONArray) {
-		return [AWSModelUtility mapMTLArrayFromJSONArray:JSONArray withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLArray) {
-		return [AWSModelUtility JSONArrayFromMapMTLArray:mapMTLArray];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONArray) {
+        return [AWSModelUtility mapMTLArrayFromJSONArray:JSONArray withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLArray) {
+        return [AWSModelUtility JSONArrayFromMapMTLArray:mapMTLArray];
+    }];
 }
 
 + (NSValueTransformer *)lastEvaluatedKeyJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 @end
@@ -1669,10 +1669,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)conditionalOperatorJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"AND"]) {
+        if ([value caseInsensitiveCompare:@"AND"] == NSOrderedSame) {
             return @(AWSDynamoDBConditionalOperatorAnd);
         }
-        if ([value isEqualToString:@"OR"]) {
+        if ([value caseInsensitiveCompare:@"OR"] == NSOrderedSame) {
             return @(AWSDynamoDBConditionalOperatorOr);
         }
         return @(AWSDynamoDBConditionalOperatorUnknown);
@@ -1689,30 +1689,30 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)exclusiveStartKeyJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)expressionAttributeValuesJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)returnConsumedCapacityJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"INDEXES"]) {
+        if ([value caseInsensitiveCompare:@"INDEXES"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityIndexes);
         }
-        if ([value isEqualToString:@"TOTAL"]) {
+        if ([value caseInsensitiveCompare:@"TOTAL"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityTotal);
         }
-        if ([value isEqualToString:@"NONE"]) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityNone);
         }
         return @(AWSDynamoDBReturnConsumedCapacityUnknown);
@@ -1731,25 +1731,25 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)scanFilterJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBCondition class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBCondition class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)selectJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"ALL_ATTRIBUTES"]) {
+        if ([value caseInsensitiveCompare:@"ALL_ATTRIBUTES"] == NSOrderedSame) {
             return @(AWSDynamoDBSelectAllAttributes);
         }
-        if ([value isEqualToString:@"ALL_PROJECTED_ATTRIBUTES"]) {
+        if ([value caseInsensitiveCompare:@"ALL_PROJECTED_ATTRIBUTES"] == NSOrderedSame) {
             return @(AWSDynamoDBSelectAllProjectedAttributes);
         }
-        if ([value isEqualToString:@"SPECIFIC_ATTRIBUTES"]) {
+        if ([value caseInsensitiveCompare:@"SPECIFIC_ATTRIBUTES"] == NSOrderedSame) {
             return @(AWSDynamoDBSelectSpecificAttributes);
         }
-        if ([value isEqualToString:@"COUNT"]) {
+        if ([value caseInsensitiveCompare:@"COUNT"] == NSOrderedSame) {
             return @(AWSDynamoDBSelectCount);
         }
         return @(AWSDynamoDBSelectUnknown);
@@ -1784,23 +1784,23 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)consumedCapacityJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
 }
 
 + (NSValueTransformer *)itemsJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONArray) {
-		return [AWSModelUtility mapMTLArrayFromJSONArray:JSONArray withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLArray) {
-		return [AWSModelUtility JSONArrayFromMapMTLArray:mapMTLArray];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONArray) {
+        return [AWSModelUtility mapMTLArrayFromJSONArray:JSONArray withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLArray) {
+        return [AWSModelUtility JSONArrayFromMapMTLArray:mapMTLArray];
+    }];
 }
 
 + (NSValueTransformer *)lastEvaluatedKeyJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 @end
@@ -1816,16 +1816,16 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)streamViewTypeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"NEW_IMAGE"]) {
+        if ([value caseInsensitiveCompare:@"NEW_IMAGE"] == NSOrderedSame) {
             return @(AWSDynamoDBStreamViewTypeNewImage);
         }
-        if ([value isEqualToString:@"OLD_IMAGE"]) {
+        if ([value caseInsensitiveCompare:@"OLD_IMAGE"] == NSOrderedSame) {
             return @(AWSDynamoDBStreamViewTypeOldImage);
         }
-        if ([value isEqualToString:@"NEW_AND_OLD_IMAGES"]) {
+        if ([value caseInsensitiveCompare:@"NEW_AND_OLD_IMAGES"] == NSOrderedSame) {
             return @(AWSDynamoDBStreamViewTypeNewAndOldImages);
         }
-        if ([value isEqualToString:@"KEYS_ONLY"]) {
+        if ([value caseInsensitiveCompare:@"KEYS_ONLY"] == NSOrderedSame) {
             return @(AWSDynamoDBStreamViewTypeKeysOnly);
         }
         return @(AWSDynamoDBStreamViewTypeUnknown);
@@ -1869,11 +1869,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)attributeDefinitionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeDefinition class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeDefinition class]];
 }
 
 + (NSValueTransformer *)creationDateTimeJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
@@ -1881,37 +1881,37 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)globalSecondaryIndexesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBGlobalSecondaryIndexDescription class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBGlobalSecondaryIndexDescription class]];
 }
 
 + (NSValueTransformer *)keySchemaJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
 }
 
 + (NSValueTransformer *)localSecondaryIndexesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBLocalSecondaryIndexDescription class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBLocalSecondaryIndexDescription class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughputDescription class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughputDescription class]];
 }
 
 + (NSValueTransformer *)streamSpecificationJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBStreamSpecification class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBStreamSpecification class]];
 }
 
 + (NSValueTransformer *)tableStatusJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"CREATING"]) {
+        if ([value caseInsensitiveCompare:@"CREATING"] == NSOrderedSame) {
             return @(AWSDynamoDBTableStatusCreating);
         }
-        if ([value isEqualToString:@"UPDATING"]) {
+        if ([value caseInsensitiveCompare:@"UPDATING"] == NSOrderedSame) {
             return @(AWSDynamoDBTableStatusUpdating);
         }
-        if ([value isEqualToString:@"DELETING"]) {
+        if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
             return @(AWSDynamoDBTableStatusDeleting);
         }
-        if ([value isEqualToString:@"ACTIVE"]) {
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
             return @(AWSDynamoDBTableStatusActive);
         }
         return @(AWSDynamoDBTableStatusUnknown);
@@ -1943,7 +1943,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
 }
 
 @end
@@ -1968,19 +1968,19 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)attributeUpdatesJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValueUpdate class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValueUpdate class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)conditionalOperatorJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"AND"]) {
+        if ([value caseInsensitiveCompare:@"AND"] == NSOrderedSame) {
             return @(AWSDynamoDBConditionalOperatorAnd);
         }
-        if ([value isEqualToString:@"OR"]) {
+        if ([value caseInsensitiveCompare:@"OR"] == NSOrderedSame) {
             return @(AWSDynamoDBConditionalOperatorOr);
         }
         return @(AWSDynamoDBConditionalOperatorUnknown);
@@ -1997,38 +1997,38 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)expectedJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBExpectedAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBExpectedAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)expressionAttributeValuesJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)keyJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)returnConsumedCapacityJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"INDEXES"]) {
+        if ([value caseInsensitiveCompare:@"INDEXES"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityIndexes);
         }
-        if ([value isEqualToString:@"TOTAL"]) {
+        if ([value caseInsensitiveCompare:@"TOTAL"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityTotal);
         }
-        if ([value isEqualToString:@"NONE"]) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnConsumedCapacityNone);
         }
         return @(AWSDynamoDBReturnConsumedCapacityUnknown);
@@ -2048,10 +2048,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)returnItemCollectionMetricsJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"SIZE"]) {
+        if ([value caseInsensitiveCompare:@"SIZE"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnItemCollectionMetricsSize);
         }
-        if ([value isEqualToString:@"NONE"]) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnItemCollectionMetricsNone);
         }
         return @(AWSDynamoDBReturnItemCollectionMetricsUnknown);
@@ -2069,19 +2069,19 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)returnValuesJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"NONE"]) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnValueNone);
         }
-        if ([value isEqualToString:@"ALL_OLD"]) {
+        if ([value caseInsensitiveCompare:@"ALL_OLD"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnValueAllOld);
         }
-        if ([value isEqualToString:@"UPDATED_OLD"]) {
+        if ([value caseInsensitiveCompare:@"UPDATED_OLD"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnValueUpdatedOld);
         }
-        if ([value isEqualToString:@"ALL_NEW"]) {
+        if ([value caseInsensitiveCompare:@"ALL_NEW"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnValueAllNew);
         }
-        if ([value isEqualToString:@"UPDATED_NEW"]) {
+        if ([value caseInsensitiveCompare:@"UPDATED_NEW"] == NSOrderedSame) {
             return @(AWSDynamoDBReturnValueUpdatedNew);
         }
         return @(AWSDynamoDBReturnValueUnknown);
@@ -2116,19 +2116,19 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)attributesJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-		return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
-	} reverseBlock:^id(id mapMTLDictionary) {
-		return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
-	}];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 + (NSValueTransformer *)consumedCapacityJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
 }
 
 + (NSValueTransformer *)itemCollectionMetricsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBItemCollectionMetrics class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBItemCollectionMetrics class]];
 }
 
 @end
@@ -2146,19 +2146,19 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)attributeDefinitionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeDefinition class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeDefinition class]];
 }
 
 + (NSValueTransformer *)globalSecondaryIndexUpdatesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBGlobalSecondaryIndexUpdate class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBGlobalSecondaryIndexUpdate class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
 }
 
 + (NSValueTransformer *)streamSpecificationJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBStreamSpecification class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBStreamSpecification class]];
 }
 
 @end
@@ -2172,7 +2172,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)tableDescriptionJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
 }
 
 @end
@@ -2187,11 +2187,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)deleteRequestJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBDeleteRequest class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBDeleteRequest class]];
 }
 
 + (NSValueTransformer *)putRequestJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBPutRequest class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBPutRequest class]];
 }
 
 @end

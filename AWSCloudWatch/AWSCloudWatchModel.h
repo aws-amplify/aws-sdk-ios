@@ -127,27 +127,27 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 
 
 /**
- <p> The descriptive name for the alarm. </p>
+ <p>The descriptive name for the alarm.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable alarmName;
 
 /**
- <p> Machine-readable data about the alarm in JSON format. </p>
+ <p>Machine-readable data about the alarm in JSON format.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable historyData;
 
 /**
- <p> The type of alarm history item. </p>
+ <p>The type of alarm history item.</p>
  */
 @property (nonatomic, assign) AWSCloudWatchHistoryItemType historyItemType;
 
 /**
- <p> A human-readable summary of the alarm history. </p>
+ <p>A human-readable summary of the alarm history.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable historySummary;
 
 /**
- <p> The time stamp for the alarm history item. </p>
+ <p>The time stamp for the alarm history item.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable timestamp;
 
@@ -160,213 +160,215 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 
 
 /**
- <p> The average of metric values that correspond to the datapoint. </p>
+ <p>The average of metric values that correspond to the datapoint.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable average;
 
 /**
- <p> The maximum of the metric value used for the datapoint. </p>
+ <p>The maximum of the metric value used for the datapoint.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximum;
 
 /**
- <p> The minimum metric value used for the datapoint. </p>
+ <p>The minimum metric value used for the datapoint.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable minimum;
 
 /**
- <p> The number of metric values that contributed to the aggregate value of this datapoint. </p>
+ <p>The number of metric values that contributed to the aggregate value of this datapoint.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable sampleCount;
 
 /**
- <p> The sum of metric values used for the datapoint. </p>
+ <p>The sum of metric values used for the datapoint.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable sum;
 
 /**
- <p> The time stamp used for the datapoint. </p>
+ <p>The time stamp used for the datapoint.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable timestamp;
 
 /**
- <p> The standard unit used for the datapoint. </p>
+ <p>The standard unit used for the datapoint.</p>
  */
 @property (nonatomic, assign) AWSCloudWatchStandardUnit unit;
 
 @end
 
 /**
- 
+ <p>Describes the inputs for DeleteAlarms.</p>
+ Required parameters: [AlarmNames]
  */
 @interface AWSCloudWatchDeleteAlarmsInput : AWSRequest
 
 
 /**
- <p> A list of alarms to be deleted. </p>
+ <p>A list of alarms to be deleted.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable alarmNames;
 
 @end
 
 /**
- 
+ <p>Describes the inputs for DescribeAlarmHistory.</p>
  */
 @interface AWSCloudWatchDescribeAlarmHistoryInput : AWSRequest
 
 
 /**
- <p> The name of the alarm. </p>
+ <p>The name of the alarm.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable alarmName;
 
 /**
- <p> The ending date to retrieve alarm history. </p>
+ <p>The ending date to retrieve alarm history.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable endDate;
 
 /**
- <p> The type of alarm histories to retrieve. </p>
+ <p>The type of alarm histories to retrieve.</p>
  */
 @property (nonatomic, assign) AWSCloudWatchHistoryItemType historyItemType;
 
 /**
- <p> The maximum number of alarm history records to retrieve. </p>
+ <p>The maximum number of alarm history records to retrieve.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxRecords;
 
 /**
- <p> The token returned by a previous call to indicate that there is more data available. </p>
+ <p>The token returned by a previous call to indicate that there is more data available.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p> The starting date to retrieve alarm history. </p>
+ <p>The starting date to retrieve alarm history.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startDate;
 
 @end
 
 /**
- <p> The output for the <a>DescribeAlarmHistory</a> action. </p>
+ <p> The output for <a>DescribeAlarmHistory</a>. </p>
  */
 @interface AWSCloudWatchDescribeAlarmHistoryOutput : AWSModel
 
 
 /**
- <p> A list of alarm histories in JSON format. </p>
+ <p>A list of alarm histories in JSON format.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCloudWatchAlarmHistoryItem *> * _Nullable alarmHistoryItems;
 
 /**
- <p> A string that marks the start of the next batch of returned results. </p>
+ <p>A string that marks the start of the next batch of returned results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
 /**
- 
+ <p>Describes the inputs for DescribeAlarmsForMetric.</p>
+ Required parameters: [MetricName, Namespace]
  */
 @interface AWSCloudWatchDescribeAlarmsForMetricInput : AWSRequest
 
 
 /**
- <p> The list of dimensions associated with the metric. If the metric has any associated dimensions, you must specify them in order for the DescribeAlarmsForMetric to succeed. </p>
+ <p>The list of dimensions associated with the metric. If the metric has any associated dimensions, you must specify them in order for the DescribeAlarmsForMetric to succeed.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCloudWatchDimension *> * _Nullable dimensions;
 
 /**
- <p> The name of the metric. </p>
+ <p>The name of the metric.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricName;
 
 /**
- <p> The namespace of the metric. </p>
+ <p>The namespace of the metric.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable namespace;
 
 /**
- <p> The period in seconds over which the statistic is applied. </p>
+ <p>The period in seconds over which the statistic is applied.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable period;
 
 /**
- <p> The statistic for the metric. </p>
+ <p>The statistic for the metric.</p>
  */
 @property (nonatomic, assign) AWSCloudWatchStatistic statistic;
 
 /**
- <p> The unit for the metric. </p>
+ <p>The unit for the metric.</p>
  */
 @property (nonatomic, assign) AWSCloudWatchStandardUnit unit;
 
 @end
 
 /**
- <p> The output for the <a>DescribeAlarmsForMetric</a> action. </p>
+ <p> The output for <a>DescribeAlarmsForMetric</a>. </p>
  */
 @interface AWSCloudWatchDescribeAlarmsForMetricOutput : AWSModel
 
 
 /**
- <p> A list of information for each alarm with the specified metric. </p>
+ <p>A list of information for each alarm with the specified metric.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCloudWatchMetricAlarm *> * _Nullable metricAlarms;
 
 @end
 
 /**
- 
+ <p>Describes the inputs for DescribeAlarms.</p>
  */
 @interface AWSCloudWatchDescribeAlarmsInput : AWSRequest
 
 
 /**
- <p> The action name prefix. </p>
+ <p>The action name prefix.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable actionPrefix;
 
 /**
- <p> The alarm name prefix. <code>AlarmNames</code> cannot be specified if this parameter is specified. </p>
+ <p>The alarm name prefix. <code>AlarmNames</code> cannot be specified if this parameter is specified.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable alarmNamePrefix;
 
 /**
- <p> A list of alarm names to retrieve information for. </p>
+ <p>A list of alarm names to retrieve information for.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable alarmNames;
 
 /**
- <p> The maximum number of alarm descriptions to retrieve. </p>
+ <p>The maximum number of alarm descriptions to retrieve.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxRecords;
 
 /**
- <p> The token returned by a previous call to indicate that there is more data available. </p>
+ <p>The token returned by a previous call to indicate that there is more data available.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p> The state value to be used in matching alarms. </p>
+ <p>The state value to be used in matching alarms.</p>
  */
 @property (nonatomic, assign) AWSCloudWatchStateValue stateValue;
 
 @end
 
 /**
- <p> The output for the <a>DescribeAlarms</a> action. </p>
+ <p>The output for <a>DescribeAlarms</a>.</p>
  */
 @interface AWSCloudWatchDescribeAlarmsOutput : AWSModel
 
 
 /**
- <p> A list of information for the specified alarms. </p>
+ <p>A list of information for the specified alarms.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCloudWatchMetricAlarm *> * _Nullable metricAlarms;
 
 /**
- <p> A string that marks the start of the next batch of returned results. </p>
+ <p>A string that marks the start of the next batch of returned results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -380,12 +382,12 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 
 
 /**
- <p> The name of the dimension. </p>
+ <p>The name of the dimension.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p> The value representing the dimension measurement </p>
+ <p>The value representing the dimension measurement</p>
  */
 @property (nonatomic, strong) NSString * _Nullable value;
 
@@ -399,77 +401,79 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 
 
 /**
- <p> The dimension name to be matched. </p>
+ <p>The dimension name to be matched.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p> The value of the dimension to be matched. </p><note> Specifying a <code>Name</code> without specifying a <code>Value</code> returns all values associated with that <code>Name</code>. </note>
+ <p>The value of the dimension to be matched.</p><note><p>Specifying a <code>Name</code> without specifying a <code>Value</code> returns all values associated with that <code>Name</code>.</p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable value;
 
 @end
 
 /**
- <p></p>
+ <p/>
  Required parameters: [AlarmNames]
  */
 @interface AWSCloudWatchDisableAlarmActionsInput : AWSRequest
 
 
 /**
- <p> The names of the alarms to disable actions for. </p>
+ <p>The names of the alarms to disable actions for.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable alarmNames;
 
 @end
 
 /**
- 
+ <p>Describes the inputs for EnableAlarmActions.</p>
+ Required parameters: [AlarmNames]
  */
 @interface AWSCloudWatchEnableAlarmActionsInput : AWSRequest
 
 
 /**
- <p> The names of the alarms to enable actions for. </p>
+ <p>The names of the alarms to enable actions for.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable alarmNames;
 
 @end
 
 /**
- 
+ <p>Describes the inputs for GetMetricStatistics.</p>
+ Required parameters: [Namespace, MetricName, StartTime, EndTime, Period, Statistics]
  */
 @interface AWSCloudWatchGetMetricStatisticsInput : AWSRequest
 
 
 /**
- <p> A list of dimensions describing qualities of the metric. </p>
+ <p>A list of dimensions describing qualities of the metric.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCloudWatchDimension *> * _Nullable dimensions;
 
 /**
- <p> The time stamp to use for determining the last datapoint to return. The value specified is exclusive; results will include datapoints up to the time stamp specified. The time stamp must be in ISO 8601 UTC format (e.g., 2014-09-03T23:00:00Z). </p>
+ <p>The time stamp to use for determining the last datapoint to return. The value specified is exclusive; results will include datapoints up to the time stamp specified. The time stamp must be in ISO 8601 UTC format (e.g., 2014-09-03T23:00:00Z).</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable endTime;
 
 /**
- <p> The name of the metric, with or without spaces. </p>
+ <p>The name of the metric, with or without spaces.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricName;
 
 /**
- <p> The namespace of the metric, with or without spaces. </p>
+ <p>The namespace of the metric, with or without spaces.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable namespace;
 
 /**
- <p> The granularity, in seconds, of the returned datapoints. <code>Period</code> must be at least 60 seconds and must be a multiple of 60. The default value is 60. </p>
+ <p> The granularity, in seconds, of the returned datapoints. A <code>Period</code> can be as short as one minute (60 seconds) or as long as one day (86,400 seconds), and must be a multiple of 60. The default value is 60. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable period;
 
 /**
- <p> The time stamp to use for determining the first datapoint to return. The value specified is inclusive; results include datapoints with the time stamp specified. The time stamp must be in ISO 8601 UTC format (e.g., 2014-09-03T23:00:00Z). </p><note> The specified start time is rounded down to the nearest value. Datapoints are returned for start times up to two weeks in the past. Specified start times that are more than two weeks in the past will not return datapoints for metrics that are older than two weeks. <p>Data that is timestamped 24 hours or more in the past may take in excess of 48 hours to become available from submission time using <code>GetMetricStatistics</code>.</p></note>
+ <p>The time stamp to use for determining the first datapoint to return. The value specified is inclusive; results include datapoints with the time stamp specified. The time stamp must be in ISO 8601 UTC format (e.g., 2014-09-03T23:00:00Z).</p><note><p>The specified start time is rounded down to the nearest value. Datapoints are returned for start times up to two weeks in the past. Specified start times that are more than two weeks in the past will not return datapoints for metrics that are older than two weeks.</p><p>Data that is timestamped 24 hours or more in the past may take in excess of 48 hours to become available from submission time using <code>GetMetricStatistics</code>.</p></note>
  */
 @property (nonatomic, strong) NSDate * _Nullable startTime;
 
@@ -479,94 +483,94 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable statistics;
 
 /**
- <p> The unit for the metric. </p>
+ <p>The specific unit for a given metric. Metrics may be reported in multiple units. Not supplying a unit results in all units being returned. If the metric only ever reports one unit, specifying a unit will have no effect.</p>
  */
 @property (nonatomic, assign) AWSCloudWatchStandardUnit unit;
 
 @end
 
 /**
- <p> The output for the <a>GetMetricStatistics</a> action. </p>
+ <p> The output for <a>GetMetricStatistics</a>. </p>
  */
 @interface AWSCloudWatchGetMetricStatisticsOutput : AWSModel
 
 
 /**
- <p> The datapoints for the specified metric. </p>
+ <p>The datapoints for the specified metric.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCloudWatchDatapoint *> * _Nullable datapoints;
 
 /**
- <p> A label describing the specified metric. </p>
+ <p>A label describing the specified metric.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable label;
 
 @end
 
 /**
- 
+ <p>Describes the inputs for ListMetrics.</p>
  */
 @interface AWSCloudWatchListMetricsInput : AWSRequest
 
 
 /**
- <p> A list of dimensions to filter against. </p>
+ <p>A list of dimensions to filter against.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCloudWatchDimensionFilter *> * _Nullable dimensions;
 
 /**
- <p> The name of the metric to filter against. </p>
+ <p>The name of the metric to filter against.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricName;
 
 /**
- <p> The namespace to filter against. </p>
+ <p>The namespace to filter against.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable namespace;
 
 /**
- <p> The token returned by a previous call to indicate that there is more data available. </p>
+ <p>The token returned by a previous call to indicate that there is more data available.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
 /**
- <p> The output for the <a>ListMetrics</a> action. </p>
+ <p> The output for <a>ListMetrics</a>. </p>
  */
 @interface AWSCloudWatchListMetricsOutput : AWSModel
 
 
 /**
- <p> A list of metrics used to generate statistics for an AWS account. </p>
+ <p>A list of metrics used to generate statistics for an AWS account.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCloudWatchMetric *> * _Nullable metrics;
 
 /**
- <p> A string that marks the start of the next batch of returned results. </p>
+ <p>A string that marks the start of the next batch of returned results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
 /**
- <p> The <code>Metric</code> data type contains information about a specific metric. If you call <a>ListMetrics</a>, Amazon CloudWatch returns information contained by this data type. </p><p> The example in the Examples section publishes two metrics named buffers and latency. Both metrics are in the examples namespace. Both metrics have two dimensions, InstanceID and InstanceType. </p>
+ <p> The <code>Metric</code> data type contains information about a specific metric. If you call <a>ListMetrics</a>, Amazon CloudWatch returns information contained by this data type. </p><p>The example in the Examples section publishes two metrics named buffers and latency. Both metrics are in the examples namespace. Both metrics have two dimensions, InstanceID and InstanceType.</p>
  */
 @interface AWSCloudWatchMetric : AWSModel
 
 
 /**
- <p> A list of dimensions associated with the metric. </p>
+ <p>A list of dimensions associated with the metric.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCloudWatchDimension *> * _Nullable dimensions;
 
 /**
- <p> The name of the metric. </p>
+ <p>The name of the metric.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricName;
 
 /**
- <p> The namespace of the metric. </p>
+ <p>The namespace of the metric.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable namespace;
 
@@ -579,7 +583,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 
 
 /**
- <p> Indicates whether actions should be executed during any changes to the alarm's state. </p>
+ <p>Indicates whether actions should be executed during any changes to the alarm's state.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable actionsEnabled;
 
@@ -589,22 +593,22 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable alarmActions;
 
 /**
- <p> The Amazon Resource Name (ARN) of the alarm. </p>
+ <p>The Amazon Resource Name (ARN) of the alarm.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable alarmArn;
 
 /**
- <p> The time stamp of the last update to the alarm configuration. </p>
+ <p>The time stamp of the last update to the alarm configuration.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable alarmConfigurationUpdatedTimestamp;
 
 /**
- <p> The description for the alarm. </p>
+ <p>The description for the alarm.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable alarmDescription;
 
 /**
- <p> The name of the alarm. </p>
+ <p>The name of the alarm.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable alarmName;
 
@@ -614,27 +618,27 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, assign) AWSCloudWatchComparisonOperator comparisonOperator;
 
 /**
- <p> The list of dimensions associated with the alarm's associated metric. </p>
+ <p>The list of dimensions associated with the alarm's associated metric.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCloudWatchDimension *> * _Nullable dimensions;
 
 /**
- <p> The number of periods over which data is compared to the specified threshold. </p>
+ <p>The number of periods over which data is compared to the specified threshold.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable evaluationPeriods;
 
 /**
- <p> The list of actions to execute when this alarm transitions into an <code>INSUFFICIENT_DATA</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN). </p><important>The current WSDL lists this attribute as <code>UnknownActions</code>.</important>
+ <p> The list of actions to execute when this alarm transitions into an <code>INSUFFICIENT_DATA</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN). </p><important><p>The current WSDL lists this attribute as <code>UnknownActions</code>.</p></important>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable insufficientDataActions;
 
 /**
- <p> The name of the alarm's metric. </p>
+ <p>The name of the alarm's metric.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricName;
 
 /**
- <p> The namespace of alarm's associated metric. </p>
+ <p>The namespace of alarm's associated metric.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable namespace;
 
@@ -644,42 +648,42 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable OKActions;
 
 /**
- <p> The period in seconds over which the statistic is applied. </p>
+ <p>The period in seconds over which the statistic is applied.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable period;
 
 /**
- <p> A human-readable explanation for the alarm's state. </p>
+ <p>A human-readable explanation for the alarm's state.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable stateReason;
 
 /**
- <p> An explanation for the alarm's state in machine-readable JSON format </p>
+ <p>An explanation for the alarm's state in machine-readable JSON format</p>
  */
 @property (nonatomic, strong) NSString * _Nullable stateReasonData;
 
 /**
- <p> The time stamp of the last update to the alarm's state. </p>
+ <p>The time stamp of the last update to the alarm's state.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable stateUpdatedTimestamp;
 
 /**
- <p> The state value for the alarm. </p>
+ <p>The state value for the alarm.</p>
  */
 @property (nonatomic, assign) AWSCloudWatchStateValue stateValue;
 
 /**
- <p> The statistic to apply to the alarm's associated metric. </p>
+ <p>The statistic to apply to the alarm's associated metric.</p>
  */
 @property (nonatomic, assign) AWSCloudWatchStatistic statistic;
 
 /**
- <p> The value against which the specified statistic is compared. </p>
+ <p>The value against which the specified statistic is compared.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable threshold;
 
 /**
- <p> The unit of the alarm's associated metric. </p>
+ <p>The unit of the alarm's associated metric.</p>
  */
 @property (nonatomic, assign) AWSCloudWatchStandardUnit unit;
 
@@ -693,45 +697,46 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 
 
 /**
- <p> A list of dimensions associated with the metric. Note, when using the Dimensions value in a query, you need to append .member.N to it (e.g., Dimensions.member.N). </p>
+ <p>A list of dimensions associated with the metric. Note, when using the Dimensions value in a query, you need to append .member.N to it (e.g., Dimensions.member.N).</p>
  */
 @property (nonatomic, strong) NSArray<AWSCloudWatchDimension *> * _Nullable dimensions;
 
 /**
- <p> The name of the metric. </p>
+ <p>The name of the metric.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricName;
 
 /**
- <p> A set of statistical values describing the metric. </p>
+ <p>A set of statistical values describing the metric.</p>
  */
 @property (nonatomic, strong) AWSCloudWatchStatisticSet * _Nullable statisticValues;
 
 /**
- <p> The time stamp used for the metric in ISO 8601 Universal Coordinated Time (UTC) format. If not specified, the default value is set to the time the metric data was received. </p>
+ <p>The time stamp used for the metric in ISO 8601 Universal Coordinated Time (UTC) format. If not specified, the default value is set to the time the metric data was received.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable timestamp;
 
 /**
- <p> The unit of the metric. </p>
+ <p>The unit of the metric.</p>
  */
 @property (nonatomic, assign) AWSCloudWatchStandardUnit unit;
 
 /**
- <p> The value for the metric. </p><important>Although the <code>Value</code> parameter accepts numbers of type <code>Double</code>, Amazon CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (e.g., NaN, +Infinity, -Infinity) are not supported. </important>
+ <p>The value for the metric.</p><important><p>Although the <code>Value</code> parameter accepts numbers of type <code>Double</code>, Amazon CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (e.g., NaN, +Infinity, -Infinity) are not supported.</p></important>
  */
 @property (nonatomic, strong) NSNumber * _Nullable value;
 
 @end
 
 /**
- 
+ <p>Describes the inputs for PutMetricAlarm.</p>
+ Required parameters: [AlarmName, MetricName, Namespace, Statistic, Period, EvaluationPeriods, Threshold, ComparisonOperator]
  */
 @interface AWSCloudWatchPutMetricAlarmInput : AWSRequest
 
 
 /**
- <p> Indicates whether or not actions should be executed during any changes to the alarm's state. </p>
+ <p>Indicates whether or not actions should be executed during any changes to the alarm's state.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable actionsEnabled;
 
@@ -741,12 +746,12 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable alarmActions;
 
 /**
- <p> The description for the alarm. </p>
+ <p>The description for the alarm.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable alarmDescription;
 
 /**
- <p> The descriptive name for the alarm. This name must be unique within the user's AWS account </p>
+ <p>The descriptive name for the alarm. This name must be unique within the user's AWS account</p>
  */
 @property (nonatomic, strong) NSString * _Nullable alarmName;
 
@@ -756,12 +761,12 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, assign) AWSCloudWatchComparisonOperator comparisonOperator;
 
 /**
- <p> The dimensions for the alarm's associated metric. </p>
+ <p>The dimensions for the alarm's associated metric.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCloudWatchDimension *> * _Nullable dimensions;
 
 /**
- <p> The number of periods over which data is compared to the specified threshold. </p>
+ <p>The number of periods over which data is compared to the specified threshold.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable evaluationPeriods;
 
@@ -771,12 +776,12 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable insufficientDataActions;
 
 /**
- <p> The name for the alarm's associated metric. </p>
+ <p>The name for the alarm's associated metric.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricName;
 
 /**
- <p> The namespace for the alarm's associated metric. </p>
+ <p>The namespace for the alarm's associated metric.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable namespace;
 
@@ -786,68 +791,70 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable OKActions;
 
 /**
- <p> The period in seconds over which the specified statistic is applied. </p>
+ <p>The period in seconds over which the specified statistic is applied.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable period;
 
 /**
- <p> The statistic to apply to the alarm's associated metric. </p>
+ <p>The statistic to apply to the alarm's associated metric.</p>
  */
 @property (nonatomic, assign) AWSCloudWatchStatistic statistic;
 
 /**
- <p> The value against which the specified statistic is compared. </p>
+ <p>The value against which the specified statistic is compared.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable threshold;
 
 /**
- <p> The statistic's unit of measure. For example, the units for the Amazon EC2 NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an instance receives on all network interfaces. You can also specify a unit when you create a custom metric. Units help provide conceptual meaning to your data. Metric data points that specify a unit of measure, such as Percent, are aggregated separately. </p><p><b>Note:</b> If you specify a unit, you must use a unit that is appropriate for the metric. Otherwise, this can cause an Amazon CloudWatch alarm to get stuck in the INSUFFICIENT DATA state. </p>
+ <p>The statistic's unit of measure. For example, the units for the Amazon EC2 NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an instance receives on all network interfaces. You can also specify a unit when you create a custom metric. Units help provide conceptual meaning to your data. Metric data points that specify a unit of measure, such as Percent, are aggregated separately.</p><p><b>Note:</b> If you specify a unit, you must use a unit that is appropriate for the metric. Otherwise, this can cause an Amazon CloudWatch alarm to get stuck in the INSUFFICIENT DATA state. </p>
  */
 @property (nonatomic, assign) AWSCloudWatchStandardUnit unit;
 
 @end
 
 /**
- 
+ <p>Describes the inputs for PutMetricData.</p>
+ Required parameters: [Namespace, MetricData]
  */
 @interface AWSCloudWatchPutMetricDataInput : AWSRequest
 
 
 /**
- <p> A list of data describing the metric. </p>
+ <p>A list of data describing the metric.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCloudWatchMetricDatum *> * _Nullable metricData;
 
 /**
- <p> The namespace for the metric data. </p><note> You cannot specify a namespace that begins with "AWS/". Namespaces that begin with "AWS/" are reserved for other Amazon Web Services products that send metrics to Amazon CloudWatch. </note>
+ <p>The namespace for the metric data.</p><note><p>You cannot specify a namespace that begins with "AWS/". Namespaces that begin with "AWS/" are reserved for other Amazon Web Services products that send metrics to Amazon CloudWatch.</p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable namespace;
 
 @end
 
 /**
- 
+ <p>Describes the inputs for SetAlarmState.</p>
+ Required parameters: [AlarmName, StateValue, StateReason]
  */
 @interface AWSCloudWatchSetAlarmStateInput : AWSRequest
 
 
 /**
- <p> The descriptive name for the alarm. This name must be unique within the user's AWS account. The maximum length is 255 characters. </p>
+ <p>The descriptive name for the alarm. This name must be unique within the user's AWS account. The maximum length is 255 characters.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable alarmName;
 
 /**
- <p> The reason that this alarm is set to this specific state (in human-readable text format) </p>
+ <p>The reason that this alarm is set to this specific state (in human-readable text format)</p>
  */
 @property (nonatomic, strong) NSString * _Nullable stateReason;
 
 /**
- <p> The reason that this alarm is set to this specific state (in machine-readable JSON format) </p>
+ <p>The reason that this alarm is set to this specific state (in machine-readable JSON format)</p>
  */
 @property (nonatomic, strong) NSString * _Nullable stateReasonData;
 
 /**
- <p> The value of the state. </p>
+ <p>The value of the state.</p>
  */
 @property (nonatomic, assign) AWSCloudWatchStateValue stateValue;
 
@@ -861,22 +868,22 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatistic) {
 
 
 /**
- <p> The maximum value of the sample set. </p>
+ <p>The maximum value of the sample set.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximum;
 
 /**
- <p> The minimum value of the sample set. </p>
+ <p>The minimum value of the sample set.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable minimum;
 
 /**
- <p> The number of samples used for the statistic set. </p>
+ <p>The number of samples used for the statistic set.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable sampleCount;
 
 /**
- <p> The sum of values for the sample set. </p>
+ <p>The sum of values for the sample set.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable sum;
 

@@ -85,10 +85,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)startingPositionJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"TRIM_HORIZON"]) {
+        if ([value caseInsensitiveCompare:@"TRIM_HORIZON"] == NSOrderedSame) {
             return @(AWSLambdaEventSourcePositionTrimHorizon);
         }
-        if ([value isEqualToString:@"LATEST"]) {
+        if ([value caseInsensitiveCompare:@"LATEST"] == NSOrderedSame) {
             return @(AWSLambdaEventSourcePositionLatest);
         }
         return @(AWSLambdaEventSourcePositionUnknown);
@@ -124,21 +124,21 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)codeJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaFunctionCode class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaFunctionCode class]];
 }
 
 + (NSValueTransformer *)runtimeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"nodejs"]) {
+        if ([value caseInsensitiveCompare:@"nodejs"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs);
         }
-        if ([value isEqualToString:@"nodejs4.3"]) {
+        if ([value caseInsensitiveCompare:@"nodejs4.3"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs43);
         }
-        if ([value isEqualToString:@"java8"]) {
+        if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava8);
         }
-        if ([value isEqualToString:@"python2.7"]) {
+        if ([value caseInsensitiveCompare:@"python2.7"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython27);
         }
         return @(AWSLambdaRuntimeUnknown);
@@ -159,7 +159,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)vpcConfigJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaVpcConfig class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaVpcConfig class]];
 }
 
 @end
@@ -212,7 +212,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)lastModifiedJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
@@ -267,16 +267,16 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)runtimeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"nodejs"]) {
+        if ([value caseInsensitiveCompare:@"nodejs"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs);
         }
-        if ([value isEqualToString:@"nodejs4.3"]) {
+        if ([value caseInsensitiveCompare:@"nodejs4.3"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs43);
         }
-        if ([value isEqualToString:@"java8"]) {
+        if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava8);
         }
-        if ([value isEqualToString:@"python2.7"]) {
+        if ([value caseInsensitiveCompare:@"python2.7"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython27);
         }
         return @(AWSLambdaRuntimeUnknown);
@@ -297,7 +297,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)vpcConfigJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaVpcConfigResponse class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaVpcConfigResponse class]];
 }
 
 @end
@@ -355,11 +355,11 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)codeJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaFunctionCodeLocation class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaFunctionCodeLocation class]];
 }
 
 + (NSValueTransformer *)configurationJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaFunctionConfiguration class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaFunctionConfiguration class]];
 }
 
 @end
@@ -400,13 +400,13 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)invocationTypeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"Event"]) {
+        if ([value caseInsensitiveCompare:@"Event"] == NSOrderedSame) {
             return @(AWSLambdaInvocationTypeEvent);
         }
-        if ([value isEqualToString:@"RequestResponse"]) {
+        if ([value caseInsensitiveCompare:@"RequestResponse"] == NSOrderedSame) {
             return @(AWSLambdaInvocationTypeRequestResponse);
         }
-        if ([value isEqualToString:@"DryRun"]) {
+        if ([value caseInsensitiveCompare:@"DryRun"] == NSOrderedSame) {
             return @(AWSLambdaInvocationTypeDryRun);
         }
         return @(AWSLambdaInvocationTypeUnknown);
@@ -426,10 +426,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)logTypeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"None"]) {
+        if ([value caseInsensitiveCompare:@"None"] == NSOrderedSame) {
             return @(AWSLambdaLogTypeNone);
         }
-        if ([value isEqualToString:@"Tail"]) {
+        if ([value caseInsensitiveCompare:@"Tail"] == NSOrderedSame) {
             return @(AWSLambdaLogTypeTail);
         }
         return @(AWSLambdaLogTypeUnknown);
@@ -504,7 +504,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)aliasesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaAliasConfiguration class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaAliasConfiguration class]];
 }
 
 @end
@@ -532,7 +532,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)eventSourceMappingsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaEventSourceMappingConfiguration class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaEventSourceMappingConfiguration class]];
 }
 
 @end
@@ -558,7 +558,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)functionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaFunctionConfiguration class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaFunctionConfiguration class]];
 }
 
 @end
@@ -585,7 +585,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)versionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaFunctionConfiguration class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaFunctionConfiguration class]];
 }
 
 @end
@@ -672,16 +672,16 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)runtimeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"nodejs"]) {
+        if ([value caseInsensitiveCompare:@"nodejs"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs);
         }
-        if ([value isEqualToString:@"nodejs4.3"]) {
+        if ([value caseInsensitiveCompare:@"nodejs4.3"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs43);
         }
-        if ([value isEqualToString:@"java8"]) {
+        if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava8);
         }
-        if ([value isEqualToString:@"python2.7"]) {
+        if ([value caseInsensitiveCompare:@"python2.7"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython27);
         }
         return @(AWSLambdaRuntimeUnknown);
@@ -702,7 +702,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 }
 
 + (NSValueTransformer *)vpcConfigJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaVpcConfig class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaVpcConfig class]];
 }
 
 @end

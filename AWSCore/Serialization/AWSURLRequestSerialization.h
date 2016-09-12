@@ -45,7 +45,3 @@
 @property (nonatomic, strong) NSDictionary *additionalParameters;
 
 @end
-
-@interface AWSEC2RequestSerializer : AWSQueryStringRequestSerializer <AWSURLRequestSerializer>
-
-@end

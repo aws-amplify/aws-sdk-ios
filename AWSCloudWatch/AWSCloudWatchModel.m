@@ -32,13 +32,13 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 
 + (NSValueTransformer *)historyItemTypeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"ConfigurationUpdate"]) {
+        if ([value caseInsensitiveCompare:@"ConfigurationUpdate"] == NSOrderedSame) {
             return @(AWSCloudWatchHistoryItemTypeConfigurationUpdate);
         }
-        if ([value isEqualToString:@"StateUpdate"]) {
+        if ([value caseInsensitiveCompare:@"StateUpdate"] == NSOrderedSame) {
             return @(AWSCloudWatchHistoryItemTypeStateUpdate);
         }
-        if ([value isEqualToString:@"Action"]) {
+        if ([value caseInsensitiveCompare:@"Action"] == NSOrderedSame) {
             return @(AWSCloudWatchHistoryItemTypeAction);
         }
         return @(AWSCloudWatchHistoryItemTypeUnknown);
@@ -57,10 +57,10 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 }
 
 + (NSValueTransformer *)timestampJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
         return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -81,94 +81,94 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 }
 
 + (NSValueTransformer *)timestampJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
         return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)unitJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"Seconds"]) {
+        if ([value caseInsensitiveCompare:@"Seconds"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitSeconds);
         }
-        if ([value isEqualToString:@"Microseconds"]) {
+        if ([value caseInsensitiveCompare:@"Microseconds"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMicroseconds);
         }
-        if ([value isEqualToString:@"Milliseconds"]) {
+        if ([value caseInsensitiveCompare:@"Milliseconds"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMilliseconds);
         }
-        if ([value isEqualToString:@"Bytes"]) {
+        if ([value caseInsensitiveCompare:@"Bytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBytes);
         }
-        if ([value isEqualToString:@"Kilobytes"]) {
+        if ([value caseInsensitiveCompare:@"Kilobytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobytes);
         }
-        if ([value isEqualToString:@"Megabytes"]) {
+        if ([value caseInsensitiveCompare:@"Megabytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabytes);
         }
-        if ([value isEqualToString:@"Gigabytes"]) {
+        if ([value caseInsensitiveCompare:@"Gigabytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabytes);
         }
-        if ([value isEqualToString:@"Terabytes"]) {
+        if ([value caseInsensitiveCompare:@"Terabytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabytes);
         }
-        if ([value isEqualToString:@"Bits"]) {
+        if ([value caseInsensitiveCompare:@"Bits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBits);
         }
-        if ([value isEqualToString:@"Kilobits"]) {
+        if ([value caseInsensitiveCompare:@"Kilobits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobits);
         }
-        if ([value isEqualToString:@"Megabits"]) {
+        if ([value caseInsensitiveCompare:@"Megabits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabits);
         }
-        if ([value isEqualToString:@"Gigabits"]) {
+        if ([value caseInsensitiveCompare:@"Gigabits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabits);
         }
-        if ([value isEqualToString:@"Terabits"]) {
+        if ([value caseInsensitiveCompare:@"Terabits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabits);
         }
-        if ([value isEqualToString:@"Percent"]) {
+        if ([value caseInsensitiveCompare:@"Percent"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitPercent);
         }
-        if ([value isEqualToString:@"Count"]) {
+        if ([value caseInsensitiveCompare:@"Count"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitCount);
         }
-        if ([value isEqualToString:@"Bytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Bytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBytesSecond);
         }
-        if ([value isEqualToString:@"Kilobytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Kilobytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobytesSecond);
         }
-        if ([value isEqualToString:@"Megabytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Megabytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabytesSecond);
         }
-        if ([value isEqualToString:@"Gigabytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Gigabytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabytesSecond);
         }
-        if ([value isEqualToString:@"Terabytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Terabytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabytesSecond);
         }
-        if ([value isEqualToString:@"Bits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Bits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBitsSecond);
         }
-        if ([value isEqualToString:@"Kilobits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Kilobits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobitsSecond);
         }
-        if ([value isEqualToString:@"Megabits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Megabits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabitsSecond);
         }
-        if ([value isEqualToString:@"Gigabits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Gigabits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabitsSecond);
         }
-        if ([value isEqualToString:@"Terabits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Terabits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabitsSecond);
         }
-        if ([value isEqualToString:@"Count/Second"]) {
+        if ([value caseInsensitiveCompare:@"Count/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitCountSecond);
         }
-        if ([value isEqualToString:@"None"]) {
+        if ([value caseInsensitiveCompare:@"None"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitNone);
         }
         return @(AWSCloudWatchStandardUnitUnknown);
@@ -260,22 +260,22 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 }
 
 + (NSValueTransformer *)endDateJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
         return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)historyItemTypeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"ConfigurationUpdate"]) {
+        if ([value caseInsensitiveCompare:@"ConfigurationUpdate"] == NSOrderedSame) {
             return @(AWSCloudWatchHistoryItemTypeConfigurationUpdate);
         }
-        if ([value isEqualToString:@"StateUpdate"]) {
+        if ([value caseInsensitiveCompare:@"StateUpdate"] == NSOrderedSame) {
             return @(AWSCloudWatchHistoryItemTypeStateUpdate);
         }
-        if ([value isEqualToString:@"Action"]) {
+        if ([value caseInsensitiveCompare:@"Action"] == NSOrderedSame) {
             return @(AWSCloudWatchHistoryItemTypeAction);
         }
         return @(AWSCloudWatchHistoryItemTypeUnknown);
@@ -294,10 +294,10 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 }
 
 + (NSValueTransformer *)startDateJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
         return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -313,7 +313,7 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 }
 
 + (NSValueTransformer *)alarmHistoryItemsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchAlarmHistoryItem class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchAlarmHistoryItem class]];
 }
 
 @end
@@ -332,24 +332,24 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 }
 
 + (NSValueTransformer *)dimensionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDimension class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDimension class]];
 }
 
 + (NSValueTransformer *)statisticJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"SampleCount"]) {
+        if ([value caseInsensitiveCompare:@"SampleCount"] == NSOrderedSame) {
             return @(AWSCloudWatchStatisticSampleCount);
         }
-        if ([value isEqualToString:@"Average"]) {
+        if ([value caseInsensitiveCompare:@"Average"] == NSOrderedSame) {
             return @(AWSCloudWatchStatisticAverage);
         }
-        if ([value isEqualToString:@"Sum"]) {
+        if ([value caseInsensitiveCompare:@"Sum"] == NSOrderedSame) {
             return @(AWSCloudWatchStatisticSum);
         }
-        if ([value isEqualToString:@"Minimum"]) {
+        if ([value caseInsensitiveCompare:@"Minimum"] == NSOrderedSame) {
             return @(AWSCloudWatchStatisticMinimum);
         }
-        if ([value isEqualToString:@"Maximum"]) {
+        if ([value caseInsensitiveCompare:@"Maximum"] == NSOrderedSame) {
             return @(AWSCloudWatchStatisticMaximum);
         }
         return @(AWSCloudWatchStatisticUnknown);
@@ -373,85 +373,85 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 
 + (NSValueTransformer *)unitJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"Seconds"]) {
+        if ([value caseInsensitiveCompare:@"Seconds"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitSeconds);
         }
-        if ([value isEqualToString:@"Microseconds"]) {
+        if ([value caseInsensitiveCompare:@"Microseconds"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMicroseconds);
         }
-        if ([value isEqualToString:@"Milliseconds"]) {
+        if ([value caseInsensitiveCompare:@"Milliseconds"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMilliseconds);
         }
-        if ([value isEqualToString:@"Bytes"]) {
+        if ([value caseInsensitiveCompare:@"Bytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBytes);
         }
-        if ([value isEqualToString:@"Kilobytes"]) {
+        if ([value caseInsensitiveCompare:@"Kilobytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobytes);
         }
-        if ([value isEqualToString:@"Megabytes"]) {
+        if ([value caseInsensitiveCompare:@"Megabytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabytes);
         }
-        if ([value isEqualToString:@"Gigabytes"]) {
+        if ([value caseInsensitiveCompare:@"Gigabytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabytes);
         }
-        if ([value isEqualToString:@"Terabytes"]) {
+        if ([value caseInsensitiveCompare:@"Terabytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabytes);
         }
-        if ([value isEqualToString:@"Bits"]) {
+        if ([value caseInsensitiveCompare:@"Bits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBits);
         }
-        if ([value isEqualToString:@"Kilobits"]) {
+        if ([value caseInsensitiveCompare:@"Kilobits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobits);
         }
-        if ([value isEqualToString:@"Megabits"]) {
+        if ([value caseInsensitiveCompare:@"Megabits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabits);
         }
-        if ([value isEqualToString:@"Gigabits"]) {
+        if ([value caseInsensitiveCompare:@"Gigabits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabits);
         }
-        if ([value isEqualToString:@"Terabits"]) {
+        if ([value caseInsensitiveCompare:@"Terabits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabits);
         }
-        if ([value isEqualToString:@"Percent"]) {
+        if ([value caseInsensitiveCompare:@"Percent"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitPercent);
         }
-        if ([value isEqualToString:@"Count"]) {
+        if ([value caseInsensitiveCompare:@"Count"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitCount);
         }
-        if ([value isEqualToString:@"Bytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Bytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBytesSecond);
         }
-        if ([value isEqualToString:@"Kilobytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Kilobytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobytesSecond);
         }
-        if ([value isEqualToString:@"Megabytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Megabytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabytesSecond);
         }
-        if ([value isEqualToString:@"Gigabytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Gigabytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabytesSecond);
         }
-        if ([value isEqualToString:@"Terabytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Terabytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabytesSecond);
         }
-        if ([value isEqualToString:@"Bits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Bits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBitsSecond);
         }
-        if ([value isEqualToString:@"Kilobits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Kilobits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobitsSecond);
         }
-        if ([value isEqualToString:@"Megabits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Megabits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabitsSecond);
         }
-        if ([value isEqualToString:@"Gigabits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Gigabits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabitsSecond);
         }
-        if ([value isEqualToString:@"Terabits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Terabits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabitsSecond);
         }
-        if ([value isEqualToString:@"Count/Second"]) {
+        if ([value caseInsensitiveCompare:@"Count/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitCountSecond);
         }
-        if ([value isEqualToString:@"None"]) {
+        if ([value caseInsensitiveCompare:@"None"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitNone);
         }
         return @(AWSCloudWatchStandardUnitUnknown);
@@ -528,7 +528,7 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 }
 
 + (NSValueTransformer *)metricAlarmsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchMetricAlarm class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchMetricAlarm class]];
 }
 
 @end
@@ -548,13 +548,13 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 
 + (NSValueTransformer *)stateValueJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"OK"]) {
+        if ([value caseInsensitiveCompare:@"OK"] == NSOrderedSame) {
             return @(AWSCloudWatchStateValueOK);
         }
-        if ([value isEqualToString:@"ALARM"]) {
+        if ([value caseInsensitiveCompare:@"ALARM"] == NSOrderedSame) {
             return @(AWSCloudWatchStateValueAlarm);
         }
-        if ([value isEqualToString:@"INSUFFICIENT_DATA"]) {
+        if ([value caseInsensitiveCompare:@"INSUFFICIENT_DATA"] == NSOrderedSame) {
             return @(AWSCloudWatchStateValueInsufficientData);
         }
         return @(AWSCloudWatchStateValueUnknown);
@@ -584,7 +584,7 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 }
 
 + (NSValueTransformer *)metricAlarmsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchMetricAlarm class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchMetricAlarm class]];
 }
 
 @end
@@ -647,106 +647,106 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 }
 
 + (NSValueTransformer *)dimensionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDimension class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDimension class]];
 }
 
 + (NSValueTransformer *)endTimeJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
         return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)startTimeJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
         return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)unitJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"Seconds"]) {
+        if ([value caseInsensitiveCompare:@"Seconds"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitSeconds);
         }
-        if ([value isEqualToString:@"Microseconds"]) {
+        if ([value caseInsensitiveCompare:@"Microseconds"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMicroseconds);
         }
-        if ([value isEqualToString:@"Milliseconds"]) {
+        if ([value caseInsensitiveCompare:@"Milliseconds"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMilliseconds);
         }
-        if ([value isEqualToString:@"Bytes"]) {
+        if ([value caseInsensitiveCompare:@"Bytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBytes);
         }
-        if ([value isEqualToString:@"Kilobytes"]) {
+        if ([value caseInsensitiveCompare:@"Kilobytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobytes);
         }
-        if ([value isEqualToString:@"Megabytes"]) {
+        if ([value caseInsensitiveCompare:@"Megabytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabytes);
         }
-        if ([value isEqualToString:@"Gigabytes"]) {
+        if ([value caseInsensitiveCompare:@"Gigabytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabytes);
         }
-        if ([value isEqualToString:@"Terabytes"]) {
+        if ([value caseInsensitiveCompare:@"Terabytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabytes);
         }
-        if ([value isEqualToString:@"Bits"]) {
+        if ([value caseInsensitiveCompare:@"Bits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBits);
         }
-        if ([value isEqualToString:@"Kilobits"]) {
+        if ([value caseInsensitiveCompare:@"Kilobits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobits);
         }
-        if ([value isEqualToString:@"Megabits"]) {
+        if ([value caseInsensitiveCompare:@"Megabits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabits);
         }
-        if ([value isEqualToString:@"Gigabits"]) {
+        if ([value caseInsensitiveCompare:@"Gigabits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabits);
         }
-        if ([value isEqualToString:@"Terabits"]) {
+        if ([value caseInsensitiveCompare:@"Terabits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabits);
         }
-        if ([value isEqualToString:@"Percent"]) {
+        if ([value caseInsensitiveCompare:@"Percent"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitPercent);
         }
-        if ([value isEqualToString:@"Count"]) {
+        if ([value caseInsensitiveCompare:@"Count"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitCount);
         }
-        if ([value isEqualToString:@"Bytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Bytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBytesSecond);
         }
-        if ([value isEqualToString:@"Kilobytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Kilobytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobytesSecond);
         }
-        if ([value isEqualToString:@"Megabytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Megabytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabytesSecond);
         }
-        if ([value isEqualToString:@"Gigabytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Gigabytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabytesSecond);
         }
-        if ([value isEqualToString:@"Terabytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Terabytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabytesSecond);
         }
-        if ([value isEqualToString:@"Bits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Bits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBitsSecond);
         }
-        if ([value isEqualToString:@"Kilobits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Kilobits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobitsSecond);
         }
-        if ([value isEqualToString:@"Megabits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Megabits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabitsSecond);
         }
-        if ([value isEqualToString:@"Gigabits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Gigabits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabitsSecond);
         }
-        if ([value isEqualToString:@"Terabits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Terabits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabitsSecond);
         }
-        if ([value isEqualToString:@"Count/Second"]) {
+        if ([value caseInsensitiveCompare:@"Count/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitCountSecond);
         }
-        if ([value isEqualToString:@"None"]) {
+        if ([value caseInsensitiveCompare:@"None"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitNone);
         }
         return @(AWSCloudWatchStandardUnitUnknown);
@@ -824,7 +824,7 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 }
 
 + (NSValueTransformer *)datapointsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDatapoint class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDatapoint class]];
 }
 
 @end
@@ -841,7 +841,7 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 }
 
 + (NSValueTransformer *)dimensionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDimensionFilter class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDimensionFilter class]];
 }
 
 @end
@@ -856,7 +856,7 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 }
 
 + (NSValueTransformer *)metricsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchMetric class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchMetric class]];
 }
 
 @end
@@ -872,7 +872,7 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 }
 
 + (NSValueTransformer *)dimensionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDimension class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDimension class]];
 }
 
 @end
@@ -906,25 +906,25 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 }
 
 + (NSValueTransformer *)alarmConfigurationUpdatedTimestampJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
         return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)comparisonOperatorJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"GreaterThanOrEqualToThreshold"]) {
+        if ([value caseInsensitiveCompare:@"GreaterThanOrEqualToThreshold"] == NSOrderedSame) {
             return @(AWSCloudWatchComparisonOperatorGreaterThanOrEqualToThreshold);
         }
-        if ([value isEqualToString:@"GreaterThanThreshold"]) {
+        if ([value caseInsensitiveCompare:@"GreaterThanThreshold"] == NSOrderedSame) {
             return @(AWSCloudWatchComparisonOperatorGreaterThanThreshold);
         }
-        if ([value isEqualToString:@"LessThanThreshold"]) {
+        if ([value caseInsensitiveCompare:@"LessThanThreshold"] == NSOrderedSame) {
             return @(AWSCloudWatchComparisonOperatorLessThanThreshold);
         }
-        if ([value isEqualToString:@"LessThanOrEqualToThreshold"]) {
+        if ([value caseInsensitiveCompare:@"LessThanOrEqualToThreshold"] == NSOrderedSame) {
             return @(AWSCloudWatchComparisonOperatorLessThanOrEqualToThreshold);
         }
         return @(AWSCloudWatchComparisonOperatorUnknown);
@@ -945,26 +945,26 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 }
 
 + (NSValueTransformer *)dimensionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDimension class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDimension class]];
 }
 
 + (NSValueTransformer *)stateUpdatedTimestampJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
         return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)stateValueJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"OK"]) {
+        if ([value caseInsensitiveCompare:@"OK"] == NSOrderedSame) {
             return @(AWSCloudWatchStateValueOK);
         }
-        if ([value isEqualToString:@"ALARM"]) {
+        if ([value caseInsensitiveCompare:@"ALARM"] == NSOrderedSame) {
             return @(AWSCloudWatchStateValueAlarm);
         }
-        if ([value isEqualToString:@"INSUFFICIENT_DATA"]) {
+        if ([value caseInsensitiveCompare:@"INSUFFICIENT_DATA"] == NSOrderedSame) {
             return @(AWSCloudWatchStateValueInsufficientData);
         }
         return @(AWSCloudWatchStateValueUnknown);
@@ -984,19 +984,19 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 
 + (NSValueTransformer *)statisticJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"SampleCount"]) {
+        if ([value caseInsensitiveCompare:@"SampleCount"] == NSOrderedSame) {
             return @(AWSCloudWatchStatisticSampleCount);
         }
-        if ([value isEqualToString:@"Average"]) {
+        if ([value caseInsensitiveCompare:@"Average"] == NSOrderedSame) {
             return @(AWSCloudWatchStatisticAverage);
         }
-        if ([value isEqualToString:@"Sum"]) {
+        if ([value caseInsensitiveCompare:@"Sum"] == NSOrderedSame) {
             return @(AWSCloudWatchStatisticSum);
         }
-        if ([value isEqualToString:@"Minimum"]) {
+        if ([value caseInsensitiveCompare:@"Minimum"] == NSOrderedSame) {
             return @(AWSCloudWatchStatisticMinimum);
         }
-        if ([value isEqualToString:@"Maximum"]) {
+        if ([value caseInsensitiveCompare:@"Maximum"] == NSOrderedSame) {
             return @(AWSCloudWatchStatisticMaximum);
         }
         return @(AWSCloudWatchStatisticUnknown);
@@ -1020,85 +1020,85 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 
 + (NSValueTransformer *)unitJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"Seconds"]) {
+        if ([value caseInsensitiveCompare:@"Seconds"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitSeconds);
         }
-        if ([value isEqualToString:@"Microseconds"]) {
+        if ([value caseInsensitiveCompare:@"Microseconds"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMicroseconds);
         }
-        if ([value isEqualToString:@"Milliseconds"]) {
+        if ([value caseInsensitiveCompare:@"Milliseconds"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMilliseconds);
         }
-        if ([value isEqualToString:@"Bytes"]) {
+        if ([value caseInsensitiveCompare:@"Bytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBytes);
         }
-        if ([value isEqualToString:@"Kilobytes"]) {
+        if ([value caseInsensitiveCompare:@"Kilobytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobytes);
         }
-        if ([value isEqualToString:@"Megabytes"]) {
+        if ([value caseInsensitiveCompare:@"Megabytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabytes);
         }
-        if ([value isEqualToString:@"Gigabytes"]) {
+        if ([value caseInsensitiveCompare:@"Gigabytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabytes);
         }
-        if ([value isEqualToString:@"Terabytes"]) {
+        if ([value caseInsensitiveCompare:@"Terabytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabytes);
         }
-        if ([value isEqualToString:@"Bits"]) {
+        if ([value caseInsensitiveCompare:@"Bits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBits);
         }
-        if ([value isEqualToString:@"Kilobits"]) {
+        if ([value caseInsensitiveCompare:@"Kilobits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobits);
         }
-        if ([value isEqualToString:@"Megabits"]) {
+        if ([value caseInsensitiveCompare:@"Megabits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabits);
         }
-        if ([value isEqualToString:@"Gigabits"]) {
+        if ([value caseInsensitiveCompare:@"Gigabits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabits);
         }
-        if ([value isEqualToString:@"Terabits"]) {
+        if ([value caseInsensitiveCompare:@"Terabits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabits);
         }
-        if ([value isEqualToString:@"Percent"]) {
+        if ([value caseInsensitiveCompare:@"Percent"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitPercent);
         }
-        if ([value isEqualToString:@"Count"]) {
+        if ([value caseInsensitiveCompare:@"Count"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitCount);
         }
-        if ([value isEqualToString:@"Bytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Bytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBytesSecond);
         }
-        if ([value isEqualToString:@"Kilobytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Kilobytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobytesSecond);
         }
-        if ([value isEqualToString:@"Megabytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Megabytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabytesSecond);
         }
-        if ([value isEqualToString:@"Gigabytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Gigabytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabytesSecond);
         }
-        if ([value isEqualToString:@"Terabytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Terabytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabytesSecond);
         }
-        if ([value isEqualToString:@"Bits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Bits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBitsSecond);
         }
-        if ([value isEqualToString:@"Kilobits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Kilobits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobitsSecond);
         }
-        if ([value isEqualToString:@"Megabits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Megabits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabitsSecond);
         }
-        if ([value isEqualToString:@"Gigabits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Gigabits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabitsSecond);
         }
-        if ([value isEqualToString:@"Terabits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Terabits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabitsSecond);
         }
-        if ([value isEqualToString:@"Count/Second"]) {
+        if ([value caseInsensitiveCompare:@"Count/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitCountSecond);
         }
-        if ([value isEqualToString:@"None"]) {
+        if ([value caseInsensitiveCompare:@"None"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitNone);
         }
         return @(AWSCloudWatchStandardUnitUnknown);
@@ -1180,102 +1180,102 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 }
 
 + (NSValueTransformer *)dimensionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDimension class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDimension class]];
 }
 
 + (NSValueTransformer *)statisticValuesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCloudWatchStatisticSet class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCloudWatchStatisticSet class]];
 }
 
 + (NSValueTransformer *)timestampJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
         return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)unitJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"Seconds"]) {
+        if ([value caseInsensitiveCompare:@"Seconds"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitSeconds);
         }
-        if ([value isEqualToString:@"Microseconds"]) {
+        if ([value caseInsensitiveCompare:@"Microseconds"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMicroseconds);
         }
-        if ([value isEqualToString:@"Milliseconds"]) {
+        if ([value caseInsensitiveCompare:@"Milliseconds"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMilliseconds);
         }
-        if ([value isEqualToString:@"Bytes"]) {
+        if ([value caseInsensitiveCompare:@"Bytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBytes);
         }
-        if ([value isEqualToString:@"Kilobytes"]) {
+        if ([value caseInsensitiveCompare:@"Kilobytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobytes);
         }
-        if ([value isEqualToString:@"Megabytes"]) {
+        if ([value caseInsensitiveCompare:@"Megabytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabytes);
         }
-        if ([value isEqualToString:@"Gigabytes"]) {
+        if ([value caseInsensitiveCompare:@"Gigabytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabytes);
         }
-        if ([value isEqualToString:@"Terabytes"]) {
+        if ([value caseInsensitiveCompare:@"Terabytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabytes);
         }
-        if ([value isEqualToString:@"Bits"]) {
+        if ([value caseInsensitiveCompare:@"Bits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBits);
         }
-        if ([value isEqualToString:@"Kilobits"]) {
+        if ([value caseInsensitiveCompare:@"Kilobits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobits);
         }
-        if ([value isEqualToString:@"Megabits"]) {
+        if ([value caseInsensitiveCompare:@"Megabits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabits);
         }
-        if ([value isEqualToString:@"Gigabits"]) {
+        if ([value caseInsensitiveCompare:@"Gigabits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabits);
         }
-        if ([value isEqualToString:@"Terabits"]) {
+        if ([value caseInsensitiveCompare:@"Terabits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabits);
         }
-        if ([value isEqualToString:@"Percent"]) {
+        if ([value caseInsensitiveCompare:@"Percent"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitPercent);
         }
-        if ([value isEqualToString:@"Count"]) {
+        if ([value caseInsensitiveCompare:@"Count"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitCount);
         }
-        if ([value isEqualToString:@"Bytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Bytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBytesSecond);
         }
-        if ([value isEqualToString:@"Kilobytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Kilobytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobytesSecond);
         }
-        if ([value isEqualToString:@"Megabytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Megabytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabytesSecond);
         }
-        if ([value isEqualToString:@"Gigabytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Gigabytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabytesSecond);
         }
-        if ([value isEqualToString:@"Terabytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Terabytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabytesSecond);
         }
-        if ([value isEqualToString:@"Bits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Bits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBitsSecond);
         }
-        if ([value isEqualToString:@"Kilobits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Kilobits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobitsSecond);
         }
-        if ([value isEqualToString:@"Megabits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Megabits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabitsSecond);
         }
-        if ([value isEqualToString:@"Gigabits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Gigabits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabitsSecond);
         }
-        if ([value isEqualToString:@"Terabits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Terabits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabitsSecond);
         }
-        if ([value isEqualToString:@"Count/Second"]) {
+        if ([value caseInsensitiveCompare:@"Count/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitCountSecond);
         }
-        if ([value isEqualToString:@"None"]) {
+        if ([value caseInsensitiveCompare:@"None"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitNone);
         }
         return @(AWSCloudWatchStandardUnitUnknown);
@@ -1367,16 +1367,16 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 
 + (NSValueTransformer *)comparisonOperatorJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"GreaterThanOrEqualToThreshold"]) {
+        if ([value caseInsensitiveCompare:@"GreaterThanOrEqualToThreshold"] == NSOrderedSame) {
             return @(AWSCloudWatchComparisonOperatorGreaterThanOrEqualToThreshold);
         }
-        if ([value isEqualToString:@"GreaterThanThreshold"]) {
+        if ([value caseInsensitiveCompare:@"GreaterThanThreshold"] == NSOrderedSame) {
             return @(AWSCloudWatchComparisonOperatorGreaterThanThreshold);
         }
-        if ([value isEqualToString:@"LessThanThreshold"]) {
+        if ([value caseInsensitiveCompare:@"LessThanThreshold"] == NSOrderedSame) {
             return @(AWSCloudWatchComparisonOperatorLessThanThreshold);
         }
-        if ([value isEqualToString:@"LessThanOrEqualToThreshold"]) {
+        if ([value caseInsensitiveCompare:@"LessThanOrEqualToThreshold"] == NSOrderedSame) {
             return @(AWSCloudWatchComparisonOperatorLessThanOrEqualToThreshold);
         }
         return @(AWSCloudWatchComparisonOperatorUnknown);
@@ -1397,24 +1397,24 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 }
 
 + (NSValueTransformer *)dimensionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDimension class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDimension class]];
 }
 
 + (NSValueTransformer *)statisticJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"SampleCount"]) {
+        if ([value caseInsensitiveCompare:@"SampleCount"] == NSOrderedSame) {
             return @(AWSCloudWatchStatisticSampleCount);
         }
-        if ([value isEqualToString:@"Average"]) {
+        if ([value caseInsensitiveCompare:@"Average"] == NSOrderedSame) {
             return @(AWSCloudWatchStatisticAverage);
         }
-        if ([value isEqualToString:@"Sum"]) {
+        if ([value caseInsensitiveCompare:@"Sum"] == NSOrderedSame) {
             return @(AWSCloudWatchStatisticSum);
         }
-        if ([value isEqualToString:@"Minimum"]) {
+        if ([value caseInsensitiveCompare:@"Minimum"] == NSOrderedSame) {
             return @(AWSCloudWatchStatisticMinimum);
         }
-        if ([value isEqualToString:@"Maximum"]) {
+        if ([value caseInsensitiveCompare:@"Maximum"] == NSOrderedSame) {
             return @(AWSCloudWatchStatisticMaximum);
         }
         return @(AWSCloudWatchStatisticUnknown);
@@ -1438,85 +1438,85 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 
 + (NSValueTransformer *)unitJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"Seconds"]) {
+        if ([value caseInsensitiveCompare:@"Seconds"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitSeconds);
         }
-        if ([value isEqualToString:@"Microseconds"]) {
+        if ([value caseInsensitiveCompare:@"Microseconds"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMicroseconds);
         }
-        if ([value isEqualToString:@"Milliseconds"]) {
+        if ([value caseInsensitiveCompare:@"Milliseconds"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMilliseconds);
         }
-        if ([value isEqualToString:@"Bytes"]) {
+        if ([value caseInsensitiveCompare:@"Bytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBytes);
         }
-        if ([value isEqualToString:@"Kilobytes"]) {
+        if ([value caseInsensitiveCompare:@"Kilobytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobytes);
         }
-        if ([value isEqualToString:@"Megabytes"]) {
+        if ([value caseInsensitiveCompare:@"Megabytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabytes);
         }
-        if ([value isEqualToString:@"Gigabytes"]) {
+        if ([value caseInsensitiveCompare:@"Gigabytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabytes);
         }
-        if ([value isEqualToString:@"Terabytes"]) {
+        if ([value caseInsensitiveCompare:@"Terabytes"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabytes);
         }
-        if ([value isEqualToString:@"Bits"]) {
+        if ([value caseInsensitiveCompare:@"Bits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBits);
         }
-        if ([value isEqualToString:@"Kilobits"]) {
+        if ([value caseInsensitiveCompare:@"Kilobits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobits);
         }
-        if ([value isEqualToString:@"Megabits"]) {
+        if ([value caseInsensitiveCompare:@"Megabits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabits);
         }
-        if ([value isEqualToString:@"Gigabits"]) {
+        if ([value caseInsensitiveCompare:@"Gigabits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabits);
         }
-        if ([value isEqualToString:@"Terabits"]) {
+        if ([value caseInsensitiveCompare:@"Terabits"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabits);
         }
-        if ([value isEqualToString:@"Percent"]) {
+        if ([value caseInsensitiveCompare:@"Percent"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitPercent);
         }
-        if ([value isEqualToString:@"Count"]) {
+        if ([value caseInsensitiveCompare:@"Count"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitCount);
         }
-        if ([value isEqualToString:@"Bytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Bytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBytesSecond);
         }
-        if ([value isEqualToString:@"Kilobytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Kilobytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobytesSecond);
         }
-        if ([value isEqualToString:@"Megabytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Megabytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabytesSecond);
         }
-        if ([value isEqualToString:@"Gigabytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Gigabytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabytesSecond);
         }
-        if ([value isEqualToString:@"Terabytes/Second"]) {
+        if ([value caseInsensitiveCompare:@"Terabytes/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabytesSecond);
         }
-        if ([value isEqualToString:@"Bits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Bits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitBitsSecond);
         }
-        if ([value isEqualToString:@"Kilobits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Kilobits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitKilobitsSecond);
         }
-        if ([value isEqualToString:@"Megabits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Megabits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitMegabitsSecond);
         }
-        if ([value isEqualToString:@"Gigabits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Gigabits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitGigabitsSecond);
         }
-        if ([value isEqualToString:@"Terabits/Second"]) {
+        if ([value caseInsensitiveCompare:@"Terabits/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitTerabitsSecond);
         }
-        if ([value isEqualToString:@"Count/Second"]) {
+        if ([value caseInsensitiveCompare:@"Count/Second"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitCountSecond);
         }
-        if ([value isEqualToString:@"None"]) {
+        if ([value caseInsensitiveCompare:@"None"] == NSOrderedSame) {
             return @(AWSCloudWatchStandardUnitNone);
         }
         return @(AWSCloudWatchStandardUnitUnknown);
@@ -1594,7 +1594,7 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 }
 
 + (NSValueTransformer *)metricDataJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchMetricDatum class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchMetricDatum class]];
 }
 
 @end
@@ -1612,13 +1612,13 @@ NSString *const AWSCloudWatchErrorDomain = @"com.amazonaws.AWSCloudWatchErrorDom
 
 + (NSValueTransformer *)stateValueJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"OK"]) {
+        if ([value caseInsensitiveCompare:@"OK"] == NSOrderedSame) {
             return @(AWSCloudWatchStateValueOK);
         }
-        if ([value isEqualToString:@"ALARM"]) {
+        if ([value caseInsensitiveCompare:@"ALARM"] == NSOrderedSame) {
             return @(AWSCloudWatchStateValueAlarm);
         }
-        if ([value isEqualToString:@"INSUFFICIENT_DATA"]) {
+        if ([value caseInsensitiveCompare:@"INSUFFICIENT_DATA"] == NSOrderedSame) {
             return @(AWSCloudWatchStateValueInsufficientData);
         }
         return @(AWSCloudWatchStateValueUnknown);

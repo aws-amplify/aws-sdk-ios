@@ -13,21 +13,21 @@
 // permissions and limitations under the License.
 //
 
-#import "AWSElasticLoadBalancing.h"
-
-#import "AWSNetworking.h"
-#import "AWSCategory.h"
-#import "AWSSignature.h"
-#import "AWSService.h"
-#import "AWSNetworking.h"
-#import "AWSURLRequestSerialization.h"
-#import "AWSURLResponseSerialization.h"
-#import "AWSURLRequestRetryHandler.h"
-#import "AWSSynchronizedMutableDictionary.h"
+#import "AWSElasticLoadBalancingService.h"
+#import <AWSCore/AWSNetworking.h>
+#import <AWSCore/AWSCategory.h>
+#import <AWSCore/AWSNetworking.h>
+#import <AWSCore/AWSSignature.h>
+#import <AWSCore/AWSService.h>
+#import <AWSCore/AWSURLRequestSerialization.h>
+#import <AWSCore/AWSURLResponseSerialization.h>
+#import <AWSCore/AWSURLRequestRetryHandler.h>
+#import <AWSCore/AWSSynchronizedMutableDictionary.h>
 #import "AWSElasticLoadBalancingResources.h"
 
 static NSString *const AWSInfoElasticLoadBalancing = @"ElasticLoadBalancing";
-static NSString *const AWSElasticLoadBalancingSDKVersion = @"2.4.7";
+static NSString *const AWSElasticLoadBalancingSDKVersion = @"2.4.8";
+
 
 @interface AWSElasticLoadBalancingResponseSerializer : AWSXMLResponseSerializer
 
@@ -47,7 +47,6 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"DuplicateListener" : @(AWSElasticLoadBalancingErrorDuplicateListener),
                             @"DuplicatePolicyName" : @(AWSElasticLoadBalancingErrorDuplicatePolicyName),
                             @"DuplicateTagKeys" : @(AWSElasticLoadBalancingErrorDuplicateTagKeys),
-                            @"InsufficientCapacity" : @(AWSElasticLoadBalancingErrorInsufficientCapacity),
                             @"InvalidConfigurationRequest" : @(AWSElasticLoadBalancingErrorInvalidConfigurationRequest),
                             @"InvalidInstance" : @(AWSElasticLoadBalancingErrorInvalidEndPoint),
                             @"InvalidScheme" : @(AWSElasticLoadBalancingErrorInvalidScheme),
@@ -55,8 +54,6 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidSubnet" : @(AWSElasticLoadBalancingErrorInvalidSubnet),
                             @"ListenerNotFound" : @(AWSElasticLoadBalancingErrorListenerNotFound),
                             @"LoadBalancerAttributeNotFound" : @(AWSElasticLoadBalancingErrorLoadBalancerAttributeNotFound),
-                            @"MinimumLBCapacityUnitsDecreaseThrottling" : @(AWSElasticLoadBalancingErrorMinimumLBCapacityUnitsDecreaseThrottling),
-                            @"MinimumLBCapacityUnitsLimitExceeded" : @(AWSElasticLoadBalancingErrorMinimumLBCapacityUnitsLimitExceeded),
                             @"PolicyNotFound" : @(AWSElasticLoadBalancingErrorPolicyNotFound),
                             @"PolicyTypeNotFound" : @(AWSElasticLoadBalancingErrorPolicyTypeNotFound),
                             @"SubnetNotFound" : @(AWSElasticLoadBalancingErrorSubnetNotFound),
@@ -80,23 +77,23 @@ static NSDictionary *errorCodeDictionary = nil;
                                                     data:data
                                                    error:error];
     if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
-        NSDictionary *errorInfo = responseObject[@"Error"];
-        if (errorInfo[@"Code"] && errorCodeDictionary[errorInfo[@"Code"]]) {
-            if (error) {
-                *error = [NSError errorWithDomain:AWSElasticLoadBalancingErrorDomain
-                                             code:[errorCodeDictionary[errorInfo[@"Code"]] integerValue]
-                                         userInfo:errorInfo
-                          ];
-                return responseObject;
-            }
-        } else if (errorInfo) {
-            if (error) {
-                *error = [NSError errorWithDomain:AWSElasticLoadBalancingErrorDomain
-                                             code:AWSElasticLoadBalancingErrorUnknown
-                                         userInfo:errorInfo];
-                return responseObject;
-            }
-        }
+    	if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
+	        if ([errorCodeDictionary objectForKey:[[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]]) {
+	            if (error) {
+	                *error = [NSError errorWithDomain:AWSElasticLoadBalancingErrorDomain
+	                                             code:[[errorCodeDictionary objectForKey:[[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]] integerValue]
+	                                         userInfo:responseObject];
+	            }
+	            return responseObject;
+	        } else if ([[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]) {
+	            if (error) {
+	                *error = [NSError errorWithDomain:AWSCognitoIdentityErrorDomain
+	                                             code:AWSCognitoIdentityErrorUnknown
+	                                         userInfo:responseObject];
+	            }
+	            return responseObject;
+	        }
+    	}
     }
 
     if (!*error && response.statusCode/100 != 2) {
@@ -112,8 +109,7 @@ static NSDictionary *errorCodeDictionary = nil;
                                                        error:error];
         }
     }
-
-    return responseObject;
+	    return responseObject;
 }
 
 @end
@@ -209,7 +205,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                                         credentialsProvider:serviceInfo.cognitoCredentialsProvider];
             [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:serviceConfiguration
-                                                                            forKey:key];
+                                                                forKey:key];
         }
 
         return [_serviceClients objectForKey:key];
@@ -236,7 +232,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
                                                               service:AWSServiceElasticLoadBalancing
                                                          useUnsafeURL:NO];
-
         AWSSignatureV4Signer *signer = [[AWSSignatureV4Signer alloc] initWithCredentialsProvider:_configuration.credentialsProvider
                                                                                         endpoint:_configuration.endpoint];
         AWSNetworkingRequestInterceptor *baseInterceptor = [[AWSNetworkingRequestInterceptor alloc] initWithUserAgent:_configuration.userAgent];
@@ -244,10 +239,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.retryHandler = [[AWSElasticLoadBalancingRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
-
+         
+		
         _networking = [[AWSNetworking alloc] initWithConfiguration:_configuration];
     }
-
+    
     return self;
 }
 
@@ -262,19 +258,21 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         if (!request) {
             request = [AWSRequest new];
         }
-        
+
         AWSNetworkingRequest *networkingRequest = request.internalRequest;
         if (request) {
             networkingRequest.parameters = [[AWSMTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
         } else {
             networkingRequest.parameters = @{};
         }
+
         networkingRequest.HTTPMethod = HTTPMethod;
         networkingRequest.requestSerializer = [[AWSQueryStringRequestSerializer alloc] initWithJSONDefinition:[[AWSElasticLoadBalancingResources sharedInstance] JSONObject]
                                                                                                    actionName:operationName];
         networkingRequest.responseSerializer = [[AWSElasticLoadBalancingResponseSerializer alloc] initWithJSONDefinition:[[AWSElasticLoadBalancingResources sharedInstance] JSONObject]
-                                                                                                              actionName:operationName
-                                                                                                             outputClass:outputClass];
+                                                                                             actionName:operationName
+                                                                                            outputClass:outputClass];
+        
         return [self.networking sendRequest:networkingRequest];
     }
 }
@@ -291,7 +289,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)addTags:(AWSElasticLoadBalancingAddTagsInput *)request
-completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSError *error))completionHandler {
     [[self addTags:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingAddTagsOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingAddTagsOutput *result = task.result;
         NSError *error = task.error;
@@ -319,7 +317,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)applySecurityGroupsToLoadBalancer:(AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerInput *)request
-                        completionHandler:(void (^)(AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerOutput *response, NSError *error))completionHandler {
     [[self applySecurityGroupsToLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerOutput *result = task.result;
         NSError *error = task.error;
@@ -347,7 +345,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)attachLoadBalancerToSubnets:(AWSElasticLoadBalancingAttachLoadBalancerToSubnetsInput *)request
-                  completionHandler:(void (^)(AWSElasticLoadBalancingAttachLoadBalancerToSubnetsOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingAttachLoadBalancerToSubnetsOutput *response, NSError *error))completionHandler {
     [[self attachLoadBalancerToSubnets:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingAttachLoadBalancerToSubnetsOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingAttachLoadBalancerToSubnetsOutput *result = task.result;
         NSError *error = task.error;
@@ -375,7 +373,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)configureHealthCheck:(AWSElasticLoadBalancingConfigureHealthCheckInput *)request
-           completionHandler:(void (^)(AWSElasticLoadBalancingConfigureHealthCheckOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingConfigureHealthCheckOutput *response, NSError *error))completionHandler {
     [[self configureHealthCheck:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingConfigureHealthCheckOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingConfigureHealthCheckOutput *result = task.result;
         NSError *error = task.error;
@@ -403,7 +401,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)createAppCookieStickinessPolicy:(AWSElasticLoadBalancingCreateAppCookieStickinessPolicyInput *)request
-                      completionHandler:(void (^)(AWSElasticLoadBalancingCreateAppCookieStickinessPolicyOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingCreateAppCookieStickinessPolicyOutput *response, NSError *error))completionHandler {
     [[self createAppCookieStickinessPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingCreateAppCookieStickinessPolicyOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingCreateAppCookieStickinessPolicyOutput *result = task.result;
         NSError *error = task.error;
@@ -431,7 +429,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)createLBCookieStickinessPolicy:(AWSElasticLoadBalancingCreateLBCookieStickinessPolicyInput *)request
-                     completionHandler:(void (^)(AWSElasticLoadBalancingCreateLBCookieStickinessPolicyOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingCreateLBCookieStickinessPolicyOutput *response, NSError *error))completionHandler {
     [[self createLBCookieStickinessPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingCreateLBCookieStickinessPolicyOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingCreateLBCookieStickinessPolicyOutput *result = task.result;
         NSError *error = task.error;
@@ -459,7 +457,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)createLoadBalancer:(AWSElasticLoadBalancingCreateAccessPointInput *)request
-         completionHandler:(void (^)(AWSElasticLoadBalancingCreateAccessPointOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingCreateAccessPointOutput *response, NSError *error))completionHandler {
     [[self createLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingCreateAccessPointOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingCreateAccessPointOutput *result = task.result;
         NSError *error = task.error;
@@ -487,7 +485,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)createLoadBalancerListeners:(AWSElasticLoadBalancingCreateLoadBalancerListenerInput *)request
-                  completionHandler:(void (^)(AWSElasticLoadBalancingCreateLoadBalancerListenerOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingCreateLoadBalancerListenerOutput *response, NSError *error))completionHandler {
     [[self createLoadBalancerListeners:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingCreateLoadBalancerListenerOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingCreateLoadBalancerListenerOutput *result = task.result;
         NSError *error = task.error;
@@ -515,7 +513,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)createLoadBalancerPolicy:(AWSElasticLoadBalancingCreateLoadBalancerPolicyInput *)request
-               completionHandler:(void (^)(AWSElasticLoadBalancingCreateLoadBalancerPolicyOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingCreateLoadBalancerPolicyOutput *response, NSError *error))completionHandler {
     [[self createLoadBalancerPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingCreateLoadBalancerPolicyOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingCreateLoadBalancerPolicyOutput *result = task.result;
         NSError *error = task.error;
@@ -543,7 +541,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)deleteLoadBalancer:(AWSElasticLoadBalancingDeleteAccessPointInput *)request
-         completionHandler:(void (^)(AWSElasticLoadBalancingDeleteAccessPointOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingDeleteAccessPointOutput *response, NSError *error))completionHandler {
     [[self deleteLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDeleteAccessPointOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingDeleteAccessPointOutput *result = task.result;
         NSError *error = task.error;
@@ -571,7 +569,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)deleteLoadBalancerListeners:(AWSElasticLoadBalancingDeleteLoadBalancerListenerInput *)request
-                  completionHandler:(void (^)(AWSElasticLoadBalancingDeleteLoadBalancerListenerOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingDeleteLoadBalancerListenerOutput *response, NSError *error))completionHandler {
     [[self deleteLoadBalancerListeners:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDeleteLoadBalancerListenerOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingDeleteLoadBalancerListenerOutput *result = task.result;
         NSError *error = task.error;
@@ -599,7 +597,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)deleteLoadBalancerPolicy:(AWSElasticLoadBalancingDeleteLoadBalancerPolicyInput *)request
-               completionHandler:(void (^)(AWSElasticLoadBalancingDeleteLoadBalancerPolicyOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingDeleteLoadBalancerPolicyOutput *response, NSError *error))completionHandler {
     [[self deleteLoadBalancerPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDeleteLoadBalancerPolicyOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingDeleteLoadBalancerPolicyOutput *result = task.result;
         NSError *error = task.error;
@@ -627,7 +625,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)deregisterInstancesFromLoadBalancer:(AWSElasticLoadBalancingDeregisterEndPointsInput *)request
-                          completionHandler:(void (^)(AWSElasticLoadBalancingDeregisterEndPointsOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingDeregisterEndPointsOutput *response, NSError *error))completionHandler {
     [[self deregisterInstancesFromLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDeregisterEndPointsOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingDeregisterEndPointsOutput *result = task.result;
         NSError *error = task.error;
@@ -655,7 +653,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)describeInstanceHealth:(AWSElasticLoadBalancingDescribeEndPointStateInput *)request
-             completionHandler:(void (^)(AWSElasticLoadBalancingDescribeEndPointStateOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeEndPointStateOutput *response, NSError *error))completionHandler {
     [[self describeInstanceHealth:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeEndPointStateOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingDescribeEndPointStateOutput *result = task.result;
         NSError *error = task.error;
@@ -683,7 +681,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)describeLoadBalancerAttributes:(AWSElasticLoadBalancingDescribeLoadBalancerAttributesInput *)request
-                     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeLoadBalancerAttributesOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeLoadBalancerAttributesOutput *response, NSError *error))completionHandler {
     [[self describeLoadBalancerAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeLoadBalancerAttributesOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingDescribeLoadBalancerAttributesOutput *result = task.result;
         NSError *error = task.error;
@@ -711,7 +709,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)describeLoadBalancerPolicies:(AWSElasticLoadBalancingDescribeLoadBalancerPoliciesInput *)request
-                   completionHandler:(void (^)(AWSElasticLoadBalancingDescribeLoadBalancerPoliciesOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeLoadBalancerPoliciesOutput *response, NSError *error))completionHandler {
     [[self describeLoadBalancerPolicies:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeLoadBalancerPoliciesOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingDescribeLoadBalancerPoliciesOutput *result = task.result;
         NSError *error = task.error;
@@ -739,7 +737,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)describeLoadBalancerPolicyTypes:(AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesInput *)request
-                      completionHandler:(void (^)(AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput *response, NSError *error))completionHandler {
     [[self describeLoadBalancerPolicyTypes:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput *result = task.result;
         NSError *error = task.error;
@@ -767,37 +765,9 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)describeLoadBalancers:(AWSElasticLoadBalancingDescribeAccessPointsInput *)request
-            completionHandler:(void (^)(AWSElasticLoadBalancingDescribeAccessPointsOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeAccessPointsOutput *response, NSError *error))completionHandler {
     [[self describeLoadBalancers:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeAccessPointsOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingDescribeAccessPointsOutput *result = task.result;
-        NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
-- (AWSTask<AWSElasticLoadBalancingDescribeProvisionedCapacityOutput *> *)describeProvisionedCapacity:(AWSElasticLoadBalancingDescribeProvisionedCapacityInput *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodPOST
-                     URLString:@""
-                  targetPrefix:@""
-                 operationName:@"DescribeProvisionedCapacity"
-                   outputClass:[AWSElasticLoadBalancingDescribeProvisionedCapacityOutput class]];
-}
-
-- (void)describeProvisionedCapacity:(AWSElasticLoadBalancingDescribeProvisionedCapacityInput *)request
-                  completionHandler:(void (^)(AWSElasticLoadBalancingDescribeProvisionedCapacityOutput *response, NSError *error))completionHandler {
-    [[self describeProvisionedCapacity:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeProvisionedCapacityOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingDescribeProvisionedCapacityOutput *result = task.result;
         NSError *error = task.error;
 
         if (task.exception) {
@@ -823,7 +793,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)describeTags:(AWSElasticLoadBalancingDescribeTagsInput *)request
-   completionHandler:(void (^)(AWSElasticLoadBalancingDescribeTagsOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeTagsOutput *response, NSError *error))completionHandler {
     [[self describeTags:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeTagsOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingDescribeTagsOutput *result = task.result;
         NSError *error = task.error;
@@ -851,7 +821,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)detachLoadBalancerFromSubnets:(AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsInput *)request
-                    completionHandler:(void (^)(AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsOutput *response, NSError *error))completionHandler {
     [[self detachLoadBalancerFromSubnets:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsOutput *result = task.result;
         NSError *error = task.error;
@@ -879,7 +849,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)disableAvailabilityZonesForLoadBalancer:(AWSElasticLoadBalancingRemoveAvailabilityZonesInput *)request
-                              completionHandler:(void (^)(AWSElasticLoadBalancingRemoveAvailabilityZonesOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingRemoveAvailabilityZonesOutput *response, NSError *error))completionHandler {
     [[self disableAvailabilityZonesForLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingRemoveAvailabilityZonesOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingRemoveAvailabilityZonesOutput *result = task.result;
         NSError *error = task.error;
@@ -907,7 +877,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)enableAvailabilityZonesForLoadBalancer:(AWSElasticLoadBalancingAddAvailabilityZonesInput *)request
-                             completionHandler:(void (^)(AWSElasticLoadBalancingAddAvailabilityZonesOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingAddAvailabilityZonesOutput *response, NSError *error))completionHandler {
     [[self enableAvailabilityZonesForLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingAddAvailabilityZonesOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingAddAvailabilityZonesOutput *result = task.result;
         NSError *error = task.error;
@@ -935,37 +905,9 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)modifyLoadBalancerAttributes:(AWSElasticLoadBalancingModifyLoadBalancerAttributesInput *)request
-                   completionHandler:(void (^)(AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput *response, NSError *error))completionHandler {
     [[self modifyLoadBalancerAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput *result = task.result;
-        NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
-- (AWSTask<AWSElasticLoadBalancingModifyProvisionedCapacityOutput *> *)modifyProvisionedCapacity:(AWSElasticLoadBalancingModifyProvisionedCapacityInput *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodPOST
-                     URLString:@""
-                  targetPrefix:@""
-                 operationName:@"ModifyProvisionedCapacity"
-                   outputClass:[AWSElasticLoadBalancingModifyProvisionedCapacityOutput class]];
-}
-
-- (void)modifyProvisionedCapacity:(AWSElasticLoadBalancingModifyProvisionedCapacityInput *)request
-                completionHandler:(void (^)(AWSElasticLoadBalancingModifyProvisionedCapacityOutput *response, NSError *error))completionHandler {
-    [[self modifyProvisionedCapacity:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingModifyProvisionedCapacityOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingModifyProvisionedCapacityOutput *result = task.result;
         NSError *error = task.error;
 
         if (task.exception) {
@@ -991,7 +933,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)registerInstancesWithLoadBalancer:(AWSElasticLoadBalancingRegisterEndPointsInput *)request
-                        completionHandler:(void (^)(AWSElasticLoadBalancingRegisterEndPointsOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingRegisterEndPointsOutput *response, NSError *error))completionHandler {
     [[self registerInstancesWithLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingRegisterEndPointsOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingRegisterEndPointsOutput *result = task.result;
         NSError *error = task.error;
@@ -1019,7 +961,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)removeTags:(AWSElasticLoadBalancingRemoveTagsInput *)request
- completionHandler:(void (^)(AWSElasticLoadBalancingRemoveTagsOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingRemoveTagsOutput *response, NSError *error))completionHandler {
     [[self removeTags:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingRemoveTagsOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingRemoveTagsOutput *result = task.result;
         NSError *error = task.error;
@@ -1047,7 +989,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)setLoadBalancerListenerSSLCertificate:(AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateInput *)request
-                            completionHandler:(void (^)(AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateOutput *response, NSError *error))completionHandler {
     [[self setLoadBalancerListenerSSLCertificate:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateOutput *result = task.result;
         NSError *error = task.error;
@@ -1075,7 +1017,7 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)setLoadBalancerPoliciesForBackendServer:(AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerInput *)request
-                              completionHandler:(void (^)(AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerOutput *response, NSError *error))completionHandler {
     [[self setLoadBalancerPoliciesForBackendServer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerOutput *result = task.result;
         NSError *error = task.error;
@@ -1103,20 +1045,20 @@ completionHandler:(void (^)(AWSElasticLoadBalancingAddTagsOutput *response, NSEr
 }
 
 - (void)setLoadBalancerPoliciesOfListener:(AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerInput *)request
-                        completionHandler:(void (^)(AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerOutput *response, NSError *error))completionHandler {
+     completionHandler:(void (^)(AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerOutput *response, NSError *error))completionHandler {
     [[self setLoadBalancerPoliciesOfListener:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerOutput *result = task.result;
         NSError *error = task.error;
-        
+
         if (task.exception) {
             AWSLogError(@"Fatal exception: [%@]", task.exception);
             kill(getpid(), SIGKILL);
         }
-        
+
         if (completionHandler) {
             completionHandler(result, error);
         }
-        
+
         return nil;
     }];
 }

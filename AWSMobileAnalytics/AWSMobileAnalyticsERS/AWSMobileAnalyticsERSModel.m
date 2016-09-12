@@ -32,7 +32,7 @@ NSString *const AWSMobileAnalyticsERSErrorDomain = @"com.amazonaws.AWSMobileAnal
 }
 
 + (NSValueTransformer *)sessionJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSMobileAnalyticsERSSession class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSMobileAnalyticsERSSession class]];
 }
 
 @end
@@ -47,7 +47,7 @@ NSString *const AWSMobileAnalyticsERSErrorDomain = @"com.amazonaws.AWSMobileAnal
 }
 
 + (NSValueTransformer *)eventsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSMobileAnalyticsERSEvent class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSMobileAnalyticsERSEvent class]];
 }
 
 @end

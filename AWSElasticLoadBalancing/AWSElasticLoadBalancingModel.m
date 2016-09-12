@@ -62,7 +62,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)tagsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingTag class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingTag class]];
 }
 
 @end
@@ -156,7 +156,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)healthCheckJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingHealthCheck class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingHealthCheck class]];
 }
 
 @end
@@ -170,7 +170,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)healthCheckJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingHealthCheck class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingHealthCheck class]];
 }
 
 @end
@@ -211,11 +211,11 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)listenersJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingListener class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingListener class]];
 }
 
 + (NSValueTransformer *)tagsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingTag class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingTag class]];
 }
 
 @end
@@ -272,7 +272,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)listenersJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingListener class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingListener class]];
 }
 
 @end
@@ -293,7 +293,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)policyAttributesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingPolicyAttribute class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingPolicyAttribute class]];
 }
 
 @end
@@ -366,7 +366,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)instancesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingInstance class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingInstance class]];
 }
 
 @end
@@ -380,7 +380,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)instancesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingInstance class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingInstance class]];
 }
 
 @end
@@ -407,7 +407,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)loadBalancerDescriptionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingLoadBalancerDescription class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingLoadBalancerDescription class]];
 }
 
 @end
@@ -422,7 +422,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)instancesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingInstance class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingInstance class]];
 }
 
 @end
@@ -436,7 +436,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)instanceStatesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingInstanceState class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingInstanceState class]];
 }
 
 @end
@@ -460,7 +460,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)loadBalancerAttributesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingLoadBalancerAttributes class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingLoadBalancerAttributes class]];
 }
 
 @end
@@ -485,7 +485,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)policyDescriptionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingPolicyDescription class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingPolicyDescription class]];
 }
 
 @end
@@ -509,31 +509,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)policyTypeDescriptionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingPolicyTypeDescription class]];
-}
-
-@end
-
-@implementation AWSElasticLoadBalancingDescribeProvisionedCapacityInput
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"loadBalancerName" : @"LoadBalancerName",
-             };
-}
-
-@end
-
-@implementation AWSElasticLoadBalancingDescribeProvisionedCapacityOutput
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"provisionedCapacity" : @"ProvisionedCapacity",
-             };
-}
-
-+ (NSValueTransformer *)provisionedCapacityJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingProvisionedCapacity class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingPolicyTypeDescription class]];
 }
 
 @end
@@ -557,7 +533,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)tagDescriptionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingTagDescription class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingTagDescription class]];
 }
 
 @end
@@ -655,7 +631,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)listenerJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingListener class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingListener class]];
 }
 
 @end
@@ -673,23 +649,23 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)accessLogJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingAccessLog class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingAccessLog class]];
 }
 
 + (NSValueTransformer *)additionalAttributesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingAdditionalAttribute class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingAdditionalAttribute class]];
 }
 
 + (NSValueTransformer *)connectionDrainingJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingConnectionDraining class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingConnectionDraining class]];
 }
 
 + (NSValueTransformer *)connectionSettingsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingConnectionSettings class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingConnectionSettings class]];
 }
 
 + (NSValueTransformer *)crossZoneLoadBalancingJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingCrossZoneLoadBalancing class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingCrossZoneLoadBalancing class]];
 }
 
 @end
@@ -718,35 +694,35 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)backendServerDescriptionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingBackendServerDescription class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingBackendServerDescription class]];
 }
 
 + (NSValueTransformer *)createdTimeJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
         return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 + (NSValueTransformer *)healthCheckJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingHealthCheck class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingHealthCheck class]];
 }
 
 + (NSValueTransformer *)instancesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingInstance class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingInstance class]];
 }
 
 + (NSValueTransformer *)listenerDescriptionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingListenerDescription class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingListenerDescription class]];
 }
 
 + (NSValueTransformer *)policiesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingPolicies class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingPolicies class]];
 }
 
 + (NSValueTransformer *)sourceSecurityGroupJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingSourceSecurityGroup class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingSourceSecurityGroup class]];
 }
 
 @end
@@ -761,7 +737,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)loadBalancerAttributesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingLoadBalancerAttributes class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingLoadBalancerAttributes class]];
 }
 
 @end
@@ -776,32 +752,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)loadBalancerAttributesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingLoadBalancerAttributes class]];
-}
-
-@end
-
-@implementation AWSElasticLoadBalancingModifyProvisionedCapacityInput
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"loadBalancerName" : @"LoadBalancerName",
-             @"minimumLBCapacityUnits" : @"MinimumLBCapacityUnits",
-             };
-}
-
-@end
-
-@implementation AWSElasticLoadBalancingModifyProvisionedCapacityOutput
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"provisionedCapacity" : @"ProvisionedCapacity",
-             };
-}
-
-+ (NSValueTransformer *)provisionedCapacityJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingProvisionedCapacity class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSElasticLoadBalancingLoadBalancerAttributes class]];
 }
 
 @end
@@ -817,11 +768,11 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)appCookieStickinessPoliciesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingAppCookieStickinessPolicy class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingAppCookieStickinessPolicy class]];
 }
 
 + (NSValueTransformer *)LBCookieStickinessPoliciesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingLBCookieStickinessPolicy class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingLBCookieStickinessPolicy class]];
 }
 
 @end
@@ -873,7 +824,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)policyAttributeDescriptionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingPolicyAttributeDescription class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingPolicyAttributeDescription class]];
 }
 
 @end
@@ -889,59 +840,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)policyAttributeTypeDescriptionsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingPolicyAttributeTypeDescription class]];
-}
-
-@end
-
-@implementation AWSElasticLoadBalancingProvisionedCapacity
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"decreasesRemaining" : @"DecreasesRemaining",
-             @"lastModifiedTime" : @"LastModifiedTime",
-             @"minimumLBCapacityUnits" : @"MinimumLBCapacityUnits",
-             @"status" : @"Status",
-             };
-}
-
-+ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate aws_dateFromString:str];
-    } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
-    }];
-}
-
-+ (NSValueTransformer *)statusJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"disabled"]) {
-            return @(AWSElasticLoadBalancingProvisionedCapacityStatusDisabled);
-        }
-        if ([value isEqualToString:@"pending"]) {
-            return @(AWSElasticLoadBalancingProvisionedCapacityStatusPending);
-        }
-        if ([value isEqualToString:@"provisioned"]) {
-            return @(AWSElasticLoadBalancingProvisionedCapacityStatusProvisioned);
-        }
-        if ([value isEqualToString:@"pre-warmed"]) {
-            return @(AWSElasticLoadBalancingProvisionedCapacityStatusPreWarmed);
-        }
-        return @(AWSElasticLoadBalancingProvisionedCapacityStatusUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSElasticLoadBalancingProvisionedCapacityStatusDisabled:
-                return @"disabled";
-            case AWSElasticLoadBalancingProvisionedCapacityStatusPending:
-                return @"pending";
-            case AWSElasticLoadBalancingProvisionedCapacityStatusProvisioned:
-                return @"provisioned";
-            case AWSElasticLoadBalancingProvisionedCapacityStatusPreWarmed:
-                return @"pre-warmed";
-            default:
-                return nil;
-        }
-    }];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingPolicyAttributeTypeDescription class]];
 }
 
 @end
@@ -956,7 +855,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)instancesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingInstance class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingInstance class]];
 }
 
 @end
@@ -970,7 +869,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)instancesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingInstance class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingInstance class]];
 }
 
 @end
@@ -1006,7 +905,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)tagsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingTagKeyOnly class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingTagKeyOnly class]];
 }
 
 @end
@@ -1095,7 +994,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 }
 
 + (NSValueTransformer *)tagsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingTag class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingTag class]];
 }
 
 @end

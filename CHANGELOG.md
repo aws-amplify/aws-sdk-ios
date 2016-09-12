@@ -1,10 +1,19 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.4.8
+### New Features
+* **Amazon Cognito Identity Provider**
+    * Added feature for custom authentication handlers.
+    * Added support for getDevice, forgetDevice and added convenience methods to perform operations on this device.
+
+### Misc Changes
+* **All Services**
+    * Updated all of the low-level clients with the latest models.
+
 ## 2.4.7
 ### Resolved Issues
 * **Amazon Cognito Identity Provider**
 	* Fixed integration between Cognito Identity Provider and Cognito Identity. [#438](https://github.com/aws/aws-sdk-ios/issues/438)
-
 
 ## 2.4.6
 ### New Features  

@@ -206,6 +206,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @class AWSSESSetIdentityDkimEnabledResponse;
 @class AWSSESSetIdentityFeedbackForwardingEnabledRequest;
 @class AWSSESSetIdentityFeedbackForwardingEnabledResponse;
+@class AWSSESSetIdentityHeadersInNotificationsEnabledRequest;
+@class AWSSESSetIdentityHeadersInNotificationsEnabledResponse;
 @class AWSSESSetIdentityMailFromDomainRequest;
 @class AWSSESSetIdentityMailFromDomainResponse;
 @class AWSSESSetIdentityNotificationTopicRequest;
@@ -244,18 +246,18 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- <p>Represents the body of the message. You can specify text, HTML, or both. If you use both, then the message should display correctly in the widest variety of email clients. </p>
+ <p>Represents the body of the message. You can specify text, HTML, or both. If you use both, then the message should display correctly in the widest variety of email clients.</p>
  */
 @interface AWSSESBody : AWSModel
 
 
 /**
- <p>The content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message. </p>
+ <p>The content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message.</p>
  */
 @property (nonatomic, strong) AWSSESContent * _Nullable html;
 
 /**
- <p>The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices). </p>
+ <p>The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices).</p>
  */
 @property (nonatomic, strong) AWSSESContent * _Nullable text;
 
@@ -325,7 +327,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to create a receipt rule set by cloning an existing one. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName, OriginalRuleSetName]
  */
 @interface AWSSESCloneReceiptRuleSetRequest : AWSRequest
 
@@ -336,14 +339,14 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @property (nonatomic, strong) NSString * _Nullable originalRuleSetName;
 
 /**
- <p>The name of the rule set to create. The name must:</p><ul><li>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).</li><li>Start and end with a letter or number.</li><li>Contain less than 64 characters.</li></ul>
+ <p>The name of the rule set to create. The name must:</p><ul><li><p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).</p></li><li><p>Start and end with a letter or number.</p></li><li><p>Contain less than 64 characters.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable ruleSetName;
 
 @end
 
 /**
- 
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESCloneReceiptRuleSetResponse : AWSModel
 
@@ -351,7 +354,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- <p>Represents textual data, plus an optional character set specification.</p><p>By default, the text must be 7-bit ASCII, due to the constraints of the SMTP protocol. If the text must contain any other characters, then you must also specify a character set. Examples include UTF-8, ISO-8859-1, and Shift_JIS. </p>
+ <p>Represents textual data, plus an optional character set specification.</p><p>By default, the text must be 7-bit ASCII, due to the constraints of the SMTP protocol. If the text must contain any other characters, then you must also specify a character set. Examples include UTF-8, ISO-8859-1, and Shift_JIS.</p>
  Required parameters: [Data]
  */
 @interface AWSSESContent : AWSModel
@@ -370,7 +373,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to create a new IP address filter. You use IP address filters when you receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Filter]
  */
 @interface AWSSESCreateReceiptFilterRequest : AWSRequest
 
@@ -383,7 +387,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESCreateReceiptFilterResponse : AWSModel
 
@@ -391,7 +395,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to create a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName, Rule]
  */
 @interface AWSSESCreateReceiptRuleRequest : AWSRequest
 
@@ -414,7 +419,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESCreateReceiptRuleResponse : AWSModel
 
@@ -422,20 +427,21 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to create an empty receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName]
  */
 @interface AWSSESCreateReceiptRuleSetRequest : AWSRequest
 
 
 /**
- <p>The name of the rule set to create. The name must:</p><ul><li>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).</li><li>Start and end with a letter or number.</li><li>Contain less than 64 characters.</li></ul>
+ <p>The name of the rule set to create. The name must:</p><ul><li><p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).</p></li><li><p>Start and end with a letter or number.</p></li><li><p>Contain less than 64 characters.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable ruleSetName;
 
 @end
 
 /**
- 
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESCreateReceiptRuleSetResponse : AWSModel
 
@@ -443,7 +449,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to delete a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identity, PolicyName]
  */
 @interface AWSSESDeleteIdentityPolicyRequest : AWSRequest
 
@@ -461,7 +468,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESDeleteIdentityPolicyResponse : AWSModel
 
@@ -469,7 +476,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to delete one of your Amazon SES identities (an email address or domain).</p>
+ Required parameters: [Identity]
  */
 @interface AWSSESDeleteIdentityRequest : AWSRequest
 
@@ -482,7 +490,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESDeleteIdentityResponse : AWSModel
 
@@ -490,7 +498,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to delete an IP address filter. You use IP address filters when you receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [FilterName]
  */
 @interface AWSSESDeleteReceiptFilterRequest : AWSRequest
 
@@ -503,7 +512,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESDeleteReceiptFilterResponse : AWSModel
 
@@ -511,7 +520,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to delete a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName, RuleName]
  */
 @interface AWSSESDeleteReceiptRuleRequest : AWSRequest
 
@@ -529,7 +539,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESDeleteReceiptRuleResponse : AWSModel
 
@@ -537,7 +547,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to delete a receipt rule set and all of the receipt rules it contains. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName]
  */
 @interface AWSSESDeleteReceiptRuleSetRequest : AWSRequest
 
@@ -550,7 +561,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESDeleteReceiptRuleSetResponse : AWSModel
 
@@ -558,7 +569,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to delete an email address from the list of email addresses you have attempted to verify under your AWS account.</p>
+ Required parameters: [EmailAddress]
  */
 @interface AWSSESDeleteVerifiedEmailAddressRequest : AWSRequest
 
@@ -571,7 +583,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to return the metadata and receipt rules for the receipt rule set that is currently active. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
 @interface AWSSESDescribeActiveReceiptRuleSetRequest : AWSRequest
 
@@ -579,7 +591,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents the metadata and receipt rules for the receipt rule set that is currently active.</p>
  */
 @interface AWSSESDescribeActiveReceiptRuleSetResponse : AWSModel
 
@@ -597,7 +609,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to return the details of a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName, RuleName]
  */
 @interface AWSSESDescribeReceiptRuleRequest : AWSRequest
 
@@ -615,7 +628,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents the details of a receipt rule.</p>
  */
 @interface AWSSESDescribeReceiptRuleResponse : AWSModel
 
@@ -628,7 +641,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to return the details of a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName]
  */
 @interface AWSSESDescribeReceiptRuleSetRequest : AWSRequest
 
@@ -641,7 +655,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents the details of the specified receipt rule set.</p>
  */
 @interface AWSSESDescribeReceiptRuleSetResponse : AWSModel
 
@@ -701,7 +715,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request for the status of Amazon SES Easy DKIM signing for an identity. For domain identities, this request also returns the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES successfully verified that these tokens were published. For more information about Easy DKIM, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identities]
  */
 @interface AWSSESGetIdentityDkimAttributesRequest : AWSRequest
 
@@ -714,20 +729,22 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents the status of Amazon SES Easy DKIM signing for an identity. For domain identities, this response also contains the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES successfully verified that these tokens were published.</p>
+ Required parameters: [DkimAttributes]
  */
 @interface AWSSESGetIdentityDkimAttributesResponse : AWSModel
 
 
 /**
- <p>The DKIM attributes for an email address or a domain. </p>
+ <p>The DKIM attributes for an email address or a domain.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSSESIdentityDkimAttributes *> * _Nullable dkimAttributes;
 
 @end
 
 /**
- 
+ <p>Represents a request to return the Amazon SES custom MAIL FROM attributes for a list of identities. For information about using a custom MAIL FROM domain, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identities]
  */
 @interface AWSSESGetIdentityMailFromDomainAttributesRequest : AWSRequest
 
@@ -740,7 +757,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents the custom MAIL FROM attributes for a list of identities.</p>
+ Required parameters: [MailFromDomainAttributes]
  */
 @interface AWSSESGetIdentityMailFromDomainAttributesResponse : AWSModel
 
@@ -753,7 +771,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to return the notification attributes for a list of identities you verified with Amazon SES. For information about Amazon SES notifications, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identities]
  */
 @interface AWSSESGetIdentityNotificationAttributesRequest : AWSRequest
 
@@ -766,7 +785,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents the notification attributes for a list of identities.</p>
+ Required parameters: [NotificationAttributes]
  */
 @interface AWSSESGetIdentityNotificationAttributesResponse : AWSModel
 
@@ -779,7 +799,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to return the requested sending authorization policies for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identity, PolicyNames]
  */
 @interface AWSSESGetIdentityPoliciesRequest : AWSRequest
 
@@ -797,7 +818,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents the requested sending authorization policies.</p>
+ Required parameters: [Policies]
  */
 @interface AWSSESGetIdentityPoliciesResponse : AWSModel
 
@@ -810,7 +832,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to return the Amazon SES verification status of a list of identities. For domain identities, this request also returns the verification token. For information about verifying identities with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identities]
  */
 @interface AWSSESGetIdentityVerificationAttributesRequest : AWSRequest
 
@@ -823,7 +846,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>The Amazon SES verification status of a list of identities. For domain identities, this response also contains the verification token.</p>
+ Required parameters: [VerificationAttributes]
  */
 @interface AWSSESGetIdentityVerificationAttributesResponse : AWSModel
 
@@ -836,7 +860,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents your Amazon SES daily sending quota, maximum send rate, and the number of emails you have sent in the last 24 hours.</p>
  */
 @interface AWSSESGetSendQuotaResponse : AWSModel
 
@@ -847,7 +871,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable max24HourSend;
 
 /**
- <p>The maximum number of emails that Amazon SES can accept from the user's account per second.</p><note>The rate at which Amazon SES accepts the user's messages might be less than the maximum send rate.</note>
+ <p>The maximum number of emails that Amazon SES can accept from the user's account per second.</p><note><p>The rate at which Amazon SES accepts the user's messages might be less than the maximum send rate.</p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxSendRate;
 
@@ -859,7 +883,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a list of data points. This list contains aggregated data from the previous two weeks of your sending activity with Amazon SES.</p>
  */
 @interface AWSSESGetSendStatisticsResponse : AWSModel
 
@@ -946,6 +970,21 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
  */
 @property (nonatomic, strong) NSNumber * _Nullable forwardingEnabled;
 
+/**
+ <p>Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type <code>Bounce</code>. A value of <code>true</code> specifies that Amazon SES will include headers in bounce notifications, and a value of <code>false</code> specifies that Amazon SES will not include headers in bounce notifications.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable headersInBounceNotificationsEnabled;
+
+/**
+ <p>Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type <code>Complaint</code>. A value of <code>true</code> specifies that Amazon SES will include headers in complaint notifications, and a value of <code>false</code> specifies that Amazon SES will not include headers in complaint notifications.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable headersInComplaintNotificationsEnabled;
+
+/**
+ <p>Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type <code>Delivery</code>. A value of <code>true</code> specifies that Amazon SES will include headers in delivery notifications, and a value of <code>false</code> specifies that Amazon SES will not include headers in delivery notifications.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable headersInDeliveryNotificationsEnabled;
+
 @end
 
 /**
@@ -980,7 +1019,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @property (nonatomic, strong) NSString * _Nullable functionArn;
 
 /**
- <p>The invocation type of the AWS Lambda function. An invocation type of <code>RequestResponse</code> means that the execution of the function will immediately result in a response, and a value of <code>Event</code> means that the function will be invoked asynchronously. The default value is <code>Event</code>. For information about AWS Lambda invocation types, see the <a href="http://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html">AWS Lambda Developer Guide</a>.</p><important>There is a 30-second timeout on <code>RequestResponse</code> invocations. You should use <code>Event</code> invocation in most cases. Use <code>RequestResponse</code> only when you want to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.</important>
+ <p>The invocation type of the AWS Lambda function. An invocation type of <code>RequestResponse</code> means that the execution of the function will immediately result in a response, and a value of <code>Event</code> means that the function will be invoked asynchronously. The default value is <code>Event</code>. For information about AWS Lambda invocation types, see the <a href="http://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html">AWS Lambda Developer Guide</a>.</p><important><p>There is a 30-second timeout on <code>RequestResponse</code> invocations. You should use <code>Event</code> invocation in most cases. Use <code>RequestResponse</code> only when you want to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.</p></important>
  */
 @property (nonatomic, assign) AWSSESInvocationType invocationType;
 
@@ -992,7 +1031,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to return a list of all identities (email addresses and domains) that you have attempted to verify under your AWS account, regardless of verification status.</p>
  */
 @interface AWSSESListIdentitiesRequest : AWSRequest
 
@@ -1015,7 +1054,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>A list of all identities that you have attempted to verify under your AWS account, regardless of verification status.</p>
+ Required parameters: [Identities]
  */
 @interface AWSSESListIdentitiesResponse : AWSModel
 
@@ -1033,7 +1073,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to return a list of sending authorization policies that are attached to an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identity]
  */
 @interface AWSSESListIdentityPoliciesRequest : AWSRequest
 
@@ -1046,7 +1087,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>A list of names of sending authorization policies that apply to an identity.</p>
+ Required parameters: [PolicyNames]
  */
 @interface AWSSESListIdentityPoliciesResponse : AWSModel
 
@@ -1059,7 +1101,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>: Represents a request to list the IP address filters that exist under your AWS account. You use IP address filters when you receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
 @interface AWSSESListReceiptFiltersRequest : AWSRequest
 
@@ -1067,7 +1109,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>A list of IP address filters that exist under your AWS account.</p>
  */
 @interface AWSSESListReceiptFiltersResponse : AWSModel
 
@@ -1080,7 +1122,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to list the receipt rule sets that exist under your AWS account. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
 @interface AWSSESListReceiptRuleSetsRequest : AWSRequest
 
@@ -1093,7 +1135,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>A list of receipt rule sets that exist under your AWS account.</p>
  */
 @interface AWSSESListReceiptRuleSetsResponse : AWSModel
 
@@ -1111,7 +1153,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>A list of email addresses that you have verified with Amazon SES under your AWS account.</p>
  */
 @interface AWSSESListVerifiedEmailAddressesResponse : AWSModel
 
@@ -1167,7 +1209,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to add or update a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identity, PolicyName, Policy]
  */
 @interface AWSSESPutIdentityPolicyRequest : AWSRequest
 
@@ -1190,7 +1233,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESPutIdentityPolicyResponse : AWSModel
 
@@ -1205,7 +1248,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 
 
 /**
- <p>The raw data of the message. The client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, MIME encoding, and base64 encoding (if necessary). </p><p>The To:, CC:, and BCC: headers in the raw message can contain a group list. </p><p>If you are using <code>SendRawEmail</code> with sending authorization, you can include X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses. For more information, see the documentation for <code>SendRawEmail</code>. </p><important>Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email.</important><p>For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Amazon SES Developer Guide</a>. </p>
+ <p>The raw data of the message. The client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, MIME encoding, and base64 encoding.</p><p>The To:, CC:, and BCC: headers in the raw message can contain a group list.</p><p>If you are using <code>SendRawEmail</code> with sending authorization, you can include X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses. For more information, see the documentation for <code>SendRawEmail</code>. </p><important><p>Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email.</p></important><p>For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Amazon SES Developer Guide</a>. </p>
  */
 @property (nonatomic, strong) NSData * _Nullable data;
 
@@ -1267,7 +1310,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @property (nonatomic, strong) AWSSESReceiptIpFilter * _Nullable ipFilter;
 
 /**
- <p>The name of the IP address filter. The name must:</p><ul><li>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).</li><li>Start and end with a letter or number.</li><li>Contain less than 64 characters.</li></ul>
+ <p>The name of the IP address filter. The name must:</p><ul><li><p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).</p></li><li><p>Start and end with a letter or number.</p></li><li><p>Contain less than 64 characters.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
@@ -1310,7 +1353,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- <p>The name of the receipt rule. The name must:</p><ul><li>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).</li><li>Start and end with a letter or number.</li><li>Contain less than 64 characters.</li></ul>
+ <p>The name of the receipt rule. The name must:</p><ul><li><p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).</p></li><li><p>Start and end with a letter or number.</p></li><li><p>Contain less than 64 characters.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
@@ -1343,7 +1386,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @property (nonatomic, strong) NSDate * _Nullable createdTimestamp;
 
 /**
- <p>The name of the receipt rule set. The name must:</p><ul><li>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).</li><li>Start and end with a letter or number.</li><li>Contain less than 64 characters.</li></ul>
+ <p>The name of the receipt rule set. The name must:</p><ul><li><p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).</p></li><li><p>Start and end with a letter or number.</p></li><li><p>Contain less than 64 characters.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
@@ -1372,7 +1415,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @property (nonatomic, strong) NSArray<AWSSESExtensionField *> * _Nullable extensionFields;
 
 /**
- <p>The email address to which the message was ultimately delivered. This corresponds to the <code>Final-Recipient</code> in the DSN. If not specified, <code>FinalRecipient</code> will be set to the <code>Recipient</code> specified in the <code>BouncedRecipientInfo</code> structure. Either <code>FinalRecipient</code> or the recipient in <code>BouncedRecipientInfo</code> must be a recipient of the original bounced message.</p><note>Do not prepend the <code>FinalRecipient</code> email address with <code>rfc 822;</code>, as described in <a href="https://tools.ietf.org/html/rfc3798">RFC 3798</a>.</note>
+ <p>The email address to which the message was ultimately delivered. This corresponds to the <code>Final-Recipient</code> in the DSN. If not specified, <code>FinalRecipient</code> will be set to the <code>Recipient</code> specified in the <code>BouncedRecipientInfo</code> structure. Either <code>FinalRecipient</code> or the recipient in <code>BouncedRecipientInfo</code> must be a recipient of the original bounced message.</p><note><p>Do not prepend the <code>FinalRecipient</code> email address with <code>rfc 822;</code>, as described in <a href="https://tools.ietf.org/html/rfc3798">RFC 3798</a>.</p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable finalRecipient;
 
@@ -1394,7 +1437,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to reorder the receipt rules within a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName, RuleNames]
  */
 @interface AWSSESReorderReceiptRuleSetRequest : AWSRequest
 
@@ -1412,7 +1456,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESReorderReceiptRuleSetResponse : AWSModel
 
@@ -1420,7 +1464,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- <p>When included in a receipt rule, this action saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p><p>To enable Amazon SES to write emails to your Amazon S3 bucket, use an AWS KMS key to encrypt your emails, or publish to an Amazon SNS topic of another account, Amazon SES must have permission to access those resources. For information about giving permissions, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES Developer Guide</a>.</p><note>When you save your emails to an Amazon S3 bucket, the maximum email size (including headers) is 30 MB. Emails larger than that will bounce.</note><p>For information about specifying Amazon S3 actions in receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-s3.html">Amazon SES Developer Guide</a>.</p>
+ <p>When included in a receipt rule, this action saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p><p>To enable Amazon SES to write emails to your Amazon S3 bucket, use an AWS KMS key to encrypt your emails, or publish to an Amazon SNS topic of another account, Amazon SES must have permission to access those resources. For information about giving permissions, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES Developer Guide</a>.</p><note><p>When you save your emails to an Amazon S3 bucket, the maximum email size (including headers) is 30 MB. Emails larger than that will bounce.</p></note><p>For information about specifying Amazon S3 actions in receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-s3.html">Amazon SES Developer Guide</a>.</p>
  Required parameters: [BucketName]
  */
 @interface AWSSESS3Action : AWSModel
@@ -1432,7 +1476,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @property (nonatomic, strong) NSString * _Nullable bucketName;
 
 /**
- <p>The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:</p><ul><li>To use the default master key, provide an ARN in the form of <code>arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses</code>. For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be <code>arn:aws:kms:us-west-2:123456789012:alias/aws/ses</code>. If you use the default master key, you don't need to perform any extra steps to give Amazon SES permission to use the key.</li><li>To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES Developer Guide</a>.</li></ul><p>For more information about key policies, see the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">AWS KMS Developer Guide</a>. If you do not specify a master key, Amazon SES will not encrypt your emails.</p><important>Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the <a href="https://aws.amazon.com/sdk-for-java/">AWS Java SDK</a> and <a href="https://aws.amazon.com/sdk-for-ruby/">AWS Ruby SDK</a> only. For more information about client-side encryption using AWS KMS master keys, see the <a href="http://alpha-docs-aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">Amazon S3 Developer Guide</a>. </important>
+ <p>The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:</p><ul><li><p>To use the default master key, provide an ARN in the form of <code>arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses</code>. For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be <code>arn:aws:kms:us-west-2:123456789012:alias/aws/ses</code>. If you use the default master key, you don't need to perform any extra steps to give Amazon SES permission to use the key.</p></li><li><p>To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES Developer Guide</a>.</p></li></ul><p>For more information about key policies, see the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">AWS KMS Developer Guide</a>. If you do not specify a master key, Amazon SES will not encrypt your emails.</p><important><p>Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the <a href="http://aws.amazon.com/sdk-for-java/">AWS Java SDK</a> and <a href="http://aws.amazon.com/sdk-for-ruby/">AWS Ruby SDK</a> only. For more information about client-side encryption using AWS KMS master keys, see the <a href="http://alpha-docs-aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">Amazon S3 Developer Guide</a>.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyArn;
 
@@ -1449,7 +1493,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- <p>When included in a receipt rule, this action publishes a notification to Amazon Simple Notification Service (Amazon SNS). This action includes a complete copy of the email content in the Amazon SNS notifications. Amazon SNS notifications for all other actions simply provide information about the email. They do not include the email content itself.</p><p>If you own the Amazon SNS topic, you don't need to do anything to give Amazon SES permission to publish emails to it. However, if you don't own the Amazon SNS topic, you need to attach a policy to the topic to give Amazon SES permissions to access it. For information about giving permissions, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES Developer Guide</a>.</p><important>You can only publish emails that are 150 KB or less (including the header) to Amazon SNS. Larger emails will bounce. If you anticipate emails larger than 150 KB, use the S3 action instead.</important><p>For information about using a receipt rule to publish an Amazon SNS notification, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-sns.html">Amazon SES Developer Guide</a>.</p>
+ <p>When included in a receipt rule, this action publishes a notification to Amazon Simple Notification Service (Amazon SNS). This action includes a complete copy of the email content in the Amazon SNS notifications. Amazon SNS notifications for all other actions simply provide information about the email. They do not include the email content itself.</p><p>If you own the Amazon SNS topic, you don't need to do anything to give Amazon SES permission to publish emails to it. However, if you don't own the Amazon SNS topic, you need to attach a policy to the topic to give Amazon SES permissions to access it. For information about giving permissions, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES Developer Guide</a>.</p><important><p>You can only publish emails that are 150 KB or less (including the header) to Amazon SNS. Larger emails will bounce. If you anticipate emails larger than 150 KB, use the S3 action instead.</p></important><p>For information about using a receipt rule to publish an Amazon SNS notification, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-sns.html">Amazon SES Developer Guide</a>.</p>
  Required parameters: [TopicArn]
  */
 @interface AWSSESSNSAction : AWSModel
@@ -1468,7 +1512,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to send a bounce message to the sender of an email you received through Amazon SES.</p>
+ Required parameters: [OriginalMessageId, BounceSender, BouncedRecipientInfoList]
  */
 @interface AWSSESSendBounceRequest : AWSRequest
 
@@ -1506,7 +1551,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a unique message ID.</p>
  */
 @interface AWSSESSendBounceResponse : AWSModel
 
@@ -1552,7 +1597,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to send a single formatted email using Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-formatted.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Source, Destination, Message]
  */
 @interface AWSSESSendEmailRequest : AWSRequest
 
@@ -1568,7 +1614,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @property (nonatomic, strong) AWSSESMessage * _Nullable message;
 
 /**
- <p>The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply. </p>
+ <p>The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable replyToAddresses;
 
@@ -1595,7 +1641,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a unique message ID.</p>
+ Required parameters: [MessageId]
  */
 @interface AWSSESSendEmailResponse : AWSModel
 
@@ -1608,7 +1655,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to send a single raw email using Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RawMessage]
  */
 @interface AWSSESSendRawEmailRequest : AWSRequest
 
@@ -1619,34 +1667,35 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable destinations;
 
 /**
- <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to specify a particular "From" address in the header of the raw email.</p><p>Instead of using this parameter, you can use the X-header <code>X-SES-FROM-ARN</code> in the raw message of the email. If you use both the <code>FromArn</code> parameter and the corresponding X-header, Amazon SES uses the value of the <code>FromArn</code> parameter.</p><note>For information about when to use this parameter, see the description of <code>SendRawEmail</code> in this guide, or see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html">Amazon SES Developer Guide</a>. </note>
+ <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to specify a particular "From" address in the header of the raw email.</p><p>Instead of using this parameter, you can use the X-header <code>X-SES-FROM-ARN</code> in the raw message of the email. If you use both the <code>FromArn</code> parameter and the corresponding X-header, Amazon SES uses the value of the <code>FromArn</code> parameter.</p><note><p>For information about when to use this parameter, see the description of <code>SendRawEmail</code> in this guide, or see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html">Amazon SES Developer Guide</a>.</p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable fromArn;
 
 /**
- <p>The raw text of the message. The client is responsible for ensuring the following:</p><p><ul><li>Message must contain a header and a body, separated by a blank line.</li><li>All required header fields must be present.</li><li>Each part of a multipart MIME message must be formatted properly.</li><li>MIME content types must be among those supported by Amazon SES. For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Amazon SES Developer Guide</a>. </li><li>Content must be base64-encoded, if MIME requires it.</li></ul></p>
+ <p>The raw text of the message. The client is responsible for ensuring the following:</p><ul><li><p>Message must contain a header and a body, separated by a blank line.</p></li><li><p>All required header fields must be present.</p></li><li><p>Each part of a multipart MIME message must be formatted properly.</p></li><li><p>MIME content types must be among those supported by Amazon SES. For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Amazon SES Developer Guide</a>.</p></li><li><p>Must be base64-encoded.</p></li></ul>
  */
 @property (nonatomic, strong) AWSSESRawMessage * _Nullable rawMessage;
 
 /**
- <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>ReturnPath</code> parameter.</p><p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to use <code>feedback@example.com</code>, then you would specify the <code>ReturnPathArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p><p>Instead of using this parameter, you can use the X-header <code>X-SES-RETURN-PATH-ARN</code> in the raw message of the email. If you use both the <code>ReturnPathArn</code> parameter and the corresponding X-header, Amazon SES uses the value of the <code>ReturnPathArn</code> parameter.</p><note>For information about when to use this parameter, see the description of <code>SendRawEmail</code> in this guide, or see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html">Amazon SES Developer Guide</a>. </note>
+ <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>ReturnPath</code> parameter.</p><p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to use <code>feedback@example.com</code>, then you would specify the <code>ReturnPathArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p><p>Instead of using this parameter, you can use the X-header <code>X-SES-RETURN-PATH-ARN</code> in the raw message of the email. If you use both the <code>ReturnPathArn</code> parameter and the corresponding X-header, Amazon SES uses the value of the <code>ReturnPathArn</code> parameter.</p><note><p>For information about when to use this parameter, see the description of <code>SendRawEmail</code> in this guide, or see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html">Amazon SES Developer Guide</a>.</p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable returnPathArn;
 
 /**
- <p>The identity's email address. If you do not provide a value for this parameter, you must specify a "From" address in the raw text of the message. (You can also specify both.)</p><p> By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href="http://tools.ietf.org/html/rfc2047">RFC 2047</a>. </p><note>If you specify the <code>Source</code> parameter and have feedback forwarding enabled, then bounces and complaints will be sent to this email address. This takes precedence over any <i>Return-Path</i> header that you might include in the raw text of the message. </note>
+ <p>The identity's email address. If you do not provide a value for this parameter, you must specify a "From" address in the raw text of the message. (You can also specify both.)</p><p> By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href="http://tools.ietf.org/html/rfc2047">RFC 2047</a>. </p><note><p>If you specify the <code>Source</code> parameter and have feedback forwarding enabled, then bounces and complaints will be sent to this email address. This takes precedence over any <i>Return-Path</i> header that you might include in the raw text of the message.</p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable source;
 
 /**
- <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the <code>Source</code> parameter.</p><p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to send from <code>user@example.com</code>, then you would specify the <code>SourceArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>Source</code> to be <code>user@example.com</code>.</p><p>Instead of using this parameter, you can use the X-header <code>X-SES-SOURCE-ARN</code> in the raw message of the email. If you use both the <code>SourceArn</code> parameter and the corresponding X-header, Amazon SES uses the value of the <code>SourceArn</code> parameter.</p><note>For information about when to use this parameter, see the description of <code>SendRawEmail</code> in this guide, or see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html">Amazon SES Developer Guide</a>. </note>
+ <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the <code>Source</code> parameter.</p><p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to send from <code>user@example.com</code>, then you would specify the <code>SourceArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>Source</code> to be <code>user@example.com</code>.</p><p>Instead of using this parameter, you can use the X-header <code>X-SES-SOURCE-ARN</code> in the raw message of the email. If you use both the <code>SourceArn</code> parameter and the corresponding X-header, Amazon SES uses the value of the <code>SourceArn</code> parameter.</p><note><p>For information about when to use this parameter, see the description of <code>SendRawEmail</code> in this guide, or see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html">Amazon SES Developer Guide</a>.</p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceArn;
 
 @end
 
 /**
- 
+ <p>Represents a unique message ID.</p>
+ Required parameters: [MessageId]
  */
 @interface AWSSESSendRawEmailResponse : AWSModel
 
@@ -1659,7 +1708,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to set a receipt rule set as the active receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
 @interface AWSSESSetActiveReceiptRuleSetRequest : AWSRequest
 
@@ -1672,7 +1721,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESSetActiveReceiptRuleSetResponse : AWSModel
 
@@ -1680,7 +1729,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to enable or disable Amazon SES Easy DKIM signing for an identity. For more information about setting up Easy DKIM, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identity, DkimEnabled]
  */
 @interface AWSSESSetIdentityDkimEnabledRequest : AWSRequest
 
@@ -1698,7 +1748,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESSetIdentityDkimEnabledResponse : AWSModel
 
@@ -1706,7 +1756,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to enable or disable whether Amazon SES forwards you bounce and complaint notifications through email. For information about email feedback forwarding, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-email.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identity, ForwardingEnabled]
  */
 @interface AWSSESSetIdentityFeedbackForwardingEnabledRequest : AWSRequest
 
@@ -1724,7 +1775,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESSetIdentityFeedbackForwardingEnabledResponse : AWSModel
 
@@ -1732,7 +1783,40 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to set whether Amazon SES includes the original email headers in the Amazon SNS notifications of a specified type. For information about notifications, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-sns.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identity, NotificationType, Enabled]
+ */
+@interface AWSSESSetIdentityHeadersInNotificationsEnabledRequest : AWSRequest
+
+
+/**
+ <p>Sets whether Amazon SES includes the original email headers in Amazon SNS notifications of the specified notification type. A value of <code>true</code> specifies that Amazon SES will include headers in notifications, and a value of <code>false</code> specifies that Amazon SES will not include headers in notifications.</p><p>This value can only be set when <code>NotificationType</code> is already set to use a particular Amazon SNS topic.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ <p>The identity for which to enable or disable headers in notifications. Examples: <code>user@example.com</code>, <code>example.com</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identity;
+
+/**
+ <p>The notification type for which to enable or disable headers in notifications. </p>
+ */
+@property (nonatomic, assign) AWSSESNotificationType notificationType;
+
+@end
+
+/**
+ <p>An empty element returned on a successful request.</p>
+ */
+@interface AWSSESSetIdentityHeadersInNotificationsEnabledResponse : AWSModel
+
+
+@end
+
+/**
+ <p>Represents a request to enable or disable the Amazon SES custom MAIL FROM domain setup for a verified identity. For information about using a custom MAIL FROM domain, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identity]
  */
 @interface AWSSESSetIdentityMailFromDomainRequest : AWSRequest
 
@@ -1755,7 +1839,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESSetIdentityMailFromDomainResponse : AWSModel
 
@@ -1763,7 +1847,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to specify the Amazon SNS topic to which Amazon SES will publish bounce, complaint, or delivery notifications for emails sent with that identity as the Source. For information about Amazon SES notifications, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-sns.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identity, NotificationType]
  */
 @interface AWSSESSetIdentityNotificationTopicRequest : AWSRequest
 
@@ -1786,7 +1871,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESSetIdentityNotificationTopicResponse : AWSModel
 
@@ -1794,7 +1879,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to set the position of a receipt rule in a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName, RuleName]
  */
 @interface AWSSESSetReceiptRulePositionRequest : AWSRequest
 
@@ -1817,7 +1903,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESSetReceiptRulePositionResponse : AWSModel
 
@@ -1844,7 +1930,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to update a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName, Rule]
  */
 @interface AWSSESUpdateReceiptRuleRequest : AWSRequest
 
@@ -1862,7 +1949,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESUpdateReceiptRuleResponse : AWSModel
 
@@ -1870,7 +1957,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to generate the CNAME records needed to set up Easy DKIM with Amazon SES. For more information about setting up Easy DKIM, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Domain]
  */
 @interface AWSSESVerifyDomainDkimRequest : AWSRequest
 
@@ -1883,7 +1971,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Returns CNAME records that you must publish to the DNS server of your domain to set up Easy DKIM with Amazon SES.</p>
+ Required parameters: [DkimTokens]
  */
 @interface AWSSESVerifyDomainDkimResponse : AWSModel
 
@@ -1896,7 +1985,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to begin Amazon SES domain verification and to generate the TXT records that you must publish to the DNS server of your domain to complete the verification. For information about domain verification, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Domain]
  */
 @interface AWSSESVerifyDomainIdentityRequest : AWSRequest
 
@@ -1909,7 +1999,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Returns a TXT record that you must publish to the DNS server of your domain to complete domain verification with Amazon SES.</p>
+ Required parameters: [VerificationToken]
  */
 @interface AWSSESVerifyDomainIdentityResponse : AWSModel
 
@@ -1922,7 +2013,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to begin email address verification with Amazon SES. For information about email address verification, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [EmailAddress]
  */
 @interface AWSSESVerifyEmailAddressRequest : AWSRequest
 
@@ -1935,7 +2027,8 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>Represents a request to begin email address verification with Amazon SES. For information about email address verification, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [EmailAddress]
  */
 @interface AWSSESVerifyEmailIdentityRequest : AWSRequest
 
@@ -1948,7 +2041,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- 
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESVerifyEmailIdentityResponse : AWSModel
 

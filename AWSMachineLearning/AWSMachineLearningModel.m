@@ -55,7 +55,7 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 }
 
 + (NSValueTransformer *)createdAtJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
@@ -63,11 +63,11 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 }
 
 + (NSValueTransformer *)endpointInfoJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSMachineLearningRealtimeEndpointInfo class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSMachineLearningRealtimeEndpointInfo class]];
 }
 
 + (NSValueTransformer *)lastUpdatedAtJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
@@ -76,13 +76,13 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 + (NSValueTransformer *)MLModelTypeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"REGRESSION"]) {
+        if ([value caseInsensitiveCompare:@"REGRESSION"] == NSOrderedSame) {
             return @(AWSMachineLearningMLModelTypeRegression);
         }
-        if ([value isEqualToString:@"BINARY"]) {
+        if ([value caseInsensitiveCompare:@"BINARY"] == NSOrderedSame) {
             return @(AWSMachineLearningMLModelTypeBinary);
         }
-        if ([value isEqualToString:@"MULTICLASS"]) {
+        if ([value caseInsensitiveCompare:@"MULTICLASS"] == NSOrderedSame) {
             return @(AWSMachineLearningMLModelTypeMulticlass);
         }
         return @(AWSMachineLearningMLModelTypeUnknown);
@@ -101,7 +101,7 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 }
 
 + (NSValueTransformer *)scoreThresholdLastUpdatedAtJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
@@ -110,19 +110,19 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 + (NSValueTransformer *)statusJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"PENDING"]) {
+        if ([value caseInsensitiveCompare:@"PENDING"] == NSOrderedSame) {
             return @(AWSMachineLearningEntityStatusPending);
         }
-        if ([value isEqualToString:@"INPROGRESS"]) {
+        if ([value caseInsensitiveCompare:@"INPROGRESS"] == NSOrderedSame) {
             return @(AWSMachineLearningEntityStatusInprogress);
         }
-        if ([value isEqualToString:@"FAILED"]) {
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
             return @(AWSMachineLearningEntityStatusFailed);
         }
-        if ([value isEqualToString:@"COMPLETED"]) {
+        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
             return @(AWSMachineLearningEntityStatusCompleted);
         }
-        if ([value isEqualToString:@"DELETED"]) {
+        if ([value caseInsensitiveCompare:@"DELETED"] == NSOrderedSame) {
             return @(AWSMachineLearningEntityStatusDeleted);
         }
         return @(AWSMachineLearningEntityStatusUnknown);
@@ -167,7 +167,7 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 }
 
 + (NSValueTransformer *)predictionJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSMachineLearningPrediction class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSMachineLearningPrediction class]];
 }
 
 @end
@@ -197,7 +197,7 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 }
 
 + (NSValueTransformer *)createdAtJSONTransformer {
-	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
@@ -206,16 +206,16 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 + (NSValueTransformer *)endpointStatusJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value isEqualToString:@"NONE"]) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
             return @(AWSMachineLearningRealtimeEndpointStatusNone);
         }
-        if ([value isEqualToString:@"READY"]) {
+        if ([value caseInsensitiveCompare:@"READY"] == NSOrderedSame) {
             return @(AWSMachineLearningRealtimeEndpointStatusReady);
         }
-        if ([value isEqualToString:@"UPDATING"]) {
+        if ([value caseInsensitiveCompare:@"UPDATING"] == NSOrderedSame) {
             return @(AWSMachineLearningRealtimeEndpointStatusUpdating);
         }
-        if ([value isEqualToString:@"FAILED"]) {
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
             return @(AWSMachineLearningRealtimeEndpointStatusFailed);
         }
         return @(AWSMachineLearningRealtimeEndpointStatusUnknown);

@@ -21,7 +21,7 @@
 #import "AWSLogging.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.4.7";
+NSString *const AWSiOSSDKVersion = @"2.4.8";
 NSString *const AWSServiceErrorDomain = @"com.amazonaws.AWSServiceErrorDomain";
 
 static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
@@ -85,6 +85,7 @@ static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
 - (instancetype)init {
     if ( self = [super init]) {
         _dictionary = [AWSSynchronizedMutableDictionary new];
+        
     }
     return self;
 }

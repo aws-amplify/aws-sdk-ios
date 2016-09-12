@@ -53,6 +53,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityUserStatus) {
 @class AWSCognitoIdentityUserGlobalSignOutResponse;
 @class AWSCognitoIdentityUserListDevicesResponse;
 @class AWSCognitoIdentityUserUpdateDeviceStatusResponse;
+@class AWSCognitoIdentityUserGetDeviceResponse;
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -197,9 +198,36 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityUserListDevicesResponse *> *) listDevices: (int) limit paginationToken:(NSString * _Nullable) paginationToken;
 
 /**
- Update device status for the provided device.
+ Update device remembered status for a specific device id.
  */
 - (AWSTask<AWSCognitoIdentityUserUpdateDeviceStatusResponse *> *) updateDeviceStatus: (NSString *) deviceId remembered:(BOOL) remembered;
+
+/**
+ Convenience method to update device remembered status for this device.
+ */
+- (AWSTask<AWSCognitoIdentityUserUpdateDeviceStatusResponse *> *) updateDeviceStatus: (BOOL) remembered;
+
+
+/**
+ Get device details for a specific deviceId.
+ */
+- (AWSTask<AWSCognitoIdentityUserGetDeviceResponse *> *) getDevice: (NSString *) deviceId;
+
+/**
+ Convenience method to get device details for this device.
+ */
+- (AWSTask<AWSCognitoIdentityUserGetDeviceResponse *> *) getDevice;
+
+
+/**
+ Forget (stop tracking) a specific deviceId.
+ */
+- (AWSTask *) forgetDevice: (NSString *) deviceId;
+
+/**
+ Forget (stop tracking) this device.
+ */
+- (AWSTask *) forgetDevice;
 
 
 @end
@@ -302,5 +330,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AWSCognitoIdentityUserUpdateDeviceStatusResponse : AWSCognitoIdentityProviderUpdateDeviceStatusResponse
 
 @end
+
+@interface AWSCognitoIdentityUserGetDeviceResponse : AWSCognitoIdentityProviderGetDeviceResponse
+
+@end
+
 
 NS_ASSUME_NONNULL_END

@@ -781,6 +781,10 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @class AWSEC2ConfirmProductInstanceRequest;
 @class AWSEC2ConfirmProductInstanceResult;
 @class AWSEC2ConversionTask;
+@class AWSEC2ReplicateImageRequest;
+@class AWSEC2ReplicateImageResult;
+@class AWSEC2ReplicateSnapshotRequest;
+@class AWSEC2ReplicateSnapshotResult;
 @class AWSEC2CreateCustomerGatewayRequest;
 @class AWSEC2CreateCustomerGatewayResult;
 @class AWSEC2CreateDhcpOptionsRequest;
@@ -1071,7 +1075,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @class AWSEC2IpRange;
 @class AWSEC2KeyPair;
 @class AWSEC2KeyPairInfo;
-@class AWSEC2LatestDhcpConfiguration;
 @class AWSEC2LaunchPermission;
 @class AWSEC2LaunchPermissionModifications;
 @class AWSEC2LaunchSpecification;
@@ -1111,6 +1114,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @class AWSEC2NetworkInterfaceAttachment;
 @class AWSEC2NetworkInterfaceAttachmentChanges;
 @class AWSEC2NetworkInterfacePrivateIpAddress;
+@class AWSEC2LatestDhcpConfiguration;
 @class AWSEC2PeeringConnectionOptions;
 @class AWSEC2PeeringConnectionOptionsRequest;
 @class AWSEC2Placement;
@@ -1145,10 +1149,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @class AWSEC2ReplaceRouteRequest;
 @class AWSEC2ReplaceRouteTableAssociationRequest;
 @class AWSEC2ReplaceRouteTableAssociationResult;
-@class AWSEC2ReplicateImageRequest;
-@class AWSEC2ReplicateImageResult;
-@class AWSEC2ReplicateSnapshotRequest;
-@class AWSEC2ReplicateSnapshotResult;
 @class AWSEC2ReportInstanceStatusRequest;
 @class AWSEC2RequestSpotFleetRequest;
 @class AWSEC2RequestSpotFleetResponse;
@@ -2591,6 +2591,130 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  <p>Any tags assigned to the task.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+@end
+
+/**
+ <p>Contains the parameters for CopyImage.</p>
+ Required parameters: [SourceRegion, SourceImageId, Name]
+ */
+@interface AWSEC2ReplicateImageRequest : AWSRequest
+
+
+/**
+ <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>A description for the new AMI in the destination region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>Specifies whether the destination snapshots of the copied image should be encrypted. The default CMK for EBS is used unless a non-default AWS Key Management Service (AWS KMS) CMK is specified with <code>KmsKeyId</code>. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable encrypted;
+
+/**
+ <p>The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of an image during a copy operation. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. The ARN contains the <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>. The specified CMK must exist in the region that the snapshot is being copied to. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also be set.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyId;
+
+/**
+ <p>The name of the new AMI in the destination region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The ID of the AMI to copy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceImageId;
+
+/**
+ <p>The name of the region that contains the AMI to copy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceRegion;
+
+@end
+
+/**
+ <p>Contains the output of CopyImage.</p>
+ */
+@interface AWSEC2ReplicateImageResult : AWSModel
+
+
+/**
+ <p>The ID of the new AMI.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable imageId;
+
+@end
+
+/**
+ <p>Contains the parameters for CopySnapshot.</p>
+ Required parameters: [SourceRegion, SourceSnapshotId]
+ */
+@interface AWSEC2ReplicateSnapshotRequest : AWSRequest
+
+
+/**
+ <p>A description for the EBS snapshot.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The destination region to use in the <code>PresignedUrl</code> parameter of a snapshot copy operation. This parameter is only valid for specifying the destination region in a <code>PresignedUrl</code> parameter, where it is required.</p><note><p><code>CopySnapshot</code> sends the snapshot copy to the regional endpoint that you send the HTTP request to, such as <code>ec2.us-east-1.amazonaws.com</code> (in the AWS CLI, this is specified with the <code>--region</code> parameter or the default region in your AWS configuration file).</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationRegion;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>Specifies whether the destination snapshot should be encrypted. There is no way to create an unencrypted snapshot copy from an encrypted snapshot; however, you can encrypt a copy of an unencrypted snapshot with this flag. The default CMK for EBS is used unless a non-default AWS Key Management Service (AWS KMS) CMK is specified with <code>KmsKeyId</code>. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable encrypted;
+
+/**
+ <p>The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when creating the snapshot copy. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. The ARN contains the <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>. The specified CMK must exist in the region that the snapshot is being copied to. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also be set.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyId;
+
+/**
+ <p>The pre-signed URL that facilitates copying an encrypted snapshot. This parameter is only required when copying an encrypted snapshot with the Amazon EC2 Query API; it is available as an optional parameter in all other cases. The <code>PresignedUrl</code> should use the snapshot source endpoint, the <code>CopySnapshot</code> action, and include the <code>SourceRegion</code>, <code>SourceSnapshotId</code>, and <code>DestinationRegion</code> parameters. The <code>PresignedUrl</code> must be signed using AWS Signature Version 4. Because EBS snapshots are stored in Amazon S3, the signing algorithm for this parameter uses the same logic that is described in <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating Requests by Using Query Parameters (AWS Signature Version 4)</a> in the <i>Amazon Simple Storage Service API Reference</i>. An invalid or improperly signed <code>PresignedUrl</code> will cause the copy operation to fail asynchronously, and the snapshot will move to an <code>error</code> state.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable presignedUrl;
+
+/**
+ <p>The ID of the region that contains the snapshot to be copied.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceRegion;
+
+/**
+ <p>The ID of the EBS snapshot to copy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceSnapshotId;
+
+@end
+
+/**
+ <p>Contains the output of CopySnapshot.</p>
+ */
+@interface AWSEC2ReplicateSnapshotResult : AWSModel
+
+
+/**
+ <p>The ID of the new snapshot.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable snapshotId;
 
 @end
 
@@ -9693,24 +9817,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @end
 
 /**
- 
- */
-@interface AWSEC2LatestDhcpConfiguration : AWSModel
-
-
-/**
- 
- */
-@property (nonatomic, strong) NSString * _Nullable key;
-
-/**
- 
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable values;
-
-@end
-
-/**
  <p>Describes a launch permission.</p>
  */
 @interface AWSEC2LaunchPermission : AWSModel
@@ -10903,6 +11009,24 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
 @end
 
 /**
+ 
+ */
+@interface AWSEC2LatestDhcpConfiguration : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable key;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable values;
+
+@end
+
+/**
  <p>Describes the VPC peering connection options.</p>
  */
 @interface AWSEC2PeeringConnectionOptions : AWSModel
@@ -11659,130 +11783,6 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
  <p>The ID of the new association.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable latestAssociationId;
-
-@end
-
-/**
- <p>Contains the parameters for CopyImage.</p>
- Required parameters: [SourceRegion, SourceImageId, Name]
- */
-@interface AWSEC2ReplicateImageRequest : AWSRequest
-
-
-/**
- <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable clientToken;
-
-/**
- <p>A description for the new AMI in the destination region.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable detail;
-
-/**
- <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable dryRun;
-
-/**
- <p>Specifies whether the destination snapshots of the copied image should be encrypted. The default CMK for EBS is used unless a non-default AWS Key Management Service (AWS KMS) CMK is specified with <code>KmsKeyId</code>. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable encrypted;
-
-/**
- <p>The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of an image during a copy operation. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. The ARN contains the <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>. The specified CMK must exist in the region that the snapshot is being copied to. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also be set.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable kmsKeyId;
-
-/**
- <p>The name of the new AMI in the destination region.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable name;
-
-/**
- <p>The ID of the AMI to copy.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable sourceImageId;
-
-/**
- <p>The name of the region that contains the AMI to copy.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable sourceRegion;
-
-@end
-
-/**
- <p>Contains the output of CopyImage.</p>
- */
-@interface AWSEC2ReplicateImageResult : AWSModel
-
-
-/**
- <p>The ID of the new AMI.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable imageId;
-
-@end
-
-/**
- <p>Contains the parameters for CopySnapshot.</p>
- Required parameters: [SourceRegion, SourceSnapshotId]
- */
-@interface AWSEC2ReplicateSnapshotRequest : AWSRequest
-
-
-/**
- <p>The destination region to use in the <code>PresignedUrl</code> parameter of a snapshot copy operation. This parameter is only valid for specifying the destination region in a <code>PresignedUrl</code> parameter, where it is required.</p><note><p><code>CopySnapshot</code> sends the snapshot copy to the regional endpoint that you send the HTTP request to, such as <code>ec2.us-east-1.amazonaws.com</code> (in the AWS CLI, this is specified with the <code>--region</code> parameter or the default region in your AWS configuration file).</p></note>
- */
-@property (nonatomic, strong) NSString * _Nullable destinationRegion;
-
-/**
- <p>A description for the EBS snapshot.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable detail;
-
-/**
- <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable dryRun;
-
-/**
- <p>Specifies whether the destination snapshot should be encrypted. There is no way to create an unencrypted snapshot copy from an encrypted snapshot; however, you can encrypt a copy of an unencrypted snapshot with this flag. The default CMK for EBS is used unless a non-default AWS Key Management Service (AWS KMS) CMK is specified with <code>KmsKeyId</code>. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable encrypted;
-
-/**
- <p>The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when creating the snapshot copy. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. The ARN contains the <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>. The specified CMK must exist in the region that the snapshot is being copied to. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also be set.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable kmsKeyId;
-
-/**
- <p>The pre-signed URL that facilitates copying an encrypted snapshot. This parameter is only required when copying an encrypted snapshot with the Amazon EC2 Query API; it is available as an optional parameter in all other cases. The <code>PresignedUrl</code> should use the snapshot source endpoint, the <code>CopySnapshot</code> action, and include the <code>SourceRegion</code>, <code>SourceSnapshotId</code>, and <code>DestinationRegion</code> parameters. The <code>PresignedUrl</code> must be signed using AWS Signature Version 4. Because EBS snapshots are stored in Amazon S3, the signing algorithm for this parameter uses the same logic that is described in <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating Requests by Using Query Parameters (AWS Signature Version 4)</a> in the <i>Amazon Simple Storage Service API Reference</i>. An invalid or improperly signed <code>PresignedUrl</code> will cause the copy operation to fail asynchronously, and the snapshot will move to an <code>error</code> state.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable presignedUrl;
-
-/**
- <p>The ID of the region that contains the snapshot to be copied.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable sourceRegion;
-
-/**
- <p>The ID of the EBS snapshot to copy.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable sourceSnapshotId;
-
-@end
-
-/**
- <p>Contains the output of CopySnapshot.</p>
- */
-@interface AWSEC2ReplicateSnapshotResult : AWSModel
-
-
-/**
- <p>The ID of the new snapshot.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable snapshotId;
 
 @end
 

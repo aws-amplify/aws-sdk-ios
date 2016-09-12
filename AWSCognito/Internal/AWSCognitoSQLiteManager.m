@@ -108,6 +108,7 @@
         }
         sqlite3_reset(statement);
         sqlite3_finalize(statement);
+        
         self.identityId = AWSCognitoUnknownIdentity;
     });
 }
