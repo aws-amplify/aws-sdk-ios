@@ -100,6 +100,10 @@ typedef NS_ENUM(NSInteger, AWSServiceErrorType) {
 - (instancetype)initWithRegion:(AWSRegionType)regionType
            credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider;
 
+- (instancetype)initWithRegion:(AWSRegionType)regionType
+                      endpoint:(AWSEndpoint *)endpoint
+           credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider;
+
 - (void)addUserAgentProductToken:(NSString *)productToken;
 
 @end
@@ -123,5 +127,9 @@ typedef NS_ENUM(NSInteger, AWSServiceErrorType) {
 - (instancetype)initWithRegion:(AWSRegionType)regionType
                        service:(AWSServiceType)serviceType
                            URL:(NSURL *)URL;
+
+- (instancetype)initWithURL:(NSURL *)URL;
+
+- (instancetype)initWithURLString:(NSString *)URLString;
 
 @end

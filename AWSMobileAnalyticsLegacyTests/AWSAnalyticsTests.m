@@ -150,9 +150,11 @@ FOUNDATION_EXPORT double    const AWSValueForceSubmissionWaitTime;
     
 
     //Brand new installation of an App integrated with this RC should put both event cache and client id pref in the “NSApplicationSupportDirectory”, NOT “NSCachesDirectory”.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     XCTAssertNotNil([AWSMobileAnalytics mobileAnalyticsForAppId:testAppId identityPoolId:self.identityPoolId]);
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
-    
+#pragma clang dianostic pop
     XCTAssertTrue([fileManager fileExistsAtPath:appIDAppSupportPath]);
     XCTAssertTrue([fileManager fileExistsAtPath:prefAppSupportPath]);
     XCTAssertTrue([fileManager fileExistsAtPath:eventsFileAppSupportPath]);
@@ -286,8 +288,12 @@ FOUNDATION_EXPORT double    const AWSValueForceSubmissionWaitTime;
 }
 
 - (void)test_createMobileAnalyticsInstance {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     AWSMobileAnalytics* insights = [AWSMobileAnalytics mobileAnalyticsForAppId:[NSString stringWithFormat:@"appId-%@",NSStringFromSelector(_cmd)] identityPoolId:self.identityPoolId];
+#pragma cland diagnostic pop
     XCTAssertNotNil([insights eventClient]);
+
 }
 
 - (void)test_createMobileAnalyticsInstanceOldConstructor_WithDifferentAppId {
@@ -297,31 +303,49 @@ FOUNDATION_EXPORT double    const AWSValueForceSubmissionWaitTime;
 }
 
 - (void)test_createMobileAnalyticsInstance_WithSameAppId_And_SameIdentityPool {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     AWSMobileAnalytics* insights1 = [AWSMobileAnalytics mobileAnalyticsForAppId:[NSString stringWithFormat:@"appId-%@",NSStringFromSelector(_cmd)] identityPoolId:self.identityPoolId];
     AWSMobileAnalytics* insights2 = [AWSMobileAnalytics mobileAnalyticsForAppId:[NSString stringWithFormat:@"appId-%@",NSStringFromSelector(_cmd)] identityPoolId:self.identityPoolId];
+#pragma clang diagnostic pop
     XCTAssertEqual(insights1, insights2);
 }
 
 - (void)test_createMobileAnalyticsInstance_WithSameAppId_And_DifferentIdentityPool {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     AWSMobileAnalytics* insights1 = [AWSMobileAnalytics mobileAnalyticsForAppId:[NSString stringWithFormat:@"appId-%@",NSStringFromSelector(_cmd)] identityPoolId:@"bogusId-1"];
     AWSMobileAnalytics* insights2 = [AWSMobileAnalytics mobileAnalyticsForAppId:[NSString stringWithFormat:@"appId-%@",NSStringFromSelector(_cmd)] identityPoolId:@"bogusId-2"];
+#pragma clang dianostic pop
     XCTAssertEqual(insights1, insights2);
+
 }
 
 - (void)test_createMobileAnalyticsInstance_WithDifferentAppId_And_SameIdentityPool {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     AWSMobileAnalytics* insights1 = [AWSMobileAnalytics mobileAnalyticsForAppId:@"appId-1" identityPoolId:self.identityPoolId];
     AWSMobileAnalytics* insights2 = [AWSMobileAnalytics mobileAnalyticsForAppId:@"appId-2" identityPoolId:self.identityPoolId];
+#pragma clang dianostic pop
     XCTAssertNotEqual(insights1, insights2);
+
 }
 
 - (void)test_createMobileAnalyticsInstance_WithOldConstructor_And_NewConstructor {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     AWSMobileAnalytics* insights1 = [AWSMobileAnalytics mobileAnalyticsForAppId:[NSString stringWithFormat:@"appId-%@",NSStringFromSelector(_cmd)] identityPoolId:self.identityPoolId];
     AWSMobileAnalytics* insights2 = [AWSMobileAnalytics mobileAnalyticsForAppId:[NSString stringWithFormat:@"appId-%@",NSStringFromSelector(_cmd)]];
+#pragma clang dianostic pop
     XCTAssertEqual(insights1, insights2);
+
 }
 
 - (void)test_createAndSubmitEventOldConstructor {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     AWSMobileAnalytics* insights = [AWSMobileAnalytics mobileAnalyticsForAppId:[NSString stringWithFormat:@"appId-%@",NSStringFromSelector(_cmd)]];
+#pragma clang diagnostic pop
     XCTAssertNotNil([insights eventClient]);
 
     // Record when the user completes level 1

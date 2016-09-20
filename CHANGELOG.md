@@ -1,5 +1,18 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.4.9
+### New Features
+* **All Services**
+    * Added support for Custom Endpoints.
+
+### Resolved Issues
+* **Amazon S3**
+    * Fixed a bug which caused compilation errors when using SDK version 2.4.8 through CocoaPods.
+
+### Misc. Updates
+* **Amazon Mobile Analytics**
+    * Deprecated the `mobileAnalyticsForAppId:identityPoolId:` and `mobileAnalyticsForAppId:identityPoolId:completionBlock:` client initializers. 
+
 ## 2.4.8
 ### New Features
 * **Amazon Cognito Identity Provider**

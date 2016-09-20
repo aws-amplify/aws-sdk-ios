@@ -308,6 +308,37 @@ static NSString *testBucketNameGeneral = nil;
     }] waitUntilFinished];
 }
 
+- (void)testBucketCustomEndpoint {
+    
+    id<AWSCredentialsProvider> credentialsProvider = [[[AWSServiceManager defaultServiceManager] defaultServiceConfiguration] credentialsProvider];
+    
+    AWSEndpoint *customEndpoint = [[AWSEndpoint alloc]initWithURLString:@"https://s3.dualstack.us-east-1.amazonaws.com"];
+    
+    AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc]initWithRegion:AWSRegionUSEast1 endpoint:customEndpoint credentialsProvider:credentialsProvider];
+    
+    [AWSS3 registerS3WithConfiguration:serviceConfiguration forKey:@"customendpoint"];
+    
+    AWSS3 *s3 = [AWSS3 S3ForKey:@"customendpoint"];
+    XCTAssertNotNil(s3);
+    
+    AWSS3ListObjectsRequest *listObjectReq = [AWSS3ListObjectsRequest new];
+    listObjectReq.bucket = testBucketNameGeneral;
+    
+    [[[s3 listObjects:listObjectReq] continueWithBlock:^id _Nullable(AWSTask<AWSS3ListObjectsOutput *> * _Nonnull task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3ListObjectsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListObjectsOutput class]));
+        AWSS3ListObjectsOutput *listObjectsOutput = task.result;
+        
+        for (AWSS3Object *s3Object in listObjectsOutput.contents) {
+            XCTAssertTrue([s3Object.lastModified isKindOfClass:[NSDate class]], @"listObject doesn't contain LastModified(NSDate)");
+        }
+        
+        return nil;
+    }] waitUntilFinished];
+    
+}
+
+
 - (void)testPutBucketWithGrants {
     NSString *grantBucketName = [testBucketNameGeneral stringByAppendingString:@"-grant"];
     XCTAssertTrue([AWSS3Tests createBucketWithName:grantBucketName]);

@@ -80,6 +80,12 @@ static AWSSynchronizedMutableDictionary *_mobileAnalyticsForAppNamespace = nil;
                          completionBlock:nil];
 }
 
++ (instancetype)mobileAnalyticsForAppId:(NSString *)appId configuration:(AWSMobileAnalyticsConfiguration *)configuration{
+    return [self mobileAnalyticsForAppId:appId
+                           configuration:configuration
+                         completionBlock:nil];
+}
+
 + (instancetype)mobileAnalyticsForAppId:(NSString *)appId
                          identityPoolId:(NSString *)identityPoolId
                         completionBlock:(AWSInitializationCompletionBlock)completionBlock {
