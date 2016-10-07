@@ -289,6 +289,14 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                                               contentType:(NSString *)contentType
                                                expression:(AWSS3TransferUtilityUploadExpression *)expression
                                          completionHander:(AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler {
+    if ([bucket length] == 0) {
+        NSInteger errorCode = (self.transferUtilityConfiguration.isAccelerateModeEnabled) ?
+                                    AWSS3PresignedURLErrorInvalidBucketNameForAccelerateModeEnabled : AWSS3PresignedURLErrorInvalidBucketName;
+        return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
+                                                          code:errorCode
+                                                      userInfo:nil]];
+    }
+
     if (!expression) {
         expression = [AWSS3TransferUtilityUploadExpression new];
     }

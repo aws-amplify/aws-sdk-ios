@@ -14,6 +14,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AWSCore/AWSCore.h>
+#import "AWSAPIGatewayModel.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 FOUNDATION_EXPORT NSString *const AWSAPIGatewayErrorDomain;
 
@@ -32,6 +36,19 @@ typedef NS_ENUM(NSInteger, AWSAPIGatewayErrorType) {
 
 @property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration;
 
-@property (nonatomic, strong) NSString *APIKey;
+@property (nonatomic, strong, nullable) NSString *APIKey;
+
+
+
+/**
+ *  The invoke method can be used to invoke an `AWS API Gateway` API endpoint with a `AWSAPIGatewayRequest` object.
+ *
+ *  @param apiRequest An `AWSAPIGatewayRequest` object.
+ *
+ *  @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAPIGatewayResponse`. On failed execution, `task.error` may contain an `NSError`. If an Exception occurs while executing or building the request, `task.exception` will contain an `NSException` object.
+ */
+- (AWSTask<AWSAPIGatewayResponse *> *)invoke:(AWSAPIGatewayRequest *)apiRequest;
 
 @end
+
+NS_ASSUME_NONNULL_END

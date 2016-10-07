@@ -39,6 +39,7 @@ static const NSString * AWSCognitoIdentityUserTokenExpiration = @"tokenExpiratio
 static const NSString * AWSCognitoIdentityUserDeviceId = @"device.id";
 static const NSString * AWSCognitoIdentityUserDeviceSecret = @"device.secret";
 static const NSString * AWSCognitoIdentityUserDeviceGroup = @"device.group";
+static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttributes.";
 
 -(instancetype) initWithUsername: (NSString *)username pool:(AWSCognitoIdentityUserPool *)pool {
     self = [super init];
@@ -253,6 +254,8 @@ static const NSString * AWSCognitoIdentityUserDeviceGroup = @"device.group";
             }else {
                 return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain code:AWSCognitoIdentityProviderClientErrorInvalidAuthenticationDelegate userInfo:@{NSLocalizedDescriptionKey: @"startMultiFactorAuthentication not implemented by authentication delegate"}]];
             }
+        }else if(AWSCognitoIdentityProviderChallengeNameTypeNewPasswordRequired == nextChallenge){
+            return [self startNewPasswordRequiredUI:authenticateResult];
         }else if(AWSCognitoIdentityProviderAuthFlowTypeUserSrpAuth == nextChallenge){ //if srp auth happens mid auth
             return [self startPasswordAuthenticationUI:authenticateResult];
         }else if (session) { //we have a session, return it
@@ -286,6 +289,43 @@ static const NSString * AWSCognitoIdentityUserDeviceGroup = @"device.group";
         return [self passwordAuthInternal:authenticationDelegate lastChallenge:lastChallenge isInitialCustomChallenge:lastChallenge == nil];
     }else {
         return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain code:AWSCognitoIdentityProviderClientErrorInvalidAuthenticationDelegate userInfo:@{NSLocalizedDescriptionKey: @"startPasswordAuthentication must be implemented on your AWSCognitoIdentityInteractiveAuthenticationDelegate"}]];
+    }
+}
+
+- (AWSTask<AWSCognitoIdentityUserSession*>*) startNewPasswordRequiredUI:(AWSCognitoIdentityProviderRespondToAuthChallengeResponse*) lastChallenge {
+    if ([self.pool.delegate respondsToSelector:@selector(startNewPasswordRequired)]) {
+        id<AWSCognitoIdentityNewPasswordRequired> newPasswordRequiredDelegate = [self.pool.delegate startNewPasswordRequired];
+        NSString * userAttributes = lastChallenge.challengeParameters[@"userAttributes"];
+        NSString * requiredAttributes = lastChallenge.challengeParameters[@"requiredAttributes"];
+        NSMutableDictionary<NSString*, NSString *> *userAttributesDict = [NSMutableDictionary new];
+        NSMutableSet<NSString*> *requiredAttributesSet = [NSMutableSet new];
+        
+        if(userAttributes){
+            [userAttributesDict addEntriesFromDictionary:[NSJSONSerialization JSONObjectWithData:[userAttributes dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil]];
+        }
+        if(requiredAttributes) {
+            NSArray * requiredAttributesArray = [NSJSONSerialization JSONObjectWithData:[requiredAttributes dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+            for (NSString * requiredAttribute in requiredAttributesArray) {
+                //strip off userAttributes. from all the attribute names
+                NSString *strippedKey = [requiredAttribute substringFromIndex:[AWSCognitoIdentityUserUserAttributePrefix length]];
+                [requiredAttributesSet addObject:strippedKey];
+            }
+        }
+        AWSCognitoIdentityNewPasswordRequiredInput *newPasswordRequiredInput = [[AWSCognitoIdentityNewPasswordRequiredInput alloc] initWithUserAttributes:userAttributesDict requiredAttributes:requiredAttributesSet];
+        AWSTaskCompletionSource<AWSCognitoIdentityNewPasswordRequiredDetails *> *newPasswordRequiredDetails = [AWSTaskCompletionSource<AWSCognitoIdentityNewPasswordRequiredDetails *> new];
+        [newPasswordRequiredDelegate getNewPasswordDetails:newPasswordRequiredInput newPasswordRequiredCompletionSource:newPasswordRequiredDetails];
+        return [[newPasswordRequiredDetails.task continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityNewPasswordRequiredDetails *> * _Nonnull task) {
+            return [self performRespondToNewPasswordChallenge:task.result session:lastChallenge.session];
+        }] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse *> * _Nonnull task) {
+            [newPasswordRequiredDelegate didCompleteNewPasswordStepWithError:task.error];
+            if(task.error){
+                return [self startNewPasswordRequiredUI:lastChallenge];
+            }
+            return [self getSessionInternal:task];
+        }];
+        
+    }else {
+        return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoIdentityProviderErrorDomain code:AWSCognitoIdentityProviderClientErrorInvalidAuthenticationDelegate userInfo:@{NSLocalizedDescriptionKey: @"startNewPasswordRequired not implemented by authentication delegate"}]];
     }
 }
 
@@ -514,6 +554,26 @@ static const NSString * AWSCognitoIdentityUserDeviceGroup = @"device.group";
 }
 
 
+/**
+ * Run respond to auth challenges on new password required responses from end user
+ */
+- (AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse*>*) performRespondToNewPasswordChallenge: (AWSCognitoIdentityNewPasswordRequiredDetails *) details session: (NSString *) session{
+    AWSCognitoIdentityProviderRespondToAuthChallengeRequest *request = [AWSCognitoIdentityProviderRespondToAuthChallengeRequest new];
+    request.session = session;
+    request.clientId = self.pool.userPoolConfiguration.clientId;
+    request.challengeName = AWSCognitoIdentityProviderChallengeNameTypeNewPasswordRequired;
+    NSMutableDictionary<NSString *,NSString *> *challengeResponses = [NSMutableDictionary new];
+    [challengeResponses setObject:details.proposedPassword forKey:@"NEW_PASSWORD"];
+    
+    for(AWSCognitoIdentityUserAttributeType *userAttribute in details.userAttributes){
+        [challengeResponses setObject:userAttribute.value forKey: [NSString stringWithFormat:@"%@%@", AWSCognitoIdentityUserUserAttributePrefix, userAttribute.name]];
+    }
+    
+    [self addSecretHashDeviceKeyAndUsername:challengeResponses];
+    request.challengeResponses = challengeResponses;
+    
+    return [self.pool.client respondToAuthChallenge:request];
+}
 
 /**
  * Perform SRP based authentication (initiateAuth(SRP_AUTH) and respondToAuthChallenge) given a username and password. If lastChallenge is supplied it starts with respondToAuthChallenge instead of initiate.
@@ -1111,7 +1171,13 @@ static const NSString * AWSCognitoIdentityUserDeviceGroup = @"device.group";
 @end
 
 @implementation AWSCognitoIdentityUserAttributeType
-
+- (instancetype) initWithName: (NSString *) name value: (NSString *) value{
+    if(self = [super init]){
+        self.name = name;
+        self.value = value;
+    }
+    return self;
+}
 @end
 
 @implementation AWSCognitoIdentityUserConfirmSignUpResponse

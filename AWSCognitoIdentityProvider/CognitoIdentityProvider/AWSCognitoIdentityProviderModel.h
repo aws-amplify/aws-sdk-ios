@@ -40,10 +40,13 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderErrorType) {
     AWSCognitoIdentityProviderErrorMFAMethodNotFound,
     AWSCognitoIdentityProviderErrorNotAuthorized,
     AWSCognitoIdentityProviderErrorPasswordResetRequired,
+    AWSCognitoIdentityProviderErrorPreconditionNotMet,
     AWSCognitoIdentityProviderErrorResourceNotFound,
     AWSCognitoIdentityProviderErrorTooManyFailedAttempts,
     AWSCognitoIdentityProviderErrorTooManyRequests,
     AWSCognitoIdentityProviderErrorUnexpectedLambda,
+    AWSCognitoIdentityProviderErrorUnsupportedUserState,
+    AWSCognitoIdentityProviderErrorUserImportInProgress,
     AWSCognitoIdentityProviderErrorUserLambdaValidation,
     AWSCognitoIdentityProviderErrorUserNotConfirmed,
     AWSCognitoIdentityProviderErrorUserNotFound,
@@ -69,6 +72,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderAuthFlowType) {
     AWSCognitoIdentityProviderAuthFlowTypeUnknown,
     AWSCognitoIdentityProviderAuthFlowTypeUserSrpAuth,
     AWSCognitoIdentityProviderAuthFlowTypeRefreshTokenAuth,
+    AWSCognitoIdentityProviderAuthFlowTypeRefreshToken,
     AWSCognitoIdentityProviderAuthFlowTypeCustomAuth,
     AWSCognitoIdentityProviderAuthFlowTypeAdminNoSrpAuth,
 };
@@ -81,6 +85,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderChallengeNameType) {
     AWSCognitoIdentityProviderChallengeNameTypeDeviceSrpAuth,
     AWSCognitoIdentityProviderChallengeNameTypeDevicePasswordVerifier,
     AWSCognitoIdentityProviderChallengeNameTypeAdminNoSrpAuth,
+    AWSCognitoIdentityProviderChallengeNameTypeNewPasswordRequired,
 };
 
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderDeliveryMediumType) {
@@ -98,12 +103,31 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderDeviceRememberedStatusType)
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderExplicitAuthFlowsType) {
     AWSCognitoIdentityProviderExplicitAuthFlowsTypeUnknown,
     AWSCognitoIdentityProviderExplicitAuthFlowsTypeAdminNoSrpAuth,
+    AWSCognitoIdentityProviderExplicitAuthFlowsTypeCustomAuthFlowOnly,
+};
+
+typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderMessageActionType) {
+    AWSCognitoIdentityProviderMessageActionTypeUnknown,
+    AWSCognitoIdentityProviderMessageActionTypeResend,
+    AWSCognitoIdentityProviderMessageActionTypeSuppress,
 };
 
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderStatusType) {
     AWSCognitoIdentityProviderStatusTypeUnknown,
     AWSCognitoIdentityProviderStatusTypeEnabled,
     AWSCognitoIdentityProviderStatusTypeDisabled,
+};
+
+typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderUserImportJobStatusType) {
+    AWSCognitoIdentityProviderUserImportJobStatusTypeUnknown,
+    AWSCognitoIdentityProviderUserImportJobStatusTypeCreated,
+    AWSCognitoIdentityProviderUserImportJobStatusTypePending,
+    AWSCognitoIdentityProviderUserImportJobStatusTypeInProgress,
+    AWSCognitoIdentityProviderUserImportJobStatusTypeStopping,
+    AWSCognitoIdentityProviderUserImportJobStatusTypeExpired,
+    AWSCognitoIdentityProviderUserImportJobStatusTypeStopped,
+    AWSCognitoIdentityProviderUserImportJobStatusTypeFailed,
+    AWSCognitoIdentityProviderUserImportJobStatusTypeSucceeded,
 };
 
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderUserPoolMfaType) {
@@ -120,6 +144,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderUserStatusType) {
     AWSCognitoIdentityProviderUserStatusTypeArchived,
     AWSCognitoIdentityProviderUserStatusTypeCompromised,
     AWSCognitoIdentityProviderUserStatusTypeResetRequired,
+    AWSCognitoIdentityProviderUserStatusTypeForceChangePassword,
 };
 
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
@@ -132,6 +157,9 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderAddCustomAttributesResponse;
 @class AWSCognitoIdentityProviderAdminConfirmSignUpRequest;
 @class AWSCognitoIdentityProviderAdminConfirmSignUpResponse;
+@class AWSCognitoIdentityProviderAdminCreateUserConfigType;
+@class AWSCognitoIdentityProviderAdminCreateUserRequest;
+@class AWSCognitoIdentityProviderAdminCreateUserResponse;
 @class AWSCognitoIdentityProviderAdminDeleteUserAttributesRequest;
 @class AWSCognitoIdentityProviderAdminDeleteUserAttributesResponse;
 @class AWSCognitoIdentityProviderAdminDeleteUserRequest;
@@ -171,6 +199,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderConfirmForgotPasswordResponse;
 @class AWSCognitoIdentityProviderConfirmSignUpRequest;
 @class AWSCognitoIdentityProviderConfirmSignUpResponse;
+@class AWSCognitoIdentityProviderCreateUserImportJobRequest;
+@class AWSCognitoIdentityProviderCreateUserImportJobResponse;
 @class AWSCognitoIdentityProviderCreateUserPoolClientRequest;
 @class AWSCognitoIdentityProviderCreateUserPoolClientResponse;
 @class AWSCognitoIdentityProviderCreateUserPoolRequest;
@@ -180,6 +210,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderDeleteUserPoolClientRequest;
 @class AWSCognitoIdentityProviderDeleteUserPoolRequest;
 @class AWSCognitoIdentityProviderDeleteUserRequest;
+@class AWSCognitoIdentityProviderDescribeUserImportJobRequest;
+@class AWSCognitoIdentityProviderDescribeUserImportJobResponse;
 @class AWSCognitoIdentityProviderDescribeUserPoolClientRequest;
 @class AWSCognitoIdentityProviderDescribeUserPoolClientResponse;
 @class AWSCognitoIdentityProviderDescribeUserPoolRequest;
@@ -191,6 +223,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderForgetDeviceRequest;
 @class AWSCognitoIdentityProviderForgotPasswordRequest;
 @class AWSCognitoIdentityProviderForgotPasswordResponse;
+@class AWSCognitoIdentityProviderGetCSVHeaderRequest;
+@class AWSCognitoIdentityProviderGetCSVHeaderResponse;
 @class AWSCognitoIdentityProviderGetDeviceRequest;
 @class AWSCognitoIdentityProviderGetDeviceResponse;
 @class AWSCognitoIdentityProviderGetUserAttributeVerificationCodeRequest;
@@ -204,6 +238,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderLambdaConfigType;
 @class AWSCognitoIdentityProviderListDevicesRequest;
 @class AWSCognitoIdentityProviderListDevicesResponse;
+@class AWSCognitoIdentityProviderListUserImportJobsRequest;
+@class AWSCognitoIdentityProviderListUserImportJobsResponse;
 @class AWSCognitoIdentityProviderListUserPoolClientsRequest;
 @class AWSCognitoIdentityProviderListUserPoolClientsResponse;
 @class AWSCognitoIdentityProviderListUserPoolsRequest;
@@ -211,6 +247,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderListUsersRequest;
 @class AWSCognitoIdentityProviderListUsersResponse;
 @class AWSCognitoIdentityProviderMFAOptionType;
+@class AWSCognitoIdentityProviderMessageTemplateType;
 @class AWSCognitoIdentityProviderLatestDeviceMetadataType;
 @class AWSCognitoIdentityProviderNumberAttributeConstraintsType;
 @class AWSCognitoIdentityProviderPasswordPolicyType;
@@ -224,6 +261,10 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderSignUpRequest;
 @class AWSCognitoIdentityProviderSignUpResponse;
 @class AWSCognitoIdentityProviderSmsConfigurationType;
+@class AWSCognitoIdentityProviderStartUserImportJobRequest;
+@class AWSCognitoIdentityProviderStartUserImportJobResponse;
+@class AWSCognitoIdentityProviderStopUserImportJobRequest;
+@class AWSCognitoIdentityProviderStopUserImportJobResponse;
 @class AWSCognitoIdentityProviderStringAttributeConstraintsType;
 @class AWSCognitoIdentityProviderUpdateDeviceStatusRequest;
 @class AWSCognitoIdentityProviderUpdateDeviceStatusResponse;
@@ -233,6 +274,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderUpdateUserPoolClientResponse;
 @class AWSCognitoIdentityProviderUpdateUserPoolRequest;
 @class AWSCognitoIdentityProviderUpdateUserPoolResponse;
+@class AWSCognitoIdentityProviderUserImportJobType;
 @class AWSCognitoIdentityProviderUserPoolClientDescription;
 @class AWSCognitoIdentityProviderUserPoolClientType;
 @class AWSCognitoIdentityProviderUserPoolDescriptionType;
@@ -293,6 +335,91 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  */
 @interface AWSCognitoIdentityProviderAdminConfirmSignUpResponse : AWSModel
 
+
+@end
+
+/**
+ <p>The type of configuration for creating a new user profile.</p>
+ */
+@interface AWSCognitoIdentityProviderAdminCreateUserConfigType : AWSModel
+
+
+/**
+ <p>Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable allowAdminCreateUserOnly;
+
+/**
+ <p>The message template to be used for the welcome message to new users.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderMessageTemplateType * _Nullable inviteMessageTemplate;
+
+/**
+ <p>The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call AdminCreateUser again, specifying "RESEND" for the MessageAction parameter.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable unusedAccountValidityDays;
+
+@end
+
+/**
+ <p>Represents the request to create a user in the specified user pool.</p>
+ Required parameters: [UserPoolId, Username]
+ */
+@interface AWSCognitoIdentityProviderAdminCreateUserRequest : AWSRequest
+
+
+/**
+ <p>Specify "EMAIL" if email will be used to send the welcome message. Specify "SMS" if the phone number will be used. The default value is "SMS". More than one value can be specified.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable desiredDeliveryMediums;
+
+/**
+ <p>This parameter is only used if the phone_number_verified or email_verified attribute is set to True. Otherwise, it is ignored.</p><p>If this parameter is set to True and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.</p><p>If this parameter is set to False, the API throws an AliasExistsException error if the alias already exists. The default value is False.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable forceAliasCreation;
+
+/**
+ <p>Set to "RESEND" to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to "SUPPRESS" to suppress sending the message. Only one value can be specified.</p>
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderMessageActionType messageAction;
+
+/**
+ <p>The user's temporary password. This password must conform to the password policy that you specified when you created the user pool.</p><p>The temporary password is valid only once. To complete the Admin Create User flow, the user must enter the temporary password in the sign-in page along with a new password to be used in all future sign-ins.</p><p>This parameter is not required. If you do not specify a value, Amazon Cognito generates one for you.</p><p>The temporary password can only be used until the user account expiration limit that you specified when you created the user pool. To reset the account after that time limit, you must call AdminCreateUser again, specifying "RESEND" for the MessageAction parameter.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable temporaryPassword;
+
+/**
+ <p>An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than Username. However, any attributes that you specify as required (in CreateUserPool or in the <b>Attributes</b> tab of the console) must be supplied either by you (in your call to AdminCreateUser) or by the user (when he or she signs up in response to your welcome message).</p><p>To send a message inviting the user to sign up, you must specify the user's email address or phone number. This can be done in your call to AdminCreateUser or in the <b>Users</b> tab of the Amazon Cognito console for managing your user pools.</p><p>In your call to AdminCreateUser, you can set the email_verified attribute to True, and you can set the phone_number_verified attribute to True. (You cannot do this by calling other operations such as AdminUpdateUserAttributes.)</p><ul><li><p><b>email</b>: The email address of the user to whom the message that contains the code and username will be sent. Required if the email_verified attribute is set to True, or if "EMAIL" is specified in the DesiredDeliveryMediums parameter.</p></li><li><p><b>phone_number</b>: The phone number of the user to whom the message that contains the code and username will be sent. Required if the phone_number_verified attribute is set to True, or if "SMS" is specified in the DesiredDeliveryMediums parameter.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderAttributeType *> * _Nullable userAttributes;
+
+/**
+ <p>The user pool ID for the user pool where the user will be created.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+/**
+ <p>The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable username;
+
+/**
+ <p>The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. For example, you might choose to allow or disallow user sign-up based on the user's domain.</p><p>To configure custom validation, you must create a Pre Sign-up Lambda trigger for the user pool as described in the Amazon Cognito Developer Guide. The Lambda trigger receives the validation data and uses it in the validation process.</p><p>The user's validation data is not persisted.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderAttributeType *> * _Nullable validationData;
+
+@end
+
+/**
+ <p>Represents the response from the server to the request to create the user.</p>
+ */
+@interface AWSCognitoIdentityProviderAdminCreateUserResponse : AWSModel
+
+
+/**
+ <p>The user returned in the request to create a new user.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderUserType * _Nullable user;
 
 @end
 
@@ -515,7 +642,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSDate * _Nullable userLastModifiedDate;
 
 /**
- <p>The user status. Can be one of the following:</p><ul><li>UNCONFIRMED - User has been created but not confirmed.</li><li>CONFIRMED - User has been confirmed.</li><li>ARCHIVED - User is no longer active.</li><li>COMPROMISED - User is disabled due to a potential security threat.</li><li>UNKNOWN - User status is not known.</li></ul>
+ <p>The user status. Can be one of the following:</p><ul><li><p>UNCONFIRMED - User has been created but not confirmed.</p></li><li><p>CONFIRMED - User has been confirmed.</p></li><li><p>ARCHIVED - User is no longer active.</p></li><li><p>COMPROMISED - User is disabled due to a potential security threat.</p></li><li><p>UNKNOWN - User status is not known.</p></li></ul>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderUserStatusType userStatus;
 
@@ -774,7 +901,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, assign) AWSCognitoIdentityProviderDeviceRememberedStatusType deviceRememberedStatus;
 
 /**
- <p>The user pool ID></p>
+ <p>The user pool ID&gt;</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
@@ -845,7 +972,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
- <p>The global signot response, as an administrator.</p>
+ <p>The global sign-out response, as an administrator.</p>
  */
 @interface AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse : AWSModel
 
@@ -1091,6 +1218,43 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
+ <p>Represents the request to create the user import job.</p>
+ Required parameters: [JobName, UserPoolId, CloudWatchLogsRoleArn]
+ */
+@interface AWSCognitoIdentityProviderCreateUserImportJobRequest : AWSRequest
+
+
+/**
+ <p>The role ARN for the Amazon CloudWatch Logging role for the user import job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cloudWatchLogsRoleArn;
+
+/**
+ <p>The job name for the user import job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobName;
+
+/**
+ <p>The user pool ID for the user pool that the users are being imported into.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ <p>Represents the response from the server to the request to create the user import job.</p>
+ */
+@interface AWSCognitoIdentityProviderCreateUserImportJobResponse : AWSModel
+
+
+/**
+ <p>The job object that represents the user import job.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderUserImportJobType * _Nullable userImportJob;
+
+@end
+
+/**
  <p>Represents the request to create a user pool client.</p>
  Required parameters: [UserPoolId, ClientName]
  */
@@ -1108,7 +1272,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable explicitAuthFlows;
 
 /**
- <p> Boolean to specify whether you want to generate a secret for the user pool client being created.</p>
+ <p>Boolean to specify whether you want to generate a secret for the user pool client being created.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable generateSecret;
 
@@ -1153,6 +1317,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  */
 @interface AWSCognitoIdentityProviderCreateUserPoolRequest : AWSRequest
 
+
+/**
+ <p>The configuration for AdminCreateUser requests.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAdminCreateUserConfigType * _Nullable adminCreateUserConfig;
 
 /**
  <p>Attributes supported as an alias for this user pool. Possible values: <b>phone_number</b>, <b>email</b>, or <b>preferred_username</b>.</p>
@@ -1304,6 +1473,38 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  <p>The access token from a request to delete a user.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable accessToken;
+
+@end
+
+/**
+ <p>Represents the request to describe the user import job.</p>
+ Required parameters: [UserPoolId, JobId]
+ */
+@interface AWSCognitoIdentityProviderDescribeUserImportJobRequest : AWSRequest
+
+
+/**
+ <p>The job ID for the user import job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The user pool ID for the user pool that the users are being imported into.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ <p>Represents the response from the server to the request to describe the user import job.</p>
+ */
+@interface AWSCognitoIdentityProviderDescribeUserImportJobResponse : AWSModel
+
+
+/**
+ <p>The job object that represents the user import job.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderUserImportJobType * _Nullable userImportJob;
 
 @end
 
@@ -1506,6 +1707,38 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  <p>The type of code delivery details being returned from the server.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderCodeDeliveryDetailsType * _Nullable codeDeliveryDetails;
+
+@end
+
+/**
+ <p>Represents the request to get the header information for the .csv file for the user import job.</p>
+ Required parameters: [UserPoolId]
+ */
+@interface AWSCognitoIdentityProviderGetCSVHeaderRequest : AWSRequest
+
+
+/**
+ <p>The user pool ID for the user pool that the users are to be imported into.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ <p>Represents the response from the server to the request to get the header information for the .csv file for the user import job.</p>
+ */
+@interface AWSCognitoIdentityProviderGetCSVHeaderResponse : AWSModel
+
+
+/**
+ <p>The header information for the .csv file for the user import job.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable CSVHeader;
+
+/**
+ <p>The user pool ID for the user pool that the users are to be imported into.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 @end
 
@@ -1780,6 +2013,48 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
+ <p>Represents the request to list the user import jobs.</p>
+ Required parameters: [UserPoolId, MaxResults]
+ */
+@interface AWSCognitoIdentityProviderListUserImportJobsRequest : AWSRequest
+
+
+/**
+ <p>The maximum number of import jobs you want the request to return.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>An identifier that was returned from the previous call to ListUserImportJobs, which can be used to return the next set of import jobs in the list.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable paginationToken;
+
+/**
+ <p>The user pool ID for the user pool that the users are being imported into.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ <p>Represents the response from the server to the request to list the user import jobs.</p>
+ */
+@interface AWSCognitoIdentityProviderListUserImportJobsResponse : AWSModel
+
+
+/**
+ <p>An identifier that can be used to return the next set of user import jobs in the list.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable paginationToken;
+
+/**
+ <p>The user import jobs.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderUserImportJobType *> * _Nullable userImportJobs;
+
+@end
+
+/**
  <p>Represents the request to list the user pool clients.</p>
  Required parameters: [UserPoolId]
  */
@@ -1925,6 +2200,29 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  <p>The delivery medium (email message or SMS message) to send the MFA code.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderDeliveryMediumType deliveryMedium;
+
+@end
+
+/**
+ <p>The message template structure.</p>
+ */
+@interface AWSCognitoIdentityProviderMessageTemplateType : AWSModel
+
+
+/**
+ <p>The message template for email messages.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable emailMessage;
+
+/**
+ <p>The subject line for email messages.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable emailSubject;
+
+/**
+ <p>The message template for SMS messages.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable SMSMessage;
 
 @end
 
@@ -2237,6 +2535,70 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
+ <p>Represents the request to start the user import job.</p>
+ Required parameters: [UserPoolId, JobId]
+ */
+@interface AWSCognitoIdentityProviderStartUserImportJobRequest : AWSRequest
+
+
+/**
+ <p>The job ID for the user import job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The user pool ID for the user pool that the users are being imported into.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ <p>Represents the response from the server to the request to start the user import job.</p>
+ */
+@interface AWSCognitoIdentityProviderStartUserImportJobResponse : AWSModel
+
+
+/**
+ <p>The job object that represents the user import job.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderUserImportJobType * _Nullable userImportJob;
+
+@end
+
+/**
+ <p>Represents the request to stop the user import job.</p>
+ Required parameters: [UserPoolId, JobId]
+ */
+@interface AWSCognitoIdentityProviderStopUserImportJobRequest : AWSRequest
+
+
+/**
+ <p>The job ID for the user import job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The user pool ID for the user pool that the users are being imported into.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ <p>Represents the response from the server to the request to stop the user import job.</p>
+ */
+@interface AWSCognitoIdentityProviderStopUserImportJobResponse : AWSModel
+
+
+/**
+ <p>The job object that represents the user import job.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderUserImportJobType * _Nullable userImportJob;
+
+@end
+
+/**
  <p>The type of constraints associated with an attribute of the string type.</p>
  */
 @interface AWSCognitoIdentityProviderStringAttributeConstraintsType : AWSModel
@@ -2383,6 +2745,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
+ <p>The configuration for AdminCreateUser requests.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAdminCreateUserConfigType * _Nullable adminCreateUserConfig;
+
+/**
  <p>The attributes that are automatically verified when the Amazon Cognito service makes a request to update user pools.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable autoVerifiedAttributes;
@@ -2403,7 +2770,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSString * _Nullable emailVerificationMessage;
 
 /**
- <p>The subject of the email verfication message</p>
+ <p>The subject of the email verfication message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable emailVerificationSubject;
 
@@ -2413,7 +2780,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) AWSCognitoIdentityProviderLambdaConfigType * _Nullable lambdaConfig;
 
 /**
- <p>Can be one of the following values:</p><ul><li><code>OFF</code> - MFA tokens are not required and cannot be specified during user registration.</li><li><code>ON</code> - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.</li><li><code>OPTIONAL</code> - Users have the option when registering to create an MFA token.</li></ul>
+ <p>Can be one of the following values:</p><ul><li><p><code>OFF</code> - MFA tokens are not required and cannot be specified during user registration.</p></li><li><p><code>ON</code> - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.</p></li><li><p><code>OPTIONAL</code> - Users have the option when registering to create an MFA token.</p></li></ul>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderUserPoolMfaType mfaConfiguration;
 
@@ -2449,6 +2816,79 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  */
 @interface AWSCognitoIdentityProviderUpdateUserPoolResponse : AWSModel
 
+
+@end
+
+/**
+ <p>The user import job type.</p>
+ */
+@interface AWSCognitoIdentityProviderUserImportJobType : AWSModel
+
+
+/**
+ <p>The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer Guide.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cloudWatchLogsRoleArn;
+
+/**
+ <p>The date when the user imoprt job was completed.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable completionDate;
+
+/**
+ <p>The message returned when the user import job is completed.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable completionMessage;
+
+/**
+ <p>The date when the user import job was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationDate;
+
+/**
+ <p>The number of users that could not be imported.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable failedUsers;
+
+/**
+ <p>The number of users that were successfully imported.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable importedUsers;
+
+/**
+ <p>The job ID for the user import job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The job name for the user import job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobName;
+
+/**
+ <p>The pre-signed URL to be used to upload the .csv file.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable preSignedUrl;
+
+/**
+ <p>The number of users that were skipped.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable skippedUsers;
+
+/**
+ <p>The date when the user import job was started.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startDate;
+
+/**
+ <p>The status of the user import job. One of the following:</p><ul><li><p>Created - The job was created but not started.</p></li><li><p>Pending - A transition state. You have started the job, but it has not begun importing users yet.</p></li><li><p>InProgress - The job has started, and users are being imported.</p></li><li><p>Stopping - You have stopped the job, but the job has not stopped importing users yet.</p></li><li><p>Stopped - You have stopped the job, and the job has stopped importing users.</p></li><li><p>Succeeded - The job has completed successfully.</p></li><li><p>Failed - The job has stopped due to an error.</p></li><li><p>Expired - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderUserImportJobStatusType status;
+
+/**
+ <p>The user pool ID for the user pool that the users are being imported into.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 @end
 
@@ -2591,6 +3031,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
+ <p>The configuration for AdminCreateUser requests.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAdminCreateUserConfigType * _Nullable adminCreateUserConfig;
+
+/**
  <p>Specifies the attributes that are aliased in a user pool.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable aliasAttributes;
@@ -2651,7 +3096,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
 
 /**
- <p>Can be one of the following values:</p><ul><li><code>OFF</code> - MFA tokens are not required and cannot be specified during user registration.</li><li><code>ON</code> - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.</li><li><code>OPTIONAL</code> - Users have the option when registering to create an MFA token.</li></ul>
+ <p>Can be one of the following values:</p><ul><li><p><code>OFF</code> - MFA tokens are not required and cannot be specified during user registration.</p></li><li><p><code>ON</code> - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.</p></li><li><p><code>OPTIONAL</code> - Users have the option when registering to create an MFA token.</p></li></ul>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderUserPoolMfaType mfaConfiguration;
 
@@ -2714,6 +3159,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
+ <p>The MFA options for the user.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderMFAOptionType *> * _Nullable MFAOptions;
+
+/**
  <p>The creation date of the user.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable userCreateDate;
@@ -2724,7 +3174,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSDate * _Nullable userLastModifiedDate;
 
 /**
- <p>The user status. Can be one of the following:</p><ul><li>UNCONFIRMED - User has been created but not confirmed.</li><li>CONFIRMED - User has been confirmed.</li><li>ARCHIVED - User is no longer active.</li><li>COMPROMISED - User is disabled due to a potential security threat.</li><li>UNKNOWN - User status is not known.</li></ul>
+ <p>The user status. Can be one of the following:</p><ul><li><p>UNCONFIRMED - User has been created but not confirmed.</p></li><li><p>CONFIRMED - User has been confirmed.</p></li><li><p>ARCHIVED - User is no longer active.</p></li><li><p>COMPROMISED - User is disabled due to a potential security threat.</p></li><li><p>UNKNOWN - User status is not known.</p></li></ul>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderUserStatusType userStatus;
 

@@ -245,4 +245,56 @@ class AWSS3TransferUtilityTests: XCTestCase {
             XCTAssertNil(error)
         }
     }
+
+    func testEmptyBucketNameForTransferAccelerationUpload() {
+        let expectation = expectationWithDescription("The completion handler called.")
+
+        let transferUtility = AWSS3TransferUtility.S3TransferUtilityForKey("transfer-acceleration")
+
+        transferUtility.uploadData(
+            testData,
+            bucket: "",
+            key: "test-swift-upload",
+            contentType: "application/octet-stream",
+            expression: nil,
+            completionHander: nil
+            ).continueWithBlock { (task) -> AnyObject? in
+                XCTAssertNotNil(task.error)
+                XCTAssertEqual(task.error?.domain, AWSS3PresignedURLErrorDomain)
+                XCTAssertEqual(task.error?.code, AWSS3PresignedURLErrorType.PresignedURLErrorInvalidBucketNameForAccelerateModeEnabled.rawValue)
+
+                expectation.fulfill()
+
+                return nil
+        }
+
+        waitForExpectationsWithTimeout(30) { (error) in
+            XCTAssertNil(error)
+        }
+    }
+
+    func testEmptyBucketNameForTransferAccelerationDownload() {
+        let expectation = expectationWithDescription("The completion handler called.")
+
+        let transferUtility = AWSS3TransferUtility.S3TransferUtilityForKey("transfer-acceleration")
+
+        transferUtility.downloadToURL(NSURL(string: "foo.bar")!,
+            bucket: "",
+            key: "test-swift-upload",
+            expression: nil,
+            completionHander: nil
+            ).continueWithBlock { (task) -> AnyObject? in
+                XCTAssertNotNil(task.error)
+                XCTAssertEqual(task.error?.domain, AWSS3PresignedURLErrorDomain)
+                XCTAssertEqual(task.error?.code, AWSS3PresignedURLErrorType.PresignedURLErrorBucketNameIsNil.rawValue)
+
+                expectation.fulfill()
+
+                return nil
+        }
+
+        waitForExpectationsWithTimeout(30) { (error) in
+            XCTAssertNil(error)
+        }
+    }
 }

@@ -26,11 +26,14 @@
 @class AWSCognitoIdentityCustomChallengeDetails;
 @class AWSCognitoIdentityUserPoolConfiguration;
 @class AWSCognitoIdentityUserPoolSignUpResponse;
+@class AWSCognitoIdentityNewPasswordRequiredDetails;
+
 @protocol AWSCognitoIdentityInteractiveAuthenticationDelegate;
 @protocol AWSCognitoIdentityPasswordAuthentication;
 @protocol AWSCognitoIdentityMultiFactorAuthentication;
 @protocol AWSCognitoIdentityCustomAuthentication;
 @protocol AWSCognitoIdentityRememberDevice;
+@protocol AWSCognitoIdentityNewPasswordRequired;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -167,17 +170,51 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData;
 
 -(instancetype) initWithChallengeResponses: (NSDictionary<NSString*,NSString*> *) challengeResponses;
 
+@end
+
+
+/**
+ When responding to a new password required challenge this encapsulates the end users' new password and required attributes
+ */
+@interface AWSCognitoIdentityNewPasswordRequiredDetails : NSObject
+/**
+ The end user's new password
+ */
+@property(nonatomic, strong, nonnull) NSString *proposedPassword;
+/**
+ Any attribute the end user is setting.  Values must be present for all
+ required attributes.  Any other attributes are optional.
+ */
+@property(nonatomic, strong, nullable) NSArray<AWSCognitoIdentityUserAttributeType*> *userAttributes;
+
+/**
+ Initializer given a new password and map of user attributes to set 
+ **/
+-(instancetype) initWithProposedPassword: (NSString *) proposedPassword userAttributes:(NSDictionary<NSString*,NSString*> *) userAttributes;
 
 @end
 
 /**
- When responding to an custom sign in, this encapsulates the challenge parameters that define the challenge
+ When responding to a custom sign in, this encapsulates the challenge parameters that define the challenge
  */
 @interface AWSCognitoIdentityCustomAuthenticationInput : NSObject
 
 @property(nonatomic, strong) NSDictionary<NSString*,NSString*>* challengeParameters;
 
 -(instancetype) initWithChallengeParameters: (NSDictionary<NSString*,NSString*> *) challengeParameters;
+
+@end
+
+/**
+ When responding to new password required, this encapsulates the existing user attributes and the required user attributes.
+ */
+@interface AWSCognitoIdentityNewPasswordRequiredInput : NSObject
+
+@property(nonatomic, strong) NSDictionary<NSString*,NSString*>* userAttributes;
+
+@property(nonatomic, strong) NSSet<NSString*>* requiredAttributes;
+
+-(instancetype) initWithUserAttributes: (NSDictionary<NSString*,NSString*> *) userAttributes requiredAttributes: (NSSet<NSString*>*) requiredAttributes;
 
 @end
 
@@ -205,11 +242,6 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityClientErrorType) {
 @protocol AWSCognitoIdentityInteractiveAuthenticationDelegate <NSObject>
 @optional
 /**
- Initialize ui to prompt end user for custom authentication flow
- */
--(id<AWSCognitoIdentityCustomAuthentication>) startCustomAuthentication;
-
-/**
  Initialize ui to prompt end user for username and password
  */
 -(id<AWSCognitoIdentityPasswordAuthentication>) startPasswordAuthentication;
@@ -223,6 +255,17 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityClientErrorType) {
  Initialize ui to prompt end user to remember this device
  */
 -(id<AWSCognitoIdentityRememberDevice>) startRememberDevice;
+
+/**
+ Initialize ui to prompt end user to set a new password and specify profile information as part of sign in
+ */
+-(id<AWSCognitoIdentityNewPasswordRequired>) startNewPasswordRequired;
+
+/**
+ Initialize ui to prompt end user for custom authentication flow
+ */
+-(id<AWSCognitoIdentityCustomAuthentication>) startCustomAuthentication;
+
 @end
 
 @protocol AWSCognitoIdentityPasswordAuthentication <NSObject>
@@ -286,5 +329,24 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityClientErrorType) {
  */
 -(void) didCompleteRememberDeviceStepWithError:(NSError* _Nullable) error;
 @end
+
+
+@protocol AWSCognitoIdentityNewPasswordRequired <NSObject>
+
+/**
+ Obtain a new password and specify profile information as part of sign in from the end user
+ @param newPasswordRequiredInput user profile and required attributes of the end user
+ @param newPasswordRequiredCompletionSource set newPasswordRequiredCompletionSource with the new password and any attribute updates from the end user
+ */
+-(void) getNewPasswordDetails: (AWSCognitoIdentityNewPasswordRequiredInput *) newPasswordRequiredInput newPasswordRequiredCompletionSource: (AWSTaskCompletionSource<AWSCognitoIdentityNewPasswordRequiredDetails *> *) newPasswordRequiredCompletionSource;
+/**
+ This step completed, usually either display an error to the end user or dismiss ui
+ @param error the error if any that occured
+ */
+-(void) didCompleteNewPasswordStepWithError:(NSError* _Nullable) error;
+
+
+@end
+
 
 NS_ASSUME_NONNULL_END

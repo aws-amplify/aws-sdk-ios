@@ -338,6 +338,57 @@ static NSString *testBucketNameGeneral = nil;
     
 }
 
+- (void)testEmptyFolder{
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    XCTAssertNotNil(s3);
+    
+    XCTAssertNotNil(testBucketNameGeneral);
+    
+    AWSS3PutObjectRequest *putObjectRequest = [AWSS3PutObjectRequest new];
+    
+    putObjectRequest.key = @"test/";
+    putObjectRequest.bucket = testBucketNameGeneral;
+   
+    putObjectRequest.body = nil;
+    NSLog(@"testBucketNameGeneral %@",testBucketNameGeneral);
+    
+    [AWSLogger defaultLogger].logLevel = AWSLogLevelVerbose;
+    
+    [[[[[[s3 putObject:putObjectRequest] continueWithBlock:^id(AWSTask *task)
+      {
+          XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+          AWSS3ListObjectsRequest *list = [AWSS3ListObjectsRequest new];
+          list.bucket = testBucketNameGeneral;
+          return [s3 listObjects:list];
+      }] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+          XCTAssertNil(task.error);
+          XCTAssertNil(task.exception);
+          AWSS3ListObjectsOutput *listObjects = (AWSS3ListObjectsOutput *)task.result;
+          XCTAssertTrue([[listObjects contents] count] == 1);
+          NSArray<AWSS3Object *> *contents = [listObjects contents];
+          AWSS3Object *fileContent = [contents firstObject];
+          XCTAssertNotNil(fileContent);
+          NSString *key = [fileContent key];
+          XCTAssertTrue([[key substringFromIndex:[key length] - 1] isEqualToString:@"/"]);
+          AWSS3DeleteObjectRequest *del = [AWSS3DeleteObjectRequest new];
+          del.bucket = testBucketNameGeneral;
+          del.key = @"test/";
+          return [s3 deleteObject:del];
+      }] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+          XCTAssertNil(task.error);
+          XCTAssertNil(task.exception);
+          AWSS3ListObjectsRequest *list = [AWSS3ListObjectsRequest new];
+          list.bucket = testBucketNameGeneral;
+          return [s3 listObjects:list];
+      }] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+          XCTAssertNil(task.error);
+          XCTAssertNil(task.exception);
+          AWSS3ListObjectsOutput *listObjects = (AWSS3ListObjectsOutput *)task.result;
+          XCTAssertTrue([[listObjects contents] count] == 0);
+          return nil;
+      }] waitUntilFinished];
+}
+
 
 - (void)testPutBucketWithGrants {
     NSString *grantBucketName = [testBucketNameGeneral stringByAppendingString:@"-grant"];

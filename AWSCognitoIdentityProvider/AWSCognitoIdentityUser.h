@@ -271,7 +271,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface AWSCognitoIdentityUserAttributeType : AWSCognitoIdentityProviderAttributeType
-
+- (instancetype) initWithName:(NSString *) name value:(NSString *) value;
 @end
 
 #pragma Response wrappers

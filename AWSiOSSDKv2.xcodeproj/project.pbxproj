@@ -70,6 +70,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		174A59F01D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 174A59EF1D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.m */; };
+		175C92561D89049F001A145F /* AWSAPIGatewayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 175C92551D89049F001A145F /* AWSAPIGatewayModel.m */; };
+		175C92581D8904B4001A145F /* AWSAPIGatewayModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 175C92571D8904B4001A145F /* AWSAPIGatewayModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17C4BC081D88F45200A5E757 /* AWSAPIGatewayInvokeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C4BC071D88F45200A5E757 /* AWSAPIGatewayInvokeTest.swift */; };
 		18CDFB241D661FED0021B1DE /* AWSKinesisRequestRetryHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 18CDFB221D661FED0021B1DE /* AWSKinesisRequestRetryHandler.h */; };
 		18CDFB251D661FED0021B1DE /* AWSKinesisRequestRetryHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDFB231D661FED0021B1DE /* AWSKinesisRequestRetryHandler.m */; };
 		18CDFB281D66561F0021B1DE /* AWSS3Serializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 18CDFB261D66561F0021B1DE /* AWSS3Serializer.h */; };
@@ -1702,6 +1706,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		174A59EE1D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLambdaMicroserviceClient.h; sourceTree = "<group>"; };
+		174A59EF1D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLambdaMicroserviceClient.m; sourceTree = "<group>"; };
+		175C92551D89049F001A145F /* AWSAPIGatewayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSAPIGatewayModel.m; sourceTree = "<group>"; };
+		175C92571D8904B4001A145F /* AWSAPIGatewayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSAPIGatewayModel.h; sourceTree = "<group>"; };
+		17C4BC061D88F45100A5E757 /* AWSAPIGatewayTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSAPIGatewayTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		17C4BC071D88F45200A5E757 /* AWSAPIGatewayInvokeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSAPIGatewayInvokeTest.swift; sourceTree = "<group>"; };
 		18CDFB221D661FED0021B1DE /* AWSKinesisRequestRetryHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSKinesisRequestRetryHandler.h; sourceTree = "<group>"; };
 		18CDFB231D661FED0021B1DE /* AWSKinesisRequestRetryHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisRequestRetryHandler.m; sourceTree = "<group>"; };
 		18CDFB261D66561F0021B1DE /* AWSS3Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSS3Serializer.h; sourceTree = "<group>"; };
@@ -4179,6 +4189,8 @@
 			isa = PBXGroup;
 			children = (
 				CE9DEB201C6A81160060793F /* AWSAPIGateway.h */,
+				175C92571D8904B4001A145F /* AWSAPIGatewayModel.h */,
+				175C92551D89049F001A145F /* AWSAPIGatewayModel.m */,
 				CE9DEB351C6A814E0060793F /* AWSAPIGatewayClient.h */,
 				CE9DEB361C6A814E0060793F /* AWSAPIGatewayClient.m */,
 				CE9DEB221C6A81160060793F /* Info.plist */,
@@ -4190,6 +4202,10 @@
 			isa = PBXGroup;
 			children = (
 				CE9DEB2E1C6A81160060793F /* Info.plist */,
+				174A59EE1D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.h */,
+				174A59EF1D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.m */,
+				17C4BC071D88F45200A5E757 /* AWSAPIGatewayInvokeTest.swift */,
+				17C4BC061D88F45100A5E757 /* AWSAPIGatewayTests-Bridging-Header.h */,
 			);
 			path = AWSAPIGatewayTests;
 			sourceTree = "<group>";
@@ -4817,6 +4833,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9DEB3B1C6A816D0060793F /* AWSAPIGateway.h in Headers */,
+				175C92581D8904B4001A145F /* AWSAPIGatewayModel.h in Headers */,
 				CE9DEB371C6A814E0060793F /* AWSAPIGatewayClient.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -7302,6 +7319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9DEB381C6A814E0060793F /* AWSAPIGatewayClient.m in Sources */,
+				175C92561D89049F001A145F /* AWSAPIGatewayModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7310,6 +7328,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9DEB3F1C6A9C010060793F /* AWSTestUtility.m in Sources */,
+				174A59F01D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.m in Sources */,
+				17C4BC081D88F45200A5E757 /* AWSAPIGatewayInvokeTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -9729,6 +9749,7 @@
 		CE9DEB331C6A81160060793F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSAPIGatewayTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -9739,12 +9760,15 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSAPIGatewayTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AWSAPIGatewayTests/AWSAPIGatewayTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		CE9DEB341C6A81160060793F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSAPIGatewayTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -9755,6 +9779,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSAPIGatewayTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AWSAPIGatewayTests/AWSAPIGatewayTests-Bridging-Header.h";
 			};
 			name = Release;
 		};

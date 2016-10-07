@@ -26,7 +26,7 @@
 #import "AWSCognitoIdentityProviderResources.h"
 
 static NSString *const AWSInfoCognitoIdentityProvider = @"CognitoIdentityProvider";
-static NSString *const AWSCognitoIdentityProviderSDKVersion = @"2.4.9";
+static NSString *const AWSCognitoIdentityProviderSDKVersion = @"2.4.10";
 
 
 @interface AWSCognitoIdentityProviderResponseSerializer : AWSJSONResponseSerializer
@@ -57,10 +57,13 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"MFAMethodNotFoundException" : @(AWSCognitoIdentityProviderErrorMFAMethodNotFound),
                             @"NotAuthorizedException" : @(AWSCognitoIdentityProviderErrorNotAuthorized),
                             @"PasswordResetRequiredException" : @(AWSCognitoIdentityProviderErrorPasswordResetRequired),
+                            @"PreconditionNotMetException" : @(AWSCognitoIdentityProviderErrorPreconditionNotMet),
                             @"ResourceNotFoundException" : @(AWSCognitoIdentityProviderErrorResourceNotFound),
                             @"TooManyFailedAttemptsException" : @(AWSCognitoIdentityProviderErrorTooManyFailedAttempts),
                             @"TooManyRequestsException" : @(AWSCognitoIdentityProviderErrorTooManyRequests),
                             @"UnexpectedLambdaException" : @(AWSCognitoIdentityProviderErrorUnexpectedLambda),
+                            @"UnsupportedUserStateException" : @(AWSCognitoIdentityProviderErrorUnsupportedUserState),
+                            @"UserImportInProgressException" : @(AWSCognitoIdentityProviderErrorUserImportInProgress),
                             @"UserLambdaValidationException" : @(AWSCognitoIdentityProviderErrorUserLambdaValidation),
                             @"UserNotConfirmedException" : @(AWSCognitoIdentityProviderErrorUserNotConfirmed),
                             @"UserNotFoundException" : @(AWSCognitoIdentityProviderErrorUserNotFound),
@@ -339,6 +342,34 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCognitoIdentityProviderAdminConfirmSignUpResponse *response, NSError *error))completionHandler {
     [[self adminConfirmSignUp:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderAdminConfirmSignUpResponse *> * _Nonnull task) {
         AWSCognitoIdentityProviderAdminConfirmSignUpResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderAdminCreateUserResponse *> *)adminCreateUser:(AWSCognitoIdentityProviderAdminCreateUserRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"AdminCreateUser"
+                   outputClass:[AWSCognitoIdentityProviderAdminCreateUserResponse class]];
+}
+
+- (void)adminCreateUser:(AWSCognitoIdentityProviderAdminCreateUserRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderAdminCreateUserResponse *response, NSError *error))completionHandler {
+    [[self adminCreateUser:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderAdminCreateUserResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderAdminCreateUserResponse *result = task.result;
         NSError *error = task.error;
 
         if (task.exception) {
@@ -884,6 +915,34 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCognitoIdentityProviderCreateUserImportJobResponse *> *)createUserImportJob:(AWSCognitoIdentityProviderCreateUserImportJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"CreateUserImportJob"
+                   outputClass:[AWSCognitoIdentityProviderCreateUserImportJobResponse class]];
+}
+
+- (void)createUserImportJob:(AWSCognitoIdentityProviderCreateUserImportJobRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderCreateUserImportJobResponse *response, NSError *error))completionHandler {
+    [[self createUserImportJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderCreateUserImportJobResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderCreateUserImportJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCognitoIdentityProviderCreateUserPoolResponse *> *)createUserPool:(AWSCognitoIdentityProviderCreateUserPoolRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1049,6 +1108,34 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCognitoIdentityProviderDescribeUserImportJobResponse *> *)describeUserImportJob:(AWSCognitoIdentityProviderDescribeUserImportJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"DescribeUserImportJob"
+                   outputClass:[AWSCognitoIdentityProviderDescribeUserImportJobResponse class]];
+}
+
+- (void)describeUserImportJob:(AWSCognitoIdentityProviderDescribeUserImportJobRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderDescribeUserImportJobResponse *response, NSError *error))completionHandler {
+    [[self describeUserImportJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderDescribeUserImportJobResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderDescribeUserImportJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCognitoIdentityProviderDescribeUserPoolResponse *> *)describeUserPool:(AWSCognitoIdentityProviderDescribeUserPoolRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1145,6 +1232,34 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCognitoIdentityProviderForgotPasswordResponse *response, NSError *error))completionHandler {
     [[self forgotPassword:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderForgotPasswordResponse *> * _Nonnull task) {
         AWSCognitoIdentityProviderForgotPasswordResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderGetCSVHeaderResponse *> *)getCSVHeader:(AWSCognitoIdentityProviderGetCSVHeaderRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"GetCSVHeader"
+                   outputClass:[AWSCognitoIdentityProviderGetCSVHeaderResponse class]];
+}
+
+- (void)getCSVHeader:(AWSCognitoIdentityProviderGetCSVHeaderRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderGetCSVHeaderResponse *response, NSError *error))completionHandler {
+    [[self getCSVHeader:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderGetCSVHeaderResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderGetCSVHeaderResponse *result = task.result;
         NSError *error = task.error;
 
         if (task.exception) {
@@ -1313,6 +1428,34 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCognitoIdentityProviderListDevicesResponse *response, NSError *error))completionHandler {
     [[self listDevices:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderListDevicesResponse *> * _Nonnull task) {
         AWSCognitoIdentityProviderListDevicesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderListUserImportJobsResponse *> *)listUserImportJobs:(AWSCognitoIdentityProviderListUserImportJobsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"ListUserImportJobs"
+                   outputClass:[AWSCognitoIdentityProviderListUserImportJobsResponse class]];
+}
+
+- (void)listUserImportJobs:(AWSCognitoIdentityProviderListUserImportJobsRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderListUserImportJobsResponse *response, NSError *error))completionHandler {
+    [[self listUserImportJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderListUserImportJobsResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderListUserImportJobsResponse *result = task.result;
         NSError *error = task.error;
 
         if (task.exception) {
@@ -1509,6 +1652,62 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCognitoIdentityProviderSignUpResponse *response, NSError *error))completionHandler {
     [[self signUp:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderSignUpResponse *> * _Nonnull task) {
         AWSCognitoIdentityProviderSignUpResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderStartUserImportJobResponse *> *)startUserImportJob:(AWSCognitoIdentityProviderStartUserImportJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"StartUserImportJob"
+                   outputClass:[AWSCognitoIdentityProviderStartUserImportJobResponse class]];
+}
+
+- (void)startUserImportJob:(AWSCognitoIdentityProviderStartUserImportJobRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderStartUserImportJobResponse *response, NSError *error))completionHandler {
+    [[self startUserImportJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderStartUserImportJobResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderStartUserImportJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderStopUserImportJobResponse *> *)stopUserImportJob:(AWSCognitoIdentityProviderStopUserImportJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"StopUserImportJob"
+                   outputClass:[AWSCognitoIdentityProviderStopUserImportJobResponse class]];
+}
+
+- (void)stopUserImportJob:(AWSCognitoIdentityProviderStopUserImportJobRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderStopUserImportJobResponse *response, NSError *error))completionHandler {
+    [[self stopUserImportJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderStopUserImportJobResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderStopUserImportJobResponse *result = task.result;
         NSError *error = task.error;
 
         if (task.exception) {

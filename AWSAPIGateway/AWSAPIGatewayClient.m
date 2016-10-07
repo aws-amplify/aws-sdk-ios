@@ -23,7 +23,9 @@ NSString *const AWSAPIGatewayErrorHTTPHeaderFieldsKey = @"HTTPHeaderFields";
 
 static NSString *const AWSAPIGatewayAPIKeyHeader = @"x-api-key";
 
-static NSString *const AWSAPIGatewaySDKVersion = @"2.4.9";
+static NSString *const AWSAPIGatewaySDKVersion = @"2.4.10";
+
+static int defaultChunkSize = 1024;
 
 @interface AWSAPIGatewayClient()
 
@@ -31,6 +33,30 @@ static NSString *const AWSAPIGatewaySDKVersion = @"2.4.9";
 
 // Networking
 @property (nonatomic, strong) NSURLSession *session;
+
+@end
+
+@interface AWSAPIGatewayRequest()
+
+@property (nonatomic, strong) NSString *HTTPMethod;
+@property (nonatomic, strong) NSString *URLString;
+@property (nonatomic, strong) NSDictionary *queryParameters;
+@property (nonatomic, strong) NSDictionary *headerParameters;
+@property (nonatomic, strong) id HTTPBody;
+
+@end
+
+@interface AWSAPIGatewayResponse()
+
+@property (nonatomic, readwrite) NSDictionary *headers;
+@property (nonatomic, readwrite) NSData *responseData;
+@property (nonatomic, readwrite) NSURLResponse *rawResponse;
+@property (nonatomic, readwrite) NSInteger statusCode;
+
+- (instancetype)initWithHeaders:(NSDictionary *)headers
+                   responseData:(NSData *)responseData
+            NSURLResponseObject:(NSURLResponse *)NSURLResponseObject
+                     statusCode:(NSInteger)statusCode;
 
 @end
 
@@ -61,6 +87,131 @@ static NSString *const AWSAPIGatewaySDKVersion = @"2.4.9";
     return self;
 }
 
+- (AWSTask<AWSAPIGatewayResponse *> *)invoke:(AWSAPIGatewayRequest *)apiRequest {
+    
+    if(!apiRequest) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"AWSAPIGatewayRequest cannot be nil"]
+                                     userInfo:nil];
+    }
+    
+    NSURL *URL = [self requestURL:[apiRequest.URLString aws_stringWithURLEncodingPath] query:apiRequest.queryParameters URLPathComponentsDictionary:nil];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
+    request.HTTPMethod = apiRequest.HTTPMethod;
+    request.allHTTPHeaderFields = apiRequest.headerParameters;
+    if (self.APIKey) {
+        [request addValue:self.APIKey forHTTPHeaderField:AWSAPIGatewayAPIKeyHeader];
+    }
+    
+    AWSTask *task = [AWSTask taskWithResult:nil];
+    
+    task = [task continueWithSuccessBlock:^id(AWSTask *task) {
+        NSError *error = nil;
+        if (apiRequest.HTTPBody != nil) {
+            
+            if ([apiRequest.HTTPBody isKindOfClass:[NSString class]]) {
+                NSString *body = (NSString *)apiRequest.HTTPBody;
+                NSDictionary *bodyParameters = [NSJSONSerialization JSONObjectWithData:[body dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+                request.HTTPBody = [NSJSONSerialization dataWithJSONObject:bodyParameters
+                                                                   options:0
+                                                                     error:&error];
+            } else if ([apiRequest.HTTPBody isKindOfClass:[NSDictionary class]]) {
+                request.HTTPBody = [NSJSONSerialization dataWithJSONObject:apiRequest.HTTPBody
+                                                                   options:0
+                                                                     error:&error];
+            } else if ([apiRequest.HTTPBody isKindOfClass:[NSInputStream class]]) {
+                
+                NSInputStream *iStream = (NSInputStream *)apiRequest.HTTPBody;
+                NSOutputStream *oStream = [[NSOutputStream alloc] initToMemory];
+                [iStream open];
+                [oStream open];
+                
+                int len = defaultChunkSize;
+                uint8_t buf[len];
+                
+                while (YES) {
+                    if ( [oStream hasSpaceAvailable] ) {
+                        NSInteger bytesRead = [iStream read:buf maxLength:len];
+                        
+                        if ([oStream write:(const uint8_t *)buf maxLength:bytesRead] == -1) {
+                            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                                           reason:[NSString stringWithFormat:@"Error occurred while writing input stream to output stream."]
+                                                         userInfo:nil];
+                            break;
+                        }
+                        if (defaultChunkSize != bytesRead) {
+                            break;
+                        }
+                    }
+                }
+                
+                NSData *data = [oStream propertyForKey: NSStreamDataWrittenToMemoryStreamKey];
+                if (!data) {
+                    AWSLogVerbose(@"No data written to memory!");
+                } else {
+                    request.HTTPBody = data;
+                }
+                [oStream close];
+                oStream = nil;
+            } else {
+                request.HTTPBody = apiRequest.HTTPBody;
+            }
+            
+            if (!request.HTTPBody && ![apiRequest.HTTPBody isKindOfClass:[NSInputStream class]]) {
+                AWSLogError(@"Failed to set a request body. %@", error);
+            }
+        }
+        return nil;
+    }];
+    
+    // Refreshes credentials if necessary
+    task = [task continueWithSuccessBlock:^id(AWSTask *task) {
+        id signer = [self.configuration.requestInterceptors lastObject];
+        if (signer) {
+            if ([signer respondsToSelector:@selector(credentialsProvider)]) {
+                id<AWSCredentialsProvider> credentialsProvider = [signer performSelector:@selector(credentialsProvider)];
+                return [credentialsProvider credentials];
+            }
+        }
+        return nil;
+    }];
+    
+    // Signs the request
+    for (id<AWSNetworkingRequestInterceptor> interceptor in self.configuration.requestInterceptors) {
+        task = [task continueWithSuccessBlock:^id(AWSTask *task) {
+            return [interceptor interceptRequest:request];
+        }];
+    }
+    
+    return  [task continueWithSuccessBlock:^id(AWSTask *task) {
+        AWSTaskCompletionSource *completionSource = [AWSTaskCompletionSource new];
+        
+        void (^completionHandler)(NSData *data, NSURLResponse *response, NSError *error) = ^(NSData *data, NSURLResponse *response, NSError *error) {
+            // Networking errors
+            if (error) {
+                [completionSource setError:error];
+            } else {
+                
+                NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)response;
+                NSDictionary *HTTPHeaderFields = HTTPResponse.allHeaderFields;
+                NSInteger HTTPStatusCode = HTTPResponse.statusCode;
+                
+                [completionSource setResult:[[AWSAPIGatewayResponse alloc] initWithHeaders:HTTPHeaderFields
+                                                                              responseData:data
+                                                                       NSURLResponseObject:response
+                                                                                statusCode:HTTPStatusCode]];
+            }
+        };
+        AWSLogVerbose(@"%@",request);
+        NSURLSessionDataTask *sessionTask = [self.session dataTaskWithRequest:request
+                                                            completionHandler:completionHandler];
+        [sessionTask resume];
+        
+        return completionSource.task;
+    }];
+
+}
+
 - (AWSTask *)invokeHTTPRequest:(NSString *)HTTPMethod
                      URLString:(NSString *)URLString
                 pathParameters:(NSDictionary *)pathParameters
@@ -68,7 +219,7 @@ static NSString *const AWSAPIGatewaySDKVersion = @"2.4.9";
               headerParameters:(NSDictionary *)headerParameters
                           body:(id)body
                  responseClass:(Class)responseClass {
-    NSURL *URL = [self requestURL:URLString query:queryParameters URLPathComponentsDictionary:pathParameters];
+    NSURL *URL = [self requestURL:[URLString aws_stringWithURLEncodingPath] query:queryParameters URLPathComponentsDictionary:pathParameters];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
     request.HTTPMethod = HTTPMethod;
     request.allHTTPHeaderFields = headerParameters;
@@ -203,15 +354,17 @@ static NSString *const AWSAPIGatewaySDKVersion = @"2.4.9";
     }];
 }
 
-- (NSURL *)requestURL:(NSString *)URLString query:(NSDictionary *)query URLPathComponentsDictionary:(NSDictionary *)URLPathComponentsDictionary {
+- (NSURL *)requestURL:(NSString *)URLString query:(NSDictionary *)query URLPathComponentsDictionary:(NSDictionary * _Nullable)URLPathComponentsDictionary {
     NSMutableString *mutableURLString = [NSMutableString stringWithString:URLString];
 
     // Constructs the URL path components
-    for (NSString *key in URLPathComponentsDictionary) {
-        [mutableURLString replaceOccurrencesOfString:[NSString stringWithFormat:@"{%@}", key]
-                                          withString:[self encodeQueryStringValue:URLPathComponentsDictionary[key]]
-                                             options:NSLiteralSearch
-                                               range:NSMakeRange(0, [mutableURLString length])];
+    if (URLPathComponentsDictionary) {
+        for (NSString *key in URLPathComponentsDictionary) {
+            [mutableURLString replaceOccurrencesOfString:[NSString stringWithFormat:@"{%@}", key]
+                                              withString:[self encodeQueryStringValue:URLPathComponentsDictionary[key]]
+                                                 options:NSLiteralSearch
+                                                   range:NSMakeRange(0, [mutableURLString length])];
+        }
     }
 
     // Adds query string

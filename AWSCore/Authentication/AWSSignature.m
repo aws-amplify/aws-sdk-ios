@@ -142,11 +142,6 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
 }
 
 - (AWSTask *)interceptRequest:(NSMutableURLRequest *)request {
-    NSString *absoluteString = [request.URL absoluteString];
-    if ([absoluteString hasSuffix:@"/"]) {
-        request.URL = [NSURL URLWithString:[absoluteString substringToIndex:[absoluteString length] - 1]];
-    }
-    
     [request addValue:request.URL.host forHTTPHeaderField:@"Host"];
     return [[self.credentialsProvider credentials] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
         AWSCredentials *credentials = task.result;
@@ -297,8 +292,14 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
 }
 
 
-- (NSString *)signRequestV4:(NSURLRequest *)request
+- (NSString *)signRequestV4:(NSMutableURLRequest *)request
                 credentials:(AWSCredentials *)credentials {
+    
+    NSString *absoluteString = [request.URL absoluteString];
+    if ([absoluteString hasSuffix:@"/"]) {
+        request.URL = [NSURL URLWithString:[absoluteString substringToIndex:[absoluteString length] - 1]];
+    }
+    
     NSDate *xAmzDate = [NSDate aws_dateFromString:[request valueForHTTPHeaderField:@"X-Amz-Date"]
                                           format:AWSDateISO8601DateFormat2];
 

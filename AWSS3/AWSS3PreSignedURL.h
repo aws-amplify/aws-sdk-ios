@@ -40,6 +40,7 @@ typedef NS_ENUM(NSInteger, AWSS3PresignedURLErrorType) {
     AWSS3PreSignedURLErrorCredentialProviderIsNil,
     AWSS3PreSignedURLErrorInternalError,
     AWSS3PresignedURLErrorInvalidRequestParameters,
+    AWSS3PresignedURLErrorInvalidBucketName,
     AWSS3PresignedURLErrorInvalidBucketNameForAccelerateModeEnabled,
 };
 
