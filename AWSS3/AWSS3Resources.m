@@ -347,7 +347,7 @@
       },\
       \"input\":{\"shape\":\"GetBucketReplicationRequest\"},\
       \"output\":{\"shape\":\"GetBucketReplicationOutput\"},\
-      \"documentation\":\"Deprecated, see the GetBucketReplicationConfiguration operation.\"\
+      \"documentation\":\"Returns the replication configuration of a bucket.\"\
     },\
     \"GetBucketRequestPayment\":{\
       \"name\":\"GetBucketRequestPayment\",\
@@ -881,8 +881,10 @@
     \"BucketLocationConstraint\":{\
       \"type\":\"string\",\
       \"enum\":[\
+        \"\",\
         \"EU\",\
         \"eu-west-1\",\
+        \"us-east-2\",\
         \"us-west-1\",\
         \"us-west-2\",\
         \"ap-south-1\",\
@@ -891,10 +893,9 @@
         \"ap-northeast-1\",\
         \"ap-northeast-2\",\
         \"sa-east-1\",\
-        \"eu-central-1\",\
-        \"\",\
         \"cn-north-1\",\
-        \"us-gov-west-1\"\
+        \"us-gov-west-1\",\
+        \"eu-central-1\"\
       ]\
     },\
     \"BucketLoggingStatus\":{\
@@ -2504,6 +2505,12 @@
           \"shape\":\"ReplicationStatus\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-replication-status\"\
+        },\
+        \"PartsCount\":{\
+          \"shape\":\"PartsCount\",\
+          \"documentation\":\"The count of parts this object has.\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-mp-parts-count\"\
         }\
       },\
       \"payload\":\"Body\"\
@@ -2619,6 +2626,12 @@
           \"shape\":\"RequestPayer\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-request-payer\"\
+        },\
+        \"PartNumber\":{\
+          \"shape\":\"PartNumber\",\
+          \"documentation\":\"Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"partNumber\"\
         }\
       }\
     },\
@@ -2868,6 +2881,12 @@
           \"shape\":\"ReplicationStatus\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-replication-status\"\
+        },\
+        \"PartsCount\":{\
+          \"shape\":\"PartsCount\",\
+          \"documentation\":\"The count of parts this object has.\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-mp-parts-count\"\
         }\
       }\
     },\
@@ -2946,6 +2965,12 @@
           \"shape\":\"RequestPayer\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-request-payer\"\
+        },\
+        \"PartNumber\":{\
+          \"shape\":\"PartNumber\",\
+          \"documentation\":\"Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"partNumber\"\
         }\
       }\
     },\
@@ -3324,6 +3349,12 @@
           \"documentation\":\"Limits the response to keys that begin with the specified prefix.\",\
           \"location\":\"querystring\",\
           \"locationName\":\"prefix\"\
+        },\
+        \"RequestPayer\":{\
+          \"shape\":\"RequestPayer\",\
+          \"documentation\":\"Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-request-payer\"\
         }\
       }\
     },\
@@ -3431,6 +3462,12 @@
           \"documentation\":\"StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket\",\
           \"location\":\"querystring\",\
           \"locationName\":\"start-after\"\
+        },\
+        \"RequestPayer\":{\
+          \"shape\":\"RequestPayer\",\
+          \"documentation\":\"Confirms that the requester knows that she or he will be charged for the list objects request in V2 style. Bucket owners need not specify this parameter in their requests.\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-request-payer\"\
         }\
       }\
     },\
@@ -3871,6 +3908,7 @@
       \"member\":{\"shape\":\"Part\"},\
       \"flattened\":true\
     },\
+    \"PartsCount\":{\"type\":\"integer\"},\
     \"Payer\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -5316,8 +5354,7 @@
     },\
     \"WebsiteRedirectLocation\":{\"type\":\"string\"}\
   }\
-}\
-";
+}";
 }
 
 @end

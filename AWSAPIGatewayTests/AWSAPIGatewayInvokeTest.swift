@@ -251,4 +251,54 @@ class TestAPIGatewayInvoke: XCTestCase {
             return nil
         }.waitUntilFinished()
     }
+    
+    func testPathParametersWithGet() {
+
+        client!.userUsernameGet("myuser").continueWithBlock { (task:AWSTask) -> AnyObject? in
+            if let exception = task.exception {
+                print("Exception occured: \(exception)")
+                XCTFail("Encountered unexpected exception")
+            }
+            if let error = task.error {
+                print("\(error)")
+                XCTFail("Encountered unexpected error")
+                return nil
+            }
+            if let result = task.result {
+                XCTAssertEqual("myuser", result as? String);
+                return nil
+            }
+            return nil
+            }.waitUntilFinished()
+    }
+    
+    func testPathParametersWithInvoke() {
+        
+        let parameterPathRequest = AWSAPIGatewayRequest(HTTPMethod: "GET",
+                                                    URLString: "/user/myuser2",
+                                                    queryParameters: nil,
+                                                    headerParameters: headerParameters,
+                                                    HTTPBody: nil)
+        
+        client!.invoke(parameterPathRequest).continueWithBlock { (task:AWSTask) -> AnyObject? in
+            if let exception = task.exception {
+                print("Exception occured: \(exception)")
+                XCTFail("Encountered unexpected exception")
+            }
+            if let error = task.error {
+                print("\(error)")
+                XCTFail("Encountered unexpected error")
+                return nil
+            }
+            if let result = task.result {
+                let apiResponse = result as! AWSAPIGatewayResponse
+                let datastring = NSString(data: apiResponse.responseData!, encoding: NSUTF8StringEncoding)
+                XCTAssertEqual(200, apiResponse.statusCode)
+                XCTAssertNotNil(datastring)
+                XCTAssertEqual(datastring, "\"myuser2\"")
+                return nil
+            }
+            return nil
+            }.waitUntilFinished()
+    }
 }

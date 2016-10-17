@@ -1,5 +1,16 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.4.11
+### New Features
+* **SDK Core**
+	* Introducing new AWS `USEast2` (Ohio) region, endpoint `us-east-2`. 
+    
+### Resolved Issues
+
+* **Amazon API Gateway**
+    * Fixed a URL encoding bug. [Github Issue 491](https://github.com/aws/aws-sdk-ios/issues/491)
+
+
 ## 2.4.10
 ### New Features
 * **Amazon API Gateway**

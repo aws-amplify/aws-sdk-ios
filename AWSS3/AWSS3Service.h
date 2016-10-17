@@ -751,7 +751,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBucketPolicy:(AWSS3GetBucketPolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketPolicyOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Deprecated, see the GetBucketReplicationConfiguration operation.
+ Returns the replication configuration of a bucket.
  
  @param request A container for the necessary parameters to execute the GetBucketReplication service method.
 
@@ -763,7 +763,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetBucketReplicationOutput *> *)getBucketReplication:(AWSS3GetBucketReplicationRequest *)request;
 
 /**
- Deprecated, see the GetBucketReplicationConfiguration operation.
+ Returns the replication configuration of a bucket.
  
  @param request A container for the necessary parameters to execute the GetBucketReplication service method.
  @param completionHandler The completion handler to call when the load request is complete.

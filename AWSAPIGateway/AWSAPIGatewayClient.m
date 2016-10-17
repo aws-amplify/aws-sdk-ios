@@ -23,7 +23,7 @@ NSString *const AWSAPIGatewayErrorHTTPHeaderFieldsKey = @"HTTPHeaderFields";
 
 static NSString *const AWSAPIGatewayAPIKeyHeader = @"x-api-key";
 
-static NSString *const AWSAPIGatewaySDKVersion = @"2.4.10";
+static NSString *const AWSAPIGatewaySDKVersion = @"2.4.11";
 
 static int defaultChunkSize = 1024;
 
@@ -95,7 +95,7 @@ static int defaultChunkSize = 1024;
                                      userInfo:nil];
     }
     
-    NSURL *URL = [self requestURL:[apiRequest.URLString aws_stringWithURLEncodingPath] query:apiRequest.queryParameters URLPathComponentsDictionary:nil];
+    NSURL *URL = [self requestURL:apiRequest.URLString query:apiRequest.queryParameters URLPathComponentsDictionary:nil];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
     request.HTTPMethod = apiRequest.HTTPMethod;
     request.allHTTPHeaderFields = apiRequest.headerParameters;
@@ -219,7 +219,7 @@ static int defaultChunkSize = 1024;
               headerParameters:(NSDictionary *)headerParameters
                           body:(id)body
                  responseClass:(Class)responseClass {
-    NSURL *URL = [self requestURL:[URLString aws_stringWithURLEncodingPath] query:queryParameters URLPathComponentsDictionary:pathParameters];
+    NSURL *URL = [self requestURL:URLString  query:queryParameters URLPathComponentsDictionary:pathParameters];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
     request.HTTPMethod = HTTPMethod;
     request.allHTTPHeaderFields = headerParameters;
@@ -374,7 +374,9 @@ static int defaultChunkSize = 1024;
         [mutableURLString appendFormat:@"?%@", queryString];
     }
 
-    return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.configuration.baseURL, mutableURLString]];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@", self.configuration.baseURL, [mutableURLString aws_stringWithURLEncodingPath]];
+    
+    return [NSURL URLWithString:urlString];
 }
 
 // TODO: merge it with - (void)processParameters:(NSDictionary *)parameters queryString:(NSMutableString *)queryString in AWSURLRequestSerialization.m
