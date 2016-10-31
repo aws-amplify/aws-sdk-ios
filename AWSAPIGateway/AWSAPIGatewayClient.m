@@ -374,7 +374,7 @@ static int defaultChunkSize = 1024;
         [mutableURLString appendFormat:@"?%@", queryString];
     }
 
-    NSString *urlString = [NSString stringWithFormat:@"%@%@", self.configuration.baseURL, [mutableURLString aws_stringWithURLEncodingPath]];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@", self.configuration.baseURL, mutableURLString];
     
     return [NSURL URLWithString:urlString];
 }
