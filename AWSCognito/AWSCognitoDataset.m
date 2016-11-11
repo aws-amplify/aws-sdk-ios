@@ -614,7 +614,7 @@
     [self checkForLocalMergedDatasets];
     
     AWSCognitoCredentialsProvider *cognitoCredentials = self.cognitoService.configuration.credentialsProvider;
-    return [[[cognitoCredentials getIdentityId] continueWithBlock:^id(AWSTask *task) {
+    return [[[cognitoCredentials credentials] continueWithBlock:^id(AWSTask *task) {
         NSError * error = nil;
         if (task.error) {
             error = [NSError errorWithDomain:AWSCognitoErrorDomain code:AWSCognitoAuthenticationFailed userInfo:nil];

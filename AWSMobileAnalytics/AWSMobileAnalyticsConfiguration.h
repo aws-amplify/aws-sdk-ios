@@ -40,5 +40,6 @@ typedef NS_ENUM(NSInteger, AWSAppIdentificationStrategy) {
 @property (nonatomic, assign) BOOL enableEvents;
 @property (nonatomic, assign) AWSAppIdentificationStrategy identificationStrategy;
 @property (nonatomic, copy) AWSServiceConfiguration *serviceConfiguration;
+@property (nonatomic, assign) int maxStorageSize;
 
 @end

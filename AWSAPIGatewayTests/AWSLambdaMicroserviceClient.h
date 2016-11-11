@@ -35,6 +35,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (AWSTask *)userUsernameGet:( NSString *)username;
 
+/**
+ @param key1
+ 
+ return type: AWSEmpty *
+ */
+- (AWSTask *)testFunctionGet:(nullable NSString *)key1;
+
 @end
 
 NS_ASSUME_NONNULL_END

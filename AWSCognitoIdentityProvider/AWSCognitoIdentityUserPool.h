@@ -48,6 +48,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong) id <AWSCognitoIdentityInteractiveAuthenticationDelegate> delegate;
 
+/**
+ *  Fetches the Cognito User Pool instance configured in the `info.plist` under `CognitoUserPool`
+ *
+ *  @return the default instance for Cognito User Pool
+ */
++ (instancetype)defaultCognitoIdentityUserPool;
+
 + (void)registerCognitoIdentityUserPoolWithUserPoolConfiguration:(AWSCognitoIdentityUserPoolConfiguration *)userPoolConfiguration
                                                           forKey:(NSString *)key;
 

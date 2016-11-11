@@ -23,7 +23,7 @@ NSString *const AWSAPIGatewayErrorHTTPHeaderFieldsKey = @"HTTPHeaderFields";
 
 static NSString *const AWSAPIGatewayAPIKeyHeader = @"x-api-key";
 
-static NSString *const AWSAPIGatewaySDKVersion = @"2.4.11";
+static NSString *const AWSAPIGatewaySDKVersion = @"2.4.12";
 
 static int defaultChunkSize = 1024;
 
@@ -95,7 +95,7 @@ static int defaultChunkSize = 1024;
                                      userInfo:nil];
     }
     
-    NSURL *URL = [self requestURL:apiRequest.URLString query:apiRequest.queryParameters URLPathComponentsDictionary:nil];
+    NSURL *URL = [self requestURL:[apiRequest.URLString aws_stringWithURLEncodingPath] query:apiRequest.queryParameters URLPathComponentsDictionary:nil];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
     request.HTTPMethod = apiRequest.HTTPMethod;
     request.allHTTPHeaderFields = apiRequest.headerParameters;
@@ -374,7 +374,7 @@ static int defaultChunkSize = 1024;
         [mutableURLString appendFormat:@"?%@", queryString];
     }
 
-    NSString *urlString = [NSString stringWithFormat:@"%@%@", self.configuration.baseURL, [mutableURLString aws_stringWithURLEncodingPath]];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@", self.configuration.baseURL, mutableURLString];
     
     return [NSURL URLWithString:urlString];
 }

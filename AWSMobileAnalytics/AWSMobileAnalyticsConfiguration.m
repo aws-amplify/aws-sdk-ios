@@ -14,6 +14,7 @@
 //
 
 #import "AWSMobileAnalyticsConfiguration.h"
+#import "AWSMobileAnalyticsConfigurationKeys.h"
 #import "AWSService.h"
 
 @implementation AWSMobileAnalyticsEnvironment
@@ -48,6 +49,7 @@ static NSString* const UNKNOWN = @"Unknown";
         _enableEvents = YES;
         _identificationStrategy = AWSAppIdentificationStrategyPrivate;
         _serviceConfiguration = [[AWSServiceManager defaultServiceManager].defaultServiceConfiguration copy];
+        _maxStorageSize = AWSValueMaxStorageSize;
     }
     return self;
 }

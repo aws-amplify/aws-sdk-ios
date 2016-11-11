@@ -218,7 +218,14 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:_sessionIdentifier];
         configuration.allowsCellularAccess = serviceConfiguration.allowsCellularAccess;
-        configuration.timeoutIntervalForResource = AWSS3TransferUtilityTimeoutIntervalForResource;
+        if(serviceConfiguration.timeoutIntervalForResource > 0){
+            configuration.timeoutIntervalForResource = serviceConfiguration.timeoutIntervalForResource;
+        }else{
+            configuration.timeoutIntervalForResource = AWSS3TransferUtilityTimeoutIntervalForResource;
+        }
+        if(serviceConfiguration.timeoutIntervalForRequest > 0){
+            configuration.timeoutIntervalForRequest = serviceConfiguration.timeoutIntervalForRequest;
+        }
         configuration.sharedContainerIdentifier = serviceConfiguration.sharedContainerIdentifier;
         
         _session = [NSURLSession sessionWithConfiguration:configuration

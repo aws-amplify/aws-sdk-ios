@@ -2,6 +2,23 @@
 
 ## 2.4.11
 ### New Features
+* **Amazon Mobile Analytics**
+	*  Added support for setting custom max keystorage size. [Github Issue 500](https://github.com/aws/aws-sdk-ios/issues/500)
+	
+### Resolved Issues
+
+* **Amazon API Gateway**
+    * Fixed a URL encoding bug. [Github Issue 505](https://github.com/aws/aws-sdk-ios/issues/505)
+* **Amazon S3 TransferUtility**
+    * Added fix for timeout based on configuration.    
+* **Amazon Cognito Identity**
+    * Fix issue causing SDK to call getOpenIdToken even with useEnhancedFlow set to YES
+    * Fix issue introduced in 2.4.0 causing credentials to be refreshed on every AWS service call even when they were still valid
+* **Amazon Cognito Sync**
+    * Fix issue causing synchronize() to fail with "Mismatch between session identity id and request identity id" on the first sync with Developer Authenticated Identities and in other scenarios
+
+## 2.4.11
+### New Features
 * **SDK Core**
 	* Introducing new AWS `USEast2` (Ohio) region, endpoint `us-east-2`. 
     

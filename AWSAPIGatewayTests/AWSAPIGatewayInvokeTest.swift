@@ -204,7 +204,7 @@ class TestAPIGatewayInvoke: XCTestCase {
     func testInvokeProxyPath() {
         
         let proxyPathRequest = AWSAPIGatewayRequest(HTTPMethod: "GET",
-                                                         URLString: "/resource1/resource2/some/random/path{}",
+                                                         URLString: "/user/myuser{}",
                                                          queryParameters: nil,
                                                          headerParameters: headerParameters,
                                                          HTTPBody: nil)
@@ -223,12 +223,42 @@ class TestAPIGatewayInvoke: XCTestCase {
                 let apiResponse = result as! AWSAPIGatewayResponse
                 let datastring = NSString(data: apiResponse.responseData!, encoding: NSUTF8StringEncoding)
                 XCTAssertEqual(200, apiResponse.statusCode)
-                XCTAssertNotNil(datastring)
+                XCTAssertEqual(datastring!, "\"myuser%7B%7D\"")
                 return nil
             }
             return nil
             }.waitUntilFinished()
       
+    }
+    
+    func testInvokePathWithQueryString() {
+        
+        let proxyPathRequest = AWSAPIGatewayRequest(HTTPMethod: "GET",
+                                                    URLString: "/TestFunction",
+                                                    queryParameters: ["key1":"myuser{}"],
+                                                    headerParameters: headerParameters,
+                                                    HTTPBody: nil)
+        
+        client!.invoke(proxyPathRequest).continueWithBlock { (task:AWSTask) -> AnyObject? in
+            if let exception = task.exception {
+                print("Exception occured: \(exception)")
+                XCTFail("Encountered unexpected exception")
+            }
+            if let error = task.error {
+                print("\(error)")
+                XCTFail("Encountered unexpected error")
+                return nil
+            }
+            if let result = task.result {
+                let apiResponse = result as! AWSAPIGatewayResponse
+                let datastring = NSString(data: apiResponse.responseData!, encoding: NSUTF8StringEncoding)
+                XCTAssertEqual(200, apiResponse.statusCode)
+                XCTAssertEqual(datastring!, "\"myuser{}\"")
+                return nil
+            }
+            return nil
+            }.waitUntilFinished()
+        
     }
     
     func testGet() {
@@ -254,7 +284,7 @@ class TestAPIGatewayInvoke: XCTestCase {
     
     func testPathParametersWithGet() {
 
-        client!.userUsernameGet("myuser").continueWithBlock { (task:AWSTask) -> AnyObject? in
+        client!.userUsernameGet("myuser{}").continueWithBlock { (task:AWSTask) -> AnyObject? in
             if let exception = task.exception {
                 print("Exception occured: \(exception)")
                 XCTFail("Encountered unexpected exception")
@@ -265,7 +295,27 @@ class TestAPIGatewayInvoke: XCTestCase {
                 return nil
             }
             if let result = task.result {
-                XCTAssertEqual("myuser", result as? String);
+                XCTAssertEqual("myuser%7B%7D", result as? String);
+                return nil
+            }
+            return nil
+            }.waitUntilFinished()
+    }
+    
+    func testQueryStringParametersWithGet() {
+        
+        client!.testFunctionGet("myuser{}").continueWithBlock { (task:AWSTask) -> AnyObject? in
+            if let exception = task.exception {
+                print("Exception occured: \(exception)")
+                XCTFail("Encountered unexpected exception")
+            }
+            if let error = task.error {
+                print("\(error)")
+                XCTFail("Encountered unexpected error")
+                return nil
+            }
+            if let result = task.result {
+                XCTAssertEqual("myuser{}", result as? String);
                 return nil
             }
             return nil
