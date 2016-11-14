@@ -229,7 +229,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         _configuration.requestInterceptors = @[baseInterceptor, signer];
 
         _configuration.baseURL = _configuration.endpoint.URL;
-        _configuration.retryHandler = [[AWSKinesisRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
+        _configuration.retryHandler = _configuration.retryHandler != nil ? _configuration.retryHandler:[[AWSKinesisRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
         _configuration.headers = @{@"Content-Type" : @"application/x-amz-json-1.1"}; 
 		
         _networking = [[AWSNetworking alloc] initWithConfiguration:_configuration];
