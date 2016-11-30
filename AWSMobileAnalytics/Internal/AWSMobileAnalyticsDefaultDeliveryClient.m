@@ -279,13 +279,15 @@ NSUInteger const AWSMobileAnalyticsDefaultDeliveryClientMaxOperations = 1000;
     NSMutableArray *parsedEventsArray = [NSMutableArray new];
     for (NSString *event in events) {
         NSDictionary *sourceEventDict = [NSJSONSerialization JSONObjectWithData:[event dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:NULL];
-        
+
         AWSMobileAnalyticsERSEvent *serviceEvent = [AWSMobileAnalyticsERSEvent new];
         AWSMobileAnalyticsERSSession *serviceSession = [AWSMobileAnalyticsERSSession new];
         
         //process the attributes
         NSMutableDictionary *mutableAttributesDic = [sourceEventDict[@"attributes"] mutableCopy];
+        [mutableAttributesDic removeObjectForKey:@""]; //Clean out invalid empty keys that may have been previously set
         NSMutableDictionary *mutableMetricsDic = [sourceEventDict[@"metrics"] mutableCopy];
+        [mutableMetricsDic removeObjectForKey:@""]; //Clean out invalid empty keys that may have been previously set
         serviceEvent.version = mutableAttributesDic[@"ver"];
         [mutableAttributesDic removeObjectForKey:@"ver"];
         

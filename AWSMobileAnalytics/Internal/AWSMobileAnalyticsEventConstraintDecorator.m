@@ -54,8 +54,17 @@ static int const MAX_EVENT_ATTRIBUTE_VALUE_LENGTH = 200;
             {
                 NSString* trimmedKey = [AWSMobileAnalyticsEventConstraintDecorator trimKey:theKey forType:@"attribute"];
                 NSString* trimmedValued = [AWSMobileAnalyticsEventConstraintDecorator trimValue:theValue];
-                [self.decoratedEvent addAttribute:trimmedValued forKey:trimmedKey];
-                self.currentNumOfAttributesAndMetrics++;
+                if(trimmedKey.length > 0)
+                {
+                    [self.decoratedEvent addAttribute:trimmedValued forKey:trimmedKey];
+                    self.currentNumOfAttributesAndMetrics++;
+                }
+                else
+                {
+                    @throw [NSException exceptionWithName:NSInvalidArgumentException
+                                                   reason: [NSString stringWithFormat:@"Attribute key values must be between 1 and %0d characters long", MAX_EVENT_ATTRIBUTE_METRIC_KEY_LENGTH]
+                                                 userInfo:nil];
+                }
             }
         }
     }
@@ -71,8 +80,17 @@ static int const MAX_EVENT_ATTRIBUTE_VALUE_LENGTH = 200;
             if(self.currentNumOfAttributesAndMetrics < self.maxAttributesAndMetrics)
             {
                 NSString* trimmedKey = [AWSMobileAnalyticsEventConstraintDecorator trimKey:theKey forType:@"metric"];
-                [self.decoratedEvent addMetric:theValue forKey:trimmedKey];
-                self.currentNumOfAttributesAndMetrics++;
+                if(trimmedKey.length > 0)
+                {
+                    [self.decoratedEvent addMetric:theValue forKey:trimmedKey];
+                    self.currentNumOfAttributesAndMetrics++;
+                }
+                else
+                {
+                    @throw [NSException exceptionWithName:NSInvalidArgumentException
+                                                   reason: [NSString stringWithFormat:@"Metric key values must be between 1 and %0d characters long", MAX_EVENT_ATTRIBUTE_METRIC_KEY_LENGTH]
+                                                 userInfo:nil];
+                }
             }
         }
     }

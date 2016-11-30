@@ -120,11 +120,14 @@
 
     [request aws_validateHTTPMethodAndBody];
 
-
+    NSDictionary<NSString *, NSString *> *allHeaders = [request allHTTPHeaderFields];
 
     if (!error) {
+        //its possible that the service allows you to set the http headers via a request parameters.
+        //So in that case we give it precedence over headers set on request object via configuration
         for (NSString *key in headers) {
-            [request setValue:[headers objectForKey:key] forHTTPHeaderField:key];
+            if(![allHeaders objectForKey:key])
+                [request setValue:[headers objectForKey:key] forHTTPHeaderField:key];
         }
 
         return [AWSTask taskWithResult:nil];
@@ -333,7 +336,6 @@
                         isValid = NO;
                         *stop = YES;
                     }
-
                 } else {
                     if ([value isKindOfClass:[NSString class]]) {
                         value = [value dataUsingEncoding:NSUTF8StringEncoding];
@@ -341,9 +343,22 @@
                     if ([value isKindOfClass:[NSData class]]) {
                         request.HTTPBodyStream = [NSInputStream inputStreamWithData:value];
                     }
-
                 }
-
+            }
+            
+            //if the shape is a blob stream then set the request stream
+            if([memberRules[@"shape"] isEqualToString:@"BlobStream"]){
+                AWSLogVerbose(@"value type = %@", [value class]);
+                if([value isKindOfClass:[NSInputStream class]]){
+                    request.HTTPBodyStream = value;
+                }else{
+                    if ([value isKindOfClass:[NSString class]]) {
+                        value = [value dataUsingEncoding:NSUTF8StringEncoding];
+                    }
+                    if ([value isKindOfClass:[NSData class]]) {
+                        request.HTTPBodyStream = [NSInputStream inputStreamWithData:value];
+                    }
+                }
             }
         }
     }];

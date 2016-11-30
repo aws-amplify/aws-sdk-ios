@@ -1543,9 +1543,9 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
         // Check if we should apply additional serialization; for streaming
         // types or the 'JsonDocument' shape, no additional serialization will
         // be applied and the data will be returned as-is in the response.
-	// The 'JsonDocument' shape is used by the AWSIoT service.
+        // The 'JsonDocument' shape is used by the AWSIoT service.
         //
-        if ((rules[@"members"][isPayloadData][@"streaming"]) || ([shapeName isEqual:@"JsonDocument"])) {
+        if ((rules[@"members"][isPayloadData][@"streaming"]) || ([shapeName isEqual:@"JsonDocument"]) || ([shapeName isEqual:@"BlobStream"])) {
             parsedData[isPayloadData] = data;
             if (error) *error = nil;
             return parsedData;

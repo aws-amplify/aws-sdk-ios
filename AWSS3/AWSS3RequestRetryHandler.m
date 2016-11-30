@@ -19,10 +19,12 @@
 @implementation AWSS3RequestRetryHandler
 
 - (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
+                      originalRequest:(AWSNetworkingRequest *)originalRequest
                              response:(NSHTTPURLResponse *)response
                                  data:(NSData *)data
                                 error:(NSError *)error {
     AWSNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
+                                          originalRequest:(AWSNetworkingRequest *)originalRequest
                                                  response:response
                                                      data:data
                                                     error:error];

@@ -153,6 +153,10 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      */
     AWSServiceLambda,
     /**
+     *  Amazon Lex Runtime Service
+     */
+    AWSServiceLexRuntime,
+    /**
      *  Amazon Machine Learning
      */
     AWSServiceMachineLearning,
@@ -160,6 +164,10 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      *  Amazon Mobile Analytics
      */
     AWSServiceMobileAnalytics,
+    /**
+     *  Amazon Polly
+     */
+    AWSServicePolly,
     /**
      *  Amazon Simple Storage Service (S3)
      */

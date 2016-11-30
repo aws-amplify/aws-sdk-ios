@@ -26,6 +26,7 @@ if [ -x "Scripts/SdkPackage.sh" ]; then
     Scripts/SdkPackage.sh AWSCognito
     Scripts/SdkPackage.sh AWSCognitoIdentityProvider
     Scripts/SdkPackage.sh AWSCloudWatch
+    Scripts/SdkPackage.sh AWSDeepSense
     Scripts/SdkPackage.sh AWSDynamoDB
     Scripts/SdkPackage.sh AWSEC2
     Scripts/SdkPackage.sh AWSElasticLoadBalancing

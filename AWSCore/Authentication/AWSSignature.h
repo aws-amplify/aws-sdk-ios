@@ -40,6 +40,15 @@ FOUNDATION_EXPORT NSString *const AWSSignatureV4Terminator;
 - (instancetype)initWithCredentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider
                                    endpoint:(AWSEndpoint *)endpoint;
 
++ (AWSTask<NSURL *> *)generateQueryStringForSignatureV4WithCredentialProvider:(id<AWSCredentialsProvider>)credentialsProvider
+                                                                   httpMethod:(AWSHTTPMethod)httpMethod
+                                                               expireDuration:(int32_t)expireDuration
+                                                                     endpoint:(AWSEndpoint *)endpoint
+                                                                      keyPath:(NSString *)keyPath
+                                                               requestHeaders:(NSDictionary<NSString *, NSString *> *)requestHeaders
+                                                            requestParameters:(NSDictionary<NSString *, NSString *> *)requestParameters
+                                                                     signBody:(BOOL)signBody;
+
 + (NSString *)getCanonicalizedRequest:(NSString *)method
                                  path:(NSString *)path
                                 query:(NSString *)query

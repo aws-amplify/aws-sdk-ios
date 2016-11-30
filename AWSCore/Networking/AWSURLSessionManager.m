@@ -293,6 +293,7 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
             && ([sessionTask.response isKindOfClass:[NSHTTPURLResponse class]] || sessionTask.response == nil)
             && delegate.request.retryHandler) {
             AWSNetworkingRetryType retryType = [delegate.request.retryHandler shouldRetry:delegate.currentRetryCount
+                                                                          originalRequest:delegate.request
                                                                                  response:(NSHTTPURLResponse *)sessionTask.response
                                                                                      data:delegate.responseData
                                                                                     error:delegate.error];
@@ -323,8 +324,14 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
                         [credentialsProvider invalidateCachedTemporaryCredentials];
                     }
                 }
+                    // keep going to the next 'case' statement
+                case AWSNetworkingRetryTypeResetStreamAndRetry: {
+                    id retryHandler = delegate.request.retryHandler;
+                    if([retryHandler respondsToSelector:@selector(resetParameters:)]) {
+                        delegate.request.parameters = [delegate.request.retryHandler resetParameters:delegate.request.parameters];
+                    }
+                }
                     // Keep going to the next 'case' statement.
-
                 case AWSNetworkingRetryTypeShouldRetry: {
                     NSTimeInterval timeIntervalToSleep = [delegate.request.retryHandler timeIntervalForRetry:delegate.currentRetryCount
                                                                                                     response:(NSHTTPURLResponse *)sessionTask.response
@@ -377,6 +384,7 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didSendBodyData:(int64_t)bytesSent totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
     AWSURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(task.taskIdentifier)];
     AWSNetworkingUploadProgressBlock uploadProgress = delegate.request.uploadProgress;
+    
     if (uploadProgress) {
 
         NSURLSessionTask *sessionTask = delegate.request.task;
@@ -402,10 +410,11 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response
  completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler {
     AWSURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(dataTask.taskIdentifier)];
-
+    
     //If the response code is not 2xx, avoid write data to disk
     if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        
         if (httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 ) {
             // status is good, we can keep value of shouldWriteToFile
         } else {
@@ -485,9 +494,10 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
     completionHandler(NSURLSessionResponseAllow);
 }
 
+
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
     AWSURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(dataTask.taskIdentifier)];
-
+    
     if (delegate.responseFilehandle) {
         [delegate.responseFilehandle writeData:data];
     } else {
@@ -523,26 +533,29 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
 
 - (void)printHTTPHeadersAndBodyForRequest:(NSURLRequest *)request {
     if ([AWSLogger defaultLogger].logLevel >= AWSLogLevelDebug) {
+        
         AWSLogDebug(@"Request headers:\n%@", request.allHTTPHeaderFields);
 
-        NSMutableString *bodyString = [[NSMutableString alloc] initWithData:request.HTTPBody
-                                                                   encoding:NSUTF8StringEncoding];
-
-        if ([request.URL.absoluteString containsString:@"cognito-idp."]) {
-            NSError *error = nil;
-            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"Password\":\".*?\""
-                                                                                   options:NSRegularExpressionCaseInsensitive
-                                                                                     error:&error];
-            [regex replaceMatchesInString:bodyString
-                                  options:0
-                                    range:NSMakeRange(0, bodyString.length)
-                             withTemplate:@"Password\":\"[redacted]\""];
-        }
-
-        if (bodyString.length <= 100 * 1024) {
-            AWSLogDebug(@"Request body:\n%@", bodyString);
-        } else {
-            AWSLogDebug(@"Request body (Partial data. The first 100KB is displayed.):\n%@", [bodyString substringWithRange:NSMakeRange(0, 100 * 1024)]);
+        if(request.HTTPBody) {
+            NSMutableString *bodyString = [[NSMutableString alloc] initWithData:request.HTTPBody
+                                                                       encoding:NSUTF8StringEncoding];
+            
+            if ([request.URL.absoluteString containsString:@"cognito-idp."]) {
+                NSError *error = nil;
+                NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"Password\":\".*?\""
+                                                                                       options:NSRegularExpressionCaseInsensitive
+                                                                                         error:&error];
+                [regex replaceMatchesInString:bodyString
+                                      options:0
+                                        range:NSMakeRange(0, bodyString.length)
+                                 withTemplate:@"Password\":\"[redacted]\""];
+            }
+            
+            if (bodyString.length <= 100 * 1024) {
+                AWSLogDebug(@"Request body:\n%@", bodyString);
+            } else {
+                AWSLogDebug(@"Request body (Partial data. The first 100KB is displayed.):\n%@", [bodyString substringWithRange:NSMakeRange(0, 100 * 1024)]);
+            }
         }
     }
 }

@@ -1,0 +1,2 @@
+Files in this directory and sub directories are distributed under a proprietary license by Amazon Technologies, Inc 
+- Copyright 2016-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.(AWS Customer Agreement - https://aws.amazon.com/agreement/ ) 

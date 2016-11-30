@@ -26,7 +26,7 @@ NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURL
 static NSString *const AWSS3PreSignedURLBuilderAcceleratedEndpoint = @"s3-accelerate.amazonaws.com";
 
 static NSString *const AWSInfoS3PreSignedURLBuilder = @"S3PreSignedURLBuilder";
-static NSString *const AWSS3PreSignedURLBuilderSDKVersion = @"2.4.12";
+static NSString *const AWSS3PreSignedURLBuilderSDKVersion = @"2.4.13";
 
 @interface AWSS3PreSignedURLBuilder()
 
@@ -132,118 +132,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return self;
 }
 
-- (NSString *)generateQueryStringForSignatureV4WithBucketName:(NSString *)bucketName
-                                                      keyName:(NSString *)keyName
-                                                  credentials:(AWSCredentials *)credentials
-                                                   httpMethod:(AWSHTTPMethod)httpMethod
-                                               expireDuration:(int32_t)expireDuration
-                                                     endpoint:(AWSEndpoint *)endpoint
-                                                      keyPath:(NSString *)keyPath
-                                               requestHeaders:(NSDictionary<NSString *, NSString *> *)requestHeaders
-                                            requestParameters:(NSDictionary<NSString *, NSString *> *)requestParameters {
-    //Implementation of V4 signaure http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html
-    NSMutableString *queryString = [NSMutableString new];
-
-    //Append Identifies the version of AWS Signature and the algorithm that you used to calculate the signature.
-    [queryString appendFormat:@"%@=%@&",@"X-Amz-Algorithm",AWSSignatureV4Algorithm];
-
-    //Get ClockSkew Fixed Date
-    NSDate *currentDate = [NSDate aws_clockSkewFixedDate];
-
-    //Format of X-Amz-Credential : <your-access-key-id>/<date>/<AWS-region>/<AWS-service>/aws4_request.
-    NSString *scope = [NSString stringWithFormat:@"%@/%@/%@/%@",
-                       [currentDate aws_stringValue:AWSDateShortDateFormat1],
-                       endpoint.regionName,
-                       endpoint.serviceName,
-                       AWSSignatureV4Terminator];
-
-    NSString *signingCredentials = [NSString stringWithFormat:@"%@/%@",credentials.accessKey, scope];
-    //need to replace "/" with "%2F"
-    NSString *xAmzCredentialString = [signingCredentials stringByReplacingOccurrencesOfString:@"/" withString:@"\%2F"];
-
-    [queryString appendFormat:@"%@=%@&",@"X-Amz-Credential",xAmzCredentialString];
-
-    //X-Amz-Date in ISO 8601 format, for example, 20130721T201207Z. This value must match the date value used to calculate the signature.
-    [queryString appendFormat:@"%@=%@&",@"X-Amz-Date",[currentDate aws_stringValue:AWSDateISO8601DateFormat2]];
-
-    //X-Amz-Expires, Provides the time period, in seconds, for which the generated presigned URL is valid.
-    //For example, 86400 (24 hours). This value is an integer. The minimum value you can set is 1, and the maximum is 604800 (seven days).
-    [queryString appendFormat:@"%@=%d&", @"X-Amz-Expires", expireDuration];
-
-    /*
-     X-Amz-SignedHeaders Lists the headers that you used to calculate the signature. The HTTP host header is required.
-     Any x-amz-* headers that you plan to add to the request are also required for signature calculation.
-     In general, for added security, you should sign all the request headers that you plan to include in your request.
-     */
-
-    [queryString appendFormat:@"%@=%@&", @"X-Amz-SignedHeaders", [[AWSSignatureV4Signer getSignedHeadersString:requestHeaders] aws_stringWithURLEncoding]];
-
-    //add additionalParameters to queryString
-    for (NSString *key in requestParameters) {
-        NSString *value = requestParameters[key];
-        [queryString appendFormat:@"%@=%@&",[key aws_stringWithURLEncoding], [value aws_stringWithURLEncoding]];
-    }
-
-    //add security-token if necessary
-    if ([credentials.sessionKey length] > 0) {
-        [queryString appendFormat:@"%@=%@&", @"x-amz-security-token", [credentials.sessionKey aws_stringWithURLEncoding]];
-    }
-
-    // =============  generate v4 signature string ===================
-
-    /* Canonical Request Format:
-     *
-     * HTTP-VERB + "\n" +  (e.g. GET, PUT, POST)
-     * Canonical URI + "\n" + (e.g. /test.txt)
-     * Canonical Query String + "\n" (multiple queryString need to sorted by QueryParameter)
-     * Canonical Headrs + "\n" + (multiple headers need to be sorted by HeaderName)
-     * Signed Headers + "\n" + (multiple headers need to be sorted by HeaderName)
-     * "UNSIGNED-PAYLOAD"
-     */
-
-
-    NSString *httpMethodString = [NSString aws_stringWithHTTPMethod:httpMethod];
-
-    //CanonicalURI is the URI-encoded version of the absolute path component of the URI—everything starting with the "/" that follows the domain name and up to the end of the string or to the question mark character ('?') if you have query string parameters. e.g. https://s3.amazonaws.com/examplebucket/myphoto.jpg /examplebucket/myphoto.jpg is the absolute path. In the absolute path, you don't encode the "/".
-
-    NSString *canonicalURI = [NSString stringWithFormat:@"/%@", keyPath]; //keyPath has already been url-encoded.
-
-    NSString *contentSha256 = @"UNSIGNED-PAYLOAD";
-
-    //Generate Canonical Request
-    NSString *canonicalRequest = [AWSSignatureV4Signer getCanonicalizedRequest:httpMethodString
-                                                                          path:canonicalURI
-                                                                         query:queryString
-                                                                       headers:requestHeaders
-                                                                 contentSha256:contentSha256];
-    AWSLogVerbose(@"AWSS4 PresignedURL Canonical request: [%@]", canonicalRequest);
-
-    //Generate String to Sign
-    NSString *stringToSign = [NSString stringWithFormat:@"%@\n%@\n%@\n%@",
-                              AWSSignatureV4Algorithm,
-                              [currentDate aws_stringValue:AWSDateISO8601DateFormat2],
-                              scope,
-                              [AWSSignatureSignerUtility hexEncode:[AWSSignatureSignerUtility hashString:canonicalRequest]]];
-
-    AWSLogVerbose(@"AWS4 PresignedURL String to Sign: [%@]", stringToSign);
-
-    //Generate Signature
-    NSData *kSigning  = [AWSSignatureV4Signer getV4DerivedKey:credentials.secretKey
-                                                         date:[currentDate aws_stringValue:AWSDateShortDateFormat1]
-                                                       region:endpoint.regionName
-                                                      service:endpoint.serviceName];
-    NSData *signature = [AWSSignatureSignerUtility sha256HMacWithData:[stringToSign dataUsingEncoding:NSUTF8StringEncoding]
-                                                              withKey:kSigning];
-    NSString *signatureString = [AWSSignatureSignerUtility hexEncode:[[NSString alloc] initWithData:signature
-                                                                                           encoding:NSASCIIStringEncoding]];
-
-    // ============  generate v4 signature string (END) ===================
-
-    [queryString appendFormat:@"%@=%@", @"X-Amz-Signature", signatureString];
-
-    return queryString;
-}
-
 - (AWSTask<NSURL *> *)getPreSignedURL:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest {
     //retrive parameters from request;
     NSString *bucketName = getPreSignedURLRequest.bucket;
@@ -346,36 +234,13 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             AWSCredentials *credentials = task.result;
             if ([credentials.expiration timeIntervalSinceNow] < getPreSignedURLRequest.minimumCredentialsExpirationInterval) {
                 [credentialsProvider invalidateCachedTemporaryCredentials];
-                return [credentialsProvider credentials];
             }
 
-            return task;
+            return credentialsProvider;
         }];
     }] continueWithSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        AWSCredentials *credentials = task.result;
-
-        //validate accessKey
-        if ([credentials.accessKey length] > 0) {
-            //continue to process.
-        } else {
-            return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
-                                                              code:AWSS3PresignedURLErrorAccessKeyIsNil
-                                                          userInfo:@{NSLocalizedDescriptionKey: @"accessKey in credentialsProvider can not be nil"}]
-                    ];
-        }
-
-        //validate secretKey
-        if ([credentials.secretKey length] > 0) {
-            //continue to process.
-        } else {
-            return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
-                                                              code:AWSS3PresignedURLErrorSecretKeyIsNil
-                                                          userInfo:@{NSLocalizedDescriptionKey: @"secretKey in credentialsProvider can not be nil"}]
-                    ];
-
-        }
-
         //generate baseURL String (use virtualHostStyle if possible)
+        //base url is not url encoded.
         NSString *keyPath = nil;
         if (bucketName == nil || [bucketName aws_isVirtualHostedStyleCompliant]) {
             keyPath = (keyName == nil ? @"" : [NSString stringWithFormat:@"%@", [keyName aws_stringWithURLEncodingPath]]);
@@ -395,36 +260,25 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             host = endpoint.hostName;
         }
         [getPreSignedURLRequest setValue:host forRequestHeader:@"host"];
-
+        
+        AWSEndpoint *newEndpoint = [[AWSEndpoint alloc]initWithRegion:configuration.regionType service:AWSServiceS3 URL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://%@", endpoint.useUnsafeURL?@"http":@"https", host]]];
+        
         int32_t expireDuration = [expires timeIntervalSinceNow];
         if (expireDuration > 604800) {
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
                                                               code:AWSS3PresignedURLErrorInvalidExpiresDate
                                                           userInfo:@{NSLocalizedDescriptionKey: @"Invalid ExpiresDate, must be less than seven days in future"}]
                     ];
-
         }
 
-        NSString *generatedQueryString = [self generateQueryStringForSignatureV4WithBucketName:bucketName
-                                                                                       keyName:keyName
-                                                                                   credentials:credentials
-                                                                                    httpMethod:httpMethod
-                                                                                expireDuration:expireDuration
-                                                                                      endpoint:endpoint
-                                                                                       keyPath:keyPath
-                                                                                requestHeaders:getPreSignedURLRequest.requestHeaders
-                                                                             requestParameters:getPreSignedURLRequest.requestParameters];
-
-        if (generatedQueryString == nil) {
-            return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
-                                                              code:AWSS3PreSignedURLErrorInternalError
-                                                          userInfo:@{NSLocalizedDescriptionKey: @"failed to generate queryString."}]];
-        }
-
-        NSString *urlString = [NSString stringWithFormat:@"%@://%@/%@?%@", endpoint.useUnsafeURL ? @"http" : @"https", host, keyPath, generatedQueryString];
-        NSURL *result = [NSURL URLWithString:urlString];
-
-        return [AWSTask taskWithResult:result];
+        return [AWSSignatureV4Signer  generateQueryStringForSignatureV4WithCredentialProvider:task.result
+                                                                                   httpMethod:httpMethod
+                                                                               expireDuration:expireDuration
+                                                                                     endpoint:newEndpoint
+                                                                                      keyPath:keyPath
+                                                                               requestHeaders:getPreSignedURLRequest.requestHeaders
+                                                                            requestParameters:getPreSignedURLRequest.requestParameters
+                                                                                     signBody:NO];
     }];
 }
 

@@ -1,6 +1,19 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## 2.4.11
+## 2.4.13
+### New Features
+* **Amazon Polly**
+    *  Amazon Polly is a service that turns text into lifelike speech, making it easy to develop applications that use high-quality speech to increase engagement and accessibility. With Amazon Polly the developers can build speech-enabled apps that work in multiple geographies.
+* **Amazon Lex - Beta**
+    * Amazon Lex is a service for building conversational interactions into any application using voice and text. With Lex, the same conversational engine that powers Amazon Alexa is now available to any developer, enabling you to build sophisticated, natural language, conversational bots (chatbots) into your new and existing applications. Amazon Lex provides the deep functionality and flexibility of automatic speech recognition (ASR) for converting speech to text and natural language understanding (NLU) to understand the intent of the text. This allows you to build highly engaging user experiences with lifelike, conversational interactions.     
+    
+### Resolved Issues
+
+* **Amazon Mobile Analytics**
+    * Do not allow empty keys for attributes or metrics.
+
+
+## 2.4.12
 ### New Features
 * **Amazon Mobile Analytics**
 	*  Added support for setting custom max keystorage size. [Github Issue 500](https://github.com/aws/aws-sdk-ios/issues/500)
