@@ -21,7 +21,7 @@
 #import "AWSLogging.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.4.13";
+NSString *const AWSiOSSDKVersion = @"2.4.14";
 NSString *const AWSServiceErrorDomain = @"com.amazonaws.AWSServiceErrorDomain";
 
 static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
@@ -250,6 +250,7 @@ static NSString *const AWSServiceNameLambda = @"lambda";
 static NSString *const AWSServiceNameMachineLearning = @"machinelearning";
 static NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
 static NSString *const AWSServiceNamePolly = @"polly";
+static NSString *const AWSServiceNameMobileTargeting = @"mobiletargeting";
 static NSString *const AWSServiceNameS3 = @"s3";
 static NSString *const AWSServiceNameSES = @"email";
 static NSString *const AWSServiceNameSimpleDB = @"sdb";
@@ -414,6 +415,8 @@ static NSString *const AWSServiceNameSTS = @"sts";
             return AWSServiceNameMobileAnalytics;
         case AWSServicePolly:
             return AWSServiceNamePolly;
+        case AWSServiceMobileTargeting:
+            return AWSServiceNameMobileTargeting;
         case AWSServiceS3:
             return AWSServiceNameS3;
         case AWSServiceSES:
@@ -475,6 +478,8 @@ static NSString *const AWSServiceNameSTS = @"sts";
         URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://iot%@%@.amazonaws.com", HTTPType, separator, regionName]];
     } else if (serviceType == AWSServiceIoTData) {
         URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://data%@iot%@%@.amazonaws.com", HTTPType, separator, separator, regionName]];
+    } else if (serviceType == AWSServiceMobileTargeting) {
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://pinpoint%@%@.amazonaws.com", HTTPType, separator, regionName]];
     } else {
         URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@%@%@.amazonaws.com", HTTPType, serviceName, separator, regionName]];
     }

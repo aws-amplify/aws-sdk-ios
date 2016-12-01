@@ -223,7 +223,7 @@
     XCTAssertEqualObjects(endpoint.URL, [NSURL URLWithString:@"https://mobileanalytics.us-east-1.amazonaws.com"]);
     XCTAssertEqualObjects(endpoint.hostName, @"mobileanalytics.us-east-1.amazonaws.com");
     XCTAssertFalse(endpoint.useUnsafeURL);
-
+    
     endpoint = [[AWSEndpoint alloc] initWithRegion:AWSRegionUSEast1
                                            service:AWSServiceSES
                                       useUnsafeURL:NO];
@@ -366,6 +366,18 @@
     XCTAssertEqualObjects(endpoint.serviceName, @"s3");
     XCTAssertEqualObjects(endpoint.URL, [NSURL URLWithString:@"https://s3-us-gov-west-1.amazonaws.com"]);
     XCTAssertEqualObjects(endpoint.hostName, @"s3-us-gov-west-1.amazonaws.com");
+    XCTAssertFalse(endpoint.useUnsafeURL);
+    
+    
+    endpoint = [[AWSEndpoint alloc] initWithRegion:AWSRegionUSEast1
+                                           service:AWSServiceMobileTargeting
+                                      useUnsafeURL:NO];
+    XCTAssertEqual(endpoint.regionType, AWSRegionUSEast1);
+    XCTAssertEqualObjects(endpoint.regionName, @"us-east-1");
+    XCTAssertEqual(endpoint.serviceType, AWSServiceMobileTargeting);
+    XCTAssertEqualObjects(endpoint.serviceName, @"mobiletargeting");
+    XCTAssertEqualObjects(endpoint.URL, [NSURL URLWithString:@"https://pinpoint.us-east-1.amazonaws.com"]);
+    XCTAssertEqualObjects(endpoint.hostName, @"pinpoint.us-east-1.amazonaws.com");
     XCTAssertFalse(endpoint.useUnsafeURL);
 
     __block BOOL didThrowException = NO;

@@ -100,6 +100,58 @@
 		186ABB1B1D9CADC500AB8980 /* BFVADConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 186ABB0E1D9CADC500AB8980 /* BFVADConfig.h */; };
 		186ABB1C1D9CADC500AB8980 /* BFVoiceActivityDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = 186ABB0F1D9CADC500AB8980 /* BFVoiceActivityDetector.h */; };
 		186ABB1D1D9CADC500AB8980 /* BFVoiceActivityDetectorDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 186ABB101D9CADC500AB8980 /* BFVoiceActivityDetectorDelegate.h */; };
+		18798F8D1DEF9EAA00BC419B /* AWSPinpointTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798F8C1DEF9EAA00BC419B /* AWSPinpointTests.m */; };
+		18798FCF1DEF9F2B00BC419B /* AWSPinpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FA41DEF9F2B00BC419B /* AWSPinpoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18798FD01DEF9F2B00BC419B /* AWSPinpointAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FA61DEF9F2B00BC419B /* AWSPinpointAnalytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18798FD11DEF9F2B00BC419B /* AWSPinpointAnalyticsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FA71DEF9F2B00BC419B /* AWSPinpointAnalyticsModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18798FD21DEF9F2B00BC419B /* AWSPinpointAnalyticsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FA81DEF9F2B00BC419B /* AWSPinpointAnalyticsModel.m */; };
+		18798FD31DEF9F2B00BC419B /* AWSPinpointAnalyticsResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FA91DEF9F2B00BC419B /* AWSPinpointAnalyticsResources.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18798FD41DEF9F2B00BC419B /* AWSPinpointAnalyticsResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FAA1DEF9F2B00BC419B /* AWSPinpointAnalyticsResources.m */; };
+		18798FD51DEF9F2B00BC419B /* AWSPinpointAnalyticsService.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FAB1DEF9F2B00BC419B /* AWSPinpointAnalyticsService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18798FD61DEF9F2B00BC419B /* AWSPinpointAnalyticsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FAC1DEF9F2B00BC419B /* AWSPinpointAnalyticsService.m */; };
+		18798FD71DEF9F2B00BC419B /* AWSPinpointAnalyticsClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FAD1DEF9F2B00BC419B /* AWSPinpointAnalyticsClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18798FD81DEF9F2B00BC419B /* AWSPinpointAnalyticsClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FAE1DEF9F2B00BC419B /* AWSPinpointAnalyticsClient.m */; };
+		18798FD91DEF9F2B00BC419B /* AWSPinpointConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FAF1DEF9F2B00BC419B /* AWSPinpointConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18798FDA1DEF9F2B00BC419B /* AWSPinpointConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FB01DEF9F2B00BC419B /* AWSPinpointConfiguration.m */; };
+		18798FDB1DEF9F2B00BC419B /* AWSPinpointEndpointProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FB11DEF9F2B00BC419B /* AWSPinpointEndpointProfile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18798FDC1DEF9F2B00BC419B /* AWSPinpointEndpointProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FB21DEF9F2B00BC419B /* AWSPinpointEndpointProfile.m */; };
+		18798FDD1DEF9F2B00BC419B /* AWSPinpointEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FB31DEF9F2B00BC419B /* AWSPinpointEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18798FDE1DEF9F2B00BC419B /* AWSPinpointEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FB41DEF9F2B00BC419B /* AWSPinpointEvent.m */; };
+		18798FDF1DEF9F2B00BC419B /* AWSPinpointEventRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FB51DEF9F2B00BC419B /* AWSPinpointEventRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18798FE01DEF9F2B00BC419B /* AWSPinpointEventRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FB61DEF9F2B00BC419B /* AWSPinpointEventRecorder.m */; };
+		18798FE11DEF9F2B00BC419B /* AWSPinpointNotificationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FB71DEF9F2B00BC419B /* AWSPinpointNotificationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18798FE21DEF9F2B00BC419B /* AWSPinpointNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FB81DEF9F2B00BC419B /* AWSPinpointNotificationManager.m */; };
+		18798FE31DEF9F2B00BC419B /* AWSPinpointService.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FB91DEF9F2B00BC419B /* AWSPinpointService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18798FE41DEF9F2B00BC419B /* AWSPinpointService.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FBA1DEF9F2B00BC419B /* AWSPinpointService.m */; };
+		18798FE51DEF9F2B00BC419B /* AWSPinpointSessionClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FBB1DEF9F2B00BC419B /* AWSPinpointSessionClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18798FE61DEF9F2B00BC419B /* AWSPinpointSessionClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FBC1DEF9F2B00BC419B /* AWSPinpointSessionClient.m */; };
+		18798FE71DEF9F2B00BC419B /* AWSPinpointTargeting.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FBE1DEF9F2B00BC419B /* AWSPinpointTargeting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18798FE81DEF9F2B00BC419B /* AWSPinpointTargetingModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FBF1DEF9F2B00BC419B /* AWSPinpointTargetingModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18798FE91DEF9F2B00BC419B /* AWSPinpointTargetingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FC01DEF9F2B00BC419B /* AWSPinpointTargetingModel.m */; };
+		18798FEA1DEF9F2B00BC419B /* AWSPinpointTargetingResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FC11DEF9F2B00BC419B /* AWSPinpointTargetingResources.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18798FEB1DEF9F2B00BC419B /* AWSPinpointTargetingResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FC21DEF9F2B00BC419B /* AWSPinpointTargetingResources.m */; };
+		18798FEC1DEF9F2B00BC419B /* AWSPinpointTargetingService.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FC31DEF9F2B00BC419B /* AWSPinpointTargetingService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18798FED1DEF9F2B00BC419B /* AWSPinpointTargetingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FC41DEF9F2B00BC419B /* AWSPinpointTargetingService.m */; };
+		18798FEE1DEF9F2B00BC419B /* AWSPinpointTargetingClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FC51DEF9F2B00BC419B /* AWSPinpointTargetingClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18798FEF1DEF9F2B00BC419B /* AWSPinpointTargetingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FC61DEF9F2B00BC419B /* AWSPinpointTargetingClient.m */; };
+		18798FF11DEF9F2B00BC419B /* AWSPinpointContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FC91DEF9F2B00BC419B /* AWSPinpointContext.h */; };
+		18798FF21DEF9F2B00BC419B /* AWSPinpointContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FCA1DEF9F2B00BC419B /* AWSPinpointContext.m */; };
+		18798FF31DEF9F2B00BC419B /* AWSPinpointDateUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FCB1DEF9F2B00BC419B /* AWSPinpointDateUtils.h */; };
+		18798FF41DEF9F2B00BC419B /* AWSPinpointDateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FCC1DEF9F2B00BC419B /* AWSPinpointDateUtils.m */; };
+		18798FF51DEF9F2B00BC419B /* AWSPinpointStringUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 18798FCD1DEF9F2B00BC419B /* AWSPinpointStringUtils.h */; };
+		18798FF61DEF9F2B00BC419B /* AWSPinpointStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FCE1DEF9F2B00BC419B /* AWSPinpointStringUtils.m */; };
+		18798FF91DEFCAAB00BC419B /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
+		18798FFA1DEFCB0D00BC419B /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
+		18798FFB1DEFCB1B00BC419B /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
+		18798FFC1DEFCB4000BC419B /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
+		187990031DEFCB8800BC419B /* AWSPinpointAnalyticsClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FFD1DEFCB8800BC419B /* AWSPinpointAnalyticsClientTests.m */; };
+		187990051DEFCB8800BC419B /* AWSPinpointContextTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18798FFF1DEFCB8800BC419B /* AWSPinpointContextTests.m */; };
+		187990061DEFCB8800BC419B /* AWSPinpointEventRecorderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 187990001DEFCB8800BC419B /* AWSPinpointEventRecorderTests.m */; };
+		187990071DEFCB8800BC419B /* AWSPinpointSessionClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 187990011DEFCB8800BC419B /* AWSPinpointSessionClientTests.m */; };
+		187990081DEFCB8800BC419B /* AWSPinpointTargetingClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 187990021DEFCB8800BC419B /* AWSPinpointTargetingClientTests.m */; };
+		1879900B1DEFCBFC00BC419B /* AWSGeneralPinpointAnalyticsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 187990091DEFCBFC00BC419B /* AWSGeneralPinpointAnalyticsTests.m */; };
+		1879900C1DEFCBFC00BC419B /* AWSGeneralPinpointTargetingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1879900A1DEFCBFC00BC419B /* AWSGeneralPinpointTargetingTests.m */; };
+		1879900D1DEFCC9000BC419B /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
 		18CDFB241D661FED0021B1DE /* AWSKinesisRequestRetryHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 18CDFB221D661FED0021B1DE /* AWSKinesisRequestRetryHandler.h */; };
 		18CDFB251D661FED0021B1DE /* AWSKinesisRequestRetryHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDFB231D661FED0021B1DE /* AWSKinesisRequestRetryHandler.m */; };
 		18CDFB281D66561F0021B1DE /* AWSS3Serializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 18CDFB261D66561F0021B1DE /* AWSS3Serializer.h */; };
@@ -131,6 +183,9 @@
 		18E2F5A21DED374C00BD4608 /* AWSCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18E2F5A31DED375200BD4608 /* AWSPolly.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 18E2F5611DED307400BD4608 /* AWSPolly.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18EAC4B61DE0F3A000798E89 /* AWSResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1813F65B1DB5A0B8009486D6 /* AWSResources.bundle */; };
+		18F455471DEFE875000D2F68 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
+		18F455491DF01D74000D2F68 /* AWSCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18F4554A1DF01D81000D2F68 /* AWSPinpoint.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 18798F7E1DEF9EA900BC419B /* AWSPinpoint.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18F938C21DE5148E00034221 /* AWSLex.h in Headers */ = {isa = PBXBuildFile; fileRef = 18F938B11DE5148E00034221 /* AWSLex.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		18F938C31DE5148E00034221 /* AWSLexInteractionKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 18F938B21DE5148E00034221 /* AWSLexInteractionKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		18F938C41DE5148E00034221 /* AWSLexInteractionKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F938B31DE5148E00034221 /* AWSLexInteractionKit.m */; };
@@ -905,6 +960,27 @@
 			remoteGlobalIDString = 1813F65A1DB5A0B8009486D6;
 			remoteInfo = AWSResources;
 		};
+		18798F891DEF9EA900BC419B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18798F7D1DEF9EA900BC419B;
+			remoteInfo = AWSPinpoint;
+		};
+		18798F9F1DEF9EF900BC419B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18798F7D1DEF9EA900BC419B;
+			remoteInfo = AWSPinpoint;
+		};
+		18798FF71DEFCA7F00BC419B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE0D416C1C6A66E5006B91B5;
+			remoteInfo = AWSCore;
+		};
 		18B6E1F91D831F2C009054B0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
@@ -1644,6 +1720,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		18F455481DF01D69000D2F68 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				18F4554A1DF01D81000D2F68 /* AWSPinpoint.framework in CopyFiles */,
+				18F455491DF01D74000D2F68 /* AWSCore.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE2D374E1C6E7F7A00834EE7 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1882,6 +1969,59 @@
 		186ABB0E1D9CADC500AB8980 /* BFVADConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFVADConfig.h; sourceTree = "<group>"; };
 		186ABB0F1D9CADC500AB8980 /* BFVoiceActivityDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFVoiceActivityDetector.h; sourceTree = "<group>"; };
 		186ABB101D9CADC500AB8980 /* BFVoiceActivityDetectorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFVoiceActivityDetectorDelegate.h; sourceTree = "<group>"; };
+		18798F7E1DEF9EA900BC419B /* AWSPinpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSPinpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18798F871DEF9EA900BC419B /* AWSPinpointTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSPinpointTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18798F8C1DEF9EAA00BC419B /* AWSPinpointTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointTests.m; sourceTree = "<group>"; };
+		18798F8E1DEF9EAA00BC419B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18798F991DEF9EF800BC419B /* AWSPinpointUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSPinpointUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18798F9D1DEF9EF900BC419B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18798FA41DEF9F2B00BC419B /* AWSPinpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpoint.h; sourceTree = "<group>"; };
+		18798FA61DEF9F2B00BC419B /* AWSPinpointAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointAnalytics.h; sourceTree = "<group>"; };
+		18798FA71DEF9F2B00BC419B /* AWSPinpointAnalyticsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointAnalyticsModel.h; sourceTree = "<group>"; };
+		18798FA81DEF9F2B00BC419B /* AWSPinpointAnalyticsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointAnalyticsModel.m; sourceTree = "<group>"; };
+		18798FA91DEF9F2B00BC419B /* AWSPinpointAnalyticsResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointAnalyticsResources.h; sourceTree = "<group>"; };
+		18798FAA1DEF9F2B00BC419B /* AWSPinpointAnalyticsResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointAnalyticsResources.m; sourceTree = "<group>"; };
+		18798FAB1DEF9F2B00BC419B /* AWSPinpointAnalyticsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointAnalyticsService.h; sourceTree = "<group>"; };
+		18798FAC1DEF9F2B00BC419B /* AWSPinpointAnalyticsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointAnalyticsService.m; sourceTree = "<group>"; };
+		18798FAD1DEF9F2B00BC419B /* AWSPinpointAnalyticsClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointAnalyticsClient.h; sourceTree = "<group>"; };
+		18798FAE1DEF9F2B00BC419B /* AWSPinpointAnalyticsClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointAnalyticsClient.m; sourceTree = "<group>"; };
+		18798FAF1DEF9F2B00BC419B /* AWSPinpointConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointConfiguration.h; sourceTree = "<group>"; };
+		18798FB01DEF9F2B00BC419B /* AWSPinpointConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointConfiguration.m; sourceTree = "<group>"; };
+		18798FB11DEF9F2B00BC419B /* AWSPinpointEndpointProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointEndpointProfile.h; sourceTree = "<group>"; };
+		18798FB21DEF9F2B00BC419B /* AWSPinpointEndpointProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointEndpointProfile.m; sourceTree = "<group>"; };
+		18798FB31DEF9F2B00BC419B /* AWSPinpointEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointEvent.h; sourceTree = "<group>"; };
+		18798FB41DEF9F2B00BC419B /* AWSPinpointEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointEvent.m; sourceTree = "<group>"; };
+		18798FB51DEF9F2B00BC419B /* AWSPinpointEventRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointEventRecorder.h; sourceTree = "<group>"; };
+		18798FB61DEF9F2B00BC419B /* AWSPinpointEventRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointEventRecorder.m; sourceTree = "<group>"; };
+		18798FB71DEF9F2B00BC419B /* AWSPinpointNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointNotificationManager.h; sourceTree = "<group>"; };
+		18798FB81DEF9F2B00BC419B /* AWSPinpointNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointNotificationManager.m; sourceTree = "<group>"; };
+		18798FB91DEF9F2B00BC419B /* AWSPinpointService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointService.h; sourceTree = "<group>"; };
+		18798FBA1DEF9F2B00BC419B /* AWSPinpointService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointService.m; sourceTree = "<group>"; };
+		18798FBB1DEF9F2B00BC419B /* AWSPinpointSessionClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointSessionClient.h; sourceTree = "<group>"; };
+		18798FBC1DEF9F2B00BC419B /* AWSPinpointSessionClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointSessionClient.m; sourceTree = "<group>"; };
+		18798FBE1DEF9F2B00BC419B /* AWSPinpointTargeting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointTargeting.h; sourceTree = "<group>"; };
+		18798FBF1DEF9F2B00BC419B /* AWSPinpointTargetingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointTargetingModel.h; sourceTree = "<group>"; };
+		18798FC01DEF9F2B00BC419B /* AWSPinpointTargetingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointTargetingModel.m; sourceTree = "<group>"; };
+		18798FC11DEF9F2B00BC419B /* AWSPinpointTargetingResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointTargetingResources.h; sourceTree = "<group>"; };
+		18798FC21DEF9F2B00BC419B /* AWSPinpointTargetingResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointTargetingResources.m; sourceTree = "<group>"; };
+		18798FC31DEF9F2B00BC419B /* AWSPinpointTargetingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointTargetingService.h; sourceTree = "<group>"; };
+		18798FC41DEF9F2B00BC419B /* AWSPinpointTargetingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointTargetingService.m; sourceTree = "<group>"; };
+		18798FC51DEF9F2B00BC419B /* AWSPinpointTargetingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointTargetingClient.h; sourceTree = "<group>"; };
+		18798FC61DEF9F2B00BC419B /* AWSPinpointTargetingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointTargetingClient.m; sourceTree = "<group>"; };
+		18798FC71DEF9F2B00BC419B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18798FC91DEF9F2B00BC419B /* AWSPinpointContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointContext.h; sourceTree = "<group>"; };
+		18798FCA1DEF9F2B00BC419B /* AWSPinpointContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointContext.m; sourceTree = "<group>"; };
+		18798FCB1DEF9F2B00BC419B /* AWSPinpointDateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointDateUtils.h; sourceTree = "<group>"; };
+		18798FCC1DEF9F2B00BC419B /* AWSPinpointDateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointDateUtils.m; sourceTree = "<group>"; };
+		18798FCD1DEF9F2B00BC419B /* AWSPinpointStringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPinpointStringUtils.h; sourceTree = "<group>"; };
+		18798FCE1DEF9F2B00BC419B /* AWSPinpointStringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointStringUtils.m; sourceTree = "<group>"; };
+		18798FFD1DEFCB8800BC419B /* AWSPinpointAnalyticsClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointAnalyticsClientTests.m; sourceTree = "<group>"; };
+		18798FFF1DEFCB8800BC419B /* AWSPinpointContextTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointContextTests.m; sourceTree = "<group>"; };
+		187990001DEFCB8800BC419B /* AWSPinpointEventRecorderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointEventRecorderTests.m; sourceTree = "<group>"; };
+		187990011DEFCB8800BC419B /* AWSPinpointSessionClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointSessionClientTests.m; sourceTree = "<group>"; };
+		187990021DEFCB8800BC419B /* AWSPinpointTargetingClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointTargetingClientTests.m; sourceTree = "<group>"; };
+		187990091DEFCBFC00BC419B /* AWSGeneralPinpointAnalyticsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralPinpointAnalyticsTests.m; sourceTree = "<group>"; };
+		1879900A1DEFCBFC00BC419B /* AWSGeneralPinpointTargetingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralPinpointTargetingTests.m; sourceTree = "<group>"; };
 		18CDFB221D661FED0021B1DE /* AWSKinesisRequestRetryHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSKinesisRequestRetryHandler.h; sourceTree = "<group>"; };
 		18CDFB231D661FED0021B1DE /* AWSKinesisRequestRetryHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisRequestRetryHandler.m; sourceTree = "<group>"; };
 		18CDFB261D66561F0021B1DE /* AWSS3Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSS3Serializer.h; sourceTree = "<group>"; };
@@ -2705,6 +2845,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		18798F7A1DEF9EA900BC419B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18798FF91DEFCAAB00BC419B /* AWSCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18798F841DEF9EA900BC419B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18798FFA1DEFCB0D00BC419B /* libOCMock.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18798F961DEF9EF800BC419B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1879900D1DEFCC9000BC419B /* libOCMock.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18E2F55D1DED307400BD4608 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -3281,6 +3445,101 @@
 			path = include;
 			sourceTree = "<group>";
 		};
+		18798F7F1DEF9EA900BC419B /* AWSPinpoint */ = {
+			isa = PBXGroup;
+			children = (
+				18798FA41DEF9F2B00BC419B /* AWSPinpoint.h */,
+				18798FA51DEF9F2B00BC419B /* AWSPinpointAnalytics */,
+				18798FAD1DEF9F2B00BC419B /* AWSPinpointAnalyticsClient.h */,
+				18798FAE1DEF9F2B00BC419B /* AWSPinpointAnalyticsClient.m */,
+				18798FAF1DEF9F2B00BC419B /* AWSPinpointConfiguration.h */,
+				18798FB01DEF9F2B00BC419B /* AWSPinpointConfiguration.m */,
+				18798FB11DEF9F2B00BC419B /* AWSPinpointEndpointProfile.h */,
+				18798FB21DEF9F2B00BC419B /* AWSPinpointEndpointProfile.m */,
+				18798FB31DEF9F2B00BC419B /* AWSPinpointEvent.h */,
+				18798FB41DEF9F2B00BC419B /* AWSPinpointEvent.m */,
+				18798FB51DEF9F2B00BC419B /* AWSPinpointEventRecorder.h */,
+				18798FB61DEF9F2B00BC419B /* AWSPinpointEventRecorder.m */,
+				18798FB71DEF9F2B00BC419B /* AWSPinpointNotificationManager.h */,
+				18798FB81DEF9F2B00BC419B /* AWSPinpointNotificationManager.m */,
+				18798FB91DEF9F2B00BC419B /* AWSPinpointService.h */,
+				18798FBA1DEF9F2B00BC419B /* AWSPinpointService.m */,
+				18798FBB1DEF9F2B00BC419B /* AWSPinpointSessionClient.h */,
+				18798FBC1DEF9F2B00BC419B /* AWSPinpointSessionClient.m */,
+				18798FBD1DEF9F2B00BC419B /* AWSPinpointTargeting */,
+				18798FC51DEF9F2B00BC419B /* AWSPinpointTargetingClient.h */,
+				18798FC61DEF9F2B00BC419B /* AWSPinpointTargetingClient.m */,
+				18798FC71DEF9F2B00BC419B /* Info.plist */,
+				18798FC81DEF9F2B00BC419B /* Internal */,
+			);
+			path = AWSPinpoint;
+			sourceTree = "<group>";
+		};
+		18798F8B1DEF9EAA00BC419B /* AWSPinpointTests */ = {
+			isa = PBXGroup;
+			children = (
+				18798FFD1DEFCB8800BC419B /* AWSPinpointAnalyticsClientTests.m */,
+				18798FFF1DEFCB8800BC419B /* AWSPinpointContextTests.m */,
+				187990001DEFCB8800BC419B /* AWSPinpointEventRecorderTests.m */,
+				187990011DEFCB8800BC419B /* AWSPinpointSessionClientTests.m */,
+				187990021DEFCB8800BC419B /* AWSPinpointTargetingClientTests.m */,
+				18798F8C1DEF9EAA00BC419B /* AWSPinpointTests.m */,
+				18798F8E1DEF9EAA00BC419B /* Info.plist */,
+			);
+			path = AWSPinpointTests;
+			sourceTree = "<group>";
+		};
+		18798F9A1DEF9EF900BC419B /* AWSPinpointUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				187990091DEFCBFC00BC419B /* AWSGeneralPinpointAnalyticsTests.m */,
+				1879900A1DEFCBFC00BC419B /* AWSGeneralPinpointTargetingTests.m */,
+				18798F9D1DEF9EF900BC419B /* Info.plist */,
+			);
+			path = AWSPinpointUnitTests;
+			sourceTree = "<group>";
+		};
+		18798FA51DEF9F2B00BC419B /* AWSPinpointAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				18798FA61DEF9F2B00BC419B /* AWSPinpointAnalytics.h */,
+				18798FA71DEF9F2B00BC419B /* AWSPinpointAnalyticsModel.h */,
+				18798FA81DEF9F2B00BC419B /* AWSPinpointAnalyticsModel.m */,
+				18798FA91DEF9F2B00BC419B /* AWSPinpointAnalyticsResources.h */,
+				18798FAA1DEF9F2B00BC419B /* AWSPinpointAnalyticsResources.m */,
+				18798FAB1DEF9F2B00BC419B /* AWSPinpointAnalyticsService.h */,
+				18798FAC1DEF9F2B00BC419B /* AWSPinpointAnalyticsService.m */,
+			);
+			path = AWSPinpointAnalytics;
+			sourceTree = "<group>";
+		};
+		18798FBD1DEF9F2B00BC419B /* AWSPinpointTargeting */ = {
+			isa = PBXGroup;
+			children = (
+				18798FBE1DEF9F2B00BC419B /* AWSPinpointTargeting.h */,
+				18798FBF1DEF9F2B00BC419B /* AWSPinpointTargetingModel.h */,
+				18798FC01DEF9F2B00BC419B /* AWSPinpointTargetingModel.m */,
+				18798FC11DEF9F2B00BC419B /* AWSPinpointTargetingResources.h */,
+				18798FC21DEF9F2B00BC419B /* AWSPinpointTargetingResources.m */,
+				18798FC31DEF9F2B00BC419B /* AWSPinpointTargetingService.h */,
+				18798FC41DEF9F2B00BC419B /* AWSPinpointTargetingService.m */,
+			);
+			path = AWSPinpointTargeting;
+			sourceTree = "<group>";
+		};
+		18798FC81DEF9F2B00BC419B /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				18798FC91DEF9F2B00BC419B /* AWSPinpointContext.h */,
+				18798FCA1DEF9F2B00BC419B /* AWSPinpointContext.m */,
+				18798FCB1DEF9F2B00BC419B /* AWSPinpointDateUtils.h */,
+				18798FCC1DEF9F2B00BC419B /* AWSPinpointDateUtils.m */,
+				18798FCD1DEF9F2B00BC419B /* AWSPinpointStringUtils.h */,
+				18798FCE1DEF9F2B00BC419B /* AWSPinpointStringUtils.m */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
 		18E2F5621DED307500BD4608 /* AWSPolly */ = {
 			isa = PBXGroup;
 			children = (
@@ -3374,6 +3633,9 @@
 				CE9DE74B1C6A7AE40060793F /* AWSMobileAnalyticsTests */,
 				CE9E501C1C72C19800B60FD7 /* AWSMobileAnalyticsLegacyTests */,
 				CE5604911C6BC96500B4E00B /* AWSMobileAnalyticsUnitTests */,
+				18798F7F1DEF9EA900BC419B /* AWSPinpoint */,
+				18798F8B1DEF9EAA00BC419B /* AWSPinpointTests */,
+				18798F9A1DEF9EF900BC419B /* AWSPinpointUnitTests */,
 				18E2F5621DED307500BD4608 /* AWSPolly */,
 				18E2F56E1DED307600BD4608 /* AWSPollyTests */,
 				18E2F58F1DED31D300BD4608 /* AWSPollyUnitTests */,
@@ -3466,6 +3728,9 @@
 				18E2F5611DED307400BD4608 /* AWSPolly.framework */,
 				18E2F56A1DED307500BD4608 /* AWSPollyTests.xctest */,
 				18E2F58E1DED31D300BD4608 /* AWSPollyUnitTests.xctest */,
+				18798F7E1DEF9EA900BC419B /* AWSPinpoint.framework */,
+				18798F871DEF9EA900BC419B /* AWSPinpointTests.xctest */,
+				18798F991DEF9EF800BC419B /* AWSPinpointUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -4894,6 +5159,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		18798F7B1DEF9EA900BC419B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18798FD01DEF9F2B00BC419B /* AWSPinpointAnalytics.h in Headers */,
+				18798FD71DEF9F2B00BC419B /* AWSPinpointAnalyticsClient.h in Headers */,
+				18798FDD1DEF9F2B00BC419B /* AWSPinpointEvent.h in Headers */,
+				18798FD91DEF9F2B00BC419B /* AWSPinpointConfiguration.h in Headers */,
+				18798FCF1DEF9F2B00BC419B /* AWSPinpoint.h in Headers */,
+				18798FEE1DEF9F2B00BC419B /* AWSPinpointTargetingClient.h in Headers */,
+				18798FE51DEF9F2B00BC419B /* AWSPinpointSessionClient.h in Headers */,
+				18798FDF1DEF9F2B00BC419B /* AWSPinpointEventRecorder.h in Headers */,
+				18798FE11DEF9F2B00BC419B /* AWSPinpointNotificationManager.h in Headers */,
+				18798FE31DEF9F2B00BC419B /* AWSPinpointService.h in Headers */,
+				18798FDB1DEF9F2B00BC419B /* AWSPinpointEndpointProfile.h in Headers */,
+				18798FD11DEF9F2B00BC419B /* AWSPinpointAnalyticsModel.h in Headers */,
+				18798FE81DEF9F2B00BC419B /* AWSPinpointTargetingModel.h in Headers */,
+				18798FEA1DEF9F2B00BC419B /* AWSPinpointTargetingResources.h in Headers */,
+				18798FE71DEF9F2B00BC419B /* AWSPinpointTargeting.h in Headers */,
+				18798FD51DEF9F2B00BC419B /* AWSPinpointAnalyticsService.h in Headers */,
+				18798FEC1DEF9F2B00BC419B /* AWSPinpointTargetingService.h in Headers */,
+				18798FD31DEF9F2B00BC419B /* AWSPinpointAnalyticsResources.h in Headers */,
+				18798FF51DEF9F2B00BC419B /* AWSPinpointStringUtils.h in Headers */,
+				18798FF11DEF9F2B00BC419B /* AWSPinpointContext.h in Headers */,
+				18798FF31DEF9F2B00BC419B /* AWSPinpointDateUtils.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18E2F55E1DED307400BD4608 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -5364,6 +5657,62 @@
 			name = AWSLexTests;
 			productName = AWSDeepSenseTests;
 			productReference = 185111D41D78F03B0009F5C3 /* AWSLexTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		18798F7D1DEF9EA900BC419B /* AWSPinpoint */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18798F931DEF9EAA00BC419B /* Build configuration list for PBXNativeTarget "AWSPinpoint" */;
+			buildPhases = (
+				18798F791DEF9EA900BC419B /* Sources */,
+				18798F7A1DEF9EA900BC419B /* Frameworks */,
+				18798F7B1DEF9EA900BC419B /* Headers */,
+				18798F7C1DEF9EA900BC419B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18798FF81DEFCA7F00BC419B /* PBXTargetDependency */,
+			);
+			name = AWSPinpoint;
+			productName = AWSPinpoint;
+			productReference = 18798F7E1DEF9EA900BC419B /* AWSPinpoint.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		18798F861DEF9EA900BC419B /* AWSPinpointTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18798F941DEF9EAA00BC419B /* Build configuration list for PBXNativeTarget "AWSPinpointTests" */;
+			buildPhases = (
+				18798F831DEF9EA900BC419B /* Sources */,
+				18798F841DEF9EA900BC419B /* Frameworks */,
+				18798F851DEF9EA900BC419B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18798F8A1DEF9EA900BC419B /* PBXTargetDependency */,
+			);
+			name = AWSPinpointTests;
+			productName = AWSPinpointTests;
+			productReference = 18798F871DEF9EA900BC419B /* AWSPinpointTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		18798F981DEF9EF800BC419B /* AWSPinpointUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18798FA11DEF9EF900BC419B /* Build configuration list for PBXNativeTarget "AWSPinpointUnitTests" */;
+			buildPhases = (
+				18798F951DEF9EF800BC419B /* Sources */,
+				18798F961DEF9EF800BC419B /* Frameworks */,
+				18798F971DEF9EF800BC419B /* Resources */,
+				18F455481DF01D69000D2F68 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18798FA01DEF9EF900BC419B /* PBXTargetDependency */,
+			);
+			name = AWSPinpointUnitTests;
+			productName = AWSPinpointUnitTests;
+			productReference = 18798F991DEF9EF800BC419B /* AWSPinpointUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		18E2F5601DED307400BD4608 /* AWSPolly */ = {
@@ -6540,6 +6889,15 @@
 					185111D31D78F03B0009F5C3 = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
+					18798F7D1DEF9EA900BC419B = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					18798F861DEF9EA900BC419B = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					18798F981DEF9EF800BC419B = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					18E2F5601DED307400BD4608 = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
@@ -6794,6 +7152,9 @@
 				CE9E501A1C72C19800B60FD7 /* AWSMobileAnalyticsLegacyTests */,
 				CE56048F1C6BC96500B4E00B /* AWSMobileAnalyticsUnitTests */,
 				1813F65A1DB5A0B8009486D6 /* AWSResources */,
+				18798F7D1DEF9EA900BC419B /* AWSPinpoint */,
+				18798F861DEF9EA900BC419B /* AWSPinpointTests */,
+				18798F981DEF9EF800BC419B /* AWSPinpointUnitTests */,
 				18E2F5601DED307400BD4608 /* AWSPolly */,
 				18E2F5691DED307500BD4608 /* AWSPollyTests */,
 				18E2F58D1DED31D300BD4608 /* AWSPollyUnitTests */,
@@ -6840,6 +7201,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				183BD93D1D8A406F004B2659 /* credentials.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18798F7C1DEF9EA900BC419B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18798F851DEF9EA900BC419B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18798FFB1DEFCB1B00BC419B /* credentials.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18798F971DEF9EF800BC419B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7359,6 +7742,55 @@
 			files = (
 				18F938D71DE520C500034221 /* AWSLexClientTests.m in Sources */,
 				183BD93E1D8A4076004B2659 /* AWSTestUtility.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18798F791DEF9EA900BC419B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18798FF21DEF9F2B00BC419B /* AWSPinpointContext.m in Sources */,
+				18798FE91DEF9F2B00BC419B /* AWSPinpointTargetingModel.m in Sources */,
+				18798FE61DEF9F2B00BC419B /* AWSPinpointSessionClient.m in Sources */,
+				18798FE21DEF9F2B00BC419B /* AWSPinpointNotificationManager.m in Sources */,
+				18798FEF1DEF9F2B00BC419B /* AWSPinpointTargetingClient.m in Sources */,
+				18798FDE1DEF9F2B00BC419B /* AWSPinpointEvent.m in Sources */,
+				18798FED1DEF9F2B00BC419B /* AWSPinpointTargetingService.m in Sources */,
+				18798FF41DEF9F2B00BC419B /* AWSPinpointDateUtils.m in Sources */,
+				18798FEB1DEF9F2B00BC419B /* AWSPinpointTargetingResources.m in Sources */,
+				18798FE41DEF9F2B00BC419B /* AWSPinpointService.m in Sources */,
+				18798FE01DEF9F2B00BC419B /* AWSPinpointEventRecorder.m in Sources */,
+				18798FD21DEF9F2B00BC419B /* AWSPinpointAnalyticsModel.m in Sources */,
+				18798FDA1DEF9F2B00BC419B /* AWSPinpointConfiguration.m in Sources */,
+				18798FD61DEF9F2B00BC419B /* AWSPinpointAnalyticsService.m in Sources */,
+				18798FDC1DEF9F2B00BC419B /* AWSPinpointEndpointProfile.m in Sources */,
+				18798FF61DEF9F2B00BC419B /* AWSPinpointStringUtils.m in Sources */,
+				18798FD81DEF9F2B00BC419B /* AWSPinpointAnalyticsClient.m in Sources */,
+				18798FD41DEF9F2B00BC419B /* AWSPinpointAnalyticsResources.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18798F831DEF9EA900BC419B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18798FFC1DEFCB4000BC419B /* AWSTestUtility.m in Sources */,
+				187990051DEFCB8800BC419B /* AWSPinpointContextTests.m in Sources */,
+				18798F8D1DEF9EAA00BC419B /* AWSPinpointTests.m in Sources */,
+				187990071DEFCB8800BC419B /* AWSPinpointSessionClientTests.m in Sources */,
+				187990081DEFCB8800BC419B /* AWSPinpointTargetingClientTests.m in Sources */,
+				187990031DEFCB8800BC419B /* AWSPinpointAnalyticsClientTests.m in Sources */,
+				187990061DEFCB8800BC419B /* AWSPinpointEventRecorderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18798F951DEF9EF800BC419B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18F455471DEFE875000D2F68 /* AWSTestUtility.m in Sources */,
+				1879900C1DEFCBFC00BC419B /* AWSGeneralPinpointTargetingTests.m in Sources */,
+				1879900B1DEFCBFC00BC419B /* AWSGeneralPinpointAnalyticsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8169,6 +8601,21 @@
 			target = 1813F65A1DB5A0B8009486D6 /* AWSResources */;
 			targetProxy = 187953A61DE17C2E00643D64 /* PBXContainerItemProxy */;
 		};
+		18798F8A1DEF9EA900BC419B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18798F7D1DEF9EA900BC419B /* AWSPinpoint */;
+			targetProxy = 18798F891DEF9EA900BC419B /* PBXContainerItemProxy */;
+		};
+		18798FA01DEF9EF900BC419B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18798F7D1DEF9EA900BC419B /* AWSPinpoint */;
+			targetProxy = 18798F9F1DEF9EF900BC419B /* PBXContainerItemProxy */;
+		};
+		18798FF81DEFCA7F00BC419B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE0D416C1C6A66E5006B91B5 /* AWSCore */;
+			targetProxy = 18798FF71DEFCA7F00BC419B /* PBXContainerItemProxy */;
+		};
 		18B6E1FA1D831F2C009054B0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CE0D416C1C6A66E5006B91B5 /* AWSCore */;
@@ -8798,6 +9245,110 @@
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSLexTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		18798F8F1DEF9EAA00BC419B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AWSPinpoint/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSPinpoint;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		18798F901DEF9EAA00BC419B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AWSPinpoint/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSPinpoint;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		18798F911DEF9EAA00BC419B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = AWSPinpointTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSPinpointTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		18798F921DEF9EAA00BC419B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = AWSPinpointTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSPinpointTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		18798FA21DEF9EF900BC419B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = AWSPinpointUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSPinpointUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		18798FA31DEF9EF900BC419B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = AWSPinpointUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSPinpointUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -11055,6 +11606,33 @@
 			buildConfigurations = (
 				185111DE1D78F03B0009F5C3 /* Debug */,
 				185111DF1D78F03B0009F5C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18798F931DEF9EAA00BC419B /* Build configuration list for PBXNativeTarget "AWSPinpoint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18798F8F1DEF9EAA00BC419B /* Debug */,
+				18798F901DEF9EAA00BC419B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18798F941DEF9EAA00BC419B /* Build configuration list for PBXNativeTarget "AWSPinpointTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18798F911DEF9EAA00BC419B /* Debug */,
+				18798F921DEF9EAA00BC419B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18798FA11DEF9EF900BC419B /* Build configuration list for PBXNativeTarget "AWSPinpointUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18798FA21DEF9EF900BC419B /* Debug */,
+				18798FA31DEF9EF900BC419B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

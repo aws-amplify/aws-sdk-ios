@@ -169,6 +169,10 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      */
     AWSServicePolly,
     /**
+     *  Amazon Mobile Targeting
+     */
+    AWSServiceMobileTargeting,
+    /**
      *  Amazon Simple Storage Service (S3)
      */
     AWSServiceS3,

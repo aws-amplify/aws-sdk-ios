@@ -1,4 +1,9 @@
 # AWS Mobile SDK for iOS CHANGELOG
+## 2.4.14
+### New Features
+* **Amazon Pinpoint**
+	* Amazon Pinpoint makes it easy to run targeted campaigns to improve user engagement. Pinpoint helps you understand your users behavior, define who to target, what messages to send, when to deliver them, and tracks the results of the campaigns.
+	
 
 ## 2.4.13
 ### New Features
