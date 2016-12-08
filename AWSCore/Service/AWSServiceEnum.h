@@ -80,6 +80,10 @@ typedef NS_ENUM(NSInteger, AWSRegionType) {
      */
     AWSRegionCNNorth1,
     /**
+     *  Canada (Central)
+     */
+    AWSRegionCACentral1,
+    /**
      *  AWS GovCloud (US)
      */
     AWSRegionUSGovWest1,

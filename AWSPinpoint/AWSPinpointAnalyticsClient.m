@@ -44,12 +44,11 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
 @property (nonatomic, strong) AWSPinpointEventRecorder *eventRecorder;
 @property (nonatomic, strong) AWSPinpointContext *context;
 
-
 @end
 
 @interface AWSPinpointEventRecorder ()
-
 - (instancetype)initWithContext:(AWSPinpointContext *) context;
+- (AWSTask*) updateSessionStartWithCampaignAttributes:(NSDictionary*) attributes;
 @end
 
 @implementation AWSPinpointAnalyticsClient
@@ -394,6 +393,7 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
 
 - (void) setCampaignAttributes:(NSDictionary*) campaign {
     _globalCampaignAttributes = campaign;
+    [self.eventRecorder updateSessionStartWithCampaignAttributes:campaign];
 }
 
 - (void) removeAllGlobalCampaignAttributes {

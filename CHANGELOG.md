@@ -1,4 +1,15 @@
 # AWS Mobile SDK for iOS CHANGELOG
+
+## 2.4.15
+### New Features
+* **SDK Core**
+	* Introducing new AWS `CACentral1` - Canada (Central) region, endpoint `ca-central-1`. 
+    
+### Resolved Issues
+
+* **Amazon Pinpoint**
+    *  Fix bugs related to session timeout and campaign opens analytics.
+
 ## 2.4.14
 ### New Features
 * **Amazon Pinpoint**

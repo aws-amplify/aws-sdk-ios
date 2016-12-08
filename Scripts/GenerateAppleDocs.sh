@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.4.14"
+VERSION="2.4.15"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -38,11 +38,11 @@ else
     cp -r AWSIoT ./docs_tmp/AWSIoT
     cp -r AWSKinesis ./docs_tmp/AWSKinesis
     cp -r AWSLambda ./docs_tmp/AWSLambda
-	cp -r AWSLex ./docs_tmp/AWSLex
+    cp -r AWSLex ./docs_tmp/AWSLex
     cp -r AWSMachineLearning ./docs_tmp/AWSMachineLearning
     cp -r AWSMobileAnalytics ./docs_tmp/AWSMobileAnalytics
-	cp -r AWSPinpoint ./docs_tmp/AWSPinpoint
-	cp -r AWSPolly ./docs_tmp/AWSPolly
+    cp -r AWSPinpoint ./docs_tmp/AWSPinpoint
+    cp -r AWSPolly ./docs_tmp/AWSPolly
     cp -r AWSS3 ./docs_tmp/AWSS3
     cp -r AWSSES ./docs_tmp/AWSSES
     cp -r AWSSimpleDB ./docs_tmp/AWSSimpleDB
@@ -64,12 +64,12 @@ else
     rm -rf ./docs_tmp/AWSCognitoIdentityProvider/Internal
     rm -rf ./docs_tmp/AWSMobileAnalytics/Internal
     rm -rf ./docs_tmp/AWSIoT/Internal
-	rm -rf ./docs_tmp/AWSLex/Bluefront
+    rm -rf ./docs_tmp/AWSLex/Bluefront
 	
     cd docs_tmp
 
     # generate documenation
-    appledoc --verbose 0 \
+    appledoc --verbose 6 \
                             --output ../docs \
                             --exit-threshold 2 \
                             --no-repeat-first-par \

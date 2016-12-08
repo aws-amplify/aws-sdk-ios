@@ -36,13 +36,18 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
 
 - (void)setUp {
     [super setUp];
-    [[AWSLogger defaultLogger] setLogLevel:AWSLogLevelVerbose];
-    
     [AWSTestUtility setupCognitoCredentialsProvider];
 }
 
 - (void)tearDown {
     [super tearDown];
+}
+
+- (void) clearSession {
+    [[AWSLogger defaultLogger] setLogLevel:AWSLogLevelVerbose];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:AWSPinpointSessionKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    XCTAssertNil([[NSUserDefaults standardUserDefaults] dataForKey:AWSPinpointSessionKey]);
 }
 
 - (void)testConstructors {
@@ -60,13 +65,16 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
 }
 
 - (void)testSessionStart {
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:AWSPinpointSessionKey];
-
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
-    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testSessionStart" launchOptions:nil];
-    [config setEnableAutoSessionRecording:NO];
-    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
+    [self clearSession];
     
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testSessionStart"
+                                                                         launchOptions:nil
+                                                                        maxStorageSize:5*1024*1024
+                                                                        sessionTimeout:5000];
+    config.enableAutoSessionRecording = NO;
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
     [self cleanupForPinpoint:pinpoint];
     
     __block AWSPinpointEvent *event;
@@ -104,13 +112,16 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
 }
 
 - (void)testSessionPause {
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:AWSPinpointSessionKey];
+    [self clearSession];
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
-    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testSessionPause" launchOptions:nil];
-    [config setEnableAutoSessionRecording:NO];
-    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
     
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testSessionPause"
+                                                                         launchOptions:nil
+                                                                        maxStorageSize:5*1024*1024
+                                                                        sessionTimeout:5000];
+    config.enableAutoSessionRecording = NO;
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
     [self cleanupForPinpoint:pinpoint];
     
     __block AWSPinpointEvent *startEvent;
@@ -155,7 +166,7 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
         XCTAssertEqual(resultStartEvent.eventTimestamp, startEvent.eventTimestamp);
         XCTAssertEqual([resultStartEvent.allMetrics count], 0);
         XCTAssertTrue([resultStartEvent.session.sessionId isEqualToString:startEvent.session.sessionId]);
-
+        
         AWSPinpointEvent *resultPauseEvent = task.result[1];
         XCTAssertNotNil(resultPauseEvent);
         XCTAssertTrue([resultPauseEvent.eventType isEqualToString:pauseEvent.eventType]);
@@ -173,19 +184,22 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
 }
 
 - (void)testSessionResume {
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:AWSPinpointSessionKey];
+    [self clearSession];
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
-    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testSessionResume" launchOptions:nil];
-    [config setEnableAutoSessionRecording:NO];
-    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
     
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testSessionResume"
+                                                                         launchOptions:nil
+                                                                        maxStorageSize:5*1024*1024
+                                                                        sessionTimeout:5000];
+    config.enableAutoSessionRecording = NO;
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
     [self cleanupForPinpoint:pinpoint];
     
     __block AWSPinpointEvent *startEvent;
     __block AWSPinpointEvent *pauseEvent;
     __block AWSPinpointEvent *resumeEvent;
-
+    
     [[[pinpoint.sessionClient startSession] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         startEvent = task.result;
         XCTAssertTrue([startEvent.eventType isEqualToString:@"_session.start"]);
@@ -214,7 +228,7 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
         XCTAssertEqual([pauseEvent.allMetrics count], 0);
         return nil;
     }] waitUntilFinished];
-
+    
     
     [[[pinpoint.sessionClient resumeSession] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         resumeEvent = task.result;
@@ -230,7 +244,7 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
         return nil;
     }] waitUntilFinished];
     
-    [[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNotNil(task.result);
         XCTAssertEqual([task.result count], 3);
         
@@ -240,24 +254,24 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
         XCTAssertEqual(resultStartEvent.eventTimestamp, startEvent.eventTimestamp);
         XCTAssertEqual([resultStartEvent.allMetrics count], 0);
         XCTAssertTrue([resultStartEvent.session.sessionId isEqualToString:startEvent.session.sessionId]);
-
+        
         AWSPinpointEvent *resultPauseEvent = task.result[1];
         XCTAssertNotNil(resultPauseEvent);
         XCTAssertTrue([resultPauseEvent.eventType isEqualToString:pauseEvent.eventType]);
         XCTAssertEqual(resultPauseEvent.eventTimestamp, pauseEvent.eventTimestamp);
         XCTAssertEqual([resultPauseEvent.allMetrics count], 0);
         XCTAssertTrue([resultPauseEvent.session.sessionId isEqualToString:pauseEvent.session.sessionId]);
-
+        
         AWSPinpointEvent *resultResumeEvent = task.result[2];
         XCTAssertNotNil(resultResumeEvent);
         XCTAssertTrue([resultResumeEvent.eventType isEqualToString:resumeEvent.eventType]);
         XCTAssertEqual(resultResumeEvent.eventTimestamp, resumeEvent.eventTimestamp);
         XCTAssertEqual([resultResumeEvent.allMetrics count], 0);
         XCTAssertTrue([resultResumeEvent.session.sessionId isEqualToString:resumeEvent.session.sessionId]);
-
+        
         [expectation fulfill];
         return nil;
-    }];
+    }] waitUntilFinished];
     
     [self waitForExpectationsWithTimeout:5 handler:^(NSError * _Nullable error) {
         XCTAssertNil(error);
@@ -265,20 +279,23 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
 }
 
 - (void)testSessionStop {
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:AWSPinpointSessionKey];
+    [self clearSession];
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
-    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testSessionStop" launchOptions:nil];
-    [config setEnableAutoSessionRecording:NO];
-    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
     
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testSessionStop"
+                                                                         launchOptions:nil
+                                                                        maxStorageSize:5*1024*1024
+                                                                        sessionTimeout:5000];
+    config.enableAutoSessionRecording = NO;
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
     [self cleanupForPinpoint:pinpoint];
     
     __block AWSPinpointEvent *startEvent;
     __block AWSPinpointEvent *pauseEvent;
     __block AWSPinpointEvent *resumeEvent;
     __block AWSPinpointEvent *stopEvent;
-
+    
     [[[pinpoint.sessionClient startSession] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         startEvent = task.result;
         XCTAssertTrue([startEvent.eventType isEqualToString:@"_session.start"]);
@@ -292,7 +309,7 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
         XCTAssertEqual([startEvent.allMetrics count], 0);
         return nil;
     }] waitUntilFinished];
-
+    
     [[[pinpoint.sessionClient pauseSessionWithTimeoutEnabled:NO timeoutCompletionBlock:nil] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         pauseEvent = task.result;
         XCTAssertTrue([pauseEvent.eventType isEqualToString:@"_session.pause"]);
@@ -306,7 +323,7 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
         XCTAssertEqual([pauseEvent.allMetrics count], 0);
         return nil;
     }] waitUntilFinished];
-
+    
     [[[pinpoint.sessionClient resumeSession] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         resumeEvent = task.result;
         XCTAssertTrue([resumeEvent.eventType isEqualToString:@"_session.resume"]);
@@ -346,28 +363,28 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
         XCTAssertEqual(resultStartEvent.eventTimestamp, startEvent.eventTimestamp);
         XCTAssertEqual([resultStartEvent.allMetrics count], 0);
         XCTAssertTrue([resultStartEvent.session.sessionId isEqualToString:startEvent.session.sessionId]);
-
+        
         AWSPinpointEvent *resultPauseEvent = task.result[1];
         XCTAssertNotNil(resultPauseEvent);
         XCTAssertTrue([resultPauseEvent.eventType isEqualToString:pauseEvent.eventType]);
         XCTAssertEqual(resultPauseEvent.eventTimestamp, pauseEvent.eventTimestamp);
         XCTAssertEqual([resultPauseEvent.allMetrics count], 0);
         XCTAssertTrue([resultPauseEvent.session.sessionId isEqualToString:pauseEvent.session.sessionId]);
-
+        
         AWSPinpointEvent *resultResumeEvent = task.result[2];
         XCTAssertNotNil(resultResumeEvent);
         XCTAssertTrue([resultResumeEvent.eventType isEqualToString:resumeEvent.eventType]);
         XCTAssertEqual(resultResumeEvent.eventTimestamp, resumeEvent.eventTimestamp);
         XCTAssertEqual([resultResumeEvent.allMetrics count], 0);
         XCTAssertTrue([resultResumeEvent.session.sessionId isEqualToString:resumeEvent.session.sessionId]);
-
+        
         AWSPinpointEvent *resultStopEvent = task.result[3];
         XCTAssertNotNil(resultStopEvent);
         XCTAssertTrue([resultStopEvent.eventType isEqualToString:stopEvent.eventType]);
         XCTAssertEqual(resultStopEvent.eventTimestamp, stopEvent.eventTimestamp);
         XCTAssertEqual([resultStopEvent.allMetrics count], 0);
         XCTAssertTrue([resultStopEvent.session.sessionId isEqualToString:stopEvent.session.sessionId]);
-
+        
         [expectation fulfill];
         return nil;
     }];
@@ -378,10 +395,10 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
 }
 
 - (void)testSessionTimeout {
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:AWSPinpointSessionKey];
-
+    [self clearSession];
+    
     XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
-
+    
     AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testSessionTimeout"
                                                                          launchOptions:nil
                                                                         maxStorageSize:5*1024*1024
@@ -407,12 +424,11 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
         XCTAssertEqual([startEvent.allMetrics count], 0);
         return nil;
     }] waitUntilFinished];
-
+    
     //Pause event should trigger a submit events since timeout is set to 0
     [[[pinpoint.sessionClient pauseSessionWithTimeoutEnabled:YES timeoutCompletionBlock:^id _Nullable(AWSTask* _Nonnull task) {
         //Should have submitted 3 events (Start,Pause,Stop)
         XCTAssertEqual([task.result count], 3);
-        
         [expectation fulfill];
         return nil;
     }] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
@@ -437,6 +453,197 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
     [[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNotNil(task.result);
         XCTAssertEqual([task.result count], 0);
+        return nil;
+    }];
+}
+
+
+- (void)testSessionTimeoutNoCompletion {
+    [self clearSession];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testSessionTimeoutNoCompletion"
+                                                                         launchOptions:nil
+                                                                        maxStorageSize:5*1024*1024
+                                                                        sessionTimeout:5000];
+    config.enableAutoSessionRecording = NO;
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
+    [self cleanupForPinpoint:pinpoint];
+    
+    __block AWSPinpointEvent *startEvent;
+    __block AWSPinpointEvent *pauseEvent;
+    
+    [[[pinpoint.sessionClient startSession] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNotNil(task.result);
+        startEvent = task.result;
+        XCTAssertTrue([startEvent.eventType isEqualToString:@"_session.start"]);
+        XCTAssertTrue(startEvent.eventTimestamp > 0);
+        XCTAssertNotNil(startEvent.allAttributes);
+        XCTAssertEqual([startEvent.allAttributes count], 0);
+        XCTAssertNotNil(startEvent.session);
+        XCTAssertNotNil(startEvent.session.sessionId);
+        XCTAssertNotNil(startEvent.session.startTime);
+        XCTAssertNotNil(startEvent.allMetrics);
+        XCTAssertEqual([startEvent.allMetrics count], 0);
+        return nil;
+    }] waitUntilFinished];
+    
+    //Pause event should trigger a submit events since timeout is set to 0
+    [[[pinpoint.sessionClient pauseSessionWithTimeoutEnabled:YES timeoutCompletionBlock:nil] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNotNil(task.result);
+        pauseEvent = task.result;
+        XCTAssertTrue([pauseEvent.eventType isEqualToString:@"_session.pause"]);
+        XCTAssertTrue(pauseEvent.eventTimestamp > 0);
+        XCTAssertNotNil(pauseEvent.allAttributes);
+        XCTAssertEqual([pauseEvent.allAttributes count], 0);
+        XCTAssertNotNil(pauseEvent.session);
+        XCTAssertNotNil(pauseEvent.session.sessionId);
+        XCTAssertNotNil(pauseEvent.session.startTime);
+        XCTAssertNotNil(pauseEvent.allMetrics);
+        XCTAssertEqual([pauseEvent.allMetrics count], 0);
+        return nil;
+    }] waitUntilFinished];
+    
+    //Since we dont use the completion timeout, wait some time for timeout to happen and events to submit successfully
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [expectation fulfill];
+    });
+    
+    [self waitForExpectationsWithTimeout:15 handler:^(NSError * _Nullable error) {
+        XCTAssertNil(error);
+    }];
+    
+    [[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNotNil(task.result);
+        XCTAssertEqual([task.result count], 0);
+        return nil;
+    }];
+}
+
+- (void)testSessionImmediateTimeout {
+    [self clearSession];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testSessionImmediateTimeout"
+                                                                         launchOptions:nil
+                                                                        maxStorageSize:5*1024*1024
+                                                                        sessionTimeout:0];
+    config.enableAutoSessionRecording = NO;
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
+    [self cleanupForPinpoint:pinpoint];
+    
+    __block AWSPinpointEvent *startEvent;
+    __block AWSPinpointEvent *pauseEvent;
+    
+    [[[pinpoint.sessionClient startSession] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNotNil(task.result);
+        startEvent = task.result;
+        XCTAssertTrue([startEvent.eventType isEqualToString:@"_session.start"]);
+        XCTAssertTrue(startEvent.eventTimestamp > 0);
+        XCTAssertNotNil(startEvent.allAttributes);
+        XCTAssertEqual([startEvent.allAttributes count], 0);
+        XCTAssertNotNil(startEvent.session);
+        XCTAssertNotNil(startEvent.session.sessionId);
+        XCTAssertNotNil(startEvent.session.startTime);
+        XCTAssertNotNil(startEvent.allMetrics);
+        XCTAssertEqual([startEvent.allMetrics count], 0);
+        return nil;
+    }] waitUntilFinished];
+    
+    //Pause event should trigger a submit events since timeout is set to 0
+    [[[pinpoint.sessionClient pauseSessionWithTimeoutEnabled:YES timeoutCompletionBlock:^id _Nullable(AWSTask* _Nonnull task) {
+        //Should have submitted 3 events (Start,Pause,Stop)
+        XCTAssertEqual([task.result count], 3);
+        [expectation fulfill];
+        return nil;
+    }] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNotNil(task.result);
+        pauseEvent = task.result;
+        XCTAssertTrue([pauseEvent.eventType isEqualToString:@"_session.pause"]);
+        XCTAssertTrue(pauseEvent.eventTimestamp > 0);
+        XCTAssertNotNil(pauseEvent.allAttributes);
+        XCTAssertEqual([pauseEvent.allAttributes count], 0);
+        XCTAssertNotNil(pauseEvent.session);
+        XCTAssertNotNil(pauseEvent.session.sessionId);
+        XCTAssertNotNil(pauseEvent.session.startTime);
+        XCTAssertNotNil(pauseEvent.allMetrics);
+        XCTAssertEqual([pauseEvent.allMetrics count], 0);
+        return nil;
+    }] waitUntilFinished];
+    
+    [self waitForExpectationsWithTimeout:15 handler:^(NSError * _Nullable error) {
+        XCTAssertNil(error);
+    }];
+    
+    [[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNotNil(task.result);
+        XCTAssertEqual([task.result count], 0);
+        return nil;
+    }];
+}
+
+- (void)testSessionImmediateTimeoutNoCompletion {
+    [self clearSession];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testSessionImmediateTimeoutNoCompletion"
+                                                                         launchOptions:nil
+                                                                        maxStorageSize:5*1024*1024
+                                                                        sessionTimeout:0];
+    config.enableAutoSessionRecording = NO;
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
+    [self cleanupForPinpoint:pinpoint];
+    
+    __block AWSPinpointEvent *startEvent;
+    __block AWSPinpointEvent *pauseEvent;
+    
+    [[[pinpoint.sessionClient startSession] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNotNil(task.result);
+        startEvent = task.result;
+        XCTAssertTrue([startEvent.eventType isEqualToString:@"_session.start"]);
+        XCTAssertTrue(startEvent.eventTimestamp > 0);
+        XCTAssertNotNil(startEvent.allAttributes);
+        XCTAssertEqual([startEvent.allAttributes count], 0);
+        XCTAssertNotNil(startEvent.session);
+        XCTAssertNotNil(startEvent.session.sessionId);
+        XCTAssertNotNil(startEvent.session.startTime);
+        XCTAssertNotNil(startEvent.allMetrics);
+        XCTAssertEqual([startEvent.allMetrics count], 0);
+        return nil;
+    }] waitUntilFinished];
+    
+    //Pause event should trigger a submit events since timeout is set to 0
+    [[[pinpoint.sessionClient pauseSessionWithTimeoutEnabled:YES timeoutCompletionBlock:nil] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNotNil(task.result);
+        pauseEvent = task.result;
+        XCTAssertTrue([pauseEvent.eventType isEqualToString:@"_session.pause"]);
+        XCTAssertTrue(pauseEvent.eventTimestamp > 0);
+        XCTAssertNotNil(pauseEvent.allAttributes);
+        XCTAssertEqual([pauseEvent.allAttributes count], 0);
+        XCTAssertNotNil(pauseEvent.session);
+        XCTAssertNotNil(pauseEvent.session.sessionId);
+        XCTAssertNotNil(pauseEvent.session.startTime);
+        XCTAssertNotNil(pauseEvent.allMetrics);
+        XCTAssertEqual([pauseEvent.allMetrics count], 0);
+        return nil;
+    }] waitUntilFinished];
+    
+    //Since we dont use the completion timeout, wait some time for events to submit successfully
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [expectation fulfill];
+    });
+    
+    [self waitForExpectationsWithTimeout:15 handler:^(NSError * _Nullable error) {
+        XCTAssertNil(error);
+    }];
+    
+    [[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNotNil(task.result);
+        XCTAssertEqual([task.result count], 0);
+        [expectation fulfill];
         return nil;
     }];
     

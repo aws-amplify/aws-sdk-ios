@@ -259,14 +259,18 @@ typedef void(^voidBlock)(void);
         block = [[timer userInfo] objectForKey:@"completionBlock"];
     }
     
+    [self endCurrentSessionWithBlock:block];
+}
+
+- (void) endCurrentSessionWithBlock:(AWSPinpointTimeoutBlock) block {
     [self endCurrentSession];
-    [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
-    self.bgTask = UIBackgroundTaskInvalid;
     if (block) {
         //Add to background queue so its in different thread and not blocking.
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             [[[self.context.analyticsClient submitEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
                 block(task);
+                [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
+                self.bgTask = UIBackgroundTaskInvalid;
                 return nil;
             }] waitUntilFinished];
         });
@@ -280,12 +284,14 @@ typedef void(^voidBlock)(void);
     [_session pause];
     [self saveSession];
     AWSPinpointEvent *pauseEvent = [self.context.analyticsClient createEventWithEventType:SESSION_PAUSE_EVENT_TYPE];
-    if (timeoutEnabled) {
-        [self waitForSessionTimeoutWithCompletionBlock:block];
-    }
     
     AWSLogInfo("Session Paused.");
-    return [self.context.analyticsClient recordEvent:pauseEvent];
+    return [[self.context.analyticsClient recordEvent:pauseEvent] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        if (timeoutEnabled) {
+            [self waitForSessionTimeoutWithCompletionBlock:block];
+        }
+        return task;
+    }];
 }
 
 - (AWSTask*)resumeCurrentSession {
@@ -298,37 +304,43 @@ typedef void(^voidBlock)(void);
 }
 
 - (void)waitForSessionTimeoutWithCompletionBlock:(AWSPinpointTimeoutBlock) block {
-    
-    if (self.context.configuration.sessionTimeout > 0) {
-        self.bgTask = [[UIApplication sharedApplication] beginBackgroundTaskWithName:AWSPinpointSessionBackgroundTask expirationHandler:^{
-            // Clean up any unfinished task business by marking where you
-            // stopped or ending the task outright.
-            [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
-            self.bgTask = UIBackgroundTaskInvalid;
-        }];
-        NSDictionary *userInfo = nil;
-        if (block) {
-            userInfo = @{@"completionBlock":block};
-        }
-        self.bgTimer = [NSTimer scheduledTimerWithTimeInterval:(self.context.configuration.sessionTimeout / 1000)
-                                                        target:self
-                                                      selector:@selector(endCurrentSessionTimeoutWithTimer:)
-                                                      userInfo:userInfo
-                                                       repeats:NO];
-        [[NSRunLoop mainRunLoop] addTimer:self.bgTimer forMode:NSDefaultRunLoopMode];
-    } else {
-        [self endCurrentSession];
-        [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
-        self.bgTask = UIBackgroundTaskInvalid;
-        if (block) {
-            [[[self.context.analyticsClient submitEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-                block(task);
-                return nil;
-            }] waitUntilFinished];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.context.configuration.sessionTimeout > 0) {
+            self.bgTask = [[UIApplication sharedApplication] beginBackgroundTaskWithName:AWSPinpointSessionBackgroundTask expirationHandler:^{
+                // If background task expires before timeout then stop the session and submit events.
+                [self endCurrentSessionWithBlock:block];
+                [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
+                self.bgTask = UIBackgroundTaskInvalid;
+            }];
+            NSDictionary *userInfo = nil;
+            if (block) {
+                userInfo = @{@"completionBlock":block};
+            }
+            
+            self.bgTimer = [NSTimer scheduledTimerWithTimeInterval:(self.context.configuration.sessionTimeout / 1000)
+                                                            target:self
+                                                          selector:@selector(endCurrentSessionTimeoutWithTimer:)
+                                                          userInfo:userInfo
+                                                           repeats:NO];
+            [[NSRunLoop mainRunLoop] addTimer:self.bgTimer forMode:NSDefaultRunLoopMode];
         } else {
-            [self.context.analyticsClient submitEvents];
+            [self endCurrentSession];
+            if (block) {
+                [[[self.context.analyticsClient submitEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+                    block(task);
+                    [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
+                    self.bgTask = UIBackgroundTaskInvalid;
+                    return nil;
+                }] waitUntilFinished];
+            } else {
+                [[[self.context.analyticsClient submitEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+                    [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
+                    self.bgTask = UIBackgroundTaskInvalid;
+                    return nil;
+                }] waitUntilFinished];
+            }
         }
-    }
+    });
 }
 
 @end
@@ -375,10 +387,6 @@ typedef void(^voidBlock)(void);
     UTCTimeMillis start = [AWSPinpointDateUtils utcTimeMillisFromDate:self.startTime];
     UTCTimeMillis end = self.stopTime != nil ? [AWSPinpointDateUtils utcTimeMillisFromDate:self.stopTime] : [AWSPinpointDateUtils utcTimeMillisNow];
     UTCTimeMillis duration = end - start;
-    
-    AWSLogVerbose("Session Start Time: %llu", start);
-    AWSLogVerbose("Session Stop Time: %llu", end);
-    AWSLogVerbose("Session Duration: %llu", duration);
     
     return duration;
 }

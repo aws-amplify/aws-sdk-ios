@@ -145,6 +145,7 @@ NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey
 }
 
 - (AWSTask *) saveEvent:(AWSPinpointEvent *) event {
+    AWSLogVerbose(@"saveEvent: [%@]", event.toDictionary);
     AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;
     NSTimeInterval diskAgeLimit = self.diskAgeLimit;
     NSString *databasePath = self.databasePath;
@@ -251,6 +252,84 @@ NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey
                 }
             }
         } else if (error) {
+            return [AWSTask taskWithError:error];
+        }
+        
+        return [AWSTask taskWithResult:event];
+    }];
+}
+
+- (AWSTask*) updateSessionStartWithCampaignAttributes:(NSDictionary*) attributes {
+    AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;
+    
+    return [[AWSTask taskWithResult:nil] continueWithExecutor:[AWSExecutor executorWithDispatchQueue:[AWSPinpointEventRecorder sharedQueue]] withSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        __block NSError *error = nil;
+        
+        [databaseQueue inTransaction:^(AWSFMDatabase *db, BOOL *rollback) {
+            BOOL result = [db executeUpdate:
+                           @"UPDATE Event "
+                           @"SET attributes = :attributes "
+                           @"WHERE sessionId = :sessionId "
+                           @"AND eventType = :eventType"
+                    withParameterDictionary:@{
+                                              @"attributes" : [NSKeyedArchiver archivedDataWithRootObject:attributes],
+                                              @"eventType" : @"_session.start",
+                                              @"sessionId" : self.context.sessionClient.session.sessionId
+                                              }
+                           ];
+            if (!result) {
+                AWSLogError(@"SQLite error. [%@]", db.lastError);
+                error = db.lastError;
+            }
+        }];
+        
+        if (error) {
+            return [AWSTask taskWithError:error];
+        }
+        
+        return [AWSTask taskWithResult:nil];
+    }];
+}
+
+//Only used for testing
+- (AWSTask*) getCurrentSession: (AWSPinpointSession*) session {
+    AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;
+    
+    return [[AWSTask taskWithResult:nil] continueWithExecutor:[AWSExecutor executorWithDispatchQueue:[AWSPinpointEventRecorder sharedQueue]] withSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        __block NSError *error = nil;
+        __block AWSPinpointEvent *event;
+        
+        [databaseQueue inTransaction:^(AWSFMDatabase *db, BOOL *rollback) {
+            AWSFMResultSet *rs = [db executeQuery:
+                                  @"SELECT id, attributes, eventType, metrics, eventTimestamp, sessionId, sessionStartTime, sessionStopTime, timestamp, retryCount "
+                                  @"FROM Event "
+                                  @"WHERE eventType = :eventType"
+                          withParameterDictionary:@{
+                                                    @"eventType": @"_session.start",
+                                                    @"sessionId": session.sessionId
+                                                    }];
+            if (!rs) {
+                AWSLogError(@"SQLite error. Rolling back... [%@]", db.lastError);
+                error = db.lastError;
+                *rollback = YES;
+                return;
+            }
+            
+            if ([rs next]) {
+                NSMutableDictionary *attributes = [NSKeyedUnarchiver unarchiveObjectWithData:[rs dataForColumn:@"attributes"]];
+                NSMutableDictionary *metrics = [NSKeyedUnarchiver unarchiveObjectWithData:[rs dataForColumn:@"metrics"]];
+                AWSPinpointSession *session = [[AWSPinpointSession alloc] initWithSessionId:[rs stringForColumn:@"sessionId"]
+                                                                              withStartTime:[NSDate aws_dateFromString:[rs stringForColumn:@"sessionStartTime"] format:AWSDateISO8601DateFormat3]
+                                                                               withStopTime:[NSDate aws_dateFromString:[rs stringForColumn:@"sessionStopTime"] format:AWSDateISO8601DateFormat3]];
+                event = [[AWSPinpointEvent alloc] initWithEventType:[rs stringForColumn:@"eventType"]
+                                                                       eventTimestamp:[AWSPinpointDateUtils utcTimeMillisFromISO8061String:[rs stringForColumn:@"eventTimestamp"]]
+                                                                              session:session
+                                                                           attributes:attributes
+                                                                              metrics:metrics];
+            }
+        }];
+        
+        if (error) {
             return [AWSTask taskWithError:error];
         }
         

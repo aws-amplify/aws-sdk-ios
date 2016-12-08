@@ -45,6 +45,8 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
 - (instancetype)initWithIdentifier:(NSString *)identifier
                            context:(AWSPinpointContext *) context
                    targetingClient:(AWSPinpointTargetingClient *) targetingClient;
+- (AWSTask*) getCurrentSession: (AWSPinpointSession*) session;
+- (AWSTask*) updateSessionStartWithCampaignAttributes:(NSDictionary*) attributes;
 @end
 
 @interface AWSPinpointSession()
@@ -121,6 +123,39 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
     [self waitForExpectationsWithTimeout:5 handler:^(NSError * _Nullable error) {
         XCTAssertNil(error);
     }];
+}
+
+- (void) testUpdateSessionCampaignAttributes {
+    [[self.pinpoint.sessionClient startSession] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        [[self.pinpoint.analyticsClient.eventRecorder getCurrentSession:self.pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            XCTAssertNotNil(task.result);
+            XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
+            AWSPinpointEvent *sessionStartResult = task.result;
+            XCTAssertTrue([sessionStartResult.eventType isEqualToString:@"_session.start"]);
+            XCTAssertTrue([sessionStartResult.session.sessionId isEqualToString:self.pinpoint.sessionClient.session.sessionId]);
+            XCTAssertTrue([sessionStartResult.session.startTime isEqualToDate:self.pinpoint.sessionClient.session.startTime]);
+            XCTAssertEqual(sessionStartResult.allAttributes.count, 0);
+            return nil;
+        }];
+        return nil;
+    }];
+    
+    [[self.pinpoint.analyticsClient.eventRecorder updateSessionStartWithCampaignAttributes:@{@"campaignAttrKey":@"campaignAttrVal"}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        [[self.pinpoint.analyticsClient.eventRecorder getCurrentSession:self.pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            XCTAssertNotNil(task.result);
+            XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
+            AWSPinpointEvent *sessionStartResult = task.result;
+            XCTAssertTrue([sessionStartResult.eventType isEqualToString:@"_session.start"]);
+            XCTAssertTrue([sessionStartResult.session.sessionId isEqualToString:self.pinpoint.sessionClient.session.sessionId]);
+            XCTAssertTrue([sessionStartResult.session.startTime isEqualToDate:self.pinpoint.sessionClient.session.startTime]);
+            XCTAssertEqual(sessionStartResult.allAttributes.count, 1);
+            XCTAssertTrue([sessionStartResult.allAttributes[@"campaignAttrKey"] isEqualToString:@"campaignAttrVal"]);
+            return nil;
+        }];
+        return nil;
+    }];
+    
+
 }
 
 

@@ -153,7 +153,7 @@
     }
     else
     {
-        AWSLogWarn( @"The file does not exist. path:%@", self.absolutePath);
+        AWSLogVerbose( @"The file does not exist. path:%@", self.absolutePath);
         deleted = NO;
     }
     return deleted;

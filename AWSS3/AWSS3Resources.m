@@ -895,7 +895,8 @@
         \"sa-east-1\",\
         \"cn-north-1\",\
         \"us-gov-west-1\",\
-        \"eu-central-1\"\
+        \"eu-central-1\",\
+        \"ca-central-1\"\
       ]\
     },\
     \"BucketLoggingStatus\":{\

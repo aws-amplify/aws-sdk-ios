@@ -573,7 +573,7 @@ NSString * const AWSDefaultFileManagerErrorDomain = @"com.amazon.insights-framew
                                                     withErrorCode: AWSDefaultFileManagerErrorCode_ErrorParsingFileContents];
         }
 
-        AWSLogWarn( @"Not able to parse the contents from the file %@. %@. It is common if that file hasn't been created yet.", theFile.absolutePath, [error localizedDescription]);
+        AWSLogVerbose( @"Not able to parse the contents from the file %@. %@. It is common if that file hasn't been created yet.", theFile.absolutePath, [error localizedDescription]);
         [AWSMobileAnalyticsErrorUtils safeSetError:theError withError:error];
         if([theFile exists])
         {

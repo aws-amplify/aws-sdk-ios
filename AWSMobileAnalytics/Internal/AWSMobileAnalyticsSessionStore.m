@@ -68,7 +68,7 @@ NSString *const KEY_SESSION_STOP_TIME = @"sessionStopTime";
 
     AWSMobileAnalyticsSession* session = [self createSessionFromSerializedDictionary:serializedSession];
     if(session == nil) {
-        AWSLogWarn( @"Can not obtain session details from the file. It is common if there is no previous paused session saved in the file.");
+        AWSLogVerbose( @"Can not obtain session details from the file. It is common if there is no previous paused session saved in the file.");
         return nil;
     }
 
