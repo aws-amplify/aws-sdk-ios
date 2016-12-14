@@ -1,5 +1,18 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.4.16
+### New Features
+* **SDK Core**
+	* Introducing new AWS `EUWest2` - Europe (London) region, endpoint `eu-west-2`. 
+
+* **Amazon Rekognition**
+	* Amazon Rekognition is a service that makes it easy to add image analysis to your applications. With Rekognition, you can detect objects, scenes, and faces in images. You can also search and compare faces. Rekognition’s API enables you to quickly add sophisticated deep learning-based visual search and image classification to your applications.
+	
+### Misc. Updates
+
+* **Amazon SQS**
+ 	* Update SQS client to latest service model.
+
 ## 2.4.15
 ### New Features
 * **SDK Core**

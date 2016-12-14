@@ -21,7 +21,7 @@
 #import "AWSLogging.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.4.15";
+NSString *const AWSiOSSDKVersion = @"2.4.16";
 NSString *const AWSServiceErrorDomain = @"com.amazonaws.AWSServiceErrorDomain";
 
 static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
@@ -222,6 +222,7 @@ static NSString *const AWSRegionNameUSEast2 = @"us-east-2";
 static NSString *const AWSRegionNameUSWest2 = @"us-west-2";
 static NSString *const AWSRegionNameUSWest1 = @"us-west-1";
 static NSString *const AWSRegionNameEUWest1 = @"eu-west-1";
+static NSString *const AWSRegionNameEUWest2 = @"eu-west-2";
 static NSString *const AWSRegionNameEUCentral1 = @"eu-central-1";
 static NSString *const AWSRegionNameAPSoutheast1 = @"ap-southeast-1";
 static NSString *const AWSRegionNameAPNortheast1 = @"ap-northeast-1";
@@ -252,6 +253,7 @@ static NSString *const AWSServiceNameMachineLearning = @"machinelearning";
 static NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
 static NSString *const AWSServiceNamePolly = @"polly";
 static NSString *const AWSServiceNameMobileTargeting = @"mobiletargeting";
+static NSString *const AWSServiceNameRekognition = @"rekognition";
 static NSString *const AWSServiceNameS3 = @"s3";
 static NSString *const AWSServiceNameSES = @"email";
 static NSString *const AWSServiceNameSimpleDB = @"sdb";
@@ -355,6 +357,8 @@ static NSString *const AWSServiceNameSTS = @"sts";
             return AWSRegionNameUSWest1;
         case AWSRegionEUWest1:
             return AWSRegionNameEUWest1;
+        case AWSRegionEUWest2:
+            return AWSRegionNameEUWest2;
         case AWSRegionEUCentral1:
             return AWSRegionNameEUCentral1;
         case AWSRegionAPSoutheast1:
@@ -420,6 +424,8 @@ static NSString *const AWSServiceNameSTS = @"sts";
             return AWSServiceNamePolly;
         case AWSServiceMobileTargeting:
             return AWSServiceNameMobileTargeting;
+        case AWSServiceRekognition:
+            return AWSServiceNameRekognition;
         case AWSServiceS3:
             return AWSServiceNameS3;
         case AWSServiceSES:
