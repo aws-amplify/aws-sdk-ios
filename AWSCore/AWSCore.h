@@ -13,7 +13,7 @@
 // permissions and limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for AWSCore.
 FOUNDATION_EXPORT double AWSCoreVersionNumber;
@@ -31,6 +31,7 @@ FOUNDATION_EXPORT const unsigned char AWSCoreVersionString[];
 #import "AWSLogging.h"
 #import "AWSClientContext.h"
 #import "AWSSynchronizedMutableDictionary.h"
+#import "AWSDevice.h"
 #import "AWSSerialization.h"
 #import "AWSURLRequestSerialization.h"
 #import "AWSURLResponseSerialization.h"

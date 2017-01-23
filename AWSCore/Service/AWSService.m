@@ -15,11 +15,11 @@
 
 #import "AWSService.h"
 
-#import <UIKit/UIKit.h>
 #import "AWSSynchronizedMutableDictionary.h"
 #import "AWSURLResponseSerialization.h"
 #import "AWSLogging.h"
 #import "AWSCategory.h"
+#import "AWSDevice.h"
 
 NSString *const AWSiOSSDKVersion = @"2.4.16";
 NSString *const AWSServiceErrorDomain = @"com.amazonaws.AWSServiceErrorDomain";
