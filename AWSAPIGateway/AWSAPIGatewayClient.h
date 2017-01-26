@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -45,7 +45,7 @@ typedef NS_ENUM(NSInteger, AWSAPIGatewayErrorType) {
  *
  *  @param apiRequest An `AWSAPIGatewayRequest` object.
  *
- *  @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAPIGatewayResponse`. On failed execution, `task.error` may contain an `NSError`. If an Exception occurs while executing or building the request, `task.exception` will contain an `NSException` object.
+ *  @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAPIGatewayResponse`. On failed execution, `task.error` may contain an `NSError`.
  */
 - (AWSTask<AWSAPIGatewayResponse *> *)invoke:(AWSAPIGatewayRequest *)apiRequest;
 

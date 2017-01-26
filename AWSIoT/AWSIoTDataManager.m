@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -304,21 +304,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)disconnect{
     [self.mqttClient disconnect];
 }
-//
-// Deprecated method
-//
-- (void)publishString:(NSString *)str
-              onTopic:(NSString *)topic {
-    (void)[self publishString:str onTopic:topic QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce];
-}
-//
-// Deprecated method
-//
-- (void)publishString:(NSString *)str
-                  qos:(UInt8)qos
-              onTopic:(NSString *)topic {
-    (void)[self publishString:str onTopic:topic QoS:(AWSIoTMQTTQoS)qos];
-}
+
 
 - (BOOL)publishString:(NSString *)string
               onTopic:(NSString *)topic
@@ -335,22 +321,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return YES;
 }
 
-//
-// Deprecated method
-//
-- (void)publishData:(NSData *)data
-            onTopic:(NSString *)topic {
-    (void)[self publishData:data onTopic:topic QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce];
-}
-
-//
-// Deprecated method
-//
-- (void)publishData:(NSData *)data
-                qos:(UInt8)qos
-            onTopic:(NSString *)topic {
-    (void)[self publishData:data onTopic:topic QoS:(AWSIoTMQTTQoS)qos];
-}
 
 - (BOOL)publishData:(NSData *)data
             onTopic:(NSString *)topic
@@ -366,14 +336,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return YES;
 }
 
-//
-// Deprecated method
-//
-- (void)subscribeToTopic:(NSString *)topic
-                     qos:(UInt8)qos
-         messageCallback:(AWSIoTMQTTNewMessageBlock)callback {
-    (void)[self subscribeToTopic:topic QoS:(AWSIoTMQTTQoS)qos messageCallback:callback];
-}
 
 - (BOOL)subscribeToTopic:(NSString *)topic
                      QoS:(AWSIoTMQTTQoS)qos
@@ -777,12 +739,6 @@ static void (^shadowMqttMessageHandler)(NSObject *mqttClient, NSString *topic, N
         AWSLogError("attempting to (%@) unknown shadow (%@)", [[self.class operationTypeStrings] objectAtIndex:operation], name);
     }
     return rc;
-}
-
-
-- (BOOL) registerWithShadow:(NSString *)name
-              eventCallback:(void(^)(NSString *name, AWSIoTShadowOperationType operation, AWSIoTShadowOperationStatusType status, NSString *clientToken, NSData *payload))callback {
-    return [self registerWithShadow:name options:nil eventCallback:callback];
 }
 
 - (BOOL) registerWithShadow:(NSString *)name

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #import "AWSSimpleDBResources.h"
 
 static NSString *const AWSInfoSimpleDB = @"SimpleDB";
-static NSString *const AWSSimpleDBSDKVersion = @"2.4.16";
+static NSString *const AWSSimpleDBSDKVersion = @"2.5.0";
 
 
 @interface AWSSimpleDBResponseSerializer : AWSXMLResponseSerializer
@@ -302,11 +302,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self batchDeleteAttributes:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(error);
         }
@@ -328,11 +323,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self batchPutAttributes:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -356,11 +346,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self createDomain:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(error);
         }
@@ -383,11 +368,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self deleteAttributes:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(error);
         }
@@ -409,11 +389,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteDomain:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -438,11 +413,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSimpleDBDomainMetadataResult *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -465,11 +435,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self getAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSSimpleDBGetAttributesResult *> * _Nonnull task) {
         AWSSimpleDBGetAttributesResult *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -494,11 +459,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSimpleDBListDomainsResult *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -520,11 +480,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self putAttributes:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -548,11 +503,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self select:request] continueWithBlock:^id _Nullable(AWSTask<AWSSimpleDBSelectResult *> * _Nonnull task) {
         AWSSimpleDBSelectResult *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);

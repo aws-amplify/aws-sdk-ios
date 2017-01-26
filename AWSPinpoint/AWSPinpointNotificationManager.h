@@ -1,5 +1,5 @@
 /*
- Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  
  Licensed under the Apache License, Version 2.0 (the "License").
  You may not use this file except in compliance with the License.
@@ -20,10 +20,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-FOUNDATION_EXPORT NSString * __nonnull const AWSDeviceTokenKey;
-FOUNDATION_EXPORT NSString * __nonnull const AWSDataKey;
-FOUNDATION_EXPORT NSString * __nonnull const AWSPinpointKey;
-FOUNDATION_EXPORT NSString * __nonnull const AWSPinpointCampaignKey;
+FOUNDATION_EXPORT NSString * const AWSDeviceTokenKey;
+FOUNDATION_EXPORT NSString * const AWSDataKey;
+FOUNDATION_EXPORT NSString * const AWSPinpointKey;
+FOUNDATION_EXPORT NSString * const AWSPinpointCampaignKey;
 
 @interface AWSPinpointNotificationManager : NSObject
 

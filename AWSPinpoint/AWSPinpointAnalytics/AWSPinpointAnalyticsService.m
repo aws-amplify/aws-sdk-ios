@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #import "AWSPinpointAnalyticsResources.h"
 
 static NSString *const AWSInfoPinpointAnalytics = @"PinpointAnalytics";
-static NSString *const AWSPinpointAnalyticsSDKVersion = @"2.4.16";
+static NSString *const AWSPinpointAnalyticsSDKVersion = @"2.5.0";
 
 
 @interface AWSPinpointAnalyticsResponseSerializer : AWSJSONResponseSerializer
@@ -327,11 +327,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self putEvents:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);

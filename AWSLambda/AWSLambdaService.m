@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #import "AWSLambdaResources.h"
 
 static NSString *const AWSInfoLambda = @"Lambda";
-static NSString *const AWSLambdaSDKVersion = @"2.4.16";
+static NSString *const AWSLambdaSDKVersion = @"2.5.0";
 
 
 @interface AWSLambdaResponseSerializer : AWSJSONResponseSerializer
@@ -343,11 +343,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSLambdaAddPermissionResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -370,11 +365,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self createAlias:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaAliasConfiguration *> * _Nonnull task) {
         AWSLambdaAliasConfiguration *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -399,11 +389,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSLambdaEventSourceMappingConfiguration *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -427,11 +412,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSLambdaFunctionConfiguration *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -453,11 +433,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteAlias:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -482,11 +457,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSLambdaEventSourceMappingConfiguration *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -508,11 +478,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteFunction:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -537,11 +502,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSLambdaAliasConfiguration *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -564,11 +524,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self getEventSourceMapping:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaEventSourceMappingConfiguration *> * _Nonnull task) {
         AWSLambdaEventSourceMappingConfiguration *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -593,11 +548,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSLambdaGetFunctionResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -620,11 +570,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self getFunctionConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaFunctionConfiguration *> * _Nonnull task) {
         AWSLambdaFunctionConfiguration *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -649,11 +594,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSLambdaGetPolicyResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -676,11 +616,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self invoke:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaInvocationResponse *> * _Nonnull task) {
         AWSLambdaInvocationResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -705,11 +640,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSLambdaInvokeAsyncResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -732,11 +662,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self listAliases:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaListAliasesResponse *> * _Nonnull task) {
         AWSLambdaListAliasesResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -761,11 +686,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSLambdaListEventSourceMappingsResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -788,11 +708,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self listFunctions:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaListFunctionsResponse *> * _Nonnull task) {
         AWSLambdaListFunctionsResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -817,11 +732,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSLambdaListVersionsByFunctionResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -845,11 +755,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSLambdaFunctionConfiguration *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -871,11 +776,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self removePermission:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -900,11 +800,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSLambdaAliasConfiguration *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -927,11 +822,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self updateEventSourceMapping:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaEventSourceMappingConfiguration *> * _Nonnull task) {
         AWSLambdaEventSourceMappingConfiguration *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -956,11 +846,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSLambdaFunctionConfiguration *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -983,11 +868,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self updateFunctionConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaFunctionConfiguration *> * _Nonnull task) {
         AWSLambdaFunctionConfiguration *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);

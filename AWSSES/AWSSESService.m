@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #import "AWSSESResources.h"
 
 static NSString *const AWSInfoSES = @"SES";
-static NSString *const AWSSESSDKVersion = @"2.4.16";
+static NSString *const AWSSESSDKVersion = @"2.5.0";
 
 
 @interface AWSSESResponseSerializer : AWSXMLResponseSerializer
@@ -296,11 +296,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESCloneReceiptRuleSetResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -323,11 +318,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self createReceiptFilter:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESCreateReceiptFilterResponse *> * _Nonnull task) {
         AWSSESCreateReceiptFilterResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -352,11 +342,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESCreateReceiptRuleResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -379,11 +364,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self createReceiptRuleSet:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESCreateReceiptRuleSetResponse *> * _Nonnull task) {
         AWSSESCreateReceiptRuleSetResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -408,11 +388,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESDeleteIdentityResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -435,11 +410,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self deleteIdentityPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESDeleteIdentityPolicyResponse *> * _Nonnull task) {
         AWSSESDeleteIdentityPolicyResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -464,11 +434,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESDeleteReceiptFilterResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -491,11 +456,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self deleteReceiptRule:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESDeleteReceiptRuleResponse *> * _Nonnull task) {
         AWSSESDeleteReceiptRuleResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -520,11 +480,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESDeleteReceiptRuleSetResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -546,11 +501,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteVerifiedEmailAddress:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -575,11 +525,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESDescribeActiveReceiptRuleSetResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -602,11 +547,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self describeReceiptRule:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESDescribeReceiptRuleResponse *> * _Nonnull task) {
         AWSSESDescribeReceiptRuleResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -631,11 +571,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESDescribeReceiptRuleSetResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -658,11 +593,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self getIdentityDkimAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESGetIdentityDkimAttributesResponse *> * _Nonnull task) {
         AWSSESGetIdentityDkimAttributesResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -687,11 +617,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESGetIdentityMailFromDomainAttributesResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -714,11 +639,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self getIdentityNotificationAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESGetIdentityNotificationAttributesResponse *> * _Nonnull task) {
         AWSSESGetIdentityNotificationAttributesResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -743,11 +663,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESGetIdentityPoliciesResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -770,11 +685,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self getIdentityVerificationAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESGetIdentityVerificationAttributesResponse *> * _Nonnull task) {
         AWSSESGetIdentityVerificationAttributesResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -799,11 +709,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESGetSendQuotaResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -826,11 +731,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self getSendStatistics:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESGetSendStatisticsResponse *> * _Nonnull task) {
         AWSSESGetSendStatisticsResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -855,11 +755,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESListIdentitiesResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -882,11 +777,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self listIdentityPolicies:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESListIdentityPoliciesResponse *> * _Nonnull task) {
         AWSSESListIdentityPoliciesResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -911,11 +801,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESListReceiptFiltersResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -938,11 +823,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self listReceiptRuleSets:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESListReceiptRuleSetsResponse *> * _Nonnull task) {
         AWSSESListReceiptRuleSetsResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -967,11 +847,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESListVerifiedEmailAddressesResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -994,11 +869,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self putIdentityPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESPutIdentityPolicyResponse *> * _Nonnull task) {
         AWSSESPutIdentityPolicyResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -1023,11 +893,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESReorderReceiptRuleSetResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1050,11 +915,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self sendBounce:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESSendBounceResponse *> * _Nonnull task) {
         AWSSESSendBounceResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -1079,11 +939,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESSendEmailResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1106,11 +961,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self sendRawEmail:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESSendRawEmailResponse *> * _Nonnull task) {
         AWSSESSendRawEmailResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -1135,11 +985,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESSetActiveReceiptRuleSetResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1162,11 +1007,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self setIdentityDkimEnabled:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESSetIdentityDkimEnabledResponse *> * _Nonnull task) {
         AWSSESSetIdentityDkimEnabledResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -1191,11 +1031,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESSetIdentityFeedbackForwardingEnabledResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1218,11 +1053,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self setIdentityHeadersInNotificationsEnabled:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESSetIdentityHeadersInNotificationsEnabledResponse *> * _Nonnull task) {
         AWSSESSetIdentityHeadersInNotificationsEnabledResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -1247,11 +1077,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESSetIdentityMailFromDomainResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1274,11 +1099,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self setIdentityNotificationTopic:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESSetIdentityNotificationTopicResponse *> * _Nonnull task) {
         AWSSESSetIdentityNotificationTopicResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -1303,11 +1123,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESSetReceiptRulePositionResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1330,11 +1145,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self updateReceiptRule:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESUpdateReceiptRuleResponse *> * _Nonnull task) {
         AWSSESUpdateReceiptRuleResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -1359,11 +1169,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESVerifyDomainDkimResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1387,11 +1192,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSESVerifyDomainIdentityResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1413,11 +1213,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self verifyEmailAddress:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -1441,11 +1236,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self verifyEmailIdentity:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESVerifyEmailIdentityResponse *> * _Nonnull task) {
         AWSSESVerifyEmailIdentityResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);

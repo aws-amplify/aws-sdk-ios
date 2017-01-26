@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -25,14 +25,14 @@ class TestObjectV2: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
 
     var stringAttributeRenamed: String?
     var numberAttributeRenamed: NSNumber?
-    var binaryAttributeRenamed: NSData?
+    var binaryAttributeRenamed: Data?
 
     var stringSetAttributeRenamed: Set<String>?
     var numberSetAttributeRenamed: Set<NSNumber>?
-    var binarySetAttributeRenamed: Set<NSData>?
+    var binarySetAttributeRenamed: Set<Data>?
 
     var bool2ElementRenamed: NSNumber?
-    var listElementRenamed: Array<NSObject>?
+    var listElementRenamed:  Array<NSObject>?
     var mapElementRenamed: Dictionary<String, NSObject>?
 
     var emptyElement: NSString?
@@ -49,7 +49,7 @@ class TestObjectV2: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
         return "rangeKeyRenamed"
     }
 
-    override class func JSONKeyPathsByPropertyKey() -> [NSObject: AnyObject] {
+    override class func jsonKeyPathsByPropertyKey() -> [AnyHashable: Any] {
         return ["hashKeyRenamed" : "hashKey1",
                 "rangeKeyRenamed" : "rangeKey1",
                 "stringAttributeRenamed" : "stringAttribute",
@@ -69,7 +69,7 @@ class AWSDynamoDBObjectMapperSwiftTests: XCTestCase {
         super.setUp()
         AWSTestUtility.setupCognitoCredentialsProvider()
 
-        let timeIntervalSinceReferenceDate = Int(NSDate().timeIntervalSinceReferenceDate)
+        let timeIntervalSinceReferenceDate = Int(Date().timeIntervalSinceReferenceDate)
         tableName = "DynamoDBOMTestSwift-\(timeIntervalSinceReferenceDate)"
 
         AWSDynamoDBTestUtility.createTable(tableName)
@@ -81,98 +81,95 @@ class AWSDynamoDBObjectMapperSwiftTests: XCTestCase {
     }
 
     func testBooleanNumber() {
-        let boolNumberArray:Array<AnyObject> = [true, false, NSNumber(bool: true), NSNumber(bool: false)]
-        let nonBoolNumberArray:Array<AnyObject> = [20, 500.34, NSNumber(integer: 34), NSNumber(char: 3), NSNumber(float: 23.4)]
-        let myboolClass = NSNumber(bool: true).dynamicType
-        let klass: AnyClass = object_getClass(NSNumber(bool: true))
+        let boolNumberArray:Array<AnyObject> = [true as AnyObject, false as AnyObject, NSNumber(value: true as Bool), NSNumber(value: false as Bool)]
+        let nonBoolNumberArray:Array<AnyObject> = [20 as AnyObject, 500.34 as AnyObject, NSNumber(value: 34 as Int), NSNumber(value: 3 as Int8), NSNumber(value: 23.4 as Float)]
+        let myboolClass = type(of: NSNumber(value: true as Bool))
+        let klass: AnyClass = object_getClass(NSNumber(value: true as Bool))
 
         for myNum in boolNumberArray {
-            let result = myNum.isKindOfClass(myboolClass)
+            let result = myNum.isKind(of: myboolClass)
             XCTAssertTrue(result,"\(myNum) should be a boolClass")
         }
 
         for myNum in nonBoolNumberArray {
-            let result2 = myNum.isKindOfClass(myboolClass)
+            let result2 = myNum.isKind(of: myboolClass)
             XCTAssertFalse(result2, "\(myNum) should be a boolClass")
         }
 
         for myNum in boolNumberArray {
-            let result = myNum.isKindOfClass(klass)
+            let result = myNum.isKind(of: klass)
             XCTAssertTrue(result,"\(myNum) should be a boolClass")
         }
 
         for myNum in nonBoolNumberArray {
-            let result2 = myNum.isKindOfClass(klass)
+            let result2 = myNum.isKind(of: klass)
             XCTAssertFalse(result2, "\(myNum) should be a boolClass")
         }
     }
 
     func testSaveBehaviorUpdateV2() {
-        let objectMapper = AWSDynamoDBObjectMapper.defaultDynamoDBObjectMapper()
+        let objectMapper = AWSDynamoDBObjectMapper.default()
         let hashKeyValue = "hash-v2-swift-\(#function)"
         let rangeKeyValue = "range-v2-swift-\(#function)"
 
         let stringElement = "testString"
         let numberElement = 123.4
-        let binaryElement = "testData".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
+        let binaryElement = "testData".data(using: String.Encoding.utf8, allowLossyConversion: false)!
 
         let stringSet = Set(["StringSet1", "stringSet2", "stringSet3"])
         let numberSet = Set([1, 2, 3])
-        let data1 = "testDataSet1".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
-        let data2 = "testDataSet2".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
-        let data3 = "testDataSet4".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
+        let data1 = "testDataSet1".data(using: String.Encoding.utf8, allowLossyConversion: false)!
+        let data2 = "testDataSet2".data(using: String.Encoding.utf8, allowLossyConversion: false)!
+        let data3 = "testDataSet4".data(using: String.Encoding.utf8, allowLossyConversion: false)!
         let binarySet = Set([data1, data2, data3])
         let boolElement = true
-        let listElement = ["StringInList", 55, binaryElement, stringSet, numberSet, binarySet, true, ["stringInListOfList", 57]]
-        let mapElement = ["mapStringKey" : "mapStringValue",
-                          "mapNumberKey" : 98,
-                          "mapBinaryKey" : binaryElement,
-                          "mapStringSetKey" : stringSet,
-                          "mapNumberSetKey" : numberSet,
-                          "mapBoolKey" : true,
-                          "mapListKey" : listElement,
+        let listElement = ["StringInList" as NSString, 55 as NSNumber, binaryElement as NSData, stringSet as NSSet, numberSet as NSSet, binarySet as NSSet, true as NSNumber, ["stringInListOfList", 57] as NSArray] as Array<NSObject>
+        let mapElement = ["mapStringKey" : "mapStringValue" as NSString,
+                          "mapNumberKey" : 98 as NSNumber,
+                          "mapBinaryKey" : binaryElement as NSData,
+                          "mapStringSetKey" : stringSet as NSSet,
+                          "mapNumberSetKey" : numberSet as NSSet,
+                          "mapBoolKey" : true as NSNumber,
+                          "mapListKey" : listElement as NSArray,
                           "mapMapKey" : [
                             "str" : "strValue",
                             "num" : 5,
-                            "lst" : listElement]]
+                            "lst" : listElement] as NSDictionary] as Dictionary<String, NSObject>
 
         let objv2 = TestObjectV2()
-        objv2.hashKeyRenamed = hashKeyValue
-        objv2.rangeKeyRenamed = rangeKeyValue
-        objv2.stringAttributeRenamed = stringElement
-        objv2.numberAttributeRenamed = numberElement
-        objv2.binaryAttributeRenamed = binaryElement;
-        objv2.stringSetAttributeRenamed = stringSet
-        objv2.numberSetAttributeRenamed = numberSet
-        objv2.binarySetAttributeRenamed = binarySet
-        objv2.bool2ElementRenamed = boolElement
-        objv2.listElementRenamed = listElement
-        objv2.mapElementRenamed = mapElement
+        objv2?.hashKeyRenamed = hashKeyValue
+        objv2?.rangeKeyRenamed = rangeKeyValue
+        objv2?.stringAttributeRenamed = stringElement
+        objv2?.numberAttributeRenamed = numberElement as NSNumber?
+        objv2?.binaryAttributeRenamed = binaryElement;
+        objv2?.stringSetAttributeRenamed = stringSet
+        objv2?.numberSetAttributeRenamed = numberSet as Set<NSNumber>?
+        objv2?.binarySetAttributeRenamed = binarySet
+        objv2?.bool2ElementRenamed = boolElement as NSNumber?
+        objv2?.listElementRenamed = listElement as Array<NSObject>
+        objv2?.mapElementRenamed = mapElement as Dictionary<String, NSObject>?
 
-        objectMapper.save(objv2).continueWithSuccessBlock { (task) -> AnyObject? in
+        objectMapper.save(objv2!).continueWith(block: { (task) -> AnyObject? in
             return objectMapper.load(TestObjectV2.self, hashKey: hashKeyValue, rangeKey: rangeKeyValue)
-            }.continueWithBlock { (task) -> AnyObject? in
+        }).continueWith (block: { (task) -> AnyObject? in
                 if (task.error != nil) {
                     XCTFail("Error: \(task.error)")
-                }
-                if (task.exception != nil) {
-                    XCTFail("Exception: \(task.exception)")
                 }
                 if let obj = task.result as? TestObjectV2 {
                     XCTAssertEqual(obj.hashKeyRenamed, hashKeyValue)
                     XCTAssertEqual(obj.rangeKeyRenamed, rangeKeyValue)
                     XCTAssertEqual(obj.stringAttributeRenamed, stringElement)
-                    XCTAssertEqual(obj.numberAttributeRenamed, numberElement)
+                    XCTAssertEqual(obj.numberAttributeRenamed, numberElement as NSNumber?)
                     XCTAssertEqual(obj.binaryAttributeRenamed, binaryElement)
                     XCTAssertEqual(obj.stringSetAttributeRenamed, stringSet)
-                    XCTAssertEqual(obj.numberSetAttributeRenamed, numberSet)
+                    XCTAssertEqual(obj.numberSetAttributeRenamed, numberSet as Set<NSNumber>?)
                     XCTAssertEqual(obj.binarySetAttributeRenamed, binarySet)
-                    XCTAssertEqual(obj.bool2ElementRenamed, boolElement)
+                    XCTAssertEqual(obj.bool2ElementRenamed, boolElement as NSNumber?)
                     XCTAssertEqual(obj.listElementRenamed!, listElement)
                     XCTAssertEqual(obj.mapElementRenamed!, mapElement)
                     XCTAssertNil(obj.emptyElement)
                 }
                 return nil
-            }.waitUntilFinished()
+            }).waitUntilFinished()
     }
 }

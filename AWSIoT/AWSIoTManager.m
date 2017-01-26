@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -115,7 +115,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return self;
 }
 
-- (void)createKeysAndCertificateFromCsr:(NSDictionary *)csrDictionary callback:(void (^)(AWSIoTCreateCertificateResponse *mainResponse))callback {
+- (void)createKeysAndCertificateFromCsr:(NSDictionary<NSString *, NSString*> *)csrDictionary callback:(void (^)(AWSIoTCreateCertificateResponse *mainResponse))callback {
 
     NSString *commonName = [csrDictionary objectForKey:@"commonName"];
     NSString *countryName = [csrDictionary objectForKey:@"countryName"];
@@ -147,12 +147,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         NSError *error = task.error;
         AWSLogInfo(@"error: %@", error);
         if (error != nil) {
-            callback(nil);
-            return nil;
-        }
-        NSException *exception = task.exception;
-        AWSLogInfo(@"exception: %@", exception);
-        if (exception != nil) {
             callback(nil);
             return nil;
         }

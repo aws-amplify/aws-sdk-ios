@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #import "AWSAutoScalingResources.h"
 
 static NSString *const AWSInfoAutoScaling = @"AutoScaling";
-static NSString *const AWSAutoScalingSDKVersion = @"2.4.16";
+static NSString *const AWSAutoScalingSDKVersion = @"2.5.0";
 
 
 @interface AWSAutoScalingResponseSerializer : AWSXMLResponseSerializer
@@ -290,11 +290,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self attachInstances:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(error);
         }
@@ -317,11 +312,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self attachLoadBalancerTargetGroups:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingAttachLoadBalancerTargetGroupsResultType *> * _Nonnull task) {
         AWSAutoScalingAttachLoadBalancerTargetGroupsResultType *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -346,11 +336,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingAttachLoadBalancersResultType *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -374,11 +359,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingCompleteLifecycleActionAnswer *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -400,11 +380,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self createAutoScalingGroup:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -428,11 +403,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self createLaunchConfiguration:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(error);
         }
@@ -454,11 +424,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self createOrUpdateTags:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -482,11 +447,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self deleteAutoScalingGroup:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(error);
         }
@@ -508,11 +468,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteLaunchConfiguration:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -537,11 +492,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingDeleteLifecycleHookAnswer *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -563,11 +513,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteNotificationConfiguration:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -591,11 +536,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self deletePolicy:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(error);
         }
@@ -618,11 +558,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self deleteScheduledAction:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(error);
         }
@@ -644,11 +579,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteTags:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -673,11 +603,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingDescribeAccountLimitsAnswer *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -700,11 +625,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self describeAdjustmentTypes:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingDescribeAdjustmentTypesAnswer *> * _Nonnull task) {
         AWSAutoScalingDescribeAdjustmentTypesAnswer *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -729,11 +649,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingAutoScalingGroupsType *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -756,11 +671,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self describeAutoScalingInstances:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingAutoScalingInstancesType *> * _Nonnull task) {
         AWSAutoScalingAutoScalingInstancesType *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -785,11 +695,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -812,11 +717,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self describeLaunchConfigurations:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingLaunchConfigurationsType *> * _Nonnull task) {
         AWSAutoScalingLaunchConfigurationsType *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -841,11 +741,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingDescribeLifecycleHookTypesAnswer *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -868,11 +763,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self describeLifecycleHooks:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingDescribeLifecycleHooksAnswer *> * _Nonnull task) {
         AWSAutoScalingDescribeLifecycleHooksAnswer *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -897,11 +787,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -924,11 +809,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self describeLoadBalancers:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingDescribeLoadBalancersResponse *> * _Nonnull task) {
         AWSAutoScalingDescribeLoadBalancersResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -953,11 +833,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingDescribeMetricCollectionTypesAnswer *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -980,11 +855,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self describeNotificationConfigurations:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingDescribeNotificationConfigurationsAnswer *> * _Nonnull task) {
         AWSAutoScalingDescribeNotificationConfigurationsAnswer *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -1009,11 +879,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingPoliciesType *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1036,11 +901,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self describeScalingActivities:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingActivitiesType *> * _Nonnull task) {
         AWSAutoScalingActivitiesType *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -1065,11 +925,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingProcessesType *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1092,11 +947,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self describeScheduledActions:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingScheduledActionsType *> * _Nonnull task) {
         AWSAutoScalingScheduledActionsType *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -1121,11 +971,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingTagsType *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1148,11 +993,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self describeTerminationPolicyTypes:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingDescribeTerminationPolicyTypesAnswer *> * _Nonnull task) {
         AWSAutoScalingDescribeTerminationPolicyTypesAnswer *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -1177,11 +1017,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingDetachInstancesAnswer *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1204,11 +1039,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self detachLoadBalancerTargetGroups:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingDetachLoadBalancerTargetGroupsResultType *> * _Nonnull task) {
         AWSAutoScalingDetachLoadBalancerTargetGroupsResultType *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -1233,11 +1063,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingDetachLoadBalancersResultType *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1260,11 +1085,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self disableMetricsCollection:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(error);
         }
@@ -1286,11 +1106,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self enableMetricsCollection:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -1315,11 +1130,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingEnterStandbyAnswer *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1341,11 +1151,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self executePolicy:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -1370,11 +1175,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingExitStandbyAnswer *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1398,11 +1198,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingPutLifecycleHookAnswer *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1424,11 +1219,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self putNotificationConfiguration:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -1453,11 +1243,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingPolicyARNType *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1479,11 +1264,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self putScheduledUpdateGroupAction:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -1508,11 +1288,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingRecordLifecycleActionHeartbeatAnswer *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1534,11 +1309,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self resumeProcesses:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -1562,11 +1332,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self setDesiredCapacity:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(error);
         }
@@ -1588,11 +1353,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self setInstanceHealth:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -1617,11 +1377,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingSetInstanceProtectionAnswer *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1643,11 +1398,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self suspendProcesses:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -1672,11 +1422,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSAutoScalingActivityType *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1698,11 +1443,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self updateAutoScalingGroup:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(error);

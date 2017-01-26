@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -102,6 +102,10 @@ static NSString *testBucketNameGeneral = nil;
 }
 
 + (void)tearDown {
+    
+    // Delete all contents of the bucket
+    [AWSS3Tests deleteAllObjectsFromBucket:testBucketNameGeneral];
+    
     //Delete Bucket
     [AWSS3Tests deleteBucketWithName:testBucketNameGeneral];
     
@@ -118,6 +122,34 @@ static NSString *testBucketNameGeneral = nil;
 - (void)tearDown {
     // Put teardown code here; it will be run once, after the last test case.
     [super tearDown];
+}
+
++ (void)deleteAllObjectsFromBucket:(NSString *)bucketName {
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    
+    AWSS3ListObjectsRequest *listObjectsRequest = [AWSS3ListObjectsRequest new];
+    listObjectsRequest.bucket = testBucketNameGeneral;
+    
+    [[[s3 listObjects:listObjectsRequest] continueWithBlock:^id(AWSTask *task) {
+        AWSS3ListObjectsOutput *output = task.result;
+        
+        for (AWSS3Object *object in output.contents) {
+            // Delete the object
+            AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
+            deleteObjectRequest.bucket = testBucketNameGeneral;
+            deleteObjectRequest.key = object.key;
+            
+            [[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
+                if (task.error) {
+                    NSLog(@"Failed to delete: %@", object.key);
+                } else {
+                    NSLog(@"Successfully deleted: %@", object.key);
+                }
+                return nil;
+            }];
+        }
+        return nil;
+    }] waitUntilFinished];
 }
 
 + (BOOL)createBucketWithName:(NSString *)bucketName {
@@ -362,7 +394,6 @@ static NSString *testBucketNameGeneral = nil;
           return [s3 listObjects:list];
       }] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
           XCTAssertNil(task.error);
-          XCTAssertNil(task.exception);
           AWSS3ListObjectsOutput *listObjects = (AWSS3ListObjectsOutput *)task.result;
           XCTAssertTrue([[listObjects contents] count] == 1);
           NSArray<AWSS3Object *> *contents = [listObjects contents];
@@ -376,13 +407,11 @@ static NSString *testBucketNameGeneral = nil;
           return [s3 deleteObject:del];
       }] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
           XCTAssertNil(task.error);
-          XCTAssertNil(task.exception);
           AWSS3ListObjectsRequest *list = [AWSS3ListObjectsRequest new];
           list.bucket = testBucketNameGeneral;
           return [s3 listObjects:list];
       }] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
           XCTAssertNil(task.error);
-          XCTAssertNil(task.exception);
           AWSS3ListObjectsOutput *listObjects = (AWSS3ListObjectsOutput *)task.result;
           XCTAssertTrue([[listObjects contents] count] == 0);
           return nil;
@@ -433,6 +462,9 @@ static NSString *testBucketNameGeneral = nil;
     }] waitUntilFinished];
 
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+    
+    // Delete all objects from the bucket
+    [AWSS3Tests deleteAllObjectsFromBucket:grantBucketName];
     
     XCTAssertTrue([AWSS3Tests deleteBucketWithName:grantBucketName]);
 }
@@ -946,7 +978,6 @@ static NSString *testBucketNameGeneral = nil;
 
     [[[s3 putBucketVersioning:versionRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
-        XCTAssertNil(task.exception);
         return nil;
     }] waitUntilFinished];
 
@@ -959,7 +990,6 @@ static NSString *testBucketNameGeneral = nil;
 
     [[[s3 putBucketVersioning:versionRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
-        XCTAssertNil(task.exception);
         return nil;
     }] waitUntilFinished];
 }
@@ -1402,7 +1432,6 @@ static NSString *testBucketNameGeneral = nil;
 
     [[[s3 headObject:headObjectRequest] continueWithBlock:^id _Nullable(AWSTask<AWSS3HeadObjectOutput *> * _Nonnull task) {
         XCTAssertNotNil(task.error);
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
         return nil;
     }] waitUntilFinished];

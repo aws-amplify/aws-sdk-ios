@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ typedef __nullable id(^AWSPinpointCompletionBlock)(AWSTask *task);
  
  @returns the `AWSPinpointEventRecorder` used for storing events.
  */
-@property (nonatomic, readonly) AWSPinpointEventRecorder *_Nonnull eventRecorder;
+@property (nonatomic, readonly) AWSPinpointEventRecorder * eventRecorder;
 
 /**
  Adds the specified attribute to all subsequent recorded events.
@@ -112,7 +112,7 @@ typedef __nullable id(^AWSPinpointCompletionBlock)(AWSTask *task);
  
  @return AWSTask - task.result is always nil.
  */
--(AWSTask*) recordEvent:(AWSPinpointEvent *) theEvent;
+-(AWSTask *) recordEvent:(AWSPinpointEvent *) theEvent;
 
 /**
  Create an AWSPinpointEvent with the specified theEventType
@@ -153,7 +153,7 @@ typedef __nullable id(^AWSPinpointCompletionBlock)(AWSTask *task);
  
  @return AWSTask - task.result contains successful submitted events.
  */
-- (nonnull AWSTask*) submitEvents;
+- (AWSTask *) submitEvents;
 
 /**
  Submits all recorded events to Pinpoint.
@@ -163,7 +163,7 @@ typedef __nullable id(^AWSPinpointCompletionBlock)(AWSTask *task);
  
  @return AWSTask - task.result is always nil.
  */
-- (nonnull AWSTask*) submitEventsWithCompletionBlock:(AWSPinpointCompletionBlock) completionBlock;
+- (AWSTask *) submitEventsWithCompletionBlock:(AWSPinpointCompletionBlock) completionBlock;
 
 @end
 

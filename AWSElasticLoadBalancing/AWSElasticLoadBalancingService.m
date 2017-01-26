@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #import "AWSElasticLoadBalancingResources.h"
 
 static NSString *const AWSInfoElasticLoadBalancing = @"ElasticLoadBalancing";
-static NSString *const AWSElasticLoadBalancingSDKVersion = @"2.4.16";
+static NSString *const AWSElasticLoadBalancingSDKVersion = @"2.5.0";
 
 
 @interface AWSElasticLoadBalancingResponseSerializer : AWSXMLResponseSerializer
@@ -306,11 +306,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSElasticLoadBalancingAddTagsOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -333,11 +328,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self applySecurityGroupsToLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -362,11 +352,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSElasticLoadBalancingAttachLoadBalancerToSubnetsOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -389,11 +374,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self configureHealthCheck:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingConfigureHealthCheckOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingConfigureHealthCheckOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -418,11 +398,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSElasticLoadBalancingCreateAppCookieStickinessPolicyOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -445,11 +420,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self createLBCookieStickinessPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingCreateLBCookieStickinessPolicyOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingCreateLBCookieStickinessPolicyOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -474,11 +444,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSElasticLoadBalancingCreateAccessPointOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -501,11 +466,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self createLoadBalancerListeners:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingCreateLoadBalancerListenerOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingCreateLoadBalancerListenerOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -530,11 +490,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSElasticLoadBalancingCreateLoadBalancerPolicyOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -557,11 +512,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self deleteLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDeleteAccessPointOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingDeleteAccessPointOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -586,11 +536,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSElasticLoadBalancingDeleteLoadBalancerListenerOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -613,11 +558,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self deleteLoadBalancerPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDeleteLoadBalancerPolicyOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingDeleteLoadBalancerPolicyOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -642,11 +582,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSElasticLoadBalancingDeregisterEndPointsOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -669,11 +604,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self describeInstanceHealth:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeEndPointStateOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingDescribeEndPointStateOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -698,11 +628,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSElasticLoadBalancingDescribeLoadBalancerAttributesOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -725,11 +650,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self describeLoadBalancerPolicies:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeLoadBalancerPoliciesOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingDescribeLoadBalancerPoliciesOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -754,11 +674,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -781,11 +696,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self describeLoadBalancers:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeAccessPointsOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingDescribeAccessPointsOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -810,11 +720,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSElasticLoadBalancingDescribeTagsOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -837,11 +742,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self detachLoadBalancerFromSubnets:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -866,11 +766,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSElasticLoadBalancingRemoveAvailabilityZonesOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -893,11 +788,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self enableAvailabilityZonesForLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingAddAvailabilityZonesOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingAddAvailabilityZonesOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -922,11 +812,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -949,11 +834,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self registerInstancesWithLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingRegisterEndPointsOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingRegisterEndPointsOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -978,11 +858,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSElasticLoadBalancingRemoveTagsOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1005,11 +880,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self setLoadBalancerListenerSSLCertificate:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -1034,11 +904,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1061,11 +926,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self setLoadBalancerPoliciesOfListener:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);

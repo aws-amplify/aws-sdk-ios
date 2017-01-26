@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #import "AWSPollyResources.h"
 
 static NSString *const AWSInfoPolly = @"Polly";
-static NSString *const AWSPollySDKVersion = @"2.4.16";
+static NSString *const AWSPollySDKVersion = @"2.5.0";
 
 
 @interface AWSPollyResponseSerializer : AWSJSONResponseSerializer
@@ -302,11 +302,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSPollyDeleteLexiconOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -329,11 +324,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self describeVoices:request] continueWithBlock:^id _Nullable(AWSTask<AWSPollyDescribeVoicesOutput *> * _Nonnull task) {
         AWSPollyDescribeVoicesOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -358,11 +348,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSPollyGetLexiconOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -385,11 +370,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self listLexicons:request] continueWithBlock:^id _Nullable(AWSTask<AWSPollyListLexiconsOutput *> * _Nonnull task) {
         AWSPollyListLexiconsOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -414,11 +394,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSPollyPutLexiconOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -441,11 +416,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self synthesizeSpeech:request] continueWithBlock:^id _Nullable(AWSTask<AWSPollySynthesizeSpeechOutput *> * _Nonnull task) {
         AWSPollySynthesizeSpeechOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);

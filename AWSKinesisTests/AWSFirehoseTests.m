@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -42,7 +42,6 @@ NSString *const AWSFirehoseTestStream = @"test-permanent-firehose";
     AWSFirehoseListDeliveryStreamsInput *listDeliveryStreamsInput = [AWSFirehoseListDeliveryStreamsInput new];
     [[[firehose listDeliveryStreams:listDeliveryStreamsInput] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNil(task.error);
-        XCTAssertNil(task.exception);
         XCTAssertEqual([task.result class], [AWSFirehoseListDeliveryStreamsOutput class]);
 
         AWSFirehoseListDeliveryStreamsOutput *listDeliveryStreamsOutput = task.result;
@@ -75,7 +74,6 @@ NSString *const AWSFirehoseTestStream = @"test-permanent-firehose";
 
     [[[firehose putRecord:putRecordInput] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNil(task.error);
-        XCTAssertNil(task.exception);
         XCTAssertEqual([task.result class], [AWSFirehosePutRecordOutput class]);
 
         AWSFirehosePutRecordOutput *putRecordOutput = task.result;
@@ -99,7 +97,6 @@ NSString *const AWSFirehoseTestStream = @"test-permanent-firehose";
 
     [[[firehose putRecordBatch:putRecordBatchInput] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNil(task.error);
-        XCTAssertNil(task.exception);
         XCTAssertEqual([task.result class], [AWSFirehosePutRecordBatchOutput class]);
 
         AWSFirehosePutRecordBatchOutput *putRecordBatchOutput = task.result;

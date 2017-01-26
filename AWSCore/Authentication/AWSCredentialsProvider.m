@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -228,15 +228,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 
 @end
 
-// This class is for providing an API backward compatibility. Do not use.
-@interface AWSCognitoDeprecatedIdentityProviderManager : NSObject <AWSIdentityProviderManager>
-
-@property (nonatomic, strong) NSDictionary<NSString *, NSString *> *internalLogins;
-
-- (instancetype)initWithLogins:(NSDictionary<NSString *, NSString *> *)logins;
-
-@end
-
 @interface AWSCognitoCredentialsProvider()
 
 @property (nonatomic, strong) NSString *authRoleArn;
@@ -457,7 +448,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                     AWSLogError(@"In refresh, but identitId is nil.");
                     AWSLogError(@"Result from getIdentityId is %@", task.result);
                     return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderHelperErrorDomain
-                                                                      code:AWSCognitoCredentialsProviderHelperErrorIdentityIsNil
+                                                                      code:AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil
                                                                   userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]];
                 }
                 self.identityId = providerRef.identityId;
@@ -473,9 +464,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                 return [self.cognitoIdentity getCredentialsForIdentity:getCredentialsRetry];
             }];
         }
-        if (task.exception) {
-            AWSLogError(@"GetCredentialsForIdentity failed. Exception is [%@]", task.exception);
-        }
         return task;
     }] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSCognitoIdentityGetCredentialsForIdentityResponse *getCredentialsResponse = task.result;
@@ -490,7 +478,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         if (!identityIdFromResponse) {
             AWSLogError(@"identityId from getCredentialsForIdentity is nil");
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderHelperErrorDomain
-                                                              code:AWSCognitoCredentialsProviderHelperErrorIdentityIsNil
+                                                              code:AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil
                                                           userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
                     ];
         }
@@ -575,9 +563,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             AWSLogError(@"Unable to refresh. Error is [%@]", task.error);
-        }
-        if (task.exception) {
-            AWSLogError(@"Unable to refresh. Exception is [%@]", task.exception);
         }
         
         self.refreshingCredentials = NO;
@@ -708,106 +693,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     } else {
         self.keychain[AWSCredentialsProviderKeychainExpiration] = nil;
     }
-}
-
-#pragma mark - Deprecated methods
-
-- (instancetype)initWithRegionType:(AWSRegionType)regionType
-                        identityId:(NSString *)identityId
-                    identityPoolId:(NSString *)identityPoolId
-                            logins:(NSDictionary *)logins {
-    logins = [self updateKeysForLogins:logins];
-    return [self initWithRegionType:regionType
-                     identityPoolId:identityPoolId
-            identityProviderManager:[[AWSCognitoDeprecatedIdentityProviderManager alloc] initWithLogins:logins]];
-}
-
-- (instancetype)initWithRegionType:(AWSRegionType)regionType
-                        identityId:(NSString *)identityId
-                         accountId:(NSString *)accountId
-                    identityPoolId:(NSString *)identityPoolId
-                     unauthRoleArn:(NSString *)unauthRoleArn
-                       authRoleArn:(NSString *)authRoleArn
-                            logins:(NSDictionary *)logins {
-    logins = [self updateKeysForLogins:logins];
-    return [self initWithRegionType:regionType
-                     identityPoolId:identityPoolId
-                      unauthRoleArn:unauthRoleArn
-                        authRoleArn:authRoleArn
-            identityProviderManager:[[AWSCognitoDeprecatedIdentityProviderManager alloc] initWithLogins:logins]];
-
-}
-
-- (void)setLogins:(NSDictionary *)logins {
-    if ([self.identityProvider.identityProviderManager isKindOfClass:[AWSCognitoDeprecatedIdentityProviderManager class]]) {
-        AWSCognitoDeprecatedIdentityProviderManager *deprecatedIdentityProviderManager = self.identityProvider.identityProviderManager;
-        deprecatedIdentityProviderManager.internalLogins = [self updateKeysForLogins:logins];
-    } else if (!self.identityProvider.identityProviderManager) {
-        id<AWSIdentityProviderManager> identityProviderManager = [[AWSCognitoDeprecatedIdentityProviderManager alloc] initWithLogins:logins];
-        [self setIdentityProviderManagerOnce:identityProviderManager];
-    } else {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"The logins dictionary is deprecated. If you implement `AWSIdentityProviderManager`, do not call `- setLogins:`. The `AWSIdentityProviderManager` should return the valid logins."
-                                     userInfo:nil];
-    }
-
-    [self invalidateCachedTemporaryCredentials];
-}
-
-- (NSDictionary<NSString *, NSString *> *)updateKeysForLogins:(NSDictionary *)logins {
-    if (logins == nil) {
-        return nil;
-    }
-
-    NSMutableDictionary *mutableLogin = [NSMutableDictionary new];
-    for (id key in logins) {
-        NSString *updatedKey = key;
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        if ([key isKindOfClass:[NSNumber class]]) {
-            switch ([(NSNumber *)key integerValue]) {
-                case AWSCognitoLoginProviderKeyFacebook:
-                    updatedKey = AWSIdentityProviderFacebook;
-                    break;
-                case AWSCognitoLoginProviderKeyGoogle:
-                    updatedKey = AWSIdentityProviderGoogle;
-                    break;
-                case AWSCognitoLoginProviderKeyLoginWithAmazon:
-                    updatedKey = AWSIdentityProviderLoginWithAmazon;
-                    break;
-                case AWSCognitoLoginProviderKeyTwitter:
-                    updatedKey = AWSIdentityProviderTwitter;
-                    break;
-                case AWSCognitoLoginProviderKeyUnknown:
-                default:
-                    break;
-            }
-        }
-#pragma clang diagnostic pop
-        mutableLogin[updatedKey] = logins[key];
-    }
-    
-    if ([mutableLogin count] == 0) {
-        return nil;
-    }
-    
-    return mutableLogin;
-}
-
-@end
-
-@implementation AWSCognitoDeprecatedIdentityProviderManager
-
-- (instancetype)initWithLogins:(NSDictionary<NSString *, NSString *> *)logins {
-    if (self = [super init]) {
-        _internalLogins = logins;
-    }
-    
-    return self;
-}
-
-- (AWSTask<NSDictionary<NSString *, NSString *> *> *)logins {
-    return [AWSTask taskWithResult:self.internalLogins];
 }
 
 @end

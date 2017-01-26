@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -119,22 +119,22 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             transferUtilityConfiguration = [AWSS3TransferUtilityConfiguration new];
             transferUtilityConfiguration.accelerateModeEnabled = [accelerateModeEnabled boolValue];
         }
-
+        
         if (!serviceConfiguration) {
             serviceConfiguration = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
         }
-
+        
         if (!serviceConfiguration) {
             @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                            reason:@"The service configuration is `nil`. You need to configure `Info.plist` or set `defaultServiceConfiguration` before using this method."
                                          userInfo:nil];
         }
-
+        
         _defaultS3TransferUtility = [[AWSS3TransferUtility alloc] initWithConfiguration:serviceConfiguration
                                                            transferUtilityConfiguration:transferUtilityConfiguration
                                                                              identifier:nil];
     });
-
+    
     return _defaultS3TransferUtility;
 }
 
@@ -151,7 +151,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     dispatch_once(&onceToken, ^{
         _serviceClients = [AWSSynchronizedMutableDictionary new];
     });
-
+    
     AWSS3TransferUtility *s3TransferUtility = [[AWSS3TransferUtility alloc] initWithConfiguration:configuration
                                                                      transferUtilityConfiguration:transferUtilityConfiguration
                                                                                        identifier:[NSString stringWithFormat:@"%@.%@", AWSS3TransferUtilityIdentifier, key]];
@@ -165,22 +165,22 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         if (serviceClient) {
             return serviceClient;
         }
-
+        
         AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] serviceInfo:AWSInfoS3TransferUtility
                                                                      forKey:key];
         if (serviceInfo) {
             AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                                         credentialsProvider:serviceInfo.cognitoCredentialsProvider];
-
+            
             NSNumber *accelerateModeEnabled = [serviceInfo.infoDictionary valueForKey:@"AccelerateModeEnabled"];
             AWSS3TransferUtilityConfiguration *transferUtilityConfiguration = [AWSS3TransferUtilityConfiguration new];
             transferUtilityConfiguration.accelerateModeEnabled = [accelerateModeEnabled boolValue];
-
+            
             [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:serviceConfiguration
                                                 transferUtilityConfiguration:transferUtilityConfiguration
                                                                       forKey:key];
         }
-
+        
         return [_serviceClients objectForKey:key];
     }
 }
@@ -205,17 +205,17 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     if (self = [super init]) {
         _configuration = [serviceConfiguration copy];
         [_configuration addUserAgentProductToken:AWSS3TransferUtilityUserAgent];
-
+        
         _transferUtilityConfiguration = [transferUtilityConfiguration copy];
-
+        
         _preSignedURLBuilder = [[AWSS3PreSignedURLBuilder alloc] initWithConfiguration:_configuration];
-
+        
         if (identifier) {
             _sessionIdentifier = identifier;
         } else {
             _sessionIdentifier = AWSS3TransferUtilityIdentifier;
         }
-
+        
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:_sessionIdentifier];
         configuration.allowsCellularAccess = serviceConfiguration.allowsCellularAccess;
         if(serviceConfiguration.timeoutIntervalForResource > 0){
@@ -231,9 +231,9 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         _session = [NSURLSession sessionWithConfiguration:configuration
                                                  delegate:self
                                             delegateQueue:nil];
-
+        
         _taskDictionary = [AWSSynchronizedMutableDictionary new];
-
+        
         // Creates a temporary directory for data uploads
         _temporaryDirectoryPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[_sessionIdentifier aws_md5String]];
         NSURL *directoryURL = [NSURL fileURLWithPath:_temporaryDirectoryPath];
@@ -245,7 +245,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         if (!result) {
             AWSLogError(@"Failed to create a temporary directory: %@", error);
         }
-
+        
         // Clean up the temporary directory
         __weak AWSS3TransferUtility *weakSelf = self;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
@@ -262,12 +262,12 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                                                       key:(NSString *)key
                                               contentType:(NSString *)contentType
                                                expression:(AWSS3TransferUtilityUploadExpression *)expression
-                                         completionHander:(AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler {
+                                        completionHandler:(AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler {
     // Saves the data as a file in the temporary directory.
     NSString *fileName = [NSString stringWithFormat:@"%@.tmp", [[NSProcessInfo processInfo] globallyUniqueString]];
     NSString *filePath = [self.temporaryDirectoryPath stringByAppendingPathComponent:fileName];
     NSURL *fileURL = [NSURL fileURLWithPath:filePath];
-
+    
     NSError *error = nil;
     BOOL result = [data writeToURL:fileURL
                            options:NSDataWritingAtomic
@@ -281,13 +281,13 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         }
         return [AWSTask taskWithError:error];
     }
-
+    
     return [self uploadFile:fileURL
                      bucket:bucket
                         key:key
                 contentType:contentType
                  expression:expression
-           completionHander:completionHandler];
+          completionHandler:completionHandler];
 }
 
 - (AWSTask<AWSS3TransferUtilityUploadTask *> *)uploadFile:(NSURL *)fileURL
@@ -295,28 +295,28 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                                                       key:(NSString *)key
                                               contentType:(NSString *)contentType
                                                expression:(AWSS3TransferUtilityUploadExpression *)expression
-                                         completionHander:(AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler {
+                                        completionHandler:(AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler {
     if ([bucket length] == 0) {
         NSInteger errorCode = (self.transferUtilityConfiguration.isAccelerateModeEnabled) ?
-                                    AWSS3PresignedURLErrorInvalidBucketNameForAccelerateModeEnabled : AWSS3PresignedURLErrorInvalidBucketName;
+        AWSS3PresignedURLErrorInvalidBucketNameForAccelerateModeEnabled : AWSS3PresignedURLErrorInvalidBucketName;
         return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
                                                           code:errorCode
                                                       userInfo:nil]];
     }
-
+    
     if (!expression) {
         expression = [AWSS3TransferUtilityUploadExpression new];
     }
-
+    
     AWSS3TransferUtilityUploadTask *transferUtilityTask = [AWSS3TransferUtilityUploadTask new];
     transferUtilityTask.bucket = bucket;
     transferUtilityTask.key = key;
-
+    
     [expression setValue:contentType forRequestHeader:@"Content-Type"];
-
+    
     expression.completionHandler = completionHandler;
     transferUtilityTask.expression = expression;
-
+    
     AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
     getPreSignedURLRequest.bucket = bucket;
     getPreSignedURLRequest.key = key;
@@ -324,32 +324,32 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:AWSS3TransferUtilityTimeoutIntervalForResource];
     getPreSignedURLRequest.minimumCredentialsExpirationInterval = AWSS3TransferUtilityTimeoutIntervalForResource;
     getPreSignedURLRequest.accelerateModeEnabled = self.transferUtilityConfiguration.isAccelerateModeEnabled;
-
+    
     [expression assignRequestHeaders:getPreSignedURLRequest];
     [expression assignRequestParameters:getPreSignedURLRequest];
-
+    
     __weak AWSS3TransferUtility *weakSelf = self;
     return [[self.preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithSuccessBlock:^id(AWSTask *task) {
         NSURL *presignedURL = task.result;
-
+        
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
         request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
         request.HTTPMethod = @"PUT";
-
+        
         [request setValue:self.configuration.userAgent forHTTPHeaderField:@"User-Agent"];
-
+        
         for (NSString *key in expression.requestHeaders) {
             [request setValue:expression.requestHeaders[key] forHTTPHeaderField:key];
         }
-
+        
         if ([AWSLogger defaultLogger].logLevel >= AWSLogLevelDebug) {
             AWSLogDebug(@"Request headers:\n%@", request.allHTTPHeaderFields);
         }
-
+        
         NSURLSessionUploadTask *uploadTask = [weakSelf.session uploadTaskWithRequest:request
                                                                             fromFile:fileURL];
         [uploadTask resume];
-
+        
         transferUtilityTask.sessionTask = uploadTask;
         [weakSelf.taskDictionary setObject:transferUtilityTask
                                     forKey:@(transferUtilityTask.taskIdentifier)];
@@ -362,74 +362,74 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 - (AWSTask<AWSS3TransferUtilityDownloadTask *> *)downloadDataFromBucket:(NSString *)bucket
                                                                     key:(NSString *)key
                                                              expression:(AWSS3TransferUtilityDownloadExpression *)expression
-                                                       completionHander:(AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler {
+                                                      completionHandler:(AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler {
     return [self internalDownloadToURL:nil
                                 bucket:bucket
                                    key:key
                             expression:expression
-                      completionHander:completionHandler];
+                     completionHandler:completionHandler];
 }
 
 - (AWSTask<AWSS3TransferUtilityDownloadTask *> *)downloadToURL:(NSURL *)fileURL
                                                         bucket:(NSString *)bucket
                                                            key:(NSString *)key
                                                     expression:(AWSS3TransferUtilityDownloadExpression *)expression
-                                              completionHander:(AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler {
+                                             completionHandler:(AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler {
     return [self internalDownloadToURL:fileURL
                                 bucket:bucket
                                    key:key
                             expression:expression
-                      completionHander:completionHandler];
+                     completionHandler:completionHandler];
 }
 
 - (AWSTask<AWSS3TransferUtilityDownloadTask *> *)internalDownloadToURL:(NSURL *)fileURL
                                                                 bucket:(NSString *)bucket
                                                                    key:(NSString *)key
                                                             expression:(AWSS3TransferUtilityDownloadExpression *)expression
-                                                      completionHander:(AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler {
+                                                     completionHandler:(AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler {
     if (!expression) {
         expression = [AWSS3TransferUtilityDownloadExpression new];
     }
-
+    
     AWSS3TransferUtilityDownloadTask *transferUtilityTask = [AWSS3TransferUtilityDownloadTask new];
     transferUtilityTask.location = fileURL;
     transferUtilityTask.bucket = bucket;
     transferUtilityTask.key = key;
-
+    
     expression.completionHandler = completionHandler;
     transferUtilityTask.expression = expression;
-
+    
     AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
     getPreSignedURLRequest.bucket = bucket;
     getPreSignedURLRequest.key = key;
     getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodGET;
     getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:AWSS3TransferUtilityTimeoutIntervalForResource];
     getPreSignedURLRequest.accelerateModeEnabled = self.transferUtilityConfiguration.isAccelerateModeEnabled;
-
+    
     [expression assignRequestHeaders:getPreSignedURLRequest];
     [expression assignRequestParameters:getPreSignedURLRequest];
-
+    
     __weak AWSS3TransferUtility *weakSelf = self;
     return [[self.preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithSuccessBlock:^id(AWSTask *task) {
         NSURL *presignedURL = task.result;
-
+        
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
         request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
         request.HTTPMethod = @"GET";
-
+        
         [request setValue:[AWSServiceConfiguration baseUserAgent] forHTTPHeaderField:@"User-Agent"];
-
+        
         for (NSString *key in expression.requestHeaders) {
             [request setValue:expression.requestHeaders[key] forHTTPHeaderField:key];
         }
-
+        
         if ([AWSLogger defaultLogger].logLevel >= AWSLogLevelDebug) {
             AWSLogDebug(@"Request headers:\n%@", request.allHTTPHeaderFields);
         }
-
+        
         NSURLSessionDownloadTask *downloadTask = [weakSelf.session downloadTaskWithRequest:request];
         [downloadTask resume];
-
+        
         transferUtilityTask.sessionTask = downloadTask;
         [weakSelf.taskDictionary setObject:transferUtilityTask
                                     forKey:@(transferUtilityTask.taskIdentifier)];
@@ -450,7 +450,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         if ([dataTasks count] != 0) {
             AWSLogError(@"The underlying NSURLSession contains data tasks. This should not happen.");
         }
-
+        
         [uploadTasks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSURLSessionUploadTask *uploadTask = obj;
             AWSS3TransferUtilityUploadTask *transferUtilityUploadTask = [weakSelf getUploadTask:uploadTask];
@@ -458,9 +458,9 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                 if (uploadBlocksAssigner) {
                     AWSS3TransferUtilityProgressBlock progressBlock = nil;
                     AWSS3TransferUtilityUploadCompletionHandlerBlock completionHandler = nil;
-
+                    
                     uploadBlocksAssigner(transferUtilityUploadTask, &progressBlock, &completionHandler);
-
+                    
                     if (progressBlock) {
                         transferUtilityUploadTask.expression.progressBlock = progressBlock;
                     }
@@ -470,7 +470,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                 }
             }
         }];
-
+        
         [downloadTasks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSURLSessionDownloadTask *downloadTask = obj;
             AWSS3TransferUtilityDownloadTask *transferUtilityDownloadTask = [weakSelf getDownloadTask:downloadTask];
@@ -478,9 +478,9 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                 if (downloadBlocksAssigner) {
                     AWSS3TransferUtilityProgressBlock progressBlock = nil;
                     AWSS3TransferUtilityDownloadCompletionHandlerBlock completionHandler = nil;
-
+                    
                     downloadBlocksAssigner(transferUtilityDownloadTask, &progressBlock, &completionHandler);
-
+                    
                     if (progressBlock) {
                         transferUtilityDownloadTask.expression.progressBlock = progressBlock;
                     }
@@ -491,19 +491,19 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             }
         }];
     }];
-
+    
 }
 
 - (AWSTask *)getAllTasks {
     AWSTaskCompletionSource *completionSource = [AWSTaskCompletionSource new];
-
+    
     NSMutableArray<__kindof AWSS3TransferUtilityTask *> *allTasks = [NSMutableArray new];
     __weak AWSS3TransferUtility *weakSelf = self;
     [self.session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
         if ([dataTasks count] != 0) {
             AWSLogError(@"The underlying NSURLSession contains data tasks. This should not happen.");
         }
-
+        
         [uploadTasks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSURLSessionUploadTask *uploadTask = obj;
             AWSS3TransferUtilityUploadTask *transferUtilityUploadTask = [weakSelf getUploadTask:uploadTask];
@@ -511,7 +511,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                 [allTasks addObject:transferUtilityUploadTask];
             }
         }];
-
+        
         [downloadTasks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSURLSessionDownloadTask *downloadTask = obj;
             AWSS3TransferUtilityDownloadTask *transferUtilityDownloadTask = [weakSelf getDownloadTask:downloadTask];
@@ -519,23 +519,23 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                 [allTasks addObject:transferUtilityDownloadTask];
             }
         }];
-
+        
         [completionSource setResult:allTasks];
     }];
-
+    
     return completionSource.task;
 }
 
 - (AWSTask *)getUploadTasks {
     AWSTaskCompletionSource *completionSource = [AWSTaskCompletionSource new];
-
+    
     NSMutableArray *allUploadTasks = [NSMutableArray new];
     __weak AWSS3TransferUtility *weakSelf = self;
     [self.session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
         if ([dataTasks count] != 0) {
             AWSLogError(@"The underlying NSURLSession contains data tasks. This should not happen.");
         }
-
+        
         [uploadTasks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSURLSessionUploadTask *uploadTask = obj;
             AWSS3TransferUtilityUploadTask *transferUtilityUploadTask = [weakSelf getUploadTask:uploadTask];
@@ -543,23 +543,23 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                 [allUploadTasks addObject:transferUtilityUploadTask];
             }
         }];
-
+        
         [completionSource setResult:allUploadTasks];
     }];
-
+    
     return completionSource.task;
 }
 
 - (AWSTask *)getDownloadTasks {
     AWSTaskCompletionSource *completionSource = [AWSTaskCompletionSource new];
-
+    
     NSMutableArray *allDownloadTasks = [NSMutableArray new];
     __weak AWSS3TransferUtility *weakSelf = self;
     [self.session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
         if ([dataTasks count] != 0) {
             AWSLogError(@"The underlying NSURLSession contains data tasks. This should not happen.");
         }
-
+        
         [downloadTasks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSURLSessionDownloadTask *downloadTask = obj;
             AWSS3TransferUtilityDownloadTask *transferUtilityDownloadTask = [weakSelf getDownloadTask:downloadTask];
@@ -567,10 +567,10 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                 [allDownloadTasks addObject:transferUtilityDownloadTask];
             }
         }];
-
+        
         [completionSource setResult:allDownloadTasks];
     }];
-
+    
     return completionSource.task;
 }
 
@@ -581,7 +581,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     if (!contentsOfDirectory) {
         AWSLogError(@"Failed to retrieve the contents of the tempoprary directory: %@", error);
     }
-
+    
     // Goes through the temporary directory.
     __weak AWSS3TransferUtility *weakSelf = self;
     [contentsOfDirectory enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -613,16 +613,16 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         AWSLogError(@"uploadTask is not an instance of NSURLSessionUploadTask.");
         return nil;
     }
-
+    
     AWSS3TransferUtilityUploadTask *transferUtilityUploadTask = [self.taskDictionary objectForKey:@(uploadTask.taskIdentifier)];
     if (!transferUtilityUploadTask) {
         transferUtilityUploadTask = [AWSS3TransferUtilityUploadTask new];
         transferUtilityUploadTask.sessionTask = uploadTask;
-
+        
         [self.taskDictionary setObject:transferUtilityUploadTask
                                 forKey:@(uploadTask.taskIdentifier)];
     }
-
+    
     return transferUtilityUploadTask;
 }
 
@@ -631,16 +631,16 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         AWSLogError(@"downloadTask is not an instance of NSURLSessionDownloadTask.");
         return nil;
     }
-
+    
     AWSS3TransferUtilityDownloadTask *transferUtilityDownloadTask = [self.taskDictionary objectForKey:@(downloadTask.taskIdentifier)];
     if (!transferUtilityDownloadTask) {
         transferUtilityDownloadTask = [AWSS3TransferUtilityDownloadTask new];
         transferUtilityDownloadTask.sessionTask = downloadTask;
-
+        
         [self.taskDictionary setObject:transferUtilityDownloadTask
                                 forKey:@(downloadTask.taskIdentifier)];
     }
-
+    
     return transferUtilityDownloadTask;
 }
 
@@ -653,7 +653,7 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
     if ([identifier isEqualToString:_defaultS3TransferUtility.sessionIdentifier]) {
         _defaultS3TransferUtility.backgroundURLSessionCompletionHandler = completionHandler;
     }
-
+    
     // For the SDK managed service clients
     for (NSString *key in [_serviceClients allKeys]) {
         AWSS3TransferUtility *transferUtility = [_serviceClients objectForKey:key];
@@ -673,7 +673,7 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 
 - (void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(NSError *)error {
     [[NSNotificationCenter defaultCenter] postNotificationName:AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification object:self];
-
+    
     [_serviceClients removeObject:self];
 }
 
@@ -686,7 +686,7 @@ didCompleteWithError:(NSError *)error {
         if (![task.response isKindOfClass:[NSHTTPURLResponse class]]) {
             [NSException raise:@"Invalid NSURLSession state" format:@"Expected response of type  %@", @"NSHTTPURLResponse"];
         }
-
+        
         NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)task.response;
         NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:[HTTPResponse allHeaderFields]];
         if (HTTPResponse.statusCode / 100 == 3
@@ -695,20 +695,20 @@ didCompleteWithError:(NSError *)error {
                                         code:AWSS3TransferUtilityErrorRedirection
                                     userInfo:userInfo];
         }
-
+        
         if (HTTPResponse.statusCode / 100 == 4) {
             error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                         code:AWSS3TransferUtilityErrorClientError
                                     userInfo:userInfo];
         }
-
+        
         if (HTTPResponse.statusCode / 100 == 5) {
             error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                         code:AWSS3TransferUtilityErrorServerError
                                     userInfo:userInfo];
         }
     }
-
+    
     if ([task isKindOfClass:[NSURLSessionUploadTask class]]) {
         AWSS3TransferUtilityUploadTask *uploadTask = [self getUploadTask:(NSURLSessionUploadTask *)task];
         if (uploadTask.expression.completionHandler) {
@@ -728,7 +728,7 @@ didCompleteWithError:(NSError *)error {
                                                       downloadTask.error);
         }
     }
-
+    
     [self.taskDictionary removeObjectForKey:@(task.taskIdentifier)];
 }
 
@@ -745,7 +745,7 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
         if (transferUtilityUploadTask.progress.completedUnitCount != totalBytesSent) {
             transferUtilityUploadTask.progress.completedUnitCount = totalBytesSent;
         }
-
+        
         if (transferUtilityUploadTask.expression.progressBlock) {
             transferUtilityUploadTask.expression.progressBlock(transferUtilityUploadTask, transferUtilityUploadTask.progress);
         }
@@ -789,7 +789,7 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
     if (transferUtilityDownloadTask.progress.completedUnitCount != totalBytesWritten) {
         transferUtilityDownloadTask.progress.completedUnitCount = totalBytesWritten;
     }
-
+    
     if (transferUtilityDownloadTask.expression.progressBlock) {
         transferUtilityDownloadTask.expression.progressBlock(transferUtilityDownloadTask, transferUtilityDownloadTask.progress);
     }
@@ -805,14 +805,14 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
     if (self = [super init]) {
         _accelerateModeEnabled = NO;
     }
-
+    
     return self;
 }
 
 - (id)copyWithZone:(NSZone *)zone {
     AWSS3TransferUtilityConfiguration *configuration = [[[self class] allocWithZone:zone] init];
     configuration.accelerateModeEnabled = self.isAccelerateModeEnabled;
-
+    
     return configuration;
 }
 
@@ -826,7 +826,7 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
     if (self = [super init]) {
         _progress = [NSProgress new];
     }
-
+    
     return self;
 }
 
@@ -854,7 +854,7 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
     if ([self.sessionTask.response isKindOfClass:[NSHTTPURLResponse class]]) {
         return (NSHTTPURLResponse *)self.sessionTask.response;
     }
-
+    
     return nil;
 }
 
@@ -891,7 +891,7 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
         _internalRequestHeaders = [NSMutableDictionary new];
         _internalRequestParameters = [NSMutableDictionary new];
     }
-
+    
     return self;
 }
 

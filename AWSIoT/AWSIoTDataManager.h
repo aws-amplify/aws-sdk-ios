@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -15,6 +15,8 @@
 
 #import "AWSIoTDataService.h"
 #import "AWSIoTService.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, AWSIoTMQTTStatus) {
     AWSIoTMQTTStatusUnknown,
@@ -136,10 +138,10 @@ typedef void(^AWSIoTMQTTExtendedNewMessageBlock)(NSObject *mqttClient, NSString 
 
  *Swift*
 
-     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
          let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
          let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
-         AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
+         AWSServiceManager.default().defaultServiceConfiguration = configuration
 
          return true
      }
@@ -160,7 +162,7 @@ typedef void(^AWSIoTMQTTExtendedNewMessageBlock)(NSObject *mqttClient, NSString 
 
  *Swift*
 
-     let IoTDataManager = AWSIoTDataManager.defaultIoTDataManager()
+     let IoTDataManager = AWSIoTDataManager.default()
 
  *Objective-C*
 
@@ -177,10 +179,10 @@ typedef void(^AWSIoTMQTTExtendedNewMessageBlock)(NSObject *mqttClient, NSString 
 
  *Swift*
 
-     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
          let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
          let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-         AWSIoTDataManager.registerIoTDataManagerWithConfiguration(configuration, forKey: "USWest2IoTDataManager")
+         AWSIoTDataManager.register(with: configuration!, forKey: "USWest2IoTDataManager")
 
          return true
      }
@@ -222,10 +224,10 @@ typedef void(^AWSIoTMQTTExtendedNewMessageBlock)(NSObject *mqttClient, NSString 
 
  *Swift*
 
-     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
          let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
          let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-         AWSIoTDataManager.registerIoTDataManagerWithConfiguration(configuration, forKey: "USWest2IoTDataManager")
+         AWSIoTDataManager.register(with: configuration!, forKey: "USWest2IoTDataManager")
 
          return true
      }
@@ -310,12 +312,6 @@ typedef void(^AWSIoTMQTTExtendedNewMessageBlock)(NSObject *mqttClient, NSString 
  */
 - (void)disconnect;
 
-- (void)publishString:(NSString *)str
-              onTopic:(NSString *)topic __attribute__((deprecated("Use publishString:onTopic:QoS:")));
-
-- (void)publishString:(NSString *)str
-                  qos:(UInt8)qos
-              onTopic:(NSString *)topic __attribute__((deprecated("Use publishString:onTopic:QoS:")));
 /**
  Send MQTT message to specified topic
 
@@ -332,12 +328,6 @@ typedef void(^AWSIoTMQTTExtendedNewMessageBlock)(NSObject *mqttClient, NSString 
                onTopic:(NSString *)topic
                    QoS:(AWSIoTMQTTQoS)qos;
 
-- (void)publishData:(NSData *)data
-            onTopic:(NSString *)topic __attribute__((deprecated("Use publishData:onTopic:QoS:")));
-
-- (void)publishData:(NSData *)data
-                qos:(UInt8)qos
-            onTopic:(NSString *)topic __attribute__((deprecated("Use publishData:onTopic:QoS:")));
 /**
  Send MQTT message to specified topic
 
@@ -354,9 +344,6 @@ typedef void(^AWSIoTMQTTExtendedNewMessageBlock)(NSObject *mqttClient, NSString 
              onTopic:(NSString *)topic
                  QoS:(AWSIoTMQTTQoS)qos;
 
-- (void)subscribeToTopic:(NSString *)topic
-                     qos:(UInt8)qos
-         messageCallback:(AWSIoTMQTTNewMessageBlock)callback __attribute__((deprecated("Use subscribeToTopic:QoS:messageCallback:")));
 /**
  Subscribes to a topic at a specific QoS level
 
@@ -430,20 +417,6 @@ typedef NS_ENUM(NSInteger, AWSIoTShadowOperationStatusType) {
  Register for updates on a device shadow
  
  @param name The device shadow to register for updates on.
- 
- @param eventCallback The function to call when updates are received for the device shadow.
- 
- @return Boolean value indicating success or failure.
- 
- */
-
-- (BOOL) registerWithShadow:(NSString *)name
-              eventCallback:(void(^)(NSString *name, AWSIoTShadowOperationType operation, AWSIoTShadowOperationStatusType status, NSString *clientToken, NSData *payload))callback;
-
-/**
- Register for updates on a device shadow
- 
- @param name The device shadow to register for updates on.
 
  @param options A dictionary with device shadow registration options.  The options are:
  
@@ -462,7 +435,7 @@ shadowOperationTimeoutSeconds: double, device shadow operation timeout (default 
  */
 
 - (BOOL) registerWithShadow:(NSString *)name
-                    options:(NSDictionary *)options
+                    options:(NSDictionary<NSString *, NSNumber *> * _Nullable)options
               eventCallback:(void(^)(NSString *name, AWSIoTShadowOperationType operation, AWSIoTShadowOperationStatusType status, NSString *clientToken, NSData *payload))callback;
 
 
@@ -503,7 +476,7 @@ shadowOperationTimeoutSeconds: double, device shadow operation timeout (default 
  */
 - (BOOL) updateShadow:(NSString *)name
            jsonString:(NSString *)jsonString
-          clientToken:(NSString *)clientToken;
+          clientToken:(NSString  * _Nullable)clientToken;
 
 /**
  Get a device shadow
@@ -526,7 +499,7 @@ shadowOperationTimeoutSeconds: double, device shadow operation timeout (default 
 
  */
 - (BOOL) getShadow:(NSString *)name
-       clientToken:(NSString *)clientToken;
+       clientToken:(NSString * _Nullable)clientToken;
 
 /**
  Delete a device shadow
@@ -549,7 +522,9 @@ shadowOperationTimeoutSeconds: double, device shadow operation timeout (default 
  
  */
 - (BOOL) deleteShadow:(NSString *)name
-          clientToken:(NSString *)clientToken;
+          clientToken:(NSString * _Nullable)clientToken;
 
 
 @end
+
+NS_ASSUME_NONNULL_END

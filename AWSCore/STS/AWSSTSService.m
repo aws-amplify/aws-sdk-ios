@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -283,11 +283,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSTSAssumeRoleResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -310,11 +305,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self assumeRoleWithSAML:request] continueWithBlock:^id _Nullable(AWSTask<AWSSTSAssumeRoleWithSAMLResponse *> * _Nonnull task) {
         AWSSTSAssumeRoleWithSAMLResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -339,11 +329,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSTSAssumeRoleWithWebIdentityResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -366,11 +351,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self decodeAuthorizationMessage:request] continueWithBlock:^id _Nullable(AWSTask<AWSSTSDecodeAuthorizationMessageResponse *> * _Nonnull task) {
         AWSSTSDecodeAuthorizationMessageResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -395,11 +375,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSTSGetCallerIdentityResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -423,11 +398,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSSTSGetFederationTokenResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -450,11 +420,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self getSessionToken:request] continueWithBlock:^id _Nullable(AWSTask<AWSSTSGetSessionTokenResponse *> * _Nonnull task) {
         AWSSTSGetSessionTokenResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);

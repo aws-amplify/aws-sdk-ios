@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -157,7 +157,7 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
             AWSLogError(@"In refresh, but identityId is nil.");
             AWSLogError(@"Result from getIdentityId is %@", task.result);
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderHelperErrorDomain
-                                                              code:AWSCognitoCredentialsProviderHelperErrorIdentityIsNil
+                                                              code:AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil
                                                           userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]];
         }
 
@@ -214,7 +214,7 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
                         AWSLogError(@"In refresh, but identitId is nil.");
                         AWSLogError(@"Result from getIdentityId is %@", task.result);
                         return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderHelperErrorDomain
-                                                                          code:AWSCognitoCredentialsProviderHelperErrorIdentityIsNil
+                                                                          code:AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil
                                                                       userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
                                 ];
                     }
@@ -229,9 +229,7 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
                     return [self.cognitoIdentity getOpenIdToken:tokenRetry];
                 }];
             }
-            if (task.exception) {
-                AWSLogError(@"GetOpenIdToken failed. Exception is [%@]", task.exception);
-            }
+            
             return task;
         }] continueWithSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
             AWSCognitoIdentityGetOpenIdTokenResponse *getTokenResponse = task.result;
@@ -242,7 +240,7 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
             if (!identityIdFromToken) {
                 AWSLogError(@"identityId from getOpenIdToken is nil");
                 return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderHelperErrorDomain
-                                                                  code:AWSCognitoCredentialsProviderHelperErrorIdentityIsNil
+                                                                  code:AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil
                                                               userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
                         ];
             }
@@ -309,8 +307,6 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
         }] continueWithBlock:^id(AWSTask *task) {
             if (task.error) {
                 AWSLogError(@"GetId failed. Error is [%@]", task.error);
-            } else if (task.exception) {
-                AWSLogError(@"GetId failed. Exception is [%@]", task.exception);
             } else if (task.result) {
                 AWSCognitoIdentityGetIdResponse *getIdResponse = task.result;
                 self.identityId = getIdResponse.identityId;
@@ -327,7 +323,7 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
                 NSString * error = @"Obtaining an identity id in another thread failed or didn't complete within 5 seconds.";
                 AWSLogError("%@",error);
                 return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderHelperErrorDomain
-                                                                  code:AWSCognitoCredentialsProviderHelperErrorIdentityIsNil
+                                                                  code:AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil
                                                               userInfo:@{NSLocalizedDescriptionKey: error}]];
             } else {
                 return [AWSTask taskWithResult:self.identityId];

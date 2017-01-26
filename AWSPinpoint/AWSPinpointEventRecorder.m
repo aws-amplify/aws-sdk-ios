@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -144,7 +144,7 @@ NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey
     return queue;
 }
 
-- (AWSTask *) saveEvent:(AWSPinpointEvent *) event {
+- (AWSTask<AWSPinpointEvent *> *) saveEvent:(AWSPinpointEvent *) event {
     AWSLogVerbose(@"saveEvent: [%@]", event.toDictionary);
     AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;
     NSTimeInterval diskAgeLimit = self.diskAgeLimit;
@@ -337,7 +337,7 @@ NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey
     }];
 }
 
-- (AWSTask*) getEvents {
+- (AWSTask<NSArray<AWSPinpointEvent *> *> *) getEvents {
     AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;
     
     return [[AWSTask taskWithResult:nil] continueWithExecutor:[AWSExecutor executorWithDispatchQueue:[AWSPinpointEventRecorder sharedQueue]] withSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
@@ -380,7 +380,7 @@ NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey
     }];
 }
 
-- (AWSTask*) getDirtyEvents {
+- (AWSTask<NSArray<AWSPinpointEvent *> *> *) getDirtyEvents {
     AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;
     
     return [[AWSTask taskWithResult:nil] continueWithExecutor:[AWSExecutor executorWithDispatchQueue:[AWSPinpointEventRecorder sharedQueue]] withSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
@@ -424,7 +424,7 @@ NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey
 }
 
 
-- (AWSTask *)submitAllEvents {
+- (AWSTask<NSArray<AWSPinpointEvent *> *> *)submitAllEvents {
     AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;
     
     return [[AWSTask taskWithResult:nil] continueWithExecutor:[AWSExecutor executorWithDispatchQueue:[AWSPinpointEventRecorder sharedQueue]] withSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
@@ -660,20 +660,6 @@ NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey
                 }
                 return task;
             }
-        }
-        if (task.exception) {
-            AWSLogError(@"Exception: [%@]", task.exception);
-            for (NSString *eventID in eventIDs) {
-                BOOL result = [db executeUpdate:@"UPDATE Event SET retryCount = retryCount + 1 WHERE id = :id"
-                        withParameterDictionary:@{
-                                                  @"id" : eventID
-                                                  }];
-                if (!result) {
-                    AWSLogError(@"SQLite error. [%@]", db.lastError);
-                    *error = db.lastError;
-                }
-            }
-            return task;
         }
         
         if (task.result) {

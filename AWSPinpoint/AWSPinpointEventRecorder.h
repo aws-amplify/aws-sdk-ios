@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -72,28 +72,28 @@ FOUNDATION_EXPORT NSString *const AWSPinpointEventByteThresholdReachedNotificati
  
  @return AWSTask - task.result contains the saved event.
  */
-- (AWSTask *) saveEvent:(AWSPinpointEvent *) event;
+- (AWSTask<AWSPinpointEvent *> *) saveEvent:(AWSPinpointEvent *) event;
 
 /**
  Retrieves events in local storage.
  
  @return AWSTask - task.result contains an array of AWSPinpointEvent objects.
  */
-- (AWSTask*) getEvents;
+- (AWSTask<NSArray<AWSPinpointEvent *> *> *) getEvents;
 
 /**
  Retrieves dirty events in local storage.
  
  @return AWSTask - task.result contains an array of AWSPinpointEvent objects.
  */
-- (AWSTask*) getDirtyEvents;
+- (AWSTask<NSArray<AWSPinpointEvent *> *> *) getDirtyEvents;
 
 /**
  Submits all locally saved events to Amazon Pinpoint. Events that are successfully sent will be deleted from the device. Events that fail due to the device being offline will stop the submission process and be kept. Events that fail due to other reasons (such as the event being invalid) will be marked dirty and moved to a dirty table.
  
  @return AWSTask - task.result contains an array of AWSPinpointEvent objects that were submitted.
  */
-- (AWSTask *)submitAllEvents;
+- (AWSTask<NSArray<AWSPinpointEvent *> *> *)submitAllEvents;
 
 /**
  Removes all events saved to disk.

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@
 //
 
 #import "AWSS3Service.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 FOUNDATION_EXPORT NSString *const AWSS3TransferManagerErrorDomain;
 typedef NS_ENUM(NSInteger, AWSS3TransferManagerErrorType) {
@@ -256,3 +258,5 @@ typedef void (^AWSS3TransferManagerResumeAllBlock) (AWSRequest *request);
 @interface AWSS3TransferManagerDownloadOutput : AWSS3GetObjectOutput
 
 @end
+
+NS_ASSUME_NONNULL_END

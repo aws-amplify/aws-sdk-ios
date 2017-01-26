@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -47,7 +47,6 @@
 
     [[[lambdaInvoker invoke:invocationRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
-        XCTAssertNil(task.exception);
         XCTAssertNotNil(task.result);
         XCTAssertTrue([task.result isKindOfClass:[AWSLambdaInvokerInvocationResponse class]]);
         AWSLambdaInvokerInvocationResponse *invocationResponse = task.result;
@@ -109,7 +108,6 @@
 
     [[[lambdaInvoker invoke:invocationRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
         XCTAssertEqualObjects(task.error.domain, AWSLambdaInvokerErrorDomain);
         XCTAssertEqual(task.error.code, AWSLambdaInvokerErrorTypeFunctionError);
@@ -127,7 +125,6 @@
                                       @"key3" : @"value3",
                                       @"isError" : @NO}] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
-        XCTAssertNil(task.exception);
         XCTAssertNotNil(task.result);
         XCTAssertTrue([task.result isKindOfClass:[NSDictionary class]]);
         NSDictionary *result = task.result;
@@ -170,7 +167,6 @@
     NSDictionary *jsonObject = @{@"firstName" : NSStringFromSelector(_cmd)};
     [[[lambdaInvoker invokeFunction:@"lambdaDebugging" JSONObject:jsonObject] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
-        XCTAssertNil(task.exception);
         XCTAssertNotNil(task.result);
         XCTAssertTrue([task.result isKindOfClass:[NSDictionary class]]);
         NSDictionary *result = task.result;
@@ -190,7 +186,6 @@
                                       @"isError" : @YES,
                                       @"errorName" : @"ErrorCode123",}] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
         XCTAssertEqualObjects(task.error.domain, AWSLambdaInvokerErrorDomain);
         XCTAssertEqual(task.error.code, AWSLambdaInvokerErrorTypeFunctionError);
@@ -213,7 +208,6 @@
 
     [[[lambdaInvoker invoke:invocationRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
-        XCTAssertNil(task.exception);
         XCTAssertNotNil(task.result);
         XCTAssertTrue([task.result isKindOfClass:[AWSLambdaInvokerInvocationResponse class]]);
         AWSLambdaInvokerInvocationResponse *invocationResponse = task.result;
@@ -241,7 +235,6 @@
 
     [[[lambdaInvoker invoke:invocationRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
-        XCTAssertNil(task.exception);
         XCTAssertNotNil(task.result);
         XCTAssertTrue([task.result isKindOfClass:[AWSLambdaInvokerInvocationResponse class]]);
         AWSLambdaInvokerInvocationResponse *invocationResponse = task.result;

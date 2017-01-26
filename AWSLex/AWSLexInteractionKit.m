@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 NSString *const AWSInfoInteractionKit = @"LexInteractionKit";
-NSString *const AWSInteractionKitSDKVersion = @"2.4.16";
+NSString *const AWSInteractionKitSDKVersion = @"2.5.0";
 NSString *const AWSInternalLexInteractionKit = @"LexInteractionKitClient";
 NSString *const AWSLexInteractionKitUserAgent = @"interactionkit";
 NSString *const AWSLexInteractionKitErrorDomain = @"com.amazonaws.AWSLexInteractionKitErrorDomain";

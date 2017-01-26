@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
 #import "AWSDynamoDBRequestRetryHandler.h"
 
 static NSString *const AWSInfoDynamoDB = @"DynamoDB";
-static NSString *const AWSDynamoDBSDKVersion = @"2.4.16";
+static NSString *const AWSDynamoDBSDKVersion = @"2.5.0";
 
 
 @interface AWSDynamoDBResponseSerializer : AWSJSONResponseSerializer
@@ -289,11 +289,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSDynamoDBBatchGetItemOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -316,11 +311,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self batchWriteItem:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBBatchWriteItemOutput *> * _Nonnull task) {
         AWSDynamoDBBatchWriteItemOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -345,11 +335,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSDynamoDBCreateTableOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -372,11 +357,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self deleteItem:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBDeleteItemOutput *> * _Nonnull task) {
         AWSDynamoDBDeleteItemOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -401,11 +381,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSDynamoDBDeleteTableOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -428,11 +403,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self describeLimits:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBDescribeLimitsOutput *> * _Nonnull task) {
         AWSDynamoDBDescribeLimitsOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -457,11 +427,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSDynamoDBDescribeTableOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -484,11 +449,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self getItem:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBGetItemOutput *> * _Nonnull task) {
         AWSDynamoDBGetItemOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -513,11 +473,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSDynamoDBListTablesOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -540,11 +495,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self putItem:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBPutItemOutput *> * _Nonnull task) {
         AWSDynamoDBPutItemOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -569,11 +519,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSDynamoDBQueryOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -596,11 +541,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self scan:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBScanOutput *> * _Nonnull task) {
         AWSDynamoDBScanOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -625,11 +565,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSDynamoDBUpdateItemOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -652,11 +587,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self updateTable:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBUpdateTableOutput *> * _Nonnull task) {
         AWSDynamoDBUpdateTableOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);

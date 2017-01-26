@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -45,10 +45,10 @@ typedef NS_ENUM(NSInteger, AWSLambdaInvokerErrorType) {
 
  *Swift*
 
-     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
          let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
          let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
-         AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
+         AWSServiceManager.default().defaultServiceConfiguration = configuration
 
          return true
      }
@@ -69,7 +69,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaInvokerErrorType) {
 
  *Swift*
 
-     let LambdaInvoker = AWSLambdaInvoker.defaultLambdaInvoker()
+     let LambdaInvoker = AWSLambdaInvoker.default()
 
  *Objective-C*
 
@@ -86,10 +86,10 @@ typedef NS_ENUM(NSInteger, AWSLambdaInvokerErrorType) {
 
  *Swift*
 
-     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
          let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
          let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-         AWSLambdaInvoker.registerLambdaInvokerWithConfiguration(configuration, forKey: "USWest2LambdaInvoker")
+         AWSLambdaInvoker.register(with: configuration!, forKey: "USWest2LambdaInvoker")
 
          return true
      }
@@ -131,10 +131,10 @@ typedef NS_ENUM(NSInteger, AWSLambdaInvokerErrorType) {
 
  *Swift*
 
-     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
          let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
          let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-         AWSLambdaInvoker.registerLambdaInvokerWithConfiguration(configuration, forKey: "USWest2LambdaInvoker")
+         AWSLambdaInvoker.register(with: configuration!, forKey: "USWest2LambdaInvoker")
 
          return true
      }

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -352,6 +352,19 @@ synchronizeAlreadyInProgressDataset = [[AWSCognito defaultCognito] openOrCreateD
     }] waitUntilFinished];
 }
 
+- (void)testSyncWithNoData {
+    NSString *datasetName = @"noData";
+    // create a dataset
+    AWSCognitoDataset* dataset = [[AWSCognito defaultCognito] openOrCreateDataset:datasetName];
+    [[[dataset synchronize] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        if(task.error){
+            XCTFail(@"%@",task.error);
+            return nil;
+        }
+        return task;
+    }] waitUntilFinished];
+}
+
 - (void)testSyncWithOldDirtyLocal {
     NSString *datasetName = @"conflicts";
     NSString *keyName = @"conflicting";
@@ -627,6 +640,39 @@ synchronizeAlreadyInProgressDataset = [[AWSCognito defaultCognito] openOrCreateD
     // check to see that our data is no longer there
     value = [dataset stringForKey:@"bar"];
     XCTAssertNil(value, @"value was not deleted");
+}
+
+-(void)testBrokenSyncCount {
+    __block NSString *myDatasetName = @"recoverFromBadSyncCount";
+    // create a dataset with data and sync it
+    AWSCognitoDataset *dataset = [[AWSCognito defaultCognito] openOrCreateDataset:myDatasetName];
+    [dataset setString:@"foo" forKey:@"bar"];
+    [[dataset synchronize] waitUntilFinished];
+    
+    AWSCognitoSync *client = [AWSCognitoSync defaultCognitoSync];
+    NSString *identityId = ((AWSCognitoCredentialsProvider *)client.configuration.credentialsProvider).identityId;
+    [dataset setString:@"foo" forKey:@"new"];
+    AWSCognitoSQLiteManager *manager = [[AWSCognitoSQLiteManager alloc] initWithIdentityId:identityId deviceId:nil];
+    //break the sync count
+    [manager updateLastSyncCount:myDatasetName syncCount:[NSNumber numberWithLong:2] lastModifiedBy:identityId];
+    
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"sync returns"];
+    //see if we can recover
+    [[dataset synchronize] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNil(task.error,@"Synchronize failed: %@",task.error);
+        [expectation fulfill];
+        return task;
+    }];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        
+        if(error)
+        {
+            XCTFail(@"Expectation Failed with error: %@", error);
+        }
+        
+    }];
 }
 
 -(void)testDatasetDeletedHandlerOnResurrect {
