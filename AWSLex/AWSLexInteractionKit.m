@@ -775,6 +775,12 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             [strongSelf.interactionDelegate interactionKit:strongSelf
                                            switchModeInput:input
                                           completionSource:nil];
+
+            [strongSelf dispatchBlockOnInteractionDelegateQueue:^{
+                if(strongSelf.interactionDelegate && [strongSelf.interactionDelegate respondsToSelector:@selector(interactionKit:dialogFullfiledForIntent:slots:)]) {
+                    [strongSelf.interactionDelegate interactionKit:strongSelf dialogFullfiledForIntent:response.intentName slots:response.slots];
+                }
+            }];
             return nil;
         }
         
