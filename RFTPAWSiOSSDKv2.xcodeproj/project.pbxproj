@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
+		04C4E0A21E4B26AE005B9DD3 /* RFTPBuildAll */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 04C4E0A31E4B26AE005B9DD3 /* Build configuration list for PBXAggregateTarget "RFTPBuildAll" */;
+			buildPhases = (
+			);
+			dependencies = (
+				04C4E0A71E4B26C1005B9DD3 /* PBXTargetDependency */,
+				04C4E0A91E4B26C1005B9DD3 /* PBXTargetDependency */,
+				04C4E0AB1E4B26C1005B9DD3 /* PBXTargetDependency */,
+				04C4E0AD1E4B26C1005B9DD3 /* PBXTargetDependency */,
+			);
+			name = RFTPBuildAll;
+			productName = RFTPBuildAll;
+		};
 		CEEF67961CEF8E37000110B0 /* AWSAllTests */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = CEEF67991CEF8E37000110B0 /* Build configuration list for PBXAggregateTarget "AWSAllTests" */;
@@ -288,6 +302,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		04C4E0A61E4B26C1005B9DD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE0D416C1C6A66E5006B91B5;
+			remoteInfo = AWSCore;
+		};
+		04C4E0A81E4B26C1005B9DD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE9DEABC1C6A7FDF0060793F;
+			remoteInfo = AWSCognito;
+		};
+		04C4E0AA1E4B26C1005B9DD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE9DE6D81C6A79DF0060793F;
+			remoteInfo = AWSLambda;
+		};
+		04C4E0AC1E4B26C1005B9DD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE9DE9BC1C6A7C2D0060793F;
+			remoteInfo = AWSS3;
+		};
 		CE0D41781C6A66E5006B91B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
@@ -1782,6 +1824,10 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
+					04C4E0A21E4B26AE005B9DD3 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
 					CE0D416C1C6A66E5006B91B5 = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
@@ -1849,6 +1895,7 @@
 				CE9DE9C51C6A7C2E0060793F /* AWSS3Tests */,
 				CE56049E1C6BC97600B4E00B /* AWSS3UnitTests */,
 				CEEF67961CEF8E37000110B0 /* AWSAllTests */,
+				04C4E0A21E4B26AE005B9DD3 /* RFTPBuildAll */,
 			);
 		};
 /* End PBXProject section */
@@ -2158,6 +2205,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		04C4E0A71E4B26C1005B9DD3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE0D416C1C6A66E5006B91B5 /* AWSCore */;
+			targetProxy = 04C4E0A61E4B26C1005B9DD3 /* PBXContainerItemProxy */;
+		};
+		04C4E0A91E4B26C1005B9DD3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE9DEABC1C6A7FDF0060793F /* AWSCognito */;
+			targetProxy = 04C4E0A81E4B26C1005B9DD3 /* PBXContainerItemProxy */;
+		};
+		04C4E0AB1E4B26C1005B9DD3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE9DE6D81C6A79DF0060793F /* AWSLambda */;
+			targetProxy = 04C4E0AA1E4B26C1005B9DD3 /* PBXContainerItemProxy */;
+		};
+		04C4E0AD1E4B26C1005B9DD3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE9DE9BC1C6A7C2D0060793F /* AWSS3 */;
+			targetProxy = 04C4E0AC1E4B26C1005B9DD3 /* PBXContainerItemProxy */;
+		};
 		CE0D41791C6A66E5006B91B5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CE0D416C1C6A66E5006B91B5 /* AWSCore */;
@@ -2256,6 +2323,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		04C4E0A41E4B26AE005B9DD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		04C4E0A51E4B26AE005B9DD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		CE0D41631C6A66AA006B91B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2298,7 +2379,8 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fembed-bitcode";
-				SDKROOT = iphoneos;
+				RESOURCES_TARGETED_DEVICE_FAMILY = "";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2346,7 +2428,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_CFLAGS = "-fembed-bitcode";
-				SDKROOT = iphoneos;
+				RESOURCES_TARGETED_DEVICE_FAMILY = "";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2714,6 +2797,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		04C4E0A31E4B26AE005B9DD3 /* Build configuration list for PBXAggregateTarget "RFTPBuildAll" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04C4E0A41E4B26AE005B9DD3 /* Debug */,
+				04C4E0A51E4B26AE005B9DD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		CE0D41571C6A66A9006B91B5 /* Build configuration list for PBXProject "RFTPAWSiOSSDKv2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

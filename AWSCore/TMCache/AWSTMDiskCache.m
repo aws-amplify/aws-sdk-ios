@@ -1,10 +1,6 @@
 #import "AWSTMDiskCache.h"
 #import "AWSTMCacheBackgroundTaskManager.h"
 
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_0
-#import <UIKit/UIKit.h>
-#endif
-
 #define AWSTMDiskCacheError(error) if (error) { NSLog(@"%@ (%d) ERROR: %@", \
                                     [[NSString stringWithUTF8String:__FILE__] lastPathComponent], \
                                     __LINE__, [error localizedDescription]); }

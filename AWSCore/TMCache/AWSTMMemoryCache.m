@@ -71,7 +71,13 @@ NSString * const AWSTMMemoryCachePrefix = @"com.tumblr.TMMemoryCache";
         _removeAllObjectsOnMemoryWarning = YES;
         _removeAllObjectsOnEnteringBackground = YES;
         
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_0
+#if TARGET_OS_WATCH
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(handleApplicationBackgrounding)
+                                                     name:NSExtensionHostDidEnterBackgroundNotification
+                                                   object:nil];
+        
+#elif __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_0
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(handleMemoryWarning)
                                                      name:UIApplicationDidReceiveMemoryWarningNotification

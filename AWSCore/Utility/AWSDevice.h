@@ -17,7 +17,9 @@
 #import <Foundation/Foundation.h>
 #if TARGET_OS_IOS || TARGET_OS_TV
 #import <UIKit/UIKit.h>
-
+#elif TARGET_OS_WATCH
+#import <WatchKit/WatchKit.h>
+#define UIDevice WKInterfaceDevice
 #elif TARGET_OS_OSX
 
 @interface UIDevice : NSObject
