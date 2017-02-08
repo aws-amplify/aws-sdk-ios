@@ -42,6 +42,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		04C4E0AF1E4B2D5E005B9DD3 /* AWSGeneric.h in Headers */ = {isa = PBXBuildFile; fileRef = 04C4E0AE1E4B2D5D005B9DD3 /* AWSGeneric.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		140118F81E367918000BD11B /* AWSDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 140118F61E367918000BD11B /* AWSDevice.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		140118F91E367918000BD11B /* AWSDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 140118F71E367918000BD11B /* AWSDevice.m */; };
 		18CDFB281D66561F0021B1DE /* AWSS3Serializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 18CDFB261D66561F0021B1DE /* AWSS3Serializer.h */; };
@@ -59,7 +60,6 @@
 		CE0D42281C6A673E006B91B5 /* AWSSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D418A1C6A673E006B91B5 /* AWSSignature.m */; };
 		CE0D42291C6A673E006B91B5 /* AWSBolts.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0D418C1C6A673E006B91B5 /* AWSBolts.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE0D422A1C6A673E006B91B5 /* AWSBolts.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D418D1C6A673E006B91B5 /* AWSBolts.m */; };
-		CE0D422B1C6A673E006B91B5 /* AWSBoltsVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0D418E1C6A673E006B91B5 /* AWSBoltsVersion.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE0D422C1C6A673E006B91B5 /* AWSCancellationToken.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0D418F1C6A673E006B91B5 /* AWSCancellationToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE0D422D1C6A673E006B91B5 /* AWSCancellationToken.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D41901C6A673E006B91B5 /* AWSCancellationToken.m */; };
 		CE0D422E1C6A673E006B91B5 /* AWSCancellationTokenRegistration.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0D41911C6A673E006B91B5 /* AWSCancellationTokenRegistration.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -512,6 +512,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04C4E0AE1E4B2D5D005B9DD3 /* AWSGeneric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSGeneric.h; sourceTree = "<group>"; };
 		140118F61E367918000BD11B /* AWSDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDevice.h; sourceTree = "<group>"; };
 		140118F71E367918000BD11B /* AWSDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDevice.m; sourceTree = "<group>"; };
 		18CDFB261D66561F0021B1DE /* AWSS3Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSS3Serializer.h; sourceTree = "<group>"; };
@@ -534,7 +535,6 @@
 		CE0D418A1C6A673E006B91B5 /* AWSSignature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSSignature.m; sourceTree = "<group>"; };
 		CE0D418C1C6A673E006B91B5 /* AWSBolts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSBolts.h; sourceTree = "<group>"; };
 		CE0D418D1C6A673E006B91B5 /* AWSBolts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSBolts.m; sourceTree = "<group>"; };
-		CE0D418E1C6A673E006B91B5 /* AWSBoltsVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSBoltsVersion.h; sourceTree = "<group>"; };
 		CE0D418F1C6A673E006B91B5 /* AWSCancellationToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCancellationToken.h; sourceTree = "<group>"; };
 		CE0D41901C6A673E006B91B5 /* AWSCancellationToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCancellationToken.m; sourceTree = "<group>"; };
 		CE0D41911C6A673E006B91B5 /* AWSCancellationTokenRegistration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCancellationTokenRegistration.h; sourceTree = "<group>"; };
@@ -985,7 +985,6 @@
 			children = (
 				CE0D418C1C6A673E006B91B5 /* AWSBolts.h */,
 				CE0D418D1C6A673E006B91B5 /* AWSBolts.m */,
-				CE0D418E1C6A673E006B91B5 /* AWSBoltsVersion.h */,
 				CE0D418F1C6A673E006B91B5 /* AWSCancellationToken.h */,
 				CE0D41901C6A673E006B91B5 /* AWSCancellationToken.m */,
 				CE0D41911C6A673E006B91B5 /* AWSCancellationTokenRegistration.h */,
@@ -994,6 +993,7 @@
 				CE0D41941C6A673E006B91B5 /* AWSCancellationTokenSource.m */,
 				CE0D41951C6A673E006B91B5 /* AWSExecutor.h */,
 				CE0D41961C6A673E006B91B5 /* AWSExecutor.m */,
+				04C4E0AE1E4B2D5D005B9DD3 /* AWSGeneric.h */,
 				CE0D41971C6A673E006B91B5 /* AWSTask.h */,
 				CE0D41981C6A673E006B91B5 /* AWSTask.m */,
 				CE0D41991C6A673E006B91B5 /* AWSTaskCompletionSource.h */,
@@ -1464,7 +1464,6 @@
 				CE0D42991C6A673E006B91B5 /* AWSTMMemoryCache.h in Headers */,
 				CE0D424A1C6A673E006B91B5 /* AWSFMDatabaseQueue.h in Headers */,
 				CE0D42841C6A673E006B91B5 /* AWSURLResponseSerialization.h in Headers */,
-				CE0D422B1C6A673E006B91B5 /* AWSBoltsVersion.h in Headers */,
 				CE0D42321C6A673E006B91B5 /* AWSExecutor.h in Headers */,
 				CE0D42A51C6A673E006B91B5 /* AWSModel.h in Headers */,
 				CE0D42251C6A673E006B91B5 /* AWSIdentityProvider.h in Headers */,
@@ -1494,6 +1493,7 @@
 				CE0D425C1C6A673E006B91B5 /* AWSMTLModel.h in Headers */,
 				CE0D42861C6A673E006B91B5 /* AWSValidation.h in Headers */,
 				CEA33FB61C8A37230083D6BC /* Fabric+FABKits.h in Headers */,
+				04C4E0AF1E4B2D5E005B9DD3 /* AWSGeneric.h in Headers */,
 				CE0D42481C6A673E006B91B5 /* AWSFMDatabasePool.h in Headers */,
 				CE0D428C1C6A673E006B91B5 /* AWSServiceEnum.h in Headers */,
 				CE0D42691C6A673E006B91B5 /* NSArray+AWSMTLManipulationAdditions.h in Headers */,
@@ -2380,7 +2380,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fembed-bitcode";
 				RESOURCES_TARGETED_DEVICE_FAMILY = "";
-				SDKROOT = watchos;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2429,7 +2429,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_CFLAGS = "-fembed-bitcode";
 				RESOURCES_TARGETED_DEVICE_FAMILY = "";
-				SDKROOT = watchos;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
