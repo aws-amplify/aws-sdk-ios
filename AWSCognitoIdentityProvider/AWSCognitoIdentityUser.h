@@ -1,5 +1,5 @@
 //
-// Copyright 2014-2016 Amazon.com,
+// Copyright 2014-2017 Amazon.com,
 // Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Amazon Software License (the "License").
@@ -103,24 +103,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityUserSession *> *)getSession;
 
 /**
- Get a session with custom scopes.
- */
-- (AWSTask<AWSCognitoIdentityUserSession *> *)getSession:(nullable NSSet<NSString *> *)scopes DEPRECATED_MSG_ATTRIBUTE("Supplying scopes has no impact client side, they are set at the app client level in the user pool.  Use getSession instead.");
-
-/**
  Get a session with the following username and password
  */
 - (AWSTask<AWSCognitoIdentityUserSession *> *)getSession:(NSString *)username
                                                 password:(NSString *)password
                                           validationData:(nullable NSArray<AWSCognitoIdentityUserAttributeType *> *)validationData;
-
-/**
- Get a session with the following username and password with custom scopes
- */
-- (AWSTask<AWSCognitoIdentityUserSession *> *)getSession:(NSString *)username
-                                                password:(NSString *)password
-                                          validationData:(nullable NSArray<AWSCognitoIdentityUserAttributeType *> *)validationData
-                                                  scopes:(nullable NSSet<NSString *> *)scopes DEPRECATED_MSG_ATTRIBUTE("Supplying scopes has no impact client side, they are set at the app client level in the user pool. Use getSession:password:validationData instead .");
 
 /**
  Get details about this user, including user attributes

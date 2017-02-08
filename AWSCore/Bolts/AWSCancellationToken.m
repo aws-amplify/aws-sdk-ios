@@ -11,10 +11,11 @@
 #import "AWSCancellationToken.h"
 #import "AWSCancellationTokenRegistration.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface AWSCancellationToken ()
 
-@property (nonatomic, assign, getter=isCancellationRequested) BOOL cancellationRequested;
-@property (nonatomic, strong) NSMutableArray *registrations;
+@property (nullable, nonatomic, strong) NSMutableArray *registrations;
 @property (nonatomic, strong) NSObject *lock;
 @property (nonatomic) BOOL disposed;
 
@@ -30,11 +31,13 @@
 
 @implementation AWSCancellationToken
 
+@synthesize cancellationRequested = _cancellationRequested;
+
 #pragma mark - Initializer
 
 - (instancetype)init {
     self = [super init];
-    if (!self) return nil;
+    if (!self) return self;
 
     _registrations = [NSMutableArray array];
     _lock = [NSObject new];
@@ -124,11 +127,9 @@
         if (self.disposed) {
             return;
         }
+        [self.registrations makeObjectsPerformSelector:@selector(dispose)];
+        self.registrations = nil;
         self.disposed = YES;
-        for (AWSCancellationTokenRegistration *registration in self.registrations) {
-            [registration dispose];
-        }
-        [self.registrations removeAllObjects];
     }
 }
 
@@ -139,3 +140,5 @@
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

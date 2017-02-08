@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -119,13 +119,11 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
     XCTAssertTrue([[event metricForKey:@"Mettr1"] isEqualToNumber:@(1)]);
     
     [[self.pinpoint.analyticsClient recordEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         return nil;
     }];
     
     [[self.pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
         
@@ -163,7 +161,6 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
     
     XCTAssertNotNil(event);
     [[[self.pinpoint.analyticsClient recordEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         return nil;
     }] waitUntilFinished];
@@ -199,7 +196,6 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
     
     XCTAssertNotNil(event);
     [[[self.pinpoint.analyticsClient recordEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         return nil;
     }] waitUntilFinished];
@@ -219,7 +215,6 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
     }] waitUntilFinished];
     
     [[[self.pinpoint.analyticsClient submitEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
         
@@ -251,13 +246,11 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
     
     XCTAssertNotNil(event);
     [[self.pinpoint.analyticsClient recordEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         return nil;
     }];
     
     [[self.pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
         
@@ -441,13 +434,11 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
     
     XCTAssertNotNil(event);
     [[self.pinpoint.analyticsClient recordEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         return nil;
     }];
     
     [[self.pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
         
@@ -636,13 +627,11 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
     
     XCTAssertNotNil(event);
     [[self.pinpoint.analyticsClient recordEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         return nil;
     }];
     
     [[self.pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
         

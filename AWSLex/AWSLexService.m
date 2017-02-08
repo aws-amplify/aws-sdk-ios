@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@
 #import "AWSLexSignature.h"
 
 static NSString *const AWSInfoLex = @"Lex";
-static NSString *const AWSLexSDKVersion = @"2.4.16";
+static NSString *const AWSLexSDKVersion = @"2.5.0";
 
 
 @interface AWSLexResponseSerializer : AWSJSONResponseSerializer
@@ -297,11 +297,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSLexPostContentResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -324,11 +319,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self postText:request] continueWithBlock:^id _Nullable(AWSTask<AWSLexPostTextResponse *> * _Nonnull task) {
         AWSLexPostTextResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);

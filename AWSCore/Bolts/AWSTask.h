@@ -11,6 +11,7 @@
 #import <Foundation/Foundation.h>
 
 #import "AWSCancellationToken.h"
+#import "AWSGeneric.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,9 +26,10 @@ extern NSString *const AWSTaskErrorDomain;
 extern NSInteger const kAWSMultipleErrorsError;
 
 /*!
- An exception that is thrown if there was multiple exceptions on <AWSTask taskForCompletionOfAllTasks:>.
+ An error userInfo key used if there were multiple errors on <AWSTask taskForCompletionOfAllTasks:>.
+ Value type is `NSArray<NSError *> *`.
  */
-extern NSString *const AWSTaskMultipleExceptionsException;
+extern NSString *const AWSTaskMultipleErrorsUserInfoKey;
 
 @class AWSExecutor;
 @class AWSTask;
@@ -42,7 +44,7 @@ extern NSString *const AWSTaskMultipleExceptionsException;
 /*!
  A block that can act as a continuation for a task.
  */
-typedef __nullable id(^AWSContinuationBlock)(AWSTask<ResultType> *task);
+typedef __nullable id(^AWSContinuationBlock)(AWSTask<ResultType> *t);
 
 /*!
  Creates a task that is already completed with the given result.
@@ -55,12 +57,6 @@ typedef __nullable id(^AWSContinuationBlock)(AWSTask<ResultType> *task);
  @param error The error for the task.
  */
 + (instancetype)taskWithError:(NSError *)error;
-
-/*!
- Creates a task that is already completed with the given exception.
- @param exception The exception for the task.
- */
-+ (instancetype)taskWithException:(NSException *)exception;
 
 /*!
  Creates a task that is already cancelled.
@@ -83,11 +79,19 @@ typedef __nullable id(^AWSContinuationBlock)(AWSTask<ResultType> *task);
 + (instancetype)taskForCompletionOfAllTasksWithResults:(nullable NSArray<AWSTask *> *)tasks;
 
 /*!
+ Returns a task that will be completed once there is at least one successful task.
+ The first task to successuly complete will set the result, all other tasks results are
+ ignored.
+ @param tasks An `NSArray` of the tasks to use as an input.
+ */
++ (instancetype)taskForCompletionOfAnyTask:(nullable NSArray<AWSTask *> *)tasks;
+
+/*!
  Returns a task that will be completed a certain amount of time in the future.
  @param millis The approximate number of milliseconds to wait before the
  task will be finished (with result == nil).
  */
-+ (instancetype)taskWithDelay:(int)millis;
++ (AWSTask<AWSVoid> *)taskWithDelay:(int)millis;
 
 /*!
  Returns a task that will be completed a certain amount of time in the future.
@@ -95,7 +99,7 @@ typedef __nullable id(^AWSContinuationBlock)(AWSTask<ResultType> *task);
  task will be finished (with result == nil).
  @param token The cancellation token (optional).
  */
-+ (instancetype)taskWithDelay:(int)millis cancellationToken:(nullable AWSCancellationToken *)token;
++ (AWSTask<AWSVoid> *)taskWithDelay:(int)millis cancellationToken:(nullable AWSCancellationToken *)token;
 
 /*!
  Returns a task that will be completed after the given block completes with
@@ -122,17 +126,12 @@ typedef __nullable id(^AWSContinuationBlock)(AWSTask<ResultType> *task);
 @property (nullable, nonatomic, strong, readonly) NSError *error;
 
 /*!
- The exception of a failed task.
- */
-@property (nullable, nonatomic, strong, readonly) NSException *exception;
-
-/*!
  Whether this task has been cancelled.
  */
 @property (nonatomic, assign, readonly, getter=isCancelled) BOOL cancelled;
 
 /*!
- Whether this task has completed due to an error or exception.
+ Whether this task has completed due to an error.
  */
 @property (nonatomic, assign, readonly, getter=isFaulted) BOOL faulted;
 
@@ -152,7 +151,7 @@ typedef __nullable id(^AWSContinuationBlock)(AWSTask<ResultType> *task);
  If block returns a AWSTask, then the task returned from
  this method will not be completed until that task is completed.
  */
-- (AWSTask *)continueWithBlock:(AWSContinuationBlock)block;
+- (AWSTask *)continueWithBlock:(AWSContinuationBlock)block NS_SWIFT_NAME(continueWith(block:));
 
 /*!
  Enqueues the given block to be run once this task is complete.
@@ -166,7 +165,8 @@ typedef __nullable id(^AWSContinuationBlock)(AWSTask<ResultType> *task);
  If block returns a AWSTask, then the task returned from
  this method will not be completed until that task is completed.
  */
-- (AWSTask *)continueWithBlock:(AWSContinuationBlock)block cancellationToken:(nullable AWSCancellationToken *)cancellationToken;
+- (AWSTask *)continueWithBlock:(AWSContinuationBlock)block
+            cancellationToken:(nullable AWSCancellationToken *)cancellationToken NS_SWIFT_NAME(continueWith(block:cancellationToken:));
 
 /*!
  Enqueues the given block to be run once this task is complete.
@@ -177,7 +177,9 @@ typedef __nullable id(^AWSContinuationBlock)(AWSTask<ResultType> *task);
  If block returns a AWSTask, then the task returned from
  this method will not be completed until that task is completed.
  */
-- (AWSTask *)continueWithExecutor:(AWSExecutor *)executor withBlock:(AWSContinuationBlock)block;
+- (AWSTask *)continueWithExecutor:(AWSExecutor *)executor
+                       withBlock:(AWSContinuationBlock)block NS_SWIFT_NAME(continueWith(executor:block:));
+
 /*!
  Enqueues the given block to be run once this task is complete.
  @param executor A AWSExecutor responsible for determining how the
@@ -190,11 +192,12 @@ typedef __nullable id(^AWSContinuationBlock)(AWSTask<ResultType> *task);
  */
 - (AWSTask *)continueWithExecutor:(AWSExecutor *)executor
                            block:(AWSContinuationBlock)block
-               cancellationToken:(nullable AWSCancellationToken *)cancellationToken;
+               cancellationToken:(nullable AWSCancellationToken *)cancellationToken
+NS_SWIFT_NAME(continueWith(executor:block:cancellationToken:));
 
 /*!
  Identical to continueWithBlock:, except that the block is only run
- if this task did not produce a cancellation, error, or exception.
+ if this task did not produce a cancellation or an error.
  If it did, then the failure will be propagated to the returned
  task.
  @param block The block to be run once this task is complete.
@@ -202,11 +205,11 @@ typedef __nullable id(^AWSContinuationBlock)(AWSTask<ResultType> *task);
  If block returns a AWSTask, then the task returned from
  this method will not be completed until that task is completed.
  */
-- (AWSTask *)continueWithSuccessBlock:(AWSContinuationBlock)block;
+- (AWSTask *)continueWithSuccessBlock:(AWSContinuationBlock)block NS_SWIFT_NAME(continueOnSuccessWith(block:));
 
 /*!
  Identical to continueWithBlock:, except that the block is only run
- if this task did not produce a cancellation, error, or exception.
+ if this task did not produce a cancellation or an error.
  If it did, then the failure will be propagated to the returned
  task.
  @param block The block to be run once this task is complete.
@@ -215,13 +218,14 @@ typedef __nullable id(^AWSContinuationBlock)(AWSTask<ResultType> *task);
  If block returns a AWSTask, then the task returned from
  this method will not be completed until that task is completed.
  */
-- (AWSTask *)continueWithSuccessBlock:(AWSContinuationBlock)block cancellationToken:(nullable AWSCancellationToken *)cancellationToken;
+- (AWSTask *)continueWithSuccessBlock:(AWSContinuationBlock)block
+                   cancellationToken:(nullable AWSCancellationToken *)cancellationToken
+NS_SWIFT_NAME(continueOnSuccessWith(block:cancellationToken:));
 
 /*!
  Identical to continueWithExecutor:withBlock:, except that the block
- is only run if this task did not produce a cancellation, error, or
- exception. If it did, then the failure will be propagated to the
- returned task.
+ is only run if this task did not produce a cancellation, error, or an error.
+ If it did, then the failure will be propagated to the returned task.
  @param executor A AWSExecutor responsible for determining how the
  continuation block will be run.
  @param block The block to be run once this task is complete.
@@ -229,13 +233,13 @@ typedef __nullable id(^AWSContinuationBlock)(AWSTask<ResultType> *task);
  If block returns a AWSTask, then the task returned from
  this method will not be completed until that task is completed.
  */
-- (AWSTask *)continueWithExecutor:(AWSExecutor *)executor withSuccessBlock:(AWSContinuationBlock)block;
+- (AWSTask *)continueWithExecutor:(AWSExecutor *)executor
+                withSuccessBlock:(AWSContinuationBlock)block NS_SWIFT_NAME(continueOnSuccessWith(executor:block:));
 
 /*!
  Identical to continueWithExecutor:withBlock:, except that the block
- is only run if this task did not produce a cancellation, error, or
- exception. If it did, then the failure will be propagated to the
- returned task.
+ is only run if this task did not produce a cancellation or an error.
+ If it did, then the failure will be propagated to the returned task.
  @param executor A AWSExecutor responsible for determining how the
  continuation block will be run.
  @param block The block to be run once this task is complete.
@@ -246,7 +250,8 @@ typedef __nullable id(^AWSContinuationBlock)(AWSTask<ResultType> *task);
  */
 - (AWSTask *)continueWithExecutor:(AWSExecutor *)executor
                     successBlock:(AWSContinuationBlock)block
-               cancellationToken:(nullable AWSCancellationToken *)cancellationToken;
+               cancellationToken:(nullable AWSCancellationToken *)cancellationToken
+NS_SWIFT_NAME(continueOnSuccessWith(executor:block:cancellationToken:));
 
 /*!
  Waits until this operation is completed.

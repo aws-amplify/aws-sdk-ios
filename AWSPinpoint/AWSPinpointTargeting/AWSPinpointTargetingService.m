@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #import "AWSPinpointTargetingResources.h"
 
 static NSString *const AWSInfoPinpointTargeting = @"PinpointTargeting";
-static NSString *const AWSPinpointTargetingSDKVersion = @"2.4.16";
+static NSString *const AWSPinpointTargetingSDKVersion = @"2.5.0";
 
 
 @interface AWSPinpointTargetingResponseSerializer : AWSJSONResponseSerializer
@@ -331,11 +331,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSPinpointTargetingCreateCampaignResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -358,11 +353,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self createImportJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingCreateImportJobResponse *> * _Nonnull task) {
         AWSPinpointTargetingCreateImportJobResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -387,11 +377,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSPinpointTargetingCreateSegmentResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -414,11 +399,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self deleteApnsChannel:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingDeleteApnsChannelResponse *> * _Nonnull task) {
         AWSPinpointTargetingDeleteApnsChannelResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -443,11 +423,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSPinpointTargetingDeleteCampaignResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -470,11 +445,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self deleteGcmChannel:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingDeleteGcmChannelResponse *> * _Nonnull task) {
         AWSPinpointTargetingDeleteGcmChannelResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -499,11 +469,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSPinpointTargetingDeleteSegmentResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -526,11 +491,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self getApnsChannel:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetApnsChannelResponse *> * _Nonnull task) {
         AWSPinpointTargetingGetApnsChannelResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -555,11 +515,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSPinpointTargetingGetApplicationSettingsResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -582,11 +537,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self getCampaign:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetCampaignResponse *> * _Nonnull task) {
         AWSPinpointTargetingGetCampaignResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -611,11 +561,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSPinpointTargetingGetCampaignActivitiesResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -638,11 +583,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self getCampaignVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetCampaignVersionResponse *> * _Nonnull task) {
         AWSPinpointTargetingGetCampaignVersionResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -667,11 +607,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSPinpointTargetingGetCampaignVersionsResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -694,11 +629,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self getCampaigns:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetCampaignsResponse *> * _Nonnull task) {
         AWSPinpointTargetingGetCampaignsResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -723,11 +653,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSPinpointTargetingGetEndpointResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -750,11 +675,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self getGcmChannel:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetGcmChannelResponse *> * _Nonnull task) {
         AWSPinpointTargetingGetGcmChannelResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -779,11 +699,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSPinpointTargetingGetImportJobResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -806,11 +721,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self getImportJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetImportJobsResponse *> * _Nonnull task) {
         AWSPinpointTargetingGetImportJobsResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -835,11 +745,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSPinpointTargetingGetSegmentResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -862,11 +767,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self getSegmentImportJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetSegmentImportJobsResponse *> * _Nonnull task) {
         AWSPinpointTargetingGetSegmentImportJobsResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -891,11 +791,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSPinpointTargetingGetSegmentVersionResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -918,11 +813,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self getSegmentVersions:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetSegmentVersionsResponse *> * _Nonnull task) {
         AWSPinpointTargetingGetSegmentVersionsResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -947,11 +837,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSPinpointTargetingGetSegmentsResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -974,11 +859,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self updateApnsChannel:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingUpdateApnsChannelResponse *> * _Nonnull task) {
         AWSPinpointTargetingUpdateApnsChannelResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -1003,11 +883,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSPinpointTargetingUpdateApplicationSettingsResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1030,11 +905,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self updateCampaign:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingUpdateCampaignResponse *> * _Nonnull task) {
         AWSPinpointTargetingUpdateCampaignResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -1059,11 +929,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSPinpointTargetingUpdateEndpointResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1086,11 +951,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self updateEndpointsBatch:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingUpdateEndpointsBatchResponse *> * _Nonnull task) {
         AWSPinpointTargetingUpdateEndpointsBatchResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -1115,11 +975,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSPinpointTargetingUpdateGcmChannelResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -1142,11 +997,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self updateSegment:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingUpdateSegmentResponse *> * _Nonnull task) {
         AWSPinpointTargetingUpdateSegmentResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);

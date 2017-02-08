@@ -126,7 +126,7 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
 
 ###Frameworks
 
-1. Download the SDK from our [AWS Mobile SDK](http://aws.amazon.com/mobile/sdk) page. The SDK is stored in a compressed file archive named `aws-ios-sdk-#.#.#` (where `#.#.#` represents the version number, so for version 2.4.0, the filename is `aws-ios-sdk-2.4.0`).
+1. Download the SDK from our [AWS Mobile SDK](http://aws.amazon.com/mobile/sdk) page. The SDK is stored in a compressed file archive named `aws-ios-sdk-#.#.#` (where `#.#.#` represents the version number, so for version 2.5.0, the filename is `aws-ios-sdk-2.5.0`).
 
 1. With your project open in Xcode, select your **Target**. Under **General** tab, find **Embedded Binaries** and then click the **+** button.
 
@@ -252,7 +252,7 @@ For more information, see [Preparing Your Apps for iOS 9](http://docs.aws.amazon
         let configuration = AWSServiceConfiguration(
             region: DefaultServiceRegionType,
             credentialsProvider: credentialsProvider)
-        AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
+        AWSServiceManager.default().defaultServiceConfiguration = configuration
 
 1. In Swift file you want to use the SDK, import the appropriate headers for the services you are using. The header file import convention is `import AWSServiceName`, as in the following examples:
 
@@ -264,20 +264,20 @@ For more information, see [Preparing Your Apps for iOS 9](http://docs.aws.amazon
         
 1. Make a call to the AWS services.
 
-        let dynamoDB = AWSDynamoDB.defaultDynamoDB()
+        let dynamoDB = AWSDynamoDB.default()
         let listTableInput = AWSDynamoDBListTablesInput()
-        dynamoDB.listTables(listTableInput).continueWithBlock{ (task: AWSTask?) -> AnyObject? in
-            if let error = task.error {
+        dynamoDB.listTables(listTableInput!).continueWith { (task:AWSTask<AWSDynamoDBListTablesOutput>) -> Any? in
+            if let error = task.error as? NSError {
                 print("Error occurred: \(error)")
                 return nil
             }
-
-            let listTablesOutput = task.result as AWSDynamoDBListTablesOutput
-
-            for tableName in listTablesOutput.tableNames {
+            
+            let listTablesOutput = task.result
+            
+            for tableName in listTablesOutput!.tableNames! {
                 print("\(tableName)")
             }
-
+            
             return nil
         }
         
@@ -331,16 +331,16 @@ Changing log levels during development may make debugging easier. You can change
 
 **Swift**
 
-    AWSLogger.defaultLogger().logLevel = .Verbose
+    AWSLogger.default().logLevel = .verbose
 
 The following logging level options are available:
 
-* `.None`
-* `.Error`
-* `.Warn`
-* `.Info`
-* `.Debug` (This is the default.)
-* `.Verbose`
+* `.none`
+* `.error`
+* `.warn`
+* `.info`
+* `.debug` (This is the default.)
+* `.verbose`
 
 **Objective-C**
 
@@ -361,7 +361,7 @@ We recommend setting the log level to `None` before publishing to the Apple App 
 
 The AWS SDK for iOS includes sample apps that demonstrate common use cases.
 
-###Cognito Your User Pools Sample  ([Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoYourUserPools-Sample/Objective-C/))
+###Cognito Your User Pools Sample  ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoYourUserPools-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoYourUserPools-Sample/Objective-C/))
 
 This sample demonstrates how sign up and sign in a user to display an authenticated portion of your app.
 
@@ -436,9 +436,9 @@ The AWS Mobile SDK for iOS zip file includes documentation in the DocSets format
 
 1. Open the Mac OS X terminal and go to the directory containing the expanded archive. For example:
 
-        $ cd ~/Downloads/aws-ios-sdk-2.4.0
+        $ cd ~/Downloads/aws-ios-sdk-2.5.0
 
-    **Note**: Remember to replace 2.4.0 in the example above with the actual version number of the AWS SDK for iOS that you downloaded.
+    **Note**: Remember to replace 2.5.0 in the example above with the actual version number of the AWS SDK for iOS that you downloaded.
 
 1. Create a directory called `~/Library/Developer/Shared/Documentation/DocSets`:
 
@@ -448,7 +448,7 @@ The AWS Mobile SDK for iOS zip file includes documentation in the DocSets format
 
         $ mv Documentation/com.amazon.aws.ios.docset ~/Library/Developer/Shared/Documentation/DocSets/
 
-1. If Xcode was running during this procedure, restart Xcode. To browse the documentation, go to **Help**, click **Documentation and API Reference**, and select **AWS Mobile SDK for iOS v2.4.0 Documentation** (where '2.4.0' is the appropriate version number).
+1. If Xcode was running during this procedure, restart Xcode. To browse the documentation, go to **Help**, click **Documentation and API Reference**, and select **AWS Mobile SDK for iOS v2.5.0 Documentation** (where '2.5.0' is the appropriate version number).
 
 ##Talk to Us
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0820"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8825AB821DCED4C600DEABA1"
+               BlueprintIdentifier = "18798F7D1DEF9EA900BC419B"
                BuildableName = "AWSPinpoint.framework"
                BlueprintName = "AWSPinpoint"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "88448DE91DDAA4620007C5FC"
+               BlueprintIdentifier = "18798F981DEF9EF800BC419B"
                BuildableName = "AWSPinpointUnitTests.xctest"
                BlueprintName = "AWSPinpointUnitTests"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
@@ -42,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "88448E291DDC3AF30007C5FC"
+               BlueprintIdentifier = "18798F861DEF9EA900BC419B"
                BuildableName = "AWSPinpointTests.xctest"
                BlueprintName = "AWSPinpointTests"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
@@ -52,7 +52,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8825AB821DCED4C600DEABA1"
+            BlueprintIdentifier = "18798F7D1DEF9EA900BC419B"
             BuildableName = "AWSPinpoint.framework"
             BlueprintName = "AWSPinpoint"
             ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
@@ -74,7 +74,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8825AB821DCED4C600DEABA1"
+            BlueprintIdentifier = "18798F7D1DEF9EA900BC419B"
             BuildableName = "AWSPinpoint.framework"
             BlueprintName = "AWSPinpoint"
             ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
@@ -99,7 +99,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8825AB821DCED4C600DEABA1"
+            BlueprintIdentifier = "18798F7D1DEF9EA900BC419B"
             BuildableName = "AWSPinpoint.framework"
             BlueprintName = "AWSPinpoint"
             ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">

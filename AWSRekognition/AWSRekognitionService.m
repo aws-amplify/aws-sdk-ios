@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #import "AWSRekognitionResources.h"
 
 static NSString *const AWSInfoRekognition = @"Rekognition";
-static NSString *const AWSRekognitionSDKVersion = @"2.4.16";
+static NSString *const AWSRekognitionSDKVersion = @"2.5.0";
 
 
 @interface AWSRekognitionResponseSerializer : AWSJSONResponseSerializer
@@ -299,11 +299,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSRekognitionCompareFacesResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -326,11 +321,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self createCollection:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionCreateCollectionResponse *> * _Nonnull task) {
         AWSRekognitionCreateCollectionResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -355,11 +345,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSRekognitionDeleteCollectionResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -382,11 +367,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self deleteFaces:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionDeleteFacesResponse *> * _Nonnull task) {
         AWSRekognitionDeleteFacesResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -411,11 +391,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSRekognitionDetectFacesResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -438,11 +413,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self detectLabels:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionDetectLabelsResponse *> * _Nonnull task) {
         AWSRekognitionDetectLabelsResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -467,11 +437,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSRekognitionIndexFacesResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -494,11 +459,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self listCollections:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionListCollectionsResponse *> * _Nonnull task) {
         AWSRekognitionListCollectionsResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -523,11 +483,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSRekognitionListFacesResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -551,11 +506,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSRekognitionSearchFacesResponse *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -578,11 +528,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self searchFacesByImage:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionSearchFacesByImageResponse *> * _Nonnull task) {
         AWSRekognitionSearchFacesByImageResponse *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);

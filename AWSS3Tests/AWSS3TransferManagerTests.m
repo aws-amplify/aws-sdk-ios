@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -95,9 +95,12 @@ static NSURL *tempSmallURL = nil;
 + (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
+    
+    // make sure bucket is empty before attempting to delete
+    [AWSS3TransferManagerTests deleteAllObjectsFromBucket:testBucketNameGeneral];
 
     //Delete Bucket
-    [[self class] deleteBucketWithName:testBucketNameGeneral];
+    [AWSS3TransferManagerTests deleteBucketWithName:testBucketNameGeneral];
 
     //Delete Temp files
     if (tempLargeURL) {
@@ -106,6 +109,133 @@ static NSURL *tempSmallURL = nil;
     if (tempSmallURL) {
         [[NSFileManager defaultManager] removeItemAtURL:tempSmallURL error:nil];
     }
+}
+
++ (void)deleteAllObjectsFromBucket:(NSString *)bucketName {
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    
+    AWSS3ListObjectsRequest *listObjectsRequest = [AWSS3ListObjectsRequest new];
+    listObjectsRequest.bucket = testBucketNameGeneral;
+    
+    [[[s3 listObjects:listObjectsRequest] continueWithBlock:^id(AWSTask *task) {
+        AWSS3ListObjectsOutput *output = task.result;
+        
+        for (AWSS3Object *object in output.contents) {
+            // Delete the object
+            AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
+            deleteObjectRequest.bucket = testBucketNameGeneral;
+            deleteObjectRequest.key = object.key;
+            
+            [[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
+                if (task.error) {
+                    NSLog(@"Failed to delete: %@", object.key);
+                } else {
+                    NSLog(@"Successfully deleted: %@", object.key);
+                }
+                return nil;
+            }];
+        }
+        return nil;
+    }] waitUntilFinished];
+}
+
+- (void)testDownloadWithSpecialEncodedCharacters {
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    XCTAssertNotNil(s3);
+    
+    AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
+    XCTAssertNotNil(transferManager);
+    
+    //Use a key name which has a special character and also its encoded value used as individual characters
+    // E.g. '(single quote) is encoded as %27. We create a key name which contains both ' and %27
+    NSString *keyName = @"File'Name%27Test+ok+test.txt";
+    
+    NSError *error = nil;
+    XCTAssertTrue([[NSFileManager defaultManager] fileExistsAtPath:tempSmallURL.path]);
+    NSString *fileName = [NSString stringWithFormat:@"%@-%@",NSStringFromSelector(_cmd),testBucketNameGeneral];
+    NSURL *testDataURL = [NSURL fileURLWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:fileName]];
+    [[NSFileManager defaultManager] createSymbolicLinkAtURL:testDataURL withDestinationURL:tempSmallURL error:&error];
+    XCTAssertNil(error, @"The request failed. error: [%@]", error);
+    NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:tempSmallURL.path
+                                                                                error:&error];
+    XCTAssertNil(error, @"The request failed. error: [%@]", error);
+    unsigned long long fileSize = [attributes fileSize];
+    XCTAssertTrue(fileSize > 0);
+    
+    AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
+    uploadRequest.bucket = testBucketNameGeneral;
+    uploadRequest.key = keyName;
+    uploadRequest.body = testDataURL;
+    
+    
+    [[[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerUploadOutput class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([task.result class]));
+        return nil;
+    }] waitUntilFinished];
+    
+    
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
+    
+    //Do a list objects call and verify if the upload file has the same file name as expected
+    AWSS3ListObjectsRequest *listObjectsRequest = [AWSS3ListObjectsRequest new];
+    listObjectsRequest.bucket = testBucketNameGeneral;
+    
+    [[[s3 listObjects:listObjectsRequest] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        AWSS3ListObjectsOutput *output = task.result;
+        __block bool filePresent = NO;
+        for (AWSS3Object *object in output.contents) {
+            if ([object.key isEqualToString:keyName]) {
+                // mark file as present if found in list objects call
+                filePresent = YES;
+            }
+        }
+        XCTAssertTrue(filePresent, @"The expected file name was not found in list objects call.");
+        return nil;
+    }] waitUntilFinished];
+    
+    //Download the same file from the bucket
+    AWSS3TransferManagerDownloadRequest *downloadRequest = [AWSS3TransferManagerDownloadRequest new];
+    downloadRequest.bucket = testBucketNameGeneral;
+    downloadRequest.key = keyName;
+    
+    NSString *downloadFileName = [NSString stringWithFormat:@"%@-downloaded-%@",NSStringFromSelector(_cmd),testBucketNameGeneral];
+    
+    NSURL *downloadedLocationURL = [NSURL fileURLWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:downloadFileName]];
+    downloadRequest.downloadingFileURL = [downloadedLocationURL copy];
+    
+    __block NSString *eTag = nil;
+    [[[transferManager download:downloadRequest] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerDownloadOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3TransferManagerDownloadOutput class]),NSStringFromClass([task.result class]));
+        AWSS3TransferManagerDownloadOutput *output = task.result;
+        NSURL *receivedBodyURL = output.body;
+        XCTAssertTrue([receivedBodyURL isKindOfClass:[NSURL class]], @"The response object is not a class of [%@], got: %@", NSStringFromClass([NSURL class]),NSStringFromClass([receivedBodyURL class]));
+        
+        XCTAssertNotNil(output.ETag);
+        eTag = output.ETag;
+        //compare file address
+        XCTAssertEqualObjects(downloadedLocationURL, receivedBodyURL);
+        return nil;
+        
+    }] waitUntilFinished];
+    
+    XCTAssertTrue([[NSFileManager defaultManager] fileExistsAtPath:[downloadedLocationURL path]]);
+    XCTAssertTrue([[NSFileManager defaultManager] contentsEqualAtPath:downloadedLocationURL.path
+                                                              andPath:[[NSFileManager defaultManager] destinationOfSymbolicLinkAtPath:testDataURL.path error:nil]],
+                  @"received and sent file are different");
+    
+    // Delete the uploaded object
+    AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
+    deleteObjectRequest.bucket = testBucketNameGeneral;
+    deleteObjectRequest.key = keyName;
+    
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),NSStringFromClass([task.result class]));
+        return nil;
+    }] waitUntilFinished];
 }
 
 - (void)testDownloadWithIfModifiedSinceHeader {

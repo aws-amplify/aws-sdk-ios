@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -234,33 +234,33 @@ typedef NS_ENUM(NSInteger, AWSLexSpeechEncoding) {
  
  *Swift*
  
- func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
-    let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
-    AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
+     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+         let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+         let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+         AWSServiceManager.default().defaultServiceConfiguration = configuration
  
-    return true
- }
+         return true
+      }
  
  *Objective-C*
  
- -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1 identityPoolId:@"YourIdentityPoolId"];
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:credentialsProvider];
-    [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+      -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+         AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1 identityPoolId:@"YourIdentityPoolId"];
+         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:credentialsProvider];
+         [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
  
-    return YES;
- }
+         return YES;
+      }
  
  Then call the following to get the default service client:
  
  *Swift*
  
- let interactionKit = AWSLexInteractionKit.defaultInteractionKit()
+      let interactionKit = AWSLexInteractionKit.default()
  
  *Objective-C*
  
- AWSLexInteractionKit *interactionKit = [AWSLexInteractionKit defaultInteractionKit];
+      AWSLexInteractionKit *interactionKit = [AWSLexInteractionKit defaultInteractionKit];
  
  @return The default interactionKit client.
  */
@@ -274,34 +274,34 @@ typedef NS_ENUM(NSInteger, AWSLexSpeechEncoding) {
  
  *Swift*
  
- func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
-    let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-    AWSLexInteractionKit.registerInteractionKitWithServiceConfiguration(configuration, forKey: "USWest2InteractionKit")
+     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+         let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+         let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+         AWSLexInteractionKit.register(with: configuration!, forKey: "USWest2InteractionKit")
  
-    return true
- }
+         return true
+      }
  
  *Objective-C*
  
- - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1 identityPoolId:@"YourIdentityPoolId"];
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2 credentialsProvider:credentialsProvider];
+      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+         AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1 identityPoolId:@"YourIdentityPoolId"];
+         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2 credentialsProvider:credentialsProvider];
  
-    [AWSLexInteractionKit registerInteractionKitWithServiceConfiguration:configuration forKey:@"USWest2InteractionKit"];
+         [AWSLexInteractionKit registerInteractionKitWithServiceConfiguration:configuration forKey:@"USWest2InteractionKit"];
  
-    return YES;
- }
+         return YES;
+      }
  
  Then call the following to get the service client:
  
  *Swift*
  
- let interactionKit = AWSLexInteractionKit(forKey: "USWest2InteractionKit")
+      let interactionKit = AWSLexInteractionKit(forKey: "USWest2InteractionKit")
  
  *Objective-C*
  
- AWSLexInteractionKit *interactionKit = [AWSLexInteractionKit interactionKitForKey:@"USWest2InteractionKit"];
+      AWSLexInteractionKit *interactionKit = [AWSLexInteractionKit interactionKitForKey:@"USWest2InteractionKit"];
  
  @warning After calling this method, do not modify the configuration object. It may cause unspecified behaviors.
  
@@ -319,33 +319,33 @@ typedef NS_ENUM(NSInteger, AWSLexSpeechEncoding) {
  
  *Swift*
  
- func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
-    let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-    AWSLexInteractionKit.registerInteractionKitWithServiceConfiguration(configuration, forKey: "USWest2InteractionKit")
+     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+         let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+         let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+         AWSLexInteractionKit.register(with: configuration!, forKey: "USWest2InteractionKit")
  
-    return true
- }
+         return true
+      }
  
  *Objective-C*
  
- - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1 identityPoolId:@"YourIdentityPoolId"];
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2 credentialsProvider:credentialsProvider];
-    [AWSLexInteractionKit registerInteractionKitWithServiceConfiguration:configuration forKey:@"USWest2InteractionKit"];
+      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+         AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1 identityPoolId:@"YourIdentityPoolId"];
+         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2 credentialsProvider:credentialsProvider];
+         [AWSLexInteractionKit registerInteractionKitWithServiceConfiguration:configuration forKey:@"USWest2InteractionKit"];
  
-    return YES;
- }
+         return YES;
+      }
  
  Then call the following to get the service client:
  
  *Swift*
  
- let interactionKit = AWSLexInteractionKit(forKey: "USWest2InteractionKit")
+      let interactionKit = AWSLexInteractionKit(forKey: "USWest2InteractionKit")
  
  *Objective-C*
  
- AWSLexInteractionKit *interactionKit = [AWSLexInteractionKit interactionKitForKey:@"USWest2InteractionKit"];
+      AWSLexInteractionKit *interactionKit = [AWSLexInteractionKit interactionKitForKey:@"USWest2InteractionKit"];
  
  @param key A string to identify the service client.
  

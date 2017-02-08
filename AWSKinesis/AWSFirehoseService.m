@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #import "AWSFirehoseResources.h"
 
 static NSString *const AWSInfoFirehose = @"Firehose";
-static NSString *const AWSFirehoseSDKVersion = @"2.4.16";
+static NSString *const AWSFirehoseSDKVersion = @"2.5.0";
 
 
 @interface AWSFirehoseResponseSerializer : AWSJSONResponseSerializer
@@ -294,11 +294,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSFirehoseCreateDeliveryStreamOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -321,11 +316,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self deleteDeliveryStream:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehoseDeleteDeliveryStreamOutput *> * _Nonnull task) {
         AWSFirehoseDeleteDeliveryStreamOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -350,11 +340,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSFirehoseDescribeDeliveryStreamOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -377,11 +362,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self listDeliveryStreams:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehoseListDeliveryStreamsOutput *> * _Nonnull task) {
         AWSFirehoseListDeliveryStreamsOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);
@@ -406,11 +386,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSFirehosePutRecordOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -434,11 +409,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSFirehosePutRecordBatchOutput *result = task.result;
         NSError *error = task.error;
 
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
-
         if (completionHandler) {
             completionHandler(result, error);
         }
@@ -461,11 +431,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [[self updateDestination:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehoseUpdateDestinationOutput *> * _Nonnull task) {
         AWSFirehoseUpdateDestinationOutput *result = task.result;
         NSError *error = task.error;
-
-        if (task.exception) {
-            AWSLogError(@"Fatal exception: [%@]", task.exception);
-            kill(getpid(), SIGKILL);
-        }
 
         if (completionHandler) {
             completionHandler(result, error);

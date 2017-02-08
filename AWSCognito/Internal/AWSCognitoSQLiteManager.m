@@ -228,8 +228,8 @@
 
 #pragma mark - Data manipulations
 
-- (NSArray *)getDatasets:(NSError **)error {
-    __block NSMutableArray *datasets = [NSMutableArray array];
+- (NSArray<AWSCognitoDatasetMetadata *> *)getDatasets:(NSError **)error {
+    __block NSMutableArray<AWSCognitoDatasetMetadata *> *datasets = [NSMutableArray array];
     
     dispatch_sync(self.dispatchQueue, ^{
         NSString *query = [NSString stringWithFormat:@"SELECT %@, %@, %@, %@, %@, %@, %@ FROM %@ WHERE %@ = ?",
@@ -587,7 +587,7 @@
     return [NSDictionary dictionaryWithDictionary:newRecords];
 }
 
-- (NSArray *)allRecords:(NSString*)datasetName
+- (NSArray<AWSCognitoRecord *> *)allRecords:(NSString*)datasetName
 {
     __block NSMutableArray *allRecords = nil;
 
@@ -1473,7 +1473,7 @@
     return result;
 }
 
-- (NSArray *)getMergeDatasets:(NSString *)datasetName error:(NSError **)error {
+- (NSArray<NSString *> *)getMergeDatasets:(NSString *)datasetName error:(NSError **)error {
     __block NSMutableArray *datasets = nil;
     
     dispatch_sync(self.dispatchQueue, ^{

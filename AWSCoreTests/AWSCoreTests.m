@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -820,7 +820,6 @@
                                             @"key2" : @"value2",
                                             @"key3" : @"value3"}] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
-        XCTAssertNil(task.exception);
         XCTAssertNil(request.HTTPBody);
         return nil;
     }] waitUntilFinished];
@@ -832,7 +831,6 @@
                                             @"key2" : @"value2",
                                             @"key3" : @"value3"}] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
-        XCTAssertNil(task.exception);
         XCTAssertNil(request.HTTPBody);
         return nil;
     }] waitUntilFinished];
@@ -844,7 +842,6 @@
                                             @"key2" : @"value2",
                                             @"key3" : @"value3"}] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
-        XCTAssertNil(task.exception);
         XCTAssertNotNil(request.HTTPBody);
         return nil;
     }] waitUntilFinished];

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,71 +26,71 @@ typedef NS_ENUM(NSInteger, AWSRegionType) {
     /**
      *  Unknown Region
      */
-    AWSRegionUnknown,
+    AWSRegionUnknown NS_SWIFT_NAME(Unknown),
     /**
      *  US East (N. Virginia)
      */
-    AWSRegionUSEast1,
+    AWSRegionUSEast1 NS_SWIFT_NAME(USEast1),
     /**
      *  US East (Ohio)
      */
-    AWSRegionUSEast2,
+    AWSRegionUSEast2 NS_SWIFT_NAME(USEast2),
     /**
      *  US West (N. California)
      */
-    AWSRegionUSWest1,
+    AWSRegionUSWest1 NS_SWIFT_NAME(USWest1),
     /**
      *  US West (Oregon)
      */
-    AWSRegionUSWest2,
+    AWSRegionUSWest2 NS_SWIFT_NAME(USWest2),
     /**
      *  EU (Ireland)
      */
-    AWSRegionEUWest1,
+    AWSRegionEUWest1 NS_SWIFT_NAME(EUWest1),
     /**
      *  EU (London)
      */
-    AWSRegionEUWest2,
+    AWSRegionEUWest2 NS_SWIFT_NAME(EUWest2),
     /**
      *  EU (Frankfurt)
      */
-    AWSRegionEUCentral1,
+    AWSRegionEUCentral1 NS_SWIFT_NAME(EUCentral1),
     /**
      *  Asia Pacific (Singapore)
      */
-    AWSRegionAPSoutheast1,
+    AWSRegionAPSoutheast1 NS_SWIFT_NAME(APSoutheast1),
     /**
      *  Asia Pacific (Tokyo)
      */
-    AWSRegionAPNortheast1,
+    AWSRegionAPNortheast1 NS_SWIFT_NAME(APNortheast1),
     /**
      *  Asia Pacific (Seoul)
      */
-    AWSRegionAPNortheast2,
+    AWSRegionAPNortheast2 NS_SWIFT_NAME(APNortheast2),
     /**
      *  Asia Pacific (Sydney)
      */
-    AWSRegionAPSoutheast2,
+    AWSRegionAPSoutheast2 NS_SWIFT_NAME(APSoutheast2),
     /**
      *  Asia Pacific (Mumbai)
      */
-    AWSRegionAPSouth1,
+    AWSRegionAPSouth1 NS_SWIFT_NAME(APSouth1),
     /**
      *  South America (Sao Paulo)
      */
-    AWSRegionSAEast1,
+    AWSRegionSAEast1 NS_SWIFT_NAME(SAEast1),
     /**
      *  China (Beijing)
      */
-    AWSRegionCNNorth1,
+    AWSRegionCNNorth1 NS_SWIFT_NAME(CNNorth1),
     /**
      *  Canada (Central)
      */
-    AWSRegionCACentral1,
+    AWSRegionCACentral1 NS_SWIFT_NAME(CACentral1),
     /**
      *  AWS GovCloud (US)
      */
-    AWSRegionUSGovWest1,
+    AWSRegionUSGovWest1 NS_SWIFT_NAME(USGovWest1),
 };
 
 /**
@@ -103,111 +103,111 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
     /**
      *  Unknown service
      */
-    AWSServiceUnknown,
+    AWSServiceUnknown NS_SWIFT_NAME(Unknown),
     /**
      *  Amazon API Gateway
      */
-    AWSServiceAPIGateway,
+    AWSServiceAPIGateway NS_SWIFT_NAME(APIGateway),
     /**
      *  Auto Scaling
      */
-    AWSServiceAutoScaling,
+    AWSServiceAutoScaling NS_SWIFT_NAME(AutoScaling),
     /**
      *  Amazon CloudWatch
      */
-    AWSServiceCloudWatch,
+    AWSServiceCloudWatch NS_SWIFT_NAME(CloudWatch),
     /**
      *  Amazon Cognito Identity
      */
-    AWSServiceCognitoIdentity,
+    AWSServiceCognitoIdentity NS_SWIFT_NAME(CognitoIdentity),
     /**
      *  Amazon Cognito Identity Provider
      */
-    AWSServiceCognitoIdentityProvider,
+    AWSServiceCognitoIdentityProvider NS_SWIFT_NAME(CognitoIdentityProvider),
     /**
      *  Amazon Cognito Sync
      */
-    AWSServiceCognitoSync,
+    AWSServiceCognitoSync NS_SWIFT_NAME(CognitoSync),
     /**
      *  Amazon DynamoDB
      */
-    AWSServiceDynamoDB,
+    AWSServiceDynamoDB NS_SWIFT_NAME(DynamoDB),
     /**
      *  Amazon Elastic Compute Cloud (EC2)
      */
-    AWSServiceEC2,
+    AWSServiceEC2 NS_SWIFT_NAME(EC2),
     /**
      *  Elastic Load Balancing
      */
-    AWSServiceElasticLoadBalancing,
+    AWSServiceElasticLoadBalancing NS_SWIFT_NAME(ElasticLoadBalancing),
     /**
      *  AWS IoT
      */
-    AWSServiceIoT,
+    AWSServiceIoT NS_SWIFT_NAME(IoT),
     /**
      *  AWS IoT Data
      */
-    AWSServiceIoTData,
+    AWSServiceIoTData NS_SWIFT_NAME(IoTData),
     /**
      *  Amazon Kinesis Firehose
      */
-    AWSServiceFirehose,
+    AWSServiceFirehose NS_SWIFT_NAME(Firehose),
     /**
      *  Amazon Kinesis
      */
-    AWSServiceKinesis,
+    AWSServiceKinesis NS_SWIFT_NAME(Kinesis),
     /**
      *  AWS Lambda
      */
-    AWSServiceLambda,
+    AWSServiceLambda NS_SWIFT_NAME(Lambda),
     /**
      *  Amazon Lex Runtime Service
      */
-    AWSServiceLexRuntime,
+    AWSServiceLexRuntime NS_SWIFT_NAME(LexRuntime),
     /**
      *  Amazon Machine Learning
      */
-    AWSServiceMachineLearning,
+    AWSServiceMachineLearning NS_SWIFT_NAME(MachineLearning),
     /**
      *  Amazon Mobile Analytics
      */
-    AWSServiceMobileAnalytics,
+    AWSServiceMobileAnalytics NS_SWIFT_NAME(MobileAnalytics),
     /**
      *  Amazon Mobile Targeting
      */
-    AWSServiceMobileTargeting,
+    AWSServiceMobileTargeting NS_SWIFT_NAME(MobileTargeting),
     /**
      *  Amazon Polly
      */
-    AWSServicePolly,
+    AWSServicePolly NS_SWIFT_NAME(Polly),
     /**
      *  Amazon Rekognition
      */
-    AWSServiceRekognition,
+    AWSServiceRekognition NS_SWIFT_NAME(Rekognition),
     /**
      *  Amazon Simple Storage Service (S3)
      */
-    AWSServiceS3,
+    AWSServiceS3 NS_SWIFT_NAME(S3),
     /**
      *  Amazon Simple Email Service (SES)
      */
-    AWSServiceSES,
+    AWSServiceSES NS_SWIFT_NAME(SES),
     /**
      *  Amazon SimpleDB
      */
-    AWSServiceSimpleDB,
+    AWSServiceSimpleDB NS_SWIFT_NAME(SimpleDB),
     /**
      *  Amazon Simple Notification Service (SNS)
      */
-    AWSServiceSNS,
+    AWSServiceSNS NS_SWIFT_NAME(SNS),
     /**
      *  Amazon Simple Queue Service (SQS)
      */
-    AWSServiceSQS,
+    AWSServiceSQS NS_SWIFT_NAME(SQS),
     /**
      *  AWS Security Token Service (STS)
      */
-    AWSServiceSTS,
+    AWSServiceSTS NS_SWIFT_NAME(STS),
 };
 
 #endif

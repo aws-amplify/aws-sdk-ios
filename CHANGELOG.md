@@ -1,5 +1,48 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.5.0
+### General Updates
+* **All Services**
+	* Swift 3 documentation and naming definitions added. The naming definitions will affect all Swift users by changing method names. Please refer to the [blog](https://aws.amazon.com/blogs/mobile/aws-mobile-sdk-for-ios-version-2-5-0-improvements-and-changes-to-swift-support/) for more details on changes and how to upgrade from 2.4.X to 2.5.X.
+* **SDK Core**
+	* `AWSRegionType` and `AWSServiceType` enums do not follow the convention that uses lowercase at the beginning. Example: `.USEast1` and `.DynamoDB`
+* **Updated AWSTask**
+	* AWSTask has been updated to the latest version of the Bolts framework.
+
+### API Changes
+* **SDK Core**
+	* **AWSTask** no longer has `exception` property and affiliated methods due to Bolts update. This means that AWSTask will not handle exceptions and they will be thrown.
+	* **AWSCredentialsProvider**
+		* Removed deprecated property`login`. Please use `AWSIdentityProviderManager` to provide a valid logins dictionary to the credentials provider.
+		* Removed deprecated method `initWithRegionType:identityId:identityPoolId:logins:`. Please use `initWithRegionType:identityPoolId:identityProviderManager:`.
+		* Removed deprecated method `initWithRegionType:identityId:accountId:identityPoolId:unauthRoleArn:authRoleArn:logins:`. Please use `initWithRegionType:identityPoolId:unauthRoleArn:authRoleArn:identityProviderManager:`.
+	* **AWSIdentityProvider**
+		* Removed deprecated enum `AWSCognitoLoginProviderKey`.
+		* `AWSCognitoCredentialsProviderHelperErrorType` enum entries changed to conform to convention.
+			* Please use `AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil` instead of `AWSCognitoCredentialsProviderHelperErrorIdentityIsNil`.
+			* Please use `AWSCognitoCredentialsProviderHelperErrorTypeTokenRefreshTimeout` instead of `AWSCognitoCredentialsProviderHelperErrorTokenRefreshTimeout`.
+* **Amazon S3**
+	* **AWSS3TransferUtility** parameter name `completionHander` corrected to `completionHandler`. Afffected methods are `uploadData:bucket:key:contentType:expression:completionHander:`, `uploadFile:bucket:key:contentType:expression:completionHander:`, `downloadDataFromBucket:key:expression:completionHander:`, and `downloadToURL:bucket:key:expression:completionHander:`.
+* **Amazon Cognito**
+	* **AWSCognitoIdentityUser**
+		* Removed deprecated method `getSession:password:validationData:scopes:`. Please use `getSession:password:validationData`.
+		* Removed deprecated method `getSession:`. Please use `getSession` (no parameters).
+* **AWS IoT**
+	* **AWSIoTDataManager**
+		* Removed deprecated method `publishString:onTopic:`. Please use `publishString:onTopic:QoS:`.
+		* Removed deprecated method `publishString:qos:onTopic:`. Please use `publishString:onTopic:QoS:`.
+		* Removed deprecated method `publishData:onTopic`. Please use `publishData:onTopic:QoS:`.
+		* Removed deprecated method `publishData:qos:onTopic`. Please use `publishData:onTopic:QoS:`.
+		* Removed deprecated method `subscribeToTopic:qos:messageCallback`. Please use `registerWithShadow:eventCallback`.
+* **AWS IoT, Amazon DynamoDB, Amazon Cognito**
+	* Type parameters specified for generic types where applicable.
+
+### Resolved Issues
+* **SDK Core**
+	* Fix bug related to URL encoding [Github Issue 442](https://github.com/aws/aws-sdk-ios/issues/442)
+* **Amazon Cognito Sync**
+	* Fix and repair datasets stuck with "No such SyncCount" errors during synchronize.
+
 ## 2.4.16
 ### New Features
 * **SDK Core**

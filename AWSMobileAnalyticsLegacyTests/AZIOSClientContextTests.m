@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -53,7 +53,7 @@
                   || [clientContext.deviceModel isEqualToString:@"iPad Simulator"]
                   || [clientContext.deviceModel isEqualToString:@"iPhone"]
                   || [clientContext.deviceModel isEqualToString:@"iPad"]);
-    assertThat(clientContext.devicePlatform, is(equalTo(@"iPhone OS")));
+    assertThat(clientContext.devicePlatform, is(equalTo(@"iOS")));
     assertThat(clientContext.deviceLocale, is(equalTo([[NSLocale autoupdatingCurrentLocale] localeIdentifier])));
     assertThat(clientContext.deviceModelVersion, is(equalTo([clientContext deviceModelVersionCode])));
     assertThat(clientContext.devicePlatformVersion, is(equalTo([currentDevice systemVersion])));
@@ -88,7 +88,7 @@
                   || [clientContext.deviceModel isEqualToString:@"iPad Simulator"]
                   || [clientContext.deviceModel isEqualToString:@"iPhone"]
                   || [clientContext.deviceModel isEqualToString:@"iPad"]);
-    assertThat(clientContext.devicePlatform, is(equalTo(@"iPhone OS")));
+    assertThat(clientContext.devicePlatform, is(equalTo(@"iOS")));
     assertThat(clientContext.deviceLocale, is(equalTo([[NSLocale autoupdatingCurrentLocale] localeIdentifier])));
     assertThat(clientContext.deviceModelVersion, is(equalTo([clientContext deviceModelVersionCode])));
     assertThat(clientContext.devicePlatformVersion, is(equalTo([currentDevice systemVersion])));
@@ -133,7 +133,7 @@
                   || [clientContext.deviceModel isEqualToString:@"iPad Simulator"]
                   || [clientContext.deviceModel isEqualToString:@"iPhone"]
                   || [clientContext.deviceModel isEqualToString:@"iPad"]);
-    assertThat(clientContext.devicePlatform, is(equalTo(@"iPhone OS")));
+    assertThat(clientContext.devicePlatform, is(equalTo(@"iOS")));
     assertThat(clientContext.deviceLocale, is(equalTo([[NSLocale autoupdatingCurrentLocale] localeIdentifier])));
     assertThat(clientContext.deviceModelVersion, is(equalTo([clientContext deviceModelVersionCode])));
     assertThat(clientContext.devicePlatformVersion, is(equalTo([currentDevice systemVersion])));

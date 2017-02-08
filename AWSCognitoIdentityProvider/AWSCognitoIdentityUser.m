@@ -1,5 +1,5 @@
 //
-// Copyright 2014-2016 Amazon.com,
+// Copyright 2014-2017 Amazon.com,
 // Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Amazon Software License (the "License").
@@ -194,25 +194,6 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
         }
     }
     return [self interactiveAuth];
-}
-
-
-/**
- * Get session with scopes.  Scopes are deprecated and have no effect.
- */
-- (AWSTask<AWSCognitoIdentityUserSession *> *)getSession:(nullable NSSet<NSString *> *)scopes {
-    return [self getSession];
-}
-
-
-/**
- * Explicitly get a session without using any cached tokens/refresh tokens.  Scopes are deprecated and have no effect.
- */
-- (AWSTask<AWSCognitoIdentityUserSession *> *)getSession:(NSString *)username
-                                                password:(NSString *)password
-                                          validationData:(nullable NSArray<AWSCognitoIdentityUserAttributeType *> *)validationData
-                                                  scopes:(nullable NSSet<NSString *> *)scopes {
-    return [self getSession:username password:password validationData:validationData];
 }
 
 /**

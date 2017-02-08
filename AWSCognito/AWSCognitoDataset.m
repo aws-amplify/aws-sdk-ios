@@ -235,7 +235,7 @@
     return result;
 }
 
-- (NSArray *)getAllRecords
+- (NSArray<AWSCognitoRecord *> *)getAllRecords
 {
     NSArray *allRecords = nil;
     
@@ -244,7 +244,7 @@
     return allRecords;
 }
 
-- (NSDictionary *)getAll
+- (NSDictionary<NSString *, NSString *> *)getAll
 {
     NSArray *allRecords = nil;
     NSMutableDictionary *recordsAsDictionary = [NSMutableDictionary dictionary];
@@ -350,7 +350,14 @@
             return [AWSTask taskWithError:error];
         }else if(task.error){
             AWSLogError(@"Unable to list records: %@", task.error);
-            return task;
+            //decrement sync counts that exceed the service sync count and try again
+            if(task.error.code == AWSCognitoSyncErrorInvalidParameter && self.currentSyncCount.longLongValue > 0
+               && task.error.userInfo[@"NSLocalizedDescription"] && [task.error.userInfo[@"NSLocalizedDescription"] hasPrefix:@"No such SyncCount:"]){
+                self.currentSyncCount = [NSNumber numberWithLong:self.currentSyncCount.longLongValue - 1];
+                return [self syncPull:remainingAttempts-1];
+            } else {
+                return task;
+            }
         }else {
             NSError *error = nil;
             NSMutableArray *conflicts = [NSMutableArray new];
@@ -545,6 +552,7 @@
                 if(response.records) {
                     NSMutableArray *changedRecords = [NSMutableArray new];
                     NSMutableArray *changedRecordsNames = [NSMutableArray new];
+                    NSNumber *maxSyncCount = [NSNumber numberWithLong:0];
                     for (AWSCognitoSyncRecord * record in response.records) {
                         [changedRecordsNames addObject:record.key];
                         AWSCognitoRecordValueType recordType = AWSCognitoRecordValueTypeString;
@@ -560,6 +568,12 @@
                         if(record.syncCount.longLongValue > currentSyncCount.longLongValue + 1){
                             okToUpdateSyncCount = NO;
                         }
+                        
+                        // keep track of the max sync count returned by the service
+                        if(record.syncCount.longLongValue > maxSyncCount.longLongValue) {
+                            maxSyncCount = record.syncCount;
+                        }
+                        
                         newRecord.syncCount = [record.syncCount longLongValue];
                         newRecord.dirtyCount = 0;
                         newRecord.lastModifiedBy = record.lastModifiedBy;
@@ -587,7 +601,7 @@
                         [self postDidChangeRemoteValueNotification:changedRecordsNames];
                         if(okToUpdateSyncCount){
                             //if we only increased the sync count by 1, fast forward the last sync count to our update sync count
-                            [self.sqliteManager updateLastSyncCount:self.name syncCount:[NSNumber numberWithLongLong:currentSyncCount.longLongValue+1] lastModifiedBy:nil];
+                            [self.sqliteManager updateLastSyncCount:self.name syncCount:maxSyncCount lastModifiedBy:nil];
                         }
                     } else {
                         [self postDidFailToSynchronizeNotification:error];

@@ -31,7 +31,7 @@
 - (void)deleteAllData;
 - (void)deleteSQLiteDatabase;
 
-- (NSArray *)getDatasets:(NSError **)error;
+- (NSArray<AWSCognitoDatasetMetadata *> *)getDatasets:(NSError **)error;
 - (void)loadDatasetMetadata:(AWSCognitoDatasetMetadata *)dataset error:(NSError **)error;
 - (BOOL)putDatasetMetadata:(NSArray *)datasets error:(NSError **)error;
 - (BOOL)updateDatasetMetadata:(AWSCognitoDatasetMetadata *)dataset error:(NSError **)error;
@@ -47,10 +47,10 @@
 
 - (NSNumber *) numRecords:(NSString *)datasetName;
 
-- (NSArray *)getMergeDatasets:(NSString *)datasetName error:(NSError **)error;
+- (NSArray<NSString *> *)getMergeDatasets:(NSString *)datasetName error:(NSError **)error;
 - (BOOL)reparentDatasets:(NSString *)oldId withNewId:(NSString *)newId error:(NSError **)error;
 
-- (NSArray *)allRecords:(NSString *)datasetName;
+- (NSArray<AWSCognitoRecord *> *)allRecords:(NSString *)datasetName;
 - (NSDictionary *)recordsUpdatedAfterLastSync:(NSString *)datasetName error:(NSError **)error;
 
 - (NSNumber *)lastSyncCount:(NSString *)datasetName;

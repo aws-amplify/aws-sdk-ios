@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -46,7 +46,6 @@ static NSString *testPollyURLBuilderKey = @"testPollyURLBuilder";
     
     [[[[builder getPreSignedURL:request] continueWithBlock:^id _Nullable(AWSTask<NSURL *> * _Nonnull task) {
         XCTAssertNil(task.error);
-        XCTAssertNil(task.exception);
         XCTAssertNotNil(task.result);
         return task;
     }] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
@@ -87,7 +86,6 @@ static NSString *testPollyURLBuilderKey = @"testPollyURLBuilder";
     AWSPolly *Polly = [AWSPolly defaultPolly];
     [[[Polly synthesizeSpeech:request] continueWithBlock:^id _Nullable(AWSTask<AWSPollySynthesizeSpeechOutput *> * _Nonnull task) {
         XCTAssertNil(task.error);
-        XCTAssertNil(task.exception);
         XCTAssertNotNil(task.result);
         
         NSString *filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"myfile.mp3"];

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -301,6 +301,7 @@ BOOL _identityChanged;
         XCTAssertNotNil(credentials.accessKey, @"Unable to get accessKey");
         
         identityProvider.loggedIn = YES;
+        [provider clearCredentials];
         return [provider credentials];
     }] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         if (task.error) {
@@ -433,6 +434,7 @@ BOOL _identityChanged;
         XCTAssertNotNil(credentials.accessKey, @"Unable to get accessKey");
 
         identityProvider.loggedIn = YES;
+        [provider clearCredentials];
         return [provider credentials];
     }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {

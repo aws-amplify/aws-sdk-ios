@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -16,6 +16,8 @@
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSTask.h>
 #import "AWSAbstractKinesisRecorder.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 FOUNDATION_EXPORT NSString *const AWSFirehoseRecorderErrorDomain;
 
@@ -48,13 +50,13 @@ FOUNDATION_EXPORT NSString *const AWSFirehoseRecorderByteThresholdReachedNotific
 
  *Swift*
 
-     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-         let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
-         let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
-         AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
-
-         return true
-     }
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+        let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+        AWSServiceManager.default().defaultServiceConfiguration = configuration
+ 
+        return true
+    }
 
  *Objective-C*
 
@@ -72,7 +74,7 @@ FOUNDATION_EXPORT NSString *const AWSFirehoseRecorderByteThresholdReachedNotific
 
  *Swift*
 
-     let FirehoseRecorder = AWSFirehoseRecorder.defaultFirehoseRecorder()
+     let FirehoseRecorder = AWSFirehoseRecorder.default()
 
  *Objective-C*
 
@@ -89,13 +91,14 @@ FOUNDATION_EXPORT NSString *const AWSFirehoseRecorderByteThresholdReachedNotific
 
  *Swift*
 
-     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-         let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
-         let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-         AWSFirehoseRecorder.registerFirehoseRecorderWithConfiguration(configuration, forKey: "USWest2FirehoseRecorder")
-
-         return true
-     }
+ 
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+        let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+        AWSFirehoseRecorder.register(with: configuration!, forKey: "USWest2Firehose")
+ 
+        return true
+    }
 
  *Objective-C*
 
@@ -134,10 +137,10 @@ FOUNDATION_EXPORT NSString *const AWSFirehoseRecorderByteThresholdReachedNotific
 
  *Swift*
 
-     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
          let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
          let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-         AWSFirehoseRecorder.registerFirehoseRecorderWithConfiguration(configuration, forKey: "USWest2FirehoseRecorder")
+         AWSFirehoseRecorder.register(with: configuration!, forKey: "USWest2FirehoseRecorder")
 
          return true
      }
@@ -181,3 +184,5 @@ FOUNDATION_EXPORT NSString *const AWSFirehoseRecorderByteThresholdReachedNotific
 + (void)removeFirehoseRecorderForKey:(NSString *)key;
 
 @end
+
+NS_ASSUME_NONNULL_END
