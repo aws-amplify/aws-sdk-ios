@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.private_header_files = 'AWSLex/Bluefront/include/*.h'
   s.preserve_paths = 'AWSLex/Bluefront/include/*'
   s.vendored_libraries = 'AWSLex/Bluefront/libBlueAudioSourceiOS.a'
-  s.xcconfig = {  'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/#{s.name}/AWSLex/Bluefront/include/**' 
+  s.xcconfig = {  'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/AWSLex/Bluefront/include/**" 
   			   }
   s.resource_bundle = {  'AWSResources' => 'AWSResources/*' }
 end
