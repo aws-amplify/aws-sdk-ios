@@ -26,7 +26,7 @@
 #import "AWSFirehoseResources.h"
 
 static NSString *const AWSInfoFirehose = @"Firehose";
-static NSString *const AWSFirehoseSDKVersion = @"2.5.0";
+static NSString *const AWSFirehoseSDKVersion = @"2.5.1";
 
 
 @interface AWSFirehoseResponseSerializer : AWSJSONResponseSerializer

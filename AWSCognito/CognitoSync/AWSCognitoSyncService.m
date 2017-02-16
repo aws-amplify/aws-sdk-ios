@@ -26,7 +26,7 @@
 #import "AWSCognitoSyncResources.h"
 
 static NSString *const AWSInfoCognitoSync = @"CognitoSync";
-static NSString *const AWSCognitoSyncSDKVersion = @"2.5.0";
+static NSString *const AWSCognitoSyncSDKVersion = @"2.5.1";
 
 
 @interface AWSCognitoSyncResponseSerializer : AWSJSONResponseSerializer

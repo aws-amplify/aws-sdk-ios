@@ -22,6 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  A string containing the version of the Bolts Framework used by the current application.
  */
-extern NSString *const BoltsFrameworkVersionString;
+extern NSString *const AWSBoltsFrameworkVersionString;
 
 NS_ASSUME_NONNULL_END

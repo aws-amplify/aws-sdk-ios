@@ -783,7 +783,7 @@ static NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427a
     if (self.endOfStream) {
         return NO;
     }
-    
+
     NSData *data = [NSData dataWithBytesNoCopy:chunkBuffer length:read];
     [self.chunkData appendData:[self getSignedChunk:data]];
 
