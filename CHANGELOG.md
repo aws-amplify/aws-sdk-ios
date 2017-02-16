@@ -1,15 +1,24 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.5.1
+### Resolved Issues
+* **SDK Core**
+	* Fix namespace collision with Bolts framework. [Github Issue #572](https://github.com/aws/aws-sdk-ios/issues/572)
+	* Fix a bug which caused bad memory access when no data is read from stream [Github Pull Request #582](https://github.com/aws/aws-sdk-ios/pull/582) [Github Issue #586](https://github.com/aws/aws-sdk-ios/issues/586)
+* **Amazon Lex - Beta**
+	* Fix a bug which cutoff beginning of audio stream.
+	* Fix a bug which caused bad memory access during race conditions.
+
 ## 2.5.0
 ### General Updates
 * **All Services**
 	* Swift 3 documentation and naming definitions added. The naming definitions will affect all Swift users by changing method names. Please refer to the [blog](https://aws.amazon.com/blogs/mobile/aws-mobile-sdk-for-ios-version-2-5-0-improvements-and-changes-to-swift-support/) for more details on changes and how to upgrade from 2.4.X to 2.5.X.
 * **SDK Core**
-	* `AWSRegionType` and `AWSServiceType` enums do not follow the convention that uses lowercase at the beginning. Example: `.USEast1` and `.DynamoDB`
+	* For Swift, `AWSRegionType` and `AWSServiceType` enums do not follow the convention that uses lowercase at the beginning. Example: `.USEast1` and `.DynamoDB`
 * **Updated AWSTask**
 	* AWSTask has been updated to the latest version of the Bolts framework.
 
-### API Changes
+### Breaking API Changes
 * **SDK Core**
 	* **AWSTask** no longer has `exception` property and affiliated methods due to Bolts update. This means that AWSTask will not handle exceptions and they will be thrown.
 	* **AWSCredentialsProvider**
