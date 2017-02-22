@@ -7,19 +7,16 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		04C4E0A21E4B26AE005B9DD3 /* RFTPBuildAll */ = {
+		CEC0FBF41E5DF89800D21342 /* AWSSDKxOS-Universal */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 04C4E0A31E4B26AE005B9DD3 /* Build configuration list for PBXAggregateTarget "RFTPBuildAll" */;
+			buildConfigurationList = CEC0FBF61E5DF89800D21342 /* Build configuration list for PBXAggregateTarget "AWSSDKxOS-Universal" */;
 			buildPhases = (
+				CEC0FBF51E5DF89800D21342 /* ShellScript */,
 			);
 			dependencies = (
-				04C4E0A71E4B26C1005B9DD3 /* PBXTargetDependency */,
-				04C4E0A91E4B26C1005B9DD3 /* PBXTargetDependency */,
-				04C4E0AB1E4B26C1005B9DD3 /* PBXTargetDependency */,
-				04C4E0AD1E4B26C1005B9DD3 /* PBXTargetDependency */,
 			);
-			name = RFTPBuildAll;
-			productName = RFTPBuildAll;
+			name = "AWSSDKxOS-Universal";
+			productName = "AWSSDKxOS-Universal";
 		};
 		CEEF67961CEF8E37000110B0 /* AWSAllTests */ = {
 			isa = PBXAggregateTarget;
@@ -302,34 +299,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		04C4E0A61E4B26C1005B9DD3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CE0D416C1C6A66E5006B91B5;
-			remoteInfo = AWSCore;
-		};
-		04C4E0A81E4B26C1005B9DD3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CE9DEABC1C6A7FDF0060793F;
-			remoteInfo = AWSCognito;
-		};
-		04C4E0AA1E4B26C1005B9DD3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CE9DE6D81C6A79DF0060793F;
-			remoteInfo = AWSLambda;
-		};
-		04C4E0AC1E4B26C1005B9DD3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CE9DE9BC1C6A7C2D0060793F;
-			remoteInfo = AWSS3;
-		};
 		CE0D41781C6A66E5006B91B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
@@ -650,6 +619,12 @@
 		CE0D42B11C6A67E3006B91B5 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		CE1F3A901CD96A9E00C8EBCB /* AWSS3Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSS3Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		CE1F3A911CD96A9E00C8EBCB /* AWSS3TransferUtilityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSS3TransferUtilityTests.swift; sourceTree = "<group>"; };
+		CE2781EA1E5B3A1500301F53 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
+		CE2781EC1E5B3A1C00301F53 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
+		CE2781EE1E5B3A2300301F53 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.1.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
+		CE2781F01E5B3A2900301F53 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.1.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
+		CE2781F21E5B3A3000301F53 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
+		CE2781F41E5B3A3500301F53 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
 		CE3627CC1CEBA92B003E85B9 /* AWSKSReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSKSReachability.h; sourceTree = "<group>"; };
 		CE3627CD1CEBA92B003E85B9 /* AWSKSReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSKSReachability.m; sourceTree = "<group>"; };
 		CE5603D21C6BC74500B4E00B /* AWSCoreUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSCoreUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -895,6 +870,7 @@
 				CE9DE9CA1C6A7C2E0060793F /* AWSS3Tests */,
 				CE5604A01C6BC97600B4E00B /* AWSS3UnitTests */,
 				CE0D415E1C6A66AA006B91B5 /* Products */,
+				CE2781E91E5B3A1500301F53 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1204,6 +1180,19 @@
 				CE0D42221C6A673E006B91B5 /* AWSXMLWriter.m */,
 			);
 			path = XMLWriter;
+			sourceTree = "<group>";
+		};
+		CE2781E91E5B3A1500301F53 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE2781F41E5B3A3500301F53 /* libz.tbd */,
+				CE2781F21E5B3A3000301F53 /* libsqlite3.tbd */,
+				CE2781F01E5B3A2900301F53 /* libz.tbd */,
+				CE2781EE1E5B3A2300301F53 /* libsqlite3.tbd */,
+				CE2781EC1E5B3A1C00301F53 /* libz.tbd */,
+				CE2781EA1E5B3A1500301F53 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CE3627CB1CEBA92B003E85B9 /* KSReachability */ = {
@@ -1824,45 +1813,57 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
-					04C4E0A21E4B26AE005B9DD3 = {
-						CreatedOnToolsVersion = 8.1;
-						ProvisioningStyle = Automatic;
-					};
 					CE0D416C1C6A66E5006B91B5 = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
 					CE0D41751C6A66E5006B91B5 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = NF35GG74E9;
+						ProvisioningStyle = Automatic;
 					};
 					CE5603D11C6BC74500B4E00B = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = NF35GG74E9;
+						ProvisioningStyle = Automatic;
 					};
 					CE5604171C6BC8DF00B4E00B = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = NF35GG74E9;
+						ProvisioningStyle = Automatic;
 					};
 					CE5604711C6BC93C00B4E00B = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = NF35GG74E9;
+						ProvisioningStyle = Automatic;
 					};
 					CE56049E1C6BC97600B4E00B = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = NF35GG74E9;
+						ProvisioningStyle = Automatic;
 					};
 					CE9DE6D81C6A79DF0060793F = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
 					CE9DE6E11C6A79DF0060793F = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = NF35GG74E9;
+						ProvisioningStyle = Automatic;
 					};
 					CE9DE9BC1C6A7C2D0060793F = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
 					CE9DE9C51C6A7C2E0060793F = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = NF35GG74E9;
+						ProvisioningStyle = Automatic;
 					};
 					CE9DEABC1C6A7FDF0060793F = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
 					CE9DEAC51C6A7FDF0060793F = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = NF35GG74E9;
+						ProvisioningStyle = Automatic;
 					};
 					CEEF67961CEF8E37000110B0 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1895,7 +1896,7 @@
 				CE9DE9C51C6A7C2E0060793F /* AWSS3Tests */,
 				CE56049E1C6BC97600B4E00B /* AWSS3UnitTests */,
 				CEEF67961CEF8E37000110B0 /* AWSAllTests */,
-				04C4E0A21E4B26AE005B9DD3 /* RFTPBuildAll */,
+				CEC0FBF41E5DF89800D21342 /* AWSSDKxOS-Universal */,
 			);
 		};
 /* End PBXProject section */
@@ -2001,6 +2002,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CEC0FBF51E5DF89800D21342 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# make sure the output directory exists\n\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}/watchOS\"\nrm -fr \"${UNIVERSAL_OUTPUTFOLDER}/watchOS/\"*\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}/tvOS\"\nrm -fr \"${UNIVERSAL_OUTPUTFOLDER}/tvOS/\"*\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}/macOS\"\nrm -fr \"${UNIVERSAL_OUTPUTFOLDER}/macOS/\"*\n\n# Step 1. Build Device and Simulator versions on tvOS\n\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSCore\" -configuration ${CONFIGURATION} -sdk appletvos BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-appletvos\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSCore\" -configuration ${CONFIGURATION} -sdk appletvsimulator BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-appletvsimulator\n\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSCognito\" -configuration ${CONFIGURATION} -sdk appletvos BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-appletvos\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSCognito\" -configuration ${CONFIGURATION} -sdk appletvsimulator BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-appletvsimulator\n\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSLambda\" -configuration ${CONFIGURATION} -sdk appletvos BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-appletvos\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSLambda\" -configuration ${CONFIGURATION} -sdk appletvsimulator BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-appletvsimulator\n\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSS3\" -configuration ${CONFIGURATION} -sdk appletvos BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-appletvos\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSS3\" -configuration ${CONFIGURATION} -sdk appletvsimulator BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-appletvsimulator\n\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-appletvsimulator/\"*.framework \"${UNIVERSAL_OUTPUTFOLDER}/tvOS\"\n\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/tvOS/AWSCore.framework/AWSCore\" \"${BUILD_DIR}/${CONFIGURATION}-appletvsimulator/AWSCore.framework/AWSCore\" \"${BUILD_DIR}/${CONFIGURATION}-appletvos/AWSCore.framework/AWSCore\"\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/tvOS/AWSCognito.framework/AWSCognito\" \"${BUILD_DIR}/${CONFIGURATION}-appletvsimulator/AWSCognito.framework/AWSCognito\" \"${BUILD_DIR}/${CONFIGURATION}-appletvos/AWSCognito.framework/AWSCognito\"\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/tvOS/AWSLambda.framework/AWSLambda\" \"${BUILD_DIR}/${CONFIGURATION}-appletvsimulator/AWSLambda.framework/AWSLambda\" \"${BUILD_DIR}/${CONFIGURATION}-appletvos/AWSLambda.framework/AWSLambda\"\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/tvOS/AWSS3.framework/AWSS3\" \"${BUILD_DIR}/${CONFIGURATION}-appletvsimulator/AWSS3.framework/AWSS3\" \"${BUILD_DIR}/${CONFIGURATION}-appletvos/AWSS3.framework/AWSS3\"\n\nmkdir -p \"Frameworks/tvOS\"\nrm -fr \"Frameworks/tvOS/\"*\ncp -Rf \"${UNIVERSAL_OUTPUTFOLDER}/tvOS/\"* \"Frameworks/tvOS\"\n\n# Step 2. Build Device and Simulator versions on watchOS\n\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSCore\" -configuration ${CONFIGURATION} -sdk watchos BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-watchos\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSCore\" -configuration ${CONFIGURATION} -sdk watchsimulator BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-watchsimulator\n\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSCognito\" -configuration ${CONFIGURATION} -sdk watchos BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-watchos\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSCognito\" -configuration ${CONFIGURATION} -sdk watchsimulator BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-watchsimulator\n\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSLambda\" -configuration ${CONFIGURATION} -sdk watchos BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-watchos\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSLambda\" -configuration ${CONFIGURATION} -sdk watchsimulator BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-watchsimulator\n\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSS3\" -configuration ${CONFIGURATION} -sdk watchos BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-watchos\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSS3\" -configuration ${CONFIGURATION} -sdk watchsimulator BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-watchsimulator\n\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-watchsimulator/\"*.framework \"${UNIVERSAL_OUTPUTFOLDER}/watchOS\"\n\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/watchOS/AWSCore.framework/AWSCore\" \"${BUILD_DIR}/${CONFIGURATION}-watchsimulator/AWSCore.framework/AWSCore\" \"${BUILD_DIR}/${CONFIGURATION}-watchos/AWSCore.framework/AWSCore\"\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/watchOS/AWSCognito.framework/AWSCognito\" \"${BUILD_DIR}/${CONFIGURATION}-watchsimulator/AWSCognito.framework/AWSCognito\" \"${BUILD_DIR}/${CONFIGURATION}-watchos/AWSCognito.framework/AWSCognito\"\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/watchOS/AWSLambda.framework/AWSLambda\" \"${BUILD_DIR}/${CONFIGURATION}-watchsimulator/AWSLambda.framework/AWSLambda\" \"${BUILD_DIR}/${CONFIGURATION}-watchos/AWSLambda.framework/AWSLambda\"\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/watchOS/AWSS3.framework/AWSS3\" \"${BUILD_DIR}/${CONFIGURATION}-watchsimulator/AWSS3.framework/AWSS3\" \"${BUILD_DIR}/${CONFIGURATION}-watchos/AWSS3.framework/AWSS3\"\n\nmkdir -p \"Frameworks/watchOS\"\nrm -fr \"Frameworks/watchOS/\"*\ncp -Rf \"${UNIVERSAL_OUTPUTFOLDER}/watchOS/\"* \"Frameworks/watchOS\"\n\n# Step 3. Build Device version on macOS\n\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSCore\" -configuration ${CONFIGURATION} -sdk macosx BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-macos\n\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSCognito\" -configuration ${CONFIGURATION} -sdk macosx BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-macos\n\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSLambda\" -configuration ${CONFIGURATION} -sdk macosx BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-macos\n\nxcodebuild -project \"${PROJECT_NAME}.xcodeproj\" -target \"AWSS3\" -configuration ${CONFIGURATION} -sdk macosx BITCODE_GENERATION_MODE=bitcode clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-macos\n\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-macos/\"*.framework \"${UNIVERSAL_OUTPUTFOLDER}/macos\"\n\nmkdir -p \"Frameworks/macos\"\nrm -fr \"Frameworks/macos/\"*\ncp -Rf \"${UNIVERSAL_OUTPUTFOLDER}/macos/\"* \"Frameworks/macos\"\n\nexit 0;";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CE0D41681C6A66E5006B91B5 /* Sources */ = {
@@ -2205,26 +2222,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		04C4E0A71E4B26C1005B9DD3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CE0D416C1C6A66E5006B91B5 /* AWSCore */;
-			targetProxy = 04C4E0A61E4B26C1005B9DD3 /* PBXContainerItemProxy */;
-		};
-		04C4E0A91E4B26C1005B9DD3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CE9DEABC1C6A7FDF0060793F /* AWSCognito */;
-			targetProxy = 04C4E0A81E4B26C1005B9DD3 /* PBXContainerItemProxy */;
-		};
-		04C4E0AB1E4B26C1005B9DD3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CE9DE6D81C6A79DF0060793F /* AWSLambda */;
-			targetProxy = 04C4E0AA1E4B26C1005B9DD3 /* PBXContainerItemProxy */;
-		};
-		04C4E0AD1E4B26C1005B9DD3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CE9DE9BC1C6A7C2D0060793F /* AWSS3 */;
-			targetProxy = 04C4E0AC1E4B26C1005B9DD3 /* PBXContainerItemProxy */;
-		};
 		CE0D41791C6A66E5006B91B5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CE0D416C1C6A66E5006B91B5 /* AWSCore */;
@@ -2323,20 +2320,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		04C4E0A41E4B26AE005B9DD3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		04C4E0A51E4B26AE005B9DD3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		CE0D41631C6A66AA006B91B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2380,7 +2363,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fembed-bitcode";
 				RESOURCES_TARGETED_DEVICE_FAMILY = "";
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2429,7 +2412,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_CFLAGS = "-fembed-bitcode";
 				RESOURCES_TARGETED_DEVICE_FAMILY = "";
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2469,6 +2452,8 @@
 		CE0D41821C6A66E5006B91B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NF35GG74E9;
 				INFOPLIST_FILE = AWSCoreTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2484,6 +2469,8 @@
 		CE0D41831C6A66E5006B91B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NF35GG74E9;
 				INFOPLIST_FILE = AWSCoreTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2499,6 +2486,8 @@
 		CE5603DB1C6BC74500B4E00B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NF35GG74E9;
 				INFOPLIST_FILE = AWSCoreUnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2514,6 +2503,8 @@
 		CE5603DC1C6BC74500B4E00B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NF35GG74E9;
 				INFOPLIST_FILE = AWSCoreUnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2529,6 +2520,8 @@
 		CE5604211C6BC8DF00B4E00B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NF35GG74E9;
 				INFOPLIST_FILE = AWSCognitoUnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2544,6 +2537,8 @@
 		CE5604221C6BC8DF00B4E00B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NF35GG74E9;
 				INFOPLIST_FILE = AWSCognitoUnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2559,6 +2554,8 @@
 		CE56047B1C6BC93C00B4E00B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NF35GG74E9;
 				INFOPLIST_FILE = AWSLambdaUnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2574,6 +2571,8 @@
 		CE56047C1C6BC93C00B4E00B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NF35GG74E9;
 				INFOPLIST_FILE = AWSLambdaUnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2589,6 +2588,8 @@
 		CE5604A81C6BC97600B4E00B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NF35GG74E9;
 				INFOPLIST_FILE = AWSS3UnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2604,6 +2605,8 @@
 		CE5604A91C6BC97600B4E00B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NF35GG74E9;
 				INFOPLIST_FILE = AWSS3UnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2643,6 +2646,8 @@
 		CE9DE6EE1C6A79DF0060793F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NF35GG74E9;
 				INFOPLIST_FILE = AWSLambdaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2658,6 +2663,8 @@
 		CE9DE6EF1C6A79DF0060793F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NF35GG74E9;
 				INFOPLIST_FILE = AWSLambdaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2697,6 +2704,8 @@
 		CE9DE9D21C6A7C2E0060793F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NF35GG74E9;
 				INFOPLIST_FILE = AWSS3Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2713,6 +2722,8 @@
 		CE9DE9D31C6A7C2E0060793F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NF35GG74E9;
 				INFOPLIST_FILE = AWSS3Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2753,6 +2764,8 @@
 		CE9DEAD21C6A7FDF0060793F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NF35GG74E9;
 				INFOPLIST_FILE = AWSCognitoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2768,6 +2781,8 @@
 		CE9DEAD31C6A7FDF0060793F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NF35GG74E9;
 				INFOPLIST_FILE = AWSCognitoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2776,6 +2791,22 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSCognitoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CEC0FBF71E5DF89800D21342 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CEC0FBF81E5DF89800D21342 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -2797,14 +2828,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		04C4E0A31E4B26AE005B9DD3 /* Build configuration list for PBXAggregateTarget "RFTPBuildAll" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				04C4E0A41E4B26AE005B9DD3 /* Debug */,
-				04C4E0A51E4B26AE005B9DD3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
 		CE0D41571C6A66A9006B91B5 /* Build configuration list for PBXProject "RFTPAWSiOSSDKv2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2918,6 +2941,15 @@
 			buildConfigurations = (
 				CE9DEAD21C6A7FDF0060793F /* Debug */,
 				CE9DEAD31C6A7FDF0060793F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEC0FBF61E5DF89800D21342 /* Build configuration list for PBXAggregateTarget "AWSSDKxOS-Universal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEC0FBF71E5DF89800D21342 /* Debug */,
+				CEC0FBF81E5DF89800D21342 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
