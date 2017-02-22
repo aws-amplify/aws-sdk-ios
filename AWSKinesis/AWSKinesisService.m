@@ -27,7 +27,7 @@
 #import "AWSKinesisRequestRetryHandler.h"
 
 static NSString *const AWSInfoKinesis = @"Kinesis";
-static NSString *const AWSKinesisSDKVersion = @"2.5.0";
+static NSString *const AWSKinesisSDKVersion = @"2.5.1";
 
 
 @interface AWSKinesisResponseSerializer : AWSJSONResponseSerializer
