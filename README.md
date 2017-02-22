@@ -3,7 +3,7 @@
 [![Release](https://img.shields.io/github/release/aws/aws-sdk-ios.svg)]()
 [![CocoaPods](https://img.shields.io/cocoapods/v/AWSiOSSDKv2.svg)]()
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Twitter Follow](https://img.shields.io/twitter/follow/AWSMobile.svg?style=social&label=Follow)](https://twitter.com/AWSMobile)
+[![Twitter Follow](https://img.shields.io/twitter/follow/AWSforMobile.svg?style=social&label=Follow)](https://twitter.com/AWSforMobile)
 
 ##Setting Up
 
