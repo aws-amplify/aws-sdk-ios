@@ -713,7 +713,7 @@ static void (^shadowMqttMessageHandler)(NSObject *mqttClient, NSString *topic, N
             // Start the shadow operation timer.
             //
             shadow.timer = [NSTimer timerWithTimeInterval:shadow.operationTimeout target:self selector: @selector(shadowOperationTimeoutOnTimer:) userInfo:name repeats:NO];
-            
+            [[NSRunLoop mainRunLoop] addTimer:shadow.timer forMode:NSRunLoopCommonModes];
             //
             // Add the version number (if known and versioning is enabled) and
             // client token properties to the state dictionary.
