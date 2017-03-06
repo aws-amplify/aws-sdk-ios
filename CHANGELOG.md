@@ -1,5 +1,40 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.5.2
+### New Features
+* **AWS KMS**
+    *  AWS Key Management Service (KMS) is a managed service that makes it easy for you to create and control the encryption keys used to encrypt your data, and uses Hardware Security Modules (HSMs) to protect the security of your keys. AWS Key Management Service is integrated with several other AWS services to help you protect the data you store with these services. AWS Key Management Service is also integrated with AWS CloudTrail to provide you with logs of all key usage to help meet your regulatory and compliance needs.
+
+### Breaking API Changes
+* **Amazon Cognito Identity Provider**
+	* Changed `AWSCognitoIdentityProviderSchemaAttributeType` property from `mutable` to `varying` for compatibility when used with C++. [Github Issue #597](https://github.com/aws/aws-sdk-ios/issues/597)
+
+### Resolved Issues
+* **SDK Core**
+	* Fixed invalid chunk data signature. [Github Issue #592](https://github.com/aws/aws-sdk-ios/issues/592)
+	* Added us-east-2, eu-west-2, and ca-central-1 regions to `aws_regionTypeValue`.
+*  **Amazon Cognito Identity Provider**
+	*  Fixed bug which caused `deleteAttributes` to not delete the attributes specified by caller. The method no longer causes user logout.
+	*  Improved reliability of `registerDevice:deviceToken` with reduced `NotAuthorizedException` occurances.
+*  **Amazon Cognito Sync**
+	*  Fixed bug which caused possible deadlock during `synchronize` call.
+*  **Amazon Lex - beta**
+	*  Added support to switch between audio outputs during conversation.
+	*  Added robot face icon to indicate voice response instead of color change in Lex voice button.
+	*  Removed unnecessary header search path in AWSLex.podspec.
+* **AWS IoT**
+	* Fixed bug which caused shadow timer to not expire shadow operation. [Github Pull Request #601](https://github.com/aws/aws-sdk-ios/pull/601) [Github Issue #565](https://github.com/aws/aws-sdk-ios/issues/565)
+
+### Enhancements
+* **Amazon Cognito Identity Provider**
+	* Added more error logging.
+* **AWS IoT**
+	* Added more error logging and missing `NSURLNetworkServiceTypeCallSignaling` case handling.
+* **AWS STS**
+	* Updated STS models.
+* **Amazon S3**
+	* Updated S3 models.
+
 ## 2.5.1
 ### Resolved Issues
 * **SDK Core**

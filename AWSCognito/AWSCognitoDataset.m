@@ -353,7 +353,7 @@
             //decrement sync counts that exceed the service sync count and try again
             if(task.error.code == AWSCognitoSyncErrorInvalidParameter && self.currentSyncCount.longLongValue > 0
                && task.error.userInfo[@"NSLocalizedDescription"] && [task.error.userInfo[@"NSLocalizedDescription"] hasPrefix:@"No such SyncCount:"]){
-                self.currentSyncCount = [NSNumber numberWithLong:self.currentSyncCount.longLongValue - 1];
+                self.currentSyncCount = [NSNumber numberWithLongLong:self.currentSyncCount.longLongValue - 1];
                 return [self syncPull:remainingAttempts-1];
             } else {
                 return task;
@@ -632,20 +632,31 @@
         NSError * error = nil;
         if (task.error) {
             error = [NSError errorWithDomain:AWSCognitoErrorDomain code:AWSCognitoAuthenticationFailed userInfo:nil];
-         //only allow one sync to be pending and one in flight at a time
-        }else if(!dispatch_semaphore_wait(self.synchronizeQueue, DISPATCH_TIME_NOW)){
-            //only allow one thread to sychronize data at a time, wait a max of 5 minutes for the in flight
-            //sync to complete
-            if(!dispatch_semaphore_wait(self.serializer, dispatch_time(DISPATCH_TIME_NOW, 300 * NSEC_PER_SEC))){
-                self.syncSessionToken = nil;
-                return [[self synchronizeInternal:self.synchronizeRetries] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-                    dispatch_semaphore_signal(self.serializer);
+        }
+        //only allow one sync to be pending and one in flight at a time
+        else if(!dispatch_semaphore_wait(self.synchronizeQueue, DISPATCH_TIME_NOW)){
+            //only allow one thread to synchronize data at a time, wait a max of 5 minutes for the in flight
+            //sync to complete. Because this may block the main thread, run on a background thread
+            AWSTaskCompletionSource<AWSTask *> *completion = [AWSTaskCompletionSource new];
+            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+                if(!dispatch_semaphore_wait(self.serializer, dispatch_time(DISPATCH_TIME_NOW, 300 * NSEC_PER_SEC))){
+                    self.syncSessionToken = nil;
+                    [[self synchronizeInternal:self.synchronizeRetries] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+                        dispatch_semaphore_signal(self.serializer);
+                        dispatch_semaphore_signal(self.synchronizeQueue);
+                        if(task.error){
+                            completion.error = task.error;
+                        }else {
+                            completion.result = task.result;
+                        }
+                        return task;
+                    }];
+                }else {
                     dispatch_semaphore_signal(self.synchronizeQueue);
-                    return task;
-                }];
-            }else {
-                error = [NSError errorWithDomain:AWSCognitoErrorDomain code:AWSCognitoErrorTimedOutWaitingForInFlightSync userInfo:nil];
-            }
+                    completion.error = [NSError errorWithDomain:AWSCognitoErrorDomain code:AWSCognitoErrorTimedOutWaitingForInFlightSync userInfo:nil];
+                }
+            });
+            return completion.task;
         }else {
             error = [NSError errorWithDomain:AWSCognitoErrorDomain code:AWSCognitoErrorSyncAlreadyPending userInfo:nil];
         }

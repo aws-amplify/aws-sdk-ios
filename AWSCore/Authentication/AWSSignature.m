@@ -779,8 +779,9 @@ static NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427a
     // mark end of stream if no data is read
     self.endOfStream = (read <= 0);
 
-    // return NO if no data is read
-    if (self.endOfStream) {
+    // return NO if stream read failed
+    if (read < 0) {
+        AWSLogError(@"stream read failed streamStatus: %lu streamError: %@", (unsigned long)[self.stream streamStatus], [self.stream streamError].description);
         return NO;
     }
 

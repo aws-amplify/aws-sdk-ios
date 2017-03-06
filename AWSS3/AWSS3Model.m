@@ -133,6 +133,104 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 @end
 
+@implementation AWSS3AnalyticsAndOperator
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"prefix" : @"Prefix",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSS3Tag class]];
+}
+
+@end
+
+@implementation AWSS3AnalyticsConfiguration
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"filter" : @"Filter",
+             @"identifier" : @"Id",
+             @"storageClassAnalysis" : @"StorageClassAnalysis",
+             };
+}
+
++ (NSValueTransformer *)filterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3AnalyticsFilter class]];
+}
+
++ (NSValueTransformer *)storageClassAnalysisJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3StorageClassAnalysis class]];
+}
+
+@end
+
+@implementation AWSS3AnalyticsExportDestination
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"s3BucketDestination" : @"S3BucketDestination",
+             };
+}
+
++ (NSValueTransformer *)s3BucketDestinationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3AnalyticsS3BucketDestination class]];
+}
+
+@end
+
+@implementation AWSS3AnalyticsFilter
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"and" : @"And",
+             @"prefix" : @"Prefix",
+             @"tag" : @"Tag",
+             };
+}
+
++ (NSValueTransformer *)andJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3AnalyticsAndOperator class]];
+}
+
++ (NSValueTransformer *)tagJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3Tag class]];
+}
+
+@end
+
+@implementation AWSS3AnalyticsS3BucketDestination
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bucket" : @"Bucket",
+             @"bucketAccountId" : @"BucketAccountId",
+             @"format" : @"Format",
+             @"prefix" : @"Prefix",
+             };
+}
+
++ (NSValueTransformer *)formatJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CSV"] == NSOrderedSame) {
+            return @(AWSS3AnalyticsS3ExportFileFormatCsv);
+        }
+        return @(AWSS3AnalyticsS3ExportFileFormatUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSS3AnalyticsS3ExportFileFormatCsv:
+                return @"CSV";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSS3Bucket
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -506,6 +604,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"storageClass" : @"StorageClass",
+             @"tagging" : @"Tagging",
+             @"taggingDirective" : @"TaggingDirective",
              @"websiteRedirectLocation" : @"WebsiteRedirectLocation",
              };
 }
@@ -658,6 +758,27 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"REDUCED_REDUNDANCY";
             case AWSS3StorageClassStandardIa:
                 return @"STANDARD_IA";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)taggingDirectiveJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"COPY"] == NSOrderedSame) {
+            return @(AWSS3TaggingDirectiveCopy);
+        }
+        if ([value caseInsensitiveCompare:@"REPLACE"] == NSOrderedSame) {
+            return @(AWSS3TaggingDirectiveReplace);
+        }
+        return @(AWSS3TaggingDirectiveUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSS3TaggingDirectiveCopy:
+                return @"COPY";
+            case AWSS3TaggingDirectiveReplace:
+                return @"REPLACE";
             default:
                 return nil;
         }
@@ -1099,6 +1220,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSS3DeleteBucketAnalyticsConfigurationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bucket" : @"Bucket",
+             @"identifier" : @"Id",
+             };
+}
+
+@end
+
 @implementation AWSS3DeleteBucketCorsRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1109,11 +1241,33 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSS3DeleteBucketInventoryConfigurationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bucket" : @"Bucket",
+             @"identifier" : @"Id",
+             };
+}
+
+@end
+
 @implementation AWSS3DeleteBucketLifecycleRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"bucket" : @"Bucket",
+             };
+}
+
+@end
+
+@implementation AWSS3DeleteBucketMetricsConfigurationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bucket" : @"Bucket",
+             @"identifier" : @"Id",
              };
 }
 
@@ -1249,6 +1403,28 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSS3DeleteObjectTaggingOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"versionId" : @"VersionId",
+             };
+}
+
+@end
+
+@implementation AWSS3DeleteObjectTaggingRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bucket" : @"Bucket",
+             @"key" : @"Key",
+             @"versionId" : @"VersionId",
+             };
 }
 
 @end
@@ -1497,6 +1673,31 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSS3GetBucketAnalyticsConfigurationOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"analyticsConfiguration" : @"AnalyticsConfiguration",
+             };
+}
+
++ (NSValueTransformer *)analyticsConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3AnalyticsConfiguration class]];
+}
+
+@end
+
+@implementation AWSS3GetBucketAnalyticsConfigurationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bucket" : @"Bucket",
+             @"identifier" : @"Id",
+             };
+}
+
+@end
+
 @implementation AWSS3GetBucketCorsOutput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1516,6 +1717,31 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"bucket" : @"Bucket",
+             };
+}
+
+@end
+
+@implementation AWSS3GetBucketInventoryConfigurationOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"inventoryConfiguration" : @"InventoryConfiguration",
+             };
+}
+
++ (NSValueTransformer *)inventoryConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3InventoryConfiguration class]];
+}
+
+@end
+
+@implementation AWSS3GetBucketInventoryConfigurationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bucket" : @"Bucket",
+             @"identifier" : @"Id",
              };
 }
 
@@ -1704,6 +1930,31 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"bucket" : @"Bucket",
+             };
+}
+
+@end
+
+@implementation AWSS3GetBucketMetricsConfigurationOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"metricsConfiguration" : @"MetricsConfiguration",
+             };
+}
+
++ (NSValueTransformer *)metricsConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3MetricsConfiguration class]];
+}
+
+@end
+
+@implementation AWSS3GetBucketMetricsConfigurationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bucket" : @"Bucket",
+             @"identifier" : @"Id",
              };
 }
 
@@ -2028,6 +2279,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"storageClass" : @"StorageClass",
+             @"tagCount" : @"TagCount",
              @"versionId" : @"VersionId",
              @"websiteRedirectLocation" : @"WebsiteRedirectLocation",
              };
@@ -2213,6 +2465,33 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSS3GetObjectTaggingOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tagSet" : @"TagSet",
+             @"versionId" : @"VersionId",
+             };
+}
+
++ (NSValueTransformer *)tagSetJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSS3Tag class]];
+}
+
+@end
+
+@implementation AWSS3GetObjectTaggingRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bucket" : @"Bucket",
+             @"key" : @"Key",
+             @"versionId" : @"VersionId",
+             };
+}
+
+@end
+
 @implementation AWSS3GetObjectTorrentOutput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2260,6 +2539,42 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         switch ([value integerValue]) {
             case AWSS3RequestPayerRequester:
                 return @"requester";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSS3GlacierJobParameters
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tier" : @"Tier",
+             };
+}
+
++ (NSValueTransformer *)tierJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Standard"] == NSOrderedSame) {
+            return @(AWSS3TierStandard);
+        }
+        if ([value caseInsensitiveCompare:@"Bulk"] == NSOrderedSame) {
+            return @(AWSS3TierBulk);
+        }
+        if ([value caseInsensitiveCompare:@"Expedited"] == NSOrderedSame) {
+            return @(AWSS3TierExpedited);
+        }
+        return @(AWSS3TierUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSS3TierStandard:
+                return @"Standard";
+            case AWSS3TierBulk:
+                return @"Bulk";
+            case AWSS3TierExpedited:
+                return @"Expedited";
             default:
                 return nil;
         }
@@ -2588,6 +2903,139 @@ return [date aws_stringValue:AWSDateRFC822DateFormat1];
 
 @end
 
+@implementation AWSS3InventoryConfiguration
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"destination" : @"Destination",
+             @"filter" : @"Filter",
+             @"identifier" : @"Id",
+             @"includedObjectVersions" : @"IncludedObjectVersions",
+             @"isEnabled" : @"IsEnabled",
+             @"optionalFields" : @"OptionalFields",
+             @"schedule" : @"Schedule",
+             };
+}
+
++ (NSValueTransformer *)destinationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3InventoryDestination class]];
+}
+
++ (NSValueTransformer *)filterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3InventoryFilter class]];
+}
+
++ (NSValueTransformer *)includedObjectVersionsJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"All"] == NSOrderedSame) {
+            return @(AWSS3InventoryIncludedObjectVersionsAll);
+        }
+        if ([value caseInsensitiveCompare:@"Current"] == NSOrderedSame) {
+            return @(AWSS3InventoryIncludedObjectVersionsCurrent);
+        }
+        return @(AWSS3InventoryIncludedObjectVersionsUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSS3InventoryIncludedObjectVersionsAll:
+                return @"All";
+            case AWSS3InventoryIncludedObjectVersionsCurrent:
+                return @"Current";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)scheduleJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3InventorySchedule class]];
+}
+
+@end
+
+@implementation AWSS3InventoryDestination
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"s3BucketDestination" : @"S3BucketDestination",
+             };
+}
+
++ (NSValueTransformer *)s3BucketDestinationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3InventoryS3BucketDestination class]];
+}
+
+@end
+
+@implementation AWSS3InventoryFilter
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"prefix" : @"Prefix",
+             };
+}
+
+@end
+
+@implementation AWSS3InventoryS3BucketDestination
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"accountId" : @"AccountId",
+             @"bucket" : @"Bucket",
+             @"format" : @"Format",
+             @"prefix" : @"Prefix",
+             };
+}
+
++ (NSValueTransformer *)formatJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CSV"] == NSOrderedSame) {
+            return @(AWSS3InventoryFormatCsv);
+        }
+        return @(AWSS3InventoryFormatUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSS3InventoryFormatCsv:
+                return @"CSV";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSS3InventorySchedule
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"frequency" : @"Frequency",
+             };
+}
+
++ (NSValueTransformer *)frequencyJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Daily"] == NSOrderedSame) {
+            return @(AWSS3InventoryFrequencyDaily);
+        }
+        if ([value caseInsensitiveCompare:@"Weekly"] == NSOrderedSame) {
+            return @(AWSS3InventoryFrequencyWeekly);
+        }
+        return @(AWSS3InventoryFrequencyUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSS3InventoryFrequencyDaily:
+                return @"Daily";
+            case AWSS3InventoryFrequencyWeekly:
+                return @"Weekly";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSS3LambdaFunctionConfiguration
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2645,6 +3093,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"abortIncompleteMultipartUpload" : @"AbortIncompleteMultipartUpload",
              @"expiration" : @"Expiration",
+             @"filter" : @"Filter",
              @"identifier" : @"ID",
              @"noncurrentVersionExpiration" : @"NoncurrentVersionExpiration",
              @"noncurrentVersionTransitions" : @"NoncurrentVersionTransitions",
@@ -2660,6 +3109,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)expirationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3LifecycleExpiration class]];
+}
+
++ (NSValueTransformer *)filterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3LifecycleRuleFilter class]];
 }
 
 + (NSValueTransformer *)noncurrentVersionExpirationJSONTransformer {
@@ -2693,6 +3146,125 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)transitionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSS3Transition class]];
+}
+
+@end
+
+@implementation AWSS3LifecycleRuleAndOperator
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"prefix" : @"Prefix",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSS3Tag class]];
+}
+
+@end
+
+@implementation AWSS3LifecycleRuleFilter
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"and" : @"And",
+             @"prefix" : @"Prefix",
+             @"tag" : @"Tag",
+             };
+}
+
++ (NSValueTransformer *)andJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3LifecycleRuleAndOperator class]];
+}
+
++ (NSValueTransformer *)tagJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3Tag class]];
+}
+
+@end
+
+@implementation AWSS3ListBucketAnalyticsConfigurationsOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"analyticsConfigurationList" : @"AnalyticsConfigurationList",
+             @"continuationToken" : @"ContinuationToken",
+             @"isTruncated" : @"IsTruncated",
+             @"nextContinuationToken" : @"NextContinuationToken",
+             };
+}
+
++ (NSValueTransformer *)analyticsConfigurationListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSS3AnalyticsConfiguration class]];
+}
+
+@end
+
+@implementation AWSS3ListBucketAnalyticsConfigurationsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bucket" : @"Bucket",
+             @"continuationToken" : @"ContinuationToken",
+             };
+}
+
+@end
+
+@implementation AWSS3ListBucketInventoryConfigurationsOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"continuationToken" : @"ContinuationToken",
+             @"inventoryConfigurationList" : @"InventoryConfigurationList",
+             @"isTruncated" : @"IsTruncated",
+             @"nextContinuationToken" : @"NextContinuationToken",
+             };
+}
+
++ (NSValueTransformer *)inventoryConfigurationListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSS3InventoryConfiguration class]];
+}
+
+@end
+
+@implementation AWSS3ListBucketInventoryConfigurationsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bucket" : @"Bucket",
+             @"continuationToken" : @"ContinuationToken",
+             };
+}
+
+@end
+
+@implementation AWSS3ListBucketMetricsConfigurationsOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"continuationToken" : @"ContinuationToken",
+             @"isTruncated" : @"IsTruncated",
+             @"metricsConfigurationList" : @"MetricsConfigurationList",
+             @"nextContinuationToken" : @"NextContinuationToken",
+             };
+}
+
++ (NSValueTransformer *)metricsConfigurationListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSS3MetricsConfiguration class]];
+}
+
+@end
+
+@implementation AWSS3ListBucketMetricsConfigurationsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bucket" : @"Bucket",
+             @"continuationToken" : @"ContinuationToken",
+             };
 }
 
 @end
@@ -3193,6 +3765,56 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSS3MetricsAndOperator
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"prefix" : @"Prefix",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSS3Tag class]];
+}
+
+@end
+
+@implementation AWSS3MetricsConfiguration
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"filter" : @"Filter",
+             @"identifier" : @"Id",
+             };
+}
+
++ (NSValueTransformer *)filterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3MetricsFilter class]];
+}
+
+@end
+
+@implementation AWSS3MetricsFilter
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"and" : @"And",
+             @"prefix" : @"Prefix",
+             @"tag" : @"Tag",
+             };
+}
+
++ (NSValueTransformer *)andJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3MetricsAndOperator class]];
+}
+
++ (NSValueTransformer *)tagJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3Tag class]];
+}
+
+@end
+
 @implementation AWSS3MultipartUpload
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -3563,6 +4185,22 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSS3PutBucketAnalyticsConfigurationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"analyticsConfiguration" : @"AnalyticsConfiguration",
+             @"bucket" : @"Bucket",
+             @"identifier" : @"Id",
+             };
+}
+
++ (NSValueTransformer *)analyticsConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3AnalyticsConfiguration class]];
+}
+
+@end
+
 @implementation AWSS3PutBucketCorsRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -3575,6 +4213,22 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)CORSConfigurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3CORSConfiguration class]];
+}
+
+@end
+
+@implementation AWSS3PutBucketInventoryConfigurationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bucket" : @"Bucket",
+             @"identifier" : @"Id",
+             @"inventoryConfiguration" : @"InventoryConfiguration",
+             };
+}
+
++ (NSValueTransformer *)inventoryConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3InventoryConfiguration class]];
 }
 
 @end
@@ -3622,6 +4276,22 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)bucketLoggingStatusJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3BucketLoggingStatus class]];
+}
+
+@end
+
+@implementation AWSS3PutBucketMetricsConfigurationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bucket" : @"Bucket",
+             @"identifier" : @"Id",
+             @"metricsConfiguration" : @"MetricsConfiguration",
+             };
+}
+
++ (NSValueTransformer *)metricsConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3MetricsConfiguration class]];
 }
 
 @end
@@ -3949,6 +4619,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"storageClass" : @"StorageClass",
+             @"tagging" : @"Tagging",
              @"websiteRedirectLocation" : @"WebsiteRedirectLocation",
              };
 }
@@ -4068,6 +4739,34 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSS3PutObjectTaggingOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"versionId" : @"VersionId",
+             };
+}
+
+@end
+
+@implementation AWSS3PutObjectTaggingRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bucket" : @"Bucket",
+             @"contentMD5" : @"ContentMD5",
+             @"key" : @"Key",
+             @"tagging" : @"Tagging",
+             @"versionId" : @"VersionId",
+             };
+}
+
++ (NSValueTransformer *)taggingJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3Tagging class]];
 }
 
 @end
@@ -4374,7 +5073,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"days" : @"Days",
+             @"glacierJobParameters" : @"GlacierJobParameters",
              };
+}
+
++ (NSValueTransformer *)glacierJobParametersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3GlacierJobParameters class]];
 }
 
 @end
@@ -4466,6 +5170,51 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)filterRulesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSS3FilterRule class]];
+}
+
+@end
+
+@implementation AWSS3StorageClassAnalysis
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dataExport" : @"DataExport",
+             };
+}
+
++ (NSValueTransformer *)dataExportJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3StorageClassAnalysisDataExport class]];
+}
+
+@end
+
+@implementation AWSS3StorageClassAnalysisDataExport
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"destination" : @"Destination",
+             @"outputSchemaVersion" : @"OutputSchemaVersion",
+             };
+}
+
++ (NSValueTransformer *)destinationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3AnalyticsExportDestination class]];
+}
+
++ (NSValueTransformer *)outputSchemaVersionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"V_1"] == NSOrderedSame) {
+            return @(AWSS3StorageClassAnalysisSchemaVersionV1);
+        }
+        return @(AWSS3StorageClassAnalysisSchemaVersionUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSS3StorageClassAnalysisSchemaVersionV1:
+                return @"V_1";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end

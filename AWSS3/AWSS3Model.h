@@ -32,6 +32,11 @@ typedef NS_ENUM(NSInteger, AWSS3ErrorType) {
     AWSS3ErrorObjectNotInActiveTier,
 };
 
+typedef NS_ENUM(NSInteger, AWSS3AnalyticsS3ExportFileFormat) {
+    AWSS3AnalyticsS3ExportFileFormatUnknown,
+    AWSS3AnalyticsS3ExportFileFormatCsv,
+};
+
 typedef NS_ENUM(NSInteger, AWSS3BucketAccelerateStatus) {
     AWSS3BucketAccelerateStatusUnknown,
     AWSS3BucketAccelerateStatusEnabled,
@@ -108,6 +113,33 @@ typedef NS_ENUM(NSInteger, AWSS3FilterRuleName) {
     AWSS3FilterRuleNameUnknown,
     AWSS3FilterRuleNamePrefix,
     AWSS3FilterRuleNameSuffix,
+};
+
+typedef NS_ENUM(NSInteger, AWSS3InventoryFormat) {
+    AWSS3InventoryFormatUnknown,
+    AWSS3InventoryFormatCsv,
+};
+
+typedef NS_ENUM(NSInteger, AWSS3InventoryFrequency) {
+    AWSS3InventoryFrequencyUnknown,
+    AWSS3InventoryFrequencyDaily,
+    AWSS3InventoryFrequencyWeekly,
+};
+
+typedef NS_ENUM(NSInteger, AWSS3InventoryIncludedObjectVersions) {
+    AWSS3InventoryIncludedObjectVersionsUnknown,
+    AWSS3InventoryIncludedObjectVersionsAll,
+    AWSS3InventoryIncludedObjectVersionsCurrent,
+};
+
+typedef NS_ENUM(NSInteger, AWSS3InventoryOptionalField) {
+    AWSS3InventoryOptionalFieldUnknown,
+    AWSS3InventoryOptionalFieldSize,
+    AWSS3InventoryOptionalFieldLastModifiedDate,
+    AWSS3InventoryOptionalFieldStorageClass,
+    AWSS3InventoryOptionalFieldETag,
+    AWSS3InventoryOptionalFieldIsMultipartUploaded,
+    AWSS3InventoryOptionalFieldReplicationStatus,
 };
 
 typedef NS_ENUM(NSInteger, AWSS3MFADelete) {
@@ -209,6 +241,24 @@ typedef NS_ENUM(NSInteger, AWSS3StorageClass) {
     AWSS3StorageClassStandardIa,
 };
 
+typedef NS_ENUM(NSInteger, AWSS3StorageClassAnalysisSchemaVersion) {
+    AWSS3StorageClassAnalysisSchemaVersionUnknown,
+    AWSS3StorageClassAnalysisSchemaVersionV1,
+};
+
+typedef NS_ENUM(NSInteger, AWSS3TaggingDirective) {
+    AWSS3TaggingDirectiveUnknown,
+    AWSS3TaggingDirectiveCopy,
+    AWSS3TaggingDirectiveReplace,
+};
+
+typedef NS_ENUM(NSInteger, AWSS3Tier) {
+    AWSS3TierUnknown,
+    AWSS3TierStandard,
+    AWSS3TierBulk,
+    AWSS3TierExpedited,
+};
+
 typedef NS_ENUM(NSInteger, AWSS3TransitionStorageClass) {
     AWSS3TransitionStorageClassUnknown,
     AWSS3TransitionStorageClassGlacier,
@@ -227,6 +277,11 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 @class AWSS3AbortMultipartUploadRequest;
 @class AWSS3AccelerateConfiguration;
 @class AWSS3AccessControlPolicy;
+@class AWSS3AnalyticsAndOperator;
+@class AWSS3AnalyticsConfiguration;
+@class AWSS3AnalyticsExportDestination;
+@class AWSS3AnalyticsFilter;
+@class AWSS3AnalyticsS3BucketDestination;
 @class AWSS3Bucket;
 @class AWSS3BucketLifecycleConfiguration;
 @class AWSS3BucketLoggingStatus;
@@ -249,8 +304,11 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 @class AWSS3CreateMultipartUploadOutput;
 @class AWSS3CreateMultipartUploadRequest;
 @class AWSS3Remove;
+@class AWSS3DeleteBucketAnalyticsConfigurationRequest;
 @class AWSS3DeleteBucketCorsRequest;
+@class AWSS3DeleteBucketInventoryConfigurationRequest;
 @class AWSS3DeleteBucketLifecycleRequest;
+@class AWSS3DeleteBucketMetricsConfigurationRequest;
 @class AWSS3DeleteBucketPolicyRequest;
 @class AWSS3DeleteBucketReplicationRequest;
 @class AWSS3DeleteBucketRequest;
@@ -259,6 +317,8 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 @class AWSS3DeleteMarkerEntry;
 @class AWSS3DeleteObjectOutput;
 @class AWSS3DeleteObjectRequest;
+@class AWSS3DeleteObjectTaggingOutput;
+@class AWSS3DeleteObjectTaggingRequest;
 @class AWSS3DeleteObjectsOutput;
 @class AWSS3DeleteObjectsRequest;
 @class AWSS3DeletedObject;
@@ -270,8 +330,12 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 @class AWSS3GetBucketAccelerateConfigurationRequest;
 @class AWSS3GetBucketAclOutput;
 @class AWSS3GetBucketAclRequest;
+@class AWSS3GetBucketAnalyticsConfigurationOutput;
+@class AWSS3GetBucketAnalyticsConfigurationRequest;
 @class AWSS3GetBucketCorsOutput;
 @class AWSS3GetBucketCorsRequest;
+@class AWSS3GetBucketInventoryConfigurationOutput;
+@class AWSS3GetBucketInventoryConfigurationRequest;
 @class AWSS3GetBucketLifecycleConfigurationOutput;
 @class AWSS3GetBucketLifecycleConfigurationRequest;
 @class AWSS3GetBucketLifecycleOutput;
@@ -280,6 +344,8 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 @class AWSS3GetBucketLocationRequest;
 @class AWSS3GetBucketLoggingOutput;
 @class AWSS3GetBucketLoggingRequest;
+@class AWSS3GetBucketMetricsConfigurationOutput;
+@class AWSS3GetBucketMetricsConfigurationRequest;
 @class AWSS3GetBucketNotificationConfigurationRequest;
 @class AWSS3GetBucketPolicyOutput;
 @class AWSS3GetBucketPolicyRequest;
@@ -297,8 +363,11 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 @class AWSS3GetObjectAclRequest;
 @class AWSS3GetObjectOutput;
 @class AWSS3GetObjectRequest;
+@class AWSS3GetObjectTaggingOutput;
+@class AWSS3GetObjectTaggingRequest;
 @class AWSS3GetObjectTorrentOutput;
 @class AWSS3GetObjectTorrentRequest;
+@class AWSS3GlacierJobParameters;
 @class AWSS3Grant;
 @class AWSS3Grantee;
 @class AWSS3HeadBucketRequest;
@@ -306,10 +375,23 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 @class AWSS3HeadObjectRequest;
 @class AWSS3IndexDocument;
 @class AWSS3Initiator;
+@class AWSS3InventoryConfiguration;
+@class AWSS3InventoryDestination;
+@class AWSS3InventoryFilter;
+@class AWSS3InventoryS3BucketDestination;
+@class AWSS3InventorySchedule;
 @class AWSS3LambdaFunctionConfiguration;
 @class AWSS3LifecycleConfiguration;
 @class AWSS3LifecycleExpiration;
 @class AWSS3LifecycleRule;
+@class AWSS3LifecycleRuleAndOperator;
+@class AWSS3LifecycleRuleFilter;
+@class AWSS3ListBucketAnalyticsConfigurationsOutput;
+@class AWSS3ListBucketAnalyticsConfigurationsRequest;
+@class AWSS3ListBucketInventoryConfigurationsOutput;
+@class AWSS3ListBucketInventoryConfigurationsRequest;
+@class AWSS3ListBucketMetricsConfigurationsOutput;
+@class AWSS3ListBucketMetricsConfigurationsRequest;
 @class AWSS3ListBucketsOutput;
 @class AWSS3ListMultipartUploadsOutput;
 @class AWSS3ListMultipartUploadsRequest;
@@ -322,6 +404,9 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 @class AWSS3ListPartsOutput;
 @class AWSS3ListPartsRequest;
 @class AWSS3LoggingEnabled;
+@class AWSS3MetricsAndOperator;
+@class AWSS3MetricsConfiguration;
+@class AWSS3MetricsFilter;
 @class AWSS3MultipartUpload;
 @class AWSS3NoncurrentVersionExpiration;
 @class AWSS3NoncurrentVersionTransition;
@@ -335,10 +420,13 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 @class AWSS3Part;
 @class AWSS3PutBucketAccelerateConfigurationRequest;
 @class AWSS3PutBucketAclRequest;
+@class AWSS3PutBucketAnalyticsConfigurationRequest;
 @class AWSS3PutBucketCorsRequest;
+@class AWSS3PutBucketInventoryConfigurationRequest;
 @class AWSS3PutBucketLifecycleConfigurationRequest;
 @class AWSS3PutBucketLifecycleRequest;
 @class AWSS3PutBucketLoggingRequest;
+@class AWSS3PutBucketMetricsConfigurationRequest;
 @class AWSS3PutBucketNotificationConfigurationRequest;
 @class AWSS3PutBucketNotificationRequest;
 @class AWSS3PutBucketPolicyRequest;
@@ -351,6 +439,8 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 @class AWSS3PutObjectAclRequest;
 @class AWSS3PutObjectOutput;
 @class AWSS3PutObjectRequest;
+@class AWSS3PutObjectTaggingOutput;
+@class AWSS3PutObjectTaggingRequest;
 @class AWSS3QueueConfiguration;
 @class AWSS3QueueConfigurationDeprecated;
 @class AWSS3Redirect;
@@ -364,6 +454,8 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 @class AWSS3RoutingRule;
 @class AWSS3Rule;
 @class AWSS3S3KeyFilter;
+@class AWSS3StorageClassAnalysis;
+@class AWSS3StorageClassAnalysisDataExport;
 @class AWSS3Tag;
 @class AWSS3Tagging;
 @class AWSS3TargetGrant;
@@ -459,6 +551,111 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
  
  */
 @property (nonatomic, strong) AWSS3Owner * _Nullable owner;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3AnalyticsAndOperator : AWSModel
+
+
+/**
+ The prefix to use when evaluating an AND predicate.
+ */
+@property (nonatomic, strong) NSString * _Nullable prefix;
+
+/**
+ The list of tags to use when evaluating an AND predicate.
+ */
+@property (nonatomic, strong) NSArray<AWSS3Tag *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3AnalyticsConfiguration : AWSModel
+
+
+/**
+ The filter used to describe a set of objects for analyses. A filter must have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided, all objects will be considered in any analysis.
+ */
+@property (nonatomic, strong) AWSS3AnalyticsFilter * _Nullable filter;
+
+/**
+ The identifier used to represent an analytics configuration.
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ If present, it indicates that data related to access patterns will be collected and made available to analyze the tradeoffs between different storage classes.
+ */
+@property (nonatomic, strong) AWSS3StorageClassAnalysis * _Nullable storageClassAnalysis;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3AnalyticsExportDestination : AWSModel
+
+
+/**
+ A destination signifying output to an S3 bucket.
+ */
+@property (nonatomic, strong) AWSS3AnalyticsS3BucketDestination * _Nullable s3BucketDestination;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3AnalyticsFilter : AWSModel
+
+
+/**
+ A conjunction (logical AND) of predicates, which is used in evaluating an analytics filter. The operator must have at least two predicates.
+ */
+@property (nonatomic, strong) AWSS3AnalyticsAndOperator * _Nullable and;
+
+/**
+ The prefix to use when evaluating an analytics filter.
+ */
+@property (nonatomic, strong) NSString * _Nullable prefix;
+
+/**
+ The tag to use when evaluating an analytics filter.
+ */
+@property (nonatomic, strong) AWSS3Tag * _Nullable tag;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3AnalyticsS3BucketDestination : AWSModel
+
+
+/**
+ The Amazon resource name (ARN) of the bucket to which data is exported.
+ */
+@property (nonatomic, strong) NSString * _Nullable bucket;
+
+/**
+ The account ID that owns the destination bucket. If no account ID is provided, the owner will not be validated prior to exporting data.
+ */
+@property (nonatomic, strong) NSString * _Nullable bucketAccountId;
+
+/**
+ The file format used when exporting data to Amazon S3.
+ */
+@property (nonatomic, assign) AWSS3AnalyticsS3ExportFileFormat format;
+
+/**
+ The prefix to use when exporting data. The exported data begins with this prefix.
+ */
+@property (nonatomic, strong) NSString * _Nullable prefix;
 
 @end
 
@@ -943,6 +1140,16 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 @property (nonatomic, assign) AWSS3StorageClass storageClass;
 
 /**
+ The tag-set for the object destination object this value must be used in conjunction with the TaggingDirective. The tag-set must be encoded as URL Query parameters
+ */
+@property (nonatomic, strong) NSString * _Nullable tagging;
+
+/**
+ Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request.
+ */
+@property (nonatomic, assign) AWSS3TaggingDirective taggingDirective;
+
+/**
  If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
  */
 @property (nonatomic, strong) NSString * _Nullable websiteRedirectLocation;
@@ -1256,6 +1463,24 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
+@interface AWSS3DeleteBucketAnalyticsConfigurationRequest : AWSRequest
+
+
+/**
+ The name of the bucket from which an analytics configuration is deleted.
+ */
+@property (nonatomic, strong) NSString * _Nullable bucket;
+
+/**
+ The identifier used to represent an analytics configuration.
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+@end
+
+/**
+ 
+ */
 @interface AWSS3DeleteBucketCorsRequest : AWSRequest
 
 
@@ -1269,6 +1494,24 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
+@interface AWSS3DeleteBucketInventoryConfigurationRequest : AWSRequest
+
+
+/**
+ The name of the bucket containing the inventory configuration to delete.
+ */
+@property (nonatomic, strong) NSString * _Nullable bucket;
+
+/**
+ The ID used to identify the inventory configuration.
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+@end
+
+/**
+ 
+ */
 @interface AWSS3DeleteBucketLifecycleRequest : AWSRequest
 
 
@@ -1276,6 +1519,24 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
  
  */
 @property (nonatomic, strong) NSString * _Nullable bucket;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3DeleteBucketMetricsConfigurationRequest : AWSRequest
+
+
+/**
+ The name of the bucket containing the metrics configuration to delete.
+ */
+@property (nonatomic, strong) NSString * _Nullable bucket;
+
+/**
+ The ID used to identify the metrics configuration.
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
 
 @end
 
@@ -1428,6 +1689,42 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 
 /**
  VersionId used to reference a specific version of the object.
+ */
+@property (nonatomic, strong) NSString * _Nullable versionId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3DeleteObjectTaggingOutput : AWSModel
+
+
+/**
+ The versionId of the object the tag-set was removed from.
+ */
+@property (nonatomic, strong) NSString * _Nullable versionId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3DeleteObjectTaggingRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable bucket;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable key;
+
+/**
+ The versionId of the object that the tag-set will be removed from.
  */
 @property (nonatomic, strong) NSString * _Nullable versionId;
 
@@ -1649,6 +1946,37 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
+@interface AWSS3GetBucketAnalyticsConfigurationOutput : AWSModel
+
+
+/**
+ The configuration and any analyses for the analytics filter.
+ */
+@property (nonatomic, strong) AWSS3AnalyticsConfiguration * _Nullable analyticsConfiguration;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3GetBucketAnalyticsConfigurationRequest : AWSRequest
+
+
+/**
+ The name of the bucket from which an analytics configuration is retrieved.
+ */
+@property (nonatomic, strong) NSString * _Nullable bucket;
+
+/**
+ The identifier used to represent an analytics configuration.
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+@end
+
+/**
+ 
+ */
 @interface AWSS3GetBucketCorsOutput : AWSModel
 
 
@@ -1669,6 +1997,37 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
  
  */
 @property (nonatomic, strong) NSString * _Nullable bucket;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3GetBucketInventoryConfigurationOutput : AWSModel
+
+
+/**
+ Specifies the inventory configuration.
+ */
+@property (nonatomic, strong) AWSS3InventoryConfiguration * _Nullable inventoryConfiguration;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3GetBucketInventoryConfigurationRequest : AWSRequest
+
+
+/**
+ The name of the bucket containing the inventory configuration to retrieve.
+ */
+@property (nonatomic, strong) NSString * _Nullable bucket;
+
+/**
+ The ID used to identify the inventory configuration.
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
 
 @end
 
@@ -1773,6 +2132,37 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
  
  */
 @property (nonatomic, strong) NSString * _Nullable bucket;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3GetBucketMetricsConfigurationOutput : AWSModel
+
+
+/**
+ Specifies the metrics configuration.
+ */
+@property (nonatomic, strong) AWSS3MetricsConfiguration * _Nullable metricsConfiguration;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3GetBucketMetricsConfigurationRequest : AWSRequest
+
+
+/**
+ The name of the bucket containing the metrics configuration to retrieve.
+ */
+@property (nonatomic, strong) NSString * _Nullable bucket;
+
+/**
+ The ID used to identify the metrics configuration.
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
 
 @end
 
@@ -2148,6 +2538,11 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 @property (nonatomic, assign) AWSS3StorageClass storageClass;
 
 /**
+ The number of tags, if any, on the object.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable tagCount;
+
+/**
  Version of the object.
  */
 @property (nonatomic, strong) NSString * _Nullable versionId;
@@ -2265,6 +2660,47 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
+@interface AWSS3GetObjectTaggingOutput : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<AWSS3Tag *> * _Nullable tagSet;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable versionId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3GetObjectTaggingRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable bucket;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable key;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable versionId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSS3GetObjectTorrentOutput : AWSModel
 
 
@@ -2300,6 +2736,19 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
  Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html
  */
 @property (nonatomic, assign) AWSS3RequestPayer requestPayer;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3GlacierJobParameters : AWSModel
+
+
+/**
+ Glacier retrieval tier at which the restore will be processed.
+ */
+@property (nonatomic, assign) AWSS3Tier tier;
 
 @end
 
@@ -2605,6 +3054,116 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 @end
 
 /**
+ 
+ */
+@interface AWSS3InventoryConfiguration : AWSModel
+
+
+/**
+ Contains information about where to publish the inventory results.
+ */
+@property (nonatomic, strong) AWSS3InventoryDestination * _Nullable destination;
+
+/**
+ Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.
+ */
+@property (nonatomic, strong) AWSS3InventoryFilter * _Nullable filter;
+
+/**
+ The ID used to identify the inventory configuration.
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ Specifies which object version(s) to included in the inventory results.
+ */
+@property (nonatomic, assign) AWSS3InventoryIncludedObjectVersions includedObjectVersions;
+
+/**
+ Specifies whether the inventory is enabled or disabled.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable isEnabled;
+
+/**
+ Contains the optional fields that are included in the inventory results.
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable optionalFields;
+
+/**
+ Specifies the schedule for generating inventory results.
+ */
+@property (nonatomic, strong) AWSS3InventorySchedule * _Nullable schedule;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3InventoryDestination : AWSModel
+
+
+/**
+ Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.
+ */
+@property (nonatomic, strong) AWSS3InventoryS3BucketDestination * _Nullable s3BucketDestination;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3InventoryFilter : AWSModel
+
+
+/**
+ The prefix that an object must have to be included in the inventory results.
+ */
+@property (nonatomic, strong) NSString * _Nullable prefix;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3InventoryS3BucketDestination : AWSModel
+
+
+/**
+ The ID of the account that owns the destination bucket.
+ */
+@property (nonatomic, strong) NSString * _Nullable accountId;
+
+/**
+ The Amazon resource name (ARN) of the bucket where inventory results will be published.
+ */
+@property (nonatomic, strong) NSString * _Nullable bucket;
+
+/**
+ Specifies the output format of the inventory results.
+ */
+@property (nonatomic, assign) AWSS3InventoryFormat format;
+
+/**
+ The prefix that is prepended to all inventory results.
+ */
+@property (nonatomic, strong) NSString * _Nullable prefix;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3InventorySchedule : AWSModel
+
+
+/**
+ Specifies how frequently inventory results are produced.
+ */
+@property (nonatomic, assign) AWSS3InventoryFrequency frequency;
+
+@end
+
+/**
  Container for specifying the AWS Lambda notification configuration.
  Required parameters: [LambdaFunctionArn, Events]
  */
@@ -2686,6 +3245,11 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 @property (nonatomic, strong) AWSS3LifecycleExpiration * _Nullable expiration;
 
 /**
+ The Filter is used to identify objects that a Lifecycle Rule applies to. A Filter must have exactly one of Prefix, Tag, or And specified.
+ */
+@property (nonatomic, strong) AWSS3LifecycleRuleFilter * _Nullable filter;
+
+/**
  Unique identifier for the rule. The value cannot be longer than 255 characters.
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
@@ -2701,7 +3265,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 @property (nonatomic, strong) NSArray<AWSS3NoncurrentVersionTransition *> * _Nullable noncurrentVersionTransitions;
 
 /**
- Prefix identifying one or more objects to which the rule applies.
+ Prefix identifying one or more objects to which the rule applies. This is deprecated; use Filter instead.
  */
 @property (nonatomic, strong) NSString * _Nullable prefix;
 
@@ -2714,6 +3278,185 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
  
  */
 @property (nonatomic, strong) NSArray<AWSS3Transition *> * _Nullable transitions;
+
+@end
+
+/**
+ This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.
+ */
+@interface AWSS3LifecycleRuleAndOperator : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable prefix;
+
+/**
+ All of these tags must exist in the object's tag set in order for the rule to apply.
+ */
+@property (nonatomic, strong) NSArray<AWSS3Tag *> * _Nullable tags;
+
+@end
+
+/**
+ The Filter is used to identify objects that a Lifecycle Rule applies to. A Filter must have exactly one of Prefix, Tag, or And specified.
+ */
+@interface AWSS3LifecycleRuleFilter : AWSModel
+
+
+/**
+ This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.
+ */
+@property (nonatomic, strong) AWSS3LifecycleRuleAndOperator * _Nullable and;
+
+/**
+ Prefix identifying one or more objects to which the rule applies.
+ */
+@property (nonatomic, strong) NSString * _Nullable prefix;
+
+/**
+ This tag must exist in the object's tag set in order for the rule to apply.
+ */
+@property (nonatomic, strong) AWSS3Tag * _Nullable tag;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3ListBucketAnalyticsConfigurationsOutput : AWSModel
+
+
+/**
+ The list of analytics configurations for a bucket.
+ */
+@property (nonatomic, strong) NSArray<AWSS3AnalyticsConfiguration *> * _Nullable analyticsConfigurationList;
+
+/**
+ The ContinuationToken that represents where this request began.
+ */
+@property (nonatomic, strong) NSString * _Nullable continuationToken;
+
+/**
+ Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable isTruncated;
+
+/**
+ NextContinuationToken is sent when isTruncated is true, which indicates that there are more analytics configurations to list. The next request must include this NextContinuationToken. The token is obfuscated and is not a usable value.
+ */
+@property (nonatomic, strong) NSString * _Nullable nextContinuationToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3ListBucketAnalyticsConfigurationsRequest : AWSRequest
+
+
+/**
+ The name of the bucket from which analytics configurations are retrieved.
+ */
+@property (nonatomic, strong) NSString * _Nullable bucket;
+
+/**
+ The ContinuationToken that represents a placeholder from where this request should begin.
+ */
+@property (nonatomic, strong) NSString * _Nullable continuationToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3ListBucketInventoryConfigurationsOutput : AWSModel
+
+
+/**
+ If sent in the request, the marker that is used as a starting point for this inventory configuration list response.
+ */
+@property (nonatomic, strong) NSString * _Nullable continuationToken;
+
+/**
+ The list of inventory configurations for a bucket.
+ */
+@property (nonatomic, strong) NSArray<AWSS3InventoryConfiguration *> * _Nullable inventoryConfigurationList;
+
+/**
+ Indicates whether the returned list of inventory configurations is truncated in this response. A value of true indicates that the list is truncated.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable isTruncated;
+
+/**
+ The marker used to continue this inventory configuration listing. Use the NextContinuationToken from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands.
+ */
+@property (nonatomic, strong) NSString * _Nullable nextContinuationToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3ListBucketInventoryConfigurationsRequest : AWSRequest
+
+
+/**
+ The name of the bucket containing the inventory configurations to retrieve.
+ */
+@property (nonatomic, strong) NSString * _Nullable bucket;
+
+/**
+ The marker used to continue an inventory configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.
+ */
+@property (nonatomic, strong) NSString * _Nullable continuationToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3ListBucketMetricsConfigurationsOutput : AWSModel
+
+
+/**
+ The marker that is used as a starting point for this metrics configuration list response. This value is present if it was sent in the request.
+ */
+@property (nonatomic, strong) NSString * _Nullable continuationToken;
+
+/**
+ Indicates whether the returned list of metrics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable isTruncated;
+
+/**
+ The list of metrics configurations for a bucket.
+ */
+@property (nonatomic, strong) NSArray<AWSS3MetricsConfiguration *> * _Nullable metricsConfigurationList;
+
+/**
+ The marker used to continue a metrics configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.
+ */
+@property (nonatomic, strong) NSString * _Nullable nextContinuationToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3ListBucketMetricsConfigurationsRequest : AWSRequest
+
+
+/**
+ The name of the bucket containing the metrics configurations to retrieve.
+ */
+@property (nonatomic, strong) NSString * _Nullable bucket;
+
+/**
+ The marker that is used to continue a metrics configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.
+ */
+@property (nonatomic, strong) NSString * _Nullable continuationToken;
 
 @end
 
@@ -3326,6 +4069,65 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
+@interface AWSS3MetricsAndOperator : AWSModel
+
+
+/**
+ The prefix used when evaluating an AND predicate.
+ */
+@property (nonatomic, strong) NSString * _Nullable prefix;
+
+/**
+ The list of tags used when evaluating an AND predicate.
+ */
+@property (nonatomic, strong) NSArray<AWSS3Tag *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3MetricsConfiguration : AWSModel
+
+
+/**
+ Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).
+ */
+@property (nonatomic, strong) AWSS3MetricsFilter * _Nullable filter;
+
+/**
+ The ID used to identify the metrics configuration.
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3MetricsFilter : AWSModel
+
+
+/**
+ A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
+ */
+@property (nonatomic, strong) AWSS3MetricsAndOperator * _Nullable and;
+
+/**
+ The prefix used when evaluating a metrics filter.
+ */
+@property (nonatomic, strong) NSString * _Nullable prefix;
+
+/**
+ The tag used when evaluating a metrics filter.
+ */
+@property (nonatomic, strong) AWSS3Tag * _Nullable tag;
+
+@end
+
+/**
+ 
+ */
 @interface AWSS3MultipartUpload : AWSModel
 
 
@@ -3675,6 +4477,29 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  
  */
+@interface AWSS3PutBucketAnalyticsConfigurationRequest : AWSRequest
+
+
+/**
+ The configuration and any analyses for the analytics filter.
+ */
+@property (nonatomic, strong) AWSS3AnalyticsConfiguration * _Nullable analyticsConfiguration;
+
+/**
+ The name of the bucket to which an analytics configuration is stored.
+ */
+@property (nonatomic, strong) NSString * _Nullable bucket;
+
+/**
+ The identifier used to represent an analytics configuration.
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+@end
+
+/**
+ 
+ */
 @interface AWSS3PutBucketCorsRequest : AWSRequest
 
 
@@ -3692,6 +4517,29 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
  
  */
 @property (nonatomic, strong) NSString * _Nullable contentMD5;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3PutBucketInventoryConfigurationRequest : AWSRequest
+
+
+/**
+ The name of the bucket where the inventory configuration will be stored.
+ */
+@property (nonatomic, strong) NSString * _Nullable bucket;
+
+/**
+ The ID used to identify the inventory configuration.
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ Specifies the inventory configuration.
+ */
+@property (nonatomic, strong) AWSS3InventoryConfiguration * _Nullable inventoryConfiguration;
 
 @end
 
@@ -3756,6 +4604,29 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
  
  */
 @property (nonatomic, strong) NSString * _Nullable contentMD5;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3PutBucketMetricsConfigurationRequest : AWSRequest
+
+
+/**
+ The name of the bucket for which the metrics configuration is set.
+ */
+@property (nonatomic, strong) NSString * _Nullable bucket;
+
+/**
+ The ID used to identify the metrics configuration.
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ Specifies the metrics configuration.
+ */
+@property (nonatomic, strong) AWSS3MetricsConfiguration * _Nullable metricsConfiguration;
 
 @end
 
@@ -4199,9 +5070,60 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 @property (nonatomic, assign) AWSS3StorageClass storageClass;
 
 /**
+ The tag-set for the object. The tag-set must be encoded as URL Query parameters
+ */
+@property (nonatomic, strong) NSString * _Nullable tagging;
+
+/**
  If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
  */
 @property (nonatomic, strong) NSString * _Nullable websiteRedirectLocation;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3PutObjectTaggingOutput : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable versionId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3PutObjectTaggingRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable bucket;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable contentMD5;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable key;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSS3Tagging * _Nullable tagging;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable versionId;
 
 @end
 
@@ -4430,6 +5352,11 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
  */
 @property (nonatomic, strong) NSNumber * _Nullable days;
 
+/**
+ Glacier related prameters pertaining to this job.
+ */
+@property (nonatomic, strong) AWSS3GlacierJobParameters * _Nullable glacierJobParameters;
+
 @end
 
 /**
@@ -4508,6 +5435,37 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
  A list of containers for key value pair that defines the criteria for the filter rule.
  */
 @property (nonatomic, strong) NSArray<AWSS3FilterRule *> * _Nullable filterRules;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3StorageClassAnalysis : AWSModel
+
+
+/**
+ A container used to describe how data related to the storage class analysis should be exported.
+ */
+@property (nonatomic, strong) AWSS3StorageClassAnalysisDataExport * _Nullable dataExport;
+
+@end
+
+/**
+ 
+ */
+@interface AWSS3StorageClassAnalysisDataExport : AWSModel
+
+
+/**
+ The place to store the data for an analysis.
+ */
+@property (nonatomic, strong) AWSS3AnalyticsExportDestination * _Nullable destination;
+
+/**
+ The version of the output schema to use when exporting data. Must be V_1.
+ */
+@property (nonatomic, assign) AWSS3StorageClassAnalysisSchemaVersion outputSchemaVersion;
 
 @end
 

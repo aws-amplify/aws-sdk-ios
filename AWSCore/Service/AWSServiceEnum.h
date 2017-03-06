@@ -157,6 +157,10 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      */
     AWSServiceKinesis NS_SWIFT_NAME(Kinesis),
     /**
+     *  AWS Key Management Service (KMS)
+     */
+    AWSServiceKMS NS_SWIFT_NAME(KMS),
+    /**
      *  AWS Lambda
      */
     AWSServiceLambda NS_SWIFT_NAME(Lambda),

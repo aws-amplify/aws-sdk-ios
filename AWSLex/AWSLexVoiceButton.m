@@ -190,8 +190,8 @@ static NSString *VoiceButtonUserAgent = @"LexVoiceButton";
     }
     
     NSError *audioSessionError;
-    AVAudioSession *session = [AVAudioSession sharedInstance];
-    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&audioSessionError];
+    AWSLexAudioSession *session = [AWSLexAudioSession sharedInstance];
+    [session setPlayAndRecordCategory:&audioSessionError];
     
     if(audioSessionError){
         [self handleError:audioSessionError];
