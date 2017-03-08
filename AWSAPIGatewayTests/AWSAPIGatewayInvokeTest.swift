@@ -124,7 +124,7 @@ class TestAPIGatewayInvoke: XCTestCase {
         
         var headerParameter = headerParameters
         headerParameter!["Content-Length"] = "\(rawDataBody!.count)"
-        print(headerParameter)
+        print(headerParameter!.description)
         
         let inputStream = InputStream(data: rawDataBody!)
         

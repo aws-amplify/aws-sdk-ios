@@ -2408,7 +2408,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 /**
  <p>Specifies whether the attribute can be changed once it has been created.</p>
  */
-@property (nonatomic, strong) NSNumber * _Nullable mutable;
+@property (nonatomic, strong) NSNumber * _Nullable varying;
 
 /**
  <p>A schema attribute of the name type.</p>

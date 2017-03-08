@@ -814,10 +814,8 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
     AWSCognitoIdentityProviderDeleteUserAttributesRequest *request = [AWSCognitoIdentityProviderDeleteUserAttributesRequest new];
     return [[self getSession] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
         request.accessToken = task.result.accessToken.tokenString;
-        NSMutableArray *userAttributes = [NSMutableArray new];
-        request.userAttributeNames = userAttributes;
+        request.userAttributeNames = attributeNames;
         return [[self.pool.client deleteUserAttributes:request] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderDeleteUserAttributesResponse *> * _Nonnull task) {
-            [self signOut];
             AWSCognitoIdentityUserDeleteAttributesResponse * response = [AWSCognitoIdentityUserDeleteAttributesResponse new];
             return [AWSTask taskWithResult:response];
         }];

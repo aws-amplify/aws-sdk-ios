@@ -21,7 +21,7 @@
 #import "AWSCategory.h"
 #import "AWSDevice.h"
 
-NSString *const AWSiOSSDKVersion = @"2.5.1";
+NSString *const AWSiOSSDKVersion = @"2.5.2";
 NSString *const AWSServiceErrorDomain = @"com.amazonaws.AWSServiceErrorDomain";
 
 static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
@@ -248,6 +248,7 @@ static NSString *const AWSServiceNameIoT = @"execute-api";
 static NSString *const AWSServiceNameIoTData = @"iotdata";
 static NSString *const AWSServiceNameFirehose = @"firehose";
 static NSString *const AWSServiceNameKinesis = @"kinesis";
+static NSString *const AWSServiceNameKMS = @"kms";
 static NSString *const AWSServiceNameLambda = @"lambda";
 static NSString *const AWSServiceNameMachineLearning = @"machinelearning";
 static NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
@@ -414,6 +415,8 @@ static NSString *const AWSServiceNameSTS = @"sts";
             return AWSServiceNameFirehose;
         case AWSServiceKinesis:
             return AWSServiceNameKinesis;
+        case AWSServiceKMS:
+            return AWSServiceNameKMS;
         case AWSServiceLambda:
             return AWSServiceNameLambda;
         case AWSServiceMachineLearning:

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'AWSiOSSDKv2'
-  s.version      = '2.5.1'
+  s.version      = '2.5.2'
   s.summary      = 'Amazon Web Services SDK for iOS.'
 
   s.description  = 'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'
@@ -15,95 +15,99 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.subspec 'AWSCore' do |aws|
-    aws.dependency 'AWSCore', '2.5.1'
+    aws.dependency 'AWSCore', '2.5.2'
   end
 
   s.subspec 'AWSAPIGateway' do |apigateway|
-    apigateway.dependency 'AWSAPIGateway', '2.5.1'
+    apigateway.dependency 'AWSAPIGateway', '2.5.2'
   end
 
   s.subspec 'AutoScaling' do |autoscaling|
-  	autoscaling.dependency 'AWSAutoScaling', '2.5.1'
+  	autoscaling.dependency 'AWSAutoScaling', '2.5.2'
   end
 
   s.subspec 'CloudWatch' do |cloudwatch|
-  	cloudwatch.dependency 'AWSCloudWatch', '2.5.1'
+  	cloudwatch.dependency 'AWSCloudWatch', '2.5.2'
   end
 
   s.subspec 'Pinpoint' do |pp|
-        pp.dependency 'AWSPinpoint', '2.5.1'
+        pp.dependency 'AWSPinpoint', '2.5.2'
   end
 
   s.subspec 'AWSCognito' do |cognito|
-    cognito.dependency 'AWSCognito', '2.5.1'
+    cognito.dependency 'AWSCognito', '2.5.2'
   end
 
   s.subspec 'AWSCognitoIdentityProvider' do |cognitoidentityprovider|
-    cognitoidentityprovider.dependency 'AWSCognitoIdentityProvider', '2.5.1'
+    cognitoidentityprovider.dependency 'AWSCognitoIdentityProvider', '2.5.2'
   end
 
   s.subspec 'DynamoDB' do |ddb|
-  	ddb.dependency 'AWSDynamoDB', '2.5.1'
+  	ddb.dependency 'AWSDynamoDB', '2.5.2'
   end
 
   s.subspec 'EC2' do |ec2|
-  	ec2.dependency 'AWSEC2', '2.5.1'
+  	ec2.dependency 'AWSEC2', '2.5.2'
   end
 
   s.subspec 'ElasticLoadBalancing' do |elasticloadbalancing|
-  	elasticloadbalancing.dependency 'AWSElasticLoadBalancing', '2.5.1'
+  	elasticloadbalancing.dependency 'AWSElasticLoadBalancing', '2.5.2'
   end
 
   s.subspec 'AWSIoT' do |iot|
-        iot.dependency 'AWSIoT', '2.5.1'
+        iot.dependency 'AWSIoT', '2.5.2'
   end
 
   s.subspec 'Kinesis' do |kinesis|
-  	kinesis.dependency 'AWSKinesis', '2.5.1'
+    kinesis.dependency 'AWSKinesis', '2.5.2'
+  end
+
+  s.subspec 'KMS' do |kms|
+    kms.dependency 'KMS', '2.5.2'
   end
 
   s.subspec 'AWSLambda' do |lambda|
-        lambda.dependency 'AWSLambda', '2.5.1'
+        lambda.dependency 'AWSLambda', '2.5.2'
   end
 
   s.subspec 'AWSLex' do |lex|
-        lex.dependency 'AWSLex', '2.5.1'
+        lex.dependency 'AWSLex', '2.5.2'
   end
 
   s.subspec 'AWSMachineLearning' do |machinelearning|
-        machinelearning.dependency 'AWSMachineLearning', '2.5.1'
+        machinelearning.dependency 'AWSMachineLearning', '2.5.2'
   end
 
   s.subspec 'AWSPolly' do |polly|
-        polly.dependency 'AWSPolly', '2.5.1'
+        polly.dependency 'AWSPolly', '2.5.2'
   end
 
   s.subspec 'MobileAnalytics' do |mobileanalytics|
-  	mobileanalytics.dependency 'AWSMobileAnalytics', '2.5.1'
+  	mobileanalytics.dependency 'AWSMobileAnalytics', '2.5.2'
   end
 
   s.subspec 'AWSRekognition' do |rekognition|
-  	rekognition.dependency 'AWSRekognition', '2.5.1'
+  	rekognition.dependency 'AWSRekognition', '2.5.2'
   end
 
   s.subspec 'AWSS3' do |s3|
-  	s3.dependency 'AWSS3', '2.5.1'
+  	s3.dependency 'AWSS3', '2.5.2'
   end
 
   s.subspec 'AWSSES' do |ses|
-  	ses.dependency 'AWSSES', '2.5.1'
+  	ses.dependency 'AWSSES', '2.5.2'
   end
 
   s.subspec 'AWSSimpleDB' do |simpledb|
-  	simpledb.dependency 'AWSSimpleDB', '2.5.1'
+  	simpledb.dependency 'AWSSimpleDB', '2.5.2'
   end
 
   s.subspec 'AWSSNS' do |sns|
-  	sns.dependency 'AWSSNS', '2.5.1'
+  	sns.dependency 'AWSSNS', '2.5.2'
   end
 
   s.subspec 'AWSSQS' do |sqs|
-  	sqs.dependency 'AWSSQS', '2.5.1'
+  	sqs.dependency 'AWSSQS', '2.5.2'
   end
   
   
