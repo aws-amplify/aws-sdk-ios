@@ -20,7 +20,6 @@
 	*  Fixed bug which caused possible deadlock during `synchronize` call.
 *  **Amazon Lex - beta**
 	*  Added support to switch between audio outputs during conversation.
-	*  Added robot face icon to indicate voice response instead of color change in Lex voice button.
 	*  Removed unnecessary header search path in AWSLex.podspec.
 * **AWS IoT**
 	* Fixed bug which caused shadow timer to not expire shadow operation. [Github Pull Request #601](https://github.com/aws/aws-sdk-ios/pull/601) [Github Issue #565](https://github.com/aws/aws-sdk-ios/issues/565)
