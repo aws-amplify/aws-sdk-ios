@@ -97,7 +97,20 @@ typedef NS_ENUM(NSInteger, AWSLexVoiceButtonErrorCode) {
 @interface AWSLexVoiceButton : UIView
 
 @property (nonatomic, weak) id<AWSLexVoiceButtonDelegate> delegate;
-@property (nonatomic, strong) UIColor *color;
+
+/**
+ Enable push transition animation when image switch between microphone and listen image. Default is NO.
+ */
+@property (nonatomic) BOOL animateOnImageSwitching;
+
+/**
+ Set color for microphone image. Default is nil.
+ */
+@property (nonatomic, strong) UIColor *microphoneImageColor;
+/**
+ Set color for inactive microphone image. Default is light grey.
+ */
+@property (nonatomic, strong) UIColor *lexImageColor;
 @property (nonatomic, strong) UIColor *errorColor;
 
 @end

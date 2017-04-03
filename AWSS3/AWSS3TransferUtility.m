@@ -304,6 +304,14 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                                                       userInfo:nil]];
     }
     
+    NSString *filePath = [fileURL absoluteString];
+    // [fileURL absoluteString] prefix is "file:///", length 8
+    if ([filePath length] < 8 || ! [[NSFileManager defaultManager] fileExistsAtPath:[filePath substringFromIndex:7]]) {
+        return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
+                                                          code:AWSS3TransferUtilityErrorLocalFileNotFound
+                                                      userInfo:nil]];
+    }
+    
     if (!expression) {
         expression = [AWSS3TransferUtilityUploadExpression new];
     }

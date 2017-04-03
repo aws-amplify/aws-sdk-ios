@@ -101,6 +101,36 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 
 @end
 
+@interface AWSBasicSessionCredentialsProvider()
+
+@property (nonatomic, strong) AWSCredentials *internalCredentials;
+
+@end
+
+@implementation AWSBasicSessionCredentialsProvider
+
+- (instancetype)initWithAccessKey:(NSString *)accessKey
+                        secretKey:(NSString *)secretKey
+                     sessionToken:(NSString *)sessionToken {
+    if (self = [super init]) {
+        _internalCredentials = [[AWSCredentials alloc] initWithAccessKey:accessKey
+                                                               secretKey:secretKey
+                                                              sessionKey:sessionToken
+                                                              expiration:nil];
+    }
+    return self;
+}
+
+- (AWSTask<AWSCredentials *> *)credentials {
+    return [AWSTask taskWithResult:self.internalCredentials];
+}
+
+- (void)invalidateCachedTemporaryCredentials {
+    // No-op
+}
+
+@end
+
 @implementation AWSAnonymousCredentialsProvider
 
 - (AWSTask<AWSCredentials *> *)credentials {

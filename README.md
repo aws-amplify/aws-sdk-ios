@@ -32,13 +32,13 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
 
 1. The AWS Mobile SDK for iOS is available through [CocoaPods](http://cocoapods.org). If you have not installed CocoaPods, install CocoaPods by running the command:
 
-		$ gem install cocoapods
-		$ pod setup
+        $ gem install cocoapods
+        $ pod setup
 
     Depending on your system settings, you may have to use `sudo` for installing `cocoapods` as follows:
 
-		$ sudo gem install cocoapods
-		$ pod setup
+        $ sudo gem install cocoapods
+        $ pod setup
 
 1. In your project directory (the directory where your `*.xcodeproj` file is), create a plain text file named `Podfile` (without any file extension) and add the lines below. Replace `YourTarget` with your actual target name.
 
@@ -70,8 +70,8 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
     ![image](readme-images/cocoapods-setup-01.png?raw=true)
         
 1. Then run the following command:
-	
-		$ pod install
+    
+        $ pod install
 
 1. Open up `*.xcworkspace` with Xcode and start using the SDK.
 
@@ -91,8 +91,8 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
         github "aws/aws-sdk-ios"
 
 1. Then run the following command:
-	
-		$ carthage update
+    
+        $ carthage update
 
 1. With your project open in Xcode, select your **Target**. Under **General** tab, find **Embedded Binaries** and then click the **+** button.
 
@@ -216,30 +216,30 @@ When we release a new version of the SDK, you can pick up the changes as describ
 ## Preparing your apps for iOS 9
 The release of iOS 9 includes changes that might impact how your apps interact with some AWS services. If you compile your apps with Apple’s iOS 9 SDK (or Xcode 7), Apple’s [App Transport Security (ATS)](https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html) feature may affect the ability of apps to connect to certain AWS service endpoints. In order to ensure affected apps continue to successfully connect to AWS endpoints, you’ll need to configure them to interact properly with Apple’s ATS by adding these properties to your `Info.plist` file:
 
-	    <key>NSAppTransportSecurity</key>
-	    <dict>
-    	        <key>NSExceptionDomains</key>
-    	        <dict>
-        	    <key>amazonaws.com</key>
-        	    <dict>
+        <key>NSAppTransportSecurity</key>
+        <dict>
+                <key>NSExceptionDomains</key>
+                <dict>
+                <key>amazonaws.com</key>
+                <dict>
                         <key>NSThirdPartyExceptionMinimumTLSVersion</key>
                         <string>TLSv1.0</string>
                         <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
                         <false/>
                         <key>NSIncludesSubdomains</key>
                         <true/>
-        	    </dict>
-        	    <key>amazonaws.com.cn</key>
-        	    <dict>
+                </dict>
+                <key>amazonaws.com.cn</key>
+                <dict>
                         <key>NSThirdPartyExceptionMinimumTLSVersion</key>
                         <string>TLSv1.0</string>
                         <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
                         <false/>
                         <key>NSIncludesSubdomains</key>
                         <true/>
-        	    </dict>
-    	        </dict>
-	    </dict>
+                </dict>
+                </dict>
+        </dict>
 
 For more information, see [Preparing Your Apps for iOS 9](http://docs.aws.amazon.com/mobile/sdkforios/developerguide/ats.html).
 
@@ -312,17 +312,17 @@ For more information, see [Preparing Your Apps for iOS 9](http://docs.aws.amazon
 
 1. Make a call to the AWS services.
 
-		AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
-		AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
-	    uploadRequest.bucket = yourBucket;
-	    uploadRequest.key = yourKey;
-	    uploadRequest.body = yourDataURL;
-	    uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-	
-	    [[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
-	    	// Do something with the response
-	        return nil;
-	    }];
+        AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
+        AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
+        uploadRequest.bucket = yourBucket;
+        uploadRequest.key = yourKey;
+        uploadRequest.body = yourDataURL;
+        uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
+    
+        [[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
+            // Do something with the response
+            return nil;
+        }];
 
     **Note**: Most of the service client classes have a singleton method to get a default client. The naming convention is `+ defaultSERVICENAME` (e.g. `+ defaultS3TransferManager` in the above code snippet). This singleton method creates a service client with `defaultServiceConfiguration`, which you set up in step 5, and maintains a strong reference to the client.
 

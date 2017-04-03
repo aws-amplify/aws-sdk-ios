@@ -42,12 +42,6 @@
 
 @end
 
-@interface AWSLambdaMicroserviceClient()
-
-@property (nonatomic, strong) AWSServiceConfiguration *configuration;
-
-@end
-
 @interface AWSServiceConfiguration()
 
 @property (nonatomic, strong) AWSEndpoint *endpoint;

@@ -21,7 +21,7 @@
 #import "AWSLogging.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.5.2";
+NSString *const AWSiOSSDKVersion = @"2.5.3";
 NSString *const AWSServiceErrorDomain = @"com.amazonaws.AWSServiceErrorDomain";
 
 static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
@@ -240,7 +240,6 @@ static NSString *const AWSServiceNameCloudWatch = @"monitoring";
 static NSString *const AWSServiceNameCognitoIdentity = @"cognito-identity";
 static NSString *const AWSServiceNameCognitoIdentityProvider = @"cognito-idp";
 static NSString *const AWSServiceNameCognitoSync = @"cognito-sync";
-static NSString *const AWSServiceNameLexRuntime = @"runtime.lex";
 static NSString *const AWSServiceNameDynamoDB = @"dynamodb";
 static NSString *const AWSServiceNameEC2 = @"ec2";
 static NSString *const AWSServiceNameElasticLoadBalancing = @"elasticloadbalancing";
@@ -250,6 +249,8 @@ static NSString *const AWSServiceNameFirehose = @"firehose";
 static NSString *const AWSServiceNameKinesis = @"kinesis";
 static NSString *const AWSServiceNameKMS = @"kms";
 static NSString *const AWSServiceNameLambda = @"lambda";
+static NSString *const AWSServiceNameLexRuntime = @"runtime.lex";
+static NSString *const AWSServiceNameLogs = @"logs";
 static NSString *const AWSServiceNameMachineLearning = @"machinelearning";
 static NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
 static NSString *const AWSServiceNamePolly = @"polly";
@@ -399,8 +400,6 @@ static NSString *const AWSServiceNameSTS = @"sts";
             return AWSServiceNameCognitoIdentityProvider;
         case AWSServiceCognitoSync:
             return AWSServiceNameCognitoSync;
-        case AWSServiceLexRuntime:
-            return AWSServiceNameLexRuntime;
         case AWSServiceDynamoDB:
             return AWSServiceNameDynamoDB;
         case AWSServiceEC2:
@@ -419,6 +418,10 @@ static NSString *const AWSServiceNameSTS = @"sts";
             return AWSServiceNameKMS;
         case AWSServiceLambda:
             return AWSServiceNameLambda;
+        case AWSServiceLexRuntime:
+            return AWSServiceNameLexRuntime;
+        case AWSServiceLogs:
+            return AWSServiceNameLogs;
         case AWSServiceMachineLearning:
             return AWSServiceNameMachineLearning;
         case AWSServiceMobileAnalytics:

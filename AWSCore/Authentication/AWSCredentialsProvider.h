@@ -110,6 +110,27 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 
 @end
 
+/**
+ @warning This credentials provider is intended only for testing purposes.
+ We strongly discourage embedding AWS credentials in your production apps because they can be easily extracted and abused. Consider using `AWSCognitoCredentialsProvider`.
+ Simple session credentials with keys and session token.
+ */
+@interface AWSBasicSessionCredentialsProvider: NSObject <AWSCredentialsProvider>
+
+/**
+ Instantiates a static credentials provider.
+ 
+ @param accessKey An AWS Access key.
+ @param secretKey An AWS Secret key.
+ @param sessionToken The session token for this session.
+ @return An AWS credentials object.
+ */
+- (instancetype)initWithAccessKey:(NSString *)accessKey
+                        secretKey:(NSString *)secretKey
+                     sessionToken:(NSString *)sessionToken;
+
+@end
+
 @interface AWSAnonymousCredentialsProvider : NSObject <AWSCredentialsProvider>
 
 @end

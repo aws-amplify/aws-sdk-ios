@@ -34,6 +34,7 @@ if [ -x "Scripts/SdkPackage.sh" ]; then
     Scripts/SdkPackage.sh AWSKinesis
     Scripts/SdkPackage.sh AWSKMS
     Scripts/SdkPackage.sh AWSLambda
+    Scripts/SdkPackage.sh AWSLogs
     Scripts/SdkPackage.sh AWSMachineLearning
     Scripts/SdkPackage.sh AWSMobileAnalytics
     Scripts/SdkPackage.sh AWSPinpoint

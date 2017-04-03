@@ -24,6 +24,7 @@ typedef NS_ENUM(NSInteger, AWSS3TransferUtilityErrorType) {
     AWSS3TransferUtilityErrorRedirection,
     AWSS3TransferUtilityErrorClientError,
     AWSS3TransferUtilityErrorServerError,
+    AWSS3TransferUtilityErrorLocalFileNotFound
 };
 
 FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification;
