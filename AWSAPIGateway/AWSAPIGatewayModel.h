@@ -60,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The Raw NSURLResponse received on an API invocation.
  */
-@property (nonatomic, readonly) NSURLResponse *rawReponse;
+@property (nonatomic, readonly) NSURLResponse *rawResponse;
 
 /**
  *  The status code received in NSURLResponse on invocation of an API.
