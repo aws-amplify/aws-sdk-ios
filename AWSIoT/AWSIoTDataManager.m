@@ -37,6 +37,22 @@
 }
 @end
 
+// needed to override JSONKeyPathsByPropertyKey
+@interface AWSIoTDataShadowDocumentUpdateModel : AWSIoTDataShadowModel
+
+@end
+
+@implementation AWSIoTDataShadowDocumentUpdateModel
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    NSMutableDictionary *paths = [[super JSONKeyPathsByPropertyKey] mutableCopy];
+    
+    paths[@"clientToken"] = @"clientToken";
+    paths[@"version"] = @"current.version";
+    
+    return paths;
+}
+@end
+
 @interface AWSIoTDataShadow:NSObject
 //
 // Each shadow has the following properties
@@ -48,6 +64,7 @@
 @property(atomic, assign) BOOL enableStaleDiscards;
 @property(atomic, assign) BOOL enableIgnoreDeltas;
 @property(atomic, assign) UInt32 version;
+@property(atomic, assign) UInt32 documentVersion; // Used for update/documents topic separate version tracking
 @property(nonatomic, strong) NSString *clientToken;
 @property(atomic, assign) AWSIoTMQTTQoS qos;
 @property(nonatomic, strong) NSMutableArray* topics;
@@ -87,6 +104,7 @@
         _operationTimeout = operationTimeoutSeconds;
         _qos = qos;
         _version = 0;
+        _documentVersion = 0;
         _topics = [NSMutableArray new];
         _timer = nil;
         _clientToken = nil;
@@ -517,7 +535,10 @@ static NSString * const AWSIoTShadowOperationStatusTypeStrings[] = {
     
     if (error == nil) {
         NSError *error;
-        AWSIoTDataShadowModel *shadowModel = [AWSMTLJSONAdapter modelOfClass:AWSIoTDataShadowModel.class fromJSONDictionary:jsonDictionary error:&error];
+        
+        Class shadowModelClass = (status == AWSIoTShadowOperationStatusTypeDocuments) ? AWSIoTDataShadowDocumentUpdateModel.class : AWSIoTDataShadowModel.class;
+        AWSIoTDataShadowModel *shadowModel = [AWSMTLJSONAdapter modelOfClass:shadowModelClass fromJSONDictionary:jsonDictionary error:&error];
+
         //
         // Update the thing version on every accepted or delta message which
         // contains it.
@@ -526,15 +547,19 @@ static NSString * const AWSIoTShadowOperationStatusTypeStrings[] = {
             AWSIoTDataShadow *shadow = [self.shadows objectForKey:name];
 
             rc = YES;
-            if ((shadowModel.version != nil) && (status != AWSIoTShadowOperationStatusTypeRejected)) {
+            if (shadowModel.version != nil) {
                 UInt32 versionNumber = (UInt32)[shadowModel.version integerValue];
+                
                 //
                 // The shadow version is incremented by AWS IoT and should always increase.
                 // Do not update our local version if the received version is less than
                 // our version.
                 //
-                if(versionNumber >= shadow.version) {
+                if ((status != AWSIoTShadowOperationStatusTypeDocuments) && (versionNumber >= shadow.documentVersion)) {
                     shadow.version = versionNumber;
+                }
+                else if ((status == AWSIoTShadowOperationStatusTypeDocuments) && (versionNumber >= shadow.version)) {
+                    shadow.documentVersion = versionNumber;
                 }
                 else {
                     //
@@ -551,17 +576,23 @@ static NSString * const AWSIoTShadowOperationStatusTypeStrings[] = {
                     //
                     if (operation != AWSIoTShadowOperationTypeDelete && shadow.enableStaleDiscards == YES) {
                         if (shadow.enableDebugging == YES) {
-                            AWSLogInfo("out-of-date version '%u' on '%@' (local version '%u')", (unsigned int)versionNumber, name, (unsigned int)shadow.version);
+                            if (status == AWSIoTShadowOperationStatusTypeDocuments) {
+                                AWSLogInfo("out-of-date update/documents version '%u' on '%@' (local version '%u')", (unsigned int)versionNumber, name, (unsigned int)shadow.documentVersion);
+                            }
+                            else {
+                                AWSLogInfo("out-of-date version '%u' on '%@' (local version '%u')", (unsigned int)versionNumber, name, (unsigned int)shadow.version);
+                            }
                         }
                         rc = NO;
                     }
                 }
             }
+            
             if (rc == YES) {
                 //
-                // If this is a 'delta' message, call the user's callback
+                // If this is a 'delta' or 'documents' message, call the user's callback
                 //
-                if (status == AWSIoTShadowOperationStatusTypeDelta) {
+                if ((status == AWSIoTShadowOperationStatusTypeDelta) || (status == AWSIoTShadowOperationStatusTypeDocuments)) {
                     shadow.callback( shadow.name, operation, status, shadow.clientToken, payload );
                 }
                 else {
