@@ -408,6 +408,7 @@ typedef NS_ENUM(NSInteger, AWSIoTShadowOperationStatusType) {
     AWSIoTShadowOperationStatusTypeAccepted,
     AWSIoTShadowOperationStatusTypeRejected,
     AWSIoTShadowOperationStatusTypeDelta,
+    AWSIoTShadowOperationStatusTypeDocuments,
     AWSIoTShadowOperationStatusTypeCount, // Internal class use only
     AWSIoTShadowOperationStatusTypeForeignUpdate,
     AWSIoTShadowOperationStatusTypeTimeout
