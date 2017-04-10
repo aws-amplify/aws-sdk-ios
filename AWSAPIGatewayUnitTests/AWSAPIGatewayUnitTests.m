@@ -19,8 +19,6 @@
 
 @interface AWSAPIGatewayClient()
 
-@property (nonatomic, strong) AWSServiceConfiguration *configuration;
-
 - (NSURL *)requestURL:(NSString *)URLString query:(NSDictionary *)query URLPathComponentsDictionary:(NSDictionary *)URLPathComponentsDictionary;
 
 @end

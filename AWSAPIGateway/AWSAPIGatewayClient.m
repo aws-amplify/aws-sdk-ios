@@ -23,13 +23,11 @@ NSString *const AWSAPIGatewayErrorHTTPHeaderFieldsKey = @"HTTPHeaderFields";
 
 static NSString *const AWSAPIGatewayAPIKeyHeader = @"x-api-key";
 
-static NSString *const AWSAPIGatewaySDKVersion = @"2.5.2";
+static NSString *const AWSAPIGatewaySDKVersion = @"2.5.3";
 
 static int defaultChunkSize = 1024;
 
 @interface AWSAPIGatewayClient()
-
-@property (nonatomic, strong) AWSServiceConfiguration *configuration;
 
 // Networking
 @property (nonatomic, strong) NSURLSession *session;

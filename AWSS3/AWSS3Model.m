@@ -186,13 +186,13 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"and" : @"And",
+             @"AND" : @"And",
              @"prefix" : @"Prefix",
              @"tag" : @"Tag",
              };
 }
 
-+ (NSValueTransformer *)andJSONTransformer {
++ (NSValueTransformer *)ANDJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3AnalyticsAndOperator class]];
 }
 
@@ -3169,13 +3169,13 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"and" : @"And",
+             @"AND" : @"And",
              @"prefix" : @"Prefix",
              @"tag" : @"Tag",
              };
 }
 
-+ (NSValueTransformer *)andJSONTransformer {
++ (NSValueTransformer *)ANDJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3LifecycleRuleAndOperator class]];
 }
 
@@ -3799,13 +3799,13 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"and" : @"And",
+             @"AND" : @"And",
              @"prefix" : @"Prefix",
              @"tag" : @"Tag",
              };
 }
 
-+ (NSValueTransformer *)andJSONTransformer {
++ (NSValueTransformer *)ANDJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3MetricsAndOperator class]];
 }
 

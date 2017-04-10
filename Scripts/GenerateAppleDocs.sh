@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.5.2"
+VERSION="2.5.3"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -40,6 +40,7 @@ else
     cp -r AWSKMS ./docs_tmp/AWSKMS
     cp -r AWSLambda ./docs_tmp/AWSLambda
     cp -r AWSLex ./docs_tmp/AWSLex
+    cp -r AWSLogs ./docs_tmp/AWSLogs
     cp -r AWSMachineLearning ./docs_tmp/AWSMachineLearning
     cp -r AWSMobileAnalytics ./docs_tmp/AWSMobileAnalytics
     cp -r AWSPinpoint ./docs_tmp/AWSPinpoint

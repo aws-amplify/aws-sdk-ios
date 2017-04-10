@@ -1,5 +1,26 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.5.3
+### New Features
+* **Amazon Cloud Watch Logs**
+	* Amazon CloudWatch is a monitoring service for AWS cloud resources and the applications you run on AWS. You can use Amazon CloudWatch to collect and track metrics, collect and monitor log files, and set alarms.
+
+### Resolved Issues
+* **SDK Core**
+	* Added support for BasicSessionCredentials Provider [GitHub Issue #561](https://github.com/aws/aws-sdk-ios/issues/561) 
+* **Amazon APIGateway**
+	* Support for Swift 3 in API Gateway code generation.
+	* Fixed Invalid bitcast AWSServiceConfiguration. [GitHub Issue #585](https://github.com/aws/aws-sdk-ios/issues/585)
+* **Amazon S3**
+	* Fixed issues which might cause compilation erros when using the SDK with C++ runtimes. [GitHub issue #613](https://github.com/aws/aws-sdk-ios/issues/613)
+	* Fixed crash when uploading file that does not exist through `AWSTransferUtility `. [GitHub issue #618](https://github.com/aws/aws-sdk-ios/issues/618)
+* **Amazon Cognito Identity Provider**
+	* Fixed a bug in which the User Confirmation status was not getting set correctly in the sdk.
+### Enhancements
+* **Amazon Lex - beta**
+	* Use different images for `LexVoiceButton` to distinguish between when playing audio response vs when listening to audio.
+
+
 ## 2.5.2
 ### New Features
 * **AWS KMS**
@@ -30,9 +51,9 @@
 * **AWS IoT**
 	* Added more error logging and missing `NSURLNetworkServiceTypeCallSignaling` case handling.
 * **AWS STS**
-	* Updated STS models.
+	* Updated STS to the latest API specifications.
 * **Amazon S3**
-	* Updated S3 models.
+	* Updated S3 to the latest API specifications.
 
 ## 2.5.1
 ### Resolved Issues

@@ -297,4 +297,43 @@ class AWSS3TransferUtilityTests: XCTestCase {
             XCTAssertNil(error)
         }
     }
+    
+    func testBadFilePathUpload() {
+        let transferUtility = AWSS3TransferUtility.default()
+        
+        transferUtility.uploadFile(URL(fileURLWithPath: "~/abc.txt"),
+                                   bucket: "ios-v2-s3.periods",
+                                      key: "should-have-failed-testBadFilePathUpload.txt",
+                              contentType: "text/plain",
+                               expression: nil,
+                        completionHandler: nil)
+            .continueWith { (task: AWSTask<AWSS3TransferUtilityUploadTask>) -> Any? in
+                XCTAssertNotNil(task.error)
+                XCTAssertNil(task.result)
+                
+                let error = task.error! as NSError
+                XCTAssertEqual(error.code, AWSS3TransferUtilityErrorType.localFileNotFound.rawValue)
+                return nil
+            }.waitUntilFinished()
+    }
+    
+    func testGoodFilePathUpload() {
+        let transferUtility = AWSS3TransferUtility.default()
+        
+        let filePath = NSTemporaryDirectory() + "testGoodFilePathUpload.tmp"
+        let fileURL = URL(fileURLWithPath: filePath)
+        FileManager.default.createFile(atPath: filePath, contents: "Test".data(using: .utf8), attributes: nil)
+        
+        transferUtility.uploadFile(fileURL,
+                                    bucket: "ios-v2-s3.periods",
+                                       key: "testGoodFilePathUpload.txt",
+                               contentType: "text/plain",
+                                expression: nil,
+                         completionHandler: nil)
+            .continueWith { (task: AWSTask<AWSS3TransferUtilityUploadTask>) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                return nil
+            }.waitUntilFinished()
+    }
 }

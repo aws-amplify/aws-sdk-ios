@@ -169,6 +169,10 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      */
     AWSServiceLexRuntime NS_SWIFT_NAME(LexRuntime),
     /**
+     *  Amazon Cloudwatch logs
+     */
+    AWSServiceLogs NS_SWIFT_NAME(Logs),
+    /**
      *  Amazon Machine Learning
      */
     AWSServiceMachineLearning NS_SWIFT_NAME(MachineLearning),

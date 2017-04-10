@@ -617,7 +617,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  A conjunction (logical AND) of predicates, which is used in evaluating an analytics filter. The operator must have at least two predicates.
  */
-@property (nonatomic, strong) AWSS3AnalyticsAndOperator * _Nullable and;
+@property (nonatomic, strong) AWSS3AnalyticsAndOperator * _Nullable AND;
 
 /**
  The prefix to use when evaluating an analytics filter.
@@ -3308,7 +3308,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.
  */
-@property (nonatomic, strong) AWSS3LifecycleRuleAndOperator * _Nullable and;
+@property (nonatomic, strong) AWSS3LifecycleRuleAndOperator * _Nullable AND;
 
 /**
  Prefix identifying one or more objects to which the rule applies.
@@ -4111,7 +4111,7 @@ typedef NS_ENUM(NSInteger, AWSS3Types) {
 /**
  A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
  */
-@property (nonatomic, strong) AWSS3MetricsAndOperator * _Nullable and;
+@property (nonatomic, strong) AWSS3MetricsAndOperator * _Nullable AND;
 
 /**
  The prefix used when evaluating a metrics filter.

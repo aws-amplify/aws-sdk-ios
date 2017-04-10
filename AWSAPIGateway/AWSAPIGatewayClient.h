@@ -34,7 +34,7 @@ typedef NS_ENUM(NSInteger, AWSAPIGatewayErrorType) {
 
 @interface AWSAPIGatewayClient : NSObject
 
-@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration;
+@property (nonatomic, strong) AWSServiceConfiguration *configuration;
 
 @property (nonatomic, strong, nullable) NSString *APIKey;
 
