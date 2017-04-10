@@ -186,6 +186,11 @@ typedef NS_ENUM(NSInteger, AWSLexDialogState) {
 @property (nonatomic, strong) NSString * _Nullable message;
 
 /**
+ <p> Amazon Lex Transcript of user input audio. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable inputTranscript;
+
+/**
  <p>JSON serialized and then base64-encoded map of key value pairs representing the session specific context information. </p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable sessionAttributes;
