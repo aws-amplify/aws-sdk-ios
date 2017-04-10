@@ -399,7 +399,8 @@ static NSString * const AWSIoTShadowOperationTypeStrings[] = {
 static NSString * const AWSIoTShadowOperationStatusTypeStrings[] = {
     @"accepted",     // AWSIoTShadowOperationStatusTypeAccepted
     @"rejected",     // AWSIoTShadowOperationStatusTypeRejected
-    @"delta"         // AWSIoTShadowOperationStatusTypeDelta
+    @"delta",        // AWSIoTShadowOperationStatusTypeDelta
+    @"documents"     // AWSIoTShadowOperationStatusTypeDocuments
 };
 
 + (NSArray *)operationTypeStrings {
