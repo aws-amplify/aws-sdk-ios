@@ -63,6 +63,7 @@
 @property(atomic, assign) BOOL enableForeignStateUpdateNotifications;
 @property(atomic, assign) BOOL enableStaleDiscards;
 @property(atomic, assign) BOOL enableIgnoreDeltas;
+@property(atomic, assign) BOOL enableUpdateDocumentsSubscription;
 @property(atomic, assign) UInt32 version;
 @property(atomic, assign) UInt32 documentVersion; // Used for update/documents topic separate version tracking
 @property(nonatomic, strong) NSString *clientToken;
@@ -88,6 +89,7 @@
                    versioned:(BOOL)enableVersioning
          discardStaleUpdates:(BOOL)enableStaleDiscards
                discardDeltas:(BOOL)enableIgnoreDeltas
+             updateDocuments:(BOOL)enableUpdateDocumentsSubscription
       updateOnForeignChanges:(BOOL)enableForeignStateUpdateNotifications
             operationTimeout:(NSTimeInterval)operationTimeoutSeconds
                          QoS:(AWSIoTMQTTQoS)qos
@@ -99,6 +101,7 @@
         _enableVersioning = enableVersioning;
         _enableStaleDiscards = enableStaleDiscards;
         _enableIgnoreDeltas = enableIgnoreDeltas;
+        _enableUpdateDocumentsSubscription = enableUpdateDocumentsSubscription;
         _enableForeignStateUpdateNotifications = enableForeignStateUpdateNotifications;
         _callback = callback;
         _operationTimeout = operationTimeoutSeconds;
@@ -788,7 +791,7 @@ static void (^shadowMqttMessageHandler)(NSObject *mqttClient, NSString *topic, N
         // This shadow has not yet been registered; create a new shadow with
         // default options.
         //
-        shadow = [[AWSIoTDataShadow alloc] initWithName:name debug:NO versioned:NO discardStaleUpdates:YES discardDeltas:NO updateOnForeignChanges:NO operationTimeout:10.0 QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce callback:callback];
+        shadow = [[AWSIoTDataShadow alloc] initWithName:name debug:NO versioned:NO discardStaleUpdates:YES discardDeltas:NO updateDocuments:NO updateOnForeignChanges:NO operationTimeout:10.0 QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce callback:callback];
         
         if (shadow != nil) {
             //
@@ -820,6 +823,10 @@ static void (^shadowMqttMessageHandler)(NSObject *mqttClient, NSString *topic, N
                 if (numberOptionValue != nil) {
                     shadow.enableIgnoreDeltas = [numberOptionValue integerValue];
                 }
+                numberOptionValue = [options valueForKey:@"enableUpdateDocumentsSubscription"];
+                if (numberOptionValue != nil) {
+                    shadow.enableUpdateDocumentsSubscription = [numberOptionValue integerValue];
+                }
                 numberOptionValue = [options valueForKey:@"QoS"];
                 if (numberOptionValue != nil) {
                     shadow.qos = [numberOptionValue integerValue];
@@ -832,11 +839,17 @@ static void (^shadowMqttMessageHandler)(NSObject *mqttClient, NSString *topic, N
             if (shadow.enableIgnoreDeltas == NO) {
                 rc = [self handleSubscriptionsForShadow:shadow.name operations:[NSArray arrayWithObjects:[NSNumber numberWithInteger:AWSIoTShadowOperationTypeUpdate], nil] statii:[NSArray arrayWithObjects:[NSNumber numberWithInteger:AWSIoTShadowOperationStatusTypeDelta], nil] callback:shadowMqttMessageHandler];
             }
+            
             if (rc == YES) {
                 //
                 // Persistently subscribe to the special topics for this shadow.
                 //
-                rc = [self handleSubscriptionsForShadow:shadow.name operations:[NSArray arrayWithObjects:[NSNumber numberWithInteger:AWSIoTShadowOperationTypeUpdate], [NSNumber numberWithInteger:AWSIoTShadowOperationTypeGet], [NSNumber numberWithInteger:AWSIoTShadowOperationTypeDelete], nil] statii:[NSArray arrayWithObjects:[NSNumber numberWithInteger:AWSIoTShadowOperationStatusTypeAccepted], [NSNumber numberWithInteger:AWSIoTShadowOperationStatusTypeRejected], nil] callback:shadowMqttMessageHandler];
+                rc = [self handleSubscriptionsForShadow:shadow.name operations:[NSArray arrayWithObjects:[NSNumber numberWithInteger:AWSIoTShadowOperationTypeUpdate], [NSNumber numberWithInteger:AWSIoTShadowOperationTypeGet], [NSNumber numberWithInteger:AWSIoTShadowOperationTypeDelete], nil] statii:[NSArray arrayWithObjects:[NSNumber numberWithInteger:AWSIoTShadowOperationStatusTypeAccepted], [NSNumber numberWithInteger:AWSIoTShadowOperationStatusTypeRejected], [NSNumber numberWithInteger:AWSIoTShadowOperationStatusTypeDocuments], nil] callback:shadowMqttMessageHandler];
+                
+                // Subscribe to update/documents if needed
+                if ((rc == YES) && (shadow.enableUpdateDocumentsSubscription == YES)) {
+                    rc = [self handleSubscriptionsForShadow:shadow.name operations:[NSArray arrayWithObjects:[NSNumber numberWithInteger:AWSIoTShadowOperationTypeUpdate], nil] statii:[NSArray arrayWithObjects:[NSNumber numberWithInteger:AWSIoTShadowOperationStatusTypeDocuments], nil] callback:shadowMqttMessageHandler];
+                }
             }
             else {
                 AWSLogError("unable to subscribe to delta topic for (%@)", name);
