@@ -13,8 +13,17 @@
 // permissions and limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
 #import <AWSCore/AWSCore.h>
+
+#if TARGET_OS_WATCH
+#import <WatchKit/WatchKit.h>
+#define UIApplication WKExtension
+#endif
+
+#if TARGET_OS_OSX
+#import <AppKit/AppKit.h>
+#define UIApplication NSApplication
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 

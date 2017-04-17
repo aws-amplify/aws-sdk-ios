@@ -14,11 +14,11 @@
 //
 
 #import "AWSClientContext.h"
-#import <UIKit/UIKit.h>
 #import <sys/types.h>
 #import <sys/sysctl.h>
 #import "AWSUICKeyChainStore.h"
 #import "AWSLogging.h"
+#import "AWSDevice.h"
 
 // Public constants
 NSString *const AWSClientContextVersion = @"1.0";

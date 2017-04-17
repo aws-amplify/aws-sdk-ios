@@ -24,8 +24,20 @@
 // THE SOFTWARE.
 //
 
+
+
 #import <Foundation/Foundation.h>
+
+#if TARGET_OS_WATCH
+
+#define SCNetworkReachabilityFlags NSInteger
+#define SCNetworkReachabilityRef id
+
+#else
+
 #import <SystemConfiguration/SystemConfiguration.h>
+
+#endif
 
 
 /** This is the notification name used in the Apple reachability example.

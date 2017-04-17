@@ -72,6 +72,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		144E192C1E69A725004C74F9 /* AWSDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 144E192A1E69A725004C74F9 /* AWSDevice.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		144E192D1E69A725004C74F9 /* AWSDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 144E192B1E69A725004C74F9 /* AWSDevice.m */; };
 		174A59F01D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 174A59EF1D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.m */; };
 		175C92561D89049F001A145F /* AWSAPIGatewayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 175C92551D89049F001A145F /* AWSAPIGatewayModel.m */; };
 		175C92581D8904B4001A145F /* AWSAPIGatewayModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 175C92571D8904B4001A145F /* AWSAPIGatewayModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -2419,6 +2421,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		144E192A1E69A725004C74F9 /* AWSDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDevice.h; sourceTree = "<group>"; };
+		144E192B1E69A725004C74F9 /* AWSDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDevice.m; sourceTree = "<group>"; };
 		174A59EE1D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLambdaMicroserviceClient.h; sourceTree = "<group>"; };
 		174A59EF1D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLambdaMicroserviceClient.m; sourceTree = "<group>"; };
 		175C92551D89049F001A145F /* AWSAPIGatewayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSAPIGatewayModel.m; sourceTree = "<group>"; };
@@ -4671,6 +4675,8 @@
 			children = (
 				CE0D42131C6A673E006B91B5 /* AWSCategory.h */,
 				CE0D42141C6A673E006B91B5 /* AWSCategory.m */,
+				144E192A1E69A725004C74F9 /* AWSDevice.h */,
+				144E192B1E69A725004C74F9 /* AWSDevice.m */,
 				CE0D42151C6A673E006B91B5 /* AWSLogging.h */,
 				CE0D42161C6A673E006B91B5 /* AWSLogging.m */,
 				CE0D42171C6A673E006B91B5 /* AWSModel.h */,
@@ -6001,6 +6007,7 @@
 				CEA33FB51C8A37230083D6BC /* FABKitProtocol.h in Headers */,
 				CE0D42AD1C6A673E006B91B5 /* AWSXMLWriter.h in Headers */,
 				CE0D42A91C6A673E006B91B5 /* AWSXMLDictionary.h in Headers */,
+				144E192C1E69A725004C74F9 /* AWSDevice.h in Headers */,
 				CE0D42961C6A673E006B91B5 /* AWSTMCacheBackgroundTaskManager.h in Headers */,
 				CE0D42671C6A673E006B91B5 /* AWSmetamacros.h in Headers */,
 				CE3627CE1CEBA92B003E85B9 /* AWSKSReachability.h in Headers */,
@@ -8959,6 +8966,7 @@
 				CE0D42451C6A673E006B91B5 /* AWSFMDatabase.m in Sources */,
 				CE0D42311C6A673E006B91B5 /* AWSCancellationTokenSource.m in Sources */,
 				CE0D42331C6A673E006B91B5 /* AWSExecutor.m in Sources */,
+				144E192D1E69A725004C74F9 /* AWSDevice.m in Sources */,
 				CE0D42661C6A673E006B91B5 /* AWSEXTScope.m in Sources */,
 				CE0D42831C6A673E006B91B5 /* AWSURLRequestSerialization.m in Sources */,
 				CE0D42811C6A673E006B91B5 /* AWSURLRequestRetryHandler.m in Sources */,

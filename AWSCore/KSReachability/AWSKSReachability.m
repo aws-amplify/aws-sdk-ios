@@ -114,6 +114,9 @@ static void onReachabilityChanged(SCNetworkReachabilityRef target,
 
 - (id) initWithHost:(NSString*) hostname
 {
+#if TARGET_OS_WATCH
+    return nil;
+#else
     hostname = [self extractHostName:hostname];
     const char* name = [hostname UTF8String];
 
@@ -136,17 +139,25 @@ static void onReachabilityChanged(SCNetworkReachabilityRef target,
     }
 
     return [self initWithAddress:(const struct sockaddr*)&address];
+#endif
 }
 
 - (id) initWithAddress:(const struct sockaddr*) address
 {
+#if TARGET_OS_WATCH
+    return nil;
+#else
     return [self initWithReachabilityRef:SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, address)
                                 hostname:nil];
+#endif
 }
 
 - (id) initWithReachabilityRef:(SCNetworkReachabilityRef) reachabilityRef
                       hostname:(NSString*)hostname
 {
+#if TARGET_OS_WATCH
+    return nil;
+#else
     if((self = [super init]))
     {
         if(reachabilityRef == NULL)
@@ -201,8 +212,10 @@ init_failed:
     aws_as_release(self);
     self = nil;
     return self;
+#endif
 }
 
+#if !TARGET_OS_WATCH
 - (void) dealloc
 {
     if(_reachabilityRef != NULL)
@@ -368,6 +381,7 @@ static void onReachabilityChanged(__unused SCNetworkReachabilityRef target,
     AWSKSReachability* reachability = (aws_as_bridge AWSKSReachability*) info;
     [reachability onReachabilityFlagsChanged:flags];
 }
+#endif
 
 @end
 

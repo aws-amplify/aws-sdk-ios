@@ -13,7 +13,6 @@
 // permissions and limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "AWSLambda.h"
 #import "AWSTestUtility.h"
