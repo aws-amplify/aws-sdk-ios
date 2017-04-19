@@ -26,7 +26,7 @@
 #import "AWSRekognitionResources.h"
 
 static NSString *const AWSInfoRekognition = @"Rekognition";
-static NSString *const AWSRekognitionSDKVersion = @"2.5.3";
+static NSString *const AWSRekognitionSDKVersion = @"2.5.4";
 
 
 @interface AWSRekognitionResponseSerializer : AWSJSONResponseSerializer
@@ -412,6 +412,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSRekognitionDetectLabelsResponse *response, NSError *error))completionHandler {
     [[self detectLabels:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionDetectLabelsResponse *> * _Nonnull task) {
         AWSRekognitionDetectLabelsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionDetectModerationLabelsResponse *> *)detectModerationLabels:(AWSRekognitionDetectModerationLabelsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"DetectModerationLabels"
+                   outputClass:[AWSRekognitionDetectModerationLabelsResponse class]];
+}
+
+- (void)detectModerationLabels:(AWSRekognitionDetectModerationLabelsRequest *)request
+     completionHandler:(void (^)(AWSRekognitionDetectModerationLabelsResponse *response, NSError *error))completionHandler {
+    [[self detectModerationLabels:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionDetectModerationLabelsResponse *> * _Nonnull task) {
+        AWSRekognitionDetectModerationLabelsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

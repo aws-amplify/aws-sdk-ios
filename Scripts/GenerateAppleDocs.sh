@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.5.3"
+VERSION="2.5.4"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -56,6 +56,7 @@ else
     rm -rf ./docs_tmp/AWSCore/Fabric
     rm -rf ./docs_tmp/AWSCore/FMDB
     rm -rf ./docs_tmp/AWSCore/GZIP
+    rm -rf ./docs_tmp/AWSCore/Logging
     rm -rf ./docs_tmp/AWSCore/Mantle
     rm -rf ./docs_tmp/AWSCore/Reachability
     rm -rf ./docs_tmp/AWSCore/TMCache

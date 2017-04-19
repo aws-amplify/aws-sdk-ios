@@ -717,8 +717,8 @@ BOOL _identityChanged;
     NSString *oldId = dictionary[AWSCognitoNotificationNewId];
     NSString *newId = dictionary[AWSCognitoNotificationPreviousId];
     
-    AWSLogDebug(@"OLD ID: %@", oldId);
-    AWSLogDebug(@"NEW ID: %@", newId);
+    AWSDDLogDebug(@"OLD ID: %@", oldId);
+    AWSDDLogDebug(@"NEW ID: %@", newId);
     _identityChanged = YES;
 }
 

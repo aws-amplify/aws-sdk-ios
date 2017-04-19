@@ -96,7 +96,7 @@ static NSString *_testDomainName = nil;
         if (task.result) {
             AWSSimpleDBListDomainsResult *listDomainsResult = task.result;
             XCTAssertNotNil(listDomainsResult.domainNames, @" doemainNames Array should not be nil.");
-            AWSLogDebug(@"[%@]", listDomainsResult);
+            AWSDDLogDebug(@"[%@]", listDomainsResult);
         }
 
         return nil;

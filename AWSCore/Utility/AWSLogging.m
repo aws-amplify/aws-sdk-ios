@@ -16,6 +16,9 @@
 #import "AWSLogging.h"
 #import "AWSService.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 @implementation AWSLogger
 
 - (instancetype)init {
@@ -70,3 +73,4 @@
 }
 
 @end
+#pragma clang diagnostic pop

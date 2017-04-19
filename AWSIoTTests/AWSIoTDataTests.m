@@ -14,7 +14,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 #import "AWSTestUtility.h"
 #import "AWSIoTData.h"
 #import "AWSIoTMQTTClient.h"
@@ -117,7 +117,7 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
             if (task.result != nil) {
                 AWSIoTDataGetThingShadowResponse *response = task.result;
                 NSString *payload = [[NSString alloc] initWithData:response.payload encoding:NSUTF8StringEncoding];
-                AWSLogInfo(@"received payload: %@", payload);
+                AWSDDLogInfo(@"received payload: %@", payload);
             }
         }
         return nil;
@@ -237,7 +237,7 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     
     NSDate *runUntil = [NSDate dateWithTimeIntervalSinceNow: 5.0 ];
     
-    AWSLogInfo(@"waiting 5 seconds to connect...");
+    AWSDDLogInfo(@"waiting 5 seconds to connect...");
     [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
     XCTAssertEqual( connected, true );
     
@@ -274,7 +274,7 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     //
     runUntil = [NSDate dateWithTimeIntervalSinceNow: 2.0 ];
     
-    AWSLogInfo(@"waiting 2 seconds for data...");
+    AWSDDLogInfo(@"waiting 2 seconds for data...");
     [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
     
     XCTAssertEqualObjects(receivedString, publishMessageTestString);
@@ -293,7 +293,7 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     //
     runUntil = [NSDate dateWithTimeIntervalSinceNow: 5];
     
-    AWSLogInfo(@"waiting .5 seconds for data...");
+    AWSDDLogInfo(@"waiting .5 seconds for data...");
     [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
     
     //
@@ -382,7 +382,7 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     // we specify a will topic with the will QoS set to 2 (invalid).
     //
     iotDataManager.mqttConfiguration.lastWillAndTestament.topic=@"will-topic";
-    iotDataManager.mqttConfiguration.lastWillAndTestament.message=nil;
+    iotDataManager.mqttConfiguration.lastWillAndTestament.message=@"";
     iotDataManager.mqttConfiguration.lastWillAndTestament.qos = 2;
     
     [iotDataManager connectUsingWebSocketWithClientId:@"integration-test-2" cleanSession:true statusCallback:^(AWSIoTMQTTStatus status) {

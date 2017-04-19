@@ -15,7 +15,7 @@
 //    Kyle Roche - initial API and implementation and/or initial documentation
 // 
 
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 #import "MQTTMessage.h"
 
 @implementation MQTTMessage
@@ -50,7 +50,7 @@
             [data appendMQTTString:password];
         }
     }
-    AWSLogInfo(@"%@",data);
+    AWSDDLogInfo(@"%@",data);
     msg = [[MQTTMessage alloc] initWithType:MQTTConnect data:data];
     return msg;
 }
@@ -101,7 +101,7 @@
             [data appendMQTTString:password];
         }
     }
-    AWSLogInfo(@"%@",data);
+    AWSDDLogInfo(@"%@",data);
 
     MQTTMessage *msg = [[MQTTMessage alloc] initWithType:MQTTConnect
                                                     data:data];

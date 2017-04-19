@@ -429,52 +429,47 @@ typedef NS_ENUM(NSInteger, AWSLexSpeechEncoding) {
 /**
  Name of the intent being ellicited.
  */
-@property (nonatomic, strong) NSString * _Nullable intent;
+@property (nonatomic, strong, readonly) NSString * _Nullable intent;
 
 /**
  Text response.
  */
-@property (nonatomic, strong) NSString * _Nullable outputText;
+@property (nonatomic, strong, readonly) NSString * _Nullable outputText;
 
 /**
  The slots which are currently filled in an ongoing dialog
  */
-@property (nonatomic, strong) NSDictionary * _Nullable slots;
+@property (nonatomic, strong, readonly) NSDictionary * _Nullable slots;
 
 /**
  The slot which is being ellicited for an intent.
  */
-@property (nonatomic, strong) NSString * _Nullable elicitSlot;
+@property (nonatomic, strong, readonly) NSString * _Nullable elicitSlot;
 
 /**
  The current dialog state.
  */
-@property (nonatomic, assign) AWSLexDialogState dialogState;
+@property (nonatomic, assign, readonly) AWSLexDialogState dialogState;
 
 /**
  The session attributes returned from the service.
  */
-@property (nonatomic, strong) NSDictionary * _Nullable sessionAttributes;
+@property (nonatomic, strong, readonly) NSDictionary * _Nullable sessionAttributes;
 
 /**
  The audio stream . This may be null incase of a text response.
  */
-@property (nonatomic, strong) NSData * _Nullable audioStream;
+@property (nonatomic, strong, readonly) NSData * _Nullable audioStream;
 
 /**
  The format for the audio stream. This may be null if the audion stream is null.
  */
-@property (nonatomic, strong) NSString * _Nullable audioContentType;
+@property (nonatomic, strong, readonly) NSString * _Nullable audioContentType;
 
-
-- (instancetype) initWithOutputText:(NSString *)outputText
-                             intent:(NSString * _Nullable)intent
-                  sessionAttributes:(NSDictionary * _Nullable)sessionAttributes
-                       slotToElicit:(NSString * _Nullable)elicitSlot
-                              slots:(NSDictionary * _Nullable)slots
-                        dialogState:(AWSLexDialogState)dialogState
-                        audioStream:(NSData * _Nullable)audioStream
-                   audioContentType:(NSString * _Nullable)audioContentType;
+/**
+ Transcript of the voice input to the operation.
+ */
+@property (nonatomic, strong, readonly) NSString * _Nullable inputTranscript;
 
 
 @end

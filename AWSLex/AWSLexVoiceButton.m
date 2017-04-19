@@ -81,6 +81,8 @@ static NSString *BackgroundLayerStrokeColorUserInfoKey = @"backgroundLayer.strok
 
 @property (nonatomic, strong, readwrite) NSString * _Nullable audioContentType;
 
+@property (nonatomic, strong, readwrite) NSString * _Nullable inputTranscript;
+
 - (instancetype) initWithOutputText:(NSString *)outputText
                              intent:(NSString * _Nullable)intent
                   sessionAttributes:(NSDictionary * _Nullable)sessionAttributes
@@ -88,7 +90,8 @@ static NSString *BackgroundLayerStrokeColorUserInfoKey = @"backgroundLayer.strok
                               slots:(NSDictionary * _Nullable)slots
                         dialogState:(AWSLexDialogState)dialogState
                         audioStream:(NSData * _Nullable)audioStream
-                   audioContentType:(NSString * _Nullable)audioContentType;
+                   audioContentType:(NSString * _Nullable)audioContentType
+                    inputTranscript:(NSString * _Nullable)inputTranscript;
 
 @end
 
@@ -101,7 +104,8 @@ static NSString *BackgroundLayerStrokeColorUserInfoKey = @"backgroundLayer.strok
                               slots:(NSDictionary * _Nullable)slots
                         dialogState:(AWSLexDialogState)dialogState
                         audioStream:(NSData * _Nullable)audioStream
-                   audioContentType:(NSString * _Nullable)audioContentType{
+                   audioContentType:(NSString * _Nullable)audioContentType
+                    inputTranscript:(NSString * _Nullable)inputTranscript{
     self = [super init];
     if(self) {
         _intent = intent;
@@ -112,6 +116,7 @@ static NSString *BackgroundLayerStrokeColorUserInfoKey = @"backgroundLayer.strok
         _dialogState = dialogState;
         _audioStream = [audioStream copy];
         _audioContentType = audioContentType;
+        _inputTranscript = inputTranscript;
     }
     return self;
 }
@@ -498,7 +503,8 @@ static NSString *BackgroundLayerStrokeColorUserInfoKey = @"backgroundLayer.strok
                                                                                                   slots:switchModeInput.slots
                                                                                             dialogState:switchModeInput.dialogState
                                                                                             audioStream:switchModeInput.audioStream
-                                                                                       audioContentType:switchModeInput.audioContentType];
+                                                                                       audioContentType:switchModeInput.audioContentType
+                                                                                        inputTranscript:switchModeInput.inputTranscript];
             [self.delegate voiceButton:self onResponse:response];
         }
     });

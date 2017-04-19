@@ -15,7 +15,7 @@
 
 #import <objc/runtime.h>
 #import <Foundation/Foundation.h>
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 #import "AWSIoTWebSocketOutputStream.h"
 #import "AWSSRWebSocket.h"
 
@@ -50,7 +50,7 @@
 - (NSInteger)write:(const uint8_t *)buffer maxLength:(NSUInteger)limit
 {
     [self.webSocket send:[NSData dataWithBytes:(void *)buffer length:limit]];
-    AWSLogVerbose(@"sending %lu bytes", (unsigned long)limit);
+    AWSDDLogVerbose(@"sending %lu bytes", (unsigned long)limit);
     return limit;     // writes always succeed
 }
 

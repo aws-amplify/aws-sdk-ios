@@ -17,7 +17,7 @@
 #import "AWSMobileAnalyticsDateUtils.h"
 #import "AWSMobileAnalyticsStringUtils.h"
 #import "AWSMobileAnalyticsContext.h"
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 
 NSString *const AWSMobileAnalyticsSessionIDDateFormat = @"yyyyMMdd";
 NSString *const AWSMobileAnalyticsSessionIDTimeFormat = @"HHmmssSSS";
@@ -77,9 +77,9 @@ NSUInteger const AWSMobileAnalyticsSessionIDUniqIDLength = 8;
 
     UTCTimeMillis duration = end - start;
 
-    AWSLogVerbose( "start: %llu", start);
-    AWSLogVerbose( "end: %llu", end);
-    AWSLogVerbose( "duration: %llu", duration);
+    AWSDDLogVerbose( @"start: %llu", start);
+    AWSDDLogVerbose( @"end: %llu", end);
+    AWSDDLogVerbose( @"duration: %llu", duration);
 
     return duration;
 }

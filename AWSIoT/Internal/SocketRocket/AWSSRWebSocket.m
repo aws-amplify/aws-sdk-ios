@@ -14,7 +14,7 @@
 //   limitations under the License.
 //
 
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 #import "AWSSRWebSocket.h"
 #import <errno.h>
 
@@ -506,7 +506,7 @@ static __strong NSData *CRLFCRLF;
     NSMutableData *keyBytes = [[NSMutableData alloc] initWithLength:16];
     int functionExitCode = SecRandomCopyBytes(kSecRandomDefault, keyBytes.length, keyBytes.mutableBytes);
     if (functionExitCode < 0) {
-        AWSLogError("SecRandomCopyBytes failed with error code %d: %s", errno, strerror(errno));
+        AWSDDLogError(@"SecRandomCopyBytes failed with error code %d: %s", errno, strerror(errno));
     }
     
     if ([keyBytes respondsToSelector:@selector(base64EncodedStringWithOptions:)]) {
@@ -640,7 +640,7 @@ static __strong NSData *CRLFCRLF;
             if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_8_3) {
                 static dispatch_once_t predicate;
                 dispatch_once(&predicate, ^{
-                    AWSLogInfo(@"SocketRocket: %@ - this service type is deprecated in favor of using PushKit for VoIP control", networkServiceType);
+                    AWSDDLogInfo(@"SocketRocket: %@ - this service type is deprecated in favor of using PushKit for VoIP control", networkServiceType);
                 });
             }
 #endif
@@ -1449,7 +1449,7 @@ static const size_t SRFrameHeaderOverhead = 32;
         uint8_t *mask_key = frame_buffer + frame_buffer_size;
         int functionExitCode = SecRandomCopyBytes(kSecRandomDefault, sizeof(uint32_t), (uint8_t *)mask_key);
         if (functionExitCode < 0) {
-            AWSLogError("SecRandomCopyBytes failed with error code %d: %s", errno, strerror(errno));
+            AWSDDLogError(@"SecRandomCopyBytes failed with error code %d: %s", errno, strerror(errno));
         }
         frame_buffer_size += sizeof(uint32_t);
         
@@ -1730,7 +1730,7 @@ static inline void SRFastLog(NSString *format, ...)  {
     
     va_end(arg_list);
     
-    AWSLogInfo(@"[SR] %@", formattedString);
+    AWSDDLogInfo(@"[SR] %@", formattedString);
 #endif
 }
 

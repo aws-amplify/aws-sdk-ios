@@ -70,6 +70,11 @@ typedef NS_ENUM(NSInteger, AWSLexVoiceButtonErrorCode) {
  */
 @property (nonatomic, strong, readonly) NSString * _Nullable audioContentType;
 
+/**
+ Transcript of the voice input to the operation.
+ */
+@property (nonatomic, strong, readonly) NSString * _Nullable inputTranscript;
+
 @end
 
 @protocol AWSLexVoiceButtonDelegate <NSObject>

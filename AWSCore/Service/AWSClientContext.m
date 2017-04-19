@@ -18,7 +18,7 @@
 #import <sys/types.h>
 #import <sys/sysctl.h>
 #import "AWSUICKeyChainStore.h"
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 
 // Public constants
 NSString *const AWSClientContextVersion = @"1.0";
@@ -51,7 +51,7 @@ static NSString *const AWSClientContextKeychainInstallationIdKey = @"com.amazona
             _installationId = [keychain stringForKey:AWSClientContextKeychainInstallationIdKey];
         }
         if (_installationId == nil) {
-            AWSLogError(@"Failed to generate installation_id");
+            AWSDDLogError(@"Failed to generate installation_id");
         }
 
         NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
@@ -112,7 +112,7 @@ static NSString *const AWSClientContextKeychainInstallationIdKey = @"com.amazona
                                                        options:kNilOptions
                                                          error:&error];
     if (!JSONData) {
-        AWSLogError(@"Failed to serialize JSON Data. [%@]", error);
+        AWSDDLogError(@"Failed to serialize JSON Data. [%@]", error);
     }
 
     return [[NSString alloc] initWithData:JSONData
@@ -129,7 +129,7 @@ static NSString *const AWSClientContextKeychainInstallationIdKey = @"com.amazona
         [self.serviceDetails setValue:details
                                forKey:service];
     } else {
-        AWSLogError(@"'service' cannot be nil.");
+        AWSDDLogError(@"'service' cannot be nil.");
     }
 }
 

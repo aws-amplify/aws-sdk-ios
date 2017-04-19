@@ -15,7 +15,7 @@
 
 #import "AWSMobileAnalyticsStringUtils.h"
 #import "AWSMobileAnalyticsMonetizationEventBuilder.h"
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 
 static NSString* const PURCHASE_EVENT_NAME = @"_monetization.purchase";
 
@@ -75,7 +75,7 @@ static NSString* const PURCHASE_EVENT_TRANSACTION_ID_ATTR = @"_transaction_id";
 }
 
 -(BOOL) isValid{
-    AWSLogWarn(@"You are required to override the isValid method of the monetization event builder");
+    AWSDDLogWarn(@"You are required to override the isValid method of the monetization event builder");
     return false;
 }
 
@@ -147,28 +147,28 @@ static NSString* const PURCHASE_EVENT_TRANSACTION_ID_ATTR = @"_transaction_id";
 
 -(BOOL)doBaseValidation{
     if (eventClient == nil) {
-        AWSLogError(@"Cannot build Monetization event: the eventClient is null");
+        AWSDDLogError(@"Cannot build Monetization event: the eventClient is null");
         return false;
     }
     
     if ([AWSMobileAnalyticsStringUtils isBlank:productId]) {
-        AWSLogError(@"Base Monetization event is not valid: it is missing the product id");
+        AWSDDLogError(@"Base Monetization event is not valid: it is missing the product id");
         return false;
     }
     
     if (!isQuantitySet) {
-        AWSLogError(@"Base Monetization event is not valid: it is missing the quantity");
+        AWSDDLogError(@"Base Monetization event is not valid: it is missing the quantity");
         return false;
     }
     
     if ([AWSMobileAnalyticsStringUtils isBlank:store]) {
-        AWSLogError(@"Base Monetization event is not valid: it is missing the store");
+        AWSDDLogError(@"Base Monetization event is not valid: it is missing the store");
         return false;
     }
     
     if ([AWSMobileAnalyticsStringUtils isBlank:currency] || !isItemPriceSet) {
         if([AWSMobileAnalyticsStringUtils isBlank:formattedItemPrice]){
-            AWSLogError(@"Base Monetization event is not valid: it requires the formatted price or the currency and price");
+            AWSDDLogError(@"Base Monetization event is not valid: it requires the formatted price or the currency and price");
             return false;
         }
     }

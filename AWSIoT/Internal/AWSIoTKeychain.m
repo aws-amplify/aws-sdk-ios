@@ -13,7 +13,7 @@
 // permissions and limitations under the License.
 //
 
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 #import "AWSIoTKeychain.h"
 
 NSString *const AWSIoTKeychainStartPrivateKeyTag = @"-----BEGIN RSA PRIVATE KEY-----\n";
@@ -71,21 +71,21 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     
     sanityCheck = SecKeyGeneratePair((CFDictionaryRef)keyPairAttr, &publicKeyRef, &privateKeyRef);
     if (sanityCheck != noErr) {
-        AWSLogError(@"generateKeyPair finished with error: %d", (int)sanityCheck);
+        AWSDDLogError(@"generateKeyPair finished with error: %d", (int)sanityCheck);
         return NO;
     }
     
     if (publicKeyRef == NULL) {
-        AWSLogError(@"generateKeyPair missed public key");
+        AWSDDLogError(@"generateKeyPair missed public key");
         return NO;
     }
     
     if (privateKeyRef == NULL) {
-        AWSLogError(@"generateKeyPair missed private key");
+        AWSDDLogError(@"generateKeyPair missed private key");
         return NO;
     }
     
-    AWSLogInfo(@"generateKeyPair successfully generated");
+    AWSDDLogInfo(@"generateKeyPair successfully generated");
     
     return YES;
 }
@@ -109,9 +109,9 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     sanityCheck = SecItemDelete((CFDictionaryRef)queryPrivateKey);
     if (sanityCheck != noErr) {
         if (sanityCheck == errSecItemNotFound) {
-            AWSLogError(@"Error removing private key errSecItemNotFound");
+            AWSDDLogError(@"Error removing private key errSecItemNotFound");
         } else {
-            AWSLogError(@"Error removing private key, OSStatus == %d.", (int)sanityCheck);
+            AWSDDLogError(@"Error removing private key, OSStatus == %d.", (int)sanityCheck);
             status = NO;
         }
     }
@@ -119,9 +119,9 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     sanityCheck = SecItemDelete((CFDictionaryRef)queryPublicKey);
     if (sanityCheck != noErr) {
         if (sanityCheck == errSecItemNotFound) {
-            AWSLogError(@"Error removing public key errSecItemNotFound");
+            AWSDDLogError(@"Error removing public key errSecItemNotFound");
         } else {
-            AWSLogError(@"Error removing public key, OSStatus == %d.", (int)sanityCheck);
+            AWSDDLogError(@"Error removing public key, OSStatus == %d.", (int)sanityCheck);
             status = NO;
         }
     }
@@ -138,7 +138,7 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
         if (status == noErr) {
             return YES;
         } else {
-            AWSLogError(@"SecIdentityCopyCertificate failed [%d]", (int)status);
+            AWSDDLogError(@"SecIdentityCopyCertificate failed [%d]", (int)status);
         }
     }
     
@@ -192,7 +192,7 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
 + (BOOL)addCertificate:(NSData*)cert {
     SecCertificateRef certRef = SecCertificateCreateWithData(kCFAllocatorDefault, (__bridge CFDataRef)cert);
     if (certRef == NULL) {
-        AWSLogError(@"Error create Sec Certificate from data");
+        AWSDDLogError(@"Error create Sec Certificate from data");
         return NO;
     }
     return [self addCertificateRef:certRef];
@@ -208,7 +208,7 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
 
     OSStatus sanityCheck = SecItemAdd((CFDictionaryRef)queryCertificate, nil);
     if ((sanityCheck != noErr) && (sanityCheck != errSecDuplicateItem)) {
-        AWSLogError(@"add certificate to keychain with error: %d", (int)sanityCheck);
+        AWSDDLogError(@"add certificate to keychain with error: %d", (int)sanityCheck);
         return NO;
     }
     return YES;
@@ -217,7 +217,7 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
 + (BOOL)addCertificate:(NSData*)cert withTag:(NSString*)tag {
     SecCertificateRef certRef = SecCertificateCreateWithData(kCFAllocatorDefault, (__bridge CFDataRef)cert);
     if (certRef == NULL) {
-        AWSLogError(@"Error create Sec Certificate from data");
+        AWSDDLogError(@"Error create Sec Certificate from data");
         return NO;
     }
     
@@ -229,7 +229,7 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     
     OSStatus sanityCheck = SecItemAdd((CFDictionaryRef)queryCertificate, nil);
     if ((sanityCheck != noErr) && (sanityCheck != errSecDuplicateItem)) {
-        AWSLogError(@"add certificate to keychain with error: %d", (int)sanityCheck);
+        AWSDDLogError(@"add certificate to keychain with error: %d", (int)sanityCheck);
         return NO;
     }
     
@@ -246,9 +246,9 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     OSStatus sanityCheck = SecItemDelete((CFDictionaryRef)queryCertificate);
     if (sanityCheck != noErr) {
         if (sanityCheck == errSecItemNotFound) {
-            AWSLogError(@"Error removing certificate key errSecItemNotFound");
+            AWSDDLogError(@"Error removing certificate key errSecItemNotFound");
         } else {
-            AWSLogError(@"Error removing certificate key, OSStatus == %d.", (int)sanityCheck);
+            AWSDDLogError(@"Error removing certificate key, OSStatus == %d.", (int)sanityCheck);
             return NO;
         }
     }
@@ -267,9 +267,9 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     OSStatus sanityCheck = SecItemDelete((CFDictionaryRef)queryCertificate);
     if (sanityCheck != noErr) {
         if (sanityCheck == errSecItemNotFound) {
-            AWSLogError(@"Error removing certificate key errSecItemNotFound");
+            AWSDDLogError(@"Error removing certificate key errSecItemNotFound");
         } else {
-            AWSLogError(@"Error removing certificate key, OSStatus == %d.", (int)sanityCheck);
+            AWSDDLogError(@"Error removing certificate key, OSStatus == %d.", (int)sanityCheck);
             return NO;
         }
     }
@@ -291,7 +291,7 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     sanityCheck = SecItemCopyMatching((CFDictionaryRef)queryPublicKey, (CFTypeRef *)&publicKeyReference);
     
     if (sanityCheck != noErr) {
-        AWSLogError(@"getPublicKeyRef error: %d",(int)sanityCheck);
+        AWSDDLogError(@"getPublicKeyRef error: %d",(int)sanityCheck);
     }
     
     return publicKeyReference;
@@ -311,7 +311,7 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     sanityCheck = SecItemCopyMatching((CFDictionaryRef)queryPublicKey, &publicKeyRef);
     
     if (sanityCheck != noErr){
-        AWSLogError(@"getPublicKeyBits error: %d",(int)sanityCheck);
+        AWSDDLogError(@"getPublicKeyBits error: %d",(int)sanityCheck);
         publicKeyRef = NULL;
     }
     
@@ -332,7 +332,7 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     sanityCheck = SecItemCopyMatching((CFDictionaryRef)queryPrivateKey, (CFTypeRef *)&privateKeyReference);
     
     if (sanityCheck != noErr) {
-        AWSLogError(@"getPrivateKeyRef error: %d",(int)sanityCheck);
+        AWSDDLogError(@"getPrivateKeyRef error: %d",(int)sanityCheck);
         privateKeyReference = NULL;
     }
     
@@ -353,7 +353,7 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     sanityCheck = SecItemCopyMatching((CFDictionaryRef)queryPrivateKey, &privateKeyBits);
     
     if (sanityCheck != noErr){
-        AWSLogError(@"getPrivateKeyBits error: %d",(int)sanityCheck);
+        AWSDDLogError(@"getPrivateKeyBits error: %d",(int)sanityCheck);
         privateKeyBits = NULL;
     }
     
@@ -374,7 +374,7 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     sanityCheck = SecItemCopyMatching((CFDictionaryRef)queryIdentityRef, (CFTypeRef *)&identityRef);
     
     if (sanityCheck != noErr){
-        AWSLogError(@"getIdentityRef error: %d",(int)sanityCheck);
+        AWSDDLogError(@"getIdentityRef error: %d",(int)sanityCheck);
         identityRef = NULL;
     }
     
@@ -397,7 +397,7 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     
     sanityCheck = SecItemAdd((CFDictionaryRef) publicKeyAttr, (CFTypeRef *)&persistPeer);
     if ((sanityCheck != noErr) && (sanityCheck != errSecDuplicateItem)){
-        AWSLogError(@"addPublicKeyRef error: %d",(int)sanityCheck);
+        AWSDDLogError(@"addPublicKeyRef error: %d",(int)sanityCheck);
         return NO;
     }
     
@@ -420,7 +420,7 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     
     sanityCheck = SecItemAdd((CFDictionaryRef) publicKeyAttr, (CFTypeRef *)&persistPeer);
     if ((sanityCheck != noErr) && (sanityCheck != errSecDuplicateItem)){
-        AWSLogError(@"addPublicKey error: %d",(int)sanityCheck);
+        AWSDDLogError(@"addPublicKey error: %d",(int)sanityCheck);
         return NO;
     }
     
@@ -443,7 +443,7 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     
     sanityCheck = SecItemAdd((CFDictionaryRef) privateKeyAttr, (CFTypeRef *)&persistPeer);
     if ((sanityCheck != noErr) && (sanityCheck != errSecDuplicateItem)){
-        AWSLogError(@"addPrivateKeyRef error: %d",(int)sanityCheck);
+        AWSDDLogError(@"addPrivateKeyRef error: %d",(int)sanityCheck);
         return NO;
     }
     
@@ -466,7 +466,7 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     
     sanityCheck = SecItemAdd((CFDictionaryRef) privateKeyAttr, (CFTypeRef *)&persistPeer);
     if ((sanityCheck != noErr) && (sanityCheck != errSecDuplicateItem)){
-        AWSLogError(@"addPrivateKey error: %d",(int)sanityCheck);
+        AWSDDLogError(@"addPrivateKey error: %d",(int)sanityCheck);
         return NO;
     }
     
@@ -514,9 +514,9 @@ NSString *const AWSIoTKeychainEndCertKeyTag = @"\n-----END CERTIFICATE-----";
     OSStatus sanityCheck = SecItemDelete((CFDictionaryRef)queryPrivateKey);
     if (sanityCheck != noErr) {
         if (sanityCheck == errSecItemNotFound) {
-            AWSLogError(@"Error removing private key errSecItemNotFound");
+            AWSDDLogError(@"Error removing private key errSecItemNotFound");
         } else {
-            AWSLogError(@"Error removing private key, OSStatus == %d.", (int)sanityCheck);
+            AWSDDLogError(@"Error removing private key, OSStatus == %d.", (int)sanityCheck);
             return NO;
         }
     }

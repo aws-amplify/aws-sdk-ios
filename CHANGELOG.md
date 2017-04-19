@@ -1,5 +1,23 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.5.4
+
+### New Features
+* **SDK Core**
+	* `AWSLogger` is now deprecated. Suggested to use `AWSDDLog` for logging; SDK now uses `CocoaLumberjack` for logging.`
+
+### Enhancements
+* **Amazon Lex**
+	* Amazon Lex is now Generally Available.
+	* Added support for input transcripts.
+	
+* **Amazon Polly**
+	* Added support for requesting use of multiple Lexicons through `AWSPollySynthesizeSpeechURLBuilder`.
+	* Added support for speech marks.
+	
+* **Amazon Rekognition**
+	* Added support for moderation labels and age range estimation.
+
 ## 2.5.3
 ### New Features
 * **Amazon Cloud Watch Logs**

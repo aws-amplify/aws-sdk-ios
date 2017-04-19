@@ -173,10 +173,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     putRecordBatchInput.deliveryStreamName = streamName;
     putRecordBatchInput.records = records;
 
-    AWSLogVerbose(@"putRecordBatchInput: [%@]", putRecordBatchInput);
+    AWSDDLogVerbose(@"putRecordBatchInput: [%@]", putRecordBatchInput);
     return [[self.firehose putRecordBatch:putRecordBatchInput] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
-            AWSLogError(@"Error: [%@]", task.error);
+            AWSDDLogError(@"Error: [%@]", task.error);
             if ([task.error.domain isEqualToString:NSURLErrorDomain]) {
                 *stop = YES;
             }
@@ -187,7 +187,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             for (int i = 0; i < [putRecordBatchOutput.requestResponses count]; i++) {
                 AWSFirehosePutRecordBatchResponseEntry *resultEntry = putRecordBatchOutput.requestResponses[i];
                 if (resultEntry.errorCode) {
-                    AWSLogInfo(@"Error Code: [%@] Error Message: [%@]", resultEntry.errorCode, resultEntry.errorMessage);
+                    AWSDDLogInfo(@"Error Code: [%@] Error Message: [%@]", resultEntry.errorCode, resultEntry.errorMessage);
                 }
                 // When the error code is ProvisionedThroughputExceededException or InternalFailure,
                 // we should retry. So, don't delete the row from the database.

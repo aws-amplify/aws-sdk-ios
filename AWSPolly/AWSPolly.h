@@ -24,3 +24,4 @@ FOUNDATION_EXPORT const unsigned char AWSPollyVersionString[];
 #import <AWSCore/AWSCore.h>
 #import "AWSPollyService.h"
 #import "AWSPollySynthesizeSpeechURLBuilder.h"
+#import "AWSPollyEnumTranslatorUtility.h"

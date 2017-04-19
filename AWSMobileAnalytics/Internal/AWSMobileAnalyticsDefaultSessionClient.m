@@ -24,7 +24,7 @@
 #import "AWSMobileAnalyticsPausedSessionState.h"
 #import "AWSMobileAnalyticsSessionClientState.h"
 #import "AWSMobileAnalyticsDelayedBlock.h"
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 
 //Event Type Constants ---------------------------
 NSString *const AWSSessionStartEventType = @"_session.start";
@@ -169,7 +169,7 @@ static AWSMobileAnalyticsActiveSessionState *ACTIVE_SESSION_STATE;
 - (void)startNewSession{
     // Generate new session object
     self.session = [[AWSMobileAnalyticsSession alloc] initWithContext:self.context];
-    AWSLogVerbose( @"Firing Session Event: Start");
+    AWSDDLogVerbose( @"Firing Session Event: Start");
 
     // Prepare Event Tagging
     [self.eventClient addGlobalAttribute:self.session.sessionId
@@ -185,7 +185,7 @@ static AWSMobileAnalyticsActiveSessionState *ACTIVE_SESSION_STATE;
     id<AWSMobileAnalyticsInternalEvent> startEvent = [self.eventClient createInternalEvent:AWSSessionStartEventType];
     [self.eventClient recordEvent:startEvent andApplyGlobalAttributes:YES];
 
-    AWSLogInfo( "Session Started.");
+    AWSDDLogInfo( @"Session Started.");
 }
 
 - (void)endCurrentSession{
@@ -194,7 +194,7 @@ static AWSMobileAnalyticsActiveSessionState *ACTIVE_SESSION_STATE;
     }
 
     // Fire Session stop Event
-    AWSLogVerbose( @"Firing Session Event: Stop");
+    AWSDDLogVerbose( @"Firing Session Event: Stop");
     NSString* sessionStartTimeString = [self.session.startTime aws_stringValue:AWSDateISO8601DateFormat3];
     NSString* sessionStopTimeString = [self.session.stopTime aws_stringValue:AWSDateISO8601DateFormat3];
     id<AWSMobileAnalyticsInternalEvent> stopEvent = [self.eventClient createInternalEvent:AWSSessionStopEventType];
@@ -209,26 +209,26 @@ static AWSMobileAnalyticsActiveSessionState *ACTIVE_SESSION_STATE;
 
     // Kill current session object
     self.session = nil;
-    AWSLogInfo( "Session Stopped.");
+    AWSDDLogInfo( @"Session Stopped.");
 
     [self.deliveryClient forceDeliveryAndWaitForCompletion:NO];
 }
 
 - (void)pauseCurrentSession{
     [self.session pause];
-    AWSLogVerbose( @"Firing Session Event: Pause");
+    AWSDDLogVerbose( @"Firing Session Event: Pause");
     id<AWSMobileAnalyticsInternalEvent> pauseEvent = [self.eventClient createInternalEvent:AWSSessionPauseEventType];
     [pauseEvent addMetric:[NSNumber numberWithUnsignedLongLong:[self.session timeDurationInMillis]] forKey:AWSSessionDurationMetricKey];
     [self.eventClient recordEvent:pauseEvent andApplyGlobalAttributes:YES];
-    AWSLogInfo( "Session Paused.");
+    AWSDDLogInfo( @"Session Paused.");
 }
 
 - (void)resumeCurrentSession {
     [self.session resume];
-    AWSLogVerbose( @"Firing Session Event: Resume");
+    AWSDDLogVerbose( @"Firing Session Event: Resume");
     id<AWSMobileAnalyticsInternalEvent> resumeEvent = [self.eventClient createInternalEvent:AWSSessionResumeEventType];
     [self.eventClient recordEvent:resumeEvent andApplyGlobalAttributes:YES];
-    AWSLogInfo( "Session Resumed.");
+    AWSDDLogInfo( @"Session Resumed.");
 }
 
 - (SessionState)getSessionState {

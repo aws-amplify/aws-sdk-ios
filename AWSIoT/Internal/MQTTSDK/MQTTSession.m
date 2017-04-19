@@ -15,7 +15,7 @@
 //    Kyle Roche - initial API and implementation and/or initial documentation
 // 
 
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 #import "MQTTSession.h"
 #import "MQTTDecoder.h"
 #import "MQTTEncoder.h"
@@ -405,7 +405,7 @@
     NSError * error = nil;
     NSData * data = [NSJSONSerialization dataWithJSONObject:payload options:0 error:&error];
     if(error!=nil){
-        AWSLogError(@"Error creating JSON: %@",error.description);
+        AWSDDLogError(@"Error creating JSON: %@",error.description);
         return;
     }
     [self publishData:data onTopic:theTopic];
@@ -415,7 +415,7 @@
     idleTimer++;
     if (idleTimer >= keepAliveInterval) {
         if ([encoder status] == MQTTEncoderStatusReady) {
-            //AWSLogInfo(@"sending PINGREQ");
+            //AWSDDLogInfo(@"sending PINGREQ");
             [encoder encodeMessage:[MQTTMessage pingreqMessage]];
             idleTimer = 0;
         }
@@ -434,13 +434,13 @@
 }
 
 - (void)encoder:(MQTTEncoder*)sender handleEvent:(MQTTEncoderEvent) eventCode {
-   // AWSLogInfo(@"encoder:(MQTTEncoder*)sender handleEvent:(MQTTEncoderEvent) eventCode ");
+   // AWSDDLogInfo(@"encoder:(MQTTEncoder*)sender handleEvent:(MQTTEncoderEvent) eventCode ");
     if(sender == encoder) {
         switch (eventCode) {
             case MQTTEncoderEventReady:
                 switch (status) {
                     case MQTTSessionStatusCreated:
-                        //AWSLogInfo(@"Encoder has been created. Sending Auth Message");
+                        //AWSDDLogInfo(@"Encoder has been created. Sending Auth Message");
                         [sender encodeMessage:connectMessage];
                         status = MQTTSessionStatusConnecting;
                         break;
@@ -465,7 +465,7 @@
 }
 
 - (void)decoder:(MQTTDecoder*)sender handleEvent:(MQTTDecoderEvent)eventCode {
-    //AWSLogInfo(@"decoder:(MQTTDecoder*)sender handleEvent:(MQTTDecoderEvent)eventCode");
+    //AWSDDLogInfo(@"decoder:(MQTTDecoder*)sender handleEvent:(MQTTDecoderEvent)eventCode");
     if(sender == decoder) {
         MQTTSessionEvent event;
         switch (eventCode) {
@@ -484,7 +484,7 @@
 }
 
 - (void)decoder:(MQTTDecoder*)sender newMessage:(MQTTMessage*)msg {
-    //AWSLogInfo(@"decoder:(MQTTDecoder*)sender newMessage:(MQTTMessage*)msg ");
+    //AWSDDLogInfo(@"decoder:(MQTTDecoder*)sender newMessage:(MQTTMessage*)msg ");
     MQTTMessageType messageType = [msg type];
     
     if(sender == decoder){
