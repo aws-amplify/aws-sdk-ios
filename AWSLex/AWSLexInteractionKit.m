@@ -62,6 +62,7 @@ typedef NS_ENUM(NSInteger, AWSLexSpeechState) {
 @implementation AWSLexSwitchModeInput
 
 - (instancetype) initWithOutputText:(NSString *)outputText
+                    inputTranscript:(NSString *)inputTranscript
                              intent:(NSString * _Nullable)intent
                   sessionAttributes:(NSDictionary * _Nullable)sessionAttributes
                        slotToElicit:(NSString * _Nullable)elicitSlot
@@ -75,6 +76,7 @@ typedef NS_ENUM(NSInteger, AWSLexSpeechState) {
         _slots = slots;
         _sessionAttributes = sessionAttributes;
         _outputText = outputText;
+        _inputTranscript = inputTranscript;
         _elicitSlot = elicitSlot;
         _dialogState = dialogState;
         _audioStream = [audioStream copy];
@@ -732,6 +734,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         strongSelf.sessionAttributes = response.sessionAttributes;
         
         AWSLexSwitchModeInput *input = [[AWSLexSwitchModeInput alloc] initWithOutputText:response.message
+                                                                         inputTranscript:response.inputTranscript
                                                                                   intent:response.intentName
                                                                        sessionAttributes:response.sessionAttributes
                                                                             slotToElicit:response.slotToElicit

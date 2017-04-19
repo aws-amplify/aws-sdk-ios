@@ -437,6 +437,11 @@ typedef NS_ENUM(NSInteger, AWSLexSpeechEncoding) {
 @property (nonatomic, strong) NSString * _Nullable outputText;
 
 /**
+ Transcript of user input audio
+ */
+@property (nonatomic, strong) NSString * _Nullable inputTranscript;
+
+/**
  The slots which are currently filled in an ongoing dialog
  */
 @property (nonatomic, strong) NSDictionary * _Nullable slots;
@@ -468,6 +473,7 @@ typedef NS_ENUM(NSInteger, AWSLexSpeechEncoding) {
 
 
 - (instancetype) initWithOutputText:(NSString *)outputText
+                    inputTranscript:(NSString *)inputTranscript
                              intent:(NSString * _Nullable)intent
                   sessionAttributes:(NSDictionary * _Nullable)sessionAttributes
                        slotToElicit:(NSString * _Nullable)elicitSlot
