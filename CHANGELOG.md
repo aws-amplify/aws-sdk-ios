@@ -4,7 +4,7 @@
 
 ### New Features
 * **SDK Core**
-	* `AWSLogger` is now deprecated. Suggested to use `AWSDDLog` for logging; SDK now uses `CocoaLumberjack` for logging.`
+	* `AWSLogger` is now deprecated. Suggested to use `AWSDDLog` for logging; SDK now uses `CocoaLumberjack` for logging.
 
 ### Enhancements
 * **Amazon Lex**
