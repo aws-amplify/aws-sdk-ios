@@ -499,19 +499,14 @@
                             const UInt8 *bytes = [[msg data] bytes];
                             if (bytes[1] == 0) {
                                 status = MQTTSessionStatusConnected;
-                                timer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:1.0]
-                                                                 interval:1.0
-                                                                   target:self
-                                                                 selector:@selector(timerHandler:)
-                                                                 userInfo:nil
-                                                                  repeats:YES];
-                                if(_connectionHandler){
+                                                                if(_connectionHandler){
                                     _connectionHandler(MQTTSessionEventConnected);
                                 }
                                 
+                                timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerHandler:) userInfo:nil repeats:YES];
                                 [_delegate session:self handleEvent:MQTTSessionEventConnected];
                                 
-                                [runLoop addTimer:timer forMode:runLoopMode];
+                                
                             }
                             else {
                                 [self error:MQTTSessionEventConnectionRefused];
