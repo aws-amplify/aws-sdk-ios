@@ -427,4 +427,17 @@ static int defaultChunkSize = 1024;
     return [[value description] aws_stringWithURLEncoding];
 }
 
+- (void)setConfiguration:(AWSServiceConfiguration *)configuration {
+    _configuration = configuration;
+
+    // Setup a new NSURLSession configured with timeout from AWSServiceConfiguration
+    NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+
+    sessionConfiguration.timeoutIntervalForRequest = configuration.timeoutIntervalForRequest;
+    sessionConfiguration.timeoutIntervalForResource = configuration.timeoutIntervalForResource;
+
+    _session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
+}
+
+
 @end
