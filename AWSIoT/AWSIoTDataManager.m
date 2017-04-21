@@ -837,7 +837,10 @@ static void (^shadowMqttMessageHandler)(NSObject *mqttClient, NSString *topic, N
         // Unsubscribe to the special topics for this shadow.
         //
         rc |= [self handleSubscriptionsForShadow:shadow.name operations:[NSArray arrayWithObjects:[NSString stringWithFormat:@"update"], [NSString stringWithFormat:@"get"], [NSString stringWithFormat:@"delete"], nil] statii:[NSArray arrayWithObjects:[NSString stringWithFormat:@"accepted"], [NSString stringWithFormat:@"rejected"], nil] callback:nil];
-
+ 
+        //invalidate the timer as the shadow is being unregistered.
+        [shadow.timer invalidate];
+        shadow.timer = nil;
         //
         // Remove the shadow from the dictionary
         //
