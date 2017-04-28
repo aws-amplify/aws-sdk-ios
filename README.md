@@ -332,35 +332,69 @@ With native AWSTask support in the SDK for iOS, you can chain async requests ins
 
 ## Logging
 
-Changing log levels during development may make debugging easier. You can change the log level by importing AWSCore.h and calling:
+As of version 2.5.4 of this SDK, logging utilizes [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack), a flexible, fast, open source logging framework. It supports many capabilities including the ability to set logging level per output target, for instance, concise messages logged to the console and verbose messages to a log file.
+
+CocoaLumberjack logging levels are additive such that when the level is set to verbose, all messages from the levels below verbose are logged. It is also possible to set custom logging to meet your needs. For more information, see [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack/blob/master/Documentation/CustomLogLevels.md)
+
+### Changing Log Levels
 
 **Swift**
 
-    AWSLogger.default().logLevel = .verbose
+    AWSDDLog.sharedInstance().logLevel = .verbose
 
 The following logging level options are available:
 
-* `.none`
+* `.off`
 * `.error`
-* `.warn`
+* `.warning`
 * `.info`
-* `.debug` (This is the default.)
+* `.debug`
 * `.verbose`
 
 **Objective-C**
 
-    [AWSLogger defaultLogger].logLevel = AWSLogLevelVerbose;
+    [AWSDDLog sharedInstance].logLevel = AWSDDLogLevelVerbose;
 
 The following logging level options are available:
 
-* `AWSLogLevelNone`
-* `AWSLogLevelError`
-* `AWSLogLevelWarn`
-* `AWSLogLevelInfo`
-* `AWSLogLevelDebug` (This is the default.)
-* `AWSLogLevelVerbose`
+* `AWSDDLogLevelOff`
+* `AWSDDLogLevelError`
+* `AWSDDLogLevelWarning`
+* `AWSDDLogLevelInfo`
+* `AWSDDLogLevelDebug`
+* `AWSDDLogLevelVerbose`
 
-We recommend setting the log level to `None` before publishing to the Apple App Store.
+We recommend setting the log level to `Off` before publishing to the Apple App Store.
+
+### Targeting Log Output
+
+CocoaLumberjack can direct logs to file or used as a framework that integrates with the Xcode console.
+
+To initialize logging to files, use the following code:
+
+**Swift**
+
+        let fileLogger: AWSDDFileLogger = AWSDDFileLogger() // File Logger
+        fileLogger.rollingFrequency = TimeInterval(60*60*24)  // 24 hours
+        fileLogger.logFileManager.maximumNumberOfLogFiles = 7
+        AWSDDLog.add(fileLogger)
+
+**Objective-C**
+
+        AWSDDFileLogger *fileLogger = [[AWSDDFileLogger alloc] init]; // File Logger
+        fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+        fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
+        [AWSDDLog addLogger:fileLogger];
+
+To initialize logging to your Xcode console, use the following code:
+
+**Swift**
+
+        AWSDDLog.add(AWSDDTTYLogger.sharedInstance()) // TTY = Xcode console
+
+**Objective-C**
+
+        [AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]]; // TTY = Xcode console
 
 ## Sample Apps
 
