@@ -19,7 +19,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^AWSInitializationCompletionBlock)(AWSPinpoint * _Nonnull pinpoint);
+typedef void(^AWSPinpointInitializationCompletionBlock)(AWSPinpoint * _Nonnull pinpoint);
 
 /**
  AWS Pinpoint Configuration. This class is used to configure an instance of the AWSPinpoint class.
@@ -122,7 +122,7 @@ typedef void(^AWSInitializationCompletionBlock)(AWSPinpoint * _Nonnull pinpoint)
  
  @returns the completionBlock
  */
-@property (nonatomic, copy) AWSInitializationCompletionBlock _Nullable completionBlock;
+@property (nonatomic, copy) AWSPinpointInitializationCompletionBlock _Nullable completionBlock;
 
 /**
  Creates an `AWSPinpointConfiguration` instance with the specified configuration inside `Info.plist` to configure the AWSPinpoint intializer.
