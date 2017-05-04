@@ -153,7 +153,7 @@ class AWSDynamoDBObjectMapperSwiftTests: XCTestCase {
             return objectMapper.load(TestObjectV2.self, hashKey: hashKeyValue, rangeKey: rangeKeyValue)
         }).continueWith (block: { (task) -> AnyObject? in
                 if (task.error != nil) {
-                    XCTFail("Error: \(task.error)")
+                    XCTFail("Error: \(String(describing: task.error))")
                 }
                 if let obj = task.result as? TestObjectV2 {
                     XCTAssertEqual(obj.hashKeyRenamed, hashKeyValue)

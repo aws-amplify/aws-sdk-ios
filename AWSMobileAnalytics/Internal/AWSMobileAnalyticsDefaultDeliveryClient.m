@@ -22,7 +22,7 @@
 #import "AWSMobileAnalyticsSerializerFactory.h"
 #import "AWSMobileAnalyticsStringUtils.h"
 #import "AWSCocoaLumberjack.h"
-#import "AWSMObileAnalyticsDefaultSessionClient.h"
+#import "AWSMobileAnalyticsDefaultSessionClient.h"
 #import <UIKit/UIKit.h>
 #import "AWSMobileAnalyticsClientContext.h"
 
