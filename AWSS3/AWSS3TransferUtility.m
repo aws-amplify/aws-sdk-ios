@@ -701,6 +701,12 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 didCompleteWithError:(NSError *)error {
     NSData *responseData = self.responseData[@(task.taskIdentifier)];
     [self.responseData removeObjectForKey:@(task.taskIdentifier)];
+  
+    NSString *responseString = [[NSString alloc] initWithData: responseData encoding:NSUTF8StringEncoding];
+    if ([responseString rangeOfString:@"<Error>"].location != NSNotFound) {
+      AWSDDLogError(@"Error response received from S3: %@", responseString);
+    }
+  
     if (!error) {
         if (![task.response isKindOfClass:[NSHTTPURLResponse class]]) {
             [NSException raise:@"Invalid NSURLSession state" format:@"Expected response of type  %@", @"NSHTTPURLResponse"];
