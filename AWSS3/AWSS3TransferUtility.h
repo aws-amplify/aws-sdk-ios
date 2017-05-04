@@ -44,6 +44,7 @@ FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalid
  @param error Returns the error object when the download failed.
  */
 typedef void (^AWSS3TransferUtilityUploadCompletionHandlerBlock) (AWSS3TransferUtilityUploadTask *task,
+                                                                  NSData * _Nullable responseData,
                                                                   NSError * _Nullable error);
 
 /**

@@ -40,6 +40,7 @@ static NSString *const AWSInfoS3TransferUtility = @"S3TransferUtility";
 @property (strong, nonatomic) AWSSynchronizedMutableDictionary *taskDictionary;
 @property (copy, nonatomic) void (^backgroundURLSessionCompletionHandler)();
 
+@property (strong, nonatomic) NSMutableDictionary *responseData;
 @end
 
 @interface AWSS3TransferUtilityTask()
@@ -233,6 +234,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                                             delegateQueue:nil];
         
         _taskDictionary = [AWSSynchronizedMutableDictionary new];
+        _responseData = [NSMutableDictionary new];
         
         // Creates a temporary directory for data uploads
         _temporaryDirectoryPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[_sessionIdentifier aws_md5String]];
@@ -277,7 +279,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             AWSS3TransferUtilityUploadTask *uploadTask = [AWSS3TransferUtilityUploadTask new];
             uploadTask.bucket = bucket;
             uploadTask.key = key;
-            completionHandler(uploadTask, error);
+            completionHandler(uploadTask, nil, error);
         }
         return [AWSTask taskWithError:error];
     }
@@ -683,9 +685,22 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 
 #pragma mark - NSURLSessionTaskDelegate
 
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
+  NSMutableData *responseData = self.responseData[@(dataTask.taskIdentifier)];
+  if (!responseData) {
+    responseData = [NSMutableData dataWithData:data];
+    self.responseData[@(dataTask.taskIdentifier)] = responseData;
+  } else {
+    [responseData appendData:data];
+  }
+}
+
+
 - (void)URLSession:(NSURLSession *)session
               task:(NSURLSessionTask *)task
 didCompleteWithError:(NSError *)error {
+    NSData *responseData = self.responseData[@(task.taskIdentifier)];
+    [self.responseData removeObjectForKey:@(task.taskIdentifier)];
     if (!error) {
         if (![task.response isKindOfClass:[NSHTTPURLResponse class]]) {
             [NSException raise:@"Invalid NSURLSession state" format:@"Expected response of type  %@", @"NSHTTPURLResponse"];
@@ -717,6 +732,7 @@ didCompleteWithError:(NSError *)error {
         AWSS3TransferUtilityUploadTask *uploadTask = [self getUploadTask:(NSURLSessionUploadTask *)task];
         if (uploadTask.expression.completionHandler) {
             uploadTask.expression.completionHandler(uploadTask,
+                                                    responseData,
                                                     error);
         }
     }
