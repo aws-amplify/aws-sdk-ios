@@ -26,7 +26,7 @@
 #import "AWSRekognitionResources.h"
 
 static NSString *const AWSInfoRekognition = @"Rekognition";
-static NSString *const AWSRekognitionSDKVersion = @"2.5.5";
+static NSString *const AWSRekognitionSDKVersion = @"2.5.6";
 
 
 @interface AWSRekognitionResponseSerializer : AWSJSONResponseSerializer

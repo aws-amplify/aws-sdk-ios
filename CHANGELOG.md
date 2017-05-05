@@ -1,5 +1,20 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.5.6
+
+### Enhancements
+
+* **AWS IoT**
+	* Updated AWS IoT to the latest API specifications.
+
+### Bug fixes
+* **Amazon S3**
+	* Fixed bug where file paths with spaces were not correctly handled and caused upload failures. [Github Issue #634](https://github.com/aws/aws-sdk-ios/issues/634)
+* **AWS IoT**
+    * Fixed bug where timer was not started on currentRunLoop.
+* **SDK Core**
+    * Remove definition of `LOG_LEVEL_DEF` for compatibility. [Github Issue #655](https://github.com/aws/aws-sdk-ios/issues/655)
+
 ## 2.5.5
 
 ### Bug fixes

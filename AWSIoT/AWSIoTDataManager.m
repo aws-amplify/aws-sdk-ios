@@ -92,6 +92,7 @@
         _clientToken = nil;
         _operation = AWSIoTShadowOperationTypeNone;
     }
+
     return self;
 }
 
@@ -151,6 +152,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 + (instancetype)defaultIoTDataManager {
     static AWSIoTDataManager *_defaultIoTDataManager = nil;
     static dispatch_once_t onceToken;
+
     dispatch_once(&onceToken, ^{
         AWSServiceConfiguration *serviceConfiguration = nil;
         AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoIoTDataManager];
@@ -283,7 +285,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     if (clientId == nil || [clientId  isEqualToString: @""]) {
         return false;
     }
-    
+    AWSDDLogInfo(@"Connecting to IoT using websocket, client id: %@", clientId);
     [self.mqttClient setBaseReconnectTime:self.mqttConfiguration.baseReconnectTimeInterval];
     [self.mqttClient setMinimumConnectionTime:self.mqttConfiguration.minimumConnectionTimeInterval];
     [self.mqttClient setMaximumReconnectTime:self.mqttConfiguration.maximumReconnectTimeInterval];

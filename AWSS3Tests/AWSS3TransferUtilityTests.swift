@@ -336,4 +336,24 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 return nil
             }.waitUntilFinished()
     }
+
+    func testGoodFilePathWithSpacesUpload() {
+        let transferUtility = AWSS3TransferUtility.default()
+
+        let filePath = NSTemporaryDirectory() + "test Good File Path Upload.tmp"
+        let fileURL = URL(fileURLWithPath: filePath)
+        FileManager.default.createFile(atPath: filePath, contents: "Test".data(using: .utf8), attributes: nil)
+
+        transferUtility.uploadFile(fileURL,
+                                   bucket: "ios-v2-s3.periods",
+                                   key: "test-spaces-Good-spaces-File-spaces-Path-spaces-Upload.txt",
+                                   contentType: "text/plain",
+                                   expression: nil,
+                                   completionHandler: nil)
+            .continueWith { (task: AWSTask<AWSS3TransferUtilityUploadTask>) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                return nil
+            }.waitUntilFinished()
+    }
 }

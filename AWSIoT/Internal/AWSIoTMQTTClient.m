@@ -561,6 +561,7 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
 
     switch (eventCode) {
         case MQTTSessionEventConnected:
+            AWSDDLogInfo(@"MQTT session connected.");
             if (self.connectStatusCallback != nil) {
                 self.connectStatusCallback(AWSIoTMQTTStatusConnected);
             }
@@ -574,11 +575,13 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
             }
             break;
         case MQTTSessionEventConnectionRefused:
+            AWSDDLogWarn(@"MQTT session refused.");
             if (self.connectStatusCallback != nil) {
                 self.connectStatusCallback(AWSIoTMQTTStatusConnectionRefused);
             }
             break;
         case MQTTSessionEventConnectionClosed:
+            AWSDDLogInfo(@"MQTT session closed.");
             if (!self.userDisconnect && self.session) {
                 if (self.reconnectTimer == nil) {
                     self.reconnectTimer =[NSTimer scheduledTimerWithTimeInterval:self.currentReconnectTime target:self selector: @selector(reconnectToSession) userInfo:nil repeats:NO];
@@ -595,6 +598,7 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
             [self.connectionTimer invalidate];
             break;
         case MQTTSessionEventConnectionError:
+            AWSDDLogError(@"MQTT session connection error");
             if (self.connectStatusCallback != nil) {
                 self.connectStatusCallback(AWSIoTMQTTStatusConnectionError);
             }
@@ -608,6 +612,7 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
             [self.connectionTimer invalidate];
             break;
         case MQTTSessionEventProtocolError:
+            AWSDDLogError(@"MQTT session protocol error");
             if (self.connectStatusCallback != nil) {
                 self.connectStatusCallback(AWSIoTMQTTStatusProtocolError);
             }

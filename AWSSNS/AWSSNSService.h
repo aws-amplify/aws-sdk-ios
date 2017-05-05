@@ -198,7 +198,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param request A container for the necessary parameters to execute the CheckIfPhoneNumberIsOptedOut service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSCheckIfPhoneNumberIsOptedOutResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSCheckIfPhoneNumberIsOptedOutResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInvalidParameter`.
  
  @see AWSSNSCheckIfPhoneNumberIsOptedOutInput
  @see AWSSNSCheckIfPhoneNumberIsOptedOutResponse
@@ -211,7 +211,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param request A container for the necessary parameters to execute the CheckIfPhoneNumberIsOptedOut service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInvalidParameter`.
  
  @see AWSSNSCheckIfPhoneNumberIsOptedOutInput
  @see AWSSNSCheckIfPhoneNumberIsOptedOutResponse
@@ -319,7 +319,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)createTopic:(AWSSNSCreateTopicInput *)request completionHandler:(void (^ _Nullable)(AWSSNSCreateTopicResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the endpoint for a device and mobile app from Amazon SNS. This action is idempotent. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p><p>When you delete an endpoint that is also subscribed to a topic, then you must also unsubscribe the endpoint from the topic. </p>
+ <p>Deletes the endpoint for a device and mobile app from Amazon SNS. This action is idempotent. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p><p>When you delete an endpoint that is also subscribed to a topic, then you must also unsubscribe the endpoint from the topic.</p>
  
  @param request A container for the necessary parameters to execute the DeleteEndpoint service method.
 
@@ -330,7 +330,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)deleteEndpoint:(AWSSNSDeleteEndpointInput *)request;
 
 /**
- <p>Deletes the endpoint for a device and mobile app from Amazon SNS. This action is idempotent. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p><p>When you delete an endpoint that is also subscribed to a topic, then you must also unsubscribe the endpoint from the topic. </p>
+ <p>Deletes the endpoint for a device and mobile app from Amazon SNS. This action is idempotent. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p><p>When you delete an endpoint that is also subscribed to a topic, then you must also unsubscribe the endpoint from the topic.</p>
  
  @param request A container for the necessary parameters to execute the DeleteEndpoint service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -439,7 +439,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param request A container for the necessary parameters to execute the GetSMSAttributes service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSGetSMSAttributesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSGetSMSAttributesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInvalidParameter`.
  
  @see AWSSNSGetSMSAttributesInput
  @see AWSSNSGetSMSAttributesResponse
@@ -452,7 +452,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param request A container for the necessary parameters to execute the GetSMSAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInvalidParameter`.
  
  @see AWSSNSGetSMSAttributesInput
  @see AWSSNSGetSMSAttributesResponse
@@ -485,7 +485,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getSubscriptionAttributes:(AWSSNSGetSubscriptionAttributesInput *)request completionHandler:(void (^ _Nullable)(AWSSNSGetSubscriptionAttributesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns all of the properties of a topic. Topic properties returned might differ based on the authorization of the user. </p>
+ <p>Returns all of the properties of a topic. Topic properties returned might differ based on the authorization of the user.</p>
  
  @param request A container for the necessary parameters to execute the GetTopicAttributes service method.
 
@@ -497,7 +497,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSNSGetTopicAttributesResponse *> *)getTopicAttributes:(AWSSNSGetTopicAttributesInput *)request;
 
 /**
- <p>Returns all of the properties of a topic. Topic properties returned might differ based on the authorization of the user. </p>
+ <p>Returns all of the properties of a topic. Topic properties returned might differ based on the authorization of the user.</p>
  
  @param request A container for the necessary parameters to execute the GetTopicAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -539,7 +539,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param request A container for the necessary parameters to execute the ListPhoneNumbersOptedOut service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSListPhoneNumbersOptedOutResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSListPhoneNumbersOptedOutResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInvalidParameter`.
  
  @see AWSSNSListPhoneNumbersOptedOutInput
  @see AWSSNSListPhoneNumbersOptedOutResponse
@@ -552,7 +552,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param request A container for the necessary parameters to execute the ListPhoneNumbersOptedOut service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInvalidParameter`.
  
  @see AWSSNSListPhoneNumbersOptedOutInput
  @see AWSSNSListPhoneNumbersOptedOutResponse
@@ -664,7 +664,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param request A container for the necessary parameters to execute the OptInPhoneNumber service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSOptInPhoneNumberResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSOptInPhoneNumberResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInvalidParameter`.
  
  @see AWSSNSOptInPhoneNumberInput
  @see AWSSNSOptInPhoneNumberResponse
@@ -677,7 +677,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param request A container for the necessary parameters to execute the OptInPhoneNumber service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInvalidParameter`.
  
  @see AWSSNSOptInPhoneNumberInput
  @see AWSSNSOptInPhoneNumberResponse
@@ -685,7 +685,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)optInPhoneNumber:(AWSSNSOptInPhoneNumberInput *)request completionHandler:(void (^ _Nullable)(AWSSNSOptInPhoneNumberResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sends a message to all of a topic's subscribed endpoints. When a <code>messageId</code> is returned, the message has been saved and Amazon SNS will attempt to deliver it to the topic's subscribers shortly. The format of the outgoing message to each subscribed endpoint depends on the notification protocol.</p><p>To use the <code>Publish</code> action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. The second example below shows a request and response for publishing to a mobile endpoint. </p><p>For more information about formatting messages, see <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
+ <p>Sends a message to all of a topic's subscribed endpoints. When a <code>messageId</code> is returned, the message has been saved and Amazon SNS will attempt to deliver it to the topic's subscribers shortly. The format of the outgoing message to each subscribed endpoint depends on the notification protocol.</p><p>To use the <code>Publish</code> action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. </p><p>For more information about formatting messages, see <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
  
  @param request A container for the necessary parameters to execute the Publish service method.
 
@@ -697,7 +697,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSSNSPublishResponse *> *)publish:(AWSSNSPublishInput *)request;
 
 /**
- <p>Sends a message to all of a topic's subscribed endpoints. When a <code>messageId</code> is returned, the message has been saved and Amazon SNS will attempt to deliver it to the topic's subscribers shortly. The format of the outgoing message to each subscribed endpoint depends on the notification protocol.</p><p>To use the <code>Publish</code> action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. The second example below shows a request and response for publishing to a mobile endpoint. </p><p>For more information about formatting messages, see <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
+ <p>Sends a message to all of a topic's subscribed endpoints. When a <code>messageId</code> is returned, the message has been saved and Amazon SNS will attempt to deliver it to the topic's subscribers shortly. The format of the outgoing message to each subscribed endpoint depends on the notification protocol.</p><p>To use the <code>Publish</code> action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. </p><p>For more information about formatting messages, see <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
  
  @param request A container for the necessary parameters to execute the Publish service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -780,7 +780,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param request A container for the necessary parameters to execute the SetSMSAttributes service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSSetSMSAttributesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSSetSMSAttributesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`.
  
  @see AWSSNSSetSMSAttributesInput
  @see AWSSNSSetSMSAttributesResponse
@@ -793,7 +793,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param request A container for the necessary parameters to execute the SetSMSAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorThrottled`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`.
  
  @see AWSSNSSetSMSAttributesInput
  @see AWSSNSSetSMSAttributesResponse

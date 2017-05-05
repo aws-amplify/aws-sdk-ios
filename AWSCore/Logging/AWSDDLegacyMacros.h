@@ -23,10 +23,6 @@
 #warning CocoaLumberjack 1.9.x legacy macros enabled. \
 Disable legacy macros by importing AWSCocoaLumberjack.h or AWSDDLogMacros.h instead of AWSDDLog.h or add `#define AWSDD_LEGACY_MACROS 0` before importing AWSDDLog.h.
 
-#ifndef LOG_LEVEL_DEF
-    #define LOG_LEVEL_DEF ddLogLevel
-#endif
-
 #define LOG_FLAG_ERROR    AWSDDLogFlagError
 #define LOG_FLAG_WARN     AWSDDLogFlagWarning
 #define LOG_FLAG_INFO     AWSDDLogFlagInfo

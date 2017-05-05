@@ -415,7 +415,7 @@
     idleTimer++;
     if (idleTimer >= keepAliveInterval) {
         if ([encoder status] == MQTTEncoderStatusReady) {
-            //AWSDDLogInfo(@"sending PINGREQ");
+            AWSDDLogInfo(@"sending PINGREQ");
             [encoder encodeMessage:[MQTTMessage pingreqMessage]];
             idleTimer = 0;
         }
@@ -510,8 +510,12 @@
                                 }
                                 
                                 [_delegate session:self handleEvent:MQTTSessionEventConnected];
-                                
-                                [runLoop addTimer:timer forMode:runLoopMode];
+                                AWSDDLogInfo(@"Adding timer for runLoop");
+                                //the runloop that we want to attach the timer to may not be the same runloop
+                                //when AWSIoTMQTTConfiguration was created, instead, it needs to be the current
+                                //runloop at the time when the timer is created. Hence, we explicitly add timer
+                                //to the currentRunLoop.
+                                [[NSRunLoop currentRunLoop] addTimer:timer forMode:runLoopMode];
                             }
                             else {
                                 [self error:MQTTSessionEventConnectionRefused];
@@ -694,7 +698,7 @@
 }
 
 - (void)error:(MQTTSessionEvent)eventCode {
-    
+    AWSDDLogError(@"MQTT session error, code: %d", eventCode);
     [encoder close];
     encoder = nil;
     
