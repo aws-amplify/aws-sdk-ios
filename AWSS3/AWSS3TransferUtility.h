@@ -275,7 +275,7 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
  @param key               The Amazon S3 object key name.
  @param contentType       `Content-Type` of the data.
  @param expression        The container object to configure the upload request.
- @param completionHandler The completion hanlder when the upload completes.
+ @param completionHandler The completion handler when the upload completes.
 
  @return Returns an instance of `AWSTask`. On successful initialization, `task.result` contains an instance of `AWSS3TransferUtilityUploadTask`.
  */
@@ -294,7 +294,7 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
  @param key               The Amazon S3 object key name.
  @param contentType       `Content-Type` of the file.
  @param expression        The container object to configure the upload request.
- @param completionHandler The completion hanlder when the upload completes.
+ @param completionHandler The completion handler when the upload completes.
 
  @return Returns an instance of `AWSTask`. On successful initialization, `task.result` contains an instance of `AWSS3TransferUtilityUploadTask`.
  */
@@ -311,7 +311,7 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
  @param bucket            The Amazon S3 bucket name.
  @param key               The Amazon S3 object key name.
  @param expression        The container object to configure the download request.
- @param completionHandler The completion hanlder when the download completes.
+ @param completionHandler The completion handler when the download completes.
 
  @return Returns an instance of `AWSTask`. On successful initialization, `task.result` contains an instance of `AWSS3TransferUtilityDownloadTask`.
  */
@@ -327,7 +327,7 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
  @param bucket            The Amazon S3 bucket name.
  @param key               The Amazon S3 object key name.
  @param expression        The container object to configure the download request.
- @param completionHandler The completion hanlder when the download completes.
+ @param completionHandler The completion handler when the download completes.
 
  @return Returns an instance of `AWSTask`. On successful initialization, `task.result` contains an instance of `AWSS3TransferUtilityDownloadTask`.
  */

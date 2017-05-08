@@ -710,7 +710,14 @@ didCompleteWithError:(NSError *)error {
 
         NSData *responseData = self.responseData[@(task.taskIdentifier)];
         [self.responseData removeObjectForKey:@(task.taskIdentifier)];
-        
+      
+        if (!responseData) {
+          if ([task isKindOfClass:[NSURLSessionDownloadTask class]]) {
+            AWSS3TransferUtilityDownloadTask *downloadTask = [self getDownloadTask:(NSURLSessionDownloadTask *)task];
+            responseData = downloadTask.data;
+          }
+        }
+      
         NSString *responseString = [[NSString alloc] initWithData: responseData encoding:NSUTF8StringEncoding];
         if ([responseString rangeOfString:@"<Error>"].location != NSNotFound) {
           AWSXMLDictionaryParser *xmlParser = [AWSXMLDictionaryParser new];
@@ -721,7 +728,7 @@ didCompleteWithError:(NSError *)error {
           
           NSDictionary *responseDict = [xmlParser dictionaryWithString:responseString];
           userInfo[@"Error"] = responseDict[@"Error"];
-          AWSDDLogError(@"Error response received from S3: %@", responseDict);
+          AWSDDLogDebug(@"Error response received from S3: %@", responseDict);
         }
 
         if (HTTPResponse.statusCode / 100 == 3
