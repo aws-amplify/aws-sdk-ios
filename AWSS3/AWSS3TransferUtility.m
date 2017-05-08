@@ -707,6 +707,23 @@ didCompleteWithError:(NSError *)error {
         
         NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)task.response;
         NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:[HTTPResponse allHeaderFields]];
+
+        NSData *responseData = self.responseData[@(task.taskIdentifier)];
+        [self.responseData removeObjectForKey:@(task.taskIdentifier)];
+        
+        NSString *responseString = [[NSString alloc] initWithData: responseData encoding:NSUTF8StringEncoding];
+        if ([responseString rangeOfString:@"<Error>"].location != NSNotFound) {
+          AWSXMLDictionaryParser *xmlParser = [AWSXMLDictionaryParser new];
+          xmlParser.trimWhiteSpace = YES;
+          xmlParser.stripEmptyNodes = NO;
+          xmlParser.wrapRootNode = YES; //wrapRootNode for easy process
+          xmlParser.nodeNameMode = AWSXMLDictionaryNodeNameModeNever; //do not need rootName anymore since rootNode is wrapped.
+          
+          NSDictionary *responseDict = [xmlParser dictionaryWithString:responseString];
+          userInfo[@"Error"] = responseDict[@"Error"];
+          AWSDDLogError(@"Error response received from S3: %@", responseDict);
+        }
+
         if (HTTPResponse.statusCode / 100 == 3
             && HTTPResponse.statusCode != 304) { // 304 Not Modified is a valid response.
             error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
@@ -725,23 +742,6 @@ didCompleteWithError:(NSError *)error {
                                         code:AWSS3TransferUtilityErrorServerError
                                     userInfo:userInfo];
         }
-      
-        NSData *responseData = self.responseData[@(task.taskIdentifier)];
-        [self.responseData removeObjectForKey:@(task.taskIdentifier)];
-        
-        NSString *responseString = [[NSString alloc] initWithData: responseData encoding:NSUTF8StringEncoding];
-        if ([responseString rangeOfString:@"<Error>"].location != NSNotFound) {
-          AWSXMLDictionaryParser *xmlParser = [AWSXMLDictionaryParser new];
-          xmlParser.trimWhiteSpace = YES;
-          xmlParser.stripEmptyNodes = NO;
-          xmlParser.wrapRootNode = YES; //wrapRootNode for easy process
-          xmlParser.nodeNameMode = AWSXMLDictionaryNodeNameModeNever; //do not need rootName anymore since rootNode is wrapped.
-          
-          NSDictionary *responseDict = [xmlParser dictionaryWithString:responseString];
-          userInfo[@"Error"] = responseDict[@"Error"];
-          AWSDDLogError(@"Error response received from S3: %@", responseDict);
-        }
-        
     }
     
     if ([task isKindOfClass:[NSURLSessionUploadTask class]]) {
