@@ -16,6 +16,7 @@
 #import "AWSS3TransferUtility.h"
 #import "AWSS3PreSignedURL.h"
 #import "AWSSynchronizedMutableDictionary.h"
+#import "AWSXMLDictionary.h"
 
 // Public constants
 NSString *const AWSS3TransferUtilityErrorDomain = @"com.amazonaws.AWSS3TransferUtilityErrorDomain";
@@ -279,7 +280,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             AWSS3TransferUtilityUploadTask *uploadTask = [AWSS3TransferUtilityUploadTask new];
             uploadTask.bucket = bucket;
             uploadTask.key = key;
-            completionHandler(uploadTask, nil, error);
+            completionHandler(uploadTask, error);
         }
         return [AWSTask taskWithError:error];
     }
@@ -699,14 +700,6 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 - (void)URLSession:(NSURLSession *)session
               task:(NSURLSessionTask *)task
 didCompleteWithError:(NSError *)error {
-    NSData *responseData = self.responseData[@(task.taskIdentifier)];
-    [self.responseData removeObjectForKey:@(task.taskIdentifier)];
-  
-    NSString *responseString = [[NSString alloc] initWithData: responseData encoding:NSUTF8StringEncoding];
-    if ([responseString rangeOfString:@"<Error>"].location != NSNotFound) {
-      AWSDDLogError(@"Error response received from S3: %@", responseString);
-    }
-  
     if (!error) {
         if (![task.response isKindOfClass:[NSHTTPURLResponse class]]) {
             [NSException raise:@"Invalid NSURLSession state" format:@"Expected response of type  %@", @"NSHTTPURLResponse"];
@@ -732,13 +725,29 @@ didCompleteWithError:(NSError *)error {
                                         code:AWSS3TransferUtilityErrorServerError
                                     userInfo:userInfo];
         }
+      
+        NSData *responseData = self.responseData[@(task.taskIdentifier)];
+        [self.responseData removeObjectForKey:@(task.taskIdentifier)];
+        
+        NSString *responseString = [[NSString alloc] initWithData: responseData encoding:NSUTF8StringEncoding];
+        if ([responseString rangeOfString:@"<Error>"].location != NSNotFound) {
+          AWSXMLDictionaryParser *xmlParser = [AWSXMLDictionaryParser new];
+          xmlParser.trimWhiteSpace = YES;
+          xmlParser.stripEmptyNodes = NO;
+          xmlParser.wrapRootNode = YES; //wrapRootNode for easy process
+          xmlParser.nodeNameMode = AWSXMLDictionaryNodeNameModeNever; //do not need rootName anymore since rootNode is wrapped.
+          
+          NSDictionary *responseDict = [xmlParser dictionaryWithString:responseString];
+          userInfo[@"Error"] = responseDict[@"Error"];
+          AWSDDLogError(@"Error response received from S3: %@", responseDict);
+        }
+        
     }
     
     if ([task isKindOfClass:[NSURLSessionUploadTask class]]) {
         AWSS3TransferUtilityUploadTask *uploadTask = [self getUploadTask:(NSURLSessionUploadTask *)task];
         if (uploadTask.expression.completionHandler) {
             uploadTask.expression.completionHandler(uploadTask,
-                                                    responseData,
                                                     error);
         }
     }
