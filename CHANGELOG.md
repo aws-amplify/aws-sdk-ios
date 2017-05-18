@@ -5,7 +5,7 @@
 ### Enhancements
 
 * **Amazon Polly**
-	* Added support for new voice id - `Vicki`.
+	* Added support for new German voice id - `Vicki`.
 	
 ### Bug fixes
 
