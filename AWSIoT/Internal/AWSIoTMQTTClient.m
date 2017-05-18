@@ -670,14 +670,7 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
 
 - (void)webSocketDidOpen:(AWSSRWebSocket *)webSocket;
 {
-    AWSDDLogVerbose(@"Websocket Connected");
-    
-    if (self.connectStatusCallback != nil) {
-        //
-        // Let the application know it has been disconnected.
-        //
-        self.connectStatusCallback(AWSIoTMQTTStatusDisconnected);
-    }
+    AWSDDLogInfo(@"Websocket Connected");
     //
     // The WebSocket is connected; at this point we need to create streams
     // for MQTT encode/decode and then instantiate the MQTT client.

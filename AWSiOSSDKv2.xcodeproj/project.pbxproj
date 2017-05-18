@@ -72,6 +72,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		173641DE1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 173641DC1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.h */; };
+		173641DF1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 173641DD1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.m */; };
 		174A59F01D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 174A59EF1D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.m */; };
 		175C92561D89049F001A145F /* AWSAPIGatewayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 175C92551D89049F001A145F /* AWSAPIGatewayModel.m */; };
 		175C92581D8904B4001A145F /* AWSAPIGatewayModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 175C92571D8904B4001A145F /* AWSAPIGatewayModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -2446,6 +2448,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		173641DC1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLambdaRequestRetryHandler.h; sourceTree = "<group>"; };
+		173641DD1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLambdaRequestRetryHandler.m; sourceTree = "<group>"; };
 		174A59EE1D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLambdaMicroserviceClient.h; sourceTree = "<group>"; };
 		174A59EF1D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLambdaMicroserviceClient.m; sourceTree = "<group>"; };
 		175C92551D89049F001A145F /* AWSAPIGatewayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSAPIGatewayModel.m; sourceTree = "<group>"; };
@@ -5233,6 +5237,8 @@
 				CE9DE6F71C6A7A260060793F /* AWSLambdaService.h */,
 				CE9DE6F81C6A7A260060793F /* AWSLambdaService.m */,
 				CE9DE6DD1C6A79DF0060793F /* Info.plist */,
+				173641DC1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.h */,
+				173641DD1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.m */,
 			);
 			path = AWSLambda;
 			sourceTree = "<group>";
@@ -6225,6 +6231,7 @@
 				CE9DE6F01C6A79E80060793F /* AWSLambda.h in Headers */,
 				CE9DE6FB1C6A7A260060793F /* AWSLambdaModel.h in Headers */,
 				CE9DE6FF1C6A7A260060793F /* AWSLambdaService.h in Headers */,
+				173641DE1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -9469,6 +9476,7 @@
 				CE9DE6FC1C6A7A260060793F /* AWSLambdaModel.m in Sources */,
 				CE9DE6FE1C6A7A260060793F /* AWSLambdaResources.m in Sources */,
 				CE9DE7001C6A7A260060793F /* AWSLambdaService.m in Sources */,
+				173641DF1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.m in Sources */,
 				CE9DE6FA1C6A7A260060793F /* AWSLambdaInvoker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -482,7 +482,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                 getCredentialsRetry.identityId = self.identityId;
                 getCredentialsRetry.logins = logins;
                 getCredentialsRetry.customRoleArn = customRoleArn;
-
+                
                 return [[self.cognitoIdentity getCredentialsForIdentity:getCredentialsRetry] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityGetCredentialsForIdentityResponse *> * _Nonnull task) {
                     if (task.error) {
                         return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderErrorDomain

@@ -1,5 +1,21 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.5.7
+
+### Enhancements
+
+* **Amazon Polly**
+	* Added support for new voice id - `Vicki`.
+	
+### Bug fixes
+
+* **SDK Core**
+    * Fixed `LOG Macros` error. [Github Issue #664](https://github.com/aws/aws-sdk-ios/issues/664)
+    * Allow for future expired/unauthed token calls to properly refresh the aws token. [Github Issue #563](https://github.com/aws/aws-sdk-ios/pull/563/)
+* **AWS Lambda**
+    * Fixed clock skew retry handling bug. [Github Issue #673](https://github.com/aws/aws-sdk-ios/issues/673)
+    
+
 ## 2.5.6
 
 ### Enhancements

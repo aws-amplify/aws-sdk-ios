@@ -706,7 +706,8 @@
         \"Maxim\",\
         \"Tatyana\",\
         \"Astrid\",\
-        \"Filiz\"\
+        \"Filiz\",\
+        \"Vicki\"\
       ]\
     },\
     \"VoiceList\":{\
