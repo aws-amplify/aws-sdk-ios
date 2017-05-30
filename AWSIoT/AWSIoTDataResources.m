@@ -14,7 +14,7 @@
 //
 
 #import "AWSIoTDataResources.h"
-#import <AWSCore/AWSLogging.h>
+#import <AWSCore/AWSCocoaLumberjack.h>
 
 @interface AWSIoTDataResources ()
 
@@ -48,7 +48,7 @@
                                                                   error:&error];
         if (_definitionDictionary == nil) {
             if (error) {
-                AWSLogError(@"Failed to parse JSON service definition: %@",error);
+                AWSDDLogError(@"Failed to parse JSON service definition: %@",error);
             }
         }
     }
@@ -59,6 +59,7 @@
     return @"{\
   \"version\":\"2.0\",\
   \"metadata\":{\
+    \"uid\":\"iot-data-2015-05-28\",\
     \"apiVersion\":\"2015-05-28\",\
     \"endpointPrefix\":\"data.iot\",\
     \"protocol\":\"rest-json\",\
@@ -390,8 +391,7 @@
     \"errorMessage\":{\"type\":\"string\"}\
   },\
   \"documentation\":\"<fullname>AWS IoT</fullname> <p>AWS IoT-Data enables secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. It implements a broker for applications and things to publish messages over HTTP (Publish) and retrieve, update, and delete thing shadows. A thing shadow is a persistent representation of your things and their state in the AWS cloud.</p>\"\
-}\
-";
+}";
 }
 
 @end

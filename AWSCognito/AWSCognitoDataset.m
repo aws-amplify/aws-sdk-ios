@@ -22,7 +22,7 @@
 #import "AWSCognitoRecord_Internal.h"
 #import "AWSCognitoSQLiteManager.h"
 #import "AWSCognitoConflict_Internal.h"
-#import <AWSCore/AWSLogging.h>
+#import <AWSCore/AWSCocoaLumberjack.h>
 #import "AWSCognitoRecord.h"
 #import "AWSKSReachability.h"
 
@@ -105,7 +105,7 @@
     AWSCognitoRecord *record = [self getRecordById:aKey error:&error];
     if(error || (!record.data.string))
     {
-        AWSLogDebug(@"Error: %@", error);
+        AWSDDLogDebug(@"Error: %@", error);
     }
     
     if (record != nil && ![record isDeleted]) {
@@ -128,23 +128,23 @@
     
     //do some limit checks
     if([self sizeForRecord:record] > AWSCognitoMaxDatasetSize){
-        AWSLogDebug(@"Error: Record would exceed max dataset size");
+        AWSDDLogDebug(@"Error: Record would exceed max dataset size");
         return;
     }
     
     if([self sizeForString:aKey] > AWSCognitoMaxKeySize){
-        AWSLogDebug(@"Error: Key size too large, max is %d bytes", AWSCognitoMaxKeySize);
+        AWSDDLogDebug(@"Error: Key size too large, max is %d bytes", AWSCognitoMaxKeySize);
         return;
     }
     
     if([self sizeForString:aKey] < AWSCognitoMinKeySize){
-        AWSLogDebug(@"Error: Key size too small, min is %d byte", AWSCognitoMinKeySize);
+        AWSDDLogDebug(@"Error: Key size too small, min is %d byte", AWSCognitoMinKeySize);
         return;
     }
 
     
     if([self sizeForString:aString] > AWSCognitoMaxDatasetSize){
-        AWSLogDebug(@"Error: Value size too large, max is %d bytes", AWSCognitoMaxRecordValueSize);
+        AWSDDLogDebug(@"Error: Value size too large, max is %d bytes", AWSCognitoMaxRecordValueSize);
         return;
     }
     
@@ -152,14 +152,14 @@
     
     //if you have the max # of records and you aren't replacing an existing one
     if(numRecords == AWSCognitoMaxNumRecords && !([self recordForKey:aKey] == nil)){
-        AWSLogDebug(@"Error: Too many records, max is %d", AWSCognitoMaxNumRecords);
+        AWSDDLogDebug(@"Error: Too many records, max is %d", AWSCognitoMaxNumRecords);
         return;
     }
    
     NSError *error = nil;
     if(![self putRecord:record error:&error])
     {
-        AWSLogDebug(@"Error: %@", error);
+        AWSDDLogDebug(@"Error: %@", error);
     }
 }
 
@@ -190,7 +190,7 @@
     AWSCognitoRecord * result = [self getRecordById:aKey error:&error];
     if(!result)
     {
-        AWSLogDebug(@"Error: %@", error);
+        AWSDDLogDebug(@"Error: %@", error);
     }
     return result;
 }
@@ -265,7 +265,7 @@
     NSError *error = nil;
     if(![self removeRecordById:aKey error:&error])
     {
-        AWSLogDebug(@"Error: %@", error);
+        AWSDDLogDebug(@"Error: %@", error);
     }
 }
 
@@ -274,7 +274,7 @@
     NSError *error = nil;
     if(![self.sqliteManager deleteDataset:self.name error:&error])
     {
-        AWSLogDebug(@"Error: %@", error);
+        AWSDDLogDebug(@"Error: %@", error);
     }
     else {
         self.lastSyncCount = [NSNumber numberWithInt:-1];
@@ -349,7 +349,7 @@
             [self postDidFailToSynchronizeNotification:error];
             return [AWSTask taskWithError:error];
         }else if(task.error){
-            AWSLogError(@"Unable to list records: %@", task.error);
+            AWSDDLogError(@"Unable to list records: %@", task.error);
             //decrement sync counts that exceed the service sync count and try again
             if(task.error.code == AWSCognitoSyncErrorInvalidParameter && self.currentSyncCount.longLongValue > 0
                && task.error.userInfo[@"NSLocalizedDescription"] && [task.error.userInfo[@"NSLocalizedDescription"] hasPrefix:@"No such SyncCount:"]){
@@ -430,7 +430,7 @@
                     }
                     else{
                         //conflict resolution
-                        AWSLogInfo(@"Record %@ is dirty with value: %@ and can't be overwritten, flagging for conflict resolution",existing.recordId,existing.data.string);
+                        AWSDDLogInfo(@"Record %@ is dirty with value: %@ and can't be overwritten, flagging for conflict resolution",existing.recordId,existing.data.string);
                         [conflicts addObject: [[AWSCognitoConflict alloc] initWithLocalRecord:existing remoteRecord:newRecord]];
                     }
                 }
@@ -535,7 +535,7 @@
                 return [AWSTask taskWithError:error];
             }else if(task.error){
                 if(task.error.code == AWSCognitoSyncErrorResourceConflict){
-                    AWSLogInfo("Conflicts existed on update, restarting synchronize.");
+                    AWSDDLogInfo(@"Conflicts existed on update, restarting synchronize.");
                     if(currentSyncCount > maxPatchSyncCount) {
                         //it's possible there is a local dirty record with a stale sync count
                         //this will fix it
@@ -544,7 +544,7 @@
                     return [self synchronizeInternal:remainingAttempts-1];
                 }
                 else {
-                    AWSLogError(@"An error occured attempting to update records: %@",task.error);
+                    AWSDDLogError(@"An error occured attempting to update records: %@",task.error);
                 }
                 return task;
             }else{
@@ -671,7 +671,7 @@
 
 - (AWSTask *)synchronizeInternal:(uint32_t)remainingAttempts {
     if(remainingAttempts == 0){
-        AWSLogError(@"Conflict retries exhausted");
+        AWSDDLogError(@"Conflict retries exhausted");
         NSError *error = [NSError errorWithDomain:AWSCognitoErrorDomain code:AWSCognitoErrorConflictRetriesExhausted userInfo:nil];
         [self postDidFailToSynchronizeNotification:error];
         return [AWSTask taskWithError:error];
@@ -692,7 +692,7 @@
                 [self postDidFailToSynchronizeNotification:error];
                 return [AWSTask taskWithError:error];
             } else if(task.error && task.error.code != AWSCognitoSyncErrorResourceNotFound){
-                AWSLogError(@"Unable to delete dataset: %@", task.error);
+                AWSDDLogError(@"Unable to delete dataset: %@", task.error);
                 return task;
             } else {
                 [self.sqliteManager deleteMetadata:self.name error:nil];
@@ -742,7 +742,7 @@
         if(task.isCancelled){
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoErrorDomain code:AWSCognitoErrorTaskCanceled userInfo:nil]];
         }else if(task.error){
-            AWSLogError(@"Unable to subscribe dataset: %@", task.error);
+            AWSDDLogError(@"Unable to subscribe dataset: %@", task.error);
             return task;
         }else {
             return [AWSTask taskWithResult:task.result];
@@ -766,7 +766,7 @@
         if(task.isCancelled){
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoErrorDomain code:AWSCognitoErrorTaskCanceled userInfo:nil]];
         }else if(task.error){
-            AWSLogError(@"Unable to unsubscribe dataset: %@", task.error);
+            AWSDDLogError(@"Unable to unsubscribe dataset: %@", task.error);
             return task;
         }else {
             return [AWSTask taskWithResult:task.result];
@@ -777,7 +777,7 @@
 #pragma mark IdentityMerge
 
 - (void)identityChanged:(NSNotification *)notification {
-    AWSLogDebug(@"IdentityChanged");
+    AWSDDLogDebug(@"IdentityChanged");
     
     // by the point we are called, all datasets will have been reparented
     [self checkForLocalMergedDatasets];

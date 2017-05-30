@@ -96,6 +96,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
     AWSRekognitionOrientationCorrectionRotate270,
 };
 
+@class AWSRekognitionAgeRange;
 @class AWSRekognitionBeard;
 @class AWSRekognitionBoundingBox;
 @class AWSRekognitionCompareFacesMatch;
@@ -113,6 +114,8 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 @class AWSRekognitionDetectFacesResponse;
 @class AWSRekognitionDetectLabelsRequest;
 @class AWSRekognitionDetectLabelsResponse;
+@class AWSRekognitionDetectModerationLabelsRequest;
+@class AWSRekognitionDetectModerationLabelsResponse;
 @class AWSRekognitionEmotion;
 @class AWSRekognitionEyeOpen;
 @class AWSRekognitionEyeglasses;
@@ -131,6 +134,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 @class AWSRekognitionListCollectionsResponse;
 @class AWSRekognitionListFacesRequest;
 @class AWSRekognitionListFacesResponse;
+@class AWSRekognitionModerationLabel;
 @class AWSRekognitionMouthOpen;
 @class AWSRekognitionMustache;
 @class AWSRekognitionPose;
@@ -141,6 +145,24 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 @class AWSRekognitionSearchFacesResponse;
 @class AWSRekognitionSmile;
 @class AWSRekognitionSunglasses;
+
+/**
+ <p>Structure containing the estimated age range, in years, for a face.</p><p>Rekognition estimates an age-range for faces detected in the input image. Estimated age ranges can overlap; a face of a 5 year old may have an estimated range of 4-6 whilst the face of a 6 year old may have an estimated range of 4-8.</p>
+ */
+@interface AWSRekognitionAgeRange : AWSModel
+
+
+/**
+ <p>The highest estimated age.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable high;
+
+/**
+ <p>The lowest estimated age.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable low;
+
+@end
 
 /**
  <p>Indicates whether or not the face has a beard, and the confidence level in the determination.</p>
@@ -189,7 +211,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 @end
 
 /**
- <p>Provide the bounding box, confidence that the bounding box actually contains a face, and the similarity between the face in the bounding box and the face in the source image.</p>
+ <p>For the provided the bounding box, confidence level that the bounding box actually contains a face, and the similarity between the face in the bounding box and the face in the source image.</p>
  */
 @interface AWSRekognitionCompareFacesMatch : AWSModel
 
@@ -218,12 +240,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 @property (nonatomic, strong) NSNumber * _Nullable similarityThreshold;
 
 /**
- <p>Source image either as bytes or an Amazon S3 object</p>
+ <p>Source image either as bytes or an S3 object</p>
  */
 @property (nonatomic, strong) AWSRekognitionImage * _Nullable sourceImage;
 
 /**
- <p>Target image either as bytes or an Amazon S3 object</p>
+ <p>Target image either as bytes or an S3 object</p>
  */
 @property (nonatomic, strong) AWSRekognitionImage * _Nullable targetImage;
 
@@ -236,7 +258,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 
 
 /**
- <p>Provides an array of <code>CompareFacesMatch </code> objects. Each object provides the bounding box, confidence that the bounding box contains a face, and the similarity between the face in the bounding box and the face in the source image.</p>
+ <p>Provides an array of <code>CompareFacesMatch</code> objects. Each object provides the bounding box, confidence that the bounding box contains a face, and the similarity between the face in the bounding box and the face in the source image.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionCompareFacesMatch *> * _Nullable faceMatches;
 
@@ -277,7 +299,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 @property (nonatomic, strong) AWSRekognitionBoundingBox * _Nullable boundingBox;
 
 /**
- <p>Confidence that the selected bounding box contains a face.</p>
+ <p>Confidence level that the selected bounding box contains a face.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable confidence;
 
@@ -378,7 +400,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 
 
 /**
- <p>A list of facial attributes you would like to be returned. By default, the API returns subset of facial attributes. </p><p>For example, you can specify the value as, ["ALL"] or ["DEFAULT"]. If you provide both, ["ALL", "DEFAULT"], the service uses a logical AND operator to determine which attributes to return (in this case, it is all attributes). If you specify all attributes, Rekognition performs additional detection. </p>
+ <p>A list of facial attributes you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for <code>Attributes</code> or if you specify <code>["DEFAULT"]</code>, the API returns the following subset of facial attributes: <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>, <code>Quality</code> and <code>Landmarks</code>. If you provide <code>["ALL"]</code>, all facial attributes are returned but the operation will take longer to complete.</p><p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable attributes;
 
@@ -401,7 +423,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 @property (nonatomic, strong) NSArray<AWSRekognitionFaceDetail *> * _Nullable faceDetails;
 
 /**
- <p>The algorithm detects the image orientation. If it detects that the image was rotated, it returns the degrees of rotation. If your application is displaying the image, you can use this value to adjust the orientation. </p><p>For example, if the service detects that the input image was rotated by 90 degrees, it corrects orientation, performs face detection, and then returns the faces. That is, the bounding box coordinates in the response are based on the corrected orientation. </p>
+ <p>The algorithm detects the image orientation. If it detects that the image was rotated, it returns the degrees of rotation. If your application is displaying the image, you can use this value to adjust the orientation. </p><p>For example, if the service detects that the input image was rotated by 90 degrees, it corrects orientation, performs face detection, and then returns the faces. That is, the bounding box coordinates in the response are based on the corrected orientation. </p><note><p>If the source image Exif metadata populates the orientation field, Amazon Rekognition does not perform orientation correction and the value of OrientationCorrection will be nil.</p></note>
  */
 @property (nonatomic, assign) AWSRekognitionOrientationCorrection orientationCorrection;
 
@@ -424,7 +446,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 @property (nonatomic, strong) NSNumber * _Nullable maxLabels;
 
 /**
- <p>Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value.</p><p>If <code>minConfidence</code> is not specified, the operation returns labels with a confidence values greater than or equal to 50 percent.</p>
+ <p>Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value.</p><p>If <code>MinConfidence</code> is not specified, the operation returns labels with a confidence values greater than or equal to 50 percent.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable minConfidence;
 
@@ -442,9 +464,40 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 @property (nonatomic, strong) NSArray<AWSRekognitionLabel *> * _Nullable labels;
 
 /**
- <p> Amazon Rekognition returns the orientation of the input image that was detected (clockwise direction). If your application displays the image, you can use this value to correct the orientation. If Rekognition detects that the input image was rotated (for example, by 90 degrees), it first corrects the orientation before detecting the labels. </p>
+ <p> Amazon Rekognition returns the orientation of the input image that was detected (clockwise direction). If your application displays the image, you can use this value to correct the orientation. If Amazon Rekognition detects that the input image was rotated (for example, by 90 degrees), it first corrects the orientation before detecting the labels. </p><note><p>If the source image Exif metadata populates the orientation field, Amazon Rekognition does not perform orientation correction and the value of OrientationCorrection will be nil.</p></note>
  */
 @property (nonatomic, assign) AWSRekognitionOrientationCorrection orientationCorrection;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionDetectModerationLabelsRequest : AWSRequest
+
+
+/**
+ <p>Provides the source image either as bytes or an S3 object.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>You may need to Base64-encode the image bytes depending on the language you are using and whether or not you are using the AWS SDK. For more information, see <a>example4</a>.</p><p>If you use the Amazon CLI to call Amazon Rekognition operations, passing image bytes using the Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and then call the operation using the S3Object property.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see <a>manage-access-resource-policies</a>. </p>
+ */
+@property (nonatomic, strong) AWSRekognitionImage * _Nullable image;
+
+/**
+ <p>Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence level lower than this specified value.</p><p>If you don't specify <code>MinConfidence</code>, the operation returns labels with confidence values greater than or equal to 50 percent.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable minConfidence;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionDetectModerationLabelsResponse : AWSModel
+
+
+/**
+ <p>A list of labels for explicit or suggestive adult content found in the image. The list includes the top-level label and each child label detected in the image. This is useful for filtering specific categories of content. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionModerationLabel *> * _Nullable moderationLabels;
 
 @end
 
@@ -540,6 +593,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
  */
 @interface AWSRekognitionFaceDetail : AWSModel
 
+
+/**
+ <p>The estimated age range, in years, for the face. Low represents the lowest estimated age and High represents the highest estimated age.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionAgeRange * _Nullable ageRange;
 
 /**
  <p>Indicates whether or not the face has a beard, and the confidence level in the determination.</p>
@@ -668,7 +726,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 @end
 
 /**
- <p>Provides the source image either as bytes or an S3 object.</p>
+ <p>Provides the source image either as bytes or an S3 object.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>You may need to Base64-encode the image bytes depending on the language you are using and whether or not you are using the AWS SDK. For more information, see <a>example4</a>.</p><p>If you use the Amazon CLI to call Amazon Rekognition operations, passing image bytes using the Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and then call the operation using the S3Object property.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see <a>manage-access-resource-policies</a>. </p>
  */
 @interface AWSRekognitionImage : AWSModel
 
@@ -686,18 +744,18 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 @end
 
 /**
- <p>Identifies image brightness and sharpness. </p>
+ <p>Identifies face image brightness and sharpness. </p>
  */
 @interface AWSRekognitionImageQuality : AWSModel
 
 
 /**
- <p>Value representing brightness of the face. The service returns a value between 0 and 1 (inclusive).</p>
+ <p>Value representing brightness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a brighter face image.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable brightness;
 
 /**
- <p>Value representing sharpness of the face.</p>
+ <p>Value representing sharpness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a sharper face image.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable sharpness;
 
@@ -710,12 +768,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 
 
 /**
- <p>ID of an existing collection to which you want to add the faces that are detected in the input images.</p>
+ <p>The ID of an existing collection to which you want to add the faces that are detected in the input images.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable collectionId;
 
 /**
- <p>(Optional) Returns detailed attributes of indexed faces. By default, the operation returns a subset of the facial attributes. </p><p>For example, you can specify the value as, ["ALL"] or ["DEFAULT"]. If you provide both, ["ALL", "DEFAULT"], Rekognition uses the logical AND operator to determine which attributes to return (in this case, it is all attributes). If you specify all attributes, the service performs additional detection, in addition to the default. </p>
+ <p>A list of facial attributes that you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for <code>Attributes</code> or if you specify <code>["DEFAULT"]</code>, the API returns the following subset of facial attributes: <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>, <code>Quality</code> and <code>Landmarks</code>. If you provide <code>["ALL"]</code>, all facial attributes are returned but the operation will take longer to complete.</p><p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable detectionAttributes;
 
@@ -725,7 +783,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 @property (nonatomic, strong) NSString * _Nullable externalImageId;
 
 /**
- <p>Provides the source image either as bytes or an S3 object.</p>
+ <p>Provides the source image either as bytes or an S3 object.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>You may need to Base64-encode the image bytes depending on the language you are using and whether or not you are using the AWS SDK. For more information, see <a>example4</a>.</p><p>If you use the Amazon CLI to call Amazon Rekognition operations, passing image bytes using the Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and then call the operation using the S3Object property.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see <a>manage-access-resource-policies</a>. </p>
  */
 @property (nonatomic, strong) AWSRekognitionImage * _Nullable image;
 
@@ -743,14 +801,14 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 @property (nonatomic, strong) NSArray<AWSRekognitionFaceRecord *> * _Nullable faceRecords;
 
 /**
- <p>The algorithm detects the image orientation. If it detects that the image was rotated, it returns the degree of rotation. You can use this value to correct the orientation and also appropriately analyze the bounding box coordinates that are returned. </p>
+ <p>The algorithm detects the image orientation. If it detects that the image was rotated, it returns the degree of rotation. You can use this value to correct the orientation and also appropriately analyze the bounding box coordinates that are returned. </p><note><p>If the source image Exif metadata populates the orientation field, Amazon Rekognition does not perform orientation correction and the value of OrientationCorrection will be nil.</p></note>
  */
 @property (nonatomic, assign) AWSRekognitionOrientationCorrection orientationCorrection;
 
 @end
 
 /**
- <p>Structure containing details about the detected label, including bounding box, name, and level of confidence.</p>
+ <p>Structure containing details about the detected label, including name, and level of confidence.</p>
  */
 @interface AWSRekognitionLabel : AWSModel
 
@@ -779,12 +837,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 @property (nonatomic, assign) AWSRekognitionLandmarkType types;
 
 /**
- <p>x-coordinate from the top left of the landmark expressed as the ration of the width of the image. For example, if the images is 700x200 and the x-coordinate of the landmark is at 350 pixels, then this value is 0.5. </p>
+ <p>x-coordinate from the top left of the landmark expressed as the ration of the width of the image. For example, if the images is 700x200 and the x-coordinate of the landmark is at 350 pixels, this value is 0.5. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable X;
 
 /**
- <p>y-coordinate from the top left of the landmark expressed as the ration of the height of the image. For example, if the images is 700x200 and the y-coordinate of the landmark is at 100 pixels, then this value is 0.5.</p>
+ <p>y-coordinate from the top left of the landmark expressed as the ration of the height of the image. For example, if the images is 700x200 and the y-coordinate of the landmark is at 100 pixels, this value is 0.5.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable Y;
 
@@ -868,6 +926,29 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 @end
 
 /**
+ <p>Provides information about a single type of moderated content found in an image. Each type of moderated content has a label within a hierarchical taxonomy. For more information, see <a>howitworks-moderateimage</a>.</p>
+ */
+@interface AWSRekognitionModerationLabel : AWSModel
+
+
+/**
+ <p>Specifies the confidence that Amazon Rekognition has that the label has been correctly identified.</p><p>If you don't specify the <code>MinConfidence</code> parameter in the call to <code>DetectModerationLabels</code>, the operation returns labels with a confidence value greater than or equal to 50 percent.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+/**
+ <p>The label name for the type of content detected in the image.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The name for the parent label. Labels at the top-level of the hierarchy have the parent label <code>""</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable parentName;
+
+@end
+
+/**
  <p>Indicates whether or not the mouth on the face is open, and the confidence level in the determination.</p>
  */
 @interface AWSRekognitionMouthOpen : AWSModel
@@ -927,7 +1008,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 @end
 
 /**
- <p>Provides the S3 bucket name and object name.</p>
+ <p>Provides the S3 bucket name and object name.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see <a>manage-access-resource-policies</a>. </p>
  */
 @interface AWSRekognitionS3Object : AWSModel
 
@@ -966,7 +1047,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 @property (nonatomic, strong) NSNumber * _Nullable faceMatchThreshold;
 
 /**
- <p>Provides the source image either as bytes or an S3 object.</p>
+ <p>Provides the source image either as bytes or an S3 object.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>You may need to Base64-encode the image bytes depending on the language you are using and whether or not you are using the AWS SDK. For more information, see <a>example4</a>.</p><p>If you use the Amazon CLI to call Amazon Rekognition operations, passing image bytes using the Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and then call the operation using the S3Object property.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see <a>manage-access-resource-policies</a>. </p>
  */
 @property (nonatomic, strong) AWSRekognitionImage * _Nullable image;
 
@@ -989,7 +1070,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 @property (nonatomic, strong) NSArray<AWSRekognitionFaceMatch *> * _Nullable faceMatches;
 
 /**
- <p>The bounding box around the face in the input image that Rekognition used for the search.</p>
+ <p>The bounding box around the face in the input image that Amazon Rekognition used for the search.</p>
  */
 @property (nonatomic, strong) AWSRekognitionBoundingBox * _Nullable searchedFaceBoundingBox;
 
@@ -1007,7 +1088,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 
 
 /**
- <p>ID of the collection to search.</p>
+ <p>ID of the collection the face belongs to.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable collectionId;
 
@@ -1022,7 +1103,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
 @property (nonatomic, strong) NSNumber * _Nullable faceMatchThreshold;
 
 /**
- <p>Maximum number of faces to return. The API will return the maximum number of faces with the highest confidence in the match.</p>
+ <p>Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxFaces;
 

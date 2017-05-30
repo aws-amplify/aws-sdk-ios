@@ -24,9 +24,10 @@
 #import <AWSCore/AWSURLRequestRetryHandler.h>
 #import <AWSCore/AWSSynchronizedMutableDictionary.h>
 #import "AWSLambdaResources.h"
+#import "AWSLambdaRequestRetryHandler.h"
 
 static NSString *const AWSInfoLambda = @"Lambda";
-static NSString *const AWSLambdaSDKVersion = @"2.5.3";
+static NSString *const AWSLambdaSDKVersion = @"2.5.7";
 
 
 @interface AWSLambdaResponseSerializer : AWSJSONResponseSerializer
@@ -151,13 +152,6 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @end
 
-@interface AWSLambdaRequestRetryHandler : AWSURLRequestRetryHandler
-
-@end
-
-@implementation AWSLambdaRequestRetryHandler
-
-@end
 
 @interface AWSRequest()
 

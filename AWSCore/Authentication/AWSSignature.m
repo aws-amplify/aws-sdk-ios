@@ -12,14 +12,13 @@
 // express or implied. See the License for the specific language governing
 // permissions and limitations under the License.
 //
-
 #import "AWSSignature.h"
 
 #import <CommonCrypto/CommonCrypto.h>
 #import "AWSCategory.h"
 #import "AWSService.h"
 #import "AWSCredentialsProvider.h"
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 #import "AWSBolts.h"
 
 static NSString *const AWSSigV4Marker = @"AWS4";
@@ -100,7 +99,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
             break;
 
         default:
-            AWSLogError(@"Unable to sign: unsupported Algorithm.");
+            AWSDDLogError(@"Unable to sign: unsupported Algorithm.");
             return nil;
             break;
     }
@@ -254,14 +253,14 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
                                                                          query:query
                                                                        headers:headers
                                                                  contentSha256:contentSha256];
-    AWSLogVerbose(@"Canonical request: [%@]", canonicalRequest);
+    AWSDDLogVerbose(@"Canonical request: [%@]", canonicalRequest);
 
     NSString *stringToSign = [NSString stringWithFormat:@"%@\n%@\n%@\n%@",
                               AWSSignatureV4Algorithm,
                               [urlRequest valueForHTTPHeaderField:@"X-Amz-Date"],
                               scope,
                               [AWSSignatureSignerUtility hexEncode:[AWSSignatureSignerUtility hashString:canonicalRequest]]];
-    AWSLogVerbose(@"AWS4 String to Sign: [%@]", stringToSign);
+    AWSDDLogVerbose(@"AWS4 String to Sign: [%@]", stringToSign);
 
     NSData *kSigning  = [AWSSignatureV4Signer getV4DerivedKey:credentials.secretKey
                                                          date:dateStamp
@@ -324,8 +323,8 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
                                                                        headers:request.allHTTPHeaderFields
                                                                  contentSha256:contentSha256];
 
-    AWSLogVerbose(@"AWS4 Canonical Request: [%@]", canonicalRequest);
-    AWSLogVerbose(@"payload %@",[[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding]);
+    AWSDDLogVerbose(@"AWS4 Canonical Request: [%@]", canonicalRequest);
+    AWSDDLogVerbose(@"payload %@",[[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding]);
 
     NSString *scope = [NSString stringWithFormat:@"%@/%@/%@/%@",
                        dateStamp,
@@ -341,7 +340,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
                               scope,
                               [AWSSignatureSignerUtility hexEncode:[AWSSignatureSignerUtility hashString:canonicalRequest]]];
 
-    AWSLogVerbose(@"AWS4 String to Sign: [%@]", stringToSign);
+    AWSDDLogVerbose(@"AWS4 String to Sign: [%@]", stringToSign);
 
     NSData *kSigning  = [AWSSignatureV4Signer getV4DerivedKey:credentials.secretKey
                                                          date:dateStamp
@@ -370,7 +369,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
                                                                      endpoint:(AWSEndpoint *)endpoint
                                                                       keyPath:(NSString *)keyPath
                                                                requestHeaders:(NSDictionary<NSString *, NSString *> *)requestHeaders
-                                                            requestParameters:(NSDictionary<NSString *, NSString *> *)requestParameters
+                                                            requestParameters:(NSDictionary<NSString *, id> *)requestParameters
                                                                      signBody:(BOOL)signBody{
     
     return [[credentialsProvider credentials] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
@@ -415,8 +414,20 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
         
         //add additionalParameters to queryString
         for (NSString *key in requestParameters) {
-            NSString *value = requestParameters[key];
-            [queryString appendFormat:@"%@=%@&",[key aws_stringWithURLEncoding], [value aws_stringWithURLEncoding]];
+            if ([requestParameters[key] isKindOfClass:[NSArray class]]) {
+                NSArray<NSString *> *parameterValues = requestParameters[key];
+                for (NSString *paramValue in parameterValues) {
+                    [queryString appendFormat:@"%@=%@&", [key aws_stringWithURLEncoding], [paramValue aws_stringWithURLEncoding]];
+                }
+            } else if ([requestParameters[key] isKindOfClass:[NSString class]]) {
+                NSString *value = requestParameters[key];
+                [queryString appendFormat:@"%@=%@&",[key aws_stringWithURLEncoding], [value aws_stringWithURLEncoding]];
+            } else {
+                // Only @[NSString: NSString] and @[NSString: NSArray<NSString>] supported currently
+                @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                               reason:@"Invalid requestParameters dictionary. Supported Dictionaries include [NSString: NSString] and [NSString: NSArray<NSString>]"
+                                             userInfo:nil];
+            }
         }
         
         //add security-token if necessary
@@ -456,7 +467,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
                                                                              query:queryString
                                                                            headers:requestHeaders
                                                                      contentSha256:contentSha256];
-        AWSLogVerbose(@"AWSS4 PresignedURL Canonical request: [%@]", canonicalRequest);
+        AWSDDLogVerbose(@"AWSS4 PresignedURL Canonical request: [%@]", canonicalRequest);
         
         //Generate String to Sign
         NSString *stringToSign = [NSString stringWithFormat:@"%@\n%@\n%@\n%@",
@@ -465,7 +476,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
                                   scope,
                                   [AWSSignatureSignerUtility hexEncode:[AWSSignatureSignerUtility hashString:canonicalRequest]]];
         
-        AWSLogVerbose(@"AWS4 PresignedURL String to Sign: [%@]", stringToSign);
+        AWSDDLogVerbose(@"AWS4 PresignedURL String to Sign: [%@]", stringToSign);
         
         //Generate Signature
         NSData *kSigning  = [AWSSignatureV4Signer getV4DerivedKey:credentials.secretKey
@@ -510,11 +521,20 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
 }
 
 + (NSString *)getCanonicalizedQueryString:(NSString *)query {
-    NSMutableDictionary *queryDictionary = [NSMutableDictionary new];
+    NSMutableDictionary<NSString *, NSMutableArray<NSString *> *> *queryDictionary = [NSMutableDictionary new];
     [[query componentsSeparatedByString:@"&"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSArray *components = [obj componentsSeparatedByString:@"="];
         if ([components count] == 2) {
-            queryDictionary[components[0]] = components[1];
+            // ?a=b
+            NSString *key = components[0]; // a
+            NSString *value = components[1]; // b
+            if (queryDictionary[key]) {
+                // If the query parameter has multiple values, add it in the mutable array
+                [[queryDictionary objectForKey:key] addObject:value];
+            } else {
+                // Insert the value for query parameter as an element in mutable array
+                [queryDictionary setObject:[@[value] mutableCopy] forKey:key];
+            }
         }
     }];
 
@@ -524,12 +544,17 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
 
     NSMutableString *sortedQueryString = [NSMutableString new];
     for (NSString *key in sortedQuery) {
-        if ([sortedQueryString length] > 0) {
+        [queryDictionary[key] sortUsingSelector:@selector(compare:)];
+        for (NSString *parameterValue in queryDictionary[key]) {
+            [sortedQueryString appendString:key];
+            [sortedQueryString appendString:@"="];
+            [sortedQueryString appendString:parameterValue];
             [sortedQueryString appendString:@"&"];
         }
-        [sortedQueryString appendString:key];
-        [sortedQueryString appendString:@"="];
-        [sortedQueryString appendString:queryDictionary[key]];
+    }
+    // Remove the trailing & for a valid canonical query string.
+    if ([sortedQueryString hasSuffix:@"&"]) {
+        return [sortedQueryString substringToIndex:[sortedQueryString length] - 1];
     }
 
     return sortedQueryString;
@@ -781,14 +806,14 @@ static NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427a
 
     // return NO if stream read failed
     if (read < 0) {
-        AWSLogError(@"stream read failed streamStatus: %lu streamError: %@", (unsigned long)[self.stream streamStatus], [self.stream streamError].description);
+        AWSDDLogError(@"stream read failed streamStatus: %lu streamError: %@", (unsigned long)[self.stream streamStatus], [self.stream streamError].description);
         return NO;
     }
 
     NSData *data = [NSData dataWithBytesNoCopy:chunkBuffer length:read];
     [self.chunkData appendData:[self getSignedChunk:data]];
 
-    AWSLogVerbose(@"stream read: %ld, chunk size: %lu", (long)read, (unsigned long)[self.chunkData length]);
+    AWSDDLogVerbose(@"stream read: %ld, chunk size: %lu", (long)read, (unsigned long)[self.chunkData length]);
 
     return YES;
 }
@@ -804,13 +829,13 @@ static NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427a
                               self.priorSha256,
                               emptyStringSha256,
                               chunkSha256];
-    AWSLogVerbose(@"AWS4 String to Sign: [%@]", stringToSign);
+    AWSDDLogVerbose(@"AWS4 String to Sign: [%@]", stringToSign);
 
     NSData *signature = [AWSSignatureSignerUtility sha256HMacWithData:[stringToSign dataUsingEncoding:NSUTF8StringEncoding]
                                                               withKey:self.kSigning];
     self.priorSha256 = [self dataToHexString:signature];
     NSString *chunkedHeader = [NSString stringWithFormat:@"%06lx;chunk-signature=%@\r\n", (unsigned long)[data length], self.priorSha256];
-    AWSLogVerbose(@"AWS4 Chunked Header: [%@]", chunkedHeader);
+    AWSDDLogVerbose(@"AWS4 Chunked Header: [%@]", chunkedHeader);
 
     NSMutableData *signedChunk = [NSMutableData data];
     [signedChunk appendData:[chunkedHeader dataUsingEncoding:NSUTF8StringEncoding]];

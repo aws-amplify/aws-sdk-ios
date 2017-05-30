@@ -40,6 +40,11 @@ typedef NS_ENUM(NSInteger, AWSPollySynthesizeSpeechURLBuilderErrorType) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable lexiconNames;
 
 /**
+<p> Input text to synthesize. If you specify <code>ssml</code> as the <code>TextType</code>, follow the SSML format for the input text. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable speechMarkTypes;
+
+/**
  <p>Format to use for the resulting audio stream.</p>
  */
 @property (nonatomic, assign) AWSPollyOutputFormat outputFormat;

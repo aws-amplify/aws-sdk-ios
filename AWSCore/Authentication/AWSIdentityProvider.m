@@ -12,7 +12,6 @@
 // express or implied. See the License for the specific language governing
 // permissions and limitations under the License.
 //
-
 #import "AWSCore.h"
 #import "AWSIdentityProvider.h"
 #import "AWSBolts.h"
@@ -154,8 +153,8 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
     return [[[self getIdentityId] continueWithSuccessBlock:^id(AWSTask *task) {
         // This should never happen, but just in case
         if (!self.identityId) {
-            AWSLogError(@"In refresh, but identityId is nil.");
-            AWSLogError(@"Result from getIdentityId is %@", task.result);
+            AWSDDLogError(@"In refresh, but identityId is nil.");
+            AWSDDLogError(@"Result from getIdentityId is %@", task.result);
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderHelperErrorDomain
                                                               code:AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil
                                                           userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]];
@@ -187,7 +186,7 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
             // When an invalid identityId is cached in the keychain for auth,
             // we will refresh the identityId and try to get OpenID token again.
             if (task.error) {
-                AWSLogError(@"GetOpenIdToken failed. Error is [%@]", task.error);
+                AWSDDLogError(@"GetOpenIdToken failed. Error is [%@]", task.error);
 
                 // If it's auth or we caught a not found or validation error
                 // we want to reset the identity id, otherwise, just return
@@ -203,7 +202,7 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
                                                                   userInfo:@{NSLocalizedDescriptionKey : @"GetCredentialsForIdentity keeps failing. Clearing identityId did not help. Please check your Amazon Cognito Identity configuration."}]];
                 }
 
-                AWSLogDebug(@"Resetting identity Id and calling getIdentityId");
+                AWSDDLogDebug(@"Resetting identity Id and calling getIdentityId");
                 // if it's auth, reset id and refetch
                 self.identityId = nil;
                 self.hasClearedIdentityId = YES;
@@ -211,15 +210,15 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
                 return [[self getIdentityId] continueWithSuccessBlock:^id(AWSTask *task) {
                     // This should never happen, but just in case
                     if (!self.identityId) {
-                        AWSLogError(@"In refresh, but identitId is nil.");
-                        AWSLogError(@"Result from getIdentityId is %@", task.result);
+                        AWSDDLogError(@"In refresh, but identitId is nil.");
+                        AWSDDLogError(@"Result from getIdentityId is %@", task.result);
                         return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderHelperErrorDomain
                                                                           code:AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil
                                                                       userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
                                 ];
                     }
 
-                    AWSLogDebug(@"Retrying GetOpenIdToken");
+                    AWSDDLogDebug(@"Retrying GetOpenIdToken");
 
                     // retry get token
                     AWSCognitoIdentityGetOpenIdTokenInput *tokenRetry = [AWSCognitoIdentityGetOpenIdTokenInput new];
@@ -238,7 +237,7 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
 
             // This should never happen, but just in case
             if (!identityIdFromToken) {
-                AWSLogError(@"identityId from getOpenIdToken is nil");
+                AWSDDLogError(@"identityId from getOpenIdToken is nil");
                 return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderHelperErrorDomain
                                                                   code:AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil
                                                               userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
@@ -306,7 +305,7 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
             }
         }] continueWithBlock:^id(AWSTask *task) {
             if (task.error) {
-                AWSLogError(@"GetId failed. Error is [%@]", task.error);
+                AWSDDLogError(@"GetId failed. Error is [%@]", task.error);
             } else if (task.result) {
                 AWSCognitoIdentityGetIdResponse *getIdResponse = task.result;
                 self.identityId = getIdResponse.identityId;
@@ -321,7 +320,7 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
             }
             if(!self.identityId){
                 NSString * error = @"Obtaining an identity id in another thread failed or didn't complete within 5 seconds.";
-                AWSLogError("%@",error);
+                AWSDDLogError(@"%@",error);
                 return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderHelperErrorDomain
                                                                   code:AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil
                                                               userInfo:@{NSLocalizedDescriptionKey: error}]];

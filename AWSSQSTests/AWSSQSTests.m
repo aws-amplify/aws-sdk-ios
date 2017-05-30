@@ -57,7 +57,7 @@
 
         if (task.result) {
             AWSSQSListQueuesResult *listQueuesResult = task.result;
-            AWSLogDebug(@"[%@]", listQueuesResult);
+            AWSDDLogDebug(@"[%@]", listQueuesResult);
             XCTAssertNotNil(listQueuesResult.queueUrls);
         }
 
@@ -78,7 +78,7 @@
 
         if (task.result) {
             AWSSQSListQueuesResult *listQueuesResult = task.result;
-            AWSLogDebug(@"[%@]", listQueuesResult);
+            AWSDDLogDebug(@"[%@]", listQueuesResult);
             XCTAssertNotNil(listQueuesResult.queueUrls);
         }
 

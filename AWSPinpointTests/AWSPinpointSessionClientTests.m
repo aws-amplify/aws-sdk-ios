@@ -44,7 +44,6 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
 }
 
 - (void) clearSession {
-    [[AWSLogger defaultLogger] setLogLevel:AWSLogLevelVerbose];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:AWSPinpointSessionKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     XCTAssertNil([[NSUserDefaults standardUserDefaults] dataForKey:AWSPinpointSessionKey]);

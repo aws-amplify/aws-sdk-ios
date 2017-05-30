@@ -37,6 +37,8 @@ static NSString *testBucketNameGeneral = nil;
     [AWSTestUtility setupCognitoCredentialsProvider];
     //[AWSTestUtility setupCrdentialsViaFile];
     
+    
+    
     //Create bucketName
     NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];
     testBucketNameGeneral = [NSString stringWithFormat:@"%@%lld", AWSS3TestBucketNamePrefix, (int64_t)timeIntervalSinceReferenceDate];
@@ -48,12 +50,12 @@ static NSString *testBucketNameGeneral = nil;
     tempLargeURL = [NSURL fileURLWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-s3tmTestTempLarge",testBucketNameGeneral]]];
     NSError *error = nil;
     if (![[NSFileManager defaultManager] createFileAtPath:tempLargeURL.path contents:nil attributes:nil]) {
-        AWSLogError(@"Error: Can not create file with file path:%@",tempLargeURL.path);
+        AWSDDLogError(@"Error: Can not create file with file path:%@",tempLargeURL.path);
     }
     error = nil;
     NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingToURL:tempLargeURL error:&error];
     if (error) {
-        AWSLogError(@"Error: [%@]", error);
+        AWSDDLogError(@"Error: [%@]", error);
     }
     
     @autoreleasepool {
@@ -81,12 +83,12 @@ static NSString *testBucketNameGeneral = nil;
             tempSmallURL = [NSURL fileURLWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-s3tmTestTempSmall",testBucketNameGeneral]]];
             NSError *error = nil;
             if (![[NSFileManager defaultManager] createFileAtPath:tempSmallURL.path contents:nil attributes:nil]) {
-                AWSLogError(@"Error: Can not create file with file path:%@",tempSmallURL.path);
+                AWSDDLogError(@"Error: Can not create file with file path:%@",tempSmallURL.path);
             }
             error = nil;
             NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingToURL:tempSmallURL error:&error];
             if (error) {
-                AWSLogError(@"Error: [%@]", error);
+                AWSDDLogError(@"Error: [%@]", error);
             }
             
             [fileHandle writeData:[tempBaseString dataUsingEncoding:NSUTF8StringEncoding]]; //baseString 800000 = 4.68MB
@@ -99,6 +101,12 @@ static NSString *testBucketNameGeneral = nil;
 
 - (void)setUp {
     [super setUp];
+    
+    [AWSDDLog sharedInstance].logLevel = AWSDDLogLevelVerbose;
+    [AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]];//xcode console logger
+    
+    AWSDDLogVerbose(@"verbose logging");
+    
 }
 
 + (void)tearDown {
@@ -289,7 +297,7 @@ static NSString *testBucketNameGeneral = nil;
         XCTAssertTrue([task.result isKindOfClass:[AWSS3ListBucketsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListBucketsOutput class]));
 
         AWSS3ListBucketsOutput *listBucketOutput = task.result;
-        AWSLogDebug(@" testListBucket ========= responseObject is: ================  %@", [listBucketOutput description]);
+        AWSDDLogDebug(@" testListBucket ========= responseObject is: ================  %@", [listBucketOutput description]);
         return nil;
     }] waitUntilFinished];
 }
@@ -384,7 +392,6 @@ static NSString *testBucketNameGeneral = nil;
     putObjectRequest.body = nil;
     NSLog(@"testBucketNameGeneral %@",testBucketNameGeneral);
     
-    [AWSLogger defaultLogger].logLevel = AWSLogLevelVerbose;
     
     [[[[[[s3 putObject:putObjectRequest] continueWithBlock:^id(AWSTask *task)
       {

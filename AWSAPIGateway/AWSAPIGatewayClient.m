@@ -23,7 +23,7 @@ NSString *const AWSAPIGatewayErrorHTTPHeaderFieldsKey = @"HTTPHeaderFields";
 
 static NSString *const AWSAPIGatewayAPIKeyHeader = @"x-api-key";
 
-static NSString *const AWSAPIGatewaySDKVersion = @"2.5.3";
+static NSString *const AWSAPIGatewaySDKVersion = @"2.5.7";
 
 static int defaultChunkSize = 1024;
 
@@ -145,7 +145,7 @@ static int defaultChunkSize = 1024;
                 
                 NSData *data = [oStream propertyForKey: NSStreamDataWrittenToMemoryStreamKey];
                 if (!data) {
-                    AWSLogVerbose(@"No data written to memory!");
+                    AWSDDLogVerbose(@"No data written to memory!");
                 } else {
                     request.HTTPBody = data;
                 }
@@ -156,7 +156,7 @@ static int defaultChunkSize = 1024;
             }
             
             if (!request.HTTPBody && ![apiRequest.HTTPBody isKindOfClass:[NSInputStream class]]) {
-                AWSLogError(@"Failed to set a request body. %@", error);
+                AWSDDLogError(@"Failed to set a request body. %@", error);
             }
         }
         return nil;
@@ -200,7 +200,7 @@ static int defaultChunkSize = 1024;
                                                                                 statusCode:HTTPStatusCode]];
             }
         };
-        AWSLogVerbose(@"%@",request);
+        AWSDDLogVerbose(@"%@",request);
         NSURLSessionDataTask *sessionTask = [self.session dataTaskWithRequest:request
                                                             completionHandler:completionHandler];
         [sessionTask resume];
@@ -232,7 +232,7 @@ static int defaultChunkSize = 1024;
                                                            options:0
                                                              error:&error];
         if (!request.HTTPBody) {
-            AWSLogError(@"Failed to serialize a request body. %@", error);
+            AWSDDLogError(@"Failed to serialize a request body. %@", error);
         }
     }
 
@@ -275,7 +275,7 @@ static int defaultChunkSize = 1024;
                 if (!JSONObject) {
                     NSString *bodyString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                     if ([bodyString length] > 0) {
-                        AWSLogError(@"The body is not in JSON format. Body: %@\nError: %@", bodyString, error);
+                        AWSDDLogError(@"The body is not in JSON format. Body: %@\nError: %@", bodyString, error);
                     }
                     [completionSource setError:error];
                     return;
@@ -321,7 +321,7 @@ static int defaultChunkSize = 1024;
                                                   fromJSONDictionary:JSONObject
                                                                error:&responseSerializationError];
                         if (!JSONObject) {
-                            AWSLogError(@"Failed to serialize the body JSON. %@", responseSerializationError);
+                            AWSDDLogError(@"Failed to serialize the body JSON. %@", responseSerializationError);
                         }
                     }
                     if ([JSONObject isKindOfClass:[NSArray class]]) {
@@ -333,7 +333,7 @@ static int defaultChunkSize = 1024;
                                                                  error:&responseSerializationError];
                             [models addObject:model];
                             if (!JSONObject) {
-                                AWSLogError(@"Failed to serialize the body JSON. %@", responseSerializationError);
+                                AWSDDLogError(@"Failed to serialize the body JSON. %@", responseSerializationError);
                             }
                         }
                         JSONObject = models;
@@ -423,7 +423,7 @@ static int defaultChunkSize = 1024;
         return mutableString;
     }
     
-    AWSLogError(@"value[%@] is invalid.", value);
+    AWSDDLogError(@"value[%@] is invalid.", value);
     return [[value description] aws_stringWithURLEncoding];
 }
 

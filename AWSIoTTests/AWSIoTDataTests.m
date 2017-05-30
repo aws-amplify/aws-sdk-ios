@@ -14,7 +14,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 #import "AWSTestUtility.h"
 #import "AWSIoTData.h"
 #import "AWSIoTMQTTClient.h"
@@ -34,8 +34,12 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
 
 + (void)setUp {
     [super setUp];
+    [AWSDDLog sharedInstance].logLevel = AWSDDLogLevelInfo;
+    [AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]];
+
     [AWSTestUtility setupCognitoCredentialsProvider];
 }
+
 - (void)setUp {
     [super setUp];
 }
@@ -117,7 +121,7 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
             if (task.result != nil) {
                 AWSIoTDataGetThingShadowResponse *response = task.result;
                 NSString *payload = [[NSString alloc] initWithData:response.payload encoding:NSUTF8StringEncoding];
-                AWSLogInfo(@"received payload: %@", payload);
+                AWSDDLogInfo(@"received payload: %@", payload);
             }
         }
         return nil;
@@ -203,6 +207,62 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     return rc;
 }
 
+- (void) testWebsocketConnectStateTransition {
+
+    __block AWSIoTMQTTStatus currentStatus = AWSIoTMQTTStatusUnknown;
+    __block NSUInteger timesTriggered = 0;
+
+    void (^updateConnectionStatus)(AWSIoTMQTTStatus) = ^(AWSIoTMQTTStatus status) {
+        ++timesTriggered;
+        currentStatus = status;
+
+        //timesTriggered is incremented before the following checks, so it's value should be at least 1.
+
+        if (1 == timesTriggered) XCTAssertEqual(currentStatus, AWSIoTMQTTStatusConnecting);
+        else if (2 == timesTriggered) XCTAssertEqual(currentStatus, AWSIoTMQTTStatusConnected);
+        else if (3 == timesTriggered) XCTAssertEqual(currentStatus, AWSIoTMQTTStatusDisconnected);
+        else XCTFail(@"Too many status transition callback triggered! The last callback triggered with Status: %ld", (long)status);
+    };
+
+    AWSIoTDataManager *iotDataManager = [AWSIoTDataManager defaultIoTDataManager];
+    iotDataManager.mqttConfiguration.keepAliveTimeInterval = 75.0;
+    iotDataManager.mqttConfiguration.lastWillAndTestament.topic = @"will-topic";
+    iotDataManager.mqttConfiguration.lastWillAndTestament.message = @"ive-died";
+    iotDataManager.mqttConfiguration.lastWillAndTestament.qos = AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce;
+    iotDataManager.mqttConfiguration.runLoop = [NSRunLoop currentRunLoop];
+    iotDataManager.mqttConfiguration.runLoopMode = NSDefaultRunLoopMode;
+
+    [iotDataManager connectUsingWebSocketWithClientId:@"test-connect-state-transition"
+                                         cleanSession:true
+                                       statusCallback:updateConnectionStatus];
+
+    // Wait for 5 seconds to allow the connect to happen
+
+    NSDate *runUntil = [NSDate dateWithTimeIntervalSinceNow: 5.0 ];
+    AWSDDLogInfo(@"waiting 5 seconds to connect...");
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+
+    //Status should be connected by now.
+    XCTAssertEqual(currentStatus, AWSIoTMQTTStatusConnected);
+
+    //There should have been 2 state transition from Unknown -> connecting -> connected
+    XCTAssertEqual(timesTriggered, 2);
+
+    [iotDataManager disconnect];
+
+    // wait for 3 seconds to allow disconnect to complete.
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: 3.0 ];
+    AWSDDLogInfo(@"waiting 3 seconds to disconnect...");
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+
+    //Status should be disconnected by now
+    XCTAssertEqual(currentStatus, AWSIoTMQTTStatusDisconnected);
+
+    //There should have been 3 state transitions total.
+    XCTAssertEqual(timesTriggered, 3);
+
+}
+
 - (void)testWebSocketMQTTPubSub {
     
     AWSIoTDataManager *iotDataManager = [AWSIoTDataManager defaultIoTDataManager];
@@ -229,7 +289,9 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     iotDataManager.mqttConfiguration.runLoop = [NSRunLoop currentRunLoop];
     iotDataManager.mqttConfiguration.runLoopMode = NSDefaultRunLoopMode;
     
-    [iotDataManager connectUsingWebSocketWithClientId:@"integration-test-1" cleanSession:true statusCallback:updateConnectionStatus];
+    [iotDataManager connectUsingWebSocketWithClientId:@"integration-test-1"
+                                         cleanSession:true
+                                       statusCallback:updateConnectionStatus];
 
     //
     // Wait for 5 seconds to allow the connect to happen
@@ -237,7 +299,7 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     
     NSDate *runUntil = [NSDate dateWithTimeIntervalSinceNow: 5.0 ];
     
-    AWSLogInfo(@"waiting 5 seconds to connect...");
+    AWSDDLogInfo(@"waiting 5 seconds to connect...");
     [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
     XCTAssertEqual( connected, true );
     
@@ -256,9 +318,13 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     //
     // Now that we're connected, test that MQTT publish and subscribe are working.
     //
-    BOOL returnValue = [iotDataManager subscribeToTopic:@"testTopic1" QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce messageCallback:topic1Callback];
+    BOOL returnValue = [iotDataManager subscribeToTopic:@"testTopic1"
+                                                    QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce
+                                        messageCallback:topic1Callback];
     XCTAssertTrue(returnValue);
-    returnValue = [iotDataManager subscribeToTopic:@"testTopic2" QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce messageCallback:topic2Callback];
+    returnValue = [iotDataManager subscribeToTopic:@"testTopic2"
+                                               QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce
+                                   messageCallback:topic2Callback];
     XCTAssertTrue(returnValue);
     //
     // Wait for 1.5 seconds before publishing.
@@ -266,7 +332,9 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     runUntil = [NSDate dateWithTimeIntervalSinceNow: 1.5 ];
     [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
     
-    returnValue = [iotDataManager publishString:publishMessageTestString onTopic:@"testTopic1" QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce];
+    returnValue = [iotDataManager publishString:publishMessageTestString
+                                        onTopic:@"testTopic1"
+                                            QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce];
     XCTAssertTrue(returnValue);
 
     //
@@ -274,7 +342,7 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     //
     runUntil = [NSDate dateWithTimeIntervalSinceNow: 2.0 ];
     
-    AWSLogInfo(@"waiting 2 seconds for data...");
+    AWSDDLogInfo(@"waiting 2 seconds for data...");
     [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
     
     XCTAssertEqualObjects(receivedString, publishMessageTestString);
@@ -285,7 +353,9 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     //
     NSString *randomMaxSizeString = [self generateRandomStringOfLength:(NSUInteger)(128 * 1024)-16 ];
 
-    returnValue = [iotDataManager publishString:randomMaxSizeString onTopic:@"testTopic1" QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce];
+    returnValue = [iotDataManager publishString:randomMaxSizeString
+                                        onTopic:@"testTopic1"
+                                            QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce];
     XCTAssertTrue(returnValue);
     
     //
@@ -293,7 +363,7 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     //
     runUntil = [NSDate dateWithTimeIntervalSinceNow: 5];
     
-    AWSLogInfo(@"waiting .5 seconds for data...");
+    AWSDDLogInfo(@"waiting .5 seconds for data...");
     [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
     
     //
@@ -308,7 +378,9 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     // and we'll verify that we received most of them.
     //
     for (j = 0; j < 100; j++) {
-        returnValue = [iotDataManager publishString:publishMessageTestString onTopic:@"testTopic2" QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce];
+        returnValue = [iotDataManager publishString:publishMessageTestString
+                                            onTopic:@"testTopic2"
+                                                QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce];
         XCTAssertTrue(returnValue);
         runUntil = [NSDate dateWithTimeIntervalSinceNow: 0.1 ];
         [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
@@ -330,7 +402,9 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     // and we'll verify that we received all of them.
     //
     for (j = 0; j < 50; j++) {
-        returnValue = [iotDataManager publishString:publishMessageTestString onTopic:@"testTopic2" QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce];
+        returnValue = [iotDataManager publishString:publishMessageTestString
+                                            onTopic:@"testTopic2"
+                                                QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce];
         XCTAssertTrue(returnValue);
         runUntil = [NSDate dateWithTimeIntervalSinceNow: 0.2 ];
         [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
@@ -382,10 +456,12 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     // we specify a will topic with the will QoS set to 2 (invalid).
     //
     iotDataManager.mqttConfiguration.lastWillAndTestament.topic=@"will-topic";
-    iotDataManager.mqttConfiguration.lastWillAndTestament.message=nil;
+    iotDataManager.mqttConfiguration.lastWillAndTestament.message=@"";
     iotDataManager.mqttConfiguration.lastWillAndTestament.qos = 2;
     
-    [iotDataManager connectUsingWebSocketWithClientId:@"integration-test-2" cleanSession:true statusCallback:^(AWSIoTMQTTStatus status) {
+    [iotDataManager connectUsingWebSocketWithClientId:@"integration-test-2"
+                                         cleanSession:true
+                                       statusCallback:^(AWSIoTMQTTStatus status) {
         if (status == AWSIoTMQTTStatusConnecting) {
             //
             // As soon as we connect, destroy the connection and force a reconnect.

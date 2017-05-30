@@ -20,7 +20,7 @@
 #import "AWSURLRequestRetryHandler.h"
 #import "AWSIOTService.h"
 #import "AWSCategory.h"
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 
 #import "AWSIoTMQTTClient.h"
 #import "MQTTSession.h"
@@ -220,7 +220,7 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback {
     SecIdentityRef identityRef = [AWSIoTKeychain getIdentityRef:[NSString stringWithFormat:@"%@%@",[AWSIoTKeychain privateKeyTag], certificateId ]];
     if (identityRef == NULL) {
-        AWSLogError(@"Could not find SecIdentityRef");
+        AWSDDLogError(@"Could not find SecIdentityRef");
         return NO;
     };
 
@@ -272,7 +272,7 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
                     self.reconnectTimer =[NSTimer timerWithTimeInterval:self.currentReconnectTime target:self selector: @selector(reconnectToSession) userInfo:nil repeats:NO];
                     [[NSRunLoop mainRunLoop] addTimer:self.reconnectTimer forMode:NSRunLoopCommonModes];
                 }
-                AWSLogError(@"error fetching credentials");
+                AWSDDLogError(@"error fetching credentials");
             }
             else {
                 AWSCredentials *credentials = task.result;
@@ -390,7 +390,7 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
                     self.reconnectTimer =[NSTimer timerWithTimeInterval:self.currentReconnectTime target:self selector: @selector(reconnectToSession) userInfo:nil repeats:NO];
                     [[NSRunLoop mainRunLoop] addTimer:self.reconnectTimer forMode:NSRunLoopCommonModes];
                 }
-                AWSLogError(@"error fetching credentials");
+                AWSDDLogError(@"error fetching credentials");
             }
             else {
                 AWSCredentials *credentials = task.result;
@@ -468,7 +468,7 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
 
 - (void)publishData:(NSData*)data onTopic:(NSString*)topic {
 
-    AWSLogVerbose(@"isReadyToPublish: %i",[self.session isReadyToPublish]);
+    AWSDDLogVerbose(@"isReadyToPublish: %i",[self.session isReadyToPublish]);
 
     if ([self.session isReadyToPublish]) {
         [self.session publishData:data onTopic:topic];
@@ -483,7 +483,7 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
 
 - (void)publishData:(NSData*)data qos:(UInt8)qos onTopic:(NSString*)topic {
     
-    AWSLogVerbose(@"isReadyToPublish: %i",[self.session isReadyToPublish]);
+    AWSDDLogVerbose(@"isReadyToPublish: %i",[self.session isReadyToPublish]);
     
     if (qos < 2) {
         if ([self.session isReadyToPublish]) {
@@ -502,7 +502,7 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
         }
     }
     else {
-        AWSLogError(@"invalid qos value: %u", qos);
+        AWSDDLogError(@"invalid qos value: %u", qos);
     }
 }
 
@@ -532,10 +532,10 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
 
 - (void)publishMessagesFromQueue {
     self.emptyQueueTimer = nil;
-    AWSLogVerbose(@"publishMessagesFromQueue");
+    AWSDDLogVerbose(@"publishMessagesFromQueue");
     AWSIoTMQTTQueueMessage *message = [self.queueMessages firstObject];
     if (message && [self.session isReadyToPublish]) {
-        AWSLogVerbose(@"publishData on topic %@",message.topic);
+        AWSDDLogVerbose(@"publishData on topic %@",message.topic);
         if (message.qos == 0) {
             [self.session publishData:message.message onTopic:message.topic];
         }
@@ -557,10 +557,11 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
 #pragma-mark MQTTSessionDelegate
 
 - (void)session:(MQTTSession*)session handleEvent:(MQTTSessionEvent)eventCode {
-    AWSLogVerbose(@"MQTTSessionDelegate handleEvent: %i",eventCode);
+    AWSDDLogVerbose(@"MQTTSessionDelegate handleEvent: %i",eventCode);
 
     switch (eventCode) {
         case MQTTSessionEventConnected:
+            AWSDDLogInfo(@"MQTT session connected.");
             if (self.connectStatusCallback != nil) {
                 self.connectStatusCallback(AWSIoTMQTTStatusConnected);
             }
@@ -574,11 +575,13 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
             }
             break;
         case MQTTSessionEventConnectionRefused:
+            AWSDDLogWarn(@"MQTT session refused.");
             if (self.connectStatusCallback != nil) {
                 self.connectStatusCallback(AWSIoTMQTTStatusConnectionRefused);
             }
             break;
         case MQTTSessionEventConnectionClosed:
+            AWSDDLogInfo(@"MQTT session closed.");
             if (!self.userDisconnect && self.session) {
                 if (self.reconnectTimer == nil) {
                     self.reconnectTimer =[NSTimer scheduledTimerWithTimeInterval:self.currentReconnectTime target:self selector: @selector(reconnectToSession) userInfo:nil repeats:NO];
@@ -595,6 +598,7 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
             [self.connectionTimer invalidate];
             break;
         case MQTTSessionEventConnectionError:
+            AWSDDLogError(@"MQTT session connection error");
             if (self.connectStatusCallback != nil) {
                 self.connectStatusCallback(AWSIoTMQTTStatusConnectionError);
             }
@@ -608,6 +612,7 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
             [self.connectionTimer invalidate];
             break;
         case MQTTSessionEventProtocolError:
+            AWSDDLogError(@"MQTT session protocol error");
             if (self.connectStatusCallback != nil) {
                 self.connectStatusCallback(AWSIoTMQTTStatusProtocolError);
             }
@@ -622,7 +627,7 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
 }
 
 - (void)session:(MQTTSession*)session newMessage:(NSData*)data onTopic:(NSString*)topic {
-    AWSLogVerbose(@"MQTTSessionDelegate newMessage: %@\n onTopic: %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding], topic);
+    AWSDDLogVerbose(@"MQTTSessionDelegate newMessage: %@\n onTopic: %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding], topic);
 
     NSArray *topicParts = [topic componentsSeparatedByString: @"/"];
 
@@ -665,14 +670,7 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
 
 - (void)webSocketDidOpen:(AWSSRWebSocket *)webSocket;
 {
-    AWSLogVerbose(@"Websocket Connected");
-    
-    if (self.connectStatusCallback != nil) {
-        //
-        // Let the application know it has been disconnected.
-        //
-        self.connectStatusCallback(AWSIoTMQTTStatusDisconnected);
-    }
+    AWSDDLogInfo(@"Websocket Connected");
     //
     // The WebSocket is connected; at this point we need to create streams
     // for MQTT encode/decode and then instantiate the MQTT client.
@@ -716,7 +714,7 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
 
 - (void)webSocket:(AWSSRWebSocket *)webSocket didFailWithError:(NSError *)error;
 {
-    AWSLogError(@":( Websocket Failed With Error %@", error);
+    AWSDDLogError(@":( Websocket Failed With Error %@", error);
     
     //
     // When the WebSocket fails, the connection is closed.  The MQTT client
@@ -751,7 +749,7 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
     {
         NSData *messageData = (NSData *)message;
     
-        AWSLogVerbose(@"Received %lu bytes", (unsigned long)messageData.length);
+        AWSDDLogVerbose(@"Received %lu bytes", (unsigned long)messageData.length);
 
     //
     // When a message is received, send it to the MQTT client's decoder
@@ -762,13 +760,13 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
     }
     else
     {
-        AWSLogError(@"Invalid class received");
+        AWSDDLogError(@"Invalid class received");
     }
 }
 
 - (void)webSocket:(AWSSRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;
 {
-    AWSLogVerbose(@"WebSocket closed");
+    AWSDDLogVerbose(@"WebSocket closed");
     
     if (self.connectStatusCallback != nil) {
         //
@@ -788,7 +786,7 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
 
 - (void)webSocket:(AWSSRWebSocket *)webSocket didReceivePong:(NSData *)pongPayload;
 {
-    AWSLogVerbose(@"Websocket received pong");
+    AWSDDLogVerbose(@"Websocket received pong");
 }
 
 @end

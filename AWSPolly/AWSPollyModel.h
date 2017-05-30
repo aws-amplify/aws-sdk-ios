@@ -29,9 +29,11 @@ typedef NS_ENUM(NSInteger, AWSPollyErrorType) {
     AWSPollyErrorInvalidSsml,
     AWSPollyErrorLexiconNotFound,
     AWSPollyErrorLexiconSizeExceeded,
+    AWSPollyErrorMarksNotSupportedForFormat,
     AWSPollyErrorMaxLexemeLengthExceeded,
     AWSPollyErrorMaxLexiconsNumberExceeded,
     AWSPollyErrorServiceFailure,
+    AWSPollyErrorSsmlMarksNotSupportedForTextType,
     AWSPollyErrorTextLengthExceeded,
     AWSPollyErrorUnsupportedPlsAlphabet,
     AWSPollyErrorUnsupportedPlsLanguage,
@@ -73,9 +75,18 @@ typedef NS_ENUM(NSInteger, AWSPollyLanguageCode) {
 
 typedef NS_ENUM(NSInteger, AWSPollyOutputFormat) {
     AWSPollyOutputFormatUnknown,
+    AWSPollyOutputFormatJson,
     AWSPollyOutputFormatMp3,
     AWSPollyOutputFormatOggVorbis,
     AWSPollyOutputFormatPcm,
+};
+
+typedef NS_ENUM(NSInteger, AWSPollySpeechMarkType) {
+    AWSPollySpeechMarkTypeUnknown,
+    AWSPollySpeechMarkTypeSentence,
+    AWSPollySpeechMarkTypeSsml,
+    AWSPollySpeechMarkTypeViseme,
+    AWSPollySpeechMarkTypeWord,
 };
 
 typedef NS_ENUM(NSInteger, AWSPollyTextType) {
@@ -133,6 +144,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
     AWSPollyVoiceIdTatyana,
     AWSPollyVoiceIdAstrid,
     AWSPollyVoiceIdFiliz,
+    AWSPollyVoiceIdVicki,
 };
 
 @class AWSPollyDeleteLexiconInput;
@@ -383,7 +395,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable lexiconNames;
 
 /**
- <p> The audio format in which the resulting stream will be encoded. </p>
+ <p> The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p>
  */
 @property (nonatomic, assign) AWSPollyOutputFormat outputFormat;
 
@@ -391,6 +403,11 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
  <p> The audio frequency specified in Hz. </p><p>The valid values for <code>mp3</code> and <code>ogg_vorbis</code> are "8000", "16000", and "22050". The default value is "22050". </p><p> Valid values for <code>pcm</code> are "8000" and "16000" The default value is "16000". </p>
  */
 @property (nonatomic, strong) NSString * _Nullable sampleRate;
+
+/**
+ <p>The type of speech marks returned for the input text.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable speechMarkTypes;
 
 /**
  <p> Input text to synthesize. If you specify <code>ssml</code> as the <code>TextType</code>, follow the SSML format for the input text. </p>
@@ -421,7 +438,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @property (nonatomic, strong) NSData * _Nullable audioStream;
 
 /**
- <p> Specifies the type audio stream. This should reflect the <code>OutputFormat</code> parameter in your request. </p><ul><li><p> If you request <code>mp3</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/mpeg. </p></li><li><p> If you request <code>ogg_vorbis</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/ogg. </p></li><li><p> If you request <code>pcm</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/pcm. </p></li></ul><p></p>
+ <p> Specifies the type audio stream. This should reflect the <code>OutputFormat</code> parameter in your request. </p><ul><li><p> If you request <code>mp3</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/mpeg. </p></li><li><p> If you request <code>ogg_vorbis</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/ogg. </p></li><li><p> If you request <code>pcm</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format. </p></li><li><p>If you request <code>json</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/json.</p></li></ul><p></p>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
 

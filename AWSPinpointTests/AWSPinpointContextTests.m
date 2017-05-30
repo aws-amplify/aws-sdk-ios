@@ -38,8 +38,6 @@ static NSString *const AWSMobileAnalyticsRoot = @"com.amazonaws.MobileAnalytics"
 
 - (void)setUp {
     [super setUp];
-    [[AWSLogger defaultLogger] setLogLevel:AWSLogLevelVerbose];
-
     self.configuration = [[AWSPinpointConfiguration alloc] initWithAppId:@"AWSPinpointContextTests" launchOptions:nil];
     AWSUICKeyChainStore *keychain = [AWSUICKeyChainStore keyChainStoreWithService:AWSPinpointContextKeychainService];
     [keychain removeAllItems];

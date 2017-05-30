@@ -26,7 +26,7 @@
 #import "AWSIoTResources.h"
 
 static NSString *const AWSInfoIoT = @"IoT";
-static NSString *const AWSIoTSDKVersion = @"2.5.3";
+static NSString *const AWSIoTSDKVersion = @"2.5.7";
 
 
 @interface AWSIoTResponseSerializer : AWSJSONResponseSerializer
@@ -58,6 +58,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"TransferAlreadyCompletedException" : @(AWSIoTErrorTransferAlreadyCompleted),
                             @"TransferConflictException" : @(AWSIoTErrorTransferConflict),
                             @"UnauthorizedException" : @(AWSIoTErrorUnauthorized),
+                            @"VersionConflictException" : @(AWSIoTErrorVersionConflict),
                             @"VersionsLimitExceededException" : @(AWSIoTErrorVersionsLimitExceeded),
                             };
 }
@@ -498,6 +499,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTCreateThingTypeResponse *> *)createThingType:(AWSIoTCreateThingTypeRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/thing-types/{thingTypeName}"
+                  targetPrefix:@""
+                 operationName:@"CreateThingType"
+                   outputClass:[AWSIoTCreateThingTypeResponse class]];
+}
+
+- (void)createThingType:(AWSIoTCreateThingTypeRequest *)request
+     completionHandler:(void (^)(AWSIoTCreateThingTypeResponse *response, NSError *error))completionHandler {
+    [[self createThingType:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateThingTypeResponse *> * _Nonnull task) {
+        AWSIoTCreateThingTypeResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)createTopicRule:(AWSIoTCreateTopicRuleRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -523,7 +547,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (AWSTask<AWSIoTDeleteCACertificateResponse *> *)deleteCACertificate:(AWSIoTDeleteCACertificateRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
-                     URLString:@"/cacertificate/{certificateId}"
+                     URLString:@"/cacertificate/{caCertificateId}"
                   targetPrefix:@""
                  operationName:@"DeleteCACertificate"
                    outputClass:[AWSIoTDeleteCACertificateResponse class]];
@@ -655,6 +679,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTDeleteThingTypeResponse *> *)deleteThingType:(AWSIoTDeleteThingTypeRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/thing-types/{thingTypeName}"
+                  targetPrefix:@""
+                 operationName:@"DeleteThingType"
+                   outputClass:[AWSIoTDeleteThingTypeResponse class]];
+}
+
+- (void)deleteThingType:(AWSIoTDeleteThingTypeRequest *)request
+     completionHandler:(void (^)(AWSIoTDeleteThingTypeResponse *response, NSError *error))completionHandler {
+    [[self deleteThingType:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeleteThingTypeResponse *> * _Nonnull task) {
+        AWSIoTDeleteThingTypeResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteTopicRule:(AWSIoTDeleteTopicRuleRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -677,10 +724,33 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTDeprecateThingTypeResponse *> *)deprecateThingType:(AWSIoTDeprecateThingTypeRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/thing-types/{thingTypeName}/deprecate"
+                  targetPrefix:@""
+                 operationName:@"DeprecateThingType"
+                   outputClass:[AWSIoTDeprecateThingTypeResponse class]];
+}
+
+- (void)deprecateThingType:(AWSIoTDeprecateThingTypeRequest *)request
+     completionHandler:(void (^)(AWSIoTDeprecateThingTypeResponse *response, NSError *error))completionHandler {
+    [[self deprecateThingType:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeprecateThingTypeResponse *> * _Nonnull task) {
+        AWSIoTDeprecateThingTypeResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTDescribeCACertificateResponse *> *)describeCACertificate:(AWSIoTDescribeCACertificateRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
-                     URLString:@"/cacertificate/{certificateId}"
+                     URLString:@"/cacertificate/{caCertificateId}"
                   targetPrefix:@""
                  operationName:@"DescribeCACertificate"
                    outputClass:[AWSIoTDescribeCACertificateResponse class]];
@@ -759,6 +829,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTDescribeThingResponse *response, NSError *error))completionHandler {
     [[self describeThing:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeThingResponse *> * _Nonnull task) {
         AWSIoTDescribeThingResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDescribeThingTypeResponse *> *)describeThingType:(AWSIoTDescribeThingTypeRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/thing-types/{thingTypeName}"
+                  targetPrefix:@""
+                 operationName:@"DescribeThingType"
+                   outputClass:[AWSIoTDescribeThingTypeResponse class]];
+}
+
+- (void)describeThingType:(AWSIoTDescribeThingTypeRequest *)request
+     completionHandler:(void (^)(AWSIoTDescribeThingTypeResponse *response, NSError *error))completionHandler {
+    [[self describeThingType:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeThingTypeResponse *> * _Nonnull task) {
+        AWSIoTDescribeThingTypeResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1042,6 +1135,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTListOutgoingCertificatesResponse *> *)listOutgoingCertificates:(AWSIoTListOutgoingCertificatesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/certificates-out-going"
+                  targetPrefix:@""
+                 operationName:@"ListOutgoingCertificates"
+                   outputClass:[AWSIoTListOutgoingCertificatesResponse class]];
+}
+
+- (void)listOutgoingCertificates:(AWSIoTListOutgoingCertificatesRequest *)request
+     completionHandler:(void (^)(AWSIoTListOutgoingCertificatesResponse *response, NSError *error))completionHandler {
+    [[self listOutgoingCertificates:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListOutgoingCertificatesResponse *> * _Nonnull task) {
+        AWSIoTListOutgoingCertificatesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTListPoliciesResponse *> *)listPolicies:(AWSIoTListPoliciesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -1055,6 +1171,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTListPoliciesResponse *response, NSError *error))completionHandler {
     [[self listPolicies:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListPoliciesResponse *> * _Nonnull task) {
         AWSIoTListPoliciesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListPolicyPrincipalsResponse *> *)listPolicyPrincipals:(AWSIoTListPolicyPrincipalsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/policy-principals"
+                  targetPrefix:@""
+                 operationName:@"ListPolicyPrincipals"
+                   outputClass:[AWSIoTListPolicyPrincipalsResponse class]];
+}
+
+- (void)listPolicyPrincipals:(AWSIoTListPolicyPrincipalsRequest *)request
+     completionHandler:(void (^)(AWSIoTListPolicyPrincipalsResponse *response, NSError *error))completionHandler {
+    [[self listPolicyPrincipals:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListPolicyPrincipalsResponse *> * _Nonnull task) {
+        AWSIoTListPolicyPrincipalsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1147,6 +1286,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTListThingPrincipalsResponse *response, NSError *error))completionHandler {
     [[self listThingPrincipals:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListThingPrincipalsResponse *> * _Nonnull task) {
         AWSIoTListThingPrincipalsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListThingTypesResponse *> *)listThingTypes:(AWSIoTListThingTypesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/thing-types"
+                  targetPrefix:@""
+                 operationName:@"ListThingTypes"
+                   outputClass:[AWSIoTListThingTypesResponse class]];
+}
+
+- (void)listThingTypes:(AWSIoTListThingTypesRequest *)request
+     completionHandler:(void (^)(AWSIoTListThingTypesResponse *response, NSError *error))completionHandler {
+    [[self listThingTypes:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListThingTypesResponse *> * _Nonnull task) {
+        AWSIoTListThingTypesResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1363,7 +1525,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (AWSTask *)updateCACertificate:(AWSIoTUpdateCACertificateRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
-                     URLString:@"/cacertificate/{certificateId}"
+                     URLString:@"/cacertificate/{caCertificateId}"
                   targetPrefix:@""
                  operationName:@"UpdateCACertificate"
                    outputClass:nil];

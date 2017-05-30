@@ -115,6 +115,10 @@
     
     
 }
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 - (void)testLogger {
     XCTAssertEqualObjects([[AWSLogger defaultLogger] logLevelLabel:AWSLogLevelUnknown], @"?");
     XCTAssertEqualObjects([[AWSLogger defaultLogger] logLevelLabel:AWSLogLevelNone], @"?");
@@ -124,5 +128,7 @@
     XCTAssertEqualObjects([[AWSLogger defaultLogger] logLevelLabel:AWSLogLevelDebug], @"Debug");
     XCTAssertEqualObjects([[AWSLogger defaultLogger] logLevelLabel:AWSLogLevelVerbose], @"Verbose");
 }
+
+#pragma clang diagnostic pop
 
 @end

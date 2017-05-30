@@ -16,7 +16,7 @@
 #import "AWSS3PreSignedURL.h"
 #import "AWSCategory.h"
 #import "AWSSignature.h"
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 #import "AWSBolts.h"
 #import "AWSSynchronizedMutableDictionary.h"
 #import <CommonCrypto/CommonCrypto.h>
@@ -26,7 +26,7 @@ NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURL
 static NSString *const AWSS3PreSignedURLBuilderAcceleratedEndpoint = @"s3-accelerate.amazonaws.com";
 
 static NSString *const AWSInfoS3PreSignedURLBuilder = @"S3PreSignedURLBuilder";
-static NSString *const AWSS3PreSignedURLBuilderSDKVersion = @"2.5.3";
+static NSString *const AWSS3PreSignedURLBuilderSDKVersion = @"2.5.7";
 
 @interface AWSS3PreSignedURLBuilder()
 

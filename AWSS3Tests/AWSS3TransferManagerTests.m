@@ -42,12 +42,12 @@ static NSURL *tempSmallURL = nil;
     tempLargeURL = [NSURL fileURLWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-s3tmTestTempLarge",testBucketNameGeneral]]];
     NSError *error = nil;
     if (![[NSFileManager defaultManager] createFileAtPath:tempLargeURL.path contents:nil attributes:nil]) {
-        AWSLogError(@"Error: Can not create file with file path:%@",tempLargeURL.path);
+        AWSDDLogError(@"Error: Can not create file with file path:%@",tempLargeURL.path);
     }
     error = nil;
     NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingToURL:tempLargeURL error:&error];
     if (error) {
-        AWSLogError(@"Error: [%@]", error);
+        AWSDDLogError(@"Error: [%@]", error);
     }
 
     @autoreleasepool {
@@ -75,12 +75,12 @@ static NSURL *tempSmallURL = nil;
             tempSmallURL = [NSURL fileURLWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-s3tmTestTempSmall",testBucketNameGeneral]]];
             NSError *error = nil;
             if (![[NSFileManager defaultManager] createFileAtPath:tempSmallURL.path contents:nil attributes:nil]) {
-                AWSLogError(@"Error: Can not create file with file path:%@",tempSmallURL.path);
+                AWSDDLogError(@"Error: Can not create file with file path:%@",tempSmallURL.path);
             }
             error = nil;
             NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingToURL:tempSmallURL error:&error];
             if (error) {
-                AWSLogError(@"Error: [%@]", error);
+                AWSDDLogError(@"Error: [%@]", error);
             }
 
             [fileHandle writeData:[tempBaseString dataUsingEncoding:NSUTF8StringEncoding]]; //baseString 800000 = 4.68MB
@@ -1875,8 +1875,8 @@ static NSURL *tempSmallURL = nil;
 
     XCTAssertEqual(downloadRequest.state, AWSS3TransferManagerRequestStatePaused);
 
-    AWSLogDebug(@"(S3 Transfer Manager) Download Task has been paused.");
-    AWSLogDebug(@"(S3 Transfer Manager) Download Task has been paused.");
+    AWSDDLogDebug(@"(S3 Transfer Manager) Download Task has been paused.");
+    AWSDDLogDebug(@"(S3 Transfer Manager) Download Task has been paused.");
     [pausedTaskOne waitUntilFinished]; //make sure callback has been called.
 
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
@@ -1905,8 +1905,8 @@ static NSURL *tempSmallURL = nil;
 
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
     //resume the task
-    AWSLogDebug(@"(S3 Transfer Manager) Download Task has been resumed.");
-    AWSLogDebug(@"(S3 Transfer Manager) Download Task has been resumed.");
+    AWSDDLogDebug(@"(S3 Transfer Manager) Download Task has been resumed.");
+    AWSDDLogDebug(@"(S3 Transfer Manager) Download Task has been resumed.");
     [[[transferManager download:downloadRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3TransferManagerDownloadOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3TransferManagerDownloadOutput class]),NSStringFromClass([task.result class]));
@@ -1923,7 +1923,7 @@ static NSURL *tempSmallURL = nil;
 
     XCTAssertEqual(downloadRequest.state, AWSS3TransferManagerRequestStateCompleted);
 
-    AWSLogDebug(@"(S3 Transfer Manager) Download Task has been finished.");
+    AWSDDLogDebug(@"(S3 Transfer Manager) Download Task has been finished.");
     XCTAssertEqual(fileSize, accumulatedDownloadBytes, @"accumulatedDownloadBytes is not equal to total file size");
     XCTAssertEqual(fileSize, totalDownloadedBytes,@"total downloaded fileSize is not equal to uploaded fileSize");
     XCTAssertEqual(fileSize, totalExpectedDownloadBytes);
@@ -2057,7 +2057,7 @@ static NSURL *tempSmallURL = nil;
         return nil;
     }] waitUntilFinished];
 
-    AWSLogDebug(@"(S3 Transfer Manager) Download Task has been paused.");
+    AWSDDLogDebug(@"(S3 Transfer Manager) Download Task has been paused.");
     [pausedTaskOne waitUntilFinished]; //make sure callback has been called.
 
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
@@ -2098,7 +2098,7 @@ static NSURL *tempSmallURL = nil;
         XCTAssertEqual(AWSS3TransferManagerErrorCompleted, task.error.code, @"expected got  'AWSS3TransferManagerErrorCompleted' error code, but got:%ld",(long)task.error.code);
         return nil;
     }] waitUntilFinished];
-    AWSLogDebug(@"(S3 Transfer Manager) Download Task has been resumed.");
+    AWSDDLogDebug(@"(S3 Transfer Manager) Download Task has been resumed.");
 
     //Cleaning Up
     //Delete the object
@@ -2275,7 +2275,7 @@ static NSURL *tempSmallURL = nil;
         XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
         XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
         if ([task.error.domain isEqualToString:AWSS3TransferManagerErrorDomain] == NO || task.error.code != AWSS3TransferManagerErrorPaused) {
-            AWSLogError(@"unexpected error:%@",task.error);
+            AWSDDLogError(@"unexpected error:%@",task.error);
         }
         return nil;
     }];
@@ -2289,9 +2289,9 @@ static NSURL *tempSmallURL = nil;
         if (isFinished) break;
         int randNum = rand() % (8 - 3) + 3; //create the random number between 3 to 8.
         //wait a random moment and pause the task
-        AWSLogDebug(@"-------- Pause the Task in %d seconds--------",randNum);
+        AWSDDLogDebug(@"-------- Pause the Task in %d seconds--------",randNum);
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:randNum]];
-        AWSLogDebug(@"-------- Pausing the Task --------");
+        AWSDDLogDebug(@"-------- Pausing the Task --------");
         if (isFinished) break;
         [[[uploadRequest pause] continueWithBlock:^id(AWSTask *task) {
             XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error); //should not return error if successfully paused.
@@ -2301,7 +2301,7 @@ static NSURL *tempSmallURL = nil;
         XCTAssertEqual(uploadRequest.state, AWSS3TransferManagerRequestStatePaused);
 
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:3]];
-        AWSLogDebug(@"-------- Resume the Task --------");
+        AWSDDLogDebug(@"-------- Resume the Task --------");
         //resume the upload
         if (isFinished) break;
         currentTask = [[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
@@ -2310,7 +2310,7 @@ static NSURL *tempSmallURL = nil;
                 XCTAssertEqualObjects(AWSS3TransferManagerErrorDomain, task.error.domain);
                 XCTAssertEqual(AWSS3TransferManagerErrorPaused, task.error.code);
                 if ([task.error.domain isEqualToString:AWSS3TransferManagerErrorDomain] == NO || task.error.code != AWSS3TransferManagerErrorPaused) {
-                    AWSLogError(@"unexpected error:%@",task.error);
+                    AWSDDLogError(@"unexpected error:%@",task.error);
                     isFinished = YES;
                 }
             } else {

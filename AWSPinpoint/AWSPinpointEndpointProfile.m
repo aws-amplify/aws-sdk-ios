@@ -13,6 +13,7 @@
  permissions and limitations under the License.
  */
 
+#import <AWSCore/AWSCocoaLumberjack.h>
 #import "AWSPinpointEndpointProfile.h"
 #import "AWSPinpointContext.h"
 #import "AWSPinpointNotificationManager.h"
@@ -71,7 +72,7 @@ NSString *CHANNEL_TYPE = @"APNS";
     for (NSString *val in values) {
         [trimmedValues addObject:[AWSPinpointEndpointProfile trimValue:val]];
         if (++valuesCount >= MAX_ENDPOINT_ATTRIBUTE_VALUES) {
-            AWSLogWarn(@"Only %d attributes values are allowed, attribute values has been reduced to %d values.", MAX_ENDPOINT_ATTRIBUTE_VALUES, MAX_ENDPOINT_ATTRIBUTE_VALUES);
+            AWSDDLogWarn(@"Only %d attributes values are allowed, attribute values has been reduced to %d values.", MAX_ENDPOINT_ATTRIBUTE_VALUES, MAX_ENDPOINT_ATTRIBUTE_VALUES);
             break;
         }
     }
@@ -84,7 +85,7 @@ NSString *CHANNEL_TYPE = @"APNS";
                                                    toMaxChars:MAX_ENDPOINT_ATTRIBUTE_METRIC_KEY_LENGTH
                                             andAppendEllipses:NO];
     if(trimmedKey.length < theKey.length) {
-        AWSLogWarn(@"The %@ key has been trimmed to a length of %0d characters", theType, MAX_ENDPOINT_ATTRIBUTE_METRIC_KEY_LENGTH);
+        AWSDDLogWarn(@"The %@ key has been trimmed to a length of %0d characters", theType, MAX_ENDPOINT_ATTRIBUTE_METRIC_KEY_LENGTH);
     }
     
     return trimmedKey;
@@ -95,7 +96,7 @@ NSString *CHANNEL_TYPE = @"APNS";
                                                      toMaxChars:MAX_ENDPOINT_ATTRIBUTE_VALUE_LENGTH
                                               andAppendEllipses:NO];
     if(trimmedValue.length < theValue.length) {
-        AWSLogWarn( @"The attribute value has been trimmed to a length of %0d characters", MAX_ENDPOINT_ATTRIBUTE_VALUE_LENGTH);
+        AWSDDLogWarn( @"The attribute value has been trimmed to a length of %0d characters", MAX_ENDPOINT_ATTRIBUTE_VALUE_LENGTH);
     }
     
     return trimmedValue;
@@ -115,7 +116,7 @@ NSString *CHANNEL_TYPE = @"APNS";
                                    forKey:[AWSPinpointEndpointProfile trimKey:theKey
                                                                       forType:@"attribute"]];
             } else {
-                AWSLogWarn(@"Max number of attributes/metrics reached, dropping attribute with key: %@", theKey);
+                AWSDDLogWarn(@"Max number of attributes/metrics reached, dropping attribute with key: %@", theKey);
             }
         } else if ([self hasAttributeForKey:theKey]) {
             [self.attributes setValue:[AWSPinpointEndpointProfile processAttributeValues:theValue]
@@ -158,8 +159,7 @@ NSString *CHANNEL_TYPE = @"APNS";
                                                                    forType:@"metric"];
                 [self.metrics setValue:theValue forKey:trimmedKey];
             } else {
-                [[AWSLogger defaultLogger] log:AWSLogLevelWarn
-                                        format:@"Max number of attributes/metrics reached, dropping metric with key: %@", theKey];
+                AWSDDLogWarn(@"Max number of attributes/metrics reached, dropping metric with key: %@", theKey);
             }
         }
     }

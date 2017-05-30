@@ -120,7 +120,7 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
             NSString* trimmedValued = [AWSPinpointEvent trimValue:theValue];
             [self.attributes setValue:trimmedValued forKey:trimmedKey];
         } else {
-            AWSLogWarn(@"Max number of attributes/metrics reached, dropping attribute with key: %@", theKey);
+            AWSDDLogWarn(@"Max number of attributes/metrics reached, dropping attribute with key: %@", theKey);
         }
     }
 }
@@ -158,7 +158,7 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
             NSString* trimmedKey = [AWSPinpointEvent trimKey:theKey forType:@"attribute"];
             [self.metrics setValue:theValue forKey:trimmedKey];
         } else {
-            AWSLogWarn(@"Max number of attributes/metrics reached, dropping metric with key: %@", theKey);
+            AWSDDLogWarn(@"Max number of attributes/metrics reached, dropping metric with key: %@", theKey);
         }
     }
 }
@@ -186,7 +186,7 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
     NSString* trimmedKey = [AWSPinpointStringUtils clipString:theKey
                                                    toMaxChars:MAX_EVENT_TYPE_ATTRIBUTE_METRIC_KEY_LENGTH andAppendEllipses:NO];
     if(trimmedKey.length < theKey.length) {
-        AWSLogWarn(@"The %@ key has been trimmed to a length of %0d characters", theType, MAX_EVENT_TYPE_ATTRIBUTE_METRIC_KEY_LENGTH);
+        AWSDDLogWarn(@"The %@ key has been trimmed to a length of %0d characters", theType, MAX_EVENT_TYPE_ATTRIBUTE_METRIC_KEY_LENGTH);
     }
     
     return trimmedKey;
@@ -196,7 +196,7 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
     NSString* trimmedValue = [AWSPinpointStringUtils clipString:theValue
                                                      toMaxChars:MAX_EVENT_ATTRIBUTE_VALUE_LENGTH andAppendEllipses:NO];
     if(trimmedValue.length < theValue.length) {
-        AWSLogWarn( @"The attribute value has been trimmed to a length of %0d characters", MAX_EVENT_ATTRIBUTE_VALUE_LENGTH);
+        AWSDDLogWarn( @"The attribute value has been trimmed to a length of %0d characters", MAX_EVENT_ATTRIBUTE_VALUE_LENGTH);
     }
     
     return trimmedValue;

@@ -28,6 +28,9 @@ static NSString *certificateID = nil;
 
 + (void)setUp {
     [super setUp];
+    [AWSDDLog sharedInstance].logLevel = AWSDDLogLevelInfo;
+    [AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]];
+
     [AWSTestUtility setupCognitoCredentialsProvider];
 }
 - (void)setUp {

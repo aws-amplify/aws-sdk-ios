@@ -59,7 +59,6 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
 
 - (void)setUp {
     [super setUp];
-    [[AWSLogger defaultLogger] setLogLevel:AWSLogLevelVerbose];
 
     [AWSTestUtility setupCognitoCredentialsProvider];
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"

@@ -148,7 +148,7 @@ typedef void(^voidBlock)(void);
 
 - (AWSTask*)startSession {
     if (!self.context.analyticsClient) {
-        AWSLogError(@"Pinpoint Analytics is disabled.");
+        AWSDDLogError(@"Pinpoint Analytics is disabled.");
         return nil;
     }
     if (_session) {
@@ -161,13 +161,13 @@ typedef void(^voidBlock)(void);
 
 - (AWSTask*)stopSession {
     if (!self.context.analyticsClient) {
-        AWSLogError(@"Pinpoint Analytics is disabled.");
+        AWSDDLogError(@"Pinpoint Analytics is disabled.");
         return nil;
     }
     if (_session) {
         return [self endCurrentSession];
     } else {
-        AWSLogDebug(@"Session Stop Failed: No session is running.");
+        AWSDDLogDebug(@"Session Stop Failed: No session is running.");
         return nil;
     }
 }
@@ -175,21 +175,21 @@ typedef void(^voidBlock)(void);
 - (AWSTask*)pauseSessionWithTimeoutEnabled:(BOOL) timeoutEnabled
                     timeoutCompletionBlock:(AWSPinpointTimeoutBlock) block {
     if (!self.context.analyticsClient) {
-        AWSLogError(@"Pinpoint Analytics is disabled.");
+        AWSDDLogError(@"Pinpoint Analytics is disabled.");
         return nil;
     }
     if (_session) {
         return [self pauseCurrentSessionWithTimeoutEnabled:timeoutEnabled
                                     timeoutCompletionBlock:block];
     } else {
-        AWSLogDebug(@"Session Pause Failed: No session is running.");
+        AWSDDLogDebug(@"Session Pause Failed: No session is running.");
         return nil;
     }
 }
 
 - (AWSTask*)resumeSession {
     if (!self.context.analyticsClient) {
-        AWSLogError(@"Pinpoint Analytics is disabled.");
+        AWSDDLogError(@"Pinpoint Analytics is disabled.");
         return nil;
     }
     if (_session) {
@@ -198,12 +198,12 @@ typedef void(^voidBlock)(void);
             if (now - [AWSPinpointDateUtils utcTimeMillisFromDate:[_session stopTime]] < self.context.configuration.sessionTimeout){
                 return [self resumeCurrentSession];
             } else {
-                AWSLogVerbose(@"Session has expired. Starting a fresh one...");
+                AWSDDLogVerbose(@"Session has expired. Starting a fresh one...");
                 [self endCurrentSession];
                 return [self startNewSession];
             }
         } else {
-            AWSLogVerbose(@"Session Resume Failed: Session is already running.");
+            AWSDDLogVerbose(@"Session Resume Failed: Session is already running.");
             return nil;
         }
     } else {
@@ -218,14 +218,14 @@ typedef void(^voidBlock)(void);
     _session = [[AWSPinpointSession alloc] initWithContext:self.context];
     [self saveSession];
     
-    AWSLogVerbose(@"Firing Session Event: Start");
+    AWSDDLogVerbose(@"Firing Session Event: Start");
     //Fire Session start Event
     AWSPinpointEvent *startEvent = [self.context.analyticsClient createEventWithEventType:SESSION_START_EVENT_TYPE];
     
     //Update Endpoint
     [self.context.targetingClient updateEndpointProfile];
     
-    AWSLogInfo(@"Session Started.");
+    AWSDDLogInfo(@"Session Started.");
     return [self.context.analyticsClient recordEvent:startEvent];
 }
 
@@ -236,7 +236,7 @@ typedef void(^voidBlock)(void);
     }
     
     //Fire Session stop Event
-    AWSLogVerbose(@"Firing Session Event: Stop");
+    AWSDDLogVerbose(@"Firing Session Event: Stop");
     AWSPinpointEvent *stopEvent = [self.context.analyticsClient createEventWithEventType:SESSION_STOP_EVENT_TYPE];
     
     //Kill current session object
@@ -249,7 +249,7 @@ typedef void(^voidBlock)(void);
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:AWSPinpointSessionKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    AWSLogInfo(@"Session Stopped.");
+    AWSDDLogInfo(@"Session Stopped.");
     return [self.context.analyticsClient recordEvent:stopEvent];
 }
 
@@ -285,7 +285,7 @@ typedef void(^voidBlock)(void);
     [self saveSession];
     AWSPinpointEvent *pauseEvent = [self.context.analyticsClient createEventWithEventType:SESSION_PAUSE_EVENT_TYPE];
     
-    AWSLogInfo("Session Paused.");
+    AWSDDLogInfo(@"Session Paused.");
     return [[self.context.analyticsClient recordEvent:pauseEvent] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         if (timeoutEnabled) {
             [self waitForSessionTimeoutWithCompletionBlock:block];
@@ -299,7 +299,7 @@ typedef void(^voidBlock)(void);
     [_session resume];
     [self saveSession];
     AWSPinpointEvent *resumeEvent = [self.context.analyticsClient createEventWithEventType:SESSION_RESUME_EVENT_TYPE];
-    AWSLogInfo("Session Resumed.");
+    AWSDDLogInfo(@"Session Resumed.");
     return [self.context.analyticsClient recordEvent:resumeEvent];
 }
 

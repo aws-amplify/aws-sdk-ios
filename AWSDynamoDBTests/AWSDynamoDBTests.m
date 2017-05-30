@@ -307,7 +307,7 @@ static NSString *table2Name = nil;
             XCTFail(@"The request failed. error: [%@]", task.error);
         } else {
             AWSDynamoDBPutItemOutput *putItemOutput = task.result;
-            AWSLogDebug(@"Result of putItemOutput is:%@",[putItemOutput description]);
+            AWSDDLogDebug(@"Result of putItemOutput is:%@",[putItemOutput description]);
             //XCTAssertNotNil(putItemOutput, @"putItemOutput should NOT be nil!");
         }
 
