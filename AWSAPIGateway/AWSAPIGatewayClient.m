@@ -254,6 +254,11 @@ static int defaultChunkSize = 1024;
         task = [task continueWithSuccessBlock:^id(AWSTask *task) {
             return [interceptor interceptRequest:request];
         }];
+    }    
+    
+    // AVAI OVERRIDE
+    if ([headerParameters objectForKey:@"Authorization"]) {
+        [request setValue:[headerParameters objectForKey:@"Authorization"] forHTTPHeaderField:@"Authorization"];
     }
 
     return [task continueWithSuccessBlock:^id(AWSTask *task) {
