@@ -327,8 +327,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         __block int64_t multiplePartsTotalBytesSent = 0;
 
+        NSMutableArray *tasks = [NSMutableArray array];
+
         for (NSUInteger i = c; i < partCount + 1; i++) {
-            uploadPartsTask = [uploadPartsTask continueWithSuccessBlock:^id(AWSTask *task) {
+            [tasks addObject:[uploadPartsTask continueWithSuccessBlock:^id(AWSTask *task) {
 
                 //Cancel this task if state is canceling
                 if (uploadRequest.state == AWSS3TransferManagerRequestStateCanceling) {
@@ -361,7 +363,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                 uploadPartRequest.body = tempURL;
                 uploadPartRequest.contentLength = @(dataLength);
                 uploadPartRequest.uploadId = output.uploadId?output.uploadId:uploadRequest.uploadId;
-                
+
                 //pass SSE Value
                 uploadPartRequest.SSECustomerAlgorithm = uploadRequest.SSECustomerAlgorithm;
                 uploadPartRequest.SSECustomerKey = uploadRequest.SSECustomerKey;
@@ -386,6 +388,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                     }
                 };
 
+
                 return [[[weakSelf.s3 uploadPart:uploadPartRequest] continueWithSuccessBlock:^id(AWSTask *task) {
                     AWSS3UploadPartOutput *partOuput = task.result;
 
@@ -404,7 +407,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
                     [uploadRequest setValue:@(totalSentLenght) forKey:@"totalSuccessfullySentPartsDataLength"];
 
-                    //set currentUploadingPartNumber to i+1 to prevent it be downloaded again if pause happened right after parts finished.
                     uploadRequest.currentUploadingPartNumber = i + 1;
                     [weakSelf.cache setObject:uploadRequest forKey:cacheKey];
 
@@ -423,25 +425,31 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                         return nil;
                     }
                 }];
-            }];
+            }]];
+
         }
-
-        return uploadPartsTask;
+        return [AWSTask taskForCompletionOfAllTasks:tasks];
     }] continueWithSuccessBlock:^id(AWSTask *task) {
-
         //If all parts upload succeed, send completeMultipartUpload request
         NSMutableArray *completedParts = [uploadRequest valueForKey:@"completedPartsArray"];
+
+        [completedParts sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+            AWSS3CompletedPart *first = (AWSS3CompletedPart *)obj1;
+            AWSS3CompletedPart *second = (AWSS3CompletedPart *)obj2;
+            return  [first.partNumber compare:second.partNumber];
+        }];
+
         if ([completedParts count] != partCount) {
             NSDictionary *userInfo = @{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"completedParts count is not equal to totalPartCount. expect %lu but got %lu",(unsigned long)partCount,(unsigned long)[completedParts count]],@"completedParts":completedParts};
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3TransferManagerErrorDomain
-                                                             code:AWSS3TransferManagerErrorUnknown
-                                                         userInfo:userInfo]];
+                                                              code:AWSS3TransferManagerErrorUnknown
+                                                          userInfo:userInfo]];
         }
-
+        
         AWSS3CompletedMultipartUpload *completedMultipartUpload = [AWSS3CompletedMultipartUpload new];
         completedMultipartUpload.parts = completedParts;
         completeMultipartUploadRequest.multipartUpload = completedMultipartUpload;
-
+        
         return [weakSelf.s3 completeMultipartUpload:completeMultipartUploadRequest];
     }] continueWithBlock:^id(AWSTask *task) {
 
