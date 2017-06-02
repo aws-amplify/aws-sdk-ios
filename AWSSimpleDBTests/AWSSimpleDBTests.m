@@ -322,7 +322,10 @@ static NSString *_testDomainName = nil;
     metaDataRequest.domainName = @""; //domainName is empty
 
     [[[sdb domainMetadata:metaDataRequest] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error, @"expected InvalidDomainName error but got nil");
+        XCTAssertNotNil(task.error, @"expected InvalidParameterValue error but got nil");
+        XCTAssertEqual(task.error.code, 6);
+        XCTAssertTrue([@"InvalidParameterValue" isEqualToString:task.error.userInfo[@"Code"]]);
+        XCTAssertTrue([@"Value () for parameter DomainName is invalid. " isEqualToString: (NSString *)task.error.userInfo[@"Message"]]);
         return nil;
     }]waitUntilFinished];
 }

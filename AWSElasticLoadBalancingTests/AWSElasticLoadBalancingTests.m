@@ -93,6 +93,9 @@
     [[[elb configureHealthCheck:healthCheckInput] continueWithBlock:^id(AWSTask *task) {
         
         XCTAssertNotNil(task.error, @"expected Validation Error, but got nil");
+        XCTAssertEqual(task.error.code, 0);
+        XCTAssertTrue([@"ValidationError" isEqualToString:task.error.userInfo[@"Code"]]);
+        XCTAssertTrue([@"LoadBalancer name cannot be empty" isEqualToString:task.error.userInfo[@"Message"]]);
         return nil;
     }] waitUntilFinished];
 }

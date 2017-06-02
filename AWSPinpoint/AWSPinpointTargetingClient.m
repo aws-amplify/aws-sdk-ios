@@ -56,8 +56,8 @@ NSString *const AWSPinpointTargetingClientErrorDomain = @"com.amazonaws.AWSPinpo
 }
 
 - (AWSPinpointEndpointProfile *) currentEndpointProfile {
-    AWSPinpointEndpointProfile *endpointProfile = [[AWSPinpointEndpointProfile alloc] initWithApplicationId:self.context.configuration.appId
-                                                                                                 endpointId:self.context.uniqueId];
+    AWSPinpointEndpointProfile *endpointProfile = [[AWSPinpointEndpointProfile alloc] initWithContext: self.context];
+
     //Add attributes
     if (self.globalAttributes.count > 0) {
         AWSDDLogVerbose(@"Applying Global Endpoint Attributes: %@", self.globalAttributes);

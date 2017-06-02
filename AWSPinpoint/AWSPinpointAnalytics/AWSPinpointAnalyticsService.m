@@ -26,7 +26,7 @@
 #import "AWSPinpointAnalyticsResources.h"
 
 static NSString *const AWSInfoPinpointAnalytics = @"PinpointAnalytics";
-static NSString *const AWSPinpointAnalyticsSDKVersion = @"2.5.7";
+static NSString *const AWSPinpointAnalyticsSDKVersion = @"2.5.8";
 
 
 @interface AWSPinpointAnalyticsResponseSerializer : AWSJSONResponseSerializer
@@ -129,6 +129,7 @@ static NSDictionary *errorCodeDictionary = nil;
                  @"responseDataSize" : @(data?[data length]:0),
                  };
     }
+	
     return responseObject;
 }
 

@@ -34,7 +34,7 @@
 #import "Fabric+FABKits.h"
 
 static NSString *const AWSInfoCognito = @"Cognito";
-static NSString *const AWSCognitoSDKVersion = @"2.5.7";
+static NSString *const AWSCognitoSDKVersion = @"2.5.8";
 
 NSString *const AWSCognitoDidStartSynchronizeNotification = @"com.amazon.cognito.AWSCognitoDidStartSynchronizeNotification";
 NSString *const AWSCognitoDidEndSynchronizeNotification = @"com.amazon.cognito.AWSCognitoDidEndSynchronizeNotification";
@@ -233,7 +233,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (AWSTask<NSArray<AWSCognitoDatasetMetadata *> *> *)refreshDatasetMetadata {
-    return [[[self.cognitoCredentialsProvider getIdentityId] continueWithBlock:^id(AWSTask *task) {
+    return [[[self.cognitoCredentialsProvider credentials] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoErrorDomain code:AWSCognitoAuthenticationFailed userInfo:nil]];
         }

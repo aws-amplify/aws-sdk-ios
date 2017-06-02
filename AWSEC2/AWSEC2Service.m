@@ -27,7 +27,7 @@
 #import "AWSEC2Serializer.h"
 
 static NSString *const AWSInfoEC2 = @"EC2";
-static NSString *const AWSEC2SDKVersion = @"2.5.7";
+static NSString *const AWSEC2SDKVersion = @"2.5.8";
 
 
 @interface AWSEC2ResponseSerializer : AWSXMLResponseSerializer
@@ -89,7 +89,8 @@ static NSDictionary *errorCodeDictionary = nil;
                                                        error:error];
         }
     }
-	    return responseObject;
+	
+    return responseObject;
 }
 
 @end

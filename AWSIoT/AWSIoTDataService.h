@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return The default service client.
  */
-+ (instancetype)defaultIoTData;
++ (instancetype)defaultIoTData __attribute__ ((deprecated("Use `registerIoTDataManagerWithConfiguration:forKey:` with custom endpoint to initialize AWSIoTData")));
 
 /**
  Creates a service client with the given service configuration and registers it for the key.

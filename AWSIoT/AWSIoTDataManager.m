@@ -182,6 +182,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     dispatch_once(&onceToken, ^{
         _serviceClients = [AWSSynchronizedMutableDictionary new];
     });
+    if( !configuration.endpoint){
+        AWSDDLogWarn(@"The endpoint is not set. You should use custom endpoint when initializing AWSServiceConfiguration");
+    }
     [_serviceClients setObject:[[AWSIoTDataManager alloc] initWithConfiguration:configuration]
                         forKey:key];
 }
@@ -196,8 +199,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] serviceInfo:AWSInfoIoTDataManager
                                                                      forKey:key];
         if (serviceInfo) {
-            AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
-                                                                                        credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+            AWSServiceConfiguration *serviceConfiguration =
+                [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                            credentialsProvider:serviceInfo.cognitoCredentialsProvider];
             [AWSIoTDataManager registerIoTDataManagerWithConfiguration:serviceConfiguration
                                                                 forKey:key];
         }

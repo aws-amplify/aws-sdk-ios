@@ -1,11 +1,35 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.5.8
+
+### New Features
+* **Amazon Cognito Auth (Beta)**
+	* A new SDK that enables sign-up and sign-in for Amazon Cognito Your User Pools via a lightweight hosted ui.
+
+### Enhancements
+
+* **Amazon Pinpoint**
+	* Introduce `isApplicationLevelOptOut` block to `AWSPinpointConfiguration`. Use this to configure whether or not client should receive push notifications, at an application level.
+	
+### Bug fixes
+
+* **Amazon SNS**
+    * Fixed error parsing for service responses. **Note:** This change also fixes error response parsing for `AutoScaling`, `CloudWatch`, `ELB`, `SES`, `SimpleDB`, `SQS` and `STS`. [Github Issue #676](https://github.com/aws/aws-sdk-ios/issues/676) and [Github Issue #671](https://github.com/aws/aws-sdk-ios/issues/671)
+
+* **Amazon Cognito Identity Provider**
+	* Fixed crash with AWSCognitoIdentityUserPool.calculateSecretHash when username contained non ASCII characters. [Github Issue #679](https://github.com/aws/aws-sdk-ios/issues/679)
+
+### Misc changes
+
+* **AWS IoT**
+	* Deprecating default endpoint for AWSIoTDataService. Client should use custom endpoint when initializing AWSServiceConfiguration to be used for AWSIoTDataManager.
+
 ## 2.5.7
 
 ### Enhancements
 
 * **Amazon Polly**
-	* Added support for new German voice id - `Vicki`.
+	* Added support for new voice id - `Vicki`.
 	
 ### Bug fixes
 

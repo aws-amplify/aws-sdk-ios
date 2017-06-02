@@ -27,7 +27,7 @@
 #import "AWSLambdaRequestRetryHandler.h"
 
 static NSString *const AWSInfoLambda = @"Lambda";
-static NSString *const AWSLambdaSDKVersion = @"2.5.7";
+static NSString *const AWSLambdaSDKVersion = @"2.5.8";
 
 
 @interface AWSLambdaResponseSerializer : AWSJSONResponseSerializer
@@ -147,6 +147,7 @@ static NSDictionary *errorCodeDictionary = nil;
                  @"responseDataSize" : @(data?[data length]:0),
                  };
     }
+	
     return responseObject;
 }
 
