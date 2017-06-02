@@ -97,7 +97,7 @@
 
 /**
  Sets the product id for the item(s) being purchased
- @param withProductId The product id of the item(s) being purchased
+ @param theProductId The product id of the item(s) being purchased
  */
 -(void)withProductId:(NSString *)theProductId;
 
