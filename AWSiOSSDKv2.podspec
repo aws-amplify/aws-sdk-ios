@@ -42,10 +42,6 @@ Pod::Spec.new do |s|
     cognitoidentityprovider.dependency 'AWSCognitoIdentityProvider', '2.5.8'
   end
 
-  s.subspec 'AWSCognitoAuth' do |cognitoauth|
-    cognitoauth.dependency 'AWSCognitoAuth', '2.5.8'
-  end
-
   s.subspec 'DynamoDB' do |ddb|
   	ddb.dependency 'AWSDynamoDB', '2.5.8'
   end
