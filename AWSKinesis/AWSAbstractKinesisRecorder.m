@@ -279,12 +279,19 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
 
                     NSString *streamName = temporaryRecords[0][@"stream_name"];
 
-                    [[self.recorderHelper submitRecordsForStream:streamName
-                                                         records:temporaryRecords
-                                                   partitionKeys:partitionKeys
-                                                putPartitionKeys:putPartitionKeys
-                                              retryPartitionKeys:retryPartitionKeys
-                                                            stop:&stop] waitUntilFinished];
+                    AWSTask *submitTask = \
+                        [self.recorderHelper submitRecordsForStream:streamName
+                                                            records:temporaryRecords
+                                                      partitionKeys:partitionKeys
+                                                   putPartitionKeys:putPartitionKeys
+                                                 retryPartitionKeys:retryPartitionKeys
+                                                               stop:&stop];
+
+                    [submitTask waitUntilFinished];
+
+                    if (submitTask.error) {
+                        error = submitTask.error;
+                    }
 
                     for (NSString *partitionKey in putPartitionKeys) {
                         BOOL result = [db executeUpdate:@"DELETE FROM record WHERE partition_key = :partition_key"
