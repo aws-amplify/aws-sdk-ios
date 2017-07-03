@@ -618,6 +618,12 @@ static __strong NSData *CRLFCRLF;
             SRFastLog(@"Allowing connection to any root cert");
         }
         
+        // Disable the hostname verification on the certificate.
+        // MAPPS-12361
+        // [iOS] CFNetwork SSL Handshake Failure (no remote connection for China robots)
+        // https://jira.wardrobe.irobot.com/browse/MAPPS-12361
+        [SSLOptions setValue:kCFNull forKey:(__bridge id)kCFStreamSSLPeerName];
+        
         [_outputStream setProperty:SSLOptions
                             forKey:(__bridge id)kCFStreamPropertySSLSettings];
     }
