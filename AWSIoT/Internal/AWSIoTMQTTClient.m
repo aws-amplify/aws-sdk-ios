@@ -768,12 +768,20 @@ static AWSIoTMQTTClient *_defaultMQTTClient = nil;
 {
     AWSDDLogVerbose(@"WebSocket closed");
     
-    if (self.connectStatusCallback != nil) {
+    // Removed disconnected notification from websocket close to prevent
+    // multiple notification of disconnects (one from websocket, the other from MQTT client session.
+    // Note that this may introduce a case where we will not receive a disconnect if the websocket
+    // is closed as a result of a network error and the MQTT session does not send the disconnected.
+    // The case is currently handled in aspen code by starting a timer in the disconnecting state
+    // and performing a transition to the disconnected state if we do not receive anything from
+    // the AWS lib.
+    /*if (self.connectStatusCallback != nil) {
         //
         // Let the application know it has been disconnected.
         //
         self.connectStatusCallback(AWSIoTMQTTStatusDisconnected);
-    }
+    }*/
+    
     //
     // The WebSocket is closed, and the MQTT client can be deleted at this point.
     // If there is reconnection logic it will re-try in a bit.
