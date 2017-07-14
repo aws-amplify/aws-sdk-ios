@@ -307,9 +307,11 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                                                       userInfo:nil]];
     }
     
-    NSString *filePath = [fileURL absoluteString];
-    // [fileURL absoluteString] prefix is "file:///", length 8
-    if ([filePath length] < 8 || ! [[NSFileManager defaultManager] fileExistsAtPath:[filePath substringFromIndex:7]]) {
+    NSString *filePath = [fileURL path];
+
+    // Error out if the length of file name < minimum file path length (2 characters) or file does not exist
+    if ([filePath length] < 2 ||
+        ! [[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
         return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                                           code:AWSS3TransferUtilityErrorLocalFileNotFound
                                                       userInfo:nil]];

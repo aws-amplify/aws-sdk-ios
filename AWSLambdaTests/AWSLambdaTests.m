@@ -134,6 +134,40 @@
     }] waitUntilFinished];
 }
 
+- (void)testInvokeWithClockSkew {
+    [AWSTestUtility setupSwizzling];
+    
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    [AWSTestUtility setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
+    
+    AWSLambda *lambda = [AWSLambda defaultLambda];
+    AWSLambdaInvocationRequest *invocationRequest = [AWSLambdaInvocationRequest new];
+    invocationRequest.functionName = @"helloWorldExample";
+    invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
+    NSDictionary *parameters = @{@"key1" : @"value1",
+                                 @"key2" : @"value2",
+                                 @"key3" : @"value3",
+                                 @"isError" : @NO};
+    invocationRequest.payload = [NSJSONSerialization dataWithJSONObject:parameters
+                                                                options:kNilOptions
+                                                                  error:nil];
+    invocationRequest.clientContext = [[AWSClientContext new] base64EncodedJSONString];
+    
+    [[[lambda invoke:invocationRequest] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        AWSLambdaInvocationResponse *invocationResponse = task.result;
+        XCTAssertTrue([invocationResponse.payload isKindOfClass:[NSDictionary class]]);
+        NSDictionary *result = invocationResponse.payload;
+        XCTAssertEqualObjects(result[@"key1"], @"value1");
+        XCTAssertEqualObjects(result[@"key2"], @"value2");
+        XCTAssertEqualObjects(result[@"key3"], @"value3");
+        return nil;
+    }] waitUntilFinished];
+    
+    [AWSTestUtility revertSwizzling];
+}
+
 - (void)testInvoke2 {
     AWSLambda *lambda = [AWSLambda defaultLambda];
     AWSLambdaInvocationRequest *invocationRequest = [AWSLambdaInvocationRequest new];

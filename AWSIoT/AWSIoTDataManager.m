@@ -1,4 +1,4 @@
-//
+        //
 // Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
@@ -92,6 +92,7 @@
         _clientToken = nil;
         _operation = AWSIoTShadowOperationTypeNone;
     }
+
     return self;
 }
 
@@ -151,6 +152,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 + (instancetype)defaultIoTDataManager {
     static AWSIoTDataManager *_defaultIoTDataManager = nil;
     static dispatch_once_t onceToken;
+
     dispatch_once(&onceToken, ^{
         AWSServiceConfiguration *serviceConfiguration = nil;
         AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoIoTDataManager];
@@ -180,6 +182,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     dispatch_once(&onceToken, ^{
         _serviceClients = [AWSSynchronizedMutableDictionary new];
     });
+    if( !configuration.endpoint){
+        AWSDDLogWarn(@"The endpoint is not set. You should use custom endpoint when initializing AWSServiceConfiguration");
+    }
     [_serviceClients setObject:[[AWSIoTDataManager alloc] initWithConfiguration:configuration]
                         forKey:key];
 }
@@ -194,8 +199,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] serviceInfo:AWSInfoIoTDataManager
                                                                      forKey:key];
         if (serviceInfo) {
-            AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
-                                                                                        credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+            AWSServiceConfiguration *serviceConfiguration =
+                [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                            credentialsProvider:serviceInfo.cognitoCredentialsProvider];
             [AWSIoTDataManager registerIoTDataManagerWithConfiguration:serviceConfiguration
                                                                 forKey:key];
         }
@@ -283,7 +289,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     if (clientId == nil || [clientId  isEqualToString: @""]) {
         return false;
     }
-    
+    AWSDDLogInfo(@"Connecting to IoT using websocket, client id: %@", clientId);
     [self.mqttClient setBaseReconnectTime:self.mqttConfiguration.baseReconnectTimeInterval];
     [self.mqttClient setMinimumConnectionTime:self.mqttConfiguration.minimumConnectionTimeInterval];
     [self.mqttClient setMaximumReconnectTime:self.mqttConfiguration.maximumReconnectTimeInterval];

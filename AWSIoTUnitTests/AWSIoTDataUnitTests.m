@@ -38,6 +38,9 @@ static id mockNetworking = nil;
 
 - (void)setUp {
     [super setUp];
+    [AWSDDLog sharedInstance].logLevel = AWSDDLogLevelInfo;
+    [AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]];
+
     [self setupCredentialsProvider];
     
     mockNetworking = OCMClassMock([AWSNetworking class]);

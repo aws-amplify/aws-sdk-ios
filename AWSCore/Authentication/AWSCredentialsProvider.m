@@ -271,7 +271,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 @property (nonatomic, strong) AWSCredentials *internalCredentials;
 @property (atomic, assign, getter=isRefreshingCredentials) BOOL refreshingCredentials;
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> *cachedLogins;
-@property (atomic, assign) BOOL hasClearedIdentityId;
 
 @end
 
@@ -458,17 +457,10 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                 return task;
             }
 
-            if (self.hasClearedIdentityId) {
-                return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderErrorDomain
-                                                                  code:AWSCognitoCredentialsProviderInvalidConfiguration
-                                                              userInfo:@{NSLocalizedDescriptionKey : @"GetCredentialsForIdentity keeps failing. Clearing identityId did not help. Please check your Amazon Cognito Identity configuration."}]];
-            }
-
             AWSDDLogDebug(@"Resetting identity Id and calling getIdentityId");
             // if it's auth, reset id and refetch
             self.identityId = nil;
             providerRef.identityId = nil;
-            self.hasClearedIdentityId = YES;
 
             return [[providerRef logins] continueWithSuccessBlock:^id _Nullable(AWSTask<NSDictionary<NSString *,NSString *> *> * _Nonnull task) {
                 NSDictionary<NSString *,NSString *> *logins = task.result;
@@ -490,8 +482,15 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                 getCredentialsRetry.identityId = self.identityId;
                 getCredentialsRetry.logins = logins;
                 getCredentialsRetry.customRoleArn = customRoleArn;
-
-                return [self.cognitoIdentity getCredentialsForIdentity:getCredentialsRetry];
+                
+                return [[self.cognitoIdentity getCredentialsForIdentity:getCredentialsRetry] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityGetCredentialsForIdentityResponse *> * _Nonnull task) {
+                    if (task.error) {
+                        return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderErrorDomain
+                                                                          code:AWSCognitoCredentialsProviderInvalidConfiguration
+                                                                      userInfo:@{NSLocalizedDescriptionKey : @"GetCredentialsForIdentity keeps failing. Clearing identityId did not help. Please check your Amazon Cognito Identity configuration."}]];
+                    }
+                    return task;
+                }];
             }];
         }
         return task;

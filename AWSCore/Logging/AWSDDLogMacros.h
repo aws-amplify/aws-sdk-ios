@@ -21,24 +21,17 @@
 #import "AWSDDLog.h"
 
 /**
- * The constant/variable/method responsible for controlling the current log level.
- **/
-#ifndef LOG_LEVEL_DEF
-    #define LOG_LEVEL_DEF ddLogLevel
-#endif
-
-/**
  * Whether async should be used by log messages, excluding error messages that are always sent sync.
  **/
-#ifndef LOG_ASYNC_ENABLED
-    #define LOG_ASYNC_ENABLED YES
+#ifndef AWSDD_LOG_ASYNC_ENABLED
+    #define AWSDD_LOG_ASYNC_ENABLED YES
 #endif
 
 /**
  * These are the two macros that all other macros below compile into.
  * These big multiline macros makes all the other macros easier to read.
  **/
-#define LOG_MACRO(isAsynchronous, lvl, flg, ctx, atag, fnct, frmt, ...) \
+#define AWSDD_LOG_MACRO(isAsynchronous, lvl, flg, ctx, atag, fnct, frmt, ...) \
         [AWSDDLog log : isAsynchronous                                     \
              level : lvl                                                \
               flag : flg                                                \
@@ -79,8 +72,8 @@
  *
  * We also define shorthand versions for asynchronous and synchronous logging.
  **/
-#define LOG_MAYBE(async, lvl, flg, ctx, tag, fnct, frmt, ...) \
-        do { LOG_MACRO(async, lvl, flg, ctx, tag, fnct, frmt, ##__VA_ARGS__); } while(0)
+#define AWSDD_LOG_MAYBE(async, lvl, flg, ctx, tag, fnct, frmt, ...) \
+        do { AWSDD_LOG_MACRO(async, lvl, flg, ctx, tag, fnct, frmt, ##__VA_ARGS__); } while(0)
 
 #define LOG_MAYBE_TO_AWSDDLOG(ddlog, async, lvl, flg, ctx, tag, fnct, frmt, ...) \
         do { LOG_MACRO_TO_AWSDDLOG(ddlog, async, lvl, flg, ctx, tag, fnct, frmt, ##__VA_ARGS__); } while(0)
@@ -88,14 +81,14 @@
 /**
  * Ready to use log macros with no context or tag.
  **/
-#define AWSDDLogError(frmt, ...)   LOG_MAYBE(NO,                [AWSDDLog sharedInstance].logLevel, AWSDDLogFlagError,   0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
-#define AWSDDLogWarn(frmt, ...)    LOG_MAYBE(LOG_ASYNC_ENABLED, [AWSDDLog sharedInstance].logLevel, AWSDDLogFlagWarning, 0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
-#define AWSDDLogInfo(frmt, ...)    LOG_MAYBE(LOG_ASYNC_ENABLED, [AWSDDLog sharedInstance].logLevel, AWSDDLogFlagInfo,    0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
-#define AWSDDLogDebug(frmt, ...)   LOG_MAYBE(LOG_ASYNC_ENABLED, [AWSDDLog sharedInstance].logLevel, AWSDDLogFlagDebug,   0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
-#define AWSDDLogVerbose(frmt, ...) LOG_MAYBE(LOG_ASYNC_ENABLED, [AWSDDLog sharedInstance].logLevel, AWSDDLogFlagVerbose, 0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+#define AWSDDLogError(frmt, ...)   AWSDD_LOG_MAYBE(NO,                [AWSDDLog sharedInstance].logLevel, AWSDDLogFlagError,   0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+#define AWSDDLogWarn(frmt, ...)    AWSDD_LOG_MAYBE(AWSDD_LOG_ASYNC_ENABLED, [AWSDDLog sharedInstance].logLevel, AWSDDLogFlagWarning, 0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+#define AWSDDLogInfo(frmt, ...)    AWSDD_LOG_MAYBE(AWSDD_LOG_ASYNC_ENABLED, [AWSDDLog sharedInstance].logLevel, AWSDDLogFlagInfo,    0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+#define AWSDDLogDebug(frmt, ...)   AWSDD_LOG_MAYBE(AWSDD_LOG_ASYNC_ENABLED, [AWSDDLog sharedInstance].logLevel, AWSDDLogFlagDebug,   0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+#define AWSDDLogVerbose(frmt, ...) AWSDD_LOG_MAYBE(AWSDD_LOG_ASYNC_ENABLED, [AWSDDLog sharedInstance].logLevel, AWSDDLogFlagVerbose, 0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
 
 #define AWSDDLogErrorToAWSDDLog(ddlog, frmt, ...)   LOG_MAYBE_TO_AWSDDLOG(ddlog, NO,                [AWSDDLog sharedInstance].logLevel, AWSDDLogFlagError,   0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
-#define AWSDDLogWarnToAWSDDLog(ddlog, frmt, ...)    LOG_MAYBE_TO_AWSDDLOG(ddlog, LOG_ASYNC_ENABLED, [AWSDDLog sharedInstance].logLevel, AWSDDLogFlagWarning, 0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
-#define AWSDDLogInfoToAWSDDLog(ddlog, frmt, ...)    LOG_MAYBE_TO_AWSDDLOG(ddlog, LOG_ASYNC_ENABLED, [AWSDDLog sharedInstance].logLevel, AWSDDLogFlagInfo,    0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
-#define AWSDDLogDebugToAWSDDLog(ddlog, frmt, ...)   LOG_MAYBE_TO_AWSDDLOG(ddlog, LOG_ASYNC_ENABLED, [AWSDDLog sharedInstance].logLevel, AWSDDLogFlagDebug,   0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
-#define AWSDDLogVerboseToAWSDDLog(ddlog, frmt, ...) LOG_MAYBE_TO_AWSDDLOG(ddlog, LOG_ASYNC_ENABLED, [AWSDDLog sharedInstance].logLevel, AWSDDLogFlagVerbose, 0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+#define AWSDDLogWarnToAWSDDLog(ddlog, frmt, ...)    LOG_MAYBE_TO_AWSDDLOG(ddlog, AWSDD_LOG_ASYNC_ENABLED, [AWSDDLog sharedInstance].logLevel, AWSDDLogFlagWarning, 0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+#define AWSDDLogInfoToAWSDDLog(ddlog, frmt, ...)    LOG_MAYBE_TO_AWSDDLOG(ddlog, AWSDD_LOG_ASYNC_ENABLED, [AWSDDLog sharedInstance].logLevel, AWSDDLogFlagInfo,    0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+#define AWSDDLogDebugToAWSDDLog(ddlog, frmt, ...)   LOG_MAYBE_TO_AWSDDLOG(ddlog, AWSDD_LOG_ASYNC_ENABLED, [AWSDDLog sharedInstance].logLevel, AWSDDLogFlagDebug,   0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+#define AWSDDLogVerboseToAWSDDLog(ddlog, frmt, ...) LOG_MAYBE_TO_AWSDDLOG(ddlog, AWSDD_LOG_ASYNC_ENABLED, [AWSDDLog sharedInstance].logLevel, AWSDDLogFlagVerbose, 0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)

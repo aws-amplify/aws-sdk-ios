@@ -142,7 +142,10 @@ static NSString *_verifiedEmailAddress = nil;
     identityRequest.emailAddress = @""; //email address is empty
 
     [[[ses verifyEmailIdentity:identityRequest] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error, @"expected EmailAddressNotValid Error but got nil");
+        XCTAssertNotNil(task.error, @"expected InvalidParameterValue Error but got nil");
+        XCTAssertEqual(task.error.code, 0);
+        XCTAssertTrue([@"InvalidParameterValue" isEqualToString:task.error.userInfo[@"Code"]]);
+        XCTAssertTrue([@"Email address not specified." isEqualToString:task.error.userInfo[@"Message"]]);
         return nil;
     }] waitUntilFinished];
 }

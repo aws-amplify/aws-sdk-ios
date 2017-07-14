@@ -92,7 +92,10 @@
     input.endpointArn = @""; //endPointARN is empty
     
     [[[sns getEndpointAttributes:input] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error, @"expected MissingParameters Error but got nil");
+        XCTAssertNotNil(task.error, @"expected InvalidParameters Error but got nil");
+        XCTAssertEqual(task.error.code, 4);
+        XCTAssertTrue([@"InvalidParameter" isEqualToString:task.error.userInfo[@"Code"]]);
+        XCTAssertTrue([@"Invalid parameter: EndpointArn Reason: An ARN must have at least 6 elements, not 1" isEqualToString:task.error.userInfo[@"Message"]]);
         return nil;
     }] waitUntilFinished];
 }

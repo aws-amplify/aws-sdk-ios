@@ -23,10 +23,6 @@
 #warning CocoaLumberjack 1.9.x legacy macros enabled. \
 Disable legacy macros by importing AWSCocoaLumberjack.h or AWSDDLogMacros.h instead of AWSDDLog.h or add `#define AWSDD_LEGACY_MACROS 0` before importing AWSDDLog.h.
 
-#ifndef LOG_LEVEL_DEF
-    #define LOG_LEVEL_DEF ddLogLevel
-#endif
-
 #define LOG_FLAG_ERROR    AWSDDLogFlagError
 #define LOG_FLAG_WARN     AWSDDLogFlagWarning
 #define LOG_FLAG_INFO     AWSDDLogFlagInfo
@@ -41,15 +37,15 @@ Disable legacy macros by importing AWSCocoaLumberjack.h or AWSDDLogMacros.h inst
 #define LOG_LEVEL_VERBOSE AWSDDLogLevelVerbose
 #define LOG_LEVEL_ALL     AWSDDLogLevelAll
 
-#define LOG_ASYNC_ENABLED YES
+#define AWSDD_LOG_ASYNC_ENABLED YES
 
-#define LOG_ASYNC_ERROR    ( NO && LOG_ASYNC_ENABLED)
-#define LOG_ASYNC_WARN     (YES && LOG_ASYNC_ENABLED)
-#define LOG_ASYNC_INFO     (YES && LOG_ASYNC_ENABLED)
-#define LOG_ASYNC_DEBUG    (YES && LOG_ASYNC_ENABLED)
-#define LOG_ASYNC_VERBOSE  (YES && LOG_ASYNC_ENABLED)
+#define LOG_ASYNC_ERROR    ( NO && AWSDD_LOG_ASYNC_ENABLED)
+#define LOG_ASYNC_WARN     (YES && AWSDD_LOG_ASYNC_ENABLED)
+#define LOG_ASYNC_INFO     (YES && AWSDD_LOG_ASYNC_ENABLED)
+#define LOG_ASYNC_DEBUG    (YES && AWSDD_LOG_ASYNC_ENABLED)
+#define LOG_ASYNC_VERBOSE  (YES && AWSDD_LOG_ASYNC_ENABLED)
 
-#define LOG_MACRO(isAsynchronous, lvl, flg, ctx, atag, fnct, frmt, ...) \
+#define AWSDD_LOG_MACRO(isAsynchronous, lvl, flg, ctx, atag, fnct, frmt, ...) \
         [AWSDDLog log : isAsynchronous                                     \
                 level : lvl                                                \
                  flag : flg                                                \
@@ -60,11 +56,11 @@ Disable legacy macros by importing AWSCocoaLumberjack.h or AWSDDLogMacros.h inst
                   tag : atag                                               \
                format : (frmt), ## __VA_ARGS__]
 
-#define LOG_MAYBE(async, lvl, flg, ctx, fnct, frmt, ...)                       \
-        do { if(lvl & flg) LOG_MACRO(async, lvl, flg, ctx, nil, fnct, frmt, ##__VA_ARGS__); } while(0)
+#define AWSDD_LOG_MAYBE(async, lvl, flg, ctx, fnct, frmt, ...)                       \
+        do { if(lvl & flg) AWSDD_LOG_MACRO(async, lvl, flg, ctx, nil, fnct, frmt, ##__VA_ARGS__); } while(0)
 
 #define LOG_OBJC_MAYBE(async, lvl, flg, ctx, frmt, ...) \
-        LOG_MAYBE(async, lvl, flg, ctx, __PRETTY_FUNCTION__, frmt, ## __VA_ARGS__)
+        AWSDD_LOG_MAYBE(async, lvl, flg, ctx, __PRETTY_FUNCTION__, frmt, ## __VA_ARGS__)
 
 #define AWSDDLogError(frmt, ...)   LOG_OBJC_MAYBE(LOG_ASYNC_ERROR,   LOG_LEVEL_DEF, LOG_FLAG_ERROR,   0, frmt, ##__VA_ARGS__)
 #define AWSDDLogWarn(frmt, ...)    LOG_OBJC_MAYBE(LOG_ASYNC_WARN,    LOG_LEVEL_DEF, LOG_FLAG_WARN,    0, frmt, ##__VA_ARGS__)

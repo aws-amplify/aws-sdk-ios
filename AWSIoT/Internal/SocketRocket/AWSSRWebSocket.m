@@ -1730,7 +1730,7 @@ static inline void SRFastLog(NSString *format, ...)  {
     
     va_end(arg_list);
     
-    AWSDDLogInfo(@"[SR] %@", formattedString);
+    AWSDDLogVerbose(@"[SR] %@", formattedString);
 #endif
 }
 

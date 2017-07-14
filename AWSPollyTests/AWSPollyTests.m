@@ -209,6 +209,8 @@ static NSDictionary<NSString *,NSString *> *lexicons;
     [request setLexiconNames:@[w2cLexiconName, w3cLexiconName]]; // W3C will be spoken as World Wide Web Consortium.
     
     AWSPolly *Polly = [AWSPolly defaultPolly];
+    // wait for lexicons to be ready for usage
+    sleep(10);
     [[[Polly synthesizeSpeech:request] continueWithBlock:^id _Nullable(AWSTask<AWSPollySynthesizeSpeechOutput *> * _Nonnull task) {
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
