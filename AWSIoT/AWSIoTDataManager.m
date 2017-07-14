@@ -289,7 +289,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     if (clientId == nil || [clientId  isEqualToString: @""]) {
         return false;
     }
-    AWSDDLogInfo(@"Connecting to IoT using websocket, client id: %@", clientId);
+    AWSDDLogInfo(@"IOTDataManager: Connecting to IoT using websocket, client id: %@", clientId);
     [self.mqttClient setBaseReconnectTime:self.mqttConfiguration.baseReconnectTimeInterval];
     [self.mqttClient setMinimumConnectionTime:self.mqttConfiguration.minimumConnectionTimeInterval];
     [self.mqttClient setMaximumReconnectTime:self.mqttConfiguration.maximumReconnectTimeInterval];

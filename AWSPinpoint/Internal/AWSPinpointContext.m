@@ -129,6 +129,7 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
                 if ([self.keychain stringForKey:AWSPinpointContextKeychainUniqueIdKey]) {
                     AWSDDLogVerbose(@"Merged Pinpoint UniqueId to Keychain: %@", deviceUniqueId);
                     //Successful save to keychain, delete from UserDefaults
+                    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:AWSPinpointContextKeychainUniqueIdKey];
                     [[NSUserDefaults standardUserDefaults] removeObjectForKey:AWSPinpointContextKeychainUniqueIdKey];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                 }

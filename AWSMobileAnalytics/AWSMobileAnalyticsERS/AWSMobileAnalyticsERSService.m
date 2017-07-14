@@ -26,7 +26,7 @@
 #import "AWSMobileAnalyticsERSResources.h"
 
 static NSString *const AWSInfoMobileAnalyticsERS = @"MobileAnalyticsERS";
-static NSString *const AWSMobileAnalyticsERSSDKVersion = @"2.5.8";
+static NSString *const AWSMobileAnalyticsERSSDKVersion = @"2.5.9";
 
 
 @interface AWSMobileAnalyticsERSResponseSerializer : AWSJSONResponseSerializer
@@ -110,7 +110,7 @@ static NSDictionary *errorCodeDictionary = nil;
                 *error = [NSError errorWithDomain:AWSMobileAnalyticsERSErrorDomain
                                              code:AWSMobileAnalyticsERSErrorUnknown
                                          userInfo:responseObject];
-            }
+            } 
             return responseObject;
         }
         

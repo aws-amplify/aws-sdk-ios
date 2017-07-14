@@ -26,7 +26,7 @@
 #import "AWSPinpointAnalyticsResources.h"
 
 static NSString *const AWSInfoPinpointAnalytics = @"PinpointAnalytics";
-static NSString *const AWSPinpointAnalyticsSDKVersion = @"2.5.8";
+static NSString *const AWSPinpointAnalyticsSDKVersion = @"2.5.9";
 
 
 @interface AWSPinpointAnalyticsResponseSerializer : AWSJSONResponseSerializer
@@ -110,7 +110,7 @@ static NSDictionary *errorCodeDictionary = nil;
                 *error = [NSError errorWithDomain:AWSPinpointAnalyticsErrorDomain
                                              code:AWSPinpointAnalyticsErrorUnknown
                                          userInfo:responseObject];
-            }
+            } 
             return responseObject;
         }
         

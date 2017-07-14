@@ -215,7 +215,7 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     void (^updateConnectionStatus)(AWSIoTMQTTStatus) = ^(AWSIoTMQTTStatus status) {
         ++timesTriggered;
         currentStatus = status;
-
+        AWSDDLogInfo(@"status = %d", status);
         //timesTriggered is incremented before the following checks, so it's value should be at least 1.
 
         if (1 == timesTriggered) XCTAssertEqual(currentStatus, AWSIoTMQTTStatusConnecting);

@@ -27,7 +27,7 @@
 #import "AWSLambdaRequestRetryHandler.h"
 
 static NSString *const AWSInfoLambda = @"Lambda";
-static NSString *const AWSLambdaSDKVersion = @"2.5.8";
+static NSString *const AWSLambdaSDKVersion = @"2.5.9";
 
 
 @interface AWSLambdaResponseSerializer : AWSJSONResponseSerializer
@@ -128,7 +128,7 @@ static NSDictionary *errorCodeDictionary = nil;
                 *error = [NSError errorWithDomain:AWSLambdaErrorDomain
                                              code:AWSLambdaErrorUnknown
                                          userInfo:responseObject];
-            }
+            } 
             return responseObject;
         }
         

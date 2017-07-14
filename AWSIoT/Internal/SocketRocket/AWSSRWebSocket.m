@@ -328,8 +328,9 @@ static __strong NSData *CRLFCRLF;
     
     // Going to set a specific on the queue so we can validate we're on the work queue
     dispatch_queue_set_specific(_workQueue, (__bridge void *)self, maybe_bridge(_workQueue), NULL);
-    
-    _delegateDispatchQueue = dispatch_get_main_queue();
+
+    //Changing it to be dispatched on global queue. This triggers didReceiveMessage , which should be running in background thread.
+    _delegateDispatchQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
     sr_dispatch_retain(_delegateDispatchQueue);
     
     _readBuffer = [[NSMutableData alloc] init];
@@ -403,8 +404,10 @@ static __strong NSData *CRLFCRLF;
 - (void)_performDelegateBlock:(dispatch_block_t)block;
 {
     if (_delegateOperationQueue) {
+        SRFastLog(@"using _delegateOperationQueue.");
         [_delegateOperationQueue addOperationWithBlock:block];
     } else {
+        SRFastLog(@"using _delegateDispatchQueue.");
         assert(_delegateDispatchQueue);
         dispatch_async(_delegateDispatchQueue, block);
     }

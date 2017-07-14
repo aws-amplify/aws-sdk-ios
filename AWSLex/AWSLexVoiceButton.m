@@ -26,8 +26,6 @@ NSString *const AWSLexVoiceButtonErrorDomain = @"com.amazonaws.AWSLexVoiceButton
 NSString *const AWSLexVoiceButtonKey = @"AWSLexVoiceButton";
 
 static NSString *ProgressAnimationKey = @"progressanimation.rotation";
-static NSString *ResourceBundle = @"AWSResources";
-static NSString *BundleExtension = @"bundle";
 static NSString *MicrophoneImageKey = @"Microphone";
 static NSString *LexSpeakImageKey = @"LexSpeak";
 static NSString *VoiceButtonUserAgent = @"LexVoiceButton";
@@ -202,12 +200,9 @@ static NSString *BackgroundLayerStrokeColorUserInfoKey = @"backgroundLayer.strok
     if(self = [super initWithCoder:aDecoder]) {
         imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, SIZE, SIZE)];
         NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
-        NSURL *bundleUrl = [currentBundle URLForResource:ResourceBundle withExtension:BundleExtension];
-        
-        NSBundle *imageBundle = [NSBundle bundleWithURL:bundleUrl];
         
         // Use microphone image when the user speaks.
-        UIImage *temp = [UIImage imageNamed:MicrophoneImageKey inBundle:imageBundle compatibleWithTraitCollection:nil];
+        UIImage *temp = [UIImage imageNamed:MicrophoneImageKey inBundle:currentBundle compatibleWithTraitCollection:nil];
         self.microphoneImage =  [temp imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [self setButtonImage:self.microphoneImage imageTintColor:self.microphoneImageColor animated:NO];
         [imageButton addTarget:self action:@selector(startMonitoring:) forControlEvents:UIControlEventTouchDown];
@@ -215,7 +210,7 @@ static NSString *BackgroundLayerStrokeColorUserInfoKey = @"backgroundLayer.strok
         imageButton.imageView.tintColor = self.microphoneImageColor;
         
         // Use listen image when Lex speaks.
-        temp = [UIImage imageNamed:LexSpeakImageKey inBundle:imageBundle compatibleWithTraitCollection:nil];
+        temp = [UIImage imageNamed:LexSpeakImageKey inBundle:currentBundle compatibleWithTraitCollection:nil];
         self.listenImage =  [temp imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         
         lightGrey = [UIColor colorWithWhite:0 alpha:0.2];

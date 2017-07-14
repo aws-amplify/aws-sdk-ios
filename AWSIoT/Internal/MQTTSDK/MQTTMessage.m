@@ -25,6 +25,7 @@
                         password:(NSString*)password
                        keepAlive:(NSInteger)keepAlive
                     cleanSession:(BOOL)cleanSessionFlag {
+    AWSDDLogDebug(@"%s [Line %d], Thread:%@ ", __PRETTY_FUNCTION__, __LINE__, [NSThread currentThread]);
     MQTTMessage* msg;
     UInt8 flags = 0x00;
 
@@ -50,7 +51,7 @@
             [data appendMQTTString:password];
         }
     }
-    AWSDDLogInfo(@"%@",data);
+    AWSDDLogDebug(@"Creating MQTTMessage with raw data >>>>> %@ <<<<<",data);
     msg = [[MQTTMessage alloc] initWithType:MQTTConnect data:data];
     return msg;
 }
@@ -64,6 +65,7 @@
                          willMsg:(NSData*)willMsg
                          willQoS:(UInt8)willQoS
                       willRetain:(BOOL)willRetainFlag {
+    AWSDDLogDebug(@"%s [Line %d], Thread:%@ ", __PRETTY_FUNCTION__, __LINE__, [NSThread currentThread]);
     UInt8 flags = 0x00;
 
     if (cleanSessionFlag) {
@@ -101,7 +103,7 @@
             [data appendMQTTString:password];
         }
     }
-    AWSDDLogInfo(@"%@",data);
+    AWSDDLogDebug(@"Creating MQTTMessage with raw data >>>>> %@ <<<<<",data);
 
     MQTTMessage *msg = [[MQTTMessage alloc] initWithType:MQTTConnect
                                                     data:data];
@@ -139,6 +141,7 @@
 + (id)publishMessageWithData:(NSData*)payload
                      onTopic:(NSString*)topic
                   retainFlag:(BOOL)retain {
+    AWSDDLogVerbose(@"Publish message on topic: %@, retain flag: %@", topic, retain ? @"true":@"false");
     NSMutableData* data = [NSMutableData data];
     [data appendMQTTString:topic];
     [data appendData:payload];
@@ -156,6 +159,8 @@
                        msgId:(UInt16)msgId
                   retainFlag:(BOOL)retain
                      dupFlag:(BOOL)dup {
+    AWSDDLogVerbose(@"Publish message on topic: %@, qos: %d, mssgId: %d, retain flag: %@, dup flag: %@",
+                    topic, qosLevel, msgId, retain ? @"ture":@"false", dup ? @"ture":@"false");
     NSMutableData* data = [NSMutableData data];
     [data appendMQTTString:topic];
     [data appendUInt16BigEndian:msgId];

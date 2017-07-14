@@ -26,7 +26,7 @@ typedef __nullable id(^AWSPinpointTimeoutBlock)(AWSTask *task);
 /**
  The session object needs that the session client keeps track of, the session information is added to each event recorded.
  */
-@interface AWSPinpointSession : NSObject <NSCoding>
+@interface AWSPinpointSession : NSObject <NSCoding, NSCopying>
 
 /**
  The start timestamp is populated when the client start the session.
