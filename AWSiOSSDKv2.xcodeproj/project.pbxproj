@@ -8060,7 +8060,7 @@
 					};
 					CE9DE5781C6A763E0060793F = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0900;
 						TestTargetID = 181154751E201403008F184C;
 					};
 					CE9DE5AB1C6A77880060793F = {
@@ -8116,7 +8116,7 @@
 					};
 					CE9DE9C51C6A7C2E0060793F = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0900;
 						TestTargetID = 181154751E201403008F184C;
 					};
 					CE9DE9FC1C6A7DFF0060793F = {
@@ -8159,7 +8159,7 @@
 					};
 					CE9DEB261C6A81160060793F = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0900;
 						TestTargetID = 181154751E201403008F184C;
 					};
 					CE9DEB5F1C6A9F3D0060793F = {
