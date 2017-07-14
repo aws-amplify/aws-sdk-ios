@@ -547,12 +547,12 @@ typedef NS_ENUM(NSInteger, AWSLexSpeechEncoding) {
 /**
  Set it to handle successful audio play.
  */
-@property (nonatomic) void (^completionBlock)();
+@property (nonatomic) void (^completionBlock)(void);
 
 /**
  Set it to handle when audio has been prepared to play.
  */
-@property (nonatomic) void (^preparedBlock)();
+@property (nonatomic) void (^preparedBlock)(void);
 
 - (instancetype)initWithData:(NSData *)audioData;
 

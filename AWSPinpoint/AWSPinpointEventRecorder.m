@@ -600,7 +600,7 @@ NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey
 
 - (AWSTask *)submitEvents:(NSArray *)temporaryEvents
                        db:(AWSFMDatabase *) db
-                    error:(NSError**) error
+                    error:(NSError* __autoreleasing *) error
                  eventIDs:(NSArray *)eventIDs
                      stop:(BOOL *)stop {
     NSMutableArray *events = [NSMutableArray new];

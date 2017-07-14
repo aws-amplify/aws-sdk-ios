@@ -39,7 +39,7 @@ static NSString *const AWSInfoS3TransferUtility = @"S3TransferUtility";
 @property (strong, nonatomic) NSString *sessionIdentifier;
 @property (strong, nonatomic) NSString *temporaryDirectoryPath;
 @property (strong, nonatomic) AWSSynchronizedMutableDictionary *taskDictionary;
-@property (copy, nonatomic) void (^backgroundURLSessionCompletionHandler)();
+@property (copy, nonatomic) void (^backgroundURLSessionCompletionHandler)(void);
 
 @property (strong, nonatomic) NSMutableDictionary *responseData;
 @end
@@ -655,7 +655,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 
 + (void)interceptApplication:(UIApplication *)application
 handleEventsForBackgroundURLSession:(NSString *)identifier
-           completionHandler:(void (^)())completionHandler {
+           completionHandler:(void(^)(void))completionHandler {
     // For the default service client
     if ([identifier isEqualToString:_defaultS3TransferUtility.sessionIdentifier]) {
         _defaultS3TransferUtility.backgroundURLSessionCompletionHandler = completionHandler;

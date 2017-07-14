@@ -88,7 +88,7 @@
     _Pragma("clang diagnostic pop")
 
 /*** implementation details follow ***/
-typedef void (^awsmtl_cleanupBlock_t)();
+typedef void (^awsmtl_cleanupBlock_t)(void);
 
 void awsmtl_executeCleanupBlock (__strong awsmtl_cleanupBlock_t *block);
 

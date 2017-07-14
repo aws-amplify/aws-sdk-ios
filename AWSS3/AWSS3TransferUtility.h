@@ -265,7 +265,7 @@ typedef void (^AWSS3TransferUtilityProgressBlock) (AWSS3TransferUtilityTask *tas
  */
 + (void)interceptApplication:(UIApplication *)application
 handleEventsForBackgroundURLSession:(NSString *)identifier
-           completionHandler:(void (^)())completionHandler;
+           completionHandler:(void (^)(void))completionHandler;
 
 /**
  Saves the `NSData` to a temporary directory and uploads it to the specified Amazon S3 bucket.

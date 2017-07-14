@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-void awsmtl_loadMTLPredefinedTransformerAdditions();
+void awsmtl_loadMTLPredefinedTransformerAdditions(void);
 
 // The name for a value transformer that converts strings into URLs and back.
 extern NSString * const AWSMTLURLValueTransformerName;
