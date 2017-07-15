@@ -5,11 +5,11 @@
 ### Bug fixes
 
 * **Amazon Lex**
-  * Fixed bug where an application consuming `Lex` cannot be signed and distributed [Github Issue #704](https://github.com/aws/aws-sdk-ios/issues/704)
+  * Fixed bug where an application consuming `Lex` cannot be signed and distributed. [Github Issue #704](https://github.com/aws/aws-sdk-ios/issues/704). AWSResources folder is removed and the Media.xcassets folder is now present under AWSLex.framework in order to allow the application to be signed.
 
 * **Amazon Pinpoint**
-  * Fixed bug where saving a session cause a crash. [Github Issue #580] (https://github.com/aws/aws-sdk-ios/issues/580)
-  * Removed all calls that blocked the main thread [Github Issue #614] (https://github.com/aws/aws-sdk-ios/issues/614)
+  * Fixed bug where saving a session cause a crash. [Github Issue #580](https://github.com/aws/aws-sdk-ios/issues/580)
+  * Removed all calls that blocked the main thread. [Github Issue #614](https://github.com/aws/aws-sdk-ios/issues/614)
 
 * **AWS IoT**
   * Moved encoding and decoding MQTT packet into background thread
