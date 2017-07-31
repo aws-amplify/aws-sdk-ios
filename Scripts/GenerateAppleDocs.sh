@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.5.3"
+VERSION="2.5.9"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -51,11 +51,13 @@ else
     cp -r AWSSimpleDB ./docs_tmp/AWSSimpleDB
     cp -r AWSSNS ./docs_tmp/AWSSNS
     cp -r AWSSQS ./docs_tmp/AWSSQS
+    cp -r AWSCognitoAuth ./docs_tmp/AWSCognitoAuth
 	
     rm -rf ./docs_tmp/AWSCore/Bolts
     rm -rf ./docs_tmp/AWSCore/Fabric
     rm -rf ./docs_tmp/AWSCore/FMDB
     rm -rf ./docs_tmp/AWSCore/GZIP
+    rm -rf ./docs_tmp/AWSCore/Logging
     rm -rf ./docs_tmp/AWSCore/Mantle
     rm -rf ./docs_tmp/AWSCore/Reachability
     rm -rf ./docs_tmp/AWSCore/TMCache
@@ -65,6 +67,7 @@ else
     rm -rf ./docs_tmp/AWSCognito/Internal
     rm -rf ./docs_tmp/AWSCognito/Fabric
     rm -rf ./docs_tmp/AWSCognitoIdentityProvider/Internal
+    rm -rf ./docs_tmp/AWSCognitoAuth/Internal
     rm -rf ./docs_tmp/AWSMobileAnalytics/Internal
     rm -rf ./docs_tmp/AWSIoT/Internal
     rm -rf ./docs_tmp/AWSLex/Bluefront

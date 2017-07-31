@@ -89,6 +89,12 @@ NS_ASSUME_NONNULL_BEGIN
                             endpointId:(NSString*) endpointId;
 
 /**
+ An AWSPinpointEndpointProfile object with the specified context
+ @returns AWSPinpointEndpointProfile
+ */
+- (instancetype)initWithContext:(AWSPinpointContext *) context;
+
+/**
  Adds an attribute to this AWSPinpointEndpointProfile with the specified key. Only 40 attributes/metrics
  are allowed to be added to an AWSPinpointEndpointProfile. If 40 attributes/metrics already exist on this AWSPinpointEndpointProfile, the call is ignored.
  @param theValue The value of the attribute. The value will be truncated if it exceeds 200 characters.

@@ -33,7 +33,7 @@
         
         _serviceDefinitionJSON = JSONDefinition;
         if (_serviceDefinitionJSON == nil) {
-            AWSLogError(@"serviceDefinitionJSON is nil.");
+            AWSDDLogError(@"serviceDefinitionJSON is nil.");
             return nil;
         }
         _actionName = actionName;
@@ -78,7 +78,7 @@
         
         _serviceDefinitionJSON = JSONDefinition;
         if (_serviceDefinitionJSON == nil) {
-            AWSLogError(@"serviceDefinitionJSON is nil.");
+            AWSDDLogError(@"serviceDefinitionJSON is nil.");
             return nil;
         }
         _actionName = actionName;

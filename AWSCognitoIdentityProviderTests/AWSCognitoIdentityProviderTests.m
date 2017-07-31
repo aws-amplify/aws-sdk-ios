@@ -159,7 +159,6 @@ static int testsInFlight = 7; //for knowing when to tear down the user pool
             }
             return nil;
         }] waitUntilFinished];
-        [AWSLogger defaultLogger].logLevel = AWSLogLevelVerbose;
         AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
         AWSCognitoIdentityUserPoolConfiguration *iDPConfiguration = [[AWSCognitoIdentityUserPoolConfiguration alloc] initWithClientId:clientId  clientSecret:clientSecret poolId:poolId];
         

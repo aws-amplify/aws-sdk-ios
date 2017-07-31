@@ -26,8 +26,6 @@ NSString *const AWSLexVoiceButtonErrorDomain = @"com.amazonaws.AWSLexVoiceButton
 NSString *const AWSLexVoiceButtonKey = @"AWSLexVoiceButton";
 
 static NSString *ProgressAnimationKey = @"progressanimation.rotation";
-static NSString *ResourceBundle = @"AWSResources";
-static NSString *BundleExtension = @"bundle";
 static NSString *MicrophoneImageKey = @"Microphone";
 static NSString *LexSpeakImageKey = @"LexSpeak";
 static NSString *VoiceButtonUserAgent = @"LexVoiceButton";
@@ -81,6 +79,8 @@ static NSString *BackgroundLayerStrokeColorUserInfoKey = @"backgroundLayer.strok
 
 @property (nonatomic, strong, readwrite) NSString * _Nullable audioContentType;
 
+@property (nonatomic, strong, readwrite) NSString * _Nullable inputTranscript;
+
 - (instancetype) initWithOutputText:(NSString *)outputText
                              intent:(NSString * _Nullable)intent
                   sessionAttributes:(NSDictionary * _Nullable)sessionAttributes
@@ -88,7 +88,8 @@ static NSString *BackgroundLayerStrokeColorUserInfoKey = @"backgroundLayer.strok
                               slots:(NSDictionary * _Nullable)slots
                         dialogState:(AWSLexDialogState)dialogState
                         audioStream:(NSData * _Nullable)audioStream
-                   audioContentType:(NSString * _Nullable)audioContentType;
+                   audioContentType:(NSString * _Nullable)audioContentType
+                    inputTranscript:(NSString * _Nullable)inputTranscript;
 
 @end
 
@@ -101,7 +102,8 @@ static NSString *BackgroundLayerStrokeColorUserInfoKey = @"backgroundLayer.strok
                               slots:(NSDictionary * _Nullable)slots
                         dialogState:(AWSLexDialogState)dialogState
                         audioStream:(NSData * _Nullable)audioStream
-                   audioContentType:(NSString * _Nullable)audioContentType{
+                   audioContentType:(NSString * _Nullable)audioContentType
+                    inputTranscript:(NSString * _Nullable)inputTranscript{
     self = [super init];
     if(self) {
         _intent = intent;
@@ -112,6 +114,7 @@ static NSString *BackgroundLayerStrokeColorUserInfoKey = @"backgroundLayer.strok
         _dialogState = dialogState;
         _audioStream = [audioStream copy];
         _audioContentType = audioContentType;
+        _inputTranscript = inputTranscript;
     }
     return self;
 }
@@ -197,12 +200,9 @@ static NSString *BackgroundLayerStrokeColorUserInfoKey = @"backgroundLayer.strok
     if(self = [super initWithCoder:aDecoder]) {
         imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, SIZE, SIZE)];
         NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
-        NSURL *bundleUrl = [currentBundle URLForResource:ResourceBundle withExtension:BundleExtension];
-        
-        NSBundle *imageBundle = [NSBundle bundleWithURL:bundleUrl];
         
         // Use microphone image when the user speaks.
-        UIImage *temp = [UIImage imageNamed:MicrophoneImageKey inBundle:imageBundle compatibleWithTraitCollection:nil];
+        UIImage *temp = [UIImage imageNamed:MicrophoneImageKey inBundle:currentBundle compatibleWithTraitCollection:nil];
         self.microphoneImage =  [temp imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [self setButtonImage:self.microphoneImage imageTintColor:self.microphoneImageColor animated:NO];
         [imageButton addTarget:self action:@selector(startMonitoring:) forControlEvents:UIControlEventTouchDown];
@@ -210,7 +210,7 @@ static NSString *BackgroundLayerStrokeColorUserInfoKey = @"backgroundLayer.strok
         imageButton.imageView.tintColor = self.microphoneImageColor;
         
         // Use listen image when Lex speaks.
-        temp = [UIImage imageNamed:LexSpeakImageKey inBundle:imageBundle compatibleWithTraitCollection:nil];
+        temp = [UIImage imageNamed:LexSpeakImageKey inBundle:currentBundle compatibleWithTraitCollection:nil];
         self.listenImage =  [temp imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         
         lightGrey = [UIColor colorWithWhite:0 alpha:0.2];
@@ -498,7 +498,8 @@ static NSString *BackgroundLayerStrokeColorUserInfoKey = @"backgroundLayer.strok
                                                                                                   slots:switchModeInput.slots
                                                                                             dialogState:switchModeInput.dialogState
                                                                                             audioStream:switchModeInput.audioStream
-                                                                                       audioContentType:switchModeInput.audioContentType];
+                                                                                       audioContentType:switchModeInput.audioContentType
+                                                                                        inputTranscript:switchModeInput.inputTranscript];
             [self.delegate voiceButton:self onResponse:response];
         }
     });

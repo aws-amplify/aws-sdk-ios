@@ -75,18 +75,32 @@ FOUNDATION_EXPORT NSString *const AWSPinpointEventByteThresholdReachedNotificati
 - (AWSTask<AWSPinpointEvent *> *) saveEvent:(AWSPinpointEvent *) event;
 
 /**
- Retrieves events in local storage.
+ Retrieves events in local storage with a limit of 128 events.
  
  @return AWSTask - task.result contains an array of AWSPinpointEvent objects.
  */
 - (AWSTask<NSArray<AWSPinpointEvent *> *> *) getEvents;
 
 /**
- Retrieves dirty events in local storage.
+ Retrieves events in local storage with the specified limit.
+ 
+ @return AWSTask - task.result contains an array of AWSPinpointEvent objects.
+ */
+- (AWSTask<NSArray<AWSPinpointEvent *> *> *) getEventsWithLimit:(NSNumber *) limit;
+
+/**
+ Retrieves dirty events in local storage with a limit of 128 events.
  
  @return AWSTask - task.result contains an array of AWSPinpointEvent objects.
  */
 - (AWSTask<NSArray<AWSPinpointEvent *> *> *) getDirtyEvents;
+
+/**
+ Retrieves dirty events in local storage with the specified limit.
+ 
+ @return AWSTask - task.result contains an array of AWSPinpointEvent objects.
+ */
+- (AWSTask<NSArray<AWSPinpointEvent *> *> *) getDirtyEventsWithLimit:(NSNumber *) limit;
 
 /**
  Submits all locally saved events to Amazon Pinpoint. Events that are successfully sent will be deleted from the device. Events that fail due to the device being offline will stop the submission process and be kept. Events that fail due to other reasons (such as the event being invalid) will be marked dirty and moved to a dirty table.

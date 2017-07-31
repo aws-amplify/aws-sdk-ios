@@ -56,18 +56,18 @@ NSString *const AWSPinpointTargetingClientErrorDomain = @"com.amazonaws.AWSPinpo
 }
 
 - (AWSPinpointEndpointProfile *) currentEndpointProfile {
-    AWSPinpointEndpointProfile *endpointProfile = [[AWSPinpointEndpointProfile alloc] initWithApplicationId:self.context.configuration.appId
-                                                                                                 endpointId:self.context.uniqueId];
+    AWSPinpointEndpointProfile *endpointProfile = [[AWSPinpointEndpointProfile alloc] initWithContext: self.context];
+
     //Add attributes
     if (self.globalAttributes.count > 0) {
-        AWSLogVerbose(@"Applying Global Endpoint Attributes: %@", self.globalAttributes);
+        AWSDDLogVerbose(@"Applying Global Endpoint Attributes: %@", self.globalAttributes);
         for (NSString *key in [self.globalAttributes allKeys]) {
             [endpointProfile addAttribute:[self.globalAttributes objectForKey:key] forKey:key];
         }
     }
     
     if (self.globalMetrics.count > 0) {
-        AWSLogVerbose(@"Applying Global Endpoint Metrics: %@", self.globalMetrics);
+        AWSDDLogVerbose(@"Applying Global Endpoint Metrics: %@", self.globalMetrics);
         for (NSString *key in [self.globalMetrics allKeys]) {
             [endpointProfile addMetric:[self.globalMetrics objectForKey:key] forKey:key];
         }
@@ -81,14 +81,14 @@ NSString *const AWSPinpointTargetingClientErrorDomain = @"com.amazonaws.AWSPinpo
     
     //Add attributes
     if (self.globalAttributes.count > 0) {
-        AWSLogVerbose(@"Applying Global Endpoint Attributes: %@", self.globalAttributes);
+        AWSDDLogVerbose(@"Applying Global Endpoint Attributes: %@", self.globalAttributes);
         for (NSString *key in [self.globalAttributes allKeys]) {
             [endpointProfile addAttribute:[self.globalAttributes objectForKey:key] forKey:key];
         }
     }
     
     if (self.globalMetrics.count > 0) {
-        AWSLogVerbose(@"Applying Global Endpoint Metrics: %@", self.globalMetrics);
+        AWSDDLogVerbose(@"Applying Global Endpoint Metrics: %@", self.globalMetrics);
         for (NSString *key in [self.globalMetrics allKeys]) {
             [endpointProfile addMetric:[self.globalMetrics objectForKey:key] forKey:key];
         }
@@ -104,10 +104,10 @@ NSString *const AWSPinpointTargetingClientErrorDomain = @"com.amazonaws.AWSPinpo
 - (AWSTask *)executeUpdate:(AWSPinpointEndpointProfile *) endpointProfile {
     return [[self.context.targetingService updateEndpoint:[self updateEndpointRequestForEndpoint:endpointProfile]] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         if (task.error) {
-            AWSLogError(@"Unable to successfully update endpoint. Error Message:%@", task.error);
+            AWSDDLogError(@"Unable to successfully update endpoint. Error Message:%@", task.error);
             return task;
         } else {
-            AWSLogVerbose(@"Endpoint Updated Successfully! %@", task.result);
+            AWSDDLogVerbose(@"Endpoint Updated Successfully! %@", task.result);
             return task;
         }
     }];

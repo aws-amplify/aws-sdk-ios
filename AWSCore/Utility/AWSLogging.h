@@ -64,6 +64,7 @@ typedef NS_ENUM(NSInteger, AWSLogLevel) {
 
  @note We recommend setting the log level to `None` before publishing to the Apple App Store.
  */
+__attribute__((deprecated("use AWSDDLog instead")))
 @interface AWSLogger : NSObject
 
 /**

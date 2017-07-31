@@ -15,7 +15,7 @@
 //    Kyle Roche - initial API and implementation and/or initial documentation
 // 
 
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 #import "MQTTSession.h"
 #import "MQTTDecoder.h"
 #import "MQTTEncoder.h"
@@ -166,6 +166,7 @@
         willRetainFlag:(BOOL)willRetainFlag
                runLoop:(NSRunLoop*)theRunLoop
                forMode:(NSString*)theRunLoopMode {
+    AWSDDLogInfo(@"%s [Line %d], Thread:%@ ", __PRETTY_FUNCTION__, __LINE__, [NSThread currentThread]);
     MQTTMessage *msg = [MQTTMessage connectMessageWithClientId:theClientId
                                                       userName:theUserName
                                                       password:thePassword
@@ -303,6 +304,7 @@
 
 - (id)connectToInputStream:(NSInputStream *)readStream outputStream:(NSOutputStream *)writeStream;
 {
+    AWSDDLogInfo(@"Initializing MQTTEncoder and MQTTDecoder streams");
     status = MQTTSessionStatusCreated;
 
     encoder = [[MQTTEncoder alloc] initWithStream:writeStream
@@ -405,7 +407,7 @@
     NSError * error = nil;
     NSData * data = [NSJSONSerialization dataWithJSONObject:payload options:0 error:&error];
     if(error!=nil){
-        AWSLogError(@"Error creating JSON: %@",error.description);
+        AWSDDLogError(@"Error creating JSON: %@",error.description);
         return;
     }
     [self publishData:data onTopic:theTopic];
@@ -415,7 +417,7 @@
     idleTimer++;
     if (idleTimer >= keepAliveInterval) {
         if ([encoder status] == MQTTEncoderStatusReady) {
-            //AWSLogInfo(@"sending PINGREQ");
+            AWSDDLogVerbose(@"sending PINGREQ");
             [encoder encodeMessage:[MQTTMessage pingreqMessage]];
             idleTimer = 0;
         }
@@ -434,13 +436,14 @@
 }
 
 - (void)encoder:(MQTTEncoder*)sender handleEvent:(MQTTEncoderEvent) eventCode {
-   // AWSLogInfo(@"encoder:(MQTTEncoder*)sender handleEvent:(MQTTEncoderEvent) eventCode ");
+    AWSDDLogVerbose(@"%s [Line %d], eventCode: %d", __PRETTY_FUNCTION__, __LINE__, eventCode);
     if(sender == encoder) {
         switch (eventCode) {
             case MQTTEncoderEventReady:
+                AWSDDLogDebug(@"MQTTSessionStatus = %d", status);
                 switch (status) {
                     case MQTTSessionStatusCreated:
-                        //AWSLogInfo(@"Encoder has been created. Sending Auth Message");
+                        //AWSDDLogInfo(@"Encoder has been created. Sending Auth Message");
                         [sender encodeMessage:connectMessage];
                         status = MQTTSessionStatusConnecting;
                         break;
@@ -465,7 +468,7 @@
 }
 
 - (void)decoder:(MQTTDecoder*)sender handleEvent:(MQTTDecoderEvent)eventCode {
-    //AWSLogInfo(@"decoder:(MQTTDecoder*)sender handleEvent:(MQTTDecoderEvent)eventCode");
+    AWSDDLogVerbose(@"%s [Line %d] eventCode:%d", __PRETTY_FUNCTION__, __LINE__, eventCode);
     if(sender == decoder) {
         MQTTSessionEvent event;
         switch (eventCode) {
@@ -484,9 +487,8 @@
 }
 
 - (void)decoder:(MQTTDecoder*)sender newMessage:(MQTTMessage*)msg {
-    //AWSLogInfo(@"decoder:(MQTTDecoder*)sender newMessage:(MQTTMessage*)msg ");
+    AWSDDLogVerbose(@"%s [Line %d] ", __PRETTY_FUNCTION__, __LINE__);
     MQTTMessageType messageType = [msg type];
-    
     if(sender == decoder){
         switch (status) {
             case MQTTSessionStatusConnecting:
@@ -510,8 +512,12 @@
                                 }
                                 
                                 [_delegate session:self handleEvent:MQTTSessionEventConnected];
-                                
-                                [runLoop addTimer:timer forMode:runLoopMode];
+                                AWSDDLogInfo(@"Adding timer for runLoop, timer interval: %f minute", timer.timeInterval);
+                                //the runloop that we want to attach the timer to may not be the same runloop
+                                //when AWSIoTMQTTConfiguration was created, instead, it needs to be the current
+                                //runloop at the time when the timer is created. Hence, we explicitly add timer
+                                //to the currentRunLoop.
+                                [[NSRunLoop currentRunLoop] addTimer:timer forMode:runLoopMode];
                             }
                             else {
                                 [self error:MQTTSessionEventConnectionRefused];
@@ -533,6 +539,7 @@
 }
 
 - (void)newMessage:(MQTTMessage*)msg {
+    AWSDDLogInfo(@"MQTTSession- newMessage msg type is %d", [msg type]);
     switch ([msg type]) {
     case MQTTPublish:
         [self handlePublish:msg];
@@ -555,7 +562,7 @@
 }
 
 - (void)handlePublish:(MQTTMessage*)msg {
-    
+    AWSDDLogVerbose(@"%s [Line %d] ", __PRETTY_FUNCTION__, __LINE__);
     NSData *data = [msg data];
     if ([data length] < 2) {
         return;
@@ -694,7 +701,7 @@
 }
 
 - (void)error:(MQTTSessionEvent)eventCode {
-    
+    AWSDDLogError(@"MQTT session error, code: %d", eventCode);
     [encoder close];
     encoder = nil;
     
@@ -719,6 +726,7 @@
 }
 
 - (void)send:(MQTTMessage*)msg {
+    AWSDDLogVerbose(@"%s [Line %d] ", __PRETTY_FUNCTION__, __LINE__);
     if ([encoder status] == MQTTEncoderStatusReady) {
         [encoder encodeMessage:msg];
     }

@@ -16,34 +16,87 @@
 #import <XCTest/XCTest.h>
 #import "AWSTestUtility.h"
 #import "AWSPinpoint.h"
+#import "OCMock.h"
 
 NSString *const AWSPinpointTargetingClientErrorDomain = @"com.amazonaws.AWSPinpointAnalyticsClientErrorDomain";
 
 @interface AWSPinpointTargetingClientTests : XCTestCase
 @property (nonatomic, strong) AWSPinpoint *pinpoint;
-@property (nonatomic, strong) NSDictionary *credentialsJson;
+@property (nonatomic, strong) AWSPinpointConfiguration *configuration;
+@property (nonatomic, strong) UIApplication *application;
 
 @end
 
 @implementation AWSPinpointTargetingClientTests
 
-
 - (void)setUp {
     [super setUp];
-    [[AWSLogger defaultLogger] setLogLevel:AWSLogLevelVerbose];
 
     [AWSTestUtility setupCognitoCredentialsProvider];
-    
 
+    [self initializeMockApplicationWithOptOut:YES];
+    [self initializePinpointWithConfiguration:[self getDefaultAWSPinpointConfiguration] forceCreate:NO];
+}
+
+- (AWSPinpointConfiguration *)getDefaultAWSPinpointConfiguration {
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
                                                                           ofType:@"json"];
-    self.credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                     options:NSJSONReadingMutableContainers
                                                                       error:nil];
-    
-    AWSPinpointConfiguration *configuration = [[AWSPinpointConfiguration alloc] initWithAppId:self.credentialsJson[@"pinpointAppId"] launchOptions:@{}];
-    
+
+    return [[AWSPinpointConfiguration alloc] initWithAppId:credentialsJson[@"pinpointAppId"] launchOptions:@{}];
+}
+
+- (AWSPinpointConfiguration *)getAWSPinpointConfigurationWithOptOut:(BOOL)optOut {
+    AWSPinpointConfiguration *configuration = [self getDefaultAWSPinpointConfiguration];
+
+    [self setApplicationLevelOptOut:configuration withOptOut:optOut];
+
+    return configuration;
+}
+
+- (void)setApplicationLevelOptOut:(AWSPinpointConfiguration *)configuration withOptOut:(BOOL)optOut {
+    configuration.isApplicationLevelOptOut = ^BOOL{
+        return optOut;
+    };
+}
+
+- (void)setApplicationLevelOptOut:(BOOL)optOut {
+    [self initializePinpointWithConfiguration:[self getAWSPinpointConfigurationWithOptOut:optOut]];
+}
+
+- (void)initializePinpointWithConfiguration:(AWSPinpointConfiguration *)configuration forceCreate:(BOOL)forceCreate {
+    self.configuration = configuration;
+    // If the Pinpoint AppId exists already, pinpointWithConfiguration will not create a new instance of Pinpoint and ignore the configuration
+    // forceCreate generates a random AppId which allows us to create Pinpoint from configuration, even if it exists already.
+    if (forceCreate == YES) {
+        self.configuration.appId = [[NSUUID UUID] UUIDString];
+    }
     self.pinpoint = [AWSPinpoint pinpointWithConfiguration:configuration];
+}
+
+- (void)initializePinpointWithConfiguration:(AWSPinpointConfiguration *)configuration {
+    [self initializePinpointWithConfiguration:configuration forceCreate:YES];
+}
+
+- (void)initializeMockApplicationWithOptOut:(BOOL)optOut {
+    id mockApplication = OCMClassMock([UIApplication class]);
+
+    OCMStub([mockApplication sharedApplication]).andReturn(mockApplication);
+
+    [self setSystemLevelOptOut:mockApplication withOptOut:optOut];
+}
+
+- (void)setSystemLevelOptOut:(UIApplication *)application withOptOut:(BOOL)optOut {
+    UIUserNotificationType notificationType = optOut ? UIUserNotificationTypeNone : UIUserNotificationTypeAlert;
+    UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:notificationType categories:nil];
+    OCMStub([application currentUserNotificationSettings]).andReturn(notificationSettings);
+    OCMStub([application isRegisteredForRemoteNotifications]).andReturn(optOut == NO);
+}
+
+- (void)setSystemLevelOptOut:(BOOL)optOut {
+    [self initializeMockApplicationWithOptOut:optOut];
 }
 
 - (void)tearDown {
@@ -60,11 +113,63 @@ NSString *const AWSPinpointTargetingClientErrorDomain = @"com.amazonaws.AWSPinpo
     }
 }
 
+- (void)testCurrentProfileWithSystemOptOutAndApplicationOptOut {
+    [self setSystemLevelOptOut:YES];
+    [self setApplicationLevelOptOut:YES];
+
+    AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
+
+    XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
+}
+
+- (void)testCurrentProfileWithSystemOptOutAndApplicationOptIn {
+    [self setSystemLevelOptOut:YES];
+    [self setApplicationLevelOptOut:NO];
+
+    AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
+
+    XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
+}
+
+- (void)testCurrentProfileWithSystemOptOutAndApplicationOptOutUnset {
+    [self setSystemLevelOptOut:YES];
+
+    AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
+
+    XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
+}
+
+- (void)testCurrentProfileWithSystemOptInAndApplicationOptOut {
+    [self setSystemLevelOptOut:NO];
+    [self setApplicationLevelOptOut:YES];
+
+    AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
+
+    XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
+}
+
+- (void)testCurrentProfileWithSystemOptInAndApplicationOptIn {
+    [self setSystemLevelOptOut:NO];
+    [self setApplicationLevelOptOut:NO];
+
+    AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
+
+    XCTAssertTrue([profile.optOut isEqualToString:@"NONE"]);
+}
+
+- (void)testCurrentProfileWithSystemOptInAndApplicationOptOutUnset {
+    [self setSystemLevelOptOut:NO];
+
+    AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
+
+    XCTAssertTrue([profile.optOut isEqualToString:@"NONE"]);
+}
+
 - (void)testCurrentProfile {
     AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
     XCTAssertNotNil(profile);
     XCTAssertNotNil(profile.endpointId);
-    XCTAssertTrue([profile.applicationId isEqualToString:self.credentialsJson[@"pinpointAppId"]]);
+    XCTAssertTrue([profile.applicationId isEqualToString:self.configuration.appId]);
     XCTAssertTrue([profile.channelType isEqualToString:@"APNS"]);
     XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
     XCTAssertNil(profile.address);
@@ -111,7 +216,7 @@ NSString *const AWSPinpointTargetingClientErrorDomain = @"com.amazonaws.AWSPinpo
 
     XCTAssertNotNil(profile);
     XCTAssertNotNil(profile.endpointId);
-    XCTAssertTrue([profile.applicationId isEqualToString:self.credentialsJson[@"pinpointAppId"]]);
+    XCTAssertTrue([profile.applicationId isEqualToString:self.configuration.appId]);
     XCTAssertTrue([profile.channelType isEqualToString:@"APNS"]);
     XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
     XCTAssertNil(profile.address);
@@ -206,7 +311,7 @@ NSString *const AWSPinpointTargetingClientErrorDomain = @"com.amazonaws.AWSPinpo
     
     XCTAssertNotNil(profile);
     XCTAssertNotNil(profile.endpointId);
-    XCTAssertTrue([profile.applicationId isEqualToString:self.credentialsJson[@"pinpointAppId"]]);
+    XCTAssertTrue([profile.applicationId isEqualToString:self.configuration.appId]);
     XCTAssertTrue([profile.channelType isEqualToString:@"APNS"]);
     XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
     XCTAssertNil(profile.address);
@@ -301,7 +406,7 @@ NSString *const AWSPinpointTargetingClientErrorDomain = @"com.amazonaws.AWSPinpo
     
     XCTAssertNotNil(profile);
     XCTAssertNotNil(profile.endpointId);
-    XCTAssertTrue([profile.applicationId isEqualToString:self.credentialsJson[@"pinpointAppId"]]);
+    XCTAssertTrue([profile.applicationId isEqualToString:self.configuration.appId]);
     XCTAssertTrue([profile.channelType isEqualToString:@"APNS"]);
     XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
     XCTAssertNil(profile.address);

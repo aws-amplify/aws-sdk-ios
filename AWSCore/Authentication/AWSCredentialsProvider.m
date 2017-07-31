@@ -17,7 +17,7 @@
 #import "AWSCognitoIdentity.h"
 #import "AWSSTS.h"
 #import "AWSUICKeyChainStore.h"
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 #import "AWSBolts.h"
 
 NSString *const AWSCognitoCredentialsProviderErrorDomain = @"com.amazonaws.AWSCognitoCredentialsProviderErrorDomain";
@@ -271,7 +271,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 @property (nonatomic, strong) AWSCredentials *internalCredentials;
 @property (atomic, assign, getter=isRefreshingCredentials) BOOL refreshingCredentials;
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> *cachedLogins;
-@property (atomic, assign) BOOL hasClearedIdentityId;
 
 @end
 
@@ -449,7 +448,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         // When an invalid identityId is cached in the keychain for auth,
         // we will refresh the identityId and try to get credentials token again.
         if (task.error) {
-            AWSLogError(@"GetCredentialsForIdentity failed. Error is [%@]", task.error);
+            AWSDDLogError(@"GetCredentialsForIdentity failed. Error is [%@]", task.error);
 
             // If we should reset IdentityId, clears it and retries.
             // Otherwise, simply returns the error to the caller.
@@ -458,40 +457,40 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                 return task;
             }
 
-            if (self.hasClearedIdentityId) {
-                return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderErrorDomain
-                                                                  code:AWSCognitoCredentialsProviderInvalidConfiguration
-                                                              userInfo:@{NSLocalizedDescriptionKey : @"GetCredentialsForIdentity keeps failing. Clearing identityId did not help. Please check your Amazon Cognito Identity configuration."}]];
-            }
-
-            AWSLogDebug(@"Resetting identity Id and calling getIdentityId");
+            AWSDDLogDebug(@"Resetting identity Id and calling getIdentityId");
             // if it's auth, reset id and refetch
             self.identityId = nil;
             providerRef.identityId = nil;
-            self.hasClearedIdentityId = YES;
 
             return [[providerRef logins] continueWithSuccessBlock:^id _Nullable(AWSTask<NSDictionary<NSString *,NSString *> *> * _Nonnull task) {
                 NSDictionary<NSString *,NSString *> *logins = task.result;
 
                 // This should never happen, but just in case
                 if (!providerRef.identityId) {
-                    AWSLogError(@"In refresh, but identitId is nil.");
-                    AWSLogError(@"Result from getIdentityId is %@", task.result);
+                    AWSDDLogError(@"In refresh, but identitId is nil.");
+                    AWSDDLogError(@"Result from getIdentityId is %@", task.result);
                     return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderHelperErrorDomain
                                                                       code:AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil
                                                                   userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]];
                 }
                 self.identityId = providerRef.identityId;
 
-                AWSLogDebug(@"Retrying GetCredentialsForIdentity");
+                AWSDDLogDebug(@"Retrying GetCredentialsForIdentity");
 
                 // retry get credentials
                 AWSCognitoIdentityGetCredentialsForIdentityInput *getCredentialsRetry = [AWSCognitoIdentityGetCredentialsForIdentityInput new];
                 getCredentialsRetry.identityId = self.identityId;
                 getCredentialsRetry.logins = logins;
                 getCredentialsRetry.customRoleArn = customRoleArn;
-
-                return [self.cognitoIdentity getCredentialsForIdentity:getCredentialsRetry];
+                
+                return [[self.cognitoIdentity getCredentialsForIdentity:getCredentialsRetry] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityGetCredentialsForIdentityResponse *> * _Nonnull task) {
+                    if (task.error) {
+                        return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderErrorDomain
+                                                                          code:AWSCognitoCredentialsProviderInvalidConfiguration
+                                                                      userInfo:@{NSLocalizedDescriptionKey : @"GetCredentialsForIdentity keeps failing. Clearing identityId did not help. Please check your Amazon Cognito Identity configuration."}]];
+                    }
+                    return task;
+                }];
             }];
         }
         return task;
@@ -506,7 +505,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 
         // This should never happen, but just in case
         if (!identityIdFromResponse) {
-            AWSLogError(@"identityId from getCredentialsForIdentity is nil");
+            AWSDDLogError(@"identityId from getCredentialsForIdentity is nil");
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderHelperErrorDomain
                                                               code:AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil
                                                           userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
@@ -592,7 +591,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         }];
     }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
-            AWSLogError(@"Unable to refresh. Error is [%@]", task.error);
+            AWSDDLogError(@"Unable to refresh. Error is [%@]", task.error);
         }
         
         self.refreshingCredentials = NO;
@@ -617,8 +616,8 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 
         // This should never happen, but just in case
         if (!identityId) {
-            AWSLogError(@"In refresh, but identityId is nil.");
-            AWSLogError(@"Result from getIdentityId is %@", task.result);
+            AWSDDLogError(@"In refresh, but identityId is nil.");
+            AWSDDLogError(@"Result from getIdentityId is %@", task.result);
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderErrorDomain
                                                               code:AWSCognitoCredentialsProviderIdentityIdIsNil
                                                           userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]

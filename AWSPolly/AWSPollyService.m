@@ -26,7 +26,7 @@
 #import "AWSPollyResources.h"
 
 static NSString *const AWSInfoPolly = @"Polly";
-static NSString *const AWSPollySDKVersion = @"2.5.3";
+static NSString *const AWSPollySDKVersion = @"2.5.9";
 
 
 @interface AWSPollyResponseSerializer : AWSJSONResponseSerializer
@@ -46,9 +46,11 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidSsmlException" : @(AWSPollyErrorInvalidSsml),
                             @"LexiconNotFoundException" : @(AWSPollyErrorLexiconNotFound),
                             @"LexiconSizeExceededException" : @(AWSPollyErrorLexiconSizeExceeded),
+                            @"MarksNotSupportedForFormatException" : @(AWSPollyErrorMarksNotSupportedForFormat),
                             @"MaxLexemeLengthExceededException" : @(AWSPollyErrorMaxLexemeLengthExceeded),
                             @"MaxLexiconsNumberExceededException" : @(AWSPollyErrorMaxLexiconsNumberExceeded),
                             @"ServiceFailureException" : @(AWSPollyErrorServiceFailure),
+                            @"SsmlMarksNotSupportedForTextTypeException" : @(AWSPollyErrorSsmlMarksNotSupportedForTextType),
                             @"TextLengthExceededException" : @(AWSPollyErrorTextLengthExceeded),
                             @"UnsupportedPlsAlphabetException" : @(AWSPollyErrorUnsupportedPlsAlphabet),
                             @"UnsupportedPlsLanguageException" : @(AWSPollyErrorUnsupportedPlsLanguage),
@@ -105,7 +107,8 @@ static NSDictionary *errorCodeDictionary = nil;
                                                        error:error];
         }
     }
-	    return responseObject;
+	
+    return responseObject;
 }
 
 @end

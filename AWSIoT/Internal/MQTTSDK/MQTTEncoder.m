@@ -15,7 +15,7 @@
 //    Kyle Roche - initial API and implementation and/or initial documentation
 // 
 
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 #import "MQTTEncoder.h"
 
 @interface MQTTEncoder () {
@@ -42,15 +42,18 @@
 }
 
 - (void)open {
+    AWSDDLogDebug(@"opening encoder stream.");
     [stream setDelegate:self];
-    [stream scheduleInRunLoop:runLoop forMode:runLoopMode];
+    runLoop = [NSRunLoop currentRunLoop];
+    [stream scheduleInRunLoop:runLoop forMode:NSDefaultRunLoopMode];
     [stream open];
 }
 
 - (void)close {
+    AWSDDLogDebug(@"closing encoder stream.");
     [stream close];
     [stream setDelegate:nil];
-    [stream removeFromRunLoop:runLoop forMode:runLoopMode];
+    [stream removeFromRunLoop:runLoop forMode:NSDefaultRunLoopMode];
     stream = nil;
 }
 
@@ -65,10 +68,12 @@
 //
 //   assert(sender == stream);
 //
+    AWSDDLogVerbose(@"%s [Line %d] EventCode:%lu, Thread: %@", __PRETTY_FUNCTION__, __LINE__, (unsigned long)eventCode, [NSThread currentThread]);
     switch (eventCode) {
         case NSStreamEventOpenCompleted:
             break;
         case NSStreamEventHasSpaceAvailable:
+            AWSDDLogDebug(@"MQTTEncoderStatus = %d", _status);
             if (_status == MQTTEncoderStatusInitializing) {
                 _status = MQTTEncoderStatusReady;
                 [_delegate encoder:self handleEvent:MQTTEncoderEventReady];
@@ -106,17 +111,18 @@
             }
             break;
         default:
-            AWSLogDebug(@"Oops, event code not handled: 0x%02lx", (unsigned long)eventCode);
+            AWSDDLogDebug(@"Oops, event code not handled: 0x%02lx", (unsigned long)eventCode);
             break;
     }
 }
 
 - (void)encodeMessage:(MQTTMessage*)msg {
+    AWSDDLogVerbose(@"%s [Line %d], Thread:%@", __PRETTY_FUNCTION__, __LINE__, [NSThread currentThread]);
     UInt8 header;
     NSInteger n, length;
     
     if (_status != MQTTEncoderStatusReady) {
-        AWSLogInfo(@"Encoder not ready");
+        AWSDDLogInfo(@"Encoder not ready");
         return;
     }
     

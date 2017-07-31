@@ -89,9 +89,10 @@
     attacheInstancesQuery.autoScalingGroupName = @"invalidGroupName"; //invalid group name
 
     [[[autoScaling attachInstances:attacheInstancesQuery] continueWithBlock:^id(AWSTask *task) {
-        if (task.error == nil) {
-            XCTFail(@"Expect Error but got nil");
-        }
+        XCTAssertNotNil(task.error, @"Expected ValidationError error not found.");
+        XCTAssertEqual(task.error.code, 0);
+        XCTAssertTrue([@"ValidationError" isEqualToString:task.error.userInfo[@"Code"]]);
+        XCTAssertTrue([@"Instance ID(s) must be provided" isEqualToString:task.error.userInfo[@"Message"]]);
 
         return nil;
     }]waitUntilFinished];

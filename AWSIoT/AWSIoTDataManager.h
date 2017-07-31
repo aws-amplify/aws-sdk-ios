@@ -170,7 +170,7 @@ typedef void(^AWSIoTMQTTExtendedNewMessageBlock)(NSObject *mqttClient, NSString 
 
  @return The default service client.
  */
-+ (instancetype)defaultIoTDataManager;
++ (instancetype)defaultIoTDataManager __attribute__ ((deprecated("Use `registerIoTDataManagerWithConfiguration:forKey:` with the custom endpoint to initialize AWSIoTDataManager")));
 
 /**
  Creates a service client with the given service configuration and registers it for the key.

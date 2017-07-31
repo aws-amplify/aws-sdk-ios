@@ -61,6 +61,7 @@ typedef void(^AWSInitializationCompletionBlock)(AWSPinpoint * _Nonnull pinpoint)
  */
 @property (nonatomic, assign) BOOL enableTargeting;
 
+
 /**
  Indicates whether or not analytics session events are automatically recorded.
  Defaults to YES.
@@ -68,6 +69,16 @@ typedef void(^AWSInitializationCompletionBlock)(AWSPinpoint * _Nonnull pinpoint)
  @returns YES/NO indicating if event collection is enabled
  */
 @property (nonatomic, assign) BOOL enableAutoSessionRecording;
+
+/**
+ Optional block that indicates whether or not targeting client should set application level OptOut.
+ Use this block to configure whether or not client should receive push notifications at an application level.
+ If system level notifications for this application are disabled, the result of this block will be ignored.
+ Defaults to NULL.
+
+ @returns YES/NO indicating if application level OptOut is set
+ */
+@property (nonatomic, copy) BOOL (^isApplicationLevelOptOut)(void);
 
 /**
  A service configuration object to be used for Pinpoint Analytics.

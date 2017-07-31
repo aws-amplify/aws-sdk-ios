@@ -29,7 +29,6 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
 
 - (void)setUp {
     [super setUp];
-    [[AWSLogger defaultLogger] setLogLevel:AWSLogLevelVerbose];
 
     [AWSTestUtility setupCognitoCredentialsProvider];
     
@@ -181,8 +180,7 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
 }
 
 - (void) testSubmitEvents {
-    [[AWSLogger defaultLogger] setLogLevel:AWSLogLevelVerbose];
-
+    
     [[[self.pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNotNil(task.result);
         //Should be empty

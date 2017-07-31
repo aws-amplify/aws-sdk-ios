@@ -1,5 +1,104 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.5.9
+
+### Bug fixes
+
+* **Amazon Lex**
+  * Fixed bug where an application consuming `Lex` cannot be signed and distributed. [Github Issue #704](https://github.com/aws/aws-sdk-ios/issues/704). AWSResources folder is removed and the Media.xcassets folder is now present under AWSLex.framework in order to allow the application to be signed.
+
+* **Amazon Pinpoint**
+  * Fixed bug where saving a session cause a crash. [Github Issue #580](https://github.com/aws/aws-sdk-ios/issues/580)
+  * Removed all calls that blocked the main thread. [Github Issue #614](https://github.com/aws/aws-sdk-ios/issues/614)
+
+* **AWS IoT**
+  * Moved encoding and decoding MQTT packet into background thread
+  * Moved websocket delegate methods (webSocketDidOpen:, webSocket:didFailWithError:, webSocket:didReceiveMessage:, webSocket:didCloseWithCode: ) into background thread
+  * Fixed bug where app receives duplicate "Disconnected" callback when previously connected to AWS IoT via websocket
+  * Fixed bug where reconnect timer incorrectly triggered after user disconnects
+
+## 2.5.8
+
+### New Features
+* **Amazon Cognito Auth (Beta)**
+	* A new SDK that enables sign-up and sign-in for Amazon Cognito Your User Pools via a lightweight hosted ui.
+
+### Enhancements
+
+* **Amazon Pinpoint**
+	* Introduce `isApplicationLevelOptOut` block to `AWSPinpointConfiguration`. Use this to configure whether or not client should receive push notifications, at an application level.
+	
+### Bug fixes
+
+* **Amazon SNS**
+    * Fixed error parsing for service responses. **Note:** This change also fixes error response parsing for `AutoScaling`, `CloudWatch`, `ELB`, `SES`, `SimpleDB`, `SQS` and `STS`. [Github Issue #676](https://github.com/aws/aws-sdk-ios/issues/676) and [Github Issue #671](https://github.com/aws/aws-sdk-ios/issues/671)
+
+* **Amazon Cognito Identity Provider**
+	* Fixed crash with AWSCognitoIdentityUserPool.calculateSecretHash when username contained non ASCII characters. [Github Issue #679](https://github.com/aws/aws-sdk-ios/issues/679)
+
+### Misc changes
+
+* **AWS IoT**
+	* Deprecating default endpoint for AWSIoTDataService. Client should use custom endpoint when initializing AWSServiceConfiguration to be used for AWSIoTDataManager.
+
+## 2.5.7
+
+### Enhancements
+
+* **Amazon Polly**
+	* Added support for new voice id - `Vicki`.
+	
+### Bug fixes
+
+* **SDK Core**
+    * Fixed `LOG Macros` error. [Github Issue #664](https://github.com/aws/aws-sdk-ios/issues/664)
+    * Allow for future expired/unauthed token calls to properly refresh the aws token. [Github Issue #563](https://github.com/aws/aws-sdk-ios/pull/563/)
+* **AWS Lambda**
+    * Fixed clock skew retry handling bug. [Github Issue #673](https://github.com/aws/aws-sdk-ios/issues/673)
+    
+
+## 2.5.6
+
+### Enhancements
+
+* **AWS IoT**
+	* Updated AWS IoT to the latest API specifications.
+
+### Bug fixes
+* **Amazon S3**
+	* Fixed bug where file paths with spaces were not correctly handled and caused upload failures. [Github Issue #634](https://github.com/aws/aws-sdk-ios/issues/634)
+* **AWS IoT**
+    * Fixed bug where timer was not started on currentRunLoop.
+* **SDK Core**
+    * Remove definition of `LOG_LEVEL_DEF` for compatibility. [Github Issue #655](https://github.com/aws/aws-sdk-ios/issues/655)
+
+## 2.5.5
+
+### Bug fixes
+* **SDK Core**
+	* **Breaking API change** `doesAppRunInBackground` method is renamed to `awsDoesAppRunInBackground`. [GitHub Issue #643](https://github.com/aws/aws-sdk-ios/issues/643)
+
+* **AWS IoT**
+	* Fixed bug which caused crash when shadow timer timeout is called after shadow is unregistered. [Github Issue #640](https://github.com/aws/aws-sdk-ios/issues/640)
+
+## 2.5.4
+
+### New Features
+* **SDK Core**
+	* `AWSLogger` is now deprecated. Suggested to use `AWSDDLog` for logging; SDK now uses `CocoaLumberjack` for logging.
+
+### Enhancements
+* **Amazon Lex**
+	* Amazon Lex is now Generally Available.
+	* Added support for input transcripts.
+	
+* **Amazon Polly**
+	* Added support for requesting use of multiple Lexicons through `AWSPollySynthesizeSpeechURLBuilder`.
+	* Added support for speech marks.
+	
+* **Amazon Rekognition**
+	* Added support for moderation labels and age range estimation.
+
 ## 2.5.3
 ### New Features
 * **Amazon Cloud Watch Logs**

@@ -14,7 +14,7 @@
 //
 
 #import "AWSMobileAnalyticsSerializerFactory.h"
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 
 @interface AWSDefaultSerializer : NSObject<AWSMobileAnalyticsSerializer>
 - (NSData *) writeObject:(id) theObject;
@@ -27,7 +27,7 @@
 
 - (NSData *) writeObject:(id) theObject
 {
-    AWSLogWarn( @"Using the DefaultSerializer, only serializing the object's description to NSData");
+    AWSDDLogWarn( @"Using the DefaultSerializer, only serializing the object's description to NSData");
     if(theObject == nil)
         return nil;
     
@@ -36,7 +36,7 @@
 
 - (NSData *) writeArray:(NSArray *) theArray
 {
-    AWSLogWarn( @"Using the DefaultSerializer, only serializing the array's description to NSData");
+    AWSDDLogWarn( @"Using the DefaultSerializer, only serializing the array's description to NSData");
     if(theArray == nil)
         return nil;
     
@@ -45,12 +45,12 @@
 
 - (void) readObject:(NSData *) theData
 {
-    AWSLogWarn( @"Using the DefaultSerializer, do not know how to handle the data. Doing nothing");
+    AWSDDLogWarn( @"Using the DefaultSerializer, do not know how to handle the data. Doing nothing");
 }
 
 - (NSArray *) readArray:(NSData *) theData
 {
-    AWSLogWarn( @"Using the DefaultSerializer, do not know how to handle the data. Doing nothing");
+    AWSDDLogWarn( @"Using the DefaultSerializer, do not know how to handle the data. Doing nothing");
     return nil;
 }
 

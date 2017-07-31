@@ -12,12 +12,11 @@
 // express or implied. See the License for the specific language governing
 // permissions and limitations under the License.
 //
-
 #import "AWSCategory.h"
 #import <objc/runtime.h>
 #import <CommonCrypto/CommonCryptor.h>
 #import <CommonCrypto/CommonDigest.h>
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 #import "AWSGZIP.h"
 #import "AWSMantle.h"
 
@@ -615,12 +614,12 @@ static NSTimeInterval _clockskew = 0.0;
                                      resultingItemURL:nil error:&error];
                 if (NO == success) {
                     if (error) {
-                        AWSLogError(@"Failed to move backupItemURL directory(%@) to destinationURL(%@): %@" ,backupItemURL,destinationURL,error);
+                        AWSDDLogError(@"Failed to move backupItemURL directory(%@) to destinationURL(%@): %@" ,backupItemURL,destinationURL,error);
                     }
                     if ([self fileExistsAtPath:[destinationURL path]]) {
                         NSError *removeError = nil;
                         if (NO == [self removeItemAtURL:destinationURL error:&removeError]) {
-                            AWSLogError(@"Failed to remove destinationURL(%@): %@",destinationURL,removeError);
+                            AWSDDLogError(@"Failed to remove destinationURL(%@): %@",destinationURL,removeError);
                         }
                     }
                     
@@ -632,7 +631,7 @@ static NSTimeInterval _clockskew = 0.0;
     NSError *error;
     if (![self removeItemAtURL:tempDir error:&error])
     {
-        AWSLogError(@"Failed to remove temp(%@) directory after atomic copy: %@",tempDir,error);
+        AWSDDLogError(@"Failed to remove temp(%@) directory after atomic copy: %@",tempDir,error);
     }
     
     return result;

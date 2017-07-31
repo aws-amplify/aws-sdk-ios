@@ -14,6 +14,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AWSCocoaLumberjack.h"
 
 FOUNDATION_EXPORT NSString *const AWSTestUtilitySTSKey;
 FOUNDATION_EXPORT NSString *const AWSTestUtilityCognitoIdentityServiceKey;

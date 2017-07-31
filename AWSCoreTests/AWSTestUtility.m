@@ -38,12 +38,31 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
 
 @end
 
+@interface AWSDDLogCustomFormatter : NSObject<AWSDDLogFormatter>
+
+@end
+
+@implementation AWSDDLogCustomFormatter
+
+- (NSString *)formatLogMessage:(AWSDDLogMessage *)logMessage {
+    NSString *logLevel;
+    switch (logMessage->_flag) {
+        case AWSDDLogFlagError    : logLevel = @"E"; break;
+        case AWSDDLogFlagWarning  : logLevel = @"W"; break;
+        case AWSDDLogFlagInfo     : logLevel = @"I"; break;
+        case AWSDDLogFlagDebug    : logLevel = @"D"; break;
+        default                   : logLevel = @"V"; break;
+    }
+    
+    return [NSString stringWithFormat:@"%@ | %@", logLevel, logMessage->_message];
+}
+
+@end
+
 @implementation AWSTestUtility
 
 + (void)initialize {
     [super initialize];
-
-    [AWSLogger defaultLogger].logLevel = AWSLogLevelError;
 }
 
 + (void)setupCrdentialsViaFile {

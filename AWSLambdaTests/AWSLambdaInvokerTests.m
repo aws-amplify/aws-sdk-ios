@@ -33,6 +33,42 @@
     [super tearDown];
 }
 
+- (void)testClockSkewLambda {
+    [AWSTestUtility setupSwizzling];
+    
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    [AWSTestUtility setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
+    
+    AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
+    XCTAssertNotNil(lambdaInvoker);
+    
+    AWSLambdaInvokerInvocationRequest *invocationRequest = [AWSLambdaInvokerInvocationRequest new];
+    invocationRequest.functionName = @"helloWorldExample";
+    invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
+    invocationRequest.logType = AWSLambdaLogTypeTail;
+    invocationRequest.payload = @{@"key1" : @"value1",
+                                  @"key2" : @"value2",
+                                  @"key3" : @"value3",
+                                  @"isError" : @NO};
+    
+    [[[lambdaInvoker invoke:invocationRequest] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        XCTAssertTrue([task.result isKindOfClass:[AWSLambdaInvokerInvocationResponse class]]);
+        AWSLambdaInvokerInvocationResponse *invocationResponse = task.result;
+        XCTAssertTrue([invocationResponse.payload isKindOfClass:[NSDictionary class]]);
+        NSDictionary *result = invocationResponse.payload;
+        XCTAssertEqualObjects(result[@"key1"], @"value1");
+        XCTAssertEqualObjects(result[@"key2"], @"value2");
+        XCTAssertEqualObjects(result[@"key3"], @"value3");
+        XCTAssertNotNil(invocationResponse.logResult);
+        XCTAssertTrue([invocationResponse.logResult isKindOfClass:[NSString class]]);
+        return nil;
+    }] waitUntilFinished];
+    
+    [AWSTestUtility revertSwizzling];
+}
+
 - (void)testInvoke {
     AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
 

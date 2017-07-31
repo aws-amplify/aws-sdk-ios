@@ -15,7 +15,7 @@
 //    Kyle Roche - initial API and implementation and/or initial documentation
 // 
 
-#import "AWSLogging.h"
+#import "AWSCocoaLumberjack.h"
 #import "MQTTDecoder.h"
 
 @interface MQTTDecoder() {
@@ -45,19 +45,24 @@
 }
 
 - (void)open {
+    AWSDDLogDebug(@"opening decoder stream.");
     [stream setDelegate:self];
-    [stream scheduleInRunLoop:runLoop forMode:runLoopMode];
+    runLoop = [NSRunLoop currentRunLoop];
+    [stream scheduleInRunLoop:runLoop forMode:NSDefaultRunLoopMode];
     [stream open];
 }
 
 - (void)close {
+    AWSDDLogDebug(@"closing decoder stream.");
     [stream setDelegate:nil];
     [stream close];
-    [stream removeFromRunLoop:runLoop forMode:runLoopMode];
+    [stream removeFromRunLoop:runLoop forMode:NSDefaultRunLoopMode];
     stream = nil;
 }
 
 - (void)stream:(NSStream*)sender handleEvent:(NSStreamEvent)eventCode {
+    AWSDDLogVerbose(@"%s [Line %d] EventCode:%lu, stream: %@, Thread: %@", __PRETTY_FUNCTION__, __LINE__, (unsigned long)eventCode, sender, [NSThread currentThread]);
+
     if(stream == nil)
         return;
     switch (eventCode) {
@@ -135,7 +140,7 @@
                                                     dupFlag:isDuplicate
                                                        data:dataBuffer];
                     [_delegate decoder:self newMessage:msg];
-                    dataBuffer = NULL;
+                    dataBuffer = nil;
                     _status = MQTTDecoderStatusDecodingHeader;
                 }
             }
@@ -149,7 +154,7 @@
             [_delegate decoder:self handleEvent:MQTTDecoderEventConnectionError];
             break;
         default:
-            AWSLogDebug(@"unhandled event code");
+            AWSDDLogDebug(@"unhandled event code");
             break;
     }
 }

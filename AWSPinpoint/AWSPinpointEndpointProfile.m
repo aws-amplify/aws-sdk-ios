@@ -13,8 +13,10 @@
  permissions and limitations under the License.
  */
 
+#import <AWSCore/AWSCocoaLumberjack.h>
 #import "AWSPinpointEndpointProfile.h"
 #import "AWSPinpointContext.h"
+#import "AWSPinpointConfiguration.h"
 #import "AWSPinpointNotificationManager.h"
 #import "AWSPinpointStringUtils.h"
 #import "AWSPinpointDateUtils.h"
@@ -40,16 +42,12 @@ static int const MAX_ENDPOINT_ATTRIBUTE_VALUES = 50;
 NSString *CHANNEL_TYPE = @"APNS";
 
 - (instancetype) initWithApplicationId:(NSString*) applicationId
-                            endpointId:(NSString*) endpointId {
+                            endpointId:(NSString*) endpointId
+                applicationLevelOptOut:(BOOL) applicationLevelOptOut {
     if (self = [super init]) {
         //Remove spaces and brackets from token
         NSString *deviceTokenString = [[[[[NSUserDefaults standardUserDefaults] objectForKey:AWSDeviceTokenKey] description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
-        
-        BOOL optOut = ![[UIApplication sharedApplication] isRegisteredForRemoteNotifications];
-        if ([[UIApplication sharedApplication] currentUserNotificationSettings].types == UIUserNotificationTypeNone) {
-            optOut = YES;
-        }
-        
+
         _applicationId = applicationId;
         _endpointId = endpointId;
         _channelType  = CHANNEL_TYPE;
@@ -57,12 +55,41 @@ NSString *CHANNEL_TYPE = @"APNS";
         _location = [AWSPinpointEndpointProfileLocation new];
         _demographic = [AWSPinpointEndpointProfileDemographic defaultAWSPinpointEndpointProfileDemographic];
         _effectiveDate = [AWSPinpointDateUtils utcTimeMillisNow];
-        _optOut = (optOut)?@"ALL":@"NONE";
+        _optOut = (applicationLevelOptOut || [self isSystemLevelOptOut])?@"ALL":@"NONE";
         _attributes = [NSMutableDictionary dictionary];
         _metrics = [NSMutableDictionary dictionary];
         _user = [AWSPinpointEndpointProfileUser new];
     }
     return self;
+}
+
+- (instancetype)initWithApplicationId:(NSString*) applicationId
+                           endpointId:(NSString*) endpointId {
+    return [self initWithApplicationId: applicationId endpointId:endpointId applicationLevelOptOut:NO];
+}
+
+- (instancetype)initWithContext:(AWSPinpointContext *) context {
+    BOOL applicationLevelOptOut = [self isApplicationLevelOptOut:context];
+
+    return [self initWithApplicationId: context.configuration.appId endpointId:context.uniqueId applicationLevelOptOut:applicationLevelOptOut];
+}
+
+- (BOOL) isApplicationLevelOptOut:(AWSPinpointContext *) context {
+    if (context.configuration.isApplicationLevelOptOut != NULL && context.configuration.isApplicationLevelOptOut() == YES){
+        return YES;
+    }
+
+    return NO;
+}
+
+- (BOOL) isSystemLevelOptOut {
+    BOOL optOut = ![[UIApplication sharedApplication] isRegisteredForRemoteNotifications];
+
+    if ([[UIApplication sharedApplication] currentUserNotificationSettings].types == UIUserNotificationTypeNone) {
+        optOut = YES;
+    }
+
+    return optOut;
 }
 
 + (NSArray*) processAttributeValues:(NSArray*) values {
@@ -71,7 +98,7 @@ NSString *CHANNEL_TYPE = @"APNS";
     for (NSString *val in values) {
         [trimmedValues addObject:[AWSPinpointEndpointProfile trimValue:val]];
         if (++valuesCount >= MAX_ENDPOINT_ATTRIBUTE_VALUES) {
-            AWSLogWarn(@"Only %d attributes values are allowed, attribute values has been reduced to %d values.", MAX_ENDPOINT_ATTRIBUTE_VALUES, MAX_ENDPOINT_ATTRIBUTE_VALUES);
+            AWSDDLogWarn(@"Only %d attributes values are allowed, attribute values has been reduced to %d values.", MAX_ENDPOINT_ATTRIBUTE_VALUES, MAX_ENDPOINT_ATTRIBUTE_VALUES);
             break;
         }
     }
@@ -84,7 +111,7 @@ NSString *CHANNEL_TYPE = @"APNS";
                                                    toMaxChars:MAX_ENDPOINT_ATTRIBUTE_METRIC_KEY_LENGTH
                                             andAppendEllipses:NO];
     if(trimmedKey.length < theKey.length) {
-        AWSLogWarn(@"The %@ key has been trimmed to a length of %0d characters", theType, MAX_ENDPOINT_ATTRIBUTE_METRIC_KEY_LENGTH);
+        AWSDDLogWarn(@"The %@ key has been trimmed to a length of %0d characters", theType, MAX_ENDPOINT_ATTRIBUTE_METRIC_KEY_LENGTH);
     }
     
     return trimmedKey;
@@ -95,7 +122,7 @@ NSString *CHANNEL_TYPE = @"APNS";
                                                      toMaxChars:MAX_ENDPOINT_ATTRIBUTE_VALUE_LENGTH
                                               andAppendEllipses:NO];
     if(trimmedValue.length < theValue.length) {
-        AWSLogWarn( @"The attribute value has been trimmed to a length of %0d characters", MAX_ENDPOINT_ATTRIBUTE_VALUE_LENGTH);
+        AWSDDLogWarn( @"The attribute value has been trimmed to a length of %0d characters", MAX_ENDPOINT_ATTRIBUTE_VALUE_LENGTH);
     }
     
     return trimmedValue;
@@ -115,7 +142,7 @@ NSString *CHANNEL_TYPE = @"APNS";
                                    forKey:[AWSPinpointEndpointProfile trimKey:theKey
                                                                       forType:@"attribute"]];
             } else {
-                AWSLogWarn(@"Max number of attributes/metrics reached, dropping attribute with key: %@", theKey);
+                AWSDDLogWarn(@"Max number of attributes/metrics reached, dropping attribute with key: %@", theKey);
             }
         } else if ([self hasAttributeForKey:theKey]) {
             [self.attributes setValue:[AWSPinpointEndpointProfile processAttributeValues:theValue]
@@ -158,8 +185,7 @@ NSString *CHANNEL_TYPE = @"APNS";
                                                                    forType:@"metric"];
                 [self.metrics setValue:theValue forKey:trimmedKey];
             } else {
-                [[AWSLogger defaultLogger] log:AWSLogLevelWarn
-                                        format:@"Max number of attributes/metrics reached, dropping metric with key: %@", theKey];
+                AWSDDLogWarn(@"Max number of attributes/metrics reached, dropping metric with key: %@", theKey);
             }
         }
     }
