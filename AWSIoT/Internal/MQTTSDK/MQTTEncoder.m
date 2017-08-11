@@ -1,19 +1,17 @@
 //
-// MQTTEncoder.m
-// MQtt Client
-// 
-// Copyright (c) 2011, 2013, 2lemetry LLC
-// 
-// All rights reserved. This program and the accompanying materials
-// are made available under the terms of the Eclipse Public License v1.0
-// and Eclipse Distribution License v. 1.0 which accompanies this distribution.
-// The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v10.html
-// and the Eclipse Distribution License is available at
-// http://www.eclipse.org/org/documents/edl-v10.php.
-// 
-// Contributors:
-//    Kyle Roche - initial API and implementation and/or initial documentation
-// 
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License").
+// You may not use this file except in compliance with the License.
+// A copy of the License is located at
+//
+// http://aws.amazon.com/apache2.0
+//
+// or in the "license" file accompanying this file. This file is distributed
+// on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+// express or implied. See the License for the specific language governing
+// permissions and limitations under the License.
+//
 
 #import "AWSCocoaLumberjack.h"
 #import "MQTTEncoder.h"
@@ -25,6 +23,8 @@
     NSMutableData*  buffer;
     NSInteger       byteIndex;
 }
+
+@property (nonatomic, strong) dispatch_semaphore_t encodeSemaphore;
 
 @end
 
@@ -38,14 +38,14 @@
     [stream setDelegate:self];
     runLoop = aRunLoop;
     runLoopMode = aMode;
+    _encodeSemaphore = dispatch_semaphore_create(1);
     return self;
 }
 
 - (void)open {
     AWSDDLogDebug(@"opening encoder stream.");
     [stream setDelegate:self];
-    runLoop = [NSRunLoop currentRunLoop];
-    [stream scheduleInRunLoop:runLoop forMode:NSDefaultRunLoopMode];
+    [stream scheduleInRunLoop:runLoop forMode:runLoopMode];
     [stream open];
 }
 
@@ -53,7 +53,7 @@
     AWSDDLogDebug(@"closing encoder stream.");
     [stream close];
     [stream setDelegate:nil];
-    [stream removeFromRunLoop:runLoop forMode:NSDefaultRunLoopMode];
+    [stream removeFromRunLoop:runLoop forMode:runLoopMode];
     stream = nil;
 }
 
@@ -118,6 +118,11 @@
 
 - (void)encodeMessage:(MQTTMessage*)msg {
     AWSDDLogVerbose(@"%s [Line %d], Thread:%@", __PRETTY_FUNCTION__, __LINE__, [NSThread currentThread]);
+
+    //Adding a mutex to prevent buffer from being modified by multiple threads
+    AWSDDLogDebug(@"***** waiting on encodeSemaphore *****");
+    dispatch_semaphore_wait(self.encodeSemaphore, DISPATCH_TIME_FOREVER);
+    AWSDDLogDebug(@"***** passed encodeSempahore. *****");
     UInt8 header;
     NSInteger n, length;
     
@@ -172,6 +177,8 @@
         buffer = NULL;
         // XXX [delegate encoder:self handleEvent:MQTTEncoderEventReady];
     }
+    AWSDDLogDebug(@"***** signaling encodeSemaphore *****");
+    dispatch_semaphore_signal(self.encodeSemaphore);
 }
 
 @end

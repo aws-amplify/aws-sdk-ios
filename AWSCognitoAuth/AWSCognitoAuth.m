@@ -41,7 +41,7 @@ NSString *const AWSCognitoAuthErrorDomain = @"com.amazon.cognito.AWSCognitoAuthE
 
 @implementation AWSCognitoAuth
 
-static NSString *const AWSCognitoAuthSDKVersion = @"2.5.9";
+static NSString *const AWSCognitoAuthSDKVersion = @"2.5.10";
 
 
 static NSMutableDictionary *_instanceDictionary = nil;
@@ -181,7 +181,7 @@ static NSString *const AWSCognitoAuthUnknown = @"Unknown";
  Launch the sign in ui on the provided viewcontroller
  */
 - (void) launchSignInVC: (UIViewController *) vc {
-    NSString *url = [NSString stringWithFormat:@"%@/authorize?response_type=code&client_id=%@&state=%@&redirect_uri=%@&scope=%@&code_challenge=%@&code_challenge_method=S256",self.authConfiguration.webDomain, self.authConfiguration.appClientId, self.state,[self urlEncode:self.authConfiguration.signInRedirectUri], [self urlEncode:[self normalizeScopes]], self.proofKeyHash];
+    NSString *url = [NSString stringWithFormat:@"%@/oauth2/authorize?response_type=code&client_id=%@&state=%@&redirect_uri=%@&scope=%@&code_challenge=%@&code_challenge_method=S256",self.authConfiguration.webDomain, self.authConfiguration.appClientId, self.state,[self urlEncode:self.authConfiguration.signInRedirectUri], [self urlEncode:[self normalizeScopes]], self.proofKeyHash];
     self.svc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:url] entersReaderIfAvailable:NO];
     self.svc.delegate = self;
     self.svc.modalPresentationStyle = UIModalPresentationPopover;
@@ -233,13 +233,16 @@ static NSString *const AWSCognitoAuthUnknown = @"Unknown";
             }
             //else refresh it using the refresh token
             else if(refreshToken){
-                NSString *url = [NSString stringWithFormat:@"%@/token",self.authConfiguration.webDomain];
-                NSString *body = [NSString stringWithFormat:@"grant_type=refresh_token&client_id=%@&refresh_token=%@&redirect_uri=%@",self.authConfiguration.appClientId, refreshToken, self.authConfiguration.signInRedirectUri];
+                NSString *url = [NSString stringWithFormat:@"%@/oauth2/token",self.authConfiguration.webDomain];
+                NSString *body = [NSString stringWithFormat:@"grant_type=refresh_token&client_id=%@&refresh_token=%@",self.authConfiguration.appClientId, refreshToken];
                 NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
                 [self addHeaders:request];
                 request.HTTPMethod = @"POST";
                 request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
-                [[[NSURLConnection alloc] initWithRequest:request delegate:self] start];
+                NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
+                [connection scheduleInRunLoop:[NSRunLoop mainRunLoop]
+                                      forMode:NSDefaultRunLoopMode];
+                [connection start];
                 return;
             }
         }
@@ -456,30 +459,49 @@ static NSString *const AWSCognitoAuthUnknown = @"Unknown";
             [queryItemsDict setObject:queryItem.value forKey:queryItem.name];
         }
     }
-    if([[url absoluteString] hasPrefix:self.authConfiguration.signInRedirectUri] && queryItemsDict[@"state"] && queryItemsDict[@"code"]){
-        //if state doesn't match, abort
-        if(![self.state isEqualToString:queryItemsDict[@"state"]]){
-            [self completeGetSession:nil error:[self getError:@"State code did not match request" code: AWSCognitoAuthClientErrorSecurityFailed]];
-            return YES;
-        } else {
-            //continue with authorization code request
-            NSString * code = queryItemsDict[@"code"];
-            if(code){
-                NSString *url = [NSString stringWithFormat:@"%@/token",self.authConfiguration.webDomain];
-                NSString *body = [NSString stringWithFormat:@"grant_type=authorization_code&client_id=%@&code=%@&redirect_uri=%@&code_verifier=%@",
-                                  self.authConfiguration.appClientId, code, self.authConfiguration.signInRedirectUri, self.proofKey];
-                
-                NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-                request.HTTPMethod = @"POST";
-                request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
-                [self addHeaders:request];
-                [[[NSURLConnection alloc] initWithRequest:request delegate:self] start];
+    if([[url absoluteString] hasPrefix:self.authConfiguration.signInRedirectUri] && queryItemsDict[@"state"]) {
+        if(queryItemsDict[@"code"]){
+            //if state doesn't match, abort
+            if(![self.state isEqualToString:queryItemsDict[@"state"]]){
+                [self completeGetSession:nil error:[self getError:@"State code did not match request" code: AWSCognitoAuthClientErrorSecurityFailed]];
                 return YES;
+            } else {
+                //continue with authorization code request
+                NSString * code = queryItemsDict[@"code"];
+                if(code){
+                    NSString *url = [NSString stringWithFormat:@"%@/oauth2/token",self.authConfiguration.webDomain];
+                    NSString *body = [NSString stringWithFormat:@"grant_type=authorization_code&client_id=%@&code=%@&redirect_uri=%@&code_verifier=%@",
+                                      self.authConfiguration.appClientId, code, self.authConfiguration.signInRedirectUri, self.proofKey];
+                    
+                    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+                    request.HTTPMethod = @"POST";
+                    request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
+                    [self addHeaders:request];
+                    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
+                    [connection scheduleInRunLoop:[NSRunLoop mainRunLoop]
+                                          forMode:NSDefaultRunLoopMode];
+                    [connection start];
+                    return YES;
+                }
             }
+        }else if(queryItemsDict[@"error"]){
+            NSString *error = queryItemsDict[@"error"];
+            NSString *errorDescription = queryItemsDict[@"error_description"];
+            if(errorDescription){
+                error = [NSString stringWithFormat:@"%@: %@", error, errorDescription];
+            }
+            [self completeGetSession:nil error:[self getError:error code: AWSCognitoAuthClientErrorBadRequest]];
+            return YES;
         }
-    }else if([[url absoluteString] hasPrefix:self.authConfiguration.signOutRedirectUri]){
+    } else if([[url absoluteString] hasPrefix:self.authConfiguration.signOutRedirectUri]){
         if(queryItemsDict[@"error"]){
-            [self completeSignOut:[self getError:queryItemsDict[@"error"] code:AWSCognitoAuthClientErrorBadRequest]];
+            NSString *error = queryItemsDict[@"error"];
+            NSString *errorDescription = queryItemsDict[@"error_description"];
+            if(errorDescription){
+                error = [NSString stringWithFormat:@"%@: %@", error, errorDescription];
+            }
+            [self signOutLocallyAndClearLastKnownUser];
+            [self completeSignOut:[self getError:error code:AWSCognitoAuthClientErrorBadRequest]];
         }else{
             [self signOutLocallyAndClearLastKnownUser];
             [self completeSignOut:nil];
@@ -640,7 +662,7 @@ static NSString *const AWSCognitoAuthUnknown = @"Unknown";
 -(NSError *) getError:(NSString *) error code:(AWSCognitoAuthClientErrorType) code {
     NSMutableDictionary * errors = [NSMutableDictionary new];
     if(error){
-        [errors setObject:error forKey:@"error"];
+        [errors setObject:[error stringByReplacingOccurrencesOfString:@"+" withString:@" "]forKey:@"error"];
     }
     return [NSError errorWithDomain:AWSCognitoAuthErrorDomain code:code userInfo:errors];
 }
