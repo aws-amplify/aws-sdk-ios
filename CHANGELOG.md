@@ -5,20 +5,20 @@
 ### Enhancements
 
 * **Amazon Pinpoint**
- * Introduce 'didReceiveRemoteNotification:fetchCompletionHandler:shouldHandleNotificationDeepLink:' to 'AWSPinpointNotificationManager'. Introduces new parameter 'handleDeepLink', to optionally specify whether or not notification manager should attempt to open the remote notification deeplink, if present.
+  * Introduce 'didReceiveRemoteNotification:fetchCompletionHandler:shouldHandleNotificationDeepLink:' to 'AWSPinpointNotificationManager'. Introduces new parameter 'handleDeepLink', to optionally specify whether or not notification manager should attempt to open the remote notification deeplink, if present.
 
 * **Amazon Cognito Auth**
- * Amazon Cognito Auth is now Generally Available.
+  * Amazon Cognito Auth is now Generally Available.
  
 ### Bug fixes
 
 * **Amazon Cognito Auth**
- * Fix bug causing error messages not to be surfaced
- * Fix bug causing refresh tokens not to work in all scenarios
+  * Fix bug causing error messages not to be surfaced
+  * Fix bug causing refresh tokens not to work in all scenarios
 
 * **AWS IoT**
- * Fixed bug to improve stability of encoding and decoding MQTT packet thread.
- * Add mutex to synchronize the buffer used for encoding messages.
+  * Fixed bug to improve stability of encoding and decoding MQTT packet thread.
+  * Add mutex to synchronize the buffer used for encoding messages.
  
 ## 2.5.9
 
