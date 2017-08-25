@@ -267,6 +267,24 @@ typedef void (^AWSS3TransferUtilityProgressBlock) (AWSS3TransferUtilityTask *tas
 handleEventsForBackgroundURLSession:(NSString *)identifier
            completionHandler:(void (^)())completionHandler;
 
+
+/**
+ Saves the `NSData` to a temporary directory and uploads it to the configured Amazon S3 bucket in `AWSS3TransferUtilityConfiguration`.
+ 
+ @param data              The data to upload.
+ @param key               The Amazon S3 object key name.
+ @param contentType       `Content-Type` of the data.
+ @param expression        The container object to configure the upload request.
+ @param completionHandler The completion handler when the upload completes.
+ 
+ @return Returns an instance of `AWSTask`. On successful initialization, `task.result` contains an instance of `AWSS3TransferUtilityUploadTask`.
+ */
+- (AWSTask<AWSS3TransferUtilityUploadTask *> *)uploadData:(NSData *)data
+                                                      key:(NSString *)key
+                                              contentType:(NSString *)contentType
+                                               expression:(nullable AWSS3TransferUtilityUploadExpression *)expression
+                                        completionHandler:(nullable AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler;
+
 /**
  Saves the `NSData` to a temporary directory and uploads it to the specified Amazon S3 bucket.
 
@@ -281,6 +299,23 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
  */
 - (AWSTask<AWSS3TransferUtilityUploadTask *> *)uploadData:(NSData *)data
                                                    bucket:(NSString *)bucket
+                                                      key:(NSString *)key
+                                              contentType:(NSString *)contentType
+                                               expression:(nullable AWSS3TransferUtilityUploadExpression *)expression
+                                        completionHandler:(nullable AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler;
+
+/**
+ Uploads the file to the configured Amazon S3 bucket in `AWSS3TransferUtilityConfiguration`.
+ 
+ @param fileURL           The file URL of the file to upload.
+ @param key               The Amazon S3 object key name.
+ @param contentType       `Content-Type` of the file.
+ @param expression        The container object to configure the upload request.
+ @param completionHandler The completion handler when the upload completes.
+ 
+ @return Returns an instance of `AWSTask`. On successful initialization, `task.result` contains an instance of `AWSS3TransferUtilityUploadTask`.
+ */
+- (AWSTask<AWSS3TransferUtilityUploadTask *> *)uploadFile:(NSURL *)fileURL
                                                       key:(NSString *)key
                                               contentType:(NSString *)contentType
                                                expression:(nullable AWSS3TransferUtilityUploadExpression *)expression
@@ -305,6 +340,20 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
                                                expression:(nullable AWSS3TransferUtilityUploadExpression *)expression
                                         completionHandler:(nullable AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler;
 
+
+/**
+ Downloads the specified Amazon S3 object as `NSData` from the bucket configured in `AWSS3TransferUtilityConfiguration`.
+ 
+ @param key               The Amazon S3 object key name.
+ @param expression        The container object to configure the download request.
+ @param completionHandler The completion handler when the download completes.
+ 
+ @return Returns an instance of `AWSTask`. On successful initialization, `task.result` contains an instance of `AWSS3TransferUtilityDownloadTask`.
+ */
+- (AWSTask<AWSS3TransferUtilityDownloadTask *> *)downloadDataForKey:(NSString *)key
+                                                         expression:(nullable AWSS3TransferUtilityDownloadExpression *)expression
+                                                  completionHandler:(nullable AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler;
+
 /**
  Downloads the specified Amazon S3 object as `NSData`.
 
@@ -319,6 +368,21 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
                                                                     key:(NSString *)key
                                                              expression:(nullable AWSS3TransferUtilityDownloadExpression *)expression
                                                       completionHandler:(nullable AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler;
+
+/**
+ Downloads the specified Amazon S3 object to a file URL from the bucket configured in `AWSS3TransferUtilityConfiguration`.
+ 
+ @param fileURL           The file URL to download the object to.
+ @param key               The Amazon S3 object key name.
+ @param expression        The container object to configure the download request.
+ @param completionHandler The completion handler when the download completes.
+ 
+ @return Returns an instance of `AWSTask`. On successful initialization, `task.result` contains an instance of `AWSS3TransferUtilityDownloadTask`.
+ */
+- (AWSTask<AWSS3TransferUtilityDownloadTask *> *)downloadToURL:(NSURL *)fileURL
+                                                           key:(NSString *)key
+                                                    expression:(nullable AWSS3TransferUtilityDownloadExpression *)expression
+                                             completionHandler:(nullable AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler;
 
 /**
  Downloads the specified Amazon S3 object to a file URL.
@@ -378,6 +442,8 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 @interface AWSS3TransferUtilityConfiguration : NSObject <NSCopying>
 
 @property (nonatomic, assign, getter=isAccelerateModeEnabled) BOOL accelerateModeEnabled;
+
+@property (nonatomic, nullable, copy) NSString *bucket;
 
 @end
 

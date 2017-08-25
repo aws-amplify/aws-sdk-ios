@@ -38,11 +38,13 @@
 
 @interface AWSIoTMQTTClient() <AWSSRWebSocketDelegate, NSStreamDelegate, MQTTSessionDelegate>
 
+@property(atomic, assign, readwrite) AWSIoTMQTTStatus mqttStatus;
 @property(nonatomic, strong) MQTTSession* session;
 @property(nonatomic, strong) NSMutableDictionary * topicListeners;
 
 @property(nonatomic, assign) BOOL userDisconnect;
 @property(nonatomic, assign) BOOL needReconnect;
+
 @property(nonatomic, strong) NSString *host;
 @property(nonatomic, assign) UInt32 port;
 @property(nonatomic, assign) BOOL cleanSession;
@@ -86,14 +88,20 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
 + (instancetype)sharedInstance {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        AWSDDLogDebug(@"creating AwsIotMqttClient.");
         _defaultMQTTClient = [AWSIoTMQTTClient new];
+        if( _defaultMQTTClient == nil) {
+            AWSDDLogError(@"*****************************************");
+            AWSDDLogError(@"Fatal: could not create AWSIotMqttClient.");
+            AWSDDLogError(@"*****************************************");
+        }
+        assert(_defaultMQTTClient != nil);
     });
-
     return _defaultMQTTClient;
 }
 
 - (instancetype)init {
-    if ( self = [super init]) {
+    if (self = [super init]) {
         _topicListeners = [NSMutableDictionary dictionary];
         _queueMessages = [NSMutableArray new];
         _clientCerts = nil;
@@ -107,6 +115,7 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
         _maximumReconnectTime = 128;
         _postConnectTime = 0.5;
         _runloopSemaphore = dispatch_semaphore_create(0);
+        _autoResubscribe = YES;
     }
     return self;
 }
@@ -229,7 +238,7 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
         AWSDDLogError(@"Could not find SecIdentityRef");
         return NO;
     };
-
+    self.mqttStatus = AWSIoTMQTTStatusConnecting;
     self.clientCerts = [[NSArray alloc] initWithObjects:(__bridge id)identityRef, nil];
     self.host = host;
     self.port = port;
@@ -244,9 +253,7 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
 
     self.session= [[MQTTSession alloc] initWithClientId:clientId userName:@"" password:@"" keepAlive:theKeepAliveInterval cleanSession:cleanSession willTopic:willTopic willMsg:willMsg willQoS:willQoS willRetainFlag:willRetainFlag runLoop:theRunLoop forMode:theRunLoopMode];
 
-    if (self.connectStatusCallback != nil) {
-        self.connectStatusCallback(AWSIoTMQTTStatusConnecting);
-    }
+    [self notifyConnectionStatus];
 
     self.session.delegate = self;
 
@@ -334,6 +341,7 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
                              forMode:(NSString*)theRunLoopMode
                       statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
 {
+    self.mqttStatus = AWSIoTMQTTStatusConnecting;
     self.cleanSession = cleanSession;
     self.connectStatusCallback = callback;
     self.clientId = clientId;
@@ -355,13 +363,12 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
                                                  runLoop:theRunLoop
                                                  forMode:theRunLoopMode];
 
-    if (self.connectStatusCallback != nil) {
-        self.connectStatusCallback(AWSIoTMQTTStatusConnecting);
-    }
+    [self notifyConnectionStatus];
 
     self.session.delegate = self;
-
-    self.webSocket = [[AWSSRWebSocket alloc] initWithURLRequest:urlRequest protocols:[NSArray arrayWithObjects: @"mqttv3.1", nil] allowsUntrustedSSLCertificates:NO];
+    self.webSocket = [[AWSSRWebSocket alloc] initWithURLRequest:urlRequest
+                                                      protocols:@[@"mqttv3.1"]
+                                 allowsUntrustedSSLCertificates:NO];
     self.webSocket.delegate = self;
     [self.webSocket open];
 
@@ -388,6 +395,7 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
 
 - (void)reconnectToSession {
     AWSDDLogInfo(@"Trying to reconnect to session.");
+    self.mqttStatus = AWSIoTMQTTStatusConnecting;
     self.needReconnect = self.cleanSession;
     //
     // Clear the existing reconnect timer; also, double the reconnect time which will
@@ -451,12 +459,10 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
                 self.decoderStream = nil;
                 self.toDecoderStream = nil;
 
-                if (self.connectStatusCallback != nil) {
-                    self.connectStatusCallback(AWSIoTMQTTStatusConnecting);
-                }
+                [self notifyConnectionStatus];
 
                 self.webSocket = [[AWSSRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]
-                                                                  protocols:[NSArray arrayWithObjects: @"mqttv3.1", nil]
+                                                                  protocols:@[@"mqttv3.1"]
                                              allowsUntrustedSSLCertificates:NO];
                 self.webSocket.delegate = self;
                 [self.webSocket open];
@@ -484,9 +490,11 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
 - (void)resubscribeToTopics {
     self.needReconnect = NO;
     self.postConnectTimer = nil;
-
-    for (AWSIoTMQTTTopicModel *topic in self.topicListeners.allValues) {
-        [self.session subscribeToTopic:topic.topic atLevel:topic.qos];
+    if(self.autoResubscribe){
+        AWSDDLogInfo(@"Auto-resubscribe is enabled. Resubscribing to topics.");
+        for (AWSIoTMQTTTopicModel *topic in self.topicListeners.allValues) {
+            [self.session subscribeToTopic:topic.topic atLevel:topic.qos];
+        }
     }
 }
 
@@ -565,6 +573,7 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
 }
 
 - (void)unsubscribeTopic:(NSString*)topic {
+    AWSDDLogInfo(@"Unsubscribing from topic %@", topic);
     [self.session unsubscribeTopic:topic];
     [self.topicListeners removeObjectForKey:topic];
 }
@@ -593,6 +602,12 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
     }
 }
 
+- (void) notifyConnectionStatus {
+    if (self.connectStatusCallback != nil) {
+        self.connectStatusCallback(self.mqttStatus);
+    }
+}
+
 #pragma-mark MQTTSessionDelegate
 
 - (void)session:(MQTTSession*)session handleEvent:(MQTTSessionEvent)eventCode {
@@ -601,9 +616,8 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
     switch (eventCode) {
         case MQTTSessionEventConnected:
             AWSDDLogInfo(@"MQTT session connected.");
-            if (self.connectStatusCallback != nil) {
-                self.connectStatusCallback(AWSIoTMQTTStatusConnected);
-            }
+            self.mqttStatus = AWSIoTMQTTStatusConnected;
+            [self notifyConnectionStatus];
             self.connectionTimer = [NSTimer scheduledTimerWithTimeInterval:self.minimumConnectionTime target:self selector: @selector(markConnectionStable) userInfo: nil repeats:NO];
 
             if (self.needReconnect) {
@@ -615,9 +629,8 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
             break;
         case MQTTSessionEventConnectionRefused:
             AWSDDLogWarn(@"MQTT session refused.");
-            if (self.connectStatusCallback != nil) {
-                self.connectStatusCallback(AWSIoTMQTTStatusConnectionRefused);
-            }
+            self.mqttStatus = AWSIoTMQTTStatusConnectionRefused;
+            [self notifyConnectionStatus];
             break;
         case MQTTSessionEventConnectionClosed:
             AWSDDLogInfo(@"MQTT session closed.");
@@ -626,11 +639,10 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
                     self.reconnectTimer =[NSTimer scheduledTimerWithTimeInterval:self.currentReconnectTime target:self selector: @selector(reconnectToSession) userInfo:nil repeats:NO];
                 }
             } else {
+                self.mqttStatus = AWSIoTMQTTStatusDisconnected;
                 self.userDisconnect = NO;
-                if (self.connectStatusCallback != nil) {
-                    self.connectStatusCallback(AWSIoTMQTTStatusDisconnected);
-                    self.connectStatusCallback = nil;
-                }
+                [self notifyConnectionStatus];
+                self.connectStatusCallback = nil;
             }
             [self.postConnectTimer invalidate];
             [self.emptyQueueTimer invalidate];
@@ -638,9 +650,8 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
             break;
         case MQTTSessionEventConnectionError:
             AWSDDLogError(@"MQTT session connection error");
-            if (self.connectStatusCallback != nil) {
-                self.connectStatusCallback(AWSIoTMQTTStatusConnectionError);
-            }
+            self.mqttStatus = AWSIoTMQTTStatusConnectionError;
+            [self notifyConnectionStatus];
             if (!self.userDisconnect && self.session) {
                 if (self.reconnectTimer == nil) {
                     AWSDDLogDebug(@"setting up reconnectTimer.");
@@ -653,9 +664,8 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
             break;
         case MQTTSessionEventProtocolError:
             AWSDDLogError(@"MQTT session protocol error");
-            if (self.connectStatusCallback != nil) {
-                self.connectStatusCallback(AWSIoTMQTTStatusProtocolError);
-            }
+            self.mqttStatus = AWSIoTMQTTStatusProtocolError;
+            [self notifyConnectionStatus];
             [self.postConnectTimer invalidate];
             [self.emptyQueueTimer invalidate];
             [self.connectionTimer invalidate];
@@ -792,14 +802,12 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
 
     self.webSocket = nil;
     self.encoderStream = nil;
-
-    if (self.connectStatusCallback != nil) {
-        //
-        // Indicate an error to the connection status callback and start the
-        // retry logic.
-        //
-        self.connectStatusCallback(AWSIoTMQTTStatusConnectionError);
-    }
+    self.mqttStatus = AWSIoTMQTTStatusConnectionError;
+    //
+    // Indicate an error to the connection status callback and start the
+    // retry logic.
+    //
+    [self notifyConnectionStatus];
     if (!self.userDisconnect && self.session) {
         AWSDDLogWarn(@"Unexpected disconnect, need to reconnect. ");
         if (self.reconnectTimer == nil) {
@@ -839,13 +847,12 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
 
 - (void)webSocket:(AWSSRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;
 {
-    if (self.connectStatusCallback != nil) {
-        //
-        // Let the application know it has been disconnected.
-        //
-        self.connectStatusCallback(AWSIoTMQTTStatusDisconnected);
-        self.connectStatusCallback = nil;
-    }
+    self.mqttStatus = AWSIoTMQTTStatusDisconnected;
+    //
+    // Let the application know it has been disconnected.
+    //
+    [self notifyConnectionStatus];
+    self.connectStatusCallback = nil;
     //
     // The WebSocket is closed, and the MQTT client can be deleted at this point.
     // If there is reconnection logic it will re-try in a bit.

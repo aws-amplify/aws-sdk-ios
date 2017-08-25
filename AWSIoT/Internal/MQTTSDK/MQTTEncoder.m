@@ -120,9 +120,9 @@
     AWSDDLogVerbose(@"%s [Line %d], Thread:%@", __PRETTY_FUNCTION__, __LINE__, [NSThread currentThread]);
 
     //Adding a mutex to prevent buffer from being modified by multiple threads
-    AWSDDLogDebug(@"***** waiting on encodeSemaphore *****");
+    AWSDDLogVerbose(@"***** waiting on encodeSemaphore *****");
     dispatch_semaphore_wait(self.encodeSemaphore, DISPATCH_TIME_FOREVER);
-    AWSDDLogDebug(@"***** passed encodeSempahore. *****");
+    AWSDDLogVerbose(@"***** passed encodeSempahore. *****");
     UInt8 header;
     NSInteger n, length;
     
@@ -177,7 +177,7 @@
         buffer = NULL;
         // XXX [delegate encoder:self handleEvent:MQTTEncoderEventReady];
     }
-    AWSDDLogDebug(@"***** signaling encodeSemaphore *****");
+    AWSDDLogVerbose(@"***** signaling encodeSemaphore *****");
     dispatch_semaphore_signal(self.encodeSemaphore);
 }
 

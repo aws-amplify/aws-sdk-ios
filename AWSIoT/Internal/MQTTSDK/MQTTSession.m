@@ -186,7 +186,6 @@
         connectMessage:(MQTTMessage*)theConnectMessage
                runLoop:(NSRunLoop*)theRunLoop
                forMode:(NSString*)theRunLoopMode {
-    
     if (self = [super init]) {
         clientId = theClientId;
         keepAliveInterval = theKeepAliveInterval;
@@ -224,10 +223,10 @@
     [decoder close];
     encoder = nil;
     decoder = nil;
-     if (timer != nil) {
+    if (timer != nil) {
         [timer invalidate];
         timer = nil;
-        }
+    }
     [self error:MQTTSessionEventConnectionClosed];
 }
 

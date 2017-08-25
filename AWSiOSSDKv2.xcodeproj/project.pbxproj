@@ -2953,7 +2953,7 @@
 		CE9DE6311C6A78D70060793F /* AWSIoTResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSIoTResources.h; sourceTree = "<group>"; };
 		CE9DE6321C6A78D70060793F /* AWSIoTResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSIoTResources.m; sourceTree = "<group>"; };
 		CE9DE6331C6A78D70060793F /* AWSIoTService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSIoTService.h; sourceTree = "<group>"; };
-		CE9DE6341C6A78D70060793F /* AWSIoTService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSIoTService.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		CE9DE6341C6A78D70060793F /* AWSIoTService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSIoTService.m; sourceTree = "<group>"; };
 		CE9DE6361C6A78D70060793F /* AWSIoTCSR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSIoTCSR.h; sourceTree = "<group>"; };
 		CE9DE6371C6A78D70060793F /* AWSIoTCSR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSIoTCSR.m; sourceTree = "<group>"; };
 		CE9DE6381C6A78D70060793F /* AWSIoTKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSIoTKeychain.h; sourceTree = "<group>"; };

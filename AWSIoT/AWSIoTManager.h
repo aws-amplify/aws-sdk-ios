@@ -116,8 +116,6 @@
 
  @param configuration A service configuration object.
  @param key           A string to identify the service client.
- 
- @return The service client configured as requested
 
  */
 + (void)registerIoTManagerWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key;

@@ -21,16 +21,12 @@
 #import "AWSSynchronizedMutableDictionary.h"
 #import <CommonCrypto/CommonCrypto.h>
 
-@interface AWSEndpoint()
-- (void) setRegion:(AWSRegionType)regionType service:(AWSServiceType)serviceType;
-@end
-
 NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURLErrorDomain";
 
 static NSString *const AWSS3PreSignedURLBuilderAcceleratedEndpoint = @"s3-accelerate.amazonaws.com";
 
 static NSString *const AWSInfoS3PreSignedURLBuilder = @"S3PreSignedURLBuilder";
-static NSString *const AWSS3PreSignedURLBuilderSDKVersion = @"2.5.10";
+static NSString *const AWSS3PreSignedURLBuilderSDKVersion = @"2.6.0";
 
 @interface AWSS3PreSignedURLBuilder()
 
@@ -41,6 +37,12 @@ static NSString *const AWSS3PreSignedURLBuilderSDKVersion = @"2.5.10";
 @interface AWSServiceConfiguration()
 
 @property (nonatomic, strong) AWSEndpoint *endpoint;
+
+@end
+
+@interface AWSEndpoint()
+
+- (void) setRegion:(AWSRegionType)regionType service:(AWSServiceType)serviceType;
 
 @end
 
@@ -133,7 +135,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
                                                                   service:AWSServiceS3
                                                              useUnsafeURL:NO];
-        }else {
+        }else{
             [_configuration.endpoint setRegion:_configuration.regionType
                                        service:AWSServiceS3];
         }
