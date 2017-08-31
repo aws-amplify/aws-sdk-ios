@@ -5,28 +5,29 @@
 ### New features
 
 * **AWS Auth SDK**
- * Add new Auth SDK which provides login integration with Cognito User Pools, Facebook and Google.
+	* Added new SDK for configurable User SignIn Screen with Amazon Cognito UserPools, Facebook SignIn and Google SignIn.
+
 
 * **Core**
- * Add support for client configuration through `awsconfiguration.json`.
+	* Add support for client configuration through `awsconfiguration.json`.
 
 ## 2.6.0
 
 ### New feature
 
 * **AWS IoT**
- * Add API to enable/disable auto-resubscribe topics. Clients can now control whether they want SDK to automatically resubscribe to previously subscribed topics after abnormal network disconnection.
- * Add API to get current connection status to AWS IoT. Clients can now get the current connection status of the SDK.
- * Add update/documents topic supoort for shadow operation. Clients now may let SDK subscribe to update/documents topic for shadow operations, so that they can get messages published on update/documents topic by AWS IoT.
+	* Add API to enable/disable auto-resubscribe topics. Clients can now control whether they want SDK to automatically resubscribe to previously subscribed topics after abnormal network disconnection.
+	* Add API to get current connection status to AWS IoT. Clients can now get the current connection status of the SDK.
+	* Add update/documents topic supoort for shadow operation. Clients now may let SDK subscribe to update/documents topic for shadow operations, so that they can get messages published on update/documents topic by AWS IoT.
 
 ### Enhancements
 
 * **Amazon S3**
-  * Introduce new `bucket` property in `AWSS3TransferUtilityConfiguration` which can be used to set a default bucket. The `bucket` property will be used when the upload / download methods are called without using `bucket` parameter.
-  * Allow setting custom endpoint for `S3PresignedURLBuilder` client. [Github Issue: #709](https://github.com/aws/aws-sdk-ios/issues/709)
+	* Introduce new `bucket` property in `AWSS3TransferUtilityConfiguration` which can be used to set a default bucket. The `bucket` property will be used when the upload / download methods are called without using `bucket` parameter.
+	* Allow setting custom endpoint for `S3PresignedURLBuilder` client. [Github Issue: #709](https://github.com/aws/aws-sdk-ios/issues/709)
 
 * **AWS IoT**
- * **Breaking API change** Clients may need to customize all parameters in AWSIoTMqttConfiguration object when initializing it before connecting to AWS IoT.
+	* **Breaking API change** Clients may need to customize all parameters in AWSIoTMqttConfiguration object when initializing it before connecting to AWS IoT.
 
 ### Bug fixes
 
