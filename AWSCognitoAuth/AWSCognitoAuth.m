@@ -41,7 +41,7 @@ NSString *const AWSCognitoAuthErrorDomain = @"com.amazon.cognito.AWSCognitoAuthE
 
 @implementation AWSCognitoAuth
 
-static NSString *const AWSCognitoAuthSDKVersion = @"2.6.0";
+static NSString *const AWSCognitoAuthSDKVersion = @"2.6.1";
 
 
 static NSMutableDictionary *_instanceDictionary = nil;
@@ -54,12 +54,18 @@ static const NSString * AWSCognitoAuthUserRefreshToken = @"refreshToken";  //Con
 static const NSString * AWSCognitoAuthUserScopes = @"scopes";
 static const NSString * AWSCognitoAuthUserTokenExpiration = @"tokenExpiration";  //Consistent with AWSCognitoIdentityUserPool name
 static NSString * AWSCognitoAuthUserPoolCurrentUser = @"currentUser";  //Consistent with AWSCognitoIdentityUserPool name
-static NSString *const AWSCognitoAuthAppClientId = @"CognitoUserPoolAppClientId";  //Consistent with AWSCognitoIdentityUserPool name
-static NSString *const AWSCognitoAuthAppClientSecret = @"CognitoUserPoolAppClientSecret";  //Consistent with AWSCognitoIdentityUserPool name
-static NSString *const AWSCognitoAuthWebDomain = @"CognitoAuthWebDomain";
-static NSString *const AWSCognitoAuthScopes = @"CognitoAuthScopes";
-static NSString *const AWSCognitoAuthSignInRedirectUri = @"CognitoAuthSignInRedirectUri";
-static NSString *const AWSCognitoAuthSignOutRedirectUri = @"CognitoAuthSignOutRedirectUri";
+static NSString *const AWSCognitoAuthAppClientIdLegacy = @"CognitoUserPoolAppClientId";  //Consistent with AWSCognitoIdentityUserPool name
+static NSString *const AWSCognitoAuthAppClientSecretLegacy = @"CognitoUserPoolAppClientSecret";  //Consistent with AWSCognitoIdentityUserPool name
+static NSString *const AWSCognitoAuthAppClientId = @"AppClientId";  //Consistent with AWSCognitoIdentityUserPool name
+static NSString *const AWSCognitoAuthAppClientSecret = @"AppClientSecret";  //Consistent with AWSCognitoIdentityUserPool name
+static NSString *const AWSCognitoAuthWebDomainLegacy = @"CognitoAuthWebDomain";
+static NSString *const AWSCognitoAuthScopesLegacy = @"CognitoAuthScopes";
+static NSString *const AWSCognitoAuthSignInRedirectUriLegacy = @"CognitoAuthSignInRedirectUri";
+static NSString *const AWSCognitoAuthSignOutRedirectUriLegacy = @"CognitoAuthSignOutRedirectUri";
+static NSString *const AWSCognitoAuthWebDomain = @"WebDomain";
+static NSString *const AWSCognitoAuthScopes = @"Scopes";
+static NSString *const AWSCognitoAuthSignInRedirectUri = @"SignInRedirectUri";
+static NSString *const AWSCognitoAuthSignOutRedirectUri = @"SignOutRedirectUri";
 static NSString *const AWSCognitoAuthUnknown = @"Unknown";
 
 
@@ -71,12 +77,17 @@ static NSString *const AWSCognitoAuthUnknown = @"Unknown";
     dispatch_once(&onceToken, ^{
         //get config from Info.plist
         NSDictionary * infoDictionary = [[NSBundle mainBundle] infoDictionary][@"AWS"][AWSInfoCognitoAuth][@"Default"];
-        NSString *appClientId = infoDictionary[AWSCognitoAuthAppClientId];
-        NSString *appClientSecret = infoDictionary[AWSCognitoAuthAppClientSecret];
-        NSString *webDomain = infoDictionary[AWSCognitoAuthWebDomain];
-        NSSet<NSString *> *scopes = infoDictionary[AWSCognitoAuthScopes]!=nil?[NSSet setWithArray:infoDictionary[AWSCognitoAuthScopes]]:nil;
-        NSString *signInRedirectUri = infoDictionary[AWSCognitoAuthSignInRedirectUri];
-        NSString *signOutRedirectUri = infoDictionary[AWSCognitoAuthSignOutRedirectUri];
+        NSString *appClientId = infoDictionary[AWSCognitoAuthAppClientId] ?: infoDictionary[AWSCognitoAuthAppClientIdLegacy];
+        NSString *appClientSecret = infoDictionary[AWSCognitoAuthAppClientSecret] ?: infoDictionary[AWSCognitoAuthAppClientSecretLegacy];
+        NSString *webDomain = infoDictionary[AWSCognitoAuthWebDomain] ?: infoDictionary[AWSCognitoAuthWebDomainLegacy];
+        NSSet<NSString *> *scopesSet;
+        scopesSet = infoDictionary[AWSCognitoAuthScopes]!=nil?[NSSet setWithArray:infoDictionary[AWSCognitoAuthScopes]]:nil;
+        if (!scopesSet) {
+            scopesSet = infoDictionary[AWSCognitoAuthScopesLegacy]!=nil?[NSSet setWithArray:infoDictionary[AWSCognitoAuthScopesLegacy]]:nil;
+        }
+        NSSet<NSString *> *scopes = scopesSet;
+        NSString *signInRedirectUri = infoDictionary[AWSCognitoAuthSignInRedirectUri] ?: infoDictionary[AWSCognitoAuthSignInRedirectUriLegacy];
+        NSString *signOutRedirectUri = infoDictionary[AWSCognitoAuthSignOutRedirectUri] ?: infoDictionary[AWSCognitoAuthSignOutRedirectUriLegacy];
         
         if (appClientId && webDomain && scopes && signOutRedirectUri && signInRedirectUri) {
             AWSCognitoAuthConfiguration *authConfiguration = [[AWSCognitoAuthConfiguration alloc] initWithAppClientId:appClientId

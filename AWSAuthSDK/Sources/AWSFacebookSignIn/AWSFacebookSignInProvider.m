@@ -1,0 +1,226 @@
+//
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License").
+// You may not use this file except in compliance with the License.
+// A copy of the License is located at
+//
+// http://aws.amazon.com/apache2.0
+//
+// or in the "license" file accompanying this file. This file is distributed
+// on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+// express or implied. See the License for the specific language governing
+// permissions and limitations under the License.
+//
+
+#import <AWSAuthCore/AWSSignInManager.h>
+#import "AWSFacebookSignInProvider.h"
+#import "FBSDKCoreKit.h"
+#import "FBSDKLoginKit.h"
+
+static NSTimeInterval const AWSFacebookSignInProviderTokenRefreshBuffer = 10 * 60;
+
+typedef void (^AWSSignInManagerCompletionBlock)(id result, NSError *error);
+
+@interface AWSSignInManager()
+
+- (void)completeLogin;
+
+@end
+
+@interface AWSFacebookSignInProvider()
+
+@property (strong, nonatomic) id facebookLogin;
+
+@property (assign, nonatomic) FBSDKLoginBehavior savedLoginBehavior;
+@property (strong, nonatomic) NSArray *requestedPermissions;
+@property (strong, nonatomic) UIViewController *signInViewController;
+@property (atomic, copy) AWSSignInManagerCompletionBlock completionHandler;
+@property (strong, nonatomic) AWSTaskCompletionSource *taskCompletionSource;
+
+@end
+
+@implementation AWSFacebookSignInProvider
+
++ (instancetype)sharedInstance {
+    static AWSFacebookSignInProvider *_sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedInstance = [[AWSFacebookSignInProvider alloc] init];
+    });
+    
+    return _sharedInstance;
+}
+
+- (instancetype)init {
+    
+    if (self = [super init]) {
+        _requestedPermissions = nil;
+        _signInViewController = nil;
+        if (NSClassFromString(@"SFSafariViewController")) {
+            _savedLoginBehavior = FBSDKLoginBehaviorNative;
+        } else {
+            _savedLoginBehavior = FBSDKLoginBehaviorWeb;
+        }
+        return self;
+    }
+    return nil;
+}
+
+- (void) createFBSDKLoginManager {
+    self.facebookLogin = [[NSClassFromString(@"FBSDKLoginManager") alloc] init];
+    [self.facebookLogin setValue:@(self.savedLoginBehavior) forKey:@"loginBehavior"];
+}
+
+#pragma mark - Hub user interface
+
+- (void)setLoginBehavior:(NSUInteger)loginBehavior {
+    // FBSDKLoginBehavior enum values 0 thru 3
+    // FBSDK v4.13.1
+    if (loginBehavior > 3) {
+        [NSException raise:NSInvalidArgumentException
+                    format:@"%@", @"Failed to set Facebook login behavior with provided login behavior."];
+        return;
+    }
+    
+    if (self.facebookLogin) {
+        [self.facebookLogin setValue:@(loginBehavior) forKey:@"loginBehavior"];
+    } else {
+        self.savedLoginBehavior = loginBehavior;
+    }
+}
+
+- (void)setPermissions:(NSArray *)requestedPermissions {
+    self.requestedPermissions = requestedPermissions;
+}
+
+- (void)setViewControllerForFacebookSignIn:(UIViewController *)signInViewController {
+    self.signInViewController = signInViewController;
+}
+
+#pragma mark - AWSIdentityProvider
+
+- (NSString *)identityProviderName {
+    return AWSIdentityProviderFacebook;
+}
+
+- (AWSTask<NSString *> *)token {
+    Class fbSDKAccessToken = NSClassFromString(@"FBSDKAccessToken");
+    NSString *tokenString = [fbSDKAccessToken currentAccessToken].tokenString;
+    NSDate *idTokenExpirationDate = [fbSDKAccessToken currentAccessToken].expirationDate;
+    
+    if (tokenString
+        // If the cached token expires within 10 min, tries refreshing a token.
+        && [idTokenExpirationDate compare:[NSDate dateWithTimeIntervalSinceNow:AWSFacebookSignInProviderTokenRefreshBuffer]] == NSOrderedDescending) {
+        return [AWSTask taskWithResult:tokenString];
+    }
+    
+    _taskCompletionSource = [AWSTaskCompletionSource taskCompletionSource];
+    Class fbSDKLoginManager = NSClassFromString(@"FBSDKLoginManager");
+    [fbSDKLoginManager renewSystemCredentials:^(ACAccountCredentialRenewResult result, NSError *error) {
+        if (result == ACAccountCredentialRenewResultRenewed) {
+            
+            Class fbSDKAccessToken = NSClassFromString(@"FBSDKAccessToken");
+            if (fbSDKAccessToken) {
+                _taskCompletionSource.result = [fbSDKAccessToken currentAccessToken].tokenString;
+            } else {
+                AWSDDLogError(@"Error setting facebook token to result");
+            }
+        } else {
+            _taskCompletionSource.error = error;
+        }
+    }];
+    return _taskCompletionSource.task;
+}
+
+#pragma mark -
+
+- (BOOL)isLoggedIn {
+    Class fbSDKAccessToken = NSClassFromString(@"FBSDKAccessToken");
+    if (fbSDKAccessToken) {
+        return [fbSDKAccessToken currentAccessToken] != nil;
+    }
+    return NO;
+}
+
+- (void)reloadSession {
+    Class fbSDKAccessToken = NSClassFromString(@"FBSDKAccessToken");
+    if (fbSDKAccessToken) {
+        if([fbSDKAccessToken currentAccessToken]) {
+            [fbSDKAccessToken refreshCurrentAccessToken:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                if (error) {
+                    AWSDDLogError(@"'refreshCurrentAccessToken' failed: %@", error);
+                } else {
+                    [self completeLogin];
+                }
+            }];
+        }
+    }
+}
+
+- (void)completeLogin {
+    [[AWSSignInManager sharedInstance] completeLogin];
+}
+
+- (void)login:(AWSSignInManagerCompletionBlock) completionHandler {
+    self.completionHandler = completionHandler;
+    Class fbSDKAccessToken = NSClassFromString(@"FBSDKAccessToken");
+    if ([fbSDKAccessToken currentAccessToken]) {
+        [self completeLogin];
+        return;
+    }
+    
+    if (!self.facebookLogin)
+        [self createFBSDKLoginManager];
+    
+    [self.facebookLogin logInWithReadPermissions:self.requestedPermissions
+                              fromViewController:self.signInViewController
+                                         handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+
+                                             if (error) {
+                                                    self.completionHandler(result, error);
+                                             } else if (result.isCancelled) {
+                                                 // Login canceled, allow completionhandler to know about it
+                                                 NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+                                                 userInfo[@"message"] = @"User Cancelled Login";
+                                                 NSError *resultError = [NSError errorWithDomain:@"com.facebook.sdk.login" code:FBSDKLoginUnknownErrorCode userInfo:userInfo];
+                                                 self.completionHandler(result, resultError);
+                                             } else {
+                                                 [self completeLogin];
+                                             }
+                                         }];
+}
+
+- (void)logout {
+    [[[NSClassFromString(@"FBSDKLoginManager") alloc] init] logOut];
+}
+
+- (BOOL)interceptApplication:(UIApplication *)application
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    Class fbAppDelegateClass = NSClassFromString(@"FBSDKApplicationDelegate");
+    if (fbAppDelegateClass) {
+        AWSDDLogDebug(@"Calling didFinishLaunching");
+        return [[fbAppDelegateClass sharedInstance] application:application
+         didFinishLaunchingWithOptions:launchOptions];
+    }
+    
+    return NO;
+}
+
+- (BOOL)interceptApplication:(UIApplication *)application
+                     openURL:(NSURL *)url
+           sourceApplication:(NSString *)sourceApplication
+                  annotation:(id)annotation {
+    Class fbAppDelegateClass = NSClassFromString(@"FBSDKApplicationDelegate");
+    if (fbAppDelegateClass) {
+        if([[fbAppDelegateClass sharedInstance] application:application
+                                                 openURL:url
+                                       sourceApplication:sourceApplication
+                                                 annotation:annotation]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+@end

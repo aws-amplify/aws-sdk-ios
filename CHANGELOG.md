@@ -1,13 +1,23 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.1
+
+### New features
+
+* **AWS Auth SDK**
+ * Add new Auth SDK which provides login integration with Cognito User Pools, Facebook and Google.
+
+* **Core**
+ * Add support for client configuration through `awsconfiguration.json`.
+
 ## 2.6.0
 
 ### New feature
 
 * **AWS IoT**
-  * Add API to enable/disable auto-resubscribe topics. Clients can now control whether they want SDK to automatically resubscribe to previously subscribed topics after abnormal network disconnection.
-  * Add API to get current connection status to AWS IoT. Clients can now get the current connection status of the SDK.
-  * Add update/documents topic supoort for shadow operation. Clients now may let SDK subscribe to update/documents topic for shadow operations, so that they can get messages published on update/documents topic by AWS IoT.
+ * Add API to enable/disable auto-resubscribe topics. Clients can now control whether they want SDK to automatically resubscribe to previously subscribed topics after abnormal network disconnection.
+ * Add API to get current connection status to AWS IoT. Clients can now get the current connection status of the SDK.
+ * Add update/documents topic supoort for shadow operation. Clients now may let SDK subscribe to update/documents topic for shadow operations, so that they can get messages published on update/documents topic by AWS IoT.
 
 ### Enhancements
 
@@ -16,7 +26,7 @@
   * Allow setting custom endpoint for `S3PresignedURLBuilder` client. [Github Issue: #709](https://github.com/aws/aws-sdk-ios/issues/709)
 
 * **AWS IoT**
-  * **Breaking API change** Clients may need to customize all parameters in AWSIoTMqttConfiguration object when initializing it before connecting to AWS IoT.
+ * **Breaking API change** Clients may need to customize all parameters in AWSIoTMqttConfiguration object when initializing it before connecting to AWS IoT.
 
 ### Bug fixes
 
@@ -35,20 +45,20 @@
 ### Enhancements
 
 * **Amazon Pinpoint**
-  * Introduce 'didReceiveRemoteNotification:fetchCompletionHandler:shouldHandleNotificationDeepLink:' to 'AWSPinpointNotificationManager'. Introduces new parameter 'handleDeepLink', to optionally specify whether or not notification manager should attempt to open the remote notification deeplink, if present.
+ * Introduce 'didReceiveRemoteNotification:fetchCompletionHandler:shouldHandleNotificationDeepLink:' to 'AWSPinpointNotificationManager'. Introduces new parameter 'handleDeepLink', to optionally specify whether or not notification manager should attempt to open the remote notification deeplink, if present.
 
 * **Amazon Cognito Auth**
-  * Amazon Cognito Auth is now Generally Available.
+ * Amazon Cognito Auth is now Generally Available.
  
 ### Bug fixes
 
 * **Amazon Cognito Auth**
-  * Fix bug causing error messages not to be surfaced
-  * Fix bug causing refresh tokens not to work in all scenarios
+ * Fix bug causing error messages not to be surfaced
+ * Fix bug causing refresh tokens not to work in all scenarios
 
 * **AWS IoT**
-  * Fixed bug to improve stability of encoding and decoding MQTT packet thread.
-  * Add mutex to synchronize the buffer used for encoding messages.
+ * Fixed bug to improve stability of encoding and decoding MQTT packet thread.
+ * Add mutex to synchronize the buffer used for encoding messages.
  
 ## 2.5.9
 
