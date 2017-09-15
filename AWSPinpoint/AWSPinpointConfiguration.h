@@ -61,6 +61,7 @@ typedef void(^AWSInitializationCompletionBlock)(AWSPinpoint * _Nonnull pinpoint)
  */
 @property (nonatomic, assign) BOOL enableTargeting;
 
+
 /**
  Indicates whether or not analytics session events are automatically recorded.
  Defaults to YES.

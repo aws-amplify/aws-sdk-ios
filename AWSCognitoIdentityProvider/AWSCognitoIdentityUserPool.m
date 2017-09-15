@@ -43,9 +43,12 @@ static const NSString * AWSCognitoIdentityUserPoolCurrentUser = @"currentUser";
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 static NSString *const AWSInfoCognitoUserPool = @"CognitoUserPool";
-static NSString *const AWSCognitoUserPoolId = @"CognitoUserPoolId";
-static NSString *const AWSCognitoUserPoolAppClientId = @"CognitoUserPoolAppClientId";
-static NSString *const AWSCognitoUserPoolAppClientSecret = @"CognitoUserPoolAppClientSecret";
+static NSString *const AWSCognitoUserPoolIdLegacy = @"CognitoUserPoolId";
+static NSString *const AWSCognitoUserPoolAppClientIdLegacy = @"CognitoUserPoolAppClientId";
+static NSString *const AWSCognitoUserPoolAppClientSecretLegacy = @"CognitoUserPoolAppClientSecret";
+static NSString *const AWSCognitoUserPoolId = @"PoolId";
+static NSString *const AWSCognitoUserPoolAppClientId = @"AppClientId";
+static NSString *const AWSCognitoUserPoolAppClientSecret = @"AppClientSecret";
 
 + (void)loadCategories {
     static dispatch_once_t onceToken;
@@ -66,9 +69,9 @@ static NSString *const AWSCognitoUserPoolAppClientSecret = @"CognitoUserPoolAppC
                                                                credentialsProvider:nil];
         }
         
-        NSString *poolId = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolId];
-        NSString *clientId = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolAppClientId];
-        NSString *clientSecret = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolAppClientSecret];
+        NSString *poolId = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolId] ?: [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolIdLegacy];
+        NSString *clientId = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolAppClientId] ?: [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolAppClientIdLegacy];
+        NSString *clientSecret = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolAppClientSecret] ?: [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolAppClientSecretLegacy];
         
         if (poolId && clientId && clientSecret) {
             AWSCognitoIdentityUserPoolConfiguration *configuration = [[AWSCognitoIdentityUserPoolConfiguration alloc] initWithClientId:clientId
