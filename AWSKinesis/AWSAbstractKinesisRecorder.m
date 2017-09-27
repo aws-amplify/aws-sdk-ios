@@ -128,6 +128,12 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
 
 - (AWSTask *)saveRecord:(NSData *)data
              streamName:(NSString *)streamName {
+    return [self saveRecord:data streamName:streamName partitionKey:[[NSUUID UUID] UUIDString]];
+}
+
+- (AWSTask *)saveRecord:(NSData *)data
+             streamName:(NSString *)streamName
+           partitionKey:(NSString *)partitionKey {
     // Returns error if the total size of data and partition key exceeds 256KB.
     if ([data length] > 256 * 1024) {
         return [AWSTask taskWithError:[self.recorderHelper dataTooLargeError]];
@@ -151,7 +157,7 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                            @":partition_key, :stream_name, :data, :timestamp, :retry_count"
                            @")"
                     withParameterDictionary:@{
-                                              @"partition_key" : [[NSUUID UUID] UUIDString],
+                                              @"partition_key" : partitionKey,
                                               @"stream_name" : streamName,
                                               @"data" : data,
                                               @"timestamp" : @([[NSDate date] timeIntervalSince1970]),

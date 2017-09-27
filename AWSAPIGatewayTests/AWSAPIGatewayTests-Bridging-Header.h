@@ -14,4 +14,4 @@
 //
 
 #import "AWSTestUtility.h"
-#import "AWSLambdaMicroServiceClient.h"
+#import "AWSLambdaMicroserviceClient.h"

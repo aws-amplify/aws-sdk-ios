@@ -14,7 +14,7 @@
 //
 
 #import "AmazonInsightsSDKTests.h"
-#import <objc/objc-class.h>
+#import <objc/objc.h>
 #import "AWSMockFileManager.h"
 #define methodSwizzle(class, original, swizzle) (method_exchangeImplementations(\
 class_getInstanceMethod(class, original), class_getInstanceMethod(class, swizzle)))

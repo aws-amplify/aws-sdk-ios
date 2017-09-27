@@ -40,22 +40,24 @@ static int const MAX_ENDPOINT_ATTRIBUTE_VALUES = 50;
 @implementation AWSPinpointEndpointProfile
 
 NSString *CHANNEL_TYPE = @"APNS";
+NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
 
 - (instancetype) initWithApplicationId:(NSString*) applicationId
                             endpointId:(NSString*) endpointId
-                applicationLevelOptOut:(BOOL) applicationLevelOptOut {
+                applicationLevelOptOut:(BOOL) applicationLevelOptOut
+                                 debug:(BOOL) debug {
     if (self = [super init]) {
         //Remove spaces and brackets from token
         NSString *deviceTokenString = [[[[[NSUserDefaults standardUserDefaults] objectForKey:AWSDeviceTokenKey] description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
 
         _applicationId = applicationId;
         _endpointId = endpointId;
-        _channelType  = CHANNEL_TYPE;
+        _channelType  = debug? DEBUG_CHANNEL_TYPE : CHANNEL_TYPE;
         _address = deviceTokenString;
         _location = [AWSPinpointEndpointProfileLocation new];
         _demographic = [AWSPinpointEndpointProfileDemographic defaultAWSPinpointEndpointProfileDemographic];
         _effectiveDate = [AWSPinpointDateUtils utcTimeMillisNow];
-        _optOut = (applicationLevelOptOut || [self isSystemLevelOptOut])?@"ALL":@"NONE";
+        [self performSelectorOnMainThread:@selector(setOptOut:) withObject:[NSNumber numberWithBool:applicationLevelOptOut] waitUntilDone:YES];
         _attributes = [NSMutableDictionary dictionary];
         _metrics = [NSMutableDictionary dictionary];
         _user = [AWSPinpointEndpointProfileUser new];
@@ -65,13 +67,13 @@ NSString *CHANNEL_TYPE = @"APNS";
 
 - (instancetype)initWithApplicationId:(NSString*) applicationId
                            endpointId:(NSString*) endpointId {
-    return [self initWithApplicationId: applicationId endpointId:endpointId applicationLevelOptOut:NO];
+    return [self initWithApplicationId: applicationId endpointId:endpointId applicationLevelOptOut:NO debug:NO];
 }
 
 - (instancetype)initWithContext:(AWSPinpointContext *) context {
     BOOL applicationLevelOptOut = [self isApplicationLevelOptOut:context];
 
-    return [self initWithApplicationId: context.configuration.appId endpointId:context.uniqueId applicationLevelOptOut:applicationLevelOptOut];
+    return [self initWithApplicationId: context.configuration.appId endpointId:context.uniqueId applicationLevelOptOut:applicationLevelOptOut debug:context.configuration.debug];
 }
 
 - (BOOL) isApplicationLevelOptOut:(AWSPinpointContext *) context {
@@ -82,14 +84,13 @@ NSString *CHANNEL_TYPE = @"APNS";
     return NO;
 }
 
-- (BOOL) isSystemLevelOptOut {
-    BOOL optOut = ![[UIApplication sharedApplication] isRegisteredForRemoteNotifications];
-
+- (void) setOptOut:(NSNumber *) applicationLevelOptOut {
+    BOOL isOptedOutForRemoteNotifications = ![[UIApplication sharedApplication] isRegisteredForRemoteNotifications];
     if ([[UIApplication sharedApplication] currentUserNotificationSettings].types == UIUserNotificationTypeNone) {
-        optOut = YES;
+        isOptedOutForRemoteNotifications = YES;
     }
-
-    return optOut;
+    
+    _optOut = ([applicationLevelOptOut boolValue] || isOptedOutForRemoteNotifications)? @"ALL": @"NONE";
 }
 
 + (NSArray*) processAttributeValues:(NSArray*) values {

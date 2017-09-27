@@ -105,6 +105,12 @@ typedef void(^voidBlock)(void);
                                                      selector: @selector(applicationDidEnterForeground:)
                                                          name: UIApplicationWillEnterForegroundNotification
                                                        object: nil];
+            
+            // register for when application is terminated
+            [[NSNotificationCenter defaultCenter] addObserver: self
+                                                     selector: @selector(applicationWillTerminate:)
+                                                         name: UIApplicationWillTerminateNotification
+                                                       object: nil];
         }
     }
     
@@ -135,6 +141,10 @@ typedef void(^voidBlock)(void);
     [self resumeSession];
 }
 
+- (void)applicationWillTerminate:(NSNotification*)notification {
+    [self endCurrentSession];
+}
+
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver: self
                                                     name: UIApplicationDidEnterBackgroundNotification
@@ -142,6 +152,10 @@ typedef void(^voidBlock)(void);
     
     [[NSNotificationCenter defaultCenter] removeObserver: self
                                                     name: UIApplicationWillEnterForegroundNotification
+                                                  object: nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver: self
+                                                    name: UIApplicationWillTerminateNotification
                                                   object: nil];
 }
 
@@ -262,11 +276,6 @@ typedef void(^voidBlock)(void);
     //Kill current session object
     @synchronized(_session) {
         _session = nil;
-        
-        //Remove current session
-        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:AWSPinpointSessionKey];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:AWSPinpointSessionKey];
-        [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
     //Remove campaign global attributes

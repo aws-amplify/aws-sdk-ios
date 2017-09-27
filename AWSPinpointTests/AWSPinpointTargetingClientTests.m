@@ -148,6 +148,24 @@ NSString *const AWSPinpointTargetingClientErrorDomain = @"com.amazonaws.AWSPinpo
     XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
 }
 
+- (void) testCurrentProfileWithSystemOptInAndApplicationOptOutBackgroundThread {
+    __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) , ^{
+        [self setSystemLevelOptOut:NO];
+        [self setApplicationLevelOptOut:YES];
+
+        AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
+        XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
+        [expectation fulfill];
+        expectation = nil;
+    });
+    
+    [self waitForExpectationsWithTimeout:5 handler:^(NSError * _Nullable error) {
+        XCTAssertNil(error);
+    }];
+}
+
 - (void)testCurrentProfileWithSystemOptInAndApplicationOptIn {
     [self setSystemLevelOptOut:NO];
     [self setApplicationLevelOptOut:NO];

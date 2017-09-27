@@ -33,6 +33,8 @@ NSString *const AWSPinpointClientRecorderDatabasePathPrefix = @"com/amazonaws/AW
 // Constants
 NSString *const AWSPinpointEventByteThresholdReachedNotification = @"com.amazonaws.AWSPinpointEventByteThresholdReachedNotification";
 NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey = @"diskBytesUsed";
+NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessionKey";
+NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
 
 @interface AWSPinpointEventRecorder()
 @property (nonatomic, strong) AWSFMDatabaseQueue *databaseQueue;
@@ -48,6 +50,7 @@ NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey
 @end
 
 @interface AWSPinpointEvent ()
+@property (nonatomic, readwrite) AWSPinpointSession *session;
 -(instancetype)initWithEventType:(NSString*) theEventType
                   eventTimestamp:(UTCTimeMillis) theEventTimestamp
                          session:(nonnull AWSPinpointSession *)session
@@ -144,6 +147,38 @@ NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey
     return queue;
 }
 
+- (AWSPinpointSession *)validateOrRetrieveSession:(AWSPinpointSession *) session {
+    if (session && session.sessionId && session.sessionId.length >=1) {
+        return session;
+    }
+    NSData *sessionData = [[NSUserDefaults standardUserDefaults] dataForKey:AWSPinpointSessionKey];
+    AWSPinpointSession *previousSession;
+    if (sessionData) {
+        previousSession = [NSKeyedUnarchiver unarchiveObjectWithData:sessionData];
+    }
+    if(!previousSession)
+    {
+        previousSession = [[AWSPinpointSession alloc] initWithSessionId:DEFAULT_SESSION_ID withStartTime:[NSDate date] withStopTime:[NSDate date]];
+    }
+    return previousSession;
+}
+
+- (NSString *)validateOrRetrieveSessionId:(NSString *) sessionId {
+    if(sessionId && sessionId.length >= 1) {
+        return sessionId;
+    }
+    NSData *sessionData = [[NSUserDefaults standardUserDefaults] dataForKey:AWSPinpointSessionKey];
+    if (sessionData) {
+        AWSPinpointSession *previousSession = [NSKeyedUnarchiver unarchiveObjectWithData:sessionData];
+        sessionId = previousSession.sessionId;
+        if (sessionId && sessionId.length >= 1)
+        {
+            return sessionId;
+        }
+    }
+    return DEFAULT_SESSION_ID;
+}
+
 - (AWSTask<AWSPinpointEvent *> *) saveEvent:(AWSPinpointEvent *) event {
     AWSDDLogVerbose(@"saveEvent: [%@]", event.toDictionary);
     AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;
@@ -152,6 +187,7 @@ NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey
     NSUInteger notificationByteThreshold = self.notificationByteThreshold;
     NSUInteger diskByteLimit = self.diskByteLimit;
     __weak id notificationSender = self;
+    event.session = [self validateOrRetrieveSession:event.session];
     
     return [[AWSTask taskWithResult:nil] continueWithExecutor:[AWSExecutor executorWithDispatchQueue:[AWSPinpointEventRecorder sharedQueue]] withSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
         // Inserts a new record to the database.
@@ -174,7 +210,7 @@ NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey
                                               @"eventType" : event.eventType,
                                               @"metrics" : [NSKeyedArchiver archivedDataWithRootObject:event.allMetrics],
                                               @"eventTimestamp" : [AWSPinpointDateUtils isoDateTimeWithTimestamp:event.eventTimestamp],
-                                              @"sessionId": sessionId? sessionId : @"",
+                                              @"sessionId": sessionId,
                                               @"sessionStartTime": startTime? startTime : @"",
                                               @"sessionStopTime": stopTime? stopTime : @"",
                                               @"timestamp": @([[NSDate date] timeIntervalSince1970]),
@@ -261,6 +297,7 @@ NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey
 
 - (AWSTask*) updateSessionStartWithCampaignAttributes:(NSDictionary*) attributes {
     AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;
+    NSString *sessionId = [self validateOrRetrieveSessionId:self.context.sessionClient.session.sessionId];
     
     return [[AWSTask taskWithResult:nil] continueWithExecutor:[AWSExecutor executorWithDispatchQueue:[AWSPinpointEventRecorder sharedQueue]] withSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
         __block NSError *error = nil;
@@ -274,7 +311,7 @@ NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey
                     withParameterDictionary:@{
                                               @"attributes" : [NSKeyedArchiver archivedDataWithRootObject:attributes],
                                               @"eventType" : @"_session.start",
-                                              @"sessionId" : self.context.sessionClient.session.sessionId
+                                              @"sessionId" : sessionId
                                               }
                            ];
             if (!result) {
@@ -294,6 +331,7 @@ NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey
 //Only used for testing
 - (AWSTask*) getCurrentSession: (AWSPinpointSession*) session {
     AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;
+    NSString *sessionId = [self validateOrRetrieveSessionId:session.sessionId];
     
     return [[AWSTask taskWithResult:nil] continueWithExecutor:[AWSExecutor executorWithDispatchQueue:[AWSPinpointEventRecorder sharedQueue]] withSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
         __block NSError *error = nil;
@@ -306,7 +344,7 @@ NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey
                                   @"WHERE eventType = :eventType"
                           withParameterDictionary:@{
                                                     @"eventType": @"_session.start",
-                                                    @"sessionId": session.sessionId
+                                                    @"sessionId": sessionId
                                                     }];
             if (!rs) {
                 AWSDDLogError(@"SQLite error. Rolling back... [%@]", db.lastError);
@@ -455,6 +493,9 @@ NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey
     AWSDDLogVerbose(@"Submitting Batch with %lu events ", (unsigned long)[events count]);
     
     if (error) {
+        returnTask = [AWSTask taskWithError:error];
+    } else if ([events count] < 1) {
+        error = [NSError errorWithDomain:AWSValidationErrorDomain code:400 userInfo:@{@"message":@"No events to submit."}];
         returnTask = [AWSTask taskWithError:error];
     } else {
         returnTask = [[self submitBatchEvents:events withEventIds:eventIds] continueWithBlock:^id _Nullable(AWSTask<NSArray<AWSPinpointEvent *> *> * _Nonnull t) {
@@ -681,7 +722,7 @@ NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey
 }
 
 - (AWSTask *)submitEvents:(NSArray *)temporaryEvents
-                    error:(NSError**) error
+                    error:(NSError* __autoreleasing *) error
                  eventIDs:(NSArray *)eventIDs
                      stop:(BOOL *)stop {
     AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;

@@ -65,7 +65,8 @@
     \"protocol\":\"json\",\
     \"serviceFullName\":\"Amazon Cognito Identity Provider\",\
     \"signatureVersion\":\"v4\",\
-    \"targetPrefix\":\"AWSCognitoIdentityProviderService\"\
+    \"targetPrefix\":\"AWSCognitoIdentityProviderService\",\
+    \"uid\":\"cognito-idp-2016-04-18\"\
   },\
   \"operations\":{\
     \"AddCustomAttributes\":{\
@@ -85,6 +86,23 @@
         {\"shape\":\"InternalErrorException\"}\
       ],\
       \"documentation\":\"<p>Adds additional user attributes to the user pool schema.</p>\"\
+    },\
+    \"AdminAddUserToGroup\":{\
+      \"name\":\"AdminAddUserToGroup\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"AdminAddUserToGroupRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"UserNotFoundException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Adds the specified user to the specified group.</p> <p>Requires developer credentials.</p>\"\
     },\
     \"AdminConfirmSignUp\":{\
       \"name\":\"AdminConfirmSignUp\",\
@@ -107,7 +125,7 @@
         {\"shape\":\"UserNotFoundException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Confirms user registration as an admin without using a confirmation code. Works on any user.</p>\"\
+      \"documentation\":\"<p>Confirms user registration as an admin without using a confirmation code. Works on any user.</p> <p>Requires developer credentials.</p>\"\
     },\
     \"AdminCreateUser\":{\
       \"name\":\"AdminCreateUser\",\
@@ -135,7 +153,7 @@
         {\"shape\":\"UnsupportedUserStateException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Creates a new user in the specified user pool and sends a welcome message via email or phone (SMS). This message is based on a template that you configured in your call to CreateUserPool or UpdateUserPool. This template includes your custom sign-up instructions and placeholders for user name and temporary password.</p> <p>Requires developer credentials.</p>\"\
+      \"documentation\":\"<p>Creates a new user in the specified user pool and sends a welcome message via email or phone (SMS). This message is based on a template that you configured in your call to <a href=\\\"API_CreateUserPool.html\\\">CreateUserPool</a> or <a href=\\\"API_UpdateUserPool.html\\\">UpdateUserPool</a>. This template includes your custom sign-up instructions and placeholders for user name and temporary password.</p> <p>Requires developer credentials.</p>\"\
     },\
     \"AdminDeleteUser\":{\
       \"name\":\"AdminDeleteUser\",\
@@ -152,7 +170,7 @@
         {\"shape\":\"UserNotFoundException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Deletes a user as an administrator. Works on any user.</p>\"\
+      \"documentation\":\"<p>Deletes a user as an administrator. Works on any user.</p> <p>Requires developer credentials.</p>\"\
     },\
     \"AdminDeleteUserAttributes\":{\
       \"name\":\"AdminDeleteUserAttributes\",\
@@ -170,7 +188,26 @@
         {\"shape\":\"UserNotFoundException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Deletes the user attributes in a user pool as an administrator. Works on any user.</p>\"\
+      \"documentation\":\"<p>Deletes the user attributes in a user pool as an administrator. Works on any user.</p> <p>Requires developer credentials.</p>\"\
+    },\
+    \"AdminDisableProviderForUser\":{\
+      \"name\":\"AdminDisableProviderForUser\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"AdminDisableProviderForUserRequest\"},\
+      \"output\":{\"shape\":\"AdminDisableProviderForUserResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"UserNotFoundException\"},\
+        {\"shape\":\"AliasExistsException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Disables the user from signing in with the specified external (SAML or social) identity provider. If the user to disable is a Cognito User Pools native username + password user, they are not permitted to use their password to sign-in. If the user to disable is a linked external IdP user, any link between that user and an existing user is removed. The next time the external user (no longer attached to the previously linked <code>DestinationUser</code>) signs in, they must create a new user account. See <a href=\\\"API_AdminLinkProviderForUser.html\\\">AdminLinkProviderForUser</a>.</p> <p>This action is enabled only for admin access and requires developer credentials.</p> <p>The <code>ProviderName</code> must match the value specified when creating an IdP for the pool. </p> <p>To disable a native username + password user, the <code>ProviderName</code> value must be <code>Cognito</code> and the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code>, with the <code>ProviderAttributeValue</code> being the name that is used in the user pool for the user.</p> <p>The <code>ProviderAttributeName</code> must always be <code>Cognito_Subject</code> for social identity providers. The <code>ProviderAttributeValue</code> must always be the exact subject that was used when the user was originally linked as a source user.</p> <p>For de-linking a SAML identity, there are two scenarios. If the linked identity has not yet been used to sign-in, the <code>ProviderAttributeName</code> and <code>ProviderAttributeValue</code> must be the same values that were used for the <code>SourceUser</code> when the identities were originally linked in the <a href=\\\"API_AdminLinkProviderForUser.html\\\">AdminLinkProviderForUser</a> call. (If the linking was done with <code>ProviderAttributeName</code> set to <code>Cognito_Subject</code>, the same applies here). However, if the user has already signed in, the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code> and <code>ProviderAttributeValue</code> must be the subject of the SAML assertion.</p>\"\
     },\
     \"AdminDisableUser\":{\
       \"name\":\"AdminDisableUser\",\
@@ -188,7 +225,7 @@
         {\"shape\":\"UserNotFoundException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Disables the specified user as an administrator. Works on any user.</p>\"\
+      \"documentation\":\"<p>Disables the specified user as an administrator. Works on any user.</p> <p>Requires developer credentials.</p>\"\
     },\
     \"AdminEnableUser\":{\
       \"name\":\"AdminEnableUser\",\
@@ -206,7 +243,7 @@
         {\"shape\":\"UserNotFoundException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Enables the specified user as an administrator. Works on any user.</p>\"\
+      \"documentation\":\"<p>Enables the specified user as an administrator. Works on any user.</p> <p>Requires developer credentials.</p>\"\
     },\
     \"AdminForgetDevice\":{\
       \"name\":\"AdminForgetDevice\",\
@@ -224,7 +261,7 @@
         {\"shape\":\"UserNotFoundException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Forgets the device, as an administrator.</p>\"\
+      \"documentation\":\"<p>Forgets the device, as an administrator.</p> <p>Requires developer credentials.</p>\"\
     },\
     \"AdminGetDevice\":{\
       \"name\":\"AdminGetDevice\",\
@@ -242,7 +279,7 @@
         {\"shape\":\"InternalErrorException\"},\
         {\"shape\":\"NotAuthorizedException\"}\
       ],\
-      \"documentation\":\"<p>Gets the device, as an administrator.</p>\"\
+      \"documentation\":\"<p>Gets the device, as an administrator.</p> <p>Requires developer credentials.</p>\"\
     },\
     \"AdminGetUser\":{\
       \"name\":\"AdminGetUser\",\
@@ -260,7 +297,7 @@
         {\"shape\":\"UserNotFoundException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Gets the specified user by user name in a user pool as an administrator. Works on any user.</p>\"\
+      \"documentation\":\"<p>Gets the specified user by user name in a user pool as an administrator. Works on any user.</p> <p>Requires developer credentials.</p>\"\
     },\
     \"AdminInitiateAuth\":{\
       \"name\":\"AdminInitiateAuth\",\
@@ -287,7 +324,26 @@
         {\"shape\":\"UserNotFoundException\"},\
         {\"shape\":\"UserNotConfirmedException\"}\
       ],\
-      \"documentation\":\"<p>Initiates the authentication flow, as an administrator.</p>\"\
+      \"documentation\":\"<p>Initiates the authentication flow, as an administrator.</p> <p>Requires developer credentials.</p>\"\
+    },\
+    \"AdminLinkProviderForUser\":{\
+      \"name\":\"AdminLinkProviderForUser\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"AdminLinkProviderForUserRequest\"},\
+      \"output\":{\"shape\":\"AdminLinkProviderForUserResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"UserNotFoundException\"},\
+        {\"shape\":\"AliasExistsException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Links an existing user account in a user pool (<code>DestinationUser</code>) to an identity from an external identity provider (<code>SourceUser</code>) based on a specified attribute name and value from the external identity provider. This allows you to create a link from the existing user account to an external federated user identity that has not yet been used to sign in, so that the federated user identity can be used to sign in as the existing user account. </p> <p> For example, if there is an existing user with a username and password, this API links that user to a federated user identity, so that when the federated user identity is used, the user signs in as the existing user account. </p> <important> <p>Because this API allows a user with an external federated identity to sign in as an existing user in the user pool, it is critical that it only be used with external identity providers and provider attributes that have been trusted by the application owner.</p> </important> <p>See also <a href=\\\"API_AdminDisableProviderForUser.html\\\">AdminDisableProviderForUser</a>.</p> <p>This action is enabled only for admin access and requires developer credentials.</p>\"\
     },\
     \"AdminListDevices\":{\
       \"name\":\"AdminListDevices\",\
@@ -305,7 +361,42 @@
         {\"shape\":\"InternalErrorException\"},\
         {\"shape\":\"NotAuthorizedException\"}\
       ],\
-      \"documentation\":\"<p>Lists devices, as an administrator.</p>\"\
+      \"documentation\":\"<p>Lists devices, as an administrator.</p> <p>Requires developer credentials.</p>\"\
+    },\
+    \"AdminListGroupsForUser\":{\
+      \"name\":\"AdminListGroupsForUser\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"AdminListGroupsForUserRequest\"},\
+      \"output\":{\"shape\":\"AdminListGroupsForUserResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"UserNotFoundException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Lists the groups that the user belongs to.</p> <p>Requires developer credentials.</p>\"\
+    },\
+    \"AdminRemoveUserFromGroup\":{\
+      \"name\":\"AdminRemoveUserFromGroup\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"AdminRemoveUserFromGroupRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"UserNotFoundException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Removes the specified user from the specified group.</p> <p>Requires developer credentials.</p>\"\
     },\
     \"AdminResetUserPassword\":{\
       \"name\":\"AdminResetUserPassword\",\
@@ -325,9 +416,12 @@
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"LimitExceededException\"},\
         {\"shape\":\"UserNotFoundException\"},\
+        {\"shape\":\"InvalidSmsRoleAccessPolicyException\"},\
+        {\"shape\":\"InvalidEmailRoleAccessPolicyException\"},\
+        {\"shape\":\"InvalidSmsRoleTrustRelationshipException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Resets the specified user's password in a user pool as an administrator. Works on any user.</p> <p>When a developer calls this API, the current password is invalidated, so it must be changed. If a user tries to sign in after the API is called, the app will get a PasswordResetRequiredException exception back and should direct the user down the flow to reset the password, which is the same as the forgot password flow. In addition, if the user pool has phone verification selected and a verified phone number exists for the user, or if email verification is selected and a verified email exists for the user, calling this API will also result in sending a message to the end user with the code to change their password.</p>\"\
+      \"documentation\":\"<p>Resets the specified user's password in a user pool as an administrator. Works on any user.</p> <p>When a developer calls this API, the current password is invalidated, so it must be changed. If a user tries to sign in after the API is called, the app will get a PasswordResetRequiredException exception back and should direct the user down the flow to reset the password, which is the same as the forgot password flow. In addition, if the user pool has phone verification selected and a verified phone number exists for the user, or if email verification is selected and a verified email exists for the user, calling this API will also result in sending a message to the end user with the code to change their password.</p> <p>Requires developer credentials.</p>\"\
     },\
     \"AdminRespondToAuthChallenge\":{\
       \"name\":\"AdminRespondToAuthChallenge\",\
@@ -358,7 +452,7 @@
         {\"shape\":\"UserNotFoundException\"},\
         {\"shape\":\"UserNotConfirmedException\"}\
       ],\
-      \"documentation\":\"<p>Responds to an authentication challenge, as an administrator.</p>\"\
+      \"documentation\":\"<p>Responds to an authentication challenge, as an administrator.</p> <p>Requires developer credentials.</p>\"\
     },\
     \"AdminSetUserSettings\":{\
       \"name\":\"AdminSetUserSettings\",\
@@ -375,7 +469,7 @@
         {\"shape\":\"UserNotFoundException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Sets all the user settings for a specified user name. Works on any user.</p>\"\
+      \"documentation\":\"<p>Sets all the user settings for a specified user name. Works on any user.</p> <p>Requires developer credentials.</p>\"\
     },\
     \"AdminUpdateDeviceStatus\":{\
       \"name\":\"AdminUpdateDeviceStatus\",\
@@ -394,7 +488,7 @@
         {\"shape\":\"UserNotFoundException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Updates the device status as an administrator.</p>\"\
+      \"documentation\":\"<p>Updates the device status as an administrator.</p> <p>Requires developer credentials.</p>\"\
     },\
     \"AdminUpdateUserAttributes\":{\
       \"name\":\"AdminUpdateUserAttributes\",\
@@ -416,7 +510,7 @@
         {\"shape\":\"UserNotFoundException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Updates the specified user's attributes, including developer attributes, as an administrator. Works on any user.</p>\"\
+      \"documentation\":\"<p>Updates the specified user's attributes, including developer attributes, as an administrator. Works on any user.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p> <p>In addition to updating user attributes, this API can also be used to mark phone and email as verified.</p> <p>Requires developer credentials.</p>\"\
     },\
     \"AdminUserGlobalSignOut\":{\
       \"name\":\"AdminUserGlobalSignOut\",\
@@ -434,7 +528,7 @@
         {\"shape\":\"UserNotFoundException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Signs out users from all devices, as an administrator.</p>\"\
+      \"documentation\":\"<p>Signs out users from all devices, as an administrator.</p> <p>Requires developer credentials.</p>\"\
     },\
     \"ChangePassword\":{\
       \"name\":\"ChangePassword\",\
@@ -481,7 +575,7 @@
         {\"shape\":\"UserNotConfirmedException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Confirms tracking of the device. This API call is the call that beings device tracking.</p>\"\
+      \"documentation\":\"<p>Confirms tracking of the device. This API call is the call that begins device tracking.</p>\"\
     },\
     \"ConfirmForgotPassword\":{\
       \"name\":\"ConfirmForgotPassword\",\
@@ -508,7 +602,7 @@
         {\"shape\":\"UserNotConfirmedException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Allows a user to enter a code provided when they reset their password to update their password.</p>\",\
+      \"documentation\":\"<p>Allows a user to enter a confirmation code to reset a forgotten password.</p>\",\
       \"authtype\":\"none\"\
     },\
     \"ConfirmSignUp\":{\
@@ -537,6 +631,62 @@
       ],\
       \"documentation\":\"<p>Confirms registration of a user and handles the existing alias from a previous user.</p>\",\
       \"authtype\":\"none\"\
+    },\
+    \"CreateGroup\":{\
+      \"name\":\"CreateGroup\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateGroupRequest\"},\
+      \"output\":{\"shape\":\"CreateGroupResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"GroupExistsException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Creates a new group in the specified user pool.</p> <p>Requires developer credentials.</p>\"\
+    },\
+    \"CreateIdentityProvider\":{\
+      \"name\":\"CreateIdentityProvider\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateIdentityProviderRequest\"},\
+      \"output\":{\"shape\":\"CreateIdentityProviderResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"DuplicateProviderException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Creates an identity provider for a user pool.</p>\"\
+    },\
+    \"CreateResourceServer\":{\
+      \"name\":\"CreateResourceServer\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateResourceServerRequest\"},\
+      \"output\":{\"shape\":\"CreateResourceServerResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Creates a new OAuth2.0 resource server and defines custom scopes in it.</p>\"\
     },\
     \"CreateUserImportJob\":{\
       \"name\":\"CreateUserImportJob\",\
@@ -573,6 +723,7 @@
         {\"shape\":\"InvalidSmsRoleTrustRelationshipException\"},\
         {\"shape\":\"InvalidEmailRoleAccessPolicyException\"},\
         {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"UserPoolTaggingException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
       \"documentation\":\"<p>Creates a new Amazon Cognito user pool and sets the password policy for the pool.</p>\"\
@@ -591,9 +742,76 @@
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"LimitExceededException\"},\
         {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"ScopeDoesNotExistException\"},\
+        {\"shape\":\"InvalidOAuthFlowException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
       \"documentation\":\"<p>Creates the user pool client.</p>\"\
+    },\
+    \"CreateUserPoolDomain\":{\
+      \"name\":\"CreateUserPoolDomain\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateUserPoolDomainRequest\"},\
+      \"output\":{\"shape\":\"CreateUserPoolDomainResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Creates a new domain for a user pool.</p>\"\
+    },\
+    \"DeleteGroup\":{\
+      \"name\":\"DeleteGroup\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteGroupRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes a group. Currently only groups with no members can be deleted.</p> <p>Requires developer credentials.</p>\"\
+    },\
+    \"DeleteIdentityProvider\":{\
+      \"name\":\"DeleteIdentityProvider\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteIdentityProviderRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"UnsupportedIdentityProviderException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes an identity provider for a user pool.</p>\"\
+    },\
+    \"DeleteResourceServer\":{\
+      \"name\":\"DeleteResourceServer\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteResourceServerRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes a resource server.</p>\"\
     },\
     \"DeleteUser\":{\
       \"name\":\"DeleteUser\",\
@@ -612,7 +830,7 @@
         {\"shape\":\"UserNotConfirmedException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Allows a user to delete one's self.</p>\",\
+      \"documentation\":\"<p>Allows a user to delete himself or herself.</p>\",\
       \"authtype\":\"none\"\
     },\
     \"DeleteUserAttributes\":{\
@@ -669,6 +887,56 @@
       ],\
       \"documentation\":\"<p>Allows the developer to delete the user pool client.</p>\"\
     },\
+    \"DeleteUserPoolDomain\":{\
+      \"name\":\"DeleteUserPoolDomain\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteUserPoolDomainRequest\"},\
+      \"output\":{\"shape\":\"DeleteUserPoolDomainResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes a domain for a user pool.</p>\"\
+    },\
+    \"DescribeIdentityProvider\":{\
+      \"name\":\"DescribeIdentityProvider\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribeIdentityProviderRequest\"},\
+      \"output\":{\"shape\":\"DescribeIdentityProviderResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Gets information about a specific identity provider.</p>\"\
+    },\
+    \"DescribeResourceServer\":{\
+      \"name\":\"DescribeResourceServer\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribeResourceServerRequest\"},\
+      \"output\":{\"shape\":\"DescribeResourceServerResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Describes a resource server.</p>\"\
+    },\
     \"DescribeUserImportJob\":{\
       \"name\":\"DescribeUserImportJob\",\
       \"http\":{\
@@ -699,6 +967,7 @@
         {\"shape\":\"InvalidParameterException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"UserPoolTaggingException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
       \"documentation\":\"<p>Returns the configuration information and metadata of the specified user pool.</p>\"\
@@ -719,6 +988,22 @@
         {\"shape\":\"InternalErrorException\"}\
       ],\
       \"documentation\":\"<p>Client method for returning the configuration information and metadata of the specified user pool client.</p>\"\
+    },\
+    \"DescribeUserPoolDomain\":{\
+      \"name\":\"DescribeUserPoolDomain\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribeUserPoolDomainRequest\"},\
+      \"output\":{\"shape\":\"DescribeUserPoolDomainResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Gets information about a domain.</p>\"\
     },\
     \"ForgetDevice\":{\
       \"name\":\"ForgetDevice\",\
@@ -765,7 +1050,7 @@
         {\"shape\":\"UserNotConfirmedException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Retrieves the password for the specified client ID or username.</p>\",\
+      \"documentation\":\"<p>Calling this API causes a message to be sent to the end user with a confirmation code that is required to change the user's password. For the <code>Username</code> parameter, you can use the username or user alias. If a verified phone number exists for the user, the confirmation code is sent to the phone number. Otherwise, if a verified email exists, the confirmation code is sent to the email. If neither a verified phone number nor a verified email exists, <code>InvalidParameterException</code> is thrown. To use the confirmation code for resetting the password, call <a href=\\\"API_ConfirmForgotPassword.html\\\">ConfirmForgotPassword</a>.</p>\",\
       \"authtype\":\"none\"\
     },\
     \"GetCSVHeader\":{\
@@ -805,6 +1090,57 @@
         {\"shape\":\"InternalErrorException\"}\
       ],\
       \"documentation\":\"<p>Gets the device.</p>\"\
+    },\
+    \"GetGroup\":{\
+      \"name\":\"GetGroup\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"GetGroupRequest\"},\
+      \"output\":{\"shape\":\"GetGroupResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Gets a group.</p> <p>Requires developer credentials.</p>\"\
+    },\
+    \"GetIdentityProviderByIdentifier\":{\
+      \"name\":\"GetIdentityProviderByIdentifier\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"GetIdentityProviderByIdentifierRequest\"},\
+      \"output\":{\"shape\":\"GetIdentityProviderByIdentifierResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Gets the specified identity provider.</p>\"\
+    },\
+    \"GetUICustomization\":{\
+      \"name\":\"GetUICustomization\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"GetUICustomizationRequest\"},\
+      \"output\":{\"shape\":\"GetUICustomizationResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Gets the UI Customization information for a particular app client's app UI, if there is something set. If nothing is set for the particular client, but there is an existing pool level customization (app <code>clientId</code> will be <code>ALL</code>), then that is returned. If nothing is present, then an empty shape is returned.</p>\"\
     },\
     \"GetUser\":{\
       \"name\":\"GetUser\",\
@@ -920,6 +1256,57 @@
       ],\
       \"documentation\":\"<p>Lists the devices.</p>\"\
     },\
+    \"ListGroups\":{\
+      \"name\":\"ListGroups\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ListGroupsRequest\"},\
+      \"output\":{\"shape\":\"ListGroupsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Lists the groups associated with a user pool.</p> <p>Requires developer credentials.</p>\"\
+    },\
+    \"ListIdentityProviders\":{\
+      \"name\":\"ListIdentityProviders\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ListIdentityProvidersRequest\"},\
+      \"output\":{\"shape\":\"ListIdentityProvidersResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Lists information about all identity providers for a user pool.</p>\"\
+    },\
+    \"ListResourceServers\":{\
+      \"name\":\"ListResourceServers\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ListResourceServersRequest\"},\
+      \"output\":{\"shape\":\"ListResourceServersResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Lists the resource servers for a user pool.</p>\"\
+    },\
     \"ListUserImportJobs\":{\
       \"name\":\"ListUserImportJobs\",\
       \"http\":{\
@@ -987,6 +1374,23 @@
       ],\
       \"documentation\":\"<p>Lists the users in the Amazon Cognito user pool.</p>\"\
     },\
+    \"ListUsersInGroup\":{\
+      \"name\":\"ListUsersInGroup\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ListUsersInGroupRequest\"},\
+      \"output\":{\"shape\":\"ListUsersInGroupResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Lists the users in the specified group.</p> <p>Requires developer credentials.</p>\"\
+    },\
     \"ResendConfirmationCode\":{\
       \"name\":\"ResendConfirmationCode\",\
       \"http\":{\
@@ -1044,6 +1448,23 @@
         {\"shape\":\"InternalErrorException\"}\
       ],\
       \"documentation\":\"<p>Responds to the authentication challenge.</p>\"\
+    },\
+    \"SetUICustomization\":{\
+      \"name\":\"SetUICustomization\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"SetUICustomizationRequest\"},\
+      \"output\":{\"shape\":\"SetUICustomizationResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Sets the UI customization information for a user pool's built-in app UI.</p> <p>You can specify app UI customization settings for a single client (with a specific <code>clientId</code>) or for all clients (by setting the <code>clientId</code> to <code>ALL</code>). If you specify <code>ALL</code>, the default configuration will be used for every client that has no UI customization set previously. If you specify UI customization settings for a particular client, it will no longer fall back to the <code>ALL</code> configuration. </p> <note> <p>To use this API, your user pool must have a domain associated with it. Otherwise, there is no place to host the app's pages, and the service will throw an error.</p> </note>\"\
     },\
     \"SetUserSettings\":{\
       \"name\":\"SetUserSettings\",\
@@ -1149,6 +1570,58 @@
       ],\
       \"documentation\":\"<p>Updates the device status.</p>\"\
     },\
+    \"UpdateGroup\":{\
+      \"name\":\"UpdateGroup\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"UpdateGroupRequest\"},\
+      \"output\":{\"shape\":\"UpdateGroupResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Updates the specified group with the specified attributes.</p> <p>Requires developer credentials.</p>\"\
+    },\
+    \"UpdateIdentityProvider\":{\
+      \"name\":\"UpdateIdentityProvider\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"UpdateIdentityProviderRequest\"},\
+      \"output\":{\"shape\":\"UpdateIdentityProviderResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"UnsupportedIdentityProviderException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Updates identity provider information for a user pool.</p>\"\
+    },\
+    \"UpdateResourceServer\":{\
+      \"name\":\"UpdateResourceServer\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"UpdateResourceServerRequest\"},\
+      \"output\":{\"shape\":\"UpdateResourceServerResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"InternalErrorException\"}\
+      ],\
+      \"documentation\":\"<p>Updates the name and scopes of resource server. All other fields are read-only.</p>\"\
+    },\
     \"UpdateUserAttributes\":{\
       \"name\":\"UpdateUserAttributes\",\
       \"http\":{\
@@ -1198,6 +1671,7 @@
         {\"shape\":\"InternalErrorException\"},\
         {\"shape\":\"InvalidSmsRoleAccessPolicyException\"},\
         {\"shape\":\"InvalidSmsRoleTrustRelationshipException\"},\
+        {\"shape\":\"UserPoolTaggingException\"},\
         {\"shape\":\"InvalidEmailRoleAccessPolicyException\"}\
       ],\
       \"documentation\":\"<p>Updates the specified user pool with the specified attributes.</p>\"\
@@ -1215,6 +1689,8 @@
         {\"shape\":\"InvalidParameterException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"ScopeDoesNotExistException\"},\
+        {\"shape\":\"InvalidOAuthFlowException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
       \"documentation\":\"<p>Allows the developer to update the specified user pool client and password policy.</p>\"\
@@ -1245,6 +1721,7 @@
     }\
   },\
   \"shapes\":{\
+    \"AWSAccountIdType\":{\"type\":\"string\"},\
     \"AddCustomAttributesRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -1268,6 +1745,28 @@
       \"members\":{\
       },\
       \"documentation\":\"<p>Represents the response from the server for the request to add custom attributes.</p>\"\
+    },\
+    \"AdminAddUserToGroupRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"UserPoolId\",\
+        \"Username\",\
+        \"GroupName\"\
+      ],\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool.</p>\"\
+        },\
+        \"Username\":{\
+          \"shape\":\"UsernameType\",\
+          \"documentation\":\"<p>The username for the user.</p>\"\
+        },\
+        \"GroupName\":{\
+          \"shape\":\"GroupNameType\",\
+          \"documentation\":\"<p>The group name.</p>\"\
+        }\
+      }\
     },\
     \"AdminConfirmSignUpRequest\":{\
       \"type\":\"structure\",\
@@ -1298,11 +1797,11 @@
       \"members\":{\
         \"AllowAdminCreateUserOnly\":{\
           \"shape\":\"BooleanType\",\
-          \"documentation\":\"<p>Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.</p>\"\
+          \"documentation\":\"<p>Set to <code>True</code> if only the administrator is allowed to create user profiles. Set to <code>False</code> if users can sign themselves up via an app.</p>\"\
         },\
         \"UnusedAccountValidityDays\":{\
           \"shape\":\"AdminCreateUserUnusedAccountValidityDaysType\",\
-          \"documentation\":\"<p>The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call AdminCreateUser again, specifying \\\"RESEND\\\" for the MessageAction parameter.</p>\"\
+          \"documentation\":\"<p>The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call <code>AdminCreateUser</code> again, specifying <code>\\\"RESEND\\\"</code> for the <code>MessageAction</code> parameter. The default value for this parameter is 7.</p>\"\
         },\
         \"InviteMessageTemplate\":{\
           \"shape\":\"MessageTemplateType\",\
@@ -1328,7 +1827,7 @@
         },\
         \"UserAttributes\":{\
           \"shape\":\"AttributeListType\",\
-          \"documentation\":\"<p>An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than Username. However, any attributes that you specify as required (in CreateUserPool or in the <b>Attributes</b> tab of the console) must be supplied either by you (in your call to AdminCreateUser) or by the user (when he or she signs up in response to your welcome message).</p> <p>To send a message inviting the user to sign up, you must specify the user's email address or phone number. This can be done in your call to AdminCreateUser or in the <b>Users</b> tab of the Amazon Cognito console for managing your user pools.</p> <p>In your call to AdminCreateUser, you can set the email_verified attribute to True, and you can set the phone_number_verified attribute to True. (You cannot do this by calling other operations such as AdminUpdateUserAttributes.)</p> <ul> <li> <p> <b>email</b>: The email address of the user to whom the message that contains the code and username will be sent. Required if the email_verified attribute is set to True, or if \\\"EMAIL\\\" is specified in the DesiredDeliveryMediums parameter.</p> </li> <li> <p> <b>phone_number</b>: The phone number of the user to whom the message that contains the code and username will be sent. Required if the phone_number_verified attribute is set to True, or if \\\"SMS\\\" is specified in the DesiredDeliveryMediums parameter.</p> </li> </ul>\"\
+          \"documentation\":\"<p>An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than <code>Username</code>. However, any attributes that you specify as required (in <a href=\\\"API_CreateUserPool.html\\\">CreateUserPool</a> or in the <b>Attributes</b> tab of the console) must be supplied either by you (in your call to <code>AdminCreateUser</code>) or by the user (when he or she signs up in response to your welcome message).</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p> <p>To send a message inviting the user to sign up, you must specify the user's email address or phone number. This can be done in your call to AdminCreateUser or in the <b>Users</b> tab of the Amazon Cognito console for managing your user pools.</p> <p>In your call to <code>AdminCreateUser</code>, you can set the <code>email_verified</code> attribute to <code>True</code>, and you can set the <code>phone_number_verified</code> attribute to <code>True</code>. (You can also do this by calling <a href=\\\"API_AdminUpdateUserAttributes.html\\\">AdminUpdateUserAttributes</a>.)</p> <ul> <li> <p> <b>email</b>: The email address of the user to whom the message that contains the code and username will be sent. Required if the <code>email_verified</code> attribute is set to <code>True</code>, or if <code>\\\"EMAIL\\\"</code> is specified in the <code>DesiredDeliveryMediums</code> parameter.</p> </li> <li> <p> <b>phone_number</b>: The phone number of the user to whom the message that contains the code and username will be sent. Required if the <code>phone_number_verified</code> attribute is set to <code>True</code>, or if <code>\\\"SMS\\\"</code> is specified in the <code>DesiredDeliveryMediums</code> parameter.</p> </li> </ul>\"\
         },\
         \"ValidationData\":{\
           \"shape\":\"AttributeListType\",\
@@ -1336,19 +1835,19 @@
         },\
         \"TemporaryPassword\":{\
           \"shape\":\"PasswordType\",\
-          \"documentation\":\"<p>The user's temporary password. This password must conform to the password policy that you specified when you created the user pool.</p> <p>The temporary password is valid only once. To complete the Admin Create User flow, the user must enter the temporary password in the sign-in page along with a new password to be used in all future sign-ins.</p> <p>This parameter is not required. If you do not specify a value, Amazon Cognito generates one for you.</p> <p>The temporary password can only be used until the user account expiration limit that you specified when you created the user pool. To reset the account after that time limit, you must call AdminCreateUser again, specifying \\\"RESEND\\\" for the MessageAction parameter.</p>\"\
+          \"documentation\":\"<p>The user's temporary password. This password must conform to the password policy that you specified when you created the user pool.</p> <p>The temporary password is valid only once. To complete the Admin Create User flow, the user must enter the temporary password in the sign-in page along with a new password to be used in all future sign-ins.</p> <p>This parameter is not required. If you do not specify a value, Amazon Cognito generates one for you.</p> <p>The temporary password can only be used until the user account expiration limit that you specified when you created the user pool. To reset the account after that time limit, you must call <code>AdminCreateUser</code> again, specifying <code>\\\"RESEND\\\"</code> for the <code>MessageAction</code> parameter.</p>\"\
         },\
         \"ForceAliasCreation\":{\
           \"shape\":\"ForceAliasCreation\",\
-          \"documentation\":\"<p>This parameter is only used if the phone_number_verified or email_verified attribute is set to True. Otherwise, it is ignored.</p> <p>If this parameter is set to True and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.</p> <p>If this parameter is set to False, the API throws an AliasExistsException error if the alias already exists. The default value is False.</p>\"\
+          \"documentation\":\"<p>This parameter is only used if the <code>phone_number_verified</code> or <code>email_verified</code> attribute is set to <code>True</code>. Otherwise, it is ignored.</p> <p>If this parameter is set to <code>True</code> and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.</p> <p>If this parameter is set to <code>False</code>, the API throws an <code>AliasExistsException</code> error if the alias already exists. The default value is <code>False</code>.</p>\"\
         },\
         \"MessageAction\":{\
           \"shape\":\"MessageActionType\",\
-          \"documentation\":\"<p>Set to \\\"RESEND\\\" to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to \\\"SUPPRESS\\\" to suppress sending the message. Only one value can be specified.</p>\"\
+          \"documentation\":\"<p>Set to <code>\\\"RESEND\\\"</code> to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to <code>\\\"SUPPRESS\\\"</code> to suppress sending the message. Only one value can be specified.</p>\"\
         },\
         \"DesiredDeliveryMediums\":{\
           \"shape\":\"DeliveryMediumListType\",\
-          \"documentation\":\"<p>Specify \\\"EMAIL\\\" if email will be used to send the welcome message. Specify \\\"SMS\\\" if the phone number will be used. The default value is \\\"SMS\\\". More than one value can be specified.</p>\"\
+          \"documentation\":\"<p>Specify <code>\\\"EMAIL\\\"</code> if email will be used to send the welcome message. Specify <code>\\\"SMS\\\"</code> if the phone number will be used. The default value is <code>\\\"SMS\\\"</code>. More than one value can be specified.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the request to create a user in the specified user pool.</p>\"\
@@ -1358,7 +1857,7 @@
       \"members\":{\
         \"User\":{\
           \"shape\":\"UserType\",\
-          \"documentation\":\"<p>The user returned in the request to create a new user.</p>\"\
+          \"documentation\":\"<p>The newly created user.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the response from the server to the request to create the user.</p>\"\
@@ -1386,7 +1885,7 @@
         },\
         \"UserAttributeNames\":{\
           \"shape\":\"AttributeNameListType\",\
-          \"documentation\":\"<p>An array of strings representing the user attribute names you wish to delete.</p>\"\
+          \"documentation\":\"<p>An array of strings representing the user attribute names you wish to delete.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the request to delete user attributes as an administrator.</p>\"\
@@ -1414,6 +1913,28 @@
         }\
       },\
       \"documentation\":\"<p>Represents the request to delete a user as an administrator.</p>\"\
+    },\
+    \"AdminDisableProviderForUserRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"UserPoolId\",\
+        \"User\"\
+      ],\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"StringType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool.</p>\"\
+        },\
+        \"User\":{\
+          \"shape\":\"ProviderUserIdentifierType\",\
+          \"documentation\":\"<p>The user to be disabled.</p>\"\
+        }\
+      }\
+    },\
+    \"AdminDisableProviderForUserResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
     },\
     \"AdminDisableUserRequest\":{\
       \"type\":\"structure\",\
@@ -1452,7 +1973,7 @@
         },\
         \"Username\":{\
           \"shape\":\"UsernameType\",\
-          \"documentation\":\"<p>The user name of the user you wish to ebable.</p>\"\
+          \"documentation\":\"<p>The user name of the user you wish to enable.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the request that enables the user as an administrator.</p>\"\
@@ -1587,20 +2108,21 @@
         },\
         \"ClientId\":{\
           \"shape\":\"ClientIdType\",\
-          \"documentation\":\"<p>The client app ID.</p>\"\
+          \"documentation\":\"<p>The app client ID.</p>\"\
         },\
         \"AuthFlow\":{\
           \"shape\":\"AuthFlowType\",\
-          \"documentation\":\"<p>The authentication flow.</p>\"\
+          \"documentation\":\"<p>The authentication flow for this call to execute. The API action will depend on this value. For example:</p> <ul> <li> <p> <code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new tokens.</p> </li> <li> <p> <code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code> and return the SRP variables to be used for next challenge execution.</p> </li> </ul> <p>Valid values include:</p> <ul> <li> <p> <code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p> </li> <li> <p> <code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p> </li> <li> <p> <code>CUSTOM_AUTH</code>: Custom authentication flow.</p> </li> <li> <p> <code>ADMIN_NO_SRP_AUTH</code>: Non-SRP authentication flow; you can pass in the USERNAME and PASSWORD directly if the flow is enabled for calling the app client.</p> </li> </ul>\"\
         },\
         \"AuthParameters\":{\
           \"shape\":\"AuthParametersType\",\
-          \"documentation\":\"<p>The authentication parameters.</p>\"\
+          \"documentation\":\"<p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p> <ul> <li> <p>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>REFRESH_TOKEN</code> (required), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>ADMIN_NO_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>PASSWORD</code> (required), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>DEVICE_KEY</code> </p> </li> </ul>\"\
         },\
         \"ClientMetadata\":{\
           \"shape\":\"ClientMetadataType\",\
-          \"documentation\":\"<p>The client app metadata.</p>\"\
-        }\
+          \"documentation\":\"<p>This is a random key-value pair map which can contain any key and will be passed to your PreAuthentication Lambda trigger as-is. It can be used to implement additional validations around authentication.</p>\"\
+        },\
+        \"AnalyticsMetadata\":{\"shape\":\"AnalyticsMetadataType\"}\
       },\
       \"documentation\":\"<p>Initiates the authorization request, as an administrator.</p>\"\
     },\
@@ -1609,19 +2131,49 @@
       \"members\":{\
         \"ChallengeName\":{\
           \"shape\":\"ChallengeNameType\",\
-          \"documentation\":\"<p>The name of the challenge.</p>\"\
+          \"documentation\":\"<p>The name of the challenge which you are responding to with this call. This is returned to you in the <code>AdminInitiateAuth</code> response if you need to pass another challenge.</p> <ul> <li> <p> <code>SMS_MFA</code>: Next challenge is to supply an <code>SMS_MFA_CODE</code>, delivered via SMS.</p> </li> <li> <p> <code>PASSWORD_VERIFIER</code>: Next challenge is to supply <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, and <code>TIMESTAMP</code> after the client-side SRP calculations.</p> </li> <li> <p> <code>CUSTOM_CHALLENGE</code>: This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.</p> </li> <li> <p> <code>DEVICE_SRP_AUTH</code>: If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.</p> </li> <li> <p> <code>DEVICE_PASSWORD_VERIFIER</code>: Similar to <code>PASSWORD_VERIFIER</code>, but for devices only.</p> </li> <li> <p> <code>ADMIN_NO_SRP_AUTH</code>: This is returned if you need to authenticate with <code>USERNAME</code> and <code>PASSWORD</code> directly. An app client must be enabled to use this flow.</p> </li> <li> <p> <code>NEW_PASSWORD_REQUIRED</code>: For users which are required to change their passwords after successful first login. This challenge should be passed with <code>NEW_PASSWORD</code> and any other required attributes.</p> </li> </ul>\"\
         },\
         \"Session\":{\
           \"shape\":\"SessionType\",\
-          \"documentation\":\"<p>The session.</p>\"\
+          \"documentation\":\"<p>The session which should be passed both ways in challenge-response calls to the service. If <code>AdminInitiateAuth</code> or <code>AdminRespondToAuthChallenge</code> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>AdminRespondToAuthChallenge</code> API call.</p>\"\
         },\
         \"ChallengeParameters\":{\
           \"shape\":\"ChallengeParametersType\",\
-          \"documentation\":\"<p>The challenge parameters.</p>\"\
+          \"documentation\":\"<p>The challenge parameters. These are returned to you in the <code>AdminInitiateAuth</code> response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (<code>AdminRespondToAuthChallenge</code>).</p> <p>All challenges require <code>USERNAME</code> and <code>SECRET_HASH</code> (if applicable).</p> <p>The value of the <code>USER_IF_FOR_SRP</code> attribute will be the user's actual username, not an alias (such as email address or phone number), even if you specified an alias in your call to <code>AdminInitiateAuth</code>. This is because, in the <code>AdminRespondToAuthChallenge</code> API <code>ChallengeResponses</code>, the <code>USERNAME</code> attribute cannot be an alias.</p>\"\
         },\
-        \"AuthenticationResult\":{\"shape\":\"AuthenticationResultType\"}\
+        \"AuthenticationResult\":{\
+          \"shape\":\"AuthenticationResultType\",\
+          \"documentation\":\"<p>The result of the authentication response. This is only returned if the caller does not need to pass another challenge. If the caller does need to pass another challenge before it gets tokens, <code>ChallengeName</code>, <code>ChallengeParameters</code>, and <code>Session</code> are returned.</p>\"\
+        }\
       },\
       \"documentation\":\"<p>Initiates the authentication response, as an administrator.</p>\"\
+    },\
+    \"AdminLinkProviderForUserRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"UserPoolId\",\
+        \"DestinationUser\",\
+        \"SourceUser\"\
+      ],\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"StringType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool.</p>\"\
+        },\
+        \"DestinationUser\":{\
+          \"shape\":\"ProviderUserIdentifierType\",\
+          \"documentation\":\"<p>The existing user in the user pool to be linked to the external identity provider user account. Can be a native (Username + Password) Cognito User Pools user or a federated user (for example, a SAML or Facebook user). If the user doesn't exist, an exception is thrown. This is the user that is returned when the new user (with the linked identity provider attribute) signs in.</p> <p>The <code>ProviderAttributeValue</code> for the <code>DestinationUser</code> must match the username for the user in the user pool. The <code>ProviderAttributeName</code> will always be ignored.</p>\"\
+        },\
+        \"SourceUser\":{\
+          \"shape\":\"ProviderUserIdentifierType\",\
+          \"documentation\":\"<p>An external identity provider account for a user who does not currently exist yet in the user pool. This user must be a federated user (for example, a SAML or Facebook user), not another native user.</p> <p>If the <code>SourceUser</code> is a federated social identity provider user (Facebook, Google, or Login with Amazon), you must set the <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>. For social identity providers, the <code>ProviderName</code> will be <code>Facebook</code>, <code>Google</code>, or <code>LoginWithAmazon</code>, and Cognito will automatically parse the Facebook, Google, and Login with Amazon tokens for <code>id</code>, <code>sub</code>, and <code>user_id</code>, respectively. The <code>ProviderAttributeValue</code> for the user must be the same value as the <code>id</code>, <code>sub</code>, or <code>user_id</code> value found in the social identity provider token.</p> <p/> <p>For SAML, the <code>ProviderAttributeName</code> can be any value that matches a claim in the SAML assertion. If you wish to link SAML users based on the subject of the SAML assertion, you should map the subject to a claim through the SAML identity provider and submit that claim name as the <code>ProviderAttributeName</code>. If you set <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>, Cognito will automatically parse the default unique identifier found in the subject from the SAML token.</p>\"\
+        }\
+      }\
+    },\
+    \"AdminLinkProviderForUserResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
     },\
     \"AdminListDevicesRequest\":{\
       \"type\":\"structure\",\
@@ -1663,6 +2215,66 @@
       },\
       \"documentation\":\"<p>Lists the device's response, as an administrator.</p>\"\
     },\
+    \"AdminListGroupsForUserRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Username\",\
+        \"UserPoolId\"\
+      ],\
+      \"members\":{\
+        \"Username\":{\
+          \"shape\":\"UsernameType\",\
+          \"documentation\":\"<p>The username for the user.</p>\"\
+        },\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool.</p>\"\
+        },\
+        \"Limit\":{\
+          \"shape\":\"QueryLimitType\",\
+          \"documentation\":\"<p>The limit of the request to list groups.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"PaginationKey\",\
+          \"documentation\":\"<p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>\"\
+        }\
+      }\
+    },\
+    \"AdminListGroupsForUserResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Groups\":{\
+          \"shape\":\"GroupListType\",\
+          \"documentation\":\"<p>The groups that the user belongs to.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"PaginationKey\",\
+          \"documentation\":\"<p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>\"\
+        }\
+      }\
+    },\
+    \"AdminRemoveUserFromGroupRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"UserPoolId\",\
+        \"Username\",\
+        \"GroupName\"\
+      ],\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool.</p>\"\
+        },\
+        \"Username\":{\
+          \"shape\":\"UsernameType\",\
+          \"documentation\":\"<p>The username for the user.</p>\"\
+        },\
+        \"GroupName\":{\
+          \"shape\":\"GroupNameType\",\
+          \"documentation\":\"<p>The group name.</p>\"\
+        }\
+      }\
+    },\
     \"AdminResetUserPasswordRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -1701,20 +2313,21 @@
         },\
         \"ClientId\":{\
           \"shape\":\"ClientIdType\",\
-          \"documentation\":\"<p>The client ID.</p>\"\
+          \"documentation\":\"<p>The app client ID.</p>\"\
         },\
         \"ChallengeName\":{\
           \"shape\":\"ChallengeNameType\",\
-          \"documentation\":\"<p>The name of the challenge.</p>\"\
+          \"documentation\":\"<p>The challenge name. For more information, see <a href=\\\"API_AdminInitiateAuth.html\\\">AdminInitiateAuth</a>.</p>\"\
         },\
         \"ChallengeResponses\":{\
           \"shape\":\"ChallengeResponsesType\",\
-          \"documentation\":\"<p>The challenge response.</p>\"\
+          \"documentation\":\"<p>The challenge responses. These are inputs corresponding to the value of <code>ChallengeName</code>, for example:</p> <ul> <li> <p> <code>SMS_MFA</code>: <code>SMS_MFA_CODE</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret).</p> </li> <li> <p> <code>PASSWORD_VERIFIER</code>: <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, <code>TIMESTAMP</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret).</p> </li> <li> <p> <code>ADMIN_NO_SRP_AUTH</code>: <code>PASSWORD</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret). </p> </li> <li> <p> <code>NEW_PASSWORD_REQUIRED</code>: <code>NEW_PASSWORD</code>, any other required attributes, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret). </p> </li> </ul> <p>The value of the <code>USERNAME</code> attribute must be the user's actual username, not an alias (such as email address or phone number). To make this easier, the <code>AdminInitiateAuth</code> response includes the actual username value in the <code>USERNAMEUSER_ID_FOR_SRP</code> attribute, even if you specified an alias in your call to <code>AdminInitiateAuth</code>.</p>\"\
         },\
         \"Session\":{\
           \"shape\":\"SessionType\",\
-          \"documentation\":\"<p>The session.</p>\"\
-        }\
+          \"documentation\":\"<p>The session which should be passed both ways in challenge-response calls to the service. If <code>InitiateAuth</code> or <code>RespondToAuthChallenge</code> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>\"\
+        },\
+        \"AnalyticsMetadata\":{\"shape\":\"AnalyticsMetadataType\"}\
       },\
       \"documentation\":\"<p>The request to respond to the authentication challenge, as an administrator.</p>\"\
     },\
@@ -1723,17 +2336,20 @@
       \"members\":{\
         \"ChallengeName\":{\
           \"shape\":\"ChallengeNameType\",\
-          \"documentation\":\"<p>The name of the challenge.</p>\"\
+          \"documentation\":\"<p>The name of the challenge. For more information, see <a href=\\\"API_AdminInitiateAuth.html\\\">AdminInitiateAuth</a>.</p>\"\
         },\
         \"Session\":{\
           \"shape\":\"SessionType\",\
-          \"documentation\":\"<p>The session.</p>\"\
+          \"documentation\":\"<p>The session which should be passed both ways in challenge-response calls to the service. If the <a href=\\\"API_InitiateAuth.html\\\">InitiateAuth</a> or <a href=\\\"API_RespondToAuthChallenge.html\\\">RespondToAuthChallenge</a> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>\"\
         },\
         \"ChallengeParameters\":{\
           \"shape\":\"ChallengeParametersType\",\
-          \"documentation\":\"<p>The challenge parameters.</p>\"\
+          \"documentation\":\"<p>The challenge parameters. For more information, see <a href=\\\"API_AdminInitiateAuth.html\\\">AdminInitiateAuth</a>.</p>\"\
         },\
-        \"AuthenticationResult\":{\"shape\":\"AuthenticationResultType\"}\
+        \"AuthenticationResult\":{\
+          \"shape\":\"AuthenticationResultType\",\
+          \"documentation\":\"<p>The result returned by the server in response to the authentication request.</p>\"\
+        }\
       },\
       \"documentation\":\"<p>Responds to the authentication challenge, as an administrator.</p>\"\
     },\
@@ -1776,7 +2392,7 @@
       \"members\":{\
         \"UserPoolId\":{\
           \"shape\":\"UserPoolIdType\",\
-          \"documentation\":\"<p>The user pool ID&gt;</p>\"\
+          \"documentation\":\"<p>The user pool ID.</p>\"\
         },\
         \"Username\":{\
           \"shape\":\"UsernameType\",\
@@ -1817,7 +2433,7 @@
         },\
         \"UserAttributes\":{\
           \"shape\":\"AttributeListType\",\
-          \"documentation\":\"<p>An array of name-value pairs representing user attributes.</p>\"\
+          \"documentation\":\"<p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the request to update the user's attributes as an administrator.</p>\"\
@@ -1875,6 +2491,21 @@
       \"documentation\":\"<p>This exception is thrown when a user tries to confirm the account with an email or phone number that has already been supplied as an alias from a different account. This exception tells user that an account with this email or phone already exists.</p>\",\
       \"exception\":true\
     },\
+    \"AnalyticsConfigurationType\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ApplicationId\":{\"shape\":\"HexStringType\"},\
+        \"RoleArn\":{\"shape\":\"ArnType\"},\
+        \"ExternalId\":{\"shape\":\"StringType\"},\
+        \"UserDataShared\":{\"shape\":\"BooleanType\"}\
+      }\
+    },\
+    \"AnalyticsMetadataType\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"AnalyticsEndpointId\":{\"shape\":\"StringType\"}\
+      }\
+    },\
     \"ArnType\":{\
       \"type\":\"string\",\
       \"max\":2048,\
@@ -1893,6 +2524,16 @@
     \"AttributeListType\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"AttributeType\"}\
+    },\
+    \"AttributeMappingKeyType\":{\
+      \"type\":\"string\",\
+      \"max\":32,\
+      \"min\":1\
+    },\
+    \"AttributeMappingType\":{\
+      \"type\":\"map\",\
+      \"key\":{\"shape\":\"AttributeMappingKeyType\"},\
+      \"value\":{\"shape\":\"StringType\"}\
     },\
     \"AttributeNameListType\":{\
       \"type\":\"list\",\
@@ -1970,6 +2611,14 @@
       \"documentation\":\"<p>The result type of the authentication result.</p>\"\
     },\
     \"BooleanType\":{\"type\":\"boolean\"},\
+    \"CSSType\":{\"type\":\"string\"},\
+    \"CSSVersionType\":{\"type\":\"string\"},\
+    \"CallbackURLsListType\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"RedirectUrlType\"},\
+      \"max\":100,\
+      \"min\":0\
+    },\
     \"ChallengeNameType\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -1996,7 +2645,8 @@
       \"type\":\"structure\",\
       \"required\":[\
         \"PreviousPassword\",\
-        \"ProposedPassword\"\
+        \"ProposedPassword\",\
+        \"AccessToken\"\
       ],\
       \"members\":{\
         \"PreviousPassword\":{\
@@ -2162,7 +2812,7 @@
       \"members\":{\
         \"ClientId\":{\
           \"shape\":\"ClientIdType\",\
-          \"documentation\":\"<p>The ID of the client associated with the user pool.</p>\"\
+          \"documentation\":\"<p>The app client ID of the app associated with the user pool.</p>\"\
         },\
         \"SecretHash\":{\
           \"shape\":\"SecretHashType\",\
@@ -2174,12 +2824,13 @@
         },\
         \"ConfirmationCode\":{\
           \"shape\":\"ConfirmationCodeType\",\
-          \"documentation\":\"<p>The confirmation code sent by a user's request to retrieve a forgotten password.</p>\"\
+          \"documentation\":\"<p>The confirmation code sent by a user's request to retrieve a forgotten password. For more information, see <a href=\\\"API_ForgotPassword.html\\\">ForgotPassword</a> </p>\"\
         },\
         \"Password\":{\
           \"shape\":\"PasswordType\",\
-          \"documentation\":\"<p>The password sent by sent by a user's request to retrieve a forgotten password.</p>\"\
-        }\
+          \"documentation\":\"<p>The password sent by a user's request to retrieve a forgotten password.</p>\"\
+        },\
+        \"AnalyticsMetadata\":{\"shape\":\"AnalyticsMetadataType\"}\
       },\
       \"documentation\":\"<p>The request representing the confirmation for a password reset.</p>\"\
     },\
@@ -2199,7 +2850,7 @@
       \"members\":{\
         \"ClientId\":{\
           \"shape\":\"ClientIdType\",\
-          \"documentation\":\"<p>The ID of the client associated with the user pool.</p>\"\
+          \"documentation\":\"<p>The ID of the app client associated with the user pool.</p>\"\
         },\
         \"SecretHash\":{\
           \"shape\":\"SecretHashType\",\
@@ -2215,8 +2866,9 @@
         },\
         \"ForceAliasCreation\":{\
           \"shape\":\"ForceAliasCreation\",\
-          \"documentation\":\"<p>Boolean to be specified to force user confirmation irrespective of existing alias. By default set to False. If this parameter is set to True and the phone number/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to False, the API will throw an <b>AliasExistsException</b> error.</p>\"\
-        }\
+          \"documentation\":\"<p>Boolean to be specified to force user confirmation irrespective of existing alias. By default set to <code>False</code>. If this parameter is set to <code>True</code> and the phone number/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to <code>False</code>, the API will throw an <b>AliasExistsException</b> error.</p>\"\
+        },\
+        \"AnalyticsMetadata\":{\"shape\":\"AnalyticsMetadataType\"}\
       },\
       \"documentation\":\"<p>Represents the request to confirm registration of a user.</p>\"\
     },\
@@ -2231,6 +2883,125 @@
       \"max\":2048,\
       \"min\":1,\
       \"pattern\":\"[\\\\S]+\"\
+    },\
+    \"CreateGroupRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"GroupName\",\
+        \"UserPoolId\"\
+      ],\
+      \"members\":{\
+        \"GroupName\":{\
+          \"shape\":\"GroupNameType\",\
+          \"documentation\":\"<p>The name of the group. Must be unique.</p>\"\
+        },\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool.</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"DescriptionType\",\
+          \"documentation\":\"<p>A string containing the description of the group.</p>\"\
+        },\
+        \"RoleArn\":{\
+          \"shape\":\"ArnType\",\
+          \"documentation\":\"<p>The role ARN for the group.</p>\"\
+        },\
+        \"Precedence\":{\
+          \"shape\":\"PrecedenceType\",\
+          \"documentation\":\"<p>A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower <code>Precedence</code> values take precedence over groups with higher or null <code>Precedence</code> values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN will be used in the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims in the user's tokens.</p> <p>Two groups can have the same <code>Precedence</code> value. If this happens, neither group takes precedence over the other. If two groups with the same <code>Precedence</code> have the same role ARN, that role is used in the <code>cognito:preferred_role</code> claim in tokens for users in each group. If the two groups have different role ARNs, the <code>cognito:preferred_role</code> claim is not set in users' tokens.</p> <p>The default <code>Precedence</code> value is null.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateGroupResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Group\":{\
+          \"shape\":\"GroupType\",\
+          \"documentation\":\"<p>The group object for the group.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateIdentityProviderRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"UserPoolId\",\
+        \"ProviderName\",\
+        \"ProviderType\",\
+        \"ProviderDetails\"\
+      ],\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID.</p>\"\
+        },\
+        \"ProviderName\":{\
+          \"shape\":\"ProviderNameTypeV1\",\
+          \"documentation\":\"<p>The identity provider name.</p>\"\
+        },\
+        \"ProviderType\":{\
+          \"shape\":\"IdentityProviderTypeType\",\
+          \"documentation\":\"<p>The identity provider type.</p>\"\
+        },\
+        \"ProviderDetails\":{\
+          \"shape\":\"ProviderDetailsType\",\
+          \"documentation\":\"<p>The identity provider details, such as <code>MetadataURL</code> and <code>MetadataFile</code>.</p>\"\
+        },\
+        \"AttributeMapping\":{\
+          \"shape\":\"AttributeMappingType\",\
+          \"documentation\":\"<p>A mapping of identity provider attributes to standard and custom user pool attributes.</p>\"\
+        },\
+        \"IdpIdentifiers\":{\
+          \"shape\":\"IdpIdentifiersListType\",\
+          \"documentation\":\"<p>A list of identity provider identifiers.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateIdentityProviderResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"IdentityProvider\"],\
+      \"members\":{\
+        \"IdentityProvider\":{\
+          \"shape\":\"IdentityProviderType\",\
+          \"documentation\":\"<p>The newly created identity provider object.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateResourceServerRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"UserPoolId\",\
+        \"Identifier\",\
+        \"Name\"\
+      ],\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool.</p>\"\
+        },\
+        \"Identifier\":{\
+          \"shape\":\"ResourceServerIdentifierType\",\
+          \"documentation\":\"<p>A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example, <code>https://my-weather-api.example.com</code>.</p>\"\
+        },\
+        \"Name\":{\
+          \"shape\":\"ResourceServerNameType\",\
+          \"documentation\":\"<p>A friendly name for the resource server.</p>\"\
+        },\
+        \"Scopes\":{\
+          \"shape\":\"ResourceServerScopeListType\",\
+          \"documentation\":\"<p>A list of scopes. Each scope is map, where the keys are <code>name</code> and <code>description</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateResourceServerResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"ResourceServer\"],\
+      \"members\":{\
+        \"ResourceServer\":{\
+          \"shape\":\"ResourceServerType\",\
+          \"documentation\":\"<p>The newly created resource server.</p>\"\
+        }\
+      }\
     },\
     \"CreateUserImportJobRequest\":{\
       \"type\":\"structure\",\
@@ -2286,7 +3057,7 @@
         },\
         \"RefreshTokenValidity\":{\
           \"shape\":\"RefreshTokenValidityType\",\
-          \"documentation\":\"<p>Refreshes the token validity.</p>\"\
+          \"documentation\":\"<p>The time limit, in days, after which the refresh token is no longer valid and cannot be used.</p>\"\
         },\
         \"ReadAttributes\":{\
           \"shape\":\"ClientPermissionListType\",\
@@ -2299,7 +3070,36 @@
         \"ExplicitAuthFlows\":{\
           \"shape\":\"ExplicitAuthFlowsListType\",\
           \"documentation\":\"<p>The explicit authentication flows.</p>\"\
-        }\
+        },\
+        \"SupportedIdentityProviders\":{\
+          \"shape\":\"SupportedIdentityProvidersListType\",\
+          \"documentation\":\"<p>A list of provider names for the identity providers that are supported on this client.</p>\"\
+        },\
+        \"CallbackURLs\":{\
+          \"shape\":\"CallbackURLsListType\",\
+          \"documentation\":\"<p>A list of allowed callback URLs for the identity providers.</p>\"\
+        },\
+        \"LogoutURLs\":{\
+          \"shape\":\"LogoutURLsListType\",\
+          \"documentation\":\"<p>A list of allowed logout URLs for the identity providers.</p>\"\
+        },\
+        \"DefaultRedirectURI\":{\
+          \"shape\":\"RedirectUrlType\",\
+          \"documentation\":\"<p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p>\"\
+        },\
+        \"AllowedOAuthFlows\":{\
+          \"shape\":\"OAuthFlowsType\",\
+          \"documentation\":\"<p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p> <p>Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.</p>\"\
+        },\
+        \"AllowedOAuthScopes\":{\
+          \"shape\":\"ScopeListType\",\
+          \"documentation\":\"<p>A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>\\\"phone\\\"</code>, <code>\\\"email\\\"</code>, <code>\\\"openid\\\"</code>, and <code>\\\"Cognito\\\"</code>.</p>\"\
+        },\
+        \"AllowedOAuthFlowsUserPoolClient\":{\
+          \"shape\":\"BooleanType\",\
+          \"documentation\":\"<p>Set to <code>True</code> if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.</p>\"\
+        },\
+        \"AnalyticsConfiguration\":{\"shape\":\"AnalyticsConfigurationType\"}\
       },\
       \"documentation\":\"<p>Represents the request to create a user pool client.</p>\"\
     },\
@@ -2312,6 +3112,28 @@
         }\
       },\
       \"documentation\":\"<p>Represents the response from the server to create a user pool client.</p>\"\
+    },\
+    \"CreateUserPoolDomainRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Domain\",\
+        \"UserPoolId\"\
+      ],\
+      \"members\":{\
+        \"Domain\":{\
+          \"shape\":\"DomainType\",\
+          \"documentation\":\"<p>The domain string.</p>\"\
+        },\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateUserPoolDomainResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
     },\
     \"CreateUserPoolRequest\":{\
       \"type\":\"structure\",\
@@ -2337,6 +3159,10 @@
           \"shape\":\"AliasAttributesListType\",\
           \"documentation\":\"<p>Attributes supported as an alias for this user pool. Possible values: <b>phone_number</b>, <b>email</b>, or <b>preferred_username</b>.</p>\"\
         },\
+        \"UsernameAttributes\":{\
+          \"shape\":\"UsernameAttributesListType\",\
+          \"documentation\":\"<p>Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.</p>\"\
+        },\
         \"SmsVerificationMessage\":{\
           \"shape\":\"SmsVerificationMessageType\",\
           \"documentation\":\"<p>A string representing the SMS verification message.</p>\"\
@@ -2348,6 +3174,10 @@
         \"EmailVerificationSubject\":{\
           \"shape\":\"EmailVerificationSubjectType\",\
           \"documentation\":\"<p>A string representing the email verification subject.</p>\"\
+        },\
+        \"VerificationMessageTemplate\":{\
+          \"shape\":\"VerificationMessageTemplateType\",\
+          \"documentation\":\"<p>The template for the verification message that the user sees when the app requests permission to access the user's information.</p>\"\
         },\
         \"SmsAuthenticationMessage\":{\
           \"shape\":\"SmsVerificationMessageType\",\
@@ -2369,9 +3199,17 @@
           \"shape\":\"SmsConfigurationType\",\
           \"documentation\":\"<p>The SMS configuration.</p>\"\
         },\
+        \"UserPoolTags\":{\
+          \"shape\":\"UserPoolTagsType\",\
+          \"documentation\":\"<p>The cost allocation tags for the user pool. For more information, see <a href=\\\"http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html\\\">Adding Cost Allocation Tags to Your User Pool</a> </p>\"\
+        },\
         \"AdminCreateUserConfig\":{\
           \"shape\":\"AdminCreateUserConfigType\",\
-          \"documentation\":\"<p>The configuration for AdminCreateUser requests.</p>\"\
+          \"documentation\":\"<p>The configuration for <code>AdminCreateUser</code> requests.</p>\"\
+        },\
+        \"Schema\":{\
+          \"shape\":\"SchemaAttributesListType\",\
+          \"documentation\":\"<p>An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the request to create a user pool.</p>\"\
@@ -2399,13 +3237,74 @@
       \"min\":1\
     },\
     \"DateType\":{\"type\":\"timestamp\"},\
+    \"DefaultEmailOptionType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"CONFIRM_WITH_LINK\",\
+        \"CONFIRM_WITH_CODE\"\
+      ]\
+    },\
+    \"DeleteGroupRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"GroupName\",\
+        \"UserPoolId\"\
+      ],\
+      \"members\":{\
+        \"GroupName\":{\
+          \"shape\":\"GroupNameType\",\
+          \"documentation\":\"<p>The name of the group.</p>\"\
+        },\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteIdentityProviderRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"UserPoolId\",\
+        \"ProviderName\"\
+      ],\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID.</p>\"\
+        },\
+        \"ProviderName\":{\
+          \"shape\":\"ProviderNameType\",\
+          \"documentation\":\"<p>The identity provider name.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteResourceServerRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"UserPoolId\",\
+        \"Identifier\"\
+      ],\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool that hosts the resource server.</p>\"\
+        },\
+        \"Identifier\":{\
+          \"shape\":\"ResourceServerIdentifierType\",\
+          \"documentation\":\"<p>The identifier for the resource server.</p>\"\
+        }\
+      }\
+    },\
     \"DeleteUserAttributesRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\"UserAttributeNames\"],\
+      \"required\":[\
+        \"UserAttributeNames\",\
+        \"AccessToken\"\
+      ],\
       \"members\":{\
         \"UserAttributeNames\":{\
           \"shape\":\"AttributeNameListType\",\
-          \"documentation\":\"<p>An array of strings representing the user attribute names you wish to delete.</p>\"\
+          \"documentation\":\"<p>An array of strings representing the user attribute names you wish to delete.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>\"\
         },\
         \"AccessToken\":{\
           \"shape\":\"TokenModelType\",\
@@ -2433,10 +3332,32 @@
         },\
         \"ClientId\":{\
           \"shape\":\"ClientIdType\",\
-          \"documentation\":\"<p>The ID of the client associated with the user pool.</p>\"\
+          \"documentation\":\"<p>The app client ID of the app associated with the user pool.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the request to delete a user pool client.</p>\"\
+    },\
+    \"DeleteUserPoolDomainRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Domain\",\
+        \"UserPoolId\"\
+      ],\
+      \"members\":{\
+        \"Domain\":{\
+          \"shape\":\"DomainType\",\
+          \"documentation\":\"<p>The domain string.</p>\"\
+        },\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteUserPoolDomainResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
     },\
     \"DeleteUserPoolRequest\":{\
       \"type\":\"structure\",\
@@ -2451,6 +3372,7 @@
     },\
     \"DeleteUserRequest\":{\
       \"type\":\"structure\",\
+      \"required\":[\"AccessToken\"],\
       \"members\":{\
         \"AccessToken\":{\
           \"shape\":\"TokenModelType\",\
@@ -2469,6 +3391,60 @@
         \"SMS\",\
         \"EMAIL\"\
       ]\
+    },\
+    \"DescribeIdentityProviderRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"UserPoolId\",\
+        \"ProviderName\"\
+      ],\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID.</p>\"\
+        },\
+        \"ProviderName\":{\
+          \"shape\":\"ProviderNameType\",\
+          \"documentation\":\"<p>The identity provider name.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeIdentityProviderResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"IdentityProvider\"],\
+      \"members\":{\
+        \"IdentityProvider\":{\
+          \"shape\":\"IdentityProviderType\",\
+          \"documentation\":\"<p>The identity provider that was deleted.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeResourceServerRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"UserPoolId\",\
+        \"Identifier\"\
+      ],\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool that hosts the resource server.</p>\"\
+        },\
+        \"Identifier\":{\
+          \"shape\":\"ResourceServerIdentifierType\",\
+          \"documentation\":\"<p>The identifier for the resource server</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeResourceServerResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"ResourceServer\"],\
+      \"members\":{\
+        \"ResourceServer\":{\
+          \"shape\":\"ResourceServerType\",\
+          \"documentation\":\"<p>The resource server.</p>\"\
+        }\
+      }\
     },\
     \"DescribeUserImportJobRequest\":{\
       \"type\":\"structure\",\
@@ -2511,7 +3487,7 @@
         },\
         \"ClientId\":{\
           \"shape\":\"ClientIdType\",\
-          \"documentation\":\"<p>The ID of the client associated with the user pool.</p>\"\
+          \"documentation\":\"<p>The app client ID of the app associated with the user pool.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the request to describe a user pool client.</p>\"\
@@ -2525,6 +3501,25 @@
         }\
       },\
       \"documentation\":\"<p>Represents the response from the server from a request to describe the user pool client.</p>\"\
+    },\
+    \"DescribeUserPoolDomainRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Domain\"],\
+      \"members\":{\
+        \"Domain\":{\
+          \"shape\":\"DomainType\",\
+          \"documentation\":\"<p>The domain string.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeUserPoolDomainResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DomainDescription\":{\
+          \"shape\":\"DomainDescriptionType\",\
+          \"documentation\":\"<p>A domain description object containing information about the domain.</p>\"\
+        }\
+      }\
     },\
     \"DescribeUserPoolRequest\":{\
       \"type\":\"structure\",\
@@ -2546,6 +3541,10 @@
         }\
       },\
       \"documentation\":\"<p>Represents the response to describe the user pool.</p>\"\
+    },\
+    \"DescriptionType\":{\
+      \"type\":\"string\",\
+      \"max\":2048\
     },\
     \"DeviceConfigurationType\":{\
       \"type\":\"structure\",\
@@ -2623,6 +3622,69 @@
       },\
       \"documentation\":\"<p>The device type.</p>\"\
     },\
+    \"DomainDescriptionType\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID.</p>\"\
+        },\
+        \"AWSAccountId\":{\
+          \"shape\":\"AWSAccountIdType\",\
+          \"documentation\":\"<p>The AWS account ID for the user pool owner.</p>\"\
+        },\
+        \"Domain\":{\
+          \"shape\":\"DomainType\",\
+          \"documentation\":\"<p>The domain string.</p>\"\
+        },\
+        \"S3Bucket\":{\
+          \"shape\":\"S3BucketType\",\
+          \"documentation\":\"<p>The S3 bucket where the static files for this domain are stored.</p>\"\
+        },\
+        \"CloudFrontDistribution\":{\
+          \"shape\":\"ArnType\",\
+          \"documentation\":\"<p>The ARN of the CloudFront distribution.</p>\"\
+        },\
+        \"Version\":{\
+          \"shape\":\"DomainVersionType\",\
+          \"documentation\":\"<p>The app version.</p>\"\
+        },\
+        \"Status\":{\
+          \"shape\":\"DomainStatusType\",\
+          \"documentation\":\"<p>The domain status.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A container for information about a domain.</p>\"\
+    },\
+    \"DomainStatusType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"CREATING\",\
+        \"DELETING\",\
+        \"UPDATING\",\
+        \"ACTIVE\",\
+        \"FAILED\"\
+      ]\
+    },\
+    \"DomainType\":{\
+      \"type\":\"string\",\
+      \"max\":63,\
+      \"min\":1,\
+      \"pattern\":\"^[a-z0-9](?:[a-z0-9\\\\-]{0,61}[a-z0-9])?$\"\
+    },\
+    \"DomainVersionType\":{\
+      \"type\":\"string\",\
+      \"max\":20,\
+      \"min\":1\
+    },\
+    \"DuplicateProviderException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"MessageType\"}\
+      },\
+      \"documentation\":\"<p>This exception is thrown when the provider is already supported by the user pool.</p>\",\
+      \"exception\":true\
+    },\
     \"EmailAddressType\":{\
       \"type\":\"string\",\
       \"pattern\":\"[\\\\p{L}\\\\p{M}\\\\p{S}\\\\p{N}\\\\p{P}]+@[\\\\p{L}\\\\p{M}\\\\p{S}\\\\p{N}\\\\p{P}]+\"\
@@ -2641,11 +3703,23 @@
       },\
       \"documentation\":\"<p>The email configuration type.</p>\"\
     },\
+    \"EmailVerificationMessageByLinkType\":{\
+      \"type\":\"string\",\
+      \"max\":20000,\
+      \"min\":6,\
+      \"pattern\":\"[\\\\p{L}\\\\p{M}\\\\p{S}\\\\p{N}\\\\p{P}\\\\s*]*\\\\{##[\\\\p{L}\\\\p{M}\\\\p{S}\\\\p{N}\\\\p{P}\\\\s*]*##\\\\}[\\\\p{L}\\\\p{M}\\\\p{S}\\\\p{N}\\\\p{P}\\\\s*]*\"\
+    },\
     \"EmailVerificationMessageType\":{\
       \"type\":\"string\",\
-      \"max\":2048,\
+      \"max\":20000,\
       \"min\":6,\
       \"pattern\":\"[\\\\p{L}\\\\p{M}\\\\p{S}\\\\p{N}\\\\p{P}\\\\s*]*\\\\{####\\\\}[\\\\p{L}\\\\p{M}\\\\p{S}\\\\p{N}\\\\p{P}\\\\s*]*\"\
+    },\
+    \"EmailVerificationSubjectByLinkType\":{\
+      \"type\":\"string\",\
+      \"max\":140,\
+      \"min\":1,\
+      \"pattern\":\"[\\\\p{L}\\\\p{M}\\\\p{S}\\\\p{N}\\\\p{P}\\\\s]+\"\
     },\
     \"EmailVerificationSubjectType\":{\
       \"type\":\"string\",\
@@ -2708,15 +3782,19 @@
         },\
         \"Username\":{\
           \"shape\":\"UsernameType\",\
-          \"documentation\":\"<p>The user name of the user for whom you want to enter a code to retrieve a forgotten password.</p>\"\
-        }\
+          \"documentation\":\"<p>The user name of the user for whom you want to enter a code to reset a forgotten password.</p>\"\
+        },\
+        \"AnalyticsMetadata\":{\"shape\":\"AnalyticsMetadataType\"}\
       },\
       \"documentation\":\"<p>Represents the request to reset a user's password.</p>\"\
     },\
     \"ForgotPasswordResponse\":{\
       \"type\":\"structure\",\
       \"members\":{\
-        \"CodeDeliveryDetails\":{\"shape\":\"CodeDeliveryDetailsType\"}\
+        \"CodeDeliveryDetails\":{\
+          \"shape\":\"CodeDeliveryDetailsType\",\
+          \"documentation\":\"<p>The code delivery details returned by the server in response to the request to reset a password.</p>\"\
+        }\
       },\
       \"documentation\":\"<p>Respresents the response from the server regarding the request to reset a password.</p>\"\
     },\
@@ -2772,9 +3850,89 @@
       },\
       \"documentation\":\"<p>Gets the device response.</p>\"\
     },\
+    \"GetGroupRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"GroupName\",\
+        \"UserPoolId\"\
+      ],\
+      \"members\":{\
+        \"GroupName\":{\
+          \"shape\":\"GroupNameType\",\
+          \"documentation\":\"<p>The name of the group.</p>\"\
+        },\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool.</p>\"\
+        }\
+      }\
+    },\
+    \"GetGroupResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Group\":{\
+          \"shape\":\"GroupType\",\
+          \"documentation\":\"<p>The group object for the group.</p>\"\
+        }\
+      }\
+    },\
+    \"GetIdentityProviderByIdentifierRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"UserPoolId\",\
+        \"IdpIdentifier\"\
+      ],\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID.</p>\"\
+        },\
+        \"IdpIdentifier\":{\
+          \"shape\":\"IdpIdentifierType\",\
+          \"documentation\":\"<p>The identity provider ID.</p>\"\
+        }\
+      }\
+    },\
+    \"GetIdentityProviderByIdentifierResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"IdentityProvider\"],\
+      \"members\":{\
+        \"IdentityProvider\":{\
+          \"shape\":\"IdentityProviderType\",\
+          \"documentation\":\"<p>The identity provider object.</p>\"\
+        }\
+      }\
+    },\
+    \"GetUICustomizationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"UserPoolId\"],\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool.</p>\"\
+        },\
+        \"ClientId\":{\
+          \"shape\":\"ClientIdType\",\
+          \"documentation\":\"<p>The client ID for the client app.</p>\"\
+        }\
+      }\
+    },\
+    \"GetUICustomizationResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"UICustomization\"],\
+      \"members\":{\
+        \"UICustomization\":{\
+          \"shape\":\"UICustomizationType\",\
+          \"documentation\":\"<p>The UI customization information.</p>\"\
+        }\
+      }\
+    },\
     \"GetUserAttributeVerificationCodeRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\"AttributeName\"],\
+      \"required\":[\
+        \"AccessToken\",\
+        \"AttributeName\"\
+      ],\
       \"members\":{\
         \"AccessToken\":{\
           \"shape\":\"TokenModelType\",\
@@ -2792,13 +3950,14 @@
       \"members\":{\
         \"CodeDeliveryDetails\":{\
           \"shape\":\"CodeDeliveryDetailsType\",\
-          \"documentation\":\"<p>The code delivery details returned by the server response to get the user attribute verification code.</p>\"\
+          \"documentation\":\"<p>The code delivery details returned by the server in response to the request to get the user attribute verification code.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The verification code response returned by the server response to get the user attribute verification code.</p>\"\
     },\
     \"GetUserRequest\":{\
       \"type\":\"structure\",\
+      \"required\":[\"AccessToken\"],\
       \"members\":{\
         \"AccessToken\":{\
           \"shape\":\"TokenModelType\",\
@@ -2820,7 +3979,7 @@
         },\
         \"UserAttributes\":{\
           \"shape\":\"AttributeListType\",\
-          \"documentation\":\"<p>An array of name-value pairs representing user attributes.</p>\"\
+          \"documentation\":\"<p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>\"\
         },\
         \"MFAOptions\":{\
           \"shape\":\"MFAOptionListType\",\
@@ -2831,6 +3990,7 @@
     },\
     \"GlobalSignOutRequest\":{\
       \"type\":\"structure\",\
+      \"required\":[\"AccessToken\"],\
       \"members\":{\
         \"AccessToken\":{\
           \"shape\":\"TokenModelType\",\
@@ -2845,6 +4005,124 @@
       },\
       \"documentation\":\"<p>The response to the request to sign out all devices.</p>\"\
     },\
+    \"GroupExistsException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"MessageType\"}\
+      },\
+      \"documentation\":\"<p>This exception is thrown when Amazon Cognito encounters a group that already exists in the user pool.</p>\",\
+      \"exception\":true\
+    },\
+    \"GroupListType\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"GroupType\"}\
+    },\
+    \"GroupNameType\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"[\\\\p{L}\\\\p{M}\\\\p{S}\\\\p{N}\\\\p{P}]+\"\
+    },\
+    \"GroupType\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"GroupName\":{\
+          \"shape\":\"GroupNameType\",\
+          \"documentation\":\"<p>The name of the group.</p>\"\
+        },\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool.</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"DescriptionType\",\
+          \"documentation\":\"<p>A string containing the description of the group.</p>\"\
+        },\
+        \"RoleArn\":{\
+          \"shape\":\"ArnType\",\
+          \"documentation\":\"<p>The role ARN for the group.</p>\"\
+        },\
+        \"Precedence\":{\
+          \"shape\":\"PrecedenceType\",\
+          \"documentation\":\"<p>A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. If a user belongs to two or more groups, it is the group with the highest precedence whose role ARN will be used in the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims in the user's tokens. Groups with higher <code>Precedence</code> values take precedence over groups with lower <code>Precedence</code> values or with null <code>Precedence</code> values.</p> <p>Two groups can have the same <code>Precedence</code> value. If this happens, neither group takes precedence over the other. If two groups with the same <code>Precedence</code> have the same role ARN, that role is used in the <code>cognito:preferred_role</code> claim in tokens for users in each group. If the two groups have different role ARNs, the <code>cognito:preferred_role</code> claim is not set in users' tokens.</p> <p>The default <code>Precedence</code> value is null.</p>\"\
+        },\
+        \"LastModifiedDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date the group was last modified.</p>\"\
+        },\
+        \"CreationDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date the group was created.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The group type.</p>\"\
+    },\
+    \"HexStringType\":{\
+      \"type\":\"string\",\
+      \"pattern\":\"^[0-9a-fA-F]+$\"\
+    },\
+    \"IdentityProviderType\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID.</p>\"\
+        },\
+        \"ProviderName\":{\
+          \"shape\":\"ProviderNameType\",\
+          \"documentation\":\"<p>The identity provider name.</p>\"\
+        },\
+        \"ProviderType\":{\
+          \"shape\":\"IdentityProviderTypeType\",\
+          \"documentation\":\"<p>The identity provider type.</p>\"\
+        },\
+        \"ProviderDetails\":{\
+          \"shape\":\"ProviderDetailsType\",\
+          \"documentation\":\"<p>The identity provider details, such as <code>MetadataURL</code> and <code>MetadataFile</code>.</p>\"\
+        },\
+        \"AttributeMapping\":{\
+          \"shape\":\"AttributeMappingType\",\
+          \"documentation\":\"<p>A mapping of identity provider attributes to standard and custom user pool attributes.</p>\"\
+        },\
+        \"IdpIdentifiers\":{\
+          \"shape\":\"IdpIdentifiersListType\",\
+          \"documentation\":\"<p>A list of identity provider identifiers.</p>\"\
+        },\
+        \"LastModifiedDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date the identity provider was last modified.</p>\"\
+        },\
+        \"CreationDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date the identity provider was created.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A container for information about an identity provider.</p>\"\
+    },\
+    \"IdentityProviderTypeType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"SAML\",\
+        \"Facebook\",\
+        \"Google\",\
+        \"LoginWithAmazon\",\
+        \"ActiveDirectory\"\
+      ]\
+    },\
+    \"IdpIdentifierType\":{\
+      \"type\":\"string\",\
+      \"max\":40,\
+      \"min\":1,\
+      \"pattern\":\"[\\\\w\\\\s+=.@-]+\"\
+    },\
+    \"IdpIdentifiersListType\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"IdpIdentifierType\"},\
+      \"max\":50,\
+      \"min\":0\
+    },\
+    \"ImageFileType\":{\"type\":\"blob\"},\
+    \"ImageUrlType\":{\"type\":\"string\"},\
     \"InitiateAuthRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -2854,20 +4132,21 @@
       \"members\":{\
         \"AuthFlow\":{\
           \"shape\":\"AuthFlowType\",\
-          \"documentation\":\"<p>The authentication flow.</p>\"\
+          \"documentation\":\"<p>The authentication flow for this call to execute. The API action will depend on this value. For example: </p> <ul> <li> <p> <code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new tokens.</p> </li> <li> <p> <code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code> and return the SRP variables to be used for next challenge execution.</p> </li> </ul> <p>Valid values include:</p> <ul> <li> <p> <code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p> </li> <li> <p> <code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p> </li> <li> <p> <code>CUSTOM_AUTH</code>: Custom authentication flow.</p> </li> </ul> <p> <code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</p>\"\
         },\
         \"AuthParameters\":{\
           \"shape\":\"AuthParametersType\",\
-          \"documentation\":\"<p>The authentication parameters.</p>\"\
+          \"documentation\":\"<p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p> <ul> <li> <p>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>REFRESH_TOKEN</code> (required), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>DEVICE_KEY</code> </p> </li> </ul>\"\
         },\
         \"ClientMetadata\":{\
           \"shape\":\"ClientMetadataType\",\
-          \"documentation\":\"<p>The client app's metadata.</p>\"\
+          \"documentation\":\"<p>This is a random key-value pair map which can contain any key and will be passed to your PreAuthentication Lambda trigger as-is. It can be used to implement additional validations around authentication.</p>\"\
         },\
         \"ClientId\":{\
           \"shape\":\"ClientIdType\",\
-          \"documentation\":\"<p>The client ID.</p>\"\
-        }\
+          \"documentation\":\"<p>The app client ID.</p>\"\
+        },\
+        \"AnalyticsMetadata\":{\"shape\":\"AnalyticsMetadataType\"}\
       },\
       \"documentation\":\"<p>Initiates the authentication request.</p>\"\
     },\
@@ -2876,17 +4155,20 @@
       \"members\":{\
         \"ChallengeName\":{\
           \"shape\":\"ChallengeNameType\",\
-          \"documentation\":\"<p>The name of the challenge.</p>\"\
+          \"documentation\":\"<p>The name of the challenge which you are responding to with this call. This is returned to you in the <code>AdminInitiateAuth</code> response if you need to pass another challenge.</p> <p>Valid values include the following. Note that all of these challenges require <code>USERNAME</code> and <code>SECRET_HASH</code> (if applicable) in the parameters.</p> <ul> <li> <p> <code>SMS_MFA</code>: Next challenge is to supply an <code>SMS_MFA_CODE</code>, delivered via SMS.</p> </li> <li> <p> <code>PASSWORD_VERIFIER</code>: Next challenge is to supply <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, and <code>TIMESTAMP</code> after the client-side SRP calculations.</p> </li> <li> <p> <code>CUSTOM_CHALLENGE</code>: This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.</p> </li> <li> <p> <code>DEVICE_SRP_AUTH</code>: If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.</p> </li> <li> <p> <code>DEVICE_PASSWORD_VERIFIER</code>: Similar to <code>PASSWORD_VERIFIER</code>, but for devices only.</p> </li> <li> <p> <code>NEW_PASSWORD_REQUIRED</code>: For users which are required to change their passwords after successful first login. This challenge should be passed with <code>NEW_PASSWORD</code> and any other required attributes.</p> </li> </ul>\"\
         },\
         \"Session\":{\
           \"shape\":\"SessionType\",\
-          \"documentation\":\"<p>The session.</p>\"\
+          \"documentation\":\"<p>The session which should be passed both ways in challenge-response calls to the service. If the <a href=\\\"API_InitiateAuth.html\\\">InitiateAuth</a> or <a href=\\\"API_RespondToAuthChallenge.html\\\">RespondToAuthChallenge</a> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>\"\
         },\
         \"ChallengeParameters\":{\
           \"shape\":\"ChallengeParametersType\",\
-          \"documentation\":\"<p>The challenge parameters.</p>\"\
+          \"documentation\":\"<p>The challenge parameters. These are returned to you in the <code>InitiateAuth</code> response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (<code>RespondToAuthChallenge</code>). </p> <p>All challenges require <code>USERNAME</code> and <code>SECRET_HASH</code> (if applicable).</p>\"\
         },\
-        \"AuthenticationResult\":{\"shape\":\"AuthenticationResultType\"}\
+        \"AuthenticationResult\":{\
+          \"shape\":\"AuthenticationResultType\",\
+          \"documentation\":\"<p>The result of the authentication response. This is only returned if the caller does not need to pass another challenge. If the caller does need to pass another challenge before it gets tokens, <code>ChallengeName</code>, <code>ChallengeParameters</code>, and <code>Session</code> are returned.</p>\"\
+        }\
       },\
       \"documentation\":\"<p>Initiates the authentication response.</p>\"\
     },\
@@ -2923,6 +4205,14 @@
         }\
       },\
       \"documentation\":\"<p>This exception is thrown when the Amazon Cognito service encounters an invalid AWS Lambda response.</p>\",\
+      \"exception\":true\
+    },\
+    \"InvalidOAuthFlowException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"MessageType\"}\
+      },\
+      \"documentation\":\"<p>This exception is thrown when the specified OAuth flow is invalid.</p>\",\
       \"exception\":true\
     },\
     \"InvalidParameterException\":{\
@@ -3062,9 +4352,114 @@
       },\
       \"documentation\":\"<p>Represents the response to list devices.</p>\"\
     },\
+    \"ListGroupsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"UserPoolId\"],\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool.</p>\"\
+        },\
+        \"Limit\":{\
+          \"shape\":\"QueryLimitType\",\
+          \"documentation\":\"<p>The limit of the request to list groups.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"PaginationKey\",\
+          \"documentation\":\"<p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>\"\
+        }\
+      }\
+    },\
+    \"ListGroupsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Groups\":{\
+          \"shape\":\"GroupListType\",\
+          \"documentation\":\"<p>The group objects for the groups.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"PaginationKey\",\
+          \"documentation\":\"<p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>\"\
+        }\
+      }\
+    },\
+    \"ListIdentityProvidersRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"UserPoolId\"],\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"ListProvidersLimitType\",\
+          \"documentation\":\"<p>The maximum number of identity providers to return.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"PaginationKeyType\",\
+          \"documentation\":\"<p>A pagination token.</p>\"\
+        }\
+      }\
+    },\
+    \"ListIdentityProvidersResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Providers\"],\
+      \"members\":{\
+        \"Providers\":{\
+          \"shape\":\"ProvidersListType\",\
+          \"documentation\":\"<p>A list of identity provider objects.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"PaginationKeyType\",\
+          \"documentation\":\"<p>A pagination token.</p>\"\
+        }\
+      }\
+    },\
     \"ListOfStringTypes\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"StringType\"}\
+    },\
+    \"ListProvidersLimitType\":{\
+      \"type\":\"integer\",\
+      \"max\":60,\
+      \"min\":1\
+    },\
+    \"ListResourceServersLimitType\":{\
+      \"type\":\"integer\",\
+      \"max\":50,\
+      \"min\":1\
+    },\
+    \"ListResourceServersRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"UserPoolId\"],\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"ListResourceServersLimitType\",\
+          \"documentation\":\"<p>The maximum number of resource servers to return.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"PaginationKeyType\",\
+          \"documentation\":\"<p>A pagination token.</p>\"\
+        }\
+      }\
+    },\
+    \"ListResourceServersResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"ResourceServers\"],\
+      \"members\":{\
+        \"ResourceServers\":{\
+          \"shape\":\"ResourceServersListType\",\
+          \"documentation\":\"<p>The resource servers.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"PaginationKeyType\",\
+          \"documentation\":\"<p>A pagination token.</p>\"\
+        }\
+      }\
     },\
     \"ListUserImportJobsRequest\":{\
       \"type\":\"structure\",\
@@ -3083,7 +4478,7 @@
         },\
         \"PaginationToken\":{\
           \"shape\":\"PaginationKeyType\",\
-          \"documentation\":\"<p>An identifier that was returned from the previous call to ListUserImportJobs, which can be used to return the next set of import jobs in the list.</p>\"\
+          \"documentation\":\"<p>An identifier that was returned from the previous call to <code>ListUserImportJobs</code>, which can be used to return the next set of import jobs in the list.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the request to list the user import jobs.</p>\"\
@@ -3164,21 +4559,59 @@
       },\
       \"documentation\":\"<p>Represents the response to list user pools.</p>\"\
     },\
+    \"ListUsersInGroupRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"UserPoolId\",\
+        \"GroupName\"\
+      ],\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool.</p>\"\
+        },\
+        \"GroupName\":{\
+          \"shape\":\"GroupNameType\",\
+          \"documentation\":\"<p>The name of the group.</p>\"\
+        },\
+        \"Limit\":{\
+          \"shape\":\"QueryLimitType\",\
+          \"documentation\":\"<p>The limit of the request to list users.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"PaginationKey\",\
+          \"documentation\":\"<p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>\"\
+        }\
+      }\
+    },\
+    \"ListUsersInGroupResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Users\":{\
+          \"shape\":\"UsersListType\",\
+          \"documentation\":\"<p>The users returned in the request to list users.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"PaginationKey\",\
+          \"documentation\":\"<p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>\"\
+        }\
+      }\
+    },\
     \"ListUsersRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"UserPoolId\"],\
       \"members\":{\
         \"UserPoolId\":{\
           \"shape\":\"UserPoolIdType\",\
-          \"documentation\":\"<p>The user pool ID for which you want to list users.</p>\"\
+          \"documentation\":\"<p>The user pool ID for the user pool on which the search should be performed.</p>\"\
         },\
         \"AttributesToGet\":{\
           \"shape\":\"SearchedAttributeNamesListType\",\
-          \"documentation\":\"<p>The attributes to get from the request to list users.</p>\"\
+          \"documentation\":\"<p>An array of strings, where each string is the name of a user attribute to be returned for each user in the search results. If the array is empty, all attributes are returned.</p>\"\
         },\
         \"Limit\":{\
           \"shape\":\"QueryLimitType\",\
-          \"documentation\":\"<p>The limit of the request to list users.</p>\"\
+          \"documentation\":\"<p>Maximum number of users to be returned.</p>\"\
         },\
         \"PaginationToken\":{\
           \"shape\":\"SearchPaginationTokenType\",\
@@ -3186,7 +4619,7 @@
         },\
         \"Filter\":{\
           \"shape\":\"UserFilterType\",\
-          \"documentation\":\"<p>The filter for the list users request.</p>\"\
+          \"documentation\":\"<p>A filter string of the form \\\"<i>AttributeName</i> <i>Filter-Type</i> \\\"<i>AttributeValue</i>\\\"\\\". Quotation marks within the filter string must be escaped using the backslash (\\\\) character. For example, \\\"<code>family_name</code> = \\\\\\\"Reddy\\\\\\\"\\\".</p> <ul> <li> <p> <i>AttributeName</i>: The name of the attribute to search for. You can only search for one attribute at a time.</p> </li> <li> <p> <i>Filter-Type</i>: For an exact match, use =, for example, \\\"<code>given_name</code> = \\\\\\\"Jon\\\\\\\"\\\". For a prefix (\\\"starts with\\\") match, use ^=, for example, \\\"<code>given_name</code> ^= \\\\\\\"Jon\\\\\\\"\\\". </p> </li> <li> <p> <i>AttributeValue</i>: The attribute value that must be matched for each user.</p> </li> </ul> <p>If the filter string is empty, <code>ListUsers</code> returns all users in the user pool.</p> <p>You can only search for the following standard attributes:</p> <ul> <li> <p> <code>username</code> (case-sensitive)</p> </li> <li> <p> <code>email</code> </p> </li> <li> <p> <code>phone_number</code> </p> </li> <li> <p> <code>name</code> </p> </li> <li> <p> <code>given_name</code> </p> </li> <li> <p> <code>family_name</code> </p> </li> <li> <p> <code>preferred_username</code> </p> </li> <li> <p> <code>cognito:user_status</code> (called <b>Enabled</b> in the Console) (case-sensitive)</p> </li> <li> <p> <code>status</code> (case-insensitive)</p> </li> </ul> <p>Custom attributes are not searchable.</p> <p>For more information, see <a href=\\\"http://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api\\\">Searching for Users Using the ListUsers API</a> and <a href=\\\"http://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples\\\">Examples of Using the ListUsers API</a> in the <i>Amazon Cognito Developer Guide</i>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the request to list users.</p>\"\
@@ -3204,6 +4637,12 @@
         }\
       },\
       \"documentation\":\"<p>The response from the request to list users.</p>\"\
+    },\
+    \"LogoutURLsListType\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"RedirectUrlType\"},\
+      \"max\":100,\
+      \"min\":0\
     },\
     \"LongType\":{\"type\":\"long\"},\
     \"MFAMethodNotFoundException\":{\
@@ -3283,7 +4722,7 @@
           \"documentation\":\"<p>The message returned when the Amazon Cognito service returns a not authorized exception.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>This exception gets thrown when a user is not authorized.</p>\",\
+      \"documentation\":\"<p>This exception is thrown when a user is not authorized.</p>\",\
       \"exception\":true\
     },\
     \"NumberAttributeConstraintsType\":{\
@@ -3299,6 +4738,20 @@
         }\
       },\
       \"documentation\":\"<p>The minimum and maximum value of an attribute that is of the number data type.</p>\"\
+    },\
+    \"OAuthFlowType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"code\",\
+        \"implicit\",\
+        \"client_credentials\"\
+      ]\
+    },\
+    \"OAuthFlowsType\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"OAuthFlowType\"},\
+      \"max\":3,\
+      \"min\":0\
     },\
     \"PaginationKey\":{\
       \"type\":\"string\",\
@@ -3369,6 +4822,10 @@
       \"max\":2048,\
       \"min\":0\
     },\
+    \"PrecedenceType\":{\
+      \"type\":\"integer\",\
+      \"min\":0\
+    },\
     \"PreconditionNotMetException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -3380,6 +4837,69 @@
       \"documentation\":\"<p>This exception is thrown when a precondition is not met.</p>\",\
       \"exception\":true\
     },\
+    \"ProviderDescription\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ProviderName\":{\
+          \"shape\":\"ProviderNameType\",\
+          \"documentation\":\"<p>The identity provider name.</p>\"\
+        },\
+        \"ProviderType\":{\
+          \"shape\":\"IdentityProviderTypeType\",\
+          \"documentation\":\"<p>The identity provider type.</p>\"\
+        },\
+        \"LastModifiedDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date the provider was last modified.</p>\"\
+        },\
+        \"CreationDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date the provider was added to the user pool.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A container for identity provider details.</p>\"\
+    },\
+    \"ProviderDetailsType\":{\
+      \"type\":\"map\",\
+      \"key\":{\"shape\":\"StringType\"},\
+      \"value\":{\"shape\":\"StringType\"}\
+    },\
+    \"ProviderNameType\":{\
+      \"type\":\"string\",\
+      \"max\":32,\
+      \"min\":1,\
+      \"pattern\":\"[\\\\p{L}\\\\p{M}\\\\p{S}\\\\p{N}\\\\p{P}]+\"\
+    },\
+    \"ProviderNameTypeV1\":{\
+      \"type\":\"string\",\
+      \"max\":32,\
+      \"min\":1,\
+      \"pattern\":\"[^_][\\\\p{L}\\\\p{M}\\\\p{S}\\\\p{N}\\\\p{P}][^_]+\"\
+    },\
+    \"ProviderUserIdentifierType\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ProviderName\":{\
+          \"shape\":\"ProviderNameType\",\
+          \"documentation\":\"<p>The name of the provider, for example, Facebook, Google, or Login with Amazon.</p>\"\
+        },\
+        \"ProviderAttributeName\":{\
+          \"shape\":\"StringType\",\
+          \"documentation\":\"<p>The name of the provider attribute to link to, for example, <code>NameID</code>.</p>\"\
+        },\
+        \"ProviderAttributeValue\":{\
+          \"shape\":\"StringType\",\
+          \"documentation\":\"<p>The value of the provider attribute to link to, for example, <code>xxxxx_account</code>.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A container for information about an identity provider for a user pool.</p>\"\
+    },\
+    \"ProvidersListType\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ProviderDescription\"},\
+      \"max\":50,\
+      \"min\":0\
+    },\
     \"QueryLimit\":{\
       \"type\":\"integer\",\
       \"max\":60,\
@@ -3389,6 +4909,12 @@
       \"type\":\"integer\",\
       \"max\":60,\
       \"min\":0\
+    },\
+    \"RedirectUrlType\":{\
+      \"type\":\"string\",\
+      \"max\":1024,\
+      \"min\":1,\
+      \"pattern\":\"[\\\\p{L}\\\\p{M}\\\\p{S}\\\\p{N}\\\\p{P}]+\"\
     },\
     \"RefreshTokenValidityType\":{\
       \"type\":\"integer\",\
@@ -3413,16 +4939,20 @@
         \"Username\":{\
           \"shape\":\"UsernameType\",\
           \"documentation\":\"<p>The user name of the user to whom you wish to resend a confirmation code.</p>\"\
-        }\
+        },\
+        \"AnalyticsMetadata\":{\"shape\":\"AnalyticsMetadataType\"}\
       },\
       \"documentation\":\"<p>Represents the request to resend the confirmation code.</p>\"\
     },\
     \"ResendConfirmationCodeResponse\":{\
       \"type\":\"structure\",\
       \"members\":{\
-        \"CodeDeliveryDetails\":{\"shape\":\"CodeDeliveryDetailsType\"}\
+        \"CodeDeliveryDetails\":{\
+          \"shape\":\"CodeDeliveryDetailsType\",\
+          \"documentation\":\"<p>The code delivery details returned by the server in response to the request to resend the confirmation code.</p>\"\
+        }\
       },\
-      \"documentation\":\"<p>The response from the server when the Amazon Cognito service makes the request to resend a confirmation code.</p>\"\
+      \"documentation\":\"<p>The response from the server when the Amazon Cognito Your User Pools service makes the request to resend a confirmation code.</p>\"\
     },\
     \"ResourceNotFoundException\":{\
       \"type\":\"structure\",\
@@ -3435,6 +4965,78 @@
       \"documentation\":\"<p>This exception is thrown when the Amazon Cognito service cannot find the requested resource.</p>\",\
       \"exception\":true\
     },\
+    \"ResourceServerIdentifierType\":{\
+      \"type\":\"string\",\
+      \"max\":256,\
+      \"min\":1,\
+      \"pattern\":\"[\\\\x21\\\\x23-\\\\x5B\\\\x5D-\\\\x7E]+\"\
+    },\
+    \"ResourceServerNameType\":{\
+      \"type\":\"string\",\
+      \"max\":256,\
+      \"min\":1,\
+      \"pattern\":\"[\\\\w\\\\s+=,.@-]+\"\
+    },\
+    \"ResourceServerScopeDescriptionType\":{\
+      \"type\":\"string\",\
+      \"max\":256,\
+      \"min\":1\
+    },\
+    \"ResourceServerScopeListType\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ResourceServerScopeType\"},\
+      \"max\":25\
+    },\
+    \"ResourceServerScopeNameType\":{\
+      \"type\":\"string\",\
+      \"max\":256,\
+      \"min\":1,\
+      \"pattern\":\"[\\\\x21\\\\x23-\\\\x2E\\\\x30-\\\\x5B\\\\x5D-\\\\x7E]+\"\
+    },\
+    \"ResourceServerScopeType\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ScopeName\",\
+        \"ScopeDescription\"\
+      ],\
+      \"members\":{\
+        \"ScopeName\":{\
+          \"shape\":\"ResourceServerScopeNameType\",\
+          \"documentation\":\"<p>The name of the scope.</p>\"\
+        },\
+        \"ScopeDescription\":{\
+          \"shape\":\"ResourceServerScopeDescriptionType\",\
+          \"documentation\":\"<p>A description of the scope.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A resource server scope.</p>\"\
+    },\
+    \"ResourceServerType\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool that hosts the resource server.</p>\"\
+        },\
+        \"Identifier\":{\
+          \"shape\":\"ResourceServerIdentifierType\",\
+          \"documentation\":\"<p>The identifier for the resource server.</p>\"\
+        },\
+        \"Name\":{\
+          \"shape\":\"ResourceServerNameType\",\
+          \"documentation\":\"<p>The name of the resource server.</p>\"\
+        },\
+        \"Scopes\":{\
+          \"shape\":\"ResourceServerScopeListType\",\
+          \"documentation\":\"<p>A list of scopes that are defined for the resource server.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A container for information about a resource server for a user pool.</p>\"\
+    },\
+    \"ResourceServersListType\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ResourceServerType\"}\
+    },\
     \"RespondToAuthChallengeRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -3444,20 +5046,21 @@
       \"members\":{\
         \"ClientId\":{\
           \"shape\":\"ClientIdType\",\
-          \"documentation\":\"<p>The client ID.</p>\"\
+          \"documentation\":\"<p>The app client ID.</p>\"\
         },\
         \"ChallengeName\":{\
           \"shape\":\"ChallengeNameType\",\
-          \"documentation\":\"<p>The name of the challenge.</p>\"\
+          \"documentation\":\"<p>The challenge name. For more information, see <a href=\\\"API_InitiateAuth.html\\\">InitiateAuth</a>.</p> <p> <code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</p>\"\
         },\
         \"Session\":{\
           \"shape\":\"SessionType\",\
-          \"documentation\":\"<p>The session.</p>\"\
+          \"documentation\":\"<p>The session which should be passed both ways in challenge-response calls to the service. If <code>InitiateAuth</code> or <code>RespondToAuthChallenge</code> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>\"\
         },\
         \"ChallengeResponses\":{\
           \"shape\":\"ChallengeResponsesType\",\
-          \"documentation\":\"<p>The responses to the authentication challenge.</p>\"\
-        }\
+          \"documentation\":\"<p>The challenge responses. These are inputs corresponding to the value of <code>ChallengeName</code>, for example:</p> <ul> <li> <p> <code>SMS_MFA</code>: <code>SMS_MFA_CODE</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret).</p> </li> <li> <p> <code>PASSWORD_VERIFIER</code>: <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, <code>TIMESTAMP</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret).</p> </li> <li> <p> <code>NEW_PASSWORD_REQUIRED</code>: <code>NEW_PASSWORD</code>, any other required attributes, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret). </p> </li> </ul>\"\
+        },\
+        \"AnalyticsMetadata\":{\"shape\":\"AnalyticsMetadataType\"}\
       },\
       \"documentation\":\"<p>The request to respond to an authentication challenge.</p>\"\
     },\
@@ -3466,19 +5069,28 @@
       \"members\":{\
         \"ChallengeName\":{\
           \"shape\":\"ChallengeNameType\",\
-          \"documentation\":\"<p>The challenge name.</p>\"\
+          \"documentation\":\"<p>The challenge name. For more information, see <a href=\\\"API_InitiateAuth.html\\\">InitiateAuth</a>.</p>\"\
         },\
         \"Session\":{\
           \"shape\":\"SessionType\",\
-          \"documentation\":\"<p>The session.</p>\"\
+          \"documentation\":\"<p>The session which should be passed both ways in challenge-response calls to the service. If the <a href=\\\"API_InitiateAuth.html\\\">InitiateAuth</a> or <a href=\\\"API_RespondToAuthChallenge.html\\\">RespondToAuthChallenge</a> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>\"\
         },\
         \"ChallengeParameters\":{\
           \"shape\":\"ChallengeParametersType\",\
-          \"documentation\":\"<p>The challenge parameters.</p>\"\
+          \"documentation\":\"<p>The challenge parameters. For more information, see <a href=\\\"API_InitiateAuth.html\\\">InitiateAuth</a>.</p>\"\
         },\
-        \"AuthenticationResult\":{\"shape\":\"AuthenticationResultType\"}\
+        \"AuthenticationResult\":{\
+          \"shape\":\"AuthenticationResultType\",\
+          \"documentation\":\"<p>The result returned by the server in response to the request to respond to the authentication challenge.</p>\"\
+        }\
       },\
       \"documentation\":\"<p>The response to respond to the authentication challenge.</p>\"\
+    },\
+    \"S3BucketType\":{\
+      \"type\":\"string\",\
+      \"max\":1024,\
+      \"min\":3,\
+      \"pattern\":\"^[0-9A-Za-z\\\\.\\\\-_]*(?<!\\\\.)$\"\
     },\
     \"SchemaAttributeType\":{\
       \"type\":\"structure\",\
@@ -3493,15 +5105,18 @@
         },\
         \"DeveloperOnlyAttribute\":{\
           \"shape\":\"BooleanType\",\
-          \"documentation\":\"<p>Specifies whether the attribute type is developer only.</p>\"\
+          \"documentation\":\"<p>Specifies whether the attribute type is developer only.</p>\",\
+          \"box\":true\
         },\
         \"Mutable\":{\
           \"shape\":\"BooleanType\",\
-          \"documentation\":\"<p>Specifies whether the attribute can be changed once it has been created.</p>\"\
+          \"documentation\":\"<p>Specifies whether the attribute can be changed once it has been created.</p>\",\
+          \"box\":true\
         },\
         \"Required\":{\
           \"shape\":\"BooleanType\",\
-          \"documentation\":\"<p>Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.</p>\"\
+          \"documentation\":\"<p>Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.</p>\",\
+          \"box\":true\
         },\
         \"NumberAttributeConstraints\":{\
           \"shape\":\"NumberAttributeConstraintsType\",\
@@ -3519,6 +5134,25 @@
       \"member\":{\"shape\":\"SchemaAttributeType\"},\
       \"max\":50,\
       \"min\":1\
+    },\
+    \"ScopeDoesNotExistException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"MessageType\"}\
+      },\
+      \"documentation\":\"<p>This exception is thrown when the specified scope does not exist.</p>\",\
+      \"exception\":true\
+    },\
+    \"ScopeListType\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ScopeType\"},\
+      \"max\":25\
+    },\
+    \"ScopeType\":{\
+      \"type\":\"string\",\
+      \"max\":256,\
+      \"min\":1,\
+      \"pattern\":\"[\\\\x21\\\\x23-\\\\x5B\\\\x5D-\\\\x7E]+\"\
     },\
     \"SearchPaginationTokenType\":{\
       \"type\":\"string\",\
@@ -3540,6 +5174,38 @@
       \"type\":\"string\",\
       \"max\":2048,\
       \"min\":20\
+    },\
+    \"SetUICustomizationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"UserPoolId\"],\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool.</p>\"\
+        },\
+        \"ClientId\":{\
+          \"shape\":\"ClientIdType\",\
+          \"documentation\":\"<p>The client ID for the client app.</p>\"\
+        },\
+        \"CSS\":{\
+          \"shape\":\"CSSType\",\
+          \"documentation\":\"<p>The CSS values in the UI customization.</p>\"\
+        },\
+        \"ImageFile\":{\
+          \"shape\":\"ImageFileType\",\
+          \"documentation\":\"<p>The uploaded logo image for the UI customization.</p>\"\
+        }\
+      }\
+    },\
+    \"SetUICustomizationResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"UICustomization\"],\
+      \"members\":{\
+        \"UICustomization\":{\
+          \"shape\":\"UICustomizationType\",\
+          \"documentation\":\"<p>The UI customization information.</p>\"\
+        }\
+      }\
     },\
     \"SetUserSettingsRequest\":{\
       \"type\":\"structure\",\
@@ -3591,28 +5257,41 @@
         },\
         \"UserAttributes\":{\
           \"shape\":\"AttributeListType\",\
-          \"documentation\":\"<p>An array of name-value pairs representing user attributes.</p>\"\
+          \"documentation\":\"<p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>\"\
         },\
         \"ValidationData\":{\
           \"shape\":\"AttributeListType\",\
           \"documentation\":\"<p>The validation data in the request to register a user.</p>\"\
-        }\
+        },\
+        \"AnalyticsMetadata\":{\"shape\":\"AnalyticsMetadataType\"}\
       },\
       \"documentation\":\"<p>Represents the request to register a user.</p>\"\
     },\
     \"SignUpResponse\":{\
       \"type\":\"structure\",\
+      \"required\":[\
+        \"UserConfirmed\",\
+        \"UserSub\"\
+      ],\
       \"members\":{\
         \"UserConfirmed\":{\
           \"shape\":\"BooleanType\",\
           \"documentation\":\"<p>A response from the server indicating that a user registration has been confirmed.</p>\"\
         },\
-        \"CodeDeliveryDetails\":{\"shape\":\"CodeDeliveryDetailsType\"}\
+        \"CodeDeliveryDetails\":{\
+          \"shape\":\"CodeDeliveryDetailsType\",\
+          \"documentation\":\"<p>The code delivery details returned by the server response to the user registration request.</p>\"\
+        },\
+        \"UserSub\":{\
+          \"shape\":\"StringType\",\
+          \"documentation\":\"<p>The UUID of the authenticated user. This is not the same as <code>username</code>.</p>\"\
+        }\
       },\
       \"documentation\":\"<p>The response from the server for a registration request.</p>\"\
     },\
     \"SmsConfigurationType\":{\
       \"type\":\"structure\",\
+      \"required\":[\"SnsCallerArn\"],\
       \"members\":{\
         \"SnsCallerArn\":{\
           \"shape\":\"ArnType\",\
@@ -3623,7 +5302,7 @@
           \"documentation\":\"<p>The external ID.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The SMS configuratoin type.</p>\"\
+      \"documentation\":\"<p>The SMS configuration type.</p>\"\
     },\
     \"SmsVerificationMessageType\":{\
       \"type\":\"string\",\
@@ -3709,6 +5388,10 @@
       \"documentation\":\"<p>The type of constraints associated with an attribute of the string type.</p>\"\
     },\
     \"StringType\":{\"type\":\"string\"},\
+    \"SupportedIdentityProvidersListType\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ProviderNameType\"}\
+    },\
     \"TokenModelType\":{\
       \"type\":\"string\",\
       \"pattern\":\"[A-Za-z0-9-_=.]+\",\
@@ -3722,7 +5405,7 @@
           \"documentation\":\"<p>The message returned when the Amazon Cognito service returns a too many failed attempts exception.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>This exception gets thrown when the user has made too many failed attempts for a given action (e.g., sign in).</p>\",\
+      \"documentation\":\"<p>This exception is thrown when the user has made too many failed attempts for a given action (e.g., sign in).</p>\",\
       \"exception\":true\
     },\
     \"TooManyRequestsException\":{\
@@ -3733,8 +5416,42 @@
           \"documentation\":\"<p>The message returned when the Amazon Cognito service returns a too many requests exception.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>This exception gets thrown when the user has made too many requests for a given operation.</p>\",\
+      \"documentation\":\"<p>This exception is thrown when the user has made too many requests for a given operation.</p>\",\
       \"exception\":true\
+    },\
+    \"UICustomizationType\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool.</p>\"\
+        },\
+        \"ClientId\":{\
+          \"shape\":\"ClientIdType\",\
+          \"documentation\":\"<p>The client ID for the client app.</p>\"\
+        },\
+        \"ImageUrl\":{\
+          \"shape\":\"ImageUrlType\",\
+          \"documentation\":\"<p>The logo image for the UI customization.</p>\"\
+        },\
+        \"CSS\":{\
+          \"shape\":\"CSSType\",\
+          \"documentation\":\"<p>The CSS values in the UI customization.</p>\"\
+        },\
+        \"CSSVersion\":{\
+          \"shape\":\"CSSVersionType\",\
+          \"documentation\":\"<p>The CSS version number.</p>\"\
+        },\
+        \"LastModifiedDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The last-modified date for the UI customization.</p>\"\
+        },\
+        \"CreationDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The creation date for the UI customization.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A container for the UI customization information for a user pool's built-in app UI.</p>\"\
     },\
     \"UnexpectedLambdaException\":{\
       \"type\":\"structure\",\
@@ -3744,7 +5461,15 @@
           \"documentation\":\"<p>The message returned when the Amazon Cognito service returns an unexpected AWS Lambda exception.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>This exception gets thrown when the Amazon Cognito service encounters an unexpected exception with the AWS Lambda service.</p>\",\
+      \"documentation\":\"<p>This exception is thrown when the Amazon Cognito service encounters an unexpected exception with the AWS Lambda service.</p>\",\
+      \"exception\":true\
+    },\
+    \"UnsupportedIdentityProviderException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"MessageType\"}\
+      },\
+      \"documentation\":\"<p>This exception is thrown when the specified identifier is not supported.</p>\",\
       \"exception\":true\
     },\
     \"UnsupportedUserStateException\":{\
@@ -3786,13 +5511,129 @@
       },\
       \"documentation\":\"<p>The response to the request to update the device status.</p>\"\
     },\
+    \"UpdateGroupRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"GroupName\",\
+        \"UserPoolId\"\
+      ],\
+      \"members\":{\
+        \"GroupName\":{\
+          \"shape\":\"GroupNameType\",\
+          \"documentation\":\"<p>The name of the group.</p>\"\
+        },\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool.</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"DescriptionType\",\
+          \"documentation\":\"<p>A string containing the new description of the group.</p>\"\
+        },\
+        \"RoleArn\":{\
+          \"shape\":\"ArnType\",\
+          \"documentation\":\"<p>The new role ARN for the group. This is used for setting the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims in the token.</p>\"\
+        },\
+        \"Precedence\":{\
+          \"shape\":\"PrecedenceType\",\
+          \"documentation\":\"<p>The new precedence value for the group. For more information about this parameter, see <a href=\\\"API_CreateGroup.html\\\">CreateGroup</a>.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateGroupResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Group\":{\
+          \"shape\":\"GroupType\",\
+          \"documentation\":\"<p>The group object for the group.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateIdentityProviderRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"UserPoolId\",\
+        \"ProviderName\"\
+      ],\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID.</p>\"\
+        },\
+        \"ProviderName\":{\
+          \"shape\":\"ProviderNameType\",\
+          \"documentation\":\"<p>The identity provider name.</p>\"\
+        },\
+        \"ProviderDetails\":{\
+          \"shape\":\"ProviderDetailsType\",\
+          \"documentation\":\"<p>The identity provider details to be updated, such as <code>MetadataURL</code> and <code>MetadataFile</code>.</p>\"\
+        },\
+        \"AttributeMapping\":{\
+          \"shape\":\"AttributeMappingType\",\
+          \"documentation\":\"<p>The identity provider attribute mapping to be changed.</p>\"\
+        },\
+        \"IdpIdentifiers\":{\
+          \"shape\":\"IdpIdentifiersListType\",\
+          \"documentation\":\"<p>A list of identity provider identifiers.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateIdentityProviderResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"IdentityProvider\"],\
+      \"members\":{\
+        \"IdentityProvider\":{\
+          \"shape\":\"IdentityProviderType\",\
+          \"documentation\":\"<p>The identity provider object.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateResourceServerRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"UserPoolId\",\
+        \"Identifier\",\
+        \"Name\"\
+      ],\
+      \"members\":{\
+        \"UserPoolId\":{\
+          \"shape\":\"UserPoolIdType\",\
+          \"documentation\":\"<p>The user pool ID for the user pool.</p>\"\
+        },\
+        \"Identifier\":{\
+          \"shape\":\"ResourceServerIdentifierType\",\
+          \"documentation\":\"<p>The identifier for the resource server.</p>\"\
+        },\
+        \"Name\":{\
+          \"shape\":\"ResourceServerNameType\",\
+          \"documentation\":\"<p>The name of the resource server.</p>\"\
+        },\
+        \"Scopes\":{\
+          \"shape\":\"ResourceServerScopeListType\",\
+          \"documentation\":\"<p>The scope values to be set for the resource server.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateResourceServerResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"ResourceServer\"],\
+      \"members\":{\
+        \"ResourceServer\":{\
+          \"shape\":\"ResourceServerType\",\
+          \"documentation\":\"<p>The resource server.</p>\"\
+        }\
+      }\
+    },\
     \"UpdateUserAttributesRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\"UserAttributes\"],\
+      \"required\":[\
+        \"UserAttributes\",\
+        \"AccessToken\"\
+      ],\
       \"members\":{\
         \"UserAttributes\":{\
           \"shape\":\"AttributeListType\",\
-          \"documentation\":\"<p>An array of name-value pairs representing user attributes.</p>\"\
+          \"documentation\":\"<p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>\"\
         },\
         \"AccessToken\":{\
           \"shape\":\"TokenModelType\",\
@@ -3832,7 +5673,7 @@
         },\
         \"RefreshTokenValidity\":{\
           \"shape\":\"RefreshTokenValidityType\",\
-          \"documentation\":\"<p>The validity of the refresh token.</p>\"\
+          \"documentation\":\"<p>The time limit, in days, after which the refresh token is no longer valid and cannot be used.</p>\"\
         },\
         \"ReadAttributes\":{\
           \"shape\":\"ClientPermissionListType\",\
@@ -3845,7 +5686,36 @@
         \"ExplicitAuthFlows\":{\
           \"shape\":\"ExplicitAuthFlowsListType\",\
           \"documentation\":\"<p>Explicit authentication flows.</p>\"\
-        }\
+        },\
+        \"SupportedIdentityProviders\":{\
+          \"shape\":\"SupportedIdentityProvidersListType\",\
+          \"documentation\":\"<p>A list of provider names for the identity providers that are supported on this client.</p>\"\
+        },\
+        \"CallbackURLs\":{\
+          \"shape\":\"CallbackURLsListType\",\
+          \"documentation\":\"<p>A list of allowed callback URLs for the identity providers.</p>\"\
+        },\
+        \"LogoutURLs\":{\
+          \"shape\":\"LogoutURLsListType\",\
+          \"documentation\":\"<p>A list of allowed logout URLs for the identity providers.</p>\"\
+        },\
+        \"DefaultRedirectURI\":{\
+          \"shape\":\"RedirectUrlType\",\
+          \"documentation\":\"<p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p>\"\
+        },\
+        \"AllowedOAuthFlows\":{\
+          \"shape\":\"OAuthFlowsType\",\
+          \"documentation\":\"<p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p> <p>Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.</p>\"\
+        },\
+        \"AllowedOAuthScopes\":{\
+          \"shape\":\"ScopeListType\",\
+          \"documentation\":\"<p>A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>\\\"phone\\\"</code>, <code>\\\"email\\\"</code>, <code>\\\"openid\\\"</code>, and <code>\\\"Cognito\\\"</code>.</p>\"\
+        },\
+        \"AllowedOAuthFlowsUserPoolClient\":{\
+          \"shape\":\"BooleanType\",\
+          \"documentation\":\"<p>Set to TRUE if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.</p>\"\
+        },\
+        \"AnalyticsConfiguration\":{\"shape\":\"AnalyticsConfigurationType\"}\
       },\
       \"documentation\":\"<p>Represents the request to update the user pool client.</p>\"\
     },\
@@ -3889,7 +5759,11 @@
         },\
         \"EmailVerificationSubject\":{\
           \"shape\":\"EmailVerificationSubjectType\",\
-          \"documentation\":\"<p>The subject of the email verfication message.</p>\"\
+          \"documentation\":\"<p>The subject of the email verification message.</p>\"\
+        },\
+        \"VerificationMessageTemplate\":{\
+          \"shape\":\"VerificationMessageTemplateType\",\
+          \"documentation\":\"<p>The template for verification messages.</p>\"\
         },\
         \"SmsAuthenticationMessage\":{\
           \"shape\":\"SmsVerificationMessageType\",\
@@ -3911,9 +5785,13 @@
           \"shape\":\"SmsConfigurationType\",\
           \"documentation\":\"<p>SMS configuration.</p>\"\
         },\
+        \"UserPoolTags\":{\
+          \"shape\":\"UserPoolTagsType\",\
+          \"documentation\":\"<p>The cost allocation tags for the user pool. For more information, see <a href=\\\"http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html\\\">Adding Cost Allocation Tags to Your User Pool</a> </p>\"\
+        },\
         \"AdminCreateUserConfig\":{\
           \"shape\":\"AdminCreateUserConfigType\",\
-          \"documentation\":\"<p>The configuration for AdminCreateUser requests.</p>\"\
+          \"documentation\":\"<p>The configuration for <code>AdminCreateUser</code> requests.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the request to update the user pool.</p>\"\
@@ -3981,11 +5859,11 @@
         },\
         \"PreSignedUrl\":{\
           \"shape\":\"PreSignedUrlType\",\
-          \"documentation\":\"<p>The pre-signed URL to be used to upload the .csv file.</p>\"\
+          \"documentation\":\"<p>The pre-signed URL to be used to upload the <code>.csv</code> file.</p>\"\
         },\
         \"CreationDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date when the user import job was created.</p>\"\
+          \"documentation\":\"<p>The date the user import job was created.</p>\"\
         },\
         \"StartDate\":{\
           \"shape\":\"DateType\",\
@@ -3993,11 +5871,11 @@
         },\
         \"CompletionDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date when the user imoprt job was completed.</p>\"\
+          \"documentation\":\"<p>The date when the user import job was completed.</p>\"\
         },\
         \"Status\":{\
           \"shape\":\"UserImportJobStatusType\",\
-          \"documentation\":\"<p>The status of the user import job. One of the following:</p> <ul> <li> <p>Created - The job was created but not started.</p> </li> <li> <p>Pending - A transition state. You have started the job, but it has not begun importing users yet.</p> </li> <li> <p>InProgress - The job has started, and users are being imported.</p> </li> <li> <p>Stopping - You have stopped the job, but the job has not stopped importing users yet.</p> </li> <li> <p>Stopped - You have stopped the job, and the job has stopped importing users.</p> </li> <li> <p>Succeeded - The job has completed successfully.</p> </li> <li> <p>Failed - The job has stopped due to an error.</p> </li> <li> <p>Expired - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.</p> </li> </ul>\"\
+          \"documentation\":\"<p>The status of the user import job. One of the following:</p> <ul> <li> <p> <code>Created</code> - The job was created but not started.</p> </li> <li> <p> <code>Pending</code> - A transition state. You have started the job, but it has not begun importing users yet.</p> </li> <li> <p> <code>InProgress</code> - The job has started, and users are being imported.</p> </li> <li> <p> <code>Stopping</code> - You have stopped the job, but the job has not stopped importing users yet.</p> </li> <li> <p> <code>Stopped</code> - You have stopped the job, and the job has stopped importing users.</p> </li> <li> <p> <code>Succeeded</code> - The job has completed successfully.</p> </li> <li> <p> <code>Failed</code> - The job has stopped due to an error.</p> </li> <li> <p> <code>Expired</code> - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.</p> </li> </ul>\"\
         },\
         \"CloudWatchLogsRoleArn\":{\
           \"shape\":\"ArnType\",\
@@ -4036,7 +5914,7 @@
           \"documentation\":\"<p>The message returned when the Amazon Cognito service returns a user validation exception with the AWS Lambda service.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>This exception gets thrown when the Amazon Cognito service encounters a user validation exception with the AWS Lambda service.</p>\",\
+      \"documentation\":\"<p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the AWS Lambda service.</p>\",\
       \"exception\":true\
     },\
     \"UserNotConfirmedException\":{\
@@ -4077,7 +5955,7 @@
           \"documentation\":\"<p>The client name from the user pool client description.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The description of the user poool client.</p>\"\
+      \"documentation\":\"<p>The description of the user pool client.</p>\"\
     },\
     \"UserPoolClientListType\":{\
       \"type\":\"list\",\
@@ -4104,15 +5982,15 @@
         },\
         \"LastModifiedDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The last modified date from the user pool request of the client type.</p>\"\
+          \"documentation\":\"<p>The date the user pool client was last modified.</p>\"\
         },\
         \"CreationDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The creation date from the user pool request of the client type.</p>\"\
+          \"documentation\":\"<p>The date the user pool client was created.</p>\"\
         },\
         \"RefreshTokenValidity\":{\
           \"shape\":\"RefreshTokenValidityType\",\
-          \"documentation\":\"<p>The validity of the refresh token.</p>\"\
+          \"documentation\":\"<p>The time limit, in days, after which the refresh token is no longer valid and cannot be used.</p>\"\
         },\
         \"ReadAttributes\":{\
           \"shape\":\"ClientPermissionListType\",\
@@ -4125,9 +6003,39 @@
         \"ExplicitAuthFlows\":{\
           \"shape\":\"ExplicitAuthFlowsListType\",\
           \"documentation\":\"<p>The explicit authentication flows.</p>\"\
-        }\
+        },\
+        \"SupportedIdentityProviders\":{\
+          \"shape\":\"SupportedIdentityProvidersListType\",\
+          \"documentation\":\"<p>A list of provider names for the identity providers that are supported on this client.</p>\"\
+        },\
+        \"CallbackURLs\":{\
+          \"shape\":\"CallbackURLsListType\",\
+          \"documentation\":\"<p>A list of allowed callback URLs for the identity providers.</p>\"\
+        },\
+        \"LogoutURLs\":{\
+          \"shape\":\"LogoutURLsListType\",\
+          \"documentation\":\"<p>A list of allowed logout URLs for the identity providers.</p>\"\
+        },\
+        \"DefaultRedirectURI\":{\
+          \"shape\":\"RedirectUrlType\",\
+          \"documentation\":\"<p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p>\"\
+        },\
+        \"AllowedOAuthFlows\":{\
+          \"shape\":\"OAuthFlowsType\",\
+          \"documentation\":\"<p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p> <p>Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.</p>\"\
+        },\
+        \"AllowedOAuthScopes\":{\
+          \"shape\":\"ScopeListType\",\
+          \"documentation\":\"<p>A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>\\\"phone\\\"</code>, <code>\\\"email\\\"</code>, <code>\\\"openid\\\"</code>, and <code>\\\"Cognito\\\"</code>.</p>\"\
+        },\
+        \"AllowedOAuthFlowsUserPoolClient\":{\
+          \"shape\":\"BooleanType\",\
+          \"documentation\":\"<p>Set to TRUE if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.</p>\",\
+          \"box\":true\
+        },\
+        \"AnalyticsConfiguration\":{\"shape\":\"AnalyticsConfigurationType\"}\
       },\
-      \"documentation\":\"<p>A user pool of the client type.</p>\"\
+      \"documentation\":\"<p>Contains information about a user pool client.</p>\"\
     },\
     \"UserPoolDescriptionType\":{\
       \"type\":\"structure\",\
@@ -4150,11 +6058,11 @@
         },\
         \"LastModifiedDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The last modified date in a user pool description.</p>\"\
+          \"documentation\":\"<p>The date the user pool description was last modified.</p>\"\
         },\
         \"CreationDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The creation date in a user pool description.</p>\"\
+          \"documentation\":\"<p>The date the user pool description was created.</p>\"\
         }\
       },\
       \"documentation\":\"<p>A user pool description.</p>\"\
@@ -4188,10 +6096,23 @@
       \"members\":{\
         \"PasswordPolicy\":{\
           \"shape\":\"PasswordPolicyType\",\
-          \"documentation\":\"<p>A container with information about the user pool password policy.</p>\"\
+          \"documentation\":\"<p>A container for information about the user pool password policy.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The type of policy in a user pool.</p>\"\
+    },\
+    \"UserPoolTaggingException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"MessageType\"}\
+      },\
+      \"documentation\":\"<p>This exception is thrown when a user pool tag cannot be set or updated.</p>\",\
+      \"exception\":true\
+    },\
+    \"UserPoolTagsType\":{\
+      \"type\":\"map\",\
+      \"key\":{\"shape\":\"StringType\"},\
+      \"value\":{\"shape\":\"StringType\"}\
     },\
     \"UserPoolType\":{\
       \"type\":\"structure\",\
@@ -4206,11 +6127,11 @@
         },\
         \"Policies\":{\
           \"shape\":\"UserPoolPolicyType\",\
-          \"documentation\":\"<p>A container describing the policies associated with a user pool.</p>\"\
+          \"documentation\":\"<p>A container for the policies associated with a user pool.</p>\"\
         },\
         \"LambdaConfig\":{\
           \"shape\":\"LambdaConfigType\",\
-          \"documentation\":\"<p>A container describing the AWS Lambda triggers associated with a user pool.</p>\"\
+          \"documentation\":\"<p>A container for the AWS Lambda triggers associated with a user pool.</p>\"\
         },\
         \"Status\":{\
           \"shape\":\"StatusType\",\
@@ -4218,11 +6139,11 @@
         },\
         \"LastModifiedDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The last modified date of a user pool.</p>\"\
+          \"documentation\":\"<p>The date the user pool was last modified.</p>\"\
         },\
         \"CreationDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The creation date of a user pool.</p>\"\
+          \"documentation\":\"<p>The date the user pool was created.</p>\"\
         },\
         \"SchemaAttributes\":{\
           \"shape\":\"SchemaAttributesListType\",\
@@ -4236,6 +6157,10 @@
           \"shape\":\"AliasAttributesListType\",\
           \"documentation\":\"<p>Specifies the attributes that are aliased in a user pool.</p>\"\
         },\
+        \"UsernameAttributes\":{\
+          \"shape\":\"UsernameAttributesListType\",\
+          \"documentation\":\"<p>Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.</p>\"\
+        },\
         \"SmsVerificationMessage\":{\
           \"shape\":\"SmsVerificationMessageType\",\
           \"documentation\":\"<p>The contents of the SMS verification message.</p>\"\
@@ -4247,6 +6172,10 @@
         \"EmailVerificationSubject\":{\
           \"shape\":\"EmailVerificationSubjectType\",\
           \"documentation\":\"<p>The subject of the email verification message.</p>\"\
+        },\
+        \"VerificationMessageTemplate\":{\
+          \"shape\":\"VerificationMessageTemplateType\",\
+          \"documentation\":\"<p>The template for verification messages.</p>\"\
         },\
         \"SmsAuthenticationMessage\":{\
           \"shape\":\"SmsVerificationMessageType\",\
@@ -4272,9 +6201,13 @@
           \"shape\":\"SmsConfigurationType\",\
           \"documentation\":\"<p>The SMS configuration.</p>\"\
         },\
+        \"UserPoolTags\":{\
+          \"shape\":\"UserPoolTagsType\",\
+          \"documentation\":\"<p>The cost allocation tags for the user pool. For more information, see <a href=\\\"http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html\\\">Adding Cost Allocation Tags to Your User Pool</a> </p>\"\
+        },\
         \"SmsConfigurationFailure\":{\
           \"shape\":\"StringType\",\
-          \"documentation\":\"<p>The reason why the SMS configuration cannot send the message(s) to your users.</p>\"\
+          \"documentation\":\"<p>The reason why the SMS configuration cannot send the messages to your users.</p>\"\
         },\
         \"EmailConfigurationFailure\":{\
           \"shape\":\"StringType\",\
@@ -4282,10 +6215,10 @@
         },\
         \"AdminCreateUserConfig\":{\
           \"shape\":\"AdminCreateUserConfigType\",\
-          \"documentation\":\"<p>The configuration for AdminCreateUser requests.</p>\"\
+          \"documentation\":\"<p>The configuration for <code>AdminCreateUser</code> requests.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>A container with information about the user pool type.</p>\"\
+      \"documentation\":\"<p>A container for information about the user pool type.</p>\"\
     },\
     \"UserStatusType\":{\
       \"type\":\"string\",\
@@ -4333,6 +6266,17 @@
       },\
       \"documentation\":\"<p>The user type.</p>\"\
     },\
+    \"UsernameAttributeType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"phone_number\",\
+        \"email\"\
+      ]\
+    },\
+    \"UsernameAttributesListType\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"UsernameAttributeType\"}\
+    },\
     \"UsernameExistsException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -4355,6 +6299,36 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"UserType\"}\
     },\
+    \"VerificationMessageTemplateType\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SmsMessage\":{\
+          \"shape\":\"SmsVerificationMessageType\",\
+          \"documentation\":\"<p>The SMS message template.</p>\"\
+        },\
+        \"EmailMessage\":{\
+          \"shape\":\"EmailVerificationMessageType\",\
+          \"documentation\":\"<p>The email message template.</p>\"\
+        },\
+        \"EmailSubject\":{\
+          \"shape\":\"EmailVerificationSubjectType\",\
+          \"documentation\":\"<p>The subject line for the email message template.</p>\"\
+        },\
+        \"EmailMessageByLink\":{\
+          \"shape\":\"EmailVerificationMessageByLinkType\",\
+          \"documentation\":\"<p>The email message template for sending a confirmation link to the user.</p>\"\
+        },\
+        \"EmailSubjectByLink\":{\
+          \"shape\":\"EmailVerificationSubjectByLinkType\",\
+          \"documentation\":\"<p>The subject line for the email message template for sending a confirmation link to the user.</p>\"\
+        },\
+        \"DefaultEmailOption\":{\
+          \"shape\":\"DefaultEmailOptionType\",\
+          \"documentation\":\"<p>The default email option.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The template for verification messages.</p>\"\
+    },\
     \"VerifiedAttributeType\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -4369,6 +6343,7 @@
     \"VerifyUserAttributeRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
+        \"AccessToken\",\
         \"AttributeName\",\
         \"Code\"\
       ],\
@@ -4395,8 +6370,9 @@
       \"documentation\":\"<p>A container representing the response from the server from the request to verify user attributes.</p>\"\
     }\
   },\
-  \"documentation\":\"<p>Using the Amazon Cognito Your User Pools API, you can create a user pool to manage directories and users. You can authenticate a user to obtain tokens related to user identity and access policies.</p> <p>This API reference provides information about user pools in Amazon Cognito Your User Pools.</p> <p>For more information, see the Amazon Cognito Documentation.</p>\"\
-}";
+  \"documentation\":\"<p>Using the Amazon Cognito User Pools API, you can create a user pool to manage directories and users. You can authenticate a user to obtain tokens related to user identity and access policies.</p> <p>This API reference provides information about user pools in Amazon Cognito User Pools.</p> <p>For more information, see the Amazon Cognito Documentation.</p>\"\
+}\
+";
 }
 
 @end

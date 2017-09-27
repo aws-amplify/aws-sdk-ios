@@ -140,6 +140,7 @@ static NSString* const UNKNOWN = @"Unknown";
           serviceConfiguration:(AWSServiceConfiguration*) analyticsServiceConfiguration
  targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfiguration {
     if (self = [super init]) {
+        _debug = NO;
         _appId = (appId)? appId : [AWSPinpointConfiguration appId];
         _launchOptions = launchOptions;
         _attributes = [NSDictionary dictionary];
