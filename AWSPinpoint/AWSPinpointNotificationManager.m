@@ -108,7 +108,13 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
 
 - (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
                        fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler {
-    [self handleNotificationReceived:[UIApplication sharedApplication] withNotification:userInfo];
+    [self interceptDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler shouldHandleNotificationDeepLink:YES];
+}
+
+- (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
+                       fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
+             shouldHandleNotificationDeepLink:(BOOL) handleDeepLink {
+    [self handleNotificationReceived:[UIApplication sharedApplication] withNotification:userInfo shouldHandleNotificationDeepLink:handleDeepLink];
     //We must rely on the user calling the completion handler because if we call it ourselves as well as the user it would cause a crash due to calling it twice.
 }
 
@@ -130,7 +136,8 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
 }
 
 - (void)handleNotificationReceived:(UIApplication *) app
-                  withNotification:(NSDictionary *) userInfo {
+                  withNotification:(NSDictionary *) userInfo
+  shouldHandleNotificationDeepLink:(BOOL) shouldHandleNotificationDeepLink {
     UIApplicationState state = [app applicationState];
     
     if (state == UIApplicationStateInactive) {
@@ -139,7 +146,9 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
         [self recordMessageOpenedEventForNotification:userInfo
                                        withIdentifier:nil
                                  withApplicationState:state];
-        [self handleNotificationDeepLinkForNotification:userInfo];
+        if (shouldHandleNotificationDeepLink) {
+            [self handleNotificationDeepLinkForNotification:userInfo];
+        }
     } else if (state == UIApplicationStateBackground) {
         AWSDDLogVerbose(@"Received notification with app on background.");
         [self addGlobalCampaignMetadataForNotification:userInfo];

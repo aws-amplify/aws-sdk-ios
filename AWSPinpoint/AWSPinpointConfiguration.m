@@ -60,7 +60,7 @@ static NSString* const UNKNOWN = @"Unknown";
     }
     if (!serviceConfiguration) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"The Pinpoint Analytics service configuration is `nil`. You need to configure `Info.plist` or set `defaultServiceConfiguration` before using this method."
+                                       reason:@"The Pinpoint Analytics service configuration is `nil`. You need to configure `awsconfiguration.json` or `Info.plist` or set `defaultServiceConfiguration` before using this method."
                                      userInfo:nil];
     }
     return serviceConfiguration;
@@ -78,7 +78,7 @@ static NSString* const UNKNOWN = @"Unknown";
     }
     if (!serviceConfiguration) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"The Pinpoint Targeting service configuration is `nil`. You need to configure `Info.plist` or set `defaultServiceConfiguration` before using this method."
+                                       reason:@"The Pinpoint Targeting service configuration is `nil`. You need to configure `awsconfiguration.json` or `Info.plist` or set `defaultServiceConfiguration` before using this method."
                                      userInfo:nil];
     }
     return serviceConfiguration;
@@ -89,7 +89,7 @@ static NSString* const UNKNOWN = @"Unknown";
     NSString *appId = [serviceInfo.infoDictionary objectForKey:AWSInfoAppId];
     if (!appId) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"The Pinpoint AppId is `nil`. You need to configure it in `Info.plist` before using this method."
+                                       reason:@"The Pinpoint AppId is `nil`. You need to configure it in `awsconfiguration.json` or `Info.plist` before using this method."
                                      userInfo:nil];
     }
     return appId;
@@ -140,6 +140,7 @@ static NSString* const UNKNOWN = @"Unknown";
           serviceConfiguration:(AWSServiceConfiguration*) analyticsServiceConfiguration
  targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfiguration {
     if (self = [super init]) {
+        _debug = NO;
         _appId = (appId)? appId : [AWSPinpointConfiguration appId];
         _launchOptions = launchOptions;
         _attributes = [NSDictionary dictionary];

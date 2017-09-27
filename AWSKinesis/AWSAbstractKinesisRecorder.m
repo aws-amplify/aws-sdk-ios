@@ -131,7 +131,6 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
     return [self saveRecord:data streamName:streamName partitionKey:[[NSUUID UUID] UUIDString]];
 }
 
-
 - (AWSTask *)saveRecord:(NSData *)data
              streamName:(NSString *)streamName
            partitionKey:(NSString *)partitionKey {

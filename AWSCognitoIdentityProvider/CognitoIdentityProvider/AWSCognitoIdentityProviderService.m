@@ -26,7 +26,7 @@
 #import "AWSCognitoIdentityProviderResources.h"
 
 static NSString *const AWSInfoCognitoIdentityProvider = @"CognitoIdentityProvider";
-static NSString *const AWSCognitoIdentityProviderSDKVersion = @"2.5.8";
+static NSString *const AWSCognitoIdentityProviderSDKVersion = @"2.6.2";
 
 
 @interface AWSCognitoIdentityProviderResponseSerializer : AWSJSONResponseSerializer
@@ -44,10 +44,13 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"CodeDeliveryFailureException" : @(AWSCognitoIdentityProviderErrorCodeDeliveryFailure),
                             @"CodeMismatchException" : @(AWSCognitoIdentityProviderErrorCodeMismatch),
                             @"ConcurrentModificationException" : @(AWSCognitoIdentityProviderErrorConcurrentModification),
+                            @"DuplicateProviderException" : @(AWSCognitoIdentityProviderErrorDuplicateProvider),
                             @"ExpiredCodeException" : @(AWSCognitoIdentityProviderErrorExpiredCode),
+                            @"GroupExistsException" : @(AWSCognitoIdentityProviderErrorGroupExists),
                             @"InternalErrorException" : @(AWSCognitoIdentityProviderErrorInternalError),
                             @"InvalidEmailRoleAccessPolicyException" : @(AWSCognitoIdentityProviderErrorInvalidEmailRoleAccessPolicy),
                             @"InvalidLambdaResponseException" : @(AWSCognitoIdentityProviderErrorInvalidLambdaResponse),
+                            @"InvalidOAuthFlowException" : @(AWSCognitoIdentityProviderErrorInvalidOAuthFlow),
                             @"InvalidParameterException" : @(AWSCognitoIdentityProviderErrorInvalidParameter),
                             @"InvalidPasswordException" : @(AWSCognitoIdentityProviderErrorInvalidPassword),
                             @"InvalidSmsRoleAccessPolicyException" : @(AWSCognitoIdentityProviderErrorInvalidSmsRoleAccessPolicy),
@@ -59,14 +62,17 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"PasswordResetRequiredException" : @(AWSCognitoIdentityProviderErrorPasswordResetRequired),
                             @"PreconditionNotMetException" : @(AWSCognitoIdentityProviderErrorPreconditionNotMet),
                             @"ResourceNotFoundException" : @(AWSCognitoIdentityProviderErrorResourceNotFound),
+                            @"ScopeDoesNotExistException" : @(AWSCognitoIdentityProviderErrorScopeDoesNotExist),
                             @"TooManyFailedAttemptsException" : @(AWSCognitoIdentityProviderErrorTooManyFailedAttempts),
                             @"TooManyRequestsException" : @(AWSCognitoIdentityProviderErrorTooManyRequests),
                             @"UnexpectedLambdaException" : @(AWSCognitoIdentityProviderErrorUnexpectedLambda),
+                            @"UnsupportedIdentityProviderException" : @(AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider),
                             @"UnsupportedUserStateException" : @(AWSCognitoIdentityProviderErrorUnsupportedUserState),
                             @"UserImportInProgressException" : @(AWSCognitoIdentityProviderErrorUserImportInProgress),
                             @"UserLambdaValidationException" : @(AWSCognitoIdentityProviderErrorUserLambdaValidation),
                             @"UserNotConfirmedException" : @(AWSCognitoIdentityProviderErrorUserNotConfirmed),
                             @"UserNotFoundException" : @(AWSCognitoIdentityProviderErrorUserNotFound),
+                            @"UserPoolTaggingException" : @(AWSCognitoIdentityProviderErrorUserPoolTagging),
                             @"UsernameExistsException" : @(AWSCognitoIdentityProviderErrorUsernameExists),
                             };
 }
@@ -188,7 +194,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (!serviceConfiguration) {
             @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                           reason:@"The service configuration is `nil`. You need to configure `Info.plist` or set `defaultServiceConfiguration` before using this method."
+                                           reason:@"The service configuration is `nil`. You need to configure `awsconfiguration.json`, `Info.plist` or set `defaultServiceConfiguration` before using this method."
                                          userInfo:nil];
         }
         _defaultCognitoIdentityProvider = [[AWSCognitoIdentityProvider alloc] initWithConfiguration:serviceConfiguration];
@@ -325,6 +331,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)adminAddUserToGroup:(AWSCognitoIdentityProviderAdminAddUserToGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"AdminAddUserToGroup"
+                   outputClass:nil];
+}
+
+- (void)adminAddUserToGroup:(AWSCognitoIdentityProviderAdminAddUserToGroupRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self adminAddUserToGroup:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCognitoIdentityProviderAdminConfirmSignUpResponse *> *)adminConfirmSignUp:(AWSCognitoIdentityProviderAdminConfirmSignUpRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -406,6 +434,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCognitoIdentityProviderAdminDeleteUserAttributesResponse *response, NSError *error))completionHandler {
     [[self adminDeleteUserAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderAdminDeleteUserAttributesResponse *> * _Nonnull task) {
         AWSCognitoIdentityProviderAdminDeleteUserAttributesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderAdminDisableProviderForUserResponse *> *)adminDisableProviderForUser:(AWSCognitoIdentityProviderAdminDisableProviderForUserRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"AdminDisableProviderForUser"
+                   outputClass:[AWSCognitoIdentityProviderAdminDisableProviderForUserResponse class]];
+}
+
+- (void)adminDisableProviderForUser:(AWSCognitoIdentityProviderAdminDisableProviderForUserRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderAdminDisableProviderForUserResponse *response, NSError *error))completionHandler {
+    [[self adminDisableProviderForUser:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderAdminDisableProviderForUserResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderAdminDisableProviderForUserResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -553,6 +604,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCognitoIdentityProviderAdminLinkProviderForUserResponse *> *)adminLinkProviderForUser:(AWSCognitoIdentityProviderAdminLinkProviderForUserRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"AdminLinkProviderForUser"
+                   outputClass:[AWSCognitoIdentityProviderAdminLinkProviderForUserResponse class]];
+}
+
+- (void)adminLinkProviderForUser:(AWSCognitoIdentityProviderAdminLinkProviderForUserRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderAdminLinkProviderForUserResponse *response, NSError *error))completionHandler {
+    [[self adminLinkProviderForUser:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderAdminLinkProviderForUserResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderAdminLinkProviderForUserResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCognitoIdentityProviderAdminListDevicesResponse *> *)adminListDevices:(AWSCognitoIdentityProviderAdminListDevicesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -570,6 +644,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderAdminListGroupsForUserResponse *> *)adminListGroupsForUser:(AWSCognitoIdentityProviderAdminListGroupsForUserRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"AdminListGroupsForUser"
+                   outputClass:[AWSCognitoIdentityProviderAdminListGroupsForUserResponse class]];
+}
+
+- (void)adminListGroupsForUser:(AWSCognitoIdentityProviderAdminListGroupsForUserRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderAdminListGroupsForUserResponse *response, NSError *error))completionHandler {
+    [[self adminListGroupsForUser:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderAdminListGroupsForUserResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderAdminListGroupsForUserResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)adminRemoveUserFromGroup:(AWSCognitoIdentityProviderAdminRemoveUserFromGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"AdminRemoveUserFromGroup"
+                   outputClass:nil];
+}
+
+- (void)adminRemoveUserFromGroup:(AWSCognitoIdentityProviderAdminRemoveUserFromGroupRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self adminRemoveUserFromGroup:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
         }
 
         return nil;
@@ -806,6 +925,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCognitoIdentityProviderCreateGroupResponse *> *)createGroup:(AWSCognitoIdentityProviderCreateGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"CreateGroup"
+                   outputClass:[AWSCognitoIdentityProviderCreateGroupResponse class]];
+}
+
+- (void)createGroup:(AWSCognitoIdentityProviderCreateGroupRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderCreateGroupResponse *response, NSError *error))completionHandler {
+    [[self createGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderCreateGroupResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderCreateGroupResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderCreateIdentityProviderResponse *> *)createIdentityProvider:(AWSCognitoIdentityProviderCreateIdentityProviderRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"CreateIdentityProvider"
+                   outputClass:[AWSCognitoIdentityProviderCreateIdentityProviderResponse class]];
+}
+
+- (void)createIdentityProvider:(AWSCognitoIdentityProviderCreateIdentityProviderRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderCreateIdentityProviderResponse *response, NSError *error))completionHandler {
+    [[self createIdentityProvider:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderCreateIdentityProviderResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderCreateIdentityProviderResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderCreateResourceServerResponse *> *)createResourceServer:(AWSCognitoIdentityProviderCreateResourceServerRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"CreateResourceServer"
+                   outputClass:[AWSCognitoIdentityProviderCreateResourceServerResponse class]];
+}
+
+- (void)createResourceServer:(AWSCognitoIdentityProviderCreateResourceServerRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderCreateResourceServerResponse *response, NSError *error))completionHandler {
+    [[self createResourceServer:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderCreateResourceServerResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderCreateResourceServerResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCognitoIdentityProviderCreateUserImportJobResponse *> *)createUserImportJob:(AWSCognitoIdentityProviderCreateUserImportJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -869,6 +1057,95 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderCreateUserPoolDomainResponse *> *)createUserPoolDomain:(AWSCognitoIdentityProviderCreateUserPoolDomainRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"CreateUserPoolDomain"
+                   outputClass:[AWSCognitoIdentityProviderCreateUserPoolDomainResponse class]];
+}
+
+- (void)createUserPoolDomain:(AWSCognitoIdentityProviderCreateUserPoolDomainRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderCreateUserPoolDomainResponse *response, NSError *error))completionHandler {
+    [[self createUserPoolDomain:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderCreateUserPoolDomainResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderCreateUserPoolDomainResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteGroup:(AWSCognitoIdentityProviderDeleteGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"DeleteGroup"
+                   outputClass:nil];
+}
+
+- (void)deleteGroup:(AWSCognitoIdentityProviderDeleteGroupRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteGroup:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteIdentityProvider:(AWSCognitoIdentityProviderDeleteIdentityProviderRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"DeleteIdentityProvider"
+                   outputClass:nil];
+}
+
+- (void)deleteIdentityProvider:(AWSCognitoIdentityProviderDeleteIdentityProviderRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteIdentityProvider:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteResourceServer:(AWSCognitoIdentityProviderDeleteResourceServerRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"DeleteResourceServer"
+                   outputClass:nil];
+}
+
+- (void)deleteResourceServer:(AWSCognitoIdentityProviderDeleteResourceServerRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteResourceServer:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
         }
 
         return nil;
@@ -964,6 +1241,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCognitoIdentityProviderDeleteUserPoolDomainResponse *> *)deleteUserPoolDomain:(AWSCognitoIdentityProviderDeleteUserPoolDomainRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"DeleteUserPoolDomain"
+                   outputClass:[AWSCognitoIdentityProviderDeleteUserPoolDomainResponse class]];
+}
+
+- (void)deleteUserPoolDomain:(AWSCognitoIdentityProviderDeleteUserPoolDomainRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderDeleteUserPoolDomainResponse *response, NSError *error))completionHandler {
+    [[self deleteUserPoolDomain:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderDeleteUserPoolDomainResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderDeleteUserPoolDomainResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderDescribeIdentityProviderResponse *> *)describeIdentityProvider:(AWSCognitoIdentityProviderDescribeIdentityProviderRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"DescribeIdentityProvider"
+                   outputClass:[AWSCognitoIdentityProviderDescribeIdentityProviderResponse class]];
+}
+
+- (void)describeIdentityProvider:(AWSCognitoIdentityProviderDescribeIdentityProviderRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderDescribeIdentityProviderResponse *response, NSError *error))completionHandler {
+    [[self describeIdentityProvider:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderDescribeIdentityProviderResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderDescribeIdentityProviderResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderDescribeResourceServerResponse *> *)describeResourceServer:(AWSCognitoIdentityProviderDescribeResourceServerRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"DescribeResourceServer"
+                   outputClass:[AWSCognitoIdentityProviderDescribeResourceServerResponse class]];
+}
+
+- (void)describeResourceServer:(AWSCognitoIdentityProviderDescribeResourceServerRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderDescribeResourceServerResponse *response, NSError *error))completionHandler {
+    [[self describeResourceServer:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderDescribeResourceServerResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderDescribeResourceServerResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCognitoIdentityProviderDescribeUserImportJobResponse *> *)describeUserImportJob:(AWSCognitoIdentityProviderDescribeUserImportJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1023,6 +1369,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCognitoIdentityProviderDescribeUserPoolClientResponse *response, NSError *error))completionHandler {
     [[self describeUserPoolClient:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderDescribeUserPoolClientResponse *> * _Nonnull task) {
         AWSCognitoIdentityProviderDescribeUserPoolClientResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderDescribeUserPoolDomainResponse *> *)describeUserPoolDomain:(AWSCognitoIdentityProviderDescribeUserPoolDomainRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"DescribeUserPoolDomain"
+                   outputClass:[AWSCognitoIdentityProviderDescribeUserPoolDomainResponse class]];
+}
+
+- (void)describeUserPoolDomain:(AWSCognitoIdentityProviderDescribeUserPoolDomainRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderDescribeUserPoolDomainResponse *response, NSError *error))completionHandler {
+    [[self describeUserPoolDomain:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderDescribeUserPoolDomainResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderDescribeUserPoolDomainResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1114,6 +1483,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCognitoIdentityProviderGetDeviceResponse *response, NSError *error))completionHandler {
     [[self getDevice:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderGetDeviceResponse *> * _Nonnull task) {
         AWSCognitoIdentityProviderGetDeviceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderGetGroupResponse *> *)getGroup:(AWSCognitoIdentityProviderGetGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"GetGroup"
+                   outputClass:[AWSCognitoIdentityProviderGetGroupResponse class]];
+}
+
+- (void)getGroup:(AWSCognitoIdentityProviderGetGroupRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderGetGroupResponse *response, NSError *error))completionHandler {
+    [[self getGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderGetGroupResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderGetGroupResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse *> *)getIdentityProviderByIdentifier:(AWSCognitoIdentityProviderGetIdentityProviderByIdentifierRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"GetIdentityProviderByIdentifier"
+                   outputClass:[AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse class]];
+}
+
+- (void)getIdentityProviderByIdentifier:(AWSCognitoIdentityProviderGetIdentityProviderByIdentifierRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse *response, NSError *error))completionHandler {
+    [[self getIdentityProviderByIdentifier:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderGetUICustomizationResponse *> *)getUICustomization:(AWSCognitoIdentityProviderGetUICustomizationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"GetUICustomization"
+                   outputClass:[AWSCognitoIdentityProviderGetUICustomizationResponse class]];
+}
+
+- (void)getUICustomization:(AWSCognitoIdentityProviderGetUICustomizationRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderGetUICustomizationResponse *response, NSError *error))completionHandler {
+    [[self getUICustomization:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderGetUICustomizationResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderGetUICustomizationResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1239,6 +1677,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCognitoIdentityProviderListGroupsResponse *> *)listGroups:(AWSCognitoIdentityProviderListGroupsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"ListGroups"
+                   outputClass:[AWSCognitoIdentityProviderListGroupsResponse class]];
+}
+
+- (void)listGroups:(AWSCognitoIdentityProviderListGroupsRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderListGroupsResponse *response, NSError *error))completionHandler {
+    [[self listGroups:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderListGroupsResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderListGroupsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderListIdentityProvidersResponse *> *)listIdentityProviders:(AWSCognitoIdentityProviderListIdentityProvidersRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"ListIdentityProviders"
+                   outputClass:[AWSCognitoIdentityProviderListIdentityProvidersResponse class]];
+}
+
+- (void)listIdentityProviders:(AWSCognitoIdentityProviderListIdentityProvidersRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderListIdentityProvidersResponse *response, NSError *error))completionHandler {
+    [[self listIdentityProviders:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderListIdentityProvidersResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderListIdentityProvidersResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderListResourceServersResponse *> *)listResourceServers:(AWSCognitoIdentityProviderListResourceServersRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"ListResourceServers"
+                   outputClass:[AWSCognitoIdentityProviderListResourceServersResponse class]];
+}
+
+- (void)listResourceServers:(AWSCognitoIdentityProviderListResourceServersRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderListResourceServersResponse *response, NSError *error))completionHandler {
+    [[self listResourceServers:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderListResourceServersResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderListResourceServersResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCognitoIdentityProviderListUserImportJobsResponse *> *)listUserImportJobs:(AWSCognitoIdentityProviderListUserImportJobsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1331,6 +1838,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCognitoIdentityProviderListUsersInGroupResponse *> *)listUsersInGroup:(AWSCognitoIdentityProviderListUsersInGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"ListUsersInGroup"
+                   outputClass:[AWSCognitoIdentityProviderListUsersInGroupResponse class]];
+}
+
+- (void)listUsersInGroup:(AWSCognitoIdentityProviderListUsersInGroupRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderListUsersInGroupResponse *response, NSError *error))completionHandler {
+    [[self listUsersInGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderListUsersInGroupResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderListUsersInGroupResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCognitoIdentityProviderResendConfirmationCodeResponse *> *)resendConfirmationCode:(AWSCognitoIdentityProviderResendConfirmationCodeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1367,6 +1897,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCognitoIdentityProviderRespondToAuthChallengeResponse *response, NSError *error))completionHandler {
     [[self respondToAuthChallenge:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse *> * _Nonnull task) {
         AWSCognitoIdentityProviderRespondToAuthChallengeResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderSetUICustomizationResponse *> *)setUICustomization:(AWSCognitoIdentityProviderSetUICustomizationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"SetUICustomization"
+                   outputClass:[AWSCognitoIdentityProviderSetUICustomizationResponse class]];
+}
+
+- (void)setUICustomization:(AWSCognitoIdentityProviderSetUICustomizationRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderSetUICustomizationResponse *response, NSError *error))completionHandler {
+    [[self setUICustomization:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderSetUICustomizationResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderSetUICustomizationResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1482,6 +2035,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCognitoIdentityProviderUpdateDeviceStatusResponse *response, NSError *error))completionHandler {
     [[self updateDeviceStatus:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderUpdateDeviceStatusResponse *> * _Nonnull task) {
         AWSCognitoIdentityProviderUpdateDeviceStatusResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderUpdateGroupResponse *> *)updateGroup:(AWSCognitoIdentityProviderUpdateGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"UpdateGroup"
+                   outputClass:[AWSCognitoIdentityProviderUpdateGroupResponse class]];
+}
+
+- (void)updateGroup:(AWSCognitoIdentityProviderUpdateGroupRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderUpdateGroupResponse *response, NSError *error))completionHandler {
+    [[self updateGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderUpdateGroupResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderUpdateGroupResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderUpdateIdentityProviderResponse *> *)updateIdentityProvider:(AWSCognitoIdentityProviderUpdateIdentityProviderRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"UpdateIdentityProvider"
+                   outputClass:[AWSCognitoIdentityProviderUpdateIdentityProviderResponse class]];
+}
+
+- (void)updateIdentityProvider:(AWSCognitoIdentityProviderUpdateIdentityProviderRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderUpdateIdentityProviderResponse *response, NSError *error))completionHandler {
+    [[self updateIdentityProvider:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderUpdateIdentityProviderResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderUpdateIdentityProviderResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderUpdateResourceServerResponse *> *)updateResourceServer:(AWSCognitoIdentityProviderUpdateResourceServerRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"UpdateResourceServer"
+                   outputClass:[AWSCognitoIdentityProviderUpdateResourceServerResponse class]];
+}
+
+- (void)updateResourceServer:(AWSCognitoIdentityProviderUpdateResourceServerRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderUpdateResourceServerResponse *response, NSError *error))completionHandler {
+    [[self updateResourceServer:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderUpdateResourceServerResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderUpdateResourceServerResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

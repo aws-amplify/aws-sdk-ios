@@ -59,6 +59,7 @@
              streamName:(NSString *)streamName;
 
 /**
+ Note: The partitionKey is used to distribute records between shards, therefore using the same partitionKey across multiple calls could cause provisioned throughput to be exceeded on one shard.
  Saves a record to local storage to be sent later. The record will be submitted to the streamName provided with a specified partition key to ensure equal distribution across shards.
  
  @param data         The data to send to Amazon Kinesis. It needs to be smaller than 256KB.

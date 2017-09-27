@@ -215,7 +215,7 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     void (^updateConnectionStatus)(AWSIoTMQTTStatus) = ^(AWSIoTMQTTStatus status) {
         ++timesTriggered;
         currentStatus = status;
-
+        AWSDDLogInfo(@"status = %ld", (long)status);
         //timesTriggered is incremented before the following checks, so it's value should be at least 1.
 
         if (1 == timesTriggered) XCTAssertEqual(currentStatus, AWSIoTMQTTStatusConnecting);
@@ -224,14 +224,25 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
         else XCTFail(@"Too many status transition callback triggered! The last callback triggered with Status: %ld", (long)status);
     };
 
-    AWSIoTDataManager *iotDataManager = [AWSIoTDataManager defaultIoTDataManager];
-    iotDataManager.mqttConfiguration.keepAliveTimeInterval = 75.0;
-    iotDataManager.mqttConfiguration.lastWillAndTestament.topic = @"will-topic";
-    iotDataManager.mqttConfiguration.lastWillAndTestament.message = @"ive-died";
-    iotDataManager.mqttConfiguration.lastWillAndTestament.qos = AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce;
-    iotDataManager.mqttConfiguration.runLoop = [NSRunLoop currentRunLoop];
-    iotDataManager.mqttConfiguration.runLoopMode = NSDefaultRunLoopMode;
-
+    AWSServiceConfiguration *serviceConfig = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
+    AWSIoTMQTTLastWillAndTestament *lwt = [AWSIoTMQTTLastWillAndTestament new];
+    lwt.topic = @"will-topic";
+    lwt.message = @"ive-died";
+    lwt.qos = AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce;
+    NSString *const key = @"testWebsocketConnectionState";
+    AWSIoTMQTTConfiguration *mqttConfig =
+        [[AWSIoTMQTTConfiguration alloc] initWithKeepAliveTimeInterval:75.0
+                                             baseReconnectTimeInterval:1.0
+                                         minimumConnectionTimeInterval:20.0
+                                          maximumReconnectTimeInterval:128.0
+                                                               runLoop:[NSRunLoop currentRunLoop]
+                                                           runLoopMode:NSDefaultRunLoopMode
+                                                       autoResubscribe:YES
+                                                  lastWillAndTestament:lwt];
+    [AWSIoTDataManager registerIoTDataManagerWithConfiguration:serviceConfig
+                                         withMQTTConfiguration:mqttConfig
+                                                        forKey:key];
+    AWSIoTDataManager *iotDataManager = [AWSIoTDataManager IoTDataManagerForKey:key];
     [iotDataManager connectUsingWebSocketWithClientId:@"test-connect-state-transition"
                                          cleanSession:true
                                        statusCallback:updateConnectionStatus];
@@ -264,8 +275,6 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
 }
 
 - (void)testWebSocketMQTTPubSub {
-    
-    AWSIoTDataManager *iotDataManager = [AWSIoTDataManager defaultIoTDataManager];
 
     __block BOOL connected=false;
     __block NSString *receivedString=@"";
@@ -282,13 +291,25 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
         receivedString = string;
     };
 
-    iotDataManager.mqttConfiguration.keepAliveTimeInterval = 75.0;
-    iotDataManager.mqttConfiguration.lastWillAndTestament.topic = @"will-topic";
-    iotDataManager.mqttConfiguration.lastWillAndTestament.message = @"ive-died";
-    iotDataManager.mqttConfiguration.lastWillAndTestament.qos = AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce;
-    iotDataManager.mqttConfiguration.runLoop = [NSRunLoop currentRunLoop];
-    iotDataManager.mqttConfiguration.runLoopMode = NSDefaultRunLoopMode;
-    
+    AWSServiceConfiguration *serviceConfig = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
+    AWSIoTMQTTLastWillAndTestament *lwt = [AWSIoTMQTTLastWillAndTestament new];
+    lwt.topic = @"will-topic";
+    lwt.message = @"ive-died";
+    lwt.qos = AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce;
+    NSString *const key = @"testWebSocketMQTTPubSub";
+    AWSIoTMQTTConfiguration *mqttConfig =
+    [[AWSIoTMQTTConfiguration alloc] initWithKeepAliveTimeInterval:75.0
+                                         baseReconnectTimeInterval:1.0
+                                     minimumConnectionTimeInterval:20.0
+                                      maximumReconnectTimeInterval:128.0
+                                                           runLoop:[NSRunLoop currentRunLoop]
+                                                       runLoopMode:NSDefaultRunLoopMode
+                                                   autoResubscribe:YES
+                                              lastWillAndTestament:lwt];
+    [AWSIoTDataManager registerIoTDataManagerWithConfiguration:serviceConfig
+                                         withMQTTConfiguration:mqttConfig
+                                                        forKey:key];
+    AWSIoTDataManager *iotDataManager = [AWSIoTDataManager IoTDataManagerForKey:key];
     [iotDataManager connectUsingWebSocketWithClientId:@"integration-test-1"
                                          cleanSession:true
                                        statusCallback:updateConnectionStatus];
@@ -439,26 +460,38 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
 
 -(void) testReconnectProgression {
 
-    __block AWSIoTDataManager *iotDataManager = [AWSIoTDataManager defaultIoTDataManager];
+
     __block NSUInteger connectionAttempts = 0;
     __block NSDate *connectingTime = [NSDate date];
     __block NSTimeInterval maxExpected = 8.0;
     __block NSTimeInterval currentExpected = 1.0;
-    
-    //
-    // Set custom base and max reconnection times so this test doesn't take too long.
-    //
-    iotDataManager.mqttConfiguration.baseReconnectTimeInterval = 1.0;
-    iotDataManager.mqttConfiguration.maximumReconnectTimeInterval = 8.0;
-    
+
+
+    AWSServiceConfiguration *serviceConfig = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
+    AWSIoTMQTTLastWillAndTestament *lwt = [AWSIoTMQTTLastWillAndTestament new];
+    lwt.topic = @"will-topic";
     //
     // Use a misconfigured connect message to force an immediate disconnection; here
     // we specify a will topic with the will QoS set to 2 (invalid).
     //
-    iotDataManager.mqttConfiguration.lastWillAndTestament.topic=@"will-topic";
-    iotDataManager.mqttConfiguration.lastWillAndTestament.message=@"";
-    iotDataManager.mqttConfiguration.lastWillAndTestament.qos = 2;
-    
+    lwt.qos = 2;
+    NSString *const key = @"testReconnectProgression";
+    //
+    // Set custom base and max reconnection times so this test doesn't take too long.
+    //
+    AWSIoTMQTTConfiguration *mqttConfig =
+    [[AWSIoTMQTTConfiguration alloc] initWithKeepAliveTimeInterval:75.0
+                                         baseReconnectTimeInterval:1.0
+                                     minimumConnectionTimeInterval:20.0
+                                      maximumReconnectTimeInterval:8.0
+                                                           runLoop:[NSRunLoop currentRunLoop]
+                                                       runLoopMode:NSDefaultRunLoopMode
+                                                   autoResubscribe:YES
+                                              lastWillAndTestament:lwt];
+    [AWSIoTDataManager registerIoTDataManagerWithConfiguration:serviceConfig
+                                         withMQTTConfiguration:mqttConfig
+                                                        forKey:key];
+    __block AWSIoTDataManager *iotDataManager = [AWSIoTDataManager IoTDataManagerForKey:key];
     [iotDataManager connectUsingWebSocketWithClientId:@"integration-test-2"
                                          cleanSession:true
                                        statusCallback:^(AWSIoTMQTTStatus status) {
@@ -502,11 +535,16 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
 
 - (void)testWebSocketShadowOperations {
     
-    __block AWSIoTDataManager *iotDataManager = [AWSIoTDataManager defaultIoTDataManager];
+    NSString *const key = @"testWebSocketShadowOperations";
+    AWSServiceConfiguration *serviceConfig = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
+    [AWSIoTDataManager registerIoTDataManagerWithConfiguration:serviceConfig forKey:key];
+    __block AWSIoTDataManager *iotDataManager = [AWSIoTDataManager IoTDataManagerForKey:key];
     __block BOOL connected = NO;
     NSDate *runUntil;
     
-    [iotDataManager connectUsingWebSocketWithClientId:@"integration-test-3" cleanSession:true statusCallback:^(AWSIoTMQTTStatus status) {
+    [iotDataManager connectUsingWebSocketWithClientId:@"integration-test-3"
+                                         cleanSession:true
+                                       statusCallback:^(AWSIoTMQTTStatus status) {
         if (status == AWSIoTMQTTStatusConnected) {
             connected = YES;
        }
@@ -526,14 +564,17 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     __block UInt32 numberRejected = 0;
     __block UInt32 numberDeltas   = 0;
     __block UInt32 numberTimeouts = 0;
+    __block UInt32 numberDocuments = 0;
     __block NSDictionary *acceptedJsonDictionary;
     __block NSDictionary *rejectedJsonDictionary;
     __block NSDictionary *deltaJsonDictionary;
+    __block NSDictionary *documentsJsonDictionary;
     __block NSDictionary *acceptedDesiredDictionary;
     __block NSDictionary *acceptedReportedDictionary;
     __block NSError *acceptedJsonParsingError;
     __block NSError *rejectedJsonParsingError;
     __block NSError *deltaJsonParsingError;
+    __block NSError *documentsJsonParsingError;
     __block NSString *acceptedClientToken;
     __block NSString *rejectedClientToken;
     __block NSUInteger versionNumber;
@@ -542,15 +583,23 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     __block UInt32 expectedRejected = 0;
     __block UInt32 expectedDeltas   = 0;
     __block UInt32 expectedTimeouts = 0;
+    __block UInt32 expectedDocuments = 0;
     
     void (^eventCallback)(NSString *shadowName, AWSIoTShadowOperationType operation, AWSIoTShadowOperationStatusType status, NSString *clientToken, NSData *payload) = ^(NSString *shadowName, AWSIoTShadowOperationType operation, AWSIoTShadowOperationStatusType status, NSString *clientToken, NSData *payload) {
-        XCTAssertEqual(shadowName, @"testThing1");
-        XCTAssertTrue( status == AWSIoTShadowOperationStatusTypeAccepted || status == AWSIoTShadowOperationStatusTypeRejected || status == AWSIoTShadowOperationStatusTypeDelta);
-        XCTAssertTrue( operation == AWSIoTShadowOperationTypeUpdate || operation == AWSIoTShadowOperationTypeDelete || operation == AWSIoTShadowOperationTypeGet );
+        XCTAssertEqual(shadowName, @"testThing99");
+        XCTAssertTrue( status == AWSIoTShadowOperationStatusTypeAccepted
+                      || status == AWSIoTShadowOperationStatusTypeRejected
+                      || status == AWSIoTShadowOperationStatusTypeDelta
+                      || status == AWSIoTShadowOperationStatusTypeDocuments);
+        XCTAssertTrue( operation == AWSIoTShadowOperationTypeUpdate
+                      || operation == AWSIoTShadowOperationTypeDelete
+                      || operation == AWSIoTShadowOperationTypeGet );
+
+        AWSDDLogDebug(@"Shadow callback triggered: AWSIoTShadowOperationStatus: %ld", (long)status);
         switch(status) {
             case AWSIoTShadowOperationStatusTypeAccepted:
                 acceptedJsonDictionary = [NSJSONSerialization JSONObjectWithData:payload options:0 error:&acceptedJsonParsingError];
-                acceptedClientToken    = [acceptedJsonDictionary objectForKey:@"clientToken"];
+                acceptedClientToken = [acceptedJsonDictionary objectForKey:@"clientToken"];
                 versionNumber = (UInt32)[[acceptedJsonDictionary objectForKey:@"version"] integerValue];
                 acceptedDesiredDictionary = [[acceptedJsonDictionary objectForKey:@"state"] objectForKey:@"desired"];
                 acceptedReportedDictionary = [[acceptedJsonDictionary objectForKey:@"state"] objectForKey:@"reported"];
@@ -565,6 +614,10 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
                 deltaJsonDictionary = [NSJSONSerialization JSONObjectWithData:payload options:0 error:&deltaJsonParsingError];
                 numberDeltas++;
                 break;
+            case AWSIoTShadowOperationStatusTypeDocuments:
+                documentsJsonDictionary = [NSJSONSerialization JSONObjectWithData:payload options:0 error:&documentsJsonParsingError];
+                numberDocuments++;
+                break;
             case AWSIoTShadowOperationStatusTypeTimeout:
                 numberTimeouts++;
                 break;
@@ -573,7 +626,8 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
         }
     };
     void (^resetTestVars)( void ) = ^(void) {
-        expectedAccepted = expectedRejected = expectedDeltas = expectedTimeouts = numberAccepted = numberRejected = numberDeltas = numberTimeouts = 0;
+        expectedAccepted = expectedRejected = expectedDeltas = expectedTimeouts = expectedDocuments = 0;
+        numberAccepted = numberRejected = numberDeltas = numberTimeouts = numberDocuments = 0;
         acceptedClientToken = rejectedClientToken = nil;
         acceptedDesiredDictionary = acceptedReportedDictionary = nil;
     };
@@ -588,7 +642,8 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     //
     // Register a shadow to test with.
     //
-    BOOL status = [iotDataManager registerWithShadow:@"testThing1" options:nil eventCallback: eventCallback];
+    AWSDDLogInfo(@" Test registerWithShadow ");
+    BOOL status = [iotDataManager registerWithShadow:@"testThing99" options:nil eventCallback: eventCallback];
     XCTAssertEqual(status, YES);
     
     //
@@ -604,42 +659,9 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     // or not it exists.
     //
     resetTestVars();
-    BOOL operationStatus = [iotDataManager deleteShadow:@"testThing1"];
+    AWSDDLogInfo(@" Test deleteShadow ");
+    BOOL operationStatus = [iotDataManager deleteShadow:@"testThing99"];
     XCTAssertTrue(operationStatus);
-    
-    //
-    // Wait a bit to let the service process the request and return the result.
-    //
-    runUntil = [NSDate dateWithTimeIntervalSinceNow: .5 ];
-    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
-    XCTAssertTrue( numberAccepted == 1 || numberRejected == 1 );
-    XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-1"] || [rejectedClientToken isEqualToString:@"integration-test-3-1"] );
-    
-    //
-    // Update the shadow with invalid data.
-    //
-    resetTestVars();
-    operationStatus = [iotDataManager updateShadow:@"testThing1" jsonString:testShadowStringInvalid];
-    XCTAssertFalse(operationStatus);
-    
-    //
-    // Wait a bit to let the service process the request and return the result.
-    //
-    runUntil = [NSDate dateWithTimeIntervalSinceNow: .5 ];
-    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
-    XCTAssertEqual(numberRejected, expectedRejected);
-    XCTAssertEqual(numberAccepted, expectedAccepted);
-    XCTAssertEqual(numberDeltas,   expectedDeltas);
-    XCTAssertEqual(numberTimeouts, expectedTimeouts);    XCTAssertTrue( acceptedClientToken == nil && rejectedClientToken == nil );
-    
-    //
-    // Update the shadow with valid data.
-    //
-    resetTestVars();
-    operationStatus = [iotDataManager updateShadow:@"testThing1" jsonString:testShadowStringValid];
-    XCTAssertTrue(operationStatus);
-    expectedAccepted++;
-    expectedDeltas++;
     
     //
     // Wait a bit to let the service process the request and return the result.
@@ -647,19 +669,65 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     runUntil = [NSDate dateWithTimeIntervalSinceNow: .5 ];
     [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
 
+    XCTAssertTrue( numberAccepted == 1 || numberRejected == 1 );
+    XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-1"]
+                  || [rejectedClientToken isEqualToString:@"integration-test-3-1"] );
     
-    XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-2"] && rejectedClientToken == nil );
-    XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 12345 );
-    XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
-    XCTAssertEqual(versionNumber,   1);
+    //
+    // Update the shadow with invalid data.
+    //
+    resetTestVars();
+    AWSDDLogInfo(@" Test updateShadow with invalid json data ");
+    operationStatus = [iotDataManager updateShadow:@"testThing99" jsonString:testShadowStringInvalid];
+    // operationStatus should be false because testShadowStringInvalid cannot be serialized successfully
+    XCTAssertFalse(operationStatus);
+    
+    //
+    // Wait a bit to let the service process the request and return the result.
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: .5];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+    XCTAssertEqual(numberRejected, expectedRejected);
+    XCTAssertEqual(numberAccepted, expectedAccepted);
+    XCTAssertEqual(numberDeltas,   expectedDeltas);
+    XCTAssertEqual(numberTimeouts, expectedTimeouts);
+    XCTAssertTrue(acceptedClientToken == nil && rejectedClientToken == nil);
     
     //
     // Update the shadow with valid data.
     //
     resetTestVars();
-    operationStatus = [iotDataManager updateShadow:@"testThing1" jsonString:testShadowStringValidNoDelta];
+    AWSDDLogInfo(@" Test updateShadow with valid json data ");
+    operationStatus = [iotDataManager updateShadow:@"testThing99" jsonString:testShadowStringValid];
     XCTAssertTrue(operationStatus);
     expectedAccepted++;
+    expectedDeltas++;
+    expectedDocuments++;
+    
+    //
+    // Wait a bit to let the service process the request and return the result.
+    //
+    runUntil = [NSDate dateWithTimeIntervalSinceNow: .5 ];
+    [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
+
+    XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-2"] && rejectedClientToken == nil );
+    XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 12345 );
+    XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
+    XCTAssertEqual( [[[[[documentsJsonDictionary objectForKey:@"current"]
+                        objectForKey:@"state"] objectForKey:@"desired"] objectForKey:@"value"] integerValue], 12345);
+    XCTAssertEqual( [[[[[documentsJsonDictionary objectForKey:@"current"]
+                        objectForKey:@"state"] objectForKey:@"reported"] objectForKey:@"value"] integerValue], 6789);
+    XCTAssertEqual(numberDocuments, expectedDocuments);
+    
+    //
+    // Update the shadow with valid data.
+    //
+    resetTestVars();
+    AWSDDLogInfo(@" Test updateShadow with valid json data but without delta ");
+    operationStatus = [iotDataManager updateShadow:@"testThing99" jsonString:testShadowStringValidNoDelta];
+    XCTAssertTrue(operationStatus);
+    expectedAccepted++;
+    expectedDocuments++;
     
     //
     // Wait a bit to let the service process the request and return the result.
@@ -673,13 +741,18 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-3"] && rejectedClientToken == nil );
     XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 6789 );
     XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
-    XCTAssertEqual(versionNumber,   2);
+    XCTAssertEqual( [[[[[documentsJsonDictionary objectForKey:@"current"]
+                        objectForKey:@"state"] objectForKey:@"desired"] objectForKey:@"value"] integerValue], 6789);
+    XCTAssertEqual( [[[[[documentsJsonDictionary objectForKey:@"previous"]
+                        objectForKey:@"state"] objectForKey:@"desired"] objectForKey:@"value"] integerValue], 12345);
+    XCTAssertEqual(numberDocuments, expectedDocuments);
 
     //
     // Get the shadow.
     //
     resetTestVars();
-    operationStatus = [iotDataManager getShadow:@"testThing1"];
+    AWSDDLogInfo(@" Test getShadow ");
+    operationStatus = [iotDataManager getShadow:@"testThing99"];
     XCTAssertTrue(operationStatus);
     expectedAccepted++;
     
@@ -695,16 +768,17 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-4"] && rejectedClientToken == nil );
     XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 6789 );
     XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
-    XCTAssertEqual(versionNumber,   2);
-    
+
     //
     // Update the shadow with valid data.
     //
     resetTestVars();
-    operationStatus = [iotDataManager updateShadow:@"testThing1" jsonString:testShadowStringValid];
+    AWSDDLogInfo(@" Test updateShadow with valid json data ");
+    operationStatus = [iotDataManager updateShadow:@"testThing99" jsonString:testShadowStringValid];
     XCTAssertTrue(operationStatus);
     expectedAccepted++;
     expectedDeltas++;
+    expectedDocuments++;
     
     //
     // Wait a bit to let the service process the request and return the result.
@@ -718,13 +792,18 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-5"] && rejectedClientToken == nil );
     XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 12345 );
     XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
-    XCTAssertEqual(versionNumber,   3);
+    XCTAssertEqual( [[[[[documentsJsonDictionary objectForKey:@"current"]
+                        objectForKey:@"state"] objectForKey:@"desired"] objectForKey:@"value"] integerValue], 12345);
+    XCTAssertEqual( [[[[[documentsJsonDictionary objectForKey:@"previous"]
+                        objectForKey:@"state"] objectForKey:@"reported"] objectForKey:@"value"] integerValue], 6789);
+    XCTAssertEqual(numberDocuments,expectedDocuments);
 
     //
     // Get the shadow.
     //
     resetTestVars();
-    operationStatus = [iotDataManager getShadow:@"testThing1"];
+    AWSDDLogInfo(@" Test getShadow ");
+    operationStatus = [iotDataManager getShadow:@"testThing99"];
     XCTAssertTrue(operationStatus);
     expectedAccepted++;
     
@@ -740,13 +819,13 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-6"] && rejectedClientToken == nil );
     XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 12345 );
     XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
-    XCTAssertEqual(versionNumber,   3);
-    
+
     //
     // Delete the shadow.
     //
     resetTestVars();
-    operationStatus = [iotDataManager deleteShadow:@"testThing1"];
+    AWSDDLogInfo(@" Test deleteShadow ");
+    operationStatus = [iotDataManager deleteShadow:@"testThing99"];
     XCTAssertTrue(operationStatus);
     expectedAccepted++;
     
@@ -765,7 +844,8 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     // Now try to get the shadow, this should be rejected since it no longer exists.
     //
     resetTestVars();
-    operationStatus = [iotDataManager getShadow:@"testThing1"];
+    AWSDDLogInfo(@" Test getShadow ");
+    operationStatus = [iotDataManager getShadow:@"testThing99"];
     XCTAssertTrue(operationStatus);
     expectedRejected++;
     
@@ -784,7 +864,8 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     // Unregister the shadow; this deletes it from the application and it will need to be
     // re-registered if it's to be used again.
     //
-    [iotDataManager unregisterFromShadow:@"testThing1"];
+    AWSDDLogInfo(@" Test unregisterFromShadow ");
+    [iotDataManager unregisterFromShadow:@"testThing99"];
     //
     // Wait a bit to let the service process the unsubscribe messages.
     //
@@ -793,7 +874,8 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     
     NSDictionary *optionsDictionary = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:YES],nil] forKeys:[NSArray arrayWithObjects:@"enableIgnoreDeltas", nil]];
 
-    [iotDataManager registerWithShadow:@"testThing1" options:optionsDictionary eventCallback:eventCallback];
+    AWSDDLogInfo(@" Test registerWithShadow again");
+    [iotDataManager registerWithShadow:@"testThing99" options:optionsDictionary eventCallback:eventCallback];
     //
     // Wait a bit to let the service process the unsubscribe messages.
     //
@@ -815,7 +897,8 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     // Update the shadow with valid data.
     //
     resetTestVars();
-    operationStatus = [iotDataManager updateShadow:@"testThing1" jsonString:testShadowStringValid clientToken:@"custom-client-token-1"];
+    AWSDDLogInfo(@" Test updateShadow with valid json data with custom client token ");
+    operationStatus = [iotDataManager updateShadow:@"testThing99" jsonString:testShadowStringValid clientToken:@"custom-client-token-1"];
     XCTAssertTrue(operationStatus);
     expectedAccepted++;
     
@@ -831,13 +914,13 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     XCTAssertTrue( [acceptedClientToken isEqualToString:@"custom-client-token-1"] && rejectedClientToken == nil );
     XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 12345 );
     XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
-    XCTAssertEqual(versionNumber,   1);
-    
+
     //
     // Get the shadow.
     //
     resetTestVars();
-    operationStatus = [iotDataManager getShadow:@"testThing1" clientToken:@"custom-client-token-2"];
+    AWSDDLogInfo(@" Test getShadow with custom token ");
+    operationStatus = [iotDataManager getShadow:@"testThing99" clientToken:@"custom-client-token-2"];
     XCTAssertTrue(operationStatus);
     expectedAccepted++;
     
@@ -853,13 +936,13 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     XCTAssertTrue( [acceptedClientToken isEqualToString:@"custom-client-token-2"] && rejectedClientToken == nil );
     XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 12345 );
     XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
-    XCTAssertEqual(versionNumber,   1);
-    
+
     //
     // Delete the shadow.
     //
     resetTestVars();
-    operationStatus = [iotDataManager deleteShadow:@"testThing1" clientToken:@"custom-client-token-3"];
+    AWSDDLogInfo(@" Test deleteShadow with custom token ");
+    operationStatus = [iotDataManager deleteShadow:@"testThing99" clientToken:@"custom-client-token-3"];
     XCTAssertTrue(operationStatus);
     expectedAccepted++;
     
@@ -878,7 +961,8 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     // Now try to get the shadow, this should be rejected since it no longer exists.
     //
     resetTestVars();
-    operationStatus = [iotDataManager getShadow:@"testThing1" clientToken:@"custom-client-token-4"];
+    AWSDDLogInfo(@" Test getShadow with custom token ");
+    operationStatus = [iotDataManager getShadow:@"testThing99" clientToken:@"custom-client-token-4"];
     XCTAssertTrue(operationStatus);
     expectedRejected++;
     

@@ -269,8 +269,7 @@ static __strong NSData *CRLFCRLF;
 
 - (id)initWithURLRequest:(NSURLRequest *)request protocols:(NSArray *)protocols allowsUntrustedSSLCertificates:(BOOL)allowsUntrustedSSLCertificates;
 {
-    self = [super init];
-    if (self) {
+    if (self = [super init]) {
         assert(request.URL);
         _url = request.URL;
         _urlRequest = request;
@@ -328,8 +327,9 @@ static __strong NSData *CRLFCRLF;
     
     // Going to set a specific on the queue so we can validate we're on the work queue
     dispatch_queue_set_specific(_workQueue, (__bridge void *)self, maybe_bridge(_workQueue), NULL);
-    
-    _delegateDispatchQueue = dispatch_get_main_queue();
+
+    //Changing it to be dispatched on global queue. This triggers didReceiveMessage , which should be running in background thread.
+    _delegateDispatchQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
     sr_dispatch_retain(_delegateDispatchQueue);
     
     _readBuffer = [[NSMutableData alloc] init];
@@ -403,8 +403,10 @@ static __strong NSData *CRLFCRLF;
 - (void)_performDelegateBlock:(dispatch_block_t)block;
 {
     if (_delegateOperationQueue) {
+        SRFastLog(@"using _delegateOperationQueue.");
         [_delegateOperationQueue addOperationWithBlock:block];
     } else {
+        SRFastLog(@"using _delegateDispatchQueue.");
         assert(_delegateDispatchQueue);
         dispatch_async(_delegateDispatchQueue, block);
     }
@@ -1633,8 +1635,7 @@ static const size_t SRFrameHeaderOverhead = 32;
 
 - (id)initWithBufferCapacity:(NSUInteger)poolSize;
 {
-    self = [super init];
-    if (self) {
+    if (self = [super init]) {
         _poolSize = poolSize;
         _bufferedConsumers = [[NSMutableArray alloc] initWithCapacity:poolSize];
     }
@@ -1835,8 +1836,7 @@ static NSRunLoop *networkRunLoop = nil;
 
 - (id)init
 {
-    self = [super init];
-    if (self) {
+    if (self = [super init]) {
         _waitGroup = dispatch_group_create();
         dispatch_group_enter(_waitGroup);
     }

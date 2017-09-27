@@ -1,19 +1,17 @@
 //
-// MQTTMessage.m
-// MQtt Client
-// 
-// Copyright (c) 2011, 2013, 2lemetry LLC
-// 
-// All rights reserved. This program and the accompanying materials
-// are made available under the terms of the Eclipse Public License v1.0
-// and Eclipse Distribution License v. 1.0 which accompanies this distribution.
-// The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v10.html
-// and the Eclipse Distribution License is available at
-// http://www.eclipse.org/org/documents/edl-v10.php.
-// 
-// Contributors:
-//    Kyle Roche - initial API and implementation and/or initial documentation
-// 
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License").
+// You may not use this file except in compliance with the License.
+// A copy of the License is located at
+//
+// http://aws.amazon.com/apache2.0
+//
+// or in the "license" file accompanying this file. This file is distributed
+// on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+// express or implied. See the License for the specific language governing
+// permissions and limitations under the License.
+//
 
 #import "AWSCocoaLumberjack.h"
 #import "MQTTMessage.h"
@@ -25,6 +23,7 @@
                         password:(NSString*)password
                        keepAlive:(NSInteger)keepAlive
                     cleanSession:(BOOL)cleanSessionFlag {
+    AWSDDLogDebug(@"%s [Line %d], Thread:%@ ", __PRETTY_FUNCTION__, __LINE__, [NSThread currentThread]);
     MQTTMessage* msg;
     UInt8 flags = 0x00;
 
@@ -50,7 +49,7 @@
             [data appendMQTTString:password];
         }
     }
-    AWSDDLogInfo(@"%@",data);
+    AWSDDLogDebug(@"Creating MQTTMessage with raw data >>>>> %@ <<<<<",data);
     msg = [[MQTTMessage alloc] initWithType:MQTTConnect data:data];
     return msg;
 }
@@ -64,6 +63,7 @@
                          willMsg:(NSData*)willMsg
                          willQoS:(UInt8)willQoS
                       willRetain:(BOOL)willRetainFlag {
+    AWSDDLogDebug(@"%s [Line %d], Thread:%@ ", __PRETTY_FUNCTION__, __LINE__, [NSThread currentThread]);
     UInt8 flags = 0x00;
 
     if (cleanSessionFlag) {
@@ -101,7 +101,7 @@
             [data appendMQTTString:password];
         }
     }
-    AWSDDLogInfo(@"%@",data);
+    AWSDDLogDebug(@"Creating MQTTMessage with raw data >>>>> %@ <<<<<",data);
 
     MQTTMessage *msg = [[MQTTMessage alloc] initWithType:MQTTConnect
                                                     data:data];
@@ -139,6 +139,7 @@
 + (id)publishMessageWithData:(NSData*)payload
                      onTopic:(NSString*)topic
                   retainFlag:(BOOL)retain {
+    AWSDDLogVerbose(@"Publish message on topic: %@, retain flag: %@", topic, retain ? @"true":@"false");
     NSMutableData* data = [NSMutableData data];
     [data appendMQTTString:topic];
     [data appendData:payload];
@@ -156,6 +157,8 @@
                        msgId:(UInt16)msgId
                   retainFlag:(BOOL)retain
                      dupFlag:(BOOL)dup {
+    AWSDDLogVerbose(@"Publish message on topic: %@, qos: %d, mssgId: %d, retain flag: %@, dup flag: %@",
+                    topic, qosLevel, msgId, retain ? @"ture":@"false", dup ? @"ture":@"false");
     NSMutableData* data = [NSMutableData data];
     [data appendMQTTString:topic];
     [data appendUInt16BigEndian:msgId];

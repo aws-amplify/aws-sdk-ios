@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'AWSLex'
-  s.version      = '2.5.8'
+  s.version      = '2.6.2'
   s.summary      = 'Amazon Web Services SDK for iOS.'
 
   s.description  = 'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'
@@ -12,11 +12,11 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/aws/aws-sdk-ios.git',
                      :tag => s.version}
   s.requires_arc = true
-  s.dependency 'AWSCore', '2.5.8'
+  s.dependency 'AWSCore', '2.6.2'
   s.source_files = 'AWSLex/*.{h,m}', 'AWSLex/Bluefront/include/*.h'
   s.public_header_files = 'AWSLex/*.h'
   s.private_header_files = 'AWSLex/Bluefront/include/*.h'
   s.preserve_paths = 'AWSLex/Bluefront/include/*'
   s.vendored_libraries = 'AWSLex/Bluefront/libBlueAudioSourceiOS.a'
-  s.resource_bundle = {  'AWSResources' => 'AWSResources/*' }
+  s.resource_bundle = {  'AWSLex' => 'AWSLex/Media.xcassets' }
 end

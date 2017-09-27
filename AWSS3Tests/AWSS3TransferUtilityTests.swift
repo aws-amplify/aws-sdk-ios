@@ -286,7 +286,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             ).continueWith (block: { (task) -> AnyObject? in
                 XCTAssertNotNil(task.error)
                 XCTAssertEqual(task.error?._domain, AWSS3PresignedURLErrorDomain)
-                XCTAssertEqual(task.error?._code, AWSS3PresignedURLErrorType.presignedURLErrorBucketNameIsNil.rawValue)
+                XCTAssertEqual(task.error?._code, AWSS3PresignedURLErrorType.presignedURLErrorInvalidBucketNameForAccelerateModeEnabled.rawValue)
 
                 expectation.fulfill()
 
@@ -330,6 +330,33 @@ class AWSS3TransferUtilityTests: XCTestCase {
                                contentType: "text/plain",
                                 expression: nil,
                          completionHandler: nil)
+            .continueWith { (task: AWSTask<AWSS3TransferUtilityUploadTask>) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                return nil
+            }.waitUntilFinished()
+    }
+    
+    func testGoodFilePathUploadDefaultBucket() {
+        let transferUtility = AWSS3TransferUtility.default()
+        
+        
+        let transferUtilityCongiguration = AWSS3TransferUtilityConfiguration()
+        transferUtilityCongiguration.bucket = "ios-v2-s3.periods"
+        AWSS3TransferUtility.register(with: transferUtility.configuration,
+                                      transferUtilityConfiguration: transferUtilityCongiguration,
+                                      forKey: "CustomConfig")
+        
+        let customTransferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "CustomConfig")
+        let filePath = NSTemporaryDirectory() + "testGoodFilePathUpload.tmp"
+        let fileURL = URL(fileURLWithPath: filePath)
+        FileManager.default.createFile(atPath: filePath, contents: "Test".data(using: .utf8), attributes: nil)
+        
+        customTransferUtility.uploadFile(fileURL,
+                                   key: "testGoodFilePathUpload.txt",
+                                   contentType: "text/plain",
+                                   expression: nil,
+                                   completionHandler: nil)
             .continueWith { (task: AWSTask<AWSS3TransferUtilityUploadTask>) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)

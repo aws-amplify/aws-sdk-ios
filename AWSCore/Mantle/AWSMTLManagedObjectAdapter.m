@@ -127,7 +127,7 @@ static id performInContext(NSManagedObjectContext *context, id (^block)(void)) {
 
 #pragma mark Serialization
 
-- (id)modelFromManagedObject:(NSManagedObject *)managedObject processedObjects:(CFMutableDictionaryRef)processedObjects error:(NSError **)error {
+- (id)modelFromManagedObject:(NSManagedObject *)managedObject processedObjects:(CFMutableDictionaryRef)processedObjects error:(NSError * __autoreleasing *)error {
 	NSParameterAssert(managedObject != nil);
 	NSParameterAssert(processedObjects != nil);
 
@@ -311,7 +311,7 @@ static id performInContext(NSManagedObjectContext *context, id (^block)(void)) {
 	return [adapter modelFromManagedObject:managedObject processedObjects:processedObjects error:error];
 }
 
-- (id)managedObjectFromModel:(AWSMTLModel<AWSMTLManagedObjectSerializing> *)model insertingIntoContext:(NSManagedObjectContext *)context processedObjects:(CFMutableDictionaryRef)processedObjects error:(NSError **)error {
+- (id)managedObjectFromModel:(AWSMTLModel<AWSMTLManagedObjectSerializing> *)model insertingIntoContext:(NSManagedObjectContext *)context processedObjects:(CFMutableDictionaryRef)processedObjects error:(NSError * __autoreleasing *)error {
 	NSParameterAssert(model != nil);
 	NSParameterAssert(context != nil);
 	NSParameterAssert(processedObjects != nil);

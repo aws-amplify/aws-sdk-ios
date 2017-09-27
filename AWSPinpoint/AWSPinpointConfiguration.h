@@ -62,6 +62,15 @@ typedef void(^AWSInitializationCompletionBlock)(AWSPinpoint * _Nonnull pinpoint)
 @property (nonatomic, assign) BOOL enableTargeting;
 
 /**
+ Indicates if the App is in Debug or Release build.
+ 
+ Setting this flag to true will set the Endpoint Profile to have a channel type of "APNS_SANDBOX".
+ 
+ @returns YES/NO indicating if the Debug flag is set. Defaults to NO.
+ */
+@property (nonatomic, assign) BOOL debug;
+
+/**
  Indicates whether or not analytics session events are automatically recorded.
  Defaults to YES.
  

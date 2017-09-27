@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.5.8"
+VERSION="2.6.2"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -52,6 +52,12 @@ else
     cp -r AWSSNS ./docs_tmp/AWSSNS
     cp -r AWSSQS ./docs_tmp/AWSSQS
     cp -r AWSCognitoAuth ./docs_tmp/AWSCognitoAuth
+    cp -r AWSAuthSDK/Sources/AWSAuthCore ./docs_tmp/AWSAuthSDK/
+    cp -r AWSAuthSDK/Sources/AWSAuthUI ./docs_tmp/AWSAuthSDK/
+    cp -r AWSAuthSDK/Sources/AWSFacebookSignIn ./docs_tmp/AWSAuthSDK/
+    cp -r AWSAuthSDK/Sources/AWSGoogleSignIn ./docs_tmp/AWSAuthSDK/
+    cp -r AWSAuthSDK/Sources/AWSUserPoolsSignIn ./docs_tmp/AWSAuthSDK/
+    cp -r AWSAuthSDK/Sources/AWSAuthUI ./docs_tmp/AWSAuthSDK/
 	
     rm -rf ./docs_tmp/AWSCore/Bolts
     rm -rf ./docs_tmp/AWSCore/Fabric
@@ -71,6 +77,7 @@ else
     rm -rf ./docs_tmp/AWSMobileAnalytics/Internal
     rm -rf ./docs_tmp/AWSIoT/Internal
     rm -rf ./docs_tmp/AWSLex/Bluefront
+    rm -rf ./docs_tmp/AWSAuthSDK/UserPoolsUI
 	
     cd docs_tmp
 
