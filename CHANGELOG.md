@@ -26,10 +26,10 @@
     * Added possible fix for issue where ending session got an EXC_BAD_ACCESS. Github Issues: [#630](https://github.com/aws/aws-sdk-ios/issues/630)
 
 * **Amazon Cognito Identity Provider**
-    * Fix crash when username is only set in authParameters and appClientSecret is used.  [Github Issue: #724] (https://github.com/aws/aws-sdk-ios/issues/724)
+    * Fix crash when username is only set in authParameters and appClientSecret is used.  [Github Issue: #724](https://github.com/aws/aws-sdk-ios/issues/724)
     
 * **Amazon S3**
-    * Remove `Transfer-Encoding` from streaming signature.  [Github  PR #638] (https://github.com/aws/aws-sdk-ios/pull/638)
+    * Remove `Transfer-Encoding` from streaming signature.  [Github  PR #638](https://github.com/aws/aws-sdk-ios/pull/638)
 
 ## 2.6.1
 
