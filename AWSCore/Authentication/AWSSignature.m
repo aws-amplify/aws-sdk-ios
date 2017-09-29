@@ -186,7 +186,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
     //        [request.urlRequest setURL:request.url];
     //    }
 
-    NSDate *date = [NSDate aws_clockSkewFixedDate];
+    NSDate *date = [NSDate aws_dateFromString:[urlRequest valueForHTTPHeaderField:@"X-Amz-Date"] format:AWSDateISO8601DateFormat2];
     NSString *dateStamp = [date aws_stringValue:AWSDateShortDateFormat1];
     //NSString *dateTime  = [date aws_stringValue:AWSDateAmzDateFormat];
 
