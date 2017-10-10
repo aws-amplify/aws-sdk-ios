@@ -445,7 +445,7 @@
 
 - (AWSCognitoRecord *)getRecordById_internal:(NSString *)recordId datasetName:(NSString *)datasetName error:(NSError * __autoreleasing *)error sync:(BOOL) sync{
     __block AWSCognitoRecord *record = nil;
-    void (^getRecord)() = ^{
+    void (^getRecord)(void) = ^{
         NSString *query = [NSString stringWithFormat:@"SELECT %@, %@, %@, %@, %@, %@ FROM %@ WHERE %@ = ? AND %@ = ? AND %@ = ?",
                            AWSCognitoLastModifiedFieldName,
                            AWSCognitoModifiedByFieldName,

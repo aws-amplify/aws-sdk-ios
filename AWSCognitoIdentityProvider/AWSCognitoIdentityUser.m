@@ -700,7 +700,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
 
 
 //Determine whether the error (if any) on the initiateAuth is a device not found error and if so forget the device and retry
-- (AWSTask<AWSCognitoIdentityProviderInitiateAuthResponse*>*) forgetDeviceOnInitiateDeviceNotFoundError:(AWSTask<AWSCognitoIdentityProviderInitiateAuthResponse*> * _Nonnull) task retryContinuation: (AWSTask<AWSCognitoIdentityProviderInitiateAuthResponse*>* (^_Nonnull)()) retryContinuation {
+- (AWSTask<AWSCognitoIdentityProviderInitiateAuthResponse*>*) forgetDeviceOnInitiateDeviceNotFoundError:(AWSTask<AWSCognitoIdentityProviderInitiateAuthResponse*> * _Nonnull) task retryContinuation: (AWSTask<AWSCognitoIdentityProviderInitiateAuthResponse*>* (^_Nonnull)(void)) retryContinuation {
     if([self isDeviceNotFoundError:task.error]){
         [self forgetDeviceInternal];
         return retryContinuation();
@@ -709,7 +709,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
 }
 
 //Determine whether the error (if any) on the respondToAuthChallenge is a device not found error and if so forget the device and retry
-- (AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse*>*) forgetDeviceOnRespondDeviceNotFoundError:(AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse*> * _Nonnull) task retryContinuation: (AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse*>* (^_Nonnull)()) retryContinuation {
+- (AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse*>*) forgetDeviceOnRespondDeviceNotFoundError:(AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse*> * _Nonnull) task retryContinuation: (AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse*>* (^_Nonnull)(void)) retryContinuation {
     if([self isDeviceNotFoundError:task.error]){
         [self forgetDeviceInternal];
         return retryContinuation();

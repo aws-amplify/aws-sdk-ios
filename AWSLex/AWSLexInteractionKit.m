@@ -857,11 +857,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (void)dispatchBlockOnMainQueue:(void (^)())block{
+- (void)dispatchBlockOnMainQueue:(void (^)(void))block{
     dispatch_async(dispatch_get_main_queue(), block);
 }
 
-- (void)dispatchBlockOnInteractionDelegateQueue:(void (^)())block{
+- (void)dispatchBlockOnInteractionDelegateQueue:(void (^)(void))block{
     dispatch_async(interactionDelegateQueue, block);
 }
 
