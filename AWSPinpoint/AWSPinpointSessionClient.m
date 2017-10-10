@@ -77,6 +77,10 @@ typedef void(^voidBlock)(void);
 
 @end
 
+@interface AWSPinpointConfiguration()
+@property (nonnull, strong) NSUserDefaults *userDefaults;
+@end
+
 #pragma mark - AWSPinpointSessionClient -
 @implementation AWSPinpointSessionClient
 
@@ -90,7 +94,7 @@ typedef void(^voidBlock)(void);
     NSAssert(context != nil, @"context should not have been nil");
     if (self = [super init]) {
         _context = context;
-        NSData *sessionData = [[NSUserDefaults standardUserDefaults] dataForKey:AWSPinpointSessionKey];
+        NSData *sessionData = [context.configuration.userDefaults dataForKey:AWSPinpointSessionKey];
         _session = [NSKeyedUnarchiver unarchiveObjectWithData:sessionData];
         
         //Only add observers if auto session recording is enabled
@@ -122,9 +126,8 @@ typedef void(^voidBlock)(void);
         @synchronized (_session) {
             AWSPinpointSession *session = [_session copy];
             NSData *sessionData = [NSKeyedArchiver archivedDataWithRootObject:session];
-            [[NSUserDefaults standardUserDefaults] setObject:sessionData forKey:AWSPinpointSessionKey];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-
+            [self.context.configuration.userDefaults setObject:sessionData forKey:AWSPinpointSessionKey];
+            [self.context.configuration.userDefaults synchronize];
         }
     }
     @catch (NSException *e) {

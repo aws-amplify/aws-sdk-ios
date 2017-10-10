@@ -64,6 +64,10 @@
 
 -(BOOL)writeLine:(NSString*)stringToWrite error:(NSError**)writeError
 {
+    if(stringToWrite == nil || stringToWrite.length == 0)
+    {
+        return NO;
+    }
     // check if this already ends with newline
     NSString* suffix = [stringToWrite substringFromIndex:[stringToWrite length] - 1];
     NSRange newlineOccurence = [suffix rangeOfCharacterFromSet:[NSCharacterSet newlineCharacterSet]];

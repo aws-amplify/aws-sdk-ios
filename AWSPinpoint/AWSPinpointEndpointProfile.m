@@ -46,10 +46,22 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
                             endpointId:(NSString*) endpointId
                 applicationLevelOptOut:(BOOL) applicationLevelOptOut
                                  debug:(BOOL) debug {
+    return [self initWithApplicationId:applicationId
+                            endpointId:endpointId
+                applicationLevelOptOut:applicationLevelOptOut
+                                 debug:debug
+                          userDefaults:[NSUserDefaults standardUserDefaults]];
+}
+
+- (instancetype) initWithApplicationId:(NSString*) applicationId
+                            endpointId:(NSString*) endpointId
+                applicationLevelOptOut:(BOOL) applicationLevelOptOut
+                                 debug:(BOOL) debug
+                          userDefaults:(NSUserDefaults*) userDefaults {
     if (self = [super init]) {
         //Remove spaces and brackets from token
-        NSString *deviceTokenString = [[[[[NSUserDefaults standardUserDefaults] objectForKey:AWSDeviceTokenKey] description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
-
+        NSString *deviceTokenString = [[[[userDefaults objectForKey:AWSDeviceTokenKey] description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
+        
         _applicationId = applicationId;
         _endpointId = endpointId;
         _channelType  = debug? DEBUG_CHANNEL_TYPE : CHANNEL_TYPE;
@@ -72,7 +84,7 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
 
 - (instancetype)initWithContext:(AWSPinpointContext *) context {
     BOOL applicationLevelOptOut = [self isApplicationLevelOptOut:context];
-
+    
     return [self initWithApplicationId: context.configuration.appId endpointId:context.uniqueId applicationLevelOptOut:applicationLevelOptOut debug:context.configuration.debug];
 }
 
@@ -80,7 +92,7 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
     if (context.configuration.isApplicationLevelOptOut != NULL && context.configuration.isApplicationLevelOptOut() == YES){
         return YES;
     }
-
+    
     return NO;
 }
 

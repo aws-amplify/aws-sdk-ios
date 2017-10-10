@@ -21,6 +21,7 @@
 #import "AWSPinpointService.h"
 #import "AWSPinpointEvent.h"
 #import "AWSPinpointContext.h"
+#import "AWSPinpointConfiguration.h"
 
 static NSString *const AWSCampaignDeepLinkKey = @"deeplink";
 static NSString *const AWSAttributeApplicationStateKey = @"applicationState";
@@ -39,6 +40,10 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
 
 @interface AWSPinpointAnalyticsClient()
 - (void) setCampaignAttributes:(NSDictionary*) campaign;
+@end
+
+@interface AWSPinpointConfiguration()
+@property (nonnull, strong) NSUserDefaults *userDefaults;
 @end
 
 @implementation AWSPinpointNotificationManager
@@ -93,12 +98,11 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
 }
 
 - (void)interceptDidRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     //Check if device token has changed
-    NSData *currentToken = [userDefaults objectForKey:AWSDeviceTokenKey];
+    NSData *currentToken = [self.context.configuration.userDefaults objectForKey:AWSDeviceTokenKey];
     if (![currentToken isEqualToData:deviceToken]) {
-        [userDefaults setObject:deviceToken forKey:AWSDeviceTokenKey];
-        [userDefaults synchronize];
+        [self.context.configuration.userDefaults setObject:deviceToken forKey:AWSDeviceTokenKey];
+        [self.context.configuration.userDefaults synchronize];
         //Update endpoint
         AWSDDLogInfo(@"Calling endpoint Service to register token");
         

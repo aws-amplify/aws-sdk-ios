@@ -45,6 +45,10 @@ static NSString* const UNKNOWN = @"Unknown";
 
 @end
 
+@interface AWSPinpointConfiguration()
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
+@end
+
 @implementation AWSPinpointConfiguration
 
 #pragma mark - Static Helpers -
@@ -140,6 +144,7 @@ static NSString* const UNKNOWN = @"Unknown";
           serviceConfiguration:(AWSServiceConfiguration*) analyticsServiceConfiguration
  targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfiguration {
     if (self = [super init]) {
+        _userDefaults = [NSUserDefaults standardUserDefaults];
         _debug = NO;
         _appId = (appId)? appId : [AWSPinpointConfiguration appId];
         _launchOptions = launchOptions;

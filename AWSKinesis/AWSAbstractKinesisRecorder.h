@@ -50,8 +50,8 @@
 /**
  Saves a record to local storage to be sent later. The record will be submitted to the streamName provided with a randomly generated partition key to ensure equal distribution across shards.
 
- @param data         The data to send to Amazon Kinesis. It needs to be smaller than 256KB.
- @param streamName   The stream name for Amazon Kinesis.
+ @param data       The data to send to Amazon Kinesis. It needs to be smaller than 256KB.
+ @param streamName The stream name for Amazon Kinesis.
 
  @return AWSTask - task.result is always nil.
  */

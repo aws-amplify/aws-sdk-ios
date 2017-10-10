@@ -40,6 +40,8 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
 @property (nonatomic, strong) AWSFMDatabaseQueue *databaseQueue;
 @property (nonatomic, strong) NSString *databasePath;
 @property (nonatomic, strong) AWSPinpointContext *context;
+@property (nonatomic, strong) AWSPinpointEndpointProfile *profile;
+
 @end
 
 @interface AWSPinpointSession()
@@ -49,13 +51,17 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
 - (UTCTimeMillis) timeDurationInMillis;
 @end
 
-@interface AWSPinpointEvent ()
+@interface AWSPinpointEvent()
 @property (nonatomic, readwrite) AWSPinpointSession *session;
 -(instancetype)initWithEventType:(NSString*) theEventType
                   eventTimestamp:(UTCTimeMillis) theEventTimestamp
                          session:(nonnull AWSPinpointSession *)session
                       attributes:(NSMutableDictionary*) attributes
                          metrics:(NSMutableDictionary*) metrics;
+@end
+
+@interface AWSPinpointConfiguration()
+@property (nonnull, strong) NSUserDefaults *userDefaults;
 @end
 
 @implementation AWSPinpointEventRecorder
@@ -69,7 +75,8 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
 - (instancetype)initWithContext:(AWSPinpointContext *) context {
     if (self = [super init]) {
         _context = context;
-        
+        _profile = [_context.targetingClient currentEndpointProfile];
+
         NSString *databaseDirectoryPath = [NSTemporaryDirectory() stringByAppendingPathComponent:AWSPinpointClientRecorderDatabasePathPrefix];
         
         _databasePath = [databaseDirectoryPath stringByAppendingPathComponent:context.configuration.appId];
@@ -151,7 +158,7 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
     if (session && session.sessionId && session.sessionId.length >=1) {
         return session;
     }
-    NSData *sessionData = [[NSUserDefaults standardUserDefaults] dataForKey:AWSPinpointSessionKey];
+    NSData *sessionData = [self.context.configuration.userDefaults dataForKey:AWSPinpointSessionKey];
     AWSPinpointSession *previousSession;
     if (sessionData) {
         previousSession = [NSKeyedUnarchiver unarchiveObjectWithData:sessionData];
@@ -167,7 +174,7 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
     if(sessionId && sessionId.length >= 1) {
         return sessionId;
     }
-    NSData *sessionData = [[NSUserDefaults standardUserDefaults] dataForKey:AWSPinpointSessionKey];
+    NSData *sessionData = [self.context.configuration.userDefaults dataForKey:AWSPinpointSessionKey];
     if (sessionData) {
         AWSPinpointSession *previousSession = [NSKeyedUnarchiver unarchiveObjectWithData:sessionData];
         sessionId = previousSession.sessionId;
@@ -438,7 +445,7 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
         NSString *fromQuery = @"FROM DirtyEvent ";
         NSString *orderQuery = @"ORDER BY timestamp ASC ";
         NSString *limitQuery = [NSString stringWithFormat:@"LIMIT %@", limit];
-
+        
         [databaseQueue inTransaction:^(AWSFMDatabase *db, BOOL *rollback) {
             AWSFMResultSet *rs = [db executeQuery:[NSString stringWithFormat:@"%@%@%@%@", selectQuery, fromQuery, orderQuery, limitQuery]];
             if (!rs) {
@@ -475,7 +482,8 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
 - (AWSTask<NSArray<AWSPinpointEvent *> *> *)submitAllEvents {
     __block NSMutableArray *result = [NSMutableArray new];
     __block AWSTask *returnTask;
-    
+    self.profile = [self.context.targetingClient currentEndpointProfile];
+
     [self getBatchRecords:^(NSArray *events, NSArray *eventIds, NSError *error) {
         returnTask = [self submitEvents:&result events:events eventIds:eventIds error:error];
     }];
@@ -578,13 +586,11 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
     
     return [[AWSTask taskWithResult:nil] continueWithExecutor:[AWSExecutor executorWithDispatchQueue:[AWSPinpointEventRecorder sharedQueue]] withSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
         __block NSError *error = nil;
-        __block BOOL stop = NO;
         __block NSMutableArray *events = [NSMutableArray new];
         
-        AWSTask *submitTask = [[self submitEvents:temporaryEvents
-                                            error:&error
-                                         eventIDs:eventIds
-                                             stop:&stop]
+        AWSTask *submitTask = [[self putEvents:temporaryEvents
+                                         error:&error
+                                      eventIDs:eventIds]
                                continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
                                    if (task.error) {
                                        error = task.error;
@@ -721,10 +727,9 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
     }
 }
 
-- (AWSTask *)submitEvents:(NSArray *)temporaryEvents
-                    error:(NSError* __autoreleasing *) error
-                 eventIDs:(NSArray *)eventIDs
-                     stop:(BOOL *)stop {
+- (AWSTask *)putEvents:(NSArray *)temporaryEvents
+                 error:(NSError* __autoreleasing *) error
+              eventIDs:(NSArray *)eventIDs {
     AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;
     
     NSMutableArray *events = [NSMutableArray new];
@@ -750,9 +755,6 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
     return [[self.context.analyticsService putEvents:putEventsInput] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         if (task.error) {
             AWSDDLogError(@"Error: [%@]", task.error);
-            if ([task.error.domain isEqualToString:NSURLErrorDomain]) {
-                *stop = YES;
-            }
             if ([task.error.domain isEqualToString:AWSPinpointAnalyticsErrorDomain]
                 && (task.error.code == AWSPinpointAnalyticsErrorBadRequest || [task.error.userInfo[@"NSLocalizedFailureReason"] isEqualToString:@"ValidationException"]) ) {
                 NSInteger responseCode = [task.error.userInfo[@"responseStatusCode"] integerValue];
@@ -826,7 +828,7 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
     
     //Set endpoint in clientContext if pinpoint is enabled
     if (self.context.targetingService) {
-        NSDictionary *endpointCustomAttribute = [NSDictionary dictionaryWithObject:[[self.context.targetingClient currentEndpointProfile] description] forKey:@"endpoint"];
+        NSDictionary *endpointCustomAttribute = [NSDictionary dictionaryWithObject:[self.profile description] forKey:@"endpoint"];
         [self.context.clientContext setCustomAttributes:endpointCustomAttribute];
     }
     putEventInput.clientContext = [self.context.clientContext JSONString];

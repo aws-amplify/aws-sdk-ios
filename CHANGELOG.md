@@ -1,5 +1,17 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+
+## 2.6.3
+
+### Bug fixes
+
+* **Amazon Pinpoint**
+    * Removed unused variable causing intermittent crashes.
+    * Fix deadlock bug in submission of events.
+
+* **Amazon Mobile Analytics**
+    * Fixed bug where an empty string causes app to crash when writing it to file. 
+
 ## 2.6.2
 
 ### New features
