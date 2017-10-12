@@ -678,6 +678,7 @@
         \"Justin\",\
         \"Kendra\",\
         \"Kimberly\",\
+        \"Matthew\",\
         \"Salli\",\
         \"Conchita\",\
         \"Enrique\",\
@@ -707,7 +708,8 @@
         \"Tatyana\",\
         \"Astrid\",\
         \"Filiz\",\
-        \"Vicki\"\
+        \"Vicki\",\
+        \"Takumi\"\
       ]\
     },\
     \"VoiceList\":{\

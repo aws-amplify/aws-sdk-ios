@@ -1,6 +1,14 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
 
+## 2.6.4
+
+### Enhancements
+
+* **Amazon Polly**
+    * Added support for new voices - `Matthew` and `Takumi`.
+    * Polly is now available in `ap-northeast-1` region.
+
 ## 2.6.3
 
 ### Bug fixes
