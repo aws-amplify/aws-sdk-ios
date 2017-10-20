@@ -72,33 +72,26 @@
       \"http\" : {\
         \"method\" : \"POST\",\
         \"requestUri\" : \"/v1/apps/{application-id}/campaigns\",\
-        \"responseCode\" : \"201\"\
+        \"responseCode\" : 201\
       },\
       \"input\" : {\
         \"shape\" : \"CreateCampaignRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"CreateCampaignResponse\",\
-        \"documentation\" : \"201 response\"\
+        \"shape\" : \"CreateCampaignResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Creates or updates a campaign.\"\
     },\
@@ -107,33 +100,26 @@
       \"http\" : {\
         \"method\" : \"POST\",\
         \"requestUri\" : \"/v1/apps/{application-id}/jobs/import\",\
-        \"responseCode\" : \"201\"\
+        \"responseCode\" : 201\
       },\
       \"input\" : {\
         \"shape\" : \"CreateImportJobRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"CreateImportJobResponse\",\
-        \"documentation\" : \"201 response\"\
+        \"shape\" : \"CreateImportJobResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Creates or updates an import job.\"\
     },\
@@ -142,33 +128,26 @@
       \"http\" : {\
         \"method\" : \"POST\",\
         \"requestUri\" : \"/v1/apps/{application-id}/segments\",\
-        \"responseCode\" : \"201\"\
+        \"responseCode\" : 201\
       },\
       \"input\" : {\
         \"shape\" : \"CreateSegmentRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"CreateSegmentResponse\",\
-        \"documentation\" : \"201 response\"\
+        \"shape\" : \"CreateSegmentResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Used to create or update a segment.\"\
     },\
@@ -177,103 +156,166 @@
       \"http\" : {\
         \"method\" : \"DELETE\",\
         \"requestUri\" : \"/v1/apps/{application-id}/channels/apns\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"DeleteApnsChannelRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"DeleteApnsChannelResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"DeleteApnsChannelResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Deletes the APNs channel for an app.\"\
+    },\
+    \"DeleteApnsSandboxChannel\" : {\
+      \"name\" : \"DeleteApnsSandboxChannel\",\
+      \"http\" : {\
+        \"method\" : \"DELETE\",\
+        \"requestUri\" : \"/v1/apps/{application-id}/channels/apns_sandbox\",\
+        \"responseCode\" : 200\
+      },\
+      \"input\" : {\
+        \"shape\" : \"DeleteApnsSandboxChannelRequest\"\
+      },\
+      \"output\" : {\
+        \"shape\" : \"DeleteApnsSandboxChannelResponse\"\
+      },\
+      \"errors\" : [ {\
+        \"shape\" : \"BadRequestException\"\
+      }, {\
+        \"shape\" : \"InternalServerErrorException\"\
+      }, {\
+        \"shape\" : \"ForbiddenException\"\
+      }, {\
+        \"shape\" : \"NotFoundException\"\
+      }, {\
+        \"shape\" : \"MethodNotAllowedException\"\
+      }, {\
+        \"shape\" : \"TooManyRequestsException\"\
+      } ],\
+      \"documentation\" : \"Delete an APNS sandbox channel\"\
     },\
     \"DeleteCampaign\" : {\
       \"name\" : \"DeleteCampaign\",\
       \"http\" : {\
         \"method\" : \"DELETE\",\
         \"requestUri\" : \"/v1/apps/{application-id}/campaigns/{campaign-id}\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"DeleteCampaignRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"DeleteCampaignResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"DeleteCampaignResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Deletes a campaign.\"\
+    },\
+    \"DeleteEmailChannel\" : {\
+      \"name\" : \"DeleteEmailChannel\",\
+      \"http\" : {\
+        \"method\" : \"DELETE\",\
+        \"requestUri\" : \"/v1/apps/{application-id}/channels/email\",\
+        \"responseCode\" : 200\
+      },\
+      \"input\" : {\
+        \"shape\" : \"DeleteEmailChannelRequest\"\
+      },\
+      \"output\" : {\
+        \"shape\" : \"DeleteEmailChannelResponse\"\
+      },\
+      \"errors\" : [ {\
+        \"shape\" : \"BadRequestException\"\
+      }, {\
+        \"shape\" : \"InternalServerErrorException\"\
+      }, {\
+        \"shape\" : \"ForbiddenException\"\
+      }, {\
+        \"shape\" : \"NotFoundException\"\
+      }, {\
+        \"shape\" : \"MethodNotAllowedException\"\
+      }, {\
+        \"shape\" : \"TooManyRequestsException\"\
+      } ],\
+      \"documentation\" : \"Delete an email channel\"\
+    },\
+    \"DeleteEventStream\" : {\
+      \"name\" : \"DeleteEventStream\",\
+      \"http\" : {\
+        \"method\" : \"DELETE\",\
+        \"requestUri\" : \"/v1/apps/{application-id}/eventstream\",\
+        \"responseCode\" : 200\
+      },\
+      \"input\" : {\
+        \"shape\" : \"DeleteEventStreamRequest\"\
+      },\
+      \"output\" : {\
+        \"shape\" : \"DeleteEventStreamResponse\"\
+      },\
+      \"errors\" : [ {\
+        \"shape\" : \"BadRequestException\"\
+      }, {\
+        \"shape\" : \"InternalServerErrorException\"\
+      }, {\
+        \"shape\" : \"ForbiddenException\"\
+      }, {\
+        \"shape\" : \"NotFoundException\"\
+      }, {\
+        \"shape\" : \"MethodNotAllowedException\"\
+      }, {\
+        \"shape\" : \"TooManyRequestsException\"\
+      } ],\
+      \"documentation\" : \"Deletes the event stream for an app.\"\
     },\
     \"DeleteGcmChannel\" : {\
       \"name\" : \"DeleteGcmChannel\",\
       \"http\" : {\
         \"method\" : \"DELETE\",\
         \"requestUri\" : \"/v1/apps/{application-id}/channels/gcm\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"DeleteGcmChannelRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"DeleteGcmChannelResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"DeleteGcmChannelResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Deletes the GCM channel for an app.\"\
     },\
@@ -282,103 +324,138 @@
       \"http\" : {\
         \"method\" : \"DELETE\",\
         \"requestUri\" : \"/v1/apps/{application-id}/segments/{segment-id}\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"DeleteSegmentRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"DeleteSegmentResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"DeleteSegmentResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Deletes a segment.\"\
+    },\
+    \"DeleteSmsChannel\" : {\
+      \"name\" : \"DeleteSmsChannel\",\
+      \"http\" : {\
+        \"method\" : \"DELETE\",\
+        \"requestUri\" : \"/v1/apps/{application-id}/channels/sms\",\
+        \"responseCode\" : 200\
+      },\
+      \"input\" : {\
+        \"shape\" : \"DeleteSmsChannelRequest\"\
+      },\
+      \"output\" : {\
+        \"shape\" : \"DeleteSmsChannelResponse\"\
+      },\
+      \"errors\" : [ {\
+        \"shape\" : \"BadRequestException\"\
+      }, {\
+        \"shape\" : \"InternalServerErrorException\"\
+      }, {\
+        \"shape\" : \"ForbiddenException\"\
+      }, {\
+        \"shape\" : \"NotFoundException\"\
+      }, {\
+        \"shape\" : \"MethodNotAllowedException\"\
+      }, {\
+        \"shape\" : \"TooManyRequestsException\"\
+      } ],\
+      \"documentation\" : \"Delete an SMS channel\"\
     },\
     \"GetApnsChannel\" : {\
       \"name\" : \"GetApnsChannel\",\
       \"http\" : {\
         \"method\" : \"GET\",\
         \"requestUri\" : \"/v1/apps/{application-id}/channels/apns\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"GetApnsChannelRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"GetApnsChannelResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"GetApnsChannelResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Returns information about the APNs channel for an app.\"\
+    },\
+    \"GetApnsSandboxChannel\" : {\
+      \"name\" : \"GetApnsSandboxChannel\",\
+      \"http\" : {\
+        \"method\" : \"GET\",\
+        \"requestUri\" : \"/v1/apps/{application-id}/channels/apns_sandbox\",\
+        \"responseCode\" : 200\
+      },\
+      \"input\" : {\
+        \"shape\" : \"GetApnsSandboxChannelRequest\"\
+      },\
+      \"output\" : {\
+        \"shape\" : \"GetApnsSandboxChannelResponse\"\
+      },\
+      \"errors\" : [ {\
+        \"shape\" : \"BadRequestException\"\
+      }, {\
+        \"shape\" : \"InternalServerErrorException\"\
+      }, {\
+        \"shape\" : \"ForbiddenException\"\
+      }, {\
+        \"shape\" : \"NotFoundException\"\
+      }, {\
+        \"shape\" : \"MethodNotAllowedException\"\
+      }, {\
+        \"shape\" : \"TooManyRequestsException\"\
+      } ],\
+      \"documentation\" : \"Get an APNS sandbox channel\"\
     },\
     \"GetApplicationSettings\" : {\
       \"name\" : \"GetApplicationSettings\",\
       \"http\" : {\
         \"method\" : \"GET\",\
         \"requestUri\" : \"/v1/apps/{application-id}/settings\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"GetApplicationSettingsRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"GetApplicationSettingsResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"GetApplicationSettingsResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Used to request the settings for an app.\"\
     },\
@@ -387,33 +464,26 @@
       \"http\" : {\
         \"method\" : \"GET\",\
         \"requestUri\" : \"/v1/apps/{application-id}/campaigns/{campaign-id}\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"GetCampaignRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"GetCampaignResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"GetCampaignResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Returns information about a campaign.\"\
     },\
@@ -422,33 +492,26 @@
       \"http\" : {\
         \"method\" : \"GET\",\
         \"requestUri\" : \"/v1/apps/{application-id}/campaigns/{campaign-id}/activities\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"GetCampaignActivitiesRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"GetCampaignActivitiesResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"GetCampaignActivitiesResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Returns information about the activity performed by a campaign.\"\
     },\
@@ -457,68 +520,54 @@
       \"http\" : {\
         \"method\" : \"GET\",\
         \"requestUri\" : \"/v1/apps/{application-id}/campaigns/{campaign-id}/versions/{version}\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"GetCampaignVersionRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"GetCampaignVersionResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"GetCampaignVersionResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
-      \"documentation\" : \"Returns information about your campaign versions.\"\
+      \"documentation\" : \"Returns information about a specific version of a campaign.\"\
     },\
     \"GetCampaignVersions\" : {\
       \"name\" : \"GetCampaignVersions\",\
       \"http\" : {\
         \"method\" : \"GET\",\
         \"requestUri\" : \"/v1/apps/{application-id}/campaigns/{campaign-id}/versions\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"GetCampaignVersionsRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"GetCampaignVersionsResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"GetCampaignVersionsResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Returns information about your campaign versions.\"\
     },\
@@ -527,103 +576,138 @@
       \"http\" : {\
         \"method\" : \"GET\",\
         \"requestUri\" : \"/v1/apps/{application-id}/campaigns\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"GetCampaignsRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"GetCampaignsResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"GetCampaignsResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Returns information about your campaigns.\"\
+    },\
+    \"GetEmailChannel\" : {\
+      \"name\" : \"GetEmailChannel\",\
+      \"http\" : {\
+        \"method\" : \"GET\",\
+        \"requestUri\" : \"/v1/apps/{application-id}/channels/email\",\
+        \"responseCode\" : 200\
+      },\
+      \"input\" : {\
+        \"shape\" : \"GetEmailChannelRequest\"\
+      },\
+      \"output\" : {\
+        \"shape\" : \"GetEmailChannelResponse\"\
+      },\
+      \"errors\" : [ {\
+        \"shape\" : \"BadRequestException\"\
+      }, {\
+        \"shape\" : \"InternalServerErrorException\"\
+      }, {\
+        \"shape\" : \"ForbiddenException\"\
+      }, {\
+        \"shape\" : \"NotFoundException\"\
+      }, {\
+        \"shape\" : \"MethodNotAllowedException\"\
+      }, {\
+        \"shape\" : \"TooManyRequestsException\"\
+      } ],\
+      \"documentation\" : \"Get an email channel\"\
     },\
     \"GetEndpoint\" : {\
       \"name\" : \"GetEndpoint\",\
       \"http\" : {\
         \"method\" : \"GET\",\
         \"requestUri\" : \"/v1/apps/{application-id}/endpoints/{endpoint-id}\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"GetEndpointRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"GetEndpointResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"GetEndpointResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Returns information about an endpoint.\"\
+    },\
+    \"GetEventStream\" : {\
+      \"name\" : \"GetEventStream\",\
+      \"http\" : {\
+        \"method\" : \"GET\",\
+        \"requestUri\" : \"/v1/apps/{application-id}/eventstream\",\
+        \"responseCode\" : 200\
+      },\
+      \"input\" : {\
+        \"shape\" : \"GetEventStreamRequest\"\
+      },\
+      \"output\" : {\
+        \"shape\" : \"GetEventStreamResponse\"\
+      },\
+      \"errors\" : [ {\
+        \"shape\" : \"BadRequestException\"\
+      }, {\
+        \"shape\" : \"InternalServerErrorException\"\
+      }, {\
+        \"shape\" : \"ForbiddenException\"\
+      }, {\
+        \"shape\" : \"NotFoundException\"\
+      }, {\
+        \"shape\" : \"MethodNotAllowedException\"\
+      }, {\
+        \"shape\" : \"TooManyRequestsException\"\
+      } ],\
+      \"documentation\" : \"Returns the event stream for an app.\"\
     },\
     \"GetGcmChannel\" : {\
       \"name\" : \"GetGcmChannel\",\
       \"http\" : {\
         \"method\" : \"GET\",\
         \"requestUri\" : \"/v1/apps/{application-id}/channels/gcm\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"GetGcmChannelRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"GetGcmChannelResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"GetGcmChannelResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Returns information about the GCM channel for an app.\"\
     },\
@@ -632,33 +716,26 @@
       \"http\" : {\
         \"method\" : \"GET\",\
         \"requestUri\" : \"/v1/apps/{application-id}/jobs/import/{job-id}\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"GetImportJobRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"GetImportJobResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"GetImportJobResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Returns information about an import job.\"\
     },\
@@ -667,33 +744,26 @@
       \"http\" : {\
         \"method\" : \"GET\",\
         \"requestUri\" : \"/v1/apps/{application-id}/jobs/import\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"GetImportJobsRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"GetImportJobsResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"GetImportJobsResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Returns information about your import jobs.\"\
     },\
@@ -702,33 +772,26 @@
       \"http\" : {\
         \"method\" : \"GET\",\
         \"requestUri\" : \"/v1/apps/{application-id}/segments/{segment-id}\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"GetSegmentRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"GetSegmentResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"GetSegmentResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Returns information about a segment.\"\
     },\
@@ -737,33 +800,26 @@
       \"http\" : {\
         \"method\" : \"GET\",\
         \"requestUri\" : \"/v1/apps/{application-id}/segments/{segment-id}/jobs/import\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"GetSegmentImportJobsRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"GetSegmentImportJobsResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"GetSegmentImportJobsResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Returns a list of import jobs for a specific segment.\"\
     },\
@@ -772,33 +828,26 @@
       \"http\" : {\
         \"method\" : \"GET\",\
         \"requestUri\" : \"/v1/apps/{application-id}/segments/{segment-id}/versions/{version}\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"GetSegmentVersionRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"GetSegmentVersionResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"GetSegmentVersionResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Returns information about a segment version.\"\
     },\
@@ -807,33 +856,26 @@
       \"http\" : {\
         \"method\" : \"GET\",\
         \"requestUri\" : \"/v1/apps/{application-id}/segments/{segment-id}/versions\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"GetSegmentVersionsRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"GetSegmentVersionsResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"GetSegmentVersionsResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Returns information about your segment versions.\"\
     },\
@@ -842,103 +884,194 @@
       \"http\" : {\
         \"method\" : \"GET\",\
         \"requestUri\" : \"/v1/apps/{application-id}/segments\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"GetSegmentsRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"GetSegmentsResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"GetSegmentsResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Used to get information about your segments.\"\
+    },\
+    \"GetSmsChannel\" : {\
+      \"name\" : \"GetSmsChannel\",\
+      \"http\" : {\
+        \"method\" : \"GET\",\
+        \"requestUri\" : \"/v1/apps/{application-id}/channels/sms\",\
+        \"responseCode\" : 200\
+      },\
+      \"input\" : {\
+        \"shape\" : \"GetSmsChannelRequest\"\
+      },\
+      \"output\" : {\
+        \"shape\" : \"GetSmsChannelResponse\"\
+      },\
+      \"errors\" : [ {\
+        \"shape\" : \"BadRequestException\"\
+      }, {\
+        \"shape\" : \"InternalServerErrorException\"\
+      }, {\
+        \"shape\" : \"ForbiddenException\"\
+      }, {\
+        \"shape\" : \"NotFoundException\"\
+      }, {\
+        \"shape\" : \"MethodNotAllowedException\"\
+      }, {\
+        \"shape\" : \"TooManyRequestsException\"\
+      } ],\
+      \"documentation\" : \"Get an SMS channel\"\
+    },\
+    \"PutEventStream\" : {\
+      \"name\" : \"PutEventStream\",\
+      \"http\" : {\
+        \"method\" : \"POST\",\
+        \"requestUri\" : \"/v1/apps/{application-id}/eventstream\",\
+        \"responseCode\" : 200\
+      },\
+      \"input\" : {\
+        \"shape\" : \"PutEventStreamRequest\"\
+      },\
+      \"output\" : {\
+        \"shape\" : \"PutEventStreamResponse\"\
+      },\
+      \"errors\" : [ {\
+        \"shape\" : \"BadRequestException\"\
+      }, {\
+        \"shape\" : \"InternalServerErrorException\"\
+      }, {\
+        \"shape\" : \"ForbiddenException\"\
+      }, {\
+        \"shape\" : \"NotFoundException\"\
+      }, {\
+        \"shape\" : \"MethodNotAllowedException\"\
+      }, {\
+        \"shape\" : \"TooManyRequestsException\"\
+      } ],\
+      \"documentation\" : \"Use to create or update the event stream for an app.\"\
+    },\
+    \"SendMessages\" : {\
+      \"name\" : \"SendMessages\",\
+      \"http\" : {\
+        \"method\" : \"POST\",\
+        \"requestUri\" : \"/v1/apps/{application-id}/messages\",\
+        \"responseCode\" : 200\
+      },\
+      \"input\" : {\
+        \"shape\" : \"SendMessagesRequest\"\
+      },\
+      \"output\" : {\
+        \"shape\" : \"SendMessagesResponse\"\
+      },\
+      \"errors\" : [ {\
+        \"shape\" : \"BadRequestException\"\
+      }, {\
+        \"shape\" : \"InternalServerErrorException\"\
+      }, {\
+        \"shape\" : \"ForbiddenException\"\
+      }, {\
+        \"shape\" : \"NotFoundException\"\
+      }, {\
+        \"shape\" : \"MethodNotAllowedException\"\
+      }, {\
+        \"shape\" : \"TooManyRequestsException\"\
+      } ],\
+      \"documentation\" : \"Send a batch of messages\"\
     },\
     \"UpdateApnsChannel\" : {\
       \"name\" : \"UpdateApnsChannel\",\
       \"http\" : {\
         \"method\" : \"PUT\",\
         \"requestUri\" : \"/v1/apps/{application-id}/channels/apns\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"UpdateApnsChannelRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"UpdateApnsChannelResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"UpdateApnsChannelResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Use to update the APNs channel for an app.\"\
+    },\
+    \"UpdateApnsSandboxChannel\" : {\
+      \"name\" : \"UpdateApnsSandboxChannel\",\
+      \"http\" : {\
+        \"method\" : \"PUT\",\
+        \"requestUri\" : \"/v1/apps/{application-id}/channels/apns_sandbox\",\
+        \"responseCode\" : 200\
+      },\
+      \"input\" : {\
+        \"shape\" : \"UpdateApnsSandboxChannelRequest\"\
+      },\
+      \"output\" : {\
+        \"shape\" : \"UpdateApnsSandboxChannelResponse\"\
+      },\
+      \"errors\" : [ {\
+        \"shape\" : \"BadRequestException\"\
+      }, {\
+        \"shape\" : \"InternalServerErrorException\"\
+      }, {\
+        \"shape\" : \"ForbiddenException\"\
+      }, {\
+        \"shape\" : \"NotFoundException\"\
+      }, {\
+        \"shape\" : \"MethodNotAllowedException\"\
+      }, {\
+        \"shape\" : \"TooManyRequestsException\"\
+      } ],\
+      \"documentation\" : \"Update an APNS sandbox channel\"\
     },\
     \"UpdateApplicationSettings\" : {\
       \"name\" : \"UpdateApplicationSettings\",\
       \"http\" : {\
         \"method\" : \"PUT\",\
         \"requestUri\" : \"/v1/apps/{application-id}/settings\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"UpdateApplicationSettingsRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"UpdateApplicationSettingsResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"UpdateApplicationSettingsResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Used to update the settings for an app.\"\
     },\
@@ -947,68 +1080,82 @@
       \"http\" : {\
         \"method\" : \"PUT\",\
         \"requestUri\" : \"/v1/apps/{application-id}/campaigns/{campaign-id}\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"UpdateCampaignRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"UpdateCampaignResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"UpdateCampaignResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Use to update a campaign.\"\
+    },\
+    \"UpdateEmailChannel\" : {\
+      \"name\" : \"UpdateEmailChannel\",\
+      \"http\" : {\
+        \"method\" : \"PUT\",\
+        \"requestUri\" : \"/v1/apps/{application-id}/channels/email\",\
+        \"responseCode\" : 200\
+      },\
+      \"input\" : {\
+        \"shape\" : \"UpdateEmailChannelRequest\"\
+      },\
+      \"output\" : {\
+        \"shape\" : \"UpdateEmailChannelResponse\"\
+      },\
+      \"errors\" : [ {\
+        \"shape\" : \"BadRequestException\"\
+      }, {\
+        \"shape\" : \"InternalServerErrorException\"\
+      }, {\
+        \"shape\" : \"ForbiddenException\"\
+      }, {\
+        \"shape\" : \"NotFoundException\"\
+      }, {\
+        \"shape\" : \"MethodNotAllowedException\"\
+      }, {\
+        \"shape\" : \"TooManyRequestsException\"\
+      } ],\
+      \"documentation\" : \"Update an email channel\"\
     },\
     \"UpdateEndpoint\" : {\
       \"name\" : \"UpdateEndpoint\",\
       \"http\" : {\
         \"method\" : \"PUT\",\
         \"requestUri\" : \"/v1/apps/{application-id}/endpoints/{endpoint-id}\",\
-        \"responseCode\" : \"202\"\
+        \"responseCode\" : 202\
       },\
       \"input\" : {\
         \"shape\" : \"UpdateEndpointRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"UpdateEndpointResponse\",\
-        \"documentation\" : \"202 response\"\
+        \"shape\" : \"UpdateEndpointResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Use to update an endpoint.\"\
     },\
@@ -1017,68 +1164,54 @@
       \"http\" : {\
         \"method\" : \"PUT\",\
         \"requestUri\" : \"/v1/apps/{application-id}/endpoints\",\
-        \"responseCode\" : \"202\"\
+        \"responseCode\" : 202\
       },\
       \"input\" : {\
         \"shape\" : \"UpdateEndpointsBatchRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"UpdateEndpointsBatchResponse\",\
-        \"documentation\" : \"202 response\"\
+        \"shape\" : \"UpdateEndpointsBatchResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
-      \"documentation\" : \"Use to update your endpoints.\"\
+      \"documentation\" : \"Use to update a batch of endpoints.\"\
     },\
     \"UpdateGcmChannel\" : {\
       \"name\" : \"UpdateGcmChannel\",\
       \"http\" : {\
         \"method\" : \"PUT\",\
         \"requestUri\" : \"/v1/apps/{application-id}/channels/gcm\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"UpdateGcmChannelRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"UpdateGcmChannelResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"UpdateGcmChannelResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Use to update the GCM channel for an app.\"\
     },\
@@ -1087,35 +1220,56 @@
       \"http\" : {\
         \"method\" : \"PUT\",\
         \"requestUri\" : \"/v1/apps/{application-id}/segments/{segment-id}\",\
-        \"responseCode\" : \"200\"\
+        \"responseCode\" : 200\
       },\
       \"input\" : {\
         \"shape\" : \"UpdateSegmentRequest\"\
       },\
       \"output\" : {\
-        \"shape\" : \"UpdateSegmentResponse\",\
-        \"documentation\" : \"200 response\"\
+        \"shape\" : \"UpdateSegmentResponse\"\
       },\
       \"errors\" : [ {\
-        \"shape\" : \"BadRequestException\",\
-        \"documentation\" : \"400 response\"\
+        \"shape\" : \"BadRequestException\"\
       }, {\
-        \"shape\" : \"InternalServerErrorException\",\
-        \"documentation\" : \"500 response\"\
+        \"shape\" : \"InternalServerErrorException\"\
       }, {\
-        \"shape\" : \"ForbiddenException\",\
-        \"documentation\" : \"403 response\"\
+        \"shape\" : \"ForbiddenException\"\
       }, {\
-        \"shape\" : \"NotFoundException\",\
-        \"documentation\" : \"404 response\"\
+        \"shape\" : \"NotFoundException\"\
       }, {\
-        \"shape\" : \"MethodNotAllowedException\",\
-        \"documentation\" : \"405 response\"\
+        \"shape\" : \"MethodNotAllowedException\"\
       }, {\
-        \"shape\" : \"TooManyRequestsException\",\
-        \"documentation\" : \"429 response\"\
+        \"shape\" : \"TooManyRequestsException\"\
       } ],\
       \"documentation\" : \"Use to update a segment.\"\
+    },\
+    \"UpdateSmsChannel\" : {\
+      \"name\" : \"UpdateSmsChannel\",\
+      \"http\" : {\
+        \"method\" : \"PUT\",\
+        \"requestUri\" : \"/v1/apps/{application-id}/channels/sms\",\
+        \"responseCode\" : 200\
+      },\
+      \"input\" : {\
+        \"shape\" : \"UpdateSmsChannelRequest\"\
+      },\
+      \"output\" : {\
+        \"shape\" : \"UpdateSmsChannelResponse\"\
+      },\
+      \"errors\" : [ {\
+        \"shape\" : \"BadRequestException\"\
+      }, {\
+        \"shape\" : \"InternalServerErrorException\"\
+      }, {\
+        \"shape\" : \"ForbiddenException\"\
+      }, {\
+        \"shape\" : \"NotFoundException\"\
+      }, {\
+        \"shape\" : \"MethodNotAllowedException\"\
+      }, {\
+        \"shape\" : \"TooManyRequestsException\"\
+      } ],\
+      \"documentation\" : \"Update an SMS channel\"\
     }\
   },\
   \"shapes\" : {\
@@ -1126,24 +1280,35 @@
           \"shape\" : \"__string\",\
           \"documentation\" : \"The distribution certificate from Apple.\"\
         },\
+        \"Enabled\" : {\
+          \"shape\" : \"__boolean\",\
+          \"documentation\" : \"If the channel is enabled for sending messages.\"\
+        },\
         \"PrivateKey\" : {\
           \"shape\" : \"__string\",\
           \"documentation\" : \"The certificate private key.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Apple Push Notification Service channel definition.\"\
     },\
     \"APNSChannelResponse\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
         \"ApplicationId\" : {\
-          \"shape\" : \"__string\"\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The ID of the application to which the channel applies.\"\
         },\
         \"CreationDate\" : {\
           \"shape\" : \"__string\",\
           \"documentation\" : \"When was this segment created\"\
         },\
+        \"Enabled\" : {\
+          \"shape\" : \"__boolean\",\
+          \"documentation\" : \"If the channel is enabled for sending messages.\"\
+        },\
         \"Id\" : {\
-          \"shape\" : \"__string\"\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Channel ID. Not used, only for backwards compatibility.\"\
         },\
         \"IsArchived\" : {\
           \"shape\" : \"__boolean\",\
@@ -1165,7 +1330,126 @@
           \"shape\" : \"__integer\",\
           \"documentation\" : \"Version of channel\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Apple Distribution Push Notification Service channel definition.\"\
+    },\
+    \"APNSMessage\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"Action\" : {\
+          \"shape\" : \"Action\",\
+          \"documentation\" : \"The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL\"\
+        },\
+        \"Badge\" : {\
+          \"shape\" : \"__integer\",\
+          \"documentation\" : \"Include this key when you want the system to modify the badge of your app icon. If this key is not included in the dictionary, the badge is not changed. To remove the badge, set the value of this key to 0.\"\
+        },\
+        \"Body\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The message body of the notification, the email body or the text message.\"\
+        },\
+        \"Category\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Provide this key with a string value that represents the notification's type. This value corresponds to the value in the identifier property of one of your app's registered categories.\"\
+        },\
+        \"Data\" : {\
+          \"shape\" : \"MapOf__string\",\
+          \"documentation\" : \"The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object\"\
+        },\
+        \"MediaUrl\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The URL that points to a video used in the push notification.\"\
+        },\
+        \"RawContent\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The Raw JSON formatted string to be used as the payload. This value overrides the message.\"\
+        },\
+        \"SilentPush\" : {\
+          \"shape\" : \"__boolean\",\
+          \"documentation\" : \"Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.\"\
+        },\
+        \"Sound\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Include this key when you want the system to play a sound. The value of this key is the name of a sound file in your app's main bundle or in the Library/Sounds folder of your app's data container. If the sound file cannot be found, or if you specify defaultfor the value, the system plays the default alert sound.\"\
+        },\
+        \"Substitutions\" : {\
+          \"shape\" : \"MapOfListOf__string\",\
+          \"documentation\" : \"Default message substitutions. Can be overridden by individual address substitutions.\"\
+        },\
+        \"ThreadId\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Provide this key with a string value that represents the app-specific identifier for grouping notifications. If you provide a Notification Content app extension, you can use this value to group your notifications together.\"\
+        },\
+        \"Title\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The message title that displays above the message on the user's device.\"\
+        },\
+        \"Url\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The URL to open in the user's mobile browser. Used if the value for Action is URL.\"\
+        }\
+      },\
+      \"documentation\" : \"APNS Message.\"\
+    },\
+    \"APNSSandboxChannelRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"Certificate\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The distribution certificate from Apple.\"\
+        },\
+        \"Enabled\" : {\
+          \"shape\" : \"__boolean\",\
+          \"documentation\" : \"If the channel is enabled for sending messages.\"\
+        },\
+        \"PrivateKey\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The certificate private key.\"\
+        }\
+      },\
+      \"documentation\" : \"Apple Development Push Notification Service channel definition.\"\
+    },\
+    \"APNSSandboxChannelResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ApplicationId\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Application id\"\
+        },\
+        \"CreationDate\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"When was this segment created\"\
+        },\
+        \"Enabled\" : {\
+          \"shape\" : \"__boolean\",\
+          \"documentation\" : \"If the channel is enabled for sending messages.\"\
+        },\
+        \"Id\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Channel ID. Not used, only for backwards compatibility.\"\
+        },\
+        \"IsArchived\" : {\
+          \"shape\" : \"__boolean\",\
+          \"documentation\" : \"Is this channel archived\"\
+        },\
+        \"LastModifiedBy\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Who last updated this entry\"\
+        },\
+        \"LastModifiedDate\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Last date this was updated\"\
+        },\
+        \"Platform\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The platform type. Will be APNS.\"\
+        },\
+        \"Version\" : {\
+          \"shape\" : \"__integer\",\
+          \"documentation\" : \"Version of channel\"\
+        }\
+      },\
+      \"documentation\" : \"Apple Development Push Notification Service channel definition.\"\
     },\
     \"Action\" : {\
       \"type\" : \"string\",\
@@ -1178,7 +1462,8 @@
           \"shape\" : \"ListOfActivityResponse\",\
           \"documentation\" : \"List of campaign activities\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Activities for campaign.\"\
     },\
     \"ActivityResponse\" : {\
       \"type\" : \"structure\",\
@@ -1219,6 +1504,14 @@
           \"shape\" : \"__integer\",\
           \"documentation\" : \"The total number of endpoints to which the campaign successfully delivered messages.\"\
         },\
+        \"TimezonesCompletedCount\" : {\
+          \"shape\" : \"__integer\",\
+          \"documentation\" : \"The total number of timezones completed.\"\
+        },\
+        \"TimezonesTotalCount\" : {\
+          \"shape\" : \"__integer\",\
+          \"documentation\" : \"The total number of unique timezones present in the segment.\"\
+        },\
         \"TotalEndpointCount\" : {\
           \"shape\" : \"__integer\",\
           \"documentation\" : \"The total number of endpoints to which the campaign attempts to deliver messages.\"\
@@ -1227,7 +1520,38 @@
           \"shape\" : \"__string\",\
           \"documentation\" : \"The ID of a variation of the campaign used for A/B testing.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Activity definition\"\
+    },\
+    \"AddressConfiguration\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"BodyOverride\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Body override. If specified will override default body.\"\
+        },\
+        \"ChannelType\" : {\
+          \"shape\" : \"ChannelType\",\
+          \"documentation\" : \"Type of channel of this address\"\
+        },\
+        \"Context\" : {\
+          \"shape\" : \"MapOf__string\",\
+          \"documentation\" : \"A map of custom attributes to attributes to be attached to the message for this address. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes.\"\
+        },\
+        \"RawContent\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The Raw JSON formatted string to be used as the payload. This value overrides the message.\"\
+        },\
+        \"Substitutions\" : {\
+          \"shape\" : \"MapOfListOf__string\",\
+          \"documentation\" : \"A map of substitution values for the message to be merged with the DefaultMessage's substitutions. Substitutions on this map take precedence over the all other substitutions.\"\
+        },\
+        \"TitleOverride\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Title override. If specified will override default title if applicable.\"\
+        }\
+      },\
+      \"documentation\" : \"Address configuration.\"\
     },\
     \"ApplicationSettingsResource\" : {\
       \"type\" : \"structure\",\
@@ -1248,20 +1572,22 @@
           \"shape\" : \"QuietTime\",\
           \"documentation\" : \"The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Application settings.\"\
     },\
     \"AttributeDimension\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
         \"AttributeType\" : {\
           \"shape\" : \"AttributeType\",\
-          \"documentation\" : \"The type of dimension:\\nINCLUSIVE â Endpoints that match the criteria are included in the segment.\\nEXCLUSIVE â Endpoints that match the criteria are excluded from the segment.\"\
+          \"documentation\" : \"The type of dimension:\\nINCLUSIVE - Endpoints that match the criteria are included in the segment.\\nEXCLUSIVE - Endpoints that match the criteria are excluded from the segment.\"\
         },\
         \"Values\" : {\
           \"shape\" : \"ListOf__string\",\
           \"documentation\" : \"The criteria values for the segment dimension. Endpoints with matching attribute values are included or excluded from the segment, depending on the setting for Type.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Custom attibute dimension\"\
     },\
     \"AttributeType\" : {\
       \"type\" : \"string\",\
@@ -1271,13 +1597,37 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"Message\" : {\
-          \"shape\" : \"__string\"\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The error message returned from the API.\"\
+        },\
+        \"RequestID\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The unique message body ID.\"\
         }\
       },\
+      \"documentation\" : \"Simple message object.\",\
       \"exception\" : true,\
       \"error\" : {\
-        \"httpStatusCode\" : \"400\"\
+        \"httpStatusCode\" : 400\
       }\
+    },\
+    \"CampaignEmailMessage\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"Body\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The email text body.\"\
+        },\
+        \"HtmlBody\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The email html body.\"\
+        },\
+        \"Title\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The email title (Or subject).\"\
+        }\
+      },\
+      \"documentation\" : \"The email message configuration.\"\
     },\
     \"CampaignLimits\" : {\
       \"type\" : \"structure\",\
@@ -1290,7 +1640,8 @@
           \"shape\" : \"__integer\",\
           \"documentation\" : \"The maximum total number of messages that the campaign can send.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Campaign Limits are used to limit the number of messages that can be sent to a user.\"\
     },\
     \"CampaignResponse\" : {\
       \"type\" : \"structure\",\
@@ -1371,7 +1722,26 @@
           \"shape\" : \"__integer\",\
           \"documentation\" : \"The campaign version number.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Campaign definition\"\
+    },\
+    \"CampaignSmsMessage\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"Body\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The SMS text body.\"\
+        },\
+        \"MessageType\" : {\
+          \"shape\" : \"MessageType\",\
+          \"documentation\" : \"Is this is a transactional SMS message, otherwise a promotional message.\"\
+        },\
+        \"SenderId\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Sender ID of sent message.\"\
+        }\
+      },\
+      \"documentation\" : \"SMS message configuration.\"\
     },\
     \"CampaignState\" : {\
       \"type\" : \"structure\",\
@@ -1380,7 +1750,8 @@
           \"shape\" : \"CampaignStatus\",\
           \"documentation\" : \"The status of the campaign, or the status of a treatment that belongs to an A/B test campaign.\\n\\nValid values: SCHEDULED, EXECUTING, PENDING_NEXT_RUN, COMPLETED, PAUSED\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"State of the Campaign\"\
     },\
     \"CampaignStatus\" : {\
       \"type\" : \"string\",\
@@ -1397,11 +1768,12 @@
           \"shape\" : \"__string\",\
           \"documentation\" : \"The string that you use in a subsequent request to get the next page of results in a paginated response.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"List of available campaigns.\"\
     },\
     \"ChannelType\" : {\
       \"type\" : \"string\",\
-      \"enum\" : [ \"APNS\", \"GCM\" ]\
+      \"enum\" : [ \"GCM\", \"APNS\", \"APNS_SANDBOX\", \"ADM\", \"SMS\", \"EMAIL\" ]\
     },\
     \"CreateCampaignRequest\" : {\
       \"type\" : \"structure\",\
@@ -1412,8 +1784,7 @@
           \"locationName\" : \"application-id\"\
         },\
         \"WriteCampaignRequest\" : {\
-          \"shape\" : \"WriteCampaignRequest\",\
-          \"payload\" : true\
+          \"shape\" : \"WriteCampaignRequest\"\
         }\
       },\
       \"required\" : [ \"ApplicationId\", \"WriteCampaignRequest\" ],\
@@ -1423,8 +1794,7 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"CampaignResponse\" : {\
-          \"shape\" : \"CampaignResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"CampaignResponse\"\
         }\
       },\
       \"required\" : [ \"CampaignResponse\" ],\
@@ -1439,8 +1809,7 @@
           \"locationName\" : \"application-id\"\
         },\
         \"ImportJobRequest\" : {\
-          \"shape\" : \"ImportJobRequest\",\
-          \"payload\" : true\
+          \"shape\" : \"ImportJobRequest\"\
         }\
       },\
       \"required\" : [ \"ApplicationId\", \"ImportJobRequest\" ],\
@@ -1450,8 +1819,7 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"ImportJobResponse\" : {\
-          \"shape\" : \"ImportJobResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"ImportJobResponse\"\
         }\
       },\
       \"required\" : [ \"ImportJobResponse\" ],\
@@ -1466,8 +1834,7 @@
           \"locationName\" : \"application-id\"\
         },\
         \"WriteSegmentRequest\" : {\
-          \"shape\" : \"WriteSegmentRequest\",\
-          \"payload\" : true\
+          \"shape\" : \"WriteSegmentRequest\"\
         }\
       },\
       \"required\" : [ \"ApplicationId\", \"WriteSegmentRequest\" ],\
@@ -1477,12 +1844,59 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"SegmentResponse\" : {\
-          \"shape\" : \"SegmentResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"SegmentResponse\"\
         }\
       },\
       \"required\" : [ \"SegmentResponse\" ],\
       \"payload\" : \"SegmentResponse\"\
+    },\
+    \"DefaultMessage\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"Body\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The message body of the notification, the email body or the text message.\"\
+        },\
+        \"Substitutions\" : {\
+          \"shape\" : \"MapOfListOf__string\",\
+          \"documentation\" : \"Default message substitutions. Can be overridden by individual address substitutions.\"\
+        }\
+      },\
+      \"documentation\" : \"Default Message across push notification, email, and sms.\"\
+    },\
+    \"DefaultPushNotificationMessage\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"Action\" : {\
+          \"shape\" : \"Action\",\
+          \"documentation\" : \"The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL\"\
+        },\
+        \"Body\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The message body of the notification, the email body or the text message.\"\
+        },\
+        \"Data\" : {\
+          \"shape\" : \"MapOf__string\",\
+          \"documentation\" : \"The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object\"\
+        },\
+        \"SilentPush\" : {\
+          \"shape\" : \"__boolean\",\
+          \"documentation\" : \"Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.\"\
+        },\
+        \"Substitutions\" : {\
+          \"shape\" : \"MapOfListOf__string\",\
+          \"documentation\" : \"Default message substitutions. Can be overridden by individual address substitutions.\"\
+        },\
+        \"Title\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The message title that displays above the message on the user's device.\"\
+        },\
+        \"Url\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The URL to open in the user's mobile browser. Used if the value for Action is URL.\"\
+        }\
+      },\
+      \"documentation\" : \"Default Push Notification Message.\"\
     },\
     \"DeleteApnsChannelRequest\" : {\
       \"type\" : \"structure\",\
@@ -1499,12 +1913,32 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"APNSChannelResponse\" : {\
-          \"shape\" : \"APNSChannelResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"APNSChannelResponse\"\
         }\
       },\
       \"required\" : [ \"APNSChannelResponse\" ],\
       \"payload\" : \"APNSChannelResponse\"\
+    },\
+    \"DeleteApnsSandboxChannelRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ApplicationId\" : {\
+          \"shape\" : \"__string\",\
+          \"location\" : \"uri\",\
+          \"locationName\" : \"application-id\"\
+        }\
+      },\
+      \"required\" : [ \"ApplicationId\" ]\
+    },\
+    \"DeleteApnsSandboxChannelResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"APNSSandboxChannelResponse\" : {\
+          \"shape\" : \"APNSSandboxChannelResponse\"\
+        }\
+      },\
+      \"required\" : [ \"APNSSandboxChannelResponse\" ],\
+      \"payload\" : \"APNSSandboxChannelResponse\"\
     },\
     \"DeleteCampaignRequest\" : {\
       \"type\" : \"structure\",\
@@ -1526,12 +1960,56 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"CampaignResponse\" : {\
-          \"shape\" : \"CampaignResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"CampaignResponse\"\
         }\
       },\
       \"required\" : [ \"CampaignResponse\" ],\
       \"payload\" : \"CampaignResponse\"\
+    },\
+    \"DeleteEmailChannelRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ApplicationId\" : {\
+          \"shape\" : \"__string\",\
+          \"location\" : \"uri\",\
+          \"locationName\" : \"application-id\"\
+        }\
+      },\
+      \"required\" : [ \"ApplicationId\" ]\
+    },\
+    \"DeleteEmailChannelResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"EmailChannelResponse\" : {\
+          \"shape\" : \"EmailChannelResponse\"\
+        }\
+      },\
+      \"required\" : [ \"EmailChannelResponse\" ],\
+      \"payload\" : \"EmailChannelResponse\"\
+    },\
+    \"DeleteEventStreamRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ApplicationId\" : {\
+          \"shape\" : \"__string\",\
+          \"location\" : \"uri\",\
+          \"locationName\" : \"application-id\",\
+          \"documentation\": \"ApplicationId\"\
+        }\
+      },\
+      \"required\" : [ \"ApplicationId\" ],\
+      \"documentation\": \"DeleteEventStream Request\"\
+    },\
+    \"DeleteEventStreamResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"EventStream\" : {\
+          \"shape\" : \"EventStream\"\
+        }\
+      },\
+      \"required\" : [ \"EventStream\" ],\
+      \"payload\" : \"EventStream\",\
+      \"documentation\": \"DeleteEventStream Response\"\
     },\
     \"DeleteGcmChannelRequest\" : {\
       \"type\" : \"structure\",\
@@ -1548,8 +2026,7 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"GCMChannelResponse\" : {\
-          \"shape\" : \"GCMChannelResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"GCMChannelResponse\"\
         }\
       },\
       \"required\" : [ \"GCMChannelResponse\" ],\
@@ -1575,27 +2052,153 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"SegmentResponse\" : {\
-          \"shape\" : \"SegmentResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"SegmentResponse\"\
         }\
       },\
       \"required\" : [ \"SegmentResponse\" ],\
       \"payload\" : \"SegmentResponse\"\
     },\
+    \"DeleteSmsChannelRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ApplicationId\" : {\
+          \"shape\" : \"__string\",\
+          \"location\" : \"uri\",\
+          \"locationName\" : \"application-id\"\
+        }\
+      },\
+      \"required\" : [ \"ApplicationId\" ]\
+    },\
+    \"DeleteSmsChannelResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"SMSChannelResponse\" : {\
+          \"shape\" : \"SMSChannelResponse\"\
+        }\
+      },\
+      \"required\" : [ \"SMSChannelResponse\" ],\
+      \"payload\" : \"SMSChannelResponse\"\
+    },\
+    \"DeliveryStatus\" : {\
+      \"type\" : \"string\",\
+      \"enum\" : [ \"SUCCESSFUL\", \"THROTTLED\", \"TEMPORARY_FAILURE\", \"PERMANENT_FAILURE\" ]\
+    },\
     \"DimensionType\" : {\
       \"type\" : \"string\",\
       \"enum\" : [ \"INCLUSIVE\", \"EXCLUSIVE\" ]\
     },\
+    \"DirectMessageConfiguration\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"APNSMessage\" : {\
+          \"shape\" : \"APNSMessage\",\
+          \"documentation\" : \"The message to APNS channels. Overrides the default push notification message.\"\
+        },\
+        \"DefaultMessage\" : {\
+          \"shape\" : \"DefaultMessage\",\
+          \"documentation\" : \"The default message for all channels.\"\
+        },\
+        \"DefaultPushNotificationMessage\" : {\
+          \"shape\" : \"DefaultPushNotificationMessage\",\
+          \"documentation\" : \"The default push notification message for all push channels.\"\
+        },\
+        \"GCMMessage\" : {\
+          \"shape\" : \"GCMMessage\",\
+          \"documentation\" : \"The message to GCM channels. Overrides the default push notification message.\"\
+        },\
+        \"SMSMessage\" : {\
+          \"shape\" : \"SMSMessage\",\
+          \"documentation\" : \"The message to SMS channels. Overrides the default message.\"\
+        }\
+      },\
+      \"documentation\" : \"The message configuration.\"\
+    },\
     \"Duration\" : {\
       \"type\" : \"string\",\
       \"enum\" : [ \"HR_24\", \"DAY_7\", \"DAY_14\", \"DAY_30\" ]\
+    },\
+    \"EmailChannelRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"Enabled\" : {\
+          \"shape\" : \"__boolean\",\
+          \"documentation\" : \"If the channel is enabled for sending messages.\"\
+        },\
+        \"FromAddress\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The email address used to send emails from.\"\
+        },\
+        \"Identity\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The ARN of an identity verified with SES.\"\
+        },\
+        \"RoleArn\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service\"\
+        }\
+      },\
+      \"documentation\" : \"Email Channel Request\"\
+    },\
+    \"EmailChannelResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ApplicationId\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Application id\"\
+        },\
+        \"CreationDate\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The date that the settings were last updated in ISO 8601 format.\"\
+        },\
+        \"Enabled\" : {\
+          \"shape\" : \"__boolean\",\
+          \"documentation\" : \"If the channel is enabled for sending messages.\"\
+        },\
+        \"FromAddress\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The email address used to send emails from.\"\
+        },\
+        \"Id\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Channel ID. Not used, only for backwards compatibility.\"\
+        },\
+        \"Identity\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The ARN of an identity verified with SES.\"\
+        },\
+        \"IsArchived\" : {\
+          \"shape\" : \"__boolean\",\
+          \"documentation\" : \"Is this channel archived\"\
+        },\
+        \"LastModifiedBy\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Who last updated this entry\"\
+        },\
+        \"LastModifiedDate\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Last date this was updated\"\
+        },\
+        \"Platform\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Platform type. Will be \\\"EMAIL\\\"\"\
+        },\
+        \"RoleArn\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service\"\
+        },\
+        \"Version\" : {\
+          \"shape\" : \"__integer\",\
+          \"documentation\" : \"Version of channel\"\
+        }\
+      },\
+      \"documentation\" : \"Email Channel Response.\"\
     },\
     \"EndpointBatchItem\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
         \"Address\" : {\
           \"shape\" : \"__string\",\
-          \"documentation\" : \"The address or token of the endpoint.\"\
+          \"documentation\" : \"The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).\"\
         },\
         \"Attributes\" : {\
           \"shape\" : \"MapOfListOf__string\",\
@@ -1618,7 +2221,8 @@
           \"documentation\" : \"The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated.\"\
         },\
         \"Id\" : {\
-          \"shape\" : \"__string\"\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The unique Id for the Endpoint in the batch.\"\
         },\
         \"Location\" : {\
           \"shape\" : \"EndpointLocation\",\
@@ -1630,7 +2234,7 @@
         },\
         \"OptOut\" : {\
           \"shape\" : \"__string\",\
-          \"documentation\" : \"Indicates whether a user has opted out of receiving messages with one of the following values:\\n\\nALL â User receives all messages.\\nNONE â User receives no messages.\"\
+          \"documentation\" : \"Indicates whether a user has opted out of receiving messages with one of the following values:\\n\\nALL Ã¢â¬â User receives all messages.\\nNONE Ã¢â¬â User receives no messages.\"\
         },\
         \"RequestId\" : {\
           \"shape\" : \"__string\",\
@@ -1640,7 +2244,8 @@
           \"shape\" : \"EndpointUser\",\
           \"documentation\" : \"Custom user-specific attributes that your app reports to Amazon Pinpoint.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Endpoint update request\"\
     },\
     \"EndpointBatchRequest\" : {\
       \"type\" : \"structure\",\
@@ -1649,7 +2254,8 @@
           \"shape\" : \"ListOfEndpointBatchItem\",\
           \"documentation\" : \"List of items to update. Maximum 100 items\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Endpoint batch update request.\"\
     },\
     \"EndpointDemographic\" : {\
       \"type\" : \"structure\",\
@@ -1686,7 +2292,8 @@
           \"shape\" : \"__string\",\
           \"documentation\" : \"The timezone of the endpoint. Specified as a tz database value, such as Americas/Los_Angeles.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Endpoint demographic data\"\
     },\
     \"EndpointLocation\" : {\
       \"type\" : \"structure\",\
@@ -1715,14 +2322,15 @@
           \"shape\" : \"__string\",\
           \"documentation\" : \"The region of the endpoint location. For example, corresponds to a state in US.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Endpoint location data\"\
     },\
     \"EndpointRequest\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
         \"Address\" : {\
           \"shape\" : \"__string\",\
-          \"documentation\" : \"The address or token of the endpoint.\"\
+          \"documentation\" : \"The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).\"\
         },\
         \"Attributes\" : {\
           \"shape\" : \"MapOfListOf__string\",\
@@ -1754,7 +2362,7 @@
         },\
         \"OptOut\" : {\
           \"shape\" : \"__string\",\
-          \"documentation\" : \"Indicates whether a user has opted out of receiving messages with one of the following values:\\n\\nALL â User receives all messages.\\nNONE â User receives no messages.\"\
+          \"documentation\" : \"Indicates whether a user has opted out of receiving messages with one of the following values:\\n\\nALL Ã¢â¬â User receives all messages.\\nNONE Ã¢â¬â User receives no messages.\"\
         },\
         \"RequestId\" : {\
           \"shape\" : \"__string\",\
@@ -1764,14 +2372,15 @@
           \"shape\" : \"EndpointUser\",\
           \"documentation\" : \"Custom user-specific attributes that your app reports to Amazon Pinpoint.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Endpoint update request\"\
     },\
     \"EndpointResponse\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
         \"Address\" : {\
           \"shape\" : \"__string\",\
-          \"documentation\" : \"The address or token of the endpoint.\"\
+          \"documentation\" : \"The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).\"\
         },\
         \"ApplicationId\" : {\
           \"shape\" : \"__string\",\
@@ -1819,45 +2428,83 @@
         },\
         \"OptOut\" : {\
           \"shape\" : \"__string\",\
-          \"documentation\" : \"Indicates whether a user has opted out of receiving messages with one of the following values:\\n\\nALL â User receives all messages.\\nNONE â User receives no messages.\"\
+          \"documentation\" : \"Indicates whether a user has opted out of receiving messages with one of the following values:\\n\\nALL Ã¢â¬â User receives all messages.\\nNONE Ã¢â¬â User receives no messages.\"\
         },\
         \"RequestId\" : {\
           \"shape\" : \"__string\",\
           \"documentation\" : \"The unique ID for the most recent request to update the endpoint.\"\
         },\
-        \"ShardId\" : {\
-          \"shape\" : \"__string\",\
-          \"documentation\" : \"The ShardId of endpoint\"\
-        },\
         \"User\" : {\
           \"shape\" : \"EndpointUser\",\
           \"documentation\" : \"Custom user-specific attributes that your app reports to Amazon Pinpoint.\"\
+        },\
+        \"ShardId\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The ShardId of endpoint\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Endpoint response\"\
     },\
     \"EndpointUser\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
         \"UserAttributes\" : {\
           \"shape\" : \"MapOfListOf__string\",\
-          \"documentation\" : \"Custom attributesd specific to the user.\"\
+          \"documentation\" : \"Custom attributes specific to the user.\"\
         },\
         \"UserId\" : {\
           \"shape\" : \"__string\",\
           \"documentation\" : \"The unique ID of the user.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Endpoint user specific custom userAttributes\"\
+    },\
+    \"EventStream\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ApplicationId\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The ID of the application from which events should be published.\"\
+        },\
+        \"DestinationStreamArn\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.\\n Firehose ARN: arn:aws:firehose:REGION:ACCOUNT_ID:deliverystream/STREAM_NAME\\n Kinesis ARN: arn:aws:kinesis:REGION:ACCOUNT_ID:stream/STREAM_NAME\"\
+        },\
+        \"ExternalId\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The external ID assigned the IAM role that authorizes Amazon Pinpoint to publish to the stream.\"\
+        },\
+        \"LastModifiedDate\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The date the event stream was last updated in ISO 8601 format.\"\
+        },\
+        \"LastUpdatedBy\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The IAM user who last modified the event stream.\"\
+        },\
+        \"RoleArn\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.\"\
+        }\
+      },\
+      \"documentation\" : \"Model for an event publishing subscription export.\"\
     },\
     \"ForbiddenException\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
         \"Message\" : {\
-          \"shape\" : \"__string\"\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The error message returned from the API.\"\
+        },\
+        \"RequestID\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The unique message body ID.\"\
         }\
       },\
+      \"documentation\" : \"Simple message object.\",\
       \"exception\" : true,\
       \"error\" : {\
-        \"httpStatusCode\" : \"403\"\
+        \"httpStatusCode\" : 403\
       }\
     },\
     \"Format\" : {\
@@ -1874,14 +2521,20 @@
         \"ApiKey\" : {\
           \"shape\" : \"__string\",\
           \"documentation\" : \"Platform credential API key from Google.\"\
+        },\
+        \"Enabled\" : {\
+          \"shape\" : \"__boolean\",\
+          \"documentation\" : \"If the channel is enabled for sending messages.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Google Cloud Messaging credentials\"\
     },\
     \"GCMChannelResponse\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
         \"ApplicationId\" : {\
-          \"shape\" : \"__string\"\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The ID of the application to which the channel applies.\"\
         },\
         \"CreationDate\" : {\
           \"shape\" : \"__string\",\
@@ -1891,8 +2544,13 @@
           \"shape\" : \"__string\",\
           \"documentation\" : \"The GCM API key from Google.\"\
         },\
+        \"Enabled\" : {\
+          \"shape\" : \"__boolean\",\
+          \"documentation\" : \"If the channel is enabled for sending messages.\"\
+        },\
         \"Id\" : {\
-          \"shape\" : \"__string\"\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Channel ID. Not used, only for backwards compatibility.\"\
         },\
         \"IsArchived\" : {\
           \"shape\" : \"__boolean\",\
@@ -1914,7 +2572,74 @@
           \"shape\" : \"__integer\",\
           \"documentation\" : \"Version of channel\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Google Cloud Messaging channel definition\"\
+    },\
+    \"GCMMessage\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"Action\" : {\
+          \"shape\" : \"Action\",\
+          \"documentation\" : \"The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL\"\
+        },\
+        \"Body\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The message body of the notification, the email body or the text message.\"\
+        },\
+        \"CollapseKey\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"This parameter identifies a group of messages (e.g., with collapse_key: \\\"Updates Available\\\") that can be collapsed, so that only the last message gets sent when delivery can be resumed. This is intended to avoid sending too many of the same messages when the device comes back online or becomes active.\"\
+        },\
+        \"Data\" : {\
+          \"shape\" : \"MapOf__string\",\
+          \"documentation\" : \"The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object\"\
+        },\
+        \"IconReference\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The icon image name of the asset saved in your application.\"\
+        },\
+        \"ImageIconUrl\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The URL that points to an image used as the large icon to the notification content view.\"\
+        },\
+        \"ImageUrl\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The URL that points to an image used in the push notification.\"\
+        },\
+        \"RawContent\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The Raw JSON formatted string to be used as the payload. This value overrides the message.\"\
+        },\
+        \"RestrictedPackageName\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"This parameter specifies the package name of the application where the registration tokens must match in order to receive the message.\"\
+        },\
+        \"SilentPush\" : {\
+          \"shape\" : \"__boolean\",\
+          \"documentation\" : \"Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.\"\
+        },\
+        \"SmallImageIconUrl\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The URL that points to an image used as the small icon for the notification which will be used to represent the notification in the status bar and content view\"\
+        },\
+        \"Sound\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Indicates a sound to play when the device receives the notification. Supports default, or the filename of a sound resource bundled in the app. Android sound files must reside in /res/raw/\"\
+        },\
+        \"Substitutions\" : {\
+          \"shape\" : \"MapOfListOf__string\",\
+          \"documentation\" : \"Default message substitutions. Can be overridden by individual address substitutions.\"\
+        },\
+        \"Title\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The message title that displays above the message on the user's device.\"\
+        },\
+        \"Url\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The URL to open in the user's mobile browser. Used if the value for Action is URL.\"\
+        }\
+      },\
+      \"documentation\" : \"GCM Message.\"\
     },\
     \"GetApnsChannelRequest\" : {\
       \"type\" : \"structure\",\
@@ -1931,12 +2656,32 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"APNSChannelResponse\" : {\
-          \"shape\" : \"APNSChannelResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"APNSChannelResponse\"\
         }\
       },\
       \"required\" : [ \"APNSChannelResponse\" ],\
       \"payload\" : \"APNSChannelResponse\"\
+    },\
+    \"GetApnsSandboxChannelRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ApplicationId\" : {\
+          \"shape\" : \"__string\",\
+          \"location\" : \"uri\",\
+          \"locationName\" : \"application-id\"\
+        }\
+      },\
+      \"required\" : [ \"ApplicationId\" ]\
+    },\
+    \"GetApnsSandboxChannelResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"APNSSandboxChannelResponse\" : {\
+          \"shape\" : \"APNSSandboxChannelResponse\"\
+        }\
+      },\
+      \"required\" : [ \"APNSSandboxChannelResponse\" ],\
+      \"payload\" : \"APNSSandboxChannelResponse\"\
     },\
     \"GetApplicationSettingsRequest\" : {\
       \"type\" : \"structure\",\
@@ -1953,8 +2698,7 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"ApplicationSettingsResource\" : {\
-          \"shape\" : \"ApplicationSettingsResource\",\
-          \"payload\" : true\
+          \"shape\" : \"ApplicationSettingsResource\"\
         }\
       },\
       \"required\" : [ \"ApplicationSettingsResource\" ],\
@@ -1990,8 +2734,7 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"ActivitiesResponse\" : {\
-          \"shape\" : \"ActivitiesResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"ActivitiesResponse\"\
         }\
       },\
       \"required\" : [ \"ActivitiesResponse\" ],\
@@ -2017,8 +2760,7 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"CampaignResponse\" : {\
-          \"shape\" : \"CampaignResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"CampaignResponse\"\
         }\
       },\
       \"required\" : [ \"CampaignResponse\" ],\
@@ -2049,8 +2791,7 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"CampaignResponse\" : {\
-          \"shape\" : \"CampaignResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"CampaignResponse\"\
         }\
       },\
       \"required\" : [ \"CampaignResponse\" ],\
@@ -2086,8 +2827,7 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"CampaignsResponse\" : {\
-          \"shape\" : \"CampaignsResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"CampaignsResponse\"\
         }\
       },\
       \"required\" : [ \"CampaignsResponse\" ],\
@@ -2118,12 +2858,32 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"CampaignsResponse\" : {\
-          \"shape\" : \"CampaignsResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"CampaignsResponse\"\
         }\
       },\
       \"required\" : [ \"CampaignsResponse\" ],\
       \"payload\" : \"CampaignsResponse\"\
+    },\
+    \"GetEmailChannelRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ApplicationId\" : {\
+          \"shape\" : \"__string\",\
+          \"location\" : \"uri\",\
+          \"locationName\" : \"application-id\"\
+        }\
+      },\
+      \"required\" : [ \"ApplicationId\" ]\
+    },\
+    \"GetEmailChannelResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"EmailChannelResponse\" : {\
+          \"shape\" : \"EmailChannelResponse\"\
+        }\
+      },\
+      \"required\" : [ \"EmailChannelResponse\" ],\
+      \"payload\" : \"EmailChannelResponse\"\
     },\
     \"GetEndpointRequest\" : {\
       \"type\" : \"structure\",\
@@ -2145,12 +2905,35 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"EndpointResponse\" : {\
-          \"shape\" : \"EndpointResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"EndpointResponse\"\
         }\
       },\
       \"required\" : [ \"EndpointResponse\" ],\
       \"payload\" : \"EndpointResponse\"\
+    },\
+    \"GetEventStreamRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ApplicationId\" : {\
+          \"shape\" : \"__string\",\
+          \"location\" : \"uri\",\
+          \"locationName\" : \"application-id\",\
+          \"documentation\": \"ApplicationId\"\
+        }\
+      },\
+      \"required\" : [ \"ApplicationId\" ],\
+      \"documentation\": \"GetEventStream Request\"\
+    },\
+    \"GetEventStreamResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"EventStream\" : {\
+          \"shape\" : \"EventStream\"\
+        }\
+      },\
+      \"required\" : [ \"EventStream\" ],\
+      \"payload\" : \"EventStream\",\
+      \"documentation\": \"GetEventStream Response\"\
     },\
     \"GetGcmChannelRequest\" : {\
       \"type\" : \"structure\",\
@@ -2167,8 +2950,7 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"GCMChannelResponse\" : {\
-          \"shape\" : \"GCMChannelResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"GCMChannelResponse\"\
         }\
       },\
       \"required\" : [ \"GCMChannelResponse\" ],\
@@ -2194,8 +2976,7 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"ImportJobResponse\" : {\
-          \"shape\" : \"ImportJobResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"ImportJobResponse\"\
         }\
       },\
       \"required\" : [ \"ImportJobResponse\" ],\
@@ -2226,8 +3007,7 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"ImportJobsResponse\" : {\
-          \"shape\" : \"ImportJobsResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"ImportJobsResponse\"\
         }\
       },\
       \"required\" : [ \"ImportJobsResponse\" ],\
@@ -2263,8 +3043,7 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"ImportJobsResponse\" : {\
-          \"shape\" : \"ImportJobsResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"ImportJobsResponse\"\
         }\
       },\
       \"required\" : [ \"ImportJobsResponse\" ],\
@@ -2290,8 +3069,7 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"SegmentResponse\" : {\
-          \"shape\" : \"SegmentResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"SegmentResponse\"\
         }\
       },\
       \"required\" : [ \"SegmentResponse\" ],\
@@ -2322,8 +3100,7 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"SegmentResponse\" : {\
-          \"shape\" : \"SegmentResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"SegmentResponse\"\
         }\
       },\
       \"required\" : [ \"SegmentResponse\" ],\
@@ -2359,8 +3136,7 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"SegmentsResponse\" : {\
-          \"shape\" : \"SegmentsResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"SegmentsResponse\"\
         }\
       },\
       \"required\" : [ \"SegmentsResponse\" ],\
@@ -2391,12 +3167,32 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"SegmentsResponse\" : {\
-          \"shape\" : \"SegmentsResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"SegmentsResponse\"\
         }\
       },\
       \"required\" : [ \"SegmentsResponse\" ],\
       \"payload\" : \"SegmentsResponse\"\
+    },\
+    \"GetSmsChannelRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ApplicationId\" : {\
+          \"shape\" : \"__string\",\
+          \"location\" : \"uri\",\
+          \"locationName\" : \"application-id\"\
+        }\
+      },\
+      \"required\" : [ \"ApplicationId\" ]\
+    },\
+    \"GetSmsChannelResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"SMSChannelResponse\" : {\
+          \"shape\" : \"SMSChannelResponse\"\
+        }\
+      },\
+      \"required\" : [ \"SMSChannelResponse\" ],\
+      \"payload\" : \"SMSChannelResponse\"\
     },\
     \"ImportJobRequest\" : {\
       \"type\" : \"structure\",\
@@ -2540,18 +3336,25 @@
           \"shape\" : \"__string\",\
           \"documentation\" : \"The string that you use in a subsequent request to get the next page of results in a paginated response.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Import job list.\"\
     },\
     \"InternalServerErrorException\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
         \"Message\" : {\
-          \"shape\" : \"__string\"\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The error message returned from the API.\"\
+        },\
+        \"RequestID\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The unique message body ID.\"\
         }\
       },\
+      \"documentation\" : \"Simple message object.\",\
       \"exception\" : true,\
       \"error\" : {\
-        \"httpStatusCode\" : \"500\"\
+        \"httpStatusCode\" : 500\
       }\
     },\
     \"JobStatus\" : {\
@@ -2606,6 +3409,15 @@
         \"shape\" : \"__string\"\
       }\
     },\
+    \"MapOfAddressConfiguration\" : {\
+      \"type\" : \"map\",\
+      \"key\" : {\
+        \"shape\" : \"__string\"\
+      },\
+      \"value\" : {\
+        \"shape\" : \"AddressConfiguration\"\
+      }\
+    },\
     \"MapOfAttributeDimension\" : {\
       \"type\" : \"map\",\
       \"key\" : {\
@@ -2624,6 +3436,15 @@
         \"shape\" : \"ListOf__string\"\
       }\
     },\
+    \"MapOfMessageResult\" : {\
+      \"type\" : \"map\",\
+      \"key\" : {\
+        \"shape\" : \"__string\"\
+      },\
+      \"value\" : {\
+        \"shape\" : \"MessageResult\"\
+      }\
+    },\
     \"MapOf__double\" : {\
       \"type\" : \"map\",\
       \"key\" : {\
@@ -2633,12 +3454,30 @@
         \"shape\" : \"__double\"\
       }\
     },\
+    \"MapOf__integer\" : {\
+      \"type\" : \"map\",\
+      \"key\" : {\
+        \"shape\" : \"__string\"\
+      },\
+      \"value\" : {\
+        \"shape\" : \"__integer\"\
+      }\
+    },\
+    \"MapOf__string\" : {\
+      \"type\" : \"map\",\
+      \"key\" : {\
+        \"shape\" : \"__string\"\
+      },\
+      \"value\" : {\
+        \"shape\" : \"__string\"\
+      }\
+    },\
     \"Message\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
         \"Action\" : {\
           \"shape\" : \"Action\",\
-          \"documentation\" : \"The action that occurs if the user taps a push notification delivered by the campaign:\\nOPEN_APP â Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action.\\n\\nDEEP_LINK â Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app.\\n\\nURL â The default mobile browser on the user's device launches and opens a web page at the URL you specify.\"\
+          \"documentation\" : \"The action that occurs if the user taps a push notification delivered by the campaign:\\nOPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action.\\n\\nDEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app.\\n\\nURL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.\"\
         },\
         \"Body\" : {\
           \"shape\" : \"__string\",\
@@ -2647,6 +3486,10 @@
         \"ImageIconUrl\" : {\
           \"shape\" : \"__string\",\
           \"documentation\" : \"The URL that points to the icon image for the push notification icon, for example, the app icon.\"\
+        },\
+        \"ImageSmallIconUrl\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The URL that points to the small icon image for the push notification icon, for example, the app icon.\"\
         },\
         \"ImageUrl\" : {\
           \"shape\" : \"__string\",\
@@ -2678,12 +3521,15 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"Message\" : {\
-          \"shape\" : \"__string\"\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The error message returned from the API.\"\
         },\
         \"RequestID\" : {\
-          \"shape\" : \"__string\"\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The unique message body ID.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Simple message object.\"\
     },\
     \"MessageConfiguration\" : {\
       \"type\" : \"structure\",\
@@ -2696,35 +3542,147 @@
           \"shape\" : \"Message\",\
           \"documentation\" : \"The default message for all channels.\"\
         },\
+        \"EmailMessage\" : {\
+          \"shape\" : \"CampaignEmailMessage\",\
+          \"documentation\" : \"The email message configuration.\"\
+        },\
         \"GCMMessage\" : {\
           \"shape\" : \"Message\",\
           \"documentation\" : \"The message that the campaign delivers to GCM channels. Overrides the default message.\"\
+        },\
+        \"SMSMessage\" : {\
+          \"shape\" : \"CampaignSmsMessage\",\
+          \"documentation\" : \"The SMS message configuration.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Message configuration for a campaign.\"\
+    },\
+    \"MessageRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"Addresses\" : {\
+          \"shape\" : \"MapOfAddressConfiguration\",\
+          \"documentation\" : \"A map of destination addresses, with the address as the key(Email address, phone number or push token) and the Address Configuration as the value.\"\
+        },\
+        \"Context\" : {\
+          \"shape\" : \"MapOf__string\",\
+          \"documentation\" : \"A map of custom attributes to attributes to be attached to the message. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes.\"\
+        },\
+        \"MessageConfiguration\" : {\
+          \"shape\" : \"DirectMessageConfiguration\",\
+          \"documentation\" : \"Message configuration.\"\
+        }\
+      },\
+      \"documentation\" : \"Send message request.\"\
+    },\
+    \"MessageResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ApplicationId\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Application id of the message.\"\
+        },\
+        \"RequestId\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Original request Id for which this message was delivered.\"\
+        },\
+        \"Result\" : {\
+          \"shape\" : \"MapOfMessageResult\",\
+          \"documentation\" : \"A map containing a multi part response for each address, with the address as the key(Email address, phone number or push token) and the result as the value.\"\
+        }\
+      },\
+      \"documentation\" : \"Send message response.\"\
+    },\
+    \"MessageResult\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"DeliveryStatus\" : {\
+          \"shape\" : \"DeliveryStatus\",\
+          \"documentation\" : \"Delivery status of message.\"\
+        },\
+        \"StatusCode\" : {\
+          \"shape\" : \"__integer\",\
+          \"documentation\" : \"Downstream service status code.\"\
+        },\
+        \"StatusMessage\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Status message for message delivery.\"\
+        },\
+        \"UpdatedToken\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"If token was updated as part of delivery. (This is GCM Specific)\"\
+        }\
+      },\
+      \"documentation\" : \"The result from sending a message to an address.\"\
+    },\
+    \"MessageType\" : {\
+      \"type\" : \"string\",\
+      \"enum\" : [ \"TRANSACTIONAL\", \"PROMOTIONAL\" ]\
     },\
     \"MethodNotAllowedException\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
         \"Message\" : {\
-          \"shape\" : \"__string\"\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The error message returned from the API.\"\
+        },\
+        \"RequestID\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The unique message body ID.\"\
         }\
       },\
+      \"documentation\" : \"Simple message object.\",\
       \"exception\" : true,\
       \"error\" : {\
-        \"httpStatusCode\" : \"405\"\
+        \"httpStatusCode\" : 405\
       }\
     },\
     \"NotFoundException\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
         \"Message\" : {\
-          \"shape\" : \"__string\"\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The error message returned from the API.\"\
+        },\
+        \"RequestID\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The unique message body ID.\"\
         }\
       },\
+      \"documentation\" : \"Simple message object.\",\
       \"exception\" : true,\
       \"error\" : {\
-        \"httpStatusCode\" : \"404\"\
+        \"httpStatusCode\" : 404\
       }\
+    },\
+    \"PutEventStreamRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ApplicationId\" : {\
+          \"shape\" : \"__string\",\
+          \"location\" : \"uri\",\
+          \"locationName\" : \"application-id\",\
+          \"documentation\": \"ApplicationId\"\
+        },\
+        \"WriteEventStream\" : {\
+          \"shape\" : \"WriteEventStream\",\
+          \"documentation\": \"EventStream to write.\"\
+        }\
+      },\
+      \"required\" : [ \"ApplicationId\", \"WriteEventStream\" ],\
+      \"payload\" : \"WriteEventStream\",\
+      \"documentation\": \"PutEventStream Request\"\
+    },\
+    \"PutEventStreamResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"EventStream\" : {\
+          \"shape\" : \"EventStream\"\
+        }\
+      },\
+      \"required\" : [ \"EventStream\" ],\
+      \"payload\" : \"EventStream\",\
+      \"documentation\": \"PutEventStream Response\"\
     },\
     \"QuietTime\" : {\
       \"type\" : \"structure\",\
@@ -2737,7 +3695,8 @@
           \"shape\" : \"__string\",\
           \"documentation\" : \"The default start time for quiet time in ISO 8601 format.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Quiet Time\"\
     },\
     \"RecencyDimension\" : {\
       \"type\" : \"structure\",\
@@ -2748,13 +3707,100 @@
         },\
         \"RecencyType\" : {\
           \"shape\" : \"RecencyType\",\
-          \"documentation\" : \"The recency dimension type:\\nACTIVE â Users who have used your app within the specified duration are included in the segment.\\nINACTIVE â Users who have not used your app within the specified duration are included in the segment.\"\
+          \"documentation\" : \"The recency dimension type:\\nACTIVE - Users who have used your app within the specified duration are included in the segment.\\nINACTIVE - Users who have not used your app within the specified duration are included in the segment.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Define how a segment based on recency of use.\"\
     },\
     \"RecencyType\" : {\
       \"type\" : \"string\",\
       \"enum\" : [ \"ACTIVE\", \"INACTIVE\" ]\
+    },\
+    \"SMSChannelRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"Enabled\" : {\
+          \"shape\" : \"__boolean\",\
+          \"documentation\" : \"If the channel is enabled for sending messages.\"\
+        },\
+        \"SenderId\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Sender identifier of your messages.\"\
+        }\
+      },\
+      \"documentation\" : \"SMS Channel Request\"\
+    },\
+    \"SMSChannelResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ApplicationId\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Application id\"\
+        },\
+        \"CreationDate\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The date that the settings were last updated in ISO 8601 format.\"\
+        },\
+        \"Enabled\" : {\
+          \"shape\" : \"__boolean\",\
+          \"documentation\" : \"If the channel is enabled for sending messages.\"\
+        },\
+        \"Id\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Channel ID. Not used, only for backwards compatibility.\"\
+        },\
+        \"IsArchived\" : {\
+          \"shape\" : \"__boolean\",\
+          \"documentation\" : \"Is this channel archived\"\
+        },\
+        \"LastModifiedBy\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Who last updated this entry\"\
+        },\
+        \"LastModifiedDate\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Last date this was updated\"\
+        },\
+        \"Platform\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Platform type. Will be \\\"SMS\\\"\"\
+        },\
+        \"SenderId\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Sender identifier of your messages.\"\
+        },\
+        \"ShortCode\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The short code registered with the phone provider.\"\
+        },\
+        \"Version\" : {\
+          \"shape\" : \"__integer\",\
+          \"documentation\" : \"Version of channel\"\
+        }\
+      },\
+      \"documentation\" : \"SMS Channel Response.\"\
+    },\
+    \"SMSMessage\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"Body\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The message body of the notification, the email body or the text message.\"\
+        },\
+        \"MessageType\" : {\
+          \"shape\" : \"MessageType\",\
+          \"documentation\" : \"Is this a transaction priority message or lower priority.\"\
+        },\
+        \"SenderId\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"Sender ID of sent message.\"\
+        },\
+        \"Substitutions\" : {\
+          \"shape\" : \"MapOfListOf__string\",\
+          \"documentation\" : \"Default message substitutions. Can be overridden by individual address substitutions.\"\
+        }\
+      },\
+      \"documentation\" : \"SMS Message.\"\
     },\
     \"Schedule\" : {\
       \"type\" : \"structure\",\
@@ -2783,7 +3829,8 @@
           \"shape\" : \"__string\",\
           \"documentation\" : \"The starting UTC offset for the schedule if the value for isLocalTime is true\\n\\nValid values: \\nUTC\\nUTC+01\\nUTC+02\\nUTC+03\\nUTC+03:30\\nUTC+04\\nUTC+04:30\\nUTC+05\\nUTC+05:30\\nUTC+05:45\\nUTC+06\\nUTC+06:30\\nUTC+07\\nUTC+08\\nUTC+09\\nUTC+09:30\\nUTC+10\\nUTC+10:30\\nUTC+11\\nUTC+12\\nUTC+13\\nUTC-02\\nUTC-03\\nUTC-04\\nUTC-05\\nUTC-06\\nUTC-07\\nUTC-08\\nUTC-09\\nUTC-10\\nUTC-11\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Shcedule that defines when a campaign is run.\"\
     },\
     \"SegmentBehaviors\" : {\
       \"type\" : \"structure\",\
@@ -2792,7 +3839,8 @@
           \"shape\" : \"RecencyDimension\",\
           \"documentation\" : \"The recency of use.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Segment behavior dimensions\"\
     },\
     \"SegmentDemographics\" : {\
       \"type\" : \"structure\",\
@@ -2800,6 +3848,10 @@
         \"AppVersion\" : {\
           \"shape\" : \"SetDimension\",\
           \"documentation\" : \"The app version criteria for the segment.\"\
+        },\
+        \"Channel\" : {\
+          \"shape\" : \"SetDimension\",\
+          \"documentation\" : \"The channel criteria for the segment.\"\
         },\
         \"DeviceType\" : {\
           \"shape\" : \"SetDimension\",\
@@ -2817,7 +3869,8 @@
           \"shape\" : \"SetDimension\",\
           \"documentation\" : \"The device platform criteria for the segment.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Segment demographic dimensions\"\
     },\
     \"SegmentDimensions\" : {\
       \"type\" : \"structure\",\
@@ -2836,13 +3889,22 @@
         },\
         \"Location\" : {\
           \"shape\" : \"SegmentLocation\",\
-          \"documentation\" : \"The segment location attributes.\\n\"\
+          \"documentation\" : \"The segment location attributes.\"\
+        },\
+        \"UserAttributes\" : {\
+          \"shape\" : \"MapOfAttributeDimension\",\
+          \"documentation\" : \"Custom segment user attributes.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Segment dimensions\"\
     },\
     \"SegmentImportResource\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
+        \"ChannelCounts\" : {\
+          \"shape\" : \"MapOf__integer\",\
+          \"documentation\" : \"Channel type counts\"\
+        },\
         \"ExternalId\" : {\
           \"shape\" : \"__string\",\
           \"documentation\" : \"A unique, custom ID assigned to the IAM role that restricts who can assume the role.\"\
@@ -2863,7 +3925,8 @@
           \"shape\" : \"__integer\",\
           \"documentation\" : \"The number of endpoints that were successfully imported to create this segment.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Segment import definition.\"\
     },\
     \"SegmentLocation\" : {\
       \"type\" : \"structure\",\
@@ -2872,7 +3935,8 @@
           \"shape\" : \"SetDimension\",\
           \"documentation\" : \"The country filter according to ISO 3166-1 Alpha-2 codes.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Segment location dimensions\"\
     },\
     \"SegmentResponse\" : {\
       \"type\" : \"structure\",\
@@ -2907,13 +3971,14 @@
         },\
         \"SegmentType\" : {\
           \"shape\" : \"SegmentType\",\
-          \"documentation\" : \"The segment type:\\nDIMENSIONAL â A dynamic segment built from selection criteria based on endpoint data reported by your app. You create this type of segment by using the segment builder in the Amazon Pinpoint console or by making a POST request to the segments resource.\\nIMPORT â A static segment built from an imported set of endpoint definitions. You create this type of segment by importing a segment in the Amazon Pinpoint console or by making a POST request to the jobs/import resource.\"\
+          \"documentation\" : \"The segment type:\\nDIMENSIONAL - A dynamic segment built from selection criteria based on endpoint data reported by your app. You create this type of segment by using the segment builder in the Amazon Pinpoint console or by making a POST request to the segments resource.\\nIMPORT - A static segment built from an imported set of endpoint definitions. You create this type of segment by importing a segment in the Amazon Pinpoint console or by making a POST request to the jobs/import resource.\"\
         },\
         \"Version\" : {\
           \"shape\" : \"__integer\",\
           \"documentation\" : \"The segment version number.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Segment definition.\"\
     },\
     \"SegmentType\" : {\
       \"type\" : \"string\",\
@@ -2930,31 +3995,64 @@
           \"shape\" : \"__string\",\
           \"documentation\" : \"An identifier used to retrieve the next page of results. The token is null if no additional pages exist.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Segments in your account.\"\
+    },\
+    \"SendMessagesRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ApplicationId\" : {\
+          \"shape\" : \"__string\",\
+          \"location\" : \"uri\",\
+          \"locationName\" : \"application-id\"\
+        },\
+        \"MessageRequest\" : {\
+          \"shape\" : \"MessageRequest\"\
+        }\
+      },\
+      \"required\" : [ \"ApplicationId\", \"MessageRequest\" ],\
+      \"payload\" : \"MessageRequest\"\
+    },\
+    \"SendMessagesResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"MessageResponse\" : {\
+          \"shape\" : \"MessageResponse\"\
+        }\
+      },\
+      \"required\" : [ \"MessageResponse\" ],\
+      \"payload\" : \"MessageResponse\"\
     },\
     \"SetDimension\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
         \"DimensionType\" : {\
           \"shape\" : \"DimensionType\",\
-          \"documentation\" : \"The type of dimension:\\nINCLUSIVE â Endpoints that match the criteria are included in the segment.\\nEXCLUSIVE â Endpoints that match the criteria are excluded from the segment.\"\
+          \"documentation\" : \"The type of dimension:\\nINCLUSIVE - Endpoints that match the criteria are included in the segment.\\nEXCLUSIVE - Endpoints that match the criteria are excluded from the segment.\"\
         },\
         \"Values\" : {\
           \"shape\" : \"ListOf__string\",\
           \"documentation\" : \"The criteria values for the segment dimension. Endpoints with matching attribute values are included or excluded from the segment, depending on the setting for Type.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Dimension specification of a segment.\"\
     },\
     \"TooManyRequestsException\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
         \"Message\" : {\
-          \"shape\" : \"__string\"\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The error message returned from the API.\"\
+        },\
+        \"RequestID\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The unique message body ID.\"\
         }\
       },\
+      \"documentation\" : \"Simple message object.\",\
       \"exception\" : true,\
       \"error\" : {\
-        \"httpStatusCode\" : \"429\"\
+        \"httpStatusCode\" : 429\
       }\
     },\
     \"TreatmentResource\" : {\
@@ -2988,14 +4086,14 @@
           \"shape\" : \"__string\",\
           \"documentation\" : \"The custom name of a variation of the campaign used for A/B testing.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Treatment resource\"\
     },\
     \"UpdateApnsChannelRequest\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
         \"APNSChannelRequest\" : {\
-          \"shape\" : \"APNSChannelRequest\",\
-          \"payload\" : true\
+          \"shape\" : \"APNSChannelRequest\"\
         },\
         \"ApplicationId\" : {\
           \"shape\" : \"__string\",\
@@ -3010,12 +4108,36 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"APNSChannelResponse\" : {\
-          \"shape\" : \"APNSChannelResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"APNSChannelResponse\"\
         }\
       },\
       \"required\" : [ \"APNSChannelResponse\" ],\
       \"payload\" : \"APNSChannelResponse\"\
+    },\
+    \"UpdateApnsSandboxChannelRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"APNSSandboxChannelRequest\" : {\
+          \"shape\" : \"APNSSandboxChannelRequest\"\
+        },\
+        \"ApplicationId\" : {\
+          \"shape\" : \"__string\",\
+          \"location\" : \"uri\",\
+          \"locationName\" : \"application-id\"\
+        }\
+      },\
+      \"required\" : [ \"ApplicationId\", \"APNSSandboxChannelRequest\" ],\
+      \"payload\" : \"APNSSandboxChannelRequest\"\
+    },\
+    \"UpdateApnsSandboxChannelResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"APNSSandboxChannelResponse\" : {\
+          \"shape\" : \"APNSSandboxChannelResponse\"\
+        }\
+      },\
+      \"required\" : [ \"APNSSandboxChannelResponse\" ],\
+      \"payload\" : \"APNSSandboxChannelResponse\"\
     },\
     \"UpdateApplicationSettingsRequest\" : {\
       \"type\" : \"structure\",\
@@ -3026,8 +4148,7 @@
           \"locationName\" : \"application-id\"\
         },\
         \"WriteApplicationSettingsRequest\" : {\
-          \"shape\" : \"WriteApplicationSettingsRequest\",\
-          \"payload\" : true\
+          \"shape\" : \"WriteApplicationSettingsRequest\"\
         }\
       },\
       \"required\" : [ \"ApplicationId\", \"WriteApplicationSettingsRequest\" ],\
@@ -3037,8 +4158,7 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"ApplicationSettingsResource\" : {\
-          \"shape\" : \"ApplicationSettingsResource\",\
-          \"payload\" : true\
+          \"shape\" : \"ApplicationSettingsResource\"\
         }\
       },\
       \"required\" : [ \"ApplicationSettingsResource\" ],\
@@ -3058,8 +4178,7 @@
           \"locationName\" : \"campaign-id\"\
         },\
         \"WriteCampaignRequest\" : {\
-          \"shape\" : \"WriteCampaignRequest\",\
-          \"payload\" : true\
+          \"shape\" : \"WriteCampaignRequest\"\
         }\
       },\
       \"required\" : [ \"CampaignId\", \"ApplicationId\", \"WriteCampaignRequest\" ],\
@@ -3069,12 +4188,36 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"CampaignResponse\" : {\
-          \"shape\" : \"CampaignResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"CampaignResponse\"\
         }\
       },\
       \"required\" : [ \"CampaignResponse\" ],\
       \"payload\" : \"CampaignResponse\"\
+    },\
+    \"UpdateEmailChannelRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ApplicationId\" : {\
+          \"shape\" : \"__string\",\
+          \"location\" : \"uri\",\
+          \"locationName\" : \"application-id\"\
+        },\
+        \"EmailChannelRequest\" : {\
+          \"shape\" : \"EmailChannelRequest\"\
+        }\
+      },\
+      \"required\" : [ \"ApplicationId\", \"EmailChannelRequest\" ],\
+      \"payload\" : \"EmailChannelRequest\"\
+    },\
+    \"UpdateEmailChannelResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"EmailChannelResponse\" : {\
+          \"shape\" : \"EmailChannelResponse\"\
+        }\
+      },\
+      \"required\" : [ \"EmailChannelResponse\" ],\
+      \"payload\" : \"EmailChannelResponse\"\
     },\
     \"UpdateEndpointRequest\" : {\
       \"type\" : \"structure\",\
@@ -3090,8 +4233,7 @@
           \"locationName\" : \"endpoint-id\"\
         },\
         \"EndpointRequest\" : {\
-          \"shape\" : \"EndpointRequest\",\
-          \"payload\" : true\
+          \"shape\" : \"EndpointRequest\"\
         }\
       },\
       \"required\" : [ \"ApplicationId\", \"EndpointId\", \"EndpointRequest\" ],\
@@ -3101,8 +4243,7 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"MessageBody\" : {\
-          \"shape\" : \"MessageBody\",\
-          \"payload\" : true\
+          \"shape\" : \"MessageBody\"\
         }\
       },\
       \"required\" : [ \"MessageBody\" ],\
@@ -3117,8 +4258,7 @@
           \"locationName\" : \"application-id\"\
         },\
         \"EndpointBatchRequest\" : {\
-          \"shape\" : \"EndpointBatchRequest\",\
-          \"payload\" : true\
+          \"shape\" : \"EndpointBatchRequest\"\
         }\
       },\
       \"required\" : [ \"ApplicationId\", \"EndpointBatchRequest\" ],\
@@ -3128,8 +4268,7 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"MessageBody\" : {\
-          \"shape\" : \"MessageBody\",\
-          \"payload\" : true\
+          \"shape\" : \"MessageBody\"\
         }\
       },\
       \"required\" : [ \"MessageBody\" ],\
@@ -3144,8 +4283,7 @@
           \"locationName\" : \"application-id\"\
         },\
         \"GCMChannelRequest\" : {\
-          \"shape\" : \"GCMChannelRequest\",\
-          \"payload\" : true\
+          \"shape\" : \"GCMChannelRequest\"\
         }\
       },\
       \"required\" : [ \"ApplicationId\", \"GCMChannelRequest\" ],\
@@ -3155,8 +4293,7 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"GCMChannelResponse\" : {\
-          \"shape\" : \"GCMChannelResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"GCMChannelResponse\"\
         }\
       },\
       \"required\" : [ \"GCMChannelResponse\" ],\
@@ -3176,8 +4313,7 @@
           \"locationName\" : \"segment-id\"\
         },\
         \"WriteSegmentRequest\" : {\
-          \"shape\" : \"WriteSegmentRequest\",\
-          \"payload\" : true\
+          \"shape\" : \"WriteSegmentRequest\"\
         }\
       },\
       \"required\" : [ \"SegmentId\", \"ApplicationId\", \"WriteSegmentRequest\" ],\
@@ -3187,12 +4323,36 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"SegmentResponse\" : {\
-          \"shape\" : \"SegmentResponse\",\
-          \"payload\" : true\
+          \"shape\" : \"SegmentResponse\"\
         }\
       },\
       \"required\" : [ \"SegmentResponse\" ],\
       \"payload\" : \"SegmentResponse\"\
+    },\
+    \"UpdateSmsChannelRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ApplicationId\" : {\
+          \"shape\" : \"__string\",\
+          \"location\" : \"uri\",\
+          \"locationName\" : \"application-id\"\
+        },\
+        \"SMSChannelRequest\" : {\
+          \"shape\" : \"SMSChannelRequest\"\
+        }\
+      },\
+      \"required\" : [ \"ApplicationId\", \"SMSChannelRequest\" ],\
+      \"payload\" : \"SMSChannelRequest\"\
+    },\
+    \"UpdateSmsChannelResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"SMSChannelResponse\" : {\
+          \"shape\" : \"SMSChannelResponse\"\
+        }\
+      },\
+      \"required\" : [ \"SMSChannelResponse\" ],\
+      \"payload\" : \"SMSChannelResponse\"\
     },\
     \"WriteApplicationSettingsRequest\" : {\
       \"type\" : \"structure\",\
@@ -3205,7 +4365,8 @@
           \"shape\" : \"QuietTime\",\
           \"documentation\" : \"The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Creating application setting request\"\
     },\
     \"WriteCampaignRequest\" : {\
       \"type\" : \"structure\",\
@@ -3258,7 +4419,26 @@
           \"shape\" : \"__string\",\
           \"documentation\" : \"The custom name of a variation of the campaign used for A/B testing.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Used to create a campaign.\"\
+    },\
+    \"WriteEventStream\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"DestinationStreamArn\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.\\n Firehose ARN: arn:aws:firehose:REGION:ACCOUNT_ID:deliverystream/STREAM_NAME\\n Kinesis ARN: arn:aws:kinesis:REGION:ACCOUNT_ID:stream/STREAM_NAME\"\
+        },\
+        \"ExternalId\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The external ID assigned the IAM role that authorizes Amazon Pinpoint to publish to the stream.\"\
+        },\
+        \"RoleArn\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.\"\
+        }\
+      },\
+      \"documentation\" : \"Request to save an EventStream.\"\
     },\
     \"WriteSegmentRequest\" : {\
       \"type\" : \"structure\",\
@@ -3271,7 +4451,8 @@
           \"shape\" : \"__string\",\
           \"documentation\" : \"The name of segment\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Segment definition.\"\
     },\
     \"WriteTreatmentResource\" : {\
       \"type\" : \"structure\",\
@@ -3296,7 +4477,8 @@
           \"shape\" : \"__string\",\
           \"documentation\" : \"The custom name of a variation of the campaign used for A/B testing.\"\
         }\
-      }\
+      },\
+      \"documentation\" : \"Used to create a campaign treatment.\"\
     },\
     \"__boolean\" : {\
       \"type\" : \"boolean\"\
@@ -3309,6 +4491,9 @@
     },\
     \"__string\" : {\
       \"type\" : \"string\"\
+    },\
+    \"__timestamp\" : {\
+      \"type\" : \"timestamp\"\
     }\
   }\
 }";

@@ -228,7 +228,7 @@
 
 #pragma mark - Data manipulations
 
-- (NSArray<AWSCognitoDatasetMetadata *> *)getDatasets:(NSError **)error {
+- (NSArray<AWSCognitoDatasetMetadata *> *)getDatasets:(NSError * __autoreleasing *)error {
     __block NSMutableArray<AWSCognitoDatasetMetadata *> *datasets = [NSMutableArray array];
     
     dispatch_sync(self.dispatchQueue, ^{
@@ -290,7 +290,7 @@
     return datasets;
 }
 
-- (void)loadDatasetMetadata:(AWSCognitoDatasetMetadata *)metadata error:(NSError **)error {
+- (void)loadDatasetMetadata:(AWSCognitoDatasetMetadata *)metadata error:(NSError * __autoreleasing *)error {
     
     dispatch_sync(self.dispatchQueue, ^{
         NSString *query = [NSString stringWithFormat:@"SELECT %@, %@, %@, %@, %@, %@ FROM %@ WHERE %@ = ? and %@ = ?",
@@ -344,7 +344,7 @@
 }
 
 
-- (BOOL)updateDatasetMetadata:(AWSCognitoDatasetMetadata *)dataset error:(NSError **)error {
+- (BOOL)updateDatasetMetadata:(AWSCognitoDatasetMetadata *)dataset error:(NSError * __autoreleasing *)error {
     __block BOOL success = YES;
     NSDate *lastModified = [NSDate date];
     dispatch_sync(self.dispatchQueue, ^{
@@ -443,7 +443,7 @@
     return success;
 }
 
-- (AWSCognitoRecord *)getRecordById_internal:(NSString *)recordId datasetName:(NSString *)datasetName error:(NSError **)error sync:(BOOL) sync{
+- (AWSCognitoRecord *)getRecordById_internal:(NSString *)recordId datasetName:(NSString *)datasetName error:(NSError * __autoreleasing *)error sync:(BOOL) sync{
     __block AWSCognitoRecord *record = nil;
     void (^getRecord)() = ^{
         NSString *query = [NSString stringWithFormat:@"SELECT %@, %@, %@, %@, %@, %@ FROM %@ WHERE %@ = ? AND %@ = ? AND %@ = ?",
@@ -523,7 +523,7 @@
     return _identityId;
 }
 
-- (NSDictionary *)recordsUpdatedAfterLastSync:(NSString *) datasetName error:(NSError **)error
+- (NSDictionary *)recordsUpdatedAfterLastSync:(NSString *) datasetName error:(NSError * __autoreleasing *)error
 {
     __block NSMutableDictionary *newRecords = [NSMutableDictionary new];
 
@@ -656,7 +656,7 @@
     return allRecords;
 }
 
-- (BOOL)putRecord:(AWSCognitoRecord *)record datasetName:(NSString *)datasetName error:(NSError **)error {
+- (BOOL)putRecord:(AWSCognitoRecord *)record datasetName:(NSString *)datasetName error:(NSError * __autoreleasing *)error {
     __block BOOL result = NO;
     NSDate *lastModifiedDate = [NSDate date];
     dispatch_sync(self.dispatchQueue, ^{
@@ -1023,7 +1023,7 @@
 }
 
 
-- (BOOL)flagRecordAsDeletedById:(NSString *)recordId datasetName:(NSString *) datasetName error:(NSError **)error
+- (BOOL)flagRecordAsDeletedById:(NSString *)recordId datasetName:(NSString *) datasetName error:(NSError * __autoreleasing *)error
 {
     __block BOOL result = NO;
 
@@ -1099,7 +1099,7 @@
     return result;
 }
 
-- (BOOL)deleteRecordById:(NSString *)recordId datasetName:(NSString *) datasetName error:(NSError **)error
+- (BOOL)deleteRecordById:(NSString *)recordId datasetName:(NSString *) datasetName error:(NSError * __autoreleasing *)error
 {
     __block BOOL result = NO;
 
@@ -1148,7 +1148,7 @@
     return result;
 }
 
-- (BOOL)updateWithRemoteChanges:(NSString *)datasetName nonConflicts:(NSArray *)nonConflictRecords resolvedConflicts:(NSArray *)resolvedConflicts error:(NSError **)error {
+- (BOOL)updateWithRemoteChanges:(NSString *)datasetName nonConflicts:(NSArray *)nonConflictRecords resolvedConflicts:(NSArray *)resolvedConflicts error:(NSError * __autoreleasing *)error {
     __block BOOL result = YES;
     dispatch_sync(self.dispatchQueue, ^{
         
@@ -1185,7 +1185,7 @@
     return result;
 }
 
-- (BOOL)updateLocalRecordMetadata:(NSString *)datasetName records:(NSArray *)updatedRecords error:(NSError **)error {
+- (BOOL)updateLocalRecordMetadata:(NSString *)datasetName records:(NSArray *)updatedRecords error:(NSError * __autoreleasing *)error {
     __block BOOL result = YES;
     dispatch_sync(self.dispatchQueue, ^{
         // Do this as a single transaction
@@ -1345,7 +1345,7 @@
 
 #pragma mark - Merge Utilties
 
-- (BOOL)reparentDatasets:(NSString *)oldId withNewId:(NSString *)newId error:(NSError **)error {
+- (BOOL)reparentDatasets:(NSString *)oldId withNewId:(NSString *)newId error:(NSError * __autoreleasing *)error {
     
     __block BOOL result = YES;
     
@@ -1473,7 +1473,7 @@
     return result;
 }
 
-- (NSArray<NSString *> *)getMergeDatasets:(NSString *)datasetName error:(NSError **)error {
+- (NSArray<NSString *> *)getMergeDatasets:(NSString *)datasetName error:(NSError * __autoreleasing *)error {
     __block NSMutableArray *datasets = nil;
     
     dispatch_sync(self.dispatchQueue, ^{
@@ -1534,7 +1534,7 @@
     return filePath;
 }
 
-- (BOOL)resetSyncCount:(NSString *)datasetName error:(NSError **)error {
+- (BOOL)resetSyncCount:(NSString *)datasetName error:(NSError * __autoreleasing *)error {
     __block BOOL result = YES;
     
     dispatch_sync(self.dispatchQueue, ^{
@@ -1634,7 +1634,7 @@
     return result;
 }
 
-- (BOOL)deleteMetadata:(NSString *)datasetName error:(NSError **)error {
+- (BOOL)deleteMetadata:(NSString *)datasetName error:(NSError * __autoreleasing *)error {
     __block BOOL result = NO;
     
     dispatch_sync(self.dispatchQueue, ^{
@@ -1675,7 +1675,7 @@
     return result;
 }
 
-- (BOOL)deleteDataset:(NSString *) datasetName error:(NSError **)error
+- (BOOL)deleteDataset:(NSString *) datasetName error:(NSError * __autoreleasing *)error
 {
     __block BOOL result = NO;
 

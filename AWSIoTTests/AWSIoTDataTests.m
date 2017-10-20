@@ -713,7 +713,6 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-2"] && rejectedClientToken == nil );
     XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 12345 );
     XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
-    XCTAssertEqual(versionNumber,   1);
     XCTAssertEqual( [[[[[documentsJsonDictionary objectForKey:@"current"]
                         objectForKey:@"state"] objectForKey:@"desired"] objectForKey:@"value"] integerValue], 12345);
     XCTAssertEqual( [[[[[documentsJsonDictionary objectForKey:@"current"]
@@ -742,7 +741,6 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-3"] && rejectedClientToken == nil );
     XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 6789 );
     XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
-    XCTAssertEqual(versionNumber,   2);
     XCTAssertEqual( [[[[[documentsJsonDictionary objectForKey:@"current"]
                         objectForKey:@"state"] objectForKey:@"desired"] objectForKey:@"value"] integerValue], 6789);
     XCTAssertEqual( [[[[[documentsJsonDictionary objectForKey:@"previous"]
@@ -770,8 +768,7 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-4"] && rejectedClientToken == nil );
     XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 6789 );
     XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
-    XCTAssertEqual(versionNumber,   2);
-    
+
     //
     // Update the shadow with valid data.
     //
@@ -795,7 +792,6 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-5"] && rejectedClientToken == nil );
     XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 12345 );
     XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
-    XCTAssertEqual(versionNumber,   3);
     XCTAssertEqual( [[[[[documentsJsonDictionary objectForKey:@"current"]
                         objectForKey:@"state"] objectForKey:@"desired"] objectForKey:@"value"] integerValue], 12345);
     XCTAssertEqual( [[[[[documentsJsonDictionary objectForKey:@"previous"]
@@ -823,8 +819,7 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     XCTAssertTrue( [acceptedClientToken isEqualToString:@"integration-test-3-6"] && rejectedClientToken == nil );
     XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 12345 );
     XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
-    XCTAssertEqual(versionNumber,   3);
-    
+
     //
     // Delete the shadow.
     //
@@ -919,8 +914,7 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     XCTAssertTrue( [acceptedClientToken isEqualToString:@"custom-client-token-1"] && rejectedClientToken == nil );
     XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 12345 );
     XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
-    XCTAssertEqual(versionNumber,   1);
-    
+
     //
     // Get the shadow.
     //
@@ -942,8 +936,7 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     XCTAssertTrue( [acceptedClientToken isEqualToString:@"custom-client-token-2"] && rejectedClientToken == nil );
     XCTAssertEqual( [[acceptedDesiredDictionary objectForKey:@"value"] integerValue], 12345 );
     XCTAssertEqual( [[acceptedReportedDictionary objectForKey:@"value"] integerValue], 6789 );
-    XCTAssertEqual(versionNumber,   1);
-    
+
     //
     // Delete the shadow.
     //

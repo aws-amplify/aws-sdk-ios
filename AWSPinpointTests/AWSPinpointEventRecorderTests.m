@@ -19,12 +19,15 @@
 #import <XCTest/XCTest.h>
 #import "AWSPinpoint.h"
 #import "AWSTestUtility.h"
+#import "AWSPinpointContext.h"
 
 NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
+NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessionKey";
+NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
+
 
 @interface AWSPinpoint()
 @property (nonatomic, strong) AWSPinpointContext *pinpointContext;
-
 @end
 
 
@@ -38,10 +41,13 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
 
 @interface AWSPinpointEventRecorderTests : XCTestCase
 @property (nonatomic, strong) AWSPinpoint *pinpoint;
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
 
 @end
 
 @interface AWSPinpointEventRecorder ()
+@property (nonatomic, strong) AWSPinpointEndpointProfile *profile;
+
 - (instancetype)initWithIdentifier:(NSString *)identifier
                            context:(AWSPinpointContext *) context
                    targetingClient:(AWSPinpointTargetingClient *) targetingClient;
@@ -55,12 +61,23 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
                      withStopTime:(NSDate *)stopTime;
 @end
 
+@interface AWSPinpointAnalyticsClient()
+- (void) removeAllGlobalCampaignAttributes;
+@end
+
+@interface AWSPinpointConfiguration()
+@property (nonnull, strong) NSUserDefaults *userDefaults;
+@end
+
 @implementation AWSPinpointEventRecorderTests
 
 - (void)setUp {
     [super setUp];
     
     [AWSTestUtility setupCognitoCredentialsProvider];
+    [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"AWSPinpointEventRecorderTests"];
+    self.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"AWSPinpointEventRecorderTests"];
+
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
                                                                           ofType:@"json"];
     NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
@@ -68,6 +85,9 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
                                                                       error:nil];
     
     AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:credentialsJson[@"pinpointAppId"] launchOptions:@{}];
+    
+    config.userDefaults = self.userDefaults;
+    
     self.pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
     [[self.pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
     [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
@@ -75,6 +95,105 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
 
 - (void)tearDown {
     [super tearDown];
+}
+
+- (void) clearSession {
+    [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"AWSPinpointEventRecorderTests"];
+    [self.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
+    [self.userDefaults removeObjectForKey:AWSPinpointSessionKey];
+    [self.userDefaults synchronize];
+    
+    NSData *data = [self.userDefaults dataForKey:AWSPinpointSessionKey];
+    AWSPinpointSession *session = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    NSLog(@"Session Object Should be Empty: %@",session.description);
+    
+    XCTAssertNil([self.userDefaults dataForKey:AWSPinpointSessionKey]);
+}
+
+- (void) testEventsWithNoSessionId {
+    __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testEventsWithNoSessionId"
+                                                                         launchOptions:nil
+                                                                        maxStorageSize:5*1024*1024
+                                                                        sessionTimeout:0];
+    config.enableAutoSessionRecording = NO;
+    [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"testEventsWithNoSessionId"];
+    config.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"testEventsWithNoSessionId"];
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
+    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
+    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
+    [config.userDefaults synchronize];
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    
+    AWSPinpointEvent *event1 = [[AWSPinpointEvent alloc] initWithEventType:@"TEST"
+                                                            eventTimestamp:123
+                                                                   session:[[AWSPinpointSession alloc] initWithSessionId:nil withStartTime:[NSDate date] withStopTime:[NSDate date]]
+                                                                attributes:nil
+                                                                   metrics:nil];
+    // Test for default session id
+    [[[pinpoint.analyticsClient.eventRecorder saveEvent:event1] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        AWSPinpointEvent *taskEvent = task.result;
+        XCTAssertNotNil(taskEvent.session.sessionId);
+        XCTAssertTrue([DEFAULT_SESSION_ID isEqualToString:taskEvent.session.sessionId]);
+        XCTAssertNil(task.error);
+        return nil;
+    }] waitUntilFinished];
+    __block AWSPinpointEvent *startEvent;
+    __block AWSPinpointEvent *stopEvent;
+    [[[pinpoint.sessionClient startSession] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        startEvent = task.result;
+        XCTAssertTrue([startEvent.eventType isEqualToString:@"_session.start"]);
+        XCTAssertTrue(startEvent.eventTimestamp > 0);
+        XCTAssertNotNil(startEvent.allAttributes);
+        XCTAssertEqual([startEvent.allAttributes count], 0);
+        XCTAssertNotNil(startEvent.session);
+        XCTAssertNotNil(startEvent.session.sessionId);
+        XCTAssertNotNil(startEvent.session.startTime);
+        XCTAssertNotNil(startEvent.allMetrics);
+        XCTAssertEqual([startEvent.allMetrics count], 0);
+        return nil;
+    }] waitUntilFinished];
+    
+    [[[pinpoint.sessionClient stopSession] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        stopEvent = task.result;
+        XCTAssertTrue([stopEvent.eventType isEqualToString:@"_session.stop"]);
+        XCTAssertTrue(stopEvent.eventTimestamp > 0);
+        XCTAssertNotNil(stopEvent.allAttributes);
+        XCTAssertEqual([stopEvent.allAttributes count], 0);
+        XCTAssertNotNil(stopEvent.session);
+        XCTAssertNotNil(stopEvent.session.sessionId);
+        XCTAssertNotNil(stopEvent.session.startTime);
+        XCTAssertNotNil(stopEvent.session.stopTime);
+        XCTAssertNotNil(stopEvent.allMetrics);
+        XCTAssertEqual([stopEvent.allMetrics count], 0);
+        return nil;
+    }] waitUntilFinished];
+    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"testEventsWithNoSessionId"];
+    //Tests that session info is not deleted from userdefaults
+    XCTAssertNotNil([userDefaults dataForKey:AWSPinpointSessionKey]);
+    NSData *sessionData = [userDefaults dataForKey:AWSPinpointSessionKey];
+    AWSPinpointSession *previousSession = [NSKeyedUnarchiver unarchiveObjectWithData:sessionData];
+    NSString *sessionId = previousSession.sessionId;
+    
+    AWSPinpointEvent *event2 = [[AWSPinpointEvent alloc] initWithEventType:@"TEST"
+                                                            eventTimestamp:123
+                                                                   session:[[AWSPinpointSession alloc] initWithSessionId:nil withStartTime:[NSDate date] withStopTime:[NSDate date]]
+                                                                attributes:nil
+                                                                   metrics:nil];
+    // Check if the session id matches the one in the user defaults.
+    [[pinpoint.analyticsClient.eventRecorder saveEvent:event2] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        AWSPinpointEvent *taskEvent = task.result;
+        XCTAssertNotNil(taskEvent.session.sessionId);
+        XCTAssertTrue([sessionId isEqualToString:taskEvent.session.sessionId]);
+        XCTAssertNil(task.error);
+        [expectation fulfill];
+        return nil;
+    }];
+    
+    [self waitForExpectationsWithTimeout:5 handler:^(NSError * _Nullable error) {
+        XCTAssertNil(error);
+    }];
 }
 
 - (void)testConstructors {
@@ -125,21 +244,11 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
     }];
 }
 
-- (void) testUpdateSessionCampaignAttributes {
-    [[self.pinpoint.sessionClient startSession] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        [[self.pinpoint.analyticsClient.eventRecorder getCurrentSession:self.pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-            XCTAssertNotNil(task.result);
-            XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
-            AWSPinpointEvent *sessionStartResult = task.result;
-            XCTAssertTrue([sessionStartResult.eventType isEqualToString:@"_session.start"]);
-            XCTAssertTrue([sessionStartResult.session.sessionId isEqualToString:self.pinpoint.sessionClient.session.sessionId]);
-            XCTAssertTrue([sessionStartResult.session.startTime isEqualToDate:self.pinpoint.sessionClient.session.startTime]);
-            XCTAssertEqual(sessionStartResult.allAttributes.count, 0);
-            return nil;
-        }];
-        return nil;
-    }];
+- (void) testUpdateSessionCampaignAttributesNoSession {
+    __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
+    [[self.pinpoint.sessionClient stopSession] waitUntilFinished];
+
     [[self.pinpoint.analyticsClient.eventRecorder updateSessionStartWithCampaignAttributes:@{@"campaignAttrKey":@"campaignAttrVal"}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         [[self.pinpoint.analyticsClient.eventRecorder getCurrentSession:self.pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
             XCTAssertNotNil(task.result);
@@ -147,17 +256,84 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
             AWSPinpointEvent *sessionStartResult = task.result;
             XCTAssertTrue([sessionStartResult.eventType isEqualToString:@"_session.start"]);
             XCTAssertTrue([sessionStartResult.session.sessionId isEqualToString:self.pinpoint.sessionClient.session.sessionId]);
-            XCTAssertTrue([sessionStartResult.session.startTime isEqualToDate:self.pinpoint.sessionClient.session.startTime]);
+            XCTAssertTrue([sessionStartResult.session.startTime.description isEqualToString:self.pinpoint.sessionClient.session.startTime.description]);
             XCTAssertEqual(sessionStartResult.allAttributes.count, 1);
             XCTAssertTrue([sessionStartResult.allAttributes[@"campaignAttrKey"] isEqualToString:@"campaignAttrVal"]);
+            [expectation fulfill];
+            
             return nil;
         }];
         return nil;
     }];
     
-    
+    [self waitForExpectationsWithTimeout:5 handler:^(NSError * _Nullable error) {
+        XCTAssertNil(error);
+    }];
 }
 
+
+- (void) testUpdateSessionCampaignAttributes {
+    __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    [self clearSession];
+
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testUpdateSessionCampaignAttributes" launchOptions:@{}];
+    
+    [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"testUpdateSessionCampaignAttributes"];
+    config.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"testUpdateSessionCampaignAttributes"];
+    
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
+    [pinpoint.sessionClient stopSession];
+    [pinpoint.analyticsClient removeAllGlobalCampaignAttributes];
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+
+    [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"testUpdateSessionCampaignAttributes"];
+    [self.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
+    [self.userDefaults removeObjectForKey:AWSPinpointSessionKey];
+    [self.userDefaults synchronize];
+    
+    NSData *data = [self.userDefaults dataForKey:AWSPinpointSessionKey];
+    AWSPinpointSession *session = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    NSLog(@"Session Object Should be Empty: %@",session.description);
+    
+    XCTAssertNil([self.userDefaults dataForKey:AWSPinpointSessionKey]);
+    
+    [[pinpoint.sessionClient startSession] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        [[pinpoint.analyticsClient.eventRecorder getCurrentSession:self.pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            XCTAssertNotNil(task.result);
+            XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
+            AWSPinpointEvent *sessionStartResult = task.result;
+            XCTAssertTrue([sessionStartResult.eventType isEqualToString:@"_session.start"]);
+            XCTAssertTrue([sessionStartResult.session.sessionId isEqualToString:pinpoint.sessionClient.session.sessionId]);
+            XCTAssertTrue([sessionStartResult.session.startTime.description isEqualToString:pinpoint.sessionClient.session.startTime.description]);
+            XCTAssertEqual(sessionStartResult.allAttributes.count, 0);
+            
+            [[pinpoint.analyticsClient.eventRecorder updateSessionStartWithCampaignAttributes:@{@"campaignAttrKey":@"campaignAttrVal"}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+                [[pinpoint.analyticsClient.eventRecorder getCurrentSession:self.pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+                    XCTAssertNotNil(task.result);
+                    XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
+                    AWSPinpointEvent *sessionStartResult = task.result;
+                    XCTAssertTrue([sessionStartResult.eventType isEqualToString:@"_session.start"]);
+                    XCTAssertTrue([sessionStartResult.session.sessionId isEqualToString:pinpoint.sessionClient.session.sessionId]);
+                    XCTAssertTrue([sessionStartResult.session.startTime.description isEqualToString:pinpoint.sessionClient.session.startTime.description]);
+                    XCTAssertEqual(sessionStartResult.allAttributes.count, 1);
+                    XCTAssertTrue([sessionStartResult.allAttributes[@"campaignAttrKey"] isEqualToString:@"campaignAttrVal"]);
+                    [expectation fulfill];
+                    
+                    return nil;
+                }];
+                return nil;
+            }];
+            
+            return nil;
+        }];
+        return nil;
+    }];
+    
+    [self waitForExpectationsWithTimeout:5 handler:^(NSError * _Nullable error) {
+        XCTAssertNil(error);
+    }];
+}
 
 - (void) testSaveAndGetEvent {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
@@ -324,6 +500,80 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
     }];
 }
 
+
+- (void)testFullEventCycleWithEndpointUpdate {
+    __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    
+    XCTAssertNotNil(self.pinpoint.analyticsClient.eventRecorder);
+    AWSPinpointEvent *event = [self.pinpoint.analyticsClient createEventWithEventType:@"TEST_EVENT"];
+    [event addAttribute:@"Attr1" forKey:@"Attr1"];
+    [event addMetric:@(1) forKey:@"Mettr1"];
+    
+    [[self.pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    
+    [[[self.pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNotNil(task.result);
+        //Should contain no events after removal
+        XCTAssertEqual([task.result count], 0);
+        return nil;
+    }] waitUntilFinished];
+    
+    [[[self.pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNil(task.error);
+        return nil;
+    }] waitUntilFinished];
+    
+    [[[self.pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        
+        XCTAssertEqual([task.result count], 1);
+        
+        //Extract Event and compare event type and timestamp
+        AWSPinpointEvent *resultEvent = [task.result firstObject];
+        XCTAssertNotNil(resultEvent);
+        XCTAssertTrue([resultEvent.eventType isEqualToString:event.eventType]);
+        XCTAssertEqual(resultEvent.eventTimestamp, event.eventTimestamp);
+        XCTAssertEqual([[resultEvent.allMetrics objectForKey:@"Mettr1"] intValue], @(1).intValue);
+        XCTAssertTrue([[resultEvent.allAttributes objectForKey:@"Attr1"] isEqualToString:@"Attr1"]);
+        return nil;
+    }] waitUntilFinished];
+    
+    //Adding attribute to endpoint to verify event recorder has that value after submission
+    [self.pinpoint.targetingClient addAttribute:@[@"TestValue"] forKey:@"TestKey"];
+    
+    [[[self.pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        
+        AWSPinpointEvent *resultEvent = [task.result firstObject];
+        XCTAssertNotNil(resultEvent);
+        XCTAssertTrue([resultEvent.eventType isEqualToString:event.eventType]);
+        XCTAssertEqual(resultEvent.eventTimestamp, event.eventTimestamp);
+        XCTAssertEqual([[resultEvent.allMetrics objectForKey:@"Mettr1"] intValue], @(1).intValue);
+        XCTAssertTrue([[resultEvent.allAttributes objectForKey:@"Attr1"] isEqualToString:@"Attr1"]);
+        
+        //Verify attribute of endpoint profile
+        NSArray *attributes = [self.pinpoint.analyticsClient.eventRecorder.profile attributeForKey:@"TestKey"];
+        XCTAssertNotNil(attributes);
+        XCTAssertEqual([attributes count], 1);
+        XCTAssertTrue([[attributes objectAtIndex:0] isEqualToString:@"TestValue"]);
+
+        return nil;
+    }] waitUntilFinished];
+    
+    [[self.pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNotNil(task.result);
+        //Should contain no events after successful submission
+        XCTAssertEqual([task.result count], 0);
+        [expectation fulfill];
+        return nil;
+    }];
+    
+    [self waitForExpectationsWithTimeout:5 handler:^(NSError * _Nullable error) {
+        XCTAssertNil(error);
+    }];
+}
 
 - (void) testMultipleEvents {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];

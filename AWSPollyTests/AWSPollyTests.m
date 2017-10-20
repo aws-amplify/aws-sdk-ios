@@ -103,6 +103,66 @@ static NSDictionary<NSString *,NSString *> *lexicons;
     
 }
 
+- (void)testCustomPollySetup {
+    AWSPollySynthesizeSpeechInput *request = [AWSPollySynthesizeSpeechInput new];
+    [request setText:@"Hello world!"];
+    // Use voice Matthew
+    [request setVoiceId:AWSPollyVoiceIdMatthew];
+    [request setTextType:AWSPollyTextTypeText];
+    [request setOutputFormat:AWSPollyOutputFormatMp3];
+    
+    // Use NRT region
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionAPNortheast1
+                                                                         credentialsProvider:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration.credentialsProvider];
+    NSString *configKey = @"configuration";
+    [AWSPolly registerPollyWithConfiguration:configuration
+                                      forKey:configKey];
+    AWSPolly *customPollyClient = [AWSPolly PollyForKey:configKey];
+    
+    
+    
+    [[[customPollyClient synthesizeSpeech:request] continueWithBlock:^id _Nullable(AWSTask<AWSPollySynthesizeSpeechOutput *> * _Nonnull task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        
+        NSString *filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"myfile_custom_matthew.mp3"];
+        
+        NSLog(@"filepath = %@", filePath);
+        
+        [task.result.audioStream writeToFile:filePath atomically:YES];
+        
+        // Plays the audio retrieved from Polly.
+        AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithData:task.result.audioStream error:nil];
+        [player setVolume:1.0];
+        [player play];
+        // Add sleep to finish playback.
+        sleep(5);
+        return nil;
+    }] waitUntilFinished];
+    
+    [request setText:@"こんにちは世界"];
+    // Use voice Takumi
+    [request setVoiceId:AWSPollyVoiceIdTakumi];
+    [[[customPollyClient synthesizeSpeech:request] continueWithBlock:^id _Nullable(AWSTask<AWSPollySynthesizeSpeechOutput *> * _Nonnull task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        
+        NSString *filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"myfile_custom_takumi.mp3"];
+        
+        NSLog(@"filepath = %@", filePath);
+        
+        [task.result.audioStream writeToFile:filePath atomically:YES];
+        
+        // Plays the audio retrieved from Polly.
+        AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithData:task.result.audioStream error:nil];
+        [player setVolume:1.0];
+        [player play];
+        // Add sleep to finish playback.
+        sleep(5);
+        return nil;
+    }] waitUntilFinished];
+}
+
 - (void)testPresignedGetUrl{
     
     AWSPollySynthesizeSpeechURLBuilderRequest *request = [[AWSPollySynthesizeSpeechURLBuilderRequest alloc]init];

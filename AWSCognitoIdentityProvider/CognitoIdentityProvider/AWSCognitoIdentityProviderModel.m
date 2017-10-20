@@ -37,6 +37,18 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderAdminAddUserToGroupRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"groupName" : @"GroupName",
+             @"userPoolId" : @"UserPoolId",
+             @"username" : @"Username",
+             };
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderAdminConfirmSignUpRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -152,6 +164,25 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"username" : @"Username",
              };
 }
+
+@end
+
+@implementation AWSCognitoIdentityProviderAdminDisableProviderForUserRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"user" : @"User",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
++ (NSValueTransformer *)userJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderProviderUserIdentifierType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderAdminDisableProviderForUserResponse
 
 @end
 
@@ -324,12 +355,17 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"analyticsMetadata" : @"AnalyticsMetadata",
              @"authFlow" : @"AuthFlow",
              @"authParameters" : @"AuthParameters",
              @"clientId" : @"ClientId",
              @"clientMetadata" : @"ClientMetadata",
              @"userPoolId" : @"UserPoolId",
              };
+}
+
++ (NSValueTransformer *)analyticsMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderAnalyticsMetadataType class]];
 }
 
 + (NSValueTransformer *)authFlowJSONTransformer {
@@ -433,6 +469,30 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderAdminLinkProviderForUserRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"destinationUser" : @"DestinationUser",
+             @"sourceUser" : @"SourceUser",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
++ (NSValueTransformer *)destinationUserJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderProviderUserIdentifierType class]];
+}
+
++ (NSValueTransformer *)sourceUserJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderProviderUserIdentifierType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderAdminLinkProviderForUserResponse
+
+@end
+
 @implementation AWSCognitoIdentityProviderAdminListDevicesRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -461,6 +521,46 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderAdminListGroupsForUserRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"limit" : @"Limit",
+             @"nextToken" : @"NextToken",
+             @"userPoolId" : @"UserPoolId",
+             @"username" : @"Username",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderAdminListGroupsForUserResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"groups" : @"Groups",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)groupsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCognitoIdentityProviderGroupType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderAdminRemoveUserFromGroupRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"groupName" : @"GroupName",
+             @"userPoolId" : @"UserPoolId",
+             @"username" : @"Username",
+             };
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderAdminResetUserPasswordRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -480,12 +580,17 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"analyticsMetadata" : @"AnalyticsMetadata",
              @"challengeName" : @"ChallengeName",
              @"challengeResponses" : @"ChallengeResponses",
              @"clientId" : @"ClientId",
              @"session" : @"Session",
              @"userPoolId" : @"UserPoolId",
              };
+}
+
++ (NSValueTransformer *)analyticsMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderAnalyticsMetadataType class]];
 }
 
 + (NSValueTransformer *)challengeNameJSONTransformer {
@@ -692,6 +797,29 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderAnalyticsConfigurationType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"externalId" : @"ExternalId",
+             @"roleArn" : @"RoleArn",
+             @"userDataShared" : @"UserDataShared",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderAnalyticsMetadataType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"analyticsEndpointId" : @"AnalyticsEndpointId",
+             };
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderAttributeType
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -802,12 +930,17 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"analyticsMetadata" : @"AnalyticsMetadata",
              @"clientId" : @"ClientId",
              @"confirmationCode" : @"ConfirmationCode",
              @"password" : @"Password",
              @"secretHash" : @"SecretHash",
              @"username" : @"Username",
              };
+}
+
++ (NSValueTransformer *)analyticsMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderAnalyticsMetadataType class]];
 }
 
 @end
@@ -820,6 +953,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"analyticsMetadata" : @"AnalyticsMetadata",
              @"clientId" : @"ClientId",
              @"confirmationCode" : @"ConfirmationCode",
              @"forceAliasCreation" : @"ForceAliasCreation",
@@ -828,9 +962,137 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              };
 }
 
++ (NSValueTransformer *)analyticsMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderAnalyticsMetadataType class]];
+}
+
 @end
 
 @implementation AWSCognitoIdentityProviderConfirmSignUpResponse
+
+@end
+
+@implementation AWSCognitoIdentityProviderCreateGroupRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"groupName" : @"GroupName",
+             @"precedence" : @"Precedence",
+             @"roleArn" : @"RoleArn",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderCreateGroupResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"group" : @"Group",
+             };
+}
+
++ (NSValueTransformer *)groupJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderGroupType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderCreateIdentityProviderRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributeMapping" : @"AttributeMapping",
+             @"idpIdentifiers" : @"IdpIdentifiers",
+             @"providerDetails" : @"ProviderDetails",
+             @"providerName" : @"ProviderName",
+             @"providerType" : @"ProviderType",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
++ (NSValueTransformer *)providerTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SAML"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeSaml);
+        }
+        if ([value caseInsensitiveCompare:@"Facebook"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeFacebook);
+        }
+        if ([value caseInsensitiveCompare:@"Google"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeGoogle);
+        }
+        if ([value caseInsensitiveCompare:@"LoginWithAmazon"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeLoginWithAmazon);
+        }
+        if ([value caseInsensitiveCompare:@"ActiveDirectory"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeActiveDirectory);
+        }
+        return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityProviderIdentityProviderTypeTypeSaml:
+                return @"SAML";
+            case AWSCognitoIdentityProviderIdentityProviderTypeTypeFacebook:
+                return @"Facebook";
+            case AWSCognitoIdentityProviderIdentityProviderTypeTypeGoogle:
+                return @"Google";
+            case AWSCognitoIdentityProviderIdentityProviderTypeTypeLoginWithAmazon:
+                return @"LoginWithAmazon";
+            case AWSCognitoIdentityProviderIdentityProviderTypeTypeActiveDirectory:
+                return @"ActiveDirectory";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderCreateIdentityProviderResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identityProvider" : @"IdentityProvider",
+             };
+}
+
++ (NSValueTransformer *)identityProviderJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderIdentityProviderType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderCreateResourceServerRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identifier" : @"Identifier",
+             @"name" : @"Name",
+             @"scopes" : @"Scopes",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
++ (NSValueTransformer *)scopesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCognitoIdentityProviderResourceServerScopeType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderCreateResourceServerResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceServer" : @"ResourceServer",
+             };
+}
+
++ (NSValueTransformer *)resourceServerJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderResourceServerType class]];
+}
 
 @end
 
@@ -864,14 +1126,26 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"allowedOAuthFlows" : @"AllowedOAuthFlows",
+             @"allowedOAuthFlowsUserPoolClient" : @"AllowedOAuthFlowsUserPoolClient",
+             @"allowedOAuthScopes" : @"AllowedOAuthScopes",
+             @"analyticsConfiguration" : @"AnalyticsConfiguration",
+             @"callbackURLs" : @"CallbackURLs",
              @"clientName" : @"ClientName",
+             @"defaultRedirectURI" : @"DefaultRedirectURI",
              @"explicitAuthFlows" : @"ExplicitAuthFlows",
              @"generateSecret" : @"GenerateSecret",
+             @"logoutURLs" : @"LogoutURLs",
              @"readAttributes" : @"ReadAttributes",
              @"refreshTokenValidity" : @"RefreshTokenValidity",
+             @"supportedIdentityProviders" : @"SupportedIdentityProviders",
              @"userPoolId" : @"UserPoolId",
              @"writeAttributes" : @"WriteAttributes",
              };
+}
+
++ (NSValueTransformer *)analyticsConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderAnalyticsConfigurationType class]];
 }
 
 @end
@@ -890,6 +1164,21 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderCreateUserPoolDomainRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"domain" : @"Domain",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderCreateUserPoolDomainResponse
+
+@end
+
 @implementation AWSCognitoIdentityProviderCreateUserPoolRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -905,9 +1194,13 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"mfaConfiguration" : @"MfaConfiguration",
              @"policies" : @"Policies",
              @"poolName" : @"PoolName",
+             @"schema" : @"Schema",
              @"smsAuthenticationMessage" : @"SmsAuthenticationMessage",
              @"smsConfiguration" : @"SmsConfiguration",
              @"smsVerificationMessage" : @"SmsVerificationMessage",
+             @"userPoolTags" : @"UserPoolTags",
+             @"usernameAttributes" : @"UsernameAttributes",
+             @"verificationMessageTemplate" : @"VerificationMessageTemplate",
              };
 }
 
@@ -957,8 +1250,16 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderUserPoolPolicyType class]];
 }
 
++ (NSValueTransformer *)schemaJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCognitoIdentityProviderSchemaAttributeType class]];
+}
+
 + (NSValueTransformer *)smsConfigurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderSmsConfigurationType class]];
+}
+
++ (NSValueTransformer *)verificationMessageTemplateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderVerificationMessageTemplateType class]];
 }
 
 @end
@@ -973,6 +1274,39 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSValueTransformer *)userPoolJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderUserPoolType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderDeleteGroupRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"groupName" : @"GroupName",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderDeleteIdentityProviderRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"providerName" : @"ProviderName",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderDeleteResourceServerRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identifier" : @"Identifier",
+             @"userPoolId" : @"UserPoolId",
+             };
 }
 
 @end
@@ -1003,6 +1337,21 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderDeleteUserPoolDomainRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"domain" : @"Domain",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderDeleteUserPoolDomainResponse
+
+@end
+
 @implementation AWSCognitoIdentityProviderDeleteUserPoolRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1019,6 +1368,56 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 	return @{
              @"accessToken" : @"AccessToken",
              };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderDescribeIdentityProviderRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"providerName" : @"ProviderName",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderDescribeIdentityProviderResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identityProvider" : @"IdentityProvider",
+             };
+}
+
++ (NSValueTransformer *)identityProviderJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderIdentityProviderType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderDescribeResourceServerRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identifier" : @"Identifier",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderDescribeResourceServerResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceServer" : @"ResourceServer",
+             };
+}
+
++ (NSValueTransformer *)resourceServerJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderResourceServerType class]];
 }
 
 @end
@@ -1069,6 +1468,30 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSValueTransformer *)userPoolClientJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderUserPoolClientType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderDescribeUserPoolDomainRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"domain" : @"Domain",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderDescribeUserPoolDomainResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"domainDescription" : @"DomainDescription",
+             };
+}
+
++ (NSValueTransformer *)domainDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderDomainDescriptionType class]];
 }
 
 @end
@@ -1161,6 +1584,58 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderDomainDescriptionType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"AWSAccountId" : @"AWSAccountId",
+             @"cloudFrontDistribution" : @"CloudFrontDistribution",
+             @"domain" : @"Domain",
+             @"s3Bucket" : @"S3Bucket",
+             @"status" : @"Status",
+             @"userPoolId" : @"UserPoolId",
+             @"version" : @"Version",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATING"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderDomainStatusTypeCreating);
+        }
+        if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderDomainStatusTypeDeleting);
+        }
+        if ([value caseInsensitiveCompare:@"UPDATING"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderDomainStatusTypeUpdating);
+        }
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderDomainStatusTypeActive);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderDomainStatusTypeFailed);
+        }
+        return @(AWSCognitoIdentityProviderDomainStatusTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityProviderDomainStatusTypeCreating:
+                return @"CREATING";
+            case AWSCognitoIdentityProviderDomainStatusTypeDeleting:
+                return @"DELETING";
+            case AWSCognitoIdentityProviderDomainStatusTypeUpdating:
+                return @"UPDATING";
+            case AWSCognitoIdentityProviderDomainStatusTypeActive:
+                return @"ACTIVE";
+            case AWSCognitoIdentityProviderDomainStatusTypeFailed:
+                return @"FAILED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderEmailConfigurationType
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1187,10 +1662,15 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"analyticsMetadata" : @"AnalyticsMetadata",
              @"clientId" : @"ClientId",
              @"secretHash" : @"SecretHash",
              @"username" : @"Username",
              };
+}
+
++ (NSValueTransformer *)analyticsMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderAnalyticsMetadataType class]];
 }
 
 @end
@@ -1251,6 +1731,81 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSValueTransformer *)deviceJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderDeviceType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderGetGroupRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"groupName" : @"GroupName",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderGetGroupResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"group" : @"Group",
+             };
+}
+
++ (NSValueTransformer *)groupJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderGroupType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderGetIdentityProviderByIdentifierRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"idpIdentifier" : @"IdpIdentifier",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identityProvider" : @"IdentityProvider",
+             };
+}
+
++ (NSValueTransformer *)identityProviderJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderIdentityProviderType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderGetUICustomizationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientId" : @"ClientId",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderGetUICustomizationResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"UICustomization" : @"UICustomization",
+             };
+}
+
++ (NSValueTransformer *)UICustomizationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderUICustomizationType class]];
 }
 
 @end
@@ -1324,15 +1879,121 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderGroupType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"creationDate" : @"CreationDate",
+             @"detail" : @"Description",
+             @"groupName" : @"GroupName",
+             @"lastModifiedDate" : @"LastModifiedDate",
+             @"precedence" : @"Precedence",
+             @"roleArn" : @"RoleArn",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderIdentityProviderType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributeMapping" : @"AttributeMapping",
+             @"creationDate" : @"CreationDate",
+             @"idpIdentifiers" : @"IdpIdentifiers",
+             @"lastModifiedDate" : @"LastModifiedDate",
+             @"providerDetails" : @"ProviderDetails",
+             @"providerName" : @"ProviderName",
+             @"providerType" : @"ProviderType",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)providerTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SAML"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeSaml);
+        }
+        if ([value caseInsensitiveCompare:@"Facebook"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeFacebook);
+        }
+        if ([value caseInsensitiveCompare:@"Google"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeGoogle);
+        }
+        if ([value caseInsensitiveCompare:@"LoginWithAmazon"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeLoginWithAmazon);
+        }
+        if ([value caseInsensitiveCompare:@"ActiveDirectory"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeActiveDirectory);
+        }
+        return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityProviderIdentityProviderTypeTypeSaml:
+                return @"SAML";
+            case AWSCognitoIdentityProviderIdentityProviderTypeTypeFacebook:
+                return @"Facebook";
+            case AWSCognitoIdentityProviderIdentityProviderTypeTypeGoogle:
+                return @"Google";
+            case AWSCognitoIdentityProviderIdentityProviderTypeTypeLoginWithAmazon:
+                return @"LoginWithAmazon";
+            case AWSCognitoIdentityProviderIdentityProviderTypeTypeActiveDirectory:
+                return @"ActiveDirectory";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderInitiateAuthRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"analyticsMetadata" : @"AnalyticsMetadata",
              @"authFlow" : @"AuthFlow",
              @"authParameters" : @"AuthParameters",
              @"clientId" : @"ClientId",
              @"clientMetadata" : @"ClientMetadata",
              };
+}
+
++ (NSValueTransformer *)analyticsMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderAnalyticsMetadataType class]];
 }
 
 + (NSValueTransformer *)authFlowJSONTransformer {
@@ -1480,6 +2141,87 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderListGroupsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"limit" : @"Limit",
+             @"nextToken" : @"NextToken",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderListGroupsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"groups" : @"Groups",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)groupsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCognitoIdentityProviderGroupType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderListIdentityProvidersRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderListIdentityProvidersResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"providers" : @"Providers",
+             };
+}
+
++ (NSValueTransformer *)providersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCognitoIdentityProviderProviderDescription class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderListResourceServersRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderListResourceServersResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"resourceServers" : @"ResourceServers",
+             };
+}
+
++ (NSValueTransformer *)resourceServersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCognitoIdentityProviderResourceServerType class]];
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderListUserImportJobsRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1556,6 +2298,34 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSValueTransformer *)userPoolsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCognitoIdentityProviderUserPoolDescriptionType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderListUsersInGroupRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"groupName" : @"GroupName",
+             @"limit" : @"Limit",
+             @"nextToken" : @"NextToken",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderListUsersInGroupResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"users" : @"Users",
+             };
+}
+
++ (NSValueTransformer *)usersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCognitoIdentityProviderUserType class]];
 }
 
 @end
@@ -1669,14 +2439,96 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderProviderDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"creationDate" : @"CreationDate",
+             @"lastModifiedDate" : @"LastModifiedDate",
+             @"providerName" : @"ProviderName",
+             @"providerType" : @"ProviderType",
+             };
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)providerTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SAML"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeSaml);
+        }
+        if ([value caseInsensitiveCompare:@"Facebook"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeFacebook);
+        }
+        if ([value caseInsensitiveCompare:@"Google"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeGoogle);
+        }
+        if ([value caseInsensitiveCompare:@"LoginWithAmazon"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeLoginWithAmazon);
+        }
+        if ([value caseInsensitiveCompare:@"ActiveDirectory"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeActiveDirectory);
+        }
+        return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityProviderIdentityProviderTypeTypeSaml:
+                return @"SAML";
+            case AWSCognitoIdentityProviderIdentityProviderTypeTypeFacebook:
+                return @"Facebook";
+            case AWSCognitoIdentityProviderIdentityProviderTypeTypeGoogle:
+                return @"Google";
+            case AWSCognitoIdentityProviderIdentityProviderTypeTypeLoginWithAmazon:
+                return @"LoginWithAmazon";
+            case AWSCognitoIdentityProviderIdentityProviderTypeTypeActiveDirectory:
+                return @"ActiveDirectory";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderProviderUserIdentifierType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"providerAttributeName" : @"ProviderAttributeName",
+             @"providerAttributeValue" : @"ProviderAttributeValue",
+             @"providerName" : @"ProviderName",
+             };
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderResendConfirmationCodeRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"analyticsMetadata" : @"AnalyticsMetadata",
              @"clientId" : @"ClientId",
              @"secretHash" : @"SecretHash",
              @"username" : @"Username",
              };
+}
+
++ (NSValueTransformer *)analyticsMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderAnalyticsMetadataType class]];
 }
 
 @end
@@ -1695,15 +2547,48 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderResourceServerScopeType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"scopeDescription" : @"ScopeDescription",
+             @"scopeName" : @"ScopeName",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderResourceServerType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identifier" : @"Identifier",
+             @"name" : @"Name",
+             @"scopes" : @"Scopes",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
++ (NSValueTransformer *)scopesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCognitoIdentityProviderResourceServerScopeType class]];
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderRespondToAuthChallengeRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"analyticsMetadata" : @"AnalyticsMetadata",
              @"challengeName" : @"ChallengeName",
              @"challengeResponses" : @"ChallengeResponses",
              @"clientId" : @"ClientId",
              @"session" : @"Session",
              };
+}
+
++ (NSValueTransformer *)analyticsMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderAnalyticsMetadataType class]];
 }
 
 + (NSValueTransformer *)challengeNameJSONTransformer {
@@ -1872,6 +2757,33 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderSetUICustomizationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"CSS" : @"CSS",
+             @"clientId" : @"ClientId",
+             @"imageFile" : @"ImageFile",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderSetUICustomizationResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"UICustomization" : @"UICustomization",
+             };
+}
+
++ (NSValueTransformer *)UICustomizationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderUICustomizationType class]];
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderSetUserSettingsRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1895,6 +2807,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"analyticsMetadata" : @"AnalyticsMetadata",
              @"clientId" : @"ClientId",
              @"password" : @"Password",
              @"secretHash" : @"SecretHash",
@@ -1902,6 +2815,10 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"username" : @"Username",
              @"validationData" : @"ValidationData",
              };
+}
+
++ (NSValueTransformer *)analyticsMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderAnalyticsMetadataType class]];
 }
 
 + (NSValueTransformer *)userAttributesJSONTransformer {
@@ -1920,6 +2837,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 	return @{
              @"codeDeliveryDetails" : @"CodeDeliveryDetails",
              @"userConfirmed" : @"UserConfirmed",
+             @"userSub" : @"UserSub",
              };
 }
 
@@ -2001,6 +2919,38 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderUICustomizationType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"CSS" : @"CSS",
+             @"CSSVersion" : @"CSSVersion",
+             @"clientId" : @"ClientId",
+             @"creationDate" : @"CreationDate",
+             @"imageUrl" : @"ImageUrl",
+             @"lastModifiedDate" : @"LastModifiedDate",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderUpdateDeviceStatusRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2038,6 +2988,93 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderUpdateGroupRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"groupName" : @"GroupName",
+             @"precedence" : @"Precedence",
+             @"roleArn" : @"RoleArn",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderUpdateGroupResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"group" : @"Group",
+             };
+}
+
++ (NSValueTransformer *)groupJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderGroupType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderUpdateIdentityProviderRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributeMapping" : @"AttributeMapping",
+             @"idpIdentifiers" : @"IdpIdentifiers",
+             @"providerDetails" : @"ProviderDetails",
+             @"providerName" : @"ProviderName",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderUpdateIdentityProviderResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identityProvider" : @"IdentityProvider",
+             };
+}
+
++ (NSValueTransformer *)identityProviderJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderIdentityProviderType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderUpdateResourceServerRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identifier" : @"Identifier",
+             @"name" : @"Name",
+             @"scopes" : @"Scopes",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
++ (NSValueTransformer *)scopesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCognitoIdentityProviderResourceServerScopeType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderUpdateResourceServerResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceServer" : @"ResourceServer",
+             };
+}
+
++ (NSValueTransformer *)resourceServerJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderResourceServerType class]];
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderUpdateUserAttributesRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2071,14 +3108,26 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"allowedOAuthFlows" : @"AllowedOAuthFlows",
+             @"allowedOAuthFlowsUserPoolClient" : @"AllowedOAuthFlowsUserPoolClient",
+             @"allowedOAuthScopes" : @"AllowedOAuthScopes",
+             @"analyticsConfiguration" : @"AnalyticsConfiguration",
+             @"callbackURLs" : @"CallbackURLs",
              @"clientId" : @"ClientId",
              @"clientName" : @"ClientName",
+             @"defaultRedirectURI" : @"DefaultRedirectURI",
              @"explicitAuthFlows" : @"ExplicitAuthFlows",
+             @"logoutURLs" : @"LogoutURLs",
              @"readAttributes" : @"ReadAttributes",
              @"refreshTokenValidity" : @"RefreshTokenValidity",
+             @"supportedIdentityProviders" : @"SupportedIdentityProviders",
              @"userPoolId" : @"UserPoolId",
              @"writeAttributes" : @"WriteAttributes",
              };
+}
+
++ (NSValueTransformer *)analyticsConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderAnalyticsConfigurationType class]];
 }
 
 @end
@@ -2114,6 +3163,8 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"smsConfiguration" : @"SmsConfiguration",
              @"smsVerificationMessage" : @"SmsVerificationMessage",
              @"userPoolId" : @"UserPoolId",
+             @"userPoolTags" : @"UserPoolTags",
+             @"verificationMessageTemplate" : @"VerificationMessageTemplate",
              };
 }
 
@@ -2165,6 +3216,10 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSValueTransformer *)smsConfigurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderSmsConfigurationType class]];
+}
+
++ (NSValueTransformer *)verificationMessageTemplateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderVerificationMessageTemplateType class]];
 }
 
 @end
@@ -2286,17 +3341,29 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"allowedOAuthFlows" : @"AllowedOAuthFlows",
+             @"allowedOAuthFlowsUserPoolClient" : @"AllowedOAuthFlowsUserPoolClient",
+             @"allowedOAuthScopes" : @"AllowedOAuthScopes",
+             @"analyticsConfiguration" : @"AnalyticsConfiguration",
+             @"callbackURLs" : @"CallbackURLs",
              @"clientId" : @"ClientId",
              @"clientName" : @"ClientName",
              @"clientSecret" : @"ClientSecret",
              @"creationDate" : @"CreationDate",
+             @"defaultRedirectURI" : @"DefaultRedirectURI",
              @"explicitAuthFlows" : @"ExplicitAuthFlows",
              @"lastModifiedDate" : @"LastModifiedDate",
+             @"logoutURLs" : @"LogoutURLs",
              @"readAttributes" : @"ReadAttributes",
              @"refreshTokenValidity" : @"RefreshTokenValidity",
+             @"supportedIdentityProviders" : @"SupportedIdentityProviders",
              @"userPoolId" : @"UserPoolId",
              @"writeAttributes" : @"WriteAttributes",
              };
+}
+
++ (NSValueTransformer *)analyticsConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderAnalyticsConfigurationType class]];
 }
 
 + (NSValueTransformer *)creationDateJSONTransformer {
@@ -2413,6 +3480,9 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"smsConfigurationFailure" : @"SmsConfigurationFailure",
              @"smsVerificationMessage" : @"SmsVerificationMessage",
              @"status" : @"Status",
+             @"userPoolTags" : @"UserPoolTags",
+             @"usernameAttributes" : @"UsernameAttributes",
+             @"verificationMessageTemplate" : @"VerificationMessageTemplate",
              };
 }
 
@@ -2507,6 +3577,10 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
     }];
 }
 
++ (NSValueTransformer *)verificationMessageTemplateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderVerificationMessageTemplateType class]];
+}
+
 @end
 
 @implementation AWSCognitoIdentityProviderUserType
@@ -2587,6 +3661,42 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
                 return @"RESET_REQUIRED";
             case AWSCognitoIdentityProviderUserStatusTypeForceChangePassword:
                 return @"FORCE_CHANGE_PASSWORD";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderVerificationMessageTemplateType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"defaultEmailOption" : @"DefaultEmailOption",
+             @"emailMessage" : @"EmailMessage",
+             @"emailMessageByLink" : @"EmailMessageByLink",
+             @"emailSubject" : @"EmailSubject",
+             @"emailSubjectByLink" : @"EmailSubjectByLink",
+             @"smsMessage" : @"SmsMessage",
+             };
+}
+
++ (NSValueTransformer *)defaultEmailOptionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CONFIRM_WITH_LINK"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderDefaultEmailOptionTypeConfirmWithLink);
+        }
+        if ([value caseInsensitiveCompare:@"CONFIRM_WITH_CODE"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderDefaultEmailOptionTypeConfirmWithCode);
+        }
+        return @(AWSCognitoIdentityProviderDefaultEmailOptionTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityProviderDefaultEmailOptionTypeConfirmWithLink:
+                return @"CONFIRM_WITH_LINK";
+            case AWSCognitoIdentityProviderDefaultEmailOptionTypeConfirmWithCode:
+                return @"CONFIRM_WITH_CODE";
             default:
                 return nil;
         }

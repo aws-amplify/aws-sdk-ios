@@ -83,6 +83,7 @@
     XCTAssertTrue(pinpointConfiguration.enableAutoSessionRecording);
     XCTAssertEqual(pinpointConfiguration.maxStorageSize, 1024 * 1024 * 5);
     XCTAssertEqual(pinpointConfiguration.sessionTimeout, 5000);
+    XCTAssertFalse(pinpointConfiguration.debug);
     XCTAssertNotNil(pinpointConfiguration.attributes);
     XCTAssertNotNil(pinpointConfiguration.environment);
     XCTAssertNotNil(pinpointConfiguration.environment.appVersion);

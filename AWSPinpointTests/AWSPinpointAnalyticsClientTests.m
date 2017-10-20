@@ -17,18 +17,27 @@
 #import "AWSTestUtility.h"
 #import "AWSPinpoint.h"
 #import "OCMock.h"
+#import "AWSPinpointContext.h"
 
 NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpointAnalyticsClientErrorDomain";
 
 @interface AWSPinpointAnalyticsClientTests : XCTestCase
 @property (nonatomic, strong) AWSPinpoint *pinpoint;
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
 
+@end
+
+
+@interface AWSPinpointConfiguration()
+@property (nonnull, strong) NSUserDefaults *userDefaults;
 @end
 
 @implementation AWSPinpointAnalyticsClientTests
 
 - (void)setUp {
     [super setUp];
+    [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"AWSPinpointAnalyticsClientTests"];
+    self.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"AWSPinpointAnalyticsClientTests"];
 
     [AWSTestUtility setupCognitoCredentialsProvider];
     
@@ -38,8 +47,10 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
                                                                     options:NSJSONReadingMutableContainers
                                                                       error:nil];
     AWSPinpointConfiguration *configuration = [[AWSPinpointConfiguration alloc] initWithAppId:credentialsJson[@"pinpointAppId"] launchOptions:@{}];
-
+    configuration.userDefaults = self.userDefaults;
+    
     self.pinpoint = [AWSPinpoint pinpointWithConfiguration:configuration];
+    
     [self.pinpoint.analyticsClient.eventRecorder removeAllEvents];
 }
 

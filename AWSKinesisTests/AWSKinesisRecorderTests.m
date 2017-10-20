@@ -275,18 +275,19 @@ static NSString *testStreamName = nil;
 
 - (void)testAll {
     XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
-
+    
     AWSKinesis *kinesis = [AWSKinesis defaultKinesis];
     AWSKinesisRecorder *kinesisRecorder = [AWSKinesisRecorder defaultKinesisRecorder];
-
+    
     NSMutableArray *tasks = [NSMutableArray new];
     for (int32_t i = 0; i < 1234; i++) {
         [tasks addObject:[kinesisRecorder saveRecord:[[NSString stringWithFormat:@"TestString-%02d", i] dataUsingEncoding:NSUTF8StringEncoding]
                                           streamName:testStreamName]];
     }
-
+    
     NSMutableArray *returnedRecords = [NSMutableArray new];
-
+    NSMutableSet *uniqueReturnedPartitionKeys = [NSMutableSet new];
+    
     [[[[[[AWSTask taskForCompletionOfAllTasks:tasks] continueWithSuccessBlock:^id(AWSTask *task) {
         return [kinesisRecorder submitAllRecords];
     }] continueWithSuccessBlock:^id(AWSTask *task) {
@@ -297,13 +298,13 @@ static NSString *testStreamName = nil;
         AWSKinesisDescribeStreamOutput *describeStreamOutput = task.result;
         XCTAssertTrue(1 == [describeStreamOutput.streamDescription.shards count]);
         AWSKinesisShard *shard = describeStreamOutput.streamDescription.shards[0];
-
+        
         AWSKinesisGetShardIteratorInput *getShardIteratorInput = [AWSKinesisGetShardIteratorInput new];
         getShardIteratorInput.streamName = testStreamName;
         getShardIteratorInput.shardId = shard.shardId;
         getShardIteratorInput.shardIteratorType = AWSKinesisShardIteratorTypeAtSequenceNumber;
         getShardIteratorInput.startingSequenceNumber = shard.sequenceNumberRange.startingSequenceNumber;
-
+        
         return [kinesis getShardIterator:getShardIteratorInput];
     }] continueWithSuccessBlock:^id(AWSTask *task) {
         AWSKinesisGetShardIteratorOutput *getShardIteratorOutput = task.result;
@@ -317,16 +318,80 @@ static NSString *testStreamName = nil;
             int32_t i = 0;
             for (AWSKinesisRecord *record in returnedRecords) {
                 XCTAssertTrue([[[NSString alloc] initWithData:record.data encoding:NSUTF8StringEncoding] hasPrefix:@"TestString-"]);
+                [uniqueReturnedPartitionKeys addObject:[record partitionKey]];
                 i++;
             }
             XCTAssertTrue(i == 1234, @"Record count: %d", i);
+            XCTAssertTrue([uniqueReturnedPartitionKeys count] > 1);
         }
-
+        
         [expectation fulfill];
-
+        
         return nil;
     }];
+    
+    [self waitForExpectationsWithTimeout:240 handler:^(NSError * _Nullable error) {
+        XCTAssertNil(error);
+    }];
+}
 
+- (void)testAllWithPartitionKey {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    
+    AWSKinesis *kinesis = [AWSKinesis defaultKinesis];
+    AWSKinesisRecorder *kinesisRecorder = [AWSKinesisRecorder defaultKinesisRecorder];
+    NSString *partitionKey = [[NSUUID UUID] UUIDString];
+    
+    NSMutableArray *tasks = [NSMutableArray new];
+    for (int32_t i = 0; i < 12; i++) {
+        [tasks addObject:[kinesisRecorder saveRecord:[[NSString stringWithFormat:@"TestString-%02d", i] dataUsingEncoding:NSUTF8StringEncoding]
+                                          streamName:testStreamName
+                                          partitionKey:partitionKey]];
+    }
+    
+    NSMutableArray *returnedRecords = [NSMutableArray new];
+    
+    [[[[[[AWSTask taskForCompletionOfAllTasks:tasks] continueWithSuccessBlock:^id(AWSTask *task) {
+        return [kinesisRecorder submitAllRecords];
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
+        AWSKinesisDescribeStreamInput *describeStreamInput = [AWSKinesisDescribeStreamInput new];
+        describeStreamInput.streamName = testStreamName;
+        return [kinesis describeStream:describeStreamInput];
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
+        AWSKinesisDescribeStreamOutput *describeStreamOutput = task.result;
+        XCTAssertTrue(1 == [describeStreamOutput.streamDescription.shards count]);
+        AWSKinesisShard *shard = describeStreamOutput.streamDescription.shards[0];
+        
+        AWSKinesisGetShardIteratorInput *getShardIteratorInput = [AWSKinesisGetShardIteratorInput new];
+        getShardIteratorInput.streamName = testStreamName;
+        getShardIteratorInput.shardId = shard.shardId;
+        getShardIteratorInput.shardIteratorType = AWSKinesisShardIteratorTypeAtSequenceNumber;
+        getShardIteratorInput.startingSequenceNumber = shard.sequenceNumberRange.startingSequenceNumber;
+        
+        return [kinesis getShardIterator:getShardIteratorInput];
+    }] continueWithSuccessBlock:^id(AWSTask *task) {
+        AWSKinesisGetShardIteratorOutput *getShardIteratorOutput = task.result;
+        return [self getRecords:returnedRecords
+                  shardIterator:getShardIteratorOutput.shardIterator
+                        counter:0];
+    }] continueWithBlock:^id(AWSTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: [%@]", task.error);
+        } else {
+            int32_t i = 0;
+            for (AWSKinesisRecord *record in returnedRecords) {
+                XCTAssertTrue([[[NSString alloc] initWithData:record.data encoding:NSUTF8StringEncoding] hasPrefix:@"TestString-"]);
+                XCTAssertTrue([partitionKey isEqualToString:[record partitionKey]]);
+                i++;
+            }
+            XCTAssertTrue(i == 12, @"Record count: %d", i);
+        }
+        
+        [expectation fulfill];
+        
+        return nil;
+    }];
+    
     [self waitForExpectationsWithTimeout:240 handler:^(NSError * _Nullable error) {
         XCTAssertNil(error);
     }];
