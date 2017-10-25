@@ -211,4 +211,15 @@ NSString *const rootPath = @"/tmp/AmazonInsights-IOS/FileManagerTests";
     [self.rootFile deleteFile];
 }
 
+- (void)test_createFileAndTryWritingEmptyData
+{
+    AWSMobileAnalyticsDefaultFileManager *fileManager = [[AWSMobileAnalyticsDefaultFileManager alloc] initWithFileManager:self.nsFileManager withRootFile:self.rootFile];
+    NSError *error = nil;
+    AWSMobileAnalyticsFile *file = [fileManager createFileWithPath:[rootPath stringByAppendingPathComponent:@"emptyFileTest.txt"] error:&error];
+    NSString *fileContent = @"";
+    BOOL result = [fileManager writeData:[fileContent dataUsingEncoding:NSUTF8StringEncoding] toFile:file withFormat:JSON withError:&error];
+    XCTAssertFalse(result);
+    XCTAssertNil(error);
+}
+
 @end

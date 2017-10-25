@@ -27,10 +27,13 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderErrorType) {
     AWSCognitoIdentityProviderErrorCodeDeliveryFailure,
     AWSCognitoIdentityProviderErrorCodeMismatch,
     AWSCognitoIdentityProviderErrorConcurrentModification,
+    AWSCognitoIdentityProviderErrorDuplicateProvider,
     AWSCognitoIdentityProviderErrorExpiredCode,
+    AWSCognitoIdentityProviderErrorGroupExists,
     AWSCognitoIdentityProviderErrorInternalError,
     AWSCognitoIdentityProviderErrorInvalidEmailRoleAccessPolicy,
     AWSCognitoIdentityProviderErrorInvalidLambdaResponse,
+    AWSCognitoIdentityProviderErrorInvalidOAuthFlow,
     AWSCognitoIdentityProviderErrorInvalidParameter,
     AWSCognitoIdentityProviderErrorInvalidPassword,
     AWSCognitoIdentityProviderErrorInvalidSmsRoleAccessPolicy,
@@ -42,14 +45,17 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderErrorType) {
     AWSCognitoIdentityProviderErrorPasswordResetRequired,
     AWSCognitoIdentityProviderErrorPreconditionNotMet,
     AWSCognitoIdentityProviderErrorResourceNotFound,
+    AWSCognitoIdentityProviderErrorScopeDoesNotExist,
     AWSCognitoIdentityProviderErrorTooManyFailedAttempts,
     AWSCognitoIdentityProviderErrorTooManyRequests,
     AWSCognitoIdentityProviderErrorUnexpectedLambda,
+    AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider,
     AWSCognitoIdentityProviderErrorUnsupportedUserState,
     AWSCognitoIdentityProviderErrorUserImportInProgress,
     AWSCognitoIdentityProviderErrorUserLambdaValidation,
     AWSCognitoIdentityProviderErrorUserNotConfirmed,
     AWSCognitoIdentityProviderErrorUserNotFound,
+    AWSCognitoIdentityProviderErrorUserPoolTagging,
     AWSCognitoIdentityProviderErrorUsernameExists,
 };
 
@@ -88,6 +94,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderChallengeNameType) {
     AWSCognitoIdentityProviderChallengeNameTypeNewPasswordRequired,
 };
 
+typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderDefaultEmailOptionType) {
+    AWSCognitoIdentityProviderDefaultEmailOptionTypeUnknown,
+    AWSCognitoIdentityProviderDefaultEmailOptionTypeConfirmWithLink,
+    AWSCognitoIdentityProviderDefaultEmailOptionTypeConfirmWithCode,
+};
+
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderDeliveryMediumType) {
     AWSCognitoIdentityProviderDeliveryMediumTypeUnknown,
     AWSCognitoIdentityProviderDeliveryMediumTypeSms,
@@ -100,16 +112,41 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderDeviceRememberedStatusType)
     AWSCognitoIdentityProviderDeviceRememberedStatusTypeNotRemembered,
 };
 
+typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderDomainStatusType) {
+    AWSCognitoIdentityProviderDomainStatusTypeUnknown,
+    AWSCognitoIdentityProviderDomainStatusTypeCreating,
+    AWSCognitoIdentityProviderDomainStatusTypeDeleting,
+    AWSCognitoIdentityProviderDomainStatusTypeUpdating,
+    AWSCognitoIdentityProviderDomainStatusTypeActive,
+    AWSCognitoIdentityProviderDomainStatusTypeFailed,
+};
+
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderExplicitAuthFlowsType) {
     AWSCognitoIdentityProviderExplicitAuthFlowsTypeUnknown,
     AWSCognitoIdentityProviderExplicitAuthFlowsTypeAdminNoSrpAuth,
     AWSCognitoIdentityProviderExplicitAuthFlowsTypeCustomAuthFlowOnly,
 };
 
+typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderIdentityProviderTypeType) {
+    AWSCognitoIdentityProviderIdentityProviderTypeTypeUnknown,
+    AWSCognitoIdentityProviderIdentityProviderTypeTypeSaml,
+    AWSCognitoIdentityProviderIdentityProviderTypeTypeFacebook,
+    AWSCognitoIdentityProviderIdentityProviderTypeTypeGoogle,
+    AWSCognitoIdentityProviderIdentityProviderTypeTypeLoginWithAmazon,
+    AWSCognitoIdentityProviderIdentityProviderTypeTypeActiveDirectory,
+};
+
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderMessageActionType) {
     AWSCognitoIdentityProviderMessageActionTypeUnknown,
     AWSCognitoIdentityProviderMessageActionTypeResend,
     AWSCognitoIdentityProviderMessageActionTypeSuppress,
+};
+
+typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderOAuthFlowType) {
+    AWSCognitoIdentityProviderOAuthFlowTypeUnknown,
+    AWSCognitoIdentityProviderOAuthFlowTypeCode,
+    AWSCognitoIdentityProviderOAuthFlowTypeImplicit,
+    AWSCognitoIdentityProviderOAuthFlowTypeClientCredentials,
 };
 
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderStatusType) {
@@ -147,6 +184,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderUserStatusType) {
     AWSCognitoIdentityProviderUserStatusTypeForceChangePassword,
 };
 
+typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderUsernameAttributeType) {
+    AWSCognitoIdentityProviderUsernameAttributeTypeUnknown,
+    AWSCognitoIdentityProviderUsernameAttributeTypePhoneNumber,
+    AWSCognitoIdentityProviderUsernameAttributeTypeEmail,
+};
+
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
     AWSCognitoIdentityProviderVerifiedAttributeTypeUnknown,
     AWSCognitoIdentityProviderVerifiedAttributeTypePhoneNumber,
@@ -155,6 +198,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 @class AWSCognitoIdentityProviderAddCustomAttributesRequest;
 @class AWSCognitoIdentityProviderAddCustomAttributesResponse;
+@class AWSCognitoIdentityProviderAdminAddUserToGroupRequest;
 @class AWSCognitoIdentityProviderAdminConfirmSignUpRequest;
 @class AWSCognitoIdentityProviderAdminConfirmSignUpResponse;
 @class AWSCognitoIdentityProviderAdminCreateUserConfigType;
@@ -163,6 +207,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderAdminDeleteUserAttributesRequest;
 @class AWSCognitoIdentityProviderAdminDeleteUserAttributesResponse;
 @class AWSCognitoIdentityProviderAdminDeleteUserRequest;
+@class AWSCognitoIdentityProviderAdminDisableProviderForUserRequest;
+@class AWSCognitoIdentityProviderAdminDisableProviderForUserResponse;
 @class AWSCognitoIdentityProviderAdminDisableUserRequest;
 @class AWSCognitoIdentityProviderAdminDisableUserResponse;
 @class AWSCognitoIdentityProviderAdminEnableUserRequest;
@@ -174,8 +220,13 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderAdminGetUserResponse;
 @class AWSCognitoIdentityProviderAdminInitiateAuthRequest;
 @class AWSCognitoIdentityProviderAdminInitiateAuthResponse;
+@class AWSCognitoIdentityProviderAdminLinkProviderForUserRequest;
+@class AWSCognitoIdentityProviderAdminLinkProviderForUserResponse;
 @class AWSCognitoIdentityProviderAdminListDevicesRequest;
 @class AWSCognitoIdentityProviderAdminListDevicesResponse;
+@class AWSCognitoIdentityProviderAdminListGroupsForUserRequest;
+@class AWSCognitoIdentityProviderAdminListGroupsForUserResponse;
+@class AWSCognitoIdentityProviderAdminRemoveUserFromGroupRequest;
 @class AWSCognitoIdentityProviderAdminResetUserPasswordRequest;
 @class AWSCognitoIdentityProviderAdminResetUserPasswordResponse;
 @class AWSCognitoIdentityProviderAdminRespondToAuthChallengeRequest;
@@ -188,6 +239,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderAdminUpdateUserAttributesResponse;
 @class AWSCognitoIdentityProviderAdminUserGlobalSignOutRequest;
 @class AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse;
+@class AWSCognitoIdentityProviderAnalyticsConfigurationType;
+@class AWSCognitoIdentityProviderAnalyticsMetadataType;
 @class AWSCognitoIdentityProviderAttributeType;
 @class AWSCognitoIdentityProviderAuthenticationResultType;
 @class AWSCognitoIdentityProviderChangePasswordRequest;
@@ -199,26 +252,46 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderConfirmForgotPasswordResponse;
 @class AWSCognitoIdentityProviderConfirmSignUpRequest;
 @class AWSCognitoIdentityProviderConfirmSignUpResponse;
+@class AWSCognitoIdentityProviderCreateGroupRequest;
+@class AWSCognitoIdentityProviderCreateGroupResponse;
+@class AWSCognitoIdentityProviderCreateIdentityProviderRequest;
+@class AWSCognitoIdentityProviderCreateIdentityProviderResponse;
+@class AWSCognitoIdentityProviderCreateResourceServerRequest;
+@class AWSCognitoIdentityProviderCreateResourceServerResponse;
 @class AWSCognitoIdentityProviderCreateUserImportJobRequest;
 @class AWSCognitoIdentityProviderCreateUserImportJobResponse;
 @class AWSCognitoIdentityProviderCreateUserPoolClientRequest;
 @class AWSCognitoIdentityProviderCreateUserPoolClientResponse;
+@class AWSCognitoIdentityProviderCreateUserPoolDomainRequest;
+@class AWSCognitoIdentityProviderCreateUserPoolDomainResponse;
 @class AWSCognitoIdentityProviderCreateUserPoolRequest;
 @class AWSCognitoIdentityProviderCreateUserPoolResponse;
+@class AWSCognitoIdentityProviderDeleteGroupRequest;
+@class AWSCognitoIdentityProviderDeleteIdentityProviderRequest;
+@class AWSCognitoIdentityProviderDeleteResourceServerRequest;
 @class AWSCognitoIdentityProviderDeleteUserAttributesRequest;
 @class AWSCognitoIdentityProviderDeleteUserAttributesResponse;
 @class AWSCognitoIdentityProviderDeleteUserPoolClientRequest;
+@class AWSCognitoIdentityProviderDeleteUserPoolDomainRequest;
+@class AWSCognitoIdentityProviderDeleteUserPoolDomainResponse;
 @class AWSCognitoIdentityProviderDeleteUserPoolRequest;
 @class AWSCognitoIdentityProviderDeleteUserRequest;
+@class AWSCognitoIdentityProviderDescribeIdentityProviderRequest;
+@class AWSCognitoIdentityProviderDescribeIdentityProviderResponse;
+@class AWSCognitoIdentityProviderDescribeResourceServerRequest;
+@class AWSCognitoIdentityProviderDescribeResourceServerResponse;
 @class AWSCognitoIdentityProviderDescribeUserImportJobRequest;
 @class AWSCognitoIdentityProviderDescribeUserImportJobResponse;
 @class AWSCognitoIdentityProviderDescribeUserPoolClientRequest;
 @class AWSCognitoIdentityProviderDescribeUserPoolClientResponse;
+@class AWSCognitoIdentityProviderDescribeUserPoolDomainRequest;
+@class AWSCognitoIdentityProviderDescribeUserPoolDomainResponse;
 @class AWSCognitoIdentityProviderDescribeUserPoolRequest;
 @class AWSCognitoIdentityProviderDescribeUserPoolResponse;
 @class AWSCognitoIdentityProviderDeviceConfigurationType;
 @class AWSCognitoIdentityProviderDeviceSecretVerifierConfigType;
 @class AWSCognitoIdentityProviderDeviceType;
+@class AWSCognitoIdentityProviderDomainDescriptionType;
 @class AWSCognitoIdentityProviderEmailConfigurationType;
 @class AWSCognitoIdentityProviderForgetDeviceRequest;
 @class AWSCognitoIdentityProviderForgotPasswordRequest;
@@ -227,23 +300,39 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderGetCSVHeaderResponse;
 @class AWSCognitoIdentityProviderGetDeviceRequest;
 @class AWSCognitoIdentityProviderGetDeviceResponse;
+@class AWSCognitoIdentityProviderGetGroupRequest;
+@class AWSCognitoIdentityProviderGetGroupResponse;
+@class AWSCognitoIdentityProviderGetIdentityProviderByIdentifierRequest;
+@class AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse;
+@class AWSCognitoIdentityProviderGetUICustomizationRequest;
+@class AWSCognitoIdentityProviderGetUICustomizationResponse;
 @class AWSCognitoIdentityProviderGetUserAttributeVerificationCodeRequest;
 @class AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse;
 @class AWSCognitoIdentityProviderGetUserRequest;
 @class AWSCognitoIdentityProviderGetUserResponse;
 @class AWSCognitoIdentityProviderGlobalSignOutRequest;
 @class AWSCognitoIdentityProviderGlobalSignOutResponse;
+@class AWSCognitoIdentityProviderGroupType;
+@class AWSCognitoIdentityProviderIdentityProviderType;
 @class AWSCognitoIdentityProviderInitiateAuthRequest;
 @class AWSCognitoIdentityProviderInitiateAuthResponse;
 @class AWSCognitoIdentityProviderLambdaConfigType;
 @class AWSCognitoIdentityProviderListDevicesRequest;
 @class AWSCognitoIdentityProviderListDevicesResponse;
+@class AWSCognitoIdentityProviderListGroupsRequest;
+@class AWSCognitoIdentityProviderListGroupsResponse;
+@class AWSCognitoIdentityProviderListIdentityProvidersRequest;
+@class AWSCognitoIdentityProviderListIdentityProvidersResponse;
+@class AWSCognitoIdentityProviderListResourceServersRequest;
+@class AWSCognitoIdentityProviderListResourceServersResponse;
 @class AWSCognitoIdentityProviderListUserImportJobsRequest;
 @class AWSCognitoIdentityProviderListUserImportJobsResponse;
 @class AWSCognitoIdentityProviderListUserPoolClientsRequest;
 @class AWSCognitoIdentityProviderListUserPoolClientsResponse;
 @class AWSCognitoIdentityProviderListUserPoolsRequest;
 @class AWSCognitoIdentityProviderListUserPoolsResponse;
+@class AWSCognitoIdentityProviderListUsersInGroupRequest;
+@class AWSCognitoIdentityProviderListUsersInGroupResponse;
 @class AWSCognitoIdentityProviderListUsersRequest;
 @class AWSCognitoIdentityProviderListUsersResponse;
 @class AWSCognitoIdentityProviderMFAOptionType;
@@ -251,11 +340,17 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderLatestDeviceMetadataType;
 @class AWSCognitoIdentityProviderNumberAttributeConstraintsType;
 @class AWSCognitoIdentityProviderPasswordPolicyType;
+@class AWSCognitoIdentityProviderProviderDescription;
+@class AWSCognitoIdentityProviderProviderUserIdentifierType;
 @class AWSCognitoIdentityProviderResendConfirmationCodeRequest;
 @class AWSCognitoIdentityProviderResendConfirmationCodeResponse;
+@class AWSCognitoIdentityProviderResourceServerScopeType;
+@class AWSCognitoIdentityProviderResourceServerType;
 @class AWSCognitoIdentityProviderRespondToAuthChallengeRequest;
 @class AWSCognitoIdentityProviderRespondToAuthChallengeResponse;
 @class AWSCognitoIdentityProviderSchemaAttributeType;
+@class AWSCognitoIdentityProviderSetUICustomizationRequest;
+@class AWSCognitoIdentityProviderSetUICustomizationResponse;
 @class AWSCognitoIdentityProviderSetUserSettingsRequest;
 @class AWSCognitoIdentityProviderSetUserSettingsResponse;
 @class AWSCognitoIdentityProviderSignUpRequest;
@@ -266,8 +361,15 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderStopUserImportJobRequest;
 @class AWSCognitoIdentityProviderStopUserImportJobResponse;
 @class AWSCognitoIdentityProviderStringAttributeConstraintsType;
+@class AWSCognitoIdentityProviderUICustomizationType;
 @class AWSCognitoIdentityProviderUpdateDeviceStatusRequest;
 @class AWSCognitoIdentityProviderUpdateDeviceStatusResponse;
+@class AWSCognitoIdentityProviderUpdateGroupRequest;
+@class AWSCognitoIdentityProviderUpdateGroupResponse;
+@class AWSCognitoIdentityProviderUpdateIdentityProviderRequest;
+@class AWSCognitoIdentityProviderUpdateIdentityProviderResponse;
+@class AWSCognitoIdentityProviderUpdateResourceServerRequest;
+@class AWSCognitoIdentityProviderUpdateResourceServerResponse;
 @class AWSCognitoIdentityProviderUpdateUserAttributesRequest;
 @class AWSCognitoIdentityProviderUpdateUserAttributesResponse;
 @class AWSCognitoIdentityProviderUpdateUserPoolClientRequest;
@@ -281,6 +383,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @class AWSCognitoIdentityProviderUserPoolPolicyType;
 @class AWSCognitoIdentityProviderUserPoolType;
 @class AWSCognitoIdentityProviderUserType;
+@class AWSCognitoIdentityProviderVerificationMessageTemplateType;
 @class AWSCognitoIdentityProviderVerifyUserAttributeRequest;
 @class AWSCognitoIdentityProviderVerifyUserAttributeResponse;
 
@@ -308,6 +411,29 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  */
 @interface AWSCognitoIdentityProviderAddCustomAttributesResponse : AWSModel
 
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminAddUserToGroupRequest : AWSRequest
+
+
+/**
+ <p>The group name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable groupName;
+
+/**
+ <p>The user pool ID for the user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+/**
+ <p>The username for the user.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable username;
 
 @end
 
@@ -345,7 +471,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.</p>
+ <p>Set to <code>True</code> if only the administrator is allowed to create user profiles. Set to <code>False</code> if users can sign themselves up via an app.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable allowAdminCreateUserOnly;
 
@@ -355,7 +481,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) AWSCognitoIdentityProviderMessageTemplateType * _Nullable inviteMessageTemplate;
 
 /**
- <p>The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call AdminCreateUser again, specifying "RESEND" for the MessageAction parameter.</p>
+ <p>The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call <code>AdminCreateUser</code> again, specifying <code>"RESEND"</code> for the <code>MessageAction</code> parameter. The default value for this parameter is 7.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable unusedAccountValidityDays;
 
@@ -369,27 +495,27 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>Specify "EMAIL" if email will be used to send the welcome message. Specify "SMS" if the phone number will be used. The default value is "SMS". More than one value can be specified.</p>
+ <p>Specify <code>"EMAIL"</code> if email will be used to send the welcome message. Specify <code>"SMS"</code> if the phone number will be used. The default value is <code>"SMS"</code>. More than one value can be specified.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable desiredDeliveryMediums;
 
 /**
- <p>This parameter is only used if the phone_number_verified or email_verified attribute is set to True. Otherwise, it is ignored.</p><p>If this parameter is set to True and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.</p><p>If this parameter is set to False, the API throws an AliasExistsException error if the alias already exists. The default value is False.</p>
+ <p>This parameter is only used if the <code>phone_number_verified</code> or <code>email_verified</code> attribute is set to <code>True</code>. Otherwise, it is ignored.</p><p>If this parameter is set to <code>True</code> and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.</p><p>If this parameter is set to <code>False</code>, the API throws an <code>AliasExistsException</code> error if the alias already exists. The default value is <code>False</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable forceAliasCreation;
 
 /**
- <p>Set to "RESEND" to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to "SUPPRESS" to suppress sending the message. Only one value can be specified.</p>
+ <p>Set to <code>"RESEND"</code> to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to <code>"SUPPRESS"</code> to suppress sending the message. Only one value can be specified.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderMessageActionType messageAction;
 
 /**
- <p>The user's temporary password. This password must conform to the password policy that you specified when you created the user pool.</p><p>The temporary password is valid only once. To complete the Admin Create User flow, the user must enter the temporary password in the sign-in page along with a new password to be used in all future sign-ins.</p><p>This parameter is not required. If you do not specify a value, Amazon Cognito generates one for you.</p><p>The temporary password can only be used until the user account expiration limit that you specified when you created the user pool. To reset the account after that time limit, you must call AdminCreateUser again, specifying "RESEND" for the MessageAction parameter.</p>
+ <p>The user's temporary password. This password must conform to the password policy that you specified when you created the user pool.</p><p>The temporary password is valid only once. To complete the Admin Create User flow, the user must enter the temporary password in the sign-in page along with a new password to be used in all future sign-ins.</p><p>This parameter is not required. If you do not specify a value, Amazon Cognito generates one for you.</p><p>The temporary password can only be used until the user account expiration limit that you specified when you created the user pool. To reset the account after that time limit, you must call <code>AdminCreateUser</code> again, specifying <code>"RESEND"</code> for the <code>MessageAction</code> parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable temporaryPassword;
 
 /**
- <p>An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than Username. However, any attributes that you specify as required (in CreateUserPool or in the <b>Attributes</b> tab of the console) must be supplied either by you (in your call to AdminCreateUser) or by the user (when he or she signs up in response to your welcome message).</p><p>To send a message inviting the user to sign up, you must specify the user's email address or phone number. This can be done in your call to AdminCreateUser or in the <b>Users</b> tab of the Amazon Cognito console for managing your user pools.</p><p>In your call to AdminCreateUser, you can set the email_verified attribute to True, and you can set the phone_number_verified attribute to True. (You cannot do this by calling other operations such as AdminUpdateUserAttributes.)</p><ul><li><p><b>email</b>: The email address of the user to whom the message that contains the code and username will be sent. Required if the email_verified attribute is set to True, or if "EMAIL" is specified in the DesiredDeliveryMediums parameter.</p></li><li><p><b>phone_number</b>: The phone number of the user to whom the message that contains the code and username will be sent. Required if the phone_number_verified attribute is set to True, or if "SMS" is specified in the DesiredDeliveryMediums parameter.</p></li></ul>
+ <p>An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than <code>Username</code>. However, any attributes that you specify as required (in <a href="API_CreateUserPool.html">CreateUserPool</a> or in the <b>Attributes</b> tab of the console) must be supplied either by you (in your call to <code>AdminCreateUser</code>) or by the user (when he or she signs up in response to your welcome message).</p><p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p><p>To send a message inviting the user to sign up, you must specify the user's email address or phone number. This can be done in your call to AdminCreateUser or in the <b>Users</b> tab of the Amazon Cognito console for managing your user pools.</p><p>In your call to <code>AdminCreateUser</code>, you can set the <code>email_verified</code> attribute to <code>True</code>, and you can set the <code>phone_number_verified</code> attribute to <code>True</code>. (You can also do this by calling <a href="API_AdminUpdateUserAttributes.html">AdminUpdateUserAttributes</a>.)</p><ul><li><p><b>email</b>: The email address of the user to whom the message that contains the code and username will be sent. Required if the <code>email_verified</code> attribute is set to <code>True</code>, or if <code>"EMAIL"</code> is specified in the <code>DesiredDeliveryMediums</code> parameter.</p></li><li><p><b>phone_number</b>: The phone number of the user to whom the message that contains the code and username will be sent. Required if the <code>phone_number_verified</code> attribute is set to <code>True</code>, or if <code>"SMS"</code> is specified in the <code>DesiredDeliveryMediums</code> parameter.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderAttributeType *> * _Nullable userAttributes;
 
@@ -417,7 +543,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>The user returned in the request to create a new user.</p>
+ <p>The newly created user.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserType * _Nullable user;
 
@@ -431,7 +557,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>An array of strings representing the user attribute names you wish to delete.</p>
+ <p>An array of strings representing the user attribute names you wish to delete.</p><p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable userAttributeNames;
 
@@ -475,6 +601,32 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminDisableProviderForUserRequest : AWSRequest
+
+
+/**
+ <p>The user to be disabled.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderProviderUserIdentifierType * _Nullable user;
+
+/**
+ <p>The user pool ID for the user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminDisableProviderForUserResponse : AWSModel
+
+
+@end
+
+/**
  <p>Represents the request to disable any user as an administrator.</p>
  Required parameters: [UserPoolId, Username]
  */
@@ -514,7 +666,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The user name of the user you wish to ebable.</p>
+ <p>The user name of the user you wish to enable.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -661,22 +813,27 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>The authentication flow.</p>
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsMetadataType * _Nullable analyticsMetadata;
+
+/**
+ <p>The authentication flow for this call to execute. The API action will depend on this value. For example:</p><ul><li><p><code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new tokens.</p></li><li><p><code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code> and return the SRP variables to be used for next challenge execution.</p></li></ul><p>Valid values include:</p><ul><li><p><code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p></li><li><p><code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p></li><li><p><code>CUSTOM_AUTH</code>: Custom authentication flow.</p></li><li><p><code>ADMIN_NO_SRP_AUTH</code>: Non-SRP authentication flow; you can pass in the USERNAME and PASSWORD directly if the flow is enabled for calling the app client.</p></li></ul>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderAuthFlowType authFlow;
 
 /**
- <p>The authentication parameters.</p>
+ <p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p><ul><li><p>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code></p></li><li><p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>REFRESH_TOKEN</code> (required), <code>DEVICE_KEY</code></p></li><li><p>For <code>ADMIN_NO_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>PASSWORD</code> (required), <code>DEVICE_KEY</code></p></li><li><p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>DEVICE_KEY</code></p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable authParameters;
 
 /**
- <p>The client app ID.</p>
+ <p>The app client ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
 
 /**
- <p>The client app metadata.</p>
+ <p>This is a random key-value pair map which can contain any key and will be passed to your PreAuthentication Lambda trigger as-is. It can be used to implement additional validations around authentication.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
 
@@ -694,24 +851,55 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>The result type of the authentication result.</p>
+ <p>The result of the authentication response. This is only returned if the caller does not need to pass another challenge. If the caller does need to pass another challenge before it gets tokens, <code>ChallengeName</code>, <code>ChallengeParameters</code>, and <code>Session</code> are returned.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAuthenticationResultType * _Nullable authenticationResult;
 
 /**
- <p>The name of the challenge.</p>
+ <p>The name of the challenge which you are responding to with this call. This is returned to you in the <code>AdminInitiateAuth</code> response if you need to pass another challenge.</p><ul><li><p><code>SMS_MFA</code>: Next challenge is to supply an <code>SMS_MFA_CODE</code>, delivered via SMS.</p></li><li><p><code>PASSWORD_VERIFIER</code>: Next challenge is to supply <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, and <code>TIMESTAMP</code> after the client-side SRP calculations.</p></li><li><p><code>CUSTOM_CHALLENGE</code>: This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.</p></li><li><p><code>DEVICE_SRP_AUTH</code>: If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.</p></li><li><p><code>DEVICE_PASSWORD_VERIFIER</code>: Similar to <code>PASSWORD_VERIFIER</code>, but for devices only.</p></li><li><p><code>ADMIN_NO_SRP_AUTH</code>: This is returned if you need to authenticate with <code>USERNAME</code> and <code>PASSWORD</code> directly. An app client must be enabled to use this flow.</p></li><li><p><code>NEW_PASSWORD_REQUIRED</code>: For users which are required to change their passwords after successful first login. This challenge should be passed with <code>NEW_PASSWORD</code> and any other required attributes.</p></li></ul>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName;
 
 /**
- <p>The challenge parameters.</p>
+ <p>The challenge parameters. These are returned to you in the <code>AdminInitiateAuth</code> response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (<code>AdminRespondToAuthChallenge</code>).</p><p>All challenges require <code>USERNAME</code> and <code>SECRET_HASH</code> (if applicable).</p><p>The value of the <code>USER_IF_FOR_SRP</code> attribute will be the user's actual username, not an alias (such as email address or phone number), even if you specified an alias in your call to <code>AdminInitiateAuth</code>. This is because, in the <code>AdminRespondToAuthChallenge</code> API <code>ChallengeResponses</code>, the <code>USERNAME</code> attribute cannot be an alias.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable challengeParameters;
 
 /**
- <p>The session.</p>
+ <p>The session which should be passed both ways in challenge-response calls to the service. If <code>AdminInitiateAuth</code> or <code>AdminRespondToAuthChallenge</code> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>AdminRespondToAuthChallenge</code> API call.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable session;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminLinkProviderForUserRequest : AWSRequest
+
+
+/**
+ <p>The existing user in the user pool to be linked to the external identity provider user account. Can be a native (Username + Password) Cognito User Pools user or a federated user (for example, a SAML or Facebook user). If the user doesn't exist, an exception is thrown. This is the user that is returned when the new user (with the linked identity provider attribute) signs in.</p><p>The <code>ProviderAttributeValue</code> for the <code>DestinationUser</code> must match the username for the user in the user pool. The <code>ProviderAttributeName</code> will always be ignored.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderProviderUserIdentifierType * _Nullable destinationUser;
+
+/**
+ <p>An external identity provider account for a user who does not currently exist yet in the user pool. This user must be a federated user (for example, a SAML or Facebook user), not another native user.</p><p>If the <code>SourceUser</code> is a federated social identity provider user (Facebook, Google, or Login with Amazon), you must set the <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>. For social identity providers, the <code>ProviderName</code> will be <code>Facebook</code>, <code>Google</code>, or <code>LoginWithAmazon</code>, and Cognito will automatically parse the Facebook, Google, and Login with Amazon tokens for <code>id</code>, <code>sub</code>, and <code>user_id</code>, respectively. The <code>ProviderAttributeValue</code> for the user must be the same value as the <code>id</code>, <code>sub</code>, or <code>user_id</code> value found in the social identity provider token.</p><p/><p>For SAML, the <code>ProviderAttributeName</code> can be any value that matches a claim in the SAML assertion. If you wish to link SAML users based on the subject of the SAML assertion, you should map the subject to a claim through the SAML identity provider and submit that claim name as the <code>ProviderAttributeName</code>. If you set <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>, Cognito will automatically parse the default unique identifier found in the subject from the SAML token.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderProviderUserIdentifierType * _Nullable sourceUser;
+
+/**
+ <p>The user pool ID for the user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminLinkProviderForUserResponse : AWSModel
+
 
 @end
 
@@ -763,6 +951,75 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminListGroupsForUserRequest : AWSRequest
+
+
+/**
+ <p>The limit of the request to list groups.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable limit;
+
+/**
+ <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The user pool ID for the user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+/**
+ <p>The username for the user.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable username;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminListGroupsForUserResponse : AWSModel
+
+
+/**
+ <p>The groups that the user belongs to.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderGroupType *> * _Nullable groups;
+
+/**
+ <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminRemoveUserFromGroupRequest : AWSRequest
+
+
+/**
+ <p>The group name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable groupName;
+
+/**
+ <p>The user pool ID for the user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+/**
+ <p>The username for the user.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable username;
+
+@end
+
+/**
  <p>Represents the request to reset a user's password as an administrator.</p>
  Required parameters: [UserPoolId, Username]
  */
@@ -797,22 +1054,27 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>The name of the challenge.</p>
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsMetadataType * _Nullable analyticsMetadata;
+
+/**
+ <p>The challenge name. For more information, see <a href="API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName;
 
 /**
- <p>The challenge response.</p>
+ <p>The challenge responses. These are inputs corresponding to the value of <code>ChallengeName</code>, for example:</p><ul><li><p><code>SMS_MFA</code>: <code>SMS_MFA_CODE</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret).</p></li><li><p><code>PASSWORD_VERIFIER</code>: <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, <code>TIMESTAMP</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret).</p></li><li><p><code>ADMIN_NO_SRP_AUTH</code>: <code>PASSWORD</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret). </p></li><li><p><code>NEW_PASSWORD_REQUIRED</code>: <code>NEW_PASSWORD</code>, any other required attributes, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret). </p></li></ul><p>The value of the <code>USERNAME</code> attribute must be the user's actual username, not an alias (such as email address or phone number). To make this easier, the <code>AdminInitiateAuth</code> response includes the actual username value in the <code>USERNAMEUSER_ID_FOR_SRP</code> attribute, even if you specified an alias in your call to <code>AdminInitiateAuth</code>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable challengeResponses;
 
 /**
- <p>The client ID.</p>
+ <p>The app client ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
 
 /**
- <p>The session.</p>
+ <p>The session which should be passed both ways in challenge-response calls to the service. If <code>InitiateAuth</code> or <code>RespondToAuthChallenge</code> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable session;
 
@@ -830,22 +1092,22 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>The result type of the authentication result.</p>
+ <p>The result returned by the server in response to the authentication request.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAuthenticationResultType * _Nullable authenticationResult;
 
 /**
- <p>The name of the challenge.</p>
+ <p>The name of the challenge. For more information, see <a href="API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName;
 
 /**
- <p>The challenge parameters.</p>
+ <p>The challenge parameters. For more information, see <a href="API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable challengeParameters;
 
 /**
- <p>The session.</p>
+ <p>The session which should be passed both ways in challenge-response calls to the service. If the <a href="API_InitiateAuth.html">InitiateAuth</a> or <a href="API_RespondToAuthChallenge.html">RespondToAuthChallenge</a> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable session;
 
@@ -901,7 +1163,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, assign) AWSCognitoIdentityProviderDeviceRememberedStatusType deviceRememberedStatus;
 
 /**
- <p>The user pool ID&gt;</p>
+ <p>The user pool ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
@@ -928,7 +1190,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>An array of name-value pairs representing user attributes.</p>
+ <p>An array of name-value pairs representing user attributes.</p><p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderAttributeType *> * _Nullable userAttributes;
 
@@ -976,6 +1238,47 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  */
 @interface AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse : AWSModel
 
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAnalyticsConfigurationType : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable externalId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable roleArn;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable userDataShared;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAnalyticsMetadataType : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable analyticsEndpointId;
 
 @end
 
@@ -1038,7 +1341,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 /**
  <p>Represents the request to change a user password.</p>
- Required parameters: [PreviousPassword, ProposedPassword]
+ Required parameters: [PreviousPassword, ProposedPassword, AccessToken]
  */
 @interface AWSCognitoIdentityProviderChangePasswordRequest : AWSRequest
 
@@ -1141,17 +1444,22 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>The ID of the client associated with the user pool.</p>
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsMetadataType * _Nullable analyticsMetadata;
+
+/**
+ <p>The app client ID of the app associated with the user pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
 
 /**
- <p>The confirmation code sent by a user's request to retrieve a forgotten password.</p>
+ <p>The confirmation code sent by a user's request to retrieve a forgotten password. For more information, see <a href="API_ForgotPassword.html">ForgotPassword</a></p>
  */
 @property (nonatomic, strong) NSString * _Nullable confirmationCode;
 
 /**
- <p>The password sent by sent by a user's request to retrieve a forgotten password.</p>
+ <p>The password sent by a user's request to retrieve a forgotten password.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable password;
 
@@ -1183,7 +1491,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>The ID of the client associated with the user pool.</p>
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsMetadataType * _Nullable analyticsMetadata;
+
+/**
+ <p>The ID of the app client associated with the user pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
 
@@ -1193,7 +1506,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSString * _Nullable confirmationCode;
 
 /**
- <p>Boolean to be specified to force user confirmation irrespective of existing alias. By default set to False. If this parameter is set to True and the phone number/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to False, the API will throw an <b>AliasExistsException</b> error.</p>
+ <p>Boolean to be specified to force user confirmation irrespective of existing alias. By default set to <code>False</code>. If this parameter is set to <code>True</code> and the phone number/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to <code>False</code>, the API will throw an <b>AliasExistsException</b> error.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable forceAliasCreation;
 
@@ -1214,6 +1527,144 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  */
 @interface AWSCognitoIdentityProviderConfirmSignUpResponse : AWSModel
 
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderCreateGroupRequest : AWSRequest
+
+
+/**
+ <p>A string containing the description of the group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The name of the group. Must be unique.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable groupName;
+
+/**
+ <p>A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower <code>Precedence</code> values take precedence over groups with higher or null <code>Precedence</code> values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN will be used in the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims in the user's tokens.</p><p>Two groups can have the same <code>Precedence</code> value. If this happens, neither group takes precedence over the other. If two groups with the same <code>Precedence</code> have the same role ARN, that role is used in the <code>cognito:preferred_role</code> claim in tokens for users in each group. If the two groups have different role ARNs, the <code>cognito:preferred_role</code> claim is not set in users' tokens.</p><p>The default <code>Precedence</code> value is null.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable precedence;
+
+/**
+ <p>The role ARN for the group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleArn;
+
+/**
+ <p>The user pool ID for the user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderCreateGroupResponse : AWSModel
+
+
+/**
+ <p>The group object for the group.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderGroupType * _Nullable group;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderCreateIdentityProviderRequest : AWSRequest
+
+
+/**
+ <p>A mapping of identity provider attributes to standard and custom user pool attributes.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributeMapping;
+
+/**
+ <p>A list of identity provider identifiers.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable idpIdentifiers;
+
+/**
+ <p>The identity provider details, such as <code>MetadataURL</code> and <code>MetadataFile</code>.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable providerDetails;
+
+/**
+ <p>The identity provider name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable providerName;
+
+/**
+ <p>The identity provider type.</p>
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderIdentityProviderTypeType providerType;
+
+/**
+ <p>The user pool ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderCreateIdentityProviderResponse : AWSModel
+
+
+/**
+ <p>The newly created identity provider object.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderIdentityProviderType * _Nullable identityProvider;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderCreateResourceServerRequest : AWSRequest
+
+
+/**
+ <p>A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example, <code>https://my-weather-api.example.com</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>A friendly name for the resource server.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>A list of scopes. Each scope is map, where the keys are <code>name</code> and <code>description</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderResourceServerScopeType *> * _Nullable scopes;
+
+/**
+ <p>The user pool ID for the user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderCreateResourceServerResponse : AWSModel
+
+
+/**
+ <p>The newly created resource server.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderResourceServerType * _Nullable resourceServer;
 
 @end
 
@@ -1262,9 +1713,39 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
+ <p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p><p>Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedOAuthFlows;
+
+/**
+ <p>Set to <code>True</code> if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable allowedOAuthFlowsUserPoolClient;
+
+/**
+ <p>A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>"phone"</code>, <code>"email"</code>, <code>"openid"</code>, and <code>"Cognito"</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedOAuthScopes;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsConfigurationType * _Nullable analyticsConfiguration;
+
+/**
+ <p>A list of allowed callback URLs for the identity providers.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable callbackURLs;
+
+/**
  <p>The client name for the user pool client you would like to create.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientName;
+
+/**
+ <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable defaultRedirectURI;
 
 /**
  <p>The explicit authentication flows.</p>
@@ -1277,14 +1758,24 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSNumber * _Nullable generateSecret;
 
 /**
+ <p>A list of allowed logout URLs for the identity providers.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable logoutURLs;
+
+/**
  <p>The read attributes.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable readAttributes;
 
 /**
- <p>Refreshes the token validity.</p>
+ <p>The time limit, in days, after which the refresh token is no longer valid and cannot be used.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable refreshTokenValidity;
+
+/**
+ <p>A list of provider names for the identity providers that are supported on this client.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedIdentityProviders;
 
 /**
  <p>The user pool ID for the user pool where you want to create a user pool client.</p>
@@ -1312,6 +1803,32 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
+ 
+ */
+@interface AWSCognitoIdentityProviderCreateUserPoolDomainRequest : AWSRequest
+
+
+/**
+ <p>The domain string.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable domain;
+
+/**
+ <p>The user pool ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderCreateUserPoolDomainResponse : AWSModel
+
+
+@end
+
+/**
  <p>Represents the request to create a user pool.</p>
  Required parameters: [PoolName]
  */
@@ -1319,7 +1836,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>The configuration for AdminCreateUser requests.</p>
+ <p>The configuration for <code>AdminCreateUser</code> requests.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAdminCreateUserConfigType * _Nullable adminCreateUserConfig;
 
@@ -1374,6 +1891,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSString * _Nullable poolName;
 
 /**
+ <p>An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderSchemaAttributeType *> * _Nullable schema;
+
+/**
  <p>A string representing the SMS authentication message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable smsAuthenticationMessage;
@@ -1387,6 +1909,21 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  <p>A string representing the SMS verification message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable smsVerificationMessage;
+
+/**
+ <p>The cost allocation tags for the user pool. For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html">Adding Cost Allocation Tags to Your User Pool</a></p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable userPoolTags;
+
+/**
+ <p>Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable usernameAttributes;
+
+/**
+ <p>The template for the verification message that the user sees when the app requests permission to access the user's information.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderVerificationMessageTemplateType * _Nullable verificationMessageTemplate;
 
 @end
 
@@ -1404,8 +1941,62 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
+ 
+ */
+@interface AWSCognitoIdentityProviderDeleteGroupRequest : AWSRequest
+
+
+/**
+ <p>The name of the group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable groupName;
+
+/**
+ <p>The user pool ID for the user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderDeleteIdentityProviderRequest : AWSRequest
+
+
+/**
+ <p>The identity provider name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable providerName;
+
+/**
+ <p>The user pool ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderDeleteResourceServerRequest : AWSRequest
+
+
+/**
+ <p>The identifier for the resource server.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The user pool ID for the user pool that hosts the resource server.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
  <p>Represents the request to delete user attributes.</p>
- Required parameters: [UserAttributeNames]
+ Required parameters: [UserAttributeNames, AccessToken]
  */
 @interface AWSCognitoIdentityProviderDeleteUserAttributesRequest : AWSRequest
 
@@ -1416,7 +2007,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSString * _Nullable accessToken;
 
 /**
- <p>An array of strings representing the user attribute names you wish to delete.</p>
+ <p>An array of strings representing the user attribute names you wish to delete.</p><p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable userAttributeNames;
 
@@ -1438,7 +2029,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>The ID of the client associated with the user pool.</p>
+ <p>The app client ID of the app associated with the user pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
 
@@ -1446,6 +2037,32 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  <p>The user pool ID for the user pool where you want to delete the client.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderDeleteUserPoolDomainRequest : AWSRequest
+
+
+/**
+ <p>The domain string.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable domain;
+
+/**
+ <p>The user pool ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderDeleteUserPoolDomainResponse : AWSModel
+
 
 @end
 
@@ -1465,6 +2082,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 /**
  <p>Represents the request to delete a user.</p>
+ Required parameters: [AccessToken]
  */
 @interface AWSCognitoIdentityProviderDeleteUserRequest : AWSRequest
 
@@ -1473,6 +2091,68 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  <p>The access token from a request to delete a user.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable accessToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderDescribeIdentityProviderRequest : AWSRequest
+
+
+/**
+ <p>The identity provider name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable providerName;
+
+/**
+ <p>The user pool ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderDescribeIdentityProviderResponse : AWSModel
+
+
+/**
+ <p>The identity provider that was deleted.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderIdentityProviderType * _Nullable identityProvider;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderDescribeResourceServerRequest : AWSRequest
+
+
+/**
+ <p>The identifier for the resource server</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The user pool ID for the user pool that hosts the resource server.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderDescribeResourceServerResponse : AWSModel
+
+
+/**
+ <p>The resource server.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderResourceServerType * _Nullable resourceServer;
 
 @end
 
@@ -1516,7 +2196,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>The ID of the client associated with the user pool.</p>
+ <p>The app client ID of the app associated with the user pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
 
@@ -1537,6 +2217,32 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  <p>The user pool client from a server response to describe the user pool client.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserPoolClientType * _Nullable userPoolClient;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderDescribeUserPoolDomainRequest : AWSRequest
+
+
+/**
+ <p>The domain string.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable domain;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderDescribeUserPoolDomainResponse : AWSModel
+
+
+/**
+ <p>A domain description object containing information about the domain.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderDomainDescriptionType * _Nullable domainDescription;
 
 @end
 
@@ -1637,6 +2343,49 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
+ <p>A container for information about a domain.</p>
+ */
+@interface AWSCognitoIdentityProviderDomainDescriptionType : AWSModel
+
+
+/**
+ <p>The AWS account ID for the user pool owner.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable AWSAccountId;
+
+/**
+ <p>The ARN of the CloudFront distribution.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cloudFrontDistribution;
+
+/**
+ <p>The domain string.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable domain;
+
+/**
+ <p>The S3 bucket where the static files for this domain are stored.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Bucket;
+
+/**
+ <p>The domain status.</p>
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderDomainStatusType status;
+
+/**
+ <p>The user pool ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+/**
+ <p>The app version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
+
+@end
+
+/**
  <p>The email configuration type.</p>
  */
 @interface AWSCognitoIdentityProviderEmailConfigurationType : AWSModel
@@ -1681,6 +2430,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsMetadataType * _Nullable analyticsMetadata;
+
+/**
  <p>The ID of the client associated with the user pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
@@ -1691,7 +2445,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSString * _Nullable secretHash;
 
 /**
- <p>The user name of the user for whom you want to enter a code to retrieve a forgotten password.</p>
+ <p>The user name of the user for whom you want to enter a code to reset a forgotten password.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1704,7 +2458,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>The type of code delivery details being returned from the server.</p>
+ <p>The code delivery details returned by the server in response to the request to reset a password.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderCodeDeliveryDetailsType * _Nullable codeDeliveryDetails;
 
@@ -1776,8 +2530,101 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
+ 
+ */
+@interface AWSCognitoIdentityProviderGetGroupRequest : AWSRequest
+
+
+/**
+ <p>The name of the group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable groupName;
+
+/**
+ <p>The user pool ID for the user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderGetGroupResponse : AWSModel
+
+
+/**
+ <p>The group object for the group.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderGroupType * _Nullable group;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderGetIdentityProviderByIdentifierRequest : AWSRequest
+
+
+/**
+ <p>The identity provider ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable idpIdentifier;
+
+/**
+ <p>The user pool ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse : AWSModel
+
+
+/**
+ <p>The identity provider object.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderIdentityProviderType * _Nullable identityProvider;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderGetUICustomizationRequest : AWSRequest
+
+
+/**
+ <p>The client ID for the client app.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientId;
+
+/**
+ <p>The user pool ID for the user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderGetUICustomizationResponse : AWSModel
+
+
+/**
+ <p>The UI customization information.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderUICustomizationType * _Nullable UICustomization;
+
+@end
+
+/**
  <p>Represents the request to get user attribute verification.</p>
- Required parameters: [AttributeName]
+ Required parameters: [AccessToken, AttributeName]
  */
 @interface AWSCognitoIdentityProviderGetUserAttributeVerificationCodeRequest : AWSRequest
 
@@ -1801,7 +2648,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>The code delivery details returned by the server response to get the user attribute verification code.</p>
+ <p>The code delivery details returned by the server in response to the request to get the user attribute verification code.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderCodeDeliveryDetailsType * _Nullable codeDeliveryDetails;
 
@@ -1809,6 +2656,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 /**
  <p>Represents the request to get information about the user.</p>
+ Required parameters: [AccessToken]
  */
 @interface AWSCognitoIdentityProviderGetUserRequest : AWSRequest
 
@@ -1833,7 +2681,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderMFAOptionType *> * _Nullable MFAOptions;
 
 /**
- <p>An array of name-value pairs representing user attributes.</p>
+ <p>An array of name-value pairs representing user attributes.</p><p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderAttributeType *> * _Nullable userAttributes;
 
@@ -1846,6 +2694,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 /**
  <p>Represents the request to sign out all devices.</p>
+ Required parameters: [AccessToken]
  */
 @interface AWSCognitoIdentityProviderGlobalSignOutRequest : AWSRequest
 
@@ -1866,6 +2715,97 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
+ <p>The group type.</p>
+ */
+@interface AWSCognitoIdentityProviderGroupType : AWSModel
+
+
+/**
+ <p>The date the group was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationDate;
+
+/**
+ <p>A string containing the description of the group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The name of the group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable groupName;
+
+/**
+ <p>The date the group was last modified.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
+
+/**
+ <p>A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. If a user belongs to two or more groups, it is the group with the highest precedence whose role ARN will be used in the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims in the user's tokens. Groups with higher <code>Precedence</code> values take precedence over groups with lower <code>Precedence</code> values or with null <code>Precedence</code> values.</p><p>Two groups can have the same <code>Precedence</code> value. If this happens, neither group takes precedence over the other. If two groups with the same <code>Precedence</code> have the same role ARN, that role is used in the <code>cognito:preferred_role</code> claim in tokens for users in each group. If the two groups have different role ARNs, the <code>cognito:preferred_role</code> claim is not set in users' tokens.</p><p>The default <code>Precedence</code> value is null.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable precedence;
+
+/**
+ <p>The role ARN for the group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleArn;
+
+/**
+ <p>The user pool ID for the user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ <p>A container for information about an identity provider.</p>
+ */
+@interface AWSCognitoIdentityProviderIdentityProviderType : AWSModel
+
+
+/**
+ <p>A mapping of identity provider attributes to standard and custom user pool attributes.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributeMapping;
+
+/**
+ <p>The date the identity provider was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationDate;
+
+/**
+ <p>A list of identity provider identifiers.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable idpIdentifiers;
+
+/**
+ <p>The date the identity provider was last modified.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
+
+/**
+ <p>The identity provider details, such as <code>MetadataURL</code> and <code>MetadataFile</code>.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable providerDetails;
+
+/**
+ <p>The identity provider name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable providerName;
+
+/**
+ <p>The identity provider type.</p>
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderIdentityProviderTypeType providerType;
+
+/**
+ <p>The user pool ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
  <p>Initiates the authentication request.</p>
  Required parameters: [AuthFlow, ClientId]
  */
@@ -1873,22 +2813,27 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>The authentication flow.</p>
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsMetadataType * _Nullable analyticsMetadata;
+
+/**
+ <p>The authentication flow for this call to execute. The API action will depend on this value. For example: </p><ul><li><p><code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new tokens.</p></li><li><p><code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code> and return the SRP variables to be used for next challenge execution.</p></li></ul><p>Valid values include:</p><ul><li><p><code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p></li><li><p><code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p></li><li><p><code>CUSTOM_AUTH</code>: Custom authentication flow.</p></li></ul><p><code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderAuthFlowType authFlow;
 
 /**
- <p>The authentication parameters.</p>
+ <p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p><ul><li><p>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code></p></li><li><p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>REFRESH_TOKEN</code> (required), <code>DEVICE_KEY</code></p></li><li><p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>DEVICE_KEY</code></p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable authParameters;
 
 /**
- <p>The client ID.</p>
+ <p>The app client ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
 
 /**
- <p>The client app's metadata.</p>
+ <p>This is a random key-value pair map which can contain any key and will be passed to your PreAuthentication Lambda trigger as-is. It can be used to implement additional validations around authentication.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
 
@@ -1901,22 +2846,22 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>The result type of the authentication result.</p>
+ <p>The result of the authentication response. This is only returned if the caller does not need to pass another challenge. If the caller does need to pass another challenge before it gets tokens, <code>ChallengeName</code>, <code>ChallengeParameters</code>, and <code>Session</code> are returned.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAuthenticationResultType * _Nullable authenticationResult;
 
 /**
- <p>The name of the challenge.</p>
+ <p>The name of the challenge which you are responding to with this call. This is returned to you in the <code>AdminInitiateAuth</code> response if you need to pass another challenge.</p><p>Valid values include the following. Note that all of these challenges require <code>USERNAME</code> and <code>SECRET_HASH</code> (if applicable) in the parameters.</p><ul><li><p><code>SMS_MFA</code>: Next challenge is to supply an <code>SMS_MFA_CODE</code>, delivered via SMS.</p></li><li><p><code>PASSWORD_VERIFIER</code>: Next challenge is to supply <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, and <code>TIMESTAMP</code> after the client-side SRP calculations.</p></li><li><p><code>CUSTOM_CHALLENGE</code>: This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.</p></li><li><p><code>DEVICE_SRP_AUTH</code>: If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.</p></li><li><p><code>DEVICE_PASSWORD_VERIFIER</code>: Similar to <code>PASSWORD_VERIFIER</code>, but for devices only.</p></li><li><p><code>NEW_PASSWORD_REQUIRED</code>: For users which are required to change their passwords after successful first login. This challenge should be passed with <code>NEW_PASSWORD</code> and any other required attributes.</p></li></ul>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName;
 
 /**
- <p>The challenge parameters.</p>
+ <p>The challenge parameters. These are returned to you in the <code>InitiateAuth</code> response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (<code>RespondToAuthChallenge</code>). </p><p>All challenges require <code>USERNAME</code> and <code>SECRET_HASH</code> (if applicable).</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable challengeParameters;
 
 /**
- <p>The session.</p>
+ <p>The session which should be passed both ways in challenge-response calls to the service. If the <a href="API_InitiateAuth.html">InitiateAuth</a> or <a href="API_RespondToAuthChallenge.html">RespondToAuthChallenge</a> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable session;
 
@@ -2013,6 +2958,129 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
+ 
+ */
+@interface AWSCognitoIdentityProviderListGroupsRequest : AWSRequest
+
+
+/**
+ <p>The limit of the request to list groups.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable limit;
+
+/**
+ <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The user pool ID for the user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderListGroupsResponse : AWSModel
+
+
+/**
+ <p>The group objects for the groups.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderGroupType *> * _Nullable groups;
+
+/**
+ <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderListIdentityProvidersRequest : AWSRequest
+
+
+/**
+ <p>The maximum number of identity providers to return.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>A pagination token.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The user pool ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderListIdentityProvidersResponse : AWSModel
+
+
+/**
+ <p>A pagination token.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>A list of identity provider objects.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderProviderDescription *> * _Nullable providers;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderListResourceServersRequest : AWSRequest
+
+
+/**
+ <p>The maximum number of resource servers to return.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>A pagination token.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The user pool ID for the user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderListResourceServersResponse : AWSModel
+
+
+/**
+ <p>A pagination token.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The resource servers.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderResourceServerType *> * _Nullable resourceServers;
+
+@end
+
+/**
  <p>Represents the request to list the user import jobs.</p>
  Required parameters: [UserPoolId, MaxResults]
  */
@@ -2025,7 +3093,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>An identifier that was returned from the previous call to ListUserImportJobs, which can be used to return the next set of import jobs in the list.</p>
+ <p>An identifier that was returned from the previous call to <code>ListUserImportJobs</code>, which can be used to return the next set of import jobs in the list.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable paginationToken;
 
@@ -2134,21 +3202,15 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
- <p>Represents the request to list users.</p>
- Required parameters: [UserPoolId]
+ 
  */
-@interface AWSCognitoIdentityProviderListUsersRequest : AWSRequest
+@interface AWSCognitoIdentityProviderListUsersInGroupRequest : AWSRequest
 
 
 /**
- <p>The attributes to get from the request to list users.</p>
+ <p>The name of the group.</p>
  */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable attributesToGet;
-
-/**
- <p>The filter for the list users request.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable filter;
+@property (nonatomic, strong) NSString * _Nullable groupName;
 
 /**
  <p>The limit of the request to list users.</p>
@@ -2158,10 +3220,62 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 /**
  <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
  */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The user pool ID for the user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderListUsersInGroupResponse : AWSModel
+
+
+/**
+ <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The users returned in the request to list users.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderUserType *> * _Nullable users;
+
+@end
+
+/**
+ <p>Represents the request to list users.</p>
+ Required parameters: [UserPoolId]
+ */
+@interface AWSCognitoIdentityProviderListUsersRequest : AWSRequest
+
+
+/**
+ <p>An array of strings, where each string is the name of a user attribute to be returned for each user in the search results. If the array is empty, all attributes are returned.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable attributesToGet;
+
+/**
+ <p>A filter string of the form "<i>AttributeName</i><i>Filter-Type</i> "<i>AttributeValue</i>"". Quotation marks within the filter string must be escaped using the backslash (\) character. For example, "<code>family_name</code> = \"Reddy\"".</p><ul><li><p><i>AttributeName</i>: The name of the attribute to search for. You can only search for one attribute at a time.</p></li><li><p><i>Filter-Type</i>: For an exact match, use =, for example, "<code>given_name</code> = \"Jon\"". For a prefix ("starts with") match, use ^=, for example, "<code>given_name</code> ^= \"Jon\"". </p></li><li><p><i>AttributeValue</i>: The attribute value that must be matched for each user.</p></li></ul><p>If the filter string is empty, <code>ListUsers</code> returns all users in the user pool.</p><p>You can only search for the following standard attributes:</p><ul><li><p><code>username</code> (case-sensitive)</p></li><li><p><code>email</code></p></li><li><p><code>phone_number</code></p></li><li><p><code>name</code></p></li><li><p><code>given_name</code></p></li><li><p><code>family_name</code></p></li><li><p><code>preferred_username</code></p></li><li><p><code>cognito:user_status</code> (called <b>Enabled</b> in the Console) (case-sensitive)</p></li><li><p><code>status</code> (case-insensitive)</p></li></ul><p>Custom attributes are not searchable.</p><p>For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api">Searching for Users Using the ListUsers API</a> and <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples">Examples of Using the ListUsers API</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable filter;
+
+/**
+ <p>Maximum number of users to be returned.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable limit;
+
+/**
+ <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+ */
 @property (nonatomic, strong) NSString * _Nullable paginationToken;
 
 /**
- <p>The user pool ID for which you want to list users.</p>
+ <p>The user pool ID for the user pool on which the search should be performed.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
@@ -2296,11 +3410,67 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
+ <p>A container for identity provider details.</p>
+ */
+@interface AWSCognitoIdentityProviderProviderDescription : AWSModel
+
+
+/**
+ <p>The date the provider was added to the user pool.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationDate;
+
+/**
+ <p>The date the provider was last modified.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
+
+/**
+ <p>The identity provider name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable providerName;
+
+/**
+ <p>The identity provider type.</p>
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderIdentityProviderTypeType providerType;
+
+@end
+
+/**
+ <p>A container for information about an identity provider for a user pool.</p>
+ */
+@interface AWSCognitoIdentityProviderProviderUserIdentifierType : AWSModel
+
+
+/**
+ <p>The name of the provider attribute to link to, for example, <code>NameID</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable providerAttributeName;
+
+/**
+ <p>The value of the provider attribute to link to, for example, <code>xxxxx_account</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable providerAttributeValue;
+
+/**
+ <p>The name of the provider, for example, Facebook, Google, or Login with Amazon.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable providerName;
+
+@end
+
+/**
  <p>Represents the request to resend the confirmation code.</p>
  Required parameters: [ClientId, Username]
  */
 @interface AWSCognitoIdentityProviderResendConfirmationCodeRequest : AWSRequest
 
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsMetadataType * _Nullable analyticsMetadata;
 
 /**
  <p>The ID of the client associated with the user pool.</p>
@@ -2320,15 +3490,62 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
- <p>The response from the server when the Amazon Cognito service makes the request to resend a confirmation code.</p>
+ <p>The response from the server when the Amazon Cognito Your User Pools service makes the request to resend a confirmation code.</p>
  */
 @interface AWSCognitoIdentityProviderResendConfirmationCodeResponse : AWSModel
 
 
 /**
- <p>The type of code delivery details being returned from the server.</p>
+ <p>The code delivery details returned by the server in response to the request to resend the confirmation code.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderCodeDeliveryDetailsType * _Nullable codeDeliveryDetails;
+
+@end
+
+/**
+ <p>A resource server scope.</p>
+ Required parameters: [ScopeName, ScopeDescription]
+ */
+@interface AWSCognitoIdentityProviderResourceServerScopeType : AWSModel
+
+
+/**
+ <p>A description of the scope.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable scopeDescription;
+
+/**
+ <p>The name of the scope.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable scopeName;
+
+@end
+
+/**
+ <p>A container for information about a resource server for a user pool.</p>
+ */
+@interface AWSCognitoIdentityProviderResourceServerType : AWSModel
+
+
+/**
+ <p>The identifier for the resource server.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The name of the resource server.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>A list of scopes that are defined for the resource server.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderResourceServerScopeType *> * _Nullable scopes;
+
+/**
+ <p>The user pool ID for the user pool that hosts the resource server.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 @end
 
@@ -2340,22 +3557,27 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>The name of the challenge.</p>
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsMetadataType * _Nullable analyticsMetadata;
+
+/**
+ <p>The challenge name. For more information, see <a href="API_InitiateAuth.html">InitiateAuth</a>.</p><p><code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName;
 
 /**
- <p>The responses to the authentication challenge.</p>
+ <p>The challenge responses. These are inputs corresponding to the value of <code>ChallengeName</code>, for example:</p><ul><li><p><code>SMS_MFA</code>: <code>SMS_MFA_CODE</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret).</p></li><li><p><code>PASSWORD_VERIFIER</code>: <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, <code>TIMESTAMP</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret).</p></li><li><p><code>NEW_PASSWORD_REQUIRED</code>: <code>NEW_PASSWORD</code>, any other required attributes, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret). </p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable challengeResponses;
 
 /**
- <p>The client ID.</p>
+ <p>The app client ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
 
 /**
- <p>The session.</p>
+ <p>The session which should be passed both ways in challenge-response calls to the service. If <code>InitiateAuth</code> or <code>RespondToAuthChallenge</code> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable session;
 
@@ -2368,22 +3590,22 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>The result type of the authentication result.</p>
+ <p>The result returned by the server in response to the request to respond to the authentication challenge.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAuthenticationResultType * _Nullable authenticationResult;
 
 /**
- <p>The challenge name.</p>
+ <p>The challenge name. For more information, see <a href="API_InitiateAuth.html">InitiateAuth</a>.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName;
 
 /**
- <p>The challenge parameters.</p>
+ <p>The challenge parameters. For more information, see <a href="API_InitiateAuth.html">InitiateAuth</a>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable challengeParameters;
 
 /**
- <p>The session.</p>
+ <p>The session which should be passed both ways in challenge-response calls to the service. If the <a href="API_InitiateAuth.html">InitiateAuth</a> or <a href="API_RespondToAuthChallenge.html">RespondToAuthChallenge</a> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable session;
 
@@ -2433,6 +3655,47 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
+ 
+ */
+@interface AWSCognitoIdentityProviderSetUICustomizationRequest : AWSRequest
+
+
+/**
+ <p>The CSS values in the UI customization.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable CSS;
+
+/**
+ <p>The client ID for the client app.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientId;
+
+/**
+ <p>The uploaded logo image for the UI customization.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable imageFile;
+
+/**
+ <p>The user pool ID for the user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderSetUICustomizationResponse : AWSModel
+
+
+/**
+ <p>The UI customization information.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderUICustomizationType * _Nullable UICustomization;
+
+@end
+
+/**
  <p>Represents the request to set user settings.</p>
  Required parameters: [AccessToken, MFAOptions]
  */
@@ -2467,6 +3730,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsMetadataType * _Nullable analyticsMetadata;
+
+/**
  <p>The ID of the client associated with the user pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
@@ -2482,7 +3750,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSString * _Nullable secretHash;
 
 /**
- <p>An array of name-value pairs representing user attributes.</p>
+ <p>An array of name-value pairs representing user attributes.</p><p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderAttributeType *> * _Nullable userAttributes;
 
@@ -2500,12 +3768,13 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 /**
  <p>The response from the server for a registration request.</p>
+ Required parameters: [UserConfirmed, UserSub]
  */
 @interface AWSCognitoIdentityProviderSignUpResponse : AWSModel
 
 
 /**
- <p>The type of code delivery details being returned from the server.</p>
+ <p>The code delivery details returned by the server response to the user registration request.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderCodeDeliveryDetailsType * _Nullable codeDeliveryDetails;
 
@@ -2514,10 +3783,16 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  */
 @property (nonatomic, strong) NSNumber * _Nullable userConfirmed;
 
+/**
+ <p>The UUID of the authenticated user. This is not the same as <code>username</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userSub;
+
 @end
 
 /**
- <p>The SMS configuratoin type.</p>
+ <p>The SMS configuration type.</p>
+ Required parameters: [SnsCallerArn]
  */
 @interface AWSCognitoIdentityProviderSmsConfigurationType : AWSModel
 
@@ -2617,6 +3892,49 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
+ <p>A container for the UI customization information for a user pool's built-in app UI.</p>
+ */
+@interface AWSCognitoIdentityProviderUICustomizationType : AWSModel
+
+
+/**
+ <p>The CSS values in the UI customization.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable CSS;
+
+/**
+ <p>The CSS version number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable CSSVersion;
+
+/**
+ <p>The client ID for the client app.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientId;
+
+/**
+ <p>The creation date for the UI customization.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationDate;
+
+/**
+ <p>The logo image for the UI customization.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable imageUrl;
+
+/**
+ <p>The last-modified date for the UI customization.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
+
+/**
+ <p>The user pool ID for the user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
  <p>Represents the request to update the device status.</p>
  Required parameters: [AccessToken, DeviceKey]
  */
@@ -2649,8 +3967,141 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
+ 
+ */
+@interface AWSCognitoIdentityProviderUpdateGroupRequest : AWSRequest
+
+
+/**
+ <p>A string containing the new description of the group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The name of the group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable groupName;
+
+/**
+ <p>The new precedence value for the group. For more information about this parameter, see <a href="API_CreateGroup.html">CreateGroup</a>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable precedence;
+
+/**
+ <p>The new role ARN for the group. This is used for setting the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims in the token.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleArn;
+
+/**
+ <p>The user pool ID for the user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderUpdateGroupResponse : AWSModel
+
+
+/**
+ <p>The group object for the group.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderGroupType * _Nullable group;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderUpdateIdentityProviderRequest : AWSRequest
+
+
+/**
+ <p>The identity provider attribute mapping to be changed.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributeMapping;
+
+/**
+ <p>A list of identity provider identifiers.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable idpIdentifiers;
+
+/**
+ <p>The identity provider details to be updated, such as <code>MetadataURL</code> and <code>MetadataFile</code>.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable providerDetails;
+
+/**
+ <p>The identity provider name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable providerName;
+
+/**
+ <p>The user pool ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderUpdateIdentityProviderResponse : AWSModel
+
+
+/**
+ <p>The identity provider object.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderIdentityProviderType * _Nullable identityProvider;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderUpdateResourceServerRequest : AWSRequest
+
+
+/**
+ <p>The identifier for the resource server.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The name of the resource server.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The scope values to be set for the resource server.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderResourceServerScopeType *> * _Nullable scopes;
+
+/**
+ <p>The user pool ID for the user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderUpdateResourceServerResponse : AWSModel
+
+
+/**
+ <p>The resource server.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderResourceServerType * _Nullable resourceServer;
+
+@end
+
+/**
  <p>Represents the request to update user attributes.</p>
- Required parameters: [UserAttributes]
+ Required parameters: [UserAttributes, AccessToken]
  */
 @interface AWSCognitoIdentityProviderUpdateUserAttributesRequest : AWSRequest
 
@@ -2661,7 +4112,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSString * _Nullable accessToken;
 
 /**
- <p>An array of name-value pairs representing user attributes.</p>
+ <p>An array of name-value pairs representing user attributes.</p><p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderAttributeType *> * _Nullable userAttributes;
 
@@ -2688,6 +4139,31 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
+ <p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p><p>Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedOAuthFlows;
+
+/**
+ <p>Set to TRUE if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable allowedOAuthFlowsUserPoolClient;
+
+/**
+ <p>A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>"phone"</code>, <code>"email"</code>, <code>"openid"</code>, and <code>"Cognito"</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedOAuthScopes;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsConfigurationType * _Nullable analyticsConfiguration;
+
+/**
+ <p>A list of allowed callback URLs for the identity providers.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable callbackURLs;
+
+/**
  <p>The ID of the client associated with the user pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
@@ -2698,9 +4174,19 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSString * _Nullable clientName;
 
 /**
+ <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable defaultRedirectURI;
+
+/**
  <p>Explicit authentication flows.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable explicitAuthFlows;
+
+/**
+ <p>A list of allowed logout URLs for the identity providers.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable logoutURLs;
 
 /**
  <p>The read-only attributes of the user pool.</p>
@@ -2708,9 +4194,14 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable readAttributes;
 
 /**
- <p>The validity of the refresh token.</p>
+ <p>The time limit, in days, after which the refresh token is no longer valid and cannot be used.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable refreshTokenValidity;
+
+/**
+ <p>A list of provider names for the identity providers that are supported on this client.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedIdentityProviders;
 
 /**
  <p>The user pool ID for the user pool where you want to update the user pool client.</p>
@@ -2745,7 +4236,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>The configuration for AdminCreateUser requests.</p>
+ <p>The configuration for <code>AdminCreateUser</code> requests.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAdminCreateUserConfigType * _Nullable adminCreateUserConfig;
 
@@ -2770,7 +4261,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSString * _Nullable emailVerificationMessage;
 
 /**
- <p>The subject of the email verfication message.</p>
+ <p>The subject of the email verification message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable emailVerificationSubject;
 
@@ -2809,6 +4300,16 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
+/**
+ <p>The cost allocation tags for the user pool. For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html">Adding Cost Allocation Tags to Your User Pool</a></p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable userPoolTags;
+
+/**
+ <p>The template for verification messages.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderVerificationMessageTemplateType * _Nullable verificationMessageTemplate;
+
 @end
 
 /**
@@ -2831,7 +4332,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSString * _Nullable cloudWatchLogsRoleArn;
 
 /**
- <p>The date when the user imoprt job was completed.</p>
+ <p>The date when the user import job was completed.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable completionDate;
 
@@ -2841,7 +4342,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSString * _Nullable completionMessage;
 
 /**
- <p>The date when the user import job was created.</p>
+ <p>The date the user import job was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable creationDate;
 
@@ -2866,7 +4367,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSString * _Nullable jobName;
 
 /**
- <p>The pre-signed URL to be used to upload the .csv file.</p>
+ <p>The pre-signed URL to be used to upload the <code>.csv</code> file.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable preSignedUrl;
 
@@ -2881,7 +4382,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSDate * _Nullable startDate;
 
 /**
- <p>The status of the user import job. One of the following:</p><ul><li><p>Created - The job was created but not started.</p></li><li><p>Pending - A transition state. You have started the job, but it has not begun importing users yet.</p></li><li><p>InProgress - The job has started, and users are being imported.</p></li><li><p>Stopping - You have stopped the job, but the job has not stopped importing users yet.</p></li><li><p>Stopped - You have stopped the job, and the job has stopped importing users.</p></li><li><p>Succeeded - The job has completed successfully.</p></li><li><p>Failed - The job has stopped due to an error.</p></li><li><p>Expired - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.</p></li></ul>
+ <p>The status of the user import job. One of the following:</p><ul><li><p><code>Created</code> - The job was created but not started.</p></li><li><p><code>Pending</code> - A transition state. You have started the job, but it has not begun importing users yet.</p></li><li><p><code>InProgress</code> - The job has started, and users are being imported.</p></li><li><p><code>Stopping</code> - You have stopped the job, but the job has not stopped importing users yet.</p></li><li><p><code>Stopped</code> - You have stopped the job, and the job has stopped importing users.</p></li><li><p><code>Succeeded</code> - The job has completed successfully.</p></li><li><p><code>Failed</code> - The job has stopped due to an error.</p></li><li><p><code>Expired</code> - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.</p></li></ul>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderUserImportJobStatusType status;
 
@@ -2893,7 +4394,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
- <p>The description of the user poool client.</p>
+ <p>The description of the user pool client.</p>
  */
 @interface AWSCognitoIdentityProviderUserPoolClientDescription : AWSModel
 
@@ -2916,10 +4417,35 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
- <p>A user pool of the client type.</p>
+ <p>Contains information about a user pool client.</p>
  */
 @interface AWSCognitoIdentityProviderUserPoolClientType : AWSModel
 
+
+/**
+ <p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p><p>Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedOAuthFlows;
+
+/**
+ <p>Set to TRUE if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable allowedOAuthFlowsUserPoolClient;
+
+/**
+ <p>A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>"phone"</code>, <code>"email"</code>, <code>"openid"</code>, and <code>"Cognito"</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedOAuthScopes;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsConfigurationType * _Nullable analyticsConfiguration;
+
+/**
+ <p>A list of allowed callback URLs for the identity providers.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable callbackURLs;
 
 /**
  <p>The ID of the client associated with the user pool.</p>
@@ -2937,9 +4463,14 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSString * _Nullable clientSecret;
 
 /**
- <p>The creation date from the user pool request of the client type.</p>
+ <p>The date the user pool client was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable creationDate;
+
+/**
+ <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable defaultRedirectURI;
 
 /**
  <p>The explicit authentication flows.</p>
@@ -2947,9 +4478,14 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable explicitAuthFlows;
 
 /**
- <p>The last modified date from the user pool request of the client type.</p>
+ <p>The date the user pool client was last modified.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
+
+/**
+ <p>A list of allowed logout URLs for the identity providers.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable logoutURLs;
 
 /**
  <p>The Read-only attributes.</p>
@@ -2957,9 +4493,14 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable readAttributes;
 
 /**
- <p>The validity of the refresh token.</p>
+ <p>The time limit, in days, after which the refresh token is no longer valid and cannot be used.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable refreshTokenValidity;
+
+/**
+ <p>A list of provider names for the identity providers that are supported on this client.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedIdentityProviders;
 
 /**
  <p>The user pool ID for the user pool client.</p>
@@ -2980,7 +4521,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>The creation date in a user pool description.</p>
+ <p>The date the user pool description was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable creationDate;
 
@@ -2995,7 +4536,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) AWSCognitoIdentityProviderLambdaConfigType * _Nullable lambdaConfig;
 
 /**
- <p>The last modified date in a user pool description.</p>
+ <p>The date the user pool description was last modified.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
 
@@ -3018,20 +4559,20 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 
 
 /**
- <p>A container with information about the user pool password policy.</p>
+ <p>A container for information about the user pool password policy.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderPasswordPolicyType * _Nullable passwordPolicy;
 
 @end
 
 /**
- <p>A container with information about the user pool type.</p>
+ <p>A container for information about the user pool type.</p>
  */
 @interface AWSCognitoIdentityProviderUserPoolType : AWSModel
 
 
 /**
- <p>The configuration for AdminCreateUser requests.</p>
+ <p>The configuration for <code>AdminCreateUser</code> requests.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAdminCreateUserConfigType * _Nullable adminCreateUserConfig;
 
@@ -3046,7 +4587,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable autoVerifiedAttributes;
 
 /**
- <p>The creation date of a user pool.</p>
+ <p>The date the user pool was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable creationDate;
 
@@ -3086,12 +4627,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>A container describing the AWS Lambda triggers associated with a user pool.</p>
+ <p>A container for the AWS Lambda triggers associated with a user pool.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderLambdaConfigType * _Nullable lambdaConfig;
 
 /**
- <p>The last modified date of a user pool.</p>
+ <p>The date the user pool was last modified.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
 
@@ -3106,7 +4647,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>A container describing the policies associated with a user pool.</p>
+ <p>A container for the policies associated with a user pool.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserPoolPolicyType * _Nullable policies;
 
@@ -3126,7 +4667,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @property (nonatomic, strong) AWSCognitoIdentityProviderSmsConfigurationType * _Nullable smsConfiguration;
 
 /**
- <p>The reason why the SMS configuration cannot send the message(s) to your users.</p>
+ <p>The reason why the SMS configuration cannot send the messages to your users.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable smsConfigurationFailure;
 
@@ -3139,6 +4680,21 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
  <p>The status of a user pool.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderStatusType status;
+
+/**
+ <p>The cost allocation tags for the user pool. For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html">Adding Cost Allocation Tags to Your User Pool</a></p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable userPoolTags;
+
+/**
+ <p>Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable usernameAttributes;
+
+/**
+ <p>The template for verification messages.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderVerificationMessageTemplateType * _Nullable verificationMessageTemplate;
 
 @end
 
@@ -3186,8 +4742,46 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifiedAttributeType) {
 @end
 
 /**
+ <p>The template for verification messages.</p>
+ */
+@interface AWSCognitoIdentityProviderVerificationMessageTemplateType : AWSModel
+
+
+/**
+ <p>The default email option.</p>
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderDefaultEmailOptionType defaultEmailOption;
+
+/**
+ <p>The email message template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable emailMessage;
+
+/**
+ <p>The email message template for sending a confirmation link to the user.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable emailMessageByLink;
+
+/**
+ <p>The subject line for the email message template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable emailSubject;
+
+/**
+ <p>The subject line for the email message template for sending a confirmation link to the user.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable emailSubjectByLink;
+
+/**
+ <p>The SMS message template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable smsMessage;
+
+@end
+
+/**
  <p>Represents the request to verify user attributes.</p>
- Required parameters: [AttributeName, Code]
+ Required parameters: [AccessToken, AttributeName, Code]
  */
 @interface AWSCognitoIdentityProviderVerifyUserAttributeRequest : AWSRequest
 

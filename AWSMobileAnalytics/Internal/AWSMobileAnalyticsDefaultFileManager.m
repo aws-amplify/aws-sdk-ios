@@ -676,8 +676,19 @@ withDataProcessor:(AWSDataProcessor) theDataProcessor
             }
             return NO;
         }
+        
+        NSString *stringFromData = [AWSMobileAnalyticsStringUtils dataToString:data];
+        if(stringFromData == nil || stringFromData.length == 0)
+        {
+            if([theFile exists])
+            {
+                NSError *deleteError = nil;
+                [self deleteFile:theFile error:&deleteError];
+            }
+            return NO;
+        }
 
-        BOOL success = [theWriter writeLine:[AWSMobileAnalyticsStringUtils dataToString:data] error:&error];
+        BOOL success = [theWriter writeLine:stringFromData error:&error];
         if(error != nil || !success)
         {
             if(error != nil)

@@ -218,7 +218,6 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
         [urlRequest setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[AWSS3ChunkedEncodingInputStream computeContentLengthForChunkedData:contentLength]]
           forHTTPHeaderField:@"Content-Length"];
         [urlRequest setValue:nil forHTTPHeaderField:@"Content-Length"]; //remove Content-Length header if it is a HTTPBodyStream
-        [urlRequest setValue:@"Chunked" forHTTPHeaderField:@"Transfer-Encoding"];
         [urlRequest addValue:@"aws-chunked" forHTTPHeaderField:@"Content-Encoding"]; //add aws-chunked keyword for s3 chunk upload
         [urlRequest setValue:[NSString stringWithFormat:@"%lu", (unsigned long)contentLength] forHTTPHeaderField:@"x-amz-decoded-content-length"];
     } else {

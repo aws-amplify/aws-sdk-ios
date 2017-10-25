@@ -286,7 +286,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             ).continueWith (block: { (task) -> AnyObject? in
                 XCTAssertNotNil(task.error)
                 XCTAssertEqual(task.error?._domain, AWSS3PresignedURLErrorDomain)
-                XCTAssertEqual(task.error?._code, AWSS3PresignedURLErrorType.presignedURLErrorBucketNameIsNil.rawValue)
+                XCTAssertEqual(task.error?._code, AWSS3PresignedURLErrorType.presignedURLErrorInvalidBucketNameForAccelerateModeEnabled.rawValue)
 
                 expectation.fulfill()
 

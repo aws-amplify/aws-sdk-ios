@@ -193,13 +193,13 @@ NSString *const AWSFirehoseRecorderTestStream = @"test-permanent-firehose";
 
 - (void)testAll {
     AWSFirehoseRecorder *firehoseRecorder = [AWSFirehoseRecorder defaultFirehoseRecorder];
-
+    
     NSMutableArray *tasks = [NSMutableArray new];
     for (int32_t i = 0; i < 1234; i++) {
         [tasks addObject:[firehoseRecorder saveRecord:[[NSString stringWithFormat:@"TestString-%02d\n", i] dataUsingEncoding:NSUTF8StringEncoding]
                                            streamName:AWSFirehoseRecorderTestStream]];
     }
-
+    
     [[[[AWSTask taskForCompletionOfAllTasks:tasks] continueWithSuccessBlock:^id(AWSTask *task) {
         sleep(10);
         return [firehoseRecorder submitAllRecords];
