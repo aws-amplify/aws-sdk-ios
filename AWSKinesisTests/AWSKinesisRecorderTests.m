@@ -397,6 +397,38 @@ static NSString *testStreamName = nil;
     }];
 }
 
+- (void)testSubmitAllRecordsReturnsError {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+
+    NSString *poolId = @"invalidPoolId";
+    AWSCognitoCredentialsProvider *invalidCreds = \
+        [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                   identityPoolId:poolId];
+
+    AWSServiceConfiguration *configuration = \
+        [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                    credentialsProvider:invalidCreds];
+
+    [AWSKinesisRecorder registerKinesisRecorderWithConfiguration:configuration
+                                                          forKey:poolId];
+
+    AWSKinesisRecorder *kinesisRecorder = [AWSKinesisRecorder KinesisRecorderForKey:poolId];
+    [kinesisRecorder saveRecord:[@"testString" dataUsingEncoding:NSUTF8StringEncoding]
+                     streamName:testStreamName];
+
+    AWSTask *submitTask = kinesisRecorder.submitAllRecords;
+
+    [submitTask continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error, @"Task should have an error due to invalid pool id.");
+        [expectation fulfill];
+        return nil;
+    }];
+
+    [self waitForExpectationsWithTimeout:5 handler:^(NSError * _Nullable error) {
+        XCTAssertNil(error);
+    }];
+}
+
 - (AWSTask *)getRecords:(NSMutableArray *)returnedRecords shardIterator:(NSString *)shardIterator counter:(int32_t)counter {
     AWSKinesis *kinesis = [AWSKinesis defaultKinesis];
     AWSKinesisGetRecordsInput *getRecordsInput = [AWSKinesisGetRecordsInput new];

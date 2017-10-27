@@ -181,6 +181,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             if ([task.error.domain isEqualToString:NSURLErrorDomain]) {
                 *stop = YES;
             }
+
+            return [AWSTask taskWithError:task.error];
         }
         if (task.result) {
             AWSKinesisPutRecordsOutput *putRecordsOutput = task.result;
