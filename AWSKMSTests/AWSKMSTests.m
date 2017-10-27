@@ -185,6 +185,7 @@
         
         NSString *keyIdEnding = [NSString stringWithFormat:@"/%@", self.sharedKeyMetadata.keyId];
         XCTAssertTrue([response.keyId hasSuffix:keyIdEnding]);
+        return nil;
     }] waitUntilFinished];
     
     AWSKMSDecryptRequest * decryptRequest = [AWSKMSDecryptRequest new];
@@ -197,6 +198,7 @@
         NSString *decryptedString = [[NSString alloc] initWithData:t.result.plaintext encoding:NSUTF8StringEncoding];
         XCTAssertNotNil(decryptedString);
         XCTAssertTrue([decryptedString isEqualToString:text]);
+        return nil;
     }] waitUntilFinished];
 }
 

@@ -1,5 +1,17 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.5
+
+### Bug fixes
+
+* **All Services**
+    * Fix Xcode 9 strict prototype warnings. [Github PR #747](https://github.com/aws/aws-sdk-ios/pull/747)
+
+* **Amazon Kinesis**
+    *  Ensure `submitAllRecords` returns an error on failure to submit.  [Github PR #698](https://github.com/aws/aws-sdk-ios/pull/698)
+
+* **Amazon Pinpoint**
+    * Made submission of events thread safe.
 
 ## 2.6.4
 

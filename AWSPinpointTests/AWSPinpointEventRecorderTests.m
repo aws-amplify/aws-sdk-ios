@@ -24,7 +24,11 @@
 NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
 NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessionKey";
 NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
-
+NSUInteger const DEFAULT_BATCH_LIMIT = 512 * 1024;
+NSUInteger const AWSPinpointClientByteLimitDefault = 5 * 1024 * 1024; // 5MB
+NSUInteger const AWSPinpointClientBatchRecordByteLimitDefault = 512 * 1024;
+NSUInteger const AWSPinpointClientValidEvent = 0;
+NSUInteger const AWSPinpointClientInvalidEvent = 1;
 
 @interface AWSPinpoint()
 @property (nonatomic, strong) AWSPinpointContext *pinpointContext;
@@ -97,25 +101,11 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
     [super tearDown];
 }
 
-- (void) clearSession {
-    [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"AWSPinpointEventRecorderTests"];
-    [self.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
-    [self.userDefaults removeObjectForKey:AWSPinpointSessionKey];
-    [self.userDefaults synchronize];
-    
-    NSData *data = [self.userDefaults dataForKey:AWSPinpointSessionKey];
-    AWSPinpointSession *session = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    
-    NSLog(@"Session Object Should be Empty: %@",session.description);
-    
-    XCTAssertNil([self.userDefaults dataForKey:AWSPinpointSessionKey]);
-}
-
 - (void) testEventsWithNoSessionId {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testEventsWithNoSessionId"
                                                                          launchOptions:nil
-                                                                        maxStorageSize:5*1024*1024
+                                                                        maxStorageSize:AWSPinpointClientByteLimitDefault
                                                                         sessionTimeout:0];
     config.enableAutoSessionRecording = NO;
     [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"testEventsWithNoSessionId"];
@@ -271,35 +261,33 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
     }];
 }
 
-
 - (void) testUpdateSessionCampaignAttributes {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
-    [self clearSession];
-
+    
     AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testUpdateSessionCampaignAttributes" launchOptions:@{}];
     
     [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"testUpdateSessionCampaignAttributes"];
+    config.enableAutoSessionRecording = NO;
     config.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"testUpdateSessionCampaignAttributes"];
+    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
+    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
+    [config.userDefaults synchronize];
+    
     
     AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
     [pinpoint.sessionClient stopSession];
     [pinpoint.analyticsClient removeAllGlobalCampaignAttributes];
     [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
-
-    [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"testUpdateSessionCampaignAttributes"];
-    [self.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
-    [self.userDefaults removeObjectForKey:AWSPinpointSessionKey];
-    [self.userDefaults synchronize];
     
-    NSData *data = [self.userDefaults dataForKey:AWSPinpointSessionKey];
+    NSData *data = [pinpoint.pinpointContext.configuration.userDefaults dataForKey:AWSPinpointSessionKey];
     AWSPinpointSession *session = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     
-    NSLog(@"Session Object Should be Empty: %@",session.description);
+    AWSDDLogError(@"Session Object Should be Empty: %@",session.description);
     
-    XCTAssertNil([self.userDefaults dataForKey:AWSPinpointSessionKey]);
+    XCTAssertNil([pinpoint.pinpointContext.configuration.userDefaults dataForKey:AWSPinpointSessionKey]);
     
     [[pinpoint.sessionClient startSession] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        [[pinpoint.analyticsClient.eventRecorder getCurrentSession:self.pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        [[pinpoint.analyticsClient.eventRecorder getCurrentSession:pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
             XCTAssertNotNil(task.result);
             XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
             AWSPinpointEvent *sessionStartResult = task.result;
@@ -309,7 +297,7 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
             XCTAssertEqual(sessionStartResult.allAttributes.count, 0);
             
             [[pinpoint.analyticsClient.eventRecorder updateSessionStartWithCampaignAttributes:@{@"campaignAttrKey":@"campaignAttrVal"}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-                [[pinpoint.analyticsClient.eventRecorder getCurrentSession:self.pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+                [[pinpoint.analyticsClient.eventRecorder getCurrentSession:pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
                     XCTAssertNotNil(task.result);
                     XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
                     AWSPinpointEvent *sessionStartResult = task.result;
@@ -438,26 +426,40 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
 - (void)testFullEventCycle {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
-    XCTAssertNotNil(self.pinpoint.analyticsClient.eventRecorder);
+    
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:[NSString stringWithFormat:@"testFullEventCycle"]
+                                                                         launchOptions:nil
+                                                                        maxStorageSize:AWSPinpointClientByteLimitDefault
+                                                                        sessionTimeout:0];
+    config.userDefaults = [NSUserDefaults standardUserDefaults];
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
+    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
+    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
+    [config.userDefaults synchronize];
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    [pinpoint.analyticsClient.eventRecorder setBatchRecordsByteLimit:DEFAULT_BATCH_LIMIT];
+    
+    XCTAssertNotNil(pinpoint.analyticsClient.eventRecorder);
+    
     AWSPinpointEvent *event = [self.pinpoint.analyticsClient createEventWithEventType:@"TEST_EVENT"];
     [event addAttribute:@"Attr1" forKey:@"Attr1"];
     [event addMetric:@(1) forKey:@"Mettr1"];
     
-    [[self.pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
     
-    [[[self.pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNotNil(task.result);
         //Should contain no events after removal
         XCTAssertEqual([task.result count], 0);
         return nil;
     }] waitUntilFinished];
     
-    [[[self.pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+    [[[pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNil(task.error);
         return nil;
     }] waitUntilFinished];
     
-    [[[self.pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
         
@@ -473,7 +475,7 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
         return nil;
     }] waitUntilFinished];
     
-    [[[self.pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+    [[[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
         
@@ -487,7 +489,7 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
         return nil;
     }] waitUntilFinished];
     
-    [[self.pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+    [[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNotNil(task.result);
         //Should contain no events after successful submission
         XCTAssertEqual([task.result count], 0);
@@ -504,26 +506,39 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
 - (void)testFullEventCycleWithEndpointUpdate {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
-    XCTAssertNotNil(self.pinpoint.analyticsClient.eventRecorder);
-    AWSPinpointEvent *event = [self.pinpoint.analyticsClient createEventWithEventType:@"TEST_EVENT"];
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:[NSString stringWithFormat:@"testFullEventCycleWithEndpointUpdate"]
+                                                                         launchOptions:nil
+                                                                        maxStorageSize:AWSPinpointClientByteLimitDefault
+                                                                        sessionTimeout:0];
+    config.userDefaults = [NSUserDefaults standardUserDefaults];
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
+    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
+    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
+    [config.userDefaults synchronize];
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    [pinpoint.analyticsClient.eventRecorder setBatchRecordsByteLimit:DEFAULT_BATCH_LIMIT];
+    
+    XCTAssertNotNil(pinpoint.analyticsClient.eventRecorder);
+    
+    AWSPinpointEvent *event = [pinpoint.analyticsClient createEventWithEventType:@"TEST_EVENT"];
     [event addAttribute:@"Attr1" forKey:@"Attr1"];
     [event addMetric:@(1) forKey:@"Mettr1"];
     
-    [[self.pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
     
-    [[[self.pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNotNil(task.result);
         //Should contain no events after removal
         XCTAssertEqual([task.result count], 0);
         return nil;
     }] waitUntilFinished];
     
-    [[[self.pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+    [[[pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNil(task.error);
         return nil;
     }] waitUntilFinished];
     
-    [[[self.pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
         
@@ -540,9 +555,9 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
     }] waitUntilFinished];
     
     //Adding attribute to endpoint to verify event recorder has that value after submission
-    [self.pinpoint.targetingClient addAttribute:@[@"TestValue"] forKey:@"TestKey"];
+    [pinpoint.targetingClient addAttribute:@[@"TestValue"] forKey:@"TestKey"];
     
-    [[[self.pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+    [[[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
         
@@ -554,7 +569,7 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
         XCTAssertTrue([[resultEvent.allAttributes objectForKey:@"Attr1"] isEqualToString:@"Attr1"]);
         
         //Verify attribute of endpoint profile
-        NSArray *attributes = [self.pinpoint.analyticsClient.eventRecorder.profile attributeForKey:@"TestKey"];
+        NSArray *attributes = [pinpoint.analyticsClient.eventRecorder.profile attributeForKey:@"TestKey"];
         XCTAssertNotNil(attributes);
         XCTAssertEqual([attributes count], 1);
         XCTAssertTrue([[attributes objectAtIndex:0] isEqualToString:@"TestValue"]);
@@ -562,7 +577,7 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
         return nil;
     }] waitUntilFinished];
     
-    [[self.pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+    [[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNotNil(task.result);
         //Should contain no events after successful submission
         XCTAssertEqual([task.result count], 0);
@@ -577,6 +592,9 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
 
 - (void) testMultipleEvents {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    
+    //Reset to default batch size
+    [self.pinpoint.analyticsClient.eventRecorder setBatchRecordsByteLimit:DEFAULT_BATCH_LIMIT];
     
     AWSPinpointEvent *event1 = [self.pinpoint.analyticsClient createEventWithEventType:@"TEST_EVENT1"];
     [event1 addAttribute:@"Attr1" forKey:@"Attr1"];
@@ -630,66 +648,6 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
         XCTAssertEqual(resultEvent2.eventTimestamp, event2.eventTimestamp);
         XCTAssertEqual([[resultEvent2.allMetrics objectForKey:@"Mettr2"] intValue], @(2).intValue);
         XCTAssertTrue([[resultEvent2.allAttributes objectForKey:@"Attr2"] isEqualToString:@"Attr2"]);
-        
-        return nil;
-    }] waitUntilFinished];
-    
-    [[self.pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNotNil(task.result);
-        //Should contain no events after successful submission
-        XCTAssertEqual([task.result count], 0);
-        [expectation fulfill];
-        return nil;
-    }];
-    
-    [self waitForExpectationsWithTimeout:5 handler:^(NSError * _Nullable error) {
-        XCTAssertNil(error);
-    }];
-}
-
-
-- (void) testForMultipleBatches {
-    //This tests should take a little over 1m to complete.
-    __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
-    
-    AWSPinpointEvent *event1 = [self.pinpoint.analyticsClient createEventWithEventType:@"TEST_EVENT1"];
-    [event1 addAttribute:@"Attr1" forKey:@"Attr1"];
-    [event1 addMetric:@(1) forKey:@"Mettr1"];
-    
-    [[self.pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
-    
-    [[[self.pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNotNil(task.result);
-        //Should contain no events after removal
-        XCTAssertEqual([task.result count], 0);
-        return nil;
-    }] waitUntilFinished];
-    
-    for (int i=0; i < 5000; i++) {
-        [[[self.pinpoint.analyticsClient.eventRecorder saveEvent:event1] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-            XCTAssertNil(task.error);
-            return nil;
-        }] waitUntilFinished];
-    }
-    
-    [[[self.pinpoint.analyticsClient.eventRecorder getEventsWithLimit:@5000] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNotNil(task.result);
-        XCTAssertEqual([task.result count], 5000);
-        return nil;
-    }] waitUntilFinished];
-    
-    [[[self.pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.error);
-        XCTAssertNotNil(task.result);
-        
-        XCTAssertEqual([task.result count], 5000);
-        
-        AWSPinpointEvent *resultEvent1 = [task.result firstObject];
-        XCTAssertNotNil(resultEvent1);
-        XCTAssertTrue([resultEvent1.eventType isEqualToString:event1.eventType]);
-        XCTAssertEqual(resultEvent1.eventTimestamp, event1.eventTimestamp);
-        XCTAssertEqual([[resultEvent1.allMetrics objectForKey:@"Mettr1"] intValue], @(1).intValue);
-        XCTAssertTrue([[resultEvent1.allAttributes objectForKey:@"Attr1"] isEqualToString:@"Attr1"]);
         
         return nil;
     }] waitUntilFinished];
@@ -1114,7 +1072,7 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
     [[self.pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
     [[self.pinpoint.analyticsClient.eventRecorder removeAllDirtyEvents] waitUntilFinished];
     
-    self.pinpoint.analyticsClient.eventRecorder.diskByteLimit = 5 * 1024 * 1024;
+    self.pinpoint.analyticsClient.eventRecorder.diskByteLimit = AWSPinpointClientByteLimitDefault;
     self.pinpoint.analyticsClient.eventRecorder.notificationByteThreshold = 0;
     
     [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -1153,6 +1111,862 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
     }] waitUntilFinished];
     
     self.pinpoint.analyticsClient.eventRecorder.diskAgeLimit = 0;
+}
+
+- (void) testMultipleEventsWithOneBatchWithSingleSubmitCall {
+    [self validateMultipleEventsWithOneBatchWithSingleSubmitCall:1];
+    sleep(1);
+    [self validateMultipleEventsWithOneBatchWithSingleSubmitCall:10];
+    sleep(1);
+    [self validateMultipleEventsWithOneBatchWithSingleSubmitCall:50];
+    sleep(1);
+    [self validateMultipleEventsWithOneBatchWithSingleSubmitCall:100];
+}
+
+- (void) validateMultipleEventsWithOneBatchWithSingleSubmitCall:(int) numberOfEvents {
+    __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:[NSString stringWithFormat:@"validateMultipleEventsWithOneBatchWithSingleSubmitCall%d", numberOfEvents]
+                                                                         launchOptions:nil
+                                                                        maxStorageSize:AWSPinpointClientByteLimitDefault
+                                                                        sessionTimeout:0];
+    config.userDefaults = [NSUserDefaults standardUserDefaults];
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
+    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
+    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
+    [config.userDefaults synchronize];
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    [pinpoint.analyticsClient.eventRecorder setBatchRecordsByteLimit:DEFAULT_BATCH_LIMIT];
+    
+    XCTAssertNotNil(pinpoint.analyticsClient.eventRecorder);
+
+    AWSPinpointEvent *event = [pinpoint.analyticsClient createEventWithEventType:@"TEST_EVENT_MULTIPLE_SUBMIT"];
+    [event addAttribute:@"Attr1" forKey:@"Attr1"];
+    [event addMetric:@(1) forKey:@"Mettr1"];
+    
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    
+    [[[pinpoint.analyticsClient.eventRecorder getEventsWithLimit:@1000] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNotNil(task.result);
+        //Should contain no events after removal
+        XCTAssertEqual([task.result count], 0);
+        return nil;
+    }] waitUntilFinished];
+    
+    for (int i = 0; i < numberOfEvents; i++) {
+        [[[pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            XCTAssertNil(task.error);
+            return nil;
+        }] waitUntilFinished];
+    }
+    
+    [[[pinpoint.analyticsClient.eventRecorder getEventsWithLimit:@1000] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        
+        XCTAssertEqual([task.result count], numberOfEvents);
+        
+        //Extract Event and compare event type and timestamp
+        AWSPinpointEvent *resultEvent = [task.result firstObject];
+        XCTAssertNotNil(resultEvent);
+        XCTAssertTrue([resultEvent.eventType isEqualToString:event.eventType]);
+        XCTAssertEqual(resultEvent.eventTimestamp, event.eventTimestamp);
+        XCTAssertEqual([[resultEvent.allMetrics objectForKey:@"Mettr1"] intValue], @(1).intValue);
+        XCTAssertTrue([[resultEvent.allAttributes objectForKey:@"Attr1"] isEqualToString:@"Attr1"]);
+        return nil;
+    }] waitUntilFinished];
+    
+    __block int successfulBatchSubmissions = 0;
+    
+    [[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        if (!task.error) {
+            XCTAssertTrue([task.result isKindOfClass:[NSArray class]]);
+            XCTAssertEqual([task.result count], numberOfEvents);
+            successfulBatchSubmissions += 1;
+            AWSDDLogError(@"Submitted batch with %lu events inside.", [task.result count]);
+        } else {
+            AWSDDLogError(@"Did not submit: %@", task.error.userInfo[@"message"]);
+        }
+        return nil;
+    }];
+    
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[pinpoint.analyticsClient.eventRecorder getEventsWithLimit:@1000] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            XCTAssertFalse(pinpoint.analyticsClient.eventRecorder.submissionInProgress);
+            XCTAssertNil(task.error);
+            XCTAssertNotNil(task.result);
+            //Should contain no events after successful submission
+            XCTAssertEqual([task.result count], 0);
+            [expectation fulfill];
+            return nil;
+        }];
+    });
+    
+    [self waitForExpectationsWithTimeout:8 handler:^(NSError * _Nullable error) {
+        XCTAssertEqual(successfulBatchSubmissions, 1);
+        XCTAssertNil(error);
+    }];
+}
+
+- (void) test1MultipleEventsWithOneBatchWithMultipleSubmitCallsFromSingleThread {
+    [self validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromSingleThread:1];
+}
+
+- (void) test10MultipleEventsWithOneBatchWithMultipleSubmitCallsFromSingleThread {
+    [self validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromSingleThread:10];
+}
+
+- (void) test50MultipleEventsWithOneBatchWithMultipleSubmitCallsFromSingleThread {
+    [self validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromSingleThread:50];
+}
+
+- (void) test100MultipleEventsWithOneBatchWithMultipleSubmitCallsFromSingleThread {
+    [self validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromSingleThread:100];
+}
+
+- (void) validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromSingleThread:(int) numberOfEvents {
+    __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:[NSString stringWithFormat:@"validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromSingleThread%d", numberOfEvents]
+                                                                         launchOptions:nil
+                                                                        maxStorageSize:AWSPinpointClientByteLimitDefault
+                                                                        sessionTimeout:0];
+    config.userDefaults = [NSUserDefaults standardUserDefaults];
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
+    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
+    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
+    [config.userDefaults synchronize];
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    [pinpoint.analyticsClient.eventRecorder setBatchRecordsByteLimit:DEFAULT_BATCH_LIMIT];
+    
+    XCTAssertNotNil(pinpoint.analyticsClient.eventRecorder);
+    
+    AWSPinpointEvent *event = [pinpoint.analyticsClient createEventWithEventType:@"TEST_EVENT_MULTIPLE_SUBMIT"];
+    [event addAttribute:@"Attr1" forKey:@"Attr1"];
+    [event addMetric:@(1) forKey:@"Mettr1"];
+    
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    
+    [[[pinpoint.analyticsClient.eventRecorder getEventsWithLimit:@1000] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        //Should contain no events after removal
+        XCTAssertEqual([task.result count], 0);
+        return nil;
+    }] waitUntilFinished];
+    
+    for (int i = 0; i < numberOfEvents; i++) {
+        [[[pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            XCTAssertNil(task.error);
+            return nil;
+        }] waitUntilFinished];
+    }
+    
+    [[[pinpoint.analyticsClient.eventRecorder getEventsWithLimit:@1000] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        
+        XCTAssertEqual([task.result count], numberOfEvents);
+        
+        //Extract Event and compare event type and timestamp
+        AWSPinpointEvent *resultEvent = [task.result firstObject];
+        XCTAssertNotNil(resultEvent);
+        XCTAssertTrue([resultEvent.eventType isEqualToString:event.eventType]);
+        XCTAssertEqual(resultEvent.eventTimestamp, event.eventTimestamp);
+        XCTAssertEqual([[resultEvent.allMetrics objectForKey:@"Mettr1"] intValue], @(1).intValue);
+        XCTAssertTrue([[resultEvent.allAttributes objectForKey:@"Attr1"] isEqualToString:@"Attr1"]);
+        return nil;
+    }] waitUntilFinished];
+    
+    __block int successfulBatchSubmissions = 0;
+    
+    for (int i = 0; i < numberOfEvents; i++) {
+        [[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            if (!task.error) {
+                XCTAssertTrue([task.result isKindOfClass:[NSArray class]]);
+                XCTAssertEqual([task.result count], numberOfEvents);
+                successfulBatchSubmissions += 1;
+                AWSDDLogInfo(@"Submitted batch with %lu events inside.", [task.result count]);
+            } else {
+                AWSDDLogError(@"Did not submit: %@", task.error.userInfo[@"message"]);
+            }
+            return nil;
+        }];
+    }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[pinpoint.analyticsClient.eventRecorder getEventsWithLimit:@1000] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            XCTAssertFalse(pinpoint.analyticsClient.eventRecorder.submissionInProgress);
+            XCTAssertNil(task.error);
+            XCTAssertNotNil(task.result);
+            //Should contain no events after successful submission
+            XCTAssertEqual([task.result count], 0);
+            [expectation fulfill];
+            return nil;
+        }];
+    });
+    
+    [self waitForExpectationsWithTimeout:11 handler:^(NSError * _Nullable error) {
+        XCTAssertEqual(successfulBatchSubmissions, 1);
+        XCTAssertNil(error);
+    }];
+}
+
+- (void) test1MultipleEventsWithOneBatchWithMultipleSubmitCallsFromMultipleThreads {
+    [self validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromMultipleThreads:1];
+}
+
+- (void) test10MultipleEventsWithOneBatchWithMultipleSubmitCallsFromMultipleThreads {
+    [self validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromMultipleThreads:10];
+}
+
+- (void) test50MultipleEventsWithOneBatchWithMultipleSubmitCallsFromMultipleThreads {
+    [self validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromMultipleThreads:50];
+}
+
+- (void) test100MultipleEventsWithOneBatchWithMultipleSubmitCallsFromMultipleThreads {
+    [self validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromMultipleThreads:100];
+}
+
+- (void) validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromMultipleThreads:(int) numberOfEvents {
+    __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:[NSString stringWithFormat:@"validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromMultipleThreads%d", numberOfEvents]
+                                                                         launchOptions:nil
+                                                                        maxStorageSize:AWSPinpointClientByteLimitDefault
+                                                                        sessionTimeout:0];
+    config.userDefaults = [NSUserDefaults standardUserDefaults];
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
+    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
+    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
+    [config.userDefaults synchronize];
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    [pinpoint.analyticsClient.eventRecorder setBatchRecordsByteLimit:DEFAULT_BATCH_LIMIT];
+    
+    XCTAssertNotNil(pinpoint.analyticsClient.eventRecorder);
+    
+    AWSPinpointEvent *event = [pinpoint.analyticsClient createEventWithEventType:@"TEST_EVENT_MULTIPLE_SUBMIT"];
+    [event addAttribute:@"Attr1" forKey:@"Attr1"];
+    [event addMetric:@(1) forKey:@"Mettr1"];
+    
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    
+    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        //Should contain no events after removal
+        XCTAssertEqual([task.result count], 0);
+        return nil;
+    }] waitUntilFinished];
+    
+    for (int i = 0; i < numberOfEvents; i++) {
+        [[[pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            XCTAssertNil(task.error);
+            return nil;
+        }] waitUntilFinished];
+    }
+    
+    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        
+        XCTAssertEqual([task.result count], numberOfEvents);
+        
+        //Extract Event and compare event type and timestamp
+        AWSPinpointEvent *resultEvent = [task.result firstObject];
+        XCTAssertNotNil(resultEvent);
+        XCTAssertTrue([resultEvent.eventType isEqualToString:event.eventType]);
+        XCTAssertEqual(resultEvent.eventTimestamp, event.eventTimestamp);
+        XCTAssertEqual([[resultEvent.allMetrics objectForKey:@"Mettr1"] intValue], @(1).intValue);
+        XCTAssertTrue([[resultEvent.allAttributes objectForKey:@"Attr1"] isEqualToString:@"Attr1"]);
+        return nil;
+    }] waitUntilFinished];
+    
+    __block int successfulBatchSubmissions = 0;
+    
+    [[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        if (!task.error) {
+            XCTAssertTrue([task.result isKindOfClass:[NSArray class]]);
+            XCTAssertEqual([task.result count], numberOfEvents);
+            successfulBatchSubmissions += 1;
+            AWSDDLogInfo(@"Submitted batch with %lu events inside.", [task.result count]);
+        } else {
+            AWSDDLogError(@"Did not submit: %@", task.error.userInfo[@"message"]);
+        }
+        return nil;
+    }];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            if (!task.error) {
+                XCTAssertTrue([task.result isKindOfClass:[NSArray class]]);
+                XCTAssertEqual([task.result count], numberOfEvents);
+                successfulBatchSubmissions += 1;
+                AWSDDLogInfo(@"Submitted batch with %lu events inside.", [task.result count]);
+            } else {
+                AWSDDLogError(@"Did not submit: %@", task.error.userInfo[@"message"]);
+            }
+            return nil;
+        }];
+    });
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        [[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            if (!task.error) {
+                XCTAssertTrue([task.result isKindOfClass:[NSArray class]]);
+                XCTAssertEqual([task.result count], numberOfEvents);
+                successfulBatchSubmissions += 1;
+                AWSDDLogInfo(@"Submitted batch with %lu events inside.", [task.result count]);
+            } else {
+                AWSDDLogError(@"Did not submit: %@", task.error.userInfo[@"message"]);
+            }
+            return nil;
+        }];
+    });
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        [[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            if (!task.error) {
+                XCTAssertTrue([task.result isKindOfClass:[NSArray class]]);
+                XCTAssertEqual([task.result count], numberOfEvents);
+                successfulBatchSubmissions += 1;
+                AWSDDLogInfo(@"Submitted batch with %lu events inside.", [task.result count]);
+            } else {
+                AWSDDLogError(@"Did not submit: %@", task.error.userInfo[@"message"]);
+            }
+            return nil;
+        }];
+    });
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        [[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            if (!task.error) {
+                XCTAssertTrue([task.result isKindOfClass:[NSArray class]]);
+                XCTAssertEqual([task.result count], numberOfEvents);
+                successfulBatchSubmissions += 1;
+                AWSDDLogInfo(@"Submitted batch with %lu events inside.", [task.result count]);
+            } else {
+                AWSDDLogError(@"Did not submit: %@", task.error.userInfo[@"message"]);
+            }
+            return nil;
+        }];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(14 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            XCTAssertFalse(pinpoint.analyticsClient.eventRecorder.submissionInProgress);
+            XCTAssertNil(task.error);
+            XCTAssertNotNil(task.result);
+            //Should contain no events after successful submission
+            XCTAssertEqual([task.result count], 0);
+            [expectation fulfill];
+            return nil;
+        }];
+    });
+    
+    [self waitForExpectationsWithTimeout:15 handler:^(NSError * _Nullable error) {
+        XCTAssertEqual(successfulBatchSubmissions, 1);
+        XCTAssertNil(error);
+    }];
+}
+
+- (void) test1MultipleEventsWithMultipleBatchesWithSingleSubmitCallSingleThread {
+    [self validateMultipleEventsWithMultipleBatchesWithSingleSubmitCall:1];
+}
+
+- (void) test10MultipleEventsWithMultipleBatchesWithSingleSubmitCallSingleThread {
+    [self validateMultipleEventsWithMultipleBatchesWithSingleSubmitCall:10];
+}
+
+- (void) test50MultipleEventsWithMultipleBatchesWithSingleSubmitCallSingleThread {
+    [self validateMultipleEventsWithMultipleBatchesWithSingleSubmitCall:50];
+}
+
+- (void) test100MultipleEventsWithMultipleBatchesWithSingleSubmitCallSingleThread {
+    [self validateMultipleEventsWithMultipleBatchesWithSingleSubmitCall:100];
+}
+
+- (void) validateMultipleEventsWithMultipleBatchesWithSingleSubmitCall:(int) numberOfEvents {
+    __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:[NSString stringWithFormat:@"validateMultipleEventsWithMultipleBatchesWithSingleSubmitCall%d", numberOfEvents]
+                                                                         launchOptions:nil
+                                                                        maxStorageSize:AWSPinpointClientByteLimitDefault
+                                                                        sessionTimeout:0];
+    config.userDefaults = [NSUserDefaults standardUserDefaults];
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
+    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
+    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
+    [config.userDefaults synchronize];
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    [pinpoint.analyticsClient.eventRecorder setBatchRecordsByteLimit:10];
+    
+    XCTAssertNotNil(pinpoint.analyticsClient.eventRecorder);
+    
+    AWSPinpointEvent *event = [pinpoint.analyticsClient createEventWithEventType:@"TEST_EVENT_MULTIPLE_SUBMIT"];
+    [event addAttribute:@"Attr1" forKey:@"Attr1"];
+    [event addMetric:@(1) forKey:@"Mettr1"];
+    
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    
+    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNotNil(task.result);
+        //Should contain no events after removal
+        XCTAssertEqual([task.result count], 0);
+        return nil;
+    }] waitUntilFinished];
+    
+    for (int i = 0; i < numberOfEvents; i++) {
+        [[[pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            XCTAssertNil(task.error);
+            return nil;
+        }] waitUntilFinished];
+    }
+    
+    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        
+        XCTAssertEqual([task.result count], numberOfEvents);
+        
+        //Extract Event and compare event type and timestamp
+        AWSPinpointEvent *resultEvent = [task.result firstObject];
+        XCTAssertNotNil(resultEvent);
+        XCTAssertTrue([resultEvent.eventType isEqualToString:event.eventType]);
+        XCTAssertEqual(resultEvent.eventTimestamp, event.eventTimestamp);
+        XCTAssertEqual([[resultEvent.allMetrics objectForKey:@"Mettr1"] intValue], @(1).intValue);
+        XCTAssertTrue([[resultEvent.allAttributes objectForKey:@"Attr1"] isEqualToString:@"Attr1"]);
+        return nil;
+    }] waitUntilFinished];
+    
+    __block int successfulBatchSubmissions = 0;
+    
+    [[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        if (!task.error) {
+            XCTAssertTrue([task.result isKindOfClass:[NSArray class]]);
+            XCTAssertEqual([task.result count], numberOfEvents);
+            successfulBatchSubmissions += 1;
+            AWSDDLogInfo(@"Submitted batch with %lu events inside.", [task.result count]);
+        } else {
+            AWSDDLogError(@"Did not submit: %@", task.error.userInfo[@"message"]);
+        }
+        return nil;
+    }];
+    
+    int timeout = numberOfEvents/2;
+    if (timeout < 10) {
+        timeout = 10;
+    }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            XCTAssertFalse(pinpoint.analyticsClient.eventRecorder.submissionInProgress);
+            XCTAssertNil(task.error);
+            XCTAssertNotNil(task.result);
+            //Should contain no events after successful submission
+            XCTAssertEqual([task.result count], 0);
+            [expectation fulfill];
+            return nil;
+        }];
+    });
+    
+    [self waitForExpectationsWithTimeout:(timeout + 1) handler:^(NSError * _Nullable error) {
+        XCTAssertEqual(successfulBatchSubmissions, 1);
+        XCTAssertNil(error);
+    }];
+}
+
+-(void) test1MultipleEventsWithMultipleBatchesWithMultipleSubmitCallsSingleThread {
+    [self validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCalls:1];
+}
+
+-(void) test10MultipleEventsWithMultipleBatchesWithMultipleSubmitCallsSingleThread {
+    [self validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCalls:10];
+}
+
+-(void) test50MultipleEventsWithMultipleBatchesWithMultipleSubmitCallsSingleThread {
+    [self validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCalls:50];
+}
+
+-(void) test100MultipleEventsWithMultipleBatchesWithMultipleSubmitCallsSingleThread {
+    [self validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCalls:100];
+}
+
+- (void) validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCalls:(int) numberOfEvents {
+    __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:[NSString stringWithFormat:@"validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCalls%d", numberOfEvents]
+                                                                         launchOptions:nil
+                                                                        maxStorageSize:AWSPinpointClientByteLimitDefault
+                                                                        sessionTimeout:0];
+    config.userDefaults = [NSUserDefaults standardUserDefaults];
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
+    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
+    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
+    [config.userDefaults synchronize];
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    [pinpoint.analyticsClient.eventRecorder setBatchRecordsByteLimit:10]; //Each batch will contain 1 event
+    
+    XCTAssertNotNil(pinpoint.analyticsClient.eventRecorder);
+
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    
+    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNotNil(task.result);
+        //Should contain no events after removal
+        XCTAssertEqual([task.result count], 0);
+        return nil;
+    }] waitUntilFinished];
+    
+    for (int i = 0; i < numberOfEvents; i++) {
+        AWSPinpointEvent *event = [pinpoint.analyticsClient createEventWithEventType:
+                                   [NSString stringWithFormat:@"TEST_EVENT_MULTIPLE_SUBMIT %d", i]];
+        [event addAttribute:@"Attr1" forKey:@"Attr1"];
+        [event addMetric:@(1) forKey:@"Mettr1"];
+        [[[pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            XCTAssertNil(task.error);
+            return nil;
+        }] waitUntilFinished];
+    }
+    
+    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        
+        XCTAssertEqual([task.result count], numberOfEvents);
+        
+        //Extract Event and compare event type and timestamp
+        AWSPinpointEvent *resultEvent = [task.result firstObject];
+        XCTAssertNotNil(resultEvent);
+        XCTAssertEqual([[resultEvent.allMetrics objectForKey:@"Mettr1"] intValue], @(1).intValue);
+        XCTAssertTrue([[resultEvent.allAttributes objectForKey:@"Attr1"] isEqualToString:@"Attr1"]);
+        return nil;
+    }] waitUntilFinished];
+    
+    __block int successfulBatchSubmissions = 0;
+    __block int successfulEventsSubmitted = 0;
+
+    for (int i=0; i< numberOfEvents; i++) {
+        [[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            if (!task.error) {
+                XCTAssertTrue([task.result isKindOfClass:[NSArray class]]);
+                successfulBatchSubmissions += 1;
+                successfulEventsSubmitted += [task.result count];
+                NSLog(@"Submitted batch with %lu events inside.", [task.result count]);
+            } else {
+                NSLog(@"Did not submit: %@", task.error.userInfo[@"message"]);
+            }
+            return nil;
+        }];
+    }
+
+    int timeout = numberOfEvents/2;
+    if (timeout < 10) {
+        timeout = 10;
+    }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            XCTAssertFalse(pinpoint.analyticsClient.eventRecorder.submissionInProgress);
+            XCTAssertNotNil(task.result);
+            //Should contain no events after successful submission
+            XCTAssertEqual([task.result count], 0);
+            [expectation fulfill];
+            return nil;
+        }];
+    });
+    
+    [self waitForExpectationsWithTimeout:(timeout + 1) handler:^(NSError * _Nullable error) {
+        [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+        XCTAssertEqual(successfulEventsSubmitted, numberOfEvents);
+        XCTAssertEqual(successfulBatchSubmissions, 1);
+        XCTAssertNil(error);
+    }];
+}
+
+- (void) test1MultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreads {
+    [self validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreads:1];
+}
+
+- (void) test10MultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreads {
+    [self validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreads:10];
+}
+
+- (void) test50MultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreads {
+    [self validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreads:50];
+}
+
+- (void) test100MultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreads {
+    [self validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreads:100];
+}
+
+- (void) validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreads:(int) numberOfEvents {
+    __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:[NSString stringWithFormat:@"validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreads%d", numberOfEvents]
+                                                                         launchOptions:nil
+                                                                        maxStorageSize:AWSPinpointClientByteLimitDefault
+                                                                        sessionTimeout:0];
+    config.userDefaults = [NSUserDefaults standardUserDefaults];
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
+    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
+    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
+    [config.userDefaults synchronize];
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    [pinpoint.analyticsClient.eventRecorder setBatchRecordsByteLimit:10];
+    
+    XCTAssertNotNil(pinpoint.analyticsClient.eventRecorder);
+    
+    AWSPinpointEvent *event = [pinpoint.analyticsClient createEventWithEventType:@"TEST_EVENT_MULTIPLE_SUBMIT"];
+    [event addAttribute:@"Attr1" forKey:@"Attr1"];
+    [event addMetric:@(1) forKey:@"Mettr1"];
+    
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    
+    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNotNil(task.result);
+        //Should contain no events after removal
+        XCTAssertEqual([task.result count], 0);
+        return nil;
+    }] waitUntilFinished];
+    
+    for (int i = 0; i < numberOfEvents; i++) {
+        [[[pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            XCTAssertNil(task.error);
+            return nil;
+        }] waitUntilFinished];
+    }
+    
+    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        
+        XCTAssertEqual([task.result count], numberOfEvents);
+        
+        //Extract Event and compare event type and timestamp
+        AWSPinpointEvent *resultEvent = [task.result firstObject];
+        XCTAssertNotNil(resultEvent);
+        XCTAssertTrue([resultEvent.eventType isEqualToString:event.eventType]);
+        XCTAssertEqual(resultEvent.eventTimestamp, event.eventTimestamp);
+        XCTAssertEqual([[resultEvent.allMetrics objectForKey:@"Mettr1"] intValue], @(1).intValue);
+        XCTAssertTrue([[resultEvent.allAttributes objectForKey:@"Attr1"] isEqualToString:@"Attr1"]);
+        return nil;
+    }] waitUntilFinished];
+    
+    __block int successfulBatchSubmissions = 0;
+    __block int successfulEventsSubmitted = 0;
+
+    [[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        if (!task.error) {
+            XCTAssertTrue([task.result isKindOfClass:[NSArray class]]);
+            successfulBatchSubmissions += 1;
+            successfulEventsSubmitted += [task.result count];
+            AWSDDLogInfo(@"Submitted batch with %lu events inside.", [task.result count]);
+        } else {
+            AWSDDLogError(@"Did not submit: %@", task.error.userInfo[@"message"]);
+        }
+        return nil;
+    }];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            if (!task.error) {
+                XCTAssertTrue([task.result isKindOfClass:[NSArray class]]);
+                successfulBatchSubmissions += 1;
+                successfulEventsSubmitted += [task.result count];
+                AWSDDLogInfo(@"Submitted batch with %lu events inside.", [task.result count]);
+            } else {
+                AWSDDLogError(@"Did not submit: %@", task.error.userInfo[@"message"]);
+            }
+            return nil;
+        }];
+    });
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        [[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            if (!task.error) {
+                XCTAssertTrue([task.result isKindOfClass:[NSArray class]]);
+                successfulBatchSubmissions += 1;
+                successfulEventsSubmitted += [task.result count];
+                AWSDDLogInfo(@"Submitted batch with %lu events inside.", [task.result count]);
+            } else {
+                AWSDDLogError(@"Did not submit: %@", task.error.userInfo[@"message"]);
+            }
+            return nil;
+        }];
+    });
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        [[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            if (!task.error) {
+                XCTAssertTrue([task.result isKindOfClass:[NSArray class]]);
+                successfulBatchSubmissions += 1;
+                successfulEventsSubmitted += [task.result count];
+                AWSDDLogInfo(@"Submitted batch with %lu events inside.", [task.result count]);
+            } else {
+                AWSDDLogError(@"Did not submit: %@", task.error.userInfo[@"message"]);
+            }
+            return nil;
+        }];
+    });
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        [[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            if (!task.error) {
+                XCTAssertTrue([task.result isKindOfClass:[NSArray class]]);
+                successfulBatchSubmissions += 1;
+                successfulEventsSubmitted += [task.result count];
+                AWSDDLogInfo(@"Submitted batch with %lu events inside.", [task.result count]);
+            } else {
+                AWSDDLogError(@"Did not submit: %@", task.error.userInfo[@"message"]);
+            }
+            return nil;
+        }];
+    });
+    
+    int timeout = numberOfEvents/2;
+    if (timeout < 10) {
+        timeout = 10;
+    }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            XCTAssertFalse(pinpoint.analyticsClient.eventRecorder.submissionInProgress);
+            XCTAssertNotNil(task.result);
+            //Should contain no events after successful submission
+            XCTAssertEqual([task.result count], 0);
+            [expectation fulfill];
+            return nil;
+        }];
+    });
+    
+    [self waitForExpectationsWithTimeout:(timeout + 1) handler:^(NSError * _Nullable error) {
+        XCTAssertEqual(successfulEventsSubmitted, numberOfEvents);
+        XCTAssertEqual(successfulBatchSubmissions, 1);
+        XCTAssertNil(error);
+    }];
+}
+
+- (void) test1MultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreadsThenRecordMoreEventsAndSubmitAgain {
+    [self validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreadsThenRecordMoreEventsAndSubmitAgain:1];
+}
+
+- (void) test10MultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreadsThenRecordMoreEventsAndSubmitAgain {
+    [self validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreadsThenRecordMoreEventsAndSubmitAgain:10];
+}
+
+- (void) test50MultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreadsThenRecordMoreEventsAndSubmitAgain {
+    [self validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreadsThenRecordMoreEventsAndSubmitAgain:50];
+}
+
+- (void) test100ultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreadsThenRecordMoreEventsAndSubmitAgain {
+    [self validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreadsThenRecordMoreEventsAndSubmitAgain:100];
+}
+
+- (void) validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreadsThenRecordMoreEventsAndSubmitAgain:(int) numberOfEvents {
+    __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:[NSString stringWithFormat:@"validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreads%d", numberOfEvents]
+                                                                         launchOptions:nil
+                                                                        maxStorageSize:AWSPinpointClientByteLimitDefault
+                                                                        sessionTimeout:0];
+    config.userDefaults = [NSUserDefaults standardUserDefaults];
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
+    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
+    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
+    [config.userDefaults synchronize];
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    [pinpoint.analyticsClient.eventRecorder setBatchRecordsByteLimit:10];
+    
+    XCTAssertNotNil(pinpoint.analyticsClient.eventRecorder);
+    
+    AWSPinpointEvent *event = [pinpoint.analyticsClient createEventWithEventType:@"TEST_EVENT_MULTIPLE_SUBMIT"];
+    [event addAttribute:@"Attr1" forKey:@"Attr1"];
+    [event addMetric:@(1) forKey:@"Mettr1"];
+    
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    
+    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNotNil(task.result);
+        //Should contain no events after removal
+        XCTAssertEqual([task.result count], 0);
+        return nil;
+    }] waitUntilFinished];
+    
+    for (int i = 0; i < numberOfEvents; i++) {
+        [[[pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            XCTAssertNil(task.error);
+            return nil;
+        }] waitUntilFinished];
+    }
+    
+    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        
+        XCTAssertEqual([task.result count], numberOfEvents);
+        
+        //Extract Event and compare event type and timestamp
+        AWSPinpointEvent *resultEvent = [task.result firstObject];
+        XCTAssertNotNil(resultEvent);
+        XCTAssertTrue([resultEvent.eventType isEqualToString:event.eventType]);
+        XCTAssertEqual(resultEvent.eventTimestamp, event.eventTimestamp);
+        XCTAssertEqual([[resultEvent.allMetrics objectForKey:@"Mettr1"] intValue], @(1).intValue);
+        XCTAssertTrue([[resultEvent.allAttributes objectForKey:@"Attr1"] isEqualToString:@"Attr1"]);
+        return nil;
+    }] waitUntilFinished];
+    
+    __block int successfulEventsSubmitted = 0;
+    
+    [[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        if (!task.error) {
+            XCTAssertTrue([task.result isKindOfClass:[NSArray class]]);
+            successfulEventsSubmitted += [task.result count];
+            AWSDDLogInfo(@"Submitted batch with %lu events inside.", [task.result count]);
+            AWSPinpointEvent *secondEvent = [pinpoint.analyticsClient createEventWithEventType:@"SECOND_TEST_EVENT_MULTIPLE_SUBMIT"];
+            [secondEvent addAttribute:@"Attr1" forKey:@"Attr1"];
+            [secondEvent addMetric:@(1) forKey:@"Mettr1"];    //Record more events at submission time
+            for (int i = 0; i < numberOfEvents; i++) {
+                [[pinpoint.analyticsClient.eventRecorder saveEvent:secondEvent] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+                    XCTAssertNil(task.error);
+                    [[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+                        if (!task.error) {
+                            XCTAssertTrue([task.result isKindOfClass:[NSArray class]]);
+                            successfulEventsSubmitted += [task.result count];
+                            AWSDDLogInfo(@"Submitted batch with %lu events inside.", [task.result count]);
+                            [[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+                                XCTAssertFalse(pinpoint.analyticsClient.eventRecorder.submissionInProgress);
+                                XCTAssertNotNil(task.result);
+                                //Should contain no events after submission
+                                XCTAssertEqual([task.result count], 0);
+                                [expectation fulfill];
+                                return nil;
+                            }];
+                        } else {
+                            AWSDDLogError(@"Did not submit: %@", task.error.userInfo[@"message"]);
+                        }
+                        return nil;
+                    }];
+                    return nil;
+                }];
+            }
+            
+        } else {
+            AWSDDLogError(@"Did not submit: %@", task.error.userInfo[@"message"]);
+        }
+        return nil;
+    }];
+    
+    int timeout = numberOfEvents/2;
+    if (timeout < 10) {
+        timeout = 10;
+    }
+    
+    [self waitForExpectationsWithTimeout:(timeout + 1) handler:^(NSError * _Nullable error) {
+        XCTAssertEqual(successfulEventsSubmitted, numberOfEvents * 2);
+        XCTAssertNil(error);
+    }];
 }
 
 @end
