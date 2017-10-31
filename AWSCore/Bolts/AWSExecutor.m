@@ -51,7 +51,7 @@ __attribute__((noinline)) static size_t remaining_stack_size(size_t *restrict to
     static AWSExecutor *defaultExecutor = NULL;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-      defaultExecutor = [self executorWithBlock:^void(void(^block)(void)) {
+        defaultExecutor = [self executorWithBlock:^void(void(^block)(void)) {
             // We prefer to run everything possible immediately, so that there is callstack information
             // when debugging. However, we don't want the stack to get too deep, so if the remaining stack space
             // is less than 10% of the total space, we dispatch to another GCD queue.
@@ -74,7 +74,7 @@ __attribute__((noinline)) static size_t remaining_stack_size(size_t *restrict to
     static AWSExecutor *immediateExecutor = NULL;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-      immediateExecutor = [self executorWithBlock:^void(void(^block)(void)) {
+        immediateExecutor = [self executorWithBlock:^void(void(^block)(void)) {
             block();
         }];
     });
@@ -85,7 +85,7 @@ __attribute__((noinline)) static size_t remaining_stack_size(size_t *restrict to
     static AWSExecutor *mainThreadExecutor = NULL;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-      mainThreadExecutor = [self executorWithBlock:^void(void(^block)(void)) {
+        mainThreadExecutor = [self executorWithBlock:^void(void(^block)(void)) {
             if (![NSThread isMainThread]) {
                 dispatch_async(dispatch_get_main_queue(), block);
             } else {
@@ -103,13 +103,13 @@ __attribute__((noinline)) static size_t remaining_stack_size(size_t *restrict to
 }
 
 + (instancetype)executorWithDispatchQueue:(dispatch_queue_t)queue {
-  return [self executorWithBlock:^void(void(^block)(void)) {
+    return [self executorWithBlock:^void(void(^block)(void)) {
         dispatch_async(queue, block);
     }];
 }
 
 + (instancetype)executorWithOperationQueue:(NSOperationQueue *)queue {
-  return [self executorWithBlock:^void(void(^block)(void)) {
+    return [self executorWithBlock:^void(void(^block)(void)) {
         [queue addOperation:[NSBlockOperation blockOperationWithBlock:block]];
     }];
 }

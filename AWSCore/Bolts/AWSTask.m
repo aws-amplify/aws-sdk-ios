@@ -303,7 +303,7 @@ NSString *const AWSTaskMultipleErrorsUserInfoKey = @"errors";
         [self.condition lock];
         [self.condition broadcast];
         [self.condition unlock];
-      for (void (^callback)(void) in self.callbacks) {
+        for (void (^callback)(void) in self.callbacks) {
             callback();
         }
         [self.callbacks removeAllObjects];

@@ -724,7 +724,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 
 + (void)interceptApplication:(UIApplication *)application
 handleEventsForBackgroundURLSession:(NSString *)identifier
-           completionHandler:(void(^)(void))completionHandler {
+           completionHandler:(void (^)(void))completionHandler {
     // For the default service client
     if ([identifier isEqualToString:_defaultS3TransferUtility.sessionIdentifier]) {
         _defaultS3TransferUtility.backgroundURLSessionCompletionHandler = completionHandler;
