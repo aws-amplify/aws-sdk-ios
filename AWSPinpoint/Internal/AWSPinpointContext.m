@@ -37,6 +37,10 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
 
 @end
 
+@interface AWSPinpointConfiguration()
+@property (nonnull, strong) NSUserDefaults *userDefaults;
+@end
+
 @implementation AWSPinpointClientContext
 
 - (NSDictionary *)dictionaryRepresentation {
@@ -110,16 +114,16 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
                 AWSDDLogVerbose(@"Fallback: merge UniqueId to NSUserDefaults: %@", deviceUniqueId);
                 //Failed to save to Keychain, fallback to NSUserDefaults
                 deviceUniqueId = legacyUniqueId;
-                [[NSUserDefaults standardUserDefaults] setObject:deviceUniqueId forKey:AWSPinpointContextKeychainUniqueIdKey];
-                [[NSUserDefaults standardUserDefaults] synchronize];
+                [self.configuration.userDefaults setObject:deviceUniqueId forKey:AWSPinpointContextKeychainUniqueIdKey];
+                [self.configuration.userDefaults synchronize];
                 //Delete old file
                 if ([self removeLegacyFileWithConfiguration:self.configuration]) {
                     AWSDDLogVerbose(@"Cannot remove legacy preferences file.");
                 }
             }
         } else {
-            if ([[NSUserDefaults standardUserDefaults] stringForKey:AWSPinpointContextKeychainUniqueIdKey]) {
-                deviceUniqueId = [[NSUserDefaults standardUserDefaults] stringForKey:AWSPinpointContextKeychainUniqueIdKey];
+            if ([self.configuration.userDefaults stringForKey:AWSPinpointContextKeychainUniqueIdKey]) {
+                deviceUniqueId = [self.configuration.userDefaults stringForKey:AWSPinpointContextKeychainUniqueIdKey];
                 //Try and resave to Keychain
                 static dispatch_once_t onceToken;
                 dispatch_once(&onceToken, ^{
@@ -129,9 +133,9 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
                 if ([self.keychain stringForKey:AWSPinpointContextKeychainUniqueIdKey]) {
                     AWSDDLogVerbose(@"Merged Pinpoint UniqueId to Keychain: %@", deviceUniqueId);
                     //Successful save to keychain, delete from UserDefaults
-                    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:AWSPinpointContextKeychainUniqueIdKey];
-                    [[NSUserDefaults standardUserDefaults] removeObjectForKey:AWSPinpointContextKeychainUniqueIdKey];
-                    [[NSUserDefaults standardUserDefaults] synchronize];
+                    [self.configuration.userDefaults setObject:nil forKey:AWSPinpointContextKeychainUniqueIdKey];
+                    [self.configuration.userDefaults removeObjectForKey:AWSPinpointContextKeychainUniqueIdKey];
+                    [self.configuration.userDefaults synchronize];
                 }
             } else {
                 //Create new ID
@@ -148,8 +152,8 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
                     AWSDDLogVerbose(@"Fallback: created new Pinpoint UniqueId and saved to NSUserDefaults: %@", deviceUniqueId);
                     //Fallback to save to UserDefaults
                     deviceUniqueId = [[NSUUID UUID] UUIDString];
-                    [[NSUserDefaults standardUserDefaults] setObject:deviceUniqueId forKey:AWSPinpointContextKeychainUniqueIdKey];
-                    [[NSUserDefaults standardUserDefaults] synchronize];
+                    [self.configuration.userDefaults setObject:deviceUniqueId forKey:AWSPinpointContextKeychainUniqueIdKey];
+                    [self.configuration.userDefaults synchronize];
                 }
             }
         }
@@ -162,7 +166,6 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
         _configuration = configuration;
         _keychain = [AWSUICKeyChainStore keyChainStoreWithService:AWSPinpointContextKeychainService];
         _uniqueId = [self retrieveUniqueId];
-        
         AWSPinpointEnvironment *environment = configuration.environment;
         _clientContext = [AWSPinpointClientContext new];
         _clientContext.appVersion = environment.appVersion;

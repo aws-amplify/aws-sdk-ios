@@ -64,6 +64,19 @@ FOUNDATION_EXPORT NSString * const AWSPinpointCampaignKey;
 - (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
                        fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler;
 
+/**
+ Intercepts the `- application:didReceiveRemoteNotification:fetchCompletionHandler:shouldHandleNotificationDeepLink:` application delegate.
+
+ Targeting must intercept this callback in order to report campaign analytics correctly. Optionally specify 'shouldHandleNotificationDeepLink' to control whether or not the notification manager should attempt to open the remote notification deeplink, if present.
+
+ @param userInfo        A dictionary that contains information related to the remote notification, potentially including a badge number for the app icon, an alert sound, an alert message to display to the user, a notification identifier, and custom data. The provider originates it as a JSON-defined dictionary that iOS converts to an `NSDictionary` object; the dictionary may contain only property-list objects plus `NSNull`.
+ @param handler         The block to execute when the download operation is complete. When calling this block, pass in the fetch result value that best describes the results of your download operation. You must call this handler and should do so as soon as possible. For a list of possible values, see the UIBackgroundFetchResult type.
+ @param handleDeepLink  Whether or not notification manager should attempt to open the remote notification deeplink, if present
+ */
+- (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
+                       fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
+             shouldHandleNotificationDeepLink:(BOOL) handleDeepLink;
+
 @end
 
 NS_ASSUME_NONNULL_END

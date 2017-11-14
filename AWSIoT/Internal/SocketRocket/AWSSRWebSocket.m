@@ -269,8 +269,7 @@ static __strong NSData *CRLFCRLF;
 
 - (id)initWithURLRequest:(NSURLRequest *)request protocols:(NSArray *)protocols allowsUntrustedSSLCertificates:(BOOL)allowsUntrustedSSLCertificates;
 {
-    self = [super init];
-    if (self) {
+    if (self = [super init]) {
         assert(request.URL);
         _url = request.URL;
         _urlRequest = request;
@@ -1636,8 +1635,7 @@ static const size_t SRFrameHeaderOverhead = 32;
 
 - (id)initWithBufferCapacity:(NSUInteger)poolSize;
 {
-    self = [super init];
-    if (self) {
+    if (self = [super init]) {
         _poolSize = poolSize;
         _bufferedConsumers = [[NSMutableArray alloc] initWithCapacity:poolSize];
     }
@@ -1838,8 +1836,7 @@ static NSRunLoop *networkRunLoop = nil;
 
 - (id)init
 {
-    self = [super init];
-    if (self) {
+    if (self = [super init]) {
         _waitGroup = dispatch_group_create();
         dispatch_group_enter(_waitGroup);
     }

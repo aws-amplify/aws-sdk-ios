@@ -38,7 +38,7 @@ static NSString *const AWSInfoS3TransferUtility = @"S3TransferUtility";
 @property (strong, nonatomic) NSString *sessionIdentifier;
 @property (strong, nonatomic) NSString *temporaryDirectoryPath;
 @property (strong, nonatomic) AWSSynchronizedMutableDictionary *taskDictionary;
-@property (copy, nonatomic) void (^backgroundURLSessionCompletionHandler)();
+@property (copy, nonatomic) void (^backgroundURLSessionCompletionHandler)(void);
 
 @end
 
@@ -117,6 +117,8 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                                                                credentialsProvider:serviceInfo.cognitoCredentialsProvider];
             NSNumber *accelerateModeEnabled = [serviceInfo.infoDictionary valueForKey:@"AccelerateModeEnabled"];
             transferUtilityConfiguration = [AWSS3TransferUtilityConfiguration new];
+            NSString *bucketName = [serviceInfo.infoDictionary valueForKey:@"Bucket"];
+            transferUtilityConfiguration.bucket = bucketName;
             transferUtilityConfiguration.accelerateModeEnabled = [accelerateModeEnabled boolValue];
         }
         
@@ -207,7 +209,8 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         [_configuration addUserAgentProductToken:AWSS3TransferUtilityUserAgent];
         
         _transferUtilityConfiguration = [transferUtilityConfiguration copy];
-        
+        _transferUtilityConfiguration.bucket = transferUtilityConfiguration.bucket;
+
         _preSignedURLBuilder = [[AWSS3PreSignedURLBuilder alloc] initWithConfiguration:_configuration];
         
         if (identifier) {
@@ -258,6 +261,19 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 #pragma mark - Upload methods
 
 - (AWSTask<AWSS3TransferUtilityUploadTask *> *)uploadData:(NSData *)data
+                                                      key:(NSString *)key
+                                              contentType:(NSString *)contentType
+                                               expression:(AWSS3TransferUtilityUploadExpression *)expression
+                                        completionHandler:(AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler {
+    return [self uploadData:data
+                     bucket:self.transferUtilityConfiguration.bucket
+                        key:key
+                contentType:contentType
+                 expression:expression
+          completionHandler:completionHandler];
+}
+
+- (AWSTask<AWSS3TransferUtilityUploadTask *> *)uploadData:(NSData *)data
                                                    bucket:(NSString *)bucket
                                                       key:(NSString *)key
                                               contentType:(NSString *)contentType
@@ -291,17 +307,35 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 }
 
 - (AWSTask<AWSS3TransferUtilityUploadTask *> *)uploadFile:(NSURL *)fileURL
+                                                      key:(NSString *)key
+                                              contentType:(NSString *)contentType
+                                               expression:(AWSS3TransferUtilityUploadExpression *)expression
+                                        completionHandler:(AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler {
+    return [self uploadFile:fileURL
+                     bucket:self.transferUtilityConfiguration.bucket
+                        key:key
+                contentType:contentType
+                 expression:expression
+          completionHandler:completionHandler];
+}
+
+- (AWSTask<AWSS3TransferUtilityUploadTask *> *)uploadFile:(NSURL *)fileURL
                                                    bucket:(NSString *)bucket
                                                       key:(NSString *)key
                                               contentType:(NSString *)contentType
                                                expression:(AWSS3TransferUtilityUploadExpression *)expression
                                         completionHandler:(AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler {
-    if ([bucket length] == 0) {
+    if (!bucket || [bucket length] == 0) {
         NSInteger errorCode = (self.transferUtilityConfiguration.isAccelerateModeEnabled) ?
         AWSS3PresignedURLErrorInvalidBucketNameForAccelerateModeEnabled : AWSS3PresignedURLErrorInvalidBucketName;
+        
+        NSString *errorMessage = @"Invalid bucket specified. Please specify a bucket name or configure the bucket property in `AWSS3TransferUtilityConfiguration`.";
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:errorMessage
+                                               forKey:NSLocalizedDescriptionKey];
+        
         return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
                                                           code:errorCode
-                                                      userInfo:nil]];
+                                                      userInfo:userInfo]];
     }
     
     NSString *filePath = [fileURL path];
@@ -367,12 +401,33 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 
 #pragma mark - Download methods
 
+- (AWSTask<AWSS3TransferUtilityDownloadTask *> *)downloadDataForKey:(NSString *)key
+                                                             expression:(AWSS3TransferUtilityDownloadExpression *)expression
+                                                      completionHandler:(AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler {
+    return [self internalDownloadToURL:nil
+                                bucket:self.transferUtilityConfiguration.bucket
+                                   key:key
+                            expression:expression
+                     completionHandler:completionHandler];
+}
+
 - (AWSTask<AWSS3TransferUtilityDownloadTask *> *)downloadDataFromBucket:(NSString *)bucket
                                                                     key:(NSString *)key
                                                              expression:(AWSS3TransferUtilityDownloadExpression *)expression
                                                       completionHandler:(AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler {
     return [self internalDownloadToURL:nil
                                 bucket:bucket
+                                   key:key
+                            expression:expression
+                     completionHandler:completionHandler];
+}
+
+- (AWSTask<AWSS3TransferUtilityDownloadTask *> *)downloadToURL:(NSURL *)fileURL
+                                                           key:(NSString *)key
+                                                    expression:(AWSS3TransferUtilityDownloadExpression *)expression
+                                             completionHandler:(AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler {
+    return [self internalDownloadToURL:fileURL
+                                bucket:self.transferUtilityConfiguration.bucket
                                    key:key
                             expression:expression
                      completionHandler:completionHandler];
@@ -395,6 +450,18 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                                                                    key:(NSString *)key
                                                             expression:(AWSS3TransferUtilityDownloadExpression *)expression
                                                      completionHandler:(AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler {
+    if (!bucket || [bucket length] == 0) {
+        NSInteger errorCode = (self.transferUtilityConfiguration.isAccelerateModeEnabled) ?
+        AWSS3PresignedURLErrorInvalidBucketNameForAccelerateModeEnabled : AWSS3PresignedURLErrorInvalidBucketName;
+        NSString *errorMessage = @"Invalid bucket specified. Please specify a bucket name or configure the bucket property in `AWSS3TransferUtilityConfiguration`.";
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:errorMessage
+                                               forKey:NSLocalizedDescriptionKey];
+        
+        return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
+                                                          code:errorCode
+                                                      userInfo:userInfo]];
+    }
+    
     if (!expression) {
         expression = [AWSS3TransferUtilityDownloadExpression new];
     }
@@ -654,7 +721,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 
 + (void)interceptApplication:(UIApplication *)application
 handleEventsForBackgroundURLSession:(NSString *)identifier
-           completionHandler:(void (^)())completionHandler {
+           completionHandler:(void (^)(void))completionHandler {
     // For the default service client
     if ([identifier isEqualToString:_defaultS3TransferUtility.sessionIdentifier]) {
         _defaultS3TransferUtility.backgroundURLSessionCompletionHandler = completionHandler;

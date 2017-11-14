@@ -16,7 +16,7 @@
 #import "AWSPollySynthesizeSpeechURLBuilder.h"
 
 static NSString *const AWSInfoPollySynthesizeSpeechURLBuilder = @"PollySynthesizeSpeechUrlBuilder";
-static NSString *const AWSPollySDKVersion = @"2.5.9";
+static NSString *const AWSPollySDKVersion = @"2.6.5";
 
 NSString *const AWSPollySynthesizeSpeechURLBuilderErrorDomain = @"com.amazonaws.AWSPollySynthesizeSpeechURLBuilderErrorDomain";
 NSString *const AWSPollyPresignedUrlPath = @"v1/speech";
@@ -260,6 +260,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             return @"Kendra";
         case AWSPollyVoiceIdKimberly:
             return @"Kimberly";
+        case AWSPollyVoiceIdMatthew:
+            return @"Matthew";
         case AWSPollyVoiceIdSalli:
             return @"Salli";
         case AWSPollyVoiceIdConchita:
@@ -320,6 +322,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             return @"Filiz";
         case AWSPollyVoiceIdVicki:
             return @"Vicki";
+        case AWSPollyVoiceIdTakumi:
+            return @"Takumi";
         default:
             return nil;
     }

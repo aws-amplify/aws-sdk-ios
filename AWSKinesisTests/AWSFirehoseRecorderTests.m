@@ -191,15 +191,46 @@ NSString *const AWSFirehoseRecorderTestStream = @"test-permanent-firehose";
     FirehoseRecorder.diskAgeLimit = 0.0;
 }
 
+- (void)testSubmitAllRecordsReturnsErrorOnInvalidPoolId {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+
+    NSString *poolId = @"invalidPoolId";
+    AWSCognitoCredentialsProvider *invalidCreds = \
+        [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                   identityPoolId:poolId];
+
+    AWSServiceConfiguration *configuration = \
+        [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                    credentialsProvider:invalidCreds];
+
+    [AWSFirehoseRecorder registerFirehoseRecorderWithConfiguration:configuration
+                                                            forKey:poolId];
+    AWSFirehoseRecorder *firehoseRecorder = [AWSFirehoseRecorder FirehoseRecorderForKey:poolId];
+    [firehoseRecorder saveRecord:[@"testString" dataUsingEncoding:NSUTF8StringEncoding]
+                      streamName:@"streamName"];
+
+    AWSTask *submitTask = firehoseRecorder.submitAllRecords;
+
+    [submitTask continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error, @"Task should have an error due to invalid pool id.");
+        [expectation fulfill];
+        return nil;
+    }];
+
+    [self waitForExpectationsWithTimeout:5 handler:^(NSError * _Nullable error) {
+        XCTAssertNil(error);
+    }];
+}
+
 - (void)testAll {
     AWSFirehoseRecorder *firehoseRecorder = [AWSFirehoseRecorder defaultFirehoseRecorder];
-
+    
     NSMutableArray *tasks = [NSMutableArray new];
     for (int32_t i = 0; i < 1234; i++) {
         [tasks addObject:[firehoseRecorder saveRecord:[[NSString stringWithFormat:@"TestString-%02d\n", i] dataUsingEncoding:NSUTF8StringEncoding]
                                            streamName:AWSFirehoseRecorderTestStream]];
     }
-
+    
     [[[[AWSTask taskForCompletionOfAllTasks:tasks] continueWithSuccessBlock:^id(AWSTask *task) {
         sleep(10);
         return [firehoseRecorder submitAllRecords];

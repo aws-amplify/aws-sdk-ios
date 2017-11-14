@@ -177,8 +177,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [[self.firehose putRecordBatch:putRecordBatchInput] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             AWSDDLogError(@"Error: [%@]", task.error);
-            if ([task.error.domain isEqualToString:NSURLErrorDomain]) {
+            const NSArray *stopErrorDomains = @[NSURLErrorDomain, AWSCognitoIdentityErrorDomain];
+
+            if (task.error && [stopErrorDomains containsObject:task.error.domain]) {
                 *stop = YES;
+                return [AWSTask taskWithError:task.error];
             }
         }
         if (task.result) {

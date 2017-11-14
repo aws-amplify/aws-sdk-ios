@@ -61,6 +61,11 @@ FOUNDATION_EXPORT NSString *const AWSPinpointEventByteThresholdReachedNotificati
 @property (nonatomic, assign) NSTimeInterval diskAgeLimit;
 
 /**
+ Indicates if submission of events is in progress, only one submission of events is allowed at a time.
+ */
+@property (nonatomic, assign) BOOL submissionInProgress;
+
+/**
  The maxium batch data size in bytes. The default value is 512KB. The maximum is 4MB.
  */
 @property (nonatomic, assign) NSUInteger batchRecordsByteLimit;

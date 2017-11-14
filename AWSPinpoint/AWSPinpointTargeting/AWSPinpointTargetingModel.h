@@ -55,8 +55,20 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingCampaignStatus) {
 
 typedef NS_ENUM(NSInteger, AWSPinpointTargetingChannelType) {
     AWSPinpointTargetingChannelTypeUnknown,
-    AWSPinpointTargetingChannelTypeApns,
     AWSPinpointTargetingChannelTypeGcm,
+    AWSPinpointTargetingChannelTypeApns,
+    AWSPinpointTargetingChannelTypeApnsSandbox,
+    AWSPinpointTargetingChannelTypeAdm,
+    AWSPinpointTargetingChannelTypeSms,
+    AWSPinpointTargetingChannelTypeEmail,
+};
+
+typedef NS_ENUM(NSInteger, AWSPinpointTargetingDeliveryStatus) {
+    AWSPinpointTargetingDeliveryStatusUnknown,
+    AWSPinpointTargetingDeliveryStatusSuccessful,
+    AWSPinpointTargetingDeliveryStatusThrottled,
+    AWSPinpointTargetingDeliveryStatusTemporaryFailure,
+    AWSPinpointTargetingDeliveryStatusPermanentFailure,
 };
 
 typedef NS_ENUM(NSInteger, AWSPinpointTargetingDimensionType) {
@@ -99,6 +111,12 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingJobStatus) {
     AWSPinpointTargetingJobStatusFailed,
 };
 
+typedef NS_ENUM(NSInteger, AWSPinpointTargetingMessageType) {
+    AWSPinpointTargetingMessageTypeUnknown,
+    AWSPinpointTargetingMessageTypeTransactional,
+    AWSPinpointTargetingMessageTypePromotional,
+};
+
 typedef NS_ENUM(NSInteger, AWSPinpointTargetingRecencyType) {
     AWSPinpointTargetingRecencyTypeUnknown,
     AWSPinpointTargetingRecencyTypeActive,
@@ -113,12 +131,18 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 @class AWSPinpointTargetingAPNSChannelRequest;
 @class AWSPinpointTargetingAPNSChannelResponse;
+@class AWSPinpointTargetingAPNSMessage;
+@class AWSPinpointTargetingAPNSSandboxChannelRequest;
+@class AWSPinpointTargetingAPNSSandboxChannelResponse;
 @class AWSPinpointTargetingActivitiesResponse;
 @class AWSPinpointTargetingActivityResponse;
+@class AWSPinpointTargetingAddressConfiguration;
 @class AWSPinpointTargetingApplicationSettingsResource;
 @class AWSPinpointTargetingAttributeDimension;
+@class AWSPinpointTargetingCampaignEmailMessage;
 @class AWSPinpointTargetingCampaignLimits;
 @class AWSPinpointTargetingCampaignResponse;
+@class AWSPinpointTargetingCampaignSmsMessage;
 @class AWSPinpointTargetingCampaignState;
 @class AWSPinpointTargetingCampaignsResponse;
 @class AWSPinpointTargetingCreateCampaignRequest;
@@ -127,14 +151,27 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @class AWSPinpointTargetingCreateImportJobResponse;
 @class AWSPinpointTargetingCreateSegmentRequest;
 @class AWSPinpointTargetingCreateSegmentResponse;
+@class AWSPinpointTargetingDefaultMessage;
+@class AWSPinpointTargetingDefaultPushNotificationMessage;
 @class AWSPinpointTargetingDeleteApnsChannelRequest;
 @class AWSPinpointTargetingDeleteApnsChannelResponse;
+@class AWSPinpointTargetingDeleteApnsSandboxChannelRequest;
+@class AWSPinpointTargetingDeleteApnsSandboxChannelResponse;
 @class AWSPinpointTargetingDeleteCampaignRequest;
 @class AWSPinpointTargetingDeleteCampaignResponse;
+@class AWSPinpointTargetingDeleteEmailChannelRequest;
+@class AWSPinpointTargetingDeleteEmailChannelResponse;
+@class AWSPinpointTargetingDeleteEventStreamRequest;
+@class AWSPinpointTargetingDeleteEventStreamResponse;
 @class AWSPinpointTargetingDeleteGcmChannelRequest;
 @class AWSPinpointTargetingDeleteGcmChannelResponse;
 @class AWSPinpointTargetingDeleteSegmentRequest;
 @class AWSPinpointTargetingDeleteSegmentResponse;
+@class AWSPinpointTargetingDeleteSmsChannelRequest;
+@class AWSPinpointTargetingDeleteSmsChannelResponse;
+@class AWSPinpointTargetingDirectMessageConfiguration;
+@class AWSPinpointTargetingEmailChannelRequest;
+@class AWSPinpointTargetingEmailChannelResponse;
 @class AWSPinpointTargetingEndpointBatchItem;
 @class AWSPinpointTargetingEndpointBatchRequest;
 @class AWSPinpointTargetingEndpointDemographic;
@@ -142,10 +179,14 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @class AWSPinpointTargetingEndpointRequest;
 @class AWSPinpointTargetingEndpointResponse;
 @class AWSPinpointTargetingEndpointUser;
+@class AWSPinpointTargetingEventStream;
 @class AWSPinpointTargetingGCMChannelRequest;
 @class AWSPinpointTargetingGCMChannelResponse;
+@class AWSPinpointTargetingGCMMessage;
 @class AWSPinpointTargetingGetApnsChannelRequest;
 @class AWSPinpointTargetingGetApnsChannelResponse;
+@class AWSPinpointTargetingGetApnsSandboxChannelRequest;
+@class AWSPinpointTargetingGetApnsSandboxChannelResponse;
 @class AWSPinpointTargetingGetApplicationSettingsRequest;
 @class AWSPinpointTargetingGetApplicationSettingsResponse;
 @class AWSPinpointTargetingGetCampaignActivitiesRequest;
@@ -158,8 +199,12 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @class AWSPinpointTargetingGetCampaignVersionsResponse;
 @class AWSPinpointTargetingGetCampaignsRequest;
 @class AWSPinpointTargetingGetCampaignsResponse;
+@class AWSPinpointTargetingGetEmailChannelRequest;
+@class AWSPinpointTargetingGetEmailChannelResponse;
 @class AWSPinpointTargetingGetEndpointRequest;
 @class AWSPinpointTargetingGetEndpointResponse;
+@class AWSPinpointTargetingGetEventStreamRequest;
+@class AWSPinpointTargetingGetEventStreamResponse;
 @class AWSPinpointTargetingGetGcmChannelRequest;
 @class AWSPinpointTargetingGetGcmChannelResponse;
 @class AWSPinpointTargetingGetImportJobRequest;
@@ -176,6 +221,8 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @class AWSPinpointTargetingGetSegmentVersionsResponse;
 @class AWSPinpointTargetingGetSegmentsRequest;
 @class AWSPinpointTargetingGetSegmentsResponse;
+@class AWSPinpointTargetingGetSmsChannelRequest;
+@class AWSPinpointTargetingGetSmsChannelResponse;
 @class AWSPinpointTargetingImportJobRequest;
 @class AWSPinpointTargetingImportJobResource;
 @class AWSPinpointTargetingImportJobResponse;
@@ -183,8 +230,16 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @class AWSPinpointTargetingMessage;
 @class AWSPinpointTargetingMessageBody;
 @class AWSPinpointTargetingMessageConfiguration;
+@class AWSPinpointTargetingMessageRequest;
+@class AWSPinpointTargetingMessageResponse;
+@class AWSPinpointTargetingMessageResult;
+@class AWSPinpointTargetingPutEventStreamRequest;
+@class AWSPinpointTargetingPutEventStreamResponse;
 @class AWSPinpointTargetingQuietTime;
 @class AWSPinpointTargetingRecencyDimension;
+@class AWSPinpointTargetingSMSChannelRequest;
+@class AWSPinpointTargetingSMSChannelResponse;
+@class AWSPinpointTargetingSMSMessage;
 @class AWSPinpointTargetingSchedule;
 @class AWSPinpointTargetingSegmentBehaviors;
 @class AWSPinpointTargetingSegmentDemographics;
@@ -193,14 +248,20 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @class AWSPinpointTargetingSegmentLocation;
 @class AWSPinpointTargetingSegmentResponse;
 @class AWSPinpointTargetingSegmentsResponse;
+@class AWSPinpointTargetingSendMessagesRequest;
+@class AWSPinpointTargetingSendMessagesResponse;
 @class AWSPinpointTargetingSetDimension;
 @class AWSPinpointTargetingTreatmentResource;
 @class AWSPinpointTargetingUpdateApnsChannelRequest;
 @class AWSPinpointTargetingUpdateApnsChannelResponse;
+@class AWSPinpointTargetingUpdateApnsSandboxChannelRequest;
+@class AWSPinpointTargetingUpdateApnsSandboxChannelResponse;
 @class AWSPinpointTargetingUpdateApplicationSettingsRequest;
 @class AWSPinpointTargetingUpdateApplicationSettingsResponse;
 @class AWSPinpointTargetingUpdateCampaignRequest;
 @class AWSPinpointTargetingUpdateCampaignResponse;
+@class AWSPinpointTargetingUpdateEmailChannelRequest;
+@class AWSPinpointTargetingUpdateEmailChannelResponse;
 @class AWSPinpointTargetingUpdateEndpointRequest;
 @class AWSPinpointTargetingUpdateEndpointResponse;
 @class AWSPinpointTargetingUpdateEndpointsBatchRequest;
@@ -209,13 +270,16 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @class AWSPinpointTargetingUpdateGcmChannelResponse;
 @class AWSPinpointTargetingUpdateSegmentRequest;
 @class AWSPinpointTargetingUpdateSegmentResponse;
+@class AWSPinpointTargetingUpdateSmsChannelRequest;
+@class AWSPinpointTargetingUpdateSmsChannelResponse;
 @class AWSPinpointTargetingWriteApplicationSettingsRequest;
 @class AWSPinpointTargetingWriteCampaignRequest;
+@class AWSPinpointTargetingWriteEventStream;
 @class AWSPinpointTargetingWriteSegmentRequest;
 @class AWSPinpointTargetingWriteTreatmentResource;
 
 /**
- 
+ Apple Push Notification Service channel definition.
  */
 @interface AWSPinpointTargetingAPNSChannelRequest : AWSModel
 
@@ -226,6 +290,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, strong) NSString * _Nullable certificate;
 
 /**
+ If the channel is enabled for sending messages.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
  The certificate private key.
  */
 @property (nonatomic, strong) NSString * _Nullable privateKey;
@@ -233,13 +302,13 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Apple Distribution Push Notification Service channel definition.
  */
 @interface AWSPinpointTargetingAPNSChannelResponse : AWSModel
 
 
 /**
- 
+ The ID of the application to which the channel applies.
  */
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
@@ -249,7 +318,12 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, strong) NSString * _Nullable creationDate;
 
 /**
- 
+ If the channel is enabled for sending messages.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ Channel ID. Not used, only for backwards compatibility.
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
@@ -281,7 +355,156 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ APNS Message.
+ */
+@interface AWSPinpointTargetingAPNSMessage : AWSModel
+
+
+/**
+ The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
+ */
+@property (nonatomic, assign) AWSPinpointTargetingAction action;
+
+/**
+ Include this key when you want the system to modify the badge of your app icon. If this key is not included in the dictionary, the badge is not changed. To remove the badge, set the value of this key to 0.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable badge;
+
+/**
+ The message body of the notification, the email body or the text message.
+ */
+@property (nonatomic, strong) NSString * _Nullable body;
+
+/**
+ Provide this key with a string value that represents the notification's type. This value corresponds to the value in the identifier property of one of your app's registered categories.
+ */
+@property (nonatomic, strong) NSString * _Nullable category;
+
+/**
+ The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable data;
+
+/**
+ The URL that points to a video used in the push notification.
+ */
+@property (nonatomic, strong) NSString * _Nullable mediaUrl;
+
+/**
+ The Raw JSON formatted string to be used as the payload. This value overrides the message.
+ */
+@property (nonatomic, strong) NSString * _Nullable rawContent;
+
+/**
+ Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable silentPush;
+
+/**
+ Include this key when you want the system to play a sound. The value of this key is the name of a sound file in your app's main bundle or in the Library/Sounds folder of your app's data container. If the sound file cannot be found, or if you specify defaultfor the value, the system plays the default alert sound.
+ */
+@property (nonatomic, strong) NSString * _Nullable sound;
+
+/**
+ Default message substitutions. Can be overridden by individual address substitutions.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSArray<NSString *> *> * _Nullable substitutions;
+
+/**
+ Provide this key with a string value that represents the app-specific identifier for grouping notifications. If you provide a Notification Content app extension, you can use this value to group your notifications together.
+ */
+@property (nonatomic, strong) NSString * _Nullable threadId;
+
+/**
+ The message title that displays above the message on the user's device.
+ */
+@property (nonatomic, strong) NSString * _Nullable title;
+
+/**
+ The URL to open in the user's mobile browser. Used if the value for Action is URL.
+ */
+@property (nonatomic, strong) NSString * _Nullable url;
+
+@end
+
+/**
+ Apple Development Push Notification Service channel definition.
+ */
+@interface AWSPinpointTargetingAPNSSandboxChannelRequest : AWSModel
+
+
+/**
+ The distribution certificate from Apple.
+ */
+@property (nonatomic, strong) NSString * _Nullable certificate;
+
+/**
+ If the channel is enabled for sending messages.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ The certificate private key.
+ */
+@property (nonatomic, strong) NSString * _Nullable privateKey;
+
+@end
+
+/**
+ Apple Development Push Notification Service channel definition.
+ */
+@interface AWSPinpointTargetingAPNSSandboxChannelResponse : AWSModel
+
+
+/**
+ Application id
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ When was this segment created
+ */
+@property (nonatomic, strong) NSString * _Nullable creationDate;
+
+/**
+ If the channel is enabled for sending messages.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ Channel ID. Not used, only for backwards compatibility.
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ Is this channel archived
+ */
+@property (nonatomic, strong) NSNumber * _Nullable isArchived;
+
+/**
+ Who last updated this entry
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModifiedBy;
+
+/**
+ Last date this was updated
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModifiedDate;
+
+/**
+ The platform type. Will be APNS.
+ */
+@property (nonatomic, strong) NSString * _Nullable platform;
+
+/**
+ Version of channel
+ */
+@property (nonatomic, strong) NSNumber * _Nullable version;
+
+@end
+
+/**
+ Activities for campaign.
  */
 @interface AWSPinpointTargetingActivitiesResponse : AWSModel
 
@@ -294,7 +517,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Activity definition
  */
 @interface AWSPinpointTargetingActivityResponse : AWSModel
 
@@ -345,6 +568,16 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, strong) NSNumber * _Nullable successfulEndpointCount;
 
 /**
+ The total number of timezones completed.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable timezonesCompletedCount;
+
+/**
+ The total number of unique timezones present in the segment.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable timezonesTotalCount;
+
+/**
  The total number of endpoints to which the campaign attempts to deliver messages.
  */
 @property (nonatomic, strong) NSNumber * _Nullable totalEndpointCount;
@@ -357,7 +590,45 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Address configuration.
+ */
+@interface AWSPinpointTargetingAddressConfiguration : AWSModel
+
+
+/**
+ Body override. If specified will override default body.
+ */
+@property (nonatomic, strong) NSString * _Nullable bodyOverride;
+
+/**
+ Type of channel of this address
+ */
+@property (nonatomic, assign) AWSPinpointTargetingChannelType channelType;
+
+/**
+ A map of custom attributes to attributes to be attached to the message for this address. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable context;
+
+/**
+ The Raw JSON formatted string to be used as the payload. This value overrides the message.
+ */
+@property (nonatomic, strong) NSString * _Nullable rawContent;
+
+/**
+ A map of substitution values for the message to be merged with the DefaultMessage's substitutions. Substitutions on this map take precedence over the all other substitutions.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSArray<NSString *> *> * _Nullable substitutions;
+
+/**
+ Title override. If specified will override default title if applicable.
+ */
+@property (nonatomic, strong) NSString * _Nullable titleOverride;
+
+@end
+
+/**
+ Application settings.
  */
 @interface AWSPinpointTargetingApplicationSettingsResource : AWSModel
 
@@ -385,13 +656,13 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Custom attibute dimension
  */
 @interface AWSPinpointTargetingAttributeDimension : AWSModel
 
 
 /**
- The type of dimension: INCLUSIVE – Endpoints that match the criteria are included in the segment. EXCLUSIVE – Endpoints that match the criteria are excluded from the segment.
+ The type of dimension: INCLUSIVE - Endpoints that match the criteria are included in the segment. EXCLUSIVE - Endpoints that match the criteria are excluded from the segment.
  */
 @property (nonatomic, assign) AWSPinpointTargetingAttributeType attributeType;
 
@@ -403,7 +674,30 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ The email message configuration.
+ */
+@interface AWSPinpointTargetingCampaignEmailMessage : AWSModel
+
+
+/**
+ The email text body.
+ */
+@property (nonatomic, strong) NSString * _Nullable body;
+
+/**
+ The email html body.
+ */
+@property (nonatomic, strong) NSString * _Nullable htmlBody;
+
+/**
+ The email title (Or subject).
+ */
+@property (nonatomic, strong) NSString * _Nullable title;
+
+@end
+
+/**
+ Campaign Limits are used to limit the number of messages that can be sent to a user.
  */
 @interface AWSPinpointTargetingCampaignLimits : AWSModel
 
@@ -421,7 +715,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Campaign definition
  */
 @interface AWSPinpointTargetingCampaignResponse : AWSModel
 
@@ -524,7 +818,30 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ SMS message configuration.
+ */
+@interface AWSPinpointTargetingCampaignSmsMessage : AWSModel
+
+
+/**
+ The SMS text body.
+ */
+@property (nonatomic, strong) NSString * _Nullable body;
+
+/**
+ Is this is a transactional SMS message, otherwise a promotional message.
+ */
+@property (nonatomic, assign) AWSPinpointTargetingMessageType messageType;
+
+/**
+ Sender ID of sent message.
+ */
+@property (nonatomic, strong) NSString * _Nullable senderId;
+
+@end
+
+/**
+ State of the Campaign
  */
 @interface AWSPinpointTargetingCampaignState : AWSModel
 
@@ -537,7 +854,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ List of available campaigns.
  */
 @interface AWSPinpointTargetingCampaignsResponse : AWSModel
 
@@ -566,7 +883,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- 
+ Used to create a campaign.
  */
 @property (nonatomic, strong) AWSPinpointTargetingWriteCampaignRequest * _Nullable writeCampaignRequest;
 
@@ -579,7 +896,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Campaign definition
  */
 @property (nonatomic, strong) AWSPinpointTargetingCampaignResponse * _Nullable campaignResponse;
 
@@ -628,7 +945,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- 
+ Segment definition.
  */
 @property (nonatomic, strong) AWSPinpointTargetingWriteSegmentRequest * _Nullable writeSegmentRequest;
 
@@ -641,9 +958,70 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Segment definition.
  */
 @property (nonatomic, strong) AWSPinpointTargetingSegmentResponse * _Nullable segmentResponse;
+
+@end
+
+/**
+ Default Message across push notification, email, and sms.
+ */
+@interface AWSPinpointTargetingDefaultMessage : AWSModel
+
+
+/**
+ The message body of the notification, the email body or the text message.
+ */
+@property (nonatomic, strong) NSString * _Nullable body;
+
+/**
+ Default message substitutions. Can be overridden by individual address substitutions.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSArray<NSString *> *> * _Nullable substitutions;
+
+@end
+
+/**
+ Default Push Notification Message.
+ */
+@interface AWSPinpointTargetingDefaultPushNotificationMessage : AWSModel
+
+
+/**
+ The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
+ */
+@property (nonatomic, assign) AWSPinpointTargetingAction action;
+
+/**
+ The message body of the notification, the email body or the text message.
+ */
+@property (nonatomic, strong) NSString * _Nullable body;
+
+/**
+ The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable data;
+
+/**
+ Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable silentPush;
+
+/**
+ Default message substitutions. Can be overridden by individual address substitutions.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSArray<NSString *> *> * _Nullable substitutions;
+
+/**
+ The message title that displays above the message on the user's device.
+ */
+@property (nonatomic, strong) NSString * _Nullable title;
+
+/**
+ The URL to open in the user's mobile browser. Used if the value for Action is URL.
+ */
+@property (nonatomic, strong) NSString * _Nullable url;
 
 @end
 
@@ -667,9 +1045,35 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Apple Distribution Push Notification Service channel definition.
  */
 @property (nonatomic, strong) AWSPinpointTargetingAPNSChannelResponse * _Nullable APNSChannelResponse;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingDeleteApnsSandboxChannelRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingDeleteApnsSandboxChannelResponse : AWSModel
+
+
+/**
+ Apple Development Push Notification Service channel definition.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingAPNSSandboxChannelResponse * _Nullable APNSSandboxChannelResponse;
 
 @end
 
@@ -698,9 +1102,63 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Campaign definition
  */
 @property (nonatomic, strong) AWSPinpointTargetingCampaignResponse * _Nullable campaignResponse;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingDeleteEmailChannelRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingDeleteEmailChannelResponse : AWSModel
+
+
+/**
+ Email Channel Response.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingEmailChannelResponse * _Nullable emailChannelResponse;
+
+@end
+
+/**
+ DeleteEventStream Request
+ Required parameters: [ApplicationId]
+ */
+@interface AWSPinpointTargetingDeleteEventStreamRequest : AWSRequest
+
+
+/**
+ ApplicationId
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+@end
+
+/**
+ DeleteEventStream Response
+ Required parameters: [EventStream]
+ */
+@interface AWSPinpointTargetingDeleteEventStreamResponse : AWSModel
+
+
+/**
+ Model for an event publishing subscription export.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingEventStream * _Nullable eventStream;
 
 @end
 
@@ -724,7 +1182,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Google Cloud Messaging channel definition
  */
 @property (nonatomic, strong) AWSPinpointTargetingGCMChannelResponse * _Nullable GCMChannelResponse;
 
@@ -755,7 +1213,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Segment definition.
  */
 @property (nonatomic, strong) AWSPinpointTargetingSegmentResponse * _Nullable segmentResponse;
 
@@ -764,11 +1222,166 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 /**
  
  */
+@interface AWSPinpointTargetingDeleteSmsChannelRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingDeleteSmsChannelResponse : AWSModel
+
+
+/**
+ SMS Channel Response.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingSMSChannelResponse * _Nullable SMSChannelResponse;
+
+@end
+
+/**
+ The message configuration.
+ */
+@interface AWSPinpointTargetingDirectMessageConfiguration : AWSModel
+
+
+/**
+ The message to APNS channels. Overrides the default push notification message.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingAPNSMessage * _Nullable APNSMessage;
+
+/**
+ The default message for all channels.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingDefaultMessage * _Nullable defaultMessage;
+
+/**
+ The default push notification message for all push channels.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingDefaultPushNotificationMessage * _Nullable defaultPushNotificationMessage;
+
+/**
+ The message to GCM channels. Overrides the default push notification message.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingGCMMessage * _Nullable GCMMessage;
+
+/**
+ The message to SMS channels. Overrides the default message.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingSMSMessage * _Nullable SMSMessage;
+
+@end
+
+/**
+ Email Channel Request
+ */
+@interface AWSPinpointTargetingEmailChannelRequest : AWSModel
+
+
+/**
+ If the channel is enabled for sending messages.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ The email address used to send emails from.
+ */
+@property (nonatomic, strong) NSString * _Nullable fromAddress;
+
+/**
+ The ARN of an identity verified with SES.
+ */
+@property (nonatomic, strong) NSString * _Nullable identity;
+
+/**
+ The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service
+ */
+@property (nonatomic, strong) NSString * _Nullable roleArn;
+
+@end
+
+/**
+ Email Channel Response.
+ */
+@interface AWSPinpointTargetingEmailChannelResponse : AWSModel
+
+
+/**
+ Application id
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ The date that the settings were last updated in ISO 8601 format.
+ */
+@property (nonatomic, strong) NSString * _Nullable creationDate;
+
+/**
+ If the channel is enabled for sending messages.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ The email address used to send emails from.
+ */
+@property (nonatomic, strong) NSString * _Nullable fromAddress;
+
+/**
+ Channel ID. Not used, only for backwards compatibility.
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ The ARN of an identity verified with SES.
+ */
+@property (nonatomic, strong) NSString * _Nullable identity;
+
+/**
+ Is this channel archived
+ */
+@property (nonatomic, strong) NSNumber * _Nullable isArchived;
+
+/**
+ Who last updated this entry
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModifiedBy;
+
+/**
+ Last date this was updated
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModifiedDate;
+
+/**
+ Platform type. Will be "EMAIL"
+ */
+@property (nonatomic, strong) NSString * _Nullable platform;
+
+/**
+ The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service
+ */
+@property (nonatomic, strong) NSString * _Nullable roleArn;
+
+/**
+ Version of channel
+ */
+@property (nonatomic, strong) NSNumber * _Nullable version;
+
+@end
+
+/**
+ Endpoint update request
+ */
 @interface AWSPinpointTargetingEndpointBatchItem : AWSModel
 
 
 /**
- The address or token of the endpoint.
+ The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).
  */
 @property (nonatomic, strong) NSString * _Nullable address;
 
@@ -798,7 +1411,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, strong) NSString * _Nullable endpointStatus;
 
 /**
- 
+ The unique Id for the Endpoint in the batch.
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
@@ -813,7 +1426,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSNumber *> * _Nullable metrics;
 
 /**
- Indicates whether a user has opted out of receiving messages with one of the following values:ALL – User receives all messages. NONE – User receives no messages.
+ Indicates whether a user has opted out of receiving messages with one of the following values:ALL â€“ User receives all messages. NONE â€“ User receives no messages.
  */
 @property (nonatomic, strong) NSString * _Nullable optOut;
 
@@ -830,7 +1443,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Endpoint batch update request.
  */
 @interface AWSPinpointTargetingEndpointBatchRequest : AWSModel
 
@@ -843,7 +1456,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Endpoint demographic data
  */
 @interface AWSPinpointTargetingEndpointDemographic : AWSModel
 
@@ -891,7 +1504,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Endpoint location data
  */
 @interface AWSPinpointTargetingEndpointLocation : AWSModel
 
@@ -929,13 +1542,13 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Endpoint update request
  */
 @interface AWSPinpointTargetingEndpointRequest : AWSModel
 
 
 /**
- The address or token of the endpoint.
+ The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).
  */
 @property (nonatomic, strong) NSString * _Nullable address;
 
@@ -975,7 +1588,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSNumber *> * _Nullable metrics;
 
 /**
- Indicates whether a user has opted out of receiving messages with one of the following values:ALL – User receives all messages. NONE – User receives no messages.
+ Indicates whether a user has opted out of receiving messages with one of the following values:ALL â€“ User receives all messages. NONE â€“ User receives no messages.
  */
 @property (nonatomic, strong) NSString * _Nullable optOut;
 
@@ -992,13 +1605,13 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Endpoint response
  */
 @interface AWSPinpointTargetingEndpointResponse : AWSModel
 
 
 /**
- The address or token of the endpoint.
+ The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).
  */
 @property (nonatomic, strong) NSString * _Nullable address;
 
@@ -1058,7 +1671,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSNumber *> * _Nullable metrics;
 
 /**
- Indicates whether a user has opted out of receiving messages with one of the following values:ALL – User receives all messages. NONE – User receives no messages.
+ Indicates whether a user has opted out of receiving messages with one of the following values:ALL â€“ User receives all messages. NONE â€“ User receives no messages.
  */
 @property (nonatomic, strong) NSString * _Nullable optOut;
 
@@ -1080,13 +1693,13 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Endpoint user specific custom userAttributes
  */
 @interface AWSPinpointTargetingEndpointUser : AWSModel
 
 
 /**
- Custom attributesd specific to the user.
+ Custom attributes specific to the user.
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSArray<NSString *> *> * _Nullable userAttributes;
 
@@ -1098,7 +1711,45 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Model for an event publishing subscription export.
+ */
+@interface AWSPinpointTargetingEventStream : AWSModel
+
+
+/**
+ The ID of the application from which events should be published.
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.Firehose ARN: arn:aws:firehose:REGION:ACCOUNT_ID:deliverystream/STREAM_NAMEKinesis ARN: arn:aws:kinesis:REGION:ACCOUNT_ID:stream/STREAM_NAME
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationStreamArn;
+
+/**
+ The external ID assigned the IAM role that authorizes Amazon Pinpoint to publish to the stream.
+ */
+@property (nonatomic, strong) NSString * _Nullable externalId;
+
+/**
+ The date the event stream was last updated in ISO 8601 format.
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModifiedDate;
+
+/**
+ The IAM user who last modified the event stream.
+ */
+@property (nonatomic, strong) NSString * _Nullable lastUpdatedBy;
+
+/**
+ The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+ */
+@property (nonatomic, strong) NSString * _Nullable roleArn;
+
+@end
+
+/**
+ Google Cloud Messaging credentials
  */
 @interface AWSPinpointTargetingGCMChannelRequest : AWSModel
 
@@ -1108,16 +1759,21 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
  */
 @property (nonatomic, strong) NSString * _Nullable apiKey;
 
+/**
+ If the channel is enabled for sending messages.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
 @end
 
 /**
- 
+ Google Cloud Messaging channel definition
  */
 @interface AWSPinpointTargetingGCMChannelResponse : AWSModel
 
 
 /**
- 
+ The ID of the application to which the channel applies.
  */
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
@@ -1132,7 +1788,12 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, strong) NSString * _Nullable credential;
 
 /**
- 
+ If the channel is enabled for sending messages.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ Channel ID. Not used, only for backwards compatibility.
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
@@ -1164,6 +1825,89 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
+ GCM Message.
+ */
+@interface AWSPinpointTargetingGCMMessage : AWSModel
+
+
+/**
+ The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
+ */
+@property (nonatomic, assign) AWSPinpointTargetingAction action;
+
+/**
+ The message body of the notification, the email body or the text message.
+ */
+@property (nonatomic, strong) NSString * _Nullable body;
+
+/**
+ This parameter identifies a group of messages (e.g., with collapse_key: "Updates Available") that can be collapsed, so that only the last message gets sent when delivery can be resumed. This is intended to avoid sending too many of the same messages when the device comes back online or becomes active.
+ */
+@property (nonatomic, strong) NSString * _Nullable collapseKey;
+
+/**
+ The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable data;
+
+/**
+ The icon image name of the asset saved in your application.
+ */
+@property (nonatomic, strong) NSString * _Nullable iconReference;
+
+/**
+ The URL that points to an image used as the large icon to the notification content view.
+ */
+@property (nonatomic, strong) NSString * _Nullable imageIconUrl;
+
+/**
+ The URL that points to an image used in the push notification.
+ */
+@property (nonatomic, strong) NSString * _Nullable imageUrl;
+
+/**
+ The Raw JSON formatted string to be used as the payload. This value overrides the message.
+ */
+@property (nonatomic, strong) NSString * _Nullable rawContent;
+
+/**
+ This parameter specifies the package name of the application where the registration tokens must match in order to receive the message.
+ */
+@property (nonatomic, strong) NSString * _Nullable restrictedPackageName;
+
+/**
+ Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable silentPush;
+
+/**
+ The URL that points to an image used as the small icon for the notification which will be used to represent the notification in the status bar and content view
+ */
+@property (nonatomic, strong) NSString * _Nullable smallImageIconUrl;
+
+/**
+ Indicates a sound to play when the device receives the notification. Supports default, or the filename of a sound resource bundled in the app. Android sound files must reside in /res/raw/
+ */
+@property (nonatomic, strong) NSString * _Nullable sound;
+
+/**
+ Default message substitutions. Can be overridden by individual address substitutions.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSArray<NSString *> *> * _Nullable substitutions;
+
+/**
+ The message title that displays above the message on the user's device.
+ */
+@property (nonatomic, strong) NSString * _Nullable title;
+
+/**
+ The URL to open in the user's mobile browser. Used if the value for Action is URL.
+ */
+@property (nonatomic, strong) NSString * _Nullable url;
+
+@end
+
+/**
  
  */
 @interface AWSPinpointTargetingGetApnsChannelRequest : AWSRequest
@@ -1183,9 +1927,35 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Apple Distribution Push Notification Service channel definition.
  */
 @property (nonatomic, strong) AWSPinpointTargetingAPNSChannelResponse * _Nullable APNSChannelResponse;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetApnsSandboxChannelRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetApnsSandboxChannelResponse : AWSModel
+
+
+/**
+ Apple Development Push Notification Service channel definition.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingAPNSSandboxChannelResponse * _Nullable APNSSandboxChannelResponse;
 
 @end
 
@@ -1209,7 +1979,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Application settings.
  */
 @property (nonatomic, strong) AWSPinpointTargetingApplicationSettingsResource * _Nullable applicationSettingsResource;
 
@@ -1250,7 +2020,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Activities for campaign.
  */
 @property (nonatomic, strong) AWSPinpointTargetingActivitiesResponse * _Nullable activitiesResponse;
 
@@ -1281,7 +2051,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Campaign definition
  */
 @property (nonatomic, strong) AWSPinpointTargetingCampaignResponse * _Nullable campaignResponse;
 
@@ -1317,7 +2087,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Campaign definition
  */
 @property (nonatomic, strong) AWSPinpointTargetingCampaignResponse * _Nullable campaignResponse;
 
@@ -1358,7 +2128,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ List of available campaigns.
  */
 @property (nonatomic, strong) AWSPinpointTargetingCampaignsResponse * _Nullable campaignsResponse;
 
@@ -1394,9 +2164,35 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ List of available campaigns.
  */
 @property (nonatomic, strong) AWSPinpointTargetingCampaignsResponse * _Nullable campaignsResponse;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetEmailChannelRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetEmailChannelResponse : AWSModel
+
+
+/**
+ Email Channel Response.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingEmailChannelResponse * _Nullable emailChannelResponse;
 
 @end
 
@@ -1425,9 +2221,37 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Endpoint response
  */
 @property (nonatomic, strong) AWSPinpointTargetingEndpointResponse * _Nullable endpointResponse;
+
+@end
+
+/**
+ GetEventStream Request
+ Required parameters: [ApplicationId]
+ */
+@interface AWSPinpointTargetingGetEventStreamRequest : AWSRequest
+
+
+/**
+ ApplicationId
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+@end
+
+/**
+ GetEventStream Response
+ Required parameters: [EventStream]
+ */
+@interface AWSPinpointTargetingGetEventStreamResponse : AWSModel
+
+
+/**
+ Model for an event publishing subscription export.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingEventStream * _Nullable eventStream;
 
 @end
 
@@ -1451,7 +2275,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Google Cloud Messaging channel definition
  */
 @property (nonatomic, strong) AWSPinpointTargetingGCMChannelResponse * _Nullable GCMChannelResponse;
 
@@ -1518,7 +2342,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Import job list.
  */
 @property (nonatomic, strong) AWSPinpointTargetingImportJobsResponse * _Nullable importJobsResponse;
 
@@ -1559,7 +2383,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Import job list.
  */
 @property (nonatomic, strong) AWSPinpointTargetingImportJobsResponse * _Nullable importJobsResponse;
 
@@ -1590,7 +2414,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Segment definition.
  */
 @property (nonatomic, strong) AWSPinpointTargetingSegmentResponse * _Nullable segmentResponse;
 
@@ -1626,7 +2450,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Segment definition.
  */
 @property (nonatomic, strong) AWSPinpointTargetingSegmentResponse * _Nullable segmentResponse;
 
@@ -1667,7 +2491,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Segments in your account.
  */
 @property (nonatomic, strong) AWSPinpointTargetingSegmentsResponse * _Nullable segmentsResponse;
 
@@ -1703,9 +2527,35 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Segments in your account.
  */
 @property (nonatomic, strong) AWSPinpointTargetingSegmentsResponse * _Nullable segmentsResponse;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetSmsChannelRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetSmsChannelResponse : AWSModel
+
+
+/**
+ SMS Channel Response.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingSMSChannelResponse * _Nullable SMSChannelResponse;
 
 @end
 
@@ -1879,7 +2729,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Import job list.
  */
 @interface AWSPinpointTargetingImportJobsResponse : AWSModel
 
@@ -1903,7 +2753,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP – Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action.DEEP_LINK – Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app.URL – The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+ The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action.DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app.URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
  */
 @property (nonatomic, assign) AWSPinpointTargetingAction action;
 
@@ -1916,6 +2766,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
  The URL that points to the icon image for the push notification icon, for example, the app icon.
  */
 @property (nonatomic, strong) NSString * _Nullable imageIconUrl;
+
+/**
+ The URL that points to the small icon image for the push notification icon, for example, the app icon.
+ */
+@property (nonatomic, strong) NSString * _Nullable imageSmallIconUrl;
 
 /**
  The URL that points to an image used in the push notification.
@@ -1950,25 +2805,25 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Simple message object.
  */
 @interface AWSPinpointTargetingMessageBody : AWSModel
 
 
 /**
- 
+ The error message returned from the API.
  */
 @property (nonatomic, strong) NSString * _Nullable message;
 
 /**
- 
+ The unique message body ID.
  */
 @property (nonatomic, strong) NSString * _Nullable requestID;
 
 @end
 
 /**
- 
+ Message configuration for a campaign.
  */
 @interface AWSPinpointTargetingMessageConfiguration : AWSModel
 
@@ -1984,14 +2839,131 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, strong) AWSPinpointTargetingMessage * _Nullable defaultMessage;
 
 /**
+ The email message configuration.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingCampaignEmailMessage * _Nullable emailMessage;
+
+/**
  The message that the campaign delivers to GCM channels. Overrides the default message.
  */
 @property (nonatomic, strong) AWSPinpointTargetingMessage * _Nullable GCMMessage;
 
+/**
+ The SMS message configuration.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingCampaignSmsMessage * _Nullable SMSMessage;
+
 @end
 
 /**
- 
+ Send message request.
+ */
+@interface AWSPinpointTargetingMessageRequest : AWSModel
+
+
+/**
+ A map of destination addresses, with the address as the key(Email address, phone number or push token) and the Address Configuration as the value.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSPinpointTargetingAddressConfiguration *> * _Nullable addresses;
+
+/**
+ A map of custom attributes to attributes to be attached to the message. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable context;
+
+/**
+ Message configuration.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingDirectMessageConfiguration * _Nullable messageConfiguration;
+
+@end
+
+/**
+ Send message response.
+ */
+@interface AWSPinpointTargetingMessageResponse : AWSModel
+
+
+/**
+ Application id of the message.
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ Original request Id for which this message was delivered.
+ */
+@property (nonatomic, strong) NSString * _Nullable requestId;
+
+/**
+ A map containing a multi part response for each address, with the address as the key(Email address, phone number or push token) and the result as the value.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSPinpointTargetingMessageResult *> * _Nullable result;
+
+@end
+
+/**
+ The result from sending a message to an address.
+ */
+@interface AWSPinpointTargetingMessageResult : AWSModel
+
+
+/**
+ Delivery status of message.
+ */
+@property (nonatomic, assign) AWSPinpointTargetingDeliveryStatus deliveryStatus;
+
+/**
+ Downstream service status code.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable statusCode;
+
+/**
+ Status message for message delivery.
+ */
+@property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ If token was updated as part of delivery. (This is GCM Specific)
+ */
+@property (nonatomic, strong) NSString * _Nullable updatedToken;
+
+@end
+
+/**
+ PutEventStream Request
+ Required parameters: [ApplicationId, WriteEventStream]
+ */
+@interface AWSPinpointTargetingPutEventStreamRequest : AWSRequest
+
+
+/**
+ ApplicationId
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ EventStream to write.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingWriteEventStream * _Nullable writeEventStream;
+
+@end
+
+/**
+ PutEventStream Response
+ Required parameters: [EventStream]
+ */
+@interface AWSPinpointTargetingPutEventStreamResponse : AWSModel
+
+
+/**
+ Model for an event publishing subscription export.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingEventStream * _Nullable eventStream;
+
+@end
+
+/**
+ Quiet Time
  */
 @interface AWSPinpointTargetingQuietTime : AWSModel
 
@@ -2009,7 +2981,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Define how a segment based on recency of use.
  */
 @interface AWSPinpointTargetingRecencyDimension : AWSModel
 
@@ -2020,14 +2992,123 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, assign) AWSPinpointTargetingDuration duration;
 
 /**
- The recency dimension type: ACTIVE – Users who have used your app within the specified duration are included in the segment. INACTIVE – Users who have not used your app within the specified duration are included in the segment.
+ The recency dimension type: ACTIVE - Users who have used your app within the specified duration are included in the segment. INACTIVE - Users who have not used your app within the specified duration are included in the segment.
  */
 @property (nonatomic, assign) AWSPinpointTargetingRecencyType recencyType;
 
 @end
 
 /**
- 
+ SMS Channel Request
+ */
+@interface AWSPinpointTargetingSMSChannelRequest : AWSModel
+
+
+/**
+ If the channel is enabled for sending messages.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ Sender identifier of your messages.
+ */
+@property (nonatomic, strong) NSString * _Nullable senderId;
+
+@end
+
+/**
+ SMS Channel Response.
+ */
+@interface AWSPinpointTargetingSMSChannelResponse : AWSModel
+
+
+/**
+ Application id
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ The date that the settings were last updated in ISO 8601 format.
+ */
+@property (nonatomic, strong) NSString * _Nullable creationDate;
+
+/**
+ If the channel is enabled for sending messages.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ Channel ID. Not used, only for backwards compatibility.
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ Is this channel archived
+ */
+@property (nonatomic, strong) NSNumber * _Nullable isArchived;
+
+/**
+ Who last updated this entry
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModifiedBy;
+
+/**
+ Last date this was updated
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModifiedDate;
+
+/**
+ Platform type. Will be "SMS"
+ */
+@property (nonatomic, strong) NSString * _Nullable platform;
+
+/**
+ Sender identifier of your messages.
+ */
+@property (nonatomic, strong) NSString * _Nullable senderId;
+
+/**
+ The short code registered with the phone provider.
+ */
+@property (nonatomic, strong) NSString * _Nullable shortCode;
+
+/**
+ Version of channel
+ */
+@property (nonatomic, strong) NSNumber * _Nullable version;
+
+@end
+
+/**
+ SMS Message.
+ */
+@interface AWSPinpointTargetingSMSMessage : AWSModel
+
+
+/**
+ The message body of the notification, the email body or the text message.
+ */
+@property (nonatomic, strong) NSString * _Nullable body;
+
+/**
+ Is this a transaction priority message or lower priority.
+ */
+@property (nonatomic, assign) AWSPinpointTargetingMessageType messageType;
+
+/**
+ Sender ID of sent message.
+ */
+@property (nonatomic, strong) NSString * _Nullable senderId;
+
+/**
+ Default message substitutions. Can be overridden by individual address substitutions.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSArray<NSString *> *> * _Nullable substitutions;
+
+@end
+
+/**
+ Shcedule that defines when a campaign is run.
  */
 @interface AWSPinpointTargetingSchedule : AWSModel
 
@@ -2065,7 +3146,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Segment behavior dimensions
  */
 @interface AWSPinpointTargetingSegmentBehaviors : AWSModel
 
@@ -2078,7 +3159,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Segment demographic dimensions
  */
 @interface AWSPinpointTargetingSegmentDemographics : AWSModel
 
@@ -2087,6 +3168,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
  The app version criteria for the segment.
  */
 @property (nonatomic, strong) AWSPinpointTargetingSetDimension * _Nullable appVersion;
+
+/**
+ The channel criteria for the segment.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingSetDimension * _Nullable channel;
 
 /**
  The device type criteria for the segment.
@@ -2111,7 +3197,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Segment dimensions
  */
 @interface AWSPinpointTargetingSegmentDimensions : AWSModel
 
@@ -2132,17 +3218,27 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, strong) AWSPinpointTargetingSegmentDemographics * _Nullable demographic;
 
 /**
- The segment location attributes. 
+ The segment location attributes.
  */
 @property (nonatomic, strong) AWSPinpointTargetingSegmentLocation * _Nullable location;
+
+/**
+ Custom segment user attributes.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSPinpointTargetingAttributeDimension *> * _Nullable userAttributes;
 
 @end
 
 /**
- 
+ Segment import definition.
  */
 @interface AWSPinpointTargetingSegmentImportResource : AWSModel
 
+
+/**
+ Channel type counts
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSNumber *> * _Nullable channelCounts;
 
 /**
  A unique, custom ID assigned to the IAM role that restricts who can assume the role.
@@ -2172,7 +3268,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Segment location dimensions
  */
 @interface AWSPinpointTargetingSegmentLocation : AWSModel
 
@@ -2185,7 +3281,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Segment definition.
  */
 @interface AWSPinpointTargetingSegmentResponse : AWSModel
 
@@ -2226,7 +3322,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- The segment type: DIMENSIONAL – A dynamic segment built from selection criteria based on endpoint data reported by your app. You create this type of segment by using the segment builder in the Amazon Pinpoint console or by making a POST request to the segments resource. IMPORT – A static segment built from an imported set of endpoint definitions. You create this type of segment by importing a segment in the Amazon Pinpoint console or by making a POST request to the jobs/import resource.
+ The segment type: DIMENSIONAL - A dynamic segment built from selection criteria based on endpoint data reported by your app. You create this type of segment by using the segment builder in the Amazon Pinpoint console or by making a POST request to the segments resource. IMPORT - A static segment built from an imported set of endpoint definitions. You create this type of segment by importing a segment in the Amazon Pinpoint console or by making a POST request to the jobs/import resource.
  */
 @property (nonatomic, assign) AWSPinpointTargetingSegmentType segmentType;
 
@@ -2238,7 +3334,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Segments in your account.
  */
 @interface AWSPinpointTargetingSegmentsResponse : AWSModel
 
@@ -2258,11 +3354,42 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 /**
  
  */
+@interface AWSPinpointTargetingSendMessagesRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ Send message request.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingMessageRequest * _Nullable messageRequest;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingSendMessagesResponse : AWSModel
+
+
+/**
+ Send message response.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingMessageResponse * _Nullable messageResponse;
+
+@end
+
+/**
+ Dimension specification of a segment.
+ */
 @interface AWSPinpointTargetingSetDimension : AWSModel
 
 
 /**
- The type of dimension: INCLUSIVE – Endpoints that match the criteria are included in the segment. EXCLUSIVE – Endpoints that match the criteria are excluded from the segment.
+ The type of dimension: INCLUSIVE - Endpoints that match the criteria are included in the segment. EXCLUSIVE - Endpoints that match the criteria are excluded from the segment.
  */
 @property (nonatomic, assign) AWSPinpointTargetingDimensionType dimensionType;
 
@@ -2274,7 +3401,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Treatment resource
  */
 @interface AWSPinpointTargetingTreatmentResource : AWSModel
 
@@ -2323,7 +3450,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Apple Push Notification Service channel definition.
  */
 @property (nonatomic, strong) AWSPinpointTargetingAPNSChannelRequest * _Nullable APNSChannelRequest;
 
@@ -2341,9 +3468,40 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Apple Distribution Push Notification Service channel definition.
  */
 @property (nonatomic, strong) AWSPinpointTargetingAPNSChannelResponse * _Nullable APNSChannelResponse;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingUpdateApnsSandboxChannelRequest : AWSRequest
+
+
+/**
+ Apple Development Push Notification Service channel definition.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingAPNSSandboxChannelRequest * _Nullable APNSSandboxChannelRequest;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingUpdateApnsSandboxChannelResponse : AWSModel
+
+
+/**
+ Apple Development Push Notification Service channel definition.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingAPNSSandboxChannelResponse * _Nullable APNSSandboxChannelResponse;
 
 @end
 
@@ -2359,7 +3517,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- 
+ Creating application setting request
  */
 @property (nonatomic, strong) AWSPinpointTargetingWriteApplicationSettingsRequest * _Nullable writeApplicationSettingsRequest;
 
@@ -2372,7 +3530,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Application settings.
  */
 @property (nonatomic, strong) AWSPinpointTargetingApplicationSettingsResource * _Nullable applicationSettingsResource;
 
@@ -2395,7 +3553,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, strong) NSString * _Nullable campaignId;
 
 /**
- 
+ Used to create a campaign.
  */
 @property (nonatomic, strong) AWSPinpointTargetingWriteCampaignRequest * _Nullable writeCampaignRequest;
 
@@ -2408,9 +3566,40 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Campaign definition
  */
 @property (nonatomic, strong) AWSPinpointTargetingCampaignResponse * _Nullable campaignResponse;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingUpdateEmailChannelRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ Email Channel Request
+ */
+@property (nonatomic, strong) AWSPinpointTargetingEmailChannelRequest * _Nullable emailChannelRequest;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingUpdateEmailChannelResponse : AWSModel
+
+
+/**
+ Email Channel Response.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingEmailChannelResponse * _Nullable emailChannelResponse;
 
 @end
 
@@ -2431,7 +3620,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, strong) NSString * _Nullable endpointId;
 
 /**
- 
+ Endpoint update request
  */
 @property (nonatomic, strong) AWSPinpointTargetingEndpointRequest * _Nullable endpointRequest;
 
@@ -2444,7 +3633,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Simple message object.
  */
 @property (nonatomic, strong) AWSPinpointTargetingMessageBody * _Nullable messageBody;
 
@@ -2462,7 +3651,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- 
+ Endpoint batch update request.
  */
 @property (nonatomic, strong) AWSPinpointTargetingEndpointBatchRequest * _Nullable endpointBatchRequest;
 
@@ -2475,7 +3664,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Simple message object.
  */
 @property (nonatomic, strong) AWSPinpointTargetingMessageBody * _Nullable messageBody;
 
@@ -2493,7 +3682,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- 
+ Google Cloud Messaging credentials
  */
 @property (nonatomic, strong) AWSPinpointTargetingGCMChannelRequest * _Nullable GCMChannelRequest;
 
@@ -2506,7 +3695,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Google Cloud Messaging channel definition
  */
 @property (nonatomic, strong) AWSPinpointTargetingGCMChannelResponse * _Nullable GCMChannelResponse;
 
@@ -2529,7 +3718,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @property (nonatomic, strong) NSString * _Nullable segmentId;
 
 /**
- 
+ Segment definition.
  */
 @property (nonatomic, strong) AWSPinpointTargetingWriteSegmentRequest * _Nullable writeSegmentRequest;
 
@@ -2542,7 +3731,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 
 /**
- 
+ Segment definition.
  */
 @property (nonatomic, strong) AWSPinpointTargetingSegmentResponse * _Nullable segmentResponse;
 
@@ -2550,6 +3739,37 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 
 /**
  
+ */
+@interface AWSPinpointTargetingUpdateSmsChannelRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ SMS Channel Request
+ */
+@property (nonatomic, strong) AWSPinpointTargetingSMSChannelRequest * _Nullable SMSChannelRequest;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingUpdateSmsChannelResponse : AWSModel
+
+
+/**
+ SMS Channel Response.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingSMSChannelResponse * _Nullable SMSChannelResponse;
+
+@end
+
+/**
+ Creating application setting request
  */
 @interface AWSPinpointTargetingWriteApplicationSettingsRequest : AWSModel
 
@@ -2567,7 +3787,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Used to create a campaign.
  */
 @interface AWSPinpointTargetingWriteCampaignRequest : AWSModel
 
@@ -2635,7 +3855,30 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Request to save an EventStream.
+ */
+@interface AWSPinpointTargetingWriteEventStream : AWSModel
+
+
+/**
+ The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.Firehose ARN: arn:aws:firehose:REGION:ACCOUNT_ID:deliverystream/STREAM_NAMEKinesis ARN: arn:aws:kinesis:REGION:ACCOUNT_ID:stream/STREAM_NAME
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationStreamArn;
+
+/**
+ The external ID assigned the IAM role that authorizes Amazon Pinpoint to publish to the stream.
+ */
+@property (nonatomic, strong) NSString * _Nullable externalId;
+
+/**
+ The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+ */
+@property (nonatomic, strong) NSString * _Nullable roleArn;
+
+@end
+
+/**
+ Segment definition.
  */
 @interface AWSPinpointTargetingWriteSegmentRequest : AWSModel
 
@@ -2653,7 +3896,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
- 
+ Used to create a campaign treatment.
  */
 @interface AWSPinpointTargetingWriteTreatmentResource : AWSModel
 

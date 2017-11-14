@@ -779,7 +779,7 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
     [self rollLogFileWithCompletionBlock:nil];
 }
 
-- (void)rollLogFileWithCompletionBlock:(void (^)())completionBlock {
+- (void)rollLogFileWithCompletionBlock:(void (^)(void))completionBlock {
     // This method is public.
     // We need to execute the rolling on our logging thread/queue.
 

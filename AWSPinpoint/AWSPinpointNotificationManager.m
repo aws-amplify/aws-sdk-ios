@@ -21,6 +21,7 @@
 #import "AWSPinpointService.h"
 #import "AWSPinpointEvent.h"
 #import "AWSPinpointContext.h"
+#import "AWSPinpointConfiguration.h"
 
 static NSString *const AWSCampaignDeepLinkKey = @"deeplink";
 static NSString *const AWSAttributeApplicationStateKey = @"applicationState";
@@ -39,6 +40,10 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
 
 @interface AWSPinpointAnalyticsClient()
 - (void) setCampaignAttributes:(NSDictionary*) campaign;
+@end
+
+@interface AWSPinpointConfiguration()
+@property (nonnull, strong) NSUserDefaults *userDefaults;
 @end
 
 @implementation AWSPinpointNotificationManager
@@ -93,12 +98,11 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
 }
 
 - (void)interceptDidRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     //Check if device token has changed
-    NSData *currentToken = [userDefaults objectForKey:AWSDeviceTokenKey];
+    NSData *currentToken = [self.context.configuration.userDefaults objectForKey:AWSDeviceTokenKey];
     if (![currentToken isEqualToData:deviceToken]) {
-        [userDefaults setObject:deviceToken forKey:AWSDeviceTokenKey];
-        [userDefaults synchronize];
+        [self.context.configuration.userDefaults setObject:deviceToken forKey:AWSDeviceTokenKey];
+        [self.context.configuration.userDefaults synchronize];
         //Update endpoint
         AWSDDLogInfo(@"Calling endpoint Service to register token");
         
@@ -108,7 +112,13 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
 
 - (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
                        fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler {
-    [self handleNotificationReceived:[UIApplication sharedApplication] withNotification:userInfo];
+    [self interceptDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler shouldHandleNotificationDeepLink:YES];
+}
+
+- (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
+                       fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
+             shouldHandleNotificationDeepLink:(BOOL) handleDeepLink {
+    [self handleNotificationReceived:[UIApplication sharedApplication] withNotification:userInfo shouldHandleNotificationDeepLink:handleDeepLink];
     //We must rely on the user calling the completion handler because if we call it ourselves as well as the user it would cause a crash due to calling it twice.
 }
 
@@ -130,7 +140,8 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
 }
 
 - (void)handleNotificationReceived:(UIApplication *) app
-                  withNotification:(NSDictionary *) userInfo {
+                  withNotification:(NSDictionary *) userInfo
+  shouldHandleNotificationDeepLink:(BOOL) shouldHandleNotificationDeepLink {
     UIApplicationState state = [app applicationState];
     
     if (state == UIApplicationStateInactive) {
@@ -139,7 +150,9 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
         [self recordMessageOpenedEventForNotification:userInfo
                                        withIdentifier:nil
                                  withApplicationState:state];
-        [self handleNotificationDeepLinkForNotification:userInfo];
+        if (shouldHandleNotificationDeepLink) {
+            [self handleNotificationDeepLinkForNotification:userInfo];
+        }
     } else if (state == UIApplicationStateBackground) {
         AWSDDLogVerbose(@"Received notification with app on background.");
         [self addGlobalCampaignMetadataForNotification:userInfo];

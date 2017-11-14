@@ -223,7 +223,7 @@ NSString *const AWSTaskMultipleErrorsUserInfoKey = @"errors";
     return tcs.task;
 }
 
-+ (instancetype)taskFromExecutor:(AWSExecutor *)executor withBlock:(nullable id (^)())block {
++ (instancetype)taskFromExecutor:(AWSExecutor *)executor withBlock:(nullable id (^)(void))block {
     return [[self taskWithResult:nil] continueWithExecutor:executor withBlock:^id(AWSTask *task) {
         return block();
     }];
@@ -303,7 +303,7 @@ NSString *const AWSTaskMultipleErrorsUserInfoKey = @"errors";
         [self.condition lock];
         [self.condition broadcast];
         [self.condition unlock];
-        for (void (^callback)() in self.callbacks) {
+        for (void (^callback)(void) in self.callbacks) {
             callback();
         }
         [self.callbacks removeAllObjects];

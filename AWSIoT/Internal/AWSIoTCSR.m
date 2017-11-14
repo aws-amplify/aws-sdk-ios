@@ -41,8 +41,10 @@ unsigned char setTag = 0x31;
     return nil;
 }
 
-- (instancetype)initWithCommonName:(NSString*)commonName countryName:(NSString*)countryName organizationName:(NSString*)organizationName organizationalUnitName:(NSString*)organizationalUnitName {
-    
+- (instancetype)initWithCommonName:(NSString*)commonName
+                       countryName:(NSString*)countryName
+                  organizationName:(NSString*)organizationName
+            organizationalUnitName:(NSString*)organizationalUnitName {
     if (self = [super init]) {
         _commonName = commonName;
         _countryName = countryName;
