@@ -94,7 +94,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self  = [super initWithCoder:decoder]) {
-
+        
     }
     return self;
 }
@@ -120,6 +120,11 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
     
     // add the  sign-in buttons created by the user to the sign-in view
     [self addButtonViewstoSignInView];
+    
+    // Setup the font
+    if (self.config.font) {
+        [self setUpFont];
+    }
 }
 
 // This is used to dismiss the keyboard, user just has to tap outside the
@@ -178,6 +183,9 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
             [AWSUserPoolsUIHelper setUpFormShadowForView:self.tableFormView];
         }
         
+        if ([AWSUserPoolsUIHelper respondsToSelector:@selector(setAWSUIConfiguration:)]) {
+            [AWSUserPoolsUIHelper setAWSUIConfiguration:self.config];
+        }
         
         // Add SignInButton to the view
         [self.signInButton addTarget:self
@@ -221,9 +229,9 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 - (void)setUpLogo:(UIImage *)image {
     
-    /** 
-        If user did not select a logo image, use the default AWS Logo
-        Else, use the logo image passed in by the user
+    /**
+     If user did not select a logo image, use the default AWS Logo
+     Else, use the logo image passed in by the user
      */
     if (image == nil) {
         self.logoView.contentMode = UIViewContentModeCenter;
@@ -253,7 +261,12 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 }
 
 - (void)setUpBackground:(UIColor *)color {
-    self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR_BOTTOM;
+    if (self.config.isBackgroundColorFullScreen) {
+        self.view.backgroundColor = color ?: DEFAULT_BACKGROUND_COLOR_TOP;
+    } else {
+        self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR_BOTTOM;
+    }
+    
     if (self.config.enableUserPoolsUI) {
         UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.tableFormView.center.y)];
         if (color != nil) {
@@ -296,6 +309,14 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
     self.navigationController.navigationBar.barTintColor = self.config.backgroundColor ?: DEFAULT_BACKGROUND_COLOR_TOP;
     self.navigationController.navigationBar.tintColor = DEFAULT_BACKGROUND_COLOR_BOTTOM;
     
+}
+
+- (void)setUpFont {
+    AWSDDLogDebug(@"Setting up Font");
+    [self.signInButton.titleLabel setFont:self.config.font];
+    [self.signUpButton.titleLabel setFont:self.config.font];
+    [self.forgotPasswordButton.titleLabel setFont:self.config.font];
+    [self.orSignInWithLabel setFont:self.config.font];
 }
 
 - (void)barButtonClosePressed {
@@ -439,3 +460,4 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 }
 
 @end
+

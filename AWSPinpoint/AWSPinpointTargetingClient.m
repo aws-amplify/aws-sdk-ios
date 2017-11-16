@@ -25,6 +25,7 @@
 NSString *const AWSPinpointEndpointAttributesKey = @"AWSPinpointEndpointAttributesKey";
 NSString *const AWSPinpointEndpointMetricsKey = @"AWSPinpointEndpointMetricsKey";
 NSString *const AWSPinpointTargetingClientErrorDomain = @"com.amazonaws.AWSPinpointAnalyticsClientErrorDomain";
+NSString *const APNS_CHANNEL_TYPE = @"APNS";
 
 @interface AWSPinpointTargetingClient()
 
@@ -234,7 +235,7 @@ NSString *const AWSPinpointTargetingClientErrorDomain = @"com.amazonaws.AWSPinpo
     updateEndpointRequest.applicationId = endpoint.applicationId;
     
     AWSPinpointTargetingEndpointRequest *endpointRequest =  [AWSPinpointTargetingEndpointRequest new];
-    endpointRequest.channelType = AWSPinpointTargetingChannelTypeApns;
+    endpointRequest.channelType = [endpoint.channelType isEqualToString:APNS_CHANNEL_TYPE] ? AWSPinpointTargetingChannelTypeApns : AWSPinpointTargetingChannelTypeApnsSandbox;
     endpointRequest.address = endpoint.address;
     endpointRequest.location = [self locationModelForLocation:endpoint.location];
     endpointRequest.demographic = [self endpointDemographicModelForDemographic:endpoint.demographic];

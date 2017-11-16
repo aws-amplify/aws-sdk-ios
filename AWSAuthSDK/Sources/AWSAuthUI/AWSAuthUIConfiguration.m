@@ -36,6 +36,10 @@
 
 @synthesize enableUserPoolsUI;
 
+@synthesize isBackgroundColorFullScreen;
+
+@synthesize font;
+
 - (id)init {
     self = [super init];
     if (self) {

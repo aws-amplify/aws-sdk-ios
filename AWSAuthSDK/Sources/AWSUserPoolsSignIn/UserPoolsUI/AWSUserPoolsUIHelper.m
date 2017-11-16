@@ -18,6 +18,8 @@
 
 @implementation AWSUserPoolsUIHelper
 
+static id<AWSUIConfiguration> awsUIConfiguration;
+
 + (void) setUpFormShadowForView:(UIView *)view {
     view.layer.shadowColor = [UIColor blackColor].CGColor;
     view.layer.shadowOffset = CGSizeZero;
@@ -35,6 +37,30 @@
     } else {
         return [UIColor darkGrayColor];
     }
+}
+
++ (UIFont *) getFont:(id<AWSUIConfiguration>)config {
+    if (config != nil && config.font != nil) {
+        return config.font;
+    } else {
+        return nil;
+    }
+}
+
++ (BOOL) isBackgroundColorFullScreen:(id<AWSUIConfiguration>)config {
+    if (config != nil) {
+        return config.isBackgroundColorFullScreen;
+    } else {
+        return false;
+    }
+}
+
++ (void) setAWSUIConfiguration:(id<AWSUIConfiguration>)config {
+    awsUIConfiguration = config;
+}
+
++ (id<AWSUIConfiguration>) getAWSUIConfiguration {
+    return awsUIConfiguration;
 }
 
 @end

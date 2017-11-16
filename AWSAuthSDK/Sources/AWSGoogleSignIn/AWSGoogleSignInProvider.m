@@ -73,6 +73,9 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedInstance = [[AWSGoogleSignInProvider alloc] initWithGoogleClientID:googleClientID];
+        if ([_sharedInstance isConfigurationKeyPresent]) {
+            [_sharedInstance setScopes:[_sharedInstance getPermissionsFromConfig]];
+        }
     });
     
     return _sharedInstance;
@@ -270,6 +273,34 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     return [self.signInClient handleURL:url
             sourceApplication:sourceApplication
                    annotation:annotation];
+}
+
+- (BOOL)isConfigurationKeyPresent {
+    
+    NSString *googleclientId;
+    NSDictionary *dict = [[AWSInfo defaultAWSInfo] rootInfoDictionary];
+    NSDictionary *providerDict = dict[AWSInfoGoogleIdentifier];
+    googleclientId = providerDict[AWSInfoGoogleClientId];
+    
+    if (googleclientId) {
+        AWSDDLogDebug(@"Configuring SignInProvider : %@.", AWSInfoGoogleIdentifier);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+- (NSArray<NSString *> *)getPermissionsFromConfig {
+    
+    NSDictionary *dict = [[AWSInfo defaultAWSInfo] rootInfoDictionary];
+    NSDictionary *providerDict = dict[AWSInfoGoogleIdentifier];
+    NSString *permissions = providerDict[@"Permissions"];
+    
+    if (!permissions) {
+        AWSDDLogError(@"Permissions for `%@` is not set correctly in `awsconfiguration.json`.", AWSInfoGoogleIdentifier);
+    }
+    
+    return [permissions componentsSeparatedByString:@","];
 }
 
 @end

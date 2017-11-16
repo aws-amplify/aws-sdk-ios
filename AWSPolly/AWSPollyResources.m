@@ -308,6 +308,7 @@
         \"fr-FR\",\
         \"is-IS\",\
         \"it-IT\",\
+        \"ko-KR\",\
         \"ja-JP\",\
         \"nb-NO\",\
         \"nl-NL\",\
@@ -709,7 +710,9 @@
         \"Astrid\",\
         \"Filiz\",\
         \"Vicki\",\
-        \"Takumi\"\
+        \"Takumi\",\
+        \"Seoyeon\",\
+        \"Aditi\"\
       ]\
     },\
     \"VoiceList\":{\

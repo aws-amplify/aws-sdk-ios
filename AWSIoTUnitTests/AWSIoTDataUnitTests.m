@@ -110,7 +110,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(dm);
     XCTAssertEqual(dm.configuration.regionType, AWSRegionUSWest2);
     XCTAssertEqualObjects(dm.configuration.endpoint.URL, [[NSURL alloc] initWithString:@"TESTENDPOINT.iot.amazonaws.com"]);
-    XCTAssertEqual(dm.mqttConfiguration.keepAliveTimeInterval, 60.0);
+    XCTAssertEqual(dm.mqttConfiguration.keepAliveTimeInterval, 300.0);
     XCTAssertEqual(dm.mqttConfiguration.baseReconnectTimeInterval, 1.0);
     XCTAssertEqual(dm.mqttConfiguration.minimumConnectionTimeInterval, 20.0);
     XCTAssertEqual(dm.mqttConfiguration.maximumReconnectTimeInterval, 128.0);

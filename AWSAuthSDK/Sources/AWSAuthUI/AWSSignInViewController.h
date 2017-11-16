@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @property orSignInWithLabel
  @brief Text Label that displays "or sign in with" when userpools
-        and one or more SignIn Buttons are configured
+ and one or more SignIn Buttons are configured
  **/
 @property (weak, nonatomic) IBOutlet UILabel *orSignInWithLabel;
 
@@ -99,3 +99,4 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+

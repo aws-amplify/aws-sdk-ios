@@ -18,12 +18,24 @@
 
 @implementation AWSAuthUIViewController
 
+static NSString *const AWSInfoCognitoUserPoolIdentifier = @"CognitoUserPool";
+static NSString *const AWSInfoFacebookIdentifier = @"FacebookSignIn";
+static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
+
+#pragma mark PresentViewController methods
+
 + (void)presentViewControllerWithNavigationController:(UINavigationController *)navigationController
-                                        configuration:(AWSAuthUIConfiguration *)configuration
+                                        configuration:(AWSAuthUIConfiguration *)authUIConfiguration
                                     completionHandler:(AWSAuthUICompletionHandler)completionHandler {
+    
     AWSDDLogDebug(@"Presenting SignInViewController");
     dispatch_async(dispatch_get_main_queue(), ^{
-        AWSSignInViewController *loginController = [AWSSignInViewController getAWSSignInViewControllerWithconfiguration:configuration];
+        AWSSignInViewController *loginController;
+        if (authUIConfiguration == nil) {
+            loginController = [AWSSignInViewController getAWSSignInViewControllerWithconfiguration:[AWSAuthUIViewController getDefaultAuthUIConfiguration]];
+        } else {
+            loginController = [AWSSignInViewController getAWSSignInViewControllerWithconfiguration:authUIConfiguration];
+        }
         
         loginController.completionHandler = completionHandler;
         
@@ -34,4 +46,50 @@
     });
 }
 
+#pragma mark AuthUIConfiguration methods
+
++ (AWSAuthUIConfiguration *)getDefaultAuthUIConfiguration {
+    
+    AWSAuthUIConfiguration *authUIConfig = [[AWSAuthUIConfiguration alloc] init];
+    
+    if ([AWSAuthUIViewController isConfigurationKeyPresent:AWSInfoCognitoUserPoolIdentifier]) {
+        authUIConfig.enableUserPoolsUI = true;
+    }
+    
+    if ([AWSAuthUIViewController isConfigurationKeyPresent:AWSInfoFacebookIdentifier]) {
+        [authUIConfig addAWSSignInButtonViewClass:NSClassFromString(@"AWSFacebookSignInButton")];
+    }
+    
+    if ([AWSAuthUIViewController isConfigurationKeyPresent:AWSInfoGoogleIdentifier]) {
+        [authUIConfig addAWSSignInButtonViewClass:NSClassFromString(@"AWSGoogleSignInButton")];
+    }
+    
+    authUIConfig.canCancel = false;
+    
+    return authUIConfig;
+}
+
++ (BOOL)isConfigurationKeyPresent:(NSString *)configurationKey {
+    
+    AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo].rootInfoDictionary objectForKey:configurationKey];
+    
+    NSString *googleclientId;
+    if (configurationKey == AWSInfoGoogleIdentifier) {
+        NSDictionary *dict = [[AWSInfo defaultAWSInfo] rootInfoDictionary];
+        NSDictionary *providerDict = dict[configurationKey];
+        googleclientId = providerDict[@"ClientId-iOS"];
+        if (!googleclientId) {
+            return false;
+        }
+    }
+    
+    if (serviceInfo) {
+        AWSDDLogDebug(@"Configuring SignInProvider : %@.", configurationKey);
+        return true;
+    } else {
+        return false;
+    }
+}
+
 @end
+

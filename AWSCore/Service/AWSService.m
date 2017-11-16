@@ -21,7 +21,7 @@
 #import "AWSCocoaLumberjack.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.6.5";
+NSString *const AWSiOSSDKVersion = @"2.6.6";
 NSString *const AWSServiceErrorDomain = @"com.amazonaws.AWSServiceErrorDomain";
 
 static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
@@ -304,6 +304,22 @@ static NSString *const AWSServiceNameSTS = @"sts";
         _hostName = [_URL host];
     }
 
+    return self;
+}
+
+- (instancetype)initWithRegion:(AWSRegionType)regionType
+                   serviceName:(NSString *)serviceName
+                           URL:(NSURL *)URL {
+    if (self = [super init]) {
+        _regionType = regionType;
+        _serviceType = AWSServiceUnknown;
+        _useUnsafeURL = [[URL scheme] isEqualToString:@"http"];
+        _regionName = [self regionNameFromType:regionType];
+        _serviceName = serviceName;
+        _URL = URL;
+        _hostName = [_URL host];
+    }
+    
     return self;
 }
 

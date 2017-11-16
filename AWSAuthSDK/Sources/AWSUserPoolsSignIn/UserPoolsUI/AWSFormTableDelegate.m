@@ -60,6 +60,14 @@
     }
 }
 
+- (void)setButtonFont:(UIButton *)button {
+    if ([AWSUserPoolsUIHelper getAWSUIConfiguration].font != nil) {
+        button.titleLabel.font = [AWSUserPoolsUIHelper getAWSUIConfiguration].font;
+    } else {
+        button.titleLabel.font = [UIFont systemFontOfSize:14.0];
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AWSTableInputCell *inputCell = (AWSTableInputCell *)[tableView dequeueReusableCellWithIdentifier:@"AWSFormTableCell"
                                                            forIndexPath:indexPath];
@@ -69,6 +77,7 @@
     inputCell.headerLabel.text = [formCell.placeHolder uppercaseString];
     inputCell.inputBox.autocorrectionType = UITextAutocorrectionTypeNo;
     inputCell.inputBox.spellCheckingType = UITextSpellCheckingTypeNo;
+    
     if (formCell.inputType == InputTypePassword) {
         inputCell.inputBox.secureTextEntry = YES;
         UIButton *showButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 20)];
@@ -78,7 +87,7 @@
              forControlEvents:UIControlEventTouchUpInside];
         inputCell.inputBox.rightViewMode = UITextFieldViewModeAlways;
         inputCell.inputBox.rightView = showButton;
-        showButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
+        [self setButtonFont:showButton];
         [showButton setTitleColor:[UIColor darkGrayColor]
                          forState:UIControlStateNormal];
     }
@@ -86,6 +95,8 @@
         inputCell.placeHolderView.hidden = YES;
         inputCell.inputBox.text = formCell.staticText;
     }
+    
+    [inputCell setAWSTableInputCellFont];
     return inputCell;
 }
 

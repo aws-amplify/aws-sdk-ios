@@ -84,7 +84,12 @@ id<AWSUIConfiguration> config = nil;
 }
 
 - (void)setUpBackground {
-    self.view.backgroundColor = [UIColor whiteColor];
+    if ([AWSUserPoolsUIHelper isBackgroundColorFullScreen:self.config]) {
+        self.view.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
+    } else {
+        self.view.backgroundColor = [UIColor whiteColor];
+    }
+    
     self.title = @"Sign Up";
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.tableFormView.center.y)];
     backgroundImageView.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];

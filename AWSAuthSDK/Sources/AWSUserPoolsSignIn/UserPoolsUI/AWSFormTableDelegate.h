@@ -17,6 +17,7 @@
 #import <Foundation/Foundation.h>
 #import "AWSFormTableCell.h"
 #import "AWSTableInputCell.h"
+#import "AWSUserPoolsUIHelper.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

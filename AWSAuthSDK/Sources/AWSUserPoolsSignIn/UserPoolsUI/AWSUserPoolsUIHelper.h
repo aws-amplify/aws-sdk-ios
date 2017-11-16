@@ -37,6 +37,37 @@ NS_ASSUME_NONNULL_BEGIN
  **/
 + (UIColor *) getBackgroundColor:(id<AWSUIConfiguration>)config;
 
+/**
+ Retrieve the font set in the config or return nil
+ 
+ @param config The object conforming to `AWSUIConfiguration` protocol
+ @return font
+ **/
++ (UIFont *) getFont:(id<AWSUIConfiguration>)config;
+
+/**
+ Retrieve the flag that says if the background color has to be applied full screen or not.
+ 
+ @param config The object conforming to `AWSUIConfiguration` protocol
+ @return isFullScreenBackgroundColorEnabled
+ **/
++ (BOOL) isBackgroundColorFullScreen:(id<AWSUIConfiguration>)config;
+
+/**
+ Set the AWSAuthUIConfiguration object.
+ 
+ @param config The config object from which backgroundColor,
+               isFullScreenBackgroundColorEnabled and font are extracted.
+ **/
++ (void) setAWSUIConfiguration:(id<AWSUIConfiguration>)config;
+
+/**
+ Retrieve the AWSAuthUIConfiguration object.
+ 
+ @return AWSAuthUIConfiguration
+ **/
++ (id<AWSUIConfiguration>) getAWSUIConfiguration;
+
 @end
 
 NS_ASSUME_NONNULL_END

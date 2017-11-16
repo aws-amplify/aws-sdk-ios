@@ -128,6 +128,10 @@ typedef NS_ENUM(NSInteger, AWSServiceErrorType) {
                        service:(AWSServiceType)serviceType
                            URL:(NSURL *)URL;
 
+- (instancetype)initWithRegion:(AWSRegionType)regionType
+                   serviceName:(NSString *)serviceName
+                           URL:(NSURL *)URL;
+
 - (instancetype)initWithURL:(NSURL *)URL;
 
 - (instancetype)initWithURLString:(NSString *)URLString;

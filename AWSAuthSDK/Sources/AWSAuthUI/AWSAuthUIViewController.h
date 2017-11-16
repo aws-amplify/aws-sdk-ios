@@ -32,7 +32,7 @@ typedef void(^AWSAuthUICompletionHandler)(id<AWSSignInProvider> signInProvider, 
  @param     completionHandler       The completion handler which is called when a user attempts a sign in
  **/
 + (void)presentViewControllerWithNavigationController:(UINavigationController *)navigationController
-                                        configuration:(AWSAuthUIConfiguration *)configuration
+                                        configuration:(nullable AWSAuthUIConfiguration *)configuration
                                     completionHandler:(AWSAuthUICompletionHandler)completionHandler;
 
 NS_ASSUME_NONNULL_END
