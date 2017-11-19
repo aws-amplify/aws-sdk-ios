@@ -370,7 +370,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     _useEnhancedFlow = !unauthRoleArn && !authRoleArn;
 
     // initialize keychain - name spaced by app bundle and identity pool id
-    _keychain = [AWSUICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@.%@", [NSBundle mainBundle].bundleIdentifier, [AWSCognitoCredentialsProvider class], identityProvider.identityPoolId]];
+    _keychain = [AWSUICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@.%@", [NSBundle mainBundle].bundleIdentifier, [self class], identityProvider.identityPoolId]];
 
     // If the identity provider has an identity id, use it
     if (identityProvider.identityId) {
