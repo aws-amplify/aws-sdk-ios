@@ -150,7 +150,7 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
 /**
  The optional app client secret
  */
-@property (nonatomic, readonly) NSString * appClientSecret;
+@property (nonatomic, readonly, nullable) NSString * appClientSecret;
 
 /**
  The scopes
@@ -172,6 +172,26 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
  */
 @property (nonatomic, readonly) NSString * webDomain;
 
+/**
+ The optional provider name to authenticate with directly instead of presenting the end user with a list of configured providers
+ */
+@property (nonatomic, readonly, nullable) NSString * identityProvider;
+
+/**
+ The optional provider identifier to authenticate with directly instead of presenting the end user with a list of configured providers.  Use this if you want to hide the provider name from the end user.
+ */
+@property (nonatomic, readonly, nullable) NSString * idpIdentifier;
+
+/**
+ The optional user pool id, required if you have enabled advanced security features on your pool.
+ */
+@property (nonatomic, readonly, nullable) NSString * userPoolId;
+
+/**
+ Whether user context information to drive the advanced security feature is emitted.
+ */
+@property (nonatomic, assign, readonly,getter=isASFEnabled) BOOL asfEnabled;
+
 
 /**
  Configuration object for CognitoAuth
@@ -188,6 +208,28 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
                   signInRedirectUri:(NSString *) signInRedirectUri
                  signOutRedirectUri:(NSString *) signOutRedirectUri
                           webDomain:(NSString *) webDomain;
+
+/**
+ Configuration object for CognitoAuth
+ @param appClientId The app client id
+ @param appClientSecret The optional app client secret
+ @param scopes Set of scopes to obtain
+ @param signInRedirectUri uri to redirect on sign in.  Must be configured as a uri scheme in your info.plist
+ @param signOutRedirectUri uri to redirect on sign out.  Must be configured as a uri scheme in your info.plist
+ @param webDomain The FQDN of your Cognito endpoint, something like https://mydomain.region.auth.amazoncognito.com
+ @param identityProvider Optional provider name to authenticate with directly
+ @param idpIdentifier Optional provider identifier to authenticate with directly
+ @param userPoolIdForEnablingASF Optional user pool id for enabling advanced security features
+ */
+- (instancetype)initWithAppClientId:(NSString *) appClientId
+                    appClientSecret:(nullable NSString *) appClientSecret
+                             scopes:(NSSet<NSString *> *) scopes
+                  signInRedirectUri:(NSString *) signInRedirectUri
+                 signOutRedirectUri:(NSString *) signOutRedirectUri
+                          webDomain:(NSString *) webDomain
+                   identityProvider:(nullable NSString *) identityProvider
+                      idpIdentifier:(nullable NSString *) idpIdentifier
+                         userPoolIdForEnablingASF:(nullable NSString *) userPoolIdForEnablingASF;
 @end
 
 

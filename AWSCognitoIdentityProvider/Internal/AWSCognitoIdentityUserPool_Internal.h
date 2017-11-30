@@ -21,29 +21,30 @@
 @class AWSUICKeyChainStore;
 
 @interface AWSCognitoIdentityUserPool()
-@property (nonatomic, strong) AWSUICKeyChainStore *keychain;
-@property (nonatomic, readonly) AWSCognitoIdentityProviderAnalyticsMetadataType * analyticsMetadata;
+@property (nonatomic, strong) AWSUICKeyChainStore * _Nonnull keychain;
+@property (nonatomic, readonly) AWSCognitoIdentityProviderAnalyticsMetadataType * _Nullable analyticsMetadata;
 
-- (NSString *) calculateSecretHash: (NSString*) userName;
-- (void) setCurrentUser:(NSString *) username;
-- (NSDictionary<NSString *, NSString*>*)getValidationData:(NSArray<AWSCognitoIdentityUserAttributeType*>*)devProvidedValidationData;
-- (NSString*) currentUsername;
-- (NSString*) strippedPoolId;
+- (NSString * _Nullable) calculateSecretHash: (NSString* _Nonnull) userName;
+- (void) setCurrentUser:(NSString * _Nullable) username;
+- (NSDictionary<NSString *, NSString*>* _Nonnull)getValidationData:(NSArray<AWSCognitoIdentityUserAttributeType*>* _Nullable)devProvidedValidationData;
+- (AWSCognitoIdentityProviderUserContextDataType * _Nonnull) userContextData: (NSString * _Nonnull)  username deviceId:(NSString * _Nullable) deviceId;
+- (NSString* _Nullable) currentUsername;
+- (NSString* _Nonnull) strippedPoolId;
 @end
 
 @interface AWSCognitoIdentityUserPoolSignUpResponse()
-@property (nonatomic, strong) AWSCognitoIdentityUser* user;
+@property (nonatomic, strong) AWSCognitoIdentityUser* _Nonnull user;
 @end
 
 
 @interface AWSCognitoIdentityPasswordAuthenticationInput()
-@property(nonatomic,strong) NSString * lastKnownUsername;
-- (instancetype) initWithLastKnownUsername:(NSString *)lastKnownUsername;
+@property(nonatomic,strong) NSString * _Nullable lastKnownUsername;
+- (instancetype _Nonnull ) initWithLastKnownUsername:(NSString *_Nullable)lastKnownUsername;
 @end
 
 @interface AWSCognitoIdentityMultifactorAuthenticationInput()
-@property(nonatomic, strong) NSString *destination;
+@property(nonatomic, strong) NSString * _Nullable destination;
 @property(nonatomic, assign) AWSCognitoIdentityProviderDeliveryMediumType deliveryMedium;
--(instancetype) initWithDeliveryMedium: (NSString *) deliveryMedium destination:(NSString *) destination;
+-(instancetype _Nonnull ) initWithDeliveryMedium: (NSString *_Nonnull) deliveryMedium destination:(NSString *_Nullable) destination;
 @end
 

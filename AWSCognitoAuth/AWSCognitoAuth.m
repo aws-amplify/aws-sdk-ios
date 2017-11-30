@@ -14,6 +14,7 @@
 //
 
 #import "AWSCognitoAuth_Internal.h"
+#import "AWSCognitoIdentityProviderASF.h"
 #import <SafariServices/SafariServices.h>
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
@@ -66,7 +67,12 @@ static NSString *const AWSCognitoAuthWebDomain = @"WebDomain";
 static NSString *const AWSCognitoAuthScopes = @"Scopes";
 static NSString *const AWSCognitoAuthSignInRedirectUri = @"SignInRedirectUri";
 static NSString *const AWSCognitoAuthSignOutRedirectUri = @"SignOutRedirectUri";
+static NSString *const AWSCognitoAuthIdpIdentifier = @"IdpIdentifier";
+static NSString *const AWSCognitoAuthIdentityProvider = @"IdentityProvider";
+static NSString *const AWSCognitoAuthPoolId = @"PoolIdForEnablingASF";
 static NSString *const AWSCognitoAuthUnknown = @"Unknown";
+static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
+
 
 
 #pragma mark init and configuration
@@ -88,6 +94,9 @@ static NSString *const AWSCognitoAuthUnknown = @"Unknown";
         NSSet<NSString *> *scopes = scopesSet;
         NSString *signInRedirectUri = infoDictionary[AWSCognitoAuthSignInRedirectUri] ?: infoDictionary[AWSCognitoAuthSignInRedirectUriLegacy];
         NSString *signOutRedirectUri = infoDictionary[AWSCognitoAuthSignOutRedirectUri] ?: infoDictionary[AWSCognitoAuthSignOutRedirectUriLegacy];
+        NSString *idpIdentifier = infoDictionary[AWSCognitoAuthIdpIdentifier];
+        NSString *identityProvider = infoDictionary[AWSCognitoAuthIdentityProvider];
+        NSString *userPoolId = infoDictionary[AWSCognitoAuthPoolId];
         
         if (appClientId && webDomain && scopes && signOutRedirectUri && signInRedirectUri) {
             AWSCognitoAuthConfiguration *authConfiguration = [[AWSCognitoAuthConfiguration alloc] initWithAppClientId:appClientId
@@ -95,7 +104,10 @@ static NSString *const AWSCognitoAuthUnknown = @"Unknown";
                                                                                                                scopes:scopes
                                                                                                     signInRedirectUri:signInRedirectUri
                                                                                                    signOutRedirectUri:signOutRedirectUri
-                                                                                                            webDomain:webDomain];
+                                                                                                            webDomain:webDomain
+                                                                                                     identityProvider:identityProvider
+                                                                                                        idpIdentifier:idpIdentifier
+                                                                                                           userPoolIdForEnablingASF:userPoolId];
             _defaultAuth = [[AWSCognitoAuth alloc] initWithConfiguration:authConfiguration];
         } else {
             @throw [NSException exceptionWithName:NSInternalInconsistencyException
@@ -192,21 +204,48 @@ static NSString *const AWSCognitoAuthUnknown = @"Unknown";
  Launch the sign in ui on the provided viewcontroller
  */
 - (void) launchSignInVC: (UIViewController *) vc {
-    NSString *url = [NSString stringWithFormat:@"%@/oauth2/authorize?response_type=code&client_id=%@&state=%@&redirect_uri=%@&scope=%@&code_challenge=%@&code_challenge_method=S256",self.authConfiguration.webDomain, self.authConfiguration.appClientId, self.state,[self urlEncode:self.authConfiguration.signInRedirectUri], [self urlEncode:[self normalizeScopes]], self.proofKeyHash];
+    NSString *suffix = @"";
+    if(self.authConfiguration.idpIdentifier || self.authConfiguration.identityProvider){
+        if(self.authConfiguration.idpIdentifier){
+            suffix = [NSString stringWithFormat:@"&idp_identifier=%@", self.authConfiguration.idpIdentifier];
+        } else {
+            suffix = [NSString stringWithFormat:@"&identity_provider=%@", self.authConfiguration.identityProvider];
+        }
+    }
+    if(self.authConfiguration.asfEnabled){
+        NSString *userContextEncoded = [AWSCognitoIdentityProviderASF userContextData:self.authConfiguration.userPoolId username:@"unknown" deviceId:[self asfDeviceId] userPoolClientId:self.authConfiguration.appClientId];
+        NSString * userContext = [NSString stringWithFormat:@"&userContextData=%@",[self urlEncode:userContextEncoded]];
+        suffix = [suffix stringByAppendingString:userContext];
+    }
+    
+    NSString *url = [NSString stringWithFormat:@"%@/oauth2/authorize?response_type=code&client_id=%@&state=%@&redirect_uri=%@&scope=%@&code_challenge=%@&code_challenge_method=S256%@",self.authConfiguration.webDomain, self.authConfiguration.appClientId, self.state,[self urlEncode:self.authConfiguration.signInRedirectUri], [self urlEncode:[self normalizeScopes]], self.proofKeyHash, suffix];
     self.svc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:url] entersReaderIfAvailable:NO];
     self.svc.delegate = self;
     self.svc.modalPresentationStyle = UIModalPresentationPopover;
     dispatch_async(dispatch_get_main_queue(), ^{
-        if(!vc){
+        __block UIViewController * sourceVC = vc;
+        if(!sourceVC){
             if(!self.delegate){
                 [self completeGetSession:nil error:[self getError:@"delegate must be set to a valid AWSCognitoAuthDelegate" code:AWSCognitoAuthClientInvalidAuthenticationDelegate]];
                 return;
+            } else {
+                sourceVC = [self.delegate getViewController];
             }
-            [[self.delegate getViewController] presentViewController:self.svc animated:NO completion:nil];
-        }else {
-            [vc presentViewController:self.svc animated:NO completion:nil];
         }
+        [self setPopoverSource:self.svc source:sourceVC];
+        [sourceVC presentViewController:self.svc animated:NO completion:nil];
     });
+}
+
+/**
+ * Configure source view for a modal popup view controller
+ */
+-(UIViewController *) setPopoverSource: (UIViewController *) popover source: (UIViewController *) source {
+    popover.popoverPresentationController.sourceView = source.view;
+    popover.popoverPresentationController.sourceRect = source.view.bounds;
+    [popover setPreferredContentSize:CGSizeMake(source.view.bounds.size.width/1.5,source.view.bounds.size.height/1.5)];
+    [popover.popoverPresentationController setPermittedArrowDirections:0];
+    return popover;
 }
     
 /**
@@ -325,6 +364,7 @@ static NSString *const AWSCognitoAuthUnknown = @"Unknown";
     self.svc.delegate = self;
     self.svc.modalPresentationStyle = UIModalPresentationPopover;
     dispatch_async(dispatch_get_main_queue(), ^{
+        [self setPopoverSource:self.svc source:vc];
         [vc presentViewController:self.svc animated:NO completion:nil];
     });
 }
@@ -668,6 +708,20 @@ static NSString *const AWSCognitoAuthUnknown = @"Unknown";
 }
 
 /**
+ Get the device id if Advanced Security Feature is turned on
+ */
+- (NSString *) asfDeviceId {
+    NSString * asfDeviceIdKey = [self keyChainKey:self.authConfiguration.appClientId key:AWSCognitoAuthAsfDeviceId];
+    NSString * asfDeviceId = self.keychain[asfDeviceIdKey];
+    if(asfDeviceId == nil){
+        asfDeviceId = [[[NSUUID UUID] UUIDString] lowercaseString];
+        self.keychain[asfDeviceIdKey] = asfDeviceId;
+    }
+
+    return asfDeviceId;
+}
+
+/**
  Helper for getting errors
  */
 -(NSError *) getError:(NSString *) error code:(AWSCognitoAuthClientErrorType) code {
@@ -824,6 +878,19 @@ static NSString *const AWSCognitoAuthUnknown = @"Unknown";
                  signOutRedirectUri:(NSString *) signOutRedirectUri
                           webDomain:(NSString *) webDomain
 {
+    return [self initWithAppClientId:appClientId appClientSecret:appClientSecret scopes:scopes signInRedirectUri:signInRedirectUri signOutRedirectUri:signOutRedirectUri webDomain:webDomain identityProvider:nil idpIdentifier:nil userPoolIdForEnablingASF:nil];
+}
+
+- (instancetype)initWithAppClientId:(NSString *) appClientId
+                    appClientSecret:(nullable NSString *)appClientSecret
+                             scopes:(NSSet<NSString *> *) scopes
+                  signInRedirectUri:(NSString *) signInRedirectUri
+                 signOutRedirectUri:(NSString *) signOutRedirectUri
+                          webDomain:(NSString *) webDomain
+                   identityProvider:(nullable NSString *) identityProvider
+                      idpIdentifier:(nullable NSString *) idpIdentifier
+                         userPoolIdForEnablingASF:(nullable NSString *) userPoolIdForEnablingASF;
+{
     if (self = [super init]) {
         _appClientId = appClientId;
         _appClientSecret = appClientSecret;
@@ -831,6 +898,9 @@ static NSString *const AWSCognitoAuthUnknown = @"Unknown";
         _signInRedirectUri = signInRedirectUri;
         _signOutRedirectUri = signOutRedirectUri;
         _webDomain = webDomain;
+        _identityProvider = identityProvider;
+        _idpIdentifier = idpIdentifier;
+        _userPoolId = userPoolIdForEnablingASF;
     }
     
     return self;
@@ -843,8 +913,18 @@ static NSString *const AWSCognitoAuthUnknown = @"Unknown";
                                                                                                  scopes:self.scopes
                                                                                       signInRedirectUri:self.signInRedirectUri
                                                                                      signOutRedirectUri:self.signOutRedirectUri
-                                                                                              webDomain:self.webDomain];
+                                                                                              webDomain:self.webDomain
+                                                                                       identityProvider:self.identityProvider
+                                                                                          idpIdentifier:self.idpIdentifier
+                                                                               userPoolIdForEnablingASF:self.userPoolId];
     return configuration;
+}
+
+/**
+ Determine whether to send user context data during authentication to support advanced security feature
+ */
+-(BOOL) isASFEnabled {
+    return self.userPoolId != nil;
 }
 
 @end

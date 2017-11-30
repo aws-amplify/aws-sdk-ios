@@ -1004,10 +1004,18 @@
 		EF22118B1ED75A0400F432F7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EF2211871ED75A0400F432F7 /* README.md */; };
 		EF76F9C91C9A121100F881D3 /* NSData+AWSCognitoIdentityProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = EFDF14891C98B0C4002CCFE2 /* NSData+AWSCognitoIdentityProvider.h */; };
 		EF76F9CA1C9A121100F881D3 /* NSData+AWSCognitoIdentityProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDF148A1C98B0C4002CCFE2 /* NSData+AWSCognitoIdentityProvider.m */; };
+		EFCE2F091FCE9C2E0072816B /* AWSCognitoIdentityProviderASF.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EFDE85E11FC5DD3D00D281A2 /* AWSCognitoIdentityProviderASF.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EFCE2F0A1FCE9C4B0072816B /* AWSCognitoIdentityProviderASF.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EFDE85E11FC5DD3D00D281A2 /* AWSCognitoIdentityProviderASF.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EFDE85E91FC5E7F000D281A2 /* AWSCognitoIdentityProviderASF.h in Headers */ = {isa = PBXBuildFile; fileRef = EFDE85E81FC5E7F000D281A2 /* AWSCognitoIdentityProviderASF.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFDE85ED1ED2050C008841EC /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		EFDE85F01ED2050C008841EC /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
 		EFDE85F21ED2050C008841EC /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
+		EFDE85FE1FC6535E00D281A2 /* AWSCognitoIdentityProviderASF.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDE85FD1FC6535E00D281A2 /* AWSCognitoIdentityProviderASF.m */; };
 		EFDE86021ED20517008841EC /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
+		EFDE86021FC6591900D281A2 /* AWSCognitoIdentityASF.h in Headers */ = {isa = PBXBuildFile; fileRef = EFDE86001FC6591900D281A2 /* AWSCognitoIdentityASF.h */; };
+		EFDE86031FC6591900D281A2 /* libAWSCognitoIdentityProviderASF.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDE86011FC6591900D281A2 /* libAWSCognitoIdentityProviderASF.a */; };
+		EFDE86041FC65A0600D281A2 /* AWSCognitoIdentityProviderASF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDE85E11FC5DD3D00D281A2 /* AWSCognitoIdentityProviderASF.framework */; };
+		EFDE86091FC65A9A00D281A2 /* AWSCognitoIdentityProviderASF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDE85E11FC5DD3D00D281A2 /* AWSCognitoIdentityProviderASF.framework */; };
 		EFDF14D71C993015002CCFE2 /* AWSCognitoIdentityUser.h in Headers */ = {isa = PBXBuildFile; fileRef = EFDF14BF1C9929AE002CCFE2 /* AWSCognitoIdentityUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFDF14D81C993015002CCFE2 /* AWSCognitoIdentityUser.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDF14C01C9929AE002CCFE2 /* AWSCognitoIdentityUser.m */; };
 		EFDF14D91C993015002CCFE2 /* AWSCognitoIdentityUserPool.h in Headers */ = {isa = PBXBuildFile; fileRef = EFDF147A1C98A79C002CCFE2 /* AWSCognitoIdentityUserPool.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -2194,6 +2202,20 @@
 			remoteGlobalIDString = 181154751E201403008F184C;
 			remoteInfo = AWSAllTestsHost;
 		};
+		EFDE86051FC65A0F00D281A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFDE85BA1FC5DD3D00D281A2;
+			remoteInfo = AWSCognitoIdentityProviderASF;
+		};
+		EFDE86071FC65A9100D281A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFDE85BA1FC5DD3D00D281A2;
+			remoteInfo = AWSCognitoIdentityProviderASF;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -2289,6 +2311,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				EFCE2F091FCE9C2E0072816B /* AWSCognitoIdentityProviderASF.framework in CopyFiles */,
 				CEA316CF1C93A49D002A9F58 /* AWSCore.framework in CopyFiles */,
 				CEA316D01C93A49E002A9F58 /* AWSCognitoIdentityProvider.framework in CopyFiles */,
 			);
@@ -2487,6 +2510,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				EFCE2F0A1FCE9C4B0072816B /* AWSCognitoIdentityProviderASF.framework in CopyFiles */,
 				EF0FEB451ED26A1200D763BC /* AWSCognitoAuth.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3436,8 +3460,14 @@
 		EFDE85B01ED203D9008841EC /* AWSCognitoAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoAuth.m; sourceTree = "<group>"; };
 		EFDE85B11ED203D9008841EC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFDE85B31ED203D9008841EC /* AWSCognitoAuth_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCognitoAuth_Internal.h; sourceTree = "<group>"; };
+		EFDE85E11FC5DD3D00D281A2 /* AWSCognitoIdentityProviderASF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSCognitoIdentityProviderASF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDE85E51ED2046E008841EC /* AWSCognitoAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSCognitoAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFDE85E61FC5E4EE00D281A2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFDE85E81FC5E7F000D281A2 /* AWSCognitoIdentityProviderASF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCognitoIdentityProviderASF.h; sourceTree = "<group>"; };
 		EFDE85F61ED2050C008841EC /* AWSCognitoAuthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSCognitoAuthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFDE85FD1FC6535E00D281A2 /* AWSCognitoIdentityProviderASF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoIdentityProviderASF.m; sourceTree = "<group>"; };
+		EFDE86001FC6591900D281A2 /* AWSCognitoIdentityASF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCognitoIdentityASF.h; sourceTree = "<group>"; };
+		EFDE86011FC6591900D281A2 /* libAWSCognitoIdentityProviderASF.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAWSCognitoIdentityProviderASF.a; sourceTree = "<group>"; };
 		EFDE860A1ED20517008841EC /* AWSCognitoAuthUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSCognitoAuthUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDF14761C986D7E002CCFE2 /* AWSCognitoIdentityUserPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoIdentityUserPool.m; sourceTree = "<group>"; };
 		EFDF147A1C98A79C002CCFE2 /* AWSCognitoIdentityUserPool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSCognitoIdentityUserPool.h; sourceTree = "<group>"; };
@@ -4033,6 +4063,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEA316AF1C93A149002A9F58 /* AWSCore.framework in Frameworks */,
+				EFDE86041FC65A0600D281A2 /* AWSCognitoIdentityProviderASF.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4076,10 +4107,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EFDE85C91FC5DD3D00D281A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFDE86031FC6591900D281A2 /* libAWSCognitoIdentityProviderASF.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EFDE85CC1ED2046E008841EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFDE86091FC65A9A00D281A2 /* AWSCognitoIdentityProviderASF.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4438,6 +4478,7 @@
 				EFDE85AE1ED203D9008841EC /* AWSCognitoAuth */,
 				EFDE85AB1ED203D9008841EC /* AWSCognitoAuthTests */,
 				EFDE85A81ED203D9008841EC /* AWSCognitoAuthUnitTests */,
+				EFDE85B91FC5DC8C00D281A2 /* AWSCognitoIdentityProviderASF */,
 				CEA316991C93A0EA002A9F58 /* AWSCognitoIdentityProvider */,
 				CEA316A51C93A0EA002A9F58 /* AWSCognitoIdentityProviderTests */,
 				CEA316C11C93A415002A9F58 /* AWSCognitoIdentityProviderUnitTests */,
@@ -4588,6 +4629,7 @@
 				EFDE85E51ED2046E008841EC /* AWSCognitoAuth.framework */,
 				EFDE85F61ED2050C008841EC /* AWSCognitoAuthTests.xctest */,
 				EFDE860A1ED20517008841EC /* AWSCognitoAuthUnitTests.xctest */,
+				EFDE85E11FC5DD3D00D281A2 /* AWSCognitoIdentityProviderASF.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -6038,6 +6080,26 @@
 			path = Internal;
 			sourceTree = "<group>";
 		};
+		EFDE85B91FC5DC8C00D281A2 /* AWSCognitoIdentityProviderASF */ = {
+			isa = PBXGroup;
+			children = (
+				EFDE85FF1FC656F900D281A2 /* Internal */,
+				EFDE85E81FC5E7F000D281A2 /* AWSCognitoIdentityProviderASF.h */,
+				EFDE85FD1FC6535E00D281A2 /* AWSCognitoIdentityProviderASF.m */,
+				EFDE85E61FC5E4EE00D281A2 /* Info.plist */,
+			);
+			path = AWSCognitoIdentityProviderASF;
+			sourceTree = "<group>";
+		};
+		EFDE85FF1FC656F900D281A2 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				EFDE86001FC6591900D281A2 /* AWSCognitoIdentityASF.h */,
+				EFDE86011FC6591900D281A2 /* libAWSCognitoIdentityProviderASF.a */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
 		EFDF14A11C99269D002CCFE2 /* JKBigInteger */ = {
 			isa = PBXGroup;
 			children = (
@@ -6590,6 +6652,15 @@
 				E4E1DA3C1E5F4EF40080F769 /* AWSKMSResources.h in Headers */,
 				E4E1DA3B1E5F4EF40080F769 /* AWSKMSModel.h in Headers */,
 				E4E1DA221E5F4E690080F769 /* AWSKMS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFDE85CB1FC5DD3D00D281A2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFDE85E91FC5E7F000D281A2 /* AWSCognitoIdentityProviderASF.h in Headers */,
+				EFDE86021FC6591900D281A2 /* AWSCognitoIdentityASF.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7967,6 +8038,7 @@
 			);
 			dependencies = (
 				EF77D2271CBC65BE005F8F15 /* PBXTargetDependency */,
+				EFDE86061FC65A0F00D281A2 /* PBXTargetDependency */,
 			);
 			name = AWSCognitoIdentityProvider;
 			productName = AWSCognitoSignIn;
@@ -8070,6 +8142,24 @@
 			productReference = E4E1DA4F1E5F5BBD0080F769 /* AWSKMSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		EFDE85BA1FC5DD3D00D281A2 /* AWSCognitoIdentityProviderASF */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFDE85DE1FC5DD3D00D281A2 /* Build configuration list for PBXNativeTarget "AWSCognitoIdentityProviderASF" */;
+			buildPhases = (
+				EFDE85BD1FC5DD3D00D281A2 /* Sources */,
+				EFDE85C91FC5DD3D00D281A2 /* Frameworks */,
+				EFDE85CB1FC5DD3D00D281A2 /* Headers */,
+				EFDE85DD1FC5DD3D00D281A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AWSCognitoIdentityProviderASF;
+			productName = AWSCognitoSignIn;
+			productReference = EFDE85E11FC5DD3D00D281A2 /* AWSCognitoIdentityProviderASF.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		EFDE85BC1ED2046E008841EC /* AWSCognitoAuth */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFDE85E21ED2046E008841EC /* Build configuration list for PBXNativeTarget "AWSCognitoAuth" */;
@@ -8082,6 +8172,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				EFDE86081FC65A9100D281A2 /* PBXTargetDependency */,
 			);
 			name = AWSCognitoAuth;
 			productName = AWSCognitoSignIn;
@@ -8431,6 +8522,7 @@
 				EFDE85BC1ED2046E008841EC /* AWSCognitoAuth */,
 				EFDE85E71ED2050C008841EC /* AWSCognitoAuthTests */,
 				EFDE85F81ED20517008841EC /* AWSCognitoAuthUnitTests */,
+				EFDE85BA1FC5DD3D00D281A2 /* AWSCognitoIdentityProviderASF */,
 				CEA316971C93A0EA002A9F58 /* AWSCognitoIdentityProvider */,
 				CEA316A01C93A0EA002A9F58 /* AWSCognitoIdentityProviderTests */,
 				CEA316BF1C93A415002A9F58 /* AWSCognitoIdentityProviderUnitTests */,
@@ -9070,6 +9162,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4E1DA5D1E5F5C080080F769 /* credentials.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFDE85DD1FC5DD3D00D281A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10075,6 +10174,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EFDE85BD1FC5DD3D00D281A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFDE85FE1FC6535E00D281A2 /* AWSCognitoIdentityProviderASF.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EFDE85BF1ED2046E008841EC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -10933,6 +11040,16 @@
 			isa = PBXTargetDependency;
 			target = 181154751E201403008F184C /* AWSAllTestsHost */;
 			targetProxy = EFDE85FC1ED20517008841EC /* PBXContainerItemProxy */;
+		};
+		EFDE86061FC65A0F00D281A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFDE85BA1FC5DD3D00D281A2 /* AWSCognitoIdentityProviderASF */;
+			targetProxy = EFDE86051FC65A0F00D281A2 /* PBXContainerItemProxy */;
+		};
+		EFDE86081FC65A9100D281A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFDE85BA1FC5DD3D00D281A2 /* AWSCognitoIdentityProviderASF */;
+			targetProxy = EFDE86071FC65A9100D281A2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -13580,6 +13697,11 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AWSCognitoIdentityProvider/Internal",
+					"$(PROJECT_DIR)/AWSCognitoIdentityProviderASF",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSCognitoIdentityProvider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -13600,6 +13722,11 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AWSCognitoIdentityProvider/Internal",
+					"$(PROJECT_DIR)/AWSCognitoIdentityProviderASF",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSCognitoIdentityProvider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -13800,6 +13927,56 @@
 			};
 			name = Release;
 		};
+		EFDE85DF1FC5DD3D00D281A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AWSCognitoIdentityProviderASF/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AWSCognitoIdentityProviderASF",
+					"$(PROJECT_DIR)/AWSCognitoIdentityProviderASF/Internal",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSCognitoIdentityProviderASF;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		EFDE85E01FC5DD3D00D281A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AWSCognitoIdentityProviderASF/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AWSCognitoIdentityProviderASF",
+					"$(PROJECT_DIR)/AWSCognitoIdentityProviderASF/Internal",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSCognitoIdentityProviderASF;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		EFDE85E31ED2046E008841EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -13814,6 +13991,11 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AWSCognitoAuth/Internal",
+					"$(PROJECT_DIR)/AWSCognitoIdentityProviderASF",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSCognitoAuth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -13834,6 +14016,11 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AWSCognitoAuth/Internal",
+					"$(PROJECT_DIR)/AWSCognitoIdentityProviderASF",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSCognitoAuth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -14614,6 +14801,15 @@
 			buildConfigurations = (
 				E4E1DA581E5F5BBD0080F769 /* Debug */,
 				E4E1DA591E5F5BBD0080F769 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFDE85DE1FC5DD3D00D281A2 /* Build configuration list for PBXNativeTarget "AWSCognitoIdentityProviderASF" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFDE85DF1FC5DD3D00D281A2 /* Debug */,
+				EFDE85E01FC5DD3D00D281A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

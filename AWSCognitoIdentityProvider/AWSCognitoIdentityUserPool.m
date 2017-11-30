@@ -22,6 +22,7 @@
 #import <CommonCrypto/CommonHMAC.h>
 #import "NSData+AWSCognitoIdentityProvider.h"
 #import "AWSCognitoIdentityProviderModel.h"
+#import "AWSCognitoIdentityProviderASF.h"
 
 static const NSString * AWSCognitoIdentityUserPoolCurrentUser = @"currentUser";
 
@@ -195,6 +196,8 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
     request.validationData = [self getValidationDataAsArray:validationData];
     request.secretHash = [self calculateSecretHash:username];
     request.analyticsMetadata = [self analyticsMetadata];
+    AWSCognitoIdentityUser *contextUser = [[AWSCognitoIdentityUser alloc] initWithUsername:username pool:self];
+    request.userContextData = [self userContextData:username deviceId:[contextUser asfDeviceId]];
     
     return [[self.client signUp:request] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderSignUpResponse *> * _Nonnull task) {
         AWSCognitoIdentityUser * user = [[AWSCognitoIdentityUser alloc] initWithUsername:username pool:self];
@@ -241,6 +244,12 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
          return metadata;
      }
     return nil;
+}
+
+- (AWSCognitoIdentityProviderUserContextDataType *) userContextData: (NSString * _Nonnull)  username deviceId:(NSString * _Nullable) deviceId {
+    AWSCognitoIdentityProviderUserContextDataType *userContextData = [AWSCognitoIdentityProviderUserContextDataType new];
+    userContextData.encodedData = [AWSCognitoIdentityProviderASF userContextData:self.userPoolConfiguration.poolId username:username deviceId:deviceId userPoolClientId:self.userPoolConfiguration.clientId];
+    return userContextData;
 }
 
 - (void) clearLastKnownUser {
@@ -496,5 +505,52 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData
 @end
 
 @implementation AWSCognitoIdentityUserPoolSignUpResponse
+
+@end
+
+
+@implementation AWSCognitoIdentitySoftwareMfaSetupRequiredInput
+-(instancetype) initWithSecretCode:(NSString *)secretCode username:(NSString *) username{
+    self = [super init];
+    if(nil != self){
+        _secretCode = secretCode;
+        _username = username;
+    }
+    return self;
+}
+@end
+
+
+@implementation AWSCognitoIdentitySoftwareMfaSetupRequiredDetails
+-(instancetype) initWithUserCode:(NSString *)userCode friendlyDeviceName:(NSString *)friendlyDeviceName {
+    self = [super init];
+    if(nil != self){
+        _userCode = userCode;
+        _friendlyDeviceName = friendlyDeviceName;
+    }
+    return self;
+}
+
+@end
+
+
+@implementation AWSCognitoIdentitySelectMfaInput
+-(instancetype) initWithAvailableMfas:(NSDictionary<NSString *, NSString*> *)availableMfas {
+    self = [super init];
+    if(nil != self){
+        _availableMfas = availableMfas;
+    }
+    return self;
+}
+@end
+
+@implementation AWSCognitoIdentitySelectMfaDetails
+-(instancetype) initWithSelectedMfa:(NSString *)selectedMfa {
+    self = [super init];
+    if(nil != self){
+        _selectedMfa = selectedMfa;
+    }
+    return self;
+}
 
 @end

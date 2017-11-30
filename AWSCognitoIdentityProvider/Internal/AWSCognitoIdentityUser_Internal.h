@@ -37,6 +37,7 @@
 @property (nonatomic, strong) AWSCognitoIdentityUserPool* pool;
 @property (nonatomic, strong) NSString* userIdForSRP;
 -(instancetype) initWithUsername: (NSString *)username pool:(AWSCognitoIdentityUserPool *)pool;
+- (NSString *) asfDeviceId;
 @end
 
 @interface AWSCognitoIdentityUserMFAOption()
