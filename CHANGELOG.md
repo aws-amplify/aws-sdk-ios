@@ -1,5 +1,16 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.7
+
+### New Features
+
+* **Amazon Cognito Auth**
+  * Add support for the adaptive authentication feature of Amazon Cognito advanced security features (Beta).
+
+* **Amazon Cognito Identity Provider**
+  * Add support for Time-based One-time Passcode multi-factor authentication.
+  * Add support for the adaptive authentication feature of Amazon Cognito advanced security features (Beta).
+
 ## 2.6.6
 
 ### Enhancements
