@@ -26,7 +26,7 @@
 #import "AWSRekognitionResources.h"
 
 static NSString *const AWSInfoRekognition = @"Rekognition";
-static NSString *const AWSRekognitionSDKVersion = @"2.6.7";
+static NSString *const AWSRekognitionSDKVersion = @"2.6.8";
 
 
 @interface AWSRekognitionResponseSerializer : AWSJSONResponseSerializer
@@ -41,16 +41,20 @@ static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
                             @"AccessDeniedException" : @(AWSRekognitionErrorAccessDenied),
+                            @"IdempotentParameterMismatchException" : @(AWSRekognitionErrorIdempotentParameterMismatch),
                             @"ImageTooLargeException" : @(AWSRekognitionErrorImageTooLarge),
                             @"InternalServerError" : @(AWSRekognitionErrorInternalServer),
                             @"InvalidImageFormatException" : @(AWSRekognitionErrorInvalidImageFormat),
                             @"InvalidPaginationTokenException" : @(AWSRekognitionErrorInvalidPaginationToken),
                             @"InvalidParameterException" : @(AWSRekognitionErrorInvalidParameter),
                             @"InvalidS3ObjectException" : @(AWSRekognitionErrorInvalidS3Object),
+                            @"LimitExceededException" : @(AWSRekognitionErrorLimitExceeded),
                             @"ProvisionedThroughputExceededException" : @(AWSRekognitionErrorProvisionedThroughputExceeded),
                             @"ResourceAlreadyExistsException" : @(AWSRekognitionErrorResourceAlreadyExists),
+                            @"ResourceInUseException" : @(AWSRekognitionErrorResourceInUse),
                             @"ResourceNotFoundException" : @(AWSRekognitionErrorResourceNotFound),
                             @"ThrottlingException" : @(AWSRekognitionErrorThrottling),
+                            @"VideoTooLargeException" : @(AWSRekognitionErrorVideoTooLarge),
                             };
 }
 
@@ -331,6 +335,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSRekognitionCreateStreamProcessorResponse *> *)createStreamProcessor:(AWSRekognitionCreateStreamProcessorRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"CreateStreamProcessor"
+                   outputClass:[AWSRekognitionCreateStreamProcessorResponse class]];
+}
+
+- (void)createStreamProcessor:(AWSRekognitionCreateStreamProcessorRequest *)request
+     completionHandler:(void (^)(AWSRekognitionCreateStreamProcessorResponse *response, NSError *error))completionHandler {
+    [[self createStreamProcessor:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionCreateStreamProcessorResponse *> * _Nonnull task) {
+        AWSRekognitionCreateStreamProcessorResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSRekognitionDeleteCollectionResponse *> *)deleteCollection:(AWSRekognitionDeleteCollectionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -367,6 +394,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSRekognitionDeleteFacesResponse *response, NSError *error))completionHandler {
     [[self deleteFaces:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionDeleteFacesResponse *> * _Nonnull task) {
         AWSRekognitionDeleteFacesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionDeleteStreamProcessorResponse *> *)deleteStreamProcessor:(AWSRekognitionDeleteStreamProcessorRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"DeleteStreamProcessor"
+                   outputClass:[AWSRekognitionDeleteStreamProcessorResponse class]];
+}
+
+- (void)deleteStreamProcessor:(AWSRekognitionDeleteStreamProcessorRequest *)request
+     completionHandler:(void (^)(AWSRekognitionDeleteStreamProcessorResponse *response, NSError *error))completionHandler {
+    [[self deleteStreamProcessor:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionDeleteStreamProcessorResponse *> * _Nonnull task) {
+        AWSRekognitionDeleteStreamProcessorResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionDescribeStreamProcessorResponse *> *)describeStreamProcessor:(AWSRekognitionDescribeStreamProcessorRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"DescribeStreamProcessor"
+                   outputClass:[AWSRekognitionDescribeStreamProcessorResponse class]];
+}
+
+- (void)describeStreamProcessor:(AWSRekognitionDescribeStreamProcessorRequest *)request
+     completionHandler:(void (^)(AWSRekognitionDescribeStreamProcessorResponse *response, NSError *error))completionHandler {
+    [[self describeStreamProcessor:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionDescribeStreamProcessorResponse *> * _Nonnull task) {
+        AWSRekognitionDescribeStreamProcessorResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -446,6 +519,190 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSRekognitionDetectTextResponse *> *)detectText:(AWSRekognitionDetectTextRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"DetectText"
+                   outputClass:[AWSRekognitionDetectTextResponse class]];
+}
+
+- (void)detectText:(AWSRekognitionDetectTextRequest *)request
+     completionHandler:(void (^)(AWSRekognitionDetectTextResponse *response, NSError *error))completionHandler {
+    [[self detectText:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionDetectTextResponse *> * _Nonnull task) {
+        AWSRekognitionDetectTextResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionGetCelebrityInfoResponse *> *)getCelebrityInfo:(AWSRekognitionGetCelebrityInfoRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"GetCelebrityInfo"
+                   outputClass:[AWSRekognitionGetCelebrityInfoResponse class]];
+}
+
+- (void)getCelebrityInfo:(AWSRekognitionGetCelebrityInfoRequest *)request
+     completionHandler:(void (^)(AWSRekognitionGetCelebrityInfoResponse *response, NSError *error))completionHandler {
+    [[self getCelebrityInfo:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionGetCelebrityInfoResponse *> * _Nonnull task) {
+        AWSRekognitionGetCelebrityInfoResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionGetCelebrityRecognitionResponse *> *)getCelebrityRecognition:(AWSRekognitionGetCelebrityRecognitionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"GetCelebrityRecognition"
+                   outputClass:[AWSRekognitionGetCelebrityRecognitionResponse class]];
+}
+
+- (void)getCelebrityRecognition:(AWSRekognitionGetCelebrityRecognitionRequest *)request
+     completionHandler:(void (^)(AWSRekognitionGetCelebrityRecognitionResponse *response, NSError *error))completionHandler {
+    [[self getCelebrityRecognition:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionGetCelebrityRecognitionResponse *> * _Nonnull task) {
+        AWSRekognitionGetCelebrityRecognitionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionGetContentModerationResponse *> *)getContentModeration:(AWSRekognitionGetContentModerationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"GetContentModeration"
+                   outputClass:[AWSRekognitionGetContentModerationResponse class]];
+}
+
+- (void)getContentModeration:(AWSRekognitionGetContentModerationRequest *)request
+     completionHandler:(void (^)(AWSRekognitionGetContentModerationResponse *response, NSError *error))completionHandler {
+    [[self getContentModeration:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionGetContentModerationResponse *> * _Nonnull task) {
+        AWSRekognitionGetContentModerationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionGetFaceDetectionResponse *> *)getFaceDetection:(AWSRekognitionGetFaceDetectionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"GetFaceDetection"
+                   outputClass:[AWSRekognitionGetFaceDetectionResponse class]];
+}
+
+- (void)getFaceDetection:(AWSRekognitionGetFaceDetectionRequest *)request
+     completionHandler:(void (^)(AWSRekognitionGetFaceDetectionResponse *response, NSError *error))completionHandler {
+    [[self getFaceDetection:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionGetFaceDetectionResponse *> * _Nonnull task) {
+        AWSRekognitionGetFaceDetectionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionGetFaceSearchResponse *> *)getFaceSearch:(AWSRekognitionGetFaceSearchRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"GetFaceSearch"
+                   outputClass:[AWSRekognitionGetFaceSearchResponse class]];
+}
+
+- (void)getFaceSearch:(AWSRekognitionGetFaceSearchRequest *)request
+     completionHandler:(void (^)(AWSRekognitionGetFaceSearchResponse *response, NSError *error))completionHandler {
+    [[self getFaceSearch:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionGetFaceSearchResponse *> * _Nonnull task) {
+        AWSRekognitionGetFaceSearchResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionGetLabelDetectionResponse *> *)getLabelDetection:(AWSRekognitionGetLabelDetectionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"GetLabelDetection"
+                   outputClass:[AWSRekognitionGetLabelDetectionResponse class]];
+}
+
+- (void)getLabelDetection:(AWSRekognitionGetLabelDetectionRequest *)request
+     completionHandler:(void (^)(AWSRekognitionGetLabelDetectionResponse *response, NSError *error))completionHandler {
+    [[self getLabelDetection:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionGetLabelDetectionResponse *> * _Nonnull task) {
+        AWSRekognitionGetLabelDetectionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionGetPersonTrackingResponse *> *)getPersonTracking:(AWSRekognitionGetPersonTrackingRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"GetPersonTracking"
+                   outputClass:[AWSRekognitionGetPersonTrackingResponse class]];
+}
+
+- (void)getPersonTracking:(AWSRekognitionGetPersonTrackingRequest *)request
+     completionHandler:(void (^)(AWSRekognitionGetPersonTrackingResponse *response, NSError *error))completionHandler {
+    [[self getPersonTracking:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionGetPersonTrackingResponse *> * _Nonnull task) {
+        AWSRekognitionGetPersonTrackingResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSRekognitionIndexFacesResponse *> *)indexFaces:(AWSRekognitionIndexFacesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -515,6 +772,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSRekognitionListStreamProcessorsResponse *> *)listStreamProcessors:(AWSRekognitionListStreamProcessorsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"ListStreamProcessors"
+                   outputClass:[AWSRekognitionListStreamProcessorsResponse class]];
+}
+
+- (void)listStreamProcessors:(AWSRekognitionListStreamProcessorsRequest *)request
+     completionHandler:(void (^)(AWSRekognitionListStreamProcessorsResponse *response, NSError *error))completionHandler {
+    [[self listStreamProcessors:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionListStreamProcessorsResponse *> * _Nonnull task) {
+        AWSRekognitionListStreamProcessorsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionRecognizeCelebritiesResponse *> *)recognizeCelebrities:(AWSRekognitionRecognizeCelebritiesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"RecognizeCelebrities"
+                   outputClass:[AWSRekognitionRecognizeCelebritiesResponse class]];
+}
+
+- (void)recognizeCelebrities:(AWSRekognitionRecognizeCelebritiesRequest *)request
+     completionHandler:(void (^)(AWSRekognitionRecognizeCelebritiesResponse *response, NSError *error))completionHandler {
+    [[self recognizeCelebrities:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionRecognizeCelebritiesResponse *> * _Nonnull task) {
+        AWSRekognitionRecognizeCelebritiesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSRekognitionSearchFacesResponse *> *)searchFaces:(AWSRekognitionSearchFacesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -551,6 +854,190 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSRekognitionSearchFacesByImageResponse *response, NSError *error))completionHandler {
     [[self searchFacesByImage:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionSearchFacesByImageResponse *> * _Nonnull task) {
         AWSRekognitionSearchFacesByImageResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionStartCelebrityRecognitionResponse *> *)startCelebrityRecognition:(AWSRekognitionStartCelebrityRecognitionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"StartCelebrityRecognition"
+                   outputClass:[AWSRekognitionStartCelebrityRecognitionResponse class]];
+}
+
+- (void)startCelebrityRecognition:(AWSRekognitionStartCelebrityRecognitionRequest *)request
+     completionHandler:(void (^)(AWSRekognitionStartCelebrityRecognitionResponse *response, NSError *error))completionHandler {
+    [[self startCelebrityRecognition:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionStartCelebrityRecognitionResponse *> * _Nonnull task) {
+        AWSRekognitionStartCelebrityRecognitionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionStartContentModerationResponse *> *)startContentModeration:(AWSRekognitionStartContentModerationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"StartContentModeration"
+                   outputClass:[AWSRekognitionStartContentModerationResponse class]];
+}
+
+- (void)startContentModeration:(AWSRekognitionStartContentModerationRequest *)request
+     completionHandler:(void (^)(AWSRekognitionStartContentModerationResponse *response, NSError *error))completionHandler {
+    [[self startContentModeration:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionStartContentModerationResponse *> * _Nonnull task) {
+        AWSRekognitionStartContentModerationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionStartFaceDetectionResponse *> *)startFaceDetection:(AWSRekognitionStartFaceDetectionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"StartFaceDetection"
+                   outputClass:[AWSRekognitionStartFaceDetectionResponse class]];
+}
+
+- (void)startFaceDetection:(AWSRekognitionStartFaceDetectionRequest *)request
+     completionHandler:(void (^)(AWSRekognitionStartFaceDetectionResponse *response, NSError *error))completionHandler {
+    [[self startFaceDetection:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionStartFaceDetectionResponse *> * _Nonnull task) {
+        AWSRekognitionStartFaceDetectionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionStartFaceSearchResponse *> *)startFaceSearch:(AWSRekognitionStartFaceSearchRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"StartFaceSearch"
+                   outputClass:[AWSRekognitionStartFaceSearchResponse class]];
+}
+
+- (void)startFaceSearch:(AWSRekognitionStartFaceSearchRequest *)request
+     completionHandler:(void (^)(AWSRekognitionStartFaceSearchResponse *response, NSError *error))completionHandler {
+    [[self startFaceSearch:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionStartFaceSearchResponse *> * _Nonnull task) {
+        AWSRekognitionStartFaceSearchResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionStartLabelDetectionResponse *> *)startLabelDetection:(AWSRekognitionStartLabelDetectionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"StartLabelDetection"
+                   outputClass:[AWSRekognitionStartLabelDetectionResponse class]];
+}
+
+- (void)startLabelDetection:(AWSRekognitionStartLabelDetectionRequest *)request
+     completionHandler:(void (^)(AWSRekognitionStartLabelDetectionResponse *response, NSError *error))completionHandler {
+    [[self startLabelDetection:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionStartLabelDetectionResponse *> * _Nonnull task) {
+        AWSRekognitionStartLabelDetectionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionStartPersonTrackingResponse *> *)startPersonTracking:(AWSRekognitionStartPersonTrackingRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"StartPersonTracking"
+                   outputClass:[AWSRekognitionStartPersonTrackingResponse class]];
+}
+
+- (void)startPersonTracking:(AWSRekognitionStartPersonTrackingRequest *)request
+     completionHandler:(void (^)(AWSRekognitionStartPersonTrackingResponse *response, NSError *error))completionHandler {
+    [[self startPersonTracking:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionStartPersonTrackingResponse *> * _Nonnull task) {
+        AWSRekognitionStartPersonTrackingResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionStartStreamProcessorResponse *> *)startStreamProcessor:(AWSRekognitionStartStreamProcessorRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"StartStreamProcessor"
+                   outputClass:[AWSRekognitionStartStreamProcessorResponse class]];
+}
+
+- (void)startStreamProcessor:(AWSRekognitionStartStreamProcessorRequest *)request
+     completionHandler:(void (^)(AWSRekognitionStartStreamProcessorResponse *response, NSError *error))completionHandler {
+    [[self startStreamProcessor:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionStartStreamProcessorResponse *> * _Nonnull task) {
+        AWSRekognitionStartStreamProcessorResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionStopStreamProcessorResponse *> *)stopStreamProcessor:(AWSRekognitionStopStreamProcessorRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"StopStreamProcessor"
+                   outputClass:[AWSRekognitionStopStreamProcessorResponse class]];
+}
+
+- (void)stopStreamProcessor:(AWSRekognitionStopStreamProcessorRequest *)request
+     completionHandler:(void (^)(AWSRekognitionStopStreamProcessorResponse *response, NSError *error))completionHandler {
+    [[self stopStreamProcessor:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionStopStreamProcessorResponse *> * _Nonnull task) {
+        AWSRekognitionStopStreamProcessorResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

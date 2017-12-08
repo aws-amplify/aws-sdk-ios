@@ -1,5 +1,23 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.8
+
+### New Features
+
+* **Amazon Rekognition**
+  * **Breaking API Change** The `AWSRekognitionLandmarkType` enum entries have changed lowercase `b` to capital `B`. For instance `AWSRekognitionLandmarkTypeLeftEyeBrowLeft`.
+  * Update the enum value of LandmarkType and GenderType to be consistent with service response. [Github Issue #650](https://github.com/aws/aws-sdk-ios/issues/650)
+  * Update to add face and text detection. [Github Issue #771](https://github.com/aws/aws-sdk-ios/issues/771)
+  * Update to Amazon Rekognition in general to latest API specifications.
+
+### Bug fixes
+
+* **Amazon Cognito Auth**
+  * Fix broken Cocoapods due to duplicate library being found. [Github Issue #770](https://github.com/aws/aws-sdk-ios/issues/770)
+
+* **Amazon Cognito Auth**
+  * Fix broken Cocoapods due to duplicate library being found. [Github Issue #770](https://github.com/aws/aws-sdk-ios/issues/770)
+
 ## 2.6.7
 
 ### New Features

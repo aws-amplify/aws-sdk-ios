@@ -37,6 +37,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ AWSMobileClient helps you initialize the SDK, fetch the Cognito Identity
+ and resume any previously signed-in session. It also registers the SignIn
+ providers based on the information provided in awsconfiguration.json file.
+ */
 @interface AWSMobileClient : NSObject
 
 /**
@@ -52,6 +57,30 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)sharedInstance;
 
+/**
+ Configure third-party services from application delegate with url, application
+ that called this provider, and any annotation info.
+ 
+ @param application instance from application delegate.
+ @param url called from application delegate.
+ @param sourceApplication that triggered this call.
+ @param annotation from application delegate.
+ @return true if call was handled by this component.
+ 
+ *Swift*
+ 
+ AWSMobileClient
+    .sharedInstance()
+    .interceptApplication(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+ 
+ *Objective-C*
+ 
+ AWSMobileClient *mobileClient = [AWSMobileClient sharedInstance];
+ [mobileClient interceptApplication:application
+                            openURL:url
+                  sourceApplication:srcApplication
+                         annotation:annotation];
+ */
 - (BOOL)interceptApplication:(UIApplication *)application
                      openURL:(NSURL *)url
            sourceApplication:(nullable NSString *)sourceApplication
@@ -110,6 +139,7 @@ resumeSessionWithCompletionHandler:(void (^)(id result, NSError *error))completi
  @param signInProviderConfig the signInProviderConfiguration with permissions.
  **/
 - (void)setSignInProviders:(nullable NSArray<AWSSignInProviderConfig *> *)signInProviderConfig;
+
 /**
  * Retrieve the Credentials Provider.
  * @return AWSCognitoCredentialsProvider

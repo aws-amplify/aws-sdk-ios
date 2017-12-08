@@ -15,6 +15,10 @@
 
 #import "AWSMobileClient.h"
 
+@implementation AWSSignInProviderConfig
+
+@end
+
 @interface AWSMobileClient ()
 
 @property (nonatomic, strong) AWSCognitoCredentialsProvider *credentialsProvider;
@@ -164,24 +168,17 @@ resumeSessionWithCompletionHandler:(void (^)(id result, NSError *error))completi
         } else if (providerConfig.signInProviderClass == AWSFacebookSignInProviderClass) {
             provider = [self registerSignInProvider:AWSFacebookSignInProviderClass
                            providerConfigurationKey:AWSInfoFacebookIdentifier];
-            if ([provider respondsToSelector:NSSelectorFromString(@"setPermissions:")]) {
-                [provider performSelector:NSSelectorFromString(@"setPermissions:") withObject:providerConfig.permissions];
-            } else {
-                @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                               reason:@"Cannot find permissions for FacebookSignIn. Please check `awsconfiguration.json"
-                                             userInfo:nil];
-            }
-            
+            [self registerUserSignInProviderPermissions:provider
+                                         selectorString:@"setPermissions:"
+                                         providerConfig:providerConfig
+                                     providerIdentifier:AWSInfoFacebookIdentifier];
         } else if (providerConfig.signInProviderClass == AWSGoogleSignInProviderClass) {
             provider = [self registerSignInProvider:AWSGoogleSignInProviderClass
                            providerConfigurationKey:AWSInfoGoogleIdentifier];
-            if ([provider respondsToSelector:NSSelectorFromString(@"setScopes:")]) {
-                [provider performSelector:NSSelectorFromString(@"setScopes:") withObject:providerConfig.permissions];
-            } else {
-                @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                               reason:@"Cannot find scopes for GoogleSignIn. Please check `awsconfiguration.json`"
-                                             userInfo:nil];
-            }
+            [self registerUserSignInProviderPermissions:provider
+                                         selectorString:@"setScopes:"
+                                         providerConfig:providerConfig
+                                     providerIdentifier:AWSInfoGoogleIdentifier];
         } else {
             AWSDDLogError(@"SignInProvider `%@` cannot be recognized.", providerConfig.signInProviderClass);
         }
@@ -210,18 +207,24 @@ resumeSessionWithCompletionHandler:(void (^)(id result, NSError *error))completi
     }
 }
 
-- (NSArray<NSString *> *)getPermissionsFromConfig:(NSString *)providerConfigurationKey {
-    
-    NSString *permissions;
-    NSDictionary *dict = [[AWSInfo defaultAWSInfo] rootInfoDictionary];
-    NSDictionary *providerDict = dict[providerConfigurationKey];
-    permissions = providerDict[@"Permissions"];
-    
-    if (!permissions) {
-        AWSDDLogError(@"Permissions for `%@` is not set correctly in `awsconfiguration.json`.", providerConfigurationKey);
+- (void)registerUserSignInProviderPermissions:(id)provider
+                               selectorString:(NSString *)selectorString
+                               providerConfig:(AWSSignInProviderConfig *)config
+                           providerIdentifier:(NSString *)providerId {
+    if ([self isConfigurationKeyPresent:providerId]) {
+        if ([provider respondsToSelector:NSSelectorFromString(selectorString)]) {
+            SEL selector = NSSelectorFromString(selectorString);
+            IMP imp = [provider methodForSelector:selector];
+            id (*func)(id, SEL, id) = (void *)imp;
+            func(provider, selector, config.permissions);
+        } else {
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:[NSString stringWithFormat:(@"Cannot find permissions for %@. Please check `awsconfiguration.json"), providerId]
+                                         userInfo:nil];
+        }
+    } else {
+        AWSDDLogDebug(@"Configuration for %@ is not present in awsconfiguration.json", providerId);
     }
-    
-    return [permissions componentsSeparatedByString:@","];
 }
 
 #pragma mark CredentialsProvider methods

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'AWSCognitoIdentityProviderASF'
-  s.version      = '1.0.0'
+  s.version      = '1.0.1'
   s.summary      = 'Amazon Cognito Identity Provider Advanced Security Features library (Beta)'
 
   s.description  = 'Amazon Cognito Identity Provider ASF provides the information necessary to support adaptive authentication'
@@ -15,5 +15,5 @@ Pod::Spec.new do |s|
   s.public_header_files = 'AWSCognitoIdentityProviderASF/*.h'
   s.source_files = 'AWSCognitoIdentityProviderASF/**/*.{h,m,c}'
   s.private_header_files = 'AWSCognitoIdentityProviderASF/Internal/*.h'
-  s.vendored_libraries = 'AWSCognitoIdentityProviderASF/Internal/libAWSCognitoIdentityProviderASF.a'
+  s.vendored_libraries = 'AWSCognitoIdentityProviderASF/Internal/libAWSCognitoIdentityProviderASFBinary.a'
 end
