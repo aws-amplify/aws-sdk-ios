@@ -12,7 +12,7 @@
 
 ### Bug fixes
 
-* **Amazon Cognito Auth**
+* **Amazon Cognito Identity Provider**
   * Fix broken Cocoapods due to duplicate library being found. [Github Issue #770](https://github.com/aws/aws-sdk-ios/issues/770)
 
 * **Amazon Cognito Auth**
