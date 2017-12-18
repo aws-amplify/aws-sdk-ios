@@ -42,7 +42,7 @@ NSString *const AWSCognitoAuthErrorDomain = @"com.amazon.cognito.AWSCognitoAuthE
 
 @implementation AWSCognitoAuth
 
-static NSString *const AWSCognitoAuthSDKVersion = @"2.6.8";
+static NSString *const AWSCognitoAuthSDKVersion = @"2.6.9";
 
 
 static NSMutableDictionary *_instanceDictionary = nil;

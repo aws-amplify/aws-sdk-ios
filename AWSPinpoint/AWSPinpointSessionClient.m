@@ -479,7 +479,7 @@ typedef void(^voidBlock)(void);
     [dateFormatter setDateFormat:AWSPinpointSessionIDTimeFormat];
     NSString *timestamp_time = [dateFormatter stringFromDate:tDate];
     
-    //<AppKey> - <UniqueID> - <Day> - <Time>
+    //Session ID as String, formmatted as <AppKey> - <UniqueID> - <Day> - <Time>
     return [NSString stringWithFormat:@"%@%c%@%c%@%c%@", appKey, AWSPinpointSessionIDDelimiter, uniqID, AWSPinpointSessionIDDelimiter, timestamp_day, AWSPinpointSessionIDDelimiter, timestamp_time];
 };
 

@@ -1139,6 +1139,7 @@
         \"ap-northeast-2\",\
         \"sa-east-1\",\
         \"cn-north-1\",\
+        \"cn-northwest-1\",\
         \"us-gov-west-1\",\
         \"eu-central-1\",\
         \"ca-central-1\"\
@@ -6383,7 +6384,8 @@
     },\
     \"WebsiteRedirectLocation\":{\"type\":\"string\"}\
   }\
-}";
+}\
+";
 }
 
 @end

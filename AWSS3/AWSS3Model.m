@@ -877,6 +877,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"cn-north-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintCNNorth1);
         }
+        if ([value caseInsensitiveCompare:@"cn-northwest-1"] == NSOrderedSame) {
+            return @(AWSS3BucketLocationConstraintCNNorthwest1);
+        }
         if ([value caseInsensitiveCompare:@"us-gov-west-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintUSGovWest1);
         }
@@ -917,6 +920,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"sa-east-1";
             case AWSS3BucketLocationConstraintCNNorth1:
                 return @"cn-north-1";
+            case AWSS3BucketLocationConstraintCNNorthwest1:
+                return @"cn-northwest-1";
             case AWSS3BucketLocationConstraintUSGovWest1:
                 return @"us-gov-west-1";
             case AWSS3BucketLocationConstraintEUCentral1:
@@ -1847,6 +1852,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"cn-north-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintCNNorth1);
         }
+        if ([value caseInsensitiveCompare:@"cn-northwest-1"] == NSOrderedSame) {
+            return @(AWSS3BucketLocationConstraintCNNorthwest1);
+        }
         if ([value caseInsensitiveCompare:@"us-gov-west-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintUSGovWest1);
         }
@@ -1887,6 +1895,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"sa-east-1";
             case AWSS3BucketLocationConstraintCNNorth1:
                 return @"cn-north-1";
+            case AWSS3BucketLocationConstraintCNNorthwest1:
+                return @"cn-northwest-1";
             case AWSS3BucketLocationConstraintUSGovWest1:
                 return @"us-gov-west-1";
             case AWSS3BucketLocationConstraintEUCentral1:

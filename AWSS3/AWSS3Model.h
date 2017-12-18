@@ -67,6 +67,7 @@ typedef NS_ENUM(NSInteger, AWSS3BucketLocationConstraint) {
     AWSS3BucketLocationConstraintAPNortheast2,
     AWSS3BucketLocationConstraintSAEast1,
     AWSS3BucketLocationConstraintCNNorth1,
+    AWSS3BucketLocationConstraintCNNorthwest1,
     AWSS3BucketLocationConstraintUSGovWest1,
     AWSS3BucketLocationConstraintEUCentral1,
     AWSS3BucketLocationConstraintCACentral1,

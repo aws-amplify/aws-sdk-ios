@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.6.8"
+VERSION="2.6.9"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -33,7 +33,6 @@ else
     cp -r AWSCognitoIdentityProvider ./docs_tmp/AWSCognitoIdentityProvider
     cp -r AWSCloudWatch ./docs_tmp/AWSCloudWatch
     cp -r AWSDynamoDB ./docs_tmp/AWSDynamoDB
-    cp -r AWSEC2 ./docs_tmp/AWSEC2
     cp -r AWSElasticLoadBalancing ./docs_tmp/AWSElasticLoadBalancing
     cp -r AWSIoT ./docs_tmp/AWSIoT
     cp -r AWSKinesis ./docs_tmp/AWSKinesis

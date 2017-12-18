@@ -1,5 +1,17 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.9
+
+### New Features
+
+* **AWS Core**
+  * Added support for `cn-northwest-1`(China - Ningxia) region.
+
+### Misc. Updates
+	
+* **Amazon Pinpoint**
+  * Improved the comment in `generateSessionIdWithContext` method in `AWSPinpointSessionClient`. [PR #777](https://github.com/aws/aws-sdk-ios/pull/777)
+
 ## 2.6.8
 
 ### New Features
