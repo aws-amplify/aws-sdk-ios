@@ -1,5 +1,13 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+
+## 2.6.10
+
+### New Features
+
+* **AWS Core**
+  * Added support for `eu-west-3`(EU - Paris) region.
+
 ## 2.6.9
 
 ### New Features
