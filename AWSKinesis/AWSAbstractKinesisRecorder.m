@@ -205,8 +205,8 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                 [databaseQueue inDatabase:^(AWSFMDatabase *db) {
                     BOOL result = [db executeUpdate:
                                    @"DELETE FROM record "
-                                   @"WHERE partition_key IN ( "
-                                   @"SELECT partition_key "
+                                   @"WHERE rowid IN ( "
+                                   @"SELECT rowid "
                                    @"FROM record "
                                    @"ORDER BY timestamp ASC "
                                    @"LIMIT 1 "
@@ -241,7 +241,7 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                 NSMutableArray *partitionKeys = nil;
 
                 AWSFMResultSet *rs = [db executeQuery:
-                                      @"SELECT partition_key, data, retry_count, stream_name "
+                                      @"SELECT rowid, partition_key, data, retry_count, stream_name "
                                       @"FROM record "
                                       @"WHERE stream_name = (SELECT stream_name FROM record ORDER BY timestamp ASC LIMIT 1) "
                                       @"ORDER BY timestamp ASC "
@@ -263,7 +263,7 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                                                   @"stream_name": [rs stringForColumn:@"stream_name"],
                                                   }];
 
-                    [partitionKeys addObject:[rs stringForColumn:@"partition_key"]];
+                    [partitionKeys addObject:[rs stringForColumn:@"rowid"]];
                     batchDataSize += [[rs dataForColumn:@"data"] length];
 
                     if (batchDataSize > self.batchRecordsByteLimit) { // if the batch size exceeds `batchRecordsByteLimit`, stop there.
@@ -294,9 +294,9 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                     }
 
                     for (NSString *partitionKey in putPartitionKeys) {
-                        BOOL result = [db executeUpdate:@"DELETE FROM record WHERE partition_key = :partition_key"
+                        BOOL result = [db executeUpdate:@"DELETE FROM record WHERE rowid = :rowid"
                                 withParameterDictionary:@{
-                                                          @"partition_key" : partitionKey
+                                                          @"rowid" : partitionKey
                                                           }];
                         if (!result) {
                             AWSDDLogError(@"SQLite error. [%@]", db.lastError);
@@ -305,9 +305,9 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                     }
 
                     for (NSString *partitionKey in retryPartitionKeys) {
-                        BOOL result = [db executeUpdate:@"UPDATE record SET retry_count = retry_count + 1 WHERE partition_key = :partition_key"
+                        BOOL result = [db executeUpdate:@"UPDATE record SET retry_count = retry_count + 1 WHERE rowid = :rowid"
                                 withParameterDictionary:@{
-                                                          @"partition_key" : partitionKey
+                                                          @"rowid" : partitionKey
                                                           }];
                         if (!result) {
                             AWSDDLogError(@"SQLite error. [%@]", db.lastError);
