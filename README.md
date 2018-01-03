@@ -249,52 +249,52 @@ For more information, see [Preparing Your Apps for iOS 9](http://docs.aws.amazon
 
 1. Import the AWSCore header in the application delegate.
 
-```swift
-import AWSCore
-```
+    ```swift
+    import AWSCore
+    ```
 
 2. Create a default service configuration by adding the following code snippet in the `application:didFinishLaunchingWithOptions:` application delegate method.
 
-```swift
-let credentialsProvider = AWSCognitoCredentialsProvider(
-    regionType: CognitoRegionType,
-    identityPoolId: CognitoIdentityPoolId)
-let configuration = AWSServiceConfiguration(
-    region: DefaultServiceRegionType,
-    credentialsProvider: credentialsProvider)
-AWSServiceManager.default().defaultServiceConfiguration = configuration
-```
+    ```swift
+    let credentialsProvider = AWSCognitoCredentialsProvider(
+        regionType: CognitoRegionType,
+        identityPoolId: CognitoIdentityPoolId)
+    let configuration = AWSServiceConfiguration(
+        region: DefaultServiceRegionType,
+        credentialsProvider: credentialsProvider)
+    AWSServiceManager.default().defaultServiceConfiguration = configuration
+    ```
 
 3. In Swift file you want to use the SDK, import the appropriate headers for the services you are using. The header file import convention is `import AWSServiceName`, as in the following examples:
 
-```swift
-import AWSS3
-import AWSDynamoDB
-import AWSSQS
-import AWSSNS
-import AWSCognito
-```
+    ```swift
+    import AWSS3
+    import AWSDynamoDB
+    import AWSSQS
+    import AWSSNS
+    import AWSCognito
+    ```
         
 4. Make a call to the AWS services.
 
-```swift
-let dynamoDB = AWSDynamoDB.default()
-let listTableInput = AWSDynamoDBListTablesInput()
-dynamoDB.listTables(listTableInput!).continueWith { (task:AWSTask<AWSDynamoDBListTablesOutput>) -> Any? in
-    if let error = task.error as? NSError {
+    ```swift
+    let dynamoDB = AWSDynamoDB.default()
+    let listTableInput = AWSDynamoDBListTablesInput()
+    dynamoDB.listTables(listTableInput!).continueWith { (task:AWSTask<AWSDynamoDBListTablesOutput>) -> Any? in
+        if let error = task.error as? NSError {
         print("Error occurred: \(error)")
+            return nil
+        }
+    
+        let listTablesOutput = task.result
+    
+        for tableName in listTablesOutput!.tableNames! {
+            print("\(tableName)")
+        }
+    
         return nil
     }
-
-    let listTablesOutput = task.result
-
-    for tableName in listTablesOutput!.tableNames! {
-        print("\(tableName)")
-    }
-
-    return nil
-}
-```
+    ```
         
 **Note**: Most of the service client classes have a singleton method to get a default client. The naming convention is `+ defaultSERVICENAME` (e.g. `+ defaultDynamoDB` in the above code snippet). This singleton method creates a service client with `defaultServiceConfiguration`, which you set up in step 5, and maintains a strong reference to the client.
 
@@ -302,45 +302,45 @@ dynamoDB.listTables(listTableInput!).continueWith { (task:AWSTask<AWSDynamoDBLis
 
 1. Import the AWSCore header in the application delegate.
         
-```objective-c
-@import AWSCore;
-```
+    ```objective-c
+    @import AWSCore;
+    ```
 
 2. Create a default service configuration by adding the following code snippet in the `application:didFinishLaunchingWithOptions:` application delegate method.
 
-```objective-c
-AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:CognitoRegionType
-                                                                                                identityPoolId:CognitoIdentityPoolId];
-AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:DefaultServiceRegionType
-                                                                     credentialsProvider:credentialsProvider];
-AWSServiceManager.defaultServiceManager.defaultServiceConfiguration = configuration;
-```
+    ```objective-c
+    AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:CognitoRegionType
+                                                                                                    identityPoolId:CognitoIdentityPoolId];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:DefaultServiceRegionType
+                                                                         credentialsProvider:credentialsProvider];
+    AWSServiceManager.defaultServiceManager.defaultServiceConfiguration = configuration;
+    ```
 
 3. Import the appropriate headers for the services you are using. The header file import convention is `@import AWSServiceName;`, as in the following examples:
 
-```objective-c
-@import AWSS3;
-@import AWSDynamoDB;
-@import AWSSQS;
-@import AWSSNS;
-@import AWSCognito;
-```
+    ```objective-c
+    @import AWSS3;
+    @import AWSDynamoDB;
+    @import AWSSQS;
+    @import AWSSNS;
+    @import AWSCognito;
+    ```
 
 4. Make a call to the AWS services.
 
-```objective-c
-AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
-AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
-uploadRequest.bucket = yourBucket;
-uploadRequest.key = yourKey;
-uploadRequest.body = yourDataURL;
-uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-
-[[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
-    // Do something with the response
-    return nil;
-}];
-```
+    ```objective-c
+    AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
+    AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
+    uploadRequest.bucket = yourBucket;
+    uploadRequest.key = yourKey;
+    uploadRequest.body = yourDataURL;
+    uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
+    
+    [[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
+        // Do something with the response
+        return nil;
+    }];
+    ```
 
 **Note**: Most of the service client classes have a singleton method to get a default client. The naming convention is `+ defaultSERVICENAME` (e.g. `+ defaultS3TransferManager` in the above code snippet). This singleton method creates a service client with `defaultServiceConfiguration`, which you set up in step 5, and maintains a strong reference to the client.
 
