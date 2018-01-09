@@ -756,8 +756,9 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
               task:(NSURLSessionTask *)task
 didCompleteWithError:(NSError *)error {
     if (!error) {
+        NSAssert([task.response isKindOfClass:[NSHTTPURLResponse class]], @"Expected response of type NSHTTPURLResponse");
         if (![task.response isKindOfClass:[NSHTTPURLResponse class]]) {
-            [NSException raise:@"Invalid NSURLSession state" format:@"Expected response of type  %@", @"NSHTTPURLResponse"];
+            error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain code:AWSS3TransferUtilityErrorUnknown userInfo:nil];
         }
         
         NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)task.response;
