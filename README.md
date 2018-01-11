@@ -7,7 +7,7 @@
 
 ## Setting Up
 
-To get started with the AWS SDK for iOS, you can set up the SDK and start building a new project, or you integrate the SDK in an existing project. You can also run the samples to get a sense of how the SDK works.
+To get started with the AWS SDK for iOS, check out the [AWS Mobile Developer Guide for iOS](https://docs.aws.amazon.com/aws-mobile/latest/developerguide/getting-started.html). You can set up the SDK and start building a new project, or you integrate the SDK in an existing project. You can also run the samples to get a sense of how the SDK works.
 
 To use the AWS SDK for iOS, you will need the following installed on your development machine:
 
@@ -15,8 +15,6 @@ To use the AWS SDK for iOS, you will need the following installed on your develo
 * iOS 8 or later
 
 At the AWS GitHub repo, you can check out the [SDK source code](https://github.com/aws/aws-sdk-ios).
-
-For more information, see  [AWS Mobile SDK for iOS Developer Guide](http://docs.aws.amazon.com/mobile/sdkforios/developerguide/).
 
 ## Include the SDK for iOS in an Existing Application
 
