@@ -1,5 +1,21 @@
 # AWS Mobile SDK for iOS CHANGELOG
+## 2.6.11
 
+### New Features
+
+* **AWS IoT**
+  * Starting from this release, AWS IoT SDK by default sends metrics indicating which language and version of the SDK is being used. However, user may disable this by calling `enableMetricsCollection(false)` before calling `connect` method, if they do not want metrics to be sent.
+
+### Bug Fixes
+
+* **AWS S3**
+  * Assert instead of raising exception when reponse is not of type `NSHTTPURLResponse` in `AWSS3TransferUtility`. See [pr #799](https://github.com/aws/aws-sdk-ios/pull/799).
+
+### Misc. Updates
+
+* **General**
+  * Update README for formatting, code indentation and highlighting. [PR #790](https://github.com/aws/aws-sdk-ios/pull/790)
+  * Update README to point to the new documentation. [PR #804](https://github.com/aws/aws-sdk-ios/pull/804)
 
 ## 2.6.10
 

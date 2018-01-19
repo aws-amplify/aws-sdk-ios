@@ -383,6 +383,12 @@ typedef void(^AWSIoTMQTTExtendedNewMessageBlock)(NSObject *mqttClient, NSString 
 + (void)removeIoTDataManagerForKey:(NSString *)key;
 
 /**
+ Enable or disable sending SDK name and version in the Mqtt Connect message. Enabled by default.
+ Must be called before calling connect.
+ */
+- (void)enableMetricsCollection:(BOOL)enabled;
+
+/**
  Initialises the MQTT session and connects to AWS IoT using certificate-based mutual authentication
 
  @return true if initialise finished with success

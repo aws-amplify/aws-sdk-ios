@@ -84,6 +84,11 @@
 
 static AWSIoTMQTTClient *_defaultMQTTClient = nil;
 static const int WAIT_TIMEOUT_IN_SEC = 3;
+/*
+This version is for metrics collection for AWS IoT purpose only. It may be different
+ than the version of AWS SDK for iOS. Update this version when there's a change in AWSIoT.
+ */
+static const NSString *SDK_VERSION = @"2.6.7";
 
 + (instancetype)sharedInstance {
     static dispatch_once_t onceToken;
@@ -116,6 +121,7 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
         _postConnectTime = 0.5;
         _runloopSemaphore = dispatch_semaphore_create(0);
         _autoResubscribe = YES;
+        _isMetricsEnabled = YES;
     }
     return self;
 }
@@ -250,8 +256,23 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
         [self.topicListeners removeAllObjects];
         [self.queueMessages removeAllObjects];
     }
-
-    self.session= [[MQTTSession alloc] initWithClientId:clientId userName:@"" password:@"" keepAlive:theKeepAliveInterval cleanSession:cleanSession willTopic:willTopic willMsg:willMsg willQoS:willQoS willRetainFlag:willRetainFlag runLoop:theRunLoop forMode:theRunLoopMode];
+    NSString *username;
+    if (self.isMetricsEnabled) {
+        username = [NSString stringWithFormat:@"%@%@", @"?SDK=iOS&Version=", SDK_VERSION];
+        AWSDDLogInfo(@"username is : %@", username);
+    }
+    AWSDDLogInfo(@"Metrics collection is: %@", self.isMetricsEnabled ? @"Enabled" : @"Disabled");
+    self.session= [[MQTTSession alloc] initWithClientId:clientId
+                                               userName:username
+                                               password:@""
+                                              keepAlive:theKeepAliveInterval
+                                           cleanSession:cleanSession
+                                              willTopic:willTopic
+                                                willMsg:willMsg
+                                                willQoS:willQoS
+                                         willRetainFlag:willRetainFlag
+                                                runLoop:theRunLoop
+                                                forMode:theRunLoopMode];
 
     [self notifyConnectionStatus];
 
@@ -350,9 +371,14 @@ static const int WAIT_TIMEOUT_IN_SEC = 3;
         [self.topicListeners removeAllObjects];
         [self.queueMessages removeAllObjects];
     }
-
+    NSString *username;
+    if (self.isMetricsEnabled) {
+        username = [NSString stringWithFormat:@"%@%@", @"?SDK=iOS&Version=", SDK_VERSION];
+        AWSDDLogInfo(@"username is : %@", username);
+    }
+    AWSDDLogInfo(@"Metrics collection is: %@", self.isMetricsEnabled ? @"Enabled" : @"Disabled");
     self.session = [[MQTTSession alloc] initWithClientId:clientId
-                                                userName:@""
+                                                userName:username
                                                 password:@""
                                                keepAlive:theKeepAliveInterval
                                             cleanSession:cleanSession

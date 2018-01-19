@@ -295,6 +295,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return self;
 }
 
+- (void)enableMetricsCollection:(BOOL)enabled {
+    [self.mqttClient setIsMetricsEnabled:enabled];
+}
+
 - (BOOL)connectWithClientId:(NSString*)clientId
                cleanSession:(BOOL)cleanSession
                 certificateId:(NSString *)certificateId
