@@ -69,6 +69,8 @@
 @property(atomic, assign) NSTimeInterval minimumConnectionTime;
 @property(atomic, assign) NSTimeInterval maximumReconnectTime;
 
+@property(atomic, assign) BOOL isMetricsEnabled;
+
 /**
  The client ID for the current connection; can be nil if not connected.
  */
