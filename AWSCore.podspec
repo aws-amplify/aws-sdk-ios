@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.source       = { :git => 'https://github.com/aws/aws-sdk-ios.git',
                      :tag => s.version}
-  s.frameworks   = 'UIKit', 'Foundation', 'SystemConfiguration'
+  s.frameworks   = 'CoreGraphics', 'UIKit', 'Foundation', 'SystemConfiguration', 'Security'
   s.libraries    = 'z', 'sqlite3'
   s.requires_arc = true
 

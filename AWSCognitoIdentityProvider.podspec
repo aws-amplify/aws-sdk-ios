@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/aws/aws-sdk-ios.git',
                      :tag => s.version}
   s.requires_arc = true
+  s.frameworks   = 'Security', 'UIKit'
   s.dependency 'AWSCognitoIdentityProviderASF', '1.0.1'
   s.dependency 'AWSCore', '2.6.11'
   s.source_files = 'AWSCognitoIdentityProvider/**/*.{h,m,c}'
