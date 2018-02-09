@@ -1,4 +1,12 @@
 # AWS Mobile SDK for iOS CHANGELOG
+
+## 2.6.12
+
+### New Features
+
+* **Amazon Cognito Identity Provider**
+  * Support for user migration over lambda trigger in Cognito User Pools.
+
 ## 2.6.11
 
 ### New Features

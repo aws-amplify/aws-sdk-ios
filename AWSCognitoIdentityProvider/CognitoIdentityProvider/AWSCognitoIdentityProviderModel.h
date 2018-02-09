@@ -99,6 +99,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderAuthFlowType) {
     AWSCognitoIdentityProviderAuthFlowTypeRefreshToken,
     AWSCognitoIdentityProviderAuthFlowTypeCustomAuth,
     AWSCognitoIdentityProviderAuthFlowTypeAdminNoSrpAuth,
+    AWSCognitoIdentityProviderAuthFlowTypeUserPasswordAuth,
 };
 
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderChallengeName) {
@@ -184,6 +185,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderExplicitAuthFlowsType) {
     AWSCognitoIdentityProviderExplicitAuthFlowsTypeUnknown,
     AWSCognitoIdentityProviderExplicitAuthFlowsTypeAdminNoSrpAuth,
     AWSCognitoIdentityProviderExplicitAuthFlowsTypeCustomAuthFlowOnly,
+    AWSCognitoIdentityProviderExplicitAuthFlowsTypeUserPasswordAuth,
 };
 
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderFeedbackValueType) {
@@ -409,6 +411,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @class AWSCognitoIdentityProviderGetGroupResponse;
 @class AWSCognitoIdentityProviderGetIdentityProviderByIdentifierRequest;
 @class AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse;
+@class AWSCognitoIdentityProviderGetSigningCertificateRequest;
+@class AWSCognitoIdentityProviderGetSigningCertificateResponse;
 @class AWSCognitoIdentityProviderGetUICustomizationRequest;
 @class AWSCognitoIdentityProviderGetUICustomizationResponse;
 @class AWSCognitoIdentityProviderGetUserAttributeVerificationCodeRequest;
@@ -3211,6 +3215,32 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 /**
  
  */
+@interface AWSCognitoIdentityProviderGetSigningCertificateRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderGetSigningCertificateResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable certificate;
+
+@end
+
+/**
+ 
+ */
 @interface AWSCognitoIdentityProviderGetUICustomizationRequest : AWSRequest
 
 
@@ -3598,6 +3628,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  <p>A Lambda trigger that is invoked before token generation.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable preTokenGeneration;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable userMigration;
 
 /**
  <p>Verifies the authentication challenge response.</p>
@@ -5685,6 +5720,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  <p>The device configuration.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderDeviceConfigurationType * _Nullable deviceConfiguration;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable domain;
 
 /**
  <p>The email configuration.</p>

@@ -26,7 +26,7 @@
 #import "AWSCognitoIdentityProviderResources.h"
 
 static NSString *const AWSInfoCognitoIdentityProvider = @"CognitoIdentityProvider";
-static NSString *const AWSCognitoIdentityProviderSDKVersion = @"2.6.11";
+static NSString *const AWSCognitoIdentityProviderSDKVersion = @"2.6.12";
 
 
 @interface AWSCognitoIdentityProviderResponseSerializer : AWSJSONResponseSerializer
@@ -1647,6 +1647,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse *response, NSError *error))completionHandler {
     [[self getIdentityProviderByIdentifier:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse *> * _Nonnull task) {
         AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderGetSigningCertificateResponse *> *)getSigningCertificate:(AWSCognitoIdentityProviderGetSigningCertificateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"GetSigningCertificate"
+                   outputClass:[AWSCognitoIdentityProviderGetSigningCertificateResponse class]];
+}
+
+- (void)getSigningCertificate:(AWSCognitoIdentityProviderGetSigningCertificateRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderGetSigningCertificateResponse *response, NSError *error))completionHandler {
+    [[self getSigningCertificate:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderGetSigningCertificateResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderGetSigningCertificateResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

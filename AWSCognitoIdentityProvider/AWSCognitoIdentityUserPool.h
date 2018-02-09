@@ -113,6 +113,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSString *poolId;
 @property (nonatomic, readonly) NSString *pinpointAppId;
 @property (nonatomic, readonly) BOOL shouldProvideCognitoValidationData;
+@property (nonatomic, readonly) BOOL migrationEnabled;
 
 - (instancetype)initWithClientId:(NSString *)clientId
                     clientSecret:(nullable NSString *)clientSecret
@@ -128,6 +129,13 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData;
                           poolId:(NSString *)poolId
 shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData
                    pinpointAppId:(nullable NSString *)pinpointAppId;
+
+- (instancetype)initWithClientId:(NSString *)clientId
+                    clientSecret:(nullable NSString *)clientSecret
+                          poolId:(NSString *)poolId
+shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData
+                   pinpointAppId:(nullable NSString *)pinpointAppId
+                migrationEnabled:(BOOL) migrationEnabled;
 
 @end
 

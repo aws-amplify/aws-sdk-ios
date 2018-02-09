@@ -473,6 +473,9 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
         if ([value caseInsensitiveCompare:@"ADMIN_NO_SRP_AUTH"] == NSOrderedSame) {
             return @(AWSCognitoIdentityProviderAuthFlowTypeAdminNoSrpAuth);
         }
+        if ([value caseInsensitiveCompare:@"USER_PASSWORD_AUTH"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderAuthFlowTypeUserPasswordAuth);
+        }
         return @(AWSCognitoIdentityProviderAuthFlowTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -486,6 +489,8 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
                 return @"CUSTOM_AUTH";
             case AWSCognitoIdentityProviderAuthFlowTypeAdminNoSrpAuth:
                 return @"ADMIN_NO_SRP_AUTH";
+            case AWSCognitoIdentityProviderAuthFlowTypeUserPasswordAuth:
+                return @"USER_PASSWORD_AUTH";
             default:
                 return nil;
         }
@@ -2403,6 +2408,26 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderGetSigningCertificateRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderGetSigningCertificateResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificate" : @"Certificate",
+             };
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderGetUICustomizationRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2696,6 +2721,9 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
         if ([value caseInsensitiveCompare:@"ADMIN_NO_SRP_AUTH"] == NSOrderedSame) {
             return @(AWSCognitoIdentityProviderAuthFlowTypeAdminNoSrpAuth);
         }
+        if ([value caseInsensitiveCompare:@"USER_PASSWORD_AUTH"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderAuthFlowTypeUserPasswordAuth);
+        }
         return @(AWSCognitoIdentityProviderAuthFlowTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2709,6 +2737,8 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
                 return @"CUSTOM_AUTH";
             case AWSCognitoIdentityProviderAuthFlowTypeAdminNoSrpAuth:
                 return @"ADMIN_NO_SRP_AUTH";
+            case AWSCognitoIdentityProviderAuthFlowTypeUserPasswordAuth:
+                return @"USER_PASSWORD_AUTH";
             default:
                 return nil;
         }
@@ -2811,6 +2841,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"preAuthentication" : @"PreAuthentication",
              @"preSignUp" : @"PreSignUp",
              @"preTokenGeneration" : @"PreTokenGeneration",
+             @"userMigration" : @"UserMigration",
              @"verifyAuthChallengeResponse" : @"VerifyAuthChallengeResponse",
              };
 }
@@ -4585,6 +4616,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"autoVerifiedAttributes" : @"AutoVerifiedAttributes",
              @"creationDate" : @"CreationDate",
              @"deviceConfiguration" : @"DeviceConfiguration",
+             @"domain" : @"Domain",
              @"emailConfiguration" : @"EmailConfiguration",
              @"emailConfigurationFailure" : @"EmailConfigurationFailure",
              @"emailVerificationMessage" : @"EmailVerificationMessage",

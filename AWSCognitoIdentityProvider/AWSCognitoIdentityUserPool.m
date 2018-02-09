@@ -51,6 +51,7 @@ static NSString *const AWSCognitoUserPoolId = @"PoolId";
 static NSString *const AWSCognitoUserPoolAppClientId = @"AppClientId";
 static NSString *const AWSCognitoUserPoolAppClientSecret = @"AppClientSecret";
 static NSString *const AWSCognitoUserPoolPinpointAppId = @"PinpointAppId";
+static NSString *const AWSCognitoUserPoolMigrationEnabled = @"MigrationEnabled";
 
 static NSString *const AWSPinpointContextKeychainService = @"com.amazonaws.AWSPinpointContext";
 static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.AWSPinpointContextKeychainUniqueIdKey";
@@ -78,13 +79,19 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
         NSString *clientId = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolAppClientId] ?: [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolAppClientIdLegacy];
         NSString *clientSecret = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolAppClientSecret] ?: [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolAppClientSecretLegacy];
         NSString *pinpointAppId = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolPinpointAppId];
+        NSNumber *migrationEnabled = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolMigrationEnabled];
+        BOOL migrationEnabledBoolean = NO;
+        if(migrationEnabled){
+            migrationEnabledBoolean = [migrationEnabled boolValue];
+        }
 
         if (poolId && clientId) {
             AWSCognitoIdentityUserPoolConfiguration *configuration = [[AWSCognitoIdentityUserPoolConfiguration alloc] initWithClientId:clientId
                                                                                                                           clientSecret:clientSecret
                                                                                                                                 poolId:poolId
                                                                                                     shouldProvideCognitoValidationData:YES
-                                                                                                                         pinpointAppId:pinpointAppId];
+                                                                                                                         pinpointAppId:pinpointAppId
+                                                                    migrationEnabled:migrationEnabledBoolean ];
             _defaultUserPool = [[AWSCognitoIdentityUserPool alloc] initWithConfiguration:serviceConfiguration
                                                                    userPoolConfiguration:configuration];
         } else {
@@ -386,13 +393,24 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData {
                           poolId:(NSString *)poolId
 shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData
                    pinpointAppId:(nullable NSString *)pinpointAppId
-    {
+{
+     return [self initWithClientId:clientId clientSecret:clientSecret poolId:poolId shouldProvideCognitoValidationData:shouldProvideCognitoValidationData pinpointAppId:pinpointAppId migrationEnabled:NO];
+}
+
+- (instancetype)initWithClientId:(NSString *)clientId
+                    clientSecret:(nullable NSString *)clientSecret
+                          poolId:(NSString *)poolId
+shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData
+                   pinpointAppId:(nullable NSString *)pinpointAppId
+                migrationEnabled:(BOOL)migrationEnabled
+{
     if (self = [super init]) {
         _clientId = clientId;
         _clientSecret = clientSecret;
         _poolId = poolId;
         _shouldProvideCognitoValidationData = shouldProvideCognitoValidationData;
         _pinpointAppId = pinpointAppId;
+        _migrationEnabled = migrationEnabled;
     }
     
     return self;
@@ -402,7 +420,9 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData
     AWSCognitoIdentityUserPoolConfiguration *configuration = [[[self class] allocWithZone:zone] initWithClientId:self.clientId
                                                                                                     clientSecret:self.clientSecret
                                                                                                           poolId:self.poolId
-                                                                              shouldProvideCognitoValidationData:self.shouldProvideCognitoValidationData];
+                                                                              shouldProvideCognitoValidationData:self.shouldProvideCognitoValidationData
+                                                                                                   pinpointAppId:self.pinpointAppId
+                                                                                                migrationEnabled:self.migrationEnabled];
     return configuration;
 }
 

@@ -26,7 +26,7 @@
 #import "AWSCloudWatchResources.h"
 
 static NSString *const AWSInfoCloudWatch = @"CloudWatch";
-static NSString *const AWSCloudWatchSDKVersion = @"2.6.11";
+static NSString *const AWSCloudWatchSDKVersion = @"2.6.12";
 
 
 @interface AWSCloudWatchResponseSerializer : AWSXMLResponseSerializer

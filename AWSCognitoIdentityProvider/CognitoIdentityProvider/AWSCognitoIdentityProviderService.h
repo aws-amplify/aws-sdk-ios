@@ -1614,6 +1614,31 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getIdentityProviderByIdentifier:(AWSCognitoIdentityProviderGetIdentityProviderByIdentifierRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ GetSigningCertificate
+ 
+ @param request A container for the necessary parameters to execute the GetSigningCertificate service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityProviderGetSigningCertificateResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInternalError`, `AWSCognitoIdentityProviderErrorResourceNotFound`.
+ 
+ @see AWSCognitoIdentityProviderGetSigningCertificateRequest
+ @see AWSCognitoIdentityProviderGetSigningCertificateResponse
+ */
+- (AWSTask<AWSCognitoIdentityProviderGetSigningCertificateResponse *> *)getSigningCertificate:(AWSCognitoIdentityProviderGetSigningCertificateRequest *)request;
+
+/**
+ GetSigningCertificate
+ 
+ @param request A container for the necessary parameters to execute the GetSigningCertificate service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInternalError`, `AWSCognitoIdentityProviderErrorResourceNotFound`.
+ 
+ @see AWSCognitoIdentityProviderGetSigningCertificateRequest
+ @see AWSCognitoIdentityProviderGetSigningCertificateResponse
+ */
+- (void)getSigningCertificate:(AWSCognitoIdentityProviderGetSigningCertificateRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderGetSigningCertificateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets the UI Customization information for a particular app client's app UI, if there is something set. If nothing is set for the particular client, but there is an existing pool level customization (app <code>clientId</code> will be <code>ALL</code>), then that is returned. If nothing is present, then an empty shape is returned.</p>
  
  @param request A container for the necessary parameters to execute the GetUICustomization service method.

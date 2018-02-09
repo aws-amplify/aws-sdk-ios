@@ -1214,6 +1214,19 @@
       ],\
       \"documentation\":\"<p>Gets the specified identity provider.</p>\"\
     },\
+    \"GetSigningCertificate\":{\
+      \"name\":\"GetSigningCertificate\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"GetSigningCertificateRequest\"},\
+      \"output\":{\"shape\":\"GetSigningCertificateResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalErrorException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
+      ]\
+    },\
     \"GetUICustomization\":{\
       \"name\":\"GetUICustomization\",\
       \"http\":{\
@@ -2942,7 +2955,8 @@
         \"REFRESH_TOKEN_AUTH\",\
         \"REFRESH_TOKEN\",\
         \"CUSTOM_AUTH\",\
-        \"ADMIN_NO_SRP_AUTH\"\
+        \"ADMIN_NO_SRP_AUTH\",\
+        \"USER_PASSWORD_AUTH\"\
       ]\
     },\
     \"AuthParametersType\":{\
@@ -4295,7 +4309,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"ADMIN_NO_SRP_AUTH\",\
-        \"CUSTOM_AUTH_FLOW_ONLY\"\
+        \"CUSTOM_AUTH_FLOW_ONLY\",\
+        \"USER_PASSWORD_AUTH\"\
       ]\
     },\
     \"FeedbackValueType\":{\
@@ -4461,6 +4476,19 @@
           \"shape\":\"IdentityProviderType\",\
           \"documentation\":\"<p>The identity provider object.</p>\"\
         }\
+      }\
+    },\
+    \"GetSigningCertificateRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"UserPoolId\"],\
+      \"members\":{\
+        \"UserPoolId\":{\"shape\":\"UserPoolIdType\"}\
+      }\
+    },\
+    \"GetSigningCertificateResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Certificate\":{\"shape\":\"StringType\"}\
       }\
     },\
     \"GetUICustomizationRequest\":{\
@@ -4899,7 +4927,8 @@
         \"PreTokenGeneration\":{\
           \"shape\":\"ArnType\",\
           \"documentation\":\"<p>A Lambda trigger that is invoked before token generation.</p>\"\
-        }\
+        },\
+        \"UserMigration\":{\"shape\":\"ArnType\"}\
       },\
       \"documentation\":\"<p>Specifies the configuration for AWS Lambda triggers.</p>\"\
     },\
@@ -7029,6 +7058,7 @@
           \"shape\":\"StringType\",\
           \"documentation\":\"<p>The reason why the email configuration cannot send the messages to your users.</p>\"\
         },\
+        \"Domain\":{\"shape\":\"DomainType\"},\
         \"AdminCreateUserConfig\":{\
           \"shape\":\"AdminCreateUserConfigType\",\
           \"documentation\":\"<p>The configuration for <code>AdminCreateUser</code> requests.</p>\"\
