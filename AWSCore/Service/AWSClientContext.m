@@ -13,8 +13,16 @@
 // permissions and limitations under the License.
 //
 
-#import "AWSClientContext.h"
+
+#if TARGET_OS_IOS
 #import <UIKit/UIKit.h>
+#endif
+
+#if TARGET_OS_OSX
+#import <Foundation/Foundation.h>
+#endif
+
+#import "AWSClientContext.h"
 #import <sys/types.h>
 #import <sys/sysctl.h>
 #import "AWSUICKeyChainStore.h"
@@ -66,6 +74,7 @@ static NSString *const AWSClientContextKeychainInstallationIdKey = @"com.amazona
         _appName = appName ? appName : AWSClientContextUnknown;
 
         //Device Details
+#if TARGET_OS_IOS
         UIDevice* currentDevice = [UIDevice currentDevice];
         NSString *autoUpdatingLoaleIdentifier = [[NSLocale autoupdatingCurrentLocale] localeIdentifier];
         _devicePlatform = [currentDevice systemName] ? [currentDevice systemName] : AWSClientContextUnknown;
@@ -74,6 +83,18 @@ static NSString *const AWSClientContextKeychainInstallationIdKey = @"com.amazona
         _devicePlatformVersion = [currentDevice systemVersion] ? [currentDevice systemVersion] : AWSClientContextUnknown;
         _deviceManufacturer = @"apple";
         _deviceLocale = autoUpdatingLoaleIdentifier ? autoUpdatingLoaleIdentifier : AWSClientContextUnknown;
+#endif
+#if TARGET_OS_OSX
+		NSHost* currentHost = [NSHost currentHost];
+		NSProcessInfo* info = [NSProcessInfo processInfo];
+		NSString *autoUpdatingLoaleIdentifier = [[NSLocale autoupdatingCurrentLocale] localeIdentifier];
+		_devicePlatform = @"macOS";
+		_deviceModel = @"MacBook";
+		_deviceModelVersion = @"unknown";
+		_devicePlatformVersion = [info operatingSystemVersionString] ? [info operatingSystemVersionString] : AWSClientContextUnknown;
+		_deviceManufacturer = @"apple";
+		_deviceLocale = autoUpdatingLoaleIdentifier ? autoUpdatingLoaleIdentifier : AWSClientContextUnknown;
+#endif
 
         _customAttributes = @{};
         _serviceDetails = [NSMutableDictionary new];

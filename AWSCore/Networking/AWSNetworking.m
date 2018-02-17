@@ -13,8 +13,16 @@
 // permissions and limitations under the License.
 //
 
-#import "AWSNetworking.h"
+
+#if TARGET_OS_IOS
 #import <UIKit/UIKit.h>
+#endif
+
+#if TARGET_OS_OSX
+#import <Foundation/Foundation.h>
+#endif
+
+#import "AWSNetworking.h"
 #import "AWSBolts.h"
 #import "AWSCategory.h"
 #import "AWSModel.h"
