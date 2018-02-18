@@ -1618,6 +1618,13 @@
 			remoteGlobalIDString = CE9DEA8C1C6A7F460060793F;
 			remoteInfo = AWSSQS;
 		};
+		B06C1D702039BF0C00D1E04A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE9DE73D1C6A7AE30060793F;
+			remoteInfo = AWSMobileAnalytics;
+		};
 		CE0D41781C6A66E5006B91B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
@@ -7154,6 +7161,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B06C1D712039BF0C00D1E04A /* PBXTargetDependency */,
 				B06C1D47203934EB00D1E04A /* PBXTargetDependency */,
 				B06C1D49203934EB00D1E04A /* PBXTargetDependency */,
 				B06C1D4B203934EB00D1E04A /* PBXTargetDependency */,
@@ -10863,6 +10871,11 @@
 			isa = PBXTargetDependency;
 			target = CE9DEA8C1C6A7F460060793F /* AWSSQS */;
 			targetProxy = B06C1D6E203934EB00D1E04A /* PBXContainerItemProxy */;
+		};
+		B06C1D712039BF0C00D1E04A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE9DE73D1C6A7AE30060793F /* AWSMobileAnalytics */;
+			targetProxy = B06C1D702039BF0C00D1E04A /* PBXContainerItemProxy */;
 		};
 		CE0D41791C6A66E5006B91B5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

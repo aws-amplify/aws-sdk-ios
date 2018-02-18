@@ -13,6 +13,15 @@
 // permissions and limitations under the License.
 //
 
+#if TARGET_OS_IOS
+#import <UIKit/UIKit.h>
+#endif
+
+#if TARGET_OS_OSX
+#import <Foundation/Foundation.h>
+#endif
+
+
 #import "AWSMobileAnalyticsDefaultDeliveryClient.h"
 #import "AWSMobileAnalyticsDeliveryPolicyFactory.h"
 #import "AWSMobileAnalyticsDeliveryPolicy.h"
@@ -23,7 +32,6 @@
 #import "AWSMobileAnalyticsStringUtils.h"
 #import "AWSCocoaLumberjack.h"
 #import "AWSMobileAnalyticsDefaultSessionClient.h"
-#import <UIKit/UIKit.h>
 #import "AWSMobileAnalyticsClientContext.h"
 
 NSUInteger const AWSMobileAnalyticsDefaultDeliveryClientMaxOperations = 1000;
