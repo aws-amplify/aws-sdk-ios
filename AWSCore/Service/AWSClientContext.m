@@ -85,7 +85,6 @@ static NSString *const AWSClientContextKeychainInstallationIdKey = @"com.amazona
         _deviceLocale = autoUpdatingLoaleIdentifier ? autoUpdatingLoaleIdentifier : AWSClientContextUnknown;
 #endif
 #if TARGET_OS_OSX
-		NSHost* currentHost = [NSHost currentHost];
 		NSProcessInfo* info = [NSProcessInfo processInfo];
 		NSString *autoUpdatingLoaleIdentifier = [[NSLocale autoupdatingCurrentLocale] localeIdentifier];
 		_devicePlatform = @"macOS";
