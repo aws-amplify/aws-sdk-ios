@@ -797,7 +797,7 @@ didCompleteWithError:(NSError *)error {
           
           NSDictionary *responseDict = [xmlParser dictionaryWithString:responseString];
           userInfo[@"Error"] = responseDict[@"Error"];
-          AWSDDLogDebug(@"Error response received from S3: %@", responseDict);
+          AWSDDLogError(@"Error response received from S3: %@", responseDict);
         }
 
         if (HTTPResponse.statusCode / 100 == 3

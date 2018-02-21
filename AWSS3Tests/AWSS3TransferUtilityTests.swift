@@ -68,6 +68,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         uploadExpression.setValue(passwordMD5, forRequestHeader: "x-amz-server-side-encryption-customer-key-MD5")
 
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
+            self.handleError(error)
             XCTAssertNil(error)
             if let HTTPResponse = task.response {
                 XCTAssertEqual(HTTPResponse.statusCode, 200)
@@ -78,6 +79,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 downloadExpression.setValue(passwordMD5, forRequestHeader: "x-amz-server-side-encryption-customer-key-MD5")
 
                 let downloadCompletionHandler = { (task: AWSS3TransferUtilityDownloadTask, URL: Foundation.URL?, data: Data?, error: Error?) in
+                    self.handleError(error)
                     if let HTTPResponse = task.response {
                         XCTAssertEqual(HTTPResponse.statusCode, 200)
                         XCTAssertEqual(data, testData)
@@ -133,6 +135,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         uploadExpression.setValue(passwordMD5, forRequestHeader: "x-amz-server-side-encryption-customer-key-MD5")
 
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
+            self.handleError(error)
             XCTAssertNotNil(error)
             XCTAssertEqual(error?._domain, AWSS3TransferUtilityErrorDomain)
             XCTAssertEqual(error?._code, AWSS3TransferUtilityErrorType.clientError.rawValue)
@@ -171,6 +174,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let uploadExpression = AWSS3TransferUtilityUploadExpression()
 
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
+            self.handleError(error)
             XCTAssertNil(error)
             if let HTTPResponse = task.response {
                 XCTAssertEqual(HTTPResponse.statusCode, 200)
@@ -178,6 +182,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 let downloadExpression = AWSS3TransferUtilityDownloadExpression()
 
                 let downloadCompletionHandler = { (task: AWSS3TransferUtilityDownloadTask, URL: Foundation.URL?, data: Data?, error: Error?) in
+                    self.handleError(error)
                     if let HTTPResponse = task.response {
                         XCTAssertEqual(HTTPResponse.statusCode, 200)
                         XCTAssertEqual(data, testData)
@@ -382,5 +387,17 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 XCTAssertNotNil(task.result)
                 return nil
             }.waitUntilFinished()
+    }
+  
+    func handleError(_ error: Error?) {
+      if let error = error as NSError? {
+        if let userInfo = error.userInfo["Error"] as? [String: Any] {
+          print("")
+          for element in userInfo {
+            print("> \(element.key): \(element.value)")
+          }
+          print("")
+        }
+      }
     }
 }
