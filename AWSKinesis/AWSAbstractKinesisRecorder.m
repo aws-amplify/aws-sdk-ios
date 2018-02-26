@@ -31,6 +31,12 @@ NSUInteger const AWSKinesisAbstractClientBatchRecordByteLimitDefault = 512 * 102
 NSUInteger const AWSKinesisAbstractClientMaxSizeForPutRecords = 5 * 1024 * 1024;
 NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazonaws/AWSKinesisRecorder";
 
+// Add a check to make sure that the two individual constants defined above
+// satisfy their relation.
+#if (AWSKinesisAbstractClientBatchRecordByteLimitDefault > AWSKinesisAbstractClientMaxSizeForPutRecords)
+#error AWSKinesisAbstractClientBatchRecordByteLimitDefault cannot be greater than AWSKinesisAbstractClientMaxSizeForPutRecords
+#endif
+
 @protocol AWSKinesisRecorderHelper <NSObject>
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration;
@@ -70,11 +76,6 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                            identifier:(NSString *)identifier
                             cacheName:(NSString *)cacheName {
     if (self = [super init]) {
-        if (AWSKinesisAbstractClientBatchRecordByteLimitDefault > AWSKinesisAbstractClientMaxSizeForPutRecords) {
-            @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                           reason:@"Invalid default size for batch records."
-                                         userInfo:nil];
-        }
         AWSServiceConfiguration *_configuration = [configuration copy];
         [_configuration addUserAgentProductToken:AWSKinesisAbstractClientUserAgent];
         NSString *databaseDirectoryPath = [NSTemporaryDirectory() stringByAppendingPathComponent:AWSKinesisAbstractClientRecorderDatabasePathPrefix];
