@@ -719,16 +719,9 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 
 #pragma mark - UIApplicationDelegate interceptor
 
-#if TARGET_OS_IOS
 + (void)interceptApplication:(UIApplication *)application
 handleEventsForBackgroundURLSession:(NSString *)identifier
-		   completionHandler:(void (^)(void))completionHandler {
-#endif
-#if TARGET_OS_OSX
-+ (void)interceptApplication:(NSApplication *)application
-handleEventsForBackgroundURLSession:(NSString *)identifier
-completionHandler:(void (^)(void))completionHandler {
-#endif
+           completionHandler:(void (^)(void))completionHandler {
     // For the default service client
     if ([identifier isEqualToString:_defaultS3TransferUtility.sessionIdentifier]) {
         _defaultS3TransferUtility.backgroundURLSessionCompletionHandler = completionHandler;
