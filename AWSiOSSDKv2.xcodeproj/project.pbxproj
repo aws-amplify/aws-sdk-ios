@@ -266,7 +266,6 @@
 		18F938D21DE5148E00034221 /* AWSLexVoiceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F938C11DE5148E00034221 /* AWSLexVoiceButton.m */; };
 		18F938D41DE5193F00034221 /* AWSGeneralLexTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F938D31DE5193F00034221 /* AWSGeneralLexTests.m */; };
 		18F938D71DE520C500034221 /* AWSLexClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F938D61DE520C500034221 /* AWSLexClientTests.m */; };
-		B00C043E204DC0E500B08EE7 /* AWSTranscribe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B00C0435204DC0E500B08EE7 /* AWSTranscribe.framework */; };
 		B00C0445204DC0E600B08EE7 /* AWSTranscribeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B00C0444204DC0E600B08EE7 /* AWSTranscribeTests.m */; };
 		B00C0447204DC0E600B08EE7 /* AWSTranscribe.h in Headers */ = {isa = PBXBuildFile; fileRef = B00C0437204DC0E500B08EE7 /* AWSTranscribe.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B00C044A204DC0E600B08EE7 /* AWSTranscribe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B00C0435204DC0E500B08EE7 /* AWSTranscribe.framework */; };
@@ -280,6 +279,8 @@
 		B00C0460204DCD7600B08EE7 /* AWSTranscribeSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = B00C0458204DCD7600B08EE7 /* AWSTranscribeSerializer.m */; };
 		B00C0461204DCD7600B08EE7 /* AWSTranscribeSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = B00C0459204DCD7600B08EE7 /* AWSTranscribeSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B00C0465204DCDD000B08EE7 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
+		B00C0466204DD28F00B08EE7 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
+		B00C0467204DD34800B08EE7 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
 		B52FBE921F17414A000F0C00 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B52FBE911F17414A000F0C00 /* Media.xcassets */; };
 		CE0D41701C6A66E5006B91B5 /* AWSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0D416F1C6A66E5006B91B5 /* AWSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE0D417C1C6A66E5006B91B5 /* AWSCoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D417B1C6A66E5006B91B5 /* AWSCoreTests.m */; };
@@ -3684,7 +3685,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B00C043E204DC0E500B08EE7 /* AWSTranscribe.framework in Frameworks */,
+				B00C0467204DD34800B08EE7 /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -11921,6 +11922,11 @@
 				INFOPLIST_FILE = AWSTranscribeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.syzygysoftwerksllc.AWSTranscribeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -11943,6 +11949,11 @@
 				INFOPLIST_FILE = AWSTranscribeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.syzygysoftwerksllc.AWSTranscribeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

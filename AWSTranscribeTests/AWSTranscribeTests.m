@@ -7,6 +7,11 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "OCMock.h"
+#import "AWSTestUtility.h"
+#import "AWSTranscribe.h"
+
+static id mockNetworking = nil;
 
 @interface AWSTranscribeTests : XCTestCase
 
@@ -16,24 +21,97 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+	[AWSTestUtility setupFakeCognitoCredentialsProvider];
+
+	mockNetworking = OCMClassMock([AWSNetworking class]);
+	AWSTask *errorTask = [AWSTask taskWithError:[NSError errorWithDomain:@"OCMockExpectedNetworkingError" code:8848 userInfo:nil]];
+	OCMStub([mockNetworking sendRequest:[OCMArg isKindOfClass:[AWSNetworkingRequest class]]]).andReturn(errorTask);
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testConstructors {
+	NSString *key = @"testTranscribeConstructors";
+	XCTAssertNotNil([AWSTranscribe defaultTranscribe]);
+	XCTAssertEqual([[AWSTranscribe defaultTranscribe] class], [AWSTranscribe class]);
+	XCTAssertNil([AWSTranscribe transcribeForKey:key]);
+
+	AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionSAEast1 credentialsProvider:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration.credentialsProvider];
+	[AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+	XCTAssertNotNil([AWSTranscribe transcribeForKey:key]);
+	XCTAssertEqual([[AWSTranscribe transcribeForKey:key] class], [AWSTranscribe class]);
+	XCTAssertEqual([AWSTranscribe transcribeForKey:key].configuration.regionType, AWSRegionSAEast1);
+
+	[AWSTranscribe removeTranscribeForKey:key];
+	XCTAssertNil([AWSTranscribe transcribeForKey:key]);
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testGetTranscriptionJobModels {
+	NSString* jobName = @"AJobName";
+	NSDictionary* requestDict= @{ @"TranscriptionJobName": jobName };
+	NSError* error;
+	AWSTranscribeGetTranscriptionJobRequest *request = [AWSMTLJSONAdapter modelOfClass:AWSTranscribeGetTranscriptionJobRequest.class
+																	fromJSONDictionary:requestDict
+																				 error:&error];
+	XCTAssertNil(error);
+	XCTAssertNotNil(request);
+	XCTAssertEqual(request.jobName, jobName);
+
+	NSDate* now = [NSDate date];
+	NSNumber* nowNumber = [NSNumber numberWithDouble:[now timeIntervalSince1970]];
+	NSNumber* rate = [NSNumber numberWithInt:16000];
+	NSString* mediaFile = @"AMediaFileGoesHere";
+	NSString* transcriptFile = @"AMediaFileGoesHere";
+	NSDictionary* outputDict = @{
+		@"TranscriptionJob": @{
+			@"CompletionTime": nowNumber,
+			@"CreationTime": nowNumber,
+			@"FailureReason": @"FailureReason",
+			@"LanguageCode": @"en-US",
+			@"Media": @{
+				@"MediaFileUri": mediaFile
+			},
+			@"MediaFormat": @"mp3",
+			@"MediaSampleRateHertz": rate,
+			@"Transcript": @{
+				@"TranscriptFileUri": transcriptFile
+			},
+			@"TranscriptionJobName": jobName,
+			@"TranscriptionJobStatus": @"COMPLETED"
+		}
+	};
+	
+	AWSTranscribeGetTranscriptionJobOutput *output = [AWSMTLJSONAdapter modelOfClass:AWSTranscribeGetTranscriptionJobOutput.class
+																	fromJSONDictionary:outputDict
+																				 error:&error];
+	XCTAssertNil(error);
+	XCTAssertNotNil(output);
+	XCTAssertNotNil(output.job);
+	XCTAssertEqual(output.job.jobName, jobName);
+	XCTAssertEqual([output.job.creationTime timeIntervalSince1970], [now timeIntervalSince1970]);
+	XCTAssertEqual([output.job.completionTime timeIntervalSince1970], [now timeIntervalSince1970]);
+	XCTAssertEqual(output.job.languageCode, AWSTranscribeLanguageCodeEn_US);
+	XCTAssertEqual(output.job.media.fileUri, mediaFile);
+	XCTAssertEqual(output.job.mediaFormat, AWSTranscribeMediaFormatMP3);
+	XCTAssertEqual(output.job.mediaSampleRateHertz, rate);
+	XCTAssertEqual(output.job.transcript.fileUri, transcriptFile);
+	XCTAssertEqual(output.job.jobStatus, AWSTranscribeJobStatusCompleted);
+}
+
+- (void)testListTranscriptionJobModels {
+	AWSTranscribeListTranscriptionJobsRequest* request = [AWSTranscribeListTranscriptionJobsRequest new];
+	XCTAssertNotNil(request);
+	request.maxResults = [NSNumber numberWithInt:100];
+	request.nextToken = @"ANextToken";
+	request.status = AWSTranscribeJobStatusCompleted;
+	XCTAssertEqual(request.maxResults, [NSNumber numberWithInt:100]);
+	XCTAssertEqual(request.nextToken, @"ANextToken");
+	XCTAssertEqual(request.status, AWSTranscribeJobStatusCompleted);
+
+	AWSTranscribeListTranscriptionJobsOutput* output = [AWSTranscribeListTranscriptionJobsOutput new];
+	XCTAssertNotNil(output);
 }
 
 @end
