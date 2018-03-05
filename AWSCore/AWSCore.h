@@ -13,19 +13,13 @@
 // permissions and limitations under the License.
 //
 
-#if TARGET_OS_IOS
 #import <UIKit/UIKit.h>
-#endif
-
-#if TARGET_OS_OSX
-#import <Foundation/Foundation.h>
-#endif
 
 //! Project version number for AWSCore.
-extern double AWSCoreVersionNumber;
+FOUNDATION_EXPORT double AWSCoreVersionNumber;
 
 //! Project version string for AWSCore.
-extern const unsigned char AWSCoreVersionString[];
+FOUNDATION_EXPORT const unsigned char AWSCoreVersionString[];
 
 #import "AWSCocoaLumberjack.h"
 
