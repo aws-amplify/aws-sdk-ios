@@ -14,13 +14,7 @@
 //
 
 #import "AWSMobileAnalyticsIOSLifeCycleManager.h"
-#if TARGET_OS_IOS
 #import <UIKit/UIKit.h>
-#endif
-
-#if TARGET_OS_OSX
-#import <Foundation/Foundation.h>
-#endif
 
 NSString* const AWSInsightsBackground = @"com.amazon.insights.AWSMobileAnalyticsIOSLifeCycleManager.background";
 NSString* const AWSInsightsForeground = @"com.amazon.insights.AWSMobileAnalyticsIOSLifeCycleManager.foreground";
@@ -88,7 +82,6 @@ NSString* const AWSInsightsBackgroundQueueKey = @"com.amazon.insights.AWSMobileA
         self.queue = [[NSOperationQueue alloc] init];
         [self.queue setMaxConcurrentOperationCount:1];
         
-#if TARGET_OS_IOS
         [[NSNotificationCenter defaultCenter] addObserver: self
                                                  selector: @selector(applicationDidEnterBackground:)
                                                      name: UIApplicationDidEnterBackgroundNotification
@@ -99,15 +92,13 @@ NSString* const AWSInsightsBackgroundQueueKey = @"com.amazon.insights.AWSMobileA
                                                  selector: @selector(applicationDidEnterForeground:)
                                                      name: UIApplicationWillEnterForegroundNotification
                                                    object: nil];
-#endif
     }
     return self;
 }
 
 -(void)dealloc
 {
-#if TARGET_OS_IOS
-   // no need to call [super deallc], it's done automatically by arc
+    // no need to call [super deallc], it's done automatically by arc
     [[NSNotificationCenter defaultCenter] removeObserver: self
                                                     name: UIApplicationDidEnterBackgroundNotification
                                                   object: nil];
@@ -115,7 +106,6 @@ NSString* const AWSInsightsBackgroundQueueKey = @"com.amazon.insights.AWSMobileA
     [[NSNotificationCenter defaultCenter] removeObserver: self
                                                     name: UIApplicationWillEnterForegroundNotification
                                                   object: nil];
-#endif
 }
 
 -(id)addBackgroundObserverUsingBlock:(LifeCycleNotificationBlock)block
@@ -140,7 +130,6 @@ NSString* const AWSInsightsBackgroundQueueKey = @"com.amazon.insights.AWSMobileA
 
 -(void)executeBackgroundTasks:(AWSBackgroundQueue*) queue
 {
-#if TARGET_OS_IOS
     UIApplication *app = [UIApplication sharedApplication];
     __block UIBackgroundTaskIdentifier task = [app beginBackgroundTaskWithExpirationHandler:^{
         [app endBackgroundTask:task];
@@ -173,7 +162,6 @@ NSString* const AWSInsightsBackgroundQueueKey = @"com.amazon.insights.AWSMobileA
             }
         });
     }
-#endif
 }
 
 -(void)applicationDidEnterBackground:(NSNotification*)notification
