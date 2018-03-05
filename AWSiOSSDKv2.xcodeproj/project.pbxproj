@@ -271,6 +271,15 @@
 		B00C0447204DC0E600B08EE7 /* AWSTranscribe.h in Headers */ = {isa = PBXBuildFile; fileRef = B00C0437204DC0E500B08EE7 /* AWSTranscribe.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B00C044A204DC0E600B08EE7 /* AWSTranscribe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B00C0435204DC0E500B08EE7 /* AWSTranscribe.framework */; };
 		B00C044B204DC0E600B08EE7 /* AWSTranscribe.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B00C0435204DC0E500B08EE7 /* AWSTranscribe.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B00C045A204DCD7600B08EE7 /* AWSTranscribeService.m in Sources */ = {isa = PBXBuildFile; fileRef = B00C0452204DCD7400B08EE7 /* AWSTranscribeService.m */; };
+		B00C045B204DCD7600B08EE7 /* AWSTranscribeService.h in Headers */ = {isa = PBXBuildFile; fileRef = B00C0453204DCD7400B08EE7 /* AWSTranscribeService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B00C045C204DCD7600B08EE7 /* AWSTranscribeResources.h in Headers */ = {isa = PBXBuildFile; fileRef = B00C0454204DCD7500B08EE7 /* AWSTranscribeResources.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B00C045D204DCD7600B08EE7 /* AWSTranscribeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B00C0455204DCD7500B08EE7 /* AWSTranscribeModel.m */; };
+		B00C045E204DCD7600B08EE7 /* AWSTranscribeResources.m in Sources */ = {isa = PBXBuildFile; fileRef = B00C0456204DCD7500B08EE7 /* AWSTranscribeResources.m */; };
+		B00C045F204DCD7600B08EE7 /* AWSTranscribeModel.h in Headers */ = {isa = PBXBuildFile; fileRef = B00C0457204DCD7500B08EE7 /* AWSTranscribeModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B00C0460204DCD7600B08EE7 /* AWSTranscribeSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = B00C0458204DCD7600B08EE7 /* AWSTranscribeSerializer.m */; };
+		B00C0461204DCD7600B08EE7 /* AWSTranscribeSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = B00C0459204DCD7600B08EE7 /* AWSTranscribeSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B00C0465204DCDD000B08EE7 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
 		B52FBE921F17414A000F0C00 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B52FBE911F17414A000F0C00 /* Media.xcassets */; };
 		CE0D41701C6A66E5006B91B5 /* AWSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0D416F1C6A66E5006B91B5 /* AWSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE0D417C1C6A66E5006B91B5 /* AWSCoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D417B1C6A66E5006B91B5 /* AWSCoreTests.m */; };
@@ -1492,6 +1501,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = B00C0434204DC0E500B08EE7;
 			remoteInfo = AWSTranscribe;
+		};
+		B00C0462204DCDC800B08EE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE0D416C1C6A66E5006B91B5;
+			remoteInfo = AWSCore;
 		};
 		CE0D41781C6A66E5006B91B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -2743,6 +2759,14 @@
 		B00C043D204DC0E500B08EE7 /* AWSTranscribeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSTranscribeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00C0444204DC0E600B08EE7 /* AWSTranscribeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSTranscribeTests.m; sourceTree = "<group>"; };
 		B00C0446204DC0E600B08EE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B00C0452204DCD7400B08EE7 /* AWSTranscribeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSTranscribeService.m; sourceTree = "<group>"; };
+		B00C0453204DCD7400B08EE7 /* AWSTranscribeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeService.h; sourceTree = "<group>"; };
+		B00C0454204DCD7500B08EE7 /* AWSTranscribeResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeResources.h; sourceTree = "<group>"; };
+		B00C0455204DCD7500B08EE7 /* AWSTranscribeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSTranscribeModel.m; sourceTree = "<group>"; };
+		B00C0456204DCD7500B08EE7 /* AWSTranscribeResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSTranscribeResources.m; sourceTree = "<group>"; };
+		B00C0457204DCD7500B08EE7 /* AWSTranscribeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeModel.h; sourceTree = "<group>"; };
+		B00C0458204DCD7600B08EE7 /* AWSTranscribeSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSTranscribeSerializer.m; sourceTree = "<group>"; };
+		B00C0459204DCD7600B08EE7 /* AWSTranscribeSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeSerializer.h; sourceTree = "<group>"; };
 		B52FBE911F17414A000F0C00 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0D416F1C6A66E5006B91B5 /* AWSCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSCore.h; sourceTree = "<group>"; };
@@ -3652,6 +3676,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B00C0465204DCDD000B08EE7 /* AWSCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4513,6 +4538,14 @@
 			isa = PBXGroup;
 			children = (
 				B00C0437204DC0E500B08EE7 /* AWSTranscribe.h */,
+				B00C0457204DCD7500B08EE7 /* AWSTranscribeModel.h */,
+				B00C0455204DCD7500B08EE7 /* AWSTranscribeModel.m */,
+				B00C0454204DCD7500B08EE7 /* AWSTranscribeResources.h */,
+				B00C0456204DCD7500B08EE7 /* AWSTranscribeResources.m */,
+				B00C0459204DCD7600B08EE7 /* AWSTranscribeSerializer.h */,
+				B00C0458204DCD7600B08EE7 /* AWSTranscribeSerializer.m */,
+				B00C0453204DCD7400B08EE7 /* AWSTranscribeService.h */,
+				B00C0452204DCD7400B08EE7 /* AWSTranscribeService.m */,
 				B00C0438204DC0E500B08EE7 /* Info.plist */,
 			);
 			path = AWSTranscribe;
@@ -4525,6 +4558,13 @@
 				B00C0446204DC0E600B08EE7 /* Info.plist */,
 			);
 			path = AWSTranscribeTests;
+			sourceTree = "<group>";
+		};
+		B00C0464204DCDD000B08EE7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CE0D41531C6A66A9006B91B5 = {
@@ -4613,6 +4653,7 @@
 				B00C0436204DC0E500B08EE7 /* AWSTranscribe */,
 				B00C0443204DC0E500B08EE7 /* AWSTranscribeTests */,
 				CE0D415E1C6A66AA006B91B5 /* Products */,
+				B00C0464204DCDD000B08EE7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -6302,6 +6343,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B00C0447204DC0E600B08EE7 /* AWSTranscribe.h in Headers */,
+				B00C045F204DCD7600B08EE7 /* AWSTranscribeModel.h in Headers */,
+				B00C045C204DCD7600B08EE7 /* AWSTranscribeResources.h in Headers */,
+				B00C0461204DCD7600B08EE7 /* AWSTranscribeSerializer.h in Headers */,
+				B00C045B204DCD7600B08EE7 /* AWSTranscribeService.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7055,6 +7100,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B00C0463204DCDC800B08EE7 /* PBXTargetDependency */,
 			);
 			name = AWSTranscribe;
 			productName = AWSTranscribe;
@@ -9532,6 +9578,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B00C045D204DCD7600B08EE7 /* AWSTranscribeModel.m in Sources */,
+				B00C045E204DCD7600B08EE7 /* AWSTranscribeResources.m in Sources */,
+				B00C0460204DCD7600B08EE7 /* AWSTranscribeSerializer.m in Sources */,
+				B00C045A204DCD7600B08EE7 /* AWSTranscribeService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10689,6 +10739,11 @@
 			isa = PBXTargetDependency;
 			target = B00C0434204DC0E500B08EE7 /* AWSTranscribe */;
 			targetProxy = B00C0448204DC0E600B08EE7 /* PBXContainerItemProxy */;
+		};
+		B00C0463204DCDC800B08EE7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE0D416C1C6A66E5006B91B5 /* AWSCore */;
+			targetProxy = B00C0462204DCDC800B08EE7 /* PBXContainerItemProxy */;
 		};
 		CE0D41791C6A66E5006B91B5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
