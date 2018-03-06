@@ -19,6 +19,37 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ The AWSTranscribe service provides access to the AWS Transcribe web service.
+ It provides access to all the defined actions, and the ability to easily
+ download and unserialize the transcribe JSON that results from a
+ StartTranscriptionJob action.
+
+ It works well with the AWS Mobile Hub configuration. Follow the instructions
+ in the AWS Transcribe Authentication and Access Control for Amazon Transcribe
+ section to setup the IAM access control for AWS Transcribe.
+
+ The only exception is that this framework is not yet known or supported by
+ AWS Mobile Hub. You need to add a section to the awsconfiguration.json file for
+ things to work.
+
+ Here's an example:
+
+ @code
+ "Transcribe": {
+	"Default": {
+		"PoolId": "<your pool ID>",
+		"Region": "us-east-1",
+		"UnauthRoleArn": "<your unauth role>",
+		"AuthRoleArn": "<your auth role>"
+	 }
+ },
+ @endcode
+
+ Just paste this into your awsconfiguration.json config file you downloaded from
+ AWS Mobile Hub and fill in your pool ID and role ARNs that AWS Mobile Hub
+ created for you.
+ */
 @interface AWSTranscribe : AWSService
 
 /**
