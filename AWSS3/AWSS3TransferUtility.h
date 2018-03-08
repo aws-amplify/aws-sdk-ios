@@ -17,10 +17,6 @@
 #import <UIKit/UIKit.h>
 #endif
 
-#if TARGET_OS_OSX
-#import <Foundation/Foundation.h>
-#endif
-
 #import <AWSCore/AWSCore.h>
 
 NS_ASSUME_NONNULL_BEGIN
