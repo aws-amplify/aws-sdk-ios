@@ -20,10 +20,10 @@
 #endif
 
 //! Project version number for AWSCore.
-extern double AWSCoreVersionNumber;
+FOUNDATION_EXPORT double AWSCoreVersionNumber;
 
 //! Project version string for AWSCore.
-extern const unsigned char AWSCoreVersionString[];
+FOUNDATION_EXPORT const unsigned char AWSCoreVersionString[];
 
 #import "AWSCocoaLumberjack.h"
 

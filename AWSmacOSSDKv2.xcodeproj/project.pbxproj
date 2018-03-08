@@ -2861,13 +2861,13 @@
 		18F938C11DE5148E00034221 /* AWSLexVoiceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLexVoiceButton.m; sourceTree = "<group>"; };
 		18F938D31DE5193F00034221 /* AWSGeneralLexTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralLexTests.m; sourceTree = "<group>"; };
 		18F938D61DE520C500034221 /* AWSLexClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLexClientTests.m; sourceTree = "<group>"; };
-		B06C1D36203934B200D1E04A /* AWSmacOSSDKBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AWSmacOSSDKBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B06C1D36203934B200D1E04A /* AWSmacOSTestHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AWSmacOSTestHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B06C1D38203934B300D1E04A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B06C1D3A203934B300D1E04A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B06C1D3C203934B300D1E04A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B06C1D3F203934B300D1E04A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B06C1D41203934B300D1E04A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B06C1D42203934B300D1E04A /* AWSmacOSSDKBuilder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AWSmacOSSDKBuilder.entitlements; sourceTree = "<group>"; };
+		B06C1D42203934B300D1E04A /* AWSmacOSTestHost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AWSmacOSTestHost.entitlements; sourceTree = "<group>"; };
 		B52FBE911F17414A000F0C00 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0D416F1C6A66E5006B91B5 /* AWSCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSCore.h; sourceTree = "<group>"; };
@@ -4625,7 +4625,7 @@
 			path = AWSLexUnitTests;
 			sourceTree = "<group>";
 		};
-		B06C1D37203934B200D1E04A /* AWSmacOSSDKBuilder */ = {
+		B06C1D37203934B200D1E04A /* AWSmacOSTestHost */ = {
 			isa = PBXGroup;
 			children = (
 				B06C1D38203934B300D1E04A /* AppDelegate.swift */,
@@ -4633,9 +4633,9 @@
 				B06C1D3C203934B300D1E04A /* Assets.xcassets */,
 				B06C1D3E203934B300D1E04A /* Main.storyboard */,
 				B06C1D41203934B300D1E04A /* Info.plist */,
-				B06C1D42203934B300D1E04A /* AWSmacOSSDKBuilder.entitlements */,
+				B06C1D42203934B300D1E04A /* AWSmacOSTestHost.entitlements */,
 			);
-			path = AWSmacOSSDKBuilder;
+			path = AWSmacOSTestHost;
 			sourceTree = "<group>";
 		};
 		CE0D41531C6A66A9006B91B5 = {
@@ -4721,7 +4721,7 @@
 				CE9DEA8E1C6A7F460060793F /* AWSSQS */,
 				CE9DEA9A1C6A7F460060793F /* AWSSQSTests */,
 				CE5604DC1C6BC9B200B4E00B /* AWSSQSUnitTests */,
-				B06C1D37203934B200D1E04A /* AWSmacOSSDKBuilder */,
+				B06C1D37203934B200D1E04A /* AWSmacOSTestHost */,
 				CE0D415E1C6A66AA006B91B5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -4809,7 +4809,7 @@
 				EFDE85F61ED2050C008841EC /* AWSCognitoAuthTests.xctest */,
 				EFDE860A1ED20517008841EC /* AWSCognitoAuthUnitTests.xctest */,
 				EFDE85E11FC5DD3D00D281A2 /* AWSCognitoIdentityProviderASF.framework */,
-				B06C1D36203934B200D1E04A /* AWSmacOSSDKBuilder.app */,
+				B06C1D36203934B200D1E04A /* AWSmacOSTestHost.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -7143,9 +7143,9 @@
 			productReference = 18F572511D8A08FB0068546F /* AWSLexUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B06C1D35203934B200D1E04A /* AWSmacOSSDKBuilder */ = {
+		B06C1D35203934B200D1E04A /* AWSmacOSTestHost */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B06C1D43203934B300D1E04A /* Build configuration list for PBXNativeTarget "AWSmacOSSDKBuilder" */;
+			buildConfigurationList = B06C1D43203934B300D1E04A /* Build configuration list for PBXNativeTarget "AWSmacOSTestHost" */;
 			buildPhases = (
 				B06C1D32203934B200D1E04A /* Sources */,
 				B06C1D33203934B200D1E04A /* Frameworks */,
@@ -7176,9 +7176,9 @@
 				B06C1D6D203934EB00D1E04A /* PBXTargetDependency */,
 				B06C1D6F203934EB00D1E04A /* PBXTargetDependency */,
 			);
-			name = AWSmacOSSDKBuilder;
-			productName = AWSmacOSSDKBuilder;
-			productReference = B06C1D36203934B200D1E04A /* AWSmacOSSDKBuilder.app */;
+			name = AWSmacOSTestHost;
+			productName = AWSmacOSTestHost;
+			productReference = B06C1D36203934B200D1E04A /* AWSmacOSTestHost.app */;
 			productType = "com.apple.product-type.application";
 		};
 		CE0D416C1C6A66E5006B91B5 /* AWSCore */ = {
@@ -8728,7 +8728,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B06C1D35203934B200D1E04A /* AWSmacOSSDKBuilder */,
+				B06C1D35203934B200D1E04A /* AWSmacOSTestHost */,
 				CE0D416C1C6A66E5006B91B5 /* AWSCore */,
 				CE0D41751C6A66E5006B91B5 /* AWSCoreTests */,
 				CE5603D11C6BC74500B4E00B /* AWSCoreUnitTests */,
@@ -11986,15 +11986,15 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = AWSmacOSSDKBuilder/AWSmacOSSDKBuilder.entitlements;
+				CODE_SIGN_ENTITLEMENTS = AWSmacOSTestHost/AWSmacOSTestHost.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = PXZ9H8P4AQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = AWSmacOSSDKBuilder/Info.plist;
+				INFOPLIST_FILE = AWSmacOSTestHost/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.syzygysoftwerksllc.AWSmacOSSDKBuilder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.syzygysoftwerksllc.AWSmacOSTestHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -12011,15 +12011,15 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = AWSmacOSSDKBuilder/AWSmacOSSDKBuilder.entitlements;
+				CODE_SIGN_ENTITLEMENTS = AWSmacOSTestHost/AWSmacOSTestHost.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = PXZ9H8P4AQ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = AWSmacOSSDKBuilder/Info.plist;
+				INFOPLIST_FILE = AWSmacOSTestHost/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.syzygysoftwerksllc.AWSmacOSSDKBuilder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.syzygysoftwerksllc.AWSmacOSTestHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -14635,7 +14635,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B06C1D43203934B300D1E04A /* Build configuration list for PBXNativeTarget "AWSmacOSSDKBuilder" */ = {
+		B06C1D43203934B300D1E04A /* Build configuration list for PBXNativeTarget "AWSmacOSTestHost" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B06C1D44203934B300D1E04A /* Debug */,
