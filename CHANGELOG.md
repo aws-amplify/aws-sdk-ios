@@ -1,5 +1,13 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.13
+
+### New Features
+
+* **Amazon S3**
+  * Added support for MultiPart uploads in Transfer Utility
+  * Included error retry logic for Transfer Utility 
+
 ## 2.6.12
 
 ### New Features

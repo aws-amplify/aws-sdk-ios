@@ -27,7 +27,7 @@
 #import "AWSDynamoDBRequestRetryHandler.h"
 
 static NSString *const AWSInfoDynamoDB = @"DynamoDB";
-static NSString *const AWSDynamoDBSDKVersion = @"2.6.12";
+static NSString *const AWSDynamoDBSDKVersion = @"2.6.13";
 
 
 @interface AWSDynamoDBResponseSerializer : AWSJSONResponseSerializer

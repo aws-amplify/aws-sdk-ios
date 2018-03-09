@@ -16,6 +16,8 @@
 #import <UIKit/UIKit.h>
 #import <AWSCore/AWSCore.h>
 
+#import "AWSS3Service.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityErrorDomain;
@@ -27,15 +29,19 @@ typedef NS_ENUM(NSInteger, AWSS3TransferUtilityErrorType) {
     AWSS3TransferUtilityErrorLocalFileNotFound
 };
 
+
 FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification;
 
 @class AWSS3TransferUtilityConfiguration;
 @class AWSS3TransferUtilityTask;
 @class AWSS3TransferUtilityUploadTask;
+@class AWSS3TransferUtilityMultiPartUploadTask;
 @class AWSS3TransferUtilityDownloadTask;
 @class AWSS3TransferUtilityExpression;
 @class AWSS3TransferUtilityUploadExpression;
+@class AWSS3TransferUtilityMultiPartUploadExpression;
 @class AWSS3TransferUtilityDownloadExpression;
+
 
 /**
  The upload completion handler.
@@ -44,6 +50,15 @@ FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalid
  @param error Returns the error object when the download failed.
  */
 typedef void (^AWSS3TransferUtilityUploadCompletionHandlerBlock) (AWSS3TransferUtilityUploadTask *task,
+                                                                  NSError * _Nullable error);
+
+/**
+ The upload completion handler for MultiPart.
+ 
+ @param task  The upload task object.
+ @param error Returns the error object when the download failed.
+ */
+typedef void (^AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock) (AWSS3TransferUtilityMultiPartUploadTask *task,
                                                                   NSError * _Nullable error);
 
 /**
@@ -69,6 +84,16 @@ typedef void (^AWSS3TransferUtilityDownloadCompletionHandlerBlock) (AWSS3Transfe
  */
 typedef void (^AWSS3TransferUtilityProgressBlock) (AWSS3TransferUtilityTask *task,
                                                    NSProgress *progress);
+
+/**
+ The multi part transfer progress feedback block.
+ 
+ @param task                     The upload task object.
+ @param progress                 The progress object.
+*/
+typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtilityMultiPartUploadTask *task,
+                                                   NSProgress *progress);
+
 
 #pragma mark - AWSS3TransferUtility
 
@@ -257,7 +282,7 @@ typedef void (^AWSS3TransferUtilityProgressBlock) (AWSS3TransferUtilityTask *tas
 + (void)removeS3TransferUtilityForKey:(NSString *)key;
 
 /**
- Tells `AWSS3TransferUtility` that events related to a URL session are waiting to be processed. This method needs to be called in the `- application:handleEventsForBackgroundURLSession:completionHandler:` applicatoin delegate for `AWSS3TransferUtility` to work.
+ Tells `AWSS3TransferUtility` that events related to a URL session are waiting to be processed. This method needs to be called in the `- application:handleEventsForBackgroundURLSession:completionHandler:` application delegate for `AWSS3TransferUtility` to work.
 
  @param application       The singleton app object.
  @param identifier        The identifier of the URL session requiring attention.
@@ -340,6 +365,84 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
                                                expression:(nullable AWSS3TransferUtilityUploadExpression *)expression
                                         completionHandler:(nullable AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler;
 
+/**
+ Saves the `NSData` to a temporary directory and uploads it to the configured Amazon S3 bucket in `AWSS3TransferUtilityConfiguration` using Multipart.
+ 
+ @param data              The data to upload.
+ @param key               The Amazon S3 object key name.
+ @param contentType       `Content-Type` of the data.
+ @param expression        The container object to configure the upload request.
+ @param completionHandler The completion handler when the upload completes.
+ 
+ @return Returns an instance of `AWSTask`. On successful initialization, `task.result` contains an instance of `AWSS3TransferUtilityMultiPartUploadTask`.
+ */
+- (AWSTask<AWSS3TransferUtilityMultiPartUploadTask *> *)uploadDataUsingMultiPart:(NSData *)data
+                                                      key:(NSString *)key
+                                              contentType:(NSString *)contentType
+                                               expression:(nullable AWSS3TransferUtilityMultiPartUploadExpression *)expression
+                                        completionHandler:(nullable AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock)completionHandler
+                                        NS_SWIFT_NAME(uploadUsingMultiPart(data:key:contentType:expression:completionHandler:));
+
+/**
+ Saves the `NSData` to a temporary directory and uploads it to the specified Amazon S3 bucket using Multipart.
+ 
+ @param data              The data to upload.
+ @param bucket            The Amazon S3 bucket name.
+ @param key               The Amazon S3 object key name.
+ @param contentType       `Content-Type` of the data.
+ @param expression        The container object to configure the upload request.
+ @param completionHandler The completion handler when the upload completes.
+ 
+ @return Returns an instance of `AWSTask`. On successful initialization, `task.result` contains an instance of `AWSS3TransferUtilityMultiPartUploadTask`.
+ */
+- (AWSTask<AWSS3TransferUtilityMultiPartUploadTask *> *)uploadDataUsingMultiPart:(NSData *)data
+                                                   bucket:(NSString *)bucket
+                                                      key:(NSString *)key
+                                              contentType:(NSString *)contentType
+                                               expression:(nullable AWSS3TransferUtilityMultiPartUploadExpression *)expression
+                                        completionHandler:(nullable AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock)completionHandler
+                                        NS_SWIFT_NAME(uploadUsingMultiPart(data:bucket:key:contentType:expression:completionHandler:));
+
+/**
+ Uploads the file to the configured Amazon S3 bucket in `AWSS3TransferUtilityConfiguration` using MultiPart.
+ 
+ @param fileURL           The file URL of the file to upload.
+ @param key               The Amazon S3 object key name.
+ @param contentType       `Content-Type` of the file.
+ @param expression        The container object to configure the upload request.
+ @param completionHandler The completion handler when the upload completes.
+ 
+ @return Returns an instance of `AWSTask`. On successful initialization, `task.result` contains an instance of `AWSS3TransferUtilityMultiPartUploadTask`.
+ */
+- (AWSTask<AWSS3TransferUtilityMultiPartUploadTask *> *)uploadFileUsingMultiPart:(NSURL *)fileURL
+                                                      key:(NSString *)key
+                                              contentType:(NSString *)contentType
+                                               expression:(nullable AWSS3TransferUtilityMultiPartUploadExpression *)expression
+                                            completionHandler:(nullable AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock)completionHandler
+                                        NS_SWIFT_NAME(uploadUsingMultiPart(fileURL:key:contentType:expression:completionHandler:));
+
+
+/**
+ Uploads the file to the specified Amazon S3 bucket using MultiPart.
+ 
+ @param fileURL           The file URL of the file to upload.
+ @param bucket            The Amazon S3 bucket name.
+ @param key               The Amazon S3 object key name.
+ @param contentType       `Content-Type` of the file.
+ @param expression        The container object to configure the upload request.
+ @param completionHandler The completion handler when the upload completes.
+ 
+ @return Returns an instance of `AWSTask`. On successful initialization, `task.result` contains an instance of `AWSS3TransferUtilityMultiPartUploadTask`.
+ */
+- (AWSTask<AWSS3TransferUtilityMultiPartUploadTask *> *)uploadFileUsingMultiPart:(NSURL *)fileURL
+                                                   bucket:(NSString *)bucket
+                                                      key:(NSString *)key
+                                              contentType:(NSString *)contentType
+                                               expression:(nullable AWSS3TransferUtilityMultiPartUploadExpression *)expression
+                                        completionHandler:(nullable AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock)completionHandler
+                                        NS_SWIFT_NAME(uploadUsingMultiPart(fileURL:bucket:key:contentType:expression:completionHandler:));
+
+
 
 /**
  Downloads the specified Amazon S3 object as `NSData` from the bucket configured in `AWSS3TransferUtilityConfiguration`.
@@ -404,8 +507,8 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 /**
  Assigns progress feedback and completion handler blocks. This method should be called when the app was suspended while the transfer is still happening.
 
- @param uploadBlocksAssigner   The block for assigning the upload pregree feedback and completion handler blocks.
- @param downloadBlocksAssigner The block for assigning the download pregree feedback and completion handler blocks.
+ @param uploadBlocksAssigner   The block for assigning the upload progress feedback and completion handler blocks.
+ @param downloadBlocksAssigner The block for assigning the download progress feedback and completion handler blocks.
  */
 - (void)enumerateToAssignBlocksForUploadTask:(nullable void (^)(AWSS3TransferUtilityUploadTask *uploadTask,
                                                                 _Nullable AWSS3TransferUtilityProgressBlock * _Nullable uploadProgressBlockReference,
@@ -415,11 +518,28 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
                                                                 _Nullable AWSS3TransferUtilityDownloadCompletionHandlerBlock * _Nullable completionHandlerReference))downloadBlocksAssigner;
 
 /**
- Retrieves all running tasks.
-
- @return An array of `AWSS3TransferUtilityTask`.
+ Assigns progress feedback and completion handler blocks. This method should be called when the app was suspended while the transfer is still happening.
+ 
+ @param uploadBlocksAssigner   The block for assigning the upload progress feedback and completion handler blocks.
+ @param multiPartUploadBlocksAssigner The block for assigning the multipart upload progress feedback and completion handler blocks.
+ @param downloadBlocksAssigner The block for assigning the download progress feedback and completion handler blocks.
  */
-- (AWSTask<NSArray<__kindof AWSS3TransferUtilityTask *> *> *)getAllTasks;
+-(void)enumerateToAssignBlocksForUploadTask:(void (^)(AWSS3TransferUtilityUploadTask *uploadTask,
+                                                      AWSS3TransferUtilityProgressBlock _Nullable * _Nullable uploadProgressBlockReference,
+                                                      AWSS3TransferUtilityUploadCompletionHandlerBlock _Nullable * _Nullable completionHandlerReference))uploadBlocksAssigner
+              multiPartUploadBlocksAssigner: (void (^) (AWSS3TransferUtilityMultiPartUploadTask *multiPartUploadTask,
+                                                        AWSS3TransferUtilityMultiPartProgressBlock _Nullable * _Nullable multiPartUploadProgressBlockReference,
+                                                        AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock _Nullable * _Nullable completionHandlerReference)) multiPartUploadBlocksAssigner
+                     downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
+                                                      AWSS3TransferUtilityProgressBlock _Nullable * _Nullable downloadProgressBlockReference,
+                                                      AWSS3TransferUtilityDownloadCompletionHandlerBlock _Nullable * _Nullable completionHandlerReference))downloadBlocksAssigner;
+
+/**
+ Retrieves all running tasks.
+ @deprecated Use `getUploadTasks:, getMultiPartUploadTasks: and getDownloadTasks:` methods instead.
+ @return An array of containing `AWSS3TransferUtilityUploadTask` and `AWSS3TransferUtilityDownloadTask` objects.
+ */
+- (AWSTask<NSArray<__kindof AWSS3TransferUtilityTask *> *> *)getAllTasks __attribute((deprecated));
 
 /**
  Retrieves all running upload tasks.
@@ -427,6 +547,13 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
  @return An array of `AWSS3TransferUtilityUploadTask`.
  */
 - (AWSTask<NSArray<AWSS3TransferUtilityUploadTask *> *> *)getUploadTasks;
+
+/**
+ Retrieves all running MultiPart upload tasks.
+ 
+ @return An array of `AWSS3TransferUtilityMultiPartUploadTask`.
+ */
+- (AWSTask<NSArray<AWSS3TransferUtilityMultiPartUploadTask *> *> *)getMultiPartUploadTasks;
 
 /**
  Retrieves all running download tasks.
@@ -445,6 +572,9 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 
 @property (nonatomic, nullable, copy) NSString *bucket;
 
+@property NSInteger retryLimit;
+
+@property (nonatomic, nullable) NSNumber *multiPartConcurrencyLimit;
 @end
 
 
@@ -454,6 +584,12 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
  The task object to represent a upload or download task.
  */
 @interface AWSS3TransferUtilityTask : NSObject
+
+/**
+ An identifier uniquely identifies the transferID.
+ */
+
+@property (readonly) NSString *transferID;
 
 /**
  An identifier uniquely identifies the task within a given `AWSS3TransferUtility` instance.
@@ -515,6 +651,48 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 @end
 
 /**
+ The task object to represent a multipart upload task.
+ */
+@interface AWSS3TransferUtilityMultiPartUploadTask: NSObject
+
+/**
+ An identifier uniquely identifies the transferID.
+ */
+@property (readonly) NSString *transferID;
+
+/**
+ The Amazon S3 bucket name associated with the transfer.
+ */
+@property (readonly) NSString *bucket;
+
+/**
+ The Amazon S3 object key name associated with the transfer.
+ */
+@property (readonly) NSString *key;
+
+/**
+ The transfer progress.
+ */
+@property (readonly) NSProgress *progress;
+
+/**
+ Cancels the task.
+ */
+- (void)cancel;
+
+/**
+ Resumes the task, if it is suspended.
+ */
+- (void)resume;
+
+/**
+ Temporarily suspends a task.
+ */
+- (void)suspend;
+@end
+
+
+/**
  The task object to represent a download task.
  */
 @interface AWSS3TransferUtilityDownloadTask : AWSS3TransferUtilityTask
@@ -572,6 +750,45 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 @property (nonatomic, nullable) NSString *contentMD5;
 
 @end
+
+
+/**
+ The expression object for configuring a Multipart upload task.
+ */
+@interface AWSS3TransferUtilityMultiPartUploadExpression : NSObject
+
+/**
+ This NSDictionary can contains additional request headers to be included in the pre-signed URL. Default is emtpy.
+ */
+@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> *requestHeaders;
+
+/**
+ This NSDictionary can contains additional request parameters to be included in the pre-signed URL. Adding additional request parameters enables more advanced pre-signed URLs, such as accessing Amazon S3's torrent resource for an object, or for specifying a version ID when accessing an object. Default is emtpy.
+ */
+@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> *requestParameters;
+
+/**
+ The progress feedback block.
+ */
+@property (copy, nonatomic, nullable) AWSS3TransferUtilityMultiPartProgressBlock progressBlock;
+/**
+ Set an additional request header to be included in the pre-signed URL.
+ 
+ @param value The value of the request parameter being added. Set to nil if parameter doesn't contains value.
+ @param requestHeader The name of the request header.
+ */
+- (void)setValue:(nullable NSString *)value forRequestHeader:(NSString *)requestHeader;
+
+/**
+ Set an additional request parameter to be included in the pre-signed URL. Adding additional request parameters enables more advanced pre-signed URLs, such as accessing Amazon S3's torrent resource for an object, or for specifying a version ID when accessing an object.
+ 
+ @param value The value of the request parameter being added. Set to nil if parameter doesn't contains value.
+ @param requestParameter The name of the request parameter, as it appears in the URL's query string (e.g. AWSS3PresignedURLVersionID).
+ */
+- (void)setValue:(nullable NSString *)value forRequestParameter:(NSString *)requestParameter;
+
+@end
+
 
 /**
  The expression object for configuring a download task.
