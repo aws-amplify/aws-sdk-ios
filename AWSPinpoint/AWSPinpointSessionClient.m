@@ -349,7 +349,7 @@ typedef void(^voidBlock)(void);
             }];
             NSDictionary *userInfo = nil;
             if (block) {
-                userInfo = @{@"completionBlock":block};
+                userInfo = @{@"completionBlock":[block copy]};
             }
             dispatch_async(dispatch_get_main_queue(), ^(){
                 self.bgTimer = [NSTimer scheduledTimerWithTimeInterval:(self.context.configuration.sessionTimeout / 1000)
